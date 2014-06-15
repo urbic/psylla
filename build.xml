@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!--
+$URL$
+$Id$
+-->
+<project name="psi" default="dist" basedir=".">
+	
+	<property name="sources" location="sources"/>
+	<property name="sources.java" location="${sources}/java"/>
+	<property name="sources.jj" location="${sources}/jj"/>
+	<property name="build" location="build"/>
+	<property name="build.sources.java" location="${build}/sources/java"/>
+	<property name="classes" location="${build}/classes"/>
+	<property name="dist"  location="dist"/>
+	<property name="dist.lib"  location="${dist}/lib"/>
+	<property name="javadoc"  location="javadoc"/>
+	<!-- <property name="java.library.path"  location="."/> -->
+	<!-- <property name="java.library.path" location="/home/tz/work/projects/jslangy"/> -->
+
+	<path id="additional.class.path">
+		<!-- <pathelement path="/usr/share/java/regexp.jar"/> -->
+	</path>
+
+	<presetdef name="svn-commit">
+		<exec executable="svn">
+			<arg value="commit"/>
+		</exec>
+	</presetdef>
+
+	<target name="compile.jj">
+		<mkdir dir="${build.sources.java}/coneforest/psi"/>
+		<javacc
+			target="${sources.jj}/coneforest/psi/PSIParser.jj"
+			outputdirectory="${build.sources.java}/coneforest/psi"
+			javacchome="/usr/share/java"
+			unicodeinput="true"
+			/>
+	</target>
+
+	<target name="compile.java" depends="compile.jj"
+			description="compile the source ">
+		<mkdir dir="${classes}"/>
+		<javac
+			sourcepath="${sources.java}:${build.sources.java}"
+			srcdir="${sources.java}"
+			destdir="${classes}"
+			includeantruntime="false">
+			<classpath refid="additional.class.path"/>
+		</javac>
+		<!--javac
+			srcdir="${build.sources.java}"
+			destdir="${classes}"
+			includeantruntime="false">
+		</javac-->
+	</target>
+
+	<target name="compile" depends="compile.java"/>
+	
+	<target name="javadoc">
+		<mkdir dir="${javadoc}"/>
+		<javadoc
+			sourcepath="${sources.java}"
+			destdir="${javadoc}"
+			access="public"
+			classpathref="additional.class.path"
+			/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="${dist.lib}/${ant.project.name}.jar" basedir="${classes}">
+			<manifest>
+				<attribute name="Main-Class" value="coneforest.psi.PSI"/>
+				<!--attribute name="Class-Path" value="/usr/share/java/regexp.jar"/-->
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean" description="clean up">
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="test" depends="jar">
+		<java
+				jar="${dist.lib}/${ant.project.name}.jar"
+				fork="true">
+				<!-- classpathref="additional.class.path" -->
+				<arg file="test.psi"/>
+		</java>
+	</target>
+
+	<target name="ci">
+		<svn-commit/>
+	</target>
+
+</project>
