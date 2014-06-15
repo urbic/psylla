@@ -10,6 +10,7 @@ public class Systemdict extends coneforest.psi.PSIModule
 		register(_add.class);
 		register(_and.class);
 		register(_arraytomark.class);
+		register(_begin.class);
 		register(_ceiling.class);
 		register(_clear.class);
 		register(_copy.class);
