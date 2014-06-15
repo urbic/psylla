@@ -1,0 +1,134 @@
+
+PARSER_BEGIN(PSIParser)
+
+package coneforest.psi;
+
+class PSIParser
+{
+}
+
+PARSER_END(PSIParser)
+
+SKIP:
+{
+	" " | "\n" | "\t" | "\f"
+}
+
+TOKEN:
+{
+	<#TOKEN_DIGIT: ["0"-"9"]>
+}
+
+TOKEN:
+{
+	<#TOKEN_HEXDIGIT: <TOKEN_DIGIT> | ["A"-"F"]>
+}
+
+TOKEN:
+{
+	<#TOKEN_LETTER: ["A"-"Z", "a"-"z"]>
+}
+
+TOKEN:
+{
+	<#TOKEN_SIGN: ["-", "+"]>
+}
+
+TOKEN:
+{
+	<TOKEN_INTEGER:
+		(<TOKEN_SIGN>)?
+		(<TOKEN_DIGIT>)+
+	>
+}
+
+TOKEN:
+{
+	<TOKEN_REAL:
+		(<TOKEN_SIGN>)?
+		(
+			(<TOKEN_DIGIT>)+
+			(
+				"." (<TOKEN_DIGIT>)* (<TOKEN_EXPONENT>)?
+				|
+				<TOKEN_EXPONENT>
+				|
+				(<TOKEN_EXPONENT>)?
+			)
+			|
+			"." (<TOKEN_DIGIT>)+ (<TOKEN_EXPONENT>)?
+		)
+	>
+}
+
+TOKEN:
+{
+	<#TOKEN_EXPONENT: ["e", "E"] (<TOKEN_SIGN>)? (<TOKEN_DIGIT>)+>
+}
+
+TOKEN:
+{
+	<TOKEN_COMMENT:
+		"#"
+		(~["\n"])*
+		"\n"
+	>
+}
+
+TOKEN:
+{
+	<TOKEN_STRING: "\"" (<TOKEN_SPECIAL> | ~["\"", "\\", "\n"])* "\"">
+}
+
+TOKEN:
+{
+	<#TOKEN_SPECIAL:
+		"\\"
+		(
+			["n", "t", "f", "\"", "\\", "e", "r"]
+
+			|
+
+			"u" <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT>
+		)
+	>
+}
+
+TOKEN:
+{
+	<TOKEN_NAME_LITERAL: "/" <TOKEN_NAME_EXECUTABLE>>
+}
+
+TOKEN:
+{
+	<TOKEN_NAME_IMMEDIATE: "/" <TOKEN_NAME_LITERAL>>
+}
+
+TOKEN:
+{
+	<TOKEN_OPEN_BRACE: "{">
+}
+
+TOKEN:
+{
+	<TOKEN_CLOSE_BRACE: "}">
+}
+
+TOKEN:
+{
+	<TOKEN_HEXSTRING: "<" (<TOKEN_HEXDIGIT>)* ">">
+}
+
+TOKEN:
+{
+	<TOKEN_NAME_EXECUTABLE:
+		(
+			(<TOKEN_LETTER> | ["_", "."])
+			(<TOKEN_LETTER> | ["_", "."] | <TOKEN_DIGIT>)*
+		)
+
+		|
+
+		["[", "]"] | "<<" | ">>"
+	>
+}
