@@ -30,6 +30,7 @@ public class Systemdict extends coneforest.psi.PSIModule
 		register(_idiv.class);
 		register(_if.class);
 		register(_ifelse.class);
+		register(_index.class);
 		register(_length.class);
 		register(_log.class);
 		register(_mul.class);
