@@ -31,6 +31,37 @@ public class PSIInterpreter
 		return execstack;
 	}
 
+	public void handleExecutionStack()
+	{
+		while(execstack.size()>0)
+		{
+			//System.out.println("START HANDLE EXECUTION STACK, LEVEL="+execstack);
+			PSIObject exectop=execstack.peek();
+			if(exectop instanceof PSIArray && exectop.isExecutable())
+			{
+				for(int i=0; i<((PSIArray)exectop).size()-1; i++)
+				{
+					//System.out.println("FOUND "+((PSIArray)exectop).get(i));
+					((PSIArray)exectop).get(i).execute(this);
+					//System.out.println("OPSTACK="+opstack);
+				}
+				execstack.pop();
+				execstack.push(((PSIArray)exectop).get(((PSIArray)exectop).size()-1));
+			}
+			else if(exectop instanceof PSIName && exectop.isExecutable())
+			{
+				execstack.pop();
+				((PSIName)exectop).execute(this);
+			}
+			else
+			{
+				//System.out.println("PUSHED TO OPSTACK "+execstack.pop());
+				opstack.push(execstack.pop());
+			}
+			//System.out.println("END HANDLE EXECUTION STACK, LEVEL="+execstack);
+		}
+	}
+
 	public void interpret()
 	{
 		PSIParser parser=new PSIParser(is);
@@ -56,20 +87,24 @@ public class PSIInterpreter
 						error("syntaxerror");
 						break;
 					case PSIParserConstants.TOKEN_INTEGER:
-						new PSIInteger(token).execute(this);
+						opstack.push(new PSIInteger(token));
 						break;
 					case PSIParserConstants.TOKEN_REAL:
-						new PSIReal(token).execute(this);
+						opstack.push(new PSIReal(token));
 						break;
 					case PSIParserConstants.TOKEN_STRING:
-						new PSIString(token).execute(this);
+						opstack.push(new PSIString(token));
 						break;
 					case PSIParserConstants.TOKEN_NAME_LITERAL:
+						opstack.push(new PSIName(token));
+						break;
 					case PSIParserConstants.TOKEN_NAME_EXECUTABLE:
-						new PSIName(token).execute(this);
+						//dictstack.load(new PSIName(token)).execute(this);
+						(new PSIName(token)).execute(this);
 						break;
 				}
 				// TODO
+				handleExecutionStack();
 			}
 			else
 			{
@@ -80,11 +115,11 @@ public class PSIInterpreter
 						procstack.peek().setAccess(PSIObject.ACCESS_EXECUTE);
 						break;
 					case PSIParserConstants.TOKEN_CLOSE_BRACE:
-						PSIArray topArray=procstack.pop();
+						PSIArray proc=procstack.pop();
 						if(procstack.size()>0)
-							procstack.peek().add(topArray);
+							procstack.peek().add(proc);
 						else
-							opstack.push(topArray);
+							opstack.push(proc);
 						break;
 					case PSIParserConstants.TOKEN_INTEGER:
 						procstack.peek().add(new PSIInteger(token));

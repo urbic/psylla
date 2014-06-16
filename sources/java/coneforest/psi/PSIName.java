@@ -30,9 +30,15 @@ public class PSIName extends PSIStringlike
 	{
 		if(isExecutable())
 		{
-			//interpreter.getDictionaryStack().load(this).execute(interpreter);
 			PSIObject obj=interpreter.getDictionaryStack().load(this);
-			obj.invoke(interpreter);
+			if(obj instanceof PSIArray && ((PSIArray)obj).isExecutable())
+			{
+				//((PSIArray)obj).invoke(interpreter);
+				obj.invoke(interpreter);
+			}
+			else
+				obj.execute(interpreter);
+
 		}
 		else
 			interpreter.getOperandStack().push(this);
