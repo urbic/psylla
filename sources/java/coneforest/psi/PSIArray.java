@@ -15,14 +15,7 @@ public class PSIArray extends PSIObject
 	public void invoke(PSIInterpreter interpreter)
 	{
 		if(isExecutable())
-		{
-
-			ExecutionStack execstack=interpreter.getExecutionStack();
-			int execlevel=execstack.size();
-			//System.out.println("EXECUTE PROC START, EXECLEVEL="+execlevel);
-			execstack.push(this);
-			//System.out.println("EXECUTE PROC END");
-		}
+			interpreter.getExecutionStack().push(this);
 		else
 			execute(interpreter);
 	}
@@ -56,9 +49,12 @@ public class PSIArray extends PSIObject
 	{
 		StringBuilder sb=new StringBuilder();
 		sb.append(isExecutable()? "{": "[");
-		for(PSIObject obj: array)
-			sb.append(obj+" ");
-		sb.deleteCharAt(sb.length()-1);
+		if(size()>0)
+		{
+			for(PSIObject obj: array)
+				sb.append(obj+" ");
+			sb.deleteCharAt(sb.length()-1);
+		}
 		sb.append(isExecutable()? "}": "]");
 		return sb.toString();
 	}
