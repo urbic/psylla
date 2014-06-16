@@ -35,30 +35,19 @@ public class PSIInterpreter
 	{
 		while(execstack.size()>0)
 		{
-			//System.out.println("START HANDLE EXECUTION STACK, LEVEL="+execstack);
+			//System.out.println("START HANDLE EXECUTION STACK="+execstack);
+			//System.out.println("START HANDLE OPSTACK STACK="+opstack);
 			PSIObject exectop=execstack.peek();
 			if(exectop instanceof PSIArray && exectop.isExecutable())
 			{
 				for(int i=0; i<((PSIArray)exectop).size()-1; i++)
-				{
-					//System.out.println("FOUND "+((PSIArray)exectop).get(i));
 					((PSIArray)exectop).get(i).execute(this);
-					//System.out.println("OPSTACK="+opstack);
-				}
 				execstack.pop();
-				execstack.push(((PSIArray)exectop).get(((PSIArray)exectop).size()-1));
-			}
-			else if(exectop instanceof PSIName && exectop.isExecutable())
-			{
-				execstack.pop();
-				((PSIName)exectop).execute(this);
+				if(((PSIArray)exectop).size()>0)
+					execstack.push(((PSIArray)exectop).get(((PSIArray)exectop).size()-1));
 			}
 			else
-			{
-				//System.out.println("PUSHED TO OPSTACK "+execstack.pop());
-				opstack.push(execstack.pop());
-			}
-			//System.out.println("END HANDLE EXECUTION STACK, LEVEL="+execstack);
+				execstack.pop().execute(this);
 		}
 	}
 

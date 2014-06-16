@@ -7,7 +7,7 @@ class PSINull extends PSIObject
 		return TYPE_NULL;
 	}
 
-	public void execute(PSIInterpreter interpreter)
+	public void invoke(PSIInterpreter interpreter)
 	{
 		if(isLiteral())
 			interpreter.getOperandStack().push(this);
