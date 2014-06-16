@@ -16,17 +16,12 @@ public class PSIArray extends PSIObject
 	{
 		if(isExecutable())
 		{
+
 			ExecutionStack execstack=interpreter.getExecutionStack();
+			int execlevel=execstack.size();
+			//System.out.println("EXECUTE PROC START, EXECLEVEL="+execlevel);
 			execstack.push(this);
-			for(int i=0; i<size()-1; i++)
-				get(i).execute(interpreter);
-			execstack.pop();
-			if(size()>0)
-			{
-				execstack.push(get(size()-1));
-				get(size()-1).execute(interpreter);
-				execstack.pop();
-			}
+			//System.out.println("EXECUTE PROC END");
 		}
 		else
 			execute(interpreter);

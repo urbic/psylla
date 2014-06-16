@@ -34,7 +34,7 @@ public class _for extends PSIOperator
 				for(long i=initialValue; i<=limitValue; i+=incrementValue)
 				{
 					opstack.push(new PSIInteger(i));
-					obj.invoke(interpreter);
+					obj.execute(interpreter);
 				}
 			}
 			else
@@ -47,7 +47,7 @@ public class _for extends PSIOperator
 				for(double i=initialValue; i<=limitValue; i+=incrementValue)
 				{
 					opstack.push(new PSIReal(i));
-					obj.invoke(interpreter);
+					obj.execute(interpreter);
 				}
 			}
 

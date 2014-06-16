@@ -15,11 +15,6 @@ public abstract class PSIOperator extends PSIObject
 			interpreter.getOperandStack().push(this);
 	}
 
-	public void invoke(PSIInterpreter interpreter)
-	{
-		this.execute(interpreter);
-	}
-
 	public String toString()
 	{
 		return "--"+getName()+"--";

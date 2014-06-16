@@ -22,7 +22,7 @@ public class _if extends PSIOperator
 				return;
 			}
 			if((boolean)cond.getValue())
-				obj.invoke(interpreter);
+				obj.execute(interpreter);
 		}
 	}
 }
