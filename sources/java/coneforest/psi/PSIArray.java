@@ -12,6 +12,12 @@ public class PSIArray extends PSIObject
 		return TYPE_ARRAY;
 	}
 
+	public void execute(PSIInterpreter interpreter)
+	{
+		System.out.println("PSIArray.execute called!");
+		interpreter.getOperandStack().push(this);
+	}
+
 	public void invoke(PSIInterpreter interpreter)
 	{
 		if(isExecutable())

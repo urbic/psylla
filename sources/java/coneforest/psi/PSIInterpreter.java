@@ -35,19 +35,52 @@ public class PSIInterpreter
 	{
 		while(execstack.size()>0)
 		{
-			//System.out.println("START HANDLE EXECUTION STACK="+execstack);
-			//System.out.println("START HANDLE OPSTACK STACK="+opstack);
+			System.out.println("START HANDLE EXECUTION STACK="+execstack);
+			System.out.println("START HANDLE OPSTACK STACK="+opstack);
 			PSIObject exectop=execstack.peek();
 			if(exectop instanceof PSIArray && exectop.isExecutable())
 			{
+				///* GOOD CODE:
+				boolean execLevelChanged=false;
 				for(int i=0; i<((PSIArray)exectop).size()-1; i++)
+				{
+					//System.out.println("FOUND ELEMENT "+((PSIArray)exectop).get(i));
+					int execlevel=execstack.size();
 					((PSIArray)exectop).get(i).execute(this);
+					if(execlevel!=execstack.size())
+					{
+						//System.out.println("EXEC LEVEL CHANGED!");
+						//System.exit(55);
+
+						// GOOD CODE:
+						execLevelChanged=true;
+						PSIArray newproc=new PSIArray();
+						newproc.setExecutable();
+						for(int j=i+1; j<((PSIArray)exectop).size(); j++)
+						{
+							newproc.add(((PSIArray)exectop).get(j));
+							//System.out.println("ADDED "+((PSIArray)exectop).get(j));
+						}
+						execstack.setElementAt(newproc, execlevel-1);
+						break;
+						//System.exit(55);
+					}
+				}
+				if(execLevelChanged)
+					continue;
 				execstack.pop();
+				//System.out.println("BEFORE HANDLE EXECUTION STACK="+execstack);
+				//System.out.println("BEFORE HANDLE OPSTACK STACK="+opstack);
+				//System.out.println("AFTER HANDLE EXECUTION STACK="+execstack);
+				//System.out.println("AFTER HANDLE OPSTACK STACK="+opstack);
 				if(((PSIArray)exectop).size()>0)
 					execstack.push(((PSIArray)exectop).get(((PSIArray)exectop).size()-1));
+				//*/
 			}
 			else
 				execstack.pop().execute(this);
+			//System.out.println("STOP HANDLE EXECUTION STACK="+execstack);
+			//System.out.println("STOP HANDLE OPSTACK STACK="+opstack);
 		}
 	}
 
