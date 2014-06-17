@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class DictionaryStack extends java.util.Stack<PSIDictionary>
 {
-	public PSIObject load(PSIName key)
+	public PSIObject load(PSIStringlike key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
