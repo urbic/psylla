@@ -33,6 +33,7 @@ public class PSIInterpreter
 
 	public void handleExecutionStack()
 	{
+		//int currentExecutionLevel=execstack.size();
 		while(execstack.size()>0)
 		{
 			System.out.println("START HANDLE EXECUTION STACK="+execstack);
@@ -40,47 +41,40 @@ public class PSIInterpreter
 			PSIObject exectop=execstack.peek();
 			if(exectop instanceof PSIArray && exectop.isExecutable())
 			{
-				///* GOOD CODE:
+				PSIArray proc=(PSIArray)exectop;
 				boolean execLevelChanged=false;
-				for(int i=0; i<((PSIArray)exectop).size()-1; i++)
+				for(int i=0; i<proc.size()-1; i++)
 				{
 					//System.out.println("FOUND ELEMENT "+((PSIArray)exectop).get(i));
 					int execlevel=execstack.size();
-					((PSIArray)exectop).get(i).execute(this);
-					if(execlevel!=execstack.size())
+					proc.get(i).execute(this);
+					if(execlevel<execstack.size())
 					{
-						//System.out.println("EXEC LEVEL CHANGED!");
+						System.out.println("EXEC LEVEL CHANGED FROM "+execlevel+" TO "+execstack.size());
 						//System.exit(55);
 
-						// GOOD CODE:
 						execLevelChanged=true;
 						PSIArray newproc=new PSIArray();
 						newproc.setExecutable();
-						for(int j=i+1; j<((PSIArray)exectop).size(); j++)
-						{
-							newproc.add(((PSIArray)exectop).get(j));
-							//System.out.println("ADDED "+((PSIArray)exectop).get(j));
-						}
+						for(int j=i+1; j<proc.size(); j++)
+							newproc.add(proc.get(j));
 						execstack.setElementAt(newproc, execlevel-1);
 						break;
-						//System.exit(55);
 					}
 				}
 				if(execLevelChanged)
+				{
 					continue;
+				}
 				execstack.pop();
-				//System.out.println("BEFORE HANDLE EXECUTION STACK="+execstack);
-				//System.out.println("BEFORE HANDLE OPSTACK STACK="+opstack);
-				//System.out.println("AFTER HANDLE EXECUTION STACK="+execstack);
-				//System.out.println("AFTER HANDLE OPSTACK STACK="+opstack);
-				if(((PSIArray)exectop).size()>0)
-					execstack.push(((PSIArray)exectop).get(((PSIArray)exectop).size()-1));
-				//*/
+				if(proc.size()>0)
+					//execstack.push(((PSIArray)exectop).get(((PSIArray)exectop).size()-1));
+					proc.get(proc.size()-1).execute(this);
 			}
 			else
 				execstack.pop().execute(this);
-			//System.out.println("STOP HANDLE EXECUTION STACK="+execstack);
-			//System.out.println("STOP HANDLE OPSTACK STACK="+opstack);
+			System.out.println("STOP HANDLE EXECUTION STACK="+execstack);
+			System.out.println("STOP HANDLE OPSTACK STACK="+opstack);
 		}
 	}
 
@@ -184,14 +178,20 @@ public class PSIInterpreter
 		return null;
 	}
 
-	public static final PSINull NULL=new PSINull();
-	public static final PSIBoolean TRUE=new PSIBoolean(true);
-	public static final PSIBoolean FALSE=new PSIBoolean(false);
-	public static final PSIMark MARK=new PSIMark();
+	public int getLoopLevel()
+	{
+		return loopLevel;
+	}
+
+	public void setLoopLevel(int loopLevel)
+	{
+		this.loopLevel=loopLevel;
+	}
 
 	private java.io.InputStream is;
 	private OperandStack opstack;
 	private DictionaryStack dictstack;
 	private ExecutionStack execstack;
 	private ProcedureStack procstack;
+	private int loopLevel=0;
 }
