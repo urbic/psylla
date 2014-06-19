@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-class PSINull extends PSIObject
+public class PSINull extends PSIObject
 {
 	public byte getType()
 	{

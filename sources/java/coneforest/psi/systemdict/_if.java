@@ -16,13 +16,17 @@ public class _if extends PSIOperator
 			PSIObject cond=opstack.pop();
 			if(cond instanceof PSIBoolean)
 			{
+				if((boolean)cond.getValue())
+					obj.invoke(interpreter);
+				//interpreter.handleExecutionStack();
+			}
+			else
+			{
 				opstack.push(cond);
 				opstack.push(obj);
 				interpreter.error("typecheck");
 				return;
 			}
-			if((boolean)cond.getValue())
-				obj.execute(interpreter);
 		}
 	}
 }

@@ -7,6 +7,8 @@ public class _exit extends PSIOperator
 
 	public void execute(PSIInterpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		System.out.println("EXIT: EXECLEVEL BEFORE="+interpreter.getExecutionStack().size());
+		interpreter.getExecutionStack().setSize(interpreter.getLoopLevel());
+		System.out.println("EXIT: EXECLEVEL AFTER="+interpreter.getExecutionStack().size());
 	}
 }

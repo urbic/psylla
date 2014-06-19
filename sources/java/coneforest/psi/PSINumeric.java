@@ -94,4 +94,34 @@ abstract public class PSINumeric extends PSIObject
 			return new PSIReal(Math.ceil(((PSIReal)x).getValue().doubleValue()));
 	}
 
+	public static PSIBoolean eq(final PSINumeric x, final PSINumeric y)
+	{
+		return new PSIBoolean(x.getValue().doubleValue()==y.getValue().doubleValue());
+	}
+
+	public static PSIBoolean ne(final PSINumeric x, final PSINumeric y)
+	{
+		return new PSIBoolean(x.getValue().doubleValue()!=y.getValue().doubleValue());
+	}
+
+	public static PSIBoolean lt(final PSINumeric x, final PSINumeric y)
+	{
+		return new PSIBoolean(x.getValue().doubleValue()<y.getValue().doubleValue());
+	}
+
+	public static PSIBoolean le(final PSINumeric x, final PSINumeric y)
+	{
+		return new PSIBoolean(x.getValue().doubleValue()<=y.getValue().doubleValue());
+	}
+
+	public static PSIBoolean gt(final PSINumeric x, final PSINumeric y)
+	{
+		return new PSIBoolean(x.getValue().doubleValue()>y.getValue().doubleValue());
+	}
+
+	public static PSIBoolean ge(final PSINumeric x, final PSINumeric y)
+	{
+		return new PSIBoolean(x.getValue().doubleValue()>=y.getValue().doubleValue());
+	}
+
 }

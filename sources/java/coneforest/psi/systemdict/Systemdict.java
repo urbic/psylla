@@ -1,4 +1,5 @@
 package coneforest.psi.systemdict;
+import coneforest.psi.*;
 
 public class Systemdict extends coneforest.psi.PSIModule
 {
@@ -22,6 +23,7 @@ public class Systemdict extends coneforest.psi.PSIModule
 		register(_def.class);
 		register(_div.class);
 		register(_dup.class);
+		register(_eq.class);
 		register(_exch.class);
 		register(_exec.class);
 		register(_exit.class);
@@ -50,10 +52,10 @@ public class Systemdict extends coneforest.psi.PSIModule
 		register(_type.class);
 		register(_xor.class);
 
-		put("null", coneforest.psi.PSIInterpreter.NULL);
-		put("true", coneforest.psi.PSIInterpreter.TRUE);
-		put("false", coneforest.psi.PSIInterpreter.FALSE);
-		put("mark", coneforest.psi.PSIInterpreter.MARK);
+		put("null", new PSINull());
+		put("true", new PSIBoolean(true));
+		put("false", new PSIBoolean(false));
+		put("mark", new PSIMark());
 		put("[", get("mark"));
 		put("<<", get("mark"));
 		put("]", get("arraytomark"));
