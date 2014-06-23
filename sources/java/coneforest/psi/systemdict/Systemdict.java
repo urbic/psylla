@@ -44,7 +44,7 @@ public class Systemdict extends coneforest.psi.PSIModule
 		register(_not.class);
 		register(_or.class);
 		register(_pop.class);
-		register(_print.class);
+		register(_prettyprint.class);
 		register(_pstack.class);
 		register(_quit.class);
 		register(_roll.class);
@@ -63,6 +63,7 @@ public class Systemdict extends coneforest.psi.PSIModule
 		put("[", get("mark"));
 		put("<<", get("mark"));
 		put("]", get("arraytomark"));
+		put("==", get("prettyprint"));
 		put("systemdict", this);
 	}
 }

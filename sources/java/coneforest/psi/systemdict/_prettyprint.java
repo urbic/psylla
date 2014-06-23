@@ -1,15 +1,18 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _print extends PSIOperator
+public class _prettyprint extends PSIOperator
 {
-	public String getName()	{ return "print"; }
+	public String getName()	{ return "prettyprint"; }
 
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()==0)
+		if(opstack.size()<1)
+		{
 			interpreter.error("stackunderflow");
+			return;
+		}
 		else
 			System.out.println(opstack.pop());
 	}
