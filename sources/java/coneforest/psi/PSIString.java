@@ -21,6 +21,9 @@ public class PSIString extends PSIStringlike
 						i++;
 						switch(token.image.charAt(i))
 						{
+							case '0':
+								sb.append('\u0000');
+								break;
 							case 'n':
 								sb.append('\n');
 								break;
@@ -70,7 +73,42 @@ public class PSIString extends PSIStringlike
 
 	public String toString()
 	{
-		return "\""+getValue()+"\"";
+		StringBuilder sb=new StringBuilder();
+		String string=getValue();
+		for(int i=0; i<string.length(); i++)
+		{
+			char c=string.charAt(i);
+			switch(c)
+			{
+				case '\u0000':
+					sb.append("\\0");
+					break;
+				case '\n':
+					sb.append("\\n");
+					break;
+				case '\r':
+					sb.append("\\r");
+					break;
+				case '\t':
+					sb.append("\\t");
+					break;
+				case '\f':
+					sb.append("\\f");
+					break;
+				case '\u001B':
+					sb.append("\\e");
+					break;
+				case '\"':
+					sb.append("\\\"");
+					break;
+				case '\\':
+					sb.append("\\\\");
+					break;
+				default:
+					sb.append(c);
+			}
+		}
+		return "\""+sb.toString()+"\"";
 	}
 
 }
