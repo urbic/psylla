@@ -1,7 +1,12 @@
 package coneforest.psi;
 
-class PSIString extends PSIStringlike
+public class PSIString extends PSIStringlike
 {
+	public PSIString(String string)
+	{
+		setValue(string);
+	}
+
 	public PSIString(Token token)
 	{
 		if(token.kind==PSIParserConstants.TOKEN_STRING)
