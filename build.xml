@@ -14,6 +14,7 @@ $Id$
 	<property name="dist"  location="dist"/>
 	<property name="dist.lib"  location="${dist}/lib"/>
 	<property name="javadoc"  location="javadoc"/>
+	<property name="test.file"  location="test.psi"/>
 	<!-- <property name="java.library.path"  location="."/> -->
 	<!-- <property name="java.library.path" location="/home/tz/work/projects/jslangy"/> -->
 
@@ -44,14 +45,10 @@ $Id$
 			sourcepath="${sources.java}:${build.sources.java}"
 			srcdir="${sources.java}"
 			destdir="${classes}"
-			includeantruntime="false">
+			includeantruntime="false"
+			>
 			<classpath refid="additional.class.path"/>
 		</javac>
-		<!--javac
-			srcdir="${build.sources.java}"
-			destdir="${classes}"
-			includeantruntime="false">
-		</javac-->
 	</target>
 
 	<target name="compile" depends="compile.java"/>
@@ -81,10 +78,11 @@ $Id$
 
 	<target name="test" depends="jar">
 		<java
-				jar="${dist.lib}/${ant.project.name}.jar"
-				fork="true">
-				<!-- classpathref="additional.class.path" -->
-				<arg file="test.psi"/>
+			jar="${dist.lib}/${ant.project.name}.jar"
+			fork="true"
+			>
+			<!-- classpathref="additional.class.path" -->
+			<arg file="${test.file}"/>
 		</java>
 	</target>
 

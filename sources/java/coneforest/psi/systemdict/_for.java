@@ -22,18 +22,22 @@ public class _for extends PSIOperator
 				&& increment instanceof PSINumeric
 				&& initial instanceof PSINumeric)
 		{
-			int currentLoopLevel=interpreter.getLoopLevel();
 
+			interpreter.pushLoopLevel();
+			// TODO: reverse
 			for(PSINumeric i=(PSINumeric)initial;
-					PSINumeric.le(i, (PSINumeric)limit).getValue();
+					PSINumeric.le(i, (PSINumeric)limit).getValue() && !interpreter.getExitFlag();
 					i=PSINumeric.sum(i, (PSINumeric)increment))
 			{
 				opstack.push(i);
+					//int level=interpreter.getExecutionStack().size();
+				//int currentLoopLevel=interpreter.getLoopLevel();
 				obj.invoke(interpreter);
-				interpreter.handleExecutionStack();
+				//System.out.println("UUU "+currentLoopLevel);
+				interpreter.handleExecutionStack(interpreter.currentLoopLevel());
+				//interpreter.setLoopLevel(currentLoopLevel);
 			}
-
-			interpreter.setLoopLevel(currentLoopLevel);
+			interpreter.setExitFlag(false);
 
 		}
 		else

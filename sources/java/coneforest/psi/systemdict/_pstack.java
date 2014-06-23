@@ -9,6 +9,6 @@ public class _pstack extends PSIOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		for(PSIObject obj: opstack)
-			System.out.println(obj);
+			System.out.print(obj+" ");
 	}
 }

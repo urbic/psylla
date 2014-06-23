@@ -10,7 +10,11 @@ public abstract class PSIOperator extends PSIObject
 	public void execute(PSIInterpreter interpreter)
 	{
 		if(isExecutable())
+		{
+			int level=interpreter.getExecutionStack().size();
 			this.execute(interpreter);
+			interpreter.handleExecutionStack(level);
+		}
 		else
 			interpreter.getOperandStack().push(this);
 	}
