@@ -18,10 +18,16 @@ public class _repeat extends PSIOperator
 
 		if(count instanceof PSIInteger)
 		{
+			long countValue=((PSIInteger)count).getValue();
+			if(countValue<0)
+			{
+				interpreter.error("rangecheck");
+				return;
+			}
 			interpreter.pushLoopLevel();
 			// TODO: reverse
 			for(int i=0;
-					i<((PSIInteger)count).getValue() && !interpreter.getExitFlag();
+					i<countValue && !interpreter.getExitFlag();
 					i++)
 			{
 					//int level=interpreter.getExecutionStack().size();
