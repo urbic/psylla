@@ -16,22 +16,20 @@ public class _idiv extends PSIOperator
 		PSIObject n2=opstack.pop();
 		PSIObject n1=opstack.pop();
 
-		if(n1.getType()==TYPE_INTEGER&&n2.getType()==TYPE_INTEGER)
+		if(n1 instanceof PSIInteger && n2 instanceof PSIInteger)
 		{
+			// TODO
+			if(n2.getValue()!=0.)
 			{
-				if(n2.getValue()!=0.)
-				{
-					Double result=((Long)n1.getValue()).doubleValue()/((Long)n2.getValue()).doubleValue();
-					opstack.push(new PSIInteger(result.longValue()));
-				}
-				else
-				{
-					opstack.push(n1);
-					opstack.push(n2);
-					interpreter.error("undefinedresult");
-				}
+				Double result=((Long)n1.getValue()).doubleValue()/((Long)n2.getValue()).doubleValue();
+				opstack.push(new PSIInteger(result.longValue()));
 			}
-
+			else
+			{
+				opstack.push(n1);
+				opstack.push(n2);
+				interpreter.error("undefinedresult");
+			}
 		}
 		else
 		{
