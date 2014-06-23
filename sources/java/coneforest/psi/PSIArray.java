@@ -14,14 +14,20 @@ public class PSIArray extends PSIObject
 
 	public void execute(PSIInterpreter interpreter)
 	{
-		System.out.println("PSIArray.execute called!");
+		//System.out.println("PSIArray.execute called!");
 		interpreter.getOperandStack().push(this);
 	}
 
 	public void invoke(PSIInterpreter interpreter)
 	{
 		if(isExecutable())
-			interpreter.getExecutionStack().push(this);
+		{
+			ExecutionStack execstack=interpreter.getExecutionStack();
+			int level=execstack.size();
+			for(int i=size()-1; i>=0; i--)
+				execstack.push(get(i));
+			//interpreter.handleExecutionStack(level);
+		}
 		else
 			execute(interpreter);
 	}

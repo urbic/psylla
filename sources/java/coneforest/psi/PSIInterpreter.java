@@ -31,50 +31,13 @@ public class PSIInterpreter
 		return execstack;
 	}
 
-	public void handleExecutionStack()
+	public void handleExecutionStack(int level)
 	{
-		//int currentExecutionLevel=execstack.size();
-		while(execstack.size()>0)
+		while(execstack.size()>level)
 		{
-			System.out.println("START HANDLE EXECUTION STACK="+execstack);
-			System.out.println("START HANDLE OPSTACK STACK="+opstack);
-			PSIObject exectop=execstack.peek();
-			if(exectop instanceof PSIArray && exectop.isExecutable())
-			{
-				PSIArray proc=(PSIArray)exectop;
-				boolean execLevelChanged=false;
-				for(int i=0; i<proc.size()-1; i++)
-				{
-					//System.out.println("FOUND ELEMENT "+((PSIArray)exectop).get(i));
-					int execlevel=execstack.size();
-					proc.get(i).execute(this);
-					if(execlevel<execstack.size())
-					{
-						System.out.println("EXEC LEVEL CHANGED FROM "+execlevel+" TO "+execstack.size());
-						//System.exit(55);
-
-						execLevelChanged=true;
-						PSIArray newproc=new PSIArray();
-						newproc.setExecutable();
-						for(int j=i+1; j<proc.size(); j++)
-							newproc.add(proc.get(j));
-						execstack.setElementAt(newproc, execlevel-1);
-						break;
-					}
-				}
-				if(execLevelChanged)
-				{
-					continue;
-				}
-				execstack.pop();
-				if(proc.size()>0)
-					//execstack.push(((PSIArray)exectop).get(((PSIArray)exectop).size()-1));
-					proc.get(proc.size()-1).execute(this);
-			}
-			else
-				execstack.pop().execute(this);
-			System.out.println("STOP HANDLE EXECUTION STACK="+execstack);
-			System.out.println("STOP HANDLE OPSTACK STACK="+opstack);
+			//System.out.println("<<<HANDLE ESTACK="+execstack+" OSTACK="+opstack);
+			execstack.pop().execute(this);
+			//System.out.println(">>>HANDLE ESTACK="+execstack+" OSTACK="+opstack);
 		}
 	}
 
@@ -120,7 +83,7 @@ public class PSIInterpreter
 						break;
 				}
 				// TODO
-				handleExecutionStack();
+				handleExecutionStack(0);
 			}
 			else
 			{
@@ -177,15 +140,29 @@ public class PSIInterpreter
 		}
 		return null;
 	}
-
-	public int getLoopLevel()
+	public boolean getExitFlag()
 	{
-		return loopLevel;
+		return exitFlag;
 	}
 
-	public void setLoopLevel(int loopLevel)
+	public void setExitFlag(boolean exitFlag)
 	{
-		this.loopLevel=loopLevel;
+		this.exitFlag=exitFlag;
+	}
+	
+	public void pushLoopLevel()
+	{
+		loopstack.push(execstack.size());
+	}
+
+	public int popLoopLevel()
+	{
+		return loopstack.size()>0? loopstack.pop(): -1;
+	}
+
+	public int currentLoopLevel()
+	{
+		return loopstack.size()>0? loopstack.peek(): -1;
 	}
 
 	private java.io.InputStream is;
@@ -193,5 +170,6 @@ public class PSIInterpreter
 	private DictionaryStack dictstack;
 	private ExecutionStack execstack;
 	private ProcedureStack procstack;
-	private int loopLevel=0;
+	private java.util.Stack<Integer> loopstack=new java.util.Stack<Integer>();
+	private boolean exitFlag=false;
 }
