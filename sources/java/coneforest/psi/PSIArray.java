@@ -7,10 +7,7 @@ public class PSIArray extends PSIObject
 		array=new java.util.ArrayList<PSIObject>();
 	}
 
-	public byte getType()
-	{
-		return TYPE_ARRAY;
-	}
+	public String getTypeName() { return "array"; }
 
 	public void execute(PSIInterpreter interpreter)
 	{

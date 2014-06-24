@@ -7,10 +7,7 @@ public class PSIReal extends PSINumeric
 		this.value=value;
 	}
 	
-	public byte getType()
-	{
-		return TYPE_REAL;
-	}
+	public String getTypeName() { return "real"; }
 	
 	public Double getValue()
 	{

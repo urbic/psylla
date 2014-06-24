@@ -21,10 +21,7 @@ public class PSIName extends PSIStringlike
 		}
 	}
 
-	public byte getType()
-	{
-		return TYPE_NAME;
-	}
+	public String getTypeName() { return "name"; }
 
 	public void execute(PSIInterpreter interpreter)
 	{

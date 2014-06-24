@@ -2,10 +2,7 @@ package coneforest.psi;
 
 public abstract class PSIOperator extends PSIObject
 {
-	public byte getType()
-	{
-		return TYPE_OPERATOR;
-	}
+	public String getTypeName() { return "operator"; }
 
 	public void execute(PSIInterpreter interpreter)
 	{

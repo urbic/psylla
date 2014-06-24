@@ -2,8 +2,6 @@ package coneforest.psi;
 
 abstract public class PSIStringlike extends PSIObject
 {
-	abstract public byte getType();
-	
 	public PSIStringlike()
 	{
 	}

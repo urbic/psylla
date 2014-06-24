@@ -2,11 +2,8 @@ package coneforest.psi;
 
 public class PSIDictionary extends PSIObject
 {
-	public byte getType()
-	{
-		return TYPE_DICTIONARY;
-	}
-	
+	public String getTypeName() { return "dict"; }
+
 	public void put(PSIStringlike key, PSIObject obj)
 	{
 		put(key.getValue(), obj);

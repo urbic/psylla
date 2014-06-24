@@ -60,10 +60,7 @@ public class PSIString extends PSIStringlike
 		}
 	}
 
-	public byte getType()
-	{
-		return TYPE_STRING;
-	}
+	public String getTypeName() { return "string"; }
 
 	public void execute(PSIInterpreter interpreter)
 	{

@@ -2,8 +2,6 @@ package coneforest.psi;
 
 abstract public class PSINumeric extends PSIObject
 {
-	abstract public byte getType();
-
 	public Number getValue()
 	{
 		if(this instanceof PSIInteger)
