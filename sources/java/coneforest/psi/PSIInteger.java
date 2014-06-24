@@ -7,15 +7,12 @@ public class PSIInteger extends PSINumeric
 		this.value=value;
 	}
 
-	public byte getType()
-	{
-		return TYPE_INTEGER;
-	}
-
 	public Long getValue()
 	{
 		return value;
 	}
+	
+	public String getTypeName()	{ return "integer"; }
 
 	public void setValue(final long value)
 	{

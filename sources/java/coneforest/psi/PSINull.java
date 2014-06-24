@@ -2,10 +2,7 @@ package coneforest.psi;
 
 public class PSINull extends PSIObject
 {
-	public byte getType()
-	{
-		return TYPE_NULL;
-	}
+	public String getTypeName() { return "null"; }
 
 	public void invoke(PSIInterpreter interpreter)
 	{

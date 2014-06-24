@@ -6,12 +6,9 @@ public class PSIBoolean extends PSIObject
 	{
 		this.value=value;
 	}
-	
-	public byte getType()
-	{
-		return TYPE_BOOLEAN;
-	}	
 
+	public String getTypeName() { return "boolean"; }
+	
 	public Boolean getValue()
 	{
 		return value;
