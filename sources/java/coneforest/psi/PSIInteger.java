@@ -54,6 +54,16 @@ public class PSIInteger extends PSINumeric
 		return new PSIInteger(x.getValue()^y.getValue());
 	}
 
+	public static PSIInteger mod(final PSIInteger x, final PSIInteger y)
+	{
+		long xValue=x.getValue();
+		long yValue=y.getValue();
+		if(yValue>0)
+			return new PSIInteger(xValue>=0? xValue%yValue: yValue-(-xValue)%yValue);
+		if(yValue<0)
+			return new PSIInteger(xValue>=0? xValue%(-yValue)+(xValue!=0? yValue:0): -((-xValue)%(-yValue)));
+		return null;
+	}
 
 	private long value;
 }
