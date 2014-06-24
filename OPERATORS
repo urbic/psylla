@@ -16,7 +16,7 @@
 +	array
 -	ashow
 ?	astore
-+	atan
+?	atan
 -	awidthshow
 +	begin
 -	beginbfchar

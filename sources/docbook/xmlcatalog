@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+$Id: xmlcatalog 2 2014-05-31 18:46:46Z concyclic $
+$URL: svn+ssh://concyclic@svn.code.sf.net/p/mathjax4svg/code/sources/site/xmlcatalog $
+-->
+<!DOCTYPE catalog
+	PUBLIC "-//OASIS/DTD Entity Resolution XML Catalog V1.0//EN"
+	"http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+	<!--rewriteSystem
+		systemIdStartString="svn://coneforest/projects/"
+		rewritePrefix="file:///home/tz/work/projects/"
+		/>
+	<rewriteURI
+		uriStartString="svn://coneforest/54/"
+		rewritePrefix="file:///home/tz/work/54/"
+		/-->
+	<nextCatalog
+		catalog="file:///etc/xml/docbook5-xsl-stylesheets.xml"
+		/>
+	<nextCatalog
+		catalog="file:///etc/xml/mathml.xml"
+		/>
+</catalog>
