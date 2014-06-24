@@ -14,10 +14,10 @@ public class _log extends PSIOperator
 			if(obj instanceof PSINumeric)
 			{
 				PSIReal result=PSINumeric.log((PSINumeric)obj);
-				if(result!=null)
-					opstack.push(result);
-				else
+				if(result.getValue().isNaN() || result.getValue().isInfinite())
 					interpreter.error("rangecheck");
+				else
+					opstack.push(result);
 			}
 			else
 				interpreter.error("typecheck");
