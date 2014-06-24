@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _ne extends PSIOperator
 {
-	public String getName()	{ return "ne"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();

@@ -29,27 +29,8 @@ public abstract class PSIOperator extends PSIObject
 		return "--"+getName()+"--";
 	}
 
-	// TODO
-	/*
-	protected String getName()
+	public String getName()
 	{
-		String name=null;
-		try
-		{
-			name=(String)getClass().getField("name").get(null);
-		}
-		catch(IllegalAccessException e)
-		{
-			// TODO
-			System.out.println("ILLEGAL ACCESS EXCEPTION");
-		}
-		catch(NoSuchFieldException e)
-		{
-			// TODO
-			System.out.println("NO SUCH FIELD EXCEPTION");
-		}
-		return name;
+		return getClass().getSimpleName().substring(1);
 	}
-	*/
-	abstract public String getName();
 }

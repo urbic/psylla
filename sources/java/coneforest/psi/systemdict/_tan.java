@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _tan extends PSIOperator
 {
-	public String getName()	{ return "tan"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();

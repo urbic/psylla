@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _ifelse extends PSIOperator
 {
-	public String getName()	{ return "ifelse"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();

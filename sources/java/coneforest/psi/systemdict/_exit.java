@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _exit extends PSIOperator
 {
-	public String getName()	{ return "exit"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		//System.out.println("EXIT: EXECLEVEL BEFORE="+interpreter.getExecutionStack().size());

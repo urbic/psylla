@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _prettyprint extends PSIOperator
 {
-	public String getName()	{ return "prettyprint"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
