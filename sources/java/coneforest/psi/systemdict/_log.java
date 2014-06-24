@@ -10,23 +10,17 @@ public class _log extends PSIOperator
 			interpreter.error("stackunderflow");
 		else
 		{
-			PSIObject obj=opstack.peek();
-			switch(obj.getType())
+			PSIObject obj=opstack.pop();
+			if(obj instanceof PSINumeric)
 			{
-				case TYPE_INTEGER:
-				case TYPE_REAL:
-					double value=((Number)obj.getValue()).doubleValue();
-					if(value>0.)
-					{
-						opstack.pop();
-						opstack.push(new PSIReal(Math.log(value)));
-					}
-					else
-						interpreter.error("rangecheck");
-					break;
-				default:
-					interpreter.error("typecheck");
+				PSIReal result=PSINumeric.log((PSINumeric)obj);
+				if(result!=null)
+					opstack.push(result);
+				else
+					interpreter.error("rangecheck");
 			}
+			else
+				interpreter.error("typecheck");
 		}
 	}
 }

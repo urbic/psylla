@@ -70,6 +70,12 @@ abstract public class PSINumeric extends PSIObject
 		return new PSIReal(Math.cos(x.getValue().doubleValue()));
 	}
 	
+	public static PSIReal log(final PSINumeric x)
+	{
+		double xValue=x.getValue().doubleValue();
+		return xValue>0.? new PSIReal(Math.log(xValue)): null;
+	}
+
 	public static PSINumeric abs(final PSINumeric x)
 	{
 		if(x instanceof PSIInteger)
