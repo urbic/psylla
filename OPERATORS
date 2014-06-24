@@ -403,7 +403,7 @@
 ?	writehexstring
 ?	writeobject
 ?	writestring
-?	xcheck
++	xcheck
 +	xor
 -	xshow
 -	xyshow
