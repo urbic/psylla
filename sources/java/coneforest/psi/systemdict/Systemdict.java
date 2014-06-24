@@ -64,6 +64,7 @@ public class Systemdict extends coneforest.psi.PSIModule
 		register(_sub.class);
 		register(_tan.class);
 		register(_type.class);
+		register(_xcheck.class);
 		register(_xor.class);
 
 		put("null", new PSINull());
