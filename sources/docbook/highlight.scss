@@ -1,0 +1,60 @@
+/*
+ *	$Id: highlight.scss 5 2014-06-05 01:35:35Z concyclic $
+ *	$URL: svn+ssh://concyclic@svn.code.sf.net/p/mathjax4svg/code/sources/site/highlight.scss $
+ */
+
+@namespace url("http://www.w3.org/1999/xhtml");
+
+$color-hl-constant: #500;
+$color-hl-keyword: #013;
+$color-hl-comment: #999;
+$color-hl-directive: #777;
+$color-hl-attribute: #073;
+$color-hl-tag: #039;
+$color-hl-variable: #042;
+$color-hl-doctype: #505;
+
+.hl-string,
+.hl-number,
+.hl-value
+{
+	color: $color-hl-constant;
+}
+
+.hl-keyword
+{
+	font-weight: bolder;
+	color: $color-hl-keyword;
+}
+
+.hl-comment
+{
+	color: $color-hl-comment;
+}
+
+.hl-directive,
+.hl-sharpBang
+{
+	color: $color-hl-directive;
+}
+
+.hl-attribute
+{
+	color: $color-hl-attribute;
+}
+
+.hl-tag
+{
+	font-weight: bolder;
+	color: $color-hl-tag;
+}
+
+.hl-variable
+{
+	color: $color-hl-variable;
+}
+
+.hl-doctype
+{
+	color: $color-hl-doctype;
+}

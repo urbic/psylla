@@ -5,11 +5,14 @@ $Id$
 -->
 <project name="psi" default="dist" basedir=".">
 	
+	<property name="project.name" value="${ant.project.name}"/>
 	<property name="sources" location="sources"/>
 	<property name="sources.java" location="${sources}/java"/>
 	<property name="sources.jj" location="${sources}/jj"/>
+	<property name="sources.docbook" location="${sources}/docbook"/>
 	<property name="build" location="build"/>
 	<property name="build.sources.java" location="${build}/sources/java"/>
+	<property name="build.doc" location="${build}/doc"/>
 	<property name="classes" location="${build}/classes"/>
 	<property name="dist"  location="dist"/>
 	<property name="dist.lib"  location="${dist}/lib"/>
@@ -18,15 +21,62 @@ $Id$
 	<!-- <property name="java.library.path"  location="."/> -->
 	<!-- <property name="java.library.path" location="/home/tz/work/projects/jslangy"/> -->
 
-	<path id="additional.class.path">
-		<!-- <pathelement path="/usr/share/java/regexp.jar"/> -->
-	</path>
-
-	<presetdef name="svn-commit">
-		<exec executable="svn">
-			<arg value="commit"/>
-		</exec>
+	<presetdef name="xslt.preset">
+		<xslt
+			style="${sources.docbook}/xhtml.xsl"
+			basedir="${sources.docbook}"
+			filedirparameter="${sources.docbook}"
+			force="true"
+			>
+			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
+			<xmlcatalog>
+				<catalogpath>
+					<pathelement location="${sources.docbook}/xmlcatalog"/>
+				</catalogpath>
+			</xmlcatalog>
+			<classpath>
+				<pathelement location="/usr/share/java/saxon6.jar"/>
+				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
+				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+				<pathelement location="/usr/share/java/xslthl.jar"/>
+			</classpath>
+			<param name="highlight.source" expression="1"/>
+			<param name="profile.status" expression="${xslt.profile.status}"/>
+			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
+			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
+			<!--param name="base.dir" expression="${site.build.dir}"/-->
+			<param name="html.stylesheet" expression="${project.name}.css"/>
+			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
+			<param name="generate.manifest" expression="0"/>
+			<param name="bibliography.numbered" expression="1"/>
+			<!--param name="icon.path" expression="img/icons/16x16/${project.name}.png"/-->
+			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
+			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
+			<param name="l10n.gentext.default.language" expression="'ru'"/>
+			<param name="bibliography.style" expression="'iso960'"/>
+			<param name="draft.mode" expression="'maybe'"/>
+			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
+			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
+			<param name="navig.graphics.path" expression="navigation/"/>
+			<param name="navig.graphics.extension" expression=".svg"/>
+		</xslt>
 	</presetdef>
+
+	<macrodef name="xslt.lang">
+		<attribute name="base.name"/>
+		<attribute name="lang"/>
+		<sequential>
+			<xslt.preset
+				includes="@{base.name}_@{lang}.docbook"
+				destdir="${build.doc}"
+				>
+				<param name="root.filename" expression="@{base.name}_@{lang}"/>
+				<param name="html.ext" expression=".xhtml"/>
+				<param name="base.dir" expression="${build.doc}"/>
+			</xslt.preset>
+		</sequential>
+	</macrodef>	
+
 
 	<target name="compile.jj">
 		<mkdir dir="${build.sources.java}/coneforest/psi"/>
@@ -72,7 +122,7 @@ $Id$
 		</jar>
 	</target>
 
-	<target name="clean" description="clean up">
+	<target name="clean" description="Clean build directory">
 		<delete dir="${build}"/>
 	</target>
 
@@ -86,8 +136,41 @@ $Id$
 		</java>
 	</target>
 
-	<target name="ci">
-		<svn-commit/>
+	<target name="doc" description="Make documentation" depends="css">
+		<mkdir dir="${build.doc}"/>
+		<symlink resource="${sources.docbook}/examples" link="examples" overwrite="true"/>
+		<!--xslt.lang lang="en"/-->
+		<xslt.lang lang="ru" base.name="PSIReference"/>
+		<copy todir="${build.doc}">
+			<fileset dir="${sources.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
+			<fileset dir="${sources.docbook}" includes="examples/**" excludes="**/.htaccess"/>
+			<fileset dir="${sources.docbook}" includes="files/**" excludes="**/.htaccess"/>
+			<fileset dir="${sources.docbook}" includes="navigation/**"/>
+			<fileset dir="${sources.docbook}" includes="js/**"/>
+		</copy>
+		<!--copy todir="${build.doc}">
+			<fileset dir="${sources.dir}" includes="MathJax4SVG.js"/>
+		</copy-->
+		<!--symlink resource="../MathJax4SVG.js" link="${site.build.dir}/examples/MathJax4SVG.js" overwrite="true"/-->
 	</target>
+	
+	<target name="css" description="Make CSS">
+		<mkdir dir="${build.doc}"/>
+		<dependset>
+			<srcfilelist dir="${sources.docbook}" files="*.scss"/>
+			<targetfileset dir="${build.doc}" includes="${project.name}.css"/>
+		</dependset>
+		<apply executable="sass" dest="${build.doc}" parallel="false">
+			<arg value="--style"/>
+			<arg value="compact"/>
+			<!--arg value="-+-load-path"/>
+			<arg value="${share.dir}/css"-->
+			<srcfile/>
+			<targetfile/>
+			<fileset dir="${sources.docbook}" includes="${project.name}.scss"/>
+			<mapper type="glob" from="*.scss" to="*.css"/>
+		</apply>
+	</target>
+
 
 </project>

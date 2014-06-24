@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+$URL: svn+ssh://concyclic@svn.code.sf.net/p/mathjax4svg/code/sources/site/namespaces.ent $
+$Id: namespaces.ent 2 2014-05-31 18:46:46Z concyclic $
+-->
+<!ENTITY nsDocBook	"http://docbook.org/ns/docbook">
+<!ENTITY nsMathML	"http://www.w3.org/1998/Math/MathML">
+<!ENTITY nsHTML		"http://www.w3.org/1999/xhtml">
+<!ENTITY nsXLink	"http://www.w3.org/1999/xlink">
+<!ENTITY nsSVG		"http://www.w3.org/2000/svg">
+<!ENTITY nsXI		"http://www.w3.org/2001/XInclude">
+<!ENTITY nsHL		"http://xslthl.sf.net">
+<!ENTITY nsSSI		"urn:coneforest:xsl:xhtml:ssi">
