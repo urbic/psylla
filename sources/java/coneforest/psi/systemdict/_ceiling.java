@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _ceiling extends PSIOperator
 {
-	public String getName()	{ return "ceiling"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();

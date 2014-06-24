@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _cvlit extends PSIOperator
 {
-	public String getName()	{ return "cvlit"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();

@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _arraytomark extends PSIOperator
 {
-	public String getName()	{ return "arraytomark"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();

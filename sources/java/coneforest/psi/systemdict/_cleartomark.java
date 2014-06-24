@@ -3,8 +3,6 @@ import coneforest.psi.*;
 
 public class _cleartomark extends PSIOperator
 {
-	public String getName()	{ return "cleartomark"; }
-
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
