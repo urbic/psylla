@@ -6,27 +6,21 @@ public class _sqrt extends PSIOperator
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()==0)
+		if(opstack.size()<1)
 			interpreter.error("stackunderflow");
 		else
 		{
 			PSIObject obj=opstack.peek();
-			switch(obj.getType())
+			if(obj instanceof PSINumeric)
 			{
-				case TYPE_INTEGER:
-				case TYPE_REAL:
-					double value=((Number)obj.getValue()).doubleValue();
-					if(value>=0.)
-					{
-						opstack.pop();
-						opstack.push(new PSIReal(Math.sqrt(value)));
-					}
-					else
-						interpreter.error("rangecheck");
-					break;
-				default:
-					interpreter.error("typecheck");
+				PSIReal result=PSINumeric.sqrt((PSINumeric)obj);
+				if(result!=null)
+					opstack.push(result);
+				else
+					interpreter.error("rangecheck");
 			}
+			else
+				interpreter.error("typecheck");
 		}
 	}
 }

@@ -75,6 +75,12 @@ abstract public class PSINumeric extends PSIObject
 		double xValue=x.getValue().doubleValue();
 		return xValue>0.? new PSIReal(Math.log(xValue)): null;
 	}
+	
+	public static PSIReal sqrt(final PSINumeric x)
+	{
+		double xValue=x.getValue().doubleValue();
+		return xValue>=0.? new PSIReal(Math.sqrt(xValue)): null;
+	}
 
 	public static PSINumeric abs(final PSINumeric x)
 	{
