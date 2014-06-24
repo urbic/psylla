@@ -55,7 +55,7 @@
 +	count
 +	countdictstack
 ?	countexecstack
-?	counttomark
++	counttomark
 -	cshow
 -	currentblackgeneration
 -	currentcacheparams
