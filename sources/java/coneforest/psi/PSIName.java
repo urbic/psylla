@@ -31,7 +31,9 @@ public class PSIName extends PSIStringlike
 		if(isExecutable())
 		{
 			PSIObject obj=interpreter.getDictionaryStack().load(this);
-			if(obj instanceof PSIArray && ((PSIArray)obj).isExecutable())
+			if(obj==null)
+				interpreter.error("undefined");
+			else if(obj instanceof PSIArray && ((PSIArray)obj).isExecutable())
 			{
 				//((PSIArray)obj).invoke(interpreter);
 				obj.invoke(interpreter);

@@ -9,8 +9,6 @@ public class DictionaryStack extends java.util.Stack<PSIDictionary>
 			if(elementAt(i).containsKey(key))
 				return elementAt(i).get(key);
 		}
-		// TODO
-		System.out.println("LOAD: NOT FOUND "+key.getValue());
 		return null;
 	}
 

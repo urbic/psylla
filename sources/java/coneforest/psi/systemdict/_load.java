@@ -13,7 +13,13 @@ public class _load extends PSIOperator
 			PSIObject key=opstack.pop();
 
 			if(key instanceof PSIStringlike)
-				opstack.push(interpreter.getDictionaryStack().load((PSIStringlike)key));
+			{
+				PSIObject result=interpreter.getDictionaryStack().load((PSIStringlike)key);
+				if(result==null)
+					interpreter.error("undefined");
+				else
+					opstack.push(result);
+			}
 			else
 				interpreter.error("typecheck");
 			// TODO errors: invalidaccess, undefined
