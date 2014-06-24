@@ -6,7 +6,7 @@ public class _log extends PSIOperator
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()==0)
+		if(opstack.size()<1)
 			interpreter.error("stackunderflow");
 		else
 		{
