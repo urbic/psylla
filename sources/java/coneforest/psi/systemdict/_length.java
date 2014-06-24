@@ -6,26 +6,22 @@ public class _length extends PSIOperator
 	public void execute(PSIInterpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()==0)
+		if(opstack.size()<1)
 			interpreter.error("stackunderflow");
 		else
 		{
 			PSIObject obj=opstack.pop();
-			switch(obj.getType())
+
+			if(obj instanceof PSIStringlike)
+				opstack.push(new PSIInteger(((PSIStringlike)obj).getValue().length()));
+			else if(obj instanceof PSIArray)
+				opstack.push(new PSIInteger(((PSIArray)obj).size()));
+			else if(obj instanceof PSIDictionary)
+				opstack.push(new PSIInteger(((PSIDictionary)obj).size()));
+			else
 			{
-				case TYPE_STRING:
-				case TYPE_NAME:
-					opstack.push(new PSIInteger(((String)obj.getValue()).length()));
-					return;
-				case TYPE_ARRAY:
-					opstack.push(new PSIInteger(((PSIArray)obj).size()));
-					return;
-				case TYPE_DICTIONARY:
-					opstack.push(new PSIInteger(((PSIDictionary)obj).size()));
-					return;
-				default:
-					opstack.push(obj);
-					interpreter.error("typecheck");
+				opstack.push(obj);
+				interpreter.error("typecheck");
 			}
 		}
 	}
