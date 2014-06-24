@@ -97,7 +97,6 @@ $Id$
 			destdir="${classes}"
 			includeantruntime="false"
 			>
-			<classpath refid="additional.class.path"/>
 		</javac>
 	</target>
 
@@ -109,7 +108,6 @@ $Id$
 			sourcepath="${sources.java}"
 			destdir="${javadoc}"
 			access="public"
-			classpathref="additional.class.path"
 			/>
 	</target>
 
@@ -131,7 +129,6 @@ $Id$
 			jar="${dist.lib}/${ant.project.name}.jar"
 			fork="true"
 			>
-			<!-- classpathref="additional.class.path" -->
 			<arg file="${test.file}"/>
 		</java>
 	</target>
