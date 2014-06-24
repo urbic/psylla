@@ -14,10 +14,10 @@ public class _sqrt extends PSIOperator
 			if(obj instanceof PSINumeric)
 			{
 				PSIReal result=PSINumeric.sqrt((PSINumeric)obj);
-				if(result!=null)
-					opstack.push(result);
-				else
+				if(result.getValue().isNaN())
 					interpreter.error("rangecheck");
+				else
+					opstack.push(result);
 			}
 			else
 				interpreter.error("typecheck");
