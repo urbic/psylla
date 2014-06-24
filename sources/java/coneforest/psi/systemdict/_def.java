@@ -11,19 +11,15 @@ public class _def extends PSIOperator
 		else
 		{
 			PSIObject obj=opstack.pop();
-			PSIObject name=opstack.pop();
-			switch(name.getType())
+			PSIObject key=opstack.pop();
+
+			if(key instanceof PSIStringlike)
 			{
-				case TYPE_STRING:
-				case TYPE_NAME:
-					//DictionaryStack dictstack=interpreter.getDictionaryStack();
-					PSIDictionary currentdict=interpreter.getDictionaryStack().peek();
-					currentdict.put((String)name.getValue(), obj);
-					// TODO: dictfull, invalidaccess, limitcheck, VMerror
-					break;
-				default:
-					interpreter.error("typecheck");
+				PSIDictionary currentdict=interpreter.getDictionaryStack().peek();
+				currentdict.put((PSIStringlike)key, obj);
 			}
+			else
+				interpreter.error("typecheck");
 		}
 	}
 }
