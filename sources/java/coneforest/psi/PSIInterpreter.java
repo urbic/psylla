@@ -11,7 +11,7 @@ public class PSIInterpreter
 		procstack=new ProcedureStack();
 
 		// Load systemdict, globaldict, userdict
-		dictstack.push(loadModule(coneforest.psi.systemdict.Systemdict.class));
+		dictstack.push(loadModule(coneforest.psi.systemdict.SystemDictionary.class));
 		dictstack.push(new PSIDictionary());
 		dictstack.push(new PSIDictionary());
 	}
