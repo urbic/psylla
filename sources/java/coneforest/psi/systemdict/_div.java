@@ -1,9 +1,9 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _div extends PSIOperator
+public class _div extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -11,12 +11,12 @@ public class _div extends PSIOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PSIObject y=opstack.pop();
-		PSIObject x=opstack.pop();
+		PsiObject y=opstack.pop();
+		PsiObject x=opstack.pop();
 
-		if(x instanceof PSINumeric && y instanceof PSINumeric)
+		if(x instanceof PsiNumeric && y instanceof PsiNumeric)
 		{
-			PSIReal result=PSINumeric.ratio((PSINumeric)x, (PSINumeric)y);
+			PsiReal result=PsiNumeric.ratio((PsiNumeric)x, (PsiNumeric)y);
 			if(result.getValue().isInfinite())
 			{
 				opstack.push(x);

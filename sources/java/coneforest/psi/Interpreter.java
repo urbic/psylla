@@ -1,8 +1,8 @@
 package coneforest.psi;
 
-public class PSIInterpreter
+public class Interpreter
 {
-	public PSIInterpreter(java.io.InputStream is)
+	public Interpreter(java.io.InputStream is)
 	{
 		this.is=is;
 		opstack=new OperandStack();
@@ -12,8 +12,8 @@ public class PSIInterpreter
 
 		// Load systemdict, globaldict, userdict
 		dictstack.push(loadModule(coneforest.psi.systemdict.SystemDictionary.class));
-		dictstack.push(new PSIDictionary());
-		dictstack.push(new PSIDictionary());
+		dictstack.push(new PsiDictionary());
+		dictstack.push(new PsiDictionary());
 	}
 
 	public OperandStack getOperandStack()
@@ -43,43 +43,43 @@ public class PSIInterpreter
 
 	public void interpret()
 	{
-		PSIParser parser=new PSIParser(is);
+		Parser parser=new Parser(is);
 		Token token;
 
 		while(true)
 		{
 			token=parser.getNextToken();
-			if(token.kind==PSIParserConstants.EOF) break;
+			if(token.kind==ParserConstants.EOF) break;
 
-			//System.out.println(token+"\t"+PSIParserConstants.tokenImage[token.kind]);
+			//System.out.println(token+"\t"+PsiParserConstants.tokenImage[token.kind]);
 
 
 			if(procstack.size()==0)
 			{
 				switch(token.kind)
 				{
-					case PSIParserConstants.TOKEN_OPEN_BRACE:
-						procstack.push(new PSIArray());
-						procstack.peek().setAccess(PSIObject.ACCESS_EXECUTE);
+					case ParserConstants.TOKEN_OPEN_BRACE:
+						procstack.push(new PsiArray());
+						procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
 						break;
-					case PSIParserConstants.TOKEN_CLOSE_BRACE:
+					case ParserConstants.TOKEN_CLOSE_BRACE:
 						error("syntaxerror");
 						break;
-					case PSIParserConstants.TOKEN_INTEGER:
-						opstack.push(new PSIInteger(token));
+					case ParserConstants.TOKEN_INTEGER:
+						opstack.push(new PsiInteger(token));
 						break;
-					case PSIParserConstants.TOKEN_REAL:
-						opstack.push(new PSIReal(token));
+					case ParserConstants.TOKEN_REAL:
+						opstack.push(new PsiReal(token));
 						break;
-					case PSIParserConstants.TOKEN_STRING:
-						opstack.push(new PSIString(token));
+					case ParserConstants.TOKEN_STRING:
+						opstack.push(new PsiString(token));
 						break;
-					case PSIParserConstants.TOKEN_NAME_LITERAL:
-						opstack.push(new PSIName(token));
+					case ParserConstants.TOKEN_NAME_LITERAL:
+						opstack.push(new PsiName(token));
 						break;
-					case PSIParserConstants.TOKEN_NAME_EXECUTABLE:
-						//dictstack.load(new PSIName(token)).execute(this);
-						(new PSIName(token)).execute(this);
+					case ParserConstants.TOKEN_NAME_EXECUTABLE:
+						//dictstack.load(new PsiName(token)).execute(this);
+						(new PsiName(token)).execute(this);
 						break;
 				}
 				// TODO
@@ -89,29 +89,29 @@ public class PSIInterpreter
 			{
 				switch(token.kind)
 				{
-					case PSIParserConstants.TOKEN_OPEN_BRACE:
-						procstack.push(new PSIArray());
-						procstack.peek().setAccess(PSIObject.ACCESS_EXECUTE);
+					case ParserConstants.TOKEN_OPEN_BRACE:
+						procstack.push(new PsiArray());
+						procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
 						break;
-					case PSIParserConstants.TOKEN_CLOSE_BRACE:
-						PSIArray proc=procstack.pop();
+					case ParserConstants.TOKEN_CLOSE_BRACE:
+						PsiArray proc=procstack.pop();
 						if(procstack.size()>0)
 							procstack.peek().add(proc);
 						else
 							opstack.push(proc);
 						break;
-					case PSIParserConstants.TOKEN_INTEGER:
-						procstack.peek().add(new PSIInteger(token));
+					case ParserConstants.TOKEN_INTEGER:
+						procstack.peek().add(new PsiInteger(token));
 						break;
-					case PSIParserConstants.TOKEN_REAL:
-						procstack.peek().add(new PSIReal(token));
+					case ParserConstants.TOKEN_REAL:
+						procstack.peek().add(new PsiReal(token));
 						break;
-					case PSIParserConstants.TOKEN_STRING:
-						procstack.peek().add(new PSIString(token));
+					case ParserConstants.TOKEN_STRING:
+						procstack.peek().add(new PsiString(token));
 						break;
-					case PSIParserConstants.TOKEN_NAME_LITERAL:
-					case PSIParserConstants.TOKEN_NAME_EXECUTABLE:
-						procstack.peek().add(new PSIName(token));
+					case ParserConstants.TOKEN_NAME_LITERAL:
+					case ParserConstants.TOKEN_NAME_EXECUTABLE:
+						procstack.peek().add(new PsiName(token));
 						break;
 				}
 			}
@@ -124,7 +124,7 @@ public class PSIInterpreter
 		System.out.println("ERROR: "+errorName);
 	}
 
-	public PSIDictionary loadModule(Class<? extends PSIModule> moduleClass)
+	public PsiDictionary loadModule(Class<? extends PsiModule> moduleClass)
 	{
 		try
 		{

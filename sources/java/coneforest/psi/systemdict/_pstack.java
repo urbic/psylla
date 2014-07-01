@@ -1,12 +1,13 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _pstack extends PSIOperator
+public class _pstack extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		for(PSIObject obj: opstack)
+		// TODO reverse order
+		for(PsiObject obj: opstack)
 			System.out.print(obj+" ");
 	}
 }

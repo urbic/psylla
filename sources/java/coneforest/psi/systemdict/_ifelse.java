@@ -1,20 +1,20 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _ifelse extends PSIOperator
+public class _ifelse extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 			interpreter.error("stackunderflow");
 		else
 		{
-			PSIObject obj2=opstack.pop();
-			PSIObject obj1=opstack.pop();
-			PSIObject cond=opstack.pop();
-			if(cond instanceof PSIBoolean)
-				(((PSIBoolean)cond).getValue()? obj1: obj2).execute(interpreter);
+			PsiObject obj2=opstack.pop();
+			PsiObject obj1=opstack.pop();
+			PsiObject cond=opstack.pop();
+			if(cond instanceof PsiBoolean)
+				(((PsiBoolean)cond).getValue()? obj1: obj2).execute(interpreter);
 			else
 			{
 				opstack.push(cond);

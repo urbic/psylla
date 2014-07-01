@@ -1,21 +1,21 @@
 package coneforest.psi;
 
-public class PSIArray extends PSIObject
+public class PsiArray extends PsiObject
 {
-	public PSIArray()
+	public PsiArray()
 	{
-		array=new java.util.ArrayList<PSIObject>();
+		array=new java.util.ArrayList<PsiObject>();
 	}
 
 	public String getTypeName() { return "array"; }
 
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
-		//System.out.println("PSIArray.execute called!");
+		//System.out.println("PsiArray.execute called!");
 		interpreter.getOperandStack().push(this);
 	}
 
-	public void invoke(PSIInterpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		if(isExecutable())
 		{
@@ -34,22 +34,22 @@ public class PSIArray extends PSIObject
 		return array.size();
 	}
 
-	public PSIObject get(int index)
+	public PsiObject get(int index)
 	{
 		return array.get(index);
 	}
 
-	public void add(PSIObject obj)
+	public void add(PsiObject obj)
 	{
 		array.add(obj);
 	}
 
-	public void add(int i, PSIObject obj)
+	public void add(int i, PsiObject obj)
 	{
 		array.add(i, obj);
 	}
 
-	public void set(int index, PSIObject obj)
+	public void set(int index, PsiObject obj)
 	{
 		array.set(index, obj);
 	}
@@ -60,7 +60,7 @@ public class PSIArray extends PSIObject
 		sb.append(isExecutable()? "{": "[");
 		if(size()>0)
 		{
-			for(PSIObject obj: array)
+			for(PsiObject obj: array)
 				sb.append(obj+" ");
 			sb.deleteCharAt(sb.length()-1);
 		}
@@ -68,5 +68,5 @@ public class PSIArray extends PSIObject
 		return sb.toString();
 	}
 
-	private java.util.ArrayList<PSIObject> array;
+	private java.util.ArrayList<PsiObject> array;
 }

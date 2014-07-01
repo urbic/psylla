@@ -1,8 +1,8 @@
 package coneforest.psi;
 
-public class DictionaryStack extends java.util.Stack<PSIDictionary>
+public class DictionaryStack extends java.util.Stack<PsiDictionary>
 {
-	public PSIObject load(PSIStringlike key)
+	public PsiObject load(PsiStringlike key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
@@ -12,12 +12,12 @@ public class DictionaryStack extends java.util.Stack<PSIDictionary>
 		return null;
 	}
 
-	public PSIDictionary getCurrentDictionary()
+	public PsiDictionary getCurrentDictionary()
 	{
 		return peek();
 	}
 	
-	public PSIDictionary getSystemDictionary()
+	public PsiDictionary getSystemDictionary()
 	{
 		return elementAt(0);
 	}

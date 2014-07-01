@@ -1,15 +1,15 @@
 package coneforest.psi;
 
-public class PSIString extends PSIStringlike
+public class PsiString extends PsiStringlike
 {
-	public PSIString(String string)
+	public PsiString(String string)
 	{
 		setValue(string);
 	}
 
-	public PSIString(Token token)
+	public PsiString(Token token)
 	{
-		if(token.kind==PSIParserConstants.TOKEN_STRING)
+		if(token.kind==ParserConstants.TOKEN_STRING)
 		{
 			StringBuilder sb=new StringBuilder();
 			for(int i=1; i<token.image.length()-1; i++)
@@ -62,7 +62,7 @@ public class PSIString extends PSIStringlike
 
 	public String getTypeName() { return "string"; }
 
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		interpreter.getOperandStack().push(this);
 		// TODO: executable strings

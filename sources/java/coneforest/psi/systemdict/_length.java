@@ -1,23 +1,23 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _length extends PSIOperator
+public class _length extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 			interpreter.error("stackunderflow");
 		else
 		{
-			PSIObject obj=opstack.pop();
+			PsiObject obj=opstack.pop();
 
-			if(obj instanceof PSIStringlike)
-				opstack.push(new PSIInteger(((PSIStringlike)obj).getValue().length()));
-			else if(obj instanceof PSIArray)
-				opstack.push(new PSIInteger(((PSIArray)obj).size()));
-			else if(obj instanceof PSIDictionary)
-				opstack.push(new PSIInteger(((PSIDictionary)obj).size()));
+			if(obj instanceof PsiStringlike)
+				opstack.push(new PsiInteger(((PsiStringlike)obj).getValue().length()));
+			else if(obj instanceof PsiArray)
+				opstack.push(new PsiInteger(((PsiArray)obj).size()));
+			else if(obj instanceof PsiDictionary)
+				opstack.push(new PsiInteger(((PsiDictionary)obj).size()));
 			else
 			{
 				opstack.push(obj);

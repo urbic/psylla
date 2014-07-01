@@ -1,14 +1,15 @@
 package coneforest.psi;
 
-class PSI
+class Psi
 {
 	public static void main(String args[])
 	{
-		PSIInterpreter interpreter;
+		System.out.println(new Character[]{'a', 'b', 'c'});
+		Interpreter interpreter;
 		try
 		{
 			java.io.FileInputStream is=new java.io.FileInputStream(args[0]);
-			interpreter=new PSIInterpreter(is);
+			interpreter=new Interpreter(is);
 			interpreter.interpret();
 		}
 		catch(java.io.FileNotFoundException e)

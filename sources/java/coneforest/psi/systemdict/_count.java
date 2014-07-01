@@ -1,11 +1,11 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _count extends PSIOperator
+public class _count extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PSIInteger(opstack.size()));
+		opstack.push(new PsiInteger(opstack.size()));
 	}
 }

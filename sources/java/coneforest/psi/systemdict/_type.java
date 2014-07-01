@@ -1,17 +1,17 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _type extends PSIOperator
+public class _type extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 			interpreter.error("stackunderflow");
 		else
 		{
-			PSIObject obj=opstack.pop();
-			PSIName result=new PSIName(obj.getTypeName()+"type");
+			PsiObject obj=opstack.pop();
+			PsiName result=new PsiName(obj.getTypeName()+"type");
 			result.setExecutable();
 			opstack.push(result);
 		}
