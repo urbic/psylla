@@ -150,9 +150,11 @@ public class Interpreter
 		this.exitFlag=exitFlag;
 	}
 	
-	public void pushLoopLevel()
+	public int pushLoopLevel()
 	{
-		loopstack.push(execstack.size());
+		int level=execstack.size();
+		loopstack.push(level);
+		return level;
 	}
 
 	public int popLoopLevel()

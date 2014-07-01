@@ -22,18 +22,14 @@ public class _repeat extends PsiOperator
 				interpreter.error("rangecheck");
 				return;
 			}
-			interpreter.pushLoopLevel();
+			int looplevel=interpreter.pushLoopLevel();
 			// TODO: reverse
 			for(int i=0;
 					i<countValue && !interpreter.getExitFlag();
 					i++)
 			{
-					//int level=interpreter.getExecutionStack().size();
-				//int currentLoopLevel=interpreter.getLoopLevel();
 				obj.invoke(interpreter);
-				//System.out.println("UUU "+currentLoopLevel);
-				interpreter.handleExecutionStack(interpreter.currentLoopLevel());
-				//interpreter.setLoopLevel(currentLoopLevel);
+				interpreter.handleExecutionStack(looplevel);
 			}
 			interpreter.setExitFlag(false);
 

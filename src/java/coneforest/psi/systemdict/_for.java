@@ -21,7 +21,7 @@ public class _for extends PsiOperator
 				&& initial instanceof PsiNumeric)
 		{
 
-			interpreter.pushLoopLevel();
+			int looplevel=interpreter.pushLoopLevel();
 			// TODO: reverse
 			for(PsiNumeric i=(PsiNumeric)initial;
 					PsiNumeric.le(i, (PsiNumeric)limit).getValue() && !interpreter.getExitFlag();
@@ -32,9 +32,10 @@ public class _for extends PsiOperator
 				//int currentLoopLevel=interpreter.getLoopLevel();
 				obj.invoke(interpreter);
 				//System.out.println("UUU "+currentLoopLevel);
-				interpreter.handleExecutionStack(interpreter.currentLoopLevel());
+				interpreter.handleExecutionStack(looplevel);
 				//interpreter.setLoopLevel(currentLoopLevel);
 			}
+			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 
 		}
