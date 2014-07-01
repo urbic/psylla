@@ -20,6 +20,7 @@ public class SystemDictionary extends coneforest.psi.PsiModule
 		register(_count.class);
 		register(_countdictstack.class);
 		register(_counttomark.class);
+		register(_cvi.class);
 		register(_cvlit.class);
 		register(_cvx.class);
 		register(_def.class);
@@ -36,6 +37,7 @@ public class SystemDictionary extends coneforest.psi.PsiModule
 		register(_floor.class);
 		register(_for.class);
 		register(_ge.class);
+		register(_get.class);
 		register(_gt.class);
 		register(_idiv.class);
 		register(_if.class);

@@ -14,7 +14,7 @@ public class _ifelse extends PsiOperator
 			PsiObject obj1=opstack.pop();
 			PsiObject cond=opstack.pop();
 			if(cond instanceof PsiBoolean)
-				(((PsiBoolean)cond).getValue()? obj1: obj2).execute(interpreter);
+				(((PsiBoolean)cond).getValue()? obj1: obj2).invoke(interpreter);
 			else
 			{
 				opstack.push(cond);
