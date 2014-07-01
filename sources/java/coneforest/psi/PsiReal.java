@@ -1,8 +1,8 @@
 package coneforest.psi;
 
-public class PSIReal extends PSINumeric
+public class PsiReal extends PsiNumeric
 {
-	public PSIReal(double value)
+	public PsiReal(double value)
 	{
 		this.value=value;
 	}
@@ -14,9 +14,9 @@ public class PSIReal extends PSINumeric
 		return value;
 	}
 
-	public PSIReal(Token token)
+	public PsiReal(Token token)
 	{
-		if(token.kind==PSIParserConstants.TOKEN_REAL)
+		if(token.kind==ParserConstants.TOKEN_REAL)
 		{
 			this.value=new Double(token.image);
 		}

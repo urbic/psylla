@@ -1,15 +1,15 @@
 package coneforest.psi;
 
-abstract public class PSIObject
+abstract public class PsiObject
 {
 	abstract public String getTypeName();
 
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		interpreter.getOperandStack().push(this);
 	}
 
-	public void invoke(PSIInterpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		interpreter.getOperandStack().push(this);
 	}

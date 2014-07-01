@@ -1,19 +1,19 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _dict extends PSIOperator
+public class _dict extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 
 		if(opstack.size()<1)
 			interpreter.error("stackunderflow");
 
-		PSIObject n=opstack.pop();
-		if(n instanceof PSIInteger)
+		PsiObject n=opstack.pop();
+		if(n instanceof PsiInteger)
 		{
-			int nValue=((PSIInteger)n).getValue().intValue();
+			int nValue=((PsiInteger)n).getValue().intValue();
 			if(nValue<0)
 			{
 				interpreter.error("rangecheck");
@@ -24,7 +24,7 @@ public class _dict extends PSIOperator
 				interpreter.error("limitcheck");
 				return;
 			}
-			opstack.push(new PSIDictionary());
+			opstack.push(new PsiDictionary());
 		}
 		else
 			interpreter.error("typecheck");

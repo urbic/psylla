@@ -81,7 +81,7 @@ $Id$
 	<target name="compile.jj">
 		<mkdir dir="${build.sources.java}/coneforest/psi"/>
 		<javacc
-			target="${sources.jj}/coneforest/psi/PSIParser.jj"
+			target="${sources.jj}/coneforest/psi/Parser.jj"
 			outputdirectory="${build.sources.java}/coneforest/psi"
 			javacchome="/usr/share/java"
 			unicodeinput="true"
@@ -114,7 +114,7 @@ $Id$
 	<target name="jar" depends="compile">
 		<jar jarfile="${dist.lib}/${ant.project.name}.jar" basedir="${classes}">
 			<manifest>
-				<attribute name="Main-Class" value="coneforest.psi.PSI"/>
+				<attribute name="Main-Class" value="coneforest.psi.Psi"/>
 				<!--attribute name="Class-Path" value="/usr/share/java/regexp.jar"/-->
 			</manifest>
 		</jar>

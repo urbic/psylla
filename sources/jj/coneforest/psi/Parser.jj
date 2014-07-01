@@ -1,13 +1,13 @@
 
-PARSER_BEGIN(PSIParser)
+PARSER_BEGIN(Parser)
 
 package coneforest.psi;
 
-class PSIParser
+class Parser
 {
 }
 
-PARSER_END(PSIParser)
+PARSER_END(Parser)
 
 SKIP:
 {

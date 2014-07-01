@@ -1,16 +1,16 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _arraytomark extends PSIOperator
+public class _arraytomark extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
 		{
-			if(opstack.elementAt(i) instanceof PSIMark)
+			if(opstack.elementAt(i) instanceof PsiMark)
 			{
-				PSIArray array=new PSIArray();
+				PsiArray array=new PsiArray();
 				while(opstack.size()>i+1)
 					array.add(0, opstack.pop());
 				opstack.pop();

@@ -1,18 +1,18 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _if extends PSIOperator
+public class _if extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 			interpreter.error("stackunderflow");
 		else
 		{
-			PSIObject obj=opstack.pop();
-			PSIObject cond=opstack.pop();
-			if(cond instanceof PSIBoolean)
+			PsiObject obj=opstack.pop();
+			PsiObject cond=opstack.pop();
+			if(cond instanceof PsiBoolean)
 			{
 				if((boolean)cond.getValue())
 					obj.invoke(interpreter);

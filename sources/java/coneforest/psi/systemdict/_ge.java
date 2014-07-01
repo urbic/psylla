@@ -1,9 +1,9 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _ge extends PSIOperator
+public class _ge extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -11,13 +11,13 @@ public class _ge extends PSIOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PSIObject obj2=opstack.pop();
-		PSIObject obj1=opstack.pop();
+		PsiObject obj2=opstack.pop();
+		PsiObject obj1=opstack.pop();
 
-		if(obj1 instanceof PSINumeric && obj2 instanceof PSINumeric)
-			opstack.push(PSINumeric.ge((PSINumeric)obj1, (PSINumeric)obj2));
-		else if(obj1 instanceof PSIStringlike && obj2 instanceof PSIStringlike)
-			opstack.push(PSIStringlike.ge((PSIStringlike)obj1, (PSIStringlike)obj2));
+		if(obj1 instanceof PsiNumeric && obj2 instanceof PsiNumeric)
+			opstack.push(PsiNumeric.ge((PsiNumeric)obj1, (PsiNumeric)obj2));
+		else if(obj1 instanceof PsiStringlike && obj2 instanceof PsiStringlike)
+			opstack.push(PsiStringlike.ge((PsiStringlike)obj1, (PsiStringlike)obj2));
 		else
 			interpreter.error("typecheck");
 	}

@@ -1,9 +1,9 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _for extends PSIOperator
+public class _for extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<4)
@@ -11,21 +11,21 @@ public class _for extends PSIOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PSIObject obj=opstack.pop();
-		PSIObject limit=opstack.pop();
-		PSIObject increment=opstack.pop();
-		PSIObject initial=opstack.pop();
+		PsiObject obj=opstack.pop();
+		PsiObject limit=opstack.pop();
+		PsiObject increment=opstack.pop();
+		PsiObject initial=opstack.pop();
 
-		if(limit instanceof PSINumeric
-				&& increment instanceof PSINumeric
-				&& initial instanceof PSINumeric)
+		if(limit instanceof PsiNumeric
+				&& increment instanceof PsiNumeric
+				&& initial instanceof PsiNumeric)
 		{
 
 			interpreter.pushLoopLevel();
 			// TODO: reverse
-			for(PSINumeric i=(PSINumeric)initial;
-					PSINumeric.le(i, (PSINumeric)limit).getValue() && !interpreter.getExitFlag();
-					i=PSINumeric.sum(i, (PSINumeric)increment))
+			for(PsiNumeric i=(PsiNumeric)initial;
+					PsiNumeric.le(i, (PsiNumeric)limit).getValue() && !interpreter.getExitFlag();
+					i=PsiNumeric.sum(i, (PsiNumeric)increment))
 			{
 				opstack.push(i);
 					//int level=interpreter.getExecutionStack().size();

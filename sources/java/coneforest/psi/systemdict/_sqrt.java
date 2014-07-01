@@ -1,19 +1,19 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _sqrt extends PSIOperator
+public class _sqrt extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 			interpreter.error("stackunderflow");
 		else
 		{
-			PSIObject obj=opstack.peek();
-			if(obj instanceof PSINumeric)
+			PsiObject obj=opstack.peek();
+			if(obj instanceof PsiNumeric)
 			{
-				PSIReal result=PSINumeric.sqrt((PSINumeric)obj);
+				PsiReal result=PsiNumeric.sqrt((PsiNumeric)obj);
 				if(result.getValue().isNaN())
 					interpreter.error("rangecheck");
 				else

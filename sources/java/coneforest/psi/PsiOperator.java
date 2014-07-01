@@ -1,10 +1,10 @@
 package coneforest.psi;
 
-public abstract class PSIOperator extends PSIObject
+public abstract class PsiOperator extends PsiObject
 {
 	public String getTypeName() { return "operator"; }
 
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		if(isExecutable())
 		{
@@ -16,7 +16,7 @@ public abstract class PSIOperator extends PSIObject
 			interpreter.getOperandStack().push(this);
 	}
 
-	public void invoke(PSIInterpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		execute(interpreter);
 	}

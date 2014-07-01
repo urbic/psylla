@@ -1,27 +1,27 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _dicttomark extends PSIOperator
+public class _dicttomark extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
 		{
-			if(opstack.elementAt(i) instanceof PSIMark)
+			if(opstack.elementAt(i) instanceof PsiMark)
 			{
 				if(opstack.size()-1-i % 2==1)
 				{
 					interpreter.error("rangecheck");
 					return;
 				}
-				PSIDictionary dict=new PSIDictionary();
+				PsiDictionary dict=new PsiDictionary();
 				while(opstack.size()>i+1)
 				{
-					PSIObject obj=opstack.pop();
-					PSIObject key=opstack.pop();
-					if(key instanceof PSIStringlike)
-						dict.put((PSIStringlike)key, obj);
+					PsiObject obj=opstack.pop();
+					PsiObject key=opstack.pop();
+					if(key instanceof PsiStringlike)
+						dict.put((PsiStringlike)key, obj);
 					else
 					{
 						interpreter.error("typecheck");

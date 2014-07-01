@@ -1,20 +1,20 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _known extends PSIOperator
+public class _known extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 			interpreter.error("stackunderflow");
 		else
 		{
-			PSIObject key=opstack.pop();
-			PSIObject dict=opstack.pop();
+			PsiObject key=opstack.pop();
+			PsiObject dict=opstack.pop();
 
-			if(key instanceof PSIStringlike && dict instanceof PSIDictionary)
-				opstack.push(new PSIBoolean(((PSIDictionary)dict).containsKey((PSIStringlike)key)));
+			if(key instanceof PsiStringlike && dict instanceof PsiDictionary)
+				opstack.push(new PsiBoolean(((PsiDictionary)dict).containsKey((PsiStringlike)key)));
 			else
 				interpreter.error("typecheck");
 			// TODO errors: invalidaccess, undefined

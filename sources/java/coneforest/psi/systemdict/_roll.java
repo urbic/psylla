@@ -1,21 +1,21 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _roll extends PSIOperator
+public class _roll extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		
 		if(opstack.size()<2)
 			interpreter.error("stackunderflow");
 
-		PSIObject j=opstack.pop();
-		PSIObject n=opstack.pop();
-		if(n instanceof PSIInteger && j instanceof PSIInteger)
+		PsiObject j=opstack.pop();
+		PsiObject n=opstack.pop();
+		if(n instanceof PsiInteger && j instanceof PsiInteger)
 		{
-			int nValue=((PSIInteger)n).getValue().intValue();
-			int jValue=((PSIInteger)j).getValue().intValue();
+			int nValue=((PsiInteger)n).getValue().intValue();
+			int jValue=((PsiInteger)j).getValue().intValue();
 			int opstackSize=opstack.size();
 			if(nValue<0)
 			{

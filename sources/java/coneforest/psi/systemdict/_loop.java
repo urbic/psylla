@@ -1,9 +1,9 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _loop extends PSIOperator
+public class _loop extends PsiOperator
 {
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
@@ -11,7 +11,7 @@ public class _loop extends PSIOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PSIObject obj=opstack.pop();
+		PsiObject obj=opstack.pop();
 
 		interpreter.pushLoopLevel();
 		while(!interpreter.getExitFlag())

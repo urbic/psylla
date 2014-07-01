@@ -1,10 +1,10 @@
 package coneforest.psi;
 
-public class PSIMark extends PSIObject
+public class PsiMark extends PsiObject
 {
 	public String getTypeName() { return "mark"; }
 
-	public void execute(PSIInterpreter interpreter)
+	public void execute(Interpreter interpreter)
 	{
 		interpreter.getOperandStack().push(this);
 	}

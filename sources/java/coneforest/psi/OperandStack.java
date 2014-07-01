@@ -1,5 +1,5 @@
 package coneforest.psi;
 
-public class OperandStack extends java.util.Stack<PSIObject>
+public class OperandStack extends java.util.Stack<PsiObject>
 {
 }

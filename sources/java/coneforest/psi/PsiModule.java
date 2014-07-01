@@ -1,12 +1,12 @@
 package coneforest.psi;
 
-public class PSIModule extends PSIDictionary
+public class PsiModule extends PsiDictionary
 {
-	protected void register(Class<? extends PSIOperator> operatorClass)
+	protected void register(Class<? extends PsiOperator> operatorClass)
 	{
 		try
 		{
-			PSIOperator operator=operatorClass.newInstance();
+			PsiOperator operator=operatorClass.newInstance();
 			String operatorName=operator.getName();
 			//System.out.println("Registering ["+operatorName+"]");
 			put(operatorName, operator);
@@ -24,14 +24,14 @@ public class PSIModule extends PSIDictionary
 	}
 
 	/*
-	public PSIObject getByName(String name)
+	public PsiObject getByName(String name)
 	{
-		return get(new PSIName(name));
+		return get(new PsiName(name));
 	}
 
-	public void putByName(String name, PSIObject obj)
+	public void putByName(String name, PsiObject obj)
 	{
-		put(new PSIName(name), obj);
+		put(new PsiName(name), obj);
 	}
 	*/
 }
