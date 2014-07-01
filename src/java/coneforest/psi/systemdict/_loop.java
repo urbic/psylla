@@ -13,12 +13,13 @@ public class _loop extends PsiOperator
 		}
 		PsiObject obj=opstack.pop();
 
-		interpreter.pushLoopLevel();
+		int execlevel=interpreter.pushLoopLevel();
 		while(!interpreter.getExitFlag())
 		{
 			obj.invoke(interpreter);
-			interpreter.handleExecutionStack(interpreter.currentLoopLevel());
+			interpreter.handleExecutionStack(execlevel);
 		}
+		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
 	}
 }

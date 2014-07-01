@@ -22,7 +22,7 @@ public class PsiArray extends PsiObject
 			int level=execstack.size();
 			for(int i=size()-1; i>=0; i--)
 				execstack.push(get(i));
-			interpreter.handleExecutionStack(level);
+			//interpreter.handleExecutionStack(level);
 		}
 		else
 			execute(interpreter);
