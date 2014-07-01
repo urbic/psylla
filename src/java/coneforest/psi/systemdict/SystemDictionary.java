@@ -22,6 +22,7 @@ public class SystemDictionary extends coneforest.psi.PsiModule
 		register(_counttomark.class);
 		register(_cvi.class);
 		register(_cvlit.class);
+		register(_cvn.class);
 		register(_cvx.class);
 		register(_def.class);
 		register(_dict.class);
