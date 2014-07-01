@@ -11,7 +11,6 @@ public class PsiArray extends PsiObject
 
 	public void execute(Interpreter interpreter)
 	{
-		//System.out.println("PsiArray.execute called!");
 		interpreter.getOperandStack().push(this);
 	}
 
@@ -23,7 +22,7 @@ public class PsiArray extends PsiObject
 			int level=execstack.size();
 			for(int i=size()-1; i>=0; i--)
 				execstack.push(get(i));
-			//interpreter.handleExecutionStack(level);
+			interpreter.handleExecutionStack(level);
 		}
 		else
 			execute(interpreter);

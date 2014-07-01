@@ -1,37 +1,30 @@
 <?xml version="1.0"?>
-<!--
-$URL$
-$Id$
--->
 <project name="psi" default="dist" basedir=".">
 	
 	<property name="project.name" value="${ant.project.name}"/>
-	<property name="sources" location="sources"/>
-	<property name="sources.java" location="${sources}/java"/>
-	<property name="sources.jj" location="${sources}/jj"/>
-	<property name="sources.docbook" location="${sources}/docbook"/>
-	<property name="build" location="build"/>
-	<property name="build.sources.java" location="${build}/sources/java"/>
-	<property name="build.doc" location="${build}/doc"/>
-	<property name="classes" location="${build}/classes"/>
-	<property name="dist"  location="dist"/>
-	<property name="dist.lib"  location="${dist}/lib"/>
+	<property name="src" location="src"/>
+	<property name="src.java" location="${src}/java"/>
+	<property name="src.jj" location="${src}/jj"/>
+	<property name="src.docbook" location="${src}/docbook"/>
+	<property name="target" location="target"/>
+	<property name="target.src.java" location="${target}/src/java"/>
+	<property name="target.doc" location="${target}/doc"/>
+	<property name="classes" location="${target}/classes"/>
+	<property name="target.lib"  location="${target}/lib"/>
 	<property name="javadoc"  location="javadoc"/>
 	<property name="test.file"  location="test.psi"/>
-	<!-- <property name="java.library.path"  location="."/> -->
-	<!-- <property name="java.library.path" location="/home/tz/work/projects/jslangy"/> -->
 
 	<presetdef name="xslt.preset">
 		<xslt
-			style="${sources.docbook}/xhtml.xsl"
-			basedir="${sources.docbook}"
-			filedirparameter="${sources.docbook}"
+			style="${src.docbook}/xhtml.xsl"
+			basedir="${src.docbook}"
+			filedirparameter="${src.docbook}"
 			force="true"
 			>
 			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
 			<xmlcatalog>
 				<catalogpath>
-					<pathelement location="${sources.docbook}/xmlcatalog"/>
+					<pathelement location="${src.docbook}/xmlcatalog"/>
 				</catalogpath>
 			</xmlcatalog>
 			<classpath>
@@ -44,7 +37,6 @@ $Id$
 			<param name="profile.status" expression="${xslt.profile.status}"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
 			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
-			<!--param name="base.dir" expression="${site.build.dir}"/-->
 			<param name="html.stylesheet" expression="${project.name}.css"/>
 			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
 			<param name="generate.manifest" expression="0"/>
@@ -68,21 +60,21 @@ $Id$
 		<sequential>
 			<xslt.preset
 				includes="@{base.name}_@{lang}.docbook"
-				destdir="${build.doc}"
+				destdir="${target.doc}"
 				>
 				<param name="root.filename" expression="@{base.name}_@{lang}"/>
 				<param name="html.ext" expression=".xhtml"/>
-				<param name="base.dir" expression="${build.doc}"/>
+				<param name="base.dir" expression="${target.doc}"/>
 			</xslt.preset>
 		</sequential>
 	</macrodef>	
 
 
 	<target name="compile.jj">
-		<mkdir dir="${build.sources.java}/coneforest/psi"/>
+		<mkdir dir="${target.src.java}/coneforest/psi"/>
 		<javacc
-			target="${sources.jj}/coneforest/psi/Parser.jj"
-			outputdirectory="${build.sources.java}/coneforest/psi"
+			target="${src.jj}/coneforest/psi/Parser.jj"
+			outputdirectory="${target.src.java}/coneforest/psi"
 			javacchome="/usr/share/java"
 			unicodeinput="true"
 			/>
@@ -92,8 +84,8 @@ $Id$
 			description="compile the source ">
 		<mkdir dir="${classes}"/>
 		<javac
-			sourcepath="${sources.java}:${build.sources.java}"
-			srcdir="${sources.java}"
+			sourcepath="${src.java}:${target.src.java}"
+			srcdir="${src.java}"
 			destdir="${classes}"
 			includeantruntime="false"
 			>
@@ -105,14 +97,14 @@ $Id$
 	<target name="javadoc">
 		<mkdir dir="${javadoc}"/>
 		<javadoc
-			sourcepath="${sources.java}"
+			sourcepath="${src.java}"
 			destdir="${javadoc}"
 			access="public"
 			/>
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar jarfile="${dist.lib}/${ant.project.name}.jar" basedir="${classes}">
+		<jar jarfile="${target.lib}/${ant.project.name}.jar" basedir="${classes}">
 			<manifest>
 				<attribute name="Main-Class" value="coneforest.psi.Psi"/>
 				<!--attribute name="Class-Path" value="/usr/share/java/regexp.jar"/-->
@@ -121,12 +113,12 @@ $Id$
 	</target>
 
 	<target name="clean" description="Clean build directory">
-		<delete dir="${build}"/>
+		<delete dir="${target}"/>
 	</target>
 
 	<target name="test" depends="jar">
 		<java
-			jar="${dist.lib}/${ant.project.name}.jar"
+			jar="${target.lib}/${ant.project.name}.jar"
 			fork="true"
 			>
 			<arg file="${test.file}"/>
@@ -134,37 +126,38 @@ $Id$
 	</target>
 
 	<target name="doc" description="Make documentation" depends="css">
-		<mkdir dir="${build.doc}"/>
-		<symlink resource="${sources.docbook}/examples" link="examples" overwrite="true"/>
+		<mkdir dir="${target.doc}"/>
+		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
 		<!--xslt.lang lang="en"/-->
 		<xslt.lang lang="ru" base.name="PSIReference"/>
-		<copy todir="${build.doc}">
-			<fileset dir="${sources.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
-			<fileset dir="${sources.docbook}" includes="examples/**" excludes="**/.htaccess"/>
-			<fileset dir="${sources.docbook}" includes="files/**" excludes="**/.htaccess"/>
-			<fileset dir="${sources.docbook}" includes="navigation/**"/>
-			<fileset dir="${sources.docbook}" includes="js/**"/>
+		<copy todir="${target.doc}">
+			<fileset dir="${src.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
+			<fileset dir="${src.docbook}" includes="examples/**" excludes="**/.htaccess"/>
+			<fileset dir="${src.docbook}" includes="files/**" excludes="**/.htaccess"/>
+			<fileset dir="${src.docbook}" includes="navigation/**"/>
+			<fileset dir="${src.docbook}" includes="js/**"/>
 		</copy>
 		<!--copy todir="${build.doc}">
 			<fileset dir="${sources.dir}" includes="MathJax4SVG.js"/>
 		</copy-->
 		<!--symlink resource="../MathJax4SVG.js" link="${site.build.dir}/examples/MathJax4SVG.js" overwrite="true"/-->
+		<symlink action="delete" link="examples"/>
 	</target>
 	
 	<target name="css" description="Make CSS">
-		<mkdir dir="${build.doc}"/>
+		<mkdir dir="${target.doc}"/>
 		<dependset>
-			<srcfilelist dir="${sources.docbook}" files="*.scss"/>
-			<targetfileset dir="${build.doc}" includes="${project.name}.css"/>
+			<srcfilelist dir="${src.docbook}" files="*.scss"/>
+			<targetfileset dir="${target.doc}" includes="${project.name}.css"/>
 		</dependset>
-		<apply executable="sass" dest="${build.doc}" parallel="false">
+		<apply executable="sass" dest="${target.doc}" parallel="false">
 			<arg value="--style"/>
 			<arg value="compact"/>
 			<!--arg value="-+-load-path"/>
 			<arg value="${share.dir}/css"-->
 			<srcfile/>
 			<targetfile/>
-			<fileset dir="${sources.docbook}" includes="${project.name}.scss"/>
+			<fileset dir="${src.docbook}" includes="${project.name}.scss"/>
 			<mapper type="glob" from="*.scss" to="*.css"/>
 		</apply>
 	</target>

@@ -165,6 +165,14 @@ public class Interpreter
 		return loopstack.size()>0? loopstack.peek(): -1;
 	}
 
+	public void acceptShellArguments(final String[] args)
+	{
+		PsiArray arguments=new PsiArray();
+		for(String arg: args)
+			arguments.add(new PsiString(arg));
+		dictstack.getSystemDictionary().put("arguments", arguments);
+	}
+
 	private java.io.InputStream is;
 	private OperandStack opstack;
 	private DictionaryStack dictstack;
