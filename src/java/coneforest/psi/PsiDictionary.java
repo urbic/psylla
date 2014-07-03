@@ -14,6 +14,11 @@ public class PsiDictionary extends PsiObject
 		dictionary.put(name, obj);
 	}
 
+	public java.util.Set<java.util.Map.Entry<String, PsiObject>> entrySet()
+	{
+		return dictionary.entrySet();
+	}
+
 	public PsiObject get(PsiStringlike key)
 	{
 		return get(key.getValue());

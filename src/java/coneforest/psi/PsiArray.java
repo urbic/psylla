@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public class PsiArray extends PsiObject
+public class PsiArray extends PsiObject implements Iterable<PsiObject>
 {
 	public PsiArray()
 	{
@@ -26,6 +26,11 @@ public class PsiArray extends PsiObject
 		}
 		else
 			execute(interpreter);
+	}
+
+	public java.util.Iterator<PsiObject> iterator()
+	{
+		return array.iterator();
 	}
 
 	public int size()
