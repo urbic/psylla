@@ -135,7 +135,7 @@
 -	eofill
 +	eq
 -	erasepage
-?	errordict
++	errordict
 +	exch
 +	exec
 -	execform
@@ -360,7 +360,7 @@
 -	strokepath
 +	sub
 ?	syntaxerror
-?	systemdict
++	systemdict
 ?	timeout
 ?	token
 -	transform
