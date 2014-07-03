@@ -140,6 +140,12 @@ public class Interpreter
 		}
 		return null;
 	}
+
+	public int getExecLevel()
+	{
+		return execstack.size();
+	}
+
 	public boolean getExitFlag()
 	{
 		return exitFlag;
@@ -148,6 +154,16 @@ public class Interpreter
 	public void setExitFlag(boolean exitFlag)
 	{
 		this.exitFlag=exitFlag;
+	}
+	
+	public boolean getStopFlag()
+	{
+		return stopFlag;
+	}
+
+	public void setStopFlag(boolean stopFlag)
+	{
+		this.stopFlag=stopFlag;
 	}
 	
 	public int pushLoopLevel()
@@ -167,6 +183,23 @@ public class Interpreter
 		return loopstack.size()>0? loopstack.peek(): -1;
 	}
 
+	public int pushStopLevel()
+	{
+		int level=execstack.size();
+		stopstack.push(level);
+		return level;
+	}
+
+	public int popStopLevel()
+	{
+		return stopstack.size()>0? stopstack.pop(): -1;
+	}
+	
+	public int currentStopLevel()
+	{
+		return stopstack.size()>0? stopstack.peek(): -1;
+	}
+
 	public void acceptShellArguments(final String[] args)
 	{
 		PsiArray arguments=new PsiArray();
@@ -180,6 +213,8 @@ public class Interpreter
 	private DictionaryStack dictstack;
 	private ExecutionStack execstack;
 	private ProcedureStack procstack;
-	private java.util.Stack<Integer> loopstack=new java.util.Stack<Integer>();
-	private boolean exitFlag=false;
+	private java.util.Stack<Integer>
+		loopstack=new java.util.Stack<Integer>(),
+		stopstack=new java.util.Stack<Integer>();
+	private boolean exitFlag=false, stopFlag=false;
 }
