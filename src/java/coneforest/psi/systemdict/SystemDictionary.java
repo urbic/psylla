@@ -38,6 +38,7 @@ public class SystemDictionary extends PsiModule
 		register(_file.class);
 		register(_floor.class);
 		register(_for.class);
+		register(_forall.class);
 		register(_ge.class);
 		register(_get.class);
 		register(_gt.class);
