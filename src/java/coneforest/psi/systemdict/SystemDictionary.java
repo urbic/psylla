@@ -65,6 +65,8 @@ public class SystemDictionary extends coneforest.psi.PsiModule
 		register(_roll.class);
 		register(_sin.class);
 		register(_sqrt.class);
+		register(_stop.class);
+		register(_stopped.class);
 		register(_string.class);
 		register(_sub.class);
 		register(_type.class);
