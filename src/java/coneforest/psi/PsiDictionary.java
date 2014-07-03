@@ -34,11 +34,6 @@ public class PsiDictionary extends PsiObject
 		return dictionary.size();
 	}
 
-	public void execute(Interpreter interpreter)
-	{
-		// TODO
-	}
-
 	public String toString()
 	{
 		return "-dict-";

@@ -14,9 +14,12 @@ public class _if extends PsiOperator
 			PsiObject cond=opstack.pop();
 			if(cond instanceof PsiBoolean)
 			{
-				if((boolean)cond.getValue())
+				if(((PsiBoolean)cond).getValue())
+				{
+					int execlevel=interpreter.pushLoopLevel();
 					obj.invoke(interpreter);
-				//interpreter.handleExecutionStack();
+					interpreter.handleExecutionStack(execlevel);
+				}
 			}
 			else
 			{
