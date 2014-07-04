@@ -6,13 +6,6 @@ public class PsiInteger extends PsiNumeric
 	{
 		this.value=value;
 	}
-	
-	public PsiInteger(final Token token)
-	{
-		if(token.kind==ParserConstants.TOKEN_INTEGER)
-			this.value=new Long(token.image);
-		// TODO
-	}
 
 	public Long getValue()
 	{
@@ -21,14 +14,9 @@ public class PsiInteger extends PsiNumeric
 	
 	public String getTypeName()	{ return "integer"; }
 
-	public void setValue(final long value)
-	{
-		this.value=value;
-	}
-
 	public String toString()
 	{
-		return new Long(value).toString();
+		return String.valueOf(value);
 	}
 
 	public static PsiInteger not(final PsiInteger x)
@@ -62,5 +50,5 @@ public class PsiInteger extends PsiNumeric
 		return null;
 	}
 
-	private long value;
+	private final long value;
 }

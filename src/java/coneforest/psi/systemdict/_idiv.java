@@ -17,9 +17,9 @@ public class _idiv extends PsiOperator
 		if(n1 instanceof PsiInteger && n2 instanceof PsiInteger)
 		{
 			// TODO
-			if(n2.getValue()!=0.)
+			if(((PsiInteger)n2).getValue()!=0.)
 			{
-				Double result=((Long)n1.getValue()).doubleValue()/((Long)n2.getValue()).doubleValue();
+				Double result=(((PsiInteger)n1).getValue()).doubleValue()/(((PsiInteger)n2).getValue()).doubleValue();
 				opstack.push(new PsiInteger(result.longValue()));
 			}
 			else

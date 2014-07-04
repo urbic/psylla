@@ -4,60 +4,12 @@ public class PsiString extends PsiStringlike
 {
 	public PsiString(String string)
 	{
-		setValue(string);
+		buffer=new StringBuffer(string);
 	}
 
-	public PsiString(Token token)
+	public PsiString(StringBuffer buffer)
 	{
-		if(token.kind==ParserConstants.TOKEN_STRING)
-		{
-			StringBuilder sb=new StringBuilder();
-			for(int i=1; i<token.image.length()-1; i++)
-			{
-				char c=token.image.charAt(i);
-				switch(c)
-				{
-					case '\\':
-						i++;
-						switch(token.image.charAt(i))
-						{
-							case '0':
-								sb.append('\u0000');
-								break;
-							case 'n':
-								sb.append('\n');
-								break;
-							case 'r':
-								sb.append('\r');
-								break;
-							case 't':
-								sb.append('\t');
-								break;
-							case 'f':
-								sb.append('\f');
-								break;
-							case 'e':
-								sb.append('\u001B');
-								break;
-							case '"':
-								sb.append('"');
-								break;
-							case '\\':
-								sb.append('\\');
-								break;
-							case 'u':
-								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+1, i+5), 16)));
-								i+=4;
-								break;
-						}
-						break;
-					default:
-						sb.append(c);
-						break;
-				}
-			}
-			setValue(new String(sb));
-		}
+		this.buffer=buffer;
 	}
 
 	public String getTypeName() { return "string"; }
@@ -68,17 +20,35 @@ public class PsiString extends PsiStringlike
 		// TODO: executable strings
 	}
 
+	public String getValue()
+	{
+		return buffer.toString();
+	}
+
+	public void setValue(final String value)
+	{
+		buffer.replace(0, value.length(), value);
+	}
+
+	public StringBuffer getBuffer()
+	{
+		return buffer;
+	}
+
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();
-		String string=getValue();
-		for(int i=0; i<string.length(); i++)
+		String value=getValue();
+		for(int i=0; i<value.length(); i++)
 		{
-			char c=string.charAt(i);
+			char c=value.charAt(i);
 			switch(c)
 			{
 				case '\u0000':
 					sb.append("\\0");
+					break;
+				case '\u0007':
+					sb.append("\\a");
 					break;
 				case '\n':
 					sb.append("\\n");
@@ -108,4 +78,5 @@ public class PsiString extends PsiStringlike
 		return "\""+sb.toString()+"\"";
 	}
 
+	private StringBuffer buffer;
 }
