@@ -51,9 +51,6 @@ public class Interpreter
 			token=parser.getNextToken();
 			if(token.kind==ParserConstants.EOF) break;
 
-			//System.out.println(token+"\t"+PsiParserConstants.tokenImage[token.kind]);
-
-
 			if(procstack.size()==0)
 			{
 				switch(token.kind)
@@ -65,22 +62,8 @@ public class Interpreter
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						error("syntaxerror");
 						break;
-					case ParserConstants.TOKEN_INTEGER:
-						opstack.push(new PsiInteger(token));
-						break;
-					case ParserConstants.TOKEN_REAL:
-						opstack.push(new PsiReal(token));
-						break;
-					case ParserConstants.TOKEN_STRING:
-						opstack.push(new PsiString(token));
-						break;
-					case ParserConstants.TOKEN_NAME_LITERAL:
-						opstack.push(new PsiName(token));
-						break;
-					case ParserConstants.TOKEN_NAME_EXECUTABLE:
-						//dictstack.load(new PsiName(token)).execute(this);
-						(new PsiName(token)).execute(this);
-						break;
+					default:
+						(newPsiObject(token)).execute(this);
 				}
 				// TODO
 				handleExecutionStack(0);
@@ -100,21 +83,86 @@ public class Interpreter
 						else
 							opstack.push(proc);
 						break;
-					case ParserConstants.TOKEN_INTEGER:
-						procstack.peek().add(new PsiInteger(token));
-						break;
-					case ParserConstants.TOKEN_REAL:
-						procstack.peek().add(new PsiReal(token));
-						break;
-					case ParserConstants.TOKEN_STRING:
-						procstack.peek().add(new PsiString(token));
-						break;
-					case ParserConstants.TOKEN_NAME_LITERAL:
-					case ParserConstants.TOKEN_NAME_EXECUTABLE:
-						procstack.peek().add(new PsiName(token));
+					default:
+						procstack.peek().add(newPsiObject(token));
 						break;
 				}
 			}
+		}
+	}
+
+	private PsiObject newPsiObject(Token token)
+	{
+		switch(token.kind)
+		{
+			case ParserConstants.TOKEN_STRING:
+				StringBuffer buffer=new StringBuffer();
+				for(int i=1; i<token.image.length()-1; i++)
+				{
+					char c=token.image.charAt(i);
+					switch(c)
+					{
+						case '\\':
+							i++;
+							switch(token.image.charAt(i))
+							{
+								case '0':
+									buffer.append('\u0000');
+									break;
+								case 'a':
+									buffer.append('\u0007');
+									break;
+								case 'n':
+									buffer.append('\n');
+									break;
+								case 'r':
+									buffer.append('\r');
+									break;
+								case 't':
+									buffer.append('\t');
+									break;
+								case 'f':
+									buffer.append('\f');
+									break;
+								case 'e':
+									buffer.append('\u001B');
+									break;
+								case '"':
+									buffer.append('"');
+									break;
+								case '\\':
+									buffer.append('\\');
+									break;
+								case 'u':
+									buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+1, i+5), 16)));
+									i+=4;
+									break;
+							}
+							break;
+						default:
+							buffer.append(c);
+							break;
+					}
+				}
+				return new PsiString(buffer);
+			case ParserConstants.TOKEN_REAL:
+				return new PsiReal(Double.parseDouble(token.image));
+			case ParserConstants.TOKEN_INTEGER:
+				return new PsiInteger(Long.parseLong(token.image));
+			case ParserConstants.TOKEN_NAME_LITERAL:
+				{
+					PsiName name=new PsiName(token.image.substring(1));
+					name.setLiteral();
+					return name;
+				}
+			case ParserConstants.TOKEN_NAME_EXECUTABLE:
+				{
+					PsiName name=new PsiName(token.image);
+					name.setExecutable();
+					return name;
+				}
+			default:
+				return null;
 		}
 	}
 

@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiReal extends PsiNumeric
 {
-	public PsiReal(double value)
+	public PsiReal(final double value)
 	{
 		this.value=value;
 	}
@@ -14,23 +14,10 @@ public class PsiReal extends PsiNumeric
 		return value;
 	}
 
-	public PsiReal(Token token)
-	{
-		if(token.kind==ParserConstants.TOKEN_REAL)
-		{
-			this.value=new Double(token.image);
-		}
-	}
-
-	public void setValue(double value)
-	{
-		this.value=value;
-	}
-
 	public String toString()
 	{
-		return new Double(value).toString();
+		return String.valueOf(value);
 	}
 
-	private double value;
+	private final double value;
 }

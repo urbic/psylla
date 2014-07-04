@@ -8,18 +8,18 @@ abstract public class PsiStringlike extends PsiObject
 	
 	public PsiStringlike(String value)
 	{
-		this.value=value;
+		setValue(value);
 	}
 	
-	public String getValue()
-	{
-		return value;
-	}
+	abstract public String getValue();
+	//{
+	//	return value;
+	//}
 	
-	public void setValue(final String value)
-	{
-		this.value=value;
-	}
+	abstract public void setValue(final String value);
+	//{
+	//	this.value=value;
+	//}
 	
 	public String toString()
 	{
@@ -59,5 +59,5 @@ abstract public class PsiStringlike extends PsiObject
 		return new PsiBoolean(x.getValue().compareTo(y.getValue())>=0);
 	}
 
-	private String value;
+	//private String value;
 }

@@ -14,11 +14,6 @@ abstract public class PsiObject
 		interpreter.getOperandStack().push(this);
 	}
 
-	public Object getValue()
-	{
-		return null;
-	}
-
 	public byte getAccess()
 	{
 		return access;
@@ -69,5 +64,4 @@ abstract public class PsiObject
 		ACCESS_READ=4;
 
 	protected byte access=ACCESS_NOACCESS;
-	//private byte type;
 }

@@ -7,18 +7,14 @@ public class PsiName extends PsiStringlike
 		super(value);
 	}
 
-	public PsiName(Token token)
+	public String getValue()
 	{
-		if(token.kind==ParserConstants.TOKEN_NAME_LITERAL)
-		{
-			setValue(token.image.substring(1));
-			this.access=PsiObject.ACCESS_NOACCESS;
-		}
-		else if(token.kind==ParserConstants.TOKEN_NAME_EXECUTABLE)
-		{
-			setValue(token.image);
-			this.access=PsiObject.ACCESS_EXECUTE;
-		}
+		return value;
+	}
+
+	public void setValue(String value)
+	{
+		this.value=value;
 	}
 
 	public String getTypeName() { return "name"; }
@@ -47,5 +43,7 @@ public class PsiName extends PsiStringlike
 	{
 		return (isExecutable()? "": "/")+getValue();
 	}
+
+	private String value;
 
 }

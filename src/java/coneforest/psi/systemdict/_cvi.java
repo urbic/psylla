@@ -29,7 +29,7 @@ public class _cvi extends PsiOperator
 		{
 			try
 			{
-				opstack.push(new PsiInteger(new Long(((PsiString)obj).getValue())));
+				opstack.push(new PsiInteger(Long.parseLong(((PsiString)obj).getValue())));
 			}
 			catch(NumberFormatException e)
 			{
