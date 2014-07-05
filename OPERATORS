@@ -397,7 +397,7 @@
 -	vmreclaim
 -	vmstatus
 ?	wcheck
-?	where
++	where
 -	widthshow
 ?	write
 ?	writehexstring
