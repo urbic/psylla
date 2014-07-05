@@ -16,6 +16,8 @@ public class _add extends PsiOperator
 
 		if(x instanceof PsiNumeric && y instanceof PsiNumeric)
 			opstack.push(PsiNumeric.sum((PsiNumeric)x, (PsiNumeric)y));
+		else if(x instanceof PsiString && y instanceof PsiString)
+			opstack.push(PsiString.concatenation((PsiString)x, (PsiString)y));
 		else
 		{
 			opstack.push(x);
