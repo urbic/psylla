@@ -5,6 +5,6 @@ public class _currentdict extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(interpreter.getDictionaryStack().getCurrentDictionary());
+		interpreter.getOperandStack().push(interpreter.getCurrentDictionary());
 	}
 }

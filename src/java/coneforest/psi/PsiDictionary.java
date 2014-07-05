@@ -57,7 +57,15 @@ public class PsiDictionary extends PsiObject
 
 	public String toString()
 	{
-		return "-dict-";
+		StringBuilder sb=new StringBuilder("<<");
+		if(size()>0)
+		{
+			for(java.util.Map.Entry<String, PsiObject> entry: entrySet())
+				sb.append("/"+entry.getKey()+" "+entry.getValue()+" ");
+			sb.deleteCharAt(sb.length()-1);
+		}
+		sb.append(">>");
+		return sb.toString();
 	}
 
 	private java.util.HashMap<String, PsiObject> dictionary

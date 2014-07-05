@@ -2,6 +2,12 @@ package coneforest.psi;
 
 public class PsiString extends PsiStringlike
 {
+
+	public PsiString()
+	{
+		this("");
+	}
+
 	public PsiString(String string)
 	{
 		buffer=new StringBuffer(string);
@@ -106,6 +112,11 @@ public class PsiString extends PsiStringlike
 			}
 		}
 		return "\""+sb.toString()+"\"";
+	}
+
+	public static PsiString concatenation(PsiString x, PsiString y)
+	{
+		return new PsiString(x.getValue()+y.getValue());
 	}
 
 	private StringBuffer buffer;
