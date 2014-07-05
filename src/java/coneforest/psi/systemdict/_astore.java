@@ -10,17 +10,17 @@ public class _astore extends PsiOperator
 			interpreter.error("stackunderflow");
 		else
 		{
-			PsiObject array=opstack.pop();
-
-			if(array instanceof PsiArray)
+			PsiObject count=opstack.pop();
+			if(count instanceof PsiInteger)
 			{
-				int size=((PsiArray)array).size();
-				if(opstack.size()<size)
+				int countValue=((PsiInteger)count).getValue().intValue();
+				if(opstack.size()<countValue)
 					interpreter.error("stackunderflow");
 				else
 				{
-					for(int i=size-1; i>=0; i--)
-						((PsiArray)array).set(i, opstack.pop());
+					PsiArray array=new PsiArray();
+					while(--countValue>=0)
+						((PsiArray)array).add(0, opstack.pop());
 					opstack.push(array);
 				}
 			}
