@@ -20,6 +20,7 @@ public class SystemDictionary extends PsiModule
 		register(_count.class);
 		register(_countdictstack.class);
 		register(_counttomark.class);
+		register(_currentdict.class);
 		register(_cvi.class);
 		register(_cvlit.class);
 		register(_cvn.class);
