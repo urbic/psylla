@@ -15,7 +15,7 @@
 -	arcto
 +	array
 -	ashow
-?	astore
++	astore
 ?	atan
 -	awidthshow
 +	begin
