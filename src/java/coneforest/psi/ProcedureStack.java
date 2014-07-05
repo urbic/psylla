@@ -1,5 +1,5 @@
 package coneforest.psi;
 
-public class ProcedureStack extends java.util.Stack<PsiArray>
+public class ProcedureStack extends Stack<PsiArray>
 {
 }

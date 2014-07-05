@@ -8,7 +8,7 @@ public class _dicttomark extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
 		{
-			if(opstack.elementAt(i) instanceof PsiMark)
+			if(opstack.get(i) instanceof PsiMark)
 			{
 				if(opstack.size()-1-i % 2==1)
 				{

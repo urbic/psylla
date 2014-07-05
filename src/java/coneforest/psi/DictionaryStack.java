@@ -1,24 +1,24 @@
 package coneforest.psi;
 
-public class DictionaryStack extends java.util.Stack<PsiDictionary>
+public class DictionaryStack extends Stack<PsiDictionary>
 {
-	public PsiObject load(PsiStringlike key)
+	public PsiObject load(PsiStringlike oKey)
 		throws PsiException
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			if(elementAt(i).containsKey(key))
-				return elementAt(i).get(key);
+			if(get(i).containsKey(oKey))
+				return get(i).get(oKey);
 		}
 		throw new PsiException("undefined");
 	}
 
-	public PsiDictionary where(PsiStringlike key)
+	public PsiDictionary where(PsiStringlike oKey)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			if(elementAt(i).containsKey(key))
-				return elementAt(i);
+			if(get(i).containsKey(oKey))
+				return get(i);
 		}
 		return null;
 	}
@@ -30,6 +30,6 @@ public class DictionaryStack extends java.util.Stack<PsiDictionary>
 
 	public PsiDictionary getSystemDictionary()
 	{
-		return elementAt(0);
+		return get(0);
 	}
 }
