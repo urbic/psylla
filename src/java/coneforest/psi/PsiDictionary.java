@@ -14,20 +14,30 @@ public class PsiDictionary extends PsiObject
 			throw new PsiException("undefined");
 	}
 	
-	public PsiObject get(PsiStringlike key)
+	public PsiObject get(PsiStringlike oKey)
 		throws PsiException
 	{
-		return get(key.getValue());
+		return get(oKey.getValue());
 	}
 	
-	public void put(String name, PsiObject obj)
+	public void put(String key, PsiObject obj)
 	{
-		dictionary.put(name, obj);
+		dictionary.put(key, obj);
 	}
 
-	public void put(PsiStringlike key, PsiObject obj)
+	public void put(PsiStringlike oKey, PsiObject obj)
 	{
-		put(key.getValue(), obj);
+		put(oKey.getValue(), obj);
+	}
+
+	public void undef(String key)
+	{
+		dictionary.remove(key);
+	}
+
+	public void undef(PsiStringlike oKey)
+	{
+		undef(oKey.getValue());
 	}
 
 	public java.util.Set<java.util.Map.Entry<String, PsiObject>> entrySet()

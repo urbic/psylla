@@ -374,7 +374,7 @@
 -	ucachestatus
 -	ueofill
 -	ufill
-?	undef
++	undef
 ?	undefined
 ?	undefinedfilename
 ?	undefinedresource
