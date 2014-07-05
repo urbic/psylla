@@ -36,7 +36,7 @@
 +	ceiling
 -	charpath
 +	clear
-?	cleardictstack
++	cleardictstack
 +	cleartomark
 -	clip
 -	clippath
