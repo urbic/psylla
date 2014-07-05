@@ -22,7 +22,7 @@ public class _copy extends PsiOperator
 			{
 				int opsize=opstack.size();
 				for(int j=opsize-i; j<opsize; j++)
-					opstack.push(opstack.elementAt(j));
+					opstack.push(opstack.get(j));
 			}
 		}
 		// TODO other types of topmost operands

@@ -270,8 +270,8 @@ public class Interpreter
 	private DictionaryStack dictstack;
 	private ExecutionStack execstack;
 	private ProcedureStack procstack;
-	private java.util.Stack<Integer>
-		loopstack=new java.util.Stack<Integer>(),
-		stopstack=new java.util.Stack<Integer>();
+	private Stack<Integer>
+		loopstack=new Stack<Integer>(),
+		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
 }

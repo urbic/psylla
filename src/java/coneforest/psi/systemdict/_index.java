@@ -19,7 +19,7 @@ public class _index extends PsiOperator
 			else if(opstack.size()<i)
 				interpreter.error("stackunderflow");
 			else
-				opstack.push(opstack.elementAt(opstack.size()-i-1));
+				opstack.push(opstack.get(opstack.size()-i-1));
 		}
 		else
 			interpreter.error("typecheck");
