@@ -35,6 +35,36 @@ public class PsiString extends PsiStringlike
 		return buffer;
 	}
 
+	public PsiInteger get(int index)
+		throws PsiException
+	{
+		if(index>=0 && index<buffer.length())
+			return new PsiInteger(buffer.charAt(index));
+		else
+			throw new PsiException("rangecheck");
+	}
+
+	public PsiInteger get(PsiInteger oIndex)
+		throws PsiException
+	{
+		return get(oIndex.getValue().intValue());
+	}
+
+	public void put(int index, PsiInteger oChar)
+		throws PsiException
+	{
+		if(index>=0 && index<buffer.length())
+			buffer.setCharAt(index, (char)oChar.getValue().intValue());
+		else
+			throw new PsiException("rangecheck");
+	}
+	
+	public void put(PsiInteger oIndex, PsiInteger oChar)
+		throws PsiException
+	{
+		put(oIndex.getValue().intValue(), oChar);
+	}
+
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();

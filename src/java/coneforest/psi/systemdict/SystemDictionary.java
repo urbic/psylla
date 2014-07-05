@@ -63,6 +63,7 @@ public class SystemDictionary extends PsiModule
 		register(_pop.class);
 		register(_prettyprint.class);
 		register(_pstack.class);
+		register(_put.class);
 		register(_quit.class);
 		register(_repeat.class);
 		register(_roll.class);
@@ -77,11 +78,18 @@ public class SystemDictionary extends PsiModule
 		register(_xcheck.class);
 		register(_xor.class);
 
-		put("[", get("mark"));
-		put("<<", get("mark"));
-		put("]", get("arraytomark"));
-		put(">>", get("dicttomark"));
-		put("==", get("prettyprint"));
+		try
+		{
+			put("[", get("mark"));
+			put("<<", get("mark"));
+			put("]", get("arraytomark"));
+			put(">>", get("dicttomark"));
+			put("==", get("prettyprint"));
+		}
+		catch(PsiException e)
+		{
+			// TODO
+		}
 		put("systemdict", this);
 		put("errordict", new coneforest.psi.errordict.ErrorDictionary());
 	}

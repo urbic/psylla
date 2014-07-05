@@ -18,11 +18,17 @@ public class PsiArray extends PsiObject implements Iterable<PsiObject>
 	{
 		if(isExecutable())
 		{
-			ExecutionStack execstack=interpreter.getExecutionStack();
-			int level=execstack.size();
-			for(int i=size()-1; i>=0; i--)
-				execstack.push(get(i));
-			//interpreter.handleExecutionStack(level);
+			try
+			{
+				ExecutionStack execstack=interpreter.getExecutionStack();
+				int level=execstack.size();
+				for(int i=size()-1; i>=0; i--)
+					execstack.push(get(i));
+				//interpreter.handleExecutionStack(level);
+			}
+			catch(PsiException e)
+			{
+			}
 		}
 		else
 			execute(interpreter);
@@ -39,13 +45,46 @@ public class PsiArray extends PsiObject implements Iterable<PsiObject>
 	}
 
 	public PsiObject get(int index)
+		throws PsiException
 	{
-		return array.get(index);
+		try
+		{
+			return array.get(index);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	public PsiObject get(PsiInteger oIndex)
+		throws PsiException
+	{
+		return get(oIndex.getValue().intValue());
 	}
 
 	public void add(PsiObject obj)
 	{
 		array.add(obj);
+	}
+
+	public void put(int index, PsiObject obj)
+		throws PsiException
+	{
+		try
+		{
+			array.set(index, obj);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	public void put(PsiInteger oIndex, PsiObject obj)
+		throws PsiException
+	{
+		put(oIndex.getValue().intValue(), obj);
 	}
 
 	public void add(int i, PsiObject obj)

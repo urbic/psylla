@@ -14,15 +14,17 @@ public class _load extends PsiOperator
 
 			if(key instanceof PsiStringlike)
 			{
-				PsiObject result=interpreter.getDictionaryStack().load((PsiStringlike)key);
-				if(result==null)
-					interpreter.error("undefined");
-				else
-					opstack.push(result);
+				try
+				{
+					opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)key));
+				}
+				catch(PsiException e)
+				{
+					interpreter.error(e.kind());
+				}
 			}
 			else
 				interpreter.error("typecheck");
-			// TODO errors: invalidaccess, undefined
 		}
 	}
 }
