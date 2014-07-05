@@ -97,7 +97,7 @@
 	<target name="javadoc">
 		<mkdir dir="${javadoc}"/>
 		<javadoc
-			sourcepath="${src.java}"
+			sourcepath="${src.java}:${target.src.java}"
 			destdir="${javadoc}"
 			access="public"
 			/>
