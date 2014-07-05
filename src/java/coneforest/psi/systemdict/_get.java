@@ -50,6 +50,18 @@ public class _get extends PsiOperator
 				return;
 			}
 		}
+		else if(obj1 instanceof PsiBitSet && obj2 instanceof PsiInteger)
+		{
+			try
+			{
+				opstack.push(((PsiBitSet)obj1).get((PsiInteger)obj2));
+			}
+			catch(PsiException e)
+			{
+				interpreter.error(e.kind());
+				return;
+			}
+		}
 		else
 			interpreter.error("typecheck");
 	}

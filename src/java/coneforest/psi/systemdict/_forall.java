@@ -43,6 +43,20 @@ public class _forall extends PsiOperator
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 		}
+		if(obj instanceof PsiBitSet)
+		{
+			int looplevel=interpreter.pushLoopLevel();
+			for(PsiBoolean element: (PsiBitSet)obj)
+			{
+				if(interpreter.getExitFlag())
+					break;
+				opstack.push(element);
+				proc.invoke(interpreter);
+				interpreter.handleExecutionStack(looplevel);
+			}
+			interpreter.popLoopLevel();
+			interpreter.setExitFlag(false);
+		}
 		else
 			interpreter.error("typecheck");
 	}
