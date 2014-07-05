@@ -4,7 +4,7 @@
 +	>>
 ?	$error
 +	abs
-+	add
+!	add
 -	addglyph
 +	aload
 ?	anchorsearch
@@ -13,9 +13,9 @@
 -	arcn
 -	arct
 -	arcto
-+	array
+!	array
 -	ashow
-+	astore
+!	astore
 ?	atan
 -	awidthshow
 +	begin
@@ -99,10 +99,10 @@
 -	curveto
 +	cvi
 +	cvlit
-?	cvn
++	cvn
 ?	cvr
 ?	cvrs
-?	cvs
+!	cvs
 +	cvx
 +	def
 -	defaultmatrix
@@ -110,7 +110,7 @@
 -	defineresource
 -	defineuserobject
 ?	deletefile
-+	dict
+!	dict
 ?	dictfull
 ?	dictstack
 ?	dictstackoverflow
@@ -159,11 +159,11 @@
 -	findresource
 -	flattenpath
 +	floor
-?	flush
+!	flush
 ?	flushfile
 -	FontDirectory
 +	for
-?	forall
+!	forall
 ?	gcheck
 +	ge
 +	get
@@ -194,7 +194,7 @@
 -	initgraphics
 -	initmatrix
 -	instroke
-?	internaldict
+-	internaldict
 ?	interrupt
 -	inueofill
 -	inufill
@@ -354,7 +354,7 @@
 +	stop
 +	stopped
 ?	store
-+	string
+!	string
 -	stringwidth
 -	stroke
 -	strokepath

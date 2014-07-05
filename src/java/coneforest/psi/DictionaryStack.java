@@ -22,14 +22,4 @@ public class DictionaryStack extends Stack<PsiDictionary>
 		}
 		return null;
 	}
-
-	public PsiDictionary getCurrentDictionary()
-	{
-		return peek();
-	}
-
-	public PsiDictionary getSystemDictionary()
-	{
-		return get(0);
-	}
 }
