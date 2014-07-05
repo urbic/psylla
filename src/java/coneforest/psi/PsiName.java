@@ -23,6 +23,7 @@ public class PsiName extends PsiStringlike
 	{
 		if(isExecutable())
 		{
+			/*
 			PsiObject obj=interpreter.getDictionaryStack().load(this);
 			if(obj==null)
 				interpreter.error("undefined");
@@ -33,7 +34,15 @@ public class PsiName extends PsiStringlike
 			}
 			else
 				obj.execute(interpreter);
-
+			*/
+			try
+			{
+				interpreter.getDictionaryStack().load(this).invoke(interpreter);
+			}
+			catch(PsiException e)
+			{
+				interpreter.error(e.kind());
+			}
 		}
 		else
 			interpreter.getOperandStack().push(this);

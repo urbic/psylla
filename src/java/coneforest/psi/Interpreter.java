@@ -62,14 +62,11 @@ public class Interpreter
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						error("syntaxerror");
 						break;
-					/*
 					case ParserConstants.TOKEN_INTEGER:
 					case ParserConstants.TOKEN_REAL:
 					case ParserConstants.TOKEN_STRING:
 					case ParserConstants.TOKEN_NAME_LITERAL:
 					case ParserConstants.TOKEN_NAME_EXECUTABLE:
-					*/
-					default:
 						(newPsiObject(token)).execute(this);
 						handleExecutionStack(0);
 						break;
