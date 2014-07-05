@@ -54,7 +54,7 @@
 !	cos
 +	count
 +	countdictstack
-?	countexecstack
++	countexecstack
 +	counttomark
 -	cshow
 -	currentblackgeneration
