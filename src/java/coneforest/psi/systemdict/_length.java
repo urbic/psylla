@@ -18,6 +18,8 @@ public class _length extends PsiOperator
 				opstack.push(new PsiInteger(((PsiArray)obj).size()));
 			else if(obj instanceof PsiDictionary)
 				opstack.push(new PsiInteger(((PsiDictionary)obj).size()));
+			else if(obj instanceof PsiBitSet)
+				opstack.push(new PsiInteger(((PsiBitSet)obj).size()));
 			else
 			{
 				opstack.push(obj);

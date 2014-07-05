@@ -41,6 +41,17 @@ public class _put extends PsiOperator
 				interpreter.error(e.kind());
 			}
 		}
+		else if(obj1 instanceof PsiBitSet && obj2 instanceof PsiInteger && obj3 instanceof PsiBoolean)
+		{
+			try
+			{
+				((PsiBitSet)obj1).put((PsiInteger)obj2, (PsiBoolean)obj3);
+			}
+			catch(PsiException e)
+			{
+				interpreter.error(e.kind());
+			}
+		}
 		else
 			interpreter.error("typecheck");
 	}
