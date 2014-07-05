@@ -14,6 +14,9 @@ public class Interpreter
 		dictstack.push(loadModule(coneforest.psi.systemdict.SystemDictionary.class));
 		dictstack.push(new PsiDictionary());
 		dictstack.push(new PsiDictionary());
+
+		setReader(new java.io.InputStreamReader(System.in));
+		setWriter(new java.io.OutputStreamWriter(System.out));
 	}
 
 	public OperandStack getOperandStack()
@@ -39,6 +42,26 @@ public class Interpreter
 			execstack.pop().execute(this);
 			//System.out.println(">>>HANDLE ESTACK="+execstack+" OSTACK="+opstack);
 		}
+	}
+
+	public PsiDictionary getCurrentDictionary()
+	{
+		return dictstack.peek();
+	}
+
+	public PsiDictionary getSystemDictionary()
+	{
+		return dictstack.get(0);
+	}
+
+	public void setReader(java.io.Reader reader)
+	{
+		getSystemDictionary().put("stdin", new PsiReader(reader));
+	}
+
+	public void setWriter(java.io.Writer writer)
+	{
+		getSystemDictionary().put("stdout", new PsiWriter(writer));
 	}
 
 	public void interpret()
@@ -262,7 +285,7 @@ public class Interpreter
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)
 			arguments.add(new PsiString(arg));
-		dictstack.getSystemDictionary().put("arguments", arguments);
+		getSystemDictionary().put("arguments", arguments);
 	}
 
 	private java.io.InputStream is;
@@ -274,4 +297,5 @@ public class Interpreter
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
+
 }

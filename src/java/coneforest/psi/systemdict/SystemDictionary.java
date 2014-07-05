@@ -15,6 +15,7 @@ public class SystemDictionary extends PsiModule
 		register(_arraytomark.class);
 		register(_astore.class);
 		register(_begin.class);
+		register(_bitset.class);
 		register(_ceiling.class);
 		register(_clear.class);
 		register(_cleardictstack.class);
@@ -28,6 +29,7 @@ public class SystemDictionary extends PsiModule
 		register(_cvi.class);
 		register(_cvlit.class);
 		register(_cvn.class);
+		register(_cvs.class);
 		register(_cvx.class);
 		register(_def.class);
 		register(_dict.class);
@@ -40,8 +42,10 @@ public class SystemDictionary extends PsiModule
 		register(_exit.class);
 		register(_exp.class);
 		register(_false.class);
-		register(_file.class);
+		register(_filereader.class);
+		register(_filewriter.class);
 		register(_floor.class);
+		register(_flush.class);
 		register(_for.class);
 		register(_forall.class);
 		register(_ge.class);
@@ -70,6 +74,7 @@ public class SystemDictionary extends PsiModule
 		register(_pstack.class);
 		register(_put.class);
 		register(_quit.class);
+		register(_read.class);
 		register(_repeat.class);
 		register(_roll.class);
 		register(_sin.class);
@@ -77,11 +82,14 @@ public class SystemDictionary extends PsiModule
 		register(_stop.class);
 		register(_stopped.class);
 		register(_string.class);
+		register(_stringreader.class);
+		register(_stringwriter.class);
 		register(_sub.class);
 		register(_true.class);
 		register(_type.class);
 		register(_undef.class);
 		register(_where.class);
+		register(_writestring.class);
 		register(_xcheck.class);
 		register(_xor.class);
 
