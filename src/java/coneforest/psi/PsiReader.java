@@ -26,6 +26,11 @@ public class PsiReader extends PsiObject
 		this.reader=reader;
 	}
 
+	public java.io.Reader getReader()
+	{
+		return reader;
+	}
+
 	public int read()
 		throws PsiException
 	{

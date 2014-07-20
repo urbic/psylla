@@ -1,15 +1,15 @@
 package coneforest.psi;
 
-public class PsiBitSet extends PsiObject implements Iterable<PsiBoolean>
+public class PsiBitVector extends PsiObject implements Iterable<PsiBoolean>
 {
 	public String getTypeName()
 	{
-		return "bitset";
+		return "bitvector";
 	}
 	
 	public String toString()
 	{
-		return "-bitset-";
+		return "-bitvector-";
 	}
 
 	public boolean get(int index)
@@ -17,7 +17,7 @@ public class PsiBitSet extends PsiObject implements Iterable<PsiBoolean>
 	{
 		try
 		{
-			return bitset.get(index);
+			return bitvector.get(index);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -36,7 +36,7 @@ public class PsiBitSet extends PsiObject implements Iterable<PsiBoolean>
 	{
 		try
 		{
-			bitset.set(index, value);
+			bitvector.set(index, value);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -56,13 +56,13 @@ public class PsiBitSet extends PsiObject implements Iterable<PsiBoolean>
 			{
 				public boolean hasNext()
 				{
-					return index<bitset.length();
+					return index<bitvector.length();
 				}
 
 				public PsiBoolean next()
 				{
 					if(hasNext())
-						return new PsiBoolean(bitset.get(index++));
+						return new PsiBoolean(bitvector.get(index++));
 					else
 						throw new java.util.NoSuchElementException();
 				}
@@ -78,8 +78,8 @@ public class PsiBitSet extends PsiObject implements Iterable<PsiBoolean>
 
 	public int size()
 	{
-		return bitset.length();
+		return bitvector.length();
 	}
 
-	private java.util.BitSet bitset=new java.util.BitSet();
+	private java.util.BitSet bitvector=new java.util.BitSet();
 }

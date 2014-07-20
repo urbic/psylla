@@ -4,17 +4,15 @@ class Psi
 {
 	public static void main(String args[])
 	{
-		Interpreter interpreter;
 		try
 		{
-			java.io.FileInputStream is=new java.io.FileInputStream(args[0]);
-			interpreter=new Interpreter(is);
+			Interpreter interpreter=new Interpreter();
 			interpreter.acceptShellArguments(args);
-			interpreter.interpret();
+			interpreter.interpret(new PsiFileReader(args[0]));
 		}
-		catch(java.io.FileNotFoundException e)
+		catch(PsiException e)
 		{
-			System.out.println("FILE NOT FOUND");
+			System.out.println("ERROR: "+e.kind());
 		}
 	}
 }
