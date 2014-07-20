@@ -30,7 +30,7 @@
 -	beginrearrangedfont
 -	beginusematrix
 ?	bind
-?	bitshift
++	bitshift
 ?	bytesavailable
 -	cachestatus
 +	ceiling
