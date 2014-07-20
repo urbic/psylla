@@ -50,5 +50,12 @@ public class PsiInteger extends PsiNumeric
 		return null;
 	}
 
+	public static PsiInteger bitshift(final PsiInteger x, final PsiInteger shift)
+	{
+		long xValue=x.getValue();
+		long shiftValue=shift.getValue();
+		return new PsiInteger(shiftValue>=0? (xValue<<shiftValue): (xValue>>(-shiftValue)));
+	}
+
 	private final long value;
 }
