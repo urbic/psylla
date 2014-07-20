@@ -54,6 +54,46 @@
 		</xslt>
 	</presetdef>
 
+	<presetdef name="xslt.manpages.preset">
+		<xslt
+			style="${src.docbook}/manpages.xsl"
+			basedir="${src.docbook}"
+			filedirparameter="${src.docbook}"
+			force="true"
+			>
+			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
+			<xmlcatalog>
+				<catalogpath>
+					<pathelement location="${src.docbook}/xmlcatalog"/>
+				</catalogpath>
+			</xmlcatalog>
+			<classpath>
+				<pathelement location="/usr/share/java/saxon6.jar"/>
+				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
+				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+				<pathelement location="/usr/share/java/xslthl.jar"/>
+			</classpath>
+			<param name="highlight.source" expression="1"/>
+			<param name="profile.status" expression="${xslt.profile.status}"/>
+			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
+			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
+			<param name="html.stylesheet" expression="${project.name}.css"/>
+			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
+			<param name="generate.manifest" expression="0"/>
+			<param name="bibliography.numbered" expression="1"/>
+			<!--param name="icon.path" expression="img/icons/16x16/${project.name}.png"/-->
+			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
+			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
+			<param name="l10n.gentext.default.language" expression="'ru'"/>
+			<param name="bibliography.style" expression="'iso960'"/>
+			<param name="draft.mode" expression="'maybe'"/>
+			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
+			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
+			<param name="navig.graphics.path" expression="navigation/"/>
+			<param name="navig.graphics.extension" expression=".svg"/>
+		</xslt>
+	</presetdef>
+
 	<macrodef name="xslt.lang">
 		<attribute name="base.name"/>
 		<attribute name="lang"/>
@@ -69,6 +109,21 @@
 		</sequential>
 	</macrodef>	
 
+	<macrodef name="xslt.manpages.lang">
+		<attribute name="base.name"/>
+		<attribute name="lang"/>
+		<sequential>
+			<xslt.manpages.preset
+				includes="@{base.name}_@{lang}.docbook"
+				destdir="${target.doc}"
+				>
+				<param name="root.filename" expression="@{base.name}_@{lang}"/>
+				<param name="html.ext" expression=".xhtml"/>
+				<param name="base.dir" expression="${target.doc}"/>
+			</xslt.manpages.preset>
+		</sequential>
+	</macrodef>	
+
 
 	<target name="compile.jj">
 		<mkdir dir="${target.src.java}/coneforest/psi"/>
@@ -77,6 +132,7 @@
 			outputdirectory="${target.src.java}/coneforest/psi"
 			javacchome="/usr/share/java"
 			unicodeinput="true"
+			static="false"
 			/>
 	</target>
 
@@ -162,5 +218,13 @@
 		</apply>
 	</target>
 
+	<target name="manpages" description="Make manual pages">
+		<mkdir dir="${target.doc}"/>
+		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
+		<!--xslt.lang lang="en"/-->
+		<xslt.manpages.lang lang="ru" base.name="psiop"/>
+		<symlink action="delete" link="examples"/>
+	</target>
+	
 
 </project>

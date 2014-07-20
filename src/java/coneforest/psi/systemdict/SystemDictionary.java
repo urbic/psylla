@@ -36,6 +36,7 @@ public class SystemDictionary extends PsiModule
 		register(_dicttomark.class);
 		register(_div.class);
 		register(_dup.class);
+		register(_end.class);
 		register(_eq.class);
 		register(_exch.class);
 		register(_exec.class);
