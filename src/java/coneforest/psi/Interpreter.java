@@ -2,9 +2,9 @@ package coneforest.psi;
 
 public class Interpreter
 {
-	public Interpreter(java.io.InputStream is)
+	public Interpreter()
 	{
-		this.is=is;
+		//this.is=is;
 		opstack=new OperandStack();
 		dictstack=new DictionaryStack();
 		execstack=new ExecutionStack();
@@ -64,15 +64,94 @@ public class Interpreter
 		getSystemDictionary().put("stdout", new PsiWriter(writer));
 	}
 
-	public void interpret()
+	public void interpret(java.io.Reader reader)
 	{
-		Parser parser=new Parser(is);
-		Token token;
-
+		Parser parser=new Parser(reader);
 		while(true)
 		{
-			token=parser.getNextToken();
-			if(token.kind==ParserConstants.EOF) break;
+			Token token=parser.getNextToken();
+			if(token.kind==ParserConstants.EOF)
+				if(procstack.size()==0)
+					return;
+				else
+				{
+					error("syntaxerror");
+					return;
+				}
+			processToken(token);
+		}
+	}
+
+	public void interpret(PsiReader reader)
+	{
+		interpret(reader.getReader());
+	}
+
+	public void processToken(Token token)
+	{
+		if(procstack.size()==0)
+		{
+			switch(token.kind)
+			{
+				case ParserConstants.TOKEN_OPEN_BRACE:
+					procstack.push(new PsiArray());
+					procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+					break;
+				case ParserConstants.TOKEN_CLOSE_BRACE:
+					error("syntaxerror");
+					break;
+				case ParserConstants.TOKEN_INTEGER:
+				case ParserConstants.TOKEN_REAL:
+				case ParserConstants.TOKEN_STRING:
+				case ParserConstants.TOKEN_NAME_LITERAL:
+				case ParserConstants.TOKEN_NAME_EXECUTABLE:
+					(newPsiObject(token)).execute(this);
+					handleExecutionStack(0);
+					break;
+			}
+		}
+		else
+		{
+			switch(token.kind)
+			{
+				case ParserConstants.TOKEN_OPEN_BRACE:
+					procstack.push(new PsiArray());
+					procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+					break;
+				case ParserConstants.TOKEN_CLOSE_BRACE:
+					PsiArray proc=procstack.pop();
+					if(procstack.size()>0)
+						procstack.peek().add(proc);
+					else
+						opstack.push(proc);
+					break;
+				case ParserConstants.TOKEN_INTEGER:
+				case ParserConstants.TOKEN_REAL:
+				case ParserConstants.TOKEN_STRING:
+				case ParserConstants.TOKEN_NAME_LITERAL:
+				case ParserConstants.TOKEN_NAME_EXECUTABLE:
+					procstack.peek().add(newPsiObject(token));
+					break;
+			}
+		}
+	}
+
+	public PsiObject getPsiObject(PsiReader reader)
+		throws PsiException
+	{
+		Parser parser=new Parser(reader.getReader());
+		for(int i=0; ; i++)
+		{
+			Token token=parser.getToken(i);
+						System.out.println("BEGIN=====");
+						//while(true)
+						{
+							int c=reader.read();
+							//if(c==-1)
+							//	break;
+							System.out.println(c);
+						}
+						System.out.println("END=====");
 
 			if(procstack.size()==0)
 			{
@@ -83,16 +162,24 @@ public class Interpreter
 						procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
 						break;
 					case ParserConstants.TOKEN_CLOSE_BRACE:
-						error("syntaxerror");
-						break;
+						throw new PsiException("syntaxerror");
 					case ParserConstants.TOKEN_INTEGER:
 					case ParserConstants.TOKEN_REAL:
 					case ParserConstants.TOKEN_STRING:
 					case ParserConstants.TOKEN_NAME_LITERAL:
 					case ParserConstants.TOKEN_NAME_EXECUTABLE:
-						(newPsiObject(token)).execute(this);
-						handleExecutionStack(0);
-						break;
+						/*System.out.println("BEGIN=====");
+						while(true)
+						{
+							int c=reader.read();
+							if(c==-1)
+								break;
+							System.out.println(c);
+						}
+						System.out.println("END=====");*/
+						return newPsiObject(token);
+					case ParserConstants.EOF:
+						return null;
 				}
 			}
 			else
@@ -108,7 +195,7 @@ public class Interpreter
 						if(procstack.size()>0)
 							procstack.peek().add(proc);
 						else
-							opstack.push(proc);
+							return proc;
 						break;
 					case ParserConstants.TOKEN_INTEGER:
 					case ParserConstants.TOKEN_REAL:
@@ -117,6 +204,8 @@ public class Interpreter
 					case ParserConstants.TOKEN_NAME_EXECUTABLE:
 						procstack.peek().add(newPsiObject(token));
 						break;
+					case ParserConstants.EOF:
+						throw new PsiException("syntaxerror");
 				}
 			}
 		}
@@ -288,7 +377,7 @@ public class Interpreter
 		getSystemDictionary().put("arguments", arguments);
 	}
 
-	private java.io.InputStream is;
+	//private java.io.InputStream is;
 	private OperandStack opstack;
 	private DictionaryStack dictstack;
 	private ExecutionStack execstack;

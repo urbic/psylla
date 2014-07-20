@@ -35,6 +35,12 @@
 <chapter xml:id="PSIReference@OperatorDetails">
 <title>Операторы</title>
 
+<refentry>
+<refmeta>
+<refentrytitle>psiop</refentrytitle>
+<manvolnum>7</manvolnum>
+</refmeta>
+
 <variablelist>
 
 <varlistentry xml:id="">
@@ -117,9 +123,9 @@
 </listitem>
 </varlistentry>
 
-
-
 </variablelist>
+
+</refentry>
 
 </chapter>
 
