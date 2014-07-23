@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public class PsiNull extends PsiObject
+public final class PsiNull extends PsiObject
 {
 	public String getTypeName() { return "null"; }
 
@@ -13,5 +13,10 @@ public class PsiNull extends PsiObject
 	public String toString()
 	{
 		return "null";
+	}
+
+	public PsiBoolean eq(final PsiObject obj)
+	{
+		return new PsiBoolean(obj instanceof PsiNull);
 	}
 }

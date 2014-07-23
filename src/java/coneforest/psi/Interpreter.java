@@ -99,7 +99,7 @@ public class Interpreter
 			{
 				case ParserConstants.TOKEN_OPEN_BRACE:
 					procstack.push(new PsiArray());
-					procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+					procstack.peek().setExecutable();
 					break;
 				case ParserConstants.TOKEN_CLOSE_BRACE:
 					error("syntaxerror");
@@ -112,6 +112,9 @@ public class Interpreter
 					(newPsiObject(token)).execute(this);
 					handleExecutionStack(0);
 					break;
+				case ParserConstants.TOKEN_NAME_IMMEDIATE:
+					opstack.push(newPsiObject(token));
+					break;
 			}
 		}
 		else
@@ -120,7 +123,7 @@ public class Interpreter
 			{
 				case ParserConstants.TOKEN_OPEN_BRACE:
 					procstack.push(new PsiArray());
-					procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+					procstack.peek().setExecutable();
 					break;
 				case ParserConstants.TOKEN_CLOSE_BRACE:
 					PsiArray proc=procstack.pop();
@@ -134,6 +137,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
+				case ParserConstants.TOKEN_NAME_IMMEDIATE:
 					procstack.peek().add(newPsiObject(token));
 					break;
 			}
@@ -284,6 +288,16 @@ public class Interpreter
 					PsiName name=new PsiName(token.image);
 					name.setExecutable();
 					return name;
+				}
+			case ParserConstants.TOKEN_NAME_IMMEDIATE:
+				try
+				{
+					return dictstack.load(new PsiName(token.image.substring(2)));
+				}
+				catch(PsiException e)
+				{
+					error(e.kind());
+					return null;
 				}
 			default:
 				System.out.println(token);

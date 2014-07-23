@@ -11,9 +11,21 @@ public class _div extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PsiObject y=opstack.pop();
-		PsiObject x=opstack.pop();
+		PsiObject arithmetic2=opstack.pop();
+		PsiObject arithmetic1=opstack.pop();
 
+		try
+		{
+			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).div((PsiArithmetic)arithmetic2));
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(arithmetic1);
+			opstack.push(arithmetic2);
+			interpreter.error("typecheck");
+		}
+
+		/*
 		if(x instanceof PsiNumeric && y instanceof PsiNumeric)
 		{
 			PsiReal result=PsiNumeric.ratio((PsiNumeric)x, (PsiNumeric)y);
@@ -32,5 +44,6 @@ public class _div extends PsiOperator
 			opstack.push(y);
 			interpreter.error("typecheck");
 		}
+		*/
 	}
 }

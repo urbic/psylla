@@ -50,11 +50,13 @@ abstract public class PsiStringlike
 			};
 	}
 	
-	public static PsiBoolean eq(final PsiStringlike x, final PsiStringlike y)
+	public PsiBoolean eq(final PsiObject obj)
 	{
-		return new PsiBoolean(x.getValue().compareTo(y.getValue())==0);
+		return new PsiBoolean(obj instanceof PsiStringlike
+				&& getValue().compareTo(((PsiStringlike)obj).getValue())==0);
 	}
 
+	/*
 	public static PsiBoolean ne(final PsiStringlike x, final PsiStringlike y)
 	{
 		return new PsiBoolean(x.getValue().compareTo(y.getValue())!=0);
@@ -79,6 +81,7 @@ abstract public class PsiStringlike
 	{
 		return new PsiBoolean(x.getValue().compareTo(y.getValue())>=0);
 	}
+	*/
 
 	//private String value;
 }

@@ -41,27 +41,64 @@ public class PsiInteger
 		return new PsiInteger(getValue() ^ obj.getValue());
 	}
 
-	/*
-	public static PsiInteger not(final PsiInteger x)
+	public PsiNumeric neg()
 	{
-		return new PsiInteger(~x.getValue());
+		if(getValue()!=Long.MIN_VALUE)
+			return new PsiInteger(-getValue());
+		else
+			return new PsiReal(-getValue());
+	}
+	
+	public PsiNumeric abs()
+	{
+		if(value!=Long.MIN_VALUE)
+			return new PsiInteger(value>=0L? value: -value);
+		else
+			return new PsiReal(Math.abs(value));
 	}
 
-	public static PsiInteger and(final PsiInteger x, final PsiInteger y)
+	public PsiNumeric add(final PsiNumeric numeric)
 	{
-		return new PsiInteger(x.getValue()&y.getValue());
+		double result=value+numeric.getValue().doubleValue();
+		if(numeric instanceof PsiInteger
+				&& result>=Long.MIN_VALUE
+				&& result<=Long.MAX_VALUE)
+			return new PsiInteger(((Double)result).longValue());
+		else
+			return new PsiReal(result);
 	}
 
-	public static PsiInteger or(final PsiInteger x, final PsiInteger y)
+	public PsiNumeric sub(final PsiNumeric numeric)
 	{
-		return new PsiInteger(x.getValue()|y.getValue());
+		double result=value-numeric.getValue().doubleValue();
+		if(numeric instanceof PsiInteger
+				&& result>=Long.MIN_VALUE
+				&& result<=Long.MAX_VALUE)
+			return new PsiInteger(((Double)result).longValue());
+		else
+			return new PsiReal(result);
 	}
 
-	public static PsiInteger xor(final PsiInteger x, final PsiInteger y)
+	public PsiNumeric mul(final PsiNumeric numeric)
 	{
-		return new PsiInteger(x.getValue()^y.getValue());
+		double result=value*numeric.getValue().doubleValue();
+		if(numeric instanceof PsiInteger
+				&& result>=Long.MIN_VALUE
+				&& result<=Long.MAX_VALUE)
+			return new PsiInteger(((Double)result).longValue());
+		else
+			return new PsiReal(result);
 	}
-	*/
+
+	public PsiInteger floor()
+	{
+		return this;
+	}
+
+	public PsiInteger ceiling()
+	{
+		return this;
+	}
 
 	public static PsiInteger mod(final PsiInteger x, final PsiInteger y)
 	{

@@ -7,24 +7,25 @@ public class _where extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject key=opstack.pop();
+			interpreter.error("stackunderflow");
+			return;
+		}
+		
+		PsiObject key=opstack.pop();
 
-			if(key instanceof PsiStringlike)
+		if(key instanceof PsiStringlike)
+		{
+			PsiDictionary dict=interpreter.getDictionaryStack().where((PsiStringlike)key);
+			if(dict!=null)
 			{
-				PsiDictionary dict=interpreter.getDictionaryStack().where((PsiStringlike)key);
-				if(dict!=null)
-				{
-					opstack.push(dict);
-					opstack.push(new PsiBoolean(true));
-				}
-				else
-					opstack.push(new PsiBoolean(false));
+				opstack.push(dict);
+				opstack.push(new PsiBoolean(true));
 			}
 			else
-				interpreter.error("typecheck");
+				opstack.push(new PsiBoolean(false));
 		}
+		else
+			interpreter.error("typecheck");
 	}
 }

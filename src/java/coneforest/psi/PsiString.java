@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiString
 	extends PsiStringlike
-	implements PsiArraylike<PsiInteger>
+	implements PsiArraylike<PsiInteger>, PsiScalar<PsiString>
 {
 
 	public PsiString()
@@ -119,6 +119,26 @@ public class PsiString
 	public static PsiString concatenation(PsiString x, PsiString y)
 	{
 		return new PsiString(x.getValue()+y.getValue());
+	}
+	
+	public PsiBoolean lt(final PsiString string)
+	{
+		return new PsiBoolean(getValue().compareTo(string.getValue())<0);
+	}
+
+	public PsiBoolean le(final PsiString string)
+	{
+		return new PsiBoolean(getValue().compareTo(string.getValue())<=0);
+	}
+
+	public PsiBoolean gt(final PsiString string)
+	{
+		return new PsiBoolean(getValue().compareTo(string.getValue())>0);
+	}
+
+	public PsiBoolean ge(final PsiString string)
+	{
+		return new PsiBoolean(getValue().compareTo(string.getValue())>=0);
 	}
 
 	private StringBuffer buffer;

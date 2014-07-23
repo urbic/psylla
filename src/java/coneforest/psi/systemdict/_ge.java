@@ -11,14 +11,16 @@ public class _ge extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PsiObject obj2=opstack.pop();
-		PsiObject obj1=opstack.pop();
+		PsiObject scalar2=opstack.pop();
+		PsiObject scalar1=opstack.pop();
 
-		if(obj1 instanceof PsiNumeric && obj2 instanceof PsiNumeric)
-			opstack.push(PsiNumeric.ge((PsiNumeric)obj1, (PsiNumeric)obj2));
-		else if(obj1 instanceof PsiStringlike && obj2 instanceof PsiStringlike)
-			opstack.push(PsiStringlike.ge((PsiStringlike)obj1, (PsiStringlike)obj2));
-		else
+		try
+		{
+			opstack.push(((PsiScalar)scalar1).ge((PsiScalar)scalar2));
+		}
+		catch(ClassCastException e)
+		{
 			interpreter.error("typecheck");
+		}
 	}
 }

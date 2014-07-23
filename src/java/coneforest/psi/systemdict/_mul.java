@@ -11,15 +11,17 @@ public class _mul extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PsiObject y=opstack.pop();
-		PsiObject x=opstack.pop();
+		PsiObject arithmetic2=opstack.pop();
+		PsiObject arithmetic1=opstack.pop();
 
-		if(x instanceof PsiNumeric && y instanceof PsiNumeric)
-			opstack.push(PsiNumeric.product((PsiNumeric)x, (PsiNumeric)y));
-		else
+		try
 		{
-			opstack.push(x);
-			opstack.push(y);
+			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).mul((PsiArithmetic)arithmetic2));
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(arithmetic1);
+			opstack.push(arithmetic2);
 			interpreter.error("typecheck");
 		}
 	}

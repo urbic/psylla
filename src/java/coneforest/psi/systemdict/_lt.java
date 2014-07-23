@@ -11,14 +11,16 @@ public class _lt extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PsiObject obj2=opstack.pop();
-		PsiObject obj1=opstack.pop();
+		PsiObject scalar2=opstack.pop();
+		PsiObject scalar1=opstack.pop();
 
-		if(obj1 instanceof PsiNumeric && obj2 instanceof PsiNumeric)
-			opstack.push(PsiNumeric.lt((PsiNumeric)obj1, (PsiNumeric)obj2));
-		else if(obj1 instanceof PsiStringlike && obj2 instanceof PsiStringlike)
-			opstack.push(PsiStringlike.lt((PsiStringlike)obj1, (PsiStringlike)obj2));
-		else
+		try
+		{
+			opstack.push(((PsiScalar)scalar1).lt((PsiScalar)scalar2));
+		}
+		catch(ClassCastException e)
+		{
 			interpreter.error("typecheck");
+		}
 	}
 }

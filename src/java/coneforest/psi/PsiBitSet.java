@@ -8,6 +8,11 @@ public class PsiBitSet
 	{
 		return "bitset";
 	}
+
+	public java.util.BitSet getBitSet()
+	{
+		return bitset;
+	}
 	
 	public String toString()
 	{
@@ -85,6 +90,12 @@ public class PsiBitSet
 	public int length()
 	{
 		return bitset.cardinality();
+	}
+
+	public PsiBoolean eq(final PsiObject obj)
+	{
+		return new PsiBoolean(obj instanceof PsiBitSet
+				&& bitset.equals(((PsiBitSet)obj).getBitSet()));
 	}
 
 	private java.util.BitSet bitset=new java.util.BitSet();

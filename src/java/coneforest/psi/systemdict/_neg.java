@@ -12,7 +12,16 @@ public class _neg extends PsiOperator
 			return;
 		}
 		
-		PsiObject obj=opstack.pop();
+		PsiObject arihmetic=opstack.pop();
+		try
+		{
+			opstack.push((PsiObject)((PsiArithmetic)arihmetic).neg());
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck");
+		}
+		/*
 		if(obj instanceof PsiNumeric)
 			opstack.push(PsiNumeric.negate((PsiNumeric)obj));
 		else
@@ -20,5 +29,6 @@ public class _neg extends PsiOperator
 			opstack.push(obj);
 			interpreter.error("typecheck");
 		}
+		*/
 	}
 }
