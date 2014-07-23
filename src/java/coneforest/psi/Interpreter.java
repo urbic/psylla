@@ -12,8 +12,12 @@ public class Interpreter
 
 		// Load systemdict, globaldict, userdict
 		dictstack.push(loadModule(coneforest.psi.systemdict.SystemDictionary.class));
-		dictstack.push(new PsiDictionary());
-		dictstack.push(new PsiDictionary());
+		PsiDictionary globaldict=new PsiDictionary();
+		getSystemDictionary().put("globaldict", globaldict);
+		dictstack.push(globaldict);
+		PsiDictionary userdict=new PsiDictionary();
+		getSystemDictionary().put("userdict", userdict);
+		dictstack.push(userdict);
 
 		setReader(new java.io.InputStreamReader(System.in));
 		setWriter(new java.io.OutputStreamWriter(System.out));
