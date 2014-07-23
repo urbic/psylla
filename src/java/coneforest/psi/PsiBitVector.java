@@ -2,8 +2,18 @@ package coneforest.psi;
 
 public class PsiBitVector
 	extends PsiObject
-	implements PsiArraylike<PsiBoolean>
+	implements PsiArraylike<PsiBoolean>, PsiLogical<PsiBitVector>
 {
+	public PsiBitVector()
+	{
+		this(new java.util.BitSet());
+	}
+
+	public PsiBitVector(java.util.BitSet bitvector)
+	{
+		this.bitvector=bitvector;
+	}
+
 	public String getTypeName()
 	{
 		return "bitvector";
@@ -12,6 +22,11 @@ public class PsiBitVector
 	public String toString()
 	{
 		return "-bitvector-";
+	}
+
+	private java.util.BitSet getBitVector()
+	{
+		return bitvector;
 	}
 
 	public boolean get(int index)
@@ -52,6 +67,34 @@ public class PsiBitVector
 		put(oIndex.getValue().intValue(), oValue.getValue());
 	}
 
+	public PsiBitVector not()
+	{
+		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
+		result.flip(0, result.size());
+		return new PsiBitVector(result);
+	}
+
+	public PsiBitVector or(final PsiBitVector obj)
+	{
+		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
+		result.or(obj.getBitVector());
+		return new PsiBitVector(result);
+	}
+
+	public PsiBitVector and(final PsiBitVector obj)
+	{
+		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
+		result.and(obj.getBitVector());
+		return new PsiBitVector(result);
+	}
+
+	public PsiBitVector xor(final PsiBitVector obj)
+	{
+		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
+		result.xor(obj.getBitVector());
+		return new PsiBitVector(result);
+	}
+
 	public java.util.Iterator<PsiBoolean> iterator()
 	{
 		return new java.util.Iterator<PsiBoolean>()
@@ -80,8 +123,8 @@ public class PsiBitVector
 
 	public int length()
 	{
-		return bitvector.length();
+		return bitvector.size();
 	}
 
-	private java.util.BitSet bitvector=new java.util.BitSet();
+	private java.util.BitSet bitvector;
 }
