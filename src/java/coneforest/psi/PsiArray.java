@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public class PsiArray extends PsiObject implements Iterable<PsiObject>
+public class PsiArray
+	extends PsiObject
+	implements Iterable<PsiObject>, PsiComposite<PsiObject>
 {
 	public PsiArray()
 	{

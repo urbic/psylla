@@ -11,10 +11,12 @@ public class SystemDictionary extends PsiModule
 		register(_add.class);
 		register(_aload.class);
 		register(_and.class);
+		register(_append.class);
 		register(_array.class);
 		register(_arraytomark.class);
 		register(_astore.class);
 		register(_begin.class);
+		register(_bitset.class);
 		register(_bitshift.class);
 		register(_bitvector.class);
 		register(_ceiling.class);

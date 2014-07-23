@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public class PsiBitVector extends PsiObject implements Iterable<PsiBoolean>
+public class PsiBitVector
+	extends PsiObject
+	implements Iterable<PsiBoolean>, PsiComposite<PsiBoolean>
 {
 	public String getTypeName()
 	{

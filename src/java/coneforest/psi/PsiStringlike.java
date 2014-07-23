@@ -1,32 +1,27 @@
 package coneforest.psi;
 
-abstract public class PsiStringlike extends PsiObject
+abstract public class PsiStringlike
+	extends PsiObject
+	implements PsiComposite<PsiInteger>
 {
 	public PsiStringlike()
 	{
 	}
-	
+
 	public PsiStringlike(String value)
 	{
 		setValue(value);
 	}
 	
 	abstract public String getValue();
-	//{
-	//	return value;
-	//}
 	
 	abstract public void setValue(final String value);
-	//{
-	//	this.value=value;
-	//}
 	
-	public String toString()
+	abstract public String toString();
+
+	public int size()
 	{
-		if(this instanceof PsiString)
-			return ((PsiString)this).toString();
-		else
-			return ((PsiName)this).toString();
+		return getValue().length();
 	}
 	
 	public static PsiBoolean eq(final PsiStringlike x, final PsiStringlike y)
