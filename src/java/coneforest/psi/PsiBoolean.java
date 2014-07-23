@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public class PsiBoolean extends PsiObject
+public class PsiBoolean
+	extends PsiObject
+	implements PsiLogical<PsiBoolean>
 {
 	public PsiBoolean(final boolean value)
 	{
@@ -19,25 +21,46 @@ public class PsiBoolean extends PsiObject
 		return value? "true": "false";
 	}
 
-	static public PsiBoolean not(final PsiBoolean p)
+	public PsiBoolean not()
+	{
+		return new PsiBoolean(!getValue());
+	}
+
+	public PsiBoolean or(final PsiBoolean obj)
+	{
+		return new PsiBoolean(getValue() || obj.getValue());
+	}
+
+	public PsiBoolean and(final PsiBoolean obj)
+	{
+		return new PsiBoolean(getValue() && obj.getValue());
+	}
+
+	public PsiBoolean xor(final PsiBoolean obj)
+	{
+		return new PsiBoolean(getValue() ^ obj.getValue());
+	}
+
+
+	/*public static PsiBoolean not(final PsiBoolean p)
 	{
 		return new PsiBoolean(!p.getValue());
 	}
 
-	static public PsiBoolean and(final PsiBoolean p, final PsiBoolean q)
+	public static PsiBoolean and(final PsiBoolean p, final PsiBoolean q)
 	{
 		return new PsiBoolean(p.getValue() && q.getValue());
 	}
 
-	static public PsiBoolean or(final PsiBoolean p, final PsiBoolean q)
+	public static PsiBoolean or(final PsiBoolean p, final PsiBoolean q)
 	{
 		return new PsiBoolean(p.getValue() || q.getValue());
 	}
 
-	static public PsiBoolean xor(final PsiBoolean p, final PsiBoolean q)
+	public static PsiBoolean xor(final PsiBoolean p, final PsiBoolean q)
 	{
 		return new PsiBoolean(p.getValue() ^ q.getValue());
-	}
+	}*/
 
 	private final boolean value;
 }

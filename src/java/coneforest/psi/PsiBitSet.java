@@ -82,7 +82,7 @@ public class PsiBitSet
 			};
 	}
 
-	public int size()
+	public int length()
 	{
 		return bitset.cardinality();
 	}

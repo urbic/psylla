@@ -2,7 +2,7 @@ package coneforest.psi;
 
 abstract public class PsiStringlike
 	extends PsiObject
-	implements PsiComposite<PsiInteger>
+	implements PsiComposite
 {
 	public PsiStringlike()
 	{
@@ -19,9 +19,35 @@ abstract public class PsiStringlike
 	
 	abstract public String toString();
 
-	public int size()
+	public int length()
 	{
 		return getValue().length();
+	}
+
+	public java.util.Iterator<PsiInteger> iterator()
+	{
+		return new java.util.Iterator<PsiInteger>()
+			{
+				public boolean hasNext()
+				{
+					return index<getValue().length();
+				}
+
+				public PsiInteger next()
+				{
+					if(hasNext())
+						return new PsiInteger(getValue().charAt(index++));
+					else
+						throw new java.util.NoSuchElementException();
+				}
+
+				public void remove()
+				{
+					throw new UnsupportedOperationException();
+				}
+
+				private int index=0;
+			};
 	}
 	
 	public static PsiBoolean eq(final PsiStringlike x, final PsiStringlike y)

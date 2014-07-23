@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public class PsiInteger extends PsiNumeric
+public class PsiInteger
+	extends PsiNumeric
+	implements PsiLogical<PsiInteger>
 {
 	public PsiInteger(final long value)
 	{
@@ -19,6 +21,27 @@ public class PsiInteger extends PsiNumeric
 		return String.valueOf(value);
 	}
 
+	public PsiInteger not()
+	{
+		return new PsiInteger(~getValue());
+	}
+
+	public PsiInteger or(final PsiInteger obj)
+	{
+		return new PsiInteger(getValue() | obj.getValue());
+	}
+
+	public PsiInteger and(final PsiInteger obj)
+	{
+		return new PsiInteger(getValue() & obj.getValue());
+	}
+
+	public PsiInteger xor(final PsiInteger obj)
+	{
+		return new PsiInteger(getValue() ^ obj.getValue());
+	}
+
+	/*
 	public static PsiInteger not(final PsiInteger x)
 	{
 		return new PsiInteger(~x.getValue());
@@ -38,6 +61,7 @@ public class PsiInteger extends PsiNumeric
 	{
 		return new PsiInteger(x.getValue()^y.getValue());
 	}
+	*/
 
 	public static PsiInteger mod(final PsiInteger x, final PsiInteger y)
 	{
