@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public class PsiDictionary extends PsiObject
+public class PsiDictionary
+	extends PsiObject
+	implements PsiComposite
 {
 	public String getTypeName() { return "dict"; }
 
