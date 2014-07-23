@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-abstract public class PsiNumeric extends PsiObject
+abstract public class PsiNumeric
+	extends PsiObject
 {
 	public Number getValue()
 	{
