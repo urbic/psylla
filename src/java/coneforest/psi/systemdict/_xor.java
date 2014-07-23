@@ -16,7 +16,7 @@ public class _xor extends PsiOperator
 
 		try
 		{
-			opstack.push((PsiObject)((PsiLogical)logical2).xor((PsiLogical)logical1));
+			opstack.push((PsiObject)((PsiLogical)logical1).xor((PsiLogical)logical2));
 		}
 		catch(ClassCastException e)
 		{

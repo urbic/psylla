@@ -7,20 +7,33 @@ public class _log extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject obj=opstack.pop();
-			if(obj instanceof PsiNumeric)
-			{
-				PsiReal result=PsiNumeric.log((PsiNumeric)obj);
-				if(result.getValue().isNaN() || result.getValue().isInfinite())
-					interpreter.error("rangecheck");
-				else
-					opstack.push(result);
-			}
-			else
-				interpreter.error("typecheck");
+			interpreter.error("stackunderflow");
+			return;
 		}
+
+		PsiObject numeric=opstack.pop();
+
+		try
+		{
+			opstack.push(((PsiNumeric)numeric).log());
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck");
+		}
+		
+		/*
+		if(obj instanceof PsiNumeric)
+		{
+			PsiReal result=PsiNumeric.sqrt((PsiNumeric)obj);
+			if(result.getValue().isNaN())
+				interpreter.error("rangecheck");
+			else
+				opstack.push(result);
+		}
+		else
+			interpreter.error("typecheck");
+		*/
 	}
 }

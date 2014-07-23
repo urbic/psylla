@@ -62,5 +62,11 @@ public class PsiBoolean
 		return new PsiBoolean(p.getValue() ^ q.getValue());
 	}*/
 
+	public PsiBoolean eq(final PsiObject obj)
+	{
+		return new PsiBoolean(obj instanceof PsiBoolean
+				&& value==((PsiBoolean)obj).getValue());
+	}
+
 	private final boolean value;
 }

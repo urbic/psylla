@@ -23,10 +23,12 @@ public class _for extends PsiOperator
 
 			int looplevel=interpreter.pushLoopLevel();
 			// TODO: reverse
-			for(PsiNumeric i=(PsiNumeric)initial;
-					PsiNumeric.le(i, (PsiNumeric)limit).getValue()
+			for(
+					PsiNumeric i=(PsiNumeric)initial;
+					i.le((PsiNumeric)limit).getValue()
 						&& !interpreter.getExitFlag();
-					i=PsiNumeric.sum(i, (PsiNumeric)increment))
+					i=i.add((PsiNumeric)increment)
+				)
 			{
 				opstack.push(i);
 					//int level=interpreter.getExecutionStack().size();

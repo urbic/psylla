@@ -16,7 +16,7 @@ public class _or extends PsiOperator
 
 		try
 		{
-			opstack.push((PsiObject)((PsiLogical)logical2).or((PsiLogical)logical1));
+			opstack.push((PsiObject)((PsiLogical)logical1).or((PsiLogical)logical2));
 		}
 		catch(ClassCastException e)
 		{

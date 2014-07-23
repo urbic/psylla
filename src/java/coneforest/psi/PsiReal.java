@@ -14,6 +14,41 @@ public class PsiReal extends PsiNumeric
 		return value;
 	}
 
+	public PsiReal neg()
+	{
+		return new PsiReal(-value);
+	}
+
+	public PsiReal abs()
+	{
+		return new PsiReal(Math.abs(value));
+	}
+	
+	public PsiReal add(final PsiNumeric numeric)
+	{
+		return new PsiReal(value+numeric.getValue().doubleValue());
+	}
+	
+	public PsiReal sub(final PsiNumeric numeric)
+	{
+		return new PsiReal(value-numeric.getValue().doubleValue());
+	}
+	
+	public PsiReal mul(final PsiNumeric numeric)
+	{
+		return new PsiReal(value*numeric.getValue().doubleValue());
+	}	
+	
+	public PsiReal floor()
+	{
+		return new PsiReal(Math.floor(value));
+	}
+
+	public PsiReal ceiling()
+	{
+		return new PsiReal(Math.ceil(value));
+	}
+
 	public String toString()
 	{
 		return String.valueOf(value);

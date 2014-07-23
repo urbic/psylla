@@ -2,15 +2,25 @@ package coneforest.psi;
 
 abstract public class PsiNumeric
 	extends PsiObject
+	implements PsiArithmetic<PsiNumeric>, PsiScalar<PsiNumeric>
 {
-	public Number getValue()
+	abstract Number getValue();
+
+	abstract public PsiNumeric neg();
+	
+	abstract public PsiNumeric add(final PsiNumeric numeric);
+	
+	abstract public PsiNumeric sub(final PsiNumeric numeric);
+
+	abstract public PsiNumeric mul(final PsiNumeric numeric);
+
+	public PsiReal div(final PsiNumeric numeric)
 	{
-		if(this instanceof PsiInteger)
-			return ((PsiInteger)this).getValue();
-		else
-			return ((PsiReal)this).getValue();
+		return new PsiReal(getValue().doubleValue()/numeric.getValue().doubleValue());
 	}
 
+
+	/*
 	public static PsiNumeric negate(final PsiNumeric x)
 	{
 		if(x instanceof PsiInteger)
@@ -102,35 +112,65 @@ abstract public class PsiNumeric
 		else
 			return new PsiReal(Math.ceil(((PsiReal)x).getValue().doubleValue()));
 	}
+	*/
 
-	public static PsiBoolean eq(final PsiNumeric x, final PsiNumeric y)
+	public abstract PsiNumeric abs();
+
+	public PsiReal sqrt()
 	{
-		return new PsiBoolean(x.getValue().doubleValue()==y.getValue().doubleValue());
+		return new PsiReal(Math.sqrt(getValue().doubleValue()));
+	}
+	
+	public PsiReal log()
+	{
+		return new PsiReal(Math.log(getValue().doubleValue()));
+	}
+	
+	public PsiReal exp()
+	{
+		return new PsiReal(Math.exp(getValue().doubleValue()));
 	}
 
-	public static PsiBoolean ne(final PsiNumeric x, final PsiNumeric y)
+	public PsiReal cos()
 	{
-		return new PsiBoolean(x.getValue().doubleValue()!=y.getValue().doubleValue());
+		return new PsiReal(Math.cos(getValue().doubleValue()));
 	}
 
-	public static PsiBoolean lt(final PsiNumeric x, final PsiNumeric y)
+	public PsiReal sin()
 	{
-		return new PsiBoolean(x.getValue().doubleValue()<y.getValue().doubleValue());
+		return new PsiReal(Math.sin(getValue().doubleValue()));
 	}
 
-	public static PsiBoolean le(final PsiNumeric x, final PsiNumeric y)
+	abstract public PsiNumeric floor();
+	
+	abstract public PsiNumeric ceiling();
+
+	public PsiBoolean eq(final PsiObject obj)
 	{
-		return new PsiBoolean(x.getValue().doubleValue()<=y.getValue().doubleValue());
+		if(obj instanceof PsiNumeric)
+			return new PsiBoolean(getValue().doubleValue()==((PsiNumeric)obj).getValue().doubleValue());
+		else
+			return new PsiBoolean(false);
+	}
+	
+	public PsiBoolean lt(final PsiNumeric numeric)
+	{
+		return new PsiBoolean(getValue().doubleValue()<numeric.getValue().doubleValue());
 	}
 
-	public static PsiBoolean gt(final PsiNumeric x, final PsiNumeric y)
+	public PsiBoolean le(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(x.getValue().doubleValue()>y.getValue().doubleValue());
+		return new PsiBoolean(getValue().doubleValue()<=numeric.getValue().doubleValue());
 	}
 
-	public static PsiBoolean ge(final PsiNumeric x, final PsiNumeric y)
+	public PsiBoolean gt(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(x.getValue().doubleValue()>=y.getValue().doubleValue());
+		return new PsiBoolean(getValue().doubleValue()>numeric.getValue().doubleValue());
+	}
+
+	public PsiBoolean ge(final PsiNumeric numeric)
+	{
+		return new PsiBoolean(getValue().doubleValue()>=numeric.getValue().doubleValue());
 	}
 
 }

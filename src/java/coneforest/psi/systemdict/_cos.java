@@ -6,18 +6,30 @@ public class _cos extends PsiOperator
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()==0)
+		if(opstack.size()<0)
+		{
 			interpreter.error("stackunderflow");
+			return;
+		}
+		
+		PsiObject numeric=opstack.pop();
+
+		try
+		{
+			opstack.push(((PsiNumeric)numeric).cos());
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck");
+		}
+		/*
+		if(obj instanceof PsiNumeric)
+			opstack.push(PsiNumeric.exp((PsiNumeric)obj));
 		else
 		{
-			PsiObject obj=opstack.pop();
-			if(obj instanceof PsiNumeric)
-				opstack.push(PsiNumeric.cos((PsiNumeric)obj));
-			else
-			{
-				opstack.push(obj);
-				interpreter.error("typecheck");
-			}
+			opstack.push(obj);
+			interpreter.error("typecheck");
 		}
+		*/
 	}
 }

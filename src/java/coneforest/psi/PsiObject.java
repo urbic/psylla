@@ -54,6 +54,15 @@ abstract public class PsiObject
 		access&=~ACCESS_EXECUTE;
 	}
 
+	public PsiBoolean eq(final PsiObject obj)
+	{
+		return new PsiBoolean(this==obj);
+	}
+
+	public PsiBoolean ne(final PsiObject obj)
+	{
+		return eq(obj).not();
+	}
 
 	abstract public String toString();
 
