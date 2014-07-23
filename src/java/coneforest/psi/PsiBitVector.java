@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiBitVector
 	extends PsiObject
-	implements Iterable<PsiBoolean>, PsiComposite<PsiBoolean>
+	implements PsiArraylike<PsiBoolean>
 {
 	public String getTypeName()
 	{
@@ -78,7 +78,7 @@ public class PsiBitVector
 			};
 	}
 
-	public int size()
+	public int length()
 	{
 		return bitvector.length();
 	}

@@ -47,12 +47,17 @@ public class PsiDictionary
 		return dictionary.entrySet();
 	}
 
+	public java.util.Iterator<java.util.Map.Entry<String, PsiObject>> iterator()
+	{
+		return dictionary.entrySet().iterator();
+	}
+
 	public boolean containsKey(PsiStringlike key)
 	{
 		return dictionary.containsKey(key.getValue());
 	}
 
-	public int size()
+	public int length()
 	{
 		return dictionary.size();
 	}
@@ -60,7 +65,7 @@ public class PsiDictionary
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder("<<");
-		if(size()>0)
+		if(length()>0)
 		{
 			for(java.util.Map.Entry<String, PsiObject> entry: entrySet())
 				sb.append("/"+entry.getKey()+" "+entry.getValue()+" ");

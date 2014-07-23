@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiArray
 	extends PsiObject
-	implements Iterable<PsiObject>, PsiComposite<PsiObject>
+	implements PsiArraylike<PsiObject>
 {
 	public PsiArray()
 	{
@@ -24,7 +24,7 @@ public class PsiArray
 			{
 				ExecutionStack execstack=interpreter.getExecutionStack();
 				int level=execstack.size();
-				for(int i=size()-1; i>=0; i--)
+				for(int i=length()-1; i>=0; i--)
 					execstack.push(get(i));
 				//interpreter.handleExecutionStack(level);
 			}
@@ -41,7 +41,7 @@ public class PsiArray
 		return array.iterator();
 	}
 
-	public int size()
+	public int length()
 	{
 		return array.size();
 	}
@@ -103,7 +103,7 @@ public class PsiArray
 	{
 		StringBuilder sb=new StringBuilder();
 		sb.append(isExecutable()? "{": "[");
-		if(size()>0)
+		if(length()>0)
 		{
 			for(PsiObject obj: array)
 				sb.append(obj+" ");

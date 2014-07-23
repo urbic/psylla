@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public class PsiString extends PsiStringlike
+public class PsiString
+	extends PsiStringlike
+	implements PsiArraylike<PsiInteger>
 {
 
 	public PsiString()

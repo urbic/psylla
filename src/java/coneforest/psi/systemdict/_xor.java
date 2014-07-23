@@ -11,9 +11,18 @@ public class _xor extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PsiObject n2=opstack.pop();
-		PsiObject n1=opstack.pop();
+		PsiObject logical2=opstack.pop();
+		PsiObject logical1=opstack.pop();
 
+		try
+		{
+			opstack.push((PsiObject)((PsiLogical)logical2).xor((PsiLogical)logical1));
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck");
+		}
+		/*
 		if(n1 instanceof PsiBoolean && n2 instanceof PsiBoolean)
 			opstack.push(PsiBoolean.xor((PsiBoolean)n1, (PsiBoolean)n2));
 		else if(n1 instanceof PsiInteger && n2 instanceof PsiInteger)
@@ -24,5 +33,6 @@ public class _xor extends PsiOperator
 			opstack.push(n2);
 			interpreter.error("typecheck");
 		}
+		*/
 	}
 }

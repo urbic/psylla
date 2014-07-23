@@ -11,16 +11,30 @@ public class _not extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PsiObject n=opstack.pop();
+		PsiObject logical=opstack.pop();
 
-		if(n instanceof PsiBoolean)
-			opstack.push(PsiBoolean.not((PsiBoolean)n));
-		else if(n instanceof PsiInteger)
-			opstack.push(PsiInteger.not((PsiInteger)n));
+		try
+		{
+			opstack.push((PsiObject)((PsiLogical)logical).not());
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck");
+		}
+		/*
+		if(n instanceof PsiLogical)
+		{
+			opstack.push((PsiObject)((PsiLogical)logical).not());
+		}
+		//if(n instanceof PsiBoolean)
+		//	opstack.push(PsiBoolean.not((PsiBoolean)n));
+		//else if(n instanceof PsiInteger)
+		//	opstack.push(PsiInteger.not((PsiInteger)n));
 		else
 		{
 			opstack.push(n);
 			interpreter.error("typecheck");
 		}
+		*/
 	}
 }

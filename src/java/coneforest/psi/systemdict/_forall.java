@@ -14,21 +14,7 @@ public class _forall extends PsiOperator
 		PsiObject proc=opstack.pop();
 		PsiObject obj=opstack.pop();
 
-		if(obj instanceof PsiArray)
-		{
-			int looplevel=interpreter.pushLoopLevel();
-			for(PsiObject element: (PsiArray)obj)
-			{
-				if(interpreter.getExitFlag())
-					break;
-				opstack.push(element);
-				proc.invoke(interpreter);
-				interpreter.handleExecutionStack(looplevel);
-			}
-			interpreter.popLoopLevel();
-			interpreter.setExitFlag(false);
-		}
-		else if(obj instanceof PsiDictionary)
+		if(obj instanceof PsiDictionary)
 		{
 			int looplevel=interpreter.pushLoopLevel();
 			for(java.util.Map.Entry<String, PsiObject> entry: ((PsiDictionary)obj).entrySet())
@@ -43,24 +29,10 @@ public class _forall extends PsiOperator
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 		}
-		else if(obj instanceof PsiBitVector)
+		else if(obj instanceof PsiArraylike)
 		{
 			int looplevel=interpreter.pushLoopLevel();
-			for(PsiBoolean element: (PsiBitVector)obj)
-			{
-				if(interpreter.getExitFlag())
-					break;
-				opstack.push(element);
-				proc.invoke(interpreter);
-				interpreter.handleExecutionStack(looplevel);
-			}
-			interpreter.popLoopLevel();
-			interpreter.setExitFlag(false);
-		}
-		else if(obj instanceof PsiBitSet)
-		{
-			int looplevel=interpreter.pushLoopLevel();
-			for(PsiInteger element: (PsiBitSet)obj)
+			for(PsiObject element: ((PsiArraylike<? extends PsiObject>)obj))
 			{
 				if(interpreter.getExitFlag())
 					break;
