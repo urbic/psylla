@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public class PsiWriter extends PsiObject
+public class PsiWriter extends PsiObject implements PsiCloseable, PsiFlushable
 {
 	public PsiWriter()
 	{
@@ -63,6 +63,19 @@ public class PsiWriter extends PsiObject
 		try
 		{
 			writer.flush();
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	public void close()
+		throws PsiException
+	{
+		try
+		{
+			writer.close();
 		}
 		catch(java.io.IOException e)
 		{

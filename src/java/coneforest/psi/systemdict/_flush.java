@@ -11,11 +11,11 @@ public class _flush extends PsiOperator
 		else
 		{
 			PsiObject file=opstack.pop();
-			if(file instanceof PsiWriter)
+			if(file instanceof PsiFlushable)
 			{
 				try
 				{
-					((PsiWriter)file).flush();
+					((PsiFlushable)file).flush();
 				}
 				catch(PsiException e)
 				{

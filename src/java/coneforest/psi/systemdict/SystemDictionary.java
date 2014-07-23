@@ -20,6 +20,7 @@ public class SystemDictionary extends PsiModule
 		register(_ceiling.class);
 		register(_clear.class);
 		register(_cleardictstack.class);
+		register(_close.class);
 		register(_copy.class);
 		register(_cos.class);
 		register(_count.class);

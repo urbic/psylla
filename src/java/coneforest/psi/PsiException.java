@@ -12,5 +12,12 @@ public class PsiException extends Exception
 		return kind;
 	}
 
+	/*
+	public final String
+		TYPECHECK="typecheck",
+		RANGECHECK="rangecheck"
+		;
+	*/
+
 	private String kind;
 }
