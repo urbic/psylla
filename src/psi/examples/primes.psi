@@ -17,7 +17,7 @@
 	for
 	pop
 }
-def
+bind def
 
 
 2 1 arguments 1 get cvi
