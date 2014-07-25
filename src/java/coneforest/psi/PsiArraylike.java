@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 public interface PsiArraylike<T extends PsiObject>
-	extends Iterable<T>, PsiComposite
+	extends PsiIterable<T>, PsiComposite<T>
 {
 	public T get(PsiInteger oIndex)
 		throws PsiException;
@@ -9,5 +9,7 @@ public interface PsiArraylike<T extends PsiObject>
 	public void put(PsiInteger oIndex, T obj)
 		throws PsiException;
 
+	/*
 	public java.util.Iterator<T> iterator();
+	*/
 }

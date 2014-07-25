@@ -12,10 +12,10 @@ public class PsiString
 
 	public PsiString(String string)
 	{
-		buffer=new StringBuffer(string);
+		buffer=new StringBuilder(string);
 	}
 
-	public PsiString(StringBuffer buffer)
+	public PsiString(StringBuilder buffer)
 	{
 		this.buffer=buffer;
 	}
@@ -38,7 +38,7 @@ public class PsiString
 		buffer.replace(0, value.length(), value);
 	}
 
-	public StringBuffer getBuffer()
+	public StringBuilder getBuffer()
 	{
 		return buffer;
 	}
@@ -141,5 +141,5 @@ public class PsiString
 		return new PsiBoolean(getValue().compareTo(string.getValue())>=0);
 	}
 
-	private StringBuffer buffer;
+	private StringBuilder buffer;
 }

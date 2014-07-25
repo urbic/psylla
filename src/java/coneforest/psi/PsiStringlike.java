@@ -2,7 +2,6 @@ package coneforest.psi;
 
 abstract public class PsiStringlike
 	extends PsiObject
-	implements PsiComposite
 {
 	public PsiStringlike()
 	{

@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public final class PsiMark extends PsiObject
+public final class PsiMark
+	extends PsiObject
+	implements PsiAtomic
 {
 	public String getTypeName() { return "mark"; }
 
