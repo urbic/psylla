@@ -16,9 +16,7 @@ public class _for extends PsiOperator
 		PsiObject increment=opstack.pop();
 		PsiObject initial=opstack.pop();
 
-		if(limit instanceof PsiNumeric
-				&& increment instanceof PsiNumeric
-				&& initial instanceof PsiNumeric)
+		try
 		{
 
 			int looplevel=interpreter.pushLoopLevel();
@@ -42,7 +40,9 @@ public class _for extends PsiOperator
 			interpreter.setExitFlag(false);
 
 		}
-		else
+		catch(ClassCastException e)
+		{
 			interpreter.error("typecheck");
+		}
 	}
 }

@@ -15,13 +15,5 @@ public class _ne extends PsiOperator
 		PsiObject obj1=opstack.pop();
 
 		opstack.push(obj1.ne(obj2));
-		/*
-		if(obj1 instanceof PsiNumeric && obj2 instanceof PsiNumeric)
-			opstack.push(PsiNumeric.eq((PsiNumeric)obj1, (PsiNumeric)obj2));
-		else if(obj1 instanceof PsiStringlike && obj2 instanceof PsiStringlike)
-			opstack.push(PsiStringlike.eq((PsiStringlike)obj1, (PsiStringlike)obj2));
-		else
-			interpreter.error("typecheck");
-		*/
 	}
 }

@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiBitSet
 	extends PsiObject
-	implements Iterable<PsiInteger>, PsiComposite<PsiInteger>
+	implements PsiIterable<PsiInteger>, PsiComposite<PsiInteger>
 {
 	public String getTypeName()
 	{

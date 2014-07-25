@@ -12,7 +12,7 @@ public class _if extends PsiOperator
 		{
 			PsiObject obj=opstack.pop();
 			PsiObject cond=opstack.pop();
-			if(cond instanceof PsiBoolean)
+			try
 			{
 				if(((PsiBoolean)cond).getValue())
 				{
@@ -21,7 +21,7 @@ public class _if extends PsiOperator
 					interpreter.handleExecutionStack(execlevel);
 				}
 			}
-			else
+			catch(ClassCastException e)
 			{
 				opstack.push(cond);
 				opstack.push(obj);

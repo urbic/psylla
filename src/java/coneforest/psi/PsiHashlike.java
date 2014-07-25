@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 public interface PsiHashlike<T extends PsiObject>
-	extends PsiComposite
+	extends PsiComposite, PsiIterable<java.util.Map.Entry<String, T>>
 {
 	public T get(PsiStringlike key)
 		throws PsiException;

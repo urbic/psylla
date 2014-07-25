@@ -1,24 +1,22 @@
+/primes bitset def
 
 /testprime
 {
 	true exch
-	2 1 2 index
-	1 sub
+	primes
 	{
 		1 index exch
-		mod
-		0 eq
+		mod 0 eq
 		{
 			exch not exch
 			exit
 		}
 		if
 	}
-	for
-	pop
+	forall
+	primes exch append
 }
 bind def
-
 
 2 1 arguments 1 get cvi
 {

@@ -14,10 +14,10 @@ public class _forall extends PsiOperator
 		PsiObject proc=opstack.pop();
 		PsiObject obj=opstack.pop();
 
-		if(obj instanceof PsiDictionary)
+		if(obj instanceof PsiHashlike)
 		{
 			int looplevel=interpreter.pushLoopLevel();
-			for(java.util.Map.Entry<String, PsiObject> entry: ((PsiDictionary)obj).entrySet())
+			for(java.util.Map.Entry<String, PsiObject> entry: (PsiHashlike<PsiObject>)obj)
 			{
 				if(interpreter.getExitFlag())
 					break;
@@ -29,10 +29,10 @@ public class _forall extends PsiOperator
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 		}
-		else if(obj instanceof PsiArraylike)
+		else if(obj instanceof PsiIterable)
 		{
 			int looplevel=interpreter.pushLoopLevel();
-			for(PsiObject element: ((PsiArraylike<? extends PsiObject>)obj))
+			for(PsiObject element: ((PsiIterable<? extends PsiObject>)obj))
 			{
 				if(interpreter.getExitFlag())
 					break;
@@ -46,4 +46,5 @@ public class _forall extends PsiOperator
 		else
 			interpreter.error("typecheck");
 	}
+
 }

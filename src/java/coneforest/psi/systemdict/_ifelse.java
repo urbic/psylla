@@ -13,13 +13,13 @@ public class _ifelse extends PsiOperator
 			PsiObject obj2=opstack.pop();
 			PsiObject obj1=opstack.pop();
 			PsiObject cond=opstack.pop();
-			if(cond instanceof PsiBoolean)
+			try
 			{
 				int execlevel=interpreter.pushLoopLevel();
 				(((PsiBoolean)cond).getValue()? obj1: obj2).invoke(interpreter);
 				interpreter.handleExecutionStack(execlevel);
 			}
-			else
+			catch(ClassCastException e)
 			{
 				opstack.push(cond);
 				opstack.push(obj1);

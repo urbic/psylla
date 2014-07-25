@@ -2,22 +2,17 @@ package coneforest.psi;
 
 public class DictionaryStack extends Stack<PsiDictionary>
 {
-	public PsiObject load(PsiStringlike oKey)
+	public PsiObject load(PsiStringlike key)
 		throws PsiException
 	{
-		for(int i=size()-1; i>=0; i--)
-		{
-			if(get(i).containsKey(oKey))
-				return get(i).get(oKey);
-		}
-		throw new PsiException("undefined");
+		return where(key).get(key);
 	}
 
-	public PsiDictionary where(PsiStringlike oKey)
+	public PsiDictionary where(PsiStringlike key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			if(get(i).containsKey(oKey))
+			if(get(i).containsKey(key))
 				return get(i);
 		}
 		return null;

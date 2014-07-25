@@ -100,14 +100,13 @@ public class PsiInteger
 		return this;
 	}
 
-	public static PsiInteger mod(final PsiInteger x, final PsiInteger y)
+	public PsiInteger mod(final PsiInteger integer)
 	{
-		long xValue=x.getValue();
-		long yValue=y.getValue();
-		if(yValue>0)
-			return new PsiInteger(xValue>=0? xValue%yValue: yValue-(-xValue)%yValue);
-		if(yValue<0)
-			return new PsiInteger(xValue>=0? xValue%(-yValue)+(xValue!=0? yValue:0): -((-xValue)%(-yValue)));
+		long integerValue=integer.getValue();
+		if(integerValue>0)
+			return new PsiInteger(value>=0? value%integerValue: integerValue-(-value)%integerValue);
+		if(integerValue<0)
+			return new PsiInteger(value>=0? value%(-integerValue)+(value!=0? integerValue:0): -((-value)%(-integerValue)));
 		return null;
 	}
 
