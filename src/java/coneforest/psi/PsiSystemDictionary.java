@@ -1,7 +1,8 @@
 package coneforest.psi;
 import coneforest.psi.systemdict.*;
 
-public class PsiSystemDictionary extends PsiModule
+public class PsiSystemDictionary
+	extends PsiModule
 {
 	public PsiSystemDictionary()
 	{

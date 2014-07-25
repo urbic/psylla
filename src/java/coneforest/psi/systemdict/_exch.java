@@ -7,13 +7,14 @@ public class _exch extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject obj1=opstack.pop();
-			PsiObject obj2=opstack.pop();
-			opstack.push(obj1);
-			opstack.push(obj2);
+			interpreter.error("stackunderflow");
+			return;
 		}
+		
+		PsiObject obj2=opstack.pop();
+		PsiObject obj1=opstack.pop();
+		opstack.push(obj2);
+		opstack.push(obj1);
 	}
 }

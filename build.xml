@@ -13,6 +13,11 @@
 	<property name="target.lib"  location="${target}/lib"/>
 	<property name="javadoc"  location="javadoc"/>
 	<property name="test.file"  location="test.psi"/>
+	<path id="project.class.path">
+		<pathelement path="${target.lib}/${project.name}.jar"/>
+		<pathelement path="../xopt/target/lib/xopt.jar"/>
+	</path>
+
 
 	<presetdef name="xslt.preset">
 		<xslt
@@ -144,8 +149,11 @@
 			srcdir="${src.java}"
 			destdir="${classes}"
 			includeantruntime="false"
-			>
-		</javac>
+			classpathref="project.class.path"
+			/>
+		<copy todir="${classes}">
+			<fileset dir="${src.java}" includes="**/*.xopt"/>
+		</copy>
 	</target>
 
 	<target name="compile" depends="compile.java"/>
@@ -174,8 +182,9 @@
 
 	<target name="test" depends="jar">
 		<java
-			jar="${target.lib}/${ant.project.name}.jar"
+			classname="coneforest.psi.Psi"
 			fork="true"
+			classpathref="project.class.path"
 			>
 			<arg file="${test.file}"/>
 		</java>
