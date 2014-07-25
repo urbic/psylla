@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiDictionary
 	extends PsiObject
-	implements PsiComposite
+	implements PsiHashlike<PsiObject>
 {
 	public String getTypeName() { return "dict"; }
 
@@ -40,6 +40,11 @@ public class PsiDictionary
 	public void undef(PsiStringlike oKey)
 	{
 		undef(oKey.getValue());
+	}
+
+	public PsiBoolean known(PsiStringlike key)
+	{
+		return new PsiBoolean(containsKey(key));
 	}
 
 	public java.util.Set<java.util.Map.Entry<String, PsiObject>> entrySet()

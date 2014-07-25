@@ -1,9 +1,9 @@
-package coneforest.psi.systemdict;
-import coneforest.psi.*;
+package coneforest.psi;
+import coneforest.psi.systemdict.*;
 
-public class SystemDictionary extends PsiModule
+public class PsiSystemDictionary extends PsiModule
 {
-	public SystemDictionary()
+	public PsiSystemDictionary()
 	{
 		super();
 

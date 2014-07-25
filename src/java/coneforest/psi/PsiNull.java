@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public final class PsiNull extends PsiObject
+public final class PsiNull
+	extends PsiObject
+	implements PsiAtomic
 {
 	public String getTypeName() { return "null"; }
 

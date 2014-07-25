@@ -10,7 +10,7 @@ public class PsiStringWriter extends PsiWriter
 
 class StringBufferWriter extends java.io.Writer
 {
-	StringBufferWriter(StringBuffer buffer)
+	StringBufferWriter(StringBuilder buffer)
 	{
 		this.buffer=buffer;
 	}
@@ -29,5 +29,5 @@ class StringBufferWriter extends java.io.Writer
 			buffer.append(cbuf[i]);
 	}
 
-	private StringBuffer buffer;
+	private StringBuilder buffer;
 }

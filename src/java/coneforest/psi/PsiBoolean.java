@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiBoolean
 	extends PsiObject
-	implements PsiLogical<PsiBoolean>
+	implements PsiAtomic, PsiLogical<PsiBoolean>
 {
 	public PsiBoolean(final boolean value)
 	{

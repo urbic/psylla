@@ -13,6 +13,11 @@ public class PsiReader
 		setReader(reader);
 	}
 
+	public PsiReader(java.io.InputStream is)
+	{
+		this(new java.io.InputStreamReader(is));
+	}
+
 	public String getTypeName()
 	{
 		return "reader";

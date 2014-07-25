@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<options xmlns="urn:coneforest:xopt:ns">
+
+	<option names="f flag" class="coneforest.xopt.OptionFlag">
+		<usage description="flag"/>
+		<usage lang="ru" description="флаг"/>
+	</option>
+
+	<option names="c counter" class="coneforest.xopt.OptionCounter">
+		<usage description="counter"/>
+		<usage lang="ru" description="счётчик"/>
+	</option>
+
+	<option names="t toggle" class="coneforest.xopt.OptionToggle">
+		<usage description="toggle"/>
+		<usage lang="ru" description="переключатель"/>
+	</option>
+
+	<option names="string-collector" class="coneforest.xopt.OptionCollectorString">
+		<usage description="string collector"/>
+		<usage lang="ru" description="коллектор строк"/>
+	</option>
+
+	<option names="s string" class="coneforest.xopt.OptionString">
+		<usage description="string" argName="string"/>
+		<usage lang="ru" description="строка" argName="строка"/>
+	</option>
+
+	<option names="i integer" class="coneforest.xopt.OptionInteger">
+		<usage description="integer"/>
+		<usage lang="ru" description="целое"/>
+	</option>
+
+	<option names="? h help" class="coneforest.xopt.OptionFlag">
+		<usage description="show this help message"/>
+		<usage lang="ru" description="показать эту подсказку"/>
+	</option>
+
+</options>

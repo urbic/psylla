@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-public class PsiModule extends PsiDictionary
+public class PsiModule
+	extends PsiDictionary
 {
 	protected void register(Class<? extends PsiOperator> operatorClass)
 	{

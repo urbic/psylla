@@ -11,7 +11,7 @@ public class Interpreter
 		procstack=new ProcedureStack();
 
 		// Load systemdict, globaldict, userdict
-		dictstack.push(loadModule(coneforest.psi.systemdict.SystemDictionary.class));
+		dictstack.push(loadModule(PsiSystemDictionary.class));
 		PsiDictionary globaldict=new PsiDictionary();
 		getSystemDictionary().put("globaldict", globaldict);
 		dictstack.push(globaldict);
@@ -224,7 +224,7 @@ public class Interpreter
 		switch(token.kind)
 		{
 			case ParserConstants.TOKEN_STRING:
-				StringBuffer buffer=new StringBuffer();
+				StringBuilder buffer=new StringBuilder();
 				for(int i=1; i<token.image.length()-1; i++)
 				{
 					char c=token.image.charAt(i);
