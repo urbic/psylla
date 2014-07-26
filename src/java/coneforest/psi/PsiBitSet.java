@@ -1,8 +1,9 @@
 package coneforest.psi;
 
 public class PsiBitSet
-	extends PsiObject
-	implements PsiSetlike<PsiInteger>
+	extends PsiAbstractSet<PsiInteger>
+	//extends PsiObject
+	//implements PsiSetlike<PsiInteger>
 {
 	public String getTypeName()
 	{
@@ -32,14 +33,15 @@ public class PsiBitSet
 		}
 	}
 
-	public void appendAll(PsiSetlike<PsiInteger> setlike)
+	public void appendAll(PsiSetlike<? extends PsiInteger> setlike)
 		throws PsiException
 	{
 		if(setlike instanceof PsiBitSet)
 			bitset.or(((PsiBitSet)setlike).getBitSet());
 		else
-			for(PsiInteger integer: setlike)
-				append(integer);
+			super.appendAll(setlike);
+			//for(PsiInteger integer: setlike)
+			//	append(integer);
 	}
 
 	public void remove(PsiInteger integer)
@@ -55,7 +57,7 @@ public class PsiBitSet
 		}
 	}
 
-	public void removeAll(PsiSetlike<PsiInteger> setlike)
+	public void removeAll(PsiSetlike<? extends PsiInteger> setlike)
 		throws PsiException
 	{
 		if(setlike instanceof PsiBitSet)

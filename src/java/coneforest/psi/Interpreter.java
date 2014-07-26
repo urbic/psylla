@@ -108,9 +108,12 @@ public class Interpreter
 				case ParserConstants.TOKEN_REAL:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
+					opstack.push(newPsiObject(token));
+					break;
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
 					(newPsiObject(token)).execute(this);
-					handleExecutionStack(0);
+					assert execstack.size()==0: "Execution stack not empty";
+					//handleExecutionStack(0);
 					break;
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
 					opstack.push(newPsiObject(token));
@@ -273,10 +276,10 @@ public class Interpreter
 					}
 				}
 				return new PsiString(buffer);
-			case ParserConstants.TOKEN_REAL:
-				return new PsiReal(Double.parseDouble(token.image));
 			case ParserConstants.TOKEN_INTEGER:
 				return new PsiInteger(Long.parseLong(token.image));
+			case ParserConstants.TOKEN_REAL:
+				return new PsiReal(Double.parseDouble(token.image));
 			case ParserConstants.TOKEN_NAME_LITERAL:
 				{
 					PsiName name=new PsiName(token.image.substring(1));

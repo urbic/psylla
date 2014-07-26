@@ -14,6 +14,24 @@ public class PsiInteger
 		return value;
 	}
 	
+	@Override
+	public PsiInteger re()
+	{
+		return new PsiInteger(getValue());
+	}
+
+	@Override
+	public PsiInteger im()
+	{
+		return new PsiInteger(0);
+	}
+	
+	@Override
+	public PsiInteger conjugate()
+	{
+		return new PsiInteger(value);
+	}
+
 	public String getTypeName()	{ return "integer"; }
 
 	public String toString()

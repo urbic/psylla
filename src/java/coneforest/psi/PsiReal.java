@@ -13,6 +13,24 @@ public class PsiReal extends PsiNumeric
 	{
 		return value;
 	}
+	
+	@Override
+	public PsiReal re()
+	{
+		return new PsiReal(value);
+	}
+
+	@Override
+	public PsiReal im()
+	{
+		return new PsiReal(0.D);
+	}
+
+	@Override
+	public PsiNumeric conjugate()
+	{
+		return new PsiReal(value);
+	}
 
 	public PsiReal neg()
 	{
