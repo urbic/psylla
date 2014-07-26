@@ -6,13 +6,13 @@ public interface PsiSetlike<T extends PsiObject>
 	public void append(T obj)
 		throws PsiException;
 
-	public void appendAll(PsiSetlike<T> setlike)
+	public void appendAll(PsiSetlike<? extends T> setlike)
 		throws PsiException;
 	
 	public void remove(T obj)
 		throws PsiException;
 
-	public void removeAll(PsiSetlike<T> setlike)
+	public void removeAll(PsiSetlike<? extends T> setlike)
 		throws PsiException;
 
 	public PsiBoolean isEmpty();

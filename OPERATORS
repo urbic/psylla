@@ -413,3 +413,10 @@
 @	remove
 @	appendall
 @	isempty
+@	arg
+@	cbrt
+@	complex
+@	conjugate
+@	cosh
+@	sinh
+@	tanh

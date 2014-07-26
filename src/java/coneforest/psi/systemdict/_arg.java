@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _abs extends PsiOperator
+public class _arg extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
@@ -12,11 +12,11 @@ public class _abs extends PsiOperator
 			return;
 		}
 		
-		PsiObject arithmetic=opstack.pop();
+		PsiObject cn=opstack.pop();
+
 		try
 		{
-			//opstack.push((PsiObject)((PsiArithmetic)arithmetic).abs());
-			opstack.push(((PsiNumeric)arithmetic).abs());
+			opstack.push(((PsiComplexNumeric)cn).arg());
 		}
 		catch(ClassCastException e)
 		{

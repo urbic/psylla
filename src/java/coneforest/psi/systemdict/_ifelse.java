@@ -18,9 +18,9 @@ public class _ifelse extends PsiOperator
 		
 		try
 		{
-			int execlevel=interpreter.getExecutionStack().size();
+			//int execlevel=interpreter.getExecutionStack().size();
 			(((PsiBoolean)cond).getValue()? obj1: obj2).invoke(interpreter);
-			interpreter.handleExecutionStack(execlevel);
+			//interpreter.handleExecutionStack(execlevel);
 		}
 		catch(ClassCastException e)
 		{

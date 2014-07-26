@@ -18,9 +18,9 @@ public class _if extends PsiOperator
 		{
 			if(((PsiBoolean)cond).getValue())
 			{
-				int execlevel=interpreter.getExecutionStack().size();
+				//int execlevel=interpreter.getExecutionStack().size();
 				obj.invoke(interpreter);
-				interpreter.handleExecutionStack(execlevel);
+				//interpreter.handleExecutionStack(execlevel);
 			}
 		}
 		catch(ClassCastException e)

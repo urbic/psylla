@@ -1,22 +1,54 @@
 package coneforest.psi;
 
 abstract public class PsiNumeric
-	extends PsiObject
-	implements PsiAtomic, PsiArithmetic<PsiNumeric>, PsiScalar<PsiNumeric>
+	//extends PsiObject
+	extends PsiComplexNumeric
+	//implements PsiAtomic, PsiArithmetic<PsiNumeric>, PsiScalar<PsiNumeric>
+	implements PsiAtomic, PsiScalar<PsiNumeric>
 {
 	abstract Number getValue();
+
+	public PsiReal arg()
+	{
+		if(getValue().doubleValue()>0.D)
+			return new PsiReal(0.D);
+		else if(getValue().doubleValue()<0.D)
+			return new PsiReal(Math.PI);
+		else
+			return new PsiReal(1.D/0.D);
+	}
 
 	abstract public PsiNumeric neg();
 	
 	abstract public PsiNumeric add(final PsiNumeric numeric);
 	
+	public PsiComplexNumeric add(final PsiComplexNumeric cn)
+	{
+		return new PsiComplex(this).add(cn);
+	}
+	
 	abstract public PsiNumeric sub(final PsiNumeric numeric);
+	
+	public PsiComplexNumeric sub(final PsiComplexNumeric cn)
+	{
+		return new PsiComplex(this).sub(cn);
+	}
 
 	abstract public PsiNumeric mul(final PsiNumeric numeric);
+
+	public PsiComplexNumeric mul(final PsiComplexNumeric cn)
+	{
+		return new PsiComplex(this).mul(cn);
+	}
 
 	public PsiReal div(final PsiNumeric numeric)
 	{
 		return new PsiReal(getValue().doubleValue()/numeric.getValue().doubleValue());
+	}
+
+	public PsiComplexNumeric div(final PsiComplexNumeric cn)
+	{
+		return new PsiComplex(this).div(cn);
 	}
 
 	public abstract PsiNumeric abs();
@@ -24,6 +56,11 @@ abstract public class PsiNumeric
 	public PsiReal sqrt()
 	{
 		return new PsiReal(Math.sqrt(getValue().doubleValue()));
+	}
+	
+	public PsiReal cbrt()
+	{
+		return new PsiReal(Math.cbrt(getValue().doubleValue()));
 	}
 	
 	public PsiReal log()
@@ -51,16 +88,35 @@ abstract public class PsiNumeric
 		return new PsiReal(Math.tan(getValue().doubleValue()));
 	}
 
+	public PsiReal cosh()
+	{
+		return new PsiReal(Math.cosh(getValue().doubleValue()));
+	}
+
+	public PsiReal sinh()
+	{
+		return new PsiReal(Math.sinh(getValue().doubleValue()));
+	}
+
+	public PsiReal tanh()
+	{
+		return new PsiReal(Math.tanh(getValue().doubleValue()));
+	}
+
 	abstract public PsiNumeric floor();
 	
 	abstract public PsiNumeric ceiling();
 
 	public PsiBoolean eq(final PsiObject obj)
 	{
+		return new PsiBoolean(obj instanceof PsiNumeric
+				&& getValue().doubleValue()==((PsiNumeric)obj).getValue().doubleValue());
+		/*
 		if(obj instanceof PsiNumeric)
 			return new PsiBoolean(getValue().doubleValue()==((PsiNumeric)obj).getValue().doubleValue());
 		else
 			return new PsiBoolean(false);
+		*/
 	}
 	
 	public PsiBoolean lt(final PsiNumeric numeric)
