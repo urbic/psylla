@@ -46,6 +46,11 @@ abstract public class PsiNumeric
 		return new PsiReal(Math.sin(getValue().doubleValue()));
 	}
 
+	public PsiReal tan()
+	{
+		return new PsiReal(Math.tan(getValue().doubleValue()));
+	}
+
 	abstract public PsiNumeric floor();
 	
 	abstract public PsiNumeric ceiling();

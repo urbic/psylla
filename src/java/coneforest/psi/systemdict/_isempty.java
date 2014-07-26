@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _exec extends PsiOperator
+public class _isempty extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
@@ -11,7 +11,17 @@ public class _exec extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		
-		opstack.pop().invoke(interpreter);
+
+		PsiObject composite=opstack.pop();
+
+		try
+		{
+			opstack.push(((PsiComposite)composite).isEmpty());
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(composite);
+			interpreter.error("typecheck");
+		}
 	}
 }

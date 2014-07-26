@@ -1,31 +1,26 @@
-/primes bitset def
-
-/testprime
-{
-	true exch
-	primes
-	{
-		1 index exch
-		mod 0 eq
-		{
-			exch not exch
-			exit
-		}
-		if
-	}
-	forall
-	primes exch append
-}
-bind def
+/sieve bitset def
 
 2 1 arguments 1 get cvi
 {
-	dup
-	testprime
-	{ == }
-	{ pop }
-	ifelse
+	sieve exch append
 }
 bind for
 
-quit
+{
+	sieve isempty { exit } if
+	sieve { exit } forall
+	/p exch def
+	p ==
+
+	sieve
+	{
+		dup p mod 0 eq
+		{
+			sieve exch remove
+		}
+		{ pop }
+		ifelse
+	}
+	forall
+}
+bind loop

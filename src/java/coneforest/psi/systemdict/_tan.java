@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _exec extends PsiOperator
+public class _tan extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
@@ -12,6 +12,15 @@ public class _exec extends PsiOperator
 			return;
 		}
 		
-		opstack.pop().invoke(interpreter);
+		PsiObject numeric=opstack.pop();
+
+		try
+		{
+			opstack.push(((PsiNumeric)numeric).tan());
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck");
+		}
 	}
 }

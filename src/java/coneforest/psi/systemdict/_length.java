@@ -15,7 +15,7 @@ public class _length extends PsiOperator
 		PsiObject composite=opstack.pop();
 
 		if(composite instanceof PsiComposite)
-			opstack.push(new PsiInteger(((PsiComposite)composite).length()));
+			opstack.push(((PsiComposite)composite).length());
 		else
 		{
 			opstack.push(composite);

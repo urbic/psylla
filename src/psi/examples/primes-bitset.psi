@@ -1,0 +1,31 @@
+/primes bitset def
+
+/testprime
+{
+	true exch
+	primes
+	{
+		1 index exch
+		mod 0 eq
+		{
+			exch not exch
+			exit
+		}
+		if
+	}
+	forall
+	primes exch append
+}
+bind def
+
+2 1 arguments 1 get cvi
+{
+	dup
+	testprime
+	{ == }
+	{ pop }
+	ifelse
+}
+bind for
+
+quit

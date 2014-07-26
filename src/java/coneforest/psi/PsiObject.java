@@ -64,6 +64,12 @@ abstract public class PsiObject
 		return eq(obj).not();
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		return o instanceof PsiObject && eq((PsiObject)o).getValue();
+	}
+
 	abstract public String toString();
 
 	public static final byte

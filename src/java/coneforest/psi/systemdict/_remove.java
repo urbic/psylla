@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _append extends PsiOperator
+public class _remove extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
@@ -11,12 +11,13 @@ public class _append extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
+
 		PsiObject obj=opstack.pop();
 		PsiObject set=opstack.pop();
 
 		try
 		{
-			((PsiSetlike)set).append(obj);
+			((PsiSetlike)set).remove(obj);
 		}
 		catch(ClassCastException e)
 		{

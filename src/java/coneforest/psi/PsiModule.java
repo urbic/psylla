@@ -3,14 +3,16 @@ package coneforest.psi;
 public class PsiModule
 	extends PsiDictionary
 {
-	protected void register(Class<? extends PsiOperator> operatorClass)
+	protected void registerOperatorClasses(Class<? extends PsiOperator>[] operatorClasses)
 	{
 		try
 		{
-			PsiOperator operator=operatorClass.newInstance();
-			String operatorName=operator.getName();
-			//System.out.println("Registering ["+operatorName+"]");
-			put(operatorName, operator);
+			for(Class<? extends PsiOperator> operatorClass: operatorClasses)
+			{
+				PsiOperator operator=operatorClass.newInstance();
+				String operatorName=operator.getName();
+				put(operatorName, operator);
+			}
 		}
 		catch(InstantiationException e)
 		{

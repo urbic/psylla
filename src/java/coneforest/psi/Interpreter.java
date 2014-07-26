@@ -328,6 +328,24 @@ public class Interpreter
 		return null;
 	}
 
+	public void show(String message)
+	{
+		System.out.println("***** "+message+" *****");
+		showExecutionStack();
+	}
+
+	public void showExecutionStack()
+	{
+		System.out.print("Execution stack:");
+		for(PsiObject obj: execstack)
+			System.out.print(" "+obj);
+		System.out.println();
+		System.out.print("Loop level stack:");
+		for(int item: loopstack)
+			System.out.print(" "+item);
+		System.out.println();
+	}
+
 	public int getExecLevel()
 	{
 		return execstack.size();
@@ -357,6 +375,7 @@ public class Interpreter
 	{
 		int level=execstack.size();
 		loopstack.push(level);
+		//show("PUSH LOOP LEVEL "+level);
 		return level;
 	}
 

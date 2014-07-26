@@ -28,23 +28,23 @@ public class _bind extends PsiOperator
 
 	private static void bindHelper(PsiArray array, java.util.HashSet<PsiArray> bound, DictionaryStack dictstack)
 	{
-		try
+		for(int i=0; i<((PsiArray)array).length().getValue(); i++)
 		{
-			for(int i=0; i<((PsiArray)array).length(); i++)
+			try
 			{
 				PsiObject obj=((PsiArray)array).get(i);
 				if(obj instanceof PsiArray && bound.add((PsiArray)obj))
 					bindHelper((PsiArray)obj, bound, dictstack);
 				else if(obj instanceof PsiName && ((PsiName)obj).isExecutable())
 				{
-						PsiObject value=dictstack.load((PsiName)obj);
-						if(value instanceof PsiOperator)
-							((PsiArray)array).set(i, value);
+					PsiObject value=dictstack.load((PsiName)obj);
+					if(value instanceof PsiOperator)
+						((PsiArray)array).set(i, value);
 				}
 			}
-		}
-		catch(PsiException e)
-		{
+			catch(PsiException e)
+			{
+			}
 		}
 	}
 }

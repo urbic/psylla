@@ -18,9 +18,14 @@ abstract public class PsiStringlike
 	
 	abstract public String toString();
 
-	public int length()
+	public PsiInteger length()
 	{
-		return getValue().length();
+		return new PsiInteger(getValue().length());
+	}
+
+	public PsiBoolean isEmpty()
+	{
+		return new PsiBoolean(getValue().isEmpty());
 	}
 
 	public java.util.Iterator<PsiInteger> iterator()

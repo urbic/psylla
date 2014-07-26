@@ -23,8 +23,8 @@ public class PsiArray
 			try
 			{
 				ExecutionStack execstack=interpreter.getExecutionStack();
-				int level=execstack.size();
-				for(int i=length()-1; i>=0; i--)
+				//int level=execstack.size();
+				for(int i=array.size()-1; i>=0; i--)
 					execstack.push(get(i));
 				//interpreter.handleExecutionStack(level);
 			}
@@ -41,9 +41,14 @@ public class PsiArray
 		return array.iterator();
 	}
 
-	public int length()
+	public PsiInteger length()
 	{
-		return array.size();
+		return new PsiInteger(array.size());
+	}
+
+	public PsiBoolean isEmpty()
+	{
+		return new PsiBoolean(array.isEmpty());
 	}
 
 	public PsiObject get(int index)
@@ -103,7 +108,7 @@ public class PsiArray
 	{
 		StringBuilder sb=new StringBuilder();
 		sb.append(isExecutable()? "{": "[");
-		if(length()>0)
+		if(array.size()>0)
 		{
 			for(PsiObject obj: array)
 				sb.append(obj+" ");

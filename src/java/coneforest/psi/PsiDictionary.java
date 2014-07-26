@@ -57,15 +57,20 @@ public class PsiDictionary
 		return dictionary.containsKey(key.getValue());
 	}
 
-	public int length()
+	public PsiInteger length()
 	{
-		return dictionary.size();
+		return new PsiInteger(dictionary.size());
+	}
+
+	public PsiBoolean isEmpty()
+	{
+		return new PsiBoolean(dictionary.isEmpty());
 	}
 
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder("<<");
-		if(length()>0)
+		if(dictionary.size()>0)
 		{
 			//for(java.util.Map.Entry<String, PsiObject> entry: entrySet())
 			for(java.util.Map.Entry<String, PsiObject> entry: this)

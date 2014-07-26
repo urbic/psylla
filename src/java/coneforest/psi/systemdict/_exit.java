@@ -5,10 +5,7 @@ public class _exit extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
-		//System.out.println("EXIT: EXECLEVEL BEFORE="+interpreter.getExecutionStack().size());
-		//interpreter.getExecutionStack().setSize(interpreter.getLoopLevel());
-		//System.out.println("EXIT: EXECLEVEL AFTER="+interpreter.getExecutionStack().size());
-		//System.out.println("EXIT: POPLOOPLEVEL="+interpreter.popLoopLevel());
+		//interpreter.show("EXIT BEFORE");
 		if(interpreter.currentLoopLevel()==-1)
 		{
 			interpreter.error("invalidexit");
@@ -16,5 +13,6 @@ public class _exit extends PsiOperator
 		}
 		interpreter.getExecutionStack().setSize(interpreter.currentLoopLevel());
 		interpreter.setExitFlag(true);
+		//interpreter.show("EXIT AFTER");
 	}
 }
