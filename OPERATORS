@@ -409,3 +409,7 @@
 -	xyshow
 -	yshow
 @	close
+@	append
+@	remove
+@	appendall
+@	isempty

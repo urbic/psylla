@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiBitSet
 	extends PsiObject
-	implements PsiIterable<PsiInteger>, PsiComposite<PsiInteger>
+	implements PsiSetlike<PsiInteger>
 {
 	public String getTypeName()
 	{
@@ -19,12 +19,12 @@ public class PsiBitSet
 		return "-bitset-";
 	}
 
-	public void append(int index)
+	public void append(PsiInteger index)
 		throws PsiException
 	{
 		try
 		{
-			bitset.set(index, true);
+			bitset.set(index.getValue().intValue(), true);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -32,18 +32,22 @@ public class PsiBitSet
 		}
 	}
 
-	public void append(PsiInteger oIndex)
+	public void appendAll(PsiSetlike<PsiInteger> setlike)
 		throws PsiException
 	{
-		append(oIndex.getValue().intValue());
+		if(setlike instanceof PsiBitSet)
+			bitset.or(((PsiBitSet)setlike).getBitSet());
+		else
+			for(PsiInteger integer: setlike)
+				append(integer);
 	}
 
-	public void remove(int index)
+	public void remove(PsiInteger integer)
 		throws PsiException
 	{
 		try
 		{
-			bitset.set(index, false);
+			bitset.set(integer.getValue().intValue(), false);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -51,10 +55,14 @@ public class PsiBitSet
 		}
 	}
 
-	public void remove(PsiInteger oIndex)
+	public void removeAll(PsiSetlike<PsiInteger> setlike)
 		throws PsiException
 	{
-		remove(oIndex.getValue().intValue());
+		if(setlike instanceof PsiBitSet)
+			bitset.andNot(((PsiBitSet)setlike).getBitSet());
+		else
+			for(PsiInteger integer: setlike)
+				remove(integer);
 	}
 
 	public java.util.Iterator<PsiInteger> iterator()
@@ -87,9 +95,14 @@ public class PsiBitSet
 			};
 	}
 
-	public int length()
+	public PsiInteger length()
 	{
-		return bitset.cardinality();
+		return new PsiInteger(bitset.cardinality());
+	}
+
+	public PsiBoolean isEmpty()
+	{
+		return new PsiBoolean(bitset.isEmpty());
 	}
 
 	public PsiBoolean eq(final PsiObject obj)

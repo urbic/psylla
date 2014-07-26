@@ -7,12 +7,16 @@ public class _roll extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		
-		if(opstack.size()<2)
+		if(opstack.size()<3)
+		{
 			interpreter.error("stackunderflow");
+			return;
+		}
 
 		PsiObject j=opstack.pop();
 		PsiObject n=opstack.pop();
-		if(n instanceof PsiInteger && j instanceof PsiInteger)
+
+		try
 		{
 			int nValue=((PsiInteger)n).getValue().intValue();
 			int jValue=((PsiInteger)j).getValue().intValue();
@@ -36,7 +40,9 @@ public class _roll extends PsiOperator
 					opstack.add(opstackSize-nValue, opstack.pop());
 			}
 		}
-		else
+		catch(ClassCastException e)
+		{
 			interpreter.error("typecheck");
+		}
 	}
 }

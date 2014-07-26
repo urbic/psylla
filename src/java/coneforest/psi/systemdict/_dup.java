@@ -6,9 +6,11 @@ public class _dup extends PsiOperator
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()==0)
+		if(opstack.size()<1)
+		{
 			interpreter.error("stackunderflow");
-		else
-			opstack.push(opstack.peek());
+			return;
+		}		
+		opstack.push(opstack.peek());
 	}
 }

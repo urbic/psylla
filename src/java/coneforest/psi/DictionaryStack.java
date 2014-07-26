@@ -5,7 +5,11 @@ public class DictionaryStack extends Stack<PsiDictionary>
 	public PsiObject load(PsiStringlike key)
 		throws PsiException
 	{
-		return where(key).get(key);
+		PsiDictionary dict=where(key);
+		if(dict!=null)
+			return dict.get(key);
+		else
+			throw new PsiException("undefined");
 	}
 
 	public PsiDictionary where(PsiStringlike key)

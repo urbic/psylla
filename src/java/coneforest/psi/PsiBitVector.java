@@ -101,7 +101,7 @@ public class PsiBitVector
 			{
 				public boolean hasNext()
 				{
-					return index<bitvector.length();
+					return index<bitvector.size(); // TODO ???
 				}
 
 				public PsiBoolean next()
@@ -121,9 +121,14 @@ public class PsiBitVector
 			};
 	}
 
-	public int length()
+	public PsiInteger length()
 	{
-		return bitvector.size();
+		return new PsiInteger(bitvector.size());
+	}
+
+	public PsiBoolean isEmpty()
+	{
+		return new PsiBoolean(bitvector.size()==0);
 	}
 
 	private java.util.BitSet bitvector;

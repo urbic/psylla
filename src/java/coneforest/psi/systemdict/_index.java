@@ -16,31 +16,17 @@ public class _index extends PsiOperator
 		PsiObject n=opstack.pop();
 		try
 		{
-			int i=((PsiInteger)n).getValue().intValue();
-			if(i<0)
+			int nValue=((PsiInteger)n).getValue().intValue();
+			if(nValue<0)
 				interpreter.error("rangecheck");
-			else if(opstack.size()<i)
+			else if(opstack.size()<nValue+1)
 				interpreter.error("stackunderflow");
 			else
-				opstack.push(opstack.get(opstack.size()-i-1));
+				opstack.push(opstack.get(opstack.size()-nValue-1));
 		}
 		catch(ClassCastException e)
 		{
 			interpreter.error("typecheck");
 		}
-		/*
-		if(n instanceof PsiInteger)
-		{
-			int i=((PsiInteger)n).getValue().intValue();
-			if(i<0)
-				interpreter.error("rangecheck");
-			else if(opstack.size()<i)
-				interpreter.error("stackunderflow");
-			else
-				opstack.push(opstack.get(opstack.size()-i-1));
-		}
-		else
-			interpreter.error("typecheck");
-		*/
 	}
 }

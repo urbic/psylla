@@ -7,27 +7,28 @@ public class _if extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject obj=opstack.pop();
-			PsiObject cond=opstack.pop();
-			try
+			interpreter.error("stackunderflow");
+			return;
+		}
+
+		PsiObject obj=opstack.pop();
+		PsiObject cond=opstack.pop();
+		try
+		{
+			if(((PsiBoolean)cond).getValue())
 			{
-				if(((PsiBoolean)cond).getValue())
-				{
-					int execlevel=interpreter.pushLoopLevel();
-					obj.invoke(interpreter);
-					interpreter.handleExecutionStack(execlevel);
-				}
+				int execlevel=interpreter.getExecutionStack().size();
+				obj.invoke(interpreter);
+				interpreter.handleExecutionStack(execlevel);
 			}
-			catch(ClassCastException e)
-			{
-				opstack.push(cond);
-				opstack.push(obj);
-				interpreter.error("typecheck");
-				return;
-			}
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(cond);
+			opstack.push(obj);
+			interpreter.error("typecheck");
+			return;
 		}
 	}
 }

@@ -8,8 +8,4 @@ public interface PsiArraylike<T extends PsiObject>
 
 	public void put(PsiInteger oIndex, T obj)
 		throws PsiException;
-
-	/*
-	public java.util.Iterator<T> iterator();
-	*/
 }

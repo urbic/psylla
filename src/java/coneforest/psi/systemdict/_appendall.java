@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _append extends PsiOperator
+public class _appendall extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
@@ -11,23 +11,20 @@ public class _append extends PsiOperator
 			interpreter.error("stackunderflow");
 			return;
 		}
-		PsiObject obj=opstack.pop();
-		PsiObject set=opstack.pop();
+
+		PsiObject set2=opstack.pop();
+		PsiObject set1=opstack.pop();
 
 		try
 		{
-			((PsiSetlike)set).append(obj);
+			((PsiSetlike)set1).appendAll((PsiSetlike)set2);
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(set);
-			opstack.push(obj);
 			interpreter.error("typecheck");
 		}
 		catch(PsiException e)
 		{
-			opstack.push(set);
-			opstack.push(obj);
 			interpreter.error(e.kind());
 		}
 	}

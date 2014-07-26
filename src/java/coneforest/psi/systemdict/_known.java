@@ -7,20 +7,21 @@ public class _known extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject key=opstack.pop();
-			PsiObject dict=opstack.pop();
+			interpreter.error("stackunderflow");
+			return;
+		}
+		
+		PsiObject key=opstack.pop();
+		PsiObject dict=opstack.pop();
 
-			try
-			{
-				opstack.push(((PsiHashlike)dict).known((PsiStringlike)key));
-			}
-			catch(ClassCastException e)
-			{
-				interpreter.error("typecheck");
-			}
+		try
+		{
+			opstack.push(((PsiHashlike)dict).known((PsiStringlike)key));
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck");
 		}
 	}
 }
