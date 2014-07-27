@@ -13,14 +13,14 @@ public class _log extends PsiOperator
 		}
 
 		PsiObject numeric=opstack.pop();
-
 		try
 		{
 			opstack.push(((PsiNumeric)numeric).log());
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			opstack.push(numeric);
+			interpreter.error("typecheck", this);
 		}
 		
 		/*

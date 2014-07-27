@@ -8,7 +8,7 @@ public class _exch extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		

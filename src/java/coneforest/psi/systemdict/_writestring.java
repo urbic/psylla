@@ -7,24 +7,28 @@ public class _writestring extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject string=opstack.pop();
-			PsiObject writer=opstack.pop();
-			if(writer instanceof PsiWriter && string instanceof PsiString)
-			{
-				try
-				{
-					((PsiWriter)writer).write((PsiString)string);
-				}
-				catch(PsiException e)
-				{
-					interpreter.error(e.kind());
-				}
-			}
-			else
-				interpreter.error("typecheck");
+			interpreter.error("stackunderflow", this);
+			return;
+		}
+
+		PsiObject string=opstack.pop();
+		PsiObject writer=opstack.pop();
+		try
+		{
+			((PsiWriter)writer).write((PsiString)string);
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(writer);
+			opstack.push(string);
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(writer);
+			opstack.push(string);
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

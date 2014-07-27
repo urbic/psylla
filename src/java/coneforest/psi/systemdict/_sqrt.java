@@ -8,19 +8,19 @@ public class _sqrt extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
 		PsiObject numeric=opstack.pop();
-
 		try
 		{
 			opstack.push(((PsiNumeric)numeric).sqrt());
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			opstack.push(numeric);
+			interpreter.error("typecheck", this);
 		}
 		
 		/*

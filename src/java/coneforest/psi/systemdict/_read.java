@@ -7,30 +7,32 @@ public class _read extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject file=opstack.pop();
-			if(file instanceof PsiReader)
-			{
-				try
-				{
-					int character=((PsiReader)file).read();
-					if(character==-1)
-						opstack.push(new PsiBoolean(false));
-					else
-					{
-						opstack.push(new PsiInteger(character));
-						opstack.push(new PsiBoolean(true));
-					}
-				}
-				catch(PsiException e)
-				{
-					interpreter.error(e.kind());
-				}
-			}
+			interpreter.error("stackunderflow", this);
+			return;
+		}
+
+		PsiObject file=opstack.pop();
+		try
+		{
+			int character=((PsiReader)file).read();
+			if(character==-1)
+				opstack.push(new PsiBoolean(false));
 			else
-				interpreter.error("typecheck");
+			{
+				opstack.push(new PsiInteger(character));
+				opstack.push(new PsiBoolean(true));
+			}
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(file);
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(file);
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

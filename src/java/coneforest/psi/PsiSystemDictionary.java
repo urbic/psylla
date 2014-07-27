@@ -22,6 +22,7 @@ public class PsiSystemDictionary
 						_array.class,
 						_arraytomark.class,
 						_astore.class,
+						_atan.class,
 						_begin.class,
 						_bind.class,
 						_bitset.class,
@@ -68,6 +69,7 @@ public class PsiSystemDictionary
 						_ge.class,
 						_get.class,
 						_gt.class,
+						_hypot.class,
 						_idiv.class,
 						_if.class,
 						_ifelse.class,
@@ -86,8 +88,10 @@ public class PsiSystemDictionary
 						_ne.class,
 						_neg.class,
 						_not.class,
+						_null.class,
 						_or.class,
 						_pop.class,
+						_pow.class,
 						_prettyprint.class,
 						_pstack.class,
 						_put.class,
@@ -96,6 +100,7 @@ public class PsiSystemDictionary
 						_remove.class,
 						_repeat.class,
 						_roll.class,
+						_signum.class,
 						_sin.class,
 						_sinh.class,
 						_sqrt.class,
@@ -131,5 +136,7 @@ public class PsiSystemDictionary
 		}
 		put("systemdict", this);
 		put("errordict", new coneforest.psi.errordict.ErrorDictionary());
+		put("mathpi", new PsiReal(Math.PI));
+		put("mathe", new PsiReal(Math.E));
 	}
 }

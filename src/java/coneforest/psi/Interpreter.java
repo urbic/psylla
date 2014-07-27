@@ -113,7 +113,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
 					(newPsiObject(token)).execute(this);
 					assert execstack.size()==0: "Execution stack not empty";
-					//handleExecutionStack(0);
+					handleExecutionStack(0);
 					break;
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
 					opstack.push(newPsiObject(token));
@@ -308,10 +308,20 @@ public class Interpreter
 		}
 	}
 
+	public void error(String errorName, PsiOperator operator)
+	{
+		// TODO
+		opstack.push(operator);
+		System.out.println("ERROR "+errorName+" in "+operator);
+		show("XXX");
+		System.exit(1);
+	}
+	
 	public void error(String errorName)
 	{
 		// TODO
-		System.out.println("ERROR: "+errorName);
+		System.out.println("ERROR "+errorName);
+		System.exit(1);
 	}
 
 	public PsiDictionary loadModule(Class<? extends PsiModule> moduleClass)
@@ -334,11 +344,10 @@ public class Interpreter
 	public void show(String message)
 	{
 		System.out.println("***** "+message+" *****");
-		showExecutionStack();
-	}
-
-	public void showExecutionStack()
-	{
+		System.out.print("Operand stack:");
+		for(PsiObject obj: opstack)
+			System.out.print(" "+obj);
+		System.out.println();
 		System.out.print("Execution stack:");
 		for(PsiObject obj: execstack)
 			System.out.print(" "+obj);

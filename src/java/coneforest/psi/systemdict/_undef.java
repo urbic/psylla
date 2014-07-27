@@ -7,16 +7,20 @@ public class _undef extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject key=opstack.pop();
-			PsiObject dict=opstack.pop();
-
-			if(key instanceof PsiStringlike && dict instanceof PsiDictionary)
-				((PsiDictionary)dict).undef((PsiStringlike)key);
-			else
-				interpreter.error("typecheck");
+			interpreter.error("stackunderflow", this);
+			return;
+		}
+		
+		PsiObject key=opstack.pop();
+		PsiObject dict=opstack.pop();
+		try
+		{
+			((PsiDictionary)dict).undef((PsiStringlike)key);
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck", this);
 			// TODO errors: invalidaccess
 		}
 	}

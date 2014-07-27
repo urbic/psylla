@@ -8,14 +8,19 @@ public class _begin extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject dict=opstack.pop();
-			if(dict instanceof PsiDictionary)
-				interpreter.getDictionaryStack().push((PsiDictionary)dict);
-			else
-				interpreter.error("typecheck");
+			interpreter.error("stackunderflow", this);
+			return;
+		}
+		
+		PsiObject dict=opstack.pop();
+		try
+		{
+			interpreter.getDictionaryStack().push((PsiDictionary)dict);
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck", this);
 		}
 	}
 }

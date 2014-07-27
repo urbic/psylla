@@ -6,10 +6,9 @@ public class _index extends PsiOperator
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
@@ -18,15 +17,15 @@ public class _index extends PsiOperator
 		{
 			int nValue=((PsiInteger)n).getValue().intValue();
 			if(nValue<0)
-				interpreter.error("rangecheck");
+				interpreter.error("rangecheck", this);
 			else if(opstack.size()<nValue+1)
-				interpreter.error("stackunderflow");
+				interpreter.error("stackunderflow", this);
 			else
 				opstack.push(opstack.get(opstack.size()-nValue-1));
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }

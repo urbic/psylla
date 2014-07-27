@@ -8,28 +8,19 @@ public class _arg extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		
 		PsiObject cn=opstack.pop();
-
 		try
 		{
 			opstack.push(((PsiComplexNumeric)cn).arg());
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			opstack.push(cn);
+			interpreter.error("typecheck", this);
 		}
-		/*
-		if(obj instanceof PsiNumeric)
-			opstack.push(PsiNumeric.abs((PsiNumeric)obj));
-		else
-		{
-			opstack.push(obj);
-			interpreter.error("typecheck");
-		}
-		*/
 	}
 }

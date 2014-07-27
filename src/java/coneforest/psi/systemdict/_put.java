@@ -8,7 +8,7 @@ public class _put extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		PsiObject obj3=opstack.pop();
@@ -23,7 +23,7 @@ public class _put extends PsiOperator
 			}
 			catch(PsiException e)
 			{
-				interpreter.error(e.kind());
+				interpreter.error(e.kind(), this);
 			}
 		}
 		else if(obj1 instanceof PsiDictionary && obj2 instanceof PsiStringlike)
@@ -38,7 +38,7 @@ public class _put extends PsiOperator
 			}
 			catch(PsiException e)
 			{
-				interpreter.error(e.kind());
+				interpreter.error(e.kind(), this);
 			}
 		}
 		else if(obj1 instanceof PsiBitVector && obj2 instanceof PsiInteger && obj3 instanceof PsiBoolean)
@@ -49,10 +49,10 @@ public class _put extends PsiOperator
 			}
 			catch(PsiException e)
 			{
-				interpreter.error(e.kind());
+				interpreter.error(e.kind(), this);
 			}
 		}
 		else
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 	}
 }

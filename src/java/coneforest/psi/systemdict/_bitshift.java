@@ -7,19 +7,22 @@ public class _bitshift extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject shift=opstack.pop();
-			PsiObject obj=opstack.pop();
-			if(obj instanceof PsiInteger && shift instanceof PsiInteger)
-				opstack.push(PsiInteger.bitshift((PsiInteger)obj, (PsiInteger)shift));
-			else
-			{
-				opstack.push(obj);
-				opstack.push(shift);
-				interpreter.error("typecheck");
-			}
+			interpreter.error("stackunderflow", this);
+			return;
+		}
+			
+		PsiObject shift=opstack.pop();
+		PsiObject obj=opstack.pop();
+		try
+		{
+			opstack.push(PsiInteger.bitshift((PsiInteger)obj, (PsiInteger)shift));
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(obj);
+			opstack.push(shift);
+			interpreter.error("typecheck", this);
 		}
 	}
 }

@@ -8,12 +8,11 @@ public class _conjugate extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
 		PsiObject cn=opstack.pop();
-
 		try
 		{
 			opstack.push(((PsiComplexNumeric)cn).conjugate());
@@ -21,7 +20,7 @@ public class _conjugate extends PsiOperator
 		catch(ClassCastException e)
 		{
 			opstack.push(cn);
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }

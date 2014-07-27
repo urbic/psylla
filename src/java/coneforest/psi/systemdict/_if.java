@@ -8,7 +8,7 @@ public class _if extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
@@ -27,8 +27,7 @@ public class _if extends PsiOperator
 		{
 			opstack.push(cond);
 			opstack.push(obj);
-			interpreter.error("typecheck");
-			return;
+			interpreter.error("typecheck", this);
 		}
 	}
 }

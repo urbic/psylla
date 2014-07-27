@@ -1,0 +1,42 @@
+/sequence
+{
+	<<
+		/n 1
+		/next
+		{
+			/n n 1 add def n
+		}
+	>>
+}
+def
+
+/filter
+{
+	<<
+		/source 4 -1 roll
+		/p 5 -1 roll
+		/next
+		{
+			source begin next end
+			dup p mod 0 eq
+			{
+				pop
+				source begin next end
+			}
+			if
+		}
+	>>
+}
+def
+
+/n arguments 1 get cvi def
+
+/source sequence def
+
+{
+	/p source begin next end def
+	p n gt { exit } if
+	p ==
+	/source source p filter def
+}
+loop

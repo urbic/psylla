@@ -8,18 +8,19 @@ public class _repeat extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiObject obj=opstack.pop();
 		PsiObject count=opstack.pop();
-
-		if(count instanceof PsiInteger)
+		try
 		{
 			long countValue=((PsiInteger)count).getValue();
 			if(countValue<0)
 			{
-				interpreter.error("rangecheck");
+				// TODO
+				interpreter.error("rangecheck", this);
 				return;
 			}
 			int looplevel=interpreter.pushLoopLevel();
@@ -34,7 +35,10 @@ public class _repeat extends PsiOperator
 			interpreter.setExitFlag(false);
 
 		}
-		else
-			interpreter.error("typecheck");
+		catch(ClassCastException e)
+		{
+			// TODO
+			interpreter.error("typecheck", this);
+		}
 	}
 }

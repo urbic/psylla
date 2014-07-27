@@ -8,19 +8,19 @@ public class _sinh extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		
-		PsiObject numeric=opstack.pop();
-
+		PsiObject cn=opstack.pop();
 		try
 		{
-			opstack.push(((PsiNumeric)numeric).sinh());
+			opstack.push(((PsiComplexNumeric)cn).sinh());
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			opstack.push(cn);
+			interpreter.error("typecheck", this);
 		}
 	}
 }

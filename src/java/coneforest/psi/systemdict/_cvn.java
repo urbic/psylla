@@ -8,7 +8,7 @@ public class _cvn extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		PsiObject obj=opstack.pop();
@@ -17,6 +17,6 @@ public class _cvn extends PsiOperator
 			opstack.push(new PsiName(((PsiString)obj).getValue()));
 		}
 		else
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 	}
 }

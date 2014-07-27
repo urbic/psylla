@@ -6,23 +6,24 @@ public class _filewriter extends PsiOperator
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
+		{
+			interpreter.error("stackunderflow", this);
+			return;
+		}
 
 		PsiObject name=opstack.pop();
-		if(name instanceof PsiString)
+		try
 		{
-			try
-			{
-				opstack.push(new PsiFileWriter((PsiString)name));
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind());
-			}
+			opstack.push(new PsiFileWriter((PsiString)name));
 		}
-		else
-			interpreter.error("typecheck");
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			interpreter.error(e.kind(), this);
+		}
 	}
 }

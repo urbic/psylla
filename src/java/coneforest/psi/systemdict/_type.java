@@ -8,9 +8,10 @@ public class _type extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiName result=new PsiName(opstack.pop().getTypeName()+"type");
 		result.setExecutable();
 		opstack.push(result);

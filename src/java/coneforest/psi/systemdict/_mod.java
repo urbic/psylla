@@ -8,19 +8,18 @@ public class _mod extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiObject y=opstack.pop();
 		PsiObject x=opstack.pop();
-
 		try
 		{
-			//PsiInteger result=PsiInteger.mod((PsiInteger)x, (PsiInteger)y);
 			PsiInteger result=((PsiInteger)x).mod((PsiInteger)y);
 			if(result==null)
 			{
-				interpreter.error("undefinedresult");
+				interpreter.error("undefinedresult", this);
 				return;
 			}
 			opstack.push(result);
@@ -29,25 +28,7 @@ public class _mod extends PsiOperator
 		{
 			opstack.push(x);
 			opstack.push(y);
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
-		/*
-		if(x instanceof PsiInteger && y instanceof PsiInteger)
-		{
-			PsiInteger result=PsiInteger.mod((PsiInteger)x, (PsiInteger)y);
-			if(result==null)
-			{
-				interpreter.error("undefinedresult");
-				return;
-			}
-			opstack.push(result);
-		}
-		else
-		{
-			opstack.push(x);
-			opstack.push(y);
-			interpreter.error("typecheck");
-		}
-		*/
 	}
 }

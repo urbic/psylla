@@ -1,26 +1,27 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _tanh extends PsiOperator
+public class _hypot extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
+		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		
-		PsiObject numeric=opstack.pop();
 
+		PsiObject numeric2=opstack.pop();
+		PsiObject numeric1=opstack.pop();
 		try
 		{
-			opstack.push(((PsiNumeric)numeric).tanh());
+			opstack.push(((PsiNumeric)numeric1).hypot((PsiNumeric)numeric2));
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(numeric);
+			opstack.push(numeric1);
+			opstack.push(numeric2);
 			interpreter.error("typecheck", this);
 		}
 	}

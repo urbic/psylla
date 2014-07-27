@@ -8,7 +8,7 @@ public class _neg extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		
@@ -19,16 +19,7 @@ public class _neg extends PsiOperator
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
-		/*
-		if(obj instanceof PsiNumeric)
-			opstack.push(PsiNumeric.negate((PsiNumeric)obj));
-		else
-		{
-			opstack.push(obj);
-			interpreter.error("typecheck");
-		}
-		*/
 	}
 }

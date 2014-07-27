@@ -8,9 +8,10 @@ public class _idiv extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiObject n2=opstack.pop();
 		PsiObject n1=opstack.pop();
 
@@ -26,14 +27,14 @@ public class _idiv extends PsiOperator
 			{
 				opstack.push(n1);
 				opstack.push(n2);
-				interpreter.error("undefinedresult");
+				interpreter.error("undefinedresult", this);
 			}
 		}
 		else
 		{
 			opstack.push(n1);
 			opstack.push(n2);
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }

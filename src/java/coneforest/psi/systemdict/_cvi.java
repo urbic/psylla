@@ -8,7 +8,7 @@ public class _cvi extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		PsiObject obj=opstack.pop();
@@ -23,7 +23,7 @@ public class _cvi extends PsiOperator
 			if(objValue>=Long.MIN_VALUE && objValue<=Long.MAX_VALUE)
 				opstack.push(new PsiInteger(((PsiReal)obj).getValue().intValue()));
 			else
-				interpreter.error("rangecheck");
+				interpreter.error("rangecheck", this);
 		}
 		else if(obj instanceof PsiString)
 		{
@@ -33,10 +33,10 @@ public class _cvi extends PsiOperator
 			}
 			catch(NumberFormatException e)
 			{
-				interpreter.error("syntaxerror");
+				interpreter.error("syntaxerror", this);
 			}
 		}
 		else
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 	}
 }

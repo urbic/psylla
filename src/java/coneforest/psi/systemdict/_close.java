@@ -8,21 +8,23 @@ public class _close extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
+		{
+			interpreter.error("stackunderflow", this);
+			return;
+		}
 
 		PsiObject file=opstack.pop();
-		if(file instanceof PsiCloseable)
+		try
 		{
-			try
-			{
-				((PsiCloseable)file).close();
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind());
-			}
+			((PsiCloseable)file).close();
 		}
-		else
-			interpreter.error("typecheck");
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			interpreter.error(e.kind());
+		}
 	}
 }

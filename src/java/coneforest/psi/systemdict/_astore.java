@@ -7,7 +7,7 @@ public class _astore extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 		else
 		{
 			PsiObject count=opstack.pop();
@@ -15,7 +15,7 @@ public class _astore extends PsiOperator
 			{
 				int countValue=((PsiInteger)count).getValue().intValue();
 				if(opstack.size()<countValue)
-					interpreter.error("stackunderflow");
+					interpreter.error("stackunderflow", this);
 				else
 				{
 					PsiArray array=new PsiArray();
@@ -25,7 +25,7 @@ public class _astore extends PsiOperator
 				}
 			}
 			else
-				interpreter.error("typecheck");
+				interpreter.error("typecheck", this);
 		}
 	}
 }

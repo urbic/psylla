@@ -12,26 +12,30 @@ abstract public class PsiComplexNumeric
 
 	abstract public PsiComplexNumeric conjugate();
 
+	//@Override
 	abstract public PsiComplexNumeric neg();
 	
-	abstract public PsiComplexNumeric add(final PsiComplexNumeric numeric);
+	@Override
+	abstract public PsiComplexNumeric add(final PsiComplexNumeric cn);
 	
+	@Override
 	abstract public PsiComplexNumeric sub(final PsiComplexNumeric numeric);
 
+	@Override
 	abstract public PsiComplexNumeric mul(final PsiComplexNumeric numeric);
 
+	@Override
 	abstract public PsiComplexNumeric div(final PsiComplexNumeric numeric);
 
-	public PsiNumeric abs()
-	{
-		return new PsiReal(Math.hypot(re().getValue().doubleValue(), im().getValue().doubleValue()));
-	}
+	@Override
+	abstract public PsiNumeric abs();
 
-	/*public PsiReal sqrt()
-	{
-		return new PsiReal(Math.sqrt(getValue().doubleValue()));
-	}
+	@Override
+	abstract public PsiComplexNumeric signum();
+
+	//abstract public PsiComplexNumeric sqrt();
 	
+	/*
 	public PsiReal cbrt()
 	{
 		return new PsiReal(Math.cbrt(getValue().doubleValue()));
@@ -41,12 +45,11 @@ abstract public class PsiComplexNumeric
 	{
 		return new PsiReal(Math.log(getValue().doubleValue()));
 	}
+	*/
 	
-	public PsiReal exp()
-	{
-		return new PsiReal(Math.exp(getValue().doubleValue()));
-	}
+	abstract public PsiComplexNumeric exp();
 
+	/*
 	public PsiReal cos()
 	{
 		return new PsiReal(Math.cos(getValue().doubleValue()));
@@ -61,17 +64,13 @@ abstract public class PsiComplexNumeric
 	{
 		return new PsiReal(Math.tan(getValue().doubleValue()));
 	}
+	*/
 
-	public PsiReal cosh()
-	{
-		return new PsiReal(Math.cosh(getValue().doubleValue()));
-	}
+	abstract public PsiComplexNumeric cosh();
+	
+	abstract public PsiComplexNumeric sinh();
 
-	public PsiReal sinh()
-	{
-		return new PsiReal(Math.sinh(getValue().doubleValue()));
-	}
-
+	/*
 	public PsiReal tanh()
 	{
 		return new PsiReal(Math.tanh(getValue().doubleValue()));

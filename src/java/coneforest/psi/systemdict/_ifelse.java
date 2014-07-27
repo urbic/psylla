@@ -8,14 +8,13 @@ public class _ifelse extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
-		
+
 		PsiObject obj2=opstack.pop();
 		PsiObject obj1=opstack.pop();
 		PsiObject cond=opstack.pop();
-		
 		try
 		{
 			//int execlevel=interpreter.getExecutionStack().size();
@@ -27,7 +26,7 @@ public class _ifelse extends PsiOperator
 			opstack.push(cond);
 			opstack.push(obj1);
 			opstack.push(obj2);
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }
