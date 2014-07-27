@@ -7,19 +7,20 @@ public class _aload extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject array=opstack.pop();
-
-			if(array instanceof PsiArray)
-			{
-				for(PsiObject obj: (PsiArray)array)
-					opstack.push(obj);
-				opstack.push(array);
-			}
-			else
-				interpreter.error("typecheck");
+			interpreter.error("stackunderflow", this);
+		}
+		
+		PsiObject array=opstack.pop();
+		try
+		{
+			for(PsiObject obj: (PsiArray)array)
+				opstack.push(obj);
+			opstack.push(array);
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck", this);
 		}
 	}
 }

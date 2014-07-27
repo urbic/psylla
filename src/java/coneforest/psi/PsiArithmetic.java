@@ -4,7 +4,9 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 {
 	public T neg();
 	
-	public T abs();
+	public PsiNumeric abs();
+	
+	public T signum();
 	
 	public T add(T arithmetic);
 	
@@ -13,5 +15,4 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 	public T mul(T arithmetic);
 	
 	public T div(T arithmetic);
-	
 }

@@ -12,6 +12,6 @@ public class _cleartomark extends PsiOperator
 				opstack.setSize(i);
 				return;
 			}
-		interpreter.error("unmatchedmark");
+		interpreter.error("unmatchedmark", this);
 	}
 }

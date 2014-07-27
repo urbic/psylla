@@ -9,13 +9,12 @@ public class _roll extends PsiOperator
 		
 		if(opstack.size()<3)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
 		PsiObject j=opstack.pop();
 		PsiObject n=opstack.pop();
-
 		try
 		{
 			int nValue=((PsiInteger)n).getValue().intValue();
@@ -23,12 +22,12 @@ public class _roll extends PsiOperator
 			int opstackSize=opstack.size();
 			if(nValue<0)
 			{
-				interpreter.error("rangecheck");
+				interpreter.error("rangecheck", this);
 				return;
 			}
 			else if(opstackSize<nValue)
 			{
-				interpreter.error("stackunderflow");
+				interpreter.error("stackunderflow", this);
 				return;
 			}
 			else
@@ -42,7 +41,7 @@ public class _roll extends PsiOperator
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }

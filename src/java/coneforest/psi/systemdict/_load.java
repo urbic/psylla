@@ -7,24 +7,25 @@ public class _load extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject key=opstack.pop();
+			interpreter.error("stackunderflow", this);
+			return;
+		}
 
-			if(key instanceof PsiStringlike)
-			{
-				try
-				{
-					opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)key));
-				}
-				catch(PsiException e)
-				{
-					interpreter.error(e.kind());
-				}
-			}
-			else
-				interpreter.error("typecheck");
+		PsiObject key=opstack.pop();
+		try
+		{
+			opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)key));
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(key);
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(key);
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

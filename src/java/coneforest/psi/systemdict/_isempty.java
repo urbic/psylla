@@ -8,12 +8,11 @@ public class _isempty extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
 		PsiObject composite=opstack.pop();
-
 		try
 		{
 			opstack.push(((PsiComposite)composite).isEmpty());
@@ -21,7 +20,7 @@ public class _isempty extends PsiOperator
 		catch(ClassCastException e)
 		{
 			opstack.push(composite);
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }

@@ -8,19 +8,18 @@ public class _not extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
 		PsiObject logical=opstack.pop();
-
 		try
 		{
 			opstack.push((PsiObject)((PsiLogical)logical).not());
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }

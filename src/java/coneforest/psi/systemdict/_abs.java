@@ -8,7 +8,7 @@ public class _abs extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		
@@ -20,7 +20,7 @@ public class _abs extends PsiOperator
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 		/*
 		if(obj instanceof PsiNumeric)

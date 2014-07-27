@@ -8,13 +8,12 @@ public class _remove extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
 		PsiObject obj=opstack.pop();
 		PsiObject set=opstack.pop();
-
 		try
 		{
 			((PsiSetlike)set).remove(obj);
@@ -23,13 +22,13 @@ public class _remove extends PsiOperator
 		{
 			opstack.push(set);
 			opstack.push(obj);
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 		catch(PsiException e)
 		{
 			opstack.push(set);
 			opstack.push(obj);
-			interpreter.error(e.kind());
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

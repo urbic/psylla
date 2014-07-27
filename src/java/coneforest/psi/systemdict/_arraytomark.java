@@ -18,6 +18,6 @@ public class _arraytomark extends PsiOperator
 				return;
 			}
 		}
-		interpreter.error("unmatchedmark");
+		interpreter.error("unmatchedmark", this);
 	}
 }

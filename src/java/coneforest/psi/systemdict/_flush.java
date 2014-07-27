@@ -7,23 +7,25 @@ public class _flush extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject file=opstack.pop();
-			if(file instanceof PsiFlushable)
-			{
-				try
-				{
-					((PsiFlushable)file).flush();
-				}
-				catch(PsiException e)
-				{
-					interpreter.error(e.kind());
-				}
-			}
-			else
-				interpreter.error("typecheck");
+			interpreter.error("stackunderflow");
+			return;
+		}
+
+		PsiObject file=opstack.pop();
+		try
+		{
+			((PsiFlushable)file).flush();
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(file);
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(file);
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

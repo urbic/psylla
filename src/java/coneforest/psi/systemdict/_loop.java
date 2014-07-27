@@ -8,9 +8,10 @@ public class _loop extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiObject obj=opstack.pop();
 
 		//interpreter.show("LOOP BEFORE");

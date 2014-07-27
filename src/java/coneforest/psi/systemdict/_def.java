@@ -7,19 +7,23 @@ public class _def extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
-			interpreter.error("stackunderflow");
-		else
 		{
-			PsiObject obj=opstack.pop();
-			PsiObject key=opstack.pop();
+			interpreter.error("stackunderflow", this);
+			return;
+		}
 
-			if(key instanceof PsiStringlike)
-			{
-				PsiDictionary currentdict=interpreter.getDictionaryStack().peek();
-				currentdict.put((PsiStringlike)key, obj);
-			}
-			else
-				interpreter.error("typecheck");
+		PsiObject obj=opstack.pop();
+		PsiObject key=opstack.pop();
+		try
+		{
+			PsiDictionary currentdict=interpreter.getDictionaryStack().peek();
+			currentdict.put((PsiStringlike)key, obj);
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(key);
+			opstack.push(obj);
+			interpreter.error("typecheck", this);
 		}
 	}
 }

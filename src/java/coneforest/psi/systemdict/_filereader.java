@@ -8,21 +8,20 @@ public class _filereader extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 
 		PsiObject name=opstack.pop();
-		if(name instanceof PsiString)
+		try
 		{
-			try
-			{
-				opstack.push(new PsiFileReader((PsiString)name));
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind());
-			}
+			opstack.push(new PsiFileReader((PsiString)name));
 		}
-		else
-			interpreter.error("typecheck");
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			interpreter.error(e.kind(), this);
+		}
 	}
 }

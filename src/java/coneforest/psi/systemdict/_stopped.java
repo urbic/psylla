@@ -7,7 +7,7 @@ public class _stopped extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 		else
 		{
 			int stoplevel=interpreter.pushStopLevel();

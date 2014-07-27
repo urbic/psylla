@@ -8,7 +8,7 @@ public class _add extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		PsiObject arithmetic2=opstack.pop();
@@ -17,12 +17,14 @@ public class _add extends PsiOperator
 		try
 		{
 			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).add((PsiArithmetic)arithmetic2));
+			//opstack.push((PsiObject)((PsiArithmetic<PsiComplexNumeric>)arithmetic1).add((PsiArithmetic<PsiComplexNumeric>)arithmetic2));
+			//opstack.push((PsiObject)((PsiComplexNumeric)arithmetic1).add((PsiComplexNumeric)arithmetic2));
 		}
 		catch(ClassCastException e)
 		{
 			opstack.push(arithmetic1);
 			opstack.push(arithmetic2);
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 		}
 	}
 }

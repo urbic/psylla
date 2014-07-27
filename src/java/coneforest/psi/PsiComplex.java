@@ -26,6 +26,18 @@ public class PsiComplex
 	}
 
 	@Override
+	public PsiReal abs()
+	{
+		return new PsiReal(Math.hypot(re, im));
+	}
+	
+	@Override
+	public PsiComplex signum()
+	{
+		return (re==0.D && im==0.D)? new PsiComplex(0.D, 0.D): div(abs());
+	}
+
+	@Override
 	public String getTypeName()
 	{
 		return "complex";
@@ -34,8 +46,7 @@ public class PsiComplex
 	@Override
 	public String toString()
 	{
-		//return re+(im>=0.D? "+": "")+im+"i";
-		return re+":"+im;
+		return re+(im>=0.D? "+": "")+im+"i";
 	}
 
 	@Override
@@ -89,7 +100,7 @@ public class PsiComplex
 	}
 
 	@Override
-	public PsiComplexNumeric div(final PsiComplexNumeric cn)
+	public PsiComplex div(final PsiComplexNumeric cn)
 	{
 		double cnRe=cn.re().getValue().doubleValue();
 		double cnIm=cn.im().getValue().doubleValue();
@@ -98,11 +109,13 @@ public class PsiComplex
 		return new PsiComplex((re*cnRe+im*cnIm)/denom, (im*cnRe-re*cnIm)/denom);
 	}
 
-	/*public PsiReal sqrt()
-	{
-		return new PsiReal(Math.sqrt(getValue().doubleValue()));
-	}
+	//@Override
+	//public PsiComplex sqrt(final PsiComplexNumeric cn)
+	//{
+	//	return new PsiReal(Math.sqrt(getValue().doubleValue()));
+	//}
 	
+	/*
 	public PsiReal cbrt()
 	{
 		return new PsiReal(Math.cbrt(getValue().doubleValue()));
@@ -112,12 +125,16 @@ public class PsiComplex
 	{
 		return new PsiReal(Math.log(getValue().doubleValue()));
 	}
-	
-	public PsiReal exp()
+	*/
+
+	@Override
+	public PsiComplex exp()
 	{
-		return new PsiReal(Math.exp(getValue().doubleValue()));
+		PsiReal tmp=im();
+		return re().exp().mul(new PsiComplex(tmp.cos(), tmp.sin()));
 	}
 
+	/*
 	public PsiReal cos()
 	{
 		return new PsiReal(Math.cos(getValue().doubleValue()));
@@ -132,26 +149,28 @@ public class PsiComplex
 	{
 		return new PsiReal(Math.tan(getValue().doubleValue()));
 	}
+	*/
 
-	public PsiReal cosh()
+	@Override
+	public PsiComplex cosh()
 	{
-		return new PsiReal(Math.cosh(getValue().doubleValue()));
+		PsiComplex tmp=exp();
+		return tmp.add(new PsiComplex(1.D).div(tmp)).div(new PsiReal(2.D));
 	}
 
-	public PsiReal sinh()
+	@Override
+	public PsiComplex sinh()
 	{
-		return new PsiReal(Math.sinh(getValue().doubleValue()));
+		PsiComplex tmp=exp();
+		return tmp.sub(new PsiComplex(1.D).div(tmp)).div(new PsiReal(2.D));
 	}
 
+	/*
 	public PsiReal tanh()
 	{
 		return new PsiReal(Math.tanh(getValue().doubleValue()));
 	}
 	*/
-
-	//abstract public PsiNumeric floor();
-	
-	//abstract public PsiNumeric ceiling();
 
 	private final double re, im;
 }

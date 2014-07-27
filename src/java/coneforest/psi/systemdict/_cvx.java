@@ -6,8 +6,8 @@ public class _cvx extends PsiOperator
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()==0)
-			interpreter.error("stackunderflow");
+		if(opstack.size()<1)
+			interpreter.error("stackunderflow", this);
 		else
 			opstack.peek().setExecutable();
 	}

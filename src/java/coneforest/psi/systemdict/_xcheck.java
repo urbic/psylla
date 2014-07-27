@@ -8,7 +8,7 @@ public class _xcheck extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		opstack.push(new PsiBoolean(opstack.pop().isExecutable()));

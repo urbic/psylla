@@ -14,6 +14,6 @@ public class _counttomark extends PsiOperator
 				return;
 			}
 		}
-		interpreter.error("unmatchedmark");
+		interpreter.error("unmatchedmark", this);
 	}
 }

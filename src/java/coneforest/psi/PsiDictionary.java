@@ -4,6 +4,7 @@ public class PsiDictionary
 	extends PsiObject
 	implements PsiHashlike<PsiObject>
 {
+	@Override
 	public String getTypeName() { return "dict"; }
 
 	public PsiObject get(String key)
@@ -15,7 +16,7 @@ public class PsiDictionary
 		else
 			throw new PsiException("undefined");
 	}
-	
+
 	public PsiObject get(PsiStringlike oKey)
 		throws PsiException
 	{

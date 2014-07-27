@@ -13,19 +13,17 @@ public class _where extends PsiOperator
 		}
 		
 		PsiObject key=opstack.pop();
-
-		if(key instanceof PsiStringlike)
+		try
 		{
 			PsiDictionary dict=interpreter.getDictionaryStack().where((PsiStringlike)key);
 			if(dict!=null)
-			{
 				opstack.push(dict);
-				opstack.push(new PsiBoolean(true));
-			}
-			else
-				opstack.push(new PsiBoolean(false));
+			opstack.push(new PsiBoolean(dict!=null));
 		}
-		else
+		catch(ClassCastException e)
+		{
+			opstack.push(key);
 			interpreter.error("typecheck");
+		}
 	}
 }

@@ -7,7 +7,7 @@ public class _token extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 		else
 		{
 			PsiObject reader=opstack.pop();
@@ -26,11 +26,11 @@ public class _token extends PsiOperator
 				}
 				catch(PsiException e)
 				{
-					interpreter.error(e.kind());
+					interpreter.error(e.kind(), this);
 				}
 			}
 			else
-				interpreter.error("typecheck");
+				interpreter.error("typecheck", this);
 		}
 	}
 }

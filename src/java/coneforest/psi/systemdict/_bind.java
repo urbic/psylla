@@ -8,7 +8,7 @@ public class _bind extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 
@@ -17,7 +17,7 @@ public class _bind extends PsiOperator
 		if(array instanceof PsiArray)
 			bind((PsiArray)array, interpreter.getDictionaryStack());
 		else
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 	}
 	
 	private static void bind(PsiArray array, DictionaryStack dictstack)
@@ -44,6 +44,7 @@ public class _bind extends PsiOperator
 			}
 			catch(PsiException e)
 			{
+				// TODO
 			}
 		}
 	}

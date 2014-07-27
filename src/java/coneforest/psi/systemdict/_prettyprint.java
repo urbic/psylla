@@ -7,10 +7,7 @@ public class _prettyprint extends PsiOperator
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-		{
-			interpreter.error("stackunderflow");
-			return;
-		}
+			interpreter.error("stackunderflow", this);
 		else
 			System.out.println(opstack.pop());
 	}

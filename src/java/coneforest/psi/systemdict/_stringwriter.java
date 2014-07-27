@@ -8,14 +8,20 @@ public class _stringwriter extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow");
+		{
+			interpreter.error("stackunderflow", this);
+			return;
+		}
 
 		PsiObject string=opstack.pop();
-		if(string instanceof PsiString)
+		try
 		{
 			opstack.push(new PsiStringWriter((PsiString)string));
 		}
-		else
-			interpreter.error("typecheck");
+		catch(ClassCastException e)
+		{
+			opstack.push(string);
+			interpreter.error("typecheck", this);
+		}
 	}
 }

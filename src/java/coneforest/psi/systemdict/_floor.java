@@ -6,30 +6,21 @@ public class _floor extends PsiOperator
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<0)
+		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		
 		PsiObject numeric=opstack.pop();
-
 		try
 		{
 			opstack.push(((PsiNumeric)numeric).floor());
 		}
 		catch(ClassCastException e)
 		{
-			interpreter.error("typecheck");
+			opstack.push(numeric);
+			interpreter.error("typecheck", this);
 		}
-		/*
-		if(obj instanceof PsiNumeric)
-			opstack.push(PsiNumeric.exp((PsiNumeric)obj));
-		else
-		{
-			opstack.push(obj);
-			interpreter.error("typecheck");
-		}
-		*/
 	}
 }

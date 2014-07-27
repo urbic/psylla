@@ -12,7 +12,7 @@ public class _dicttomark extends PsiOperator
 			{
 				if(opstack.size()-1-i % 2==1)
 				{
-					interpreter.error("rangecheck");
+					interpreter.error("rangecheck", this);
 					return;
 				}
 				PsiDictionary dict=new PsiDictionary();
@@ -24,7 +24,7 @@ public class _dicttomark extends PsiOperator
 						dict.put((PsiStringlike)key, obj);
 					else
 					{
-						interpreter.error("typecheck");
+						interpreter.error("typecheck", this);
 						return;
 					}
 				}
@@ -33,6 +33,6 @@ public class _dicttomark extends PsiOperator
 				return;
 			}
 		}
-		interpreter.error("unmatchedmark");
+		interpreter.error("unmatchedmark", this);
 	}
 }

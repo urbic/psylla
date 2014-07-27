@@ -8,7 +8,7 @@ public class _forall extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow");
+			interpreter.error("stackunderflow", this);
 			return;
 		}
 		PsiObject proc=opstack.pop();
@@ -44,7 +44,7 @@ public class _forall extends PsiOperator
 			interpreter.setExitFlag(false);
 		}
 		else
-			interpreter.error("typecheck");
+			interpreter.error("typecheck", this);
 	}
 
 }
