@@ -423,3 +423,4 @@
 @	hypot
 @	pow
 @	signum
+@	random

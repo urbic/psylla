@@ -105,6 +105,8 @@ public class Interpreter
 					error("syntaxerror");
 					break;
 				case ParserConstants.TOKEN_INTEGER:
+				case ParserConstants.TOKEN_HEXINTEGER:
+				case ParserConstants.TOKEN_BININTEGER:
 				case ParserConstants.TOKEN_REAL:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
@@ -136,6 +138,8 @@ public class Interpreter
 						opstack.push(proc);
 					break;
 				case ParserConstants.TOKEN_INTEGER:
+				case ParserConstants.TOKEN_HEXINTEGER:
+				case ParserConstants.TOKEN_BININTEGER:
 				case ParserConstants.TOKEN_REAL:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
@@ -175,6 +179,8 @@ public class Interpreter
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						throw new PsiException("syntaxerror");
 					case ParserConstants.TOKEN_INTEGER:
+					case ParserConstants.TOKEN_HEXINTEGER:
+					case ParserConstants.TOKEN_BININTEGER:
 					case ParserConstants.TOKEN_REAL:
 					case ParserConstants.TOKEN_STRING:
 					case ParserConstants.TOKEN_NAME_LITERAL:
@@ -209,6 +215,8 @@ public class Interpreter
 							return proc;
 						break;
 					case ParserConstants.TOKEN_INTEGER:
+					case ParserConstants.TOKEN_HEXINTEGER:
+					case ParserConstants.TOKEN_BININTEGER:
 					case ParserConstants.TOKEN_REAL:
 					case ParserConstants.TOKEN_STRING:
 					case ParserConstants.TOKEN_NAME_LITERAL:
@@ -264,6 +272,8 @@ public class Interpreter
 								case '\\':
 									buffer.append('\\');
 									break;
+								case '\n':
+									break;
 								case 'u':
 									buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+1, i+5), 16)));
 									i+=4;
@@ -278,6 +288,16 @@ public class Interpreter
 				return new PsiString(buffer);
 			case ParserConstants.TOKEN_INTEGER:
 				return new PsiInteger(Long.parseLong(token.image));
+			case ParserConstants.TOKEN_HEXINTEGER:
+				if(token.image.startsWith("+")||token.image.startsWith("-"))
+					return new PsiInteger(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 16));
+				else
+					return new PsiInteger(Long.parseLong(token.image.substring(2), 16));
+			case ParserConstants.TOKEN_BININTEGER:
+				if(token.image.startsWith("+")||token.image.startsWith("-"))
+					return new PsiInteger(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 2));
+				else
+					return new PsiInteger(Long.parseLong(token.image.substring(2), 2));
 			case ParserConstants.TOKEN_REAL:
 				return new PsiReal(Double.parseDouble(token.image));
 			case ParserConstants.TOKEN_NAME_LITERAL:
@@ -424,6 +444,14 @@ public class Interpreter
 		for(String arg: args)
 			arguments.add(new PsiString(arg));
 		getSystemDictionary().put("arguments", arguments);
+	}
+
+	public void acceptEnvironment(final java.util.Map<String, String> env)
+	{
+		PsiDictionary environment=new PsiDictionary();
+		for(java.util.Map.Entry<String, String> entry: env.entrySet())
+			environment.put(entry.getKey(), new PsiString(entry.getValue()));
+		getSystemDictionary().put("environment", environment);
 	}
 
 	//private java.io.InputStream is;

@@ -6,6 +6,8 @@ public class Psi
 	{
 		Interpreter interpreter=new Interpreter();
 		interpreter.acceptShellArguments(args);
+		//System.out.println(System.getenv().getClass());
+		interpreter.acceptEnvironment(System.getenv());
 		try
 		{
 			interpreter.interpret(new PsiFileReader(args[0]));
