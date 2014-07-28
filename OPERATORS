@@ -420,3 +420,6 @@
 @	cosh
 @	sinh
 @	tanh
+@	hypot
+@	pow
+@	signum

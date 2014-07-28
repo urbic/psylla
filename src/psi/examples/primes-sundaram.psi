@@ -1,0 +1,40 @@
+#my $n=shift or die "$0: Укажите число в командной строке\n";
+#$n=int(($n-1)/2);
+
+/n arguments 1 get tointeger 1 sub 2 div floor def
+
+#my @sieve=(1..$n);
+
+/sieve bitset def
+1 1 n { //sieve exch append } bind for
+
+#for(my $i=1; $i<=$n; $i++)
+#{
+#	for(my $j=1; $j<=$i; $j++)
+#	{
+#		my $k=$i+$j+2*$i*$j;
+#		$sieve[$k-1]=0 if $k<=$n;
+#	}
+#}
+
+1 1 n
+{
+	1 1 2 index
+	{
+		2 copy mul 2 mul add 1 index add
+		dup //n le
+		{ //sieve exch remove }
+		{ pop }
+		ifelse
+	}
+	for
+	pop
+}
+bind for
+
+#print "$_\n" for 2, map {2*$_+1} grep {$_} @sieve;
+sieve
+{
+	2 mul 1 add ==
+}
+bind forall
