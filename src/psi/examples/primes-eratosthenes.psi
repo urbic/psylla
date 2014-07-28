@@ -1,21 +1,21 @@
 /sieve bitset def
 
-2 1 arguments 1 get cvi
+2 1 arguments 1 get tointeger
 {
 	sieve exch append
 }
 bind for
 
 {
-	sieve isempty { exit } if
-	sieve { exit } forall
+	//sieve isempty { exit } if
+	//sieve { exit } forall
 	/p exch def
 	p ==
 
-	sieve
+	//sieve
 	{
 		dup p mod 0 eq
-		{ sieve exch remove }
+		{ //sieve exch remove }
 		{ pop }
 		ifelse
 	}

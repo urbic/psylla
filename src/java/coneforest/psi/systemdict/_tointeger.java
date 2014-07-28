@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _cvi extends PsiOperator
+public class _tointeger extends PsiOperator
 {
 	public void execute(Interpreter interpreter)
 	{

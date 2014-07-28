@@ -8,7 +8,7 @@
 		}
 	>>
 }
-def
+bind def
 
 /filter
 {
@@ -27,9 +27,9 @@ def
 		}
 	>>
 }
-def
+bind def
 
-/n arguments 1 get cvi def
+/n arguments 1 get tointeger def
 
 /source sequence def
 
@@ -37,6 +37,7 @@ def
 	/p source begin next end def
 	p n gt { exit } if
 	p ==
+	#countdictstack ==
 	/source source p filter def
 }
-loop
+bind loop
