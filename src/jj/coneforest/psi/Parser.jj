@@ -44,6 +44,24 @@ TOKEN:
 
 TOKEN:
 {
+	<TOKEN_HEXINTEGER:
+		(<TOKEN_SIGN>)?
+		"0x"
+		(<TOKEN_HEXDIGIT>)+
+	>
+}
+
+TOKEN:
+{
+	<TOKEN_BININTEGER:
+		(<TOKEN_SIGN>)?
+		"0b"
+		(["0", "1"])+
+	>
+}
+
+TOKEN:
+{
 	<TOKEN_REAL:
 		(<TOKEN_SIGN>)?
 		(
@@ -77,7 +95,7 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_STRING: "\"" (<TOKEN_SPECIAL> | ~["\"", "\\", "\n"])* "\"">
+	<TOKEN_STRING: "\"" (<TOKEN_SPECIAL> | ~["\"", "\\"])* "\"">
 }
 
 TOKEN:
@@ -85,7 +103,7 @@ TOKEN:
 	<#TOKEN_SPECIAL:
 		"\\"
 		(
-			["0", "a", "n", "t", "f", "\"", "\\", "e", "r"]
+			["0", "a", "n", "t", "f", "\"", "\\", "e", "r", "\n"]
 
 			|
 

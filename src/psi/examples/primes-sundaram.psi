@@ -33,6 +33,8 @@
 bind for
 
 #print "$_\n" for 2, map {2*$_+1} grep {$_} @sieve;
+
+arguments 1 get tointeger 1 gt { 2 == } if
 sieve
 {
 	2 mul 1 add ==

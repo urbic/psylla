@@ -70,7 +70,10 @@ abstract public class PsiObject
 		return o instanceof PsiObject && eq((PsiObject)o).getValue();
 	}
 
-	abstract public String toString();
+	public String toString()
+	{
+		return "-"+getTypeName()+"-";
+	}
 
 	public static final byte
 		ACCESS_NOACCESS=0,
