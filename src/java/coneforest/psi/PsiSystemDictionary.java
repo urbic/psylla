@@ -144,5 +144,6 @@ public class PsiSystemDictionary
 		put("errordict", new coneforest.psi.errordict.ErrorDictionary());
 		put("mathpi", new PsiReal(Math.PI));
 		put("mathe", new PsiReal(Math.E));
+		put("stdrandom", new PsiRandom());
 	}
 }
