@@ -424,3 +424,9 @@
 @	pow
 @	signum
 @	random
+@	min
+@	max
+@	setseed
+@	uniformdeviate
+@	uniformboolean
+@	normaldeviate
