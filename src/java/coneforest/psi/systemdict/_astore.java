@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _astore extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();

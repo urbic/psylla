@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _cvs extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -13,15 +14,5 @@ public class _cvs extends PsiOperator
 		}
 		PsiObject obj=opstack.pop();
 		opstack.push(new PsiString(obj.toString()));
-		/*
-		if(obj instanceof PsiBoolean)
-			opstack.push(new PsiString(((PsiBoolean)obj).toString()));
-		else if(obj instanceof PsiNumeric)
-			opstack.push(new PsiString(((PsiNumeric)obj).toString()));
-		else if(obj instanceof PsiStringlike)
-			opstack.push(new PsiString(((PsiStringlike)obj).toString()));
-		else
-			interpreter.error("typecheck");
-		*/
 	}
 }

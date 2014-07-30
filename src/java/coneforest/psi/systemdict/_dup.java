@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _dup extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -10,7 +11,7 @@ public class _dup extends PsiOperator
 		{
 			interpreter.error("stackunderflow", this);
 			return;
-		}		
+		}
 		opstack.push(opstack.peek());
 	}
 }

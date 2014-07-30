@@ -3,10 +3,10 @@ import coneforest.psi.*;
 
 public class _close extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
@@ -16,7 +16,7 @@ public class _close extends PsiOperator
 		PsiObject file=opstack.pop();
 		try
 		{
-			((PsiCloseable)file).close();
+			((PsiCloseable)file).psiClose();
 		}
 		catch(ClassCastException e)
 		{

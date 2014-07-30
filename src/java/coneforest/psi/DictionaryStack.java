@@ -7,7 +7,7 @@ public class DictionaryStack extends Stack<PsiDictionary>
 	{
 		PsiDictionary dict=where(key);
 		if(dict!=null)
-			return dict.get(key);
+			return dict.psiGet(key);
 		else
 			throw new PsiException("undefined");
 	}
@@ -16,7 +16,7 @@ public class DictionaryStack extends Stack<PsiDictionary>
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			if(get(i).containsKey(key))
+			if(get(i).psiKnown(key).getValue())
 				return get(i);
 		}
 		return null;

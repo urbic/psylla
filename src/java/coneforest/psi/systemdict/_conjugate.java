@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _conjugate extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -15,7 +16,7 @@ public class _conjugate extends PsiOperator
 		PsiObject cn=opstack.pop();
 		try
 		{
-			opstack.push(((PsiComplexNumeric)cn).conjugate());
+			opstack.push(((PsiComplexNumeric)cn).psiConjugate());
 		}
 		catch(ClassCastException e)
 		{

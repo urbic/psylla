@@ -6,92 +6,92 @@ public class PsiReal extends PsiNumeric
 	{
 		this.value=value;
 	}
-	
+
 	@Override
 	public String getTypeName() { return "real"; }
-	
+
 	@Override
 	public Double getValue()
 	{
 		return value;
 	}
-	
+
 	@Override
-	public PsiReal re()
+	public PsiReal psiRe()
 	{
 		return new PsiReal(value);
 	}
 
 	@Override
-	public PsiReal im()
+	public PsiReal psiIm()
 	{
 		return new PsiReal(0.D);
 	}
 
 	@Override
-	public PsiNumeric conjugate()
+	public PsiNumeric psiConjugate()
 	{
 		return new PsiReal(value);
 	}
 
 	@Override
-	public PsiReal neg()
+	public PsiReal psiNeg()
 	{
 		return new PsiReal(-value);
 	}
 
 	@Override
-	public PsiReal abs()
+	public PsiReal psiAbs()
 	{
 		return new PsiReal(Math.abs(value));
 	}
 
 	@Override
-	public PsiReal signum()
+	public PsiReal psiSignum()
 	{
 		return new PsiReal(Math.signum(value));
 	}
-	
+
 	@Override
-	public PsiComplexNumeric add(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
 	{
 		if(cn instanceof PsiNumeric)
 			return new PsiReal(value+((PsiNumeric)cn).getValue().doubleValue());
-		return super.add(cn);
+		return super.psiAdd(cn);
 	}
-	
+
 	//@Override
-	public PsiReal sub(final PsiNumeric numeric)
+	public PsiReal psiSub(final PsiNumeric numeric)
 	{
 		return new PsiReal(value-numeric.getValue().doubleValue());
 	}
-	
+
 	//@Override
-	public PsiReal mul(final PsiNumeric numeric)
+	public PsiReal psiMul(final PsiNumeric numeric)
 	{
 		return new PsiReal(value*numeric.getValue().doubleValue());
 	}
 
 	@Override
-	public PsiComplex mul(final PsiComplexNumeric complex)
+	public PsiComplex psiMul(final PsiComplexNumeric cn)
 	{
-		return new PsiComplex(this).mul(complex);
+		return new PsiComplex(this).psiMul(cn);
 	}
-	
+
 	@Override
 	public PsiReal pow(final PsiNumeric numeric)
 	{
 		return new PsiReal(Math.pow(value, numeric.getValue().doubleValue()));
 	}
-	
+
 	@Override
-	public PsiReal floor()
+	public PsiReal psiFloor()
 	{
 		return new PsiReal(Math.floor(value));
 	}
 
 	@Override
-	public PsiReal ceiling()
+	public PsiReal psiCeiling()
 	{
 		return new PsiReal(Math.ceil(value));
 	}

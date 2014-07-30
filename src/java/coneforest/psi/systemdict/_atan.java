@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _atan extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -11,7 +12,7 @@ public class _atan extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		
+
 		try
 		{
 			opstack.push(((PsiNumeric)opstack.pop()).atan());

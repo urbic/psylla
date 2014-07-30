@@ -4,27 +4,44 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	extends PsiObject
 	implements PsiSetlike<T>
 {
+	@Override
 	public String getTypeName()
 	{
 		return "set";
 	}
 
+	@Override
 	public String toString()
 	{
+		// TODO
 		return "-set-";
 	}
 
-	public void appendAll(PsiSetlike<? extends T> setlike)
+	@Override
+	public void psiAppendAll(PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
-		for(T obj: setlike)
-			append(obj);
+		for(T obj: iterable)
+			psiAppend(obj);
 	}
 
-	public void removeAll(PsiSetlike<? extends T> setlike)
+	@Override
+	public void psiRemoveAll(PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
+		for(T obj: iterable)
+			psiRemove(obj);
+	}
+
+	@Override
+	abstract public PsiBoolean psiContains(T obj);
+
+	@Override
+	public PsiBoolean psiIntersects(PsiSetlike<? extends T> setlike)
+	{
 		for(T obj: setlike)
-			remove(obj);
+			if(psiContains(obj).getValue())
+				return new PsiBoolean(true);
+		return new PsiBoolean(false);
 	}
 }

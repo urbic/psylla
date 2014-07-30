@@ -4,50 +4,50 @@ abstract public class PsiComplexNumeric
 	extends PsiObject
 	implements PsiAtomic, PsiArithmetic<PsiComplexNumeric>
 {
-	abstract public PsiNumeric re();
+	abstract public PsiNumeric psiRe();
 
-	abstract public PsiNumeric im();
+	abstract public PsiNumeric psiIm();
 
-	abstract public PsiNumeric arg();
+	abstract public PsiNumeric psiArg();
 
-	abstract public PsiComplexNumeric conjugate();
-
-	//@Override
-	abstract public PsiComplexNumeric neg();
-	
-	@Override
-	abstract public PsiComplexNumeric add(final PsiComplexNumeric cn);
-	
-	@Override
-	abstract public PsiComplexNumeric sub(final PsiComplexNumeric numeric);
+	abstract public PsiComplexNumeric psiConjugate();
 
 	@Override
-	abstract public PsiComplexNumeric mul(final PsiComplexNumeric numeric);
+	abstract public PsiComplexNumeric psiNeg();
 
 	@Override
-	abstract public PsiComplexNumeric div(final PsiComplexNumeric numeric);
+	abstract public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn);
 
 	@Override
-	abstract public PsiNumeric abs();
+	abstract public PsiComplexNumeric psiSub(final PsiComplexNumeric numeric);
 
 	@Override
-	abstract public PsiComplexNumeric signum();
+	abstract public PsiComplexNumeric psiMul(final PsiComplexNumeric numeric);
+
+	@Override
+	abstract public PsiComplexNumeric psiDiv(final PsiComplexNumeric numeric);
+
+	@Override
+	abstract public PsiNumeric psiAbs();
+
+	@Override
+	abstract public PsiComplexNumeric psiSignum();
 
 	//abstract public PsiComplexNumeric sqrt();
-	
+
 	/*
 	public PsiReal cbrt()
 	{
 		return new PsiReal(Math.cbrt(getValue().doubleValue()));
 	}
-	
+
 	public PsiReal log()
 	{
 		return new PsiReal(Math.log(getValue().doubleValue()));
 	}
 	*/
-	
-	abstract public PsiComplexNumeric exp();
+
+	abstract public PsiComplexNumeric psiExp();
 
 	/*
 	public PsiReal cos()
@@ -66,9 +66,9 @@ abstract public class PsiComplexNumeric
 	}
 	*/
 
-	abstract public PsiComplexNumeric cosh();
-	
-	abstract public PsiComplexNumeric sinh();
+	abstract public PsiComplexNumeric psiCosh();
+
+	abstract public PsiComplexNumeric psiSinh();
 
 	/*
 	public PsiReal tanh()
@@ -78,13 +78,14 @@ abstract public class PsiComplexNumeric
 	*/
 
 	//abstract public PsiNumeric floor();
-	
+
 	//abstract public PsiNumeric ceiling();
 
-	public PsiBoolean eq(final PsiObject obj)
+	@Override
+	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiComplexNumeric
-				&& re().eq(((PsiComplexNumeric)obj).re()).getValue()
-				&& im().eq(((PsiComplexNumeric)obj).im()).getValue());
+				&& psiRe().psiEq(((PsiComplexNumeric)obj).psiRe()).getValue()
+				&& psiIm().psiEq(((PsiComplexNumeric)obj).psiIm()).getValue());
 	}
 }

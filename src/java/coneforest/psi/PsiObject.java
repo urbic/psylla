@@ -48,28 +48,34 @@ abstract public class PsiObject
 	{
 		access|=ACCESS_EXECUTE;
 	}
-	
+
 	public void setLiteral()
 	{
 		access&=~ACCESS_EXECUTE;
 	}
 
-	public PsiBoolean eq(final PsiObject obj)
+	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(this==obj);
 	}
 
-	public PsiBoolean ne(final PsiObject obj)
+	public PsiBoolean psiNe(final PsiObject obj)
 	{
-		return eq(obj).not();
+		return psiEq(obj).psiNot();
+	}
+
+	public PsiObject psiClone()
+	{
+		return this;
 	}
 
 	@Override
 	public boolean equals(Object o)
 	{
-		return o instanceof PsiObject && eq((PsiObject)o).getValue();
+		return o instanceof PsiObject && psiEq((PsiObject)o).getValue();
 	}
 
+	@Override
 	public String toString()
 	{
 		return "-"+getTypeName()+"-";

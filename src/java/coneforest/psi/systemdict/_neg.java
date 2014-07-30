@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _neg extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -11,14 +12,15 @@ public class _neg extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		
+
 		PsiObject arihmetic=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiArithmetic)arihmetic).neg());
+			opstack.push((PsiObject)((PsiArithmetic)arihmetic).psiNeg());
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(arihmetic);
 			interpreter.error("typecheck", this);
 		}
 	}

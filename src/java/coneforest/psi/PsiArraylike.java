@@ -1,11 +1,15 @@
 package coneforest.psi;
 
 public interface PsiArraylike<T extends PsiObject>
-	extends PsiIterable<T>, PsiComposite<T>
+	extends
+		PsiIndexed<PsiInteger, T>,
+		PsiComposite<T>,
+		PsiIterable<T>,
+		PsiAppendable<T>
 {
-	public T get(PsiInteger oIndex)
+	public void psiInsert(PsiInteger index, T obj)
 		throws PsiException;
 
-	public void put(PsiInteger oIndex, T obj)
+	public void psiInsertAll(PsiInteger index, PsiIterable<? extends T> iterable)
 		throws PsiException;
 }

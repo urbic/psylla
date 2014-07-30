@@ -11,7 +11,8 @@ public final class PsiMark
 		return "-mark-";
 	}
 
-	public PsiBoolean eq(final PsiObject obj)
+	@Override
+	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiMark);
 	}

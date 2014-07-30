@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiInput
 	extends PsiObject
-	implements PsiCloseable
+	implements PsiReadable, PsiCloseable
 {
 	public PsiInput()
 	{
@@ -33,12 +33,13 @@ public class PsiInput
 		return input;
 	}
 
-	public int read()
+	@Override
+	public PsiInteger psiRead()
 		throws PsiException
 	{
 		try
 		{
-			return input.read();
+			return new PsiInteger(input.read());
 		}
 		catch(java.io.IOException e)
 		{
@@ -46,7 +47,22 @@ public class PsiInput
 		}
 	}
 
-	public void close()
+	@Override
+	public PsiString psiReadString(PsiInteger count)
+		throws PsiException
+	{
+		throw new PsiException("TODO");
+	}
+
+	@Override
+	public PsiString psiReadLine()
+		throws PsiException
+	{
+		throw new PsiException("TODO");
+	}
+
+	@Override
+	public void psiClose()
 		throws PsiException
 	{
 		try

@@ -2,9 +2,8 @@ package coneforest.psi;
 
 public class PsiBitSet
 	extends PsiAbstractSet<PsiInteger>
-	//extends PsiObject
-	//implements PsiSetlike<PsiInteger>
 {
+	@Override
 	public String getTypeName()
 	{
 		return "bitset";
@@ -14,13 +13,9 @@ public class PsiBitSet
 	{
 		return bitset;
 	}
-	
-	public String toString()
-	{
-		return "-bitset-";
-	}
 
-	public void append(PsiInteger index)
+	@Override
+	public void psiAppend(PsiInteger index)
 		throws PsiException
 	{
 		try
@@ -33,18 +28,18 @@ public class PsiBitSet
 		}
 	}
 
-	public void appendAll(PsiSetlike<? extends PsiInteger> setlike)
+	@Override
+	public void psiAppendAll(PsiIterable<? extends PsiInteger> iterable)
 		throws PsiException
 	{
-		if(setlike instanceof PsiBitSet)
-			bitset.or(((PsiBitSet)setlike).getBitSet());
+		if(iterable instanceof PsiBitSet)
+			bitset.or(((PsiBitSet)iterable).bitset);
 		else
-			super.appendAll(setlike);
-			//for(PsiInteger integer: setlike)
-			//	append(integer);
+			super.psiAppendAll(iterable);
 	}
 
-	public void remove(PsiInteger integer)
+	@Override
+	public void psiRemove(PsiInteger integer)
 		throws PsiException
 	{
 		try
@@ -57,14 +52,14 @@ public class PsiBitSet
 		}
 	}
 
-	public void removeAll(PsiSetlike<? extends PsiInteger> setlike)
+	@Override
+	public void psiRemoveAll(PsiIterable<? extends PsiInteger> iterable)
 		throws PsiException
 	{
-		if(setlike instanceof PsiBitSet)
-			bitset.andNot(((PsiBitSet)setlike).getBitSet());
+		if(iterable instanceof PsiBitSet)
+			bitset.andNot(((PsiBitSet)iterable).bitset);
 		else
-			for(PsiInteger integer: setlike)
-				remove(integer);
+			super.psiRemoveAll(iterable);
 	}
 
 	public java.util.Iterator<PsiInteger> iterator()
@@ -97,17 +92,35 @@ public class PsiBitSet
 			};
 	}
 
-	public PsiInteger length()
+	@Override
+	public PsiInteger psiLength()
 	{
 		return new PsiInteger(bitset.cardinality());
 	}
 
-	public PsiBoolean isEmpty()
+	@Override
+	public PsiBoolean psiIsEmpty()
 	{
 		return new PsiBoolean(bitset.isEmpty());
 	}
 
-	public PsiBoolean eq(final PsiObject obj)
+	@Override
+	public PsiBoolean psiContains(PsiInteger integer)
+	{
+		return new PsiBoolean(bitset.get(integer.getValue().intValue()));
+	}
+
+	@Override
+	public PsiBoolean psiIntersects(PsiSetlike setlike)
+	{
+		if(setlike instanceof PsiBitSet)
+			return new PsiBoolean(bitset.intersects(((PsiBitSet)setlike).getBitSet()));
+		else
+			return super.psiIntersects(setlike);
+	}
+
+	@Override
+	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiBitSet
 				&& bitset.equals(((PsiBitSet)obj).getBitSet()));

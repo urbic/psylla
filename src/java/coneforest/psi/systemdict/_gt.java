@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _gt extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -16,7 +17,7 @@ public class _gt extends PsiOperator
 		PsiObject scalar1=opstack.pop();
 		try
 		{
-			opstack.push(((PsiScalar)scalar1).gt((PsiScalar)scalar2));
+			opstack.push(((PsiScalar)scalar1).psiGt((PsiScalar)scalar2));
 		}
 		catch(ClassCastException e)
 		{

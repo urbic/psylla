@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public class PsiReader
 	extends PsiObject
-	implements PsiCloseable
+	implements PsiAtomic, PsiReadable, PsiCloseable
 {
 	public PsiReader()
 	{
@@ -18,14 +18,10 @@ public class PsiReader
 		this(new java.io.InputStreamReader(is));
 	}
 
+	@Override
 	public String getTypeName()
 	{
 		return "reader";
-	}
-
-	public String toString()
-	{
-		return "-reader-";
 	}
 
 	public void setReader(java.io.Reader reader)
@@ -38,12 +34,13 @@ public class PsiReader
 		return reader;
 	}
 
-	public int read()
+	@Override
+	public PsiInteger psiRead()
 		throws PsiException
 	{
 		try
 		{
-			return reader.read();
+			return new PsiInteger(reader.read());
 		}
 		catch(java.io.IOException e)
 		{
@@ -51,7 +48,48 @@ public class PsiReader
 		}
 	}
 
-	public void close()
+	@Override
+	public PsiString psiReadString(PsiInteger count)
+		throws PsiException
+	{
+		int countValue=count.getValue().intValue();
+		if(countValue<=0)
+			throw new PsiException("rangecheck");
+		java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate(countValue);
+		try
+		{
+			reader.read(buffer);
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+		buffer.flip();
+		//System.out.println(">>>"+buffer);
+		return new PsiString(buffer.toString());
+	}
+
+	@Override
+	public PsiString psiReadLine()
+		throws PsiException
+	{
+		// TODO
+		PsiInteger eol=new PsiInteger('\n');
+		PsiString string=new PsiString();
+		do
+		{
+			PsiInteger character=psiRead();
+			string.psiAppend(character);
+			if(character.psiEq(eol).getValue())
+				break;
+		}
+		while(true);
+		return string;
+	}
+
+
+	@Override
+	public void psiClose()
 		throws PsiException
 	{
 		try

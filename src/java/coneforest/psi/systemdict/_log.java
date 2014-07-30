@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _log extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -22,7 +23,7 @@ public class _log extends PsiOperator
 			opstack.push(numeric);
 			interpreter.error("typecheck", this);
 		}
-		
+
 		/*
 		if(obj instanceof PsiNumeric)
 		{

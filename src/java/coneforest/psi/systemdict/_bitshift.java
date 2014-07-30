@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _bitshift extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -11,12 +12,12 @@ public class _bitshift extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-			
+
 		PsiObject shift=opstack.pop();
 		PsiObject obj=opstack.pop();
 		try
 		{
-			opstack.push(PsiInteger.bitshift((PsiInteger)obj, (PsiInteger)shift));
+			opstack.push(((PsiInteger)obj).psiBitShift((PsiInteger)shift));
 		}
 		catch(ClassCastException e)
 		{

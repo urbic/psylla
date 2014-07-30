@@ -2,6 +2,7 @@ package coneforest.psi;
 
 abstract public class PsiStringlike
 	extends PsiObject
+	implements PsiComposite<PsiInteger>
 {
 	public PsiStringlike()
 	{
@@ -11,19 +12,19 @@ abstract public class PsiStringlike
 	{
 		setValue(value);
 	}
-	
-	abstract public String getValue();
-	
-	abstract public void setValue(final String value);
-	
-	abstract public String toString();
 
-	public PsiInteger length()
+	abstract public String getValue();
+
+	abstract public void setValue(final String value);
+
+	@Override
+	public PsiInteger psiLength()
 	{
 		return new PsiInteger(getValue().length());
 	}
 
-	public PsiBoolean isEmpty()
+	@Override
+	public PsiBoolean psiIsEmpty()
 	{
 		return new PsiBoolean(getValue().isEmpty());
 	}
@@ -53,39 +54,11 @@ abstract public class PsiStringlike
 				private int index=0;
 			};
 	}
-	
-	public PsiBoolean eq(final PsiObject obj)
+
+	@Override
+	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiStringlike
 				&& getValue().compareTo(((PsiStringlike)obj).getValue())==0);
 	}
-
-	/*
-	public static PsiBoolean ne(final PsiStringlike x, final PsiStringlike y)
-	{
-		return new PsiBoolean(x.getValue().compareTo(y.getValue())!=0);
-	}
-
-	public static PsiBoolean lt(final PsiStringlike x, final PsiStringlike y)
-	{
-		return new PsiBoolean(x.getValue().compareTo(y.getValue())<0);
-	}
-
-	public static PsiBoolean le(final PsiStringlike x, final PsiStringlike y)
-	{
-		return new PsiBoolean(x.getValue().compareTo(y.getValue())<=0);
-	}
-
-	public static PsiBoolean gt(final PsiStringlike x, final PsiStringlike y)
-	{
-		return new PsiBoolean(x.getValue().compareTo(y.getValue())>0);
-	}
-
-	public static PsiBoolean ge(final PsiStringlike x, final PsiStringlike y)
-	{
-		return new PsiBoolean(x.getValue().compareTo(y.getValue())>=0);
-	}
-	*/
-
-	//private String value;
 }

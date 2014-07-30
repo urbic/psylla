@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _dicttomark extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -21,7 +22,7 @@ public class _dicttomark extends PsiOperator
 					PsiObject obj=opstack.pop();
 					PsiObject key=opstack.pop();
 					if(key instanceof PsiStringlike)
-						dict.put((PsiStringlike)key, obj);
+						dict.psiPut((PsiStringlike)key, obj);
 					else
 					{
 						interpreter.error("typecheck", this);

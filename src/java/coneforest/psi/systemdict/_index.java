@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _index extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -17,15 +18,21 @@ public class _index extends PsiOperator
 		{
 			int nValue=((PsiInteger)n).getValue().intValue();
 			if(nValue<0)
-				interpreter.error("rangecheck", this);
+				throw new PsiException("rangecheck");
 			else if(opstack.size()<nValue+1)
-				interpreter.error("stackunderflow", this);
+				throw new PsiException("stackunderflow");
 			else
 				opstack.push(opstack.get(opstack.size()-nValue-1));
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(n);
 			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(n);
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

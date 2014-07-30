@@ -10,7 +10,10 @@ public class Psi
 		interpreter.acceptEnvironment(System.getenv());
 		try
 		{
+			interpreter.setReader(new java.io.InputStreamReader(System.in));
+			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
 			interpreter.interpret(new PsiFileReader(args[0]));
+
 		}
 		catch(PsiException e)
 		{
@@ -22,7 +25,7 @@ public class Psi
 			coneforest.xopt.OptionsProcessor xopt
 				=new coneforest.xopt.OptionsProcessor(Psi.class.getResource("psi.xopt"));
 			xopt.parse(args);
-			
+
 			Interpreter interpreter=new Interpreter();
 
 

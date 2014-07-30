@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _sub extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -16,7 +17,7 @@ public class _sub extends PsiOperator
 		PsiObject arithmetic1=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).sub((PsiArithmetic)arithmetic2));
+			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).psiSub((PsiArithmetic)arithmetic2));
 		}
 		catch(ClassCastException e)
 		{
