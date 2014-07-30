@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _flush extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -15,7 +16,7 @@ public class _flush extends PsiOperator
 		PsiObject file=opstack.pop();
 		try
 		{
-			((PsiFlushable)file).flush();
+			((PsiFlushable)file).psiFlush();
 		}
 		catch(ClassCastException e)
 		{

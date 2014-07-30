@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _writestring extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -16,7 +17,7 @@ public class _writestring extends PsiOperator
 		PsiObject writer=opstack.pop();
 		try
 		{
-			((PsiWriter)writer).write((PsiString)string);
+			((PsiWriter)writer).psiWriteString((PsiString)string);
 		}
 		catch(ClassCastException e)
 		{

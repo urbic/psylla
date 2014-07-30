@@ -32,9 +32,11 @@ public class PsiSystemDictionary
 						_ceiling.class,
 						_clear.class,
 						_cleardictstack.class,
+						_clone.class,
 						_close.class,
 						_complex.class,
 						_conjugate.class,
+						_contains.class,
 						_copy.class,
 						_cos.class,
 						_cosh.class,
@@ -73,6 +75,9 @@ public class PsiSystemDictionary
 						_if.class,
 						_ifelse.class,
 						_index.class,
+						_insert.class,
+						_insertall.class,
+						_intersects.class,
 						_isempty.class,
 						_known.class,
 						_le.class,
@@ -95,11 +100,14 @@ public class PsiSystemDictionary
 						_pop.class,
 						_pow.class,
 						_prettyprint.class,
+						_print.class,
 						_pstack.class,
 						_put.class,
 						_quit.class,
 						_random.class,
 						_read.class,
+						_readline.class,
+						_readstring.class,
 						_remove.class,
 						_repeat.class,
 						_roll.class,
@@ -130,20 +138,20 @@ public class PsiSystemDictionary
 				);
 		try
 		{
-			put("[", get("mark"));
-			put("<<", get("mark"));
-			put("]", get("arraytomark"));
-			put(">>", get("dicttomark"));
-			put("==", get("prettyprint"));
+			psiPut(new PsiName("["), psiGet(new PsiName("mark")));
+			psiPut(new PsiName("<<"), psiGet(new PsiName("mark")));
+			psiPut(new PsiName("]"), psiGet(new PsiName("arraytomark")));
+			psiPut(new PsiName(">>"), psiGet(new PsiName("dicttomark")));
+			psiPut(new PsiName("=="), psiGet(new PsiName("prettyprint")));
 		}
 		catch(PsiException e)
 		{
 			// TODO
 		}
-		put("systemdict", this);
-		put("errordict", new coneforest.psi.errordict.ErrorDictionary());
-		put("mathpi", new PsiReal(Math.PI));
-		put("mathe", new PsiReal(Math.E));
-		put("stdrandom", new PsiRandom());
+		psiPut(new PsiName("systemdict"), this);
+		psiPut(new PsiName("errordict"), new coneforest.psi.errordict.ErrorDictionary());
+		psiPut(new PsiName("mathpi"), new PsiReal(Math.PI));
+		psiPut(new PsiName("mathe"), new PsiReal(Math.E));
+		psiPut(new PsiName("stdrandom"), new PsiRandom());
 	}
 }

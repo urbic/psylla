@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _div extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -16,7 +17,7 @@ public class _div extends PsiOperator
 		PsiObject arithmetic1=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).div((PsiArithmetic)arithmetic2));
+			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).psiDiv((PsiArithmetic)arithmetic2));
 		}
 		catch(ClassCastException e)
 		{
@@ -24,26 +25,5 @@ public class _div extends PsiOperator
 			opstack.push(arithmetic2);
 			interpreter.error("typecheck", this);
 		}
-
-		/*
-		if(x instanceof PsiNumeric && y instanceof PsiNumeric)
-		{
-			PsiReal result=PsiNumeric.ratio((PsiNumeric)x, (PsiNumeric)y);
-			if(result.getValue().isInfinite())
-			{
-				opstack.push(x);
-				opstack.push(y);
-				interpreter.error("undefinedresult");
-			}
-			else
-				opstack.push(result);
-		}
-		else
-		{
-			opstack.push(x);
-			opstack.push(y);
-			interpreter.error("typecheck");
-		}
-		*/
 	}
 }

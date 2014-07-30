@@ -1,17 +1,11 @@
 package coneforest.psi;
 
-public interface PsiHashlike<T extends PsiObject>
-	extends PsiComposite, PsiIterable<java.util.Map.Entry<String, T>>
+public interface PsiHashlike<V extends PsiObject>
+	extends PsiComposite<V>, PsiIndexed<PsiStringlike, V>, PsiIterable<java.util.Map.Entry<String, V>>
 {
-	public T get(PsiStringlike key)
-		throws PsiException;
+	public void psiUndef(PsiStringlike key);
 
-	public void put(PsiStringlike key, T obj)
-		throws PsiException;
+	public PsiBoolean psiKnown(PsiStringlike key);
 
-	public void undef(PsiStringlike key);
-	
-	public PsiBoolean known(PsiStringlike key);
-
-	public java.util.Iterator<java.util.Map.Entry<String, T>> iterator();
+	public java.util.Iterator<java.util.Map.Entry<String, V>> iterator();
 }

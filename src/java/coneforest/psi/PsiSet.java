@@ -21,7 +21,7 @@ public class PsiSet
 	{
 		set.addAll(se)
 	}
-	
+
 	public void remove(T obj)
 		throws PsiException;
 

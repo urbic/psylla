@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _remove extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -16,7 +17,7 @@ public class _remove extends PsiOperator
 		PsiObject set=opstack.pop();
 		try
 		{
-			((PsiSetlike)set).remove(obj);
+			((PsiSetlike)set).psiRemove(obj);
 		}
 		catch(ClassCastException e)
 		{

@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-public class PsiFileReader extends PsiReader
+public class PsiFileReader
+	extends PsiReader
 {
 	public PsiFileReader(String name)
 		throws PsiException
@@ -15,10 +16,9 @@ public class PsiFileReader extends PsiReader
 		}
 	}
 
-	public PsiFileReader(PsiString oName)
+	public PsiFileReader(PsiString name)
 		throws PsiException
 	{
-		this(oName.getValue());
+		this(name.getValue());
 	}
-
 }

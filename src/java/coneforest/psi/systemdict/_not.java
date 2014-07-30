@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _not extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -15,7 +16,7 @@ public class _not extends PsiOperator
 		PsiObject logical=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiLogical)logical).not());
+			opstack.push((PsiObject)((PsiLogical)logical).psiNot());
 		}
 		catch(ClassCastException e)
 		{

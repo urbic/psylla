@@ -1,15 +1,16 @@
 package coneforest.psi;
 
 public class PsiArray
-	extends PsiObject
-	implements PsiArraylike<PsiObject>
+	extends PsiAbstractArray<PsiObject>
 {
 	public PsiArray()
 	{
-		array=new java.util.ArrayList<PsiObject>();
 	}
 
-	public String getTypeName() { return "array"; }
+	public PsiArray(PsiArray array)
+	{
+		this.array=(java.util.ArrayList<PsiObject>)array.array.clone();
+	}
 
 	public void execute(Interpreter interpreter)
 	{
@@ -41,12 +42,20 @@ public class PsiArray
 		return array.iterator();
 	}
 
-	public PsiInteger length()
+	@Override
+	public PsiArray psiClone()
+	{
+		return new PsiArray(this);
+	}
+
+	@Override
+	public PsiInteger psiLength()
 	{
 		return new PsiInteger(array.size());
 	}
 
-	public PsiBoolean isEmpty()
+	@Override
+	public PsiBoolean psiIsEmpty()
 	{
 		return new PsiBoolean(array.isEmpty());
 	}
@@ -64,15 +73,56 @@ public class PsiArray
 		}
 	}
 
-	public PsiObject get(PsiInteger oIndex)
+	@Override
+	public PsiObject psiGet(PsiInteger oIndex)
 		throws PsiException
 	{
 		return get(oIndex.getValue().intValue());
 	}
 
-	public void add(PsiObject obj)
+	@Override
+	public void psiAppend(PsiObject obj)
 	{
 		array.add(obj);
+	}
+
+	/*
+	@Override
+	public void psiAppendAll(PsiIterable<? extends PsiObject> iterable)
+	{
+		for(PsiObject obj: iterable)
+			psiAppend(obj);
+	}
+	*/
+
+	@Override
+	public void psiInsert(PsiInteger index, PsiObject obj)
+		throws PsiException
+	{
+		try
+		{
+			array.add(index.getValue().intValue(), obj);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
+	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiObject> iterable)
+		throws PsiException
+	{
+		int indexValue=index.getValue().intValue();
+		try
+		{
+			for(PsiObject obj: iterable)
+				array.add(indexValue++, obj);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
 	}
 
 	public void put(int index, PsiObject obj)
@@ -88,10 +138,11 @@ public class PsiArray
 		}
 	}
 
-	public void put(PsiInteger oIndex, PsiObject obj)
+	@Override
+	public void psiPut(PsiInteger integer, PsiObject obj)
 		throws PsiException
 	{
-		put(oIndex.getValue().intValue(), obj);
+		put(integer.getValue().intValue(), obj);
 	}
 
 	public void add(int i, PsiObject obj)
@@ -118,5 +169,5 @@ public class PsiArray
 		return sb.toString();
 	}
 
-	private java.util.ArrayList<PsiObject> array;
+	private java.util.ArrayList<PsiObject> array=new java.util.ArrayList<PsiObject>();
 }

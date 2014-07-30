@@ -3,10 +3,11 @@ import coneforest.psi.*;
 
 public class _roll extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		
+
 		if(opstack.size()<3)
 		{
 			interpreter.error("stackunderflow", this);
@@ -21,15 +22,9 @@ public class _roll extends PsiOperator
 			int jValue=((PsiInteger)j).getValue().intValue();
 			int opstackSize=opstack.size();
 			if(nValue<0)
-			{
-				interpreter.error("rangecheck", this);
-				return;
-			}
+				throw new PsiException("rangecheck");
 			else if(opstackSize<nValue)
-			{
-				interpreter.error("stackunderflow", this);
-				return;
-			}
+				throw new PsiException("stackunderflow");
 			else
 			{
 				while(jValue<0)
@@ -41,7 +36,15 @@ public class _roll extends PsiOperator
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(n);
+			opstack.push(j);
 			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(n);
+			opstack.push(j);
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

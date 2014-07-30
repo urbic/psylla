@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _bind extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -19,7 +20,7 @@ public class _bind extends PsiOperator
 		else
 			interpreter.error("typecheck", this);
 	}
-	
+
 	private static void bind(PsiArray array, DictionaryStack dictstack)
 	{
 		java.util.HashSet<PsiArray> bound=new java.util.HashSet<PsiArray>();
@@ -28,7 +29,7 @@ public class _bind extends PsiOperator
 
 	private static void bindHelper(PsiArray array, java.util.HashSet<PsiArray> bound, DictionaryStack dictstack)
 	{
-		for(int i=0; i<((PsiArray)array).length().getValue(); i++)
+		for(int i=0; i<((PsiArray)array).psiLength().getValue(); i++)
 		{
 			try
 			{

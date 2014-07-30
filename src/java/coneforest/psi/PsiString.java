@@ -43,34 +43,112 @@ public class PsiString
 		return buffer;
 	}
 
-	public PsiInteger get(int index)
+	private PsiInteger get(int index)
 		throws PsiException
 	{
-		if(index>=0 && index<buffer.length())
+		try
+		{
 			return new PsiInteger(buffer.charAt(index));
-		else
+		}
+		catch(IndexOutOfBoundsException e)
+		{
 			throw new PsiException("rangecheck");
+		}
 	}
 
-	public PsiInteger get(PsiInteger oIndex)
+	@Override
+	public PsiInteger psiGet(PsiInteger index)
 		throws PsiException
 	{
-		return get(oIndex.getValue().intValue());
+		return get(index.getValue().intValue());
 	}
 
-	public void put(int index, PsiInteger oChar)
+	private void put(int index, PsiInteger oChar)
 		throws PsiException
 	{
-		if(index>=0 && index<buffer.length())
+		try
+		{
 			buffer.setCharAt(index, (char)oChar.getValue().intValue());
-		else
+		}
+		catch(IndexOutOfBoundsException e)
+		{
 			throw new PsiException("rangecheck");
+		}
 	}
-	
-	public void put(PsiInteger oIndex, PsiInteger oChar)
+
+	@Override
+	public void psiPut(PsiInteger index, PsiInteger character)
 		throws PsiException
 	{
-		put(oIndex.getValue().intValue(), oChar);
+		put(index.getValue().intValue(), character);
+	}
+
+	@Override
+	public void psiAppend(PsiInteger character)
+	{
+		buffer.append((char)character.getValue().intValue());
+	}
+
+	@Override
+	public void psiAppendAll(PsiIterable<? extends PsiInteger> iterable)
+	{
+		for(PsiInteger character: iterable)
+			psiAppend(character);
+	}
+
+	@Override
+	public void psiInsert(PsiInteger index, PsiInteger character)
+		throws PsiException
+	{
+		try
+		{
+			buffer.insert(index.getValue().intValue(), (char)character.getValue().intValue());
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	public void psiInsertAll(PsiInteger index, PsiString string)
+		throws PsiException
+	{
+		int indexValue=index.getValue().intValue();
+		try
+		{
+			buffer.insert(indexValue, string.buffer);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
+	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiInteger> iterable)
+		throws PsiException
+	{
+		if(iterable instanceof PsiString)
+		{
+			psiInsertAll(index, (PsiString)iterable);
+			return;
+		}
+		int indexValue=index.getValue().intValue();
+		try
+		{
+			for(PsiInteger character: iterable)
+				buffer.insert(indexValue++, (char)character.getValue().intValue());
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
+	public PsiBoolean psiIsEmpty()
+	{
+		return new PsiBoolean(buffer.length()==0);
 	}
 
 	public String toString()
@@ -120,23 +198,27 @@ public class PsiString
 	{
 		return new PsiString(x.getValue()+y.getValue());
 	}
-	
-	public PsiBoolean lt(final PsiString string)
+
+	@Override
+	public PsiBoolean psiLt(final PsiString string)
 	{
 		return new PsiBoolean(getValue().compareTo(string.getValue())<0);
 	}
 
-	public PsiBoolean le(final PsiString string)
+	@Override
+	public PsiBoolean psiLe(final PsiString string)
 	{
 		return new PsiBoolean(getValue().compareTo(string.getValue())<=0);
 	}
 
-	public PsiBoolean gt(final PsiString string)
+	@Override
+	public PsiBoolean psiGt(final PsiString string)
 	{
 		return new PsiBoolean(getValue().compareTo(string.getValue())>0);
 	}
 
-	public PsiBoolean ge(final PsiString string)
+	@Override
+	public PsiBoolean psiGe(final PsiString string)
 	{
 		return new PsiBoolean(getValue().compareTo(string.getValue())>=0);
 	}

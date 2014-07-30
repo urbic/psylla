@@ -18,7 +18,7 @@ public class PsiBitVector
 	{
 		return "bitvector";
 	}
-	
+
 	public String toString()
 	{
 		return "-bitvector-";
@@ -29,12 +29,13 @@ public class PsiBitVector
 		return bitvector;
 	}
 
-	public boolean get(int index)
+	@Override
+	public PsiBoolean psiGet(PsiInteger integer)
 		throws PsiException
 	{
 		try
 		{
-			return bitvector.get(index);
+			return new PsiBoolean(bitvector.get(integer.getValue().intValue()));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -42,18 +43,13 @@ public class PsiBitVector
 		}
 	}
 
-	public PsiBoolean get(PsiInteger oIndex)
-		throws PsiException
-	{
-		return new PsiBoolean(get(oIndex.getValue().intValue()));
-	}
-
-	public void put(int index, boolean value)
+	@Override
+	public void psiPut(PsiInteger integer, PsiBoolean bool)
 		throws PsiException
 	{
 		try
 		{
-			bitvector.set(index, value);
+			bitvector.set(integer.getValue().intValue(), bool.getValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -61,34 +57,60 @@ public class PsiBitVector
 		}
 	}
 
-	public void put(PsiInteger oIndex, PsiBoolean oValue)
+	@Override
+	public void psiAppend(PsiBoolean bool)
 		throws PsiException
 	{
-		put(oIndex.getValue().intValue(), oValue.getValue());
+		throw new PsiException("TODO");
 	}
 
-	public PsiBitVector not()
+	@Override
+	public void psiAppendAll(PsiIterable<? extends PsiBoolean> iterable)
+		throws PsiException
+	{
+		throw new PsiException("TODO");
+	}
+
+	@Override
+	public void psiInsert(PsiInteger index, PsiBoolean bool)
+		throws PsiException
+	{
+		throw new PsiException("TODO");
+	}
+
+	@Override
+	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiBoolean> iterable)
+		throws PsiException
+	{
+		throw new PsiException("TODO");
+	}
+
+	@Override
+	public PsiBitVector psiNot()
 	{
 		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
 		result.flip(0, result.size());
 		return new PsiBitVector(result);
 	}
 
-	public PsiBitVector or(final PsiBitVector obj)
+	@Override
+	public PsiBitVector psiOr(final PsiBitVector obj)
 	{
 		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
 		result.or(obj.getBitVector());
 		return new PsiBitVector(result);
 	}
 
-	public PsiBitVector and(final PsiBitVector obj)
+	@Override
+	public PsiBitVector psiAnd(final PsiBitVector obj)
 	{
 		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
 		result.and(obj.getBitVector());
 		return new PsiBitVector(result);
 	}
 
-	public PsiBitVector xor(final PsiBitVector obj)
+	@Override
+	public PsiBitVector psiXor(final PsiBitVector obj)
 	{
 		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
 		result.xor(obj.getBitVector());
@@ -121,12 +143,14 @@ public class PsiBitVector
 			};
 	}
 
-	public PsiInteger length()
+	@Override
+	public PsiInteger psiLength()
 	{
 		return new PsiInteger(bitvector.size());
 	}
 
-	public PsiBoolean isEmpty()
+	@Override
+	public PsiBoolean psiIsEmpty()
 	{
 		return new PsiBoolean(bitvector.size()==0);
 	}

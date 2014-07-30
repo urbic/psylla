@@ -13,14 +13,12 @@ public class Interpreter
 		// Load systemdict, globaldict, userdict
 		dictstack.push(loadModule(PsiSystemDictionary.class));
 		PsiDictionary globaldict=new PsiDictionary();
-		getSystemDictionary().put("globaldict", globaldict);
+		getSystemDictionary().psiPut(new PsiName("globaldict"), globaldict);
 		dictstack.push(globaldict);
 		PsiDictionary userdict=new PsiDictionary();
-		getSystemDictionary().put("userdict", userdict);
+		getSystemDictionary().psiPut(new PsiName("userdict"), userdict);
 		dictstack.push(userdict);
 
-		setReader(new java.io.InputStreamReader(System.in));
-		setWriter(new java.io.OutputStreamWriter(System.out));
 	}
 
 	public OperandStack getOperandStack()
@@ -60,12 +58,12 @@ public class Interpreter
 
 	public void setReader(java.io.Reader reader)
 	{
-		getSystemDictionary().put("stdin", new PsiReader(reader));
+		getSystemDictionary().psiPut(new PsiName("stdin"), new PsiReader(reader));
 	}
 
 	public void setWriter(java.io.Writer writer)
 	{
-		getSystemDictionary().put("stdout", new PsiWriter(writer));
+		getSystemDictionary().psiPut(new PsiName("stdout"), new PsiWriter(writer));
 	}
 
 	public void interpret(java.io.Reader reader)
@@ -133,7 +131,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_CLOSE_BRACE:
 					PsiArray proc=procstack.pop();
 					if(procstack.size()>0)
-						procstack.peek().add(proc);
+						procstack.peek().psiAppend(proc);
 					else
 						opstack.push(proc);
 					break;
@@ -145,7 +143,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
-					procstack.peek().add(newPsiObject(token));
+					procstack.peek().psiAppend(newPsiObject(token));
 					break;
 			}
 		}
@@ -161,7 +159,7 @@ public class Interpreter
 						System.out.println("BEGIN=====");
 						//while(true)
 						{
-							int c=reader.read();
+							PsiInteger c=reader.psiRead();
 							//if(c==-1)
 							//	break;
 							System.out.println(c);
@@ -210,7 +208,7 @@ public class Interpreter
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						PsiArray proc=procstack.pop();
 						if(procstack.size()>0)
-							procstack.peek().add(proc);
+							procstack.peek().psiAppend(proc);
 						else
 							return proc;
 						break;
@@ -221,7 +219,7 @@ public class Interpreter
 					case ParserConstants.TOKEN_STRING:
 					case ParserConstants.TOKEN_NAME_LITERAL:
 					case ParserConstants.TOKEN_NAME_EXECUTABLE:
-						procstack.peek().add(newPsiObject(token));
+						procstack.peek().psiAppend(newPsiObject(token));
 						break;
 					case ParserConstants.EOF:
 						throw new PsiException("syntaxerror");
@@ -336,7 +334,7 @@ public class Interpreter
 		show("XXX");
 		System.exit(1);
 	}
-	
+
 	public void error(String errorName)
 	{
 		// TODO
@@ -392,7 +390,7 @@ public class Interpreter
 	{
 		this.exitFlag=exitFlag;
 	}
-	
+
 	public boolean getStopFlag()
 	{
 		return stopFlag;
@@ -402,7 +400,7 @@ public class Interpreter
 	{
 		this.stopFlag=stopFlag;
 	}
-	
+
 	public int pushLoopLevel()
 	{
 		int level=execstack.size();
@@ -432,7 +430,7 @@ public class Interpreter
 	{
 		return stopstack.size()>0? stopstack.pop(): -1;
 	}
-	
+
 	public int currentStopLevel()
 	{
 		return stopstack.size()>0? stopstack.peek(): -1;
@@ -442,16 +440,16 @@ public class Interpreter
 	{
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)
-			arguments.add(new PsiString(arg));
-		getSystemDictionary().put("arguments", arguments);
+			arguments.psiAppend(new PsiString(arg));
+		getSystemDictionary().psiPut(new PsiName("arguments"), arguments);
 	}
 
 	public void acceptEnvironment(final java.util.Map<String, String> env)
 	{
 		PsiDictionary environment=new PsiDictionary();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
-			environment.put(entry.getKey(), new PsiString(entry.getValue()));
-		getSystemDictionary().put("environment", environment);
+			environment.psiPut(new PsiName(entry.getKey()), new PsiString(entry.getValue()));
+		getSystemDictionary().psiPut(new PsiName("environment"), environment);
 	}
 
 	//private java.io.InputStream is;

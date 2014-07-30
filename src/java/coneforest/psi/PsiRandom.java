@@ -2,6 +2,7 @@ package coneforest.psi;
 
 public class PsiRandom
 	extends PsiObject
+	implements PsiAtomic
 {
 	public PsiRandom()
 	{

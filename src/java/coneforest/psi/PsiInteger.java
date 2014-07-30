@@ -14,21 +14,21 @@ public class PsiInteger
 	{
 		return value;
 	}
-	
+
 	@Override
-	public PsiInteger re()
+	public PsiInteger psiRe()
 	{
 		return new PsiInteger(getValue());
 	}
 
 	@Override
-	public PsiInteger im()
+	public PsiInteger psiIm()
 	{
 		return new PsiInteger(0);
 	}
-	
+
 	@Override
-	public PsiInteger conjugate()
+	public PsiInteger psiConjugate()
 	{
 		return new PsiInteger(value);
 	}
@@ -43,40 +43,40 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger not()
+	public PsiInteger psiNot()
 	{
 		return new PsiInteger(~getValue());
 	}
 
 	@Override
-	public PsiInteger or(final PsiInteger obj)
+	public PsiInteger psiOr(final PsiInteger obj)
 	{
 		return new PsiInteger(getValue() | obj.getValue());
 	}
 
 	@Override
-	public PsiInteger and(final PsiInteger obj)
+	public PsiInteger psiAnd(final PsiInteger obj)
 	{
 		return new PsiInteger(getValue() & obj.getValue());
 	}
 
 	@Override
-	public PsiInteger xor(final PsiInteger obj)
+	public PsiInteger psiXor(final PsiInteger obj)
 	{
 		return new PsiInteger(getValue() ^ obj.getValue());
 	}
 
 	@Override
-	public PsiNumeric neg()
+	public PsiNumeric psiNeg()
 	{
 		if(getValue()!=Long.MIN_VALUE)
 			return new PsiInteger(-getValue());
 		else
 			return new PsiReal(-getValue());
 	}
-	
+
 	@Override
-	public PsiNumeric abs()
+	public PsiNumeric psiAbs()
 	{
 		if(value!=Long.MIN_VALUE)
 			return new PsiInteger(value>=0L? value: -value);
@@ -85,7 +85,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger signum()
+	public PsiInteger psiSignum()
 	{
 		return new PsiInteger(value>0? 1: value<0? -1: 0);
 	}
@@ -120,8 +120,8 @@ public class PsiInteger
 		//throw new PsiException("XXX");
 	}
 	*/
-	
-	public PsiNumeric add(final PsiNumeric numeric)
+
+	public PsiNumeric psiAdd(final PsiNumeric numeric)
 	{
 		double result=value+numeric.getValue().doubleValue();
 		if(numeric instanceof PsiInteger
@@ -132,14 +132,14 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiComplexNumeric add(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
 	{
 		if(cn instanceof PsiNumeric)
-			return add((PsiNumeric)cn);
-		return super.add(cn);
+			return psiAdd((PsiNumeric)cn);
+		return super.psiAdd(cn);
 	}
 
-	public PsiNumeric sub(final PsiNumeric numeric)
+	public PsiNumeric psiSub(final PsiNumeric numeric)
 	{
 		double result=value-numeric.getValue().doubleValue();
 		if(numeric instanceof PsiInteger
@@ -150,14 +150,14 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiComplexNumeric sub(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
 	{
 		if(cn instanceof PsiNumeric)
-			return sub((PsiNumeric)cn);
-		return super.sub(cn);
+			return psiSub((PsiNumeric)cn);
+		return super.psiSub(cn);
 	}
 
-	public PsiNumeric mul(final PsiNumeric numeric)
+	public PsiNumeric psiMul(final PsiNumeric numeric)
 	{
 		double result=value*numeric.getValue().doubleValue();
 		if(numeric instanceof PsiInteger
@@ -168,11 +168,11 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiComplexNumeric mul(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
 	{
 		if(cn instanceof PsiNumeric)
-			return mul((PsiNumeric)cn);
-		return super.mul(cn);
+			return psiMul((PsiNumeric)cn);
+		return super.psiMul(cn);
 	}
 
 	@Override
@@ -188,34 +188,40 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger floor()
+	public PsiInteger psiFloor()
 	{
 		return new PsiInteger(value);
 	}
 
 	@Override
-	public PsiInteger ceiling()
+	public PsiInteger psiCeiling()
 	{
 		return new PsiInteger(value);
 	}
 
-	//@Override
-	public PsiInteger mod(final PsiInteger integer)
+	public PsiInteger psiMod(final PsiInteger integer)
+		throws PsiException
 	{
 		long integerValue=integer.getValue();
 		if(integerValue>0)
 			return new PsiInteger(value>=0? value%integerValue: integerValue-(-value)%integerValue);
 		if(integerValue<0)
 			return new PsiInteger(value>=0? value%(-integerValue)+(value!=0? integerValue:0): -((-value)%(-integerValue)));
-		return null;
+		throw new PsiException("undefinedresult");
 	}
 
-	//@Override
-	public static PsiInteger bitshift(final PsiInteger x, final PsiInteger shift)
+	public PsiInteger psiIdiv(final PsiInteger integer)
+		throws PsiException
 	{
-		long xValue=x.getValue();
+		if(integer.getValue()==0.D)
+			throw new PsiException("undefinedresult");
+		return new PsiInteger(psiDiv(integer).getValue().longValue());
+	}
+
+	public PsiInteger psiBitShift(final PsiInteger shift)
+	{
 		long shiftValue=shift.getValue();
-		return new PsiInteger(shiftValue>=0? (xValue<<shiftValue): (xValue>>(-shiftValue)));
+		return new PsiInteger(shiftValue>=0? (getValue()<<shiftValue): (getValue()>>(-shiftValue)));
 	}
 
 	private final long value;

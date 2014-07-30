@@ -10,8 +10,8 @@ public class PsiModule
 			for(Class<? extends PsiOperator> operatorClass: operatorClasses)
 			{
 				PsiOperator operator=operatorClass.newInstance();
-				String operatorName=operator.getName();
-				put(operatorName, operator);
+				//String operatorName=operator.getName();
+				psiPut(new PsiName(operator.getName()), operator);
 			}
 		}
 		catch(InstantiationException e)

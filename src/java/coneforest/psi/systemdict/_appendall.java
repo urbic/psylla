@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _appendall extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -12,18 +13,22 @@ public class _appendall extends PsiOperator
 			return;
 		}
 
-		PsiObject set2=opstack.pop();
-		PsiObject set1=opstack.pop();
+		PsiObject iterable=opstack.pop();
+		PsiObject appendable=opstack.pop();
 		try
 		{
-			((PsiSetlike)set1).appendAll((PsiSetlike)set2);
+			((PsiAppendable)appendable).psiAppendAll((PsiIterable)iterable);
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(appendable);
+			opstack.push(iterable);
 			interpreter.error("typecheck", this);
 		}
 		catch(PsiException e)
 		{
+			opstack.push(appendable);
+			opstack.push(iterable);
 			interpreter.error(e.kind(), this);
 		}
 	}

@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public interface PsiComposite<T extends PsiObject>
 {
-	public PsiInteger length();
+	public PsiInteger psiLength();
 
-	public PsiBoolean isEmpty();
+	public PsiBoolean psiIsEmpty();
 }

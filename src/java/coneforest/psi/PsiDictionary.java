@@ -4,48 +4,59 @@ public class PsiDictionary
 	extends PsiObject
 	implements PsiHashlike<PsiObject>
 {
+	public PsiDictionary()
+	{
+	}
+
+	public PsiDictionary(PsiDictionary dict)
+	{
+		//this.dictionary=(java.util.HashMap<String, PsiObject>)dictionary.getDictionary().clone();
+		this.dictionary=(java.util.HashMap<String, PsiObject>)dict.dictionary.clone();
+	}
+
+	/*
+	private java.util.HashMap<String, PsiObject> getDictionary()
+	{
+		return dictionary;
+	}
+	*/
+
 	@Override
 	public String getTypeName() { return "dict"; }
 
-	public PsiObject get(String key)
+	@Override
+	public PsiDictionary psiClone()
+	{
+		return new PsiDictionary(this);
+	}
+
+	@Override
+	public PsiObject psiGet(PsiStringlike key)
 		throws PsiException
 	{
-		PsiObject result=dictionary.get(key);
+		PsiObject result=dictionary.get(key.getValue());
 		if(result!=null)
 			return result;
 		else
 			throw new PsiException("undefined");
 	}
 
-	public PsiObject get(PsiStringlike oKey)
-		throws PsiException
+	@Override
+	public void psiPut(PsiStringlike key, PsiObject obj)
 	{
-		return get(oKey.getValue());
-	}
-	
-	public void put(String key, PsiObject obj)
-	{
-		dictionary.put(key, obj);
+		dictionary.put(key.getValue(), obj);
 	}
 
-	public void put(PsiStringlike oKey, PsiObject obj)
+	@Override
+	public void psiUndef(PsiStringlike key)
 	{
-		put(oKey.getValue(), obj);
+		dictionary.remove(key.getValue());
 	}
 
-	public void undef(String key)
+	@Override
+	public PsiBoolean psiKnown(PsiStringlike key)
 	{
-		dictionary.remove(key);
-	}
-
-	public void undef(PsiStringlike oKey)
-	{
-		undef(oKey.getValue());
-	}
-
-	public PsiBoolean known(PsiStringlike key)
-	{
-		return new PsiBoolean(containsKey(key));
+		return new PsiBoolean(dictionary.containsKey(key.getValue()));
 	}
 
 	public java.util.Iterator<java.util.Map.Entry<String, PsiObject>> iterator()
@@ -53,17 +64,14 @@ public class PsiDictionary
 		return dictionary.entrySet().iterator();
 	}
 
-	public boolean containsKey(PsiStringlike key)
-	{
-		return dictionary.containsKey(key.getValue());
-	}
-
-	public PsiInteger length()
+	@Override
+	public PsiInteger psiLength()
 	{
 		return new PsiInteger(dictionary.size());
 	}
 
-	public PsiBoolean isEmpty()
+	@Override
+	public PsiBoolean psiIsEmpty()
 	{
 		return new PsiBoolean(dictionary.isEmpty());
 	}

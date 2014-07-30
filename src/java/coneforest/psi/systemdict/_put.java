@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _put extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -11,48 +12,26 @@ public class _put extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		PsiObject obj3=opstack.pop();
-		PsiObject obj2=opstack.pop();
-		PsiObject obj1=opstack.pop();
-
-		if(obj1 instanceof PsiArray && obj2 instanceof PsiInteger)
+		PsiObject obj=opstack.pop();
+		PsiObject key=opstack.pop();
+		PsiObject indexed=opstack.pop();
+		try
 		{
-			try
-			{
-				((PsiArray)obj1).put((PsiInteger)obj2, obj3);
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind(), this);
-			}
+			((PsiIndexed)indexed).psiPut(key, obj);
 		}
-		else if(obj1 instanceof PsiDictionary && obj2 instanceof PsiStringlike)
+		catch(ClassCastException e)
 		{
-			((PsiDictionary)obj1).put((PsiStringlike)obj2, obj3);
-		}
-		else if(obj1 instanceof PsiString && obj2 instanceof PsiInteger && obj3 instanceof PsiInteger)
-		{
-			try
-			{
-				((PsiString)obj1).put((PsiInteger)obj2, (PsiInteger)obj3);
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind(), this);
-			}
-		}
-		else if(obj1 instanceof PsiBitVector && obj2 instanceof PsiInteger && obj3 instanceof PsiBoolean)
-		{
-			try
-			{
-				((PsiBitVector)obj1).put((PsiInteger)obj2, (PsiBoolean)obj3);
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind(), this);
-			}
-		}
-		else
+			opstack.push(indexed);
+			opstack.push(key);
+			opstack.push(obj);
 			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(indexed);
+			opstack.push(key);
+			opstack.push(obj);
+			interpreter.error(e.kind(), this);
+		}
 	}
 }

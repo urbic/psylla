@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _read extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -12,26 +13,26 @@ public class _read extends PsiOperator
 			return;
 		}
 
-		PsiObject file=opstack.pop();
+		PsiObject readable=opstack.pop();
 		try
 		{
-			int character=((PsiReader)file).read();
-			if(character==-1)
+			PsiInteger character=((PsiReadable)readable).psiRead();
+			if(character.getValue()==-1)
 				opstack.push(new PsiBoolean(false));
 			else
 			{
-				opstack.push(new PsiInteger(character));
+				opstack.push(character);
 				opstack.push(new PsiBoolean(true));
 			}
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(file);
+			opstack.push(readable);
 			interpreter.error("typecheck", this);
 		}
 		catch(PsiException e)
 		{
-			opstack.push(file);
+			opstack.push(readable);
 			interpreter.error(e.kind(), this);
 		}
 	}

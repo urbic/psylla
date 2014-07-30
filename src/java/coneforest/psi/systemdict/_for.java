@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _for extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -22,13 +23,13 @@ public class _for extends PsiOperator
 			int looplevel=interpreter.pushLoopLevel();
 			// TODO: reverse
 			for(
-					PsiNumeric i=(PsiNumeric)initial;
-					i.le((PsiNumeric)limit).getValue()
+					PsiNumeric counter=(PsiNumeric)initial;
+					counter.psiLe((PsiNumeric)limit).getValue()
 						&& !interpreter.getExitFlag();
-					i=(PsiNumeric)i.add((PsiNumeric)increment)
+					counter=(PsiNumeric)counter.psiAdd((PsiNumeric)increment)
 				)
 			{
-				opstack.push(i);
+				opstack.push(counter);
 					//int level=interpreter.getExecutionStack().size();
 				//int currentLoopLevel=interpreter.getLoopLevel();
 				obj.invoke(interpreter);

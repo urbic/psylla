@@ -16,7 +16,7 @@ public class UTF8String implements Iterable<Integer>
 	{
 		value=java.util.Arrays.copyOf(ustring.value, ustring.value.length);
 	}
-	
+
 	public int length()
 	{
 		int l=0;
@@ -159,7 +159,7 @@ public class UTF8String implements Iterable<Integer>
 	}
 
 	private byte[] value={};
-	
+
 	public static void main(String[] args)
 	{
 		System.out.println(new UTF8String("мама мыла раму").length());

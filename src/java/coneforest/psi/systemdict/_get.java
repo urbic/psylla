@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _get extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -12,58 +13,23 @@ public class _get extends PsiOperator
 			return;
 		}
 
-		PsiObject obj2=opstack.pop();
-		PsiObject obj1=opstack.pop();
-
-		if(obj1 instanceof PsiArray && obj2 instanceof PsiInteger)
+		PsiObject key=opstack.pop();
+		PsiObject indexed=opstack.pop();
+		try
 		{
-			try
-			{
-				opstack.push(((PsiArray)obj1).get((PsiInteger)obj2));
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind(), this);
-				return;
-			}
+			opstack.push(((PsiIndexed)indexed).psiGet(key));
 		}
-		else if(obj1 instanceof PsiDictionary && obj2 instanceof PsiStringlike)
+		catch(ClassCastException e)
 		{
-			try
-			{
-				opstack.push(((PsiDictionary)obj1).get((PsiStringlike)obj2));
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind(), this);
-				return;
-			}
-		}
-		else if(obj1 instanceof PsiString && obj2 instanceof PsiInteger)
-		{
-			try
-			{
-				opstack.push(((PsiString)obj1).get((PsiInteger)obj2));
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind(), this);
-				return;
-			}
-		}
-		else if(obj1 instanceof PsiBitVector && obj2 instanceof PsiInteger)
-		{
-			try
-			{
-				opstack.push(((PsiBitVector)obj1).get((PsiInteger)obj2));
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e.kind(), this);
-				return;
-			}
-		}
-		else
+			opstack.push(indexed);
+			opstack.push(key);
 			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(indexed);
+			opstack.push(key);
+			interpreter.error(e.kind(), this);
+		}
 	}
 }

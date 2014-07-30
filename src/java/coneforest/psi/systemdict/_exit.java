@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _exit extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		//interpreter.show("EXIT BEFORE");

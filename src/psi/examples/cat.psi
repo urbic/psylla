@@ -1,0 +1,12 @@
+/in arguments 1 get filereader def
+
+{
+	//in 4096 readstring
+	exch stdout exch writestring
+	not { exit } if
+}
+bind loop
+stdout flush
+
+quit
+

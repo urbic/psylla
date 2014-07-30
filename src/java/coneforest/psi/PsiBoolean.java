@@ -10,7 +10,7 @@ public class PsiBoolean
 	}
 
 	public String getTypeName() { return "boolean"; }
-	
+
 	public Boolean getValue()
 	{
 		return value;
@@ -21,48 +21,27 @@ public class PsiBoolean
 		return value? "true": "false";
 	}
 
-	public PsiBoolean not()
+	public PsiBoolean psiNot()
 	{
 		return new PsiBoolean(!getValue());
 	}
 
-	public PsiBoolean or(final PsiBoolean obj)
+	public PsiBoolean psiOr(final PsiBoolean obj)
 	{
 		return new PsiBoolean(getValue() || obj.getValue());
 	}
 
-	public PsiBoolean and(final PsiBoolean obj)
+	public PsiBoolean psiAnd(final PsiBoolean obj)
 	{
 		return new PsiBoolean(getValue() && obj.getValue());
 	}
 
-	public PsiBoolean xor(final PsiBoolean obj)
+	public PsiBoolean psiXor(final PsiBoolean obj)
 	{
 		return new PsiBoolean(getValue() ^ obj.getValue());
 	}
 
-
-	/*public static PsiBoolean not(final PsiBoolean p)
-	{
-		return new PsiBoolean(!p.getValue());
-	}
-
-	public static PsiBoolean and(final PsiBoolean p, final PsiBoolean q)
-	{
-		return new PsiBoolean(p.getValue() && q.getValue());
-	}
-
-	public static PsiBoolean or(final PsiBoolean p, final PsiBoolean q)
-	{
-		return new PsiBoolean(p.getValue() || q.getValue());
-	}
-
-	public static PsiBoolean xor(final PsiBoolean p, final PsiBoolean q)
-	{
-		return new PsiBoolean(p.getValue() ^ q.getValue());
-	}*/
-
-	public PsiBoolean eq(final PsiObject obj)
+	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiBoolean
 				&& value==((PsiBoolean)obj).getValue());

@@ -2,11 +2,11 @@ package coneforest.psi;
 
 public interface PsiScalar<T extends PsiScalar>
 {
-	public PsiBoolean lt(T scalar);
-	
-	public PsiBoolean le(T scalar);
+	public PsiBoolean psiLt(T scalar);
 
-	public PsiBoolean gt(T scalar);
-	
-	public PsiBoolean ge(T scalar);
+	public PsiBoolean psiLe(T scalar);
+
+	public PsiBoolean psiGt(T scalar);
+
+	public PsiBoolean psiGe(T scalar);
 }

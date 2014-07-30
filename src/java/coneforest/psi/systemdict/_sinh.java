@@ -3,6 +3,7 @@ import coneforest.psi.*;
 
 public class _sinh extends PsiOperator
 {
+	@Override
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
@@ -11,11 +12,11 @@ public class _sinh extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		
+
 		PsiObject cn=opstack.pop();
 		try
 		{
-			opstack.push(((PsiComplexNumeric)cn).sinh());
+			opstack.push(((PsiComplexNumeric)cn).psiSinh());
 		}
 		catch(ClassCastException e)
 		{

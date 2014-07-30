@@ -26,15 +26,15 @@ public class PsiComplex
 	}
 
 	@Override
-	public PsiReal abs()
+	public PsiReal psiAbs()
 	{
 		return new PsiReal(Math.hypot(re, im));
 	}
-	
+
 	@Override
-	public PsiComplex signum()
+	public PsiComplex psiSignum()
 	{
-		return (re==0.D && im==0.D)? new PsiComplex(0.D, 0.D): div(abs());
+		return (re==0.D && im==0.D)? new PsiComplex(0.D, 0.D): psiDiv(psiAbs());
 	}
 
 	@Override
@@ -50,60 +50,61 @@ public class PsiComplex
 	}
 
 	@Override
-	public PsiReal re()
+	public PsiReal psiRe()
 	{
 		return new PsiReal(re);
 	}
 
 	@Override
-	public PsiReal im()
+	public PsiReal psiIm()
 	{
 		return new PsiReal(im);
 	}
 
 	@Override
-	public PsiReal arg()
+	public PsiReal psiArg()
 	{
 		return new PsiReal(Math.atan2(im, re));
 	}
 
 	@Override
-	public PsiComplex conjugate()
+	public PsiComplex psiConjugate()
 	{
 		return new PsiComplex(re, -im);
 	}
 
 	@Override
-	public PsiComplex neg()
+	public PsiComplex psiNeg()
 	{
 		return new PsiComplex(-re, -im);
 	}
-	
+
 	@Override
-	public PsiComplex add(final PsiComplexNumeric cn)
+	public PsiComplex psiAdd(final PsiComplexNumeric cn)
 	{
-		return new PsiComplex(re+cn.re().getValue().doubleValue(), im+cn.im().getValue().doubleValue());
-	}
-	
-	@Override
-	public PsiComplex sub(final PsiComplexNumeric cn)
-	{
-		return new PsiComplex(re-cn.re().getValue().doubleValue(), im-cn.im().getValue().doubleValue());
+		return new PsiComplex(re+cn.psiRe().getValue().doubleValue(), im+cn.psiIm().getValue().doubleValue());
+		//return new PsiComplex(re+cn.re, im+cn.im);
 	}
 
 	@Override
-	public PsiComplex mul(final PsiComplexNumeric cn)
+	public PsiComplex psiSub(final PsiComplexNumeric cn)
 	{
-		double cnRe=cn.re().getValue().doubleValue();
-		double cnIm=cn.im().getValue().doubleValue();
+		return new PsiComplex(re-cn.psiRe().getValue().doubleValue(), im-cn.psiIm().getValue().doubleValue());
+	}
+
+	@Override
+	public PsiComplex psiMul(final PsiComplexNumeric cn)
+	{
+		double cnRe=cn.psiRe().getValue().doubleValue();
+		double cnIm=cn.psiIm().getValue().doubleValue();
 		return new PsiComplex(re*cnRe-im*cnIm, im*cnRe+re*cnIm);
 	}
 
 	@Override
-	public PsiComplex div(final PsiComplexNumeric cn)
+	public PsiComplex psiDiv(final PsiComplexNumeric cn)
 	{
-		double cnRe=cn.re().getValue().doubleValue();
-		double cnIm=cn.im().getValue().doubleValue();
+		double cnRe=cn.psiRe().getValue().doubleValue();
+		double cnIm=cn.psiIm().getValue().doubleValue();
 		double denom=cnRe*cnRe-cnIm*cnIm;
 		// TODO overflow
 		return new PsiComplex((re*cnRe+im*cnIm)/denom, (im*cnRe-re*cnIm)/denom);
@@ -114,13 +115,13 @@ public class PsiComplex
 	//{
 	//	return new PsiReal(Math.sqrt(getValue().doubleValue()));
 	//}
-	
+
 	/*
 	public PsiReal cbrt()
 	{
 		return new PsiReal(Math.cbrt(getValue().doubleValue()));
 	}
-	
+
 	public PsiReal log()
 	{
 		return new PsiReal(Math.log(getValue().doubleValue()));
@@ -128,10 +129,10 @@ public class PsiComplex
 	*/
 
 	@Override
-	public PsiComplex exp()
+	public PsiComplex psiExp()
 	{
-		PsiReal tmp=im();
-		return re().exp().mul(new PsiComplex(tmp.cos(), tmp.sin()));
+		PsiReal tmpIm=psiIm();
+		return psiRe().psiExp().psiMul(new PsiComplex(tmpIm.cos(), tmpIm.sin()));
 	}
 
 	/*
@@ -152,17 +153,17 @@ public class PsiComplex
 	*/
 
 	@Override
-	public PsiComplex cosh()
+	public PsiComplex psiCosh()
 	{
-		PsiComplex tmp=exp();
-		return tmp.add(new PsiComplex(1.D).div(tmp)).div(new PsiReal(2.D));
+		PsiComplex tmpExp=psiExp();
+		return tmpExp.psiAdd(new PsiComplex(1.D).psiDiv(tmpExp)).psiDiv(new PsiReal(2.D));
 	}
 
 	@Override
-	public PsiComplex sinh()
+	public PsiComplex psiSinh()
 	{
-		PsiComplex tmp=exp();
-		return tmp.sub(new PsiComplex(1.D).div(tmp)).div(new PsiReal(2.D));
+		PsiComplex tmpExp=psiExp();
+		return tmpExp.psiSub(new PsiComplex(1.D).psiDiv(tmpExp)).psiDiv(new PsiReal(2.D));
 	}
 
 	/*

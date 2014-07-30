@@ -2,6 +2,6 @@ package coneforest.psi;
 
 public interface PsiFlushable
 {
-	public void flush()
+	public void psiFlush()
 		throws PsiException;
 }

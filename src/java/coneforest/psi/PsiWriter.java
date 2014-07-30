@@ -1,6 +1,8 @@
 package coneforest.psi;
 
-public class PsiWriter extends PsiObject implements PsiCloseable, PsiFlushable
+public class PsiWriter
+	extends PsiObject
+	implements PsiWritable, PsiCloseable, PsiFlushable
 {
 	public PsiWriter()
 	{
@@ -11,14 +13,10 @@ public class PsiWriter extends PsiObject implements PsiCloseable, PsiFlushable
 		setWriter(writer);
 	}
 
+	@Override
 	public String getTypeName()
 	{
 		return "writer";
-	}
-
-	public String toString()
-	{
-		return "-writer-";
 	}
 
 	public void setWriter(java.io.Writer writer)
@@ -31,12 +29,13 @@ public class PsiWriter extends PsiObject implements PsiCloseable, PsiFlushable
 		return writer;
 	}
 
-	public void write(String string)
+	@Override
+	public void psiWrite(PsiInteger character)
 		throws PsiException
 	{
 		try
 		{
-			writer.write(string);
+			writer.write(character.getValue().intValue());
 		}
 		catch(java.io.IOException e)
 		{
@@ -44,12 +43,13 @@ public class PsiWriter extends PsiObject implements PsiCloseable, PsiFlushable
 		}
 	}
 
-	public void write(PsiString oString)
+	@Override
+	public void psiWriteString(PsiString string)
 		throws PsiException
 	{
 		try
 		{
-			writer.write(oString.getValue());
+			writer.write(string.getValue());
 		}
 		catch(java.io.IOException e)
 		{
@@ -57,7 +57,8 @@ public class PsiWriter extends PsiObject implements PsiCloseable, PsiFlushable
 		}
 	}
 
-	public void flush()
+	@Override
+	public void psiFlush()
 		throws PsiException
 	{
 		try
@@ -70,7 +71,8 @@ public class PsiWriter extends PsiObject implements PsiCloseable, PsiFlushable
 		}
 	}
 
-	public void close()
+	@Override
+	public void psiClose()
 		throws PsiException
 	{
 		try
