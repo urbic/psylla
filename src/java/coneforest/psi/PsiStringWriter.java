@@ -2,9 +2,9 @@ package coneforest.psi;
 
 public class PsiStringWriter extends PsiWriter
 {
-	public PsiStringWriter(PsiString oString)
+	public PsiStringWriter(PsiString string)
 	{
-		super(new StringBufferWriter(oString.getBuffer()));
+		super(new StringBufferWriter(string.getBuffer()));
 	}
 }
 

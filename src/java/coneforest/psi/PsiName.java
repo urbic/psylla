@@ -1,22 +1,28 @@
 package coneforest.psi;
 
-public class PsiName extends PsiStringlike
+public class PsiName
+	extends PsiAbstractStringlike
 {
-	public PsiName(String value)
+	public PsiName(String name)
 	{
-		super(value);
+		this.name=name;
 	}
 
-	public String getValue()
+	@Override
+	public String getString()
 	{
-		return value;
+		return name;
 	}
 
-	public void setValue(String value)
+	/*
+	@Override
+	public void setValue(String name)
 	{
-		this.value=value;
+		this.name=name;
 	}
+	*/
 
+	@Override
 	public String getTypeName() { return "name"; }
 
 	public void execute(Interpreter interpreter)
@@ -48,11 +54,23 @@ public class PsiName extends PsiStringlike
 			interpreter.getOperandStack().push(this);
 	}
 
-	public String toString()
+	@Override
+	public PsiInteger psiLength()
 	{
-		return (isExecutable()? "": "/")+getValue();
+		return new PsiInteger(name.length());
 	}
 
-	private String value;
+	@Override
+	public PsiBoolean psiIsEmpty()
+	{
+		return new PsiBoolean(name.length()==0);
+	}
 
+	@Override
+	public String toString()
+	{
+		return (isExecutable()? "": "/")+getString();
+	}
+
+	private final String name;
 }

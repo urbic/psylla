@@ -44,12 +44,12 @@ public class PsiWriter
 	}
 
 	@Override
-	public void psiWriteString(PsiString string)
+	public void psiWriteString(PsiStringlike string)
 		throws PsiException
 	{
 		try
 		{
-			writer.write(string.getValue());
+			writer.write(string.getString());
 		}
 		catch(java.io.IOException e)
 		{

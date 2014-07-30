@@ -1,8 +1,7 @@
 package coneforest.psi;
 
 public class PsiString
-	extends PsiStringlike
-	implements PsiArraylike<PsiInteger>, PsiScalar<PsiString>
+	extends PsiAbstractString
 {
 
 	public PsiString()
@@ -28,7 +27,8 @@ public class PsiString
 		// TODO: executable strings
 	}
 
-	public String getValue()
+	@Override
+	public String getString()
 	{
 		return buffer.toString();
 	}
@@ -154,7 +154,7 @@ public class PsiString
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();
-		String value=getValue();
+		String value=getString();
 		for(int i=0; i<value.length(); i++)
 		{
 			char c=value.charAt(i);
@@ -194,33 +194,35 @@ public class PsiString
 		return "\""+sb.toString()+"\"";
 	}
 
+	/*
 	public static PsiString concatenation(PsiString x, PsiString y)
 	{
 		return new PsiString(x.getValue()+y.getValue());
 	}
+	*/
 
 	@Override
 	public PsiBoolean psiLt(final PsiString string)
 	{
-		return new PsiBoolean(getValue().compareTo(string.getValue())<0);
+		return new PsiBoolean(getString().compareTo(string.getString())<0);
 	}
 
 	@Override
 	public PsiBoolean psiLe(final PsiString string)
 	{
-		return new PsiBoolean(getValue().compareTo(string.getValue())<=0);
+		return new PsiBoolean(getString().compareTo(string.getString())<=0);
 	}
 
 	@Override
 	public PsiBoolean psiGt(final PsiString string)
 	{
-		return new PsiBoolean(getValue().compareTo(string.getValue())>0);
+		return new PsiBoolean(getString().compareTo(string.getString())>0);
 	}
 
 	@Override
 	public PsiBoolean psiGe(final PsiString string)
 	{
-		return new PsiBoolean(getValue().compareTo(string.getValue())>=0);
+		return new PsiBoolean(getString().compareTo(string.getString())>=0);
 	}
 
 	private StringBuilder buffer;

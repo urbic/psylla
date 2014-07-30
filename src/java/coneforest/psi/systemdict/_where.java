@@ -16,7 +16,7 @@ public class _where extends PsiOperator
 		PsiObject key=opstack.pop();
 		try
 		{
-			PsiDictionary dict=interpreter.getDictionaryStack().where((PsiStringlike)key);
+			PsiDictionary dict=interpreter.getDictionaryStack().where((PsiAbstractStringlike)key);
 			if(dict!=null)
 				opstack.push(dict);
 			opstack.push(new PsiBoolean(dict!=null));

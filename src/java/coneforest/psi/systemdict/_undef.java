@@ -17,7 +17,7 @@ public class _undef extends PsiOperator
 		PsiObject dict=opstack.pop();
 		try
 		{
-			((PsiDictionary)dict).psiUndef((PsiStringlike)key);
+			((PsiDictionary)dict).psiUndef((PsiAbstractStringlike)key);
 		}
 		catch(ClassCastException e)
 		{
