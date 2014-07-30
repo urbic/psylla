@@ -15,10 +15,10 @@ public class PsiFileWriter extends PsiWriter
 		}
 	}
 
-	public PsiFileWriter(PsiString oName)
+	public PsiFileWriter(PsiStringlike name)
 		throws PsiException
 	{
-		this(oName.getValue());
+		this(name.getString());
 	}
 
 }

@@ -31,10 +31,10 @@ public class PsiDictionary
 	}
 
 	@Override
-	public PsiObject psiGet(PsiStringlike key)
+	public PsiObject psiGet(PsiAbstractStringlike key)
 		throws PsiException
 	{
-		PsiObject result=dictionary.get(key.getValue());
+		PsiObject result=dictionary.get(key.getString());
 		if(result!=null)
 			return result;
 		else
@@ -42,21 +42,21 @@ public class PsiDictionary
 	}
 
 	@Override
-	public void psiPut(PsiStringlike key, PsiObject obj)
+	public void psiPut(PsiAbstractStringlike key, PsiObject obj)
 	{
-		dictionary.put(key.getValue(), obj);
+		dictionary.put(key.getString(), obj);
 	}
 
 	@Override
-	public void psiUndef(PsiStringlike key)
+	public void psiUndef(PsiAbstractStringlike key)
 	{
-		dictionary.remove(key.getValue());
+		dictionary.remove(key.getString());
 	}
 
 	@Override
-	public PsiBoolean psiKnown(PsiStringlike key)
+	public PsiBoolean psiKnown(PsiAbstractStringlike key)
 	{
-		return new PsiBoolean(dictionary.containsKey(key.getValue()));
+		return new PsiBoolean(dictionary.containsKey(key.getString()));
 	}
 
 	public java.util.Iterator<java.util.Map.Entry<String, PsiObject>> iterator()

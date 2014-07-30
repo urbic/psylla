@@ -21,8 +21,8 @@ public class _dicttomark extends PsiOperator
 				{
 					PsiObject obj=opstack.pop();
 					PsiObject key=opstack.pop();
-					if(key instanceof PsiStringlike)
-						dict.psiPut((PsiStringlike)key, obj);
+					if(key instanceof PsiAbstractStringlike)
+						dict.psiPut((PsiAbstractStringlike)key, obj);
 					else
 					{
 						interpreter.error("typecheck", this);

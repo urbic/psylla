@@ -30,7 +30,7 @@ public class _tointeger extends PsiOperator
 		{
 			try
 			{
-				opstack.push(new PsiInteger(Long.parseLong(((PsiString)obj).getValue())));
+				opstack.push(new PsiInteger(Long.parseLong(((PsiString)obj).getString())));
 			}
 			catch(NumberFormatException e)
 			{

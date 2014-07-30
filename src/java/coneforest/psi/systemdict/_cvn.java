@@ -12,12 +12,15 @@ public class _cvn extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		PsiObject obj=opstack.pop();
-		if(obj instanceof PsiString)
+
+		PsiObject stringlike=opstack.pop();
+		try
 		{
-			opstack.push(new PsiName(((PsiString)obj).getValue()));
+			opstack.push(new PsiName(((PsiStringlike)stringlike).getString()));
 		}
-		else
+		catch(ClassCastException e)
+		{
 			interpreter.error("typecheck", this);
+		}
 	}
 }

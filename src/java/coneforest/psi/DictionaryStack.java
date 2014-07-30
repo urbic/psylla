@@ -1,8 +1,9 @@
 package coneforest.psi;
 
-public class DictionaryStack extends Stack<PsiDictionary>
+public class DictionaryStack
+	extends Stack<PsiDictionary>
 {
-	public PsiObject load(PsiStringlike key)
+	public PsiObject load(PsiAbstractStringlike key)
 		throws PsiException
 	{
 		PsiDictionary dict=where(key);
@@ -12,7 +13,7 @@ public class DictionaryStack extends Stack<PsiDictionary>
 			throw new PsiException("undefined");
 	}
 
-	public PsiDictionary where(PsiStringlike key)
+	public PsiDictionary where(PsiAbstractStringlike key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
