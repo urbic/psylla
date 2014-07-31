@@ -142,15 +142,15 @@
 	</target>
 
 	<target name="compile.java" depends="compile.jj"
-			description="compile the source ">
+			description="compile the source">
 		<mkdir dir="${classes}"/>
 		<javac
-			sourcepath="${src.java}:${target.src.java}"
-			srcdir="${src.java}"
+			srcdir="${src.java}:${target.src.java}"
 			destdir="${classes}"
 			includeantruntime="false"
 			classpathref="project.class.path"
 			/>
+			<!--sourcepath="${src.java}:${target.src.java}"-->
 		<copy todir="${classes}">
 			<fileset dir="${src.java}" includes="**/*.xopt"/>
 		</copy>

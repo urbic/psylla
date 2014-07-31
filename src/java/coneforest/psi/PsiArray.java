@@ -37,6 +37,12 @@ public class PsiArray
 			execute(interpreter);
 	}
 
+	@Override
+	public int length()
+	{
+		return array.size();
+	}
+
 	public java.util.Iterator<PsiObject> iterator()
 	{
 		return array.iterator();

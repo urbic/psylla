@@ -69,6 +69,11 @@ abstract public class PsiObject
 		return this;
 	}
 
+	public PsiString psiToString()
+	{
+		return new PsiString(toString());
+	}
+
 	@Override
 	public boolean equals(Object o)
 	{

@@ -93,6 +93,13 @@ public class PsiBitSet
 	}
 
 	@Override
+	public int length()
+	{
+		return bitset.cardinality();
+	}
+
+	/*
+	@Override
 	public PsiInteger psiLength()
 	{
 		return new PsiInteger(bitset.cardinality());
@@ -103,6 +110,7 @@ public class PsiBitSet
 	{
 		return new PsiBoolean(bitset.isEmpty());
 	}
+	*/
 
 	@Override
 	public PsiBoolean psiContains(PsiInteger integer)
