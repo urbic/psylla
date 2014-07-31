@@ -4,6 +4,6 @@
 :imap <C-W><C-M> <math xmlns="&nsMathML;"><CR></math><UP><End><CR><Tab><mi></mi>
 :imap <C-W><C-D> <math xmlns="&nsMathML;" display="block"><CR></math><UP><End><CR><Tab><mi></mi>
 
-let $VIMRUNTIME="$VIMRUNTIME:.vim"
+"let $VIMRUNTIME="$VIMRUNTIME:.vim"
 :au Syntax psi runtime! syntax/psi.vim
 
