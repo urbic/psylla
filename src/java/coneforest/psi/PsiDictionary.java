@@ -90,7 +90,7 @@ public class PsiDictionary
 
 	public String toString()
 	{
-		StringBuilder sb=new StringBuilder("<<");
+		StringBuilder sb=new StringBuilder("<");
 		if(dictionary.size()>0)
 		{
 			//for(java.util.Map.Entry<String, PsiObject> entry: entrySet())
@@ -98,7 +98,7 @@ public class PsiDictionary
 				sb.append("/"+entry.getKey()+" "+entry.getValue()+" ");
 			sb.deleteCharAt(sb.length()-1);
 		}
-		sb.append(">>");
+		sb.append(">");
 		return sb.toString();
 	}
 
