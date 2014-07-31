@@ -34,7 +34,25 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	}
 
 	@Override
-	abstract public PsiBoolean psiContains(T obj);
+	public PsiInteger psiLength()
+	{
+		return new PsiInteger(length());
+	}
+
+	@Override
+	public boolean isEmpty()
+	{
+		return length()==0;
+	}
+
+	@Override
+	public PsiBoolean psiIsEmpty()
+	{
+		return new PsiBoolean(isEmpty());
+	}
+
+	//@Override
+	//abstract public PsiBoolean psiContains(T obj);
 
 	@Override
 	public PsiBoolean psiIntersects(PsiSetlike<? extends T> setlike)

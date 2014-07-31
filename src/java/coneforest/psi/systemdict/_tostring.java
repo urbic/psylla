@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _cvs extends PsiOperator
+public class _tostring extends PsiOperator
 {
 	@Override
 	public void execute(Interpreter interpreter)
@@ -12,7 +12,6 @@ public class _cvs extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		PsiObject obj=opstack.pop();
-		opstack.push(new PsiString(obj.toString()));
+		opstack.push(opstack.pop().psiToString());
 	}
 }

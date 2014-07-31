@@ -2,7 +2,7 @@
 
 2 1 arguments 1 get tointeger
 {
-	sieve exch append
+	//sieve exch append
 }
 bind for
 
@@ -10,7 +10,7 @@ bind for
 	//sieve isempty { exit } if
 	//sieve { exit } forall
 	/p exch def
-	p ==
+	p tostring say
 
 	//sieve
 	{
@@ -22,3 +22,5 @@ bind for
 	forall
 }
 bind loop
+
+stdout flush

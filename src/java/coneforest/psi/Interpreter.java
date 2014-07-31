@@ -11,7 +11,14 @@ public class Interpreter
 		procstack=new ProcedureStack();
 
 		// Load systemdict, globaldict, userdict
-		dictstack.push(loadModule(PsiSystemDictionary.class));
+		try
+		{
+			dictstack.push(module(PsiSystemDictionary.class));
+		}
+		catch(PsiException e)
+		{
+			// TODO
+		}
 		PsiDictionary globaldict=new PsiDictionary();
 		getSystemDictionary().psiPut(new PsiName("globaldict"), globaldict);
 		dictstack.push(globaldict);
@@ -330,8 +337,8 @@ public class Interpreter
 	{
 		// TODO
 		opstack.push(operator);
-		System.out.println("ERROR "+errorName+" in "+operator);
-		show("XXX");
+		System.out.println("Error /"+errorName+" in "+operator);
+		showStacks();
 		System.exit(1);
 	}
 
@@ -342,7 +349,8 @@ public class Interpreter
 		System.exit(1);
 	}
 
-	public PsiDictionary loadModule(Class<? extends PsiModule> moduleClass)
+	public PsiModule module(Class<? extends PsiModule> moduleClass)
+		throws PsiException
 	{
 		try
 		{
@@ -350,27 +358,42 @@ public class Interpreter
 		}
 		catch(InstantiationException e)
 		{
-			System.out.println("INSTANTIATION EXCEPTION");
+			throw new PsiException("undefinedmodule");
 		}
 		catch(IllegalAccessException e)
 		{
-			System.out.println("ILLEGAL ACCESS EXCEPTION");
+			throw new PsiException("undefinedmodule");
 		}
-		return null;
 	}
 
-	public void show(String message)
+	public PsiModule module(String moduleClassName)
+		throws PsiException
 	{
-		System.out.println("***** "+message+" *****");
-		System.out.print("Operand stack:");
+		try
+		{
+			return module((Class<? extends PsiModule>)Class.forName(moduleClassName));
+		}
+		catch(ClassNotFoundException e)
+		{
+			throw new PsiException("undefinedmodule");
+		}
+	}
+
+	public void showStacks()
+	{
+		System.out.println("Operand stack:");
+		System.out.print("⊢\t");
 		for(PsiObject obj: opstack)
 			System.out.print(" "+obj);
 		System.out.println();
-		System.out.print("Execution stack:");
+		
+		System.out.println("Execution stack:");
+		System.out.print("⊢\t");
 		for(PsiObject obj: execstack)
 			System.out.print(" "+obj);
 		System.out.println();
-		System.out.print("Loop level stack:");
+		System.out.println("Loop level stack:");
+		System.out.print("⊢\t");
 		for(int item: loopstack)
 			System.out.print(" "+item);
 		System.out.println();

@@ -43,7 +43,8 @@ public class PsiString
 		return buffer;
 	}
 
-	private PsiInteger get(int index)
+	@Override
+	public PsiInteger get(int index)
 		throws PsiException
 	{
 		try
@@ -63,12 +64,13 @@ public class PsiString
 		return get(index.getValue().intValue());
 	}
 
-	private void put(int index, PsiInteger oChar)
+	@Override
+	public void put(int index, PsiInteger character)
 		throws PsiException
 	{
 		try
 		{
-			buffer.setCharAt(index, (char)oChar.getValue().intValue());
+			buffer.setCharAt(index, (char)character.getValue().intValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -192,37 +194,6 @@ public class PsiString
 			}
 		}
 		return "\""+sb.toString()+"\"";
-	}
-
-	/*
-	public static PsiString concatenation(PsiString x, PsiString y)
-	{
-		return new PsiString(x.getValue()+y.getValue());
-	}
-	*/
-
-	@Override
-	public PsiBoolean psiLt(final PsiString string)
-	{
-		return new PsiBoolean(getString().compareTo(string.getString())<0);
-	}
-
-	@Override
-	public PsiBoolean psiLe(final PsiString string)
-	{
-		return new PsiBoolean(getString().compareTo(string.getString())<=0);
-	}
-
-	@Override
-	public PsiBoolean psiGt(final PsiString string)
-	{
-		return new PsiBoolean(getString().compareTo(string.getString())>0);
-	}
-
-	@Override
-	public PsiBoolean psiGe(final PsiString string)
-	{
-		return new PsiBoolean(getString().compareTo(string.getString())>=0);
 	}
 
 	private StringBuilder buffer;

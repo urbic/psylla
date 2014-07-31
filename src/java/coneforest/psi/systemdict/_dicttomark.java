@@ -7,33 +7,36 @@ public class _dicttomark extends PsiOperator
 	public void execute(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-		for(int i=opstack.size()-1; i>=0; i--)
+		try
 		{
-			if(opstack.get(i) instanceof PsiMark)
+			for(int i=opstack.size()-1; i>=0; i--)
 			{
-				if(opstack.size()-1-i % 2==1)
+				if(opstack.get(i) instanceof PsiMark)
 				{
-					interpreter.error("rangecheck", this);
+					if(opstack.size()-1-i % 2==1)
+						throw new PsiException("rangecheck");
+					PsiDictionary dict=new PsiDictionary();
+
+					for(int j=i+1; j<opstack.size(); j++)
+					{
+						PsiAbstractStringlike key=(PsiAbstractStringlike)opstack.get(j++);
+						PsiObject obj=opstack.get(j);
+						dict.psiPut(key, obj);
+					}
+					opstack.setSize(i);
+					opstack.push(dict);
 					return;
 				}
-				PsiDictionary dict=new PsiDictionary();
-				while(opstack.size()>i+1)
-				{
-					PsiObject obj=opstack.pop();
-					PsiObject key=opstack.pop();
-					if(key instanceof PsiAbstractStringlike)
-						dict.psiPut((PsiAbstractStringlike)key, obj);
-					else
-					{
-						interpreter.error("typecheck", this);
-						return;
-					}
-				}
-				opstack.pop();
-				opstack.push(dict);
-				return;
 			}
+			interpreter.error("unmatchedmark", this);
 		}
-		interpreter.error("unmatchedmark", this);
+		catch(ClassCastException e)
+		{
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			interpreter.error(e.kind(), this);
+		}
 	}
 }

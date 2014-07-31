@@ -12,8 +12,28 @@ public class _tointeger extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiObject obj=opstack.pop();
 
+		/*
+		try
+		{
+			// TODO
+			opstack.push(((PsiInteger)numeric).psiToInteger());
+			//opstack.push(new PsiInteger(convertable));
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(numeric);
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(numeric);
+			interpreter.error(e.kind(), this);
+		}
+		*/
+		
 		if(obj instanceof PsiInteger)
 		{
 			opstack.push(obj);
@@ -39,5 +59,6 @@ public class _tointeger extends PsiOperator
 		}
 		else
 			interpreter.error("typecheck", this);
+		
 	}
 }
