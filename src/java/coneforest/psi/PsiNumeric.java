@@ -8,6 +8,12 @@ abstract public class PsiNumeric
 {
 	abstract Number getValue();
 
+	abstract int intValue();
+
+	abstract long longValue();
+
+	abstract double doubleValue();
+
 	@Override
 	public PsiReal psiArg()
 	{

@@ -1,40 +1,37 @@
 package coneforest.psi;
 
-/*
 public class PsiSet
-	extends PsiObject
-	implements PsiSetlike<T extends PsiObject>
+	extends PsiAbstractSet<PsiObject>
 {
-	public PsiSet()
+	@Override
+	public int length()
 	{
-		set=new java.util.HashSet<>();
+		return set.size();
 	}
 
-	public void append(PsiObject obj)
-		throws PsiException
+	@Override
+	public void psiAppend(PsiObject obj)
 	{
 		set.add(obj);
 	}
 
-	public void appendAll(PsiSetlike<T> setlike)
-		throws PsiException
+	@Override
+	public void psiRemove(PsiObject obj)
 	{
-		set.addAll(se)
+		set.remove(obj);
 	}
 
-	public void remove(T obj)
-		throws PsiException;
-
-	public void removeAll(PsiSetlike<T> setlike)
-		throws PsiException;
-
-	public PsiBoolean isEmpty();
-
-	public java.util.HashSet getSet()
+	@Override
+	public PsiBoolean psiContains(PsiObject obj)
 	{
-		return set;
+		return new PsiBoolean(set.contains(obj));
 	}
 
-	private java.util.HashSet<PsiObject> set;
+	@Override
+	public java.util.Iterator<PsiObject> iterator()
+	{
+		return set.iterator();
+	}
+
+	private java.util.HashSet<PsiObject> set=new java.util.HashSet<>();
 }
-*/

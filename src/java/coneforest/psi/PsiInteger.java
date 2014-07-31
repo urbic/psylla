@@ -10,6 +10,24 @@ public class PsiInteger
 	}
 
 	@Override
+	public int intValue()
+	{
+		return (int)value;
+	}
+
+	@Override
+	public long longValue()
+	{
+		return value;
+	}
+
+	@Override
+	public double doubleValue()
+	{
+		return value;
+	}	
+
+	@Override
 	public Long getValue()
 	{
 		return value;
