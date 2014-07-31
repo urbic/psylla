@@ -1,18 +1,18 @@
 /sequence
 {
-	<<
+	<
 		/n 1
 		/next
 		{
 			/n n 1 add def n
 		}
-	>>
+	>
 }
 bind def
 
 /filter
 {
-	<<
+	<
 		/source 4 -1 roll
 		/p 5 -1 roll
 		/next
@@ -25,7 +25,7 @@ bind def
 			}
 			if
 		}
-	>>
+	>
 }
 bind def
 

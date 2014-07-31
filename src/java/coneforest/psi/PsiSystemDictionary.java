@@ -144,10 +144,10 @@ public class PsiSystemDictionary
 		try
 		{
 			psiPut(new PsiName("["), psiGet(new PsiName("mark")));
-			psiPut(new PsiName("<<"), psiGet(new PsiName("mark")));
+			psiPut(new PsiName("<"), psiGet(new PsiName("mark")));
 			psiPut(new PsiName("("), psiGet(new PsiName("mark")));
 			psiPut(new PsiName("]"), psiGet(new PsiName("arraytomark")));
-			psiPut(new PsiName(">>"), psiGet(new PsiName("dicttomark")));
+			psiPut(new PsiName(">"), psiGet(new PsiName("dicttomark")));
 			psiPut(new PsiName(")"), psiGet(new PsiName("settomark")));
 			psiPut(new PsiName("=="), psiGet(new PsiName("prettyprint")));
 		}
