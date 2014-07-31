@@ -97,7 +97,7 @@
 -	currentundercolorremoval
 ?	currentuserparams
 -	curveto
-+	cvi
+!	cvi
 +	cvlit
 +	cvn
 ?	cvr

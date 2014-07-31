@@ -2,32 +2,8 @@ package coneforest.psi;
 
 abstract public class PsiAbstractString
 	extends PsiAbstractStringlike
-	implements
-		PsiArraylike<PsiInteger>,
-		PsiScalar<PsiString>
-	/*
-	extends PsiObject
-	implements
-		PsiStringlike,
-		PsiArraylike<PsiInteger>,
-		PsiScalar<PsiString>
-	*/
+	implements PsiArraylike<PsiInteger>
 {
-	/*public PsiAbstractString()
-	{
-	}*/
-
-	//abstract public PsiAbstractString(String value);
-	/*{
-		setValue(value);
-	}*/
-
-	//@Override
-	//abstract public String getString();
-
-	//@Override
-	//abstract public void setValue(final String value);
-
 	@Override
 	public java.util.Iterator<PsiInteger> iterator()
 	{
@@ -53,12 +29,5 @@ abstract public class PsiAbstractString
 
 				private int index=0;
 			};
-	}
-
-	@Override
-	public PsiBoolean psiEq(final PsiObject obj)
-	{
-		return new PsiBoolean(obj instanceof PsiStringlike
-				&& getString().equals(((PsiStringlike)obj).getString()));
 	}
 }

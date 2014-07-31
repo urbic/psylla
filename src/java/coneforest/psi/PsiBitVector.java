@@ -1,8 +1,9 @@
 package coneforest.psi;
 
 public class PsiBitVector
-	extends PsiObject
-	implements PsiArraylike<PsiBoolean>, PsiLogical<PsiBitVector>
+	extends PsiAbstractArray<PsiBoolean>
+	implements
+		PsiLogical<PsiBitVector>
 {
 	public PsiBitVector()
 	{
@@ -14,14 +15,10 @@ public class PsiBitVector
 		this.bitvector=bitvector;
 	}
 
+	@Override
 	public String getTypeName()
 	{
 		return "bitvector";
-	}
-
-	public String toString()
-	{
-		return "-bitvector-";
 	}
 
 	private java.util.BitSet getBitVector()
@@ -30,12 +27,14 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBoolean psiGet(PsiInteger integer)
+	public PsiBoolean get(int index)
 		throws PsiException
 	{
+		if(index>=size)
+			throw new PsiException("rangecheck");
 		try
 		{
-			return new PsiBoolean(bitvector.get(integer.getValue().intValue()));
+			return new PsiBoolean(bitvector.get(index));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -43,47 +42,85 @@ public class PsiBitVector
 		}
 	}
 
+	/*
 	@Override
-	public void psiPut(PsiInteger integer, PsiBoolean bool)
+	public PsiBoolean psiGet(PsiInteger index)
 		throws PsiException
 	{
+		int indexValue=index.getValue().intValue();
+		if(indexValue>=size)
+			throw new PsiException("rangecheck");
 		try
 		{
-			bitvector.set(integer.getValue().intValue(), bool.getValue());
+			return new PsiBoolean(bitvector.get(indexValue));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
 			throw new PsiException("rangecheck");
 		}
 	}
+	*/
+
+	@Override
+	public void put(int index, PsiBoolean bool)
+		throws PsiException
+	{
+		if(index>=size)
+			throw new PsiException("rangecheck");
+		try
+		{
+			bitvector.set(index, bool.getValue());
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+
+	/*
+	@Override
+	public void psiPut(PsiInteger index, PsiBoolean bool)
+		throws PsiException
+	{
+		int indexValue=index.getValue().intValue();
+		if(indexValue>=size)
+			throw new PsiException("rangecheck");
+		try
+		{
+			bitvector.set(indexValue, bool.getValue());
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+	*/
 
 	@Override
 	public void psiAppend(PsiBoolean bool)
-		throws PsiException
 	{
-		throw new PsiException("TODO");
-	}
-
-	@Override
-	public void psiAppendAll(PsiIterable<? extends PsiBoolean> iterable)
-		throws PsiException
-	{
-		throw new PsiException("TODO");
+		bitvector.set(size++, bool.getValue());
 	}
 
 	@Override
 	public void psiInsert(PsiInteger index, PsiBoolean bool)
-		throws PsiException
 	{
-		throw new PsiException("TODO");
+		int indexValue=index.getValue().intValue();
+		size++;
+		for(int i=size-1; i>indexValue; i--)
+			bitvector.set(i, bitvector.get(i-1));
+		bitvector.set(indexValue, bool.getValue());
 	}
 
+	/*
 	@Override
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiBoolean> iterable)
 		throws PsiException
 	{
 		throw new PsiException("TODO");
 	}
+	*/
 
 	@Override
 	public PsiBitVector psiNot()
@@ -123,7 +160,7 @@ public class PsiBitVector
 			{
 				public boolean hasNext()
 				{
-					return index<bitvector.size(); // TODO ???
+					return index<size; // TODO ???
 				}
 
 				public PsiBoolean next()
@@ -144,10 +181,17 @@ public class PsiBitVector
 	}
 
 	@Override
+	public int length()
+	{
+		return size;
+	}
+	/*
+	@Override
 	public PsiInteger psiLength()
 	{
-		return new PsiInteger(bitvector.size());
+		return new PsiInteger(size);
 	}
+	*/
 
 	@Override
 	public PsiBoolean psiIsEmpty()
@@ -156,4 +200,5 @@ public class PsiBitVector
 	}
 
 	private java.util.BitSet bitvector;
+	private int size;
 }

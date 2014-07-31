@@ -28,7 +28,7 @@ bind def
 {
 	dup
 	testprime
-	{ == }
+	{ tostring say }
 	{ pop }
 	ifelse
 }

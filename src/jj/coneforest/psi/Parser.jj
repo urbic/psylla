@@ -139,14 +139,19 @@ TOKEN:
 
 TOKEN:
 {
+	<#TOKEN_NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$", "@"]>
+}
+
+TOKEN:
+{
 	<TOKEN_NAME_EXECUTABLE:
 		(
-			(<TOKEN_LETTER> | ["_", "."])
-			(<TOKEN_LETTER> | ["_", "."] | <TOKEN_DIGIT>)*
+			(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR>)
+			(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR> | <TOKEN_DIGIT>)*
 		)
 
 		|
 
-		["[", "]"] | "<<" | ">>" | "=="
+		["[", "]", "(", ")"] | "<<" | ">>" | "=="
 	>
 }

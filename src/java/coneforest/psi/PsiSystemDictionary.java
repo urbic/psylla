@@ -12,6 +12,7 @@ public class PsiSystemDictionary
 			(
 				new Class[]
 					{
+						_abort.class,
 						_abs.class,
 						_add.class,
 						_aload.class,
@@ -47,7 +48,6 @@ public class PsiSystemDictionary
 						_currentdict.class,
 						_cvlit.class,
 						_cvn.class,
-						_cvs.class,
 						_cvx.class,
 						_def.class,
 						_dict.class,
@@ -90,6 +90,7 @@ public class PsiSystemDictionary
 						_max.class,
 						_min.class,
 						_mod.class,
+						_module.class,
 						_mul.class,
 						_ne.class,
 						_neg.class,
@@ -101,6 +102,7 @@ public class PsiSystemDictionary
 						_pow.class,
 						_prettyprint.class,
 						_print.class,
+						_println.class,
 						_pstack.class,
 						_put.class,
 						_quit.class,
@@ -111,6 +113,8 @@ public class PsiSystemDictionary
 						_remove.class,
 						_repeat.class,
 						_roll.class,
+						_say.class,
+						_settomark.class,
 						_signum.class,
 						_sin.class,
 						_sinh.class,
@@ -125,6 +129,7 @@ public class PsiSystemDictionary
 						_tanh.class,
 						_tointeger.class,
 						_token.class,
+						_tostring.class,
 						_true.class,
 						_type.class,
 						_undef.class,
@@ -140,8 +145,10 @@ public class PsiSystemDictionary
 		{
 			psiPut(new PsiName("["), psiGet(new PsiName("mark")));
 			psiPut(new PsiName("<<"), psiGet(new PsiName("mark")));
+			psiPut(new PsiName("("), psiGet(new PsiName("mark")));
 			psiPut(new PsiName("]"), psiGet(new PsiName("arraytomark")));
 			psiPut(new PsiName(">>"), psiGet(new PsiName("dicttomark")));
+			psiPut(new PsiName(")"), psiGet(new PsiName("settomark")));
 			psiPut(new PsiName("=="), psiGet(new PsiName("prettyprint")));
 		}
 		catch(PsiException e)

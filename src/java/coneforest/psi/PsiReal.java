@@ -11,6 +11,24 @@ public class PsiReal extends PsiNumeric
 	public String getTypeName() { return "real"; }
 
 	@Override
+	public int intValue()
+	{
+		return (int)value;
+	}
+
+	@Override
+	public long longValue()
+	{
+		return (long)value;
+	}
+
+	@Override
+	public double doubleValue()
+	{
+		return value;
+	}
+
+	@Override
 	public Double getValue()
 	{
 		return value;

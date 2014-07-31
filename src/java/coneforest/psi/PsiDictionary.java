@@ -65,15 +65,27 @@ public class PsiDictionary
 	}
 
 	@Override
+	public int length()
+	{
+		return dictionary.size();
+	}
+
+	@Override
 	public PsiInteger psiLength()
 	{
-		return new PsiInteger(dictionary.size());
+		return new PsiInteger(length());
+	}
+
+	@Override
+	public boolean isEmpty()
+	{
+		return dictionary.isEmpty();
 	}
 
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
-		return new PsiBoolean(dictionary.isEmpty());
+		return new PsiBoolean(isEmpty());
 	}
 
 	public String toString()
