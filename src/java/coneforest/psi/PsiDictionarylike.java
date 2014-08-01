@@ -19,5 +19,7 @@ public interface PsiDictionarylike<V extends PsiObject>
 	
 	public void psiUndef(PsiStringlike key);
 
+	public PsiSet psiKeys();
+
 	public java.util.Iterator<java.util.Map.Entry<String, V>> iterator();
 }

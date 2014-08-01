@@ -77,6 +77,7 @@ public class PsiDictionary
 		return new PsiBoolean(isEmpty());
 	}
 
+	@Override
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder("<");

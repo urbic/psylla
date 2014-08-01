@@ -49,4 +49,13 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 	{
 		psiUndef(key.getString());
 	}
+
+	@Override
+	public PsiSet psiKeys()
+	{
+		PsiSet set=new PsiSet();
+		for(java.util.Map.Entry<String, V> entry: this)
+			set.psiAppend(new PsiName(entry.getKey()));
+		return set;
+	}
 }

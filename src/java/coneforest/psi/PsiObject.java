@@ -80,7 +80,7 @@ abstract public class PsiObject
 		return "-"+getTypeName()+"-";
 	}
 
-	public static final byte
+	private static final byte
 		ACCESS_NOACCESS=0,
 		ACCESS_EXECUTE=1,
 		ACCESS_WRITE=2,

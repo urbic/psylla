@@ -34,6 +34,23 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	}
 
 	@Override
+	public void psiRetainAll(PsiIterable<? extends T> iterable)
+		throws PsiException
+	{
+	//	for(T obj: this)
+	//		for(T otherObj: iterable)
+	//			if(!psiContains(obj).getValue())
+	//				psiRemove(obj);
+		System.out.println("NOP RETAINALL ITERABLE");
+	}
+
+	@Override
+	public void psiRetainAll(PsiSetlike<? extends T> setlike)
+	{
+		System.out.println("NOP RETAINALL SETLIKE");
+	}
+
+	@Override
 	public PsiInteger psiLength()
 	{
 		return new PsiInteger(length());

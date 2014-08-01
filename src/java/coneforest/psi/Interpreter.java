@@ -200,7 +200,7 @@ public class Interpreter
 				{
 					case ParserConstants.TOKEN_OPEN_BRACE:
 						procstack.push(new PsiArray());
-						procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+						procstack.peek().setExecutable();
 						break;
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						throw new PsiException("syntaxerror");
@@ -231,7 +231,7 @@ public class Interpreter
 				{
 					case ParserConstants.TOKEN_OPEN_BRACE:
 						procstack.push(new PsiArray());
-						procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+						procstack.peek().setExecutable();
 						break;
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						PsiArray proc=procstack.pop();
