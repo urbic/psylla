@@ -33,7 +33,7 @@ public class _bind extends PsiOperator
 		{
 			try
 			{
-				PsiObject obj=((PsiArray)array).get(i);
+				PsiObject obj=((PsiArray)array).psiGet(i);
 				if(obj instanceof PsiArray && bound.add((PsiArray)obj))
 					bindHelper((PsiArray)obj, bound, dictstack);
 				else if(obj instanceof PsiName && ((PsiName)obj).isExecutable())

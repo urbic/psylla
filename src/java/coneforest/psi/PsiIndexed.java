@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
+public interface PsiIndexed<K, V extends PsiObject>
 {
 	public V psiGet(K key)
 		throws PsiException;

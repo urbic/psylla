@@ -7,16 +7,21 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiIterable<T>,
 		PsiAppendable<T>
 {
-	public T get(int index)
+	public T psiGet(int indexValue)
 		throws PsiException;
 
-	public void put(int index, T obj)
-		throws PsiException;
-
+	@Override
 	public T psiGet(PsiInteger index)
 		throws PsiException;
-	
+
+	public void psiPut(int indexValue, T obj)
+		throws PsiException;
+
+	@Override
 	public void psiPut(PsiInteger index, T obj)
+		throws PsiException;
+
+	public void psiInsert(int indexValue, T obj)
 		throws PsiException;
 
 	public void psiInsert(PsiInteger index, T obj)

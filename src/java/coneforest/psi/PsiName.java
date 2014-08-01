@@ -8,6 +8,11 @@ public class PsiName
 		this.name=name;
 	}
 
+	public PsiName(PsiStringlike stringlike)
+	{
+		this(stringlike.getString());
+	}
+
 	@Override
 	public String getString()
 	{
@@ -70,6 +75,13 @@ public class PsiName
 	public String toString()
 	{
 		return (isExecutable()? "": "/")+getString();
+	}
+
+	@Override
+	public boolean equals(Object object)
+	{
+		return object instanceof PsiName
+				&& psiEq((PsiName)object).getValue();
 	}
 
 	private final String name;

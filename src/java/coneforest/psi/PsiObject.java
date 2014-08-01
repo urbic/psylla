@@ -75,12 +75,6 @@ abstract public class PsiObject
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return o instanceof PsiObject && psiEq((PsiObject)o).getValue();
-	}
-
-	@Override
 	public String toString()
 	{
 		return "-"+getTypeName()+"-";

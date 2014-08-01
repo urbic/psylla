@@ -17,7 +17,7 @@ public class _known extends PsiOperator
 		PsiObject dict=opstack.pop();
 		try
 		{
-			opstack.push(((PsiHashlike)dict).psiKnown((PsiAbstractStringlike)key));
+			opstack.push(((PsiDictionarylike)dict).psiKnown((PsiStringlike)key));
 		}
 		catch(ClassCastException e)
 		{

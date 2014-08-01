@@ -12,13 +12,19 @@ public class Psi
 		{
 			interpreter.setReader(new java.io.InputStreamReader(System.in));
 			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
-			interpreter.interpret(new PsiFileReader(args[0]));
 
+			interpreter.interpret(new java.io.FileReader(args[0]));
+			//interpreter.pushSourceReader(new java.io.FileReader(args[0]));
+			//interpreter.interpret();
 		}
-		catch(PsiException e)
+		catch(java.io.FileNotFoundException e)
 		{
-			System.out.println("ERROR: "+e.kind());
+			System.out.println("FILE NOT FOUND");
 		}
+		//catch(PsiException e)
+		//{
+		//	System.out.println("ERROR: "+e.kind());
+		//}
 		/*
 		try
 		{

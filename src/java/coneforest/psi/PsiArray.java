@@ -26,7 +26,7 @@ public class PsiArray
 				ExecutionStack execstack=interpreter.getExecutionStack();
 				//int level=execstack.size();
 				for(int i=array.size()-1; i>=0; i--)
-					execstack.push(get(i));
+					execstack.push(psiGet(i));
 				//interpreter.handleExecutionStack(level);
 			}
 			catch(PsiException e)
@@ -66,7 +66,8 @@ public class PsiArray
 		return new PsiBoolean(array.isEmpty());
 	}
 
-	public PsiObject get(int index)
+	@Override
+	public PsiObject psiGet(int index)
 		throws PsiException
 	{
 		try
@@ -77,13 +78,6 @@ public class PsiArray
 		{
 			throw new PsiException("rangecheck");
 		}
-	}
-
-	@Override
-	public PsiObject psiGet(PsiInteger oIndex)
-		throws PsiException
-	{
-		return get(oIndex.getValue().intValue());
 	}
 
 	@Override
@@ -102,6 +96,21 @@ public class PsiArray
 	*/
 
 	@Override
+	public void psiInsert(int indexValue, PsiObject obj)
+		throws PsiException
+	{
+		try
+		{
+			array.add(indexValue, obj);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	/*
+	@Override
 	public void psiInsert(PsiInteger index, PsiObject obj)
 		throws PsiException
 	{
@@ -114,6 +123,7 @@ public class PsiArray
 			throw new PsiException("rangecheck");
 		}
 	}
+	*/
 
 	@Override
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiObject> iterable)
@@ -145,11 +155,19 @@ public class PsiArray
 	}
 
 	@Override
+	public void psiPut(int indexValue, PsiObject obj)
+		throws PsiException
+	{
+		array.set(indexValue, obj);
+	}
+	/*
+	@Override
 	public void psiPut(PsiInteger integer, PsiObject obj)
 		throws PsiException
 	{
 		put(integer.getValue().intValue(), obj);
 	}
+	*/
 
 	public void add(int i, PsiObject obj)
 	{

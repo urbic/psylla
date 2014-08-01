@@ -19,7 +19,7 @@ public class _dicttomark extends PsiOperator
 
 					for(int j=i+1; j<opstack.size(); j++)
 					{
-						PsiAbstractStringlike key=(PsiAbstractStringlike)opstack.get(j++);
+						PsiStringlike key=(PsiStringlike)opstack.get(j++);
 						PsiObject obj=opstack.get(j);
 						dict.psiPut(key, obj);
 					}
