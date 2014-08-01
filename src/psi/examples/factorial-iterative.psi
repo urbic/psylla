@@ -1,0 +1,11 @@
+/factorial
+{
+	1 2 1 4 -1 roll
+	{
+		mul
+	}
+	for
+}
+def
+
+arguments 1 get tointeger factorial ==

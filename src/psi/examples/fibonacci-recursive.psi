@@ -1,0 +1,16 @@
+/n arguments 1 get tointeger def
+
+/fibonacci
+{
+	exch
+	dup n le
+	{
+		dup tostring say
+		1 index add
+		fibonacci
+	}
+	if
+}
+def
+
+0 1 fibonacci
