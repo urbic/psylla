@@ -16,7 +16,7 @@ public class _println extends PsiOperator
 		PsiObject string=opstack.pop();
 		try
 		{
-			PsiWriter stdwriter=(PsiWriter)interpreter.getSystemDictionary().psiGet(new PsiName("stdout"));
+			PsiWriter stdwriter=(PsiWriter)interpreter.getSystemDictionary().psiGet("stdout");
 			stdwriter.psiWriteString((PsiString)string);
 			stdwriter.psiWrite(new PsiInteger(10));
 		}

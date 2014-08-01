@@ -10,8 +10,7 @@ public class PsiModule
 			for(Class<? extends PsiOperator> operatorClass: operatorClasses)
 			{
 				PsiOperator operator=operatorClass.newInstance();
-				//String operatorName=operator.getName();
-				psiPut(new PsiName(operator.getName()), operator);
+				psiPut(operator.getName(), operator);
 			}
 		}
 		catch(InstantiationException e)
@@ -25,16 +24,4 @@ public class PsiModule
 			System.out.println("ILLEGAL ACCESS EXCEPTION");
 		}
 	}
-
-	/*
-	public PsiObject getByName(String name)
-	{
-		return get(new PsiName(name));
-	}
-
-	public void putByName(String name, PsiObject obj)
-	{
-		put(new PsiName(name), obj);
-	}
-	*/
 }

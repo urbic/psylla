@@ -17,7 +17,7 @@ public class _def extends PsiOperator
 		PsiObject key=opstack.pop();
 		try
 		{
-			interpreter.getDictionaryStack().peek().psiPut((PsiAbstractStringlike)key, obj);
+			interpreter.getDictionaryStack().peek().psiPut((PsiStringlike)key, obj);
 		}
 		catch(ClassCastException e)
 		{

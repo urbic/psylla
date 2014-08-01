@@ -3,7 +3,6 @@ package coneforest.psi;
 public class PsiString
 	extends PsiAbstractString
 {
-
 	public PsiString()
 	{
 		this("");
@@ -19,12 +18,12 @@ public class PsiString
 		this.buffer=buffer;
 	}
 
-	public String getTypeName() { return "string"; }
-
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(this);
-		// TODO: executable strings
+		if(isExecutable())
+			interpreter.interpret(new PsiStringReader(this));
+		else
+			super.execute(interpreter);
 	}
 
 	@Override
@@ -33,10 +32,12 @@ public class PsiString
 		return buffer.toString();
 	}
 
+	/*
 	public void setValue(final String value)
 	{
 		buffer.replace(0, value.length(), value);
 	}
+	*/
 
 	public StringBuilder getBuffer()
 	{
@@ -44,7 +45,13 @@ public class PsiString
 	}
 
 	@Override
-	public PsiInteger get(int index)
+	public PsiString psiClone()
+	{
+		return new PsiString(getString());
+	}
+
+	@Override
+	public PsiInteger psiGet(int index)
 		throws PsiException
 	{
 		try
@@ -58,14 +65,7 @@ public class PsiString
 	}
 
 	@Override
-	public PsiInteger psiGet(PsiInteger index)
-		throws PsiException
-	{
-		return get(index.getValue().intValue());
-	}
-
-	@Override
-	public void put(int index, PsiInteger character)
+	public void psiPut(int index, PsiInteger character)
 		throws PsiException
 	{
 		try
@@ -76,13 +76,6 @@ public class PsiString
 		{
 			throw new PsiException("rangecheck");
 		}
-	}
-
-	@Override
-	public void psiPut(PsiInteger index, PsiInteger character)
-		throws PsiException
-	{
-		put(index.getValue().intValue(), character);
 	}
 
 	@Override
@@ -99,12 +92,12 @@ public class PsiString
 	}
 
 	@Override
-	public void psiInsert(PsiInteger index, PsiInteger character)
+	public void psiInsert(int indexValue, PsiInteger character)
 		throws PsiException
 	{
 		try
 		{
-			buffer.insert(index.getValue().intValue(), (char)character.getValue().intValue());
+			buffer.insert(indexValue, (char)character.getValue().intValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -153,6 +146,14 @@ public class PsiString
 		return new PsiBoolean(buffer.length()==0);
 	}
 
+	@Override
+	public boolean equals(Object object)
+	{
+		return object instanceof PsiString
+				&& psiEq((PsiString)object).getValue();
+	}
+
+	@Override
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();

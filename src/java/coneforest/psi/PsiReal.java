@@ -119,6 +119,19 @@ public class PsiReal extends PsiNumeric
 	{
 		return String.valueOf(value);
 	}
+	
+	@Override
+	public int hashCode()
+	{
+		return (int)value;
+	}
+
+	@Override
+	public boolean equals(Object object)
+	{
+		return object instanceof PsiReal
+				&& psiEq((PsiReal)object).getValue();
+	}
 
 	private final double value;
 }

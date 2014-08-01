@@ -143,22 +143,23 @@ public class PsiSystemDictionary
 				);
 		try
 		{
-			psiPut(new PsiName("["), psiGet(new PsiName("mark")));
-			psiPut(new PsiName("<"), psiGet(new PsiName("mark")));
-			psiPut(new PsiName("("), psiGet(new PsiName("mark")));
-			psiPut(new PsiName("]"), psiGet(new PsiName("arraytomark")));
-			psiPut(new PsiName(">"), psiGet(new PsiName("dicttomark")));
-			psiPut(new PsiName(")"), psiGet(new PsiName("settomark")));
-			psiPut(new PsiName("=="), psiGet(new PsiName("prettyprint")));
+			PsiOperator markOperator=(PsiOperator)psiGet("mark");
+			psiPut("[", markOperator);
+			psiPut("<", markOperator);
+			psiPut("(", markOperator);
+			psiPut("]", psiGet("arraytomark"));
+			psiPut(">", psiGet("dicttomark"));
+			psiPut(")", psiGet("settomark"));
+			psiPut("==", psiGet("prettyprint"));
 		}
 		catch(PsiException e)
 		{
 			// TODO
 		}
-		psiPut(new PsiName("systemdict"), this);
-		psiPut(new PsiName("errordict"), new coneforest.psi.errordict.ErrorDictionary());
-		psiPut(new PsiName("mathpi"), new PsiReal(Math.PI));
-		psiPut(new PsiName("mathe"), new PsiReal(Math.E));
-		psiPut(new PsiName("stdrandom"), new PsiRandom());
+		psiPut("systemdict", this);
+		psiPut("errordict", new coneforest.psi.errordict.ErrorDictionary());
+		psiPut("mathpi", new PsiReal(Math.PI));
+		psiPut("mathe", new PsiReal(Math.E));
+		psiPut("stdrandom", new PsiRandom());
 	}
 }

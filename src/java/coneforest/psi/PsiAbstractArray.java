@@ -26,14 +26,14 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	public T psiGet(PsiInteger index)
 		throws PsiException
 	{
-		return get(index.getValue().intValue());
+		return psiGet(index.getValue().intValue());
 	}
-	
+
 	@Override
 	public void psiPut(PsiInteger index, T obj)
 		throws PsiException
 	{
-		put(index.getValue().intValue(), obj);
+		psiPut(index.getValue().intValue(), obj);
 	}
 
 	@Override
@@ -41,10 +41,10 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		throws PsiException
 	{
 		int indexValue=index.getValue().intValue();
-		psiAppend(get(length()));
+		psiAppend(psiGet(length()));
 		for(int i=length(); i>indexValue; i--)
-			put(i, get(i-1));
-		put(indexValue, obj);
+			psiPut(i, psiGet(i-1));
+		psiPut(indexValue, obj);
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class _load extends PsiOperator
 		PsiObject key=opstack.pop();
 		try
 		{
-			opstack.push(interpreter.getDictionaryStack().load((PsiAbstractStringlike)key));
+			opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)key));
 		}
 		catch(ClassCastException e)
 		{
