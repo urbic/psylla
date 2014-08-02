@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _bitset extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		interpreter.getOperandStack().push(new PsiBitSet());
 	}

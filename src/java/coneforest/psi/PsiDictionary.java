@@ -78,6 +78,12 @@ public class PsiDictionary
 	}
 
 	@Override
+	public void psiClear()
+	{
+		dictionary.clear();
+	}
+
+	@Override
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder("<");

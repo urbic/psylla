@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _print extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)

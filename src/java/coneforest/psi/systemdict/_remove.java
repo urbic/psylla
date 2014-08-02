@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _remove extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -14,22 +14,16 @@ public class _remove extends PsiOperator
 		}
 
 		PsiObject obj=opstack.pop();
-		PsiObject set=opstack.pop();
+		PsiObject setlike=opstack.pop();
 		try
 		{
-			((PsiSetlike)set).psiRemove(obj);
+			((PsiSetlike)setlike).psiRemove(obj);
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(set);
+			opstack.push(setlike);
 			opstack.push(obj);
 			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(set);
-			opstack.push(obj);
-			interpreter.error(e.kind(), this);
 		}
 	}
 }

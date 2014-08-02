@@ -40,10 +40,11 @@ public class PsiReader
 	@Override
 	public void invoke(Interpreter interpreter)
 	{
-		if(isExecutable())
+		OperandStack opstack=interpreter.getOperandStack();
 		if(isExecutable())
 		{
-			interpreter.interpret(this);
+			interpreter.interpretBraced(this);
+			opstack.pop().invoke(interpreter);
 			/*
 			ExecutionStack execstack=interpreter.getExecutionStack();
 			int execlevel=execstack.size();

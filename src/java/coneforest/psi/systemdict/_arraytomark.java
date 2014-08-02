@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _arraytomark extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
@@ -12,9 +12,9 @@ public class _arraytomark extends PsiOperator
 			if(opstack.get(i) instanceof PsiMark)
 			{
 				PsiArray array=new PsiArray();
-				while(opstack.size()>i+1)
-					array.psiAppend(opstack.pop());
-				opstack.pop();
+				for(int j=i+1; j<opstack.size(); j++)
+					array.psiAppend(opstack.get(j));
+				opstack.setSize(i);
 				opstack.push(array);
 				return;
 			}

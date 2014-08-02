@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _astore extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
@@ -21,7 +21,7 @@ public class _astore extends PsiOperator
 				{
 					PsiArray array=new PsiArray();
 					while(--countValue>=0)
-						((PsiArray)array).add(0, opstack.pop());
+						((PsiArray)array).psiAppend(opstack.pop());
 					opstack.push(array);
 				}
 			}

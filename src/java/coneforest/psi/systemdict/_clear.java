@@ -4,8 +4,24 @@ import coneforest.psi.*;
 public class _clear extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
-		interpreter.getOperandStack().clear();
+		OperandStack opstack=interpreter.getOperandStack();
+		if(opstack.size()<1)
+		{
+			interpreter.error("stackunderflow", this);
+			return;
+		}
+
+		PsiObject clearable=opstack.pop();
+		try
+		{
+			((PsiClearable)clearable).psiClear();
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(clearable);
+			interpreter.error("typecheck", this);
+		}
 	}
 }
