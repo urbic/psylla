@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _forall extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -33,6 +33,7 @@ public class _forall extends PsiOperator
 		}
 		else if(iterable instanceof PsiIterable)
 		{
+			//System.out.println("IT FORALL");
 			int looplevel=interpreter.pushLoopLevel();
 			for(PsiObject element: ((PsiIterable<? extends PsiObject>)iterable))
 			{

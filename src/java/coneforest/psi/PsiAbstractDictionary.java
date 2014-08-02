@@ -10,10 +10,6 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		return "dict";
 	}
 
-	//@Override
-	//abstract public V psiGet(String keyString)
-	//	throws PsiException;
-
 	@Override
 	public V psiGet(PsiStringlike key)
 		throws PsiException
@@ -21,19 +17,11 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		return psiGet(key.getString());
 	}
 
-	//@Override
-	//abstract public void psiPut(String keyString, V obj);
-
 	@Override
 	public void psiPut(PsiStringlike key, V obj)
 	{
 		psiPut(key.getString(), obj);
 	}
-
-	/*
-	@Override
-	abstract public PsiBoolean psiKnown(String keyString);
-	*/
 
 	@Override
 	public PsiBoolean psiKnown(PsiStringlike key)
@@ -57,5 +45,12 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		for(java.util.Map.Entry<String, V> entry: this)
 			set.psiAppend(new PsiName(entry.getKey()));
 		return set;
+	}
+
+	@Override
+	public void psiClear()
+	{
+		for(java.util.Map.Entry<String, V> entry: this)
+			psiUndef(entry.getKey());
 	}
 }

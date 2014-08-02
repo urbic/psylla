@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _bind extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
@@ -40,7 +40,7 @@ public class _bind extends PsiOperator
 				{
 					PsiObject value=dictstack.load((PsiName)obj);
 					if(value instanceof PsiOperator)
-						((PsiArray)array).set(i, value);
+						((PsiArray)array).psiPut(i, value);
 				}
 			}
 			catch(PsiException e)

@@ -1,10 +1,14 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
+/**
+ * The implementation of the <code>abs</code> operator.
+ * 
+ */
 public class _abs extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)

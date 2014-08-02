@@ -5,20 +5,19 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiIndexed<PsiInteger, T>,
 		PsiComposite<T>,
 		PsiIterable<T>,
-		PsiAppendable<T>
+		PsiAppendable<T>,
+		PsiClearable
 {
 	public T psiGet(int indexValue)
 		throws PsiException;
 
-	@Override
-	public T psiGet(PsiInteger index)
+	public PsiArraylike<T> psiGetInterval(PsiInteger index, PsiInteger count)
 		throws PsiException;
 
 	public void psiPut(int indexValue, T obj)
 		throws PsiException;
 
-	@Override
-	public void psiPut(PsiInteger index, T obj)
+	public void psiPutInterval(PsiInteger index, PsiIterable<? extends T> iterable)
 		throws PsiException;
 
 	public void psiInsert(int indexValue, T obj)
@@ -28,5 +27,8 @@ public interface PsiArraylike<T extends PsiObject>
 		throws PsiException;
 
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends T> iterable)
+		throws PsiException;
+
+	public void psiReverse()
 		throws PsiException;
 }

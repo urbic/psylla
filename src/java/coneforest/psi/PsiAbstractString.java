@@ -2,7 +2,10 @@ package coneforest.psi;
 
 abstract public class PsiAbstractString
 	extends PsiAbstractStringlike
-	implements PsiArraylike<PsiInteger>
+	//extends PsiAbstractArray<PsiInteger>
+	implements
+		PsiArraylike<PsiInteger>,
+		PsiStringlike
 {
 	@Override
 	public String getTypeName()
@@ -31,14 +34,18 @@ abstract public class PsiAbstractString
 		psiInsert(index.getValue().intValue(), character);
 	}
 
-	/*
 	@Override
-	public void psiInsertAll(PsiInteger index, PsiIterable<PsiInteger> iterable)
+	public void psiReverse()
 		throws PsiException
 	{
-		psiInsertAll(index.getValue().intValue(), iterable);
+		int length=length();
+		for(int i=0; i<(int)(length/2); i++)
+		{
+			PsiInteger character=psiGet(i);
+			psiPut(i, psiGet(length-1-i));
+			psiPut(length-1-i, character);
+		}
 	}
-	*/
 
 	@Override
 	public java.util.Iterator<PsiInteger> iterator()

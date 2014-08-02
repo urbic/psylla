@@ -27,7 +27,6 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 
 	@Override
 	public void psiRemoveAll(PsiIterable<? extends T> iterable)
-		throws PsiException
 	{
 		for(T obj: iterable)
 			psiRemove(obj);
@@ -68,8 +67,12 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 		return new PsiBoolean(isEmpty());
 	}
 
-	//@Override
-	//abstract public PsiBoolean psiContains(T obj);
+	@Override
+	public void psiClear()
+	{
+		for(T obj: this)
+			psiRemove(obj);
+	}
 
 	@Override
 	public PsiBoolean psiIntersects(PsiSetlike<? extends T> setlike)

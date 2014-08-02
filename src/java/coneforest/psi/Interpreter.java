@@ -94,6 +94,7 @@ public class Interpreter
 	public void interpret(PsiReader reader)
 	{
 		//interpret(reader.getReader());
+		int proclevel=procstack.size();
 		try
 		{
 			Parser parser=new Parser(reader.getReader());
@@ -101,11 +102,11 @@ public class Interpreter
 			{
 				Token token=parser.getNextToken();
 				if(token.kind==ParserConstants.EOF)
-					if(procstack.size()==0)
+					if(procstack.size()==proclevel)
 						return;
 					else
 					{
-						error("syntaxerror");
+						error("syntaxerror", reader);
 						return;
 					}
 				processToken(token);
@@ -116,6 +117,23 @@ public class Interpreter
 			//System.out.println("STACK OVERFLOW");
 			//System.exit(1);
 			error("limitcheck", reader);
+		}
+	}
+
+	public void interpretBraced(PsiReader reader)
+	{
+		procstack.push(new PsiArray());
+		procstack.peek().setExecutable();
+		interpret(reader);
+		if(procstack.size()==0)
+			error("syntaxerror", reader);
+		else
+		{
+			PsiArray proc=procstack.pop();
+			if(procstack.size()>0)
+				procstack.peek().psiAppend(proc);
+			else
+				opstack.push(proc);
 		}
 	}
 

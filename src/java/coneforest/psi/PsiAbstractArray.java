@@ -37,6 +37,24 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
+	public void psiPutInterval(PsiInteger index, PsiIterable<? extends T> iterable)
+		throws PsiException
+	{
+		int indexValue=index.getValue().intValue();
+		if(indexValue<0
+			||
+			iterable instanceof PsiComposite
+			&& indexValue+((PsiComposite)iterable).length()>=length())
+			throw new PsiException("rangecheck");
+		for(T obj: iterable)
+		{
+			psiPut(indexValue++, obj);
+			if(indexValue==length())
+				break;
+		}
+	}
+
+	@Override
 	public void psiInsert(PsiInteger index, T obj)
 		throws PsiException
 	{
@@ -61,5 +79,18 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	{
 		for(T obj: iterable)
 			psiInsert(index, obj);
+	}
+
+	@Override
+	public void psiReverse()
+		throws PsiException
+	{
+		int length=length();
+		for(int i=0; i<(int)(length/2); i++)
+		{
+			T obj=psiGet(i);
+			psiPut(i, psiGet(length-1-i));
+			psiPut(length-1-i, obj);
+		}
 	}
 }

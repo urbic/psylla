@@ -4,7 +4,8 @@ public interface PsiDictionarylike<V extends PsiObject>
 	extends
 		PsiComposite<V>,
 		PsiIndexed<PsiStringlike, V>,
-		PsiIterable<java.util.Map.Entry<String, V>>
+		PsiIterable<java.util.Map.Entry<String, V>>,
+		PsiClearable
 {
 	public V psiGet(String key)
 		throws PsiException;
@@ -20,6 +21,4 @@ public interface PsiDictionarylike<V extends PsiObject>
 	public void psiUndef(PsiStringlike key);
 
 	public PsiSet psiKeys();
-
-	public java.util.Iterator<java.util.Map.Entry<String, V>> iterator();
 }

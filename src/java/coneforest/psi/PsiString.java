@@ -18,10 +18,15 @@ public class PsiString
 		this.buffer=buffer;
 	}
 
+	@Override
 	public void invoke(Interpreter interpreter)
 	{
+		OperandStack opstack=interpreter.getOperandStack();
 		if(isExecutable())
-			interpreter.interpret(new PsiStringReader(this));
+		{
+			interpreter.interpretBraced(new PsiStringReader(this));
+			opstack.pop().invoke(interpreter);
+		}
 		else
 			super.execute(interpreter);
 	}
@@ -31,13 +36,6 @@ public class PsiString
 	{
 		return buffer.toString();
 	}
-
-	/*
-	public void setValue(final String value)
-	{
-		buffer.replace(0, value.length(), value);
-	}
-	*/
 
 	public StringBuilder getBuffer()
 	{
@@ -65,6 +63,22 @@ public class PsiString
 	}
 
 	@Override
+	public PsiString psiGetInterval(PsiInteger index, PsiInteger count)
+		throws PsiException
+	{
+		int indexValue=index.getValue().intValue();
+		int countValue=count.getValue().intValue();
+		try
+		{
+			return new PsiString(buffer.substring(indexValue, indexValue+countValue));
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
 	public void psiPut(int index, PsiInteger character)
 		throws PsiException
 	{
@@ -75,6 +89,24 @@ public class PsiString
 		catch(IndexOutOfBoundsException e)
 		{
 			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
+	public void psiPutInterval(PsiInteger index, PsiIterable<? extends PsiInteger> iterable)
+		throws PsiException
+	{
+		int indexValue=index.getValue().intValue();
+		if(indexValue<0
+				||
+				iterable instanceof PsiComposite
+				&& indexValue+((PsiComposite<PsiInteger>)iterable).length()>=length())
+			throw new PsiException("rangecheck");
+		for(PsiInteger character: iterable)
+		{
+			buffer.setCharAt(indexValue++, (char)character.getValue().intValue());
+			if(indexValue==length())
+				break;
 		}
 	}
 
@@ -147,10 +179,28 @@ public class PsiString
 	}
 
 	@Override
+	public void psiClear()
+	{
+		buffer.delete(0, buffer.length());
+	}
+
+	@Override
+	public void psiReverse()
+	{
+		buffer.reverse();
+	}
+
+	@Override
 	public boolean equals(Object object)
 	{
 		return object instanceof PsiString
 				&& psiEq((PsiString)object).getValue();
+	}
+
+	@Override
+	public int length()
+	{
+		return buffer.length();
 	}
 
 	@Override

@@ -86,5 +86,5 @@ abstract public class PsiObject
 		ACCESS_WRITE=2,
 		ACCESS_READ=4;
 
-	protected byte access=ACCESS_NOACCESS;
+	protected byte access=ACCESS_READ|ACCESS_WRITE;
 }

@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _settomark extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)

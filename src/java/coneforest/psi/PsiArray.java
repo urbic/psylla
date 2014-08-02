@@ -7,6 +7,11 @@ public class PsiArray
 	{
 	}
 
+	public PsiArray(java.util.ArrayList<PsiObject> list)
+	{
+		array=list;
+	}
+
 	public PsiArray(PsiArray array)
 	{
 		this.array=(java.util.ArrayList<PsiObject>)array.array.clone();
@@ -81,6 +86,20 @@ public class PsiArray
 	}
 
 	@Override
+	public PsiArray psiGetInterval(PsiInteger index, PsiInteger count)
+		throws PsiException
+	{
+		try
+		{
+			return new PsiArray((java.util.ArrayList<PsiObject>)array.subList(index.getValue().intValue(), count.getValue().intValue()));
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
 	public void psiAppend(PsiObject obj)
 	{
 		array.add(obj);
@@ -141,42 +160,17 @@ public class PsiArray
 		}
 	}
 
-	public void put(int index, PsiObject obj)
-		throws PsiException
-	{
-		try
-		{
-			array.set(index, obj);
-		}
-		catch(IndexOutOfBoundsException e)
-		{
-			throw new PsiException("rangecheck");
-		}
-	}
-
 	@Override
 	public void psiPut(int indexValue, PsiObject obj)
 		throws PsiException
 	{
 		array.set(indexValue, obj);
 	}
-	/*
+
 	@Override
-	public void psiPut(PsiInteger integer, PsiObject obj)
-		throws PsiException
+	public void psiClear()
 	{
-		put(integer.getValue().intValue(), obj);
-	}
-	*/
-
-	public void add(int i, PsiObject obj)
-	{
-		array.add(i, obj);
-	}
-
-	public void set(int index, PsiObject obj)
-	{
-		array.set(index, obj);
+		array.clear();
 	}
 
 	public String toString()
