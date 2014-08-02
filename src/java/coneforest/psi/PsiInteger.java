@@ -242,5 +242,18 @@ public class PsiInteger
 		return new PsiInteger(shiftValue>=0? (getValue()<<shiftValue): (getValue()>>(-shiftValue)));
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return (int)value;
+	}
+
+	@Override
+	public boolean equals(Object object)
+	{
+		return object instanceof PsiInteger
+				&& psiEq((PsiInteger)object).getValue();
+	}
+
 	private final long value;
 }

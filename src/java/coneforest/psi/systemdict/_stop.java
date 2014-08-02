@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _stop extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		if(interpreter.currentStopLevel()!=-1)
 		{

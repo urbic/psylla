@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _removeall extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -24,12 +24,6 @@ public class _removeall extends PsiOperator
 			opstack.push(setlike);
 			opstack.push(iterable);
 			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(setlike);
-			opstack.push(iterable);
-			interpreter.error(e.kind(), this);
 		}
 	}
 }

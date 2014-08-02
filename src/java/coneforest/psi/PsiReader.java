@@ -18,6 +18,45 @@ public class PsiReader
 		this(new java.io.InputStreamReader(is));
 	}
 
+	/*
+	// TODO
+	@Override
+	public void execute(Interpreter interpreter)
+	{
+		if(isExecutable())
+		{
+			//interpreter.interpret(this);
+			ExecutionStack execstack=interpreter.getExecutionStack();
+			int execlevel=execstack.size();
+			execstack.push(this);
+			interpreter.handleExecutionStack(execlevel);
+			//interpreter.pushSourceReader(getReader());
+		}
+		else
+			super.execute(interpreter);
+	}
+	*/
+
+	@Override
+	public void invoke(Interpreter interpreter)
+	{
+		OperandStack opstack=interpreter.getOperandStack();
+		if(isExecutable())
+		{
+			interpreter.interpretBraced(this);
+			opstack.pop().invoke(interpreter);
+			/*
+			ExecutionStack execstack=interpreter.getExecutionStack();
+			int execlevel=execstack.size();
+			execstack.push(this);
+			interpreter.handleExecutionStack(execlevel);
+			//interpreter.pushSourceReader(getReader());
+			*/
+		}
+		else
+			super.execute(interpreter);
+	}
+
 	@Override
 	public String getTypeName()
 	{

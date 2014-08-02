@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _forall extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -13,12 +13,13 @@ public class _forall extends PsiOperator
 			return;
 		}
 		PsiObject proc=opstack.pop();
-		PsiObject obj=opstack.pop();
+		PsiObject iterable=opstack.pop();
 
-		if(obj instanceof PsiHashlike)
+		if(iterable instanceof PsiDictionarylike)
 		{
 			int looplevel=interpreter.pushLoopLevel();
-			for(java.util.Map.Entry<String, PsiObject> entry: (PsiHashlike<PsiObject>)obj)
+			for(java.util.Map.Entry<String, PsiObject> entry:
+						(PsiIterable<java.util.Map.Entry<String, PsiObject>>)iterable)
 			{
 				if(interpreter.getExitFlag())
 					break;
@@ -30,10 +31,11 @@ public class _forall extends PsiOperator
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 		}
-		else if(obj instanceof PsiIterable)
+		else if(iterable instanceof PsiIterable)
 		{
+			//System.out.println("IT FORALL");
 			int looplevel=interpreter.pushLoopLevel();
-			for(PsiObject element: ((PsiIterable<? extends PsiObject>)obj))
+			for(PsiObject element: ((PsiIterable<? extends PsiObject>)iterable))
 			{
 				if(interpreter.getExitFlag())
 					break;

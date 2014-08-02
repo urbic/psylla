@@ -40,7 +40,6 @@ public class PsiBitSet
 
 	@Override
 	public void psiRemove(PsiInteger integer)
-		throws PsiException
 	{
 		try
 		{
@@ -48,13 +47,11 @@ public class PsiBitSet
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
 		}
 	}
 
 	@Override
 	public void psiRemoveAll(PsiIterable<? extends PsiInteger> iterable)
-		throws PsiException
 	{
 		if(iterable instanceof PsiBitSet)
 			bitset.andNot(((PsiBitSet)iterable).bitset);
@@ -90,6 +87,12 @@ public class PsiBitSet
 
 				private int index=bitset.nextSetBit(0);
 			};
+	}
+
+	@Override
+	public void psiClear()
+	{
+		bitset.clear();
 	}
 
 	@Override

@@ -20,10 +20,10 @@ public class Interpreter
 			// TODO
 		}
 		PsiDictionary globaldict=new PsiDictionary();
-		getSystemDictionary().psiPut(new PsiName("globaldict"), globaldict);
+		getSystemDictionary().psiPut("globaldict", globaldict);
 		dictstack.push(globaldict);
 		PsiDictionary userdict=new PsiDictionary();
-		getSystemDictionary().psiPut(new PsiName("userdict"), userdict);
+		getSystemDictionary().psiPut("userdict", userdict);
 		dictstack.push(userdict);
 
 	}
@@ -65,35 +65,76 @@ public class Interpreter
 
 	public void setReader(java.io.Reader reader)
 	{
-		getSystemDictionary().psiPut(new PsiName("stdin"), new PsiReader(reader));
+		getSystemDictionary().psiPut("stdin", new PsiReader(reader));
 	}
 
 	public void setWriter(java.io.Writer writer)
 	{
-		getSystemDictionary().psiPut(new PsiName("stdout"), new PsiWriter(writer));
+		getSystemDictionary().psiPut("stdout", new PsiWriter(writer));
 	}
+
+	/*
+	public void pushSourceReader(java.io.Reader reader)
+	{
+		System.out.println("PUSH SR");
+		stackedReader.push(reader);
+	}
+
+	public void interpret()
+	{
+		interpret(stackedReader);
+	}
+	*/
 
 	public void interpret(java.io.Reader reader)
 	{
-		Parser parser=new Parser(reader);
-		while(true)
-		{
-			Token token=parser.getNextToken();
-			if(token.kind==ParserConstants.EOF)
-				if(procstack.size()==0)
-					return;
-				else
-				{
-					error("syntaxerror");
-					return;
-				}
-			processToken(token);
-		}
+		interpret(new PsiReader(reader));
 	}
 
 	public void interpret(PsiReader reader)
 	{
-		interpret(reader.getReader());
+		//interpret(reader.getReader());
+		int proclevel=procstack.size();
+		try
+		{
+			Parser parser=new Parser(reader.getReader());
+			while(true)
+			{
+				Token token=parser.getNextToken();
+				if(token.kind==ParserConstants.EOF)
+					if(procstack.size()==proclevel)
+						return;
+					else
+					{
+						error("syntaxerror", reader);
+						return;
+					}
+				processToken(token);
+			}
+		}
+		catch(StackOverflowError e)
+		{
+			//System.out.println("STACK OVERFLOW");
+			//System.exit(1);
+			error("limitcheck", reader);
+		}
+	}
+
+	public void interpretBraced(PsiReader reader)
+	{
+		procstack.push(new PsiArray());
+		procstack.peek().setExecutable();
+		interpret(reader);
+		if(procstack.size()==0)
+			error("syntaxerror", reader);
+		else
+		{
+			PsiArray proc=procstack.pop();
+			if(procstack.size()>0)
+				procstack.peek().psiAppend(proc);
+			else
+				opstack.push(proc);
+		}
 	}
 
 	public void processToken(Token token)
@@ -102,12 +143,10 @@ public class Interpreter
 		{
 			switch(token.kind)
 			{
-				case ParserConstants.TOKEN_OPEN_BRACE:
-					procstack.push(new PsiArray());
-					procstack.peek().setExecutable();
-					break;
-				case ParserConstants.TOKEN_CLOSE_BRACE:
-					error("syntaxerror");
+				case ParserConstants.TOKEN_NAME_EXECUTABLE:
+					(newPsiObject(token)).execute(this);
+					assert execstack.size()==0: "Execution stack not empty";
+					handleExecutionStack(0);
 					break;
 				case ParserConstants.TOKEN_INTEGER:
 				case ParserConstants.TOKEN_HEXINTEGER:
@@ -115,15 +154,15 @@ public class Interpreter
 				case ParserConstants.TOKEN_REAL:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
-					opstack.push(newPsiObject(token));
-					break;
-				case ParserConstants.TOKEN_NAME_EXECUTABLE:
-					(newPsiObject(token)).execute(this);
-					assert execstack.size()==0: "Execution stack not empty";
-					handleExecutionStack(0);
-					break;
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
 					opstack.push(newPsiObject(token));
+					break;
+				case ParserConstants.TOKEN_OPEN_BRACE:
+					procstack.push(new PsiArray());
+					procstack.peek().setExecutable();
+					break;
+				case ParserConstants.TOKEN_CLOSE_BRACE:
+					error("syntaxerror");
 					break;
 			}
 		}
@@ -179,7 +218,7 @@ public class Interpreter
 				{
 					case ParserConstants.TOKEN_OPEN_BRACE:
 						procstack.push(new PsiArray());
-						procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+						procstack.peek().setExecutable();
 						break;
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						throw new PsiException("syntaxerror");
@@ -210,7 +249,7 @@ public class Interpreter
 				{
 					case ParserConstants.TOKEN_OPEN_BRACE:
 						procstack.push(new PsiArray());
-						procstack.peek().setAccess(PsiObject.ACCESS_EXECUTE);
+						procstack.peek().setExecutable();
 						break;
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						PsiArray proc=procstack.pop();
@@ -320,7 +359,7 @@ public class Interpreter
 			case ParserConstants.TOKEN_NAME_IMMEDIATE:
 				try
 				{
-					return dictstack.load(new PsiName(token.image.substring(2)));
+					return dictstack.load(token.image.substring(2));
 				}
 				catch(PsiException e)
 				{
@@ -333,11 +372,11 @@ public class Interpreter
 		}
 	}
 
-	public void error(String errorName, PsiOperator operator)
+	public void error(String errorName, PsiObject obj)
 	{
 		// TODO
-		opstack.push(operator);
-		System.out.println("Error /"+errorName+" in "+operator);
+		opstack.push(obj);
+		System.out.println("Error /"+errorName+" in "+obj);
 		showStacks();
 		System.exit(1);
 	}
@@ -392,6 +431,15 @@ public class Interpreter
 		for(PsiObject obj: execstack)
 			System.out.print(" "+obj);
 		System.out.println();
+
+		/*
+		System.out.println("Dictionary stack:");
+		System.out.print("⊢\t");
+		for(PsiObject obj: dictstack)
+			System.out.print(" "+obj);
+		System.out.println();
+		*/
+
 		System.out.println("Loop level stack:");
 		System.out.print("⊢\t");
 		for(int item: loopstack)
@@ -464,7 +512,7 @@ public class Interpreter
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)
 			arguments.psiAppend(new PsiString(arg));
-		getSystemDictionary().psiPut(new PsiName("arguments"), arguments);
+		getSystemDictionary().psiPut("arguments", arguments);
 	}
 
 	public void acceptEnvironment(final java.util.Map<String, String> env)
@@ -472,10 +520,9 @@ public class Interpreter
 		PsiDictionary environment=new PsiDictionary();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
 			environment.psiPut(new PsiName(entry.getKey()), new PsiString(entry.getValue()));
-		getSystemDictionary().psiPut(new PsiName("environment"), environment);
+		getSystemDictionary().psiPut("environment", environment);
 	}
 
-	//private java.io.InputStream is;
 	private OperandStack opstack;
 	private DictionaryStack dictstack;
 	private ExecutionStack execstack;
@@ -484,5 +531,5 @@ public class Interpreter
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
-
+	//private StackedReader stackedReader=new StackedReader();
 }

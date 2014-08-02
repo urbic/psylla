@@ -1,8 +1,7 @@
 package coneforest.psi;
 
 public class PsiDictionary
-	extends PsiObject
-	implements PsiHashlike<PsiObject>
+	extends PsiAbstractDictionary<PsiObject>
 {
 	public PsiDictionary()
 	{
@@ -14,16 +13,6 @@ public class PsiDictionary
 		this.dictionary=(java.util.HashMap<String, PsiObject>)dict.dictionary.clone();
 	}
 
-	/*
-	private java.util.HashMap<String, PsiObject> getDictionary()
-	{
-		return dictionary;
-	}
-	*/
-
-	@Override
-	public String getTypeName() { return "dict"; }
-
 	@Override
 	public PsiDictionary psiClone()
 	{
@@ -31,10 +20,10 @@ public class PsiDictionary
 	}
 
 	@Override
-	public PsiObject psiGet(PsiAbstractStringlike key)
+	public PsiObject psiGet(String key)
 		throws PsiException
 	{
-		PsiObject result=dictionary.get(key.getString());
+		PsiObject result=dictionary.get(key);
 		if(result!=null)
 			return result;
 		else
@@ -42,21 +31,21 @@ public class PsiDictionary
 	}
 
 	@Override
-	public void psiPut(PsiAbstractStringlike key, PsiObject obj)
+	public void psiPut(String keyString, PsiObject obj)
 	{
-		dictionary.put(key.getString(), obj);
+		dictionary.put(keyString, obj);
 	}
 
 	@Override
-	public void psiUndef(PsiAbstractStringlike key)
+	public void psiUndef(String keyString)
 	{
-		dictionary.remove(key.getString());
+		dictionary.remove(keyString);
 	}
 
 	@Override
-	public PsiBoolean psiKnown(PsiAbstractStringlike key)
+	public PsiBoolean psiKnown(String keyString)
 	{
-		return new PsiBoolean(dictionary.containsKey(key.getString()));
+		return new PsiBoolean(dictionary.containsKey(keyString));
 	}
 
 	public java.util.Iterator<java.util.Map.Entry<String, PsiObject>> iterator()
@@ -88,6 +77,13 @@ public class PsiDictionary
 		return new PsiBoolean(isEmpty());
 	}
 
+	@Override
+	public void psiClear()
+	{
+		dictionary.clear();
+	}
+
+	@Override
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder("<");

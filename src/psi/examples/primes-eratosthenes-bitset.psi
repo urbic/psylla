@@ -22,5 +22,3 @@ bind for
 	forall
 }
 bind loop
-
-stdout flush

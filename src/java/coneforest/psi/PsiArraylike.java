@@ -5,23 +5,30 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiIndexed<PsiInteger, T>,
 		PsiComposite<T>,
 		PsiIterable<T>,
-		PsiAppendable<T>
+		PsiAppendable<T>,
+		PsiClearable
 {
-	public T get(int index)
+	public T psiGet(int indexValue)
 		throws PsiException;
 
-	public void put(int index, T obj)
+	public PsiArraylike<T> psiGetInterval(PsiInteger index, PsiInteger count)
 		throws PsiException;
 
-	public T psiGet(PsiInteger index)
+	public void psiPut(int indexValue, T obj)
 		throws PsiException;
-	
-	public void psiPut(PsiInteger index, T obj)
+
+	public void psiPutInterval(PsiInteger index, PsiIterable<? extends T> iterable)
+		throws PsiException;
+
+	public void psiInsert(int indexValue, T obj)
 		throws PsiException;
 
 	public void psiInsert(PsiInteger index, T obj)
 		throws PsiException;
 
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends T> iterable)
+		throws PsiException;
+
+	public void psiReverse()
 		throws PsiException;
 }
