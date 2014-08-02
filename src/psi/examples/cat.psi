@@ -2,7 +2,7 @@
 
 {
 	//in 4096 readstring
-	exch stdout exch writestring
+	exch print
 	not { exit } if
 }
 bind loop

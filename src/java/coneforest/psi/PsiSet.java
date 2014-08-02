@@ -28,6 +28,12 @@ public class PsiSet
 	}
 
 	@Override
+	public void psiClear()
+	{
+		set.clear();
+	}
+
+	@Override
 	public java.util.Iterator<PsiObject> iterator()
 	{
 		return set.iterator();

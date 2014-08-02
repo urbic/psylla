@@ -15,7 +15,6 @@ public class PsiSystemDictionary
 						_abort.class,
 						_abs.class,
 						_add.class,
-						_aload.class,
 						_and.class,
 						_append.class,
 						_appendall.class,
@@ -33,6 +32,7 @@ public class PsiSystemDictionary
 						_ceiling.class,
 						_clear.class,
 						_cleardictstack.class,
+						_clearstack.class,
 						_clone.class,
 						_close.class,
 						_complex.class,
@@ -69,6 +69,7 @@ public class PsiSystemDictionary
 						_forall.class,
 						_ge.class,
 						_get.class,
+						_getinterval.class,
 						_gt.class,
 						_hypot.class,
 						_idiv.class,
@@ -79,10 +80,13 @@ public class PsiSystemDictionary
 						_insertall.class,
 						_intersects.class,
 						_isempty.class,
+						_keys.class,
+						_keysforall.class,
 						_known.class,
 						_le.class,
 						_length.class,
 						_load.class,
+						_loadall.class,
 						_log.class,
 						_loop.class,
 						_lt.class,
@@ -105,13 +109,17 @@ public class PsiSystemDictionary
 						_println.class,
 						_pstack.class,
 						_put.class,
+						_putinterval.class,
 						_quit.class,
 						_random.class,
+						_rcheck.class,
 						_read.class,
 						_readline.class,
 						_readstring.class,
 						_remove.class,
 						_repeat.class,
+						_retainall.class,
+						_reverse.class,
 						_roll.class,
 						_say.class,
 						_settomark.class,
@@ -135,6 +143,7 @@ public class PsiSystemDictionary
 						_undef.class,
 						_uniformboolean.class,
 						_uniformdeviate.class,
+						_wcheck.class,
 						_where.class,
 						_writestring.class,
 						_xcheck.class,
@@ -143,22 +152,23 @@ public class PsiSystemDictionary
 				);
 		try
 		{
-			psiPut(new PsiName("["), psiGet(new PsiName("mark")));
-			psiPut(new PsiName("<"), psiGet(new PsiName("mark")));
-			psiPut(new PsiName("("), psiGet(new PsiName("mark")));
-			psiPut(new PsiName("]"), psiGet(new PsiName("arraytomark")));
-			psiPut(new PsiName(">"), psiGet(new PsiName("dicttomark")));
-			psiPut(new PsiName(")"), psiGet(new PsiName("settomark")));
-			psiPut(new PsiName("=="), psiGet(new PsiName("prettyprint")));
+			PsiOperator markOperator=(PsiOperator)psiGet("mark");
+			psiPut("[", markOperator);
+			psiPut("<", markOperator);
+			psiPut("(", markOperator);
+			psiPut("]", psiGet("arraytomark"));
+			psiPut(">", psiGet("dicttomark"));
+			psiPut(")", psiGet("settomark"));
+			psiPut("==", psiGet("prettyprint"));
 		}
 		catch(PsiException e)
 		{
 			// TODO
 		}
-		psiPut(new PsiName("systemdict"), this);
-		psiPut(new PsiName("errordict"), new coneforest.psi.errordict.ErrorDictionary());
-		psiPut(new PsiName("mathpi"), new PsiReal(Math.PI));
-		psiPut(new PsiName("mathe"), new PsiReal(Math.E));
-		psiPut(new PsiName("stdrandom"), new PsiRandom());
+		psiPut("systemdict", this);
+		psiPut("errordict", new coneforest.psi.errordict.ErrorDictionary());
+		psiPut("mathpi", new PsiReal(Math.PI));
+		psiPut("mathe", new PsiReal(Math.E));
+		psiPut("stdrandom", new PsiRandom());
 	}
 }

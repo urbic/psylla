@@ -7,6 +7,11 @@ public class PsiArray
 	{
 	}
 
+	public PsiArray(java.util.ArrayList<PsiObject> list)
+	{
+		array=list;
+	}
+
 	public PsiArray(PsiArray array)
 	{
 		this.array=(java.util.ArrayList<PsiObject>)array.array.clone();
@@ -26,7 +31,7 @@ public class PsiArray
 				ExecutionStack execstack=interpreter.getExecutionStack();
 				//int level=execstack.size();
 				for(int i=array.size()-1; i>=0; i--)
-					execstack.push(get(i));
+					execstack.push(psiGet(i));
 				//interpreter.handleExecutionStack(level);
 			}
 			catch(PsiException e)
@@ -66,7 +71,8 @@ public class PsiArray
 		return new PsiBoolean(array.isEmpty());
 	}
 
-	public PsiObject get(int index)
+	@Override
+	public PsiObject psiGet(int index)
 		throws PsiException
 	{
 		try
@@ -80,10 +86,17 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiObject psiGet(PsiInteger oIndex)
+	public PsiArray psiGetInterval(PsiInteger index, PsiInteger count)
 		throws PsiException
 	{
-		return get(oIndex.getValue().intValue());
+		try
+		{
+			return new PsiArray((java.util.ArrayList<PsiObject>)array.subList(index.getValue().intValue(), count.getValue().intValue()));
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
 	}
 
 	@Override
@@ -102,6 +115,21 @@ public class PsiArray
 	*/
 
 	@Override
+	public void psiInsert(int indexValue, PsiObject obj)
+		throws PsiException
+	{
+		try
+		{
+			array.add(indexValue, obj);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	/*
+	@Override
 	public void psiInsert(PsiInteger index, PsiObject obj)
 		throws PsiException
 	{
@@ -114,6 +142,7 @@ public class PsiArray
 			throw new PsiException("rangecheck");
 		}
 	}
+	*/
 
 	@Override
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiObject> iterable)
@@ -131,34 +160,17 @@ public class PsiArray
 		}
 	}
 
-	public void put(int index, PsiObject obj)
+	@Override
+	public void psiPut(int indexValue, PsiObject obj)
 		throws PsiException
 	{
-		try
-		{
-			array.set(index, obj);
-		}
-		catch(IndexOutOfBoundsException e)
-		{
-			throw new PsiException("rangecheck");
-		}
+		array.set(indexValue, obj);
 	}
 
 	@Override
-	public void psiPut(PsiInteger integer, PsiObject obj)
-		throws PsiException
+	public void psiClear()
 	{
-		put(integer.getValue().intValue(), obj);
-	}
-
-	public void add(int i, PsiObject obj)
-	{
-		array.add(i, obj);
-	}
-
-	public void set(int index, PsiObject obj)
-	{
-		array.set(index, obj);
+		array.clear();
 	}
 
 	public String toString()

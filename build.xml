@@ -8,10 +8,10 @@
 	<property name="src.docbook" location="${src}/docbook"/>
 	<property name="target" location="target"/>
 	<property name="target.src.java" location="${target}/src/java"/>
+	<property name="target.javadoc"  location="${target}/javadoc"/>
 	<property name="target.doc" location="${target}/doc"/>
 	<property name="classes" location="${target}/classes"/>
 	<property name="target.lib"  location="${target}/lib"/>
-	<property name="javadoc"  location="javadoc"/>
 	<property name="test.file"  location="test.psi"/>
 	<path id="project.class.path">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
@@ -158,11 +158,10 @@
 
 	<target name="compile" depends="compile.java"/>
 	
-	<target name="javadoc">
-		<mkdir dir="${javadoc}"/>
+	<target name="javadoc" depends="compile.jj">
 		<javadoc
 			sourcepath="${src.java}:${target.src.java}"
-			destdir="${javadoc}"
+			destdir="${target.javadoc}"
 			access="public"
 			/>
 	</target>

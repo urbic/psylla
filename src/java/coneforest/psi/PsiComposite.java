@@ -9,4 +9,8 @@ public interface PsiComposite<T extends PsiObject>
 	public PsiInteger psiLength();
 
 	public PsiBoolean psiIsEmpty();
+
+	public boolean isReadable();
+
+	public boolean isWritable();
 }

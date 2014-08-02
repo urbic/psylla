@@ -46,6 +46,19 @@ public class PsiBoolean
 		return new PsiBoolean(obj instanceof PsiBoolean
 				&& value==((PsiBoolean)obj).getValue());
 	}
+	
+	@Override
+	public int hashCode()
+	{
+		return value? 1: 0;
+	}
+
+	@Override
+	public boolean equals(Object object)
+	{
+		return object instanceof PsiBoolean
+				&& psiEq((PsiBoolean)object).getValue();
+	}
 
 	private final boolean value;
 }

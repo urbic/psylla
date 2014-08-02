@@ -1,22 +1,20 @@
 package coneforest.psi;
 
 public interface PsiSetlike<T extends PsiObject>
-	extends PsiComposite<T>, PsiIterable<T>, PsiAppendable<T>
+	extends
+		PsiComposite<T>,
+		PsiIterable<T>,
+		PsiAppendable<T>,
+		PsiClearable
 {
-	/*
-	@Override
-	public void psiAppend(T obj)
+	public void psiRemove(T obj);
+
+	public void psiRemoveAll(PsiIterable<? extends T> iterable);
+
+	public void psiRetainAll(PsiIterable<? extends T> iterable)
 		throws PsiException;
 
-	@Override
-	public void psiAppendAll(PsiSetlike<? extends T> setlike)
-		throws PsiException;
-	*/
-
-	public void psiRemove(T obj)
-		throws PsiException;
-
-	public void psiRemoveAll(PsiIterable<? extends T> setlike)
+	public void psiRetainAll(PsiSetlike<? extends T> setlike)
 		throws PsiException;
 
 	public PsiBoolean psiContains(T obj);

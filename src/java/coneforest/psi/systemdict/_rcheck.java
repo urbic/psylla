@@ -1,26 +1,26 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _aload extends PsiOperator
+public class _rcheck extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
+			return;
 		}
 
-		PsiObject array=opstack.pop();
+		PsiObject composite=opstack.pop();
 		try
 		{
-			for(PsiObject obj: (PsiArray)array)
-				opstack.push(obj);
-			opstack.push(array);
+			opstack.push(new PsiBoolean(((PsiComposite)composite).isReadable()));
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(composite);
 			interpreter.error("typecheck", this);
 		}
 	}

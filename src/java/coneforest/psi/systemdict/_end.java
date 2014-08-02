@@ -4,10 +4,10 @@ import coneforest.psi.*;
 public class _end extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		DictionaryStack dictstack=interpreter.getDictionaryStack();
-		if(dictstack.size()<1)
+		if(dictstack.size()<=3)
 			interpreter.error("dictstackunderflow", this);
 		else
 			dictstack.pop();

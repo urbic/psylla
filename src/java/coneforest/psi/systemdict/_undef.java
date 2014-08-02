@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _undef extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -17,7 +17,7 @@ public class _undef extends PsiOperator
 		PsiObject dict=opstack.pop();
 		try
 		{
-			((PsiDictionary)dict).psiUndef((PsiAbstractStringlike)key);
+			((PsiDictionary)dict).psiUndef((PsiStringlike)key);
 		}
 		catch(ClassCastException e)
 		{

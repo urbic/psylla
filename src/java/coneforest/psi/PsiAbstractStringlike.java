@@ -53,4 +53,11 @@ abstract public class PsiAbstractStringlike
 	{
 		return new PsiBoolean(getString().compareTo(string.getString())>=0);
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return getString().hashCode();
+	}
+
 }

@@ -75,22 +75,16 @@ abstract public class PsiObject
 	}
 
 	@Override
-	public boolean equals(Object o)
-	{
-		return o instanceof PsiObject && psiEq((PsiObject)o).getValue();
-	}
-
-	@Override
 	public String toString()
 	{
 		return "-"+getTypeName()+"-";
 	}
 
-	public static final byte
+	private static final byte
 		ACCESS_NOACCESS=0,
 		ACCESS_EXECUTE=1,
 		ACCESS_WRITE=2,
 		ACCESS_READ=4;
 
-	protected byte access=ACCESS_NOACCESS;
+	protected byte access=ACCESS_READ|ACCESS_WRITE;
 }

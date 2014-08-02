@@ -1,10 +1,13 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
+/**
+ * The implementation of the <code>add</code> operator
+ */
 public class _add extends PsiOperator
 {
 	@Override
-	public void execute(Interpreter interpreter)
+	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
@@ -18,8 +21,6 @@ public class _add extends PsiOperator
 		try
 		{
 			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).psiAdd((PsiArithmetic)arithmetic2));
-			//opstack.push((PsiObject)((PsiArithmetic<PsiComplexNumeric>)arithmetic1).add((PsiArithmetic<PsiComplexNumeric>)arithmetic2));
-			//opstack.push((PsiObject)((PsiComplexNumeric)arithmetic1).add((PsiComplexNumeric)arithmetic2));
 		}
 		catch(ClassCastException e)
 		{
