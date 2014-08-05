@@ -1,12 +1,10 @@
 /x arguments 1 get toreal def
 
-/sqrt-hero
+x 1 add 2 div
 {
 	dup
 	dup //x exch div add 2 div
 	dup 3 -1 roll
-	lt { sqrt-hero } if
+	ge { exit } if
 }
-bind def
-
-x 1 add 2 div sqrt-hero tostring say
+bind loop tostring say

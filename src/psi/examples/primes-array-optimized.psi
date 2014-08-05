@@ -1,4 +1,4 @@
-/primes [] def
+/primes array def
 
 /testprime
 {
