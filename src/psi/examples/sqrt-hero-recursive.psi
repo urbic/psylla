@@ -1,0 +1,12 @@
+/x arguments 1 get toreal def
+
+/sqrt-hero
+{
+	dup
+	dup //x exch div add 2 div
+	dup 3 -1 roll
+	lt { sqrt-hero } if
+}
+bind def
+
+x sqrt-hero tostring say
