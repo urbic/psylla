@@ -4,7 +4,6 @@ public class Interpreter
 {
 	public Interpreter()
 	{
-		//this.is=is;
 		opstack=new OperandStack();
 		dictstack=new DictionaryStack();
 		execstack=new ExecutionStack();
@@ -13,7 +12,7 @@ public class Interpreter
 		// Load systemdict, globaldict, userdict
 		try
 		{
-			dictstack.push(module(PsiSystemDictionary.class));
+			dictstack.push((PsiModule)loadPsiObject(PsiSystemDictionary.class));
 		}
 		catch(PsiException e)
 		{
@@ -25,7 +24,6 @@ public class Interpreter
 		PsiDictionary userdict=new PsiDictionary();
 		getSystemDictionary().psiPut("userdict", userdict);
 		dictstack.push(userdict);
-
 	}
 
 	public OperandStack getOperandStack()
@@ -46,11 +44,7 @@ public class Interpreter
 	public void handleExecutionStack(int level)
 	{
 		while(execstack.size()>level)
-		{
-			//System.out.println("<<<HANDLE ESTACK="+execstack+" OSTACK="+opstack);
 			execstack.pop().execute(this);
-			//System.out.println(">>>HANDLE ESTACK="+execstack+" OSTACK="+opstack);
-		}
 	}
 
 	public PsiDictionary getCurrentDictionary()
@@ -63,6 +57,11 @@ public class Interpreter
 		return dictstack.get(0);
 	}
 
+	public PsiDictionary getGlobalDictionary()
+	{
+		return dictstack.get(1);
+	}
+
 	public void setReader(java.io.Reader reader)
 	{
 		getSystemDictionary().psiPut("stdin", new PsiReader(reader));
@@ -73,27 +72,23 @@ public class Interpreter
 		getSystemDictionary().psiPut("stdout", new PsiWriter(writer));
 	}
 
-	/*
-	public void pushSourceReader(java.io.Reader reader)
+	public void setErrorWriter(java.io.Writer writer)
 	{
-		System.out.println("PUSH SR");
-		stackedReader.push(reader);
+		getSystemDictionary().psiPut("stderr", new PsiWriter(writer));
 	}
 
-	public void interpret()
-	{
-		interpret(stackedReader);
-	}
-	*/
-
-	public void interpret(java.io.Reader reader)
+	public void eval(java.io.Reader reader)
 	{
 		interpret(new PsiReader(reader));
 	}
 
+	public void eval(String string)
+	{
+		interpret(new PsiStringReader(string));
+	}
+
 	public void interpret(PsiReader reader)
 	{
-		//interpret(reader.getReader());
 		int proclevel=procstack.size();
 		try
 		{
@@ -114,8 +109,6 @@ public class Interpreter
 		}
 		catch(StackOverflowError e)
 		{
-			//System.out.println("STACK OVERFLOW");
-			//System.exit(1);
 			error("limitcheck", reader);
 		}
 	}
@@ -149,8 +142,8 @@ public class Interpreter
 					handleExecutionStack(0);
 					break;
 				case ParserConstants.TOKEN_INTEGER:
-				case ParserConstants.TOKEN_HEXINTEGER:
-				case ParserConstants.TOKEN_BININTEGER:
+				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
+				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
@@ -182,8 +175,8 @@ public class Interpreter
 						opstack.push(proc);
 					break;
 				case ParserConstants.TOKEN_INTEGER:
-				case ParserConstants.TOKEN_HEXINTEGER:
-				case ParserConstants.TOKEN_BININTEGER:
+				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
+				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
@@ -223,8 +216,8 @@ public class Interpreter
 					case ParserConstants.TOKEN_CLOSE_BRACE:
 						throw new PsiException("syntaxerror");
 					case ParserConstants.TOKEN_INTEGER:
-					case ParserConstants.TOKEN_HEXINTEGER:
-					case ParserConstants.TOKEN_BININTEGER:
+					case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
+					case ParserConstants.TOKEN_INTEGER_BINARY:
 					case ParserConstants.TOKEN_REAL:
 					case ParserConstants.TOKEN_STRING:
 					case ParserConstants.TOKEN_NAME_LITERAL:
@@ -259,8 +252,8 @@ public class Interpreter
 							return proc;
 						break;
 					case ParserConstants.TOKEN_INTEGER:
-					case ParserConstants.TOKEN_HEXINTEGER:
-					case ParserConstants.TOKEN_BININTEGER:
+					case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
+					case ParserConstants.TOKEN_INTEGER_BINARY:
 					case ParserConstants.TOKEN_REAL:
 					case ParserConstants.TOKEN_STRING:
 					case ParserConstants.TOKEN_NAME_LITERAL:
@@ -332,12 +325,12 @@ public class Interpreter
 				return new PsiString(buffer);
 			case ParserConstants.TOKEN_INTEGER:
 				return new PsiInteger(Long.parseLong(token.image));
-			case ParserConstants.TOKEN_HEXINTEGER:
+			case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				if(token.image.startsWith("+")||token.image.startsWith("-"))
 					return new PsiInteger(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 16));
 				else
 					return new PsiInteger(Long.parseLong(token.image.substring(2), 16));
-			case ParserConstants.TOKEN_BININTEGER:
+			case ParserConstants.TOKEN_INTEGER_BINARY:
 				if(token.image.startsWith("+")||token.image.startsWith("-"))
 					return new PsiInteger(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 2));
 				else
@@ -388,33 +381,33 @@ public class Interpreter
 		System.exit(1);
 	}
 
-	public PsiModule module(Class<? extends PsiModule> moduleClass)
+	public PsiObject loadPsiObject(Class<? extends PsiObject> objectClass)
 		throws PsiException
 	{
 		try
 		{
-			return moduleClass.newInstance();
+			return objectClass.newInstance();
 		}
 		catch(InstantiationException e)
 		{
-			throw new PsiException("undefinedmodule");
+			throw new PsiException("undefinedobject");
 		}
 		catch(IllegalAccessException e)
 		{
-			throw new PsiException("undefinedmodule");
+			throw new PsiException("undefinedobject");
 		}
 	}
 
-	public PsiModule module(String moduleClassName)
+	public PsiObject loadPsiObject(String objectClassName)
 		throws PsiException
 	{
 		try
 		{
-			return module((Class<? extends PsiModule>)Class.forName(moduleClassName));
+			return loadPsiObject((Class<? extends PsiObject>)Class.forName(objectClassName));
 		}
 		catch(ClassNotFoundException e)
 		{
-			throw new PsiException("undefinedmodule");
+			throw new PsiException("undefinedobject");
 		}
 	}
 
