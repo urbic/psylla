@@ -1,9 +1,7 @@
 /factorial
 {
 	dup 0 eq
-	{
-		pop 1
-	}
+	{ pop 1 }
 	{
 		dup 1 sub
 		factorial
@@ -11,6 +9,6 @@
 	}
 	ifelse
 }
-def
+bind def
 
-arguments 1 get tointeger factorial ==
+arguments 1 get tointeger factorial tostring say
