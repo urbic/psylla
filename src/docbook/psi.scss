@@ -17,7 +17,7 @@ html
 
 body
 {
-	font-size: 20px;
+	font-size: 17px;
 	max-width: 960px;
 	margin: 0pc auto 0pc auto;
 	//position: fixed;
@@ -66,6 +66,12 @@ h1, h2, h3, h4, h5, h6
 hr
 {
 	border: solid $color-title 1px;
+}
+
+.navfooter,
+.navheader
+{
+	font-size: smaller;
 }
 
 .toc dl
@@ -138,4 +144,29 @@ hr
 {
 	font-weight: bold;
 	font-style: normal;
+}
+
+.type
+{
+	font-family: monospace;
+}
+
+.constant
+{
+	color: $color-hl-constant;
+}
+
+.itemizedlist-title
+{
+	font-weight: bold;
+}
+
+.listitem
+{
+	list-style-type: square;
+}
+
+.token
+{
+	font-family: monospace;
 }

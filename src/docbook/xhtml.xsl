@@ -103,4 +103,17 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 			/>
 	</xsl:template>
 
+	<xsl:template match="d:token|d:code">
+		<code class="{name(.)}">
+			<xsl:choose>
+				<xsl:when test="$highlight.source!=0">
+					<xsl:call-template name="apply-highlighting"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:apply-templates/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</code>
+	</xsl:template>
+
 </xsl:stylesheet>
