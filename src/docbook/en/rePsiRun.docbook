@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry xml:id="rePsiRun">
+
+<refmeta>
+<refentrytitle>psirun</refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname>psirun</refname>
+<refpurpose>How to execute the Ψ language interpreter</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command>psi</command>
+<arg><option>-V</option></arg>
+<arg><option>-h</option></arg>
+<arg rep="repeat"><option>-e</option> <replaceable>expression</replaceable></arg>
+<arg><replaceable>programfile</replaceable> <arg rep="repeat"><parameter><replaceable>argument</replaceable></parameter></arg></arg>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title>Options</title>
+
+<variablelist>
+
+<varlistentry>
+<term><option>-h</option></term>
+<listitem>
+Prints the summary of the options.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-V</option></term>
+<listitem>
+Prints the version of the <command>psi</command> executable.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>-e</option> <parameter><replaceable>expression</replaceable></parameter></term>
+<listitem>
+Evaluate the <parameter><replaceable>expression</replaceable></parameter>
+containing Ψ commands.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>programfile</replaceable></parameter></term>
+<listitem>
+A name of the file containing Ψ program. If hyphen is specified, program is
+read from the standard input.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>argument</replaceable></parameter></term>
+<listitem>
+An argument passed to Ψ program.
+</listitem>
+</varlistentry>
+
+<para>
+If no options are specified, the interpreter runs <acronym>REPL</acronym>
+(read—evaluate—print loop).
+</para>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title>Files</title>
+
+<variablelist>
+
+<varlistentry>
+<term><filename>/usr/bin/psi</filename></term>
+<listitem>
+The <command>psi</command> executable, which starts an interpreter.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><filename>/usr/share/java/psi.jar</filename></term>
+<listitem>
+Java archive containing the interpreter code.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><filename>~/.psirc</filename></term>
+<listitem>
+Commands that are executed when <command>psi</command> is started.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+</refentry>
+

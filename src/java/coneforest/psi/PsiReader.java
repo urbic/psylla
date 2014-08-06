@@ -18,25 +18,6 @@ public class PsiReader
 		this(new java.io.InputStreamReader(is));
 	}
 
-	/*
-	// TODO
-	@Override
-	public void execute(Interpreter interpreter)
-	{
-		if(isExecutable())
-		{
-			//interpreter.interpret(this);
-			ExecutionStack execstack=interpreter.getExecutionStack();
-			int execlevel=execstack.size();
-			execstack.push(this);
-			interpreter.handleExecutionStack(execlevel);
-			//interpreter.pushSourceReader(getReader());
-		}
-		else
-			super.execute(interpreter);
-	}
-	*/
-
 	@Override
 	public void invoke(Interpreter interpreter)
 	{
@@ -45,13 +26,6 @@ public class PsiReader
 		{
 			interpreter.interpretBraced(this);
 			opstack.pop().invoke(interpreter);
-			/*
-			ExecutionStack execstack=interpreter.getExecutionStack();
-			int execlevel=execstack.size();
-			execstack.push(this);
-			interpreter.handleExecutionStack(execlevel);
-			//interpreter.pushSourceReader(getReader());
-			*/
 		}
 		else
 			super.execute(interpreter);
@@ -63,12 +37,12 @@ public class PsiReader
 		return "reader";
 	}
 
-	public void setReader(java.io.Reader reader)
+	protected void setReader(java.io.Reader reader)
 	{
 		this.reader=reader;
 	}
 
-	public java.io.Reader getReader()
+	protected java.io.Reader getReader()
 	{
 		return reader;
 	}

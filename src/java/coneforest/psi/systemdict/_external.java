@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _module extends PsiOperator
+public class _external extends PsiOperator
 {
 	@Override
 	public void invoke(Interpreter interpreter)
@@ -16,7 +16,7 @@ public class _module extends PsiOperator
 		PsiObject stringlike=opstack.pop();
 		try
 		{
-			opstack.push(interpreter.module(((PsiStringlike)stringlike).getString()));
+			opstack.push(interpreter.external(((PsiStringlike)stringlike).getString()));
 		}
 		catch(ClassCastException e)
 		{

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<project name="htmldocs" default="dist" basedir=".">
+
+	<presetdef name="xslt.html">
+		<xslt
+			style="${src.docbook}/xhtml.xsl"
+			basedir="${src.docbook}"
+			filedirparameter="${src.docbook}"
+			force="true"
+			>
+			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
+			<xmlcatalog>
+				<catalogpath>
+					<pathelement location="${src.docbook}/xmlcatalog"/>
+				</catalogpath>
+			</xmlcatalog>
+			<classpath>
+				<pathelement location="/usr/share/java/saxon6.jar"/>
+				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
+				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+				<pathelement location="/usr/share/java/xslthl.jar"/>
+			</classpath>
+			<param name="highlight.source" expression="1"/>
+			<param name="profile.status" expression="${xslt.profile.status}"/>
+			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
+			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
+			<param name="html.stylesheet" expression="../${project.name}.css"/>
+			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
+			<param name="generate.manifest" expression="0"/>
+			<param name="bibliography.numbered" expression="1"/>
+			<param name="shortcut.icon" expression="../${project.name}-16.png"/>
+			<!--param name="icon.path" 	expression="../${project.name}-16.png"/-->
+			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
+			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
+			<param name="l10n.gentext.default.language" expression="'ru'"/>
+			<param name="bibliography.style" expression="'iso960'"/>
+			<param name="draft.mode" expression="'maybe'"/>
+			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
+			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
+			<param name="navig.graphics.path" expression="navigation/"/>
+			<param name="navig.graphics.extension" expression=".svg"/>
+			<param name="html.ext" expression=".xhtml"/>
+			<param name="chunk.sections" expression="0"/>
+			<param name="chunk.section.depth" expression="0"/>
+			<param name="ebnf.table.bgcolor" expression="none"/>
+			<param name="ebnf.table.border" expression="0"/>
+		</xslt>
+	</presetdef>
+
+	<macrodef name="xslt.html.lang">
+		<attribute name="base.name"/>
+		<attribute name="lang"/>
+		<sequential>
+			<xslt.html
+				includes="@{lang}/@{base.name}.docbook"
+				destdir="${target.doc.html}"
+				>
+				<param name="root.filename" expression="@{base.name}"/>
+				<param name="base.dir" expression="${target.doc.html}/@{lang}"/>
+			</xslt.html>
+		</sequential>
+	</macrodef>
+
+</project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!ENTITY % entities		SYSTEM "../namespaces.ent">
+<!ENTITY % version		SYSTEM "../../../target/version.ent">
+%entities;
+%version;
+<!ENTITY rePsi			SYSTEM "rePsi.docbook">
+<!ENTITY rePsiIntro		SYSTEM "rePsiIntro.docbook">
+<!ENTITY rePsiRun		SYSTEM "rePsiRun.docbook">
+<!ENTITY rePsiSyn		SYSTEM "rePsiSyn.docbook">
+<!ENTITY rePsiOp		SYSTEM "rePsiOp.docbook">
+]>
+<reference
+	xml:id="refPsiManpages"
+	version="5.0"
+	xmlns="&nsDocBook;"
+	xmlns:m="&nsMathML;"
+	xmlns:xlink="&nsXLink;"
+	xml:base="."
+	xml:lang="en"
+	>
+<info>
+<title>Ψ Language — full reference</title>
+<productname>psi</productname> <productnumber>v&psiVersion;</productnumber>
+
+<author>
+<person>
+<personname>
+<firstname>Anton</firstname>
+<surname>Shvetz</surname>
+</personname>
+</person>
+<email>tz@sectorb.msk.ru</email>
+<contrib>Author.</contrib>
+</author>
+
+</info>
+
+&rePsi;
+&rePsiIntro;
+&rePsiRun;
+&rePsiSyn;
+&rePsiOp;
+</reference>
+<!--
+vim:indentexpr=
+vim:filetype=docbkxml
+-->

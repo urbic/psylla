@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry xml:id="rePsi">
+
+<refmeta>
+<refentrytitle>psi</refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname>psi</refname>
+<refpurpose>The Ψ language interpreter</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command>psi</command>
+<arg rep="repeat"><replaceable>options</replaceable></arg>
+</cmdsynopsis>
+
+<para>
+For more information on <replaceable>options</replaceable>, see <xref
+linkend="rePsiRun"/>.
+</para>
+
+</refsynopsisdiv>
+
+<refsect1>
+<title>Getting help</title>
+
+<para>
+If you are new to Ψ, you should start with <xref linkend="rePsiIntro"/>.
+</para>
+
+<para>
+For ease of access, the Ψ manual has been split up into several sections:
+
+<variablelist>
+
+<varlistentry>
+<term><xref linkend="rePsi"/></term>
+<listitem>
+Ψ overview (this section).
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="rePsiIntro"/></term>
+<listitem>
+An introduction for beginners.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="rePsiRun"/></term>
+<listitem>
+Running <command>psi</command> from the command line.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="rePsiSyn"/></term>
+<listitem>
+The Ψ language syntax.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="rePsiOp"/></term>
+<listitem>
+The Ψ language operators overview.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</para>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!ENTITY % ent.files	SYSTEM "../namespaces.ent">
+<!ENTITY PsiReference_Language		SYSTEM "PsiReference_Language.docbook">
+<!ENTITY PsiReference_Development	SYSTEM "PsiReference_Development.docbook">
+%ent.files;
+]>
+<book
+	xml:id="PsiReference"
+	version="5.0"
+	xmlns="&nsDocBook;"
+	xmlns:m="&nsMathML;"
+	xmlns:xlink="&nsXLink;"
+	xmlns:ssi="&nsSSI;"
+	xml:base="."
+	xml:lang="ru"
+	>
+
+<title>Язык Ψ — полное руководство</title>
+
+<chapter xml:id="PsiReference_Introduction">
+<title>Введение</title>
+
+<para>
+Ψ — это интерпретируемый скриптовый алгоритмический язык, синтаксис которого
+основан на PostScript®.
+</para>
+
+<para>
+Интерпретатор Ψ запрограммирован на Java. Предусмотрена возможность расширения
+языка как новыми операторами, так и новыми типами, а также встраивания
+интерпретатора в приложения Java.
+</para>
+
+</chapter>
+
+<chapter xml:id="PsiReference_Interpreter">
+<title>Интерпретатор</title>
+
+<section xml:id="PsiReference_Interpreter_CLI">
+<title>Интерфейс командной строки</title>
+
+</section>
+
+</chapter>
+
+&PsiReference_Language;
+&PsiReference_Development;
+
+</book>
+<!--
+vim:indentexpr=
+vim:filetype=docbkxml
+-->

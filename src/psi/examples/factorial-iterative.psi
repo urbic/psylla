@@ -1,11 +1,7 @@
 /factorial
 {
-	1 2 1 4 -1 roll
-	{
-		mul
-	}
-	for
+	1 2 1 4 -1 roll { mul } for
 }
-def
+bind def
 
-arguments 1 get tointeger factorial ==
+arguments 1 get tointeger factorial tostring say

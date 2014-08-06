@@ -35,7 +35,7 @@ bind def
 {
 	/p source begin next end def
 	p //n gt { exit } if
-	p ==
+	p tostring say
 	/source source p filter def
 }
 bind loop

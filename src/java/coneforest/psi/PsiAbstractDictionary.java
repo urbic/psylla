@@ -53,4 +53,33 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		for(java.util.Map.Entry<String, V> entry: this)
 			psiUndef(entry.getKey());
 	}
+	
+	@Override
+	public String toString()
+	{
+		return toString(this);
+	}
+
+	public String toString(PsiComposite composite)
+	{
+		StringBuilder sb=new StringBuilder("<");
+		if(length()>0)
+		{
+			for(java.util.Map.Entry<String, ? extends PsiObject> entry: this)
+			{
+				sb.append('/');
+				sb.append(entry.getKey());
+				sb.append(' ');
+				PsiObject obj=entry.getValue();
+				if(obj instanceof PsiComposite)
+					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiComposite)obj).toString(this));
+				else
+					sb.append(obj.toString());
+				sb.append(' ');
+			}
+			sb.deleteCharAt(sb.length()-1);
+		}
+		sb.append('>');
+		return sb.toString();
+	}
 }
