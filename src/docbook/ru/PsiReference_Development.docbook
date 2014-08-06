@@ -2,7 +2,18 @@
 <chapter xml:id="PsiReference_Development">
 <title>Разработка</title>
 
+<section xml:id="PsiReference_Development_Extension">
+<title>Расширение</title>
+
 <programlisting language="java"><textobject><textdata
 fileref="../../java/coneforest/psi/extensions/romannumerals/PsiRomanNumerals.java"/></textobject></programlisting>
+
+</section>
+
+<section xml:id="PsiReference_Development_Embedding">
+<title>Встраивание</title>
+
+</section>
+
 
 </chapter>
