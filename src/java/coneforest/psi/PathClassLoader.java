@@ -3,17 +3,13 @@ package coneforest.psi;
 public class PathClassLoader
 	extends ClassLoader
 {
-	public PathClassLoader()
+	public PathClassLoader(PsiIterable<PsiStringlike> path)
 	{
 		super(PathClassLoader.class.getClassLoader());
-	}
-
-	public PathClassLoader(java.io.File[] path)
-	{
-		this();
 		this.path=path;
 	}
 
+	/*
 	public PathClassLoader(String[] stringArrayPath)
 	{
 		this();
@@ -21,11 +17,14 @@ public class PathClassLoader
 		for(int i=0; i<stringArrayPath.length; i++)
 			path[i]=new java.io.File(stringArrayPath[i]);
 	}
+	*/
 
+	/*
 	public PathClassLoader(String stringPath)
 	{
 		this(stringPath.split(java.io.File.pathSeparator));
 	}
+	*/
 
 	@Override
 	public Class loadClass(String className)
@@ -38,9 +37,10 @@ public class PathClassLoader
 		catch(Exception e)
 		{
 		}
-		for(java.io.File file: path)
+		for(PsiStringlike file: path)
 		{
-			Class cl=findClassAtPathElement(className, file);
+			Class cl=findClassAtPathElement(className,
+					new java.io.File(((PsiStringlike)file).getString()));
 			if(cl!=null)
 				return cl;
 		}
@@ -94,7 +94,7 @@ public class PathClassLoader
 		}
     }
 
-	private java.io.File[] path;
+	private PsiIterable<PsiStringlike> path;
 
 	private java.util.Hashtable<String, Class> classes
 		=new java.util.Hashtable<String, Class>();
