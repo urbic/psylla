@@ -13,4 +13,6 @@ public interface PsiComposite<T extends PsiObject>
 	public boolean isReadable();
 
 	public boolean isWritable();
+
+	public String toString(PsiComposite composite);
 }

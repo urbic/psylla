@@ -83,6 +83,7 @@ public class PsiDictionary
 		dictionary.clear();
 	}
 
+	/*
 	@Override
 	public String toString()
 	{
@@ -97,6 +98,7 @@ public class PsiDictionary
 		sb.append(">");
 		return sb.toString();
 	}
+	*/
 
 	private java.util.HashMap<String, PsiObject> dictionary
 		=new java.util.HashMap<String, PsiObject>();

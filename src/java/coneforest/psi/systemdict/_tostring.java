@@ -12,6 +12,16 @@ public class _tostring extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		opstack.push(opstack.pop().psiToString());
+
+		PsiObject convertable=opstack.pop();
+		try
+		{
+			opstack.push(((PsiConvertableToString)convertable).psiToString());
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(convertable);
+			interpreter.error("typecheck", this);
+		}
 	}
 }

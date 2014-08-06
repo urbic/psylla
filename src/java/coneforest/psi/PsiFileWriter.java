@@ -7,7 +7,7 @@ public class PsiFileWriter extends PsiWriter
 	{
 		try
 		{
-			setWriter(new java.io.FileWriter(name));
+			setWriter(new java.io.FileWriter(java.io.File.separatorChar=='/'? name: name.replace('/', java.io.File.separatorChar)));
 		}
 		catch(java.io.IOException e)
 		{

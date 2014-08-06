@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry xml:id="rePsiSyn">
+
+<refmeta>
+<refentrytitle>psisyn</refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname>psisyn</refname>
+<refpurpose>Ψ language syntax</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title>Ψ token syntax grammar</title>
+
+
+<para>
+GGYGYG YG YG YG YG YG 
+
+<productionset>
+<title>Ψ token syntax grammar</title>
+
+<production>
+<lhs>DIGIT</lhs>
+<rhs>[ <literal>0</literal> - <literal>9</literal> ]</rhs>
+</production>
+
+<production>
+<lhs>HEXDIGIT</lhs>
+<rhs><nonterminal>DIGIT</nonterminal> | [ <literal>A</literal> - <literal>F</literal> ]</rhs>
+</production>
+
+<production>
+<lhs>LETTER</lhs>
+<rhs>[ <literal>A</literal> - <literal>Z</literal>, <literal>a</literal> - <literal>z</literal> ]</rhs>
+</production>
+
+<production>
+<lhs>SIGN</lhs>
+<rhs>[ <literal>+</literal>, <literal>-</literal> ]</rhs>
+</production>
+
+<production>
+<lhs>INTEGER</lhs>
+<rhs><nonterminal>SIGN</nonterminal>? <nonterminal>DIGIT</nonterminal>+</rhs>
+</production>
+
+<production>
+<lhs>HEXINTEGER</lhs>
+<rhs><nonterminal>SIGN</nonterminal>? <literal>0</literal> [ <literal>X</literal>, <literal>x</literal> ] <nonterminal>HEXDIGIT</nonterminal>+</rhs>
+</production>
+
+<production>
+<lhs>BININTEGER</lhs>
+<rhs><nonterminal>SIGN</nonterminal>? <literal>0</literal> [ <literal>B</literal>, <literal>b</literal> ] [ <literal>0</literal>, <literal>1</literal> ]+</rhs>
+</production>
+
+<production>
+<lhs>REAL</lhs>
+<rhs>
+<nonterminal>SIGN</nonterminal>?
+<nonterminal>DIGIT</nonterminal>+
+(
+	<nonterminal>DIGIT</nonterminal>+
+	(
+		<literal>.</literal>
+		<nonterminal>DIGIT</nonterminal>*
+		<nonterminal>EXPONENT</nonterminal>?
+		|
+		<nonterminal>EXPONENT</nonterminal>
+		|
+		<nonterminal>EXPONENT</nonterminal>?
+	)
+	|
+	<literal>.</literal>
+	<nonterminal>DIGIT</nonterminal>+
+	<nonterminal>EXPONENT</nonterminal>?
+)
+</rhs>
+</production>
+
+<production>
+<lhs>EXPONENT</lhs>
+<rhs>[ <literal>E</literal>, <literal>e</literal> ] <nonterminal>INTEGER</nonterminal></rhs>
+</production>
+
+<production>
+<lhs>COMMENT</lhs>
+<rhs><literal>#</literal> ( ~[ <literal>\n</literal> ] )* <literal>\n</literal></rhs>
+</production>
+
+<production>
+<lhs>STRING</lhs>
+<rhs><literal>\"</literal> ( <nonterminal>SPECIAL</nonterminal> | ~[ <literal>\"</literal>, <literal>\\</literal> ] )* <literal>\"</literal></rhs>
+</production>
+
+<production>
+<lhs>SPECIAL</lhs>
+<rhs><literal>\\</literal>
+( [ <literal>0</literal>, <literal>a</literal>, <literal>n</literal>, <literal>t</literal>, <literal>t</literal>, <literal>f</literal>, <literal>\"</literal>,
+<literal>\\</literal>, <literal>e</literal>, <literal>r</literal>, <literal>\n</literal> ]
+| "u" <nonterminal>HEXDIGIT</nonterminal> <nonterminal>HEXDIGIT</nonterminal> <nonterminal>HEXDIGIT</nonterminal> <nonterminal>HEXDIGIT</nonterminal>
+)</rhs>
+</production>
+
+<production>
+<lhs>NAME_LITERAL</lhs>
+<rhs><literal>/</literal> <nonterminal>NAME_EXECUTABLE</nonterminal></rhs>
+</production>
+
+<production>
+<lhs>NAME_IMMEDIATE</lhs>
+<rhs><literal>/</literal> <nonterminal>NAME_LITERAL</nonterminal></rhs>
+</production>
+
+<production>
+<lhs>OPEN_BRACE</lhs>
+<rhs><literal>{</literal></rhs>
+</production>
+
+<production>
+<lhs>CLOSE_BRACE</lhs>
+<rhs><literal>}</literal></rhs>
+</production>
+
+<production>
+<lhs>NAME_SPECIAL_CHAR</lhs>
+<rhs>[ <literal>_</literal>, <literal>.</literal>, <literal>+</literal>, <literal>-</literal>, <literal>=</literal>, <literal>$</literal>, <literal>@</literal> ]</rhs>
+</production>
+
+<production>
+<lhs>NAME_EXECUTABLE</lhs>
+<rhs>
+(
+	( <nonterminal>LETTER</nonterminal> | <nonterminal>NAME_SPECIAL_CHAR</nonterminal> )
+	(
+		<nonterminal>LETTER</nonterminal>
+		| <nonterminal>NAME_SPECIAL_CHAR</nonterminal>
+		| <nonterminal>DIGIT</nonterminal>
+	)*
+)
+|
+[
+	<literal>[</literal>, <literal>]</literal>,
+	<literal>(</literal>, <literal>)</literal>,
+	<literal>&lt;</literal>, <literal>&gt;</literal>,
+	<literal>=</literal>, <literal>?</literal>
+]
+</rhs>
+</production>
+
+<production>
+<lhs>TOKEN</lhs>
+<rhs>
+<nonterminal>INTEGER</nonterminal>
+| <nonterminal>HEXINTEGER</nonterminal>
+| <nonterminal>BININTEGER</nonterminal>
+| <nonterminal>REAL</nonterminal>
+| <nonterminal>COMMENT</nonterminal>
+| <nonterminal>STRING</nonterminal>
+| <nonterminal>NAME_LITERAL</nonterminal>
+| <nonterminal>NAME_EXECUTABLE</nonterminal>
+| <nonterminal>NAME_IMMEDIATE</nonterminal>
+| <nonterminal>OPEN_BRACE</nonterminal>
+| <nonterminal>CLOSE_BRACE</nonterminal>
+</rhs>
+</production>
+
+</productionset>
+
+</para>
+
+</refsect1>
+
+</refentry>
+

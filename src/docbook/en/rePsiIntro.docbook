@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry xml:id="rePsiIntro">
+
+<refmeta>
+<refentrytitle>psiintro</refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname>psiintro</refname>
+<refpurpose>A brief introduction and overview of Ψ</refpurpose>
+</refnamediv>
+
+<refsect1>
+<title>Description</title>
+
+<para>
+This section documents briefly the <application>psi</application> package, an
+interpreter of Ψ programming language written entirely in the Java language.
+</para>
+
+<para>
+Ψ is a general-purpose interpreted programming language originaly developed for
+educational purposes.
+</para>
+
+</refsect1>
+
+</refentry>

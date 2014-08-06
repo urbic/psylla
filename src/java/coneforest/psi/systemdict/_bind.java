@@ -14,33 +14,36 @@ public class _bind extends PsiOperator
 		}
 
 		PsiObject array=opstack.peek();
-
-		if(array instanceof PsiArray)
+		try
+		{
 			bind((PsiArray)array, interpreter.getDictionaryStack());
-		else
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(array);
 			interpreter.error("typecheck", this);
+		}
 	}
 
 	private static void bind(PsiArray array, DictionaryStack dictstack)
 	{
-		java.util.HashSet<PsiArray> bound=new java.util.HashSet<PsiArray>();
-		bindHelper(array, bound, dictstack);
+		bindHelper(array, new java.util.HashSet<PsiArray>(), dictstack);
 	}
 
 	private static void bindHelper(PsiArray array, java.util.HashSet<PsiArray> bound, DictionaryStack dictstack)
 	{
-		for(int i=0; i<((PsiArray)array).psiLength().getValue(); i++)
+		for(int i=0; i<array.psiLength().getValue(); i++)
 		{
 			try
 			{
-				PsiObject obj=((PsiArray)array).psiGet(i);
+				PsiObject obj=array.psiGet(i);
 				if(obj instanceof PsiArray && bound.add((PsiArray)obj))
 					bindHelper((PsiArray)obj, bound, dictstack);
 				else if(obj instanceof PsiName && ((PsiName)obj).isExecutable())
 				{
 					PsiObject value=dictstack.load((PsiName)obj);
 					if(value instanceof PsiOperator)
-						((PsiArray)array).psiPut(i, value);
+						array.psiPut(i, value);
 				}
 			}
 			catch(PsiException e)

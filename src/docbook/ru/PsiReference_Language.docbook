@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsiReference_Language">
+<title>Язык</title>
+
+<section xml:id="PsiReference_Language_Interpreter">
+<title>Интерпретатор</title>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax">
+<title>Синтаксис</title>
+
+<productionset>
+<title>Ψ token syntax grammar</title>
+
+<production>
+<lhs>TOKEN</lhs>
+<rhs>
+<nonterminal>INTEGER</nonterminal>
+| <nonterminal>INTEGER_HEXADECIMAL</nonterminal>
+| <nonterminal>INTEGER_BINARY</nonterminal>
+| <nonterminal>REAL</nonterminal>
+| <nonterminal>STRING</nonterminal>
+| <nonterminal>NAME_EXECUTABLE</nonterminal>
+| <nonterminal>NAME_LITERAL</nonterminal>
+| <nonterminal>NAME_IMMEDIATE</nonterminal>
+| <nonterminal>OPEN_BRACE</nonterminal>
+| <nonterminal>CLOSE_BRACE</nonterminal>
+| <nonterminal>COMMENT</nonterminal>
+</rhs>
+</production>
+
+<production>
+<lhs>INTEGER</lhs>
+<rhs><nonterminal>SIGN</nonterminal>? <nonterminal>DIGIT</nonterminal>+</rhs>
+</production>
+
+<production>
+<lhs>SIGN</lhs>
+<rhs>[<constant>"+"</constant>, <constant>"-"</constant>]</rhs>
+</production>
+
+<production>
+<lhs>DIGIT</lhs>
+<rhs>[<constant>"0"</constant> - <constant>"9"</constant>]</rhs>
+</production>
+
+<production>
+<lhs>INTEGER_HEXADECIMAL</lhs>
+<rhs>
+<nonterminal>SIGN</nonterminal>? <constant>"0"</constant> [<constant>"X"</constant>, <constant>"x"</constant>]
+<nonterminal>HEXDIGIT</nonterminal>+</rhs>
+</production>
+
+<production>
+<lhs>HEXDIGIT</lhs>
+<rhs>
+<nonterminal>DIGIT</nonterminal> | [<constant>"A"</constant> - <constant>"F"</constant>, <constant>"a"</constant> - <constant>"f"</constant>]</rhs>
+</production>
+
+<production>
+<lhs>INTEGER_BINARY</lhs>
+<rhs>
+<nonterminal>SIGN</nonterminal>?
+<constant>"0"</constant>
+[<constant>"B"</constant>, <constant>"b"</constant>]
+[<constant>"0"</constant>, <constant>"1"</constant>]+</rhs>
+</production>
+
+<production>
+<lhs>REAL</lhs>
+<rhs>
+<nonterminal>SIGN</nonterminal>?
+(<nonterminal>DIGIT</nonterminal>+
+(<constant>"."</constant> <nonterminal>DIGIT</nonterminal>*)?
+| <constant>"."</constant> <nonterminal>DIGIT</nonterminal>+)
+<nonterminal>EXPONENT</nonterminal>?
+</rhs>
+</production>
+
+<production>
+<lhs>STRING</lhs>
+<rhs>
+<constant>"\""</constant>
+(<nonterminal>STRING_SPECIAL</nonterminal>
+| ~[ <constant>"\""</constant>,
+<constant>"\\"</constant>])*
+<constant>"\""</constant>
+</rhs>
+</production>
+
+<production>
+<lhs>STRING_SPECIAL</lhs>
+<rhs>
+<constant>"\\"</constant>
+([<constant>"0"</constant>,
+<constant>"a"</constant>,
+<constant>"n"</constant>,
+<constant>"t"</constant>,
+<constant>"f"</constant>,
+<constant>"\""</constant>,
+<constant>"\\"</constant>,
+<constant>"e"</constant>,
+<constant>"r"</constant>,
+<constant>"\n"</constant>]
+<sbr/>
+| <constant>"u"</constant>
+<nonterminal>HEXDIGIT</nonterminal>{4})</rhs>
+</production>
+
+<production>
+<lhs>EXPONENT</lhs>
+<rhs>
+[<constant>"E"</constant>, <constant>"e"</constant>] <nonterminal>INTEGER</nonterminal>
+</rhs>
+</production>
+
+<production>
+<lhs>NAME_EXECUTABLE</lhs>
+<rhs>
+(<nonterminal>LETTER</nonterminal> | <nonterminal>NAME_SPECIAL_CHAR</nonterminal>)
+(<nonterminal>LETTER</nonterminal> | <nonterminal>NAME_SPECIAL_CHAR</nonterminal> | <nonterminal>DIGIT</nonterminal>)*<sbr/>
+| [<constant>"["</constant>,
+<constant>"]"</constant>,
+<constant>"("</constant>,
+<constant>")"</constant>,
+<constant>"&lt;"</constant>,
+<constant>"&gt;"</constant>,
+<constant>"="</constant>,
+<constant>"?"</constant>]
+</rhs>
+</production>
+
+<production>
+<lhs>LETTER</lhs>
+<rhs>
+[<constant>"A"</constant> - <constant>"Z"</constant>, <constant>"a"</constant> - <constant>"z"</constant>]
+</rhs>
+</production>
+
+<production>
+<lhs>NAME_SPECIAL_CHAR</lhs>
+<rhs>
+[<constant>"_"</constant>,
+<constant>"."</constant>,
+<constant>"+"</constant>,
+<constant>"-"</constant>,
+<constant>"="</constant>,
+<constant>"$"</constant>,
+<constant>"@"</constant>]
+</rhs>
+</production>
+
+<production>
+<lhs>NAME_LITERAL</lhs>
+<rhs>
+<constant>"/"</constant>
+<nonterminal>NAME_EXECUTABLE</nonterminal>
+</rhs>
+</production>
+
+<production>
+<lhs>NAME_IMMEDIATE</lhs>
+<rhs>
+<constant>"/"</constant>
+<nonterminal>NAME_LITERAL</nonterminal>
+</rhs>
+</production>
+
+<production>
+<lhs>COMMENT</lhs>
+<rhs>
+<constant>"#"</constant>
+(~[<constant>"\n"</constant>])*
+<constant>"\n"</constant>
+</rhs>
+</production>
+
+<production>
+<lhs>OPEN_BRACE</lhs>
+<rhs><constant>"{"</constant></rhs>
+</production>
+
+<production>
+<lhs>CLOSE_BRACE</lhs>
+<rhs><constant>"}"</constant></rhs>
+</production>
+
+</productionset>
+
+
+</section>
+
+<section xml:id="PsiReference_Language_CoreTypes">
+<title>Основные типы</title>
+
+<para>
+Все данные в языке Ψ существуют в форме
+<firstterm>объектов</firstterm><indexterm><primary>объект</primary></indexterm>.
+Объекты создаются, обрабатываются операторами Ψ. Некторорые типы объектов также
+создаются парсером и исполняются интерпретатором.
+</para>
+
+<para>
+У каждого объекта имеется
+<firstterm>тип</firstterm><indexterm><primary>тип</primary></indexterm>,
+несколько
+<firstterm>атрибутов</firstterm><indexterm><primary>атрибут</primary></indexterm>.
+Тип объекта влияет на то, как он будет обрабатываться операторами. Типы
+подразделяются на
+<firstterm>простые</firstterm><indexterm><primary>тип</primary><secondary>простой</secondary></indexterm>
+и
+<firstterm>сложные</firstterm><indexterm><primary>тип</primary><secondary>сложный</secondary></indexterm>.
+Разница между простыми и сложными объектами объясняется в разделе <xref
+linkend="PsiReference_Language_AtomicAndComposite"/>.
+Ниже приводится сводка простых и сложных типов, входящих в ядро языка.
+Расширения языка могут вводить новые типы объектов.
+</para>
+
+<informaltable frame="none" pgwide="1">
+<tgroup cols="2" colsep="0">
+<tbody valign="top">
+<row>
+<entry>
+<itemizedlist>
+<title>Простые типы</title>
+<listitem><type>boolean</type></listitem>
+<listitem><type>integer</type></listitem>
+<listitem><type>real</type></listitem>
+<listitem><type>complex</type></listitem>
+<listitem><type>name</type></listitem>
+<listitem><type>mark</type></listitem>
+<listitem><type>operator</type></listitem>
+<listitem><type>null</type></listitem>
+</itemizedlist>
+</entry>
+<entry>
+<itemizedlist>
+<title>Сложные типы</title>
+<listitem><type>array</type></listitem>
+<listitem><type>string</type></listitem>
+<listitem><type>set</type></listitem>
+<listitem><type>bitset</type></listitem>
+<listitem><type>bitvector</type></listitem>
+<listitem><type>input</type></listitem>
+<listitem><type>output</type></listitem>
+<listitem><type>reader</type></listitem>
+<listitem><type>writer</type></listitem>
+<listitem><type>random</type></listitem>
+</itemizedlist>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</section>
+
+<section xml:id="PsiReference_Language_AtomicAndComposite">
+<title>Простые и сложные объекты</title>
+
+<para>
+Объекты простых типов не могут быть изменены они лишь создаются в результате
+вычислений. Например, оператор <token language="psi">neg</token> не изменяет
+знак у самого числа, а создаёт новый числовой объект, отличающийся знаком от
+исходного числа.
+</para>
+
+<para>
+Объекты сложных типов могут изменять своё состояние. К примеру, оператор <token
+language="psi">put</token> заменяет элемент массива, имеющий заданный индекс.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Attributes">
+<title>Атрибуты объектов</title>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks">
+<title>Стеки</title>
+
+</section>
+
+</chapter>

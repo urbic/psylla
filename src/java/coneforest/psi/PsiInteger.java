@@ -220,12 +220,19 @@ public class PsiInteger
 	public PsiInteger psiMod(final PsiInteger integer)
 		throws PsiException
 	{
+		if(integer.value>0)
+			return new PsiInteger(value>=0? value%integer.value: integer.value-(-value)%integer.value);
+		if(integer.value<0)
+			return new PsiInteger(value>=0? value%(-integer.value)+(value!=0? integer.value:0): -((-value)%(-integer.value)));
+		throw new PsiException("undefinedresult");
+		/*
 		long integerValue=integer.getValue();
 		if(integerValue>0)
 			return new PsiInteger(value>=0? value%integerValue: integerValue-(-value)%integerValue);
 		if(integerValue<0)
 			return new PsiInteger(value>=0? value%(-integerValue)+(value!=0? integerValue:0): -((-value)%(-integerValue)));
 		throw new PsiException("undefinedresult");
+		*/
 	}
 
 	public PsiInteger psiIdiv(final PsiInteger integer)

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<highlighters>
+
+	<highlighter type="oneline-comment">
+		<style>sharpBang</style>
+		<start>#!</start>
+	</highlighter>
+
+	<highlighter type="oneline-comment">#</highlighter>
+
+	<highlighter type="string">
+		<string>"</string>
+		<string>"</string>
+	</highlighter>
+
+	<highlighter type="number">
+		<point>.</point>
+		<pointStarts/>
+	</highlighter>
+
+	<highlighter type="regex">
+		<pattern>/([A-Za-z]+)</pattern>
+		<style>string</style>
+	</highlighter>
+
+	<highlighter type="regex">
+		<style>keyword</style>
+		<pattern>([A-Za-z]+)</pattern>
+	</highlighter>
+
+</highlighters>

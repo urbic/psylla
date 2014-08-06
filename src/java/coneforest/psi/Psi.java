@@ -1,9 +1,27 @@
 package coneforest.psi;
 
+
 public class Psi
 {
 	public static void main(String args[])
 	{
+		try
+		{
+			coneforest.cli.OptionsProcessor cli
+				=new coneforest.cli.OptionsProcessor
+					(
+						new coneforest.cli.OptionFlag("help", "h", "?")
+					);
+		}
+		catch(coneforest.cli.ConfigurationException e)
+		{
+
+		}
+
+
+
+
+
 		Interpreter interpreter=new Interpreter();
 		interpreter.acceptShellArguments(args);
 		//System.out.println(System.getenv().getClass());
@@ -13,7 +31,7 @@ public class Psi
 			interpreter.setReader(new java.io.InputStreamReader(System.in));
 			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
 
-			interpreter.interpret(new java.io.FileReader(args[0]));
+			interpreter.eval(new java.io.FileReader(args[0]));
 			//interpreter.pushSourceReader(new java.io.FileReader(args[0]));
 			//interpreter.interpret();
 		}
