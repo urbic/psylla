@@ -13,6 +13,7 @@ $color-hl-attribute: #073;
 $color-hl-tag: #039;
 $color-hl-variable: #042;
 $color-hl-doctype: #505;
+$color-hl-annotation: fuchsia;
 
 .hl-string,
 .hl-number,
@@ -59,8 +60,7 @@ $color-hl-doctype: #505;
 	color: $color-hl-doctype;
 }
 
-table.productionset
+.hl-annotation
 {
-	font-family: monospace;
+	color: $color-hl-directive;
 }
-

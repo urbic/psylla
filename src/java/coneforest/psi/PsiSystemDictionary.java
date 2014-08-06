@@ -171,5 +171,6 @@ public class PsiSystemDictionary
 		psiPut("stdrandom", new PsiRandom());
 		psiPut("version", new PsiString(""+Version.getVersion()));
 		psiPut("product", new PsiString("Psi"));
+		psiPut("classpath", new PsiClassLoader());
 	}
 }

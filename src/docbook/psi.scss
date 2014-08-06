@@ -6,7 +6,7 @@ $background-color-body: lightskyblue;
 $font-family-body: "PT Sans", sans-serif;
 $color-title: darken($background-color-body, 60%);
 $background-color-html: $color-title;
-$color-link: darkgreen;
+$color-link: darken(darkgreen, 5%);
 $color-visited: darken($color-link, 10%);
 $color-filename: black;
 
@@ -149,6 +149,7 @@ hr
 .type
 {
 	font-family: monospace;
+	color: darkolivegreen;
 }
 
 .constant
@@ -170,3 +171,9 @@ hr
 {
 	font-family: monospace;
 }
+
+table.productionset
+{
+	font-family: monospace;
+}
+
