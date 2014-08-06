@@ -13,7 +13,21 @@ public class _tointeger extends PsiOperator
 			return;
 		}
 
-		PsiObject obj=opstack.pop();
+		PsiObject convertable=opstack.pop();
+		try
+		{
+			opstack.push(((PsiConvertableToInteger)convertable).psiToInteger());
+		}
+		catch(ClassCastException e)
+		{
+			opstack.push(convertable);
+			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(convertable);
+			interpreter.error(e.kind(), this);
+		}
 
 		/*
 		try
@@ -33,7 +47,8 @@ public class _tointeger extends PsiOperator
 			interpreter.error(e.kind(), this);
 		}
 		*/
-		
+
+		/*
 		if(obj instanceof PsiInteger)
 		{
 			opstack.push(obj);
@@ -59,6 +74,7 @@ public class _tointeger extends PsiOperator
 		}
 		else
 			interpreter.error("typecheck", this);
+		*/
 		
 	}
 }

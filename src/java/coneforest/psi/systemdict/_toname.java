@@ -1,7 +1,7 @@
 package coneforest.psi.systemdict;
 import coneforest.psi.*;
 
-public class _cvn extends PsiOperator
+public class _toname extends PsiOperator
 {
 	@Override
 	public void invoke(Interpreter interpreter)
@@ -13,13 +13,14 @@ public class _cvn extends PsiOperator
 			return;
 		}
 
-		PsiObject stringlike=opstack.pop();
+		PsiObject convertable=opstack.pop();
 		try
 		{
-			opstack.push(new PsiName((PsiStringlike)stringlike));
+			opstack.push(((PsiConvertableToName)convertable).psiToName());
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(convertable);
 			interpreter.error("typecheck", this);
 		}
 	}
