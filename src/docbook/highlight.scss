@@ -5,8 +5,8 @@
 
 @namespace url("http://www.w3.org/1999/xhtml");
 
-$color-hl-constant: #500;
-$color-hl-keyword: #013;
+$color-hl-constant: #A00;
+$color-hl-keyword: #260;
 $color-hl-comment: #999;
 $color-hl-directive: #777;
 $color-hl-attribute: #073;
@@ -58,3 +58,9 @@ $color-hl-doctype: #505;
 {
 	color: $color-hl-doctype;
 }
+
+table.productionset
+{
+	font-family: monospace;
+}
+

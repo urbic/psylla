@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
-<!ENTITY % ent.files	SYSTEM "namespaces.ent">
-%ent.files;
+<!ENTITY % entities		SYSTEM "../namespaces.ent">
+<!ENTITY % version		SYSTEM "../../../target/version.ent">
+%entities;
+%version;
+<!ENTITY rePsi			SYSTEM "rePsi.docbook">
+<!ENTITY rePsiIntro		SYSTEM "rePsiIntro.docbook">
+<!ENTITY rePsiRun		SYSTEM "rePsiRun.docbook">
+<!ENTITY rePsiSyn		SYSTEM "rePsiSyn.docbook">
+<!ENTITY rePsiOp		SYSTEM "rePsiOp.docbook">
 ]>
 <reference
-	xml:id="psiop"
+	xml:id="refPsiManpages"
 	version="5.0"
 	xmlns="&nsDocBook;"
 	xmlns:m="&nsMathML;"
@@ -14,70 +21,26 @@
 	>
 <info>
 <title>Ψ Language — full reference</title>
-<productname>psi</productname>
+<productname>psi</productname> <productnumber>v&psiVersion;</productnumber>
 
 <author>
+<person>
 <personname>
 <firstname>Anton</firstname>
 <surname>Shvetz</surname>
 </personname>
+</person>
+<email>tz@sectorb.msk.ru</email>
+<contrib>Author.</contrib>
 </author>
 
 </info>
 
-<refentry>
-
-<refmeta>
-<refentrytitle>psiop</refentrytitle>
-<manvolnum>7</manvolnum>
-</refmeta>
-
-<refnamediv>
-<refname>psiop</refname>
-<refpurpose>Ψ language operators</refpurpose>
-</refnamediv>
-
-<refsect1>
-<title>Operators</title>
-
-<variablelist>
-
-<varlistentry xml:id="mark">
-<term><token>[</token></term>
-<listitem>
-<synopsis>
-— ⇒ <replaceable>mark</replaceable>
-</synopsis>
-<para>
-Pushes a mark object on the operand stack.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry xml:id="abs">
-<term><token>abs</token></term>
-<listitem>
-<synopsis>
-<replaceable>num<subscript>1</subscript></replaceable> ⇒ <replaceable>num<subscript>2</subscript></replaceable>
-</synopsis>
-<para>
-Returns an absolute value of
-<replaceable>num<subscript>1</subscript></replaceable>. The type of the result
-value is the same as the type of
-<replaceable>num<subscript>1</subscript></replaceable> unless
-<replaceable>num<subscript>1</subscript></replaceable> is the smallest (most
-negative) integer, in which case the result is a real number.
-</para>
-</listitem>
-</varlistentry>
-
-
-</variablelist>
-
-</refsect1>
-
-</refentry>
-
+&rePsi;
+&rePsiIntro;
+&rePsiRun;
+&rePsiSyn;
+&rePsiOp;
 </reference>
 <!--
 vim:indentexpr=
