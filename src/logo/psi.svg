@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+	id="svgPsiLogo"
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 512 512"
+	width="512"
+	height="512"
+	>
+	<rect
+		x="0"
+		y="0"
+		width="512"
+		height="512"
+		fill="#03304C"
+		stroke-width="16"
+		/>
+	<rect
+		x="16"
+		y="16"
+		width="480"
+		height="480"
+		fill="lightskyblue"
+		/>
+		
+	<!-- y="435.2" -->
+	<text
+		x="256"
+		y="445"
+		text-anchor="middle"
+		font-size="512"
+		font-family="PF Beau Sans Pro"
+		font-weight="light"
+		fill="#03304C"
+		>Ψ</text>
+</svg>
