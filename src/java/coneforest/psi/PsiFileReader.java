@@ -8,7 +8,7 @@ public class PsiFileReader
 	{
 		try
 		{
-			setReader(new java.io.FileReader(name));
+			setReader(new java.io.FileReader(java.io.File.separatorChar=='/'? name: name.replace('/', java.io.File.separatorChar)));
 		}
 		catch(java.io.FileNotFoundException e)
 		{

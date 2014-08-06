@@ -10,12 +10,57 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 		return "set";
 	}
 
+	
+	@Override
+	public String toString()
+	{
+		return toString(this);
+	}
+
+	public String toString(PsiComposite composite)
+	{
+		StringBuilder sb=new StringBuilder("(");
+		if(length()>0)
+		{
+			for(PsiObject obj: this)
+			{
+				if(obj instanceof PsiComposite)
+					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiComposite)obj).toString(this));
+				else
+					sb.append(obj.toString());
+				sb.append(' ');
+			}
+			sb.deleteCharAt(sb.length()-1);
+		}
+		sb.append(')');
+		return sb.toString();
+	}
+
+	/*
 	@Override
 	public String toString()
 	{
 		// TODO
-		return "-set-";
+		//return "-set-";
+		java.util.HashSet<PsiComposite> processed=new java.util.HashSet<PsiComposite>();
+		processed.add(this);
+		StringBuilder sb=new StringBuilder("(");
+		if(length()>0)
+		{
+			for(PsiObject obj: this)
+			{
+				if(obj instanceof PsiComposite)
+					toStringHelper((PsiComposite)obj, sb, processed);
+				else
+					sb.append(obj.toString());
+				sb.append(' ');
+			}
+			sb.deleteCharAt(sb.length()-1);
+		}
+		sb.append(')');
+		return sb.toString();
 	}
+	*/
 
 	@Override
 	public void psiAppendAll(PsiIterable<? extends T> iterable)

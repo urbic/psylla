@@ -3,7 +3,7 @@ package coneforest.psi;
 public class PsiModule
 	extends PsiDictionary
 {
-	protected void registerOperatorClasses(Class<? extends PsiOperator>[] operatorClasses)
+	protected void registerOperatorClasses(Class<? extends PsiOperator>... operatorClasses)
 	{
 		try
 		{

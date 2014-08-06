@@ -9,6 +9,22 @@ public class PsiBitSet
 		return "bitset";
 	}
 
+	@Override
+	public String toString()
+	{
+		StringBuilder sb=new StringBuilder("-bitset:");
+		int j=-1;
+		for(int i=bitset.nextSetBit(0); i>=0; i=bitset.nextSetBit(i+1))
+		{
+			for(int k=j+1; k<i; k++)
+				sb.append('0');
+			sb.append('1');
+			j=i;
+		}
+		sb.append('-');
+		return sb.toString();
+	}
+
 	public java.util.BitSet getBitSet()
 	{
 		return bitset;
@@ -101,20 +117,6 @@ public class PsiBitSet
 		return bitset.cardinality();
 	}
 
-	/*
-	@Override
-	public PsiInteger psiLength()
-	{
-		return new PsiInteger(bitset.cardinality());
-	}
-
-	@Override
-	public PsiBoolean psiIsEmpty()
-	{
-		return new PsiBoolean(bitset.isEmpty());
-	}
-	*/
-
 	@Override
 	public PsiBoolean psiContains(PsiInteger integer)
 	{
@@ -125,7 +127,7 @@ public class PsiBitSet
 	public PsiBoolean psiIntersects(PsiSetlike setlike)
 	{
 		if(setlike instanceof PsiBitSet)
-			return new PsiBoolean(bitset.intersects(((PsiBitSet)setlike).getBitSet()));
+			return new PsiBoolean(bitset.intersects(((PsiBitSet)setlike).bitset));
 		else
 			return super.psiIntersects(setlike);
 	}
@@ -134,7 +136,7 @@ public class PsiBitSet
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiBitSet
-				&& bitset.equals(((PsiBitSet)obj).getBitSet()));
+				&& bitset.equals(((PsiBitSet)obj).bitset));
 	}
 
 	private java.util.BitSet bitset=new java.util.BitSet();

@@ -4,7 +4,11 @@ abstract public class PsiNumeric
 	//extends PsiObject
 	extends PsiComplexNumeric
 	//implements PsiAtomic, PsiArithmetic<PsiNumeric>, PsiScalar<PsiNumeric>
-	implements PsiAtomic, PsiScalar<PsiNumeric>
+	implements
+		PsiConvertableToInteger,
+		PsiConvertableToReal,
+		PsiAtomic,
+		PsiScalar<PsiNumeric>
 {
 	abstract Number getValue();
 
@@ -13,6 +17,26 @@ abstract public class PsiNumeric
 	abstract long longValue();
 
 	abstract double doubleValue();
+
+	@Override
+	public PsiInteger psiToInteger()
+		throws PsiException
+	{
+		if(getValue().doubleValue()>=Long.MIN_VALUE
+				&& getValue().doubleValue()<=Long.MAX_VALUE)
+		{
+			return new PsiInteger(getValue().longValue());
+		}
+		else
+			throw new PsiException("rangecheck");
+	}
+
+	@Override
+	public PsiReal psiToReal()
+		throws PsiException
+	{
+		return new PsiReal(getValue().doubleValue());
+	}
 
 	@Override
 	public PsiReal psiArg()

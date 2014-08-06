@@ -6,6 +6,44 @@ abstract public class PsiAbstractStringlike
 		PsiStringlike
 {
 	@Override
+	public PsiName psiToName()
+	{
+		return new PsiName(getString());
+	}
+
+	@Override
+	public PsiInteger psiToInteger()
+		throws PsiException
+	{
+		try
+		{
+			// TODO fractional
+			return new PsiInteger(Long.parseLong(getString()));
+		}
+		catch(NumberFormatException e)
+		{
+			// TODO maybe "syntaxerror"?
+			throw new PsiException("typecheck");
+		}
+	}
+
+	@Override
+	public PsiReal psiToReal()
+		throws PsiException
+	{
+		try
+		{
+			// TODO fractional
+			return new PsiReal(Double.parseDouble(getString()));
+		}
+		catch(NumberFormatException e)
+		{
+			// TODO maybe "syntaxerror"?
+			throw new PsiException("typecheck");
+		}
+	}
+
+	@Override
 	public int length()
 	{
 		return getString().length();
@@ -52,6 +90,12 @@ abstract public class PsiAbstractStringlike
 	public PsiBoolean psiGe(final PsiStringlike string)
 	{
 		return new PsiBoolean(getString().compareTo(string.getString())>=0);
+	}
+	
+	@Override
+	public String toString(PsiComposite composite)
+	{
+		return toString();
 	}
 
 	@Override

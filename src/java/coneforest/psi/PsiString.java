@@ -202,50 +202,5 @@ public class PsiString
 	{
 		return buffer.length();
 	}
-
-	@Override
-	public String toString()
-	{
-		StringBuilder sb=new StringBuilder();
-		String value=getString();
-		for(int i=0; i<value.length(); i++)
-		{
-			char c=value.charAt(i);
-			switch(c)
-			{
-				case '\u0000':
-					sb.append("\\0");
-					break;
-				case '\u0007':
-					sb.append("\\a");
-					break;
-				case '\n':
-					sb.append("\\n");
-					break;
-				case '\r':
-					sb.append("\\r");
-					break;
-				case '\t':
-					sb.append("\\t");
-					break;
-				case '\f':
-					sb.append("\\f");
-					break;
-				case '\u001B':
-					sb.append("\\e");
-					break;
-				case '\"':
-					sb.append("\\\"");
-					break;
-				case '\\':
-					sb.append("\\\\");
-					break;
-				default:
-					sb.append(c);
-			}
-		}
-		return "\""+sb.toString()+"\"";
-	}
-
 	private StringBuilder buffer;
 }
