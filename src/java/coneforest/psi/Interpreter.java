@@ -12,7 +12,7 @@ public class Interpreter
 		// Load systemdict, globaldict, userdict
 		try
 		{
-			dictstack.push((PsiModule)loadPsiObject(PsiSystemDictionary.class));
+			dictstack.push((PsiModule)external(PsiSystemDictionary.class));
 		}
 		catch(PsiException e)
 		{
@@ -381,7 +381,7 @@ public class Interpreter
 		System.exit(1);
 	}
 
-	public PsiObject loadPsiObject(Class<? extends PsiObject> objectClass)
+	public PsiObject external(Class<? extends PsiObject> objectClass)
 		throws PsiException
 	{
 		try
@@ -398,12 +398,12 @@ public class Interpreter
 		}
 	}
 
-	public PsiObject loadPsiObject(String objectClassName)
+	public PsiObject external(String objectClassName)
 		throws PsiException
 	{
 		try
 		{
-			return loadPsiObject((Class<? extends PsiObject>)Class.forName(objectClassName));
+			return external((Class<? extends PsiObject>)Class.forName(objectClassName));
 		}
 		catch(ClassNotFoundException e)
 		{
