@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-public class PsiReal extends PsiNumeric
+public class PsiReal
+	extends PsiNumeric
 {
 	public PsiReal(final double value)
 	{

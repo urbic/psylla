@@ -1,6 +1,7 @@
 package coneforest.psi;
 
 abstract public class PsiObject
+	implements PsiConvertableToString
 {
 	abstract public String getTypeName();
 
@@ -79,7 +80,7 @@ abstract public class PsiObject
 	{
 		return "-"+getTypeName()+"-";
 	}
-
+	
 	private static final byte
 		ACCESS_NOACCESS=0,
 		ACCESS_EXECUTE=1,

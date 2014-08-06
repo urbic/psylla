@@ -173,6 +173,8 @@ public class PsiArray
 		array.clear();
 	}
 
+	/*
+	@Override
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();
@@ -186,6 +188,7 @@ public class PsiArray
 		sb.append(isExecutable()? "}": "]");
 		return sb.toString();
 	}
+	*/
 
 	private java.util.ArrayList<PsiObject> array=new java.util.ArrayList<PsiObject>();
 }

@@ -3,7 +3,10 @@ package coneforest.psi;
 public interface PsiStringlike
 	extends
 		PsiComposite<PsiInteger>,
-		PsiScalar<PsiStringlike>
+		PsiScalar<PsiStringlike>,
+		PsiConvertableToName,
+		PsiConvertableToInteger,
+		PsiConvertableToReal
 {
 	public String getString();
 }
