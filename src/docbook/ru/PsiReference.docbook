@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
-<!ENTITY % ent.files	SYSTEM "namespaces.ent">
+<!ENTITY % ent.files	SYSTEM "../namespaces.ent">
+<!ENTITY PsiReference_Language		SYSTEM "PsiReference_Language.docbook">
+<!ENTITY PsiReference_Development	SYSTEM "PsiReference_Development.docbook">
 %ent.files;
 ]>
 <book
-	xml:id="PSIReference"
+	xml:id="PsiReference"
 	version="5.0"
 	xmlns="&nsDocBook;"
 	xmlns:m="&nsMathML;"
@@ -16,119 +18,34 @@
 
 <title>Язык Ψ — полное руководство</title>
 
-<chapter xml:id="PSIReference@Introduction">
+<chapter xml:id="PsiReference_Introduction">
 <title>Введение</title>
 
 <para>
-Ψ — это интерпретируемый алгоритмический язык, представляющий собой упрощённую
-версию языка PostScript®. В число операторов и типов языка не включены имеющие
-отношение к графике.
+Ψ — это интерпретируемый скриптовый алгоритмический язык, синтаксис которого
+основан на PostScript®.
 </para>
 
 <para>
-Интерпретатор Ψ запрограммирован на Java. Имеется возможность расширения языка
-как новыми операторами, так и новыми типами.
+Интерпретатор Ψ запрограммирован на Java. Предусмотрена возможность расширения
+языка как новыми операторами, так и новыми типами, а также встраивания
+интерпретатора в приложения Java.
 </para>
 
 </chapter>
 
-<chapter xml:id="PSIReference@OperatorDetails">
-<title>Операторы</title>
+<chapter xml:id="PsiReference_Interpreter">
+<title>Интерпретатор</title>
 
-<refentry>
-<refmeta>
-<refentrytitle>psiop</refentrytitle>
-<manvolnum>7</manvolnum>
-</refmeta>
+<section xml:id="PsiReference_Interpreter_CLI">
+<title>Интерфейс командной строки</title>
 
-<variablelist>
-
-<varlistentry xml:id="">
-<term><token>[</token></term>
-<listitem>
-<synopsis>
-— <emphasis><token>[</token></emphasis> <replaceable>mark</replaceable>
-</synopsis>
-<para>
-Добавляет метку в стек операндов.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry xml:id="">
-<term><token>]</token></term>
-<listitem>
-<synopsis>
-<replaceable>mark</replaceable>
-<replaceable>obj<math xmlns="&nsMathML;">
-	<msub>
-		<mrow/>
-		<mn>0</mn>
-	</msub>
-</math></replaceable>
-…
-<replaceable>obj<math xmlns="&nsMathML;">
-	<msub>
-		<mrow/>
-		<mrow>
-			<mi>n</mi>
-			<mo>−</mo>
-			<mn>1</mn>
-		</mrow>
-	</msub>
-</math></replaceable>
-<emphasis><token>]</token></emphasis>
-<replaceable>array</replaceable>
-</synopsis>
-<para>
-Создаёт массив из <math xmlns="&nsMathML;"><mi>n</mi></math> элементов, где
-<math xmlns="&nsMathML;"><mi>n</mi></math> — кодичество элементов стека
-операндов над самой верхней меткой, размещает эти элементы в массиве, и
-возвращает массив на стек операндов. Оператор удаляет размещённые в массиве
-элементы и метку со стека.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry xml:id="">
-<term><token>abs</token></term>
-<listitem>
-<synopsis>
-<replaceable>num<math xmlns="&nsMathML;">
-	<msub>
-		<mrow/>
-		<mn>1</mn>
-	</msub>
-</math></replaceable>
-<emphasis><token>abs</token></emphasis>
-<replaceable>num<math xmlns="&nsMathML;">
-	<msub>
-		<mrow/>
-		<mn>2</mn>
-	</msub>
-</math></replaceable>
-</synopsis>
-<para>
-Возвращает абсолютную величину
-
-<replaceable>num<math xmlns="&nsMathML;">
-	<msub>
-		<mrow/>
-		<mn>1</mn>
-	</msub>
-</math></replaceable>.
-
-
-</para>
-</listitem>
-</varlistentry>
-
-</variablelist>
-
-</refentry>
+</section>
 
 </chapter>
 
+&PsiReference_Language;
+&PsiReference_Development;
 
 </book>
 <!--
