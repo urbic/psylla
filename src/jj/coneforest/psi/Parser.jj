@@ -11,7 +11,7 @@ PARSER_END(Parser)
 
 SKIP:
 {
-	" " | "\n" | "\t" | "\f"
+	" " | "\n" | "\r" | "\t" | "\f" | "\u00A0"
 }
 
 TOKEN:
@@ -21,7 +21,7 @@ TOKEN:
 
 TOKEN:
 {
-	<#TOKEN_HEXDIGIT: <TOKEN_DIGIT> | ["A"-"F"]>
+	<#TOKEN_HEXDIGIT: <TOKEN_DIGIT> | ["A"-"F", "a"-"f"]>
 }
 
 TOKEN:
@@ -36,28 +36,17 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_INTEGER:
-		(<TOKEN_SIGN>)?
-		(<TOKEN_DIGIT>)+
-	>
+	<TOKEN_INTEGER: (<TOKEN_SIGN>)? (<TOKEN_DIGIT>)+>
 }
 
 TOKEN:
 {
-	<TOKEN_HEXINTEGER:
-		(<TOKEN_SIGN>)?
-		"0x"
-		(<TOKEN_HEXDIGIT>)+
-	>
+	<TOKEN_INTEGER_HEXADECIMAL: (<TOKEN_SIGN>)? "0" ["X", "x"] (<TOKEN_HEXDIGIT>)+>
 }
 
 TOKEN:
 {
-	<TOKEN_BININTEGER:
-		(<TOKEN_SIGN>)?
-		"0b"
-		(["0", "1"])+
-	>
+	<TOKEN_INTEGER_BINARY: (<TOKEN_SIGN>)? "0" ["B", "b"] (["0", "1"])+>
 }
 
 TOKEN:
@@ -65,48 +54,36 @@ TOKEN:
 	<TOKEN_REAL:
 		(<TOKEN_SIGN>)?
 		(
-			(<TOKEN_DIGIT>)+
-			(
-				"." (<TOKEN_DIGIT>)* (<TOKEN_EXPONENT>)?
-				|
-				<TOKEN_EXPONENT>
-				|
-				(<TOKEN_EXPONENT>)?
-			)
+			(<TOKEN_DIGIT>)+ ("." (<TOKEN_DIGIT>)*)?
 			|
-			"." (<TOKEN_DIGIT>)+ (<TOKEN_EXPONENT>)?
+			"." (<TOKEN_DIGIT>)+
 		)
+		(<TOKEN_EXPONENT>)?
 	>
 }
 
 TOKEN:
 {
-	<#TOKEN_EXPONENT: ["e", "E"] (<TOKEN_SIGN>)? (<TOKEN_DIGIT>)+>
+	<#TOKEN_EXPONENT: ["E", "e"] <TOKEN_INTEGER>>
 }
 
 TOKEN:
 {
-	<TOKEN_COMMENT:
-		"#"
-		(~["\n"])*
-		"\n"
-	>
+	<TOKEN_COMMENT: "#" (~["\n"])* "\n">
 }
 
 TOKEN:
 {
-	<TOKEN_STRING: "\"" (<TOKEN_SPECIAL> | ~["\"", "\\"])* "\"">
+	<TOKEN_STRING: "\"" (<TOKEN_STRING_SPECIAL> | ~["\"", "\\"])* "\"">
 }
 
 TOKEN:
 {
-	<#TOKEN_SPECIAL:
+	<#TOKEN_STRING_SPECIAL:
 		"\\"
 		(
 			["0", "a", "n", "t", "f", "\"", "\\", "e", "r", "\n"]
-
 			|
-
 			"u" <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT>
 		)
 	>
@@ -134,24 +111,15 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_HEXSTRING: "<" (<TOKEN_HEXDIGIT>)* ">">
-}
-
-TOKEN:
-{
 	<#TOKEN_NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$", "@"]>
 }
 
 TOKEN:
 {
 	<TOKEN_NAME_EXECUTABLE:
-		(
-			(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR>)
-			(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR> | <TOKEN_DIGIT>)*
-		)
-
+		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR>)
+		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR> | <TOKEN_DIGIT>)*
 		|
-
-		["[", "]", "(", ")", "<", ">"] | "=="
+		["[", "]", "(", ")", "<", ">", "=", "?"]
 	>
 }
