@@ -6,129 +6,29 @@
 	<property name="src.java" location="${src}/java"/>
 	<property name="src.jj" location="${src}/jj"/>
 	<property name="src.docbook" location="${src}/docbook"/>
+	<property name="src.ant" location="${src}/ant"/>
 	<property name="target" location="target"/>
 	<property name="target.src.java" location="${target}/src/java"/>
 	<property name="target.javadoc"  location="${target}/javadoc"/>
 	<property name="target.doc" location="${target}/doc"/>
 	<property name="classes" location="${target}/classes"/>
 	<property name="target.lib"  location="${target}/lib"/>
+	<property name="target.man"  location="${target}/man"/>
+	<property name="target.doc.html" location="${target.doc}/html"/>
 	<property name="test.file"  location="test.psi"/>
+	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<path id="project.class.path">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="../xopt/target/lib/xopt.jar"/>
 	</path>
-
-
-	<presetdef name="xslt.preset">
-		<xslt
-			style="${src.docbook}/xhtml.xsl"
-			basedir="${src.docbook}"
-			filedirparameter="${src.docbook}"
-			force="true"
-			>
-			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
-			<xmlcatalog>
-				<catalogpath>
-					<pathelement location="${src.docbook}/xmlcatalog"/>
-				</catalogpath>
-			</xmlcatalog>
-			<classpath>
-				<pathelement location="/usr/share/java/saxon6.jar"/>
-				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
-				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
-				<pathelement location="/usr/share/java/xslthl.jar"/>
-			</classpath>
-			<param name="highlight.source" expression="1"/>
-			<param name="profile.status" expression="${xslt.profile.status}"/>
-			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
-			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
-			<param name="html.stylesheet" expression="${project.name}.css"/>
-			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
-			<param name="generate.manifest" expression="0"/>
-			<param name="bibliography.numbered" expression="1"/>
-			<!--param name="icon.path" expression="img/icons/16x16/${project.name}.png"/-->
-			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
-			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
-			<param name="l10n.gentext.default.language" expression="'ru'"/>
-			<param name="bibliography.style" expression="'iso960'"/>
-			<param name="draft.mode" expression="'maybe'"/>
-			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
-			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
-			<param name="navig.graphics.path" expression="navigation/"/>
-			<param name="navig.graphics.extension" expression=".svg"/>
-		</xslt>
-	</presetdef>
-
-	<presetdef name="xslt.manpages.preset">
-		<xslt
-			style="${src.docbook}/manpages.xsl"
-			basedir="${src.docbook}"
-			filedirparameter="${src.docbook}"
-			force="true"
-			>
-			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
-			<xmlcatalog>
-				<catalogpath>
-					<pathelement location="${src.docbook}/xmlcatalog"/>
-				</catalogpath>
-			</xmlcatalog>
-			<classpath>
-				<pathelement location="/usr/share/java/saxon6.jar"/>
-				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
-				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
-				<pathelement location="/usr/share/java/xslthl.jar"/>
-			</classpath>
-			<param name="highlight.source" expression="1"/>
-			<param name="profile.status" expression="${xslt.profile.status}"/>
-			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
-			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
-			<param name="html.stylesheet" expression="${project.name}.css"/>
-			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
-			<param name="generate.manifest" expression="0"/>
-			<param name="bibliography.numbered" expression="1"/>
-			<!--param name="icon.path" expression="img/icons/16x16/${project.name}.png"/-->
-			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
-			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
-			<param name="l10n.gentext.default.language" expression="'ru'"/>
-			<param name="bibliography.style" expression="'iso960'"/>
-			<param name="draft.mode" expression="'maybe'"/>
-			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
-			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
-			<param name="navig.graphics.path" expression="navigation/"/>
-			<param name="navig.graphics.extension" expression=".svg"/>
-		</xslt>
-	</presetdef>
-
-	<macrodef name="xslt.lang">
-		<attribute name="base.name"/>
-		<attribute name="lang"/>
-		<sequential>
-			<xslt.preset
-				includes="@{base.name}_@{lang}.docbook"
-				destdir="${target.doc}"
-				>
-				<param name="root.filename" expression="@{base.name}_@{lang}"/>
-				<param name="html.ext" expression=".xhtml"/>
-				<param name="base.dir" expression="${target.doc}"/>
-			</xslt.preset>
-		</sequential>
-	</macrodef>	
-
-	<macrodef name="xslt.manpages.lang">
-		<attribute name="base.name"/>
-		<attribute name="lang"/>
-		<sequential>
-			<xslt.manpages.preset
-				includes="@{base.name}_@{lang}.docbook"
-				destdir="${target.doc}"
-				>
-				<param name="root.filename" expression="@{base.name}_@{lang}"/>
-				<param name="html.ext" expression=".xhtml"/>
-				<param name="base.dir" expression="${target.doc}"/>
-			</xslt.manpages.preset>
-		</sequential>
-	</macrodef>	
-
+	<property file="${src.java}/coneforest/psi/version.properties" prefix="psi"/>
+	<property
+		name="project.version"
+		value="${psi.version.major}.${psi.version.minor}.${psi.version.revision}"
+		/>
+	
+	<import file="${src.ant}/htmldocs.ant"/>
+	<import file="${src.ant}/manpages.ant"/>
 
 	<target name="compile.jj">
 		<mkdir dir="${target.src.java}/coneforest/psi"/>
@@ -152,7 +52,7 @@
 			/>
 			<!--sourcepath="${src.java}:${target.src.java}"-->
 		<copy todir="${classes}">
-			<fileset dir="${src.java}" includes="**/*.xopt"/>
+			<fileset dir="${src.java}" includes="**/*.properties"/>
 		</copy>
 	</target>
 
@@ -167,12 +67,21 @@
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar jarfile="${target.lib}/${ant.project.name}.jar" basedir="${classes}">
+		<jar jarfile="${target.lib}/${project.name}-${project.version}.jar" basedir="${classes}">
 			<manifest>
 				<attribute name="Main-Class" value="coneforest.psi.Psi"/>
 				<!--attribute name="Class-Path" value="/usr/share/java/regexp.jar"/-->
 			</manifest>
+			<service
+				type="javax.script.ScriptEngineFactory"
+				provider="coneforest.psi.engine.PsiScriptEngineFactory"
+				/>
 		</jar>
+		<symlink
+			resource="${project.name}-${project.version}.jar"
+			link="${target.lib}/${project.name}.jar"
+			overwrite="true"
+			/>
 	</target>
 
 	<target name="clean" description="Clean build directory">
@@ -189,32 +98,29 @@
 		</java>
 	</target>
 
-	<target name="doc" description="Make documentation" depends="css">
-		<mkdir dir="${target.doc}"/>
+	<target name="htmldocs" description="Make documentation" depends="css">
+		<mkdir dir="${target.doc.html}"/>
 		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
 		<!--xslt.lang lang="en"/-->
-		<xslt.lang lang="ru" base.name="PSIReference"/>
-		<copy todir="${target.doc}">
+		<xslt.html.lang lang="ru" base.name="PsiReference"/>
+		<copy todir="${target.doc.html}">
 			<fileset dir="${src.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
 			<fileset dir="${src.docbook}" includes="examples/**" excludes="**/.htaccess"/>
 			<fileset dir="${src.docbook}" includes="files/**" excludes="**/.htaccess"/>
 			<fileset dir="${src.docbook}" includes="navigation/**"/>
 			<fileset dir="${src.docbook}" includes="js/**"/>
 		</copy>
-		<!--copy todir="${build.doc}">
-			<fileset dir="${sources.dir}" includes="MathJax4SVG.js"/>
-		</copy-->
-		<!--symlink resource="../MathJax4SVG.js" link="${site.build.dir}/examples/MathJax4SVG.js" overwrite="true"/-->
+		<copy todir="${target.doc.html}" file="${src}/logo/psi-16.png"/>
 		<symlink action="delete" link="examples"/>
 	</target>
 	
 	<target name="css" description="Make CSS">
-		<mkdir dir="${target.doc}"/>
+		<mkdir dir="${target.doc.html}"/>
 		<dependset>
 			<srcfilelist dir="${src.docbook}" files="*.scss"/>
-			<targetfileset dir="${target.doc}" includes="${project.name}.css"/>
+			<targetfileset dir="${target.doc.html}" includes="${project.name}.css"/>
 		</dependset>
-		<apply executable="sass" dest="${target.doc}" parallel="false">
+		<apply executable="sass" dest="${target.doc.html}" parallel="false">
 			<arg value="--style"/>
 			<arg value="compact"/>
 			<!--arg value="-+-load-path"/>
@@ -227,12 +133,29 @@
 	</target>
 
 	<target name="manpages" description="Make manual pages">
+		<copy tofile="${target}/version.ent">
+            <string><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY psiVersion "${project.version}">
+]]></string>
+        </copy>
 		<mkdir dir="${target.doc}"/>
 		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
 		<!--xslt.lang lang="en"/-->
-		<xslt.manpages.lang lang="ru" base.name="psiop"/>
+		<xslt.manpages.lang lang="en" base.name="PsiManpages"/>
 		<symlink action="delete" link="examples"/>
 	</target>
-	
+
+	<target name="dist.zip" description="Make zip distribution">
+		<symlink resource="." link="${project.name}-${project.version}" overwrite="true"/>
+		<zip
+			destfile="${target}/${project.name}-${project.version}.zip"
+			>
+			<fileset
+				dir="${project.name}-${project.version}"
+				includes="src/** build.xml LICENSE.txt"
+				/>
+		</zip>
+		<symlink action="delete" link="${project.name}-${project.version}"/>
+	</target>
 
 </project>
