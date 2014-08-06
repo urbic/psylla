@@ -37,7 +37,7 @@
 			<param name="draft.mode" expression="'maybe'"/>
 			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
 			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
-			<param name="navig.graphics.path" expression="navigation/"/>
+			<param name="navig.graphics.path" expression="../navigation/"/>
 			<param name="navig.graphics.extension" expression=".svg"/>
 			<param name="html.ext" expression=".xhtml"/>
 			<param name="chunk.sections" expression="0"/>

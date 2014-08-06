@@ -10,20 +10,36 @@ public class Interpreter
 		procstack=new ProcedureStack();
 
 		// Load systemdict, globaldict, userdict
-		try
-		{
-			dictstack.push((PsiModule)external(PsiSystemDictionary.class));
-		}
-		catch(PsiException e)
-		{
+		//try
+		//{
+			//dictstack.push((PsiModule)external(PsiSystemDictionary.class));
+			dictstack.push(new PsiSystemDictionary());
+		//}
+		//catch(PsiException e)
+		//{
 			// TODO
-		}
+		//}
 		PsiDictionary globaldict=new PsiDictionary();
 		getSystemDictionary().psiPut("globaldict", globaldict);
 		dictstack.push(globaldict);
 		PsiDictionary userdict=new PsiDictionary();
 		getSystemDictionary().psiPut("userdict", userdict);
 		dictstack.push(userdict);
+		/*
+		try
+		{
+			classLoader
+				=new PathClassLoader((PsiIterable<PsiStringlike>)getSystemDictionary().psiGet("classpath"));
+		}
+		catch(ClassCastException e)
+		{
+			error("XXX");
+		}
+		catch(PsiException e)
+		{
+			error("YYY");
+		}
+		*/
 	}
 
 	public OperandStack getOperandStack()
@@ -381,6 +397,7 @@ public class Interpreter
 		System.exit(1);
 	}
 
+	/*
 	public PsiObject external(Class<? extends PsiObject> objectClass)
 		throws PsiException
 	{
@@ -390,11 +407,11 @@ public class Interpreter
 		}
 		catch(InstantiationException e)
 		{
-			throw new PsiException("undefinedobject");
+			throw new PsiException("undefinedexternal");
 		}
 		catch(IllegalAccessException e)
 		{
-			throw new PsiException("undefinedobject");
+			throw new PsiException("undefinedexternal");
 		}
 	}
 
@@ -403,13 +420,15 @@ public class Interpreter
 	{
 		try
 		{
-			return external((Class<? extends PsiObject>)Class.forName(objectClassName));
+			//return external((Class<? extends PsiObject>)Class.forName(objectClassName));
+			return external((Class<? extends PsiObject>)Class.forName(objectClassName, true, classLoader));
 		}
 		catch(ClassNotFoundException e)
 		{
-			throw new PsiException("undefinedobject");
+			throw new PsiException("undefinedexternal");
 		}
 	}
+	*/
 
 	public void showStacks()
 	{
@@ -524,5 +543,6 @@ public class Interpreter
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
+	//private ClassLoader classLoader;
 	//private StackedReader stackedReader=new StackedReader();
 }
