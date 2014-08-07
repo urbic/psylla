@@ -6,9 +6,11 @@ $background-color-body: lightskyblue;
 $font-family-body: "PT Sans", sans-serif;
 $color-title: darken($background-color-body, 60%);
 $background-color-html: $color-title;
-$color-link: darken(darkgreen, 5%);
-$color-visited: darken($color-link, 10%);
+//$color-link: darken(darkgreen, 5%);
+$color-link: #057;
+$color-visited: darken($color-link, 7.5%);
 $color-filename: black;
+$background-color-programlisting: lighten($background-color-body, 5%);
 
 html
 {
@@ -177,3 +179,12 @@ table.productionset
 	font-family: monospace;
 }
 
+.programlisting
+{
+	padding: 1em;
+	//background-color: lighten($background-color-body, 3%);
+	background-color: $background-color-programlisting;
+	//border-left: 1px solid;
+	//border-color: $color-title;
+	//border-color: darken($background-color-body, 5%);
+}
