@@ -91,7 +91,7 @@ public class PsiArray
 	{
 		try
 		{
-			return new PsiArray((java.util.ArrayList<PsiObject>)array.subList(index.getValue().intValue(), count.getValue().intValue()));
+			return new PsiArray((java.util.ArrayList<PsiObject>)array.subList(index.intValue(), count.intValue()));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -104,15 +104,6 @@ public class PsiArray
 	{
 		array.add(obj);
 	}
-
-	/*
-	@Override
-	public void psiAppendAll(PsiIterable<? extends PsiObject> iterable)
-	{
-		for(PsiObject obj: iterable)
-			psiAppend(obj);
-	}
-	*/
 
 	@Override
 	public void psiInsert(int indexValue, PsiObject obj)
@@ -148,7 +139,7 @@ public class PsiArray
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiObject> iterable)
 		throws PsiException
 	{
-		int indexValue=index.getValue().intValue();
+		int indexValue=index.intValue();
 		try
 		{
 			for(PsiObject obj: iterable)

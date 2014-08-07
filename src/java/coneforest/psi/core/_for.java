@@ -24,9 +24,10 @@ public class _for extends PsiOperator
 			// TODO: reverse
 			for(
 					PsiNumeric counter=(PsiNumeric)initial;
-					counter.psiLe((PsiNumeric)limit).getValue()
+					counter.psiLe((PsiNumeric)limit).booleanValue()
 						&& !interpreter.getExitFlag();
 					counter=(PsiNumeric)counter.psiAdd((PsiNumeric)increment)
+					// increment cast try is too late
 				)
 			{
 				opstack.push(counter);

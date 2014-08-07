@@ -16,7 +16,7 @@ public class _index extends PsiOperator
 		PsiObject n=opstack.pop();
 		try
 		{
-			int nValue=((PsiInteger)n).getValue().intValue();
+			int nValue=((PsiInteger)n).intValue();
 			if(nValue<0)
 				throw new PsiException("rangecheck");
 			else if(opstack.size()<nValue+1)

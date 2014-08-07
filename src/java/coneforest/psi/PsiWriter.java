@@ -35,7 +35,7 @@ public class PsiWriter
 	{
 		try
 		{
-			writer.write(character.getValue().intValue());
+			writer.write(character.intValue());
 		}
 		catch(java.io.IOException e)
 		{

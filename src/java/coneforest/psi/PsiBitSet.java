@@ -36,7 +36,7 @@ public class PsiBitSet
 	{
 		try
 		{
-			bitset.set(index.getValue().intValue(), true);
+			bitset.set(index.intValue(), true);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -59,7 +59,7 @@ public class PsiBitSet
 	{
 		try
 		{
-			bitset.set(integer.getValue().intValue(), false);
+			bitset.set(integer.intValue(), false);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -120,7 +120,7 @@ public class PsiBitSet
 	@Override
 	public PsiBoolean psiContains(PsiInteger integer)
 	{
-		return new PsiBoolean(bitset.get(integer.getValue().intValue()));
+		return new PsiBoolean(bitset.get(integer.intValue()));
 	}
 
 	@Override

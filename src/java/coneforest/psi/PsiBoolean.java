@@ -11,7 +11,7 @@ public class PsiBoolean
 
 	public String getTypeName() { return "boolean"; }
 
-	public Boolean getValue()
+	public Boolean booleanValue()
 	{
 		return value;
 	}
@@ -23,28 +23,28 @@ public class PsiBoolean
 
 	public PsiBoolean psiNot()
 	{
-		return new PsiBoolean(!getValue());
+		return new PsiBoolean(!value);
 	}
 
-	public PsiBoolean psiOr(final PsiBoolean obj)
+	public PsiBoolean psiOr(final PsiBoolean bool)
 	{
-		return new PsiBoolean(getValue() || obj.getValue());
+		return new PsiBoolean(value || bool.value);
 	}
 
-	public PsiBoolean psiAnd(final PsiBoolean obj)
+	public PsiBoolean psiAnd(final PsiBoolean bool)
 	{
-		return new PsiBoolean(getValue() && obj.getValue());
+		return new PsiBoolean(value && bool.value);
 	}
 
-	public PsiBoolean psiXor(final PsiBoolean obj)
+	public PsiBoolean psiXor(final PsiBoolean bool)
 	{
-		return new PsiBoolean(getValue() ^ obj.getValue());
+		return new PsiBoolean(value ^ bool.value);
 	}
 
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiBoolean
-				&& value==((PsiBoolean)obj).getValue());
+				&& value==((PsiBoolean)obj).value);
 	}
 	
 	@Override
@@ -57,7 +57,7 @@ public class PsiBoolean
 	public boolean equals(Object object)
 	{
 		return object instanceof PsiBoolean
-				&& psiEq((PsiBoolean)object).getValue();
+				&& psiEq((PsiBoolean)object).value;
 	}
 
 	private final boolean value;

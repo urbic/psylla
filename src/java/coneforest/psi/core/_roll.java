@@ -18,8 +18,8 @@ public class _roll extends PsiOperator
 		PsiObject n=opstack.pop();
 		try
 		{
-			int nValue=((PsiInteger)n).getValue().intValue();
-			int jValue=((PsiInteger)j).getValue().intValue();
+			int nValue=((PsiInteger)n).intValue();
+			int jValue=((PsiInteger)j).intValue();
 			int opstackSize=opstack.size();
 			if(nValue<0)
 				throw new PsiException("rangecheck");
