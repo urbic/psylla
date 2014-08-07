@@ -17,7 +17,7 @@ public class _min extends PsiOperator
 		PsiObject scalar1=opstack.pop();
 		try
 		{
-			opstack.push(((PsiScalar)scalar1).psiLt((PsiScalar)scalar2).getValue()? scalar1: scalar2);
+			opstack.push(((PsiScalar)scalar1).psiLt((PsiScalar)scalar2).booleanValue()? scalar1: scalar2);
 		}
 		catch(ClassCastException e)
 		{

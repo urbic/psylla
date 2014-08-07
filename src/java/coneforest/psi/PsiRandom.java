@@ -17,17 +17,17 @@ public class PsiRandom
 
 	public void psiSetSeed(PsiInteger seed)
 	{
-		random.setSeed(seed.getValue());
+		random.setSeed(seed.longValue());
 	}
 
 	public PsiNumeric psiUniformDeviate(PsiNumeric numeric)
 		throws PsiException
 	{
 		if(numeric instanceof PsiReal)
-			return new PsiReal(numeric.getValue().doubleValue()*random.nextDouble());
+			return new PsiReal(numeric.doubleValue()*random.nextDouble());
 		else if(numeric instanceof PsiInteger)
 		{
-			int numericValue=numeric.getValue().intValue();
+			int numericValue=numeric.intValue();
 			if(numericValue>Integer.MAX_VALUE)
 				throw new PsiException("rangecheck");
 			try
@@ -50,7 +50,7 @@ public class PsiRandom
 
 	public PsiReal psiNormalDeviate(PsiNumeric numeric)
 	{
-		return new PsiReal(numeric.getValue().doubleValue()*random.nextGaussian());
+		return new PsiReal(numeric.doubleValue()*random.nextGaussian());
 	}
 
 	private java.util.Random random;

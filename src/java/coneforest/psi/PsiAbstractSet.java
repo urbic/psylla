@@ -123,7 +123,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	public PsiBoolean psiIntersects(PsiSetlike<? extends T> setlike)
 	{
 		for(T obj: setlike)
-			if(psiContains(obj).getValue())
+			if(psiContains(obj).booleanValue())
 				return new PsiBoolean(true);
 		return new PsiBoolean(false);
 	}

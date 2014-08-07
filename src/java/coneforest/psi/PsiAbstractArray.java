@@ -26,21 +26,21 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	public T psiGet(PsiInteger index)
 		throws PsiException
 	{
-		return psiGet(index.getValue().intValue());
+		return psiGet(index.intValue());
 	}
 
 	@Override
 	public void psiPut(PsiInteger index, T obj)
 		throws PsiException
 	{
-		psiPut(index.getValue().intValue(), obj);
+		psiPut(index.intValue(), obj);
 	}
 
 	@Override
 	public void psiPutInterval(PsiInteger index, PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
-		int indexValue=index.getValue().intValue();
+		int indexValue=index.intValue();
 		if(indexValue<0
 			||
 			iterable instanceof PsiComposite
@@ -58,7 +58,7 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	public void psiInsert(PsiInteger index, T obj)
 		throws PsiException
 	{
-		int indexValue=index.getValue().intValue();
+		int indexValue=index.intValue();
 		psiAppend(psiGet(length()));
 		for(int i=length(); i>indexValue; i--)
 			psiPut(i, psiGet(i-1));
@@ -77,8 +77,9 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
+		int indexValue=index.intValue();
 		for(T obj: iterable)
-			psiInsert(index, obj);
+			psiInsert(indexValue++, obj);
 	}
 
 	@Override
@@ -118,28 +119,4 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		sb.append(isExecutable()? '}': ']');
 		return sb.toString();
 	}
-
-	/*
-	@Override
-	public String toString()
-	{
-		java.util.HashSet<PsiComposite> processed=new java.util.HashSet<PsiComposite>();
-		processed.add(this);
-		StringBuilder sb=new StringBuilder(isExecutable()? "{": "[");
-		if(length()>0)
-		{
-			for(PsiObject obj: this)
-			{
-				if(obj instanceof PsiComposite)
-					toStringHelper((PsiComposite)obj, sb, processed);
-				else
-					sb.append(obj.toString());
-				sb.append(' ');
-			}
-			sb.deleteCharAt(sb.length()-1);
-		}
-		sb.append(isExecutable()? '}': ']');
-		return sb.toString();
-	}
-	*/
 }

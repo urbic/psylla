@@ -17,7 +17,7 @@ public class _read extends PsiOperator
 		try
 		{
 			PsiInteger character=((PsiReadable)readable).psiRead();
-			if(character.getValue()==-1)
+			if(character.intValue()==-1)
 				opstack.push(new PsiBoolean(false));
 			else
 			{

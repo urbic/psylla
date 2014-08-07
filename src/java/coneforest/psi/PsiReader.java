@@ -65,7 +65,7 @@ public class PsiReader
 	public PsiString psiReadString(PsiInteger count)
 		throws PsiException
 	{
-		int countValue=count.getValue().intValue();
+		int countValue=count.intValue();
 		if(countValue<=0)
 			throw new PsiException("rangecheck");
 		java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate(countValue);
@@ -93,7 +93,7 @@ public class PsiReader
 		{
 			PsiInteger character=psiRead();
 			string.psiAppend(character);
-			if(character.psiEq(eol).getValue())
+			if(character.psiEq(eol).booleanValue())
 				break;
 		}
 		while(true);
