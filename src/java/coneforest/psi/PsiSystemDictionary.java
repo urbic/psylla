@@ -1,5 +1,5 @@
 package coneforest.psi;
-import coneforest.psi.systemdict.*;
+import coneforest.psi.core.*;
 
 public class PsiSystemDictionary
 	extends PsiModule
