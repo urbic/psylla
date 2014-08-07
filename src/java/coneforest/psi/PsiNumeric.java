@@ -1,9 +1,7 @@
 package coneforest.psi;
 
 abstract public class PsiNumeric
-	//extends PsiObject
 	extends PsiComplexNumeric
-	//implements PsiAtomic, PsiArithmetic<PsiNumeric>, PsiScalar<PsiNumeric>
 	implements
 		PsiConvertableToInteger,
 		PsiConvertableToReal,
@@ -52,16 +50,11 @@ abstract public class PsiNumeric
 	@Override
 	abstract public PsiNumeric psiNeg();
 
-	///*
 	@Override
 	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
 	{
 		return new PsiComplex(this).psiAdd(cn);
 	}
-	//*/
-
-	// TODO
-	abstract public PsiNumeric psiSub(final PsiNumeric numeric);
 
 	@Override
 	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
