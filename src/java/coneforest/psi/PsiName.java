@@ -81,7 +81,7 @@ public class PsiName
 	public boolean equals(Object object)
 	{
 		return object instanceof PsiName
-				&& psiEq((PsiName)object).getValue();
+				&& psiEq((PsiName)object).booleanValue();
 	}
 
 	private final String name;

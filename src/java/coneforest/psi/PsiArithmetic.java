@@ -13,6 +13,8 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 	public T psiSub(T arithmetic);
 
 	public T psiMul(T arithmetic);
+	
+	//public T psiMul(PsiLinear<? extends T> linear);
 
 	public T psiDiv(T arithmetic);
 }

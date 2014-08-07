@@ -16,7 +16,7 @@ public class _copy extends PsiOperator
 		PsiObject n=opstack.pop();
 		try
 		{
-			int nValue=((PsiInteger)n).getValue().intValue();
+			int nValue=((PsiInteger)n).intValue();
 			if(nValue<0)
 				interpreter.error("rangecheck", this);
 			else if(opstack.size()<nValue)

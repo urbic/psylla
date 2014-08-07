@@ -2,7 +2,9 @@ package coneforest.psi;
 
 abstract public class PsiComplexNumeric
 	extends PsiObject
-	implements PsiAtomic, PsiArithmetic<PsiComplexNumeric>
+	implements
+		PsiAtomic,
+		PsiArithmetic<PsiComplexNumeric>
 {
 	abstract public PsiNumeric psiRe();
 
@@ -24,6 +26,7 @@ abstract public class PsiComplexNumeric
 	@Override
 	abstract public PsiComplexNumeric psiMul(final PsiComplexNumeric numeric);
 
+
 	@Override
 	abstract public PsiComplexNumeric psiDiv(final PsiComplexNumeric numeric);
 
@@ -32,20 +35,6 @@ abstract public class PsiComplexNumeric
 
 	@Override
 	abstract public PsiComplexNumeric psiSignum();
-
-	//abstract public PsiComplexNumeric sqrt();
-
-	/*
-	public PsiReal cbrt()
-	{
-		return new PsiReal(Math.cbrt(getValue().doubleValue()));
-	}
-
-	public PsiReal log()
-	{
-		return new PsiReal(Math.log(getValue().doubleValue()));
-	}
-	*/
 
 	abstract public PsiComplexNumeric psiExp();
 
@@ -85,7 +74,7 @@ abstract public class PsiComplexNumeric
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiComplexNumeric
-				&& psiRe().psiEq(((PsiComplexNumeric)obj).psiRe()).getValue()
-				&& psiIm().psiEq(((PsiComplexNumeric)obj).psiIm()).getValue());
+				&& psiRe().psiEq(((PsiComplexNumeric)obj).psiRe()).booleanValue()
+				&& psiIm().psiEq(((PsiComplexNumeric)obj).psiIm()).booleanValue());
 	}
 }

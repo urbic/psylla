@@ -23,7 +23,7 @@ public class DictionaryStack
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			if(get(i).psiKnown(keyString).getValue())
+			if(get(i).psiKnown(keyString).booleanValue())
 				return get(i);
 		}
 		return null;

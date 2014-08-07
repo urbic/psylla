@@ -46,10 +46,10 @@ public class PsiOutput
 		}
 	}
 
-	public void write(PsiInteger oByte)
+	public void write(PsiInteger character)
 		throws PsiException
 	{
-		write(oByte.getValue().intValue());
+		write(character.intValue());
 	}
 
 	@Override

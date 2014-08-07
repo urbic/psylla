@@ -17,7 +17,7 @@ public class PsiComplex
 
 	public PsiComplex(final PsiNumeric re, final PsiNumeric im)
 	{
-		this(re.getValue().doubleValue(), im.getValue().doubleValue());
+		this(re.doubleValue(), im.doubleValue());
 	}
 
 	public PsiComplex(final PsiNumeric re)
@@ -82,29 +82,29 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiAdd(final PsiComplexNumeric cn)
 	{
-		return new PsiComplex(re+cn.psiRe().getValue().doubleValue(), im+cn.psiIm().getValue().doubleValue());
+		return new PsiComplex(re+cn.psiRe().doubleValue(), im+cn.psiIm().doubleValue());
 		//return new PsiComplex(re+cn.re, im+cn.im);
 	}
 
 	@Override
 	public PsiComplex psiSub(final PsiComplexNumeric cn)
 	{
-		return new PsiComplex(re-cn.psiRe().getValue().doubleValue(), im-cn.psiIm().getValue().doubleValue());
+		return new PsiComplex(re-cn.psiRe().doubleValue(), im-cn.psiIm().doubleValue());
 	}
 
 	@Override
 	public PsiComplex psiMul(final PsiComplexNumeric cn)
 	{
-		double cnRe=cn.psiRe().getValue().doubleValue();
-		double cnIm=cn.psiIm().getValue().doubleValue();
+		double cnRe=cn.psiRe().doubleValue();
+		double cnIm=cn.psiIm().doubleValue();
 		return new PsiComplex(re*cnRe-im*cnIm, im*cnRe+re*cnIm);
 	}
 
 	@Override
 	public PsiComplex psiDiv(final PsiComplexNumeric cn)
 	{
-		double cnRe=cn.psiRe().getValue().doubleValue();
-		double cnIm=cn.psiIm().getValue().doubleValue();
+		double cnRe=cn.psiRe().doubleValue();
+		double cnIm=cn.psiIm().doubleValue();
 		double denom=cnRe*cnRe-cnIm*cnIm;
 		// TODO overflow
 		return new PsiComplex((re*cnRe+im*cnIm)/denom, (im*cnRe-re*cnIm)/denom);

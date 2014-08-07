@@ -30,12 +30,6 @@ public class PsiReal
 	}
 
 	@Override
-	public Double getValue()
-	{
-		return value;
-	}
-
-	@Override
 	public PsiReal psiRe()
 	{
 		return new PsiReal(value);
@@ -75,20 +69,20 @@ public class PsiReal
 	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
 	{
 		if(cn instanceof PsiNumeric)
-			return new PsiReal(value+((PsiNumeric)cn).getValue().doubleValue());
+			return new PsiReal(value+((PsiNumeric)cn).doubleValue());
 		return super.psiAdd(cn);
 	}
 
 	//@Override
 	public PsiReal psiSub(final PsiNumeric numeric)
 	{
-		return new PsiReal(value-numeric.getValue().doubleValue());
+		return new PsiReal(value-numeric.doubleValue());
 	}
 
 	//@Override
 	public PsiReal psiMul(final PsiNumeric numeric)
 	{
-		return new PsiReal(value*numeric.getValue().doubleValue());
+		return new PsiReal(value*numeric.doubleValue());
 	}
 
 	@Override
@@ -100,7 +94,7 @@ public class PsiReal
 	@Override
 	public PsiReal pow(final PsiNumeric numeric)
 	{
-		return new PsiReal(Math.pow(value, numeric.getValue().doubleValue()));
+		return new PsiReal(Math.pow(value, numeric.doubleValue()));
 	}
 
 	@Override
@@ -131,7 +125,7 @@ public class PsiReal
 	public boolean equals(Object object)
 	{
 		return object instanceof PsiReal
-				&& psiEq((PsiReal)object).getValue();
+				&& psiEq((PsiReal)object).booleanValue();
 	}
 
 	private final double value;
