@@ -1,17 +1,13 @@
 package coneforest.psi;
 
 abstract public class PsiNumeric
-	//extends PsiObject
 	extends PsiComplexNumeric
-	//implements PsiAtomic, PsiArithmetic<PsiNumeric>, PsiScalar<PsiNumeric>
 	implements
 		PsiConvertableToInteger,
 		PsiConvertableToReal,
 		PsiAtomic,
 		PsiScalar<PsiNumeric>
 {
-	abstract Number getValue();
-
 	abstract int intValue();
 
 	abstract long longValue();
@@ -22,10 +18,10 @@ abstract public class PsiNumeric
 	public PsiInteger psiToInteger()
 		throws PsiException
 	{
-		if(getValue().doubleValue()>=Long.MIN_VALUE
-				&& getValue().doubleValue()<=Long.MAX_VALUE)
+		if(doubleValue()>=Long.MIN_VALUE
+				&& doubleValue()<=Long.MAX_VALUE)
 		{
-			return new PsiInteger(getValue().longValue());
+			return new PsiInteger(longValue());
 		}
 		else
 			throw new PsiException("rangecheck");
@@ -35,15 +31,15 @@ abstract public class PsiNumeric
 	public PsiReal psiToReal()
 		throws PsiException
 	{
-		return new PsiReal(getValue().doubleValue());
+		return new PsiReal(doubleValue());
 	}
 
 	@Override
 	public PsiReal psiArg()
 	{
-		if(getValue().doubleValue()>0.D)
+		if(doubleValue()>0.D)
 			return new PsiReal(0.D);
-		else if(getValue().doubleValue()<0.D)
+		else if(doubleValue()<0.D)
 			return new PsiReal(Math.PI);
 		else
 			return new PsiReal(1.D/0.D);
@@ -52,16 +48,11 @@ abstract public class PsiNumeric
 	@Override
 	abstract public PsiNumeric psiNeg();
 
-	///*
 	@Override
 	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
 	{
 		return new PsiComplex(this).psiAdd(cn);
 	}
-	//*/
-
-	// TODO
-	abstract public PsiNumeric psiSub(final PsiNumeric numeric);
 
 	@Override
 	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
@@ -79,7 +70,7 @@ abstract public class PsiNumeric
 
 	public PsiReal psiDiv(final PsiNumeric numeric)
 	{
-		return new PsiReal(getValue().doubleValue()/numeric.getValue().doubleValue());
+		return new PsiReal(doubleValue()/numeric.doubleValue());
 	}
 
 	@Override
@@ -98,71 +89,71 @@ abstract public class PsiNumeric
 	//@Override
 	public PsiReal sqrt()
 	{
-		return new PsiReal(Math.sqrt(getValue().doubleValue()));
+		return new PsiReal(Math.sqrt(doubleValue()));
 	}
 
 	//@Override
 	public PsiReal cbrt()
 	{
-		return new PsiReal(Math.cbrt(getValue().doubleValue()));
+		return new PsiReal(Math.cbrt(doubleValue()));
 	}
 
 	//@Override
 	public PsiReal log()
 	{
-		return new PsiReal(Math.log(getValue().doubleValue()));
+		return new PsiReal(Math.log(doubleValue()));
 	}
 
 	@Override
 	public PsiReal psiExp()
 	{
-		return new PsiReal(Math.exp(getValue().doubleValue()));
+		return new PsiReal(Math.exp(doubleValue()));
 	}
 
 	//@Override
 	public PsiReal cos()
 	{
-		return new PsiReal(Math.cos(getValue().doubleValue()));
+		return new PsiReal(Math.cos(doubleValue()));
 	}
 
 	//@Override
 	public PsiReal sin()
 	{
-		return new PsiReal(Math.sin(getValue().doubleValue()));
+		return new PsiReal(Math.sin(doubleValue()));
 	}
 
 	//@Override
 	public PsiReal tan()
 	{
-		return new PsiReal(Math.tan(getValue().doubleValue()));
+		return new PsiReal(Math.tan(doubleValue()));
 	}
 
 	@Override
 	public PsiReal psiCosh()
 	{
-		return new PsiReal(Math.cosh(getValue().doubleValue()));
+		return new PsiReal(Math.cosh(doubleValue()));
 	}
 
 	@Override
 	public PsiReal psiSinh()
 	{
-		return new PsiReal(Math.sinh(getValue().doubleValue()));
+		return new PsiReal(Math.sinh(doubleValue()));
 	}
 
 	//@Override
 	public PsiReal tanh()
 	{
-		return new PsiReal(Math.tanh(getValue().doubleValue()));
+		return new PsiReal(Math.tanh(doubleValue()));
 	}
 
 	public PsiReal atan()
 	{
-		return new PsiReal(Math.atan(getValue().doubleValue()));
+		return new PsiReal(Math.atan(doubleValue()));
 	}
 
 	public PsiReal hypot(PsiNumeric numeric)
 	{
-		return new PsiReal(Math.hypot(getValue().doubleValue(), numeric.getValue().doubleValue()));
+		return new PsiReal(Math.hypot(doubleValue(), numeric.doubleValue()));
 	}
 
 	abstract public PsiNumeric psiFloor();
@@ -173,30 +164,30 @@ abstract public class PsiNumeric
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(obj instanceof PsiNumeric
-				&& getValue().doubleValue()==((PsiNumeric)obj).getValue().doubleValue());
+				&& doubleValue()==((PsiNumeric)obj).doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiLt(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(getValue().doubleValue()<numeric.getValue().doubleValue());
+		return new PsiBoolean(doubleValue()<numeric.doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiLe(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(getValue().doubleValue()<=numeric.getValue().doubleValue());
+		return new PsiBoolean(doubleValue()<=numeric.doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiGt(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(getValue().doubleValue()>numeric.getValue().doubleValue());
+		return new PsiBoolean(doubleValue()>numeric.doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiGe(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(getValue().doubleValue()>=numeric.getValue().doubleValue());
+		return new PsiBoolean(doubleValue()>=numeric.doubleValue());
 	}
 }

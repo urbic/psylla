@@ -14,7 +14,7 @@ public class _astore extends PsiOperator
 			PsiObject count=opstack.pop();
 			if(count instanceof PsiInteger)
 			{
-				int countValue=((PsiInteger)count).getValue().intValue();
+				int countValue=((PsiInteger)count).intValue();
 				if(opstack.size()<countValue)
 					interpreter.error("stackunderflow", this);
 				else

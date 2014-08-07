@@ -17,7 +17,7 @@ public class _if extends PsiOperator
 		PsiObject cond=opstack.pop();
 		try
 		{
-			if(((PsiBoolean)cond).getValue())
+			if(((PsiBoolean)cond).booleanValue())
 			{
 				//int execlevel=interpreter.getExecutionStack().size();
 				obj.invoke(interpreter);

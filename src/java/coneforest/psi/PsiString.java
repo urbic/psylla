@@ -66,8 +66,8 @@ public class PsiString
 	public PsiString psiGetInterval(PsiInteger index, PsiInteger count)
 		throws PsiException
 	{
-		int indexValue=index.getValue().intValue();
-		int countValue=count.getValue().intValue();
+		int indexValue=index.intValue();
+		int countValue=count.intValue();
 		try
 		{
 			return new PsiString(buffer.substring(indexValue, indexValue+countValue));
@@ -84,7 +84,7 @@ public class PsiString
 	{
 		try
 		{
-			buffer.setCharAt(index, (char)character.getValue().intValue());
+			buffer.setCharAt(index, (char)character.intValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -96,7 +96,7 @@ public class PsiString
 	public void psiPutInterval(PsiInteger index, PsiIterable<? extends PsiInteger> iterable)
 		throws PsiException
 	{
-		int indexValue=index.getValue().intValue();
+		int indexValue=index.intValue();
 		if(indexValue<0
 				||
 				iterable instanceof PsiComposite
@@ -104,7 +104,7 @@ public class PsiString
 			throw new PsiException("rangecheck");
 		for(PsiInteger character: iterable)
 		{
-			buffer.setCharAt(indexValue++, (char)character.getValue().intValue());
+			buffer.setCharAt(indexValue++, (char)character.intValue());
 			if(indexValue==length())
 				break;
 		}
@@ -113,7 +113,7 @@ public class PsiString
 	@Override
 	public void psiAppend(PsiInteger character)
 	{
-		buffer.append((char)character.getValue().intValue());
+		buffer.append((char)character.intValue());
 	}
 
 	@Override
@@ -129,7 +129,7 @@ public class PsiString
 	{
 		try
 		{
-			buffer.insert(indexValue, (char)character.getValue().intValue());
+			buffer.insert(indexValue, (char)character.intValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -140,7 +140,7 @@ public class PsiString
 	public void psiInsertAll(PsiInteger index, PsiString string)
 		throws PsiException
 	{
-		int indexValue=index.getValue().intValue();
+		int indexValue=index.intValue();
 		try
 		{
 			buffer.insert(indexValue, string.buffer);
@@ -160,11 +160,11 @@ public class PsiString
 			psiInsertAll(index, (PsiString)iterable);
 			return;
 		}
-		int indexValue=index.getValue().intValue();
+		int indexValue=index.intValue();
 		try
 		{
 			for(PsiInteger character: iterable)
-				buffer.insert(indexValue++, (char)character.getValue().intValue());
+				buffer.insert(indexValue++, (char)character.intValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -194,7 +194,7 @@ public class PsiString
 	public boolean equals(Object object)
 	{
 		return object instanceof PsiString
-				&& psiEq((PsiString)object).getValue();
+				&& psiEq((PsiString)object).booleanValue();
 	}
 
 	@Override

@@ -9,8 +9,8 @@
 	<property name="src.ant" location="${src}/ant"/>
 	<property name="target" location="target"/>
 	<property name="target.src.java" location="${target}/src/java"/>
-	<property name="target.javadoc"  location="${target}/javadoc"/>
 	<property name="target.doc" location="${target}/doc"/>
+	<property name="target.doc.javadoc"  location="${target.doc}/javadoc"/>
 	<property name="classes" location="${target}/classes"/>
 	<property name="target.lib"  location="${target}/lib"/>
 	<property name="target.man"  location="${target}/man"/>
@@ -61,7 +61,7 @@
 	<target name="javadoc" depends="compile.jj">
 		<javadoc
 			sourcepath="${src.java}:${target.src.java}"
-			destdir="${target.javadoc}"
+			destdir="${target.doc.javadoc}"
 			access="public"
 			/>
 	</target>

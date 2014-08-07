@@ -17,21 +17,21 @@ abstract public class PsiAbstractString
 	public PsiInteger psiGet(PsiInteger index)
 		throws PsiException
 	{
-		return psiGet(index.getValue().intValue());
+		return psiGet(index.intValue());
 	}
 
 	@Override
 	public void psiPut(PsiInteger index, PsiInteger character)
 		throws PsiException
 	{
-		psiPut(index.getValue().intValue(), character);
+		psiPut(index.intValue(), character);
 	}
 
 	@Override
 	public void psiInsert(PsiInteger index, PsiInteger character)
 		throws PsiException
 	{
-		psiInsert(index.getValue().intValue(), character);
+		psiInsert(index.intValue(), character);
 	}
 
 	@Override

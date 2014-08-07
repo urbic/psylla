@@ -43,7 +43,7 @@ public class PsiRomanNumerals
 		private PsiString psiToRoman(PsiInteger integer)
 			throws PsiException
 		{
-			long n=integer.getValue().longValue();
+			long n=integer.longValue();
 			if(n<0 || n>=4000)
 				throw new PsiException("rangecheck");
 			StringBuilder sb=new StringBuilder();

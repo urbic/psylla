@@ -28,15 +28,9 @@ public class PsiInteger
 	}	
 
 	@Override
-	public Long getValue()
-	{
-		return value;
-	}
-
-	@Override
 	public PsiInteger psiRe()
 	{
-		return new PsiInteger(getValue());
+		return new PsiInteger(value);
 	}
 
 	@Override
@@ -63,34 +57,34 @@ public class PsiInteger
 	@Override
 	public PsiInteger psiNot()
 	{
-		return new PsiInteger(~getValue());
+		return new PsiInteger(~value);
 	}
 
 	@Override
-	public PsiInteger psiOr(final PsiInteger obj)
+	public PsiInteger psiOr(final PsiInteger integer)
 	{
-		return new PsiInteger(getValue() | obj.getValue());
+		return new PsiInteger(value | integer.value);
 	}
 
 	@Override
-	public PsiInteger psiAnd(final PsiInteger obj)
+	public PsiInteger psiAnd(final PsiInteger integer)
 	{
-		return new PsiInteger(getValue() & obj.getValue());
+		return new PsiInteger(value & integer.value);
 	}
 
 	@Override
 	public PsiInteger psiXor(final PsiInteger obj)
 	{
-		return new PsiInteger(getValue() ^ obj.getValue());
+		return new PsiInteger(value ^ obj.value);
 	}
 
 	@Override
 	public PsiNumeric psiNeg()
 	{
-		if(getValue()!=Long.MIN_VALUE)
-			return new PsiInteger(-getValue());
+		if(value!=Long.MIN_VALUE)
+			return new PsiInteger(-value);
 		else
-			return new PsiReal(-getValue());
+			return new PsiReal(-value);
 	}
 
 	@Override
@@ -141,7 +135,7 @@ public class PsiInteger
 
 	public PsiNumeric psiAdd(final PsiNumeric numeric)
 	{
-		double result=value+numeric.getValue().doubleValue();
+		double result=value+numeric.doubleValue();
 		if(numeric instanceof PsiInteger
 				&& result>=Long.MIN_VALUE
 				&& result<=Long.MAX_VALUE)
@@ -159,7 +153,7 @@ public class PsiInteger
 
 	public PsiNumeric psiSub(final PsiNumeric numeric)
 	{
-		double result=value-numeric.getValue().doubleValue();
+		double result=value-numeric.doubleValue();
 		if(numeric instanceof PsiInteger
 				&& result>=Long.MIN_VALUE
 				&& result<=Long.MAX_VALUE)
@@ -177,7 +171,7 @@ public class PsiInteger
 
 	public PsiNumeric psiMul(final PsiNumeric numeric)
 	{
-		double result=value*numeric.getValue().doubleValue();
+		double result=value*numeric.doubleValue();
 		if(numeric instanceof PsiInteger
 				&& result>=Long.MIN_VALUE
 				&& result<=Long.MAX_VALUE)
@@ -196,7 +190,7 @@ public class PsiInteger
 	@Override
 	public PsiNumeric pow(final PsiNumeric numeric)
 	{
-		double result=Math.pow(value, numeric.getValue().doubleValue());
+		double result=Math.pow(value, numeric.doubleValue());
 		if(numeric instanceof PsiInteger
 				&& result>=Long.MIN_VALUE
 				&& result<=Long.MAX_VALUE)
@@ -238,15 +232,14 @@ public class PsiInteger
 	public PsiInteger psiIdiv(final PsiInteger integer)
 		throws PsiException
 	{
-		if(integer.getValue()==0.D)
+		if(integer.value==0)
 			throw new PsiException("undefinedresult");
-		return new PsiInteger(psiDiv(integer).getValue().longValue());
+		return new PsiInteger(psiDiv(integer).longValue());
 	}
 
 	public PsiInteger psiBitShift(final PsiInteger shift)
 	{
-		long shiftValue=shift.getValue();
-		return new PsiInteger(shiftValue>=0? (getValue()<<shiftValue): (getValue()>>(-shiftValue)));
+		return new PsiInteger(shift.value>=0? value<<shift.value: value>>(-shift.value));
 	}
 
 	@Override
@@ -259,7 +252,7 @@ public class PsiInteger
 	public boolean equals(Object object)
 	{
 		return object instanceof PsiInteger
-				&& psiEq((PsiInteger)object).getValue();
+				&& psiEq((PsiInteger)object).booleanValue();
 	}
 
 	private final long value;

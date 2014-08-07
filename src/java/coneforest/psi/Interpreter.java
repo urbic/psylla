@@ -9,37 +9,13 @@ public class Interpreter
 		execstack=new ExecutionStack();
 		procstack=new ProcedureStack();
 
-		// Load systemdict, globaldict, userdict
-		//try
-		//{
-			//dictstack.push((PsiModule)external(PsiSystemDictionary.class));
-			dictstack.push(new PsiSystemDictionary());
-		//}
-		//catch(PsiException e)
-		//{
-			// TODO
-		//}
+		dictstack.push(new PsiSystemDictionary());
 		PsiDictionary globaldict=new PsiDictionary();
 		getSystemDictionary().psiPut("globaldict", globaldict);
 		dictstack.push(globaldict);
 		PsiDictionary userdict=new PsiDictionary();
 		getSystemDictionary().psiPut("userdict", userdict);
 		dictstack.push(userdict);
-		/*
-		try
-		{
-			classLoader
-				=new PathClassLoader((PsiIterable<PsiStringlike>)getSystemDictionary().psiGet("classpath"));
-		}
-		catch(ClassCastException e)
-		{
-			error("XXX");
-		}
-		catch(PsiException e)
-		{
-			error("YYY");
-		}
-		*/
 	}
 
 	public OperandStack getOperandStack()
@@ -78,6 +54,11 @@ public class Interpreter
 		return dictstack.get(1);
 	}
 
+	public PsiDictionary getUserDictionary()
+	{
+		return dictstack.get(2);
+	}
+
 	public void setReader(java.io.Reader reader)
 	{
 		getSystemDictionary().psiPut("stdin", new PsiReader(reader));
@@ -106,9 +87,9 @@ public class Interpreter
 	public void interpret(PsiReader reader)
 	{
 		int proclevel=procstack.size();
+		Parser parser=new Parser(reader.getReader());
 		try
 		{
-			Parser parser=new Parser(reader.getReader());
 			while(true)
 			{
 				Token token=parser.getNextToken();

@@ -17,7 +17,7 @@ public class _repeat extends PsiOperator
 		PsiObject count=opstack.pop();
 		try
 		{
-			long countValue=((PsiInteger)count).getValue();
+			long countValue=((PsiInteger)count).longValue();
 			if(countValue<0)
 			{
 				// TODO
