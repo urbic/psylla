@@ -60,7 +60,7 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		return toString(this);
 	}
 
-	public String toString(PsiComposite composite)
+	public String toString(PsiLengthy composite)
 	{
 		StringBuilder sb=new StringBuilder("<");
 		if(length()>0)
@@ -71,8 +71,8 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 				sb.append(entry.getKey());
 				sb.append(' ');
 				PsiObject obj=entry.getValue();
-				if(obj instanceof PsiComposite)
-					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiComposite)obj).toString(this));
+				if(obj instanceof PsiLengthy)
+					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');

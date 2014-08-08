@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!ENTITY % ent.files	SYSTEM "../namespaces.ent">
+<!ENTITY PsiReference_Interpreter	SYSTEM "PsiReference_Interpreter.docbook">
 <!ENTITY PsiReference_Language		SYSTEM "PsiReference_Language.docbook">
+<!ENTITY PsiReference_Operators		SYSTEM "PsiReference_Operators.docbook">
 <!ENTITY PsiReference_Development	SYSTEM "PsiReference_Development.docbook">
 %ent.files;
 ]>
@@ -32,19 +34,26 @@
 интерпретатора в приложения Java.
 </para>
 
-</chapter>
+<section xml:id="PsiReference_Introduction_CopyrightAndLicense">
+<title>Копирайт и лицензия</title>
 
-<chapter xml:id="PsiReference_Interpreter">
-<title>Интерпретатор</title>
+<para>
+Программное обеспечение Ψ и настоящая документация выпускаются под лицензией
+<link xlink:href="http://opensource.org/licenses/Zlib">zlib/libpng</link>,
+текст которой приводится ниже:
 
-<section xml:id="PsiReference_Interpreter_CLI">
-<title>Интерфейс командной строки</title>
+<literallayout><textobject><textdata
+fileref="LICENSE.txt"/></textobject></literallayout>
+
+</para>
 
 </section>
 
 </chapter>
 
+&PsiReference_Interpreter;
 &PsiReference_Language;
+&PsiReference_Operators;
 &PsiReference_Development;
 
 </book>

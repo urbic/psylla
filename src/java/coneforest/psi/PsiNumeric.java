@@ -60,7 +60,10 @@ abstract public class PsiNumeric
 		return new PsiComplex(this).psiSub(cn);
 	}
 
+	/*
+	@Override
 	abstract public PsiNumeric psiMul(final PsiNumeric numeric);
+	*/
 
 	@Override
 	public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
@@ -86,22 +89,19 @@ abstract public class PsiNumeric
 	@Override
 	public abstract PsiNumeric psiAbs();
 
-	//@Override
-	public PsiReal sqrt()
+	@Override
+	public PsiComplexNumeric psiSqrt()
 	{
-		return new PsiReal(Math.sqrt(doubleValue()));
+		if(doubleValue()>=0.D)
+			return new PsiReal(Math.sqrt(doubleValue()));
+		else
+			return new PsiComplex(0, Math.sqrt(-doubleValue()));
 	}
 
-	//@Override
-	public PsiReal cbrt()
+	@Override
+	public PsiComplexNumeric psiCbrt()
 	{
 		return new PsiReal(Math.cbrt(doubleValue()));
-	}
-
-	//@Override
-	public PsiReal log()
-	{
-		return new PsiReal(Math.log(doubleValue()));
 	}
 
 	@Override
@@ -109,6 +109,19 @@ abstract public class PsiNumeric
 	{
 		return new PsiReal(Math.exp(doubleValue()));
 	}
+
+	@Override
+	public PsiComplexNumeric psiLog()
+		throws PsiException
+	{
+		if(doubleValue()>0.D)
+			return new PsiReal(Math.log(doubleValue()));
+		else if(doubleValue()<0.D)
+			return new PsiComplex((PsiNumeric)psiAbs().psiLog(), new PsiReal(Math.PI));
+		else
+			throw new PsiException("undefinedresult");
+	}
+
 
 	//@Override
 	public PsiReal cos()
@@ -140,13 +153,14 @@ abstract public class PsiNumeric
 		return new PsiReal(Math.sinh(doubleValue()));
 	}
 
-	//@Override
-	public PsiReal tanh()
+	@Override
+	public PsiReal psiTanh()
 	{
 		return new PsiReal(Math.tanh(doubleValue()));
 	}
 
-	public PsiReal atan()
+	@Override
+	public PsiReal psiAtan()
 	{
 		return new PsiReal(Math.atan(doubleValue()));
 	}

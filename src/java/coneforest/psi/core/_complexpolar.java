@@ -1,10 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-/**
- * The implementation of the <code>add</code> operator
- */
-public class _add extends PsiOperator
+public class _complexpolar extends PsiOperator
 {
 	@Override
 	public void invoke(Interpreter interpreter)
@@ -16,16 +13,16 @@ public class _add extends PsiOperator
 			return;
 		}
 
-		PsiObject arithmetic2=opstack.pop();
-		PsiObject arithmetic1=opstack.pop();
+		PsiObject numeric2=opstack.pop();
+		PsiObject numeric1=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).psiAdd((PsiArithmetic)arithmetic2));
+			opstack.push(PsiComplex.psiFromPolar((PsiNumeric)numeric1, (PsiNumeric)numeric2));
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(arithmetic1);
-			opstack.push(arithmetic2);
+			opstack.push(numeric1);
+			opstack.push(numeric2);
 			interpreter.error("typecheck", this);
 		}
 	}

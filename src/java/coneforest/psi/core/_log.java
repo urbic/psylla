@@ -13,15 +13,20 @@ public class _log extends PsiOperator
 			return;
 		}
 
-		PsiObject numeric=opstack.pop();
+		PsiObject cn=opstack.pop();
 		try
 		{
-			opstack.push(((PsiNumeric)numeric).log());
+			opstack.push(((PsiComplexNumeric)cn).psiLog());
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(numeric);
+			opstack.push(cn);
 			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(cn);
+			interpreter.error(e.kind(), this);
 		}
 
 		/*

@@ -28,4 +28,9 @@
 		<pattern>([A-Za-z]+)</pattern>
 	</highlighter>
 
+	<highlighter type="regex">
+		<style>structure</style>
+		<pattern>[\(\)\[\]&lt;&gt;?]</pattern>
+	</highlighter>
+
 </highlighters>

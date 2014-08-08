@@ -16,7 +16,7 @@ public class _wcheck extends PsiOperator
 		PsiObject composite=opstack.pop();
 		try
 		{
-			opstack.push(new PsiBoolean(((PsiComposite)composite).isWritable()));
+			opstack.push(new PsiBoolean(((PsiLengthy)composite).isWritable()));
 		}
 		catch(ClassCastException e)
 		{

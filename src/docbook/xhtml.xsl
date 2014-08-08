@@ -49,6 +49,8 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 	<xsl:param name="docbook.css.source"/>
 	<xsl:param name="table.borders.with.css" select="0"/>
 	<xsl:param name="callout.unicode.font" select="'STIX General'"/>
+	<xsl:param name="section.autolabel" select="1"/>
+	<xsl:param name="arg.rep.repeat.str">…</xsl:param>
 
 	<xsl:output method="xml" omit-xml-declaration="yes"/>
 	

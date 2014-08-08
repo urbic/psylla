@@ -93,7 +93,7 @@ abstract public class PsiAbstractStringlike
 	}
 	
 	@Override
-	public String toString(PsiComposite composite)
+	public String toString(PsiLengthy composite)
 	{
 		return toString();
 	}
