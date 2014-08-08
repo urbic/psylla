@@ -83,7 +83,6 @@ public class PsiComplex
 	public PsiComplex psiAdd(final PsiComplexNumeric cn)
 	{
 		return new PsiComplex(re+cn.psiRe().doubleValue(), im+cn.psiIm().doubleValue());
-		//return new PsiComplex(re+cn.re, im+cn.im);
 	}
 
 	@Override
@@ -110,47 +109,30 @@ public class PsiComplex
 		return new PsiComplex((re*cnRe+im*cnIm)/denom, (im*cnRe-re*cnIm)/denom);
 	}
 
-	//@Override
-	//public PsiComplex sqrt(final PsiComplexNumeric cn)
-	//{
-	//	return new PsiReal(Math.sqrt(getValue().doubleValue()));
-	//}
-
-	/*
-	public PsiReal cbrt()
-	{
-		return new PsiReal(Math.cbrt(getValue().doubleValue()));
-	}
-
-	public PsiReal log()
-	{
-		return new PsiReal(Math.log(getValue().doubleValue()));
-	}
-	*/
-
 	@Override
 	public PsiComplex psiExp()
 	{
-		PsiReal tmpIm=psiIm();
-		return psiRe().psiExp().psiMul(new PsiComplex(tmpIm.cos(), tmpIm.sin()));
+		return psiFromPolar(1.D, im).psiMul(new PsiReal(Math.exp(re)));
 	}
 
-	/*
-	public PsiReal cos()
+	@Override
+	public PsiComplex psiLog()
+		throws PsiException
 	{
-		return new PsiReal(Math.cos(getValue().doubleValue()));
+		return new PsiComplex((PsiReal)psiAbs().psiLog(), psiArg());
 	}
 
-	public PsiReal sin()
+	@Override
+	public PsiComplex psiSqrt()
 	{
-		return new PsiReal(Math.sin(getValue().doubleValue()));
+		return psiFromPolar((PsiReal)psiAbs().psiSqrt(), psiArg().psiDiv(new PsiReal(2.D)));
 	}
 
-	public PsiReal tan()
+	@Override
+	public PsiComplex psiCbrt()
 	{
-		return new PsiReal(Math.tan(getValue().doubleValue()));
+		return psiFromPolar((PsiReal)psiAbs().psiCbrt(), psiArg().psiDiv(new PsiReal(3.D)));
 	}
-	*/
 
 	@Override
 	public PsiComplex psiCosh()
@@ -172,6 +154,17 @@ public class PsiComplex
 		return new PsiReal(Math.tanh(getValue().doubleValue()));
 	}
 	*/
+
+	public static PsiComplex psiFromPolar(PsiNumeric abs, PsiNumeric arg)
+	{
+		return psiFromPolar(abs.doubleValue(), arg.doubleValue());
+	}
+
+	public static PsiComplex psiFromPolar(double absValue, double argValue)
+	{
+		return new PsiComplex(absValue*Math.cos(argValue), absValue*Math.sin(argValue));
+	}
+
 
 	private final double re, im;
 }

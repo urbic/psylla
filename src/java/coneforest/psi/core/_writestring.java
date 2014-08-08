@@ -13,22 +13,22 @@ public class _writestring extends PsiOperator
 			return;
 		}
 
-		PsiObject string=opstack.pop();
+		PsiObject stringlike=opstack.pop();
 		PsiObject writer=opstack.pop();
 		try
 		{
-			((PsiWriter)writer).psiWriteString((PsiString)string);
+			((PsiWriter)writer).psiWriteString((PsiStringlike)stringlike);
 		}
 		catch(ClassCastException e)
 		{
 			opstack.push(writer);
-			opstack.push(string);
+			opstack.push(stringlike);
 			interpreter.error("typecheck", this);
 		}
 		catch(PsiException e)
 		{
 			opstack.push(writer);
-			opstack.push(string);
+			opstack.push(stringlike);
 			interpreter.error(e.kind(), this);
 		}
 	}

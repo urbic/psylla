@@ -2,7 +2,6 @@ package coneforest.psi;
 
 abstract public class PsiAbstractString
 	extends PsiAbstractStringlike
-	//extends PsiAbstractArray<PsiInteger>
 	implements
 		PsiArraylike<PsiInteger>,
 		PsiStringlike
@@ -59,10 +58,10 @@ abstract public class PsiAbstractString
 
 				public PsiInteger next()
 				{
-					if(hasNext())
+					//if(hasNext())
 						return new PsiInteger(getString().charAt(index++));
-					else
-						throw new java.util.NoSuchElementException();
+					//else
+					//	throw new java.util.NoSuchElementException();
 				}
 
 				public void remove()
@@ -78,10 +77,10 @@ abstract public class PsiAbstractString
 	public String toString()
 	{
 		StringBuilder sb=new StringBuilder();
-		String value=getString();
-		for(int i=0; i<value.length(); i++)
+		String string=getString();
+		for(int i=0; i<string.length(); i++)
 		{
-			char c=value.charAt(i);
+			char c=string.charAt(i);
 			switch(c)
 			{
 				case '\u0000':
@@ -116,5 +115,12 @@ abstract public class PsiAbstractString
 			}
 		}
 		return "\""+sb.toString()+"\"";
+	}
+
+	@Override
+	public boolean equals(Object object)
+	{
+		return getClass().isInstance(object)
+				&& psiEq((PsiString)object).booleanValue();
 	}
 }

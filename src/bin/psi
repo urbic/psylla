@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# psi script
+# JPackage Project <http://www.jpackage.org/>
+
+# Source functions library
+_prefer_jre="true"
+. /usr/share/java-utils/java-functions
+
+# Source system prefs
+if [ -f /etc/java/psi.conf ] ; then
+  . /etc/java/psi.conf
+fi
+
+# Source user prefs
+if [ -f $HOME/.psirc ] ; then
+  . $HOME/.psirc
+fi
+
+# Configuration
+MAIN_CLASS=coneforest.psi.Psi
+BASE_FLAGS=""
+BASE_OPTIONS=""
+BASE_JARS="psi"
+
+# Set parameters
+set_jvm
+set_classpath $BASE_JARS
+set_flags $BASE_FLAGS
+set_options $BASE_OPTIONS
+
+# Let's start
+run "$@"

@@ -13,13 +13,14 @@ public class _cbrt extends PsiOperator
 			return;
 		}
 
-		PsiObject numeric=opstack.pop();
+		PsiObject cn=opstack.pop();
 		try
 		{
-			opstack.push(((PsiNumeric)numeric).cbrt());
+			opstack.push(((PsiComplexNumeric)cn).psiCbrt());
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(cn);
 			interpreter.error("typecheck", this);
 		}
 	}

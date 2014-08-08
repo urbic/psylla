@@ -13,15 +13,14 @@ public class _tanh extends PsiOperator
 			return;
 		}
 
-		PsiObject numeric=opstack.pop();
-
+		PsiObject cn=opstack.pop();
 		try
 		{
-			opstack.push(((PsiNumeric)numeric).tanh());
+			opstack.push(((PsiComplexNumeric)cn).psiTanh());
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(numeric);
+			opstack.push(cn);
 			interpreter.error("typecheck", this);
 		}
 	}

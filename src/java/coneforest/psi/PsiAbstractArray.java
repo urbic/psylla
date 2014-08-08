@@ -43,8 +43,8 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		int indexValue=index.intValue();
 		if(indexValue<0
 			||
-			iterable instanceof PsiComposite
-			&& indexValue+((PsiComposite)iterable).length()>=length())
+			iterable instanceof PsiLengthy
+			&& indexValue+((PsiLengthy)iterable).length()>=length())
 			throw new PsiException("rangecheck");
 		for(T obj: iterable)
 		{
@@ -101,15 +101,15 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		return toString(this);
 	}
 
-	public String toString(PsiComposite composite)
+	public String toString(PsiLengthy composite)
 	{
 		StringBuilder sb=new StringBuilder(isExecutable()? "{": "[");
 		if(length()>0)
 		{
 			for(PsiObject obj: this)
 			{
-				if(obj instanceof PsiComposite)
-					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiComposite)obj).toString(this));
+				if(obj instanceof PsiLengthy)
+					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');
