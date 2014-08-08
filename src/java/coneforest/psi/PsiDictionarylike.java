@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public interface PsiDictionarylike<V extends PsiObject>
 	extends
-		PsiComposite<V>,
+		PsiLengthy<V>,
 		PsiIndexed<PsiStringlike, V>,
 		PsiIterable<java.util.Map.Entry<String, V>>,
 		PsiClearable

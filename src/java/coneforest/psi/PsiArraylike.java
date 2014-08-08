@@ -2,8 +2,8 @@ package coneforest.psi;
 
 public interface PsiArraylike<T extends PsiObject>
 	extends
+		PsiLengthy<T>,
 		PsiIndexed<PsiInteger, T>,
-		PsiComposite<T>,
 		PsiIterable<T>,
 		PsiAppendable<T>,
 		PsiClearable

@@ -99,8 +99,8 @@ public class PsiString
 		int indexValue=index.intValue();
 		if(indexValue<0
 				||
-				iterable instanceof PsiComposite
-				&& indexValue+((PsiComposite<PsiInteger>)iterable).length()>=length())
+				iterable instanceof PsiLengthy
+				&& indexValue+((PsiLengthy<PsiInteger>)iterable).length()>=length())
 			throw new PsiException("rangecheck");
 		for(PsiInteger character: iterable)
 		{
@@ -188,13 +188,6 @@ public class PsiString
 	public void psiReverse()
 	{
 		buffer.reverse();
-	}
-
-	@Override
-	public boolean equals(Object object)
-	{
-		return object instanceof PsiString
-				&& psiEq((PsiString)object).booleanValue();
 	}
 
 	@Override

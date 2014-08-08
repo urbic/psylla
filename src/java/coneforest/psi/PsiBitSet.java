@@ -86,14 +86,14 @@ public class PsiBitSet
 
 				public PsiInteger next()
 				{
-					if(hasNext())
-					{
+					//if(hasNext())
+					//{
 						PsiInteger result=new PsiInteger(index);
 						index=bitset.nextSetBit(index+1);
 						return result;
-					}
-					else
-						throw new java.util.NoSuchElementException();
+					//}
+					//else
+					//	throw new java.util.NoSuchElementException();
 				}
 
 				public void remove()

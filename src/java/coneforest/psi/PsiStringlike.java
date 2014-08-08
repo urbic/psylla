@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public interface PsiStringlike
 	extends
-		PsiComposite<PsiInteger>,
+		PsiLengthy<PsiInteger>,
 		PsiScalar<PsiStringlike>,
 		PsiConvertableToName,
 		PsiConvertableToInteger,

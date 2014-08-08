@@ -73,22 +73,28 @@ public class PsiReal
 		return super.psiAdd(cn);
 	}
 
-	//@Override
-	public PsiReal psiSub(final PsiNumeric numeric)
+	@Override
+	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
 	{
-		return new PsiReal(value-numeric.doubleValue());
+		if(cn instanceof PsiNumeric)
+			return new PsiReal(value+((PsiNumeric)cn).doubleValue());
+		return super.psiSub(cn);
 	}
 
-	//@Override
+	/*
+	@Override
 	public PsiReal psiMul(final PsiNumeric numeric)
 	{
 		return new PsiReal(value*numeric.doubleValue());
 	}
+	*/
 
 	@Override
-	public PsiComplex psiMul(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
 	{
-		return new PsiComplex(this).psiMul(cn);
+		if(cn instanceof PsiNumeric)
+			return new PsiReal(value*((PsiNumeric)cn).doubleValue());
+		return super.psiMul(cn);
 	}
 
 	@Override

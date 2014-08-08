@@ -1,0 +1,2750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsiReference_Operators">
+<title>Операторы</title>
+
+<section xml:id="PsiReference_Operators_ByCategory">
+<title>Сводка операторов по категориям</title>
+
+</section>
+
+<section xml:id="PsiReference_Operators_Details">
+<title>Операторы в деталях</title>
+
+<section xml:id="PsiReference_Operators_Details_(">
+<title><token language="psi">(</token></title>
+<synopsis>
+— <token language="psi">(</token>
+<replaceable>метка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_)">
+<title><token language="psi">)</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">)</token>
+<replaceable>множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>множество</replaceable>:
+<type>set</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_&lt;">
+<title><token language="psi">&lt;</token></title>
+<synopsis>
+— <token language="psi">&lt;</token>
+<replaceable>метка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_&gt;">
+<title><token language="psi">&gt;</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">&gt;</token>
+<replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dict</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_?">
+<title><token language="psi">?</token></title>
+<synopsis>
+<replaceable>объект</replaceable> <token language="psi">?</token> —
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_[">
+<title><token language="psi">[</token></title>
+<synopsis>
+— <token language="psi">[</token>
+<replaceable>mark</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_]">
+<title><token language="psi">]</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">]</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<type>array</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+
+<!-- A -->
+
+<section xml:id="PsiReference_Operators_Details_abort">
+<title><token language="psi">abort</token></title>
+
+<synopsis>
+—
+<token language="psi">abort</token>
+—
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_abs">
+<title><token language="psi">abs</token></title>
+<synopsis>
+<replaceable>операнд</replaceable> <token language="psi">abs</token> <replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>операнд</replaceable>,
+<replaceable>результат</replaceable>:
+<type>arithmetic</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_add">
+<title><token language="psi">add</token></title>
+<synopsis>
+<replaceable>слагаемое<subscript>1</subscript></replaceable>
+<replaceable>слагаемое<subscript>2</subscript></replaceable>
+<token language="psi">add</token>
+<replaceable>сумма</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>слагаемое<subscript>1</subscript></replaceable>,
+<replaceable>слагаемое<subscript>2</subscript></replaceable>,
+<replaceable>сумма</replaceable>:
+<type>arithmetic</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_and">
+<title><token language="psi">and</token></title>
+<synopsis>
+<replaceable>операнд<subscript>1</subscript></replaceable>
+<replaceable>операнд<subscript>2</subscript></replaceable>
+<token language="psi">and</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>операнд<subscript>1</subscript></replaceable>,
+<replaceable>операнд<subscript>2</subscript></replaceable>,
+<replaceable>результат</replaceable>:
+<type>logical</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_append">
+<title><token language="psi">append</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable> <replaceable>объект</replaceable> <token language="psi">append</token> —
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<type>appendable</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_appendall">
+<title><token language="psi">appendall</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable> <replaceable>перечисление</replaceable> <token language="psi">appendall</token> —
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<type>appendable</type>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<type>iterable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_arg">
+<title><token language="psi">arg</token></title>
+
+<synopsis>TODO <token language="psi">arg</token></synopsis>
+
+</section>
+
+<section xml:id="PsiReference_Operators_Details_array">
+<title><token language="psi">array</token></title>
+<synopsis>
+— <token language="psi">array</token> <replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<type>array</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_arraytomark">
+<title><token language="psi">arraytomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">arraytomark</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<type>array</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_astore">
+<title><token language="psi">*astore</token></title>
+
+<synopsis>TODO <token language="psi">astore</token></synopsis>
+
+</section>
+
+<section xml:id="PsiReference_Operators_Details_atan">
+<title><token language="psi">atan</token></title>
+
+<synopsis>TODO <token language="psi">atan</token></synopsis>
+
+</section>
+
+<!-- B -->
+
+<section xml:id="PsiReference_Operators_Details_begin">
+<title><token language="psi">begin</token></title>
+<synopsis>
+<replaceable>словарь</replaceable> <token language="psi">begin</token> —
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dict</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_bind">
+<title><token language="psi">bind</token></title>
+<synopsis>
+<replaceable>массив<subscript>1</subscript></replaceable> <token language="psi">bind</token> <replaceable>массив<subscript>2</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив<subscript>1</subscript></replaceable>,
+<replaceable>массив<subscript>2</subscript></replaceable>:
+<type>array</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_bitset">
+<title><token language="psi">bitset</token></title>
+<synopsis>
+— <token language="psi">bitset</token> <replaceable>битовое_множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>битовое_множество</replaceable>:
+<type>bitset</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_bitshift">
+<title><token language="psi">bitshift</token></title>
+<synopsis>
+<replaceable>целое</replaceable> <replaceable>сдвиг</replaceable> <token language="psi">bitshift</token> <replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>целое</replaceable>,
+<replaceable>сдвиг</replaceable>,
+<replaceable>результат</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_bitvector">
+<title><token language="psi">bitvector</token></title>
+<synopsis>
+— <token language="psi">bitvector</token> <replaceable>битовый_вектор</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>битовый_вектор</replaceable>:
+<type>bitvector</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- C -->
+
+<section xml:id="PsiReference_Operators_Details_cbrt">
+<title><token language="psi">cbrt</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">cbrt</token>
+<replaceable>кубический_корень</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>кубический_корень</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_ceiling">
+<title><token language="psi">ceiling</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">ceiling</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>результат</replaceable>:
+<type>numeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_clear">
+<title><token language="psi">clear</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable>
+<token language="psi">clear</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<type>clearable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_cleardictstack">
+<title><token language="psi">cleardictstack</token></title>
+<synopsis>
+—
+<token language="psi">cleardictstack</token>
+—
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_clearstack">
+<title><token language="psi">clearstack</token></title>
+<synopsis>
+⊢
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">clearstack</token>
+⊢
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_cleartomark">
+<title><token language="psi">cleartomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">cleartomark</token>
+⊢
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_clone">
+<title><token language="psi">clone</token></title>
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<token language="psi">clone</token>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>объект<subscript>2</subscript></replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_close">
+<title><token language="psi">close</token></title>
+<synopsis>
+<replaceable>закрываемое</replaceable>
+<token language="psi">close</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>закрываемое</replaceable>:
+<type>closeable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_complex">
+<title><token language="psi">complex</token></title>
+<synopsis>
+<replaceable>вещественная_часть</replaceable>
+<replaceable>мнимая_часть</replaceable>
+<token language="psi">close</token>
+<replaceable>комплексное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>вещественная_часть</replaceable>,
+<replaceable>мнимая_часть</replaceable>:
+<type>numeric</type>
+</listitem>
+<listitem>
+<replaceable>комплексное</replaceable>:
+<type>complex</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_complexpolar">
+<title><token language="psi">complexpolar</token></title>
+<synopsis>
+<replaceable>модуль</replaceable>
+<replaceable>аргумент</replaceable>
+<token language="psi">complexpolar</token>
+<replaceable>комплексное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>модуль</replaceable>,
+<replaceable>аргумент</replaceable>:
+<type>numeric</type>
+</listitem>
+<listitem>
+<replaceable>комплексное</replaceable>:
+<type>complex</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_conjugate">
+<title><token language="psi">conjugate</token></title>
+<synopsis>
+<replaceable>число<subscript>1</subscript></replaceable>
+<token language="psi">conjugate</token>
+<replaceable>число<subscript>2</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число<subscript>1</subscript></replaceable>,
+<replaceable>число<subscript>2</subscript></replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_contains">
+<title><token language="psi">contains</token></title>
+<synopsis>
+<replaceable>множественное</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">contains</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>множественное</replaceable>:
+<type>setlike</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_copy">
+<title><token language="psi">copy</token></title>
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+<token language="psi">copy</token>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_cos">
+<title><token language="psi">cos</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">cos</token>
+<replaceable>косинус</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>косинус</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_cosh">
+<title><token language="psi">cosh</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">cosh</token>
+<replaceable>гиперболический_косинус</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>гиперболический_косинус</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_count">
+<title><token language="psi">count</token></title>
+<synopsis>
+⊢
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">count</token>
+⊢
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_countdictstack">
+<title><token language="psi">countdictstack</token></title>
+<synopsis>
+—
+<token language="psi">countdictstack</token>
+<replaceable>длина</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>длина</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_countexecstack">
+<title><token language="psi">countexecstack</token></title>
+<synopsis>
+—
+<token language="psi">countexecstack</token>
+<replaceable>длина</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>длина</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_counttomark">
+<title><token language="psi">counttomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">counttomark</token>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_currentdict">
+<title><token language="psi">currentdict</token></title>
+<synopsis>
+—
+<token language="psi">currentdict</token>
+<replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dict</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- D -->
+
+<section xml:id="PsiReference_Operators_Details_def">
+<title><token language="psi">def</token></title>
+<synopsis>
+<replaceable>имя</replaceable> <replaceable>объект</replaceable> <token language="psi">def</token> —
+<itemizedlist>
+<listitem>
+<replaceable>имя</replaceable>:
+<type>name</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_dict">
+<title><token language="psi">dict</token></title>
+<synopsis>
+— <token language="psi">dict</token> <replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dict</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_dicttomark">
+<title><token language="psi">dicttomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">dicttomark</token>
+<replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dict</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+
+<section xml:id="PsiReference_Operators_Details_div">
+<title><token language="psi">div</token></title>
+<synopsis>
+<replaceable>делимое</replaceable> <replaceable>делитель</replaceable> <token language="psi">div</token> <replaceable>частное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>делимое</replaceable>,
+<replaceable>делитель</replaceable>,
+<replaceable>частное</replaceable>:
+<type>arithmetic</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_dup">
+<title><token language="psi">dup</token></title>
+<synopsis>
+<replaceable>объект</replaceable> <token language="psi">dup</token> <replaceable>объект</replaceable> <replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- E -->
+
+<section xml:id="PsiReference_Operators_Details_end">
+<title><token language="psi">end</token></title>
+<synopsis>
+— <token language="psi">end</token> —
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_eq">
+<title><token language="psi">eq</token></title>
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<token language="psi">eq</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>объект<subscript>2</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_exch">
+<title><token language="psi">exch</token></title>
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<token language="psi">exch</token>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>объект<subscript>2</subscript></replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_exec">
+<title><token language="psi">exec</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">exec</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_executable">
+<title><token language="psi">executable</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">exec</token>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_exit">
+<title><token language="psi">exit</token></title>
+<synopsis>
+—
+<token language="psi">exit</token>
+—
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_exp">
+<title><token language="psi">exp</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">exp</token>
+<replaceable>экспонента</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>экспонента</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_external">
+<title><token language="psi">external</token></title>
+<synopsis>
+<replaceable>название_класса</replaceable>
+<token language="psi">external</token>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>название_класса</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- F -->
+
+<section xml:id="PsiReference_Operators_Details_false">
+<title><token language="psi">false</token></title>
+<synopsis>
+—
+<token language="psi">false</token>
+<replaceable>ложь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ложь</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_filereader">
+<title><token language="psi">filereader</token></title>
+<synopsis>
+<replaceable>имя_файла</replaceable>
+<token language="psi">filereader</token>
+<replaceable>читатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя_файла</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>читатель</replaceable>:
+<type>filereader</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_filewriter">
+<title><token language="psi">filewriter</token></title>
+<synopsis>
+<replaceable>имя_файла</replaceable>
+<token language="psi">filewriter</token>
+<replaceable>писатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя_файла</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>писатель</replaceable>:
+<type>filewriter</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_floor">
+<title><token language="psi">floor</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">floor</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>результат</replaceable>:
+<type>numeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_flush">
+<title><token language="psi">flush</token></title>
+<synopsis>
+<replaceable>сбрасываемое</replaceable>
+<token language="psi">flush</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>сбрасываемое</replaceable>:
+<type>flushable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_for">
+<title><token language="psi">for</token></title>
+<synopsis>
+<replaceable>начальное</replaceable>
+<replaceable>инкремент</replaceable>
+<replaceable>предел</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">for</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>начальное</replaceable>,
+<replaceable>инкремент</replaceable>,
+<replaceable>предел</replaceable>:
+<type>numeric</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_forall">
+<title><token language="psi">forall</token></title>
+<synopsis>
+<replaceable>словарь</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">forall</token>
+—
+<sbr/>
+<replaceable>перечисление</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">forall</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dictionarylike</type>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<type>iterable</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- G -->
+
+<section xml:id="PsiReference_Operators_Details_ge">
+<title><token language="psi">ge</token></title>
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">ge</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<type>scalar</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_get">
+<title><token language="psi">get</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>индекс</replaceable>
+<token language="psi">get</token>
+<replaceable>элемент</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<type>indexed</type>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>,
+<replaceable>элемент</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_getinterval">
+<title><token language="psi">getinterval</token></title>
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>длина</replaceable>
+<token language="psi">getinterval</token>
+<replaceable>подмассив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>,
+<replaceable>подмассив</replaceable>:
+<type>arraylike</type>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>,
+<replaceable>длина</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_gt">
+<title><token language="psi">gt</token></title>
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">gt</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<type>scalar</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- H -->
+
+<section xml:id="PsiReference_Operators_Details_hypot">
+<title><token language="psi">hypot</token></title>
+<synopsis>
+<replaceable>катет<subscript>1</subscript></replaceable>
+<replaceable>катет<subscript>2</subscript></replaceable>
+<token language="psi">hypot</token>
+<replaceable>гипотенуза</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>катет<subscript>1</subscript></replaceable>,
+<replaceable>катет<subscript>2</subscript></replaceable>,
+<replaceable>гипотенуза<subscript>2</subscript></replaceable>:
+<type>numeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- I -->
+
+<section xml:id="PsiReference_Operators_Details_idiv">
+<title><token language="psi">idiv</token></title>
+<synopsis>
+<replaceable>делимое</replaceable>
+<replaceable>делитель</replaceable>
+<token language="psi">idiv</token>
+<replaceable>частное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>делимое</replaceable>,
+<replaceable>делитель</replaceable>,
+<replaceable>частное</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_if">
+<title><token language="psi">if</token></title>
+<synopsis>
+<replaceable>условие</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">if</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>условие</replaceable>:
+<type>boolean</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_ifelse">
+<title><token language="psi">ifelse</token></title>
+<synopsis>
+<replaceable>условие</replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<token language="psi">ifelse</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>условие</replaceable>:
+<type>boolean</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>объект<subscript>2</subscript></replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_index">
+<title><token language="psi">index</token></title>
+<synopsis>
+<replaceable>объект<subscript>n</subscript></replaceable>
+…
+<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>n</replaceable>
+<token language="psi">index</token>
+<replaceable>объект<subscript>n</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_insert">
+<title><token language="psi">insert</token></title>
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">insert</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<type>arraylike</type>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<type>integer</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_insertall">
+<title><token language="psi">insertall</token></title>
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">insertall</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<type>arraylike</type>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<type>integer</type>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<type>iterable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_intersects">
+<title><token language="psi">intersects</token></title>
+<synopsis>
+<replaceable>множество<subscript>1</subscript></replaceable>
+<replaceable>множество<subscript>2</subscript></replaceable>
+<token language="psi">intersects</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>множество<subscript>1</subscript></replaceable>,
+<replaceable>множество<subscript>2</subscript></replaceable>:
+<type>setlike</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_isempty">
+<title><token language="psi">isempty</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable>
+<token language="psi">isempty</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<type>lengthy</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- K -->
+
+<section xml:id="PsiReference_Operators_Details_keys">
+<title><token language="psi">keys</token></title>
+<synopsis>
+<replaceable>словарь</replaceable>
+<token language="psi">keys</token>
+<replaceable>множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dictionarylike</type>
+</listitem>
+<listitem>
+<replaceable>множество</replaceable>:
+<type>set</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_keysforall">
+<title><token language="psi">keysforall</token></title>
+<synopsis>
+<replaceable>словарь</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">keysforall</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dictionarylike</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_known">
+<title><token language="psi">known</token></title>
+<synopsis>
+<replaceable>словарь</replaceable>
+<replaceable>ключ</replaceable>
+<token language="psi">known</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dictionarylike</type>
+</listitem>
+<listitem>
+<replaceable>ключ</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- L -->
+
+<section xml:id="PsiReference_Operators_Details_le">
+<title><token language="psi">le</token></title>
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">le</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<type>scalar</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_length">
+<title><token language="psi">length</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable>
+<token language="psi">length</token>
+<replaceable>длина</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<type>lengthy</type>
+</listitem>
+<listitem>
+<replaceable>длина</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_literal">
+<title><token language="psi">literal</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">literal</token>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_load">
+<title><token language="psi">load</token></title>
+<synopsis>
+<replaceable>ключ</replaceable>
+<token language="psi">load</token>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_loadall">
+<title><token language="psi">loadall</token></title>
+<synopsis>
+<replaceable>перечисление</replaceable>
+<token language="psi">loadall</token>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>перечисление</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<type>iterable</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_log">
+<title><token language="psi">log</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">log</token>
+<replaceable>логарифм</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>логарифм</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_loop">
+<title><token language="psi">loop</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">loop</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_lt">
+<title><token language="psi">lt</token></title>
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">lt</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<type>scalar</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- M -->
+
+<section xml:id="PsiReference_Operators_Details_mark">
+<title><token language="psi">mark</token></title>
+<synopsis>
+—
+<token language="psi">mark</token>
+<replaceable>метка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_max">
+<title><token language="psi">max</token></title>
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">max</token>
+<replaceable>максимум</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<type>scalar</type>
+</listitem>
+<listitem>
+<replaceable>максимум</replaceable>:
+<type>scalar</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_min">
+<title><token language="psi">min</token></title>
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">min</token>
+<replaceable>минимум</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<type>scalar</type>
+</listitem>
+<listitem>
+<replaceable>минимум</replaceable>:
+<type>scalar</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_mod">
+<title><token language="psi">mod</token></title>
+<synopsis>
+<replaceable>целое<subscript>1</subscript></replaceable>
+<replaceable>целое<subscript>2</subscript></replaceable>
+<token language="psi">mod</token>
+<replaceable>остаток</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>целое<subscript>1</subscript></replaceable>,
+<replaceable>целое<subscript>2</subscript></replaceable>,
+<replaceable>остаток</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_mul">
+<title><token language="psi">mul</token></title>
+<synopsis>
+<replaceable>множитель<subscript>1</subscript></replaceable>
+<replaceable>множитель<subscript>2</subscript></replaceable>
+<token language="psi">mul</token>
+<replaceable>произведение</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>множитель<subscript>1</subscript></replaceable>,
+<replaceable>множитель<subscript>2</subscript></replaceable>,
+<replaceable>произведение</replaceable>:
+<type>arithmetic</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- N -->
+
+<section xml:id="PsiReference_Operators_Details_ne">
+<title><token language="psi">ne</token></title>
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<token language="psi">ne</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>объект<subscript>2</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_neg">
+<title><token language="psi">neg</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">neg</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>результат</replaceable>:
+<type>arithmetic</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_normaldeviate">
+<title><token language="psi">normaldeviate</token></title>
+<synopsis>
+<replaceable>генератор</replaceable>
+<replaceable>уклонение</replaceable>
+<token language="psi">normaldeviate</token>
+<replaceable>случайное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>генератор</replaceable>:
+<type>random</type>
+</listitem>
+<listitem>
+<replaceable>уклонение</replaceable>:
+<type>numeric</type>
+</listitem>
+<listitem>
+<replaceable>случайное</replaceable>:
+<type>real</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_not">
+<title><token language="psi">not</token></title>
+<synopsis>
+<replaceable>логическое</replaceable>
+<token language="psi">not</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>логическое</replaceable>,
+<replaceable>результат</replaceable>:
+<type>logical</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_null">
+<title><token language="psi">null</token></title>
+<synopsis>
+—
+<token language="psi">null</token>
+<replaceable>ничто</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ничто</replaceable>:
+<type>null</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- O -->
+
+<section xml:id="PsiReference_Operators_Details_or">
+<title><token language="psi">or</token></title>
+<synopsis>
+<replaceable>операнд<subscript>1</subscript></replaceable>
+<replaceable>операнд<subscript>2</subscript></replaceable>
+<token language="psi">or</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>операнд<subscript>1</subscript></replaceable>,
+<replaceable>операнд<subscript>2</subscript></replaceable>,
+<replaceable>результат</replaceable>:
+<type>logical</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- P -->
+
+<section xml:id="PsiReference_Operators_Details_pop">
+<title><token language="psi">pop</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">pop</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_pow">
+<title><token language="psi">pow</token></title>
+<synopsis>
+<replaceable>основание</replaceable>
+<replaceable>показатель</replaceable>
+<token language="psi">pow</token>
+<replaceable>степень</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>основание</replaceable>,
+<replaceable>показатель</replaceable>,
+<replaceable>степень</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_prettyprint">
+<title><token language="psi">prettyprint</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">prettyprint</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_print">
+<title><token language="psi">print</token></title>
+<synopsis>
+<replaceable>строка</replaceable>
+<token language="psi">print</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>stringlike</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_println">
+<title><token language="psi">println</token></title>
+<synopsis>
+<replaceable>строка</replaceable>
+<token language="psi">println</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>stringlike</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_pstack">
+<title><token language="psi">pstack</token></title>
+<synopsis>
+—
+<token language="psi">pstack</token>
+—
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_put">
+<title><token language="psi">put</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>элемент</replaceable>
+<token language="psi">put</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<type>indexed</type>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>,
+<replaceable>элемент</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_putinterval">
+<title><token language="psi">putinterval</token></title>
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">putinterval</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<type>arraylike</type>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<type>integer</type>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<type>iterable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- Q -->
+
+<section xml:id="PsiReference_Operators_Details_quit">
+<title><token language="psi">quit</token></title>
+<synopsis>
+—
+<token language="psi">quit</token>
+—
+</synopsis>
+</section>
+
+<!-- R -->
+
+<section xml:id="PsiReference_Operators_Details_random">
+<title><token language="psi">random</token></title>
+<synopsis>
+—
+<token language="psi">random</token>
+<replaceable>генератор</replaceable>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_rcheck">
+<title><token language="psi">rcheck</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">rcheck</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_read">
+<title><token language="psi">read</token></title>
+<synopsis>
+<replaceable>источник</replaceable>
+<token language="psi">read</token>
+<replaceable>символ</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<type>readable</type>
+</listitem>
+<listitem>
+<replaceable>символ</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_readline">
+<title><token language="psi">readline</token></title>
+<synopsis>
+<replaceable>источник</replaceable>
+<token language="psi">readline</token>
+<replaceable>строка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<type>readable</type>
+</listitem>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>string</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_readstring">
+<title><token language="psi">readstring</token></title>
+<synopsis>
+<replaceable>источник</replaceable>
+<replaceable>длина</replaceable>
+<token language="psi">readstring</token>
+<replaceable>строка</replaceable>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<type>readable</type>
+</listitem>
+<listitem>
+<replaceable>длина</replaceable>:
+<type>integer</type>
+</listitem>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>string</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_remove">
+<title><token language="psi">remove</token></title>
+<synopsis>
+<replaceable>множество</replaceable>
+<replaceable>элемент</replaceable>
+<token language="psi">remove</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>множество</replaceable>:
+<type>setlike</type>
+</listitem>
+<listitem>
+<replaceable>элемент</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_removeall">
+<title><token language="psi">removeall</token></title>
+<synopsis>
+<replaceable>множество</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">removeall</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>множество</replaceable>:
+<type>setlike</type>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<type>iterable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_repeat">
+<title><token language="psi">repeat</token></title>
+<synopsis>
+<replaceable>количество</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">repeat</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>количество</replaceable>:
+<type>integer</type>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_retainall">
+<title><token language="psi">retainall</token></title>
+<synopsis>
+<replaceable>множество</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">retainall</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>множество</replaceable>:
+<type>setlike</type>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<type>iterable</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_reverse">
+<title><token language="psi">reverse</token></title>
+<synopsis>
+<replaceable>массив<subscript>1</subscript></replaceable>
+<token language="psi">retainall</token>
+<replaceable>массив<subscript>2</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив<subscript>1</subscript></replaceable>,
+<replaceable>массив<subscript>2</subscript></replaceable>:
+<type>arraylike</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_roll">
+<title><token language="psi">roll</token></title>
+<synopsis>
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+…
+<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>n</replaceable>
+<replaceable>k</replaceable>
+<token language="psi">roll</token>
+<replaceable>объект<subscript>(k−1) mod n</subscript></replaceable>
+…
+<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+…
+<replaceable>объект<subscript>k mod n</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>,
+<replaceable>k</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- S -->
+
+<section xml:id="PsiReference_Operators_Details_say">
+<title><token language="psi">say</token></title>
+<synopsis>
+<replaceable>строка</replaceable>
+<token language="psi">say</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>stringlike</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_set">
+<title><token language="psi">set</token></title>
+<synopsis>
+—
+<token language="psi">set</token>
+<replaceable>множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>множество</replaceable>:
+<type>set</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_setseed">
+<title><token language="psi">setseed</token></title>
+<synopsis>
+<replaceable>генератор</replaceable>
+<replaceable>целое</replaceable>
+<token language="psi">setseed</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>генератор</replaceable>:
+<type>random</type>
+</listitem>
+<listitem>
+<replaceable>целое</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_settomark">
+<title><token language="psi">settomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">settomark</token>
+<replaceable>множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<type>mark</type>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>множество</replaceable>:
+<type>set</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_signum">
+<title><token language="psi">signum</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">signum</token>
+<replaceable>сигнум</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>сигнум</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_sin">
+<title><token language="psi">sin</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">sin</token>
+<replaceable>синус</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>синус</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_sinh">
+<title><token language="psi">sinh</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">sinh</token>
+<replaceable>гиперболический_синус</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>гиперболический_синус</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_sqrt">
+<title><token language="psi">sqrt</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">sqrt</token>
+<replaceable>квадратный_корень</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>квадратный_корень</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_stop">
+<title><token language="psi">stop</token></title>
+<synopsis>
+—
+<token language="psi">stop</token>
+—
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_stoped">
+<title><token language="psi">stoped</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">stop</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_string">
+<title><token language="psi">string</token></title>
+<synopsis>
+—
+<token language="psi">string</token>
+<replaceable>строка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>string</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_stringreader">
+<title><token language="psi">stringreader</token></title>
+<synopsis>
+<replaceable>строковое</replaceable>
+<token language="psi">stringreader</token>
+<replaceable>читатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строковое</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>читатель</replaceable>:
+<type>stringreader</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_stringwriter">
+<title><token language="psi">stringwriter</token></title>
+<synopsis>
+<replaceable>строка</replaceable>
+<token language="psi">stringwriter</token>
+<replaceable>писатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>string</type>
+</listitem>
+<listitem>
+<replaceable>писатель</replaceable>:
+<type>stringwriter</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_sub">
+<title><token language="psi">sub</token></title>
+<synopsis>
+<replaceable>уменьшаемое</replaceable>
+<replaceable>вычитаемое</replaceable>
+<token language="psi">sub</token>
+<replaceable>разность</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>уменьшаемое</replaceable>,
+<replaceable>вычитаемое<subscript>2</subscript></replaceable>,
+<replaceable>разность</replaceable>:
+<type>arithmetic</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- T -->
+
+<section xml:id="PsiReference_Operators_Details_tan">
+<title><token language="psi">tan</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">tan</token>
+<replaceable>тангенс</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>тангенс</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_tanh">
+<title><token language="psi">tanh</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">tanh</token>
+<replaceable>гиперболический_тангенс</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>гиперболический_тангенс</replaceable>:
+<type>complexnumeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_tointeger">
+<title><token language="psi">tointeger</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">tointeger</token>
+<replaceable>целое</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>convertabletointeger</type>
+</listitem>
+<listitem>
+<replaceable>целое</replaceable>:
+<type>integer</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_toname">
+<title><token language="psi">toname</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">toname</token>
+<replaceable>имя</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>convertabletoname</type>
+</listitem>
+<listitem>
+<replaceable>имя</replaceable>:
+<type>name</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_toreal">
+<title><token language="psi">toreal</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">toreal</token>
+<replaceable>вещественное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>convertabletoreal</type>
+</listitem>
+<listitem>
+<replaceable>вещественное</replaceable>:
+<type>real</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_tostring">
+<title><token language="psi">tostring</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">tostring</token>
+<replaceable>строка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>convertabletostring</type>
+</listitem>
+<listitem>
+<replaceable>строка</replaceable>:
+<type>string</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_true">
+<title><token language="psi">true</token></title>
+<synopsis>
+—
+<token language="psi">true</token>
+<replaceable>истина</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>истина</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_type">
+<title><token language="psi">type</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">type</token>
+<replaceable>имя_типа</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>имя_типа</replaceable>:
+<type>name</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- U -->
+
+<section xml:id="PsiReference_Operators_Details_undef">
+<title><token language="psi">undef</token></title>
+<synopsis>
+<replaceable>ключ</replaceable>
+<replaceable>словарь</replaceable>
+<token language="psi">undef</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dict</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_uniformboolean">
+<title><token language="psi">uniformboolean</token></title>
+<synopsis>
+<replaceable>генератор</replaceable>
+<token language="psi">uniformboolean</token>
+<replaceable>случайное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>генератор</replaceable>:
+<type>random</type>
+</listitem>
+<listitem>
+<replaceable>случайное</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_uniformdeviate">
+<title><token language="psi">uniformdeviate</token></title>
+<synopsis>
+<replaceable>генератор</replaceable>
+<replaceable>граница</replaceable>
+<token language="psi">uniformdeviate</token>
+<replaceable>случайное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>генератор</replaceable>:
+<type>random</type>
+</listitem>
+<listitem>
+<replaceable>граница</replaceable>,
+<replaceable>случайное</replaceable>:
+<type>numeric</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- W -->
+
+<section xml:id="PsiReference_Operators_Details_wcheck">
+<title><token language="psi">wcheck</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">wcheck</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_where">
+<title><token language="psi">where</token></title>
+<synopsis>
+<replaceable>ключ</replaceable>
+<token language="psi">where</token>
+<replaceable>словарь</replaceable>
+<replaceable>истина</replaceable>
+<sbr/>
+<replaceable>ключ</replaceable>
+<token language="psi">where</token>
+<replaceable>ложь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<type>stringlike</type>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<type>dictionarylike</type>
+</listitem>
+<listitem>
+<replaceable>истина</replaceable>,
+<replaceable>ложь</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_writestring">
+<title><token language="psi">writestring</token></title>
+<synopsis>
+<replaceable>потребитель</replaceable>
+<replaceable>строковое</replaceable>
+<token language="psi">writestring</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>потребитель</replaceable>:
+<type>writer</type>
+</listitem>
+<listitem>
+<replaceable>строковое</replaceable>:
+<type>stringlike</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<!-- X -->
+
+<section xml:id="PsiReference_Operators_Details_xcheck">
+<title><token language="psi">xcheck</token></title>
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">xcheck</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<type>object</type>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<type>boolean</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_xor">
+<title><token language="psi">xor</token></title>
+<synopsis>
+<replaceable>операнд<subscript>1</subscript></replaceable>
+<replaceable>операнд<subscript>2</subscript></replaceable>
+<token language="psi">xor</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>операнд<subscript>1</subscript></replaceable>,
+<replaceable>операнд<subscript>2</subscript></replaceable>,
+<replaceable>результат</replaceable>:
+<type>logical</type>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>
+
+
+</section>
+
+</chapter>
