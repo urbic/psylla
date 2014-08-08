@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsiReference_Interpreter">
+<title>Интерпретатор</title>
+
+<section xml:id="PsiReference_Interpreter_CLI">
+<title>Интерфейс командной строки</title>
+
+<section xml:id="PsiReference_Interpreter_CLI_Synopsis">
+<title>Синопсис</title>
+
+<cmdsynopsis><command>psi</command>
+<group>
+<arg choice="plain"><option>--version</option></arg>
+<arg choice="plain"><option>-V</option></arg>
+</group>
+<group>
+<arg choice="plain"><option>--help</option></arg>
+<arg choice="plain"><option>--usage</option></arg>
+<arg choice="plain"><option>-h</option></arg>
+<arg choice="plain"><option>-?</option></arg>
+</group>
+<group>
+<arg choice="plain"><option>--classpath</option></arg>
+<arg choice="plain"><option>-p</option></arg>
+<replaceable>путь</replaceable>
+</group>
+<group rep="repeat">
+<arg choice="plain"><option>--eval</option></arg>
+<arg choice="plain"><option>-e</option></arg>
+<replaceable>выражение</replaceable>
+</group>
+<arg><replaceable>программа</replaceable> <arg rep="repeat"><parameter><replaceable>аргумент</replaceable></parameter></arg></arg></cmdsynopsis>
+
+</section>
+
+<section>
+<title>Опции</title>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<group>
+<arg choice="plain"><option>--help</option></arg>
+<arg choice="plain"><option>--usage</option></arg>
+<arg choice="plain"><option>-h</option></arg>
+<arg choice="plain"><option>-?</option></arg>
+</group>
+</term>
+<!--term><option>- -help</option>, <option>- -usage</option>, <option>-h</option>, <option>-?</option></term-->
+<listitem>
+Вывод сводки опций.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>--version</option>, <option>-V</option></term>
+<listitem>
+Вывод версии интерпретатора.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><option>--eval</option>, <option>-e</option> <parameter><replaceable>выражение</replaceable></parameter></term>
+<listitem>
+Исполнение <parameter><replaceable>выражения</replaceable></parameter>,
+содержащего команды Ψ.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>программа</replaceable></parameter></term>
+<listitem>
+Имя файла с программой Ψ. Если указан дефис, программа считывается со
+стандартного ввода. Если <option>программа</option> не указана, запускается
+<acronym>REPL</acronym> (цикл прочитать — выполнить — напечатать).
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>аргумент</replaceable></parameter></term>
+<listitem>
+Аргумент, передаваемый в программу Ψ.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</section>
+
+</section>
+
+</chapter>
