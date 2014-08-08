@@ -96,8 +96,8 @@ public class PsiBitVector
 		int indexValue=index.intValue();
 		if(indexValue<0
 				||
-				iterable instanceof PsiComposite
-				&& indexValue+((PsiComposite<PsiBoolean>)iterable).length()>=size)
+				iterable instanceof PsiLengthy
+				&& indexValue+((PsiLengthy<PsiBoolean>)iterable).length()>=size)
 			throw new PsiException("rangecheck");
 		for(PsiBoolean bool: iterable)
 		{
@@ -166,10 +166,10 @@ public class PsiBitVector
 
 				public PsiBoolean next()
 				{
-					if(hasNext())
+					//if(hasNext())
 						return new PsiBoolean(bitvector.get(index++));
-					else
-						throw new java.util.NoSuchElementException();
+					//else
+					//	throw new java.util.NoSuchElementException();
 				}
 
 				public void remove()

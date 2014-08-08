@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public interface PsiComposite<T extends PsiObject>
+public interface PsiLengthy<T extends PsiObject>
 {
 	public int length();
 
@@ -14,5 +14,5 @@ public interface PsiComposite<T extends PsiObject>
 
 	public boolean isWritable();
 
-	public String toString(PsiComposite composite);
+	public String toString(PsiLengthy composite);
 }

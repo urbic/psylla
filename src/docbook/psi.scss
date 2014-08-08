@@ -86,6 +86,7 @@ hr
 }
 
 .programlisting,
+.literallayout,
 .sgmltag-element,
 .sgmltag-attribute,
 .sgmltag-attvalue,
@@ -128,7 +129,7 @@ hr
 .figure-title,
 {
 	font-weight: bold;
-	font-size: small;
+	//font-size: small;
 }
 
 .application
@@ -174,17 +175,37 @@ hr
 	font-family: monospace;
 }
 
+.command
+{
+	font-weight: bold;
+}
+
 table.productionset
 {
 	font-family: monospace;
 }
 
-.programlisting
+.programlisting,
+.synopsis,
+.cmdsynopsis,
+.literallayout
 {
 	padding: 1em;
 	//background-color: lighten($background-color-body, 3%);
 	background-color: $background-color-programlisting;
+	border-radius: .5em;
 	//border-left: 1px solid;
 	//border-color: $color-title;
 	//border-color: darken($background-color-body, 5%);
+}
+
+.literallayout p,
+.cmdsynopsis p,
+{
+	margin: 0em;
+}
+
+.synopsis .itemizedlist
+{
+	margin-bottom: 0em;
 }

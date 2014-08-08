@@ -78,7 +78,6 @@ public class PsiReader
 			throw new PsiException("ioerror");
 		}
 		buffer.flip();
-		//System.out.println(">>>"+buffer);
 		return new PsiString(buffer.toString());
 	}
 

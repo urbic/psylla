@@ -13,13 +13,20 @@ public class _atan extends PsiOperator
 			return;
 		}
 
+		PsiObject cn=opstack.pop();
 		try
 		{
-			opstack.push(((PsiNumeric)opstack.pop()).atan());
+			opstack.push(((PsiComplexNumeric)cn).psiAtan());
 		}
 		catch(ClassCastException e)
 		{
+			opstack.push(cn);
 			interpreter.error("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			opstack.push(cn);
+			interpreter.error(e.kind(), this);
 		}
 	}
 }

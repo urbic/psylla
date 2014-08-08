@@ -16,14 +16,7 @@ public class _read extends PsiOperator
 		PsiObject readable=opstack.pop();
 		try
 		{
-			PsiInteger character=((PsiReadable)readable).psiRead();
-			if(character.intValue()==-1)
-				opstack.push(new PsiBoolean(false));
-			else
-			{
-				opstack.push(character);
-				opstack.push(new PsiBoolean(true));
-			}
+			opstack.push(((PsiReadable)readable).psiRead());
 		}
 		catch(ClassCastException e)
 		{

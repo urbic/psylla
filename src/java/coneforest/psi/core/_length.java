@@ -16,7 +16,7 @@ public class _length extends PsiOperator
 		PsiObject composite=opstack.pop();
 		try
 		{
-			opstack.push(((PsiComposite)composite).psiLength());
+			opstack.push(((PsiLengthy)composite).psiLength());
 		}
 		catch(ClassCastException e)
 		{

@@ -16,7 +16,7 @@ public class _rcheck extends PsiOperator
 		PsiObject composite=opstack.pop();
 		try
 		{
-			opstack.push(new PsiBoolean(((PsiComposite)composite).isReadable()));
+			opstack.push(new PsiBoolean(((PsiLengthy)composite).isReadable()));
 		}
 		catch(ClassCastException e)
 		{

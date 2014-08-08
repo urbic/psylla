@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _cvlit extends PsiOperator
+public class _literal extends PsiOperator
 {
 	@Override
 	public void invoke(Interpreter interpreter)
