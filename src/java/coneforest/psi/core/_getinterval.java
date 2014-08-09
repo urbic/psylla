@@ -20,19 +20,12 @@ public class _getinterval extends PsiOperator
 		{
 			opstack.push((PsiObject)((PsiArraylike)arraylike).psiGetInterval((PsiInteger)index, (PsiInteger)count));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(arraylike);
 			opstack.push(index);
 			opstack.push(count);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(arraylike);
-			opstack.push(index);
-			opstack.push(count);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

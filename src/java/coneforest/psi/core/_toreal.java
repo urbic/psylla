@@ -18,15 +18,10 @@ public class _toreal extends PsiOperator
 		{
 			opstack.push(((PsiConvertableToReal)convertable).psiToReal());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(convertable);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(convertable);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

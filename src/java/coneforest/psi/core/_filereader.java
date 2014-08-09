@@ -11,18 +11,15 @@ public class _filereader extends PsiOperator
 		if(opstack.size()<1)
 			interpreter.error("stackunderflow", this);
 
-		PsiObject name=opstack.pop();
+		PsiObject stringlike=opstack.pop();
 		try
 		{
-			opstack.push(new PsiFileReader((PsiString)name));
+			opstack.push(new PsiFileReader((PsiStringlike)stringlike));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			interpreter.error(e.kind(), this);
+			opstack.push(stringlike);
+			interpreter.error(e, this);
 		}
 	}
 }

@@ -19,9 +19,11 @@ public class _le extends PsiOperator
 		{
 			opstack.push(((PsiScalar)scalar1).psiLe((PsiScalar)scalar2));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			opstack.push(scalar1);
+			opstack.push(scalar2);
+			interpreter.error(e, this);
 		}
 	}
 }

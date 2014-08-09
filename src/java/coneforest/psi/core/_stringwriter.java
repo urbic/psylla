@@ -7,7 +7,6 @@ public class _stringwriter extends PsiOperator
 	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
@@ -19,10 +18,10 @@ public class _stringwriter extends PsiOperator
 		{
 			opstack.push(new PsiStringWriter((PsiString)string));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(string);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

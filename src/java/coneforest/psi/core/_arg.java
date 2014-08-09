@@ -18,10 +18,10 @@ public class _arg extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiArg());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(cn);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

@@ -18,9 +18,10 @@ public class _begin extends PsiOperator
 		{
 			interpreter.getDictionaryStack().push((PsiDictionary)dict);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			opstack.push(dict);
+			interpreter.error(e, this);
 		}
 	}
 }

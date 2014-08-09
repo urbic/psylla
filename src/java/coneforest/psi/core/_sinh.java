@@ -18,10 +18,10 @@ public class _sinh extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiSinh());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(cn);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

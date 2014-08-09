@@ -19,17 +19,11 @@ public class _get extends PsiOperator
 		{
 			opstack.push(((PsiIndexed)indexed).psiGet(key));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(indexed);
 			opstack.push(key);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(indexed);
-			opstack.push(key);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

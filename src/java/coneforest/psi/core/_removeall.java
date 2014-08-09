@@ -19,11 +19,11 @@ public class _removeall extends PsiOperator
 		{
 			((PsiSetlike)setlike).psiRemoveAll((PsiIterable)iterable);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(setlike);
 			opstack.push(iterable);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

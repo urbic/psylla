@@ -18,15 +18,10 @@ public class _flush extends PsiOperator
 		{
 			((PsiFlushable)flushable).psiFlush();
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(flushable);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(flushable);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }
