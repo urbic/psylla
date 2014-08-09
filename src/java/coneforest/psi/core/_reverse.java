@@ -18,15 +18,10 @@ public class _reverse extends PsiOperator
 		{
 			((PsiArraylike)arraylike).psiReverse();
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(arraylike);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(arraylike);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

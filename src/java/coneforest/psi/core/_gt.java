@@ -19,11 +19,11 @@ public class _gt extends PsiOperator
 		{
 			opstack.push(((PsiScalar)scalar1).psiGt((PsiScalar)scalar2));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(scalar1);
 			opstack.push(scalar2);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

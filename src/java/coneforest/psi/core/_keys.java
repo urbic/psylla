@@ -18,10 +18,10 @@ public class _keys extends PsiOperator
 		{
 			opstack.push(((PsiDictionarylike)dictionarylike).psiKeys());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(dictionarylike);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

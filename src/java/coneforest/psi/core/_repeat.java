@@ -19,11 +19,7 @@ public class _repeat extends PsiOperator
 		{
 			long countValue=((PsiInteger)count).longValue();
 			if(countValue<0)
-			{
-				// TODO
-				interpreter.error("rangecheck", this);
-				return;
-			}
+				throw new PsiException("rangecheck");
 			int looplevel=interpreter.pushLoopLevel();
 			// TODO: reverse
 			for(int i=0;
@@ -36,10 +32,11 @@ public class _repeat extends PsiOperator
 			interpreter.setExitFlag(false);
 
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			// TODO
-			interpreter.error("typecheck", this);
+			opstack.push(count);
+			opstack.push(obj);
+			interpreter.error(e, this);
 		}
 	}
 }

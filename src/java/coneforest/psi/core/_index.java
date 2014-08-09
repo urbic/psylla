@@ -24,15 +24,10 @@ public class _index extends PsiOperator
 			else
 				opstack.push(opstack.get(opstack.size()-nValue-1));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(n);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(n);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

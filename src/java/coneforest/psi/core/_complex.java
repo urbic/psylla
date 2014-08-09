@@ -19,11 +19,11 @@ public class _complex extends PsiOperator
 		{
 			opstack.push(new PsiComplex((PsiNumeric)numeric1, (PsiNumeric)numeric2));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(numeric1);
 			opstack.push(numeric2);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

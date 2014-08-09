@@ -21,10 +21,10 @@ public class _where extends PsiOperator
 				opstack.push(dict);
 			opstack.push(new PsiBoolean(dict!=null));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(key);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

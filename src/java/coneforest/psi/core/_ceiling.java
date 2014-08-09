@@ -18,9 +18,9 @@ public class _ceiling extends PsiOperator
 		{
 			opstack.push(((PsiNumeric)numeric).psiCeiling());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

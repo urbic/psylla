@@ -19,17 +19,11 @@ public class _append extends PsiOperator
 		{
 			((PsiAppendable)appendable).psiAppend(obj);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(appendable);
 			opstack.push(obj);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(appendable);
-			opstack.push(obj);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

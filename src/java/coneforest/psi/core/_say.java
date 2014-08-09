@@ -13,23 +13,18 @@ public class _say extends PsiOperator
 			return;
 		}
 
-		PsiObject string=opstack.pop();
+		PsiObject stringlike=opstack.pop();
 		try
 		{
 			PsiWriter stdwriter=(PsiWriter)interpreter.getSystemDictionary().psiGet("stdout");
-			stdwriter.psiWriteString((PsiString)string);
+			stdwriter.psiWriteString((PsiStringlike)stringlike);
 			stdwriter.psiWrite(new PsiInteger(10));
 			stdwriter.psiFlush();
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			opstack.push(string);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(string);
-			interpreter.error(e.kind(), this);
+			opstack.push(stringlike);
+			interpreter.error(e, this);
 		}
 	}
 }

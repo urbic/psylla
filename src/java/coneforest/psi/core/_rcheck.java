@@ -18,10 +18,10 @@ public class _rcheck extends PsiOperator
 		{
 			opstack.push(new PsiBoolean(((PsiLengthy)composite).isReadable()));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(composite);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

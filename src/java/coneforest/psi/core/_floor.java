@@ -18,10 +18,10 @@ public class _floor extends PsiOperator
 		{
 			opstack.push(((PsiNumeric)numeric).psiFloor());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(numeric);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

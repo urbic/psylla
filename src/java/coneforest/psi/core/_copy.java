@@ -29,9 +29,10 @@ public class _copy extends PsiOperator
 			}
 		}
 		// TODO other types of topmost operands?
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			opstack.push(n);
+			interpreter.error(e, this);
 		}
 	}
 }

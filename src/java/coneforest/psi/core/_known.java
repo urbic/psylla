@@ -19,9 +19,11 @@ public class _known extends PsiOperator
 		{
 			opstack.push(((PsiDictionarylike)dict).psiKnown((PsiStringlike)key));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			opstack.push(dict);
+			opstack.push(key);
+			interpreter.error(e, this);
 		}
 	}
 }

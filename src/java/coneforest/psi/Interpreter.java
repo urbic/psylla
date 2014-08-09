@@ -362,6 +362,21 @@ public class Interpreter
 		}
 	}
 
+	public void error(Exception e, PsiObject obj)
+	{
+		String errorName;
+		if(e instanceof ClassCastException)
+			errorName="typecheck";
+		else if(e instanceof PsiException)
+			errorName=((PsiException)e).kind();
+		else
+			errorName="unknownerror";
+		opstack.push(obj);
+		System.out.println("Error /"+errorName+" in "+obj);
+		showStacks();
+		System.exit(1);
+	}
+
 	public void error(String errorName, PsiObject obj)
 	{
 		// TODO

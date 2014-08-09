@@ -18,10 +18,10 @@ public class _length extends PsiOperator
 		{
 			opstack.push(((PsiLengthy)composite).psiLength());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(composite);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

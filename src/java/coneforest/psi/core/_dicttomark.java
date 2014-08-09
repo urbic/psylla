@@ -30,13 +30,9 @@ public class _dicttomark extends PsiOperator
 			}
 			interpreter.error("unmatchedmark", this);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }
