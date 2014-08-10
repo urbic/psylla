@@ -3,14 +3,15 @@ package coneforest.cli;
 /**
  * Thrown when error occured during parser configuration.
  */
-public class ConfigurationException extends Exception
+public class CLIConfigurationException
+	extends CLIException
 {
 	/**
 	 * Constructor
 	 * @param message message text
 	 */
-	public ConfigurationException(String message)
+	public CLIConfigurationException(String message)
 	{
-		System.err.println("Option configuration exception: "+message);
+		super("Option configuration exception: "+message);
 	}
 }
