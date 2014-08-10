@@ -1,4 +1,4 @@
-/n arguments 1 get tointeger def
+/n arguments 0 get tointeger def
 
 /sieve
 [

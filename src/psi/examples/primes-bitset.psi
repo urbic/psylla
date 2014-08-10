@@ -3,7 +3,7 @@
 /testprime
 {
 	true exch
-	primes
+	//primes
 	{
 		1 index exch
 		mod 0 eq
@@ -14,11 +14,11 @@
 		if
 	}
 	forall
-	primes exch append
+	//primes exch append
 }
 bind def
 
-2 1 arguments 1 get tointeger
+2 1 arguments 0 get tointeger
 {
 	dup
 	testprime
