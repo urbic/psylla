@@ -1,6 +1,6 @@
 /sieve bitset def
 
-2 1 arguments 1 get tointeger
+2 1 arguments 0 get tointeger
 {
 	//sieve exch append
 }

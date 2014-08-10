@@ -1,4 +1,4 @@
-/in arguments 1 get filereader def
+/in arguments 0 get filereader def
 
 {
 	//in 4096 readstring

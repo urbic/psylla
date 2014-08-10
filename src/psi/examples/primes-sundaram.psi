@@ -1,4 +1,4 @@
-/n arguments 1 get tointeger 1 sub 2 div floor def
+/n arguments 0 get tointeger 1 sub 2 div floor def
 
 /sieve bitset def
 1 1 n { //sieve exch append } bind for
