@@ -42,9 +42,13 @@ public class _for extends PsiOperator
 			interpreter.setExitFlag(false);
 
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			opstack.push(initial);
+			opstack.push(increment);
+			opstack.push(limit);
+			opstack.push(obj);
+			interpreter.error(e, this);
 		}
 	}
 }

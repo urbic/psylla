@@ -8,7 +8,7 @@ public class OptionCollectorDouble extends OptionCollector<Double>
 	}
 
 	public Double parseArg(String arg)
-		throws ProcessingException
+		throws CLIProcessingException
 	{
 		double result;
 		try
@@ -17,7 +17,7 @@ public class OptionCollectorDouble extends OptionCollector<Double>
 		}
 		catch(NumberFormatException e)
 		{
-			throw new ProcessingException("Bad option argument format: "+arg);
+			throw new CLIProcessingException("Bad option argument format: "+arg);
 		}
 		return result;
 	}

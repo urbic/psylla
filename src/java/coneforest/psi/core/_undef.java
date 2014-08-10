@@ -14,14 +14,16 @@ public class _undef extends PsiOperator
 		}
 
 		PsiObject key=opstack.pop();
-		PsiObject dict=opstack.pop();
+		PsiObject dictionarylike=opstack.pop();
 		try
 		{
-			((PsiDictionary)dict).psiUndef((PsiStringlike)key);
+			((PsiDictionarylike)dictionarylike).psiUndef((PsiStringlike)key);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			opstack.push(dictionarylike);
+			opstack.push(key);
+			interpreter.error(e, this);
 			// TODO errors: invalidaccess
 		}
 	}

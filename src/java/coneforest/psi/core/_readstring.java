@@ -21,17 +21,11 @@ public class _readstring extends PsiOperator
 			opstack.push(string);
 			opstack.push(string.psiLength().psiEq((PsiInteger)count));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(count);
 			opstack.push(readable);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(count);
-			opstack.push(readable);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

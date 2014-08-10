@@ -19,19 +19,12 @@ public class _put extends PsiOperator
 		{
 			((PsiIndexed)indexed).psiPut(key, obj);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(indexed);
 			opstack.push(key);
 			opstack.push(obj);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(indexed);
-			opstack.push(key);
-			opstack.push(obj);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

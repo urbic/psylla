@@ -1,8 +1,9 @@
 package coneforest.cli;
 
-public class OptionString extends OptionHolder<String>
+public class OptionString
+	extends OptionHolder<String>
 {
-	public OptionString(String names)
+	public OptionString(String... names)
 	{
 		super(names);
 	}

@@ -18,10 +18,10 @@ public class _bind extends PsiOperator
 		{
 			bind((PsiArray)array, interpreter.getDictionaryStack());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(array);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 
@@ -48,7 +48,7 @@ public class _bind extends PsiOperator
 			}
 			catch(PsiException e)
 			{
-				// TODO
+				// NOP
 			}
 		}
 	}

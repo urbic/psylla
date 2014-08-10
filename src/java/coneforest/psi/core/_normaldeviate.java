@@ -19,11 +19,11 @@ public class _normaldeviate extends PsiOperator
 		{
 			opstack.push(((PsiRandom)random).psiNormalDeviate((PsiNumeric)numeric));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(random);
 			opstack.push(numeric);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

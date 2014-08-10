@@ -18,10 +18,10 @@ public class _conjugate extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiConjugate());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(cn);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

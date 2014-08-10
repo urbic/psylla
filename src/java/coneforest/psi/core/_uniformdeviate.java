@@ -19,17 +19,11 @@ public class _uniformdeviate extends PsiOperator
 		{
 			opstack.push(((PsiRandom)random).psiUniformDeviate((PsiNumeric)numeric));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(random);
 			opstack.push(numeric);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(random);
-			opstack.push(numeric);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

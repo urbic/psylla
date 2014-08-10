@@ -12,6 +12,7 @@ public class _eq extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiObject obj2=opstack.pop();
 		PsiObject obj1=opstack.pop();
 		opstack.push(obj1.psiEq(obj2));

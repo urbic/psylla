@@ -29,10 +29,10 @@ abstract public class OptionCollector<T> extends OptionWithArg
 	 * by {@link #parseArg(String)}.
 	 *
 	 * @param arg argument
-	 * @throws ProcessingException when parse error occured
+	 * @throws CLIProcessingException when parse error occured
 	 */
 	public void handle(final String arg)
-		throws ProcessingException
+		throws CLIProcessingException
 	{
 		argList.add(parseArg(arg));
 	}
@@ -42,10 +42,10 @@ abstract public class OptionCollector<T> extends OptionWithArg
 	 *
 	 * @param arg argument
 	 * @return object
-	 * @throws ProcessingException when parse error occured
+	 * @throws CLIProcessingException when parse error occured
 	 */
 	abstract public T parseArg(final String arg)
-		throws ProcessingException;
+		throws CLIProcessingException;
 
 	private ArrayList<T> argList=new ArrayList<T>();
 }

@@ -18,10 +18,10 @@ public class _isempty extends PsiOperator
 		{
 			opstack.push(((PsiLengthy)composite).psiIsEmpty());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(composite);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

@@ -13,18 +13,15 @@ public class _filewriter extends PsiOperator
 			return;
 		}
 
-		PsiObject name=opstack.pop();
+		PsiObject stringlike=opstack.pop();
 		try
 		{
-			opstack.push(new PsiFileWriter((PsiString)name));
+			opstack.push(new PsiFileWriter((PsiStringlike)stringlike));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			interpreter.error(e.kind(), this);
+			opstack.push(stringlike);
+			interpreter.error(e, this);
 		}
 	}
 }
