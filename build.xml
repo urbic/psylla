@@ -11,7 +11,7 @@
 	<property name="target.src.java" location="${target}/src/java"/>
 	<property name="target.doc" location="${target}/doc"/>
 	<property name="target.doc.javadoc"  location="${target.doc}/javadoc"/>
-	<property name="classes" location="${target}/classes"/>
+	<property name="target.classes" location="${target}/classes"/>
 	<property name="target.lib"  location="${target}/lib"/>
 	<property name="target.man"  location="${target}/man"/>
 	<property name="target.doc.html" location="${target.doc}/html"/>
@@ -43,17 +43,25 @@
 
 	<target name="compile.java" depends="compile.jj"
 			description="compile the source">
-		<mkdir dir="${classes}"/>
+		<mkdir dir="${target.classes}"/>
 		<javac
 			srcdir="${src.java}:${target.src.java}"
-			destdir="${classes}"
+			destdir="${target.classes}"
 			includeantruntime="false"
 			classpathref="project.class.path"
+			encoding="UTF-8"
 			/>
 			<!--sourcepath="${src.java}:${target.src.java}"-->
-		<copy todir="${classes}">
+		<!--copy todir="${target.classes}">
 			<fileset dir="${src.java}" includes="**/*.properties"/>
-		</copy>
+		</copy-->
+		<native2ascii
+			src="${src.java}"
+			encoding="UTF-8"
+			dest="${target.classes}"
+			includes="**/*.properties"
+			ext=".properties"
+			/>
 	</target>
 
 	<target name="compile" depends="compile.java"/>
@@ -67,7 +75,10 @@
 	</target>
 
 	<target name="jar" depends="compile">
-		<jar jarfile="${target.lib}/${project.name}-${project.version}.jar" basedir="${classes}">
+		<jar
+			jarfile="${target.lib}/${project.name}-${project.version}.jar"
+			basedir="${target.classes}"
+			>
 			<manifest>
 				<attribute name="Main-Class" value="coneforest.psi.Psi"/>
 				<!--attribute name="Class-Path" value="/usr/share/java/regexp.jar"/-->
