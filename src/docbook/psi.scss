@@ -209,3 +209,13 @@ table.productionset
 {
 	margin-bottom: 0em;
 }
+
+.navfooter table tr td
+{
+	&[align="left"],
+	&[align="right"]
+	{
+		width: 33.3333%;
+	}
+}
+

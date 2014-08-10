@@ -7,8 +7,8 @@ public class PsiStringReader extends PsiReader
 		super(new java.io.StringReader(stringValue));
 	}
 	
-	public PsiStringReader(PsiString string)
+	public PsiStringReader(PsiStringlike stringlike)
 	{
-		this(string.getString());
+		this(stringlike.getString());
 	}
 }
