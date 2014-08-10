@@ -19,11 +19,11 @@ public class _def extends PsiOperator
 		{
 			interpreter.getDictionaryStack().peek().psiPut((PsiStringlike)key, obj);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(key);
 			opstack.push(obj);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

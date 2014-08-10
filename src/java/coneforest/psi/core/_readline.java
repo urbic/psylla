@@ -16,18 +16,12 @@ public class _readline extends PsiOperator
 		PsiObject readable=opstack.pop();
 		try
 		{
-			PsiString string=((PsiReadable)readable).psiReadLine();
-			opstack.push(string);
+			opstack.push(((PsiReadable)readable).psiReadLine());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(readable);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(readable);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

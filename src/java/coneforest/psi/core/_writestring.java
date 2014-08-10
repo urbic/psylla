@@ -19,17 +19,11 @@ public class _writestring extends PsiOperator
 		{
 			((PsiWriter)writer).psiWriteString((PsiStringlike)stringlike);
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(writer);
 			opstack.push(stringlike);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(writer);
-			opstack.push(stringlike);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

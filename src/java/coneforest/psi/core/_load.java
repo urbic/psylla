@@ -18,15 +18,10 @@ public class _load extends PsiOperator
 		{
 			opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)key));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(key);
-			interpreter.error("typecheck", this);
-		}
-		catch(PsiException e)
-		{
-			opstack.push(key);
-			interpreter.error(e.kind(), this);
+			interpreter.error(e, this);
 		}
 	}
 }

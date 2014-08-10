@@ -19,11 +19,11 @@ public class _intersects extends PsiOperator
 		{
 			opstack.push(((PsiSetlike)setlike1).psiIntersects((PsiSetlike)setlike2));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(setlike1);
 			opstack.push(setlike2);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

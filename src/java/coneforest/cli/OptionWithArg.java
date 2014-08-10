@@ -3,9 +3,10 @@ package coneforest.cli;
 /**
  * Base class representing an abstract option with argument.
  */
-abstract public class OptionWithArg extends Option
+abstract public class OptionWithArg<T>
+	extends Option
 {
-	public OptionWithArg(String names)
+	public OptionWithArg(String... names)
 	{
 		super(names);
 	}
@@ -14,8 +15,8 @@ abstract public class OptionWithArg extends Option
 	 * Option argument is passed to this method.
 	 *
 	 * @param arg argument
-	 * @throws ProcessingException
+	 * @throws CLIProcessingException
 	 */
 	abstract public void handle(String arg)
-		throws ProcessingException;
+		throws CLIProcessingException;
 }

@@ -18,10 +18,10 @@ public class _uniformboolean extends PsiOperator
 		{
 			opstack.push(((PsiRandom)random).psiUniformBoolean());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(random);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

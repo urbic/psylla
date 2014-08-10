@@ -18,10 +18,10 @@ public class _clear extends PsiOperator
 		{
 			((PsiClearable)clearable).psiClear();
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(clearable);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

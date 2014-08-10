@@ -13,15 +13,15 @@ public class _wcheck extends PsiOperator
 			return;
 		}
 
-		PsiObject composite=opstack.pop();
+		PsiObject lengthy=opstack.pop();
 		try
 		{
-			opstack.push(new PsiBoolean(((PsiLengthy)composite).isWritable()));
+			opstack.push(new PsiBoolean(((PsiLengthy)lengthy).isWritable()));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			opstack.push(composite);
-			interpreter.error("typecheck", this);
+			opstack.push(lengthy);
+			interpreter.error(e, this);
 		}
 	}
 }

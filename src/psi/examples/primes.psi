@@ -1,4 +1,3 @@
-
 /testprime
 {
 	true exch
@@ -20,7 +19,7 @@
 bind def
 
 
-2 1 arguments 1 get tointeger
+2 1 arguments 0 get tointeger
 {
 	dup
 	testprime

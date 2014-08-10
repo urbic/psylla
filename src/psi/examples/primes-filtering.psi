@@ -29,7 +29,7 @@ bind def
 }
 bind def
 
-/n arguments 1 get tointeger def
+/n arguments 0 get tointeger def
 /source sequence def
 
 {

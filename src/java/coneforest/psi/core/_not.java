@@ -18,9 +18,10 @@ public class _not extends PsiOperator
 		{
 			opstack.push((PsiObject)((PsiLogical)logical).psiNot());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			interpreter.error("typecheck", this);
+			opstack.push(logical);
+			interpreter.error(e, this);
 		}
 	}
 }

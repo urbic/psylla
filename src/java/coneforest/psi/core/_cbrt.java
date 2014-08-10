@@ -18,10 +18,10 @@ public class _cbrt extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiCbrt());
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
 			opstack.push(cn);
-			interpreter.error("typecheck", this);
+			interpreter.error(e, this);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-/x arguments 1 get toreal def
+/x arguments 0 get toreal def
 
 /sqrt-hero
 {

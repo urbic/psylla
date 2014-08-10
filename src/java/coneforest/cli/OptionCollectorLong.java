@@ -8,7 +8,7 @@ public class OptionCollectorLong extends OptionCollector<Long>
 	}
 
 	public Long parseArg(String arg)
-		throws ProcessingException
+		throws CLIProcessingException
 	{
 		long result;
 		try
@@ -17,7 +17,7 @@ public class OptionCollectorLong extends OptionCollector<Long>
 		}
 		catch(NumberFormatException e)
 		{
-			throw new ProcessingException("Bad option argument format: "+arg);
+			throw new CLIProcessingException("Bad option argument format: "+arg);
 		}
 		return result;
 	}

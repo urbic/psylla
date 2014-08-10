@@ -7,22 +7,21 @@ public class _stringreader extends PsiOperator
 	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
-
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject string=opstack.pop();
+		PsiObject stringlike=opstack.pop();
 		try
 		{
-			opstack.push(new PsiStringReader((PsiString)string));
+			opstack.push(new PsiStringReader((PsiStringlike)stringlike));
 		}
-		catch(ClassCastException e)
+		catch(Exception e)
 		{
-			opstack.push(string);
-			interpreter.error("typecheck", this);
+			opstack.push(stringlike);
+			interpreter.error(e, this);
 		}
 	}
 }
