@@ -15,6 +15,7 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 	>
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml-1_1/profile-chunk.xsl"/>
 	<xsl:import href="highlight.xsl"/>
+	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml-1_1/autoidx-kosek.xsl"/>
 
 	<xsl:param name="html.extra.head.links" select="1"/>
 	<xsl:param name="header.rule" select="0"/>
@@ -51,6 +52,8 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 	<xsl:param name="callout.unicode.font" select="'STIX General'"/>
 	<xsl:param name="section.autolabel" select="1"/>
 	<xsl:param name="arg.rep.repeat.str">…</xsl:param>
+	<xsl:param name="section.label.includes.component.label" select="1"/>
+	<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
 
 	<xsl:output method="xml" omit-xml-declaration="yes"/>
 	

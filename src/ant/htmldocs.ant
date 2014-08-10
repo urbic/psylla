@@ -57,6 +57,7 @@
 				>
 				<param name="root.filename" expression="@{base.name}"/>
 				<param name="base.dir" expression="${target.doc.html}/@{lang}"/>
+				<param name="l10n.gentext.language" expression="@{lang}"/>
 			</xslt.html>
 		</sequential>
 	</macrodef>

@@ -5,82 +5,118 @@ public class Psi
 {
 	public static void main(String args[])
 	{
+		String consoleEncoding=System.getProperty("consoleEncoding");
+		
+		int processed;
 		try
 		{
-			coneforest.cli.OptionsProcessor cli
-				=new coneforest.cli.OptionsProcessor
-					(
-						new coneforest.cli.OptionFlag("help", "h", "?")
-					);
-		}
-		catch(coneforest.cli.ConfigurationException e)
-		{
+			processed=cli.parse(args, 0);
+			
+			if(cli.getValue("help"))
+				help();
 
-		}
+			if(cli.getValue("version"))
+				version();
 
+			if(cli.getValue("console-encoding")!=null)
+				consoleEncoding=((String)cli.getValue("console-encoding"));
+			if(consoleEncoding!=null)
+			{
+				try
+				{
+					System.setOut(new java.io.PrintStream(System.out, true, consoleEncoding));
+					System.setErr(new java.io.PrintStream(System.err, true, consoleEncoding));
+				}
+				catch(java.io.UnsupportedEncodingException ex)
+				{
+					System.err.println(String.format(messages.getString("unsupportedEncodingText"),
+						consoleEncoding));
+					System.exit(1);
+				}
+			}
 
+			Interpreter interpreter=new Interpreter();
+			interpreter.acceptEnvironment(System.getenv());
 
-
-
-		Interpreter interpreter=new Interpreter();
-		interpreter.acceptShellArguments(args);
-		//System.out.println(System.getenv().getClass());
-		interpreter.acceptEnvironment(System.getenv());
-		try
-		{
 			interpreter.setReader(new java.io.InputStreamReader(System.in));
 			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
-
-			interpreter.eval(new java.io.FileReader(args[0]));
-			//interpreter.pushSourceReader(new java.io.FileReader(args[0]));
-			//interpreter.interpret();
+			
+			if(cli.getValue("classpath")!=null)
+				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
+			
+			if(cli.getValue("eval")!=null)
+			{
+				interpreter.acceptScriptName("--eval");
+				interpreter.acceptShellArguments(
+						java.util.Arrays.copyOfRange(args, processed, args.length));
+				interpreter.eval(new java.io.StringReader(cli.<String>getValue("eval")));
+			}
+			else if(processed<args.length)
+			{
+				String scriptNname=args[processed];
+				interpreter.acceptScriptName(scriptNname);
+				interpreter.acceptShellArguments(
+						java.util.Arrays.copyOfRange(args, processed+1, args.length));
+				interpreter.eval
+					(
+						scriptNname.equals("-")?
+							new java.io.InputStreamReader(System.in):
+							new java.io.FileReader(scriptNname)
+					);
+			}
+			else
+			{
+				// REPL
+			}
+			System.exit(0);
+		}
+		catch(coneforest.cli.CLIProcessingException e)
+		{
+			System.err.println(e.getMessage());
 		}
 		catch(java.io.FileNotFoundException e)
 		{
-			System.out.println("FILE NOT FOUND");
+			System.out.println(String.format(messages.getString("scriptNotFoundText"),
+					e.getMessage()));
+			System.exit(1);
 		}
-		//catch(PsiException e)
-		//{
-		//	System.out.println("ERROR: "+e.kind());
-		//}
-		/*
+	}
+
+	private static void help()
+	{
+		System.out.println(messages.getString("helpText"));
+		System.exit(0);
+	}
+
+	private static void version()
+	{
+		System.out.print(String.format(messages.getString("versionText"),
+				Version.getVersion()));
+		System.exit(0);
+	}
+
+	private static java.util.ResourceBundle messages
+		=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
+			
+	private static coneforest.cli.CLIProcessor cli;
+
+	static
+	{
 		try
 		{
-			coneforest.xopt.OptionsProcessor xopt
-				=new coneforest.xopt.OptionsProcessor(Psi.class.getResource("psi.xopt"));
-			xopt.parse(args);
-
-			Interpreter interpreter=new Interpreter();
-
-
-			String[] freeArgs=xopt.getFreeArgs();
-			interpreter.acceptShellArguments(freeArgs);
-			if(freeArgs.length>0)
-				for(String fileName: freeArgs)
-				{
-					if(fileName.equals("-"))
-					{
-						System.out.println("STDIN");
-						interpreter.interpret(new PsiReader(System.in));
-					}
-					else
-						interpreter.interpret(new PsiFileReader(fileName));
-				}
+			cli=new coneforest.cli.CLIProcessor
+				(
+					new coneforest.cli.OptionFlag("help", "h", "?"),
+					new coneforest.cli.OptionFlag("version", "V"),
+					new coneforest.cli.OptionString("console-encoding", "C"),
+					new coneforest.cli.OptionPath("classpath", "cp"),
+					new coneforest.cli.OptionString("eval", "e")
+				);
 		}
-		catch(coneforest.xopt.ConfigurationException e)
+		catch(coneforest.cli.CLIConfigurationException e)
 		{
 			System.err.println(e.getMessage());
 			System.exit(1);
 		}
-		catch(coneforest.xopt.ProcessingException e)
-		{
-			System.err.println(e.getMessage());
-			System.exit(1);
-		}
-		catch(PsiException e)
-		{
-			System.out.println("ERROR: "+e.kind());
-		}
-		*/
 	}
 }
