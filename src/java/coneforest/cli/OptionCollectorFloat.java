@@ -8,7 +8,7 @@ public class OptionCollectorFloat extends OptionCollector<Float>
 	}
 
 	public Float parseArg(String arg)
-		throws ProcessingException
+		throws CLIProcessingException
 	{
 		float result;
 		try
@@ -17,7 +17,7 @@ public class OptionCollectorFloat extends OptionCollector<Float>
 		}
 		catch(NumberFormatException e)
 		{
-			throw new ProcessingException("Bad option argument format: "+arg);
+			throw new CLIProcessingException("Bad option argument format: "+arg);
 		}
 		return result;
 	}

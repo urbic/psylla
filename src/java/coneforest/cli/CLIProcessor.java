@@ -5,45 +5,26 @@ import java.util.Locale;
 /**
  * Options processor class
  */
-public class OptionsProcessor
+public class CLIProcessor
 {
 	/**
 	 * Constructor	
 	 * @param url URL of parser configuration document
 	 */
-	public OptionsProcessor(final Option... options)
-		throws ConfigurationException
+	public CLIProcessor(final Option... options)
+		throws CLIConfigurationException
 	{
 		this.options=options;
 	}
 
-	public java.util.Iterator<Option> iterator()
+	public int parse(final String[] args)
+		throws CLIProcessingException
 	{
-		return new java.util.Iterator<Option>()
-			{
-				public boolean hasNext()
-				{
-					return true;
-				}
-
-				public Option next()
-				{
-					return null;
-				}
-
-				public void remove()
-				{
-					throw new UnsupportedOperationException();
-				}
-							
-				private int argIndex=0, argCharIndex=0;
-				private boolean optionsProcessing=true;
-			};
+		return parse(args, Integer.MAX_VALUE);
 	}
 
-	/*
-	public void parse(final String[] args)
-		throws ProcessingException
+	public int parse(final String[] args, int freeArgsCount)
+		throws CLIProcessingException
 	{
 		boolean optionsProcessing=true;
 
@@ -67,7 +48,7 @@ public class OptionsProcessor
 						if(option instanceof OptionWithArg)
 							((OptionWithArg)option).handle(arg);
 						else
-							throw new ProcessingException("Option --"+name+" does not need argument");
+							throw new CLIProcessingException("Option --"+name+" does not need argument");
 					}
 					else
 					{
@@ -78,13 +59,13 @@ public class OptionsProcessor
 							if(++i<args.length)
 								((OptionWithArg)option).handle(args[i]);
 							else
-								throw new ProcessingException("Option --"+name+" needs argument");
+								throw new CLIProcessingException("Option --"+name+" needs argument");
 						}
 						else
 							((OptionWithoutArg)option).handle();
 					}
 				}
-				else if(args[i].startsWith("-"))
+				else if(args[i].startsWith("-") && !args[i].equals("-"))
 				{
 					for(int j=1; j<args[i].length(); j++)
 					{
@@ -93,108 +74,54 @@ public class OptionsProcessor
 						if(option instanceof OptionWithArg)
 						{
 							if(++j==args[i].length())
-							{
 								if(++i<args.length)
 									((OptionWithArg)option).handle(args[i]);
 								else
-									throw new ProcessingException("Option -"+name+" needs argument");
-							}
+									throw new CLIProcessingException("Option -"+name+" needs argument");
 							else
-							{
 								((OptionWithArg)option).handle(args[i].substring(j));
-								break;
-							}
+							break;
 						}
 						else
 							((OptionWithoutArg)option).handle();
 					}
 				}
 				else
-					freeArgs.add(args[i]);
+					if(freeArgs.size()<freeArgsCount)
+						freeArgs.add(args[i]);
+					else
+						return i;
 			}
 			else
-				freeArgs.add(args[i]);
+				if(freeArgs.size()<freeArgsCount)
+					freeArgs.add(args[i]);
+				else
+					return i;
 		}
+		return args.length;
 	}
-	*/
-
-	/*
-	public Iterable<Option> parse(final String[] args)
-	{
-		return new Iterable<Option>()
-			{
-				public java.util.Iterator<Option> iterator()
-				{
-					return new java.util.Iterator<Option>()
-						{
-							public boolean hasNext()
-							{
-								return argIndex<args.length;
-							}
-
-							public Option next()
-							{
-								if(args[argIndex].equals("--"))
-								{
-									optionsProcessing=!optionsProcessing;
-									argIndex++;
-								}
-								if(optionsProcessing)
-								{
-									return null;
-								}
-								else
-								{
-									try
-									{
-										freeArgs.handle(args[argIndex++]);
-									}
-									catch(ProcessingException e)
-									{
-										// TODO
-									}
-									return freeArgs;
-								}
-							}
-
-							public void remove()
-							{
-								throw new UnsupportedOperationException();
-							}
-
-							private int argIndex=0, argCharIndex=0;
-							private boolean optionsProcessing=true;
-						};
-				}
-
-			};
-	}
-	*/
-
 
 	public Option findOption(final String name)
-		throws ProcessingException
+		throws CLIProcessingException
 	{
 		for(Option option: options)
 			if(option.hasName(name))
 				return option;
-		throw new ProcessingException("No definition for option: "+(name.length()==1? "-": "--")+name);
+		throw new CLIProcessingException("No definition for option: -"+(name.length()==1? "": "-")+name);
 	}
 
-	public Object getValue(final String name)
-		throws ProcessingException
+	public <T> T getValue(final String name)
+		throws CLIProcessingException
 	{
 		return findOption(name).getValue();
 	}
 
-	/*
 	public String[] getFreeArgs()
 	{
 		return freeArgs.toArray(new String[freeArgs.size()]);
 	}
-	*/
 
 	private final java.util.ArrayList<String> freeArgs=new java.util.ArrayList<String>();
-	//private OptionCollectorString freeArgs=new OptionCollectorString("");
 	private final Option[] options;
+	private int unprocessedStart=0;
 }

@@ -18,7 +18,7 @@ abstract public class Option
 	 *
 	 * @return value
   	 */
-	abstract public Object getValue();
+	abstract public <T> T getValue();
 
 	/**
 	 * Returns true if given name is found among option names, and false

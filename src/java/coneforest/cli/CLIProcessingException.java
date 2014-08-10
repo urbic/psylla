@@ -3,14 +3,15 @@ package coneforest.cli;
 /**
  *	Thrown when error occured during options processing.
  */
-public class ProcessingException extends Exception
+public class CLIProcessingException
+	extends CLIException
 {
 	/**
 	 * Constructor
 	 * @param message message text
 	 */
-	public ProcessingException(String message)
+	public CLIProcessingException(String message)
 	{
-		System.err.println("Option processing exception: "+message);
+		super("Option processing exception: "+message);
 	}
 }

@@ -3,7 +3,8 @@ package coneforest.cli;
 /**
  * Base class representing an abstract option without argument.
  */
-abstract public class OptionWithoutArg extends Option
+abstract public class OptionWithoutArg<T>
+	extends Option
 {
 	public OptionWithoutArg(final String... names)
 	{

@@ -393,49 +393,14 @@ public class Interpreter
 		System.exit(1);
 	}
 
-	/*
-	public PsiObject external(Class<? extends PsiObject> objectClass)
-		throws PsiException
-	{
-		try
-		{
-			return objectClass.newInstance();
-		}
-		catch(InstantiationException e)
-		{
-			throw new PsiException("undefinedexternal");
-		}
-		catch(IllegalAccessException e)
-		{
-			throw new PsiException("undefinedexternal");
-		}
-	}
-
-	public PsiObject external(String objectClassName)
-		throws PsiException
-	{
-		try
-		{
-			//return external((Class<? extends PsiObject>)Class.forName(objectClassName));
-			return external((Class<? extends PsiObject>)Class.forName(objectClassName, true, classLoader));
-		}
-		catch(ClassNotFoundException e)
-		{
-			throw new PsiException("undefinedexternal");
-		}
-	}
-	*/
-
 	public void showStacks()
 	{
-		System.out.println("Operand stack:");
-		System.out.print("⊢\t");
+		System.out.print("Operand stack:\n\t");
 		for(PsiObject obj: opstack)
 			System.out.print(" "+obj);
 		System.out.println();
 		
-		System.out.println("Execution stack:");
-		System.out.print("⊢\t");
+		System.out.print("Execution stack:\n\t");
 		for(PsiObject obj: execstack)
 			System.out.print(" "+obj);
 		System.out.println();
@@ -448,8 +413,7 @@ public class Interpreter
 		System.out.println();
 		*/
 
-		System.out.println("Loop level stack:");
-		System.out.print("⊢\t");
+		System.out.print("Loop level stack:\n\t");
 		for(int item: loopstack)
 			System.out.print(" "+item);
 		System.out.println();
@@ -515,6 +479,12 @@ public class Interpreter
 		return stopstack.size()>0? stopstack.peek(): -1;
 	}
 
+	public void acceptScriptName(final String scriptName)
+	{
+		PsiString script=new PsiString(scriptName);
+		getSystemDictionary().psiPut("script", script);
+	}
+
 	public void acceptShellArguments(final String[] args)
 	{
 		PsiArray arguments=new PsiArray();
@@ -531,6 +501,19 @@ public class Interpreter
 		getSystemDictionary().psiPut("environment", environment);
 	}
 
+	public void acceptClassPath(String[] classPath)
+	{
+		try
+		{
+			for(String pathElement: classPath)
+				((PsiClassLoader)getSystemDictionary().psiGet("classpath")).psiAppend(new PsiString(pathElement));
+		}
+		catch(PsiException e)
+		{
+			// NOP
+		}
+	}
+
 	private OperandStack opstack;
 	private DictionaryStack dictstack;
 	private ExecutionStack execstack;
@@ -539,6 +522,4 @@ public class Interpreter
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
-	//private ClassLoader classLoader;
-	//private StackedReader stackedReader=new StackedReader();
 }
