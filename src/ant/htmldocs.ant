@@ -19,6 +19,7 @@
 				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
 				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
 				<pathelement location="/usr/share/java/xslthl.jar"/>
+				<pathelement location="/usr/share/java/batik-all.jar"/>
 			</classpath>
 			<param name="highlight.source" expression="1"/>
 			<param name="profile.status" expression="${xslt.profile.status}"/>
