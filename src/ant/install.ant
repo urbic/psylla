@@ -1,11 +1,6 @@
 <?xml version="1.0"?>
 <project name="install" default="dist" basedir=".">
 	
-	<exec executable="rpm" outputproperty="java.dir">
-		<arg value="-E"/>
-		<arg value="%_javadir"/>
-	</exec>
-
 	<target name="install">
 		<mkdir dir="${dest.dir}/${java.dir}"/>
 		<copy todir="${dest.dir}/${java.dir}">
@@ -16,6 +11,10 @@
 			link="${dest.dir}/${java.dir}/${project.name}.jar"
 			overwrite="true"
 			/>
+		<mkdir dir="${dest.dir}/${bin.dir}"/>
+		<copy todir="${dest.dir}/${bin.dir}">
+			<fileset dir="${target.bin}" includes="*"/>
+		</copy>
 	</target>
 
 </project>
