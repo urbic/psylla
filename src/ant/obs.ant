@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project name="obs" default="dist" basedir=".">
+	
+	<property name="obs.project.name" value="home:concyclic"/>
+	<property name="obs.package.name" value="psilang"/>
+	<property name="obs.package.version" value="${project.version}"/>
+
+	<available
+		property="obs.dir.available"
+		file="${target}/obs/${obs.project.name}/${obs.package.name}/.osc"
+		/>
+
+	<target name="obs.checkout" unless="obs.dir.available">
+		<mkdir dir="${target}/obs"/>
+		<exec executable="osc" dir="${target}/obs">
+			<arg value="checkout"/>
+			<arg value="${obs.project.name}/${obs.package.name}"/>
+		</exec>
+	</target>
+
+	<target name="obs" depends="obs.checkout">
+		<copy todir="${target}/obs/${obs.project.name}/${obs.package.name}" filtering="true">
+			<fileset dir="${src}/obs/"/>
+			<filterset>
+				<propertyset>
+					<propertyref name="obs.package.name"/>
+					<propertyref name="obs.package.version"/>
+				</propertyset>
+			</filterset>
+		</copy>
+		<exec executable="osc" dir="${target}/obs/${obs.project.name}/${obs.package.name}">
+			<arg value="build"/>
+		</exec>
+	</target>
+
+</project>
