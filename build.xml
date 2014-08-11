@@ -17,6 +17,7 @@
 	<property name="target.bin"  location="${target}/bin"/>
 	<property name="target.man"  location="${target}/man"/>
 	<property name="target.doc.html" location="${target.doc}/html"/>
+	<property name="dest.dir"  location="dest"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<path id="project.class.path">

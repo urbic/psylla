@@ -66,7 +66,7 @@ ant \
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
-%doc LICENSE.txt html
+%{_defaultdocdir}/*
 
 #%%changelog
 

@@ -3,6 +3,8 @@
 	
 	<target name="install">
 		<mkdir dir="${dest.dir}/${java.dir}"/>
+		<mkdir dir="${dest.dir}/${bin.dir}"/>
+		<mkdir dir="${dest.dir}/${default.doc.dir}"/>
 		<copy todir="${dest.dir}/${java.dir}">
 			<fileset dir="${target.lib}" includes="${obs.package.name}.jar"/>
 		</copy>
@@ -11,13 +13,11 @@
 			link="${dest.dir}/${java.dir}/${project.name}.jar"
 			overwrite="true"
 			/>
-		<mkdir dir="${dest.dir}/${bin.dir}"/>
 		<copy todir="${dest.dir}/${bin.dir}">
 			<fileset dir="${target.bin}" includes="*"/>
 		</copy>
-		<mkdir dir="${dest.dir}/${default.doc.dir}"/>
 		<copy todir="${dest.dir}/${default.doc.dir}">
-			<fileset dir="${target.doc}" includes="*"/>
+			<fileset dir="${target.doc}" includes="**"/>
 		</copy>
 	</target>
 
