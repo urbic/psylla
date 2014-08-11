@@ -51,7 +51,12 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant build
 
 %install
-ant -Ddest.dir=%{buildroot} -Djava.dir=%{_javadir} -Dbin.dir=%{_bindir} install
+ant \
+	-Ddest.dir=%{buildroot}\
+	-Djava.dir=%{_javadir}\
+	-Dbin.dir=%{_bindir}\
+	-Ddefault.doc.dir=%{_defaultdocdir}\
+	install
 
 %post
 
@@ -61,7 +66,7 @@ ant -Ddest.dir=%{buildroot} -Djava.dir=%{_javadir} -Dbin.dir=%{_bindir} install
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
-%doc LICENSE.txt
+%doc LICENSE.txt html
 
 #%%changelog
 
