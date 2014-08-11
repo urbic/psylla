@@ -64,6 +64,7 @@ ant -Ddest.dir=%{buildroot} install
 
 %files
 %defattr(-,root,root)
+%{_javadir}/*.jar
 #%%doc ChangeLog README COPYING
 
 #%changelog
