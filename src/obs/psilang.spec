@@ -23,6 +23,7 @@ Summary:		Psi programming language
 Url:			http://mech.math.msu.su/~shvetz/projects/psi
 Group:			Development/Libraries/Java
 Source:			%{name}-%{version}.tar.xz
+BuildArch:		noarch
 BuildRequires:	java
 BuildRequires:	ant
 BuildRequires:	javacc
@@ -51,22 +52,22 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant build
 
 %install
-ant \
+ant\
 	-Ddest.dir=%{buildroot}\
 	-Djava.dir=%{_javadir}\
 	-Dbin.dir=%{_bindir}\
-	-Ddefault.doc.dir=%{_defaultdocdir}\
+	-Ddoc.dir=%{_defaultdocdir}/${name}\
 	install
 
-%post
+#%%post
 
-%postun
+#%%postun
 
 %files
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
-%{_defaultdocdir}/*
+%{_defaultdocdir}/${name}
 
 #%%changelog
 
