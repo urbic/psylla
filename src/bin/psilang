@@ -8,20 +8,20 @@ _prefer_jre="true"
 . /usr/share/java-utils/java-functions
 
 # Source system prefs
-if [ -f /etc/java/psi.conf ] ; then
-  . /etc/java/psi.conf
+if [ -f /etc/java/psilang.conf ] ; then
+  . /etc/java/psilang.conf
 fi
 
 # Source user prefs
-if [ -f $HOME/.psirc ] ; then
-  . $HOME/.psirc
+if [ -f $HOME/.psilangrc ] ; then
+  . $HOME/.psilangrc
 fi
 
 # Configuration
 MAIN_CLASS=coneforest.psi.Psi
 BASE_FLAGS=""
 BASE_OPTIONS=""
-BASE_JARS="psi"
+BASE_JARS=psilang
 
 # Set parameters
 set_jvm
