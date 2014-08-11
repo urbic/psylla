@@ -225,28 +225,28 @@ linkend="PsiReference_Language_AtomicAndComposite"/>.
 <itemizedlist>
 <title>Простые типы</title>
 <listitem><type>boolean</type></listitem>
-<listitem><type>integer</type></listitem>
-<listitem><type>real</type></listitem>
 <listitem><type>complex</type></listitem>
-<listitem><type>name</type></listitem>
+<listitem><type>integer</type></listitem>
 <listitem><type>mark</type></listitem>
-<listitem><type>operator</type></listitem>
+<listitem><type>name</type></listitem>
 <listitem><type>null</type></listitem>
+<listitem><type>operator</type></listitem>
+<listitem><type>real</type></listitem>
 </itemizedlist>
 </entry>
 <entry>
 <itemizedlist>
 <title>Сложные типы</title>
 <listitem><type>array</type></listitem>
-<listitem><type>string</type></listitem>
-<listitem><type>set</type></listitem>
 <listitem><type>bitset</type></listitem>
 <listitem><type>bitvector</type></listitem>
 <listitem><type>input</type></listitem>
 <listitem><type>output</type></listitem>
-<listitem><type>reader</type></listitem>
-<listitem><type>writer</type></listitem>
 <listitem><type>random</type></listitem>
+<listitem><type>reader</type></listitem>
+<listitem><type>set</type></listitem>
+<listitem><type>string</type></listitem>
+<listitem><type>writer</type></listitem>
 </itemizedlist>
 </entry>
 </row>

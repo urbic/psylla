@@ -56,7 +56,7 @@ ant\
 	-Ddest.dir=%{buildroot}\
 	-Djava.dir=%{_javadir}\
 	-Dbin.dir=%{_bindir}\
-	-Ddoc.dir=%{_defaultdocdir}/${name}\
+	-Ddoc.dir=%{_defaultdocdir}/%{name}\
 	install
 
 #%%post
