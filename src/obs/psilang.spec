@@ -48,7 +48,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %setup -q
 
 %build
-CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant jar htmldocs
+CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant build
 
 %install
 ant -Ddest.dir=%{buildroot} -Djava.dir=%{_javadir} -Dbin.dir=%{_bindir} install
