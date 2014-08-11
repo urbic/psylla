@@ -8,7 +8,9 @@
 
 	<target name="install">
 		<mkdir dir="${dest.dir}/${java.dir}"/>
-		<copy todir="${dest.dir}/${java.dir}" includes="${target.lib}/*.jar"/>
+		<copy todir="${dest.dir}/${java.dir}">
+			<fileset dir="${target.lib}" includes="*.jar"/>
+		</copy>
 	</target>
 
 </project>
