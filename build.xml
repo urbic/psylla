@@ -175,6 +175,7 @@
 	
 	<target name="build" description="Build project" depends="jar,htmldocs">
 		<copy todir="${target.bin}" file="${src.bin}/${project.name}"/>
+		<copy todir="${target.doc}" file="LICENSE.txt"/>
 	</target>
 
 </project>

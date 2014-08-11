@@ -15,6 +15,10 @@
 		<copy todir="${dest.dir}/${bin.dir}">
 			<fileset dir="${target.bin}" includes="*"/>
 		</copy>
+		<mkdir dir="${dest.dir}/${default.doc.dir}"/>
+		<copy todir="${dest.dir}/${default.doc..dir}">
+			<fileset dir="${target.doc}" includes="*"/>
+		</copy>
 	</target>
 
 </project>
