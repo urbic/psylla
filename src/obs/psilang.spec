@@ -67,7 +67,7 @@ ant\
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
-%{_defaultdocdir}/${name}
+%{_defaultdocdir}/%{name}
 
 #%%changelog
 
