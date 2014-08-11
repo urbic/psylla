@@ -48,15 +48,10 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %setup -q
 
 %build
-#%%configure
-#make %%{?_smp_mflags}
-#ant -lib /usr/share/java/ant/ant-apache-resolver.jar:/usr/share/java/xml-commons-resolver.jar jar htmldocs
-#ant -v -lib /usr/share/java/batik-all.jar jar htmldocs
-#ant -v -lib /usr/share/java/xerces-j2-xml-apis.jar:/usr/share/java/batik-all.jar jar htmldocs
 CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant jar htmldocs
 
 %install
-ant -Ddest.dir=%{buildroot} install
+ant -Ddest.dir=%{buildroot} -Djava.dir=%{_javadir} -Dbin.dir=%{_bindir} install
 
 %post
 
@@ -65,7 +60,8 @@ ant -Ddest.dir=%{buildroot} install
 %files
 %defattr(-,root,root)
 %{_javadir}/*.jar
-#%%doc ChangeLog README COPYING
+%{_bindir}/*
+%doc LICENSE.txt
 
-#%changelog
+#%%changelog
 

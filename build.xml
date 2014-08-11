@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="psi" default="dist" basedir=".">
+<project name="psilang" default="dist" basedir=".">
 	
 	<property name="project.name" value="${ant.project.name}"/>
 	<property name="src" location="src"/>
@@ -123,7 +123,7 @@
 			<fileset dir="${src.docbook}" includes="navigation/**"/>
 			<fileset dir="${src.docbook}" includes="js/**"/>
 		</copy>
-		<copy todir="${target.doc.html}" file="${src}/logo/psi-16.png"/>
+		<copy todir="${target.doc.html}" file="${src}/logo/psilang-16.png"/>
 		<symlink action="delete" link="examples"/>
 	</target>
 	
