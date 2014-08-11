@@ -1,0 +1,14 @@
+<services>
+<service name="download_files"/>
+<service name="tar_scm">
+<param name="scm">git</param>
+<param name="url">http://mech.math.msu.su/%7Eshvetz/projects/psi/psi.git</param>
+<param name="filename">@obs.package.name@</param>
+<param name="version">@obs.package.version@</param>
+<!--param name="revision">refs/tags/v@obs.package.version@</param-->
+</service>
+<service name="recompress">
+<param name="file">*.tar</param>
+<param name="compression">xz</param>
+</service>
+</services>
