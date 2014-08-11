@@ -4,7 +4,7 @@
 	<target name="install">
 		<mkdir dir="${dest.dir}/${java.dir}"/>
 		<mkdir dir="${dest.dir}/${bin.dir}"/>
-		<mkdir dir="${dest.dir}/${default.doc.dir}"/>
+		<mkdir dir="${dest.dir}/${doc.dir}"/>
 		<copy todir="${dest.dir}/${java.dir}">
 			<fileset dir="${target.lib}" includes="${obs.package.name}.jar"/>
 		</copy>
