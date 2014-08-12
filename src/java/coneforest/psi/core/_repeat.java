@@ -29,6 +29,7 @@ public class _repeat extends PsiOperator
 				obj.invoke(interpreter);
 				interpreter.handleExecutionStack(looplevel);
 			}
+			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 
 		}
