@@ -54,7 +54,7 @@ linkend="PsiReference_Development_Extension_ExampleRomanNumerals"/> создаю
 Для вызова этого оператора потребуется код
 
 <programlisting language="psi">1987
-"coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_toroman" external
+/coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_toroman external
 exec	# ⇒ "MCMLXXXVII"</programlisting>
 
 </para>
@@ -62,8 +62,8 @@ exec	# ⇒ "MCMLXXXVII"</programlisting>
 <para>
 Для многократного использования внешних операторов нужно дать им имена:
 
-<programlisting language="psi">/toroman "coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_toroman" external def
-/fromroman "coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_fromroman" external def
+<programlisting language="psi">/toroman /coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_toroman external def
+/fromroman /coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_fromroman external def
 
 1987 toroman ?		# ⇒ "MCMLXXXVII"
 /LIV fromroman ?	# ⇒ 54</programlisting>

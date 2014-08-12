@@ -5,13 +5,294 @@
 <section xml:id="PsiReference_Language_Interpreter">
 <title>Интерпретатор</title>
 
+<para>
+Интерпретатор работает с так называемыми
+<firstterm>объектами</firstterm><indexterm><primary>объект</primary></indexterm>
+языка Ψ. Некоторые из них представляют данные, такие как числа, булевские
+значения, строки или контейнеры. Другие объекты рассматриваются как команды и
+подлежат исполнению — имена, процедуры, операторы. Однако в языке нет
+принципиальных различий между данными и командами — любой объект может, в
+зависимости от ситуации, рассматриваться или как данные, или как команда.
+</para>
+
+<para>
+Интерпретатор читет текст программы, извлекая из него
+<firstterm>лексемы</firstterm><indexterm><primary>лексема</primary></indexterm>,
+также называемые
+<firstterm>токенами</firstterm><indexterm><primary>токен</primary></indexterm>.
+Часть интерпретатора, которая последовательно извлекает токены из текста
+программы, называется
+<firstterm>парсером</firstterm><indexterm><primary>парсер</primary></indexterm>.
+В большинстве случаев прочитанный токен преобразуется в объект, который
+немедленно исполняется. Результат исполнения объекта полностью определяется его
+<firstterm>типом</firstterm><indexterm><primary>тип</primary><secondary>объекта</secondary></indexterm>,
+<firstterm>атрибутами</firstterm><indexterm><primary>атрибут</primary><secondary>объекта</secondary></indexterm>
+и его
+<firstterm>значением</firstterm><indexterm><primary>значение</primary><secondary>объекта</secondary></indexterm>.
+Особый вид токенов,
+<firstterm>комментарий</firstterm><indexterm><primary>комментарий</primary></indexterm>,
+игнорируется интерпретатором. Объекты некоторых типов не могут быть созданы из
+токенов, но они могут возникать как результат исполнения операторов.
+</para>
+
+<para>
+Для хранения данных во время исполнения программы интерпретатор имеет несколько
+<firstterm>стеков</firstterm>, которым посвящён раздел <xref
+linkend="PsiReference_Language_Stacks"/>.
+</para>
+
 </section>
 
-<section xml:id="PsiReference_Language_Syntax">
-<title>Синтаксис</title>
+<section xml:id="PsiReference_Language_CoreTypes">
+<title>Основные типы</title>
+
+<para>
+Все данные в языке Ψ существуют в форме
+<firstterm>объектов</firstterm><indexterm><primary>объект</primary></indexterm>.
+Объекты создаются, обрабатываются операторами Ψ. Некторорые типы объектов также
+создаются парсером и исполняются интерпретатором.
+</para>
+
+<para>
+У каждого объекта имеется
+<firstterm>тип</firstterm><indexterm><primary>тип</primary></indexterm>,
+несколько
+<firstterm>атрибутов</firstterm><indexterm><primary>атрибут</primary></indexterm>.
+Тип объекта влияет на то, как он будет обрабатываться операторами. Типы
+подразделяются на
+<firstterm>простые</firstterm><indexterm><primary>тип</primary><secondary>простой</secondary></indexterm>
+и
+<firstterm>сложные</firstterm><indexterm><primary>тип</primary><secondary>сложный</secondary></indexterm>.
+Разница между простыми и сложными объектами объясняется в разделе <xref
+linkend="PsiReference_Language_AtomicAndComposite"/>.
+Ниже приводится сводка простых и сложных типов, входящих в ядро языка.
+Расширения языка могут вводить новые типы объектов.
+</para>
+
+<informaltable frame="none" pgwide="1">
+<tgroup cols="2" colsep="0">
+<tbody valign="top">
+<row>
+<entry>
+<itemizedlist>
+<title>Простые типы</title>
+<listitem><type>boolean</type></listitem>
+<listitem><type>complex</type></listitem>
+<listitem><type>integer</type></listitem>
+<listitem><type>mark</type></listitem>
+<listitem><type>name</type></listitem>
+<listitem><type>null</type></listitem>
+<listitem><type>operator</type></listitem>
+<listitem><type>real</type></listitem>
+</itemizedlist>
+</entry>
+<entry>
+<itemizedlist>
+<title>Сложные типы</title>
+<listitem><type>array</type></listitem>
+<listitem><type>bitset</type></listitem>
+<listitem><type>bitvector</type></listitem>
+<listitem><type>input</type></listitem>
+<listitem><type>output</type></listitem>
+<listitem><type>random</type></listitem>
+<listitem><type>reader</type></listitem>
+<listitem><type>set</type></listitem>
+<listitem><type>string</type></listitem>
+<listitem><type>writer</type></listitem>
+</itemizedlist>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</section>
+
+<section xml:id="PsiReference_Language_AtomicAndComposite">
+<title>Простые и сложные объекты</title>
+
+<para>
+Объекты простых типов не могут быть изменены они лишь создаются в результате
+вычислений. Например, оператор <token language="psi">neg</token> не изменяет
+знак у самого числа, а создаёт новый числовой объект, отличающийся знаком от
+исходного числа.
+</para>
+
+<para>
+Объекты сложных типов могут изменять своё состояние. К примеру, оператор <token
+language="psi">put</token> заменяет элемент массива, имеющий заданный индекс.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Attributes">
+<title>Атрибуты объектов</title>
+
+<para>
+Каждый объект в языке Ψ снабжён
+<firstterm>атрибутами</firstterm><indexterm><primary>атрибут
+объекта</primary></indexterm>, влияющими на его исполнение. У всех объектов
+есть <firstterm>атрибут
+исполняемости</firstterm><indexterm><primary>атрибут</primary><secondary>исполняемости</secondary></indexterm>.
+Объекты сложных типов имеют также <firstterm>атрибуты
+доступа</firstterm><indexterm><primary>атрибут</primary><secondary>доступа</secondary></indexterm>.
+</para>
+
+<section xml:id="PsiReference_Language_Attributes_Executable">
+<title>Атрибут исполняемости</title>
+
+<para>
+Атрибут исполняемости объекта может находиться в одном из двух состояний —
+выключенном или включённом. Если атрибут выключен, объект называется
+<firstterm>литеральным</firstterm><indexterm><primary>объект</primary><secondary>литеральный</secondary></indexterm>.
+В противном случае объект называют
+<firstterm>исполняемым</firstterm><indexterm><primary>объект</primary><secondary>исполняемый</secondary></indexterm>.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Attributes_Access">
+<title>Атрибут доступа</title>
+
+</section>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks">
+<title>Стеки</title>
+
+<para>
+Интерпретатор Ψ поддерживает несколько стеков, предназначенных для хранения
+данных во время исполнения программы или для представления состояния её
+исполнения. Три из них являются ключевыми — <firstterm>стек
+операндов</firstterm><indexterm><primary>стек</primary><secondary>операндов</secondary></indexterm>,
+<firstterm>стек
+словарей</firstterm><indexterm><primary>стек</primary><secondary>словарей</secondary></indexterm>
+и <firstterm>стек
+исполнения</firstterm><indexterm><primary>стек</primary><secondary>исполнения</secondary></indexterm>.
+</para>
+
+<para>
+Каждый из стеков устроен по принципу <acronym>LIFO</acronym> — <foreignphrase
+xml:lang="en">Last In—First Out</foreignphrase> (последний пришёл — первый ушёл).
+</para>
+
+<section xml:id="PsiReference_Language_Stacks_OperandStack">
+<title>Стек операндов</title>
+
+<para>
+Исполнение литеральных объектов всегда приводит к их добавлению в стек
+операндов. Если оператор нуждается в данных для обработки, он снимает нужное
+количество объектов их со стека операндов. Объекты, созданные в результате
+работы оператора, добавлются в этот стек. Так действует большинство операторов
+языка. Таким образом, свободно манипулировать стеком операндов может как
+интерпретатор, так и любой из операторов.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks_DictionaryStack">
+<title>Стек словарей</title>
+
+<para>
+Стек словарей способен хранить только словари. Текущее состояние стека словарей
+служит контекстом для поиска объектов по именам. Необходимость в таком поиске
+возникает каждый раз, когда интерпретатор встречает исполняемое имя. Имеется
+несколько операторов, предназначенных для управления стеком словарей.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks_ExecutionStack">
+<title>Стек исполнения</title>
+
+<para>
+Стек исполнения отражает фазу исполнения процедуры. При исполнении процедуры её
+элементы загружаются на стек исполнения в обратном порядке, так что самый
+первый элемент оказывается на вершине стека. Затем интерпретатор по очереди
+снимает объекты из стека исполнения и исполняет их до тех пор, пока уровень
+стека не сравняется с первоначальным (тем, что был к началу исполнения
+процедуры).
+</para>
+
+<para>
+Стек исполнения служит также для поддержки исполнения исполняемых строк и
+читателей: эти объекты преобразуются в процедуры, которые, в свою очередь,
+исполняются в соответствии с описанными выше правилами.
+</para>
+
+<para>
+Стеком исполнения может управлять интерпретатор. В языке лишь несколько
+операторов, управляющих напрямую стеком исполнения. Это управляющие операторы,
+реализующие циклы.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks_Auxiliary">
+<title>Служебные стеки</title>
+
+<para>
+Помимо трёх основных стеков, в интерпретатор встроены и другие, служебные. Это
+<firstterm>стек контекстов
+выхода</firstterm><indexterm><primary>стек</primary><secondary>контекстов
+выхода</secondary></indexterm> и <firstterm>стек контекстов
+остановки</firstterm><indexterm><primary>стек</primary><secondary>контекстов
+остановки</secondary></indexterm>. Используют служебные стеки лишь несколько
+управляющих операторов.
+</para>
+
+</section>
+
+</section>
+
+<section xml:id="PsiReference_Language_ObjectExecution">
+<title>Исполнение объектов</title>
+
+<para>
+Смысл исполнения объекта зависит от состояния его атрибута исполняемости. Любой
+литеральный объект при исполнении просто загружается на стек операндов.
+</para>
+
+<para>
+Для исполняемых объектов результат исполнения зависит от их типа, а также от
+того, получен этот объект парсером или же другим способом. Здесь нужно
+отметить, что существует лишь два типа исполненяемых объектов, получаемых
+непосредственно парсером — это исполненяемые массивы (процедуры) и
+исполненяемые имена.
+
+<itemizedlist>
+
+<listitem>
+Пустой исполняемый объект игнорируется.
+</listitem>
+
+<listitem>
+Исполняемый оператор вызывается, то есть выполняется запрограммированное в нём
+действие.
+</listitem>
+
+<listitem>
+Исполняемая строка считывается парсером и превращается в последовательность
+объектов, которая затем превращается в процедуру
+</listitem>
+
+<listitem>
+Объекты всех прочих типов загружаются на стек операндов.
+</listitem>
+
+</itemizedlist>
+
+</para>
+
+</section>
+
+
+<section xml:id="PsiReference_Language_Grammar">
+<title>Грамматика</title>
 
 <productionset>
-<title>Ψ token syntax grammar</title>
+<title>Грамматические правила для токенов</title>
 
 <production>
 <lhs>TOKEN</lhs>
@@ -188,98 +469,6 @@
 
 </productionset>
 
-
-</section>
-
-<section xml:id="PsiReference_Language_CoreTypes">
-<title>Основные типы</title>
-
-<para>
-Все данные в языке Ψ существуют в форме
-<firstterm>объектов</firstterm><indexterm><primary>объект</primary></indexterm>.
-Объекты создаются, обрабатываются операторами Ψ. Некторорые типы объектов также
-создаются парсером и исполняются интерпретатором.
-</para>
-
-<para>
-У каждого объекта имеется
-<firstterm>тип</firstterm><indexterm><primary>тип</primary></indexterm>,
-несколько
-<firstterm>атрибутов</firstterm><indexterm><primary>атрибут</primary></indexterm>.
-Тип объекта влияет на то, как он будет обрабатываться операторами. Типы
-подразделяются на
-<firstterm>простые</firstterm><indexterm><primary>тип</primary><secondary>простой</secondary></indexterm>
-и
-<firstterm>сложные</firstterm><indexterm><primary>тип</primary><secondary>сложный</secondary></indexterm>.
-Разница между простыми и сложными объектами объясняется в разделе <xref
-linkend="PsiReference_Language_AtomicAndComposite"/>.
-Ниже приводится сводка простых и сложных типов, входящих в ядро языка.
-Расширения языка могут вводить новые типы объектов.
-</para>
-
-<informaltable frame="none" pgwide="1">
-<tgroup cols="2" colsep="0">
-<tbody valign="top">
-<row>
-<entry>
-<itemizedlist>
-<title>Простые типы</title>
-<listitem><type>boolean</type></listitem>
-<listitem><type>complex</type></listitem>
-<listitem><type>integer</type></listitem>
-<listitem><type>mark</type></listitem>
-<listitem><type>name</type></listitem>
-<listitem><type>null</type></listitem>
-<listitem><type>operator</type></listitem>
-<listitem><type>real</type></listitem>
-</itemizedlist>
-</entry>
-<entry>
-<itemizedlist>
-<title>Сложные типы</title>
-<listitem><type>array</type></listitem>
-<listitem><type>bitset</type></listitem>
-<listitem><type>bitvector</type></listitem>
-<listitem><type>input</type></listitem>
-<listitem><type>output</type></listitem>
-<listitem><type>random</type></listitem>
-<listitem><type>reader</type></listitem>
-<listitem><type>set</type></listitem>
-<listitem><type>string</type></listitem>
-<listitem><type>writer</type></listitem>
-</itemizedlist>
-</entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
-
-</section>
-
-<section xml:id="PsiReference_Language_AtomicAndComposite">
-<title>Простые и сложные объекты</title>
-
-<para>
-Объекты простых типов не могут быть изменены они лишь создаются в результате
-вычислений. Например, оператор <token language="psi">neg</token> не изменяет
-знак у самого числа, а создаёт новый числовой объект, отличающийся знаком от
-исходного числа.
-</para>
-
-<para>
-Объекты сложных типов могут изменять своё состояние. К примеру, оператор <token
-language="psi">put</token> заменяет элемент массива, имеющий заданный индекс.
-</para>
-
-</section>
-
-<section xml:id="PsiReference_Language_Attributes">
-<title>Атрибуты объектов</title>
-
-</section>
-
-<section xml:id="PsiReference_Language_Stacks">
-<title>Стеки</title>
 
 </section>
 
