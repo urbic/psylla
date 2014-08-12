@@ -28,15 +28,10 @@ public class PsiRomanNumerals
 			{
 				opstack.push(psiToRoman((PsiInteger)integer));
 			}
-			catch(ClassCastException e)
+			catch(Exception e)
 			{
 				opstack.push(integer);
-				interpreter.error("typecheck", this);
-			}
-			catch(PsiException e)
-			{
-				opstack.push(integer);
-				interpreter.error(e.kind(), this);
+				interpreter.error(e, this);
 			}
 		}
 
@@ -71,15 +66,10 @@ public class PsiRomanNumerals
 			{
 				opstack.push(psiFromRoman((PsiStringlike)stringlike));
 			}
-			catch(ClassCastException e)
+			catch(Exception e)
 			{
 				opstack.push(stringlike);
-				interpreter.error("typecheck", this);
-			}
-			catch(PsiException e)
-			{
-				opstack.push(stringlike);
-				interpreter.error(e.kind(), this);
+				interpreter.error(e, this);
 			}
 		}
 
@@ -87,20 +77,17 @@ public class PsiRomanNumerals
 			throws PsiException
 		{
 			java.util.regex.Matcher romanMatcher=romanPattern.matcher(stringlike.getString());
-			if(romanMatcher.matches())
-			{
-				int result=0;
-				for(int d=3; d>=0; d--)
-					for(int n=0; n<conversionTable[d].length; n++)
-						if(romanMatcher.group(4-d).equals(conversionTable[d][n]))
-						{
-							result=10*result+n;
-							break;
-						}
-				return new PsiInteger(result);
-			}
-			else
+			if(!romanMatcher.matches())
 				throw new PsiException("undefinedresult");
+			int result=0;
+			for(int d=3; d>=0; d--)
+				for(int n=0; n<conversionTable[d].length; n++)
+					if(romanMatcher.group(4-d).equals(conversionTable[d][n]))
+					{
+						result=10*result+n;
+						break;
+					}
+			return new PsiInteger(result);
 		}
 
 		private static java.util.regex.Pattern romanPattern
