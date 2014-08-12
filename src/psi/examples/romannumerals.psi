@@ -1,0 +1,11 @@
+/coneforest.psi.extensions.romannumerals.PsiRomanNumerals external begin
+
+0 1 3999
+{
+	toroman
+	dup fromroman
+	tostring print
+	"\t" print
+	say
+}
+bind for

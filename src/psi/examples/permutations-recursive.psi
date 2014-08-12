@@ -1,0 +1,41 @@
+/n arguments 0 get tointeger def
+
+/permutations
+{
+	dict begin
+		/n exch def
+		n 0 eq
+		[ array ]
+		{
+			/perms array def
+			n 1 sub permutations
+			{
+				0 1 n 1 sub
+				{
+					1 index clone /p exch def
+					p exch n insert
+					perms p append
+				}
+				for
+				pop
+			}
+			forall
+			perms
+		}
+		ifelse
+	end
+}
+bind def
+
+n permutations
+{
+	/p exch def
+	0 1 p length 1 sub
+	{
+		dup 0 ne { " " print } if
+		p exch get tostring print
+	}
+	for
+	"" say
+}
+bind forall
