@@ -675,6 +675,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_editline" xrefstyle="template:%t"/></term>
+<listitem>ввод строки из строкового редактора</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_filereader" xrefstyle="template:%t"/></term>
 <listitem>создание файлового читателя</listitem>
 </varlistentry>
