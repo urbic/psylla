@@ -22,7 +22,7 @@
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<path id="project.class.path">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="../xopt/target/lib/xopt.jar"/>
+		<pathelement path="/usr/share/java/jline.jar"/>
 	</path>
 	<property file="${src.java}/coneforest/psi/version.properties" prefix="psi"/>
 	<property
