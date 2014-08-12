@@ -18,7 +18,8 @@
 		if
 	}
 	forall
-	//primes exch append
+	1 index
+	{ //primes exch append } { pop } ifelse
 }
 bind def
 
