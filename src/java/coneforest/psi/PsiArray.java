@@ -119,22 +119,6 @@ public class PsiArray
 		}
 	}
 
-	/*
-	@Override
-	public void psiInsert(PsiInteger index, PsiObject obj)
-		throws PsiException
-	{
-		try
-		{
-			array.add(index.getValue().intValue(), obj);
-		}
-		catch(IndexOutOfBoundsException e)
-		{
-			throw new PsiException("rangecheck");
-		}
-	}
-	*/
-
 	@Override
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends PsiObject> iterable)
 		throws PsiException
