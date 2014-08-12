@@ -2,19 +2,7 @@ package coneforest.psi;
 
 public class PsiClassLoader
 	extends PsiArray
-	//implements PsiArraylike<PsiStringlike>
 {
-	/*
-	@Override
-	public void psiAppend(PsiObject obj)
-		throws PsiException
-	{
-		if(obj instanceof PsiStringlike)
-			super.psiAppend(obj);
-		else
-			throw new PsiException("typecheck");
-	}
-	*/
 
 	public PsiObject psiExternal(PsiStringlike stringlike)
 		throws PsiException
@@ -58,7 +46,6 @@ public class PsiClassLoader
 
 	private ClassLoader classLoader=new ClassLoader(PsiClassLoader.class.getClassLoader())
 		{
-
 			@Override
 			public Class loadClass(String className)
 				throws ClassNotFoundException

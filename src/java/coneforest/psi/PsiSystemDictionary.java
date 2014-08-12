@@ -51,6 +51,7 @@ public class PsiSystemDictionary
 				_dicttomark.class,
 				_div.class,
 				_dup.class,
+				_editline.class,
 				_end.class,
 				_eq.class,
 				_exch.class,

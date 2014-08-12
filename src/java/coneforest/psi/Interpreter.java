@@ -371,17 +371,14 @@ public class Interpreter
 			errorName=((PsiException)e).kind();
 		else
 			errorName="unknownerror";
-		opstack.push(obj);
-		System.out.println("Error /"+errorName+" in "+obj);
-		showStacks();
-		System.exit(1);
+		error(errorName, obj);
 	}
 
 	public void error(String errorName, PsiObject obj)
 	{
 		// TODO
 		opstack.push(obj);
-		System.out.println("Error /"+errorName+" in "+obj);
+		System.out.println("Error: /"+errorName+" in "+obj);
 		showStacks();
 		System.exit(1);
 	}

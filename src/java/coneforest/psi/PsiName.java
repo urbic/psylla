@@ -52,7 +52,7 @@ public class PsiName
 			}
 			catch(PsiException e)
 			{
-				interpreter.error(e.kind());
+				interpreter.error(e, this);
 			}
 		}
 		else

@@ -55,14 +55,14 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
+	abstract public void psiInsert(int indexValue, T obj)
+		throws PsiException;
+
+	@Override
 	public void psiInsert(PsiInteger index, T obj)
 		throws PsiException
 	{
-		int indexValue=index.intValue();
-		psiAppend(psiGet(length()));
-		for(int i=length(); i>indexValue; i--)
-			psiPut(i, psiGet(i-1));
-		psiPut(indexValue, obj);
+		psiInsert(index.intValue(), obj);
 	}
 
 	@Override
