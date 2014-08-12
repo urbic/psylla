@@ -9,7 +9,10 @@ public class _filereader extends PsiOperator
 		OperandStack opstack=interpreter.getOperandStack();
 
 		if(opstack.size()<1)
+		{
 			interpreter.error("stackunderflow", this);
+			return;
+		}
 
 		PsiObject stringlike=opstack.pop();
 		try
