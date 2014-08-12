@@ -104,6 +104,10 @@ public class Interpreter
 				processToken(token);
 			}
 		}
+		catch(PsiException e)
+		{
+			error(e.kind(), reader);
+		}
 		catch(StackOverflowError e)
 		{
 			error("limitcheck", reader);
@@ -128,6 +132,7 @@ public class Interpreter
 	}
 
 	public void processToken(Token token)
+		throws PsiException
 	{
 		if(procstack.size()==0)
 		{
@@ -152,8 +157,7 @@ public class Interpreter
 					procstack.peek().setExecutable();
 					break;
 				case ParserConstants.TOKEN_CLOSE_BRACE:
-					error("syntaxerror");
-					break;
+					throw new PsiException("syntaxerror");
 			}
 		}
 		else
@@ -265,6 +269,7 @@ public class Interpreter
 	}
 
 	private PsiObject newPsiObject(Token token)
+		throws PsiException
 	{
 		switch(token.kind)
 		{
@@ -347,19 +352,14 @@ public class Interpreter
 					return name;
 				}
 			case ParserConstants.TOKEN_NAME_IMMEDIATE:
-				try
-				{
-					return dictstack.load(token.image.substring(2));
-				}
-				catch(PsiException e)
-				{
-					error(e.kind());
-					return null;
-				}
+				return dictstack.load(token.image.substring(2));
+			/*
 			default:
 				System.out.println(token);
 				return null;
+			*/
 		}
+		throw new PsiException("unknownerror");
 	}
 
 	public void error(Exception e, PsiObject obj)
@@ -380,13 +380,6 @@ public class Interpreter
 		opstack.push(obj);
 		System.out.println("Error: /"+errorName+" in "+obj);
 		showStacks();
-		System.exit(1);
-	}
-
-	public void error(String errorName)
-	{
-		// TODO
-		System.out.println("ERROR "+errorName);
 		System.exit(1);
 	}
 
@@ -494,7 +487,7 @@ public class Interpreter
 	{
 		PsiDictionary environment=new PsiDictionary();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
-			environment.psiPut(new PsiName(entry.getKey()), new PsiString(entry.getValue()));
+			environment.psiPut(entry.getKey(), new PsiString(entry.getValue()));
 		getSystemDictionary().psiPut("environment", environment);
 	}
 
@@ -503,7 +496,8 @@ public class Interpreter
 		try
 		{
 			for(String pathElement: classPath)
-				((PsiClassLoader)getSystemDictionary().psiGet("classpath")).psiAppend(new PsiString(pathElement));
+				((PsiClassLoader)getSystemDictionary().psiGet("classpath"))
+						.psiAppend(new PsiString(pathElement));
 		}
 		catch(PsiException e)
 		{
