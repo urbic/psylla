@@ -19,7 +19,7 @@ public class _bitshift extends PsiOperator
 		{
 			opstack.push(((PsiInteger)obj).psiBitShift((PsiInteger)shift));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(obj);
 			opstack.push(shift);

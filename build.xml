@@ -20,6 +20,7 @@
 	<property name="dest.dir"  location="dest"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
+	<property name="home.javadoc.java" location="/usr/share/javadoc/java"/>
 	<path id="project.class.path">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
@@ -76,7 +77,11 @@
 			sourcepath="${src.java}:${target.src.java}"
 			destdir="${target.doc.javadoc}"
 			access="public"
-			/>
+			encoding="UTF-8"
+			charset="UTF-8"
+			>
+			<link href="${home.javadoc.java}"/>
+		</javadoc>
 	</target>
 
 	<target name="jar" depends="compile">

@@ -18,7 +18,7 @@ public class _neg extends PsiOperator
 		{
 			opstack.push((PsiObject)((PsiArithmetic)arihmetic).psiNeg());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(arihmetic);
 			interpreter.error(e, this);

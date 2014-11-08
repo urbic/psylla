@@ -18,7 +18,7 @@ public class _uniformboolean extends PsiOperator
 		{
 			opstack.push(((PsiRandom)random).psiUniformBoolean());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(random);
 			interpreter.error(e, this);

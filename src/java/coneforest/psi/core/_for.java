@@ -42,7 +42,7 @@ public class _for extends PsiOperator
 			interpreter.setExitFlag(false);
 
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(initial);
 			opstack.push(increment);

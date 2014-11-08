@@ -22,7 +22,7 @@ public class _ifelse extends PsiOperator
 			(((PsiBoolean)cond).booleanValue()? obj1: obj2).invoke(interpreter);
 			//interpreter.handleExecutionStack(execlevel);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(cond);
 			opstack.push(obj1);

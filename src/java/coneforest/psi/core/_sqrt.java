@@ -18,7 +18,7 @@ public class _sqrt extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiSqrt());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(cn);
 			interpreter.error(e, this);

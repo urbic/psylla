@@ -20,7 +20,7 @@ public class _insertall extends PsiOperator
 		{
 			((PsiArraylike)arraylike).psiInsertAll((PsiInteger)index, (PsiIterable)iterable);
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(arraylike);
 			opstack.push(index);

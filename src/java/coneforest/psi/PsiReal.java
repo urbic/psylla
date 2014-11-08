@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ real object.
+ */
 public class PsiReal
 	extends PsiNumeric
 {
@@ -81,14 +84,6 @@ public class PsiReal
 		return super.psiSub(cn);
 	}
 
-	/*
-	@Override
-	public PsiReal psiMul(final PsiNumeric numeric)
-	{
-		return new PsiReal(value*numeric.doubleValue());
-	}
-	*/
-
 	@Override
 	public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
 	{
@@ -97,11 +92,19 @@ public class PsiReal
 		return super.psiMul(cn);
 	}
 
+	/*
 	@Override
-	public PsiReal pow(final PsiNumeric numeric)
+	public PsiReal psiPow(final PsiInteger integer)
 	{
-		return new PsiReal(Math.pow(value, numeric.doubleValue()));
+		return new PsiReal(Math.pow(value, integer.doubleValue()));
 	}
+
+	@Override
+	public PsiReal psiPow(final PsiReal real)
+	{
+		return new PsiReal(Math.pow(value, real.doubleValue()));
+	}
+	*/
 
 	@Override
 	public PsiReal psiFloor()

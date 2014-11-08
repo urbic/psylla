@@ -19,7 +19,7 @@ public class _hypot extends PsiOperator
 		{
 			opstack.push(((PsiNumeric)numeric1).hypot((PsiNumeric)numeric2));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(numeric1);
 			opstack.push(numeric2);

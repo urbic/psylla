@@ -19,7 +19,7 @@ public class _setseed extends PsiOperator
 		{
 			((PsiRandom)random).psiSetSeed((PsiInteger)integer);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(random);
 			opstack.push(integer);

@@ -18,7 +18,7 @@ public class _stringreader extends PsiOperator
 		{
 			opstack.push(new PsiStringReader((PsiStringlike)stringlike));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(stringlike);
 			interpreter.error(e, this);

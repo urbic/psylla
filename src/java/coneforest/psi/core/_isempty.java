@@ -18,7 +18,7 @@ public class _isempty extends PsiOperator
 		{
 			opstack.push(((PsiLengthy)composite).psiIsEmpty());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(composite);
 			interpreter.error(e, this);

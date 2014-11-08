@@ -19,7 +19,7 @@ public class _loadall extends PsiOperator
 				opstack.push(obj);
 			opstack.push(iterable);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			interpreter.error(e, this);
 		}

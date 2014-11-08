@@ -19,7 +19,7 @@ public class _writestring extends PsiOperator
 		{
 			((PsiWriter)writer).psiWriteString((PsiStringlike)stringlike);
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(writer);
 			opstack.push(stringlike);

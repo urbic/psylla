@@ -19,7 +19,7 @@ public class _complexpolar extends PsiOperator
 		{
 			opstack.push(PsiComplex.psiFromPolar((PsiNumeric)numeric1, (PsiNumeric)numeric2));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(numeric1);
 			opstack.push(numeric2);

@@ -34,7 +34,7 @@ public class _roll extends PsiOperator
 					opstack.add(opstackSize-nValue, opstack.pop());
 			}
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(n);
 			opstack.push(j);

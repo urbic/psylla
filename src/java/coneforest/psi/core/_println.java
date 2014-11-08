@@ -20,7 +20,7 @@ public class _println extends PsiOperator
 			stdwriter.psiWriteString((PsiStringlike)stringlike);
 			stdwriter.psiWrite(new PsiInteger(10));
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(stringlike);
 			interpreter.error(e, this);

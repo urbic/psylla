@@ -36,6 +36,6 @@ n permutations
 		p exch get tostring print
 	}
 	for
-	"" say
+	"\n" print
 }
 bind forall

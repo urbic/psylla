@@ -18,7 +18,7 @@ public class _wcheck extends PsiOperator
 		{
 			opstack.push(new PsiBoolean(((PsiLengthy)lengthy).isWritable()));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(lengthy);
 			interpreter.error(e, this);

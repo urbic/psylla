@@ -19,7 +19,7 @@ public class _put extends PsiOperator
 		{
 			((PsiIndexed)indexed).psiPut(key, obj);
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(indexed);
 			opstack.push(key);

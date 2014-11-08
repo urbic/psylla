@@ -18,7 +18,7 @@ public class _signum extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiSignum());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(cn);
 			interpreter.error(e, this);

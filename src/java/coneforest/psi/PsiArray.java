@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ array object.
+ */
 public class PsiArray
 	extends PsiAbstractArray<PsiObject>
 {

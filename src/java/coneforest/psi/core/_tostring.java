@@ -18,7 +18,7 @@ public class _tostring extends PsiOperator
 		{
 			opstack.push(((PsiConvertableToString)convertable).psiToString());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(convertable);
 			interpreter.error(e, this);

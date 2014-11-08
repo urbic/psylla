@@ -33,7 +33,7 @@ public class _repeat extends PsiOperator
 			interpreter.setExitFlag(false);
 
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(count);
 			opstack.push(obj);

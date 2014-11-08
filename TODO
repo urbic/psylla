@@ -21,3 +21,5 @@ biginteger, bigdecimal
 complex operators
 
 introspective isa
+
+sort

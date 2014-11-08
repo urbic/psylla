@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ dictionary object.
+ */
 public class PsiDictionary
 	extends PsiAbstractDictionary<PsiObject>
 {
@@ -9,7 +12,6 @@ public class PsiDictionary
 
 	public PsiDictionary(PsiDictionary dict)
 	{
-		//this.dictionary=(java.util.HashMap<String, PsiObject>)dictionary.getDictionary().clone();
 		this.dictionary=(java.util.HashMap<String, PsiObject>)dict.dictionary.clone();
 	}
 

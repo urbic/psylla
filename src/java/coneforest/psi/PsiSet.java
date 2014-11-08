@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ set object.
+ */
 public class PsiSet
 	extends PsiAbstractSet<PsiObject>
 {

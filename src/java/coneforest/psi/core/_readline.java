@@ -18,7 +18,7 @@ public class _readline extends PsiOperator
 		{
 			opstack.push(((PsiReadable)readable).psiReadLine());
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(readable);
 			interpreter.error(e, this);

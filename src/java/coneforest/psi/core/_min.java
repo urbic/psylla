@@ -19,7 +19,7 @@ public class _min extends PsiOperator
 		{
 			opstack.push(((PsiScalar)scalar1).psiLt((PsiScalar)scalar2).booleanValue()? scalar1: scalar2);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(scalar1);
 			opstack.push(scalar2);
