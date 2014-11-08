@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ string object.
+ */
 public class PsiString
 	extends PsiAbstractString
 {

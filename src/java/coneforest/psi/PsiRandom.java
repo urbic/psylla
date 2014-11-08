@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ random object.
+ */
 public class PsiRandom
 	extends PsiObject
 	implements PsiAtomic

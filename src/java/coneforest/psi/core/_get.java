@@ -19,7 +19,7 @@ public class _get extends PsiOperator
 		{
 			opstack.push(((PsiIndexed)indexed).psiGet(key));
 		}
-		catch(Exception e)
+		catch(PsiException|ClassCastException e)
 		{
 			opstack.push(indexed);
 			opstack.push(key);

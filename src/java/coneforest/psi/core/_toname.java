@@ -18,7 +18,7 @@ public class _toname extends PsiOperator
 		{
 			opstack.push(((PsiConvertableToName)convertable).psiToName());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(convertable);
 			interpreter.error(e, this);

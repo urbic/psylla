@@ -1,18 +1,21 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ complex object.
+ */
 public class PsiComplex
 	extends PsiComplexNumeric
 	implements PsiAtomic
 {
-	public PsiComplex(final double re, final double im)
+	public PsiComplex(final double reValue, final double imValue)
 	{
-		this.re=re;
-		this.im=im;
+		this.re=reValue;
+		this.im=imValue;
 	}
 
-	public PsiComplex(final double re)
+	public PsiComplex(final double reValue)
 	{
-		this(re, 0.D);
+		this(reValue, 0.D);
 	}
 
 	public PsiComplex(final PsiNumeric re, final PsiNumeric im)
@@ -112,7 +115,20 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiExp()
 	{
-		return psiFromPolar(1.D, im).psiMul(new PsiReal(Math.exp(re)));
+		double reExp=Math.exp(re);
+		return new PsiComplex(reExp*Math.cos(im), reExp*Math.sin(im));
+	}
+
+	@Override
+	public PsiComplex psiCos()
+	{
+		return new PsiComplex(Math.cos(re)*Math.cosh(im), Math.sin(re)*Math.sinh(im));
+	}
+
+	@Override
+	public PsiComplex psiSin()
+	{
+		return new PsiComplex(Math.sin(re)*Math.cosh(im), -Math.cos(re)*Math.sinh(im));
 	}
 
 	@Override
@@ -142,18 +158,23 @@ public class PsiComplex
 	}
 
 	@Override
+	public PsiComplex psiTan()
+	{
+		return psiSin().psiDiv(psiCos());
+	}
+
+	@Override
 	public PsiComplex psiSinh()
 	{
 		PsiComplex tmpExp=psiExp();
 		return tmpExp.psiSub(new PsiComplex(1.D).psiDiv(tmpExp)).psiDiv(new PsiReal(2.D));
 	}
 
-	/*
-	public PsiReal tanh()
+	@Override
+	public PsiComplex psiTanh()
 	{
-		return new PsiReal(Math.tanh(getValue().doubleValue()));
+		return psiSinh().psiDiv(psiCosh());
 	}
-	*/
 
 	public static PsiComplex psiFromPolar(PsiNumeric abs, PsiNumeric arg)
 	{

@@ -18,7 +18,7 @@ public class _reverse extends PsiOperator
 		{
 			((PsiArraylike)arraylike).psiReverse();
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(arraylike);
 			interpreter.error(e, this);

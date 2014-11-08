@@ -19,7 +19,7 @@ public class _contains extends PsiOperator
 		{
 			opstack.push(((PsiSetlike)setlike).psiContains(obj));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(setlike);
 			opstack.push(obj);

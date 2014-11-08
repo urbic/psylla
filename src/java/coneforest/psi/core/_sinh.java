@@ -18,7 +18,7 @@ public class _sinh extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiSinh());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(cn);
 			interpreter.error(e, this);

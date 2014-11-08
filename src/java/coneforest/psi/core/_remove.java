@@ -19,7 +19,7 @@ public class _remove extends PsiOperator
 		{
 			((PsiSetlike)setlike).psiRemove(obj);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(setlike);
 			opstack.push(obj);

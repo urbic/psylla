@@ -18,7 +18,7 @@ public class _exp extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiExp());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(cn);
 			interpreter.error(e, this);

@@ -19,7 +19,7 @@ public class _undef extends PsiOperator
 		{
 			((PsiDictionarylike)dictionarylike).psiUndef((PsiStringlike)key);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(dictionarylike);
 			opstack.push(key);

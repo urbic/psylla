@@ -3,7 +3,9 @@
 <!ENTITY % ent.files	SYSTEM "../namespaces.ent">
 <!ENTITY PsiReference_Interpreter	SYSTEM "PsiReference_Interpreter.docbook">
 <!ENTITY PsiReference_Language		SYSTEM "PsiReference_Language.docbook">
+<!ENTITY PsiReference_Types			SYSTEM "PsiReference_Types.docbook">
 <!ENTITY PsiReference_Operators		SYSTEM "PsiReference_Operators.docbook">
+<!ENTITY PsiReference_Errors		SYSTEM "PsiReference_Errors.docbook">
 <!ENTITY PsiReference_Development	SYSTEM "PsiReference_Development.docbook">
 %ent.files;
 ]>
@@ -53,7 +55,9 @@ fileref="LICENSE.txt"/></textobject></literallayout>
 
 &PsiReference_Interpreter;
 &PsiReference_Language;
+&PsiReference_Types;
 &PsiReference_Operators;
+&PsiReference_Errors;
 &PsiReference_Development;
 
 <index xml:id="PsiReference_Index"/>

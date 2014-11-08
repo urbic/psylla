@@ -18,7 +18,7 @@ public class _begin extends PsiOperator
 		{
 			interpreter.getDictionaryStack().push((PsiDictionary)dict);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(dict);
 			interpreter.error(e, this);

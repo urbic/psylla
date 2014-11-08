@@ -24,7 +24,7 @@ public class _index extends PsiOperator
 			else
 				opstack.push(opstack.get(opstack.size()-nValue-1));
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(n);
 			interpreter.error(e, this);

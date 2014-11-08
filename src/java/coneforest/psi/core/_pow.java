@@ -13,16 +13,16 @@ public class _pow extends PsiOperator
 			return;
 		}
 
-		PsiObject numeric2=opstack.pop();
-		PsiObject numeric1=opstack.pop();
+		PsiObject cn2=opstack.pop();
+		PsiObject cn1=opstack.pop();
 		try
 		{
-			opstack.push(((PsiNumeric)numeric1).pow((PsiNumeric)numeric2));
+			opstack.push(((PsiComplexNumeric)cn1).psiPow((PsiComplexNumeric)cn2));
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
-			opstack.push(numeric1);
-			opstack.push(numeric2);
+			opstack.push(cn1);
+			opstack.push(cn2);
 			interpreter.error(e, this);
 		}
 	}

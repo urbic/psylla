@@ -30,7 +30,7 @@ public class _keysforall extends PsiOperator
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(dictionarylike);
 			opstack.push(proc);

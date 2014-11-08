@@ -21,7 +21,7 @@ public class _say extends PsiOperator
 			stdwriter.psiWrite(new PsiInteger(10));
 			stdwriter.psiFlush();
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(stringlike);
 			interpreter.error(e, this);

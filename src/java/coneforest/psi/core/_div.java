@@ -19,7 +19,7 @@ public class _div extends PsiOperator
 		{
 			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).psiDiv((PsiArithmetic)arithmetic2));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(arithmetic1);
 			opstack.push(arithmetic2);

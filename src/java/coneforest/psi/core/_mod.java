@@ -19,7 +19,7 @@ public class _mod extends PsiOperator
 		{
 			opstack.push(((PsiInteger)integer1).psiMod((PsiInteger)integer2));
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(integer1);
 			opstack.push(integer2);

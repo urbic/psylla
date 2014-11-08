@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	An interpreter’s dictionary stack.
+ */
 public class DictionaryStack
 	extends Stack<PsiDictionary>
 {

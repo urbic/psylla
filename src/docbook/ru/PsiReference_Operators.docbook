@@ -313,7 +313,7 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_true" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsiReference_Operators_Details_xor" xrefstyle="template:%t"/></term>
 <listitem>логическая или побитовая исключающая дизъюнкция</listitem>
 </varlistentry>
 
@@ -844,7 +844,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -862,17 +862,17 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>множество</replaceable>:
-<type>set</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -886,7 +886,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -904,17 +904,17 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dict</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -927,7 +927,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -941,7 +941,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -959,17 +959,17 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>массив</replaceable>:
-<type>array</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -996,7 +996,7 @@
 <listitem>
 <replaceable>операнд</replaceable>,
 <replaceable>результат</replaceable>:
-<type>arithmetic</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1014,10 +1014,27 @@
 <replaceable>слагаемое<subscript>1</subscript></replaceable>,
 <replaceable>слагаемое<subscript>2</subscript></replaceable>,
 <replaceable>сумма</replaceable>:
-<type>arithmetic</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает сумму двух операндов. Если оба операнда имеют тип
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>, и результат принадлежит диапазону <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>,
+тип результата будет <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>. Если хотя бы один из операндов имеет
+тип <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>, таким же будет тип результата. Если хотя бы один из
+операндов имеет тип <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
+</para>
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">9 16 add	<lineannotation>⇒ 25</lineannotation>
+9. 16 add	<lineannotation>⇒ 25.</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_and">
@@ -1032,10 +1049,25 @@
 <replaceable>операнд<subscript>1</subscript></replaceable>,
 <replaceable>операнд<subscript>2</subscript></replaceable>,
 <replaceable>результат</replaceable>:
-<type>logical</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает конъюнкцию двух операндов. Для операндов типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+вычисляется логическая конъюнкция. Для операндов типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или
+типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/> вычисляется побитовая конъюнкция.
+</para>
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">true false and	<lineannotation>⇒ false</lineannotation>
+12 6 and		<lineannotation>⇒ 4</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_append">
@@ -1045,11 +1077,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<type>appendable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1062,11 +1094,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<type>appendable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>
 </listitem>
 <listitem>
 <replaceable>перечисление</replaceable>:
-<type>iterable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1083,7 +1115,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>аргумент</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1096,10 +1128,18 @@
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
-<type>array</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Создаёт новый пустой массив и помещает его на стек операндов.
+</para>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_["/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_arraytomark">
@@ -1114,17 +1154,17 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>массив</replaceable>:
-<type>array</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1147,7 +1187,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>арктангенс</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1162,7 +1202,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dict</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1176,7 +1216,7 @@
 <listitem>
 <replaceable>массив<subscript>1</subscript></replaceable>,
 <replaceable>массив<subscript>2</subscript></replaceable>:
-<type>array</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1189,10 +1229,16 @@
 <itemizedlist>
 <listitem>
 <replaceable>битовое_множество</replaceable>:
-<type>bitset</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitset"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Создаёт новое пустое битовое множество и помещает его на стек операндов.
+</para>
+<formalpara>
+<title>Смотри также:</title>
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_bitshift">
@@ -1204,7 +1250,7 @@
 <replaceable>целое</replaceable>,
 <replaceable>сдвиг</replaceable>,
 <replaceable>результат</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1217,10 +1263,16 @@
 <itemizedlist>
 <listitem>
 <replaceable>битовый_вектор</replaceable>:
-<type>bitvector</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Создаёт новый пустой битовый массив и помещает его на стек операндов.
+</para>
+<formalpara>
+<title>Смотри также:</title>
+</formalpara>
 </section>
 
 <!-- C -->
@@ -1235,7 +1287,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>кубический_корень</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1251,7 +1303,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>результат</replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1266,7 +1318,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<type>clearable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1279,6 +1331,18 @@
 <token language="psi">cleardictstack</token>
 —
 </synopsis>
+<para>
+Удаляет все словари из стека словарей.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+нет
+</formalpara>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_clearstack">
@@ -1295,10 +1359,24 @@
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Удаляет все объекты из стека операндов.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+нет
+</formalpara>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_count"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cleartomark"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_pop"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_cleartomark">
@@ -1315,7 +1393,7 @@
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1331,7 +1409,7 @@
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
 <replaceable>объект<subscript>2</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1346,7 +1424,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>закрываемое</replaceable>:
-<type>closeable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1363,11 +1441,11 @@
 <listitem>
 <replaceable>вещественная_часть</replaceable>,
 <replaceable>мнимая_часть</replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
 <replaceable>комплексное</replaceable>:
-<type>complex</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1384,11 +1462,11 @@
 <listitem>
 <replaceable>модуль</replaceable>,
 <replaceable>аргумент</replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
 <replaceable>комплексное</replaceable>:
-<type>complex</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1404,7 +1482,7 @@
 <listitem>
 <replaceable>число<subscript>1</subscript></replaceable>,
 <replaceable>число<subscript>2</subscript></replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1420,15 +1498,15 @@
 <itemizedlist>
 <listitem>
 <replaceable>множественное</replaceable>:
-<type>setlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1453,14 +1531,38 @@
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>n</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
+копирует в стек операндов верхние <replaceable>n</replaceable> объектов.
+</para>
+<para>
+Копируются только объекты, но не их значения. При копировании композитных
+объектов их значение остаётся общим.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">"A" "B" "C" 2 copy	<lineannotation>⇒ "A" "B" "C" "B" "C"</lineannotation>
+1 2 3 0 copy		<lineannotation>⇒ 1 2 3</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_cos">
@@ -1473,7 +1575,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>косинус</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1489,7 +1591,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>гиперболический_косинус</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1513,11 +1615,11 @@
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>n</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1532,7 +1634,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>длина</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1547,7 +1649,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>длина</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1569,17 +1671,17 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>n</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1594,7 +1696,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dict</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1609,11 +1711,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>имя</replaceable>:
-<type>name</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1626,10 +1728,18 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dict</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Создаёт новый пустой словарь и помещает его на стек операндов.
+</para>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_dicttomark">
@@ -1644,17 +1754,17 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dict</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1670,10 +1780,20 @@
 <replaceable>делимое</replaceable>,
 <replaceable>делитель</replaceable>,
 <replaceable>частное</replaceable>:
-<type>arithmetic</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает частное двух операндов. Если оба операнда имеют тип
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>, тип результата будет <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>. Если хотя бы один
+из операндов имеет тип <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_dup">
@@ -1683,10 +1803,27 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Копирует верхний операнд в стеке операндов.
+</para>
+<para>
+Копируется только объект, но не его значение. При копировании композитных
+объектов их значение остаётся общим.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_copy"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
+</formalpara>
 </section>
 
 <!-- E -->
@@ -1709,11 +1846,11 @@
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
 <replaceable>объект<subscript>2</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1731,10 +1868,21 @@
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
 <replaceable>объект<subscript>2</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Меняет местами два верхних операнда в стеке операндов.
+</para>
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">1 2 exch	<lineannotation>⇒ 2 1</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_exec">
@@ -1746,7 +1894,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1761,7 +1909,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1786,10 +1934,20 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>экспонента</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает экспоненту числового операнда. Для операндов целого и вещественного
+типа возвращается вещественное число, для операндов комплексного типа
+возвращается комплексное число.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">1 exp			<lineannotation>⇒ 2.718281828459045</lineannotation>
+1 0 complex exp	<lineannotation>⇒ 2.718281828459045+0.0i</lineannotation></programlisting>
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_external">
@@ -1801,11 +1959,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>название_класса</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1822,10 +1980,13 @@
 <itemizedlist>
 <listitem>
 <replaceable>ложь</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Помещает булевский объект со значением «ложь» на стек операндов.
+</para>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_filereader">
@@ -1837,11 +1998,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>имя_файла</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>читатель</replaceable>:
-<type>filereader</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filereader"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1856,11 +2017,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>имя_файла</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>писатель</replaceable>:
-<type>filewriter</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filewriter"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1876,7 +2037,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>результат</replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1891,7 +2052,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>сбрасываемое</replaceable>:
-<type>flushable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_flushable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1911,11 +2072,11 @@
 <replaceable>начальное</replaceable>,
 <replaceable>инкремент</replaceable>,
 <replaceable>предел</replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1936,15 +2097,15 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dictlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
 </listitem>
 <listitem>
 <replaceable>перечисление</replaceable>:
-<type>iterable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1963,11 +2124,11 @@
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
 <replaceable>скаляр<subscript>2</subscript></replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -1983,12 +2144,12 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<type>indexed</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
 <replaceable>индекс</replaceable>,
 <replaceable>элемент</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2006,12 +2167,12 @@
 <listitem>
 <replaceable>массив</replaceable>,
 <replaceable>подмассив</replaceable>:
-<type>arraylike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
 <replaceable>индекс</replaceable>,
 <replaceable>длина</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2028,11 +2189,11 @@
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
 <replaceable>скаляр<subscript>2</subscript></replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2052,7 +2213,7 @@
 <replaceable>катет<subscript>1</subscript></replaceable>,
 <replaceable>катет<subscript>2</subscript></replaceable>,
 <replaceable>гипотенуза<subscript>2</subscript></replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2072,7 +2233,7 @@
 <replaceable>делимое</replaceable>,
 <replaceable>делитель</replaceable>,
 <replaceable>частное</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2088,11 +2249,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>условие</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2109,12 +2270,12 @@
 <itemizedlist>
 <listitem>
 <replaceable>условие</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
 <replaceable>объект<subscript>2</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2134,14 +2295,39 @@
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>n</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
+копирует в стек операндов <replaceable>n</replaceable>-й объект, считая от
+вершины стека (нумерация начинается с нуля).
+</para>
+<para>
+Копируются только объекты, но не их значения. При копировании композитных
+объектов их значение остаётся общим.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">"A" "B" "C" 2 index	<lineannotation>⇒ "A" "B" "C" "A"</lineannotation>
+1 2 3 0 index		<lineannotation>⇒ 1 2 3 3</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_copy"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_insert">
@@ -2155,15 +2341,15 @@
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
-<type>arraylike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
 <replaceable>индекс</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2180,15 +2366,15 @@
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
-<type>arraylike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
 <replaceable>индекс</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
 <replaceable>перечисление</replaceable>:
-<type>iterable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2205,11 +2391,11 @@
 <listitem>
 <replaceable>множество<subscript>1</subscript></replaceable>,
 <replaceable>множество<subscript>2</subscript></replaceable>:
-<type>setlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2224,11 +2410,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<type>lengthy</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2245,11 +2431,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dictlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
 </listitem>
 <listitem>
 <replaceable>множество</replaceable>:
-<type>set</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2265,11 +2451,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dictlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2285,15 +2471,15 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dictlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
 </listitem>
 <listitem>
 <replaceable>ключ</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2312,11 +2498,11 @@
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
 <replaceable>скаляр<subscript>2</subscript></replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2331,11 +2517,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<type>lengthy</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>
 </listitem>
 <listitem>
 <replaceable>длина</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2350,7 +2536,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2365,11 +2551,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>ключ</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2387,13 +2573,13 @@
 <itemizedlist>
 <listitem>
 <replaceable>перечисление</replaceable>:
-<type>iterable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2409,10 +2595,27 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>логарифм</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает логарифм ненулевого числового операнда. Для положительных операндов
+целого и вещественного типа возвращается вещественное число, для отрицательных
+и комплексных операндов возвращается комплексное число.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">1 log			<lineannotation>⇒ 0.0</lineannotation>
+-1 log			<lineannotation>⇒ 0.0+3.141592653589793i</lineannotation>
+0 1 complex log	<lineannotation>⇒ 0.0+1.5707963267948966i</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_loop">
@@ -2424,7 +2627,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2441,11 +2644,11 @@
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
 <replaceable>скаляр<subscript>2</subscript></replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2462,10 +2665,43 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Добавляет метку в стек операндов.
+</para>
+<para>
+Метки используются для обозначения позиции в стеке операндов, с которой
+начинается список неопределённой длины, сожержащий операнды оператора или
+процедуры. Операторы конструирования массивов, словарей и множеств <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>, <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>, <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>, снимают
+со стека операндов неопределённое количество операндов вплоть до метки,
+оставленной операторами <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_&lt;"/>, <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_["/>, <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_("/> (это всё синонимы оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Есть
+возможность определять процедуры с подобным поведением.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_("/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_["/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cleartomark"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_max">
@@ -2479,11 +2715,11 @@
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
 <replaceable>скаляр<subscript>2</subscript></replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
 <replaceable>максимум</replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2500,11 +2736,11 @@
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
 <replaceable>скаляр<subscript>2</subscript></replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
 <replaceable>минимум</replaceable>:
-<type>scalar</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2522,10 +2758,26 @@
 <replaceable>целое<subscript>1</subscript></replaceable>,
 <replaceable>целое<subscript>2</subscript></replaceable>,
 <replaceable>остаток</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает остаток от деления двух целых операндов. Делитель не должен быть
+нулевым. Результат имеет тот же знак, что и делитель.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">7 5 mod		<lineannotation>⇒ 2</lineannotation>
+-7 5 mod	<lineannotation>⇒ 3</lineannotation>
+0 5 mod		<lineannotation>⇒ 0</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_mul">
@@ -2540,10 +2792,22 @@
 <replaceable>множитель<subscript>1</subscript></replaceable>,
 <replaceable>множитель<subscript>2</subscript></replaceable>,
 <replaceable>произведение</replaceable>:
-<type>arithmetic</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает произведение двух операндов. Если оба операнда имеют тип
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>, и результат принадлежит диапазону <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>,
+тип результата будет <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>. Если хотя бы один из операндов имеет
+тип <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>, таким же будет тип результата. Если хотя бы один из
+операндов имеет тип <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <!-- N -->
@@ -2559,11 +2823,11 @@
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
 <replaceable>объект<subscript>2</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2579,7 +2843,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>результат</replaceable>:
-<type>arithmetic</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2595,15 +2859,15 @@
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
-<type>random</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
 </listitem>
 <listitem>
 <replaceable>уклонение</replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
 <replaceable>случайное</replaceable>:
-<type>real</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2619,7 +2883,7 @@
 <listitem>
 <replaceable>логическое</replaceable>,
 <replaceable>результат</replaceable>:
-<type>logical</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2634,7 +2898,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>ничто</replaceable>:
-<type>null</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2654,10 +2918,25 @@
 <replaceable>операнд<subscript>1</subscript></replaceable>,
 <replaceable>операнд<subscript>2</subscript></replaceable>,
 <replaceable>результат</replaceable>:
-<type>logical</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает дизъюнкцию двух операндов. Для операндов типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+вычисляется логическая дизъюнкция. Для операндов типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или
+типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/> вычисляется побитовая дизъюнкция.
+</para>
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">true false or	<lineannotation>⇒ true</lineannotation>
+12 17 or		<lineannotation>⇒ 29</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <!-- P -->
@@ -2671,7 +2950,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2689,7 +2968,7 @@
 <replaceable>основание</replaceable>,
 <replaceable>показатель</replaceable>,
 <replaceable>степень</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2704,7 +2983,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2719,7 +2998,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2734,7 +3013,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2760,12 +3039,12 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<type>indexed</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
 <replaceable>индекс</replaceable>,
 <replaceable>элемент</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2782,15 +3061,15 @@
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
-<type>arraylike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
 <replaceable>индекс</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
 <replaceable>перечисление</replaceable>:
-<type>iterable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2827,11 +3106,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2846,11 +3125,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>источник</replaceable>:
-<type>readable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
 <replaceable>символ</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2865,11 +3144,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>источник</replaceable>:
-<type>readable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>string</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2886,19 +3165,19 @@
 <itemizedlist>
 <listitem>
 <replaceable>источник</replaceable>:
-<type>readable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
 <replaceable>длина</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>string</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2914,11 +3193,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>множество</replaceable>:
-<type>setlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
 <replaceable>элемент</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2934,11 +3213,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>множество</replaceable>:
-<type>setlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
 <replaceable>перечисление</replaceable>:
-<type>iterable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2954,11 +3233,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>количество</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2974,11 +3253,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>множество</replaceable>:
-<type>setlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
 <replaceable>перечисление</replaceable>:
-<type>iterable</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -2994,7 +3273,7 @@
 <listitem>
 <replaceable>массив<subscript>1</subscript></replaceable>,
 <replaceable>массив<subscript>2</subscript></replaceable>:
-<type>arraylike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3020,12 +3299,12 @@
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>n</replaceable>,
 <replaceable>k</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3042,7 +3321,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3057,10 +3336,18 @@
 <itemizedlist>
 <listitem>
 <replaceable>множество</replaceable>:
-<type>set</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Создаёт новое пустое множество и помещает его на стек операндов.
+</para>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_("/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_setseed">
@@ -3073,11 +3360,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
-<type>random</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
 </listitem>
 <listitem>
 <replaceable>целое</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3095,17 +3382,17 @@
 <itemizedlist>
 <listitem>
 <replaceable>метка</replaceable>:
-<type>mark</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>множество</replaceable>:
-<type>set</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3121,7 +3408,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>сигнум</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3137,10 +3424,19 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>синус</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает синус числового операнда. Для операндов целого и вещественного
+типа возвращается вещественное число, для операндов комплексного типа
+возвращается комплексное число.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">mathPI sin	 <lineannotation>⇒ 1.2246467991473532E-16</lineannotation></programlisting>
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_sinh">
@@ -3153,10 +3449,19 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>гиперболический_синус</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает гиперболический синус числового операнда. Для операндов целого и
+вещественного типа возвращается вещественное число, для операндов комплексного
+типа возвращается комплексное число.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">XXX</programlisting>
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_sqrt">
@@ -3169,7 +3474,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>квадратный_корень</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3193,11 +3498,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3212,10 +3517,18 @@
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>string</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Создаёт новую пустую строку и помещает её на стек операндов.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_stringreader">
@@ -3227,11 +3540,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>строковое</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>читатель</replaceable>:
-<type>stringreader</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringreader"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3246,11 +3559,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>string</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>писатель</replaceable>:
-<type>stringwriter</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringwriter"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3268,10 +3581,26 @@
 <replaceable>уменьшаемое</replaceable>,
 <replaceable>вычитаемое<subscript>2</subscript></replaceable>,
 <replaceable>разность</replaceable>:
-<type>arithmetic</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает разность двух операндов. Если оба операнда имеют тип <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>, и
+результат принадлежит диапазону <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, тип результата будет <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>. Если
+хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/>, таким же будет тип результата.
+Если хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <!-- T -->
@@ -3286,7 +3615,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>тангенс</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3302,7 +3631,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>гиперболический_тангенс</replaceable>:
-<type>complexnumeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3317,11 +3646,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>convertabletointeger</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletointeger"/>
 </listitem>
 <listitem>
 <replaceable>целое</replaceable>:
-<type>integer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3336,11 +3665,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>convertabletoname</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoname"/>
 </listitem>
 <listitem>
 <replaceable>имя</replaceable>:
-<type>name</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3355,11 +3684,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>convertabletoreal</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoreal"/>
 </listitem>
 <listitem>
 <replaceable>вещественное</replaceable>:
-<type>real</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3374,11 +3703,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>convertabletostring</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>
 </listitem>
 <listitem>
 <replaceable>строка</replaceable>:
-<type>string</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3393,10 +3722,13 @@
 <itemizedlist>
 <listitem>
 <replaceable>истина</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Помещает булевский объект со значением «истина» на стек операндов.
+</para>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_type">
@@ -3408,11 +3740,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>имя_типа</replaceable>:
-<type>name</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3430,11 +3762,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>ключ</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dict</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3449,11 +3781,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
-<type>random</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
 </listitem>
 <listitem>
 <replaceable>случайное</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3469,12 +3801,12 @@
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
-<type>random</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
 </listitem>
 <listitem>
 <replaceable>граница</replaceable>,
 <replaceable>случайное</replaceable>:
-<type>numeric</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3491,11 +3823,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3515,16 +3847,16 @@
 <itemizedlist>
 <listitem>
 <replaceable>ключ</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
 <replaceable>словарь</replaceable>:
-<type>dictlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
 </listitem>
 <listitem>
 <replaceable>истина</replaceable>,
 <replaceable>ложь</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3540,11 +3872,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>потребитель</replaceable>:
-<type>writer</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
 </listitem>
 <listitem>
 <replaceable>строковое</replaceable>:
-<type>stringlike</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3561,11 +3893,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
-<type>object</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
-<type>boolean</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -3583,10 +3915,26 @@
 <replaceable>операнд<subscript>1</subscript></replaceable>,
 <replaceable>операнд<subscript>2</subscript></replaceable>,
 <replaceable>результат</replaceable>:
-<type>logical</type>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает исключающую дизъюнкцию двух операндов. Для операндов типа
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая исключающая дизъюнкция. Для
+операндов типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/> вычисляется
+побитовая исключающая дизъюнкция.
+</para>
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">true false and	<lineannotation>⇒ true</lineannotation>
+12 6 xor		<lineannotation>⇒ 10</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 

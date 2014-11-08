@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsiReference_Errors">
+<title>Ошибки</title>
+
+<section xml:id="PsiReference_Errors_Details">
+<title>Ошибки в деталях</title>
+
+<section xml:id="PsiReference_Errors_Details_dictstackunderflow">
+<title><errorname language="psi">dictstackunderflow</errorname></title>
+<para>
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_invalidexit">
+<title><errorname language="psi">invalidexit</errorname></title>
+<para>
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_ioerror">
+<title><errorname language="psi">ioerror</errorname></title>
+<para>
+Ошибка ввода/вывода.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_limitcheck">
+<title><errorname language="psi">limitcheck</errorname></title>
+<para>
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_rangecheck">
+<title><errorname language="psi">rangecheck</errorname></title>
+<para>
+Операнд выходит за границы допустимого диапазона.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_stackunderflow">
+<title><errorname language="psi">stackunderflow</errorname></title>
+<para>
+Недополнение стека операндов. Ошибка возникает, если стек операндов содержит
+меньше операндов, чем требуется оператору.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_syntaxerror">
+<title><errorname language="psi">syntaxerror</errorname></title>
+<para>
+Синтаксическая ошибка.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_typecheck">
+<title><errorname language="psi">typecheck</errorname></title>
+<para>
+Несоответствие типов. Ошибка возникает, если тип операндов не тот, на который
+рассчитывает оператор.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_undefined">
+<title><errorname language="psi">undefined</errorname></title>
+<para>
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_undefinedfilename">
+<title><errorname language="psi">undefinedfilename</errorname></title>
+<para>
+Файл не найден.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_undefinedresult">
+<title><errorname language="psi">undefinedresult</errorname></title>
+<para>
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_unmatchedmark">
+<title><errorname language="psi">unmatchedmark</errorname></title>
+<para>
+</para>
+</section>
+
+</section>
+
+</chapter>

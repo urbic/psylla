@@ -18,7 +18,7 @@ public class _stringwriter extends PsiOperator
 		{
 			opstack.push(new PsiStringWriter((PsiString)string));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(string);
 			interpreter.error(e, this);

@@ -170,7 +170,8 @@ hr
 	list-style-type: square;
 }
 
-.token
+.token,
+.errorname
 {
 	font-family: monospace;
 }
@@ -183,6 +184,16 @@ hr
 table.productionset
 {
 	font-family: monospace;
+}
+
+.errorname
+{
+	color: #A22;
+}
+
+.formalpara-title
+{
+	font-weight: bold;
 }
 
 .programlisting,

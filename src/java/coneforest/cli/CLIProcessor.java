@@ -9,7 +9,7 @@ public class CLIProcessor
 {
 	/**
 	 * Constructor	
-	 * @param url URL of parser configuration document
+	 * @param options a list of option descriptions
 	 */
 	public CLIProcessor(final Option... options)
 		throws CLIConfigurationException

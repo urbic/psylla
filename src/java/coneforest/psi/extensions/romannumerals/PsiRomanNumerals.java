@@ -28,7 +28,7 @@ public class PsiRomanNumerals
 			{
 				opstack.push(psiToRoman((PsiInteger)integer));
 			}
-			catch(Exception e)
+			catch(ClassCastException|PsiException e)
 			{
 				opstack.push(integer);
 				interpreter.error(e, this);
@@ -66,7 +66,7 @@ public class PsiRomanNumerals
 			{
 				opstack.push(psiFromRoman((PsiStringlike)stringlike));
 			}
-			catch(Exception e)
+			catch(ClassCastException|PsiException e)
 			{
 				opstack.push(stringlike);
 				interpreter.error(e, this);

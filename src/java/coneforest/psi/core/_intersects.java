@@ -19,7 +19,7 @@ public class _intersects extends PsiOperator
 		{
 			opstack.push(((PsiSetlike)setlike1).psiIntersects((PsiSetlike)setlike2));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(setlike1);
 			opstack.push(setlike2);

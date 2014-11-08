@@ -18,7 +18,7 @@ public class _bind extends PsiOperator
 		{
 			bind((PsiArray)array, interpreter.getDictionaryStack());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(array);
 			interpreter.error(e, this);

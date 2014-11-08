@@ -24,7 +24,7 @@ public class _if extends PsiOperator
 				//interpreter.handleExecutionStack(execlevel);
 			}
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(cond);
 			opstack.push(obj);

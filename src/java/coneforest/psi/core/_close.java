@@ -18,7 +18,7 @@ public class _close extends PsiOperator
 		{
 			((PsiCloseable)closeable).psiClose();
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(closeable);
 			interpreter.error(e, this);

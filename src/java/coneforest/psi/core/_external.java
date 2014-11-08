@@ -19,7 +19,7 @@ public class _external extends PsiOperator
 			opstack.push(((PsiClassLoader)interpreter.getSystemDictionary().psiGet("classpath"))
 					.psiExternal(((PsiStringlike)stringlike).getString()));
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(stringlike);
 			interpreter.error(e, this);

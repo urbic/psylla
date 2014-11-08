@@ -60,11 +60,6 @@ abstract public class PsiNumeric
 		return new PsiComplex(this).psiSub(cn);
 	}
 
-	/*
-	@Override
-	abstract public PsiNumeric psiMul(final PsiNumeric numeric);
-	*/
-
 	@Override
 	public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
 	{
@@ -83,8 +78,6 @@ abstract public class PsiNumeric
 			return psiDiv((PsiNumeric)cn);
 		return new PsiComplex(this).psiDiv(cn);
 	}
-
-	abstract public PsiNumeric pow(final PsiNumeric numeric);
 
 	@Override
 	public abstract PsiNumeric psiAbs();
@@ -122,21 +115,20 @@ abstract public class PsiNumeric
 			throw new PsiException("undefinedresult");
 	}
 
-
-	//@Override
-	public PsiReal cos()
+	@Override
+	public PsiReal psiCos()
 	{
 		return new PsiReal(Math.cos(doubleValue()));
 	}
 
-	//@Override
-	public PsiReal sin()
+	@Override
+	public PsiReal psiSin()
 	{
 		return new PsiReal(Math.sin(doubleValue()));
 	}
 
-	//@Override
-	public PsiReal tan()
+	@Override
+	public PsiReal psiTan()
 	{
 		return new PsiReal(Math.tan(doubleValue()));
 	}

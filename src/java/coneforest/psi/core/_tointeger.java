@@ -18,7 +18,7 @@ public class _tointeger extends PsiOperator
 		{
 			opstack.push(((PsiConvertableToInteger)convertable).psiToInteger());
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(convertable);
 			interpreter.error(e, this);

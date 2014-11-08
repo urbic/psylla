@@ -16,7 +16,7 @@ public class _editline extends PsiOperator
 		{
 			interpreter.error("ioerror", this);
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			interpreter.error(e, this);
 		}

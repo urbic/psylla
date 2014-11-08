@@ -22,7 +22,7 @@ public class _abs extends PsiOperator
 		{
 			opstack.push(((PsiArithmetic)arithmetic).psiAbs());
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(arithmetic);
 			interpreter.error(e, this);

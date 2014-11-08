@@ -18,7 +18,7 @@ public class _clear extends PsiOperator
 		{
 			((PsiClearable)clearable).psiClear();
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(clearable);
 			interpreter.error(e, this);

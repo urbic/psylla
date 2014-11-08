@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsiReference_Types">
+<title>Типы</title>
+
+<para>
+В языке Ψ имеется гибкая и расширяемая система типов. Типы реализованы как
+классы или интерфейсы языка Java. Каждый объект в Ψ представлен как объект
+некоторого класса, производного от <classname>PsiObject</classname>.
+</para>
+
+<para>
+Расширяемость системы типов достигается за счёт программирования на Java новых
+производных от <classname>PsiObject</classname> классов. Создание новых типов
+средствами Ψ невозможно.
+</para>
+
+<para>
+Большинство операторов Ψ рассчитывают на определённый тип своих операндов. Так,
+оператор сложения <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_add"/> может применяться к числам, но
+не к строкам.
+</para>
+
+<para>
+Некоторые операторы полиморфны, то есть способны менять свой смысл в
+соответствии с типом своих операндов. К примеру, тот же оператор <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_add"/> для
+целочисленных операндов возвращает результат целого типа (за исключением того
+случая, когда сумма выходит за границы целого типа; тогда результат имеет
+вещественный тип). Если один из операндов целый, а другой — вещественный,
+или же оба вещественные, результат также будет иметь вещественный тип. Если
+хотя бы один из операторов имеет комплексный тип, такого же типа будет
+результат. Другой пример: оператор <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_or"/> вычисляет дизъюнкцию своих
+операндов. Если оба операнда булевского типа, результат будет булевским, а
+если оба операнда целочисленные, выполняется побитовая дизъюнкция, и результат
+будет целым числом.
+</para>
+
+<para>
+Реализация оператора на Java, как правило, пытается привести тип операнда к
+желательному. Соответствующий код помещается в блок, в котором перехватывается
+исключение <classname>ClassCastException</classname>. Перехват исключения
+вызывает ошибку <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_typecheck"/> во время исполнения
+Ψ-программы. Таким образом, можно приспособить уже запрограммированный оператор
+к новым типам операндов, не меняя его код. Для этого класс, соответствующий
+новому типу, должен наследовать у имеющегося класса или реализовывать имеющийся
+интерфейс.
+</para>
+
+<section xml:id="PsiReference_Types_Details">
+<title>Типы детально</title>
+
+<section xml:id="PsiReference_Types_Details_abstractarray">
+<title><type>abstractarray</type></title>
+<para>
+Тип абстрактных массивов, проиндексированных целыми неотрицательными числами
+последовательностей объектов.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_abstractdictionary">
+<title><type>abstractdictionary</type></title>
+<para>
+Тип абстрактных словарей.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_abstractset">
+<title><type>abstractset</type></title>
+<para>
+Тип абстрактного множества.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_abstractstring">
+<title><type>abstractstring</type></title>
+<para>
+Тип абстрактных строк, проиндексированных целыми неотрицательными числами
+целочисленных последовательностей.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstringlike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_abstractstringlike">
+<title><type>abstractstringlike</type></title>
+<para>
+Тип абстрактных строкоподобных величин.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_appendable">
+<title><type>appendable</type></title>
+<para>
+Тип контейнеров, для которых предусмотрено добавление объектов.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_arithmetic">
+<title><type>arithmetic</type></title>
+<para>
+Тип операндов арифметических операций: сложения, вычитания, умножения, деления
+и некоторых других.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_arraylike">
+<title><type>arraylike</type></title>
+<para>
+Тип последовательностей, проиндексированных целыми числами.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_array">
+<title><type>array</type></title>
+<para>
+Тип массивов.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractarray"/>,
+</formalpara>
+</section>
+
+
+<section xml:id="PsiReference_Types_Details_atomic">
+<title><type>atomic</type></title>
+<para>
+Базовый тип атомарных объектов.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_bitvector">
+<title><type>bitvector</type></title>
+<para>
+Битовый массив.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractarray"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_bitset">
+<title><type>bitset</type></title>
+<para>
+Тип битового множества.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractset"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_boolean">
+<title><type>boolean</type></title>
+<para>
+Булевский тип.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_clearable">
+<title><type>clearable</type></title>
+<para>
+Тип контейнеров, для которых предусмотрена очистка (удаление всех содержащихся
+в контейнере объектов).
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_closeable">
+<title><type>closeable</type></title>
+<para>
+XXX
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_complex">
+<title><type>complex</type></title>
+<para>
+Комплексные числа.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_complexnumeric">
+<title><type>complexnumeric</type></title>
+<para>
+Тип объектов, которые могут рассматриваться как комплексные числа. Целый,
+вещественный и комплексный типы являются производными от этого типа.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_convertabletointeger">
+<title><type>convertabletointeger</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_convertabletoname">
+<title><type>convertabletoname</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/>.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_convertabletostring">
+<title><type>convertabletostring</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_string"/>.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_convertabletoreal">
+<title><type>convertabletoreal</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/>.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_dictionary">
+<title><type>dictionary</type></title>
+<para>
+Тип словарей.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractdictionary"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_dictionarylike">
+<title><type>dictionarylike</type></title>
+<para>
+XXX
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_flushable">
+<title><type>flushable</type></title>
+<para>
+XXX
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_indexed">
+<title><type>indexed</type></title>
+<para>
+Тип контейнеров, элементы которых проиндексированы.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_integer">
+<title><type>integer</type></title>
+<para>
+Целочисленный тип.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_iterable">
+<title><type>iterable</type></title>
+<para>
+Тип контейнеров с итератором элементов.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_lengthy">
+<title><type>lengthy</type></title>
+<para>
+Тип контейнеров, для которых можно определить длину — количество содержащихся в
+контейнере объектов.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_logical">
+<title><type>logical</type></title>
+<para>
+Тип операндов логических операций: дизъюнкции, конъюнкции, отрицания,
+исключающей дизъюнкции.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_mark">
+<title><type>mark</type></title>
+<para>
+Тип меток.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_name">
+<title><type>name</type></title>
+<para>
+Тип имён.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstringlike"/>,
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_null">
+<title><type>null</type></title>
+<para>
+Пустой тип.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_numeric">
+<title><type>numeric</type></title>
+<para>
+Базовый тип для целых или вещественных чисел.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletointeger"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoreal"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_object">
+<title><type>object</type></title>
+<para>
+Базовый тип объекта в языке Ψ.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_random">
+<title><type>random</type></title>
+<para>
+XXX
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_readable">
+<title><type>readable</type></title>
+<para>
+XXX
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_reader">
+<title><type>reader</type></title>
+<para>
+XXX
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_real">
+<title><type>real</type></title>
+<para>
+Вещественный тип.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_scalar">
+<title><type>scalar</type></title>
+<para>
+Базовый тип для упорядоченных типов, для которых определены операторы сравнения.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_set">
+<title><type>set</type></title>
+<para>
+Тип множества.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractset"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_setlike">
+<title><type>setlike</type></title>
+<para>
+XXX
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_string">
+<title><type>string</type></title>
+<para>
+Строковый тип.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstring"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_stringlike">
+<title><type>stringlike</type></title>
+<para>
+Тип строкоподобных величин, объединяющий строки и имена.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletointeger"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoname"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoreal"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
+</formalpara>
+</section>
+
+
+</section>
+
+</chapter>

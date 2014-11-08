@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ integer object.
+ */
 public class PsiInteger
 	extends PsiNumeric
 	implements PsiLogical<PsiInteger>
@@ -185,17 +188,33 @@ public class PsiInteger
 		return super.psiMul(cn);
 	}
 
+	/*
 	@Override
-	public PsiNumeric pow(final PsiNumeric numeric)
+	public PsiNumeric psiPow(final PsiInteger integer)
 	{
-		double result=Math.pow(value, numeric.doubleValue());
-		if(numeric instanceof PsiInteger
-				&& result>=Long.MIN_VALUE
-				&& result<=Long.MAX_VALUE)
-			return new PsiInteger(((Double)result).longValue());
-		else
-			return new PsiReal(result);
+		double resultValue=Math.pow(value, integer.doubleValue());
+		if(resultValue>=Long.MIN_VALUE && resultValue<=Long.MAX_VALUE)
+			return new PsiInteger(((Double)resultValue).longValue());
+		return new PsiReal(resultValue);
 	}
+	*/
+
+	/*
+	@Override
+	public PsiNumeric psiPow(final PsiComplexNumeric cn)
+	{
+		double resultValue=Math.pow(value, cn.doubleValue());
+		if(numeric instanceof PsiInteger
+				&& resultValue>=Long.MIN_VALUE
+				&& resultValue<=Long.MAX_VALUE)
+			//return new PsiInteger(((Double)resultValue).longValue());
+			return new PsiInteger(resultValue);
+		else if(numeric instanceof PsiReal)
+			return new PsiReal(result);
+		else if(numeric instanceof PsiComplex)
+			return psiPow((PsiComplex)numeric);
+	}
+	*/
 
 	@Override
 	public PsiInteger psiFloor()

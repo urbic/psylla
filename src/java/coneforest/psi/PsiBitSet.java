@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ bitset object.
+ */
 public class PsiBitSet
 	extends PsiAbstractSet<PsiInteger>
 {

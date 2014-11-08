@@ -19,7 +19,7 @@ public class _retainall extends PsiOperator
 		{
 			((PsiSetlike)setlike).psiRetainAll((PsiIterable)iterable);
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(setlike);
 			opstack.push(iterable);

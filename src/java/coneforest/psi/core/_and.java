@@ -19,7 +19,7 @@ public class _and extends PsiOperator
 		{
 			opstack.push((PsiObject)((PsiLogical)logical1).psiAnd((PsiLogical)logical2));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(logical1);
 			opstack.push(logical2);

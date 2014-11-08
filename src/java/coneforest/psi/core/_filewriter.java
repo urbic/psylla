@@ -18,7 +18,7 @@ public class _filewriter extends PsiOperator
 		{
 			opstack.push(new PsiFileWriter((PsiStringlike)stringlike));
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(stringlike);
 			interpreter.error(e, this);

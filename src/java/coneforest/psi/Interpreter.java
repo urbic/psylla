@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	An interpreter.
+ */
 public class Interpreter
 {
 	public Interpreter()

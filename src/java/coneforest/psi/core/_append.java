@@ -19,7 +19,7 @@ public class _append extends PsiOperator
 		{
 			((PsiAppendable)appendable).psiAppend(obj);
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(appendable);
 			opstack.push(obj);

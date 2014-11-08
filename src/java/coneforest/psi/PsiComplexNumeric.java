@@ -22,6 +22,12 @@ abstract public class PsiComplexNumeric
 
 	abstract public PsiComplexNumeric psiExp();
 
+	abstract public PsiComplexNumeric psiCos();
+
+	abstract public PsiComplexNumeric psiSin();
+
+	abstract public PsiComplexNumeric psiTan();
+
 	abstract public PsiComplexNumeric psiLog()
 		throws PsiException;
 
@@ -57,10 +63,10 @@ abstract public class PsiComplexNumeric
 
 	abstract public PsiComplexNumeric psiSinh();
 
-	public PsiComplexNumeric psiTanh()
-	{
+	abstract public PsiComplexNumeric psiTanh();
+	/*{
 		return psiSinh().psiDiv(psiCosh());
-	}
+	}*/
 
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)

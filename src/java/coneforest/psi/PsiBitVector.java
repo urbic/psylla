@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ bitvector object.
+ */
 public class PsiBitVector
 	extends PsiAbstractArray<PsiBoolean>
 	implements

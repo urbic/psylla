@@ -21,7 +21,7 @@ public class _readstring extends PsiOperator
 			opstack.push(string);
 			opstack.push(string.psiLength().psiEq((PsiInteger)count));
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(count);
 			opstack.push(readable);

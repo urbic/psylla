@@ -19,7 +19,7 @@ public class _print extends PsiOperator
 			((PsiWriter)interpreter.getSystemDictionary().psiGet("stdout"))
 				.psiWriteString((PsiString)string);
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(string);
 			interpreter.error(e, this);

@@ -18,7 +18,7 @@ public class _atan extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiAtan());
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(cn);
 			interpreter.error(e, this);

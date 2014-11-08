@@ -20,7 +20,7 @@ public class _insert extends PsiOperator
 		{
 			((PsiArraylike)arraylike).psiInsert((PsiInteger)index, obj);
 		}
-		catch(Exception e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(arraylike);
 			opstack.push(index);

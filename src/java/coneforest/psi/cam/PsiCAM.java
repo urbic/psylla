@@ -1,6 +1,6 @@
 package coneforest.psi.cam;
 import coneforest.psi.*;
-
+/*
 public class PsiCAM
 	extends PsiModule
 {
@@ -15,3 +15,4 @@ public class PsiCAM
 	}
 
 }
+*/

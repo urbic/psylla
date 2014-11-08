@@ -19,7 +19,7 @@ public class _lt extends PsiOperator
 		{
 			opstack.push(((PsiScalar)scalar1).psiLt((PsiScalar)scalar2));
 		}
-		catch(Exception e)
+		catch(ClassCastException e)
 		{
 			opstack.push(scalar1);
 			opstack.push(scalar2);
