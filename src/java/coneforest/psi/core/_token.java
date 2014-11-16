@@ -6,6 +6,7 @@ public class _token extends PsiOperator
 	@Override
 	public void invoke(Interpreter interpreter)
 	{
+		/*
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 			interpreter.error("stackunderflow", this);
@@ -33,5 +34,6 @@ public class _token extends PsiOperator
 			else
 				interpreter.error("typecheck", this);
 		}
+		*/
 	}
 }

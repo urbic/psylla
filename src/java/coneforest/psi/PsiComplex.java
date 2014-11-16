@@ -49,7 +49,8 @@ public class PsiComplex
 	@Override
 	public String toString()
 	{
-		return re+(im>=0.D? "+": "")+im+"i";
+		//return re+(im>=0.D? "+": "")+im+"i";
+		return "%C%"+re+":"+im;
 	}
 
 	@Override
