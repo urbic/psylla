@@ -9,14 +9,15 @@
 <title>Синопсис</title>
 
 <cmdsynopsis><command>psyche</command>
-<arg rep="repeat"><replaceable>опции</replaceable></arg>
+<arg rep="repeat"><replaceable>опция</replaceable></arg>
+<arg><option>--</option></arg>
 <arg><replaceable>программа</replaceable>
 <arg rep="repeat"><parameter><replaceable>аргумент</replaceable></parameter></arg></arg></cmdsynopsis>
 
 </section>
 
 <section>
-<title>Опции</title>
+<title>Параметры командной строки</title>
 
 <variablelist>
 
@@ -52,6 +53,18 @@
 <listitem>
 Исполнение <parameter><replaceable>выражения</replaceable></parameter>,
 содержащего команды Ψ.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--classpath</option>,
+<option>--cp</option>
+<parameter><replaceable>путь</replaceable></parameter>
+</term>
+<listitem>
+Дополнительный путь поиска классов расширений, включающий директории и архивы
+jar.
 </listitem>
 </varlistentry>
 

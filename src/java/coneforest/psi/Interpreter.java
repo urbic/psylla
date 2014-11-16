@@ -100,12 +100,13 @@ public class Interpreter
 					if(procstack.size()==proclevel)
 						return;
 					else
-					{
-						error("syntaxerror", reader);
-						return;
-					}
+						throw new PsiException("syntaxerror");
 				processToken(token);
 			}
+		}
+		catch(TokenMgrError e)
+		{
+			error("syntaxerror", reader);
 		}
 		catch(PsiException e)
 		{
@@ -150,6 +151,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
+				case ParserConstants.TOKEN_COMPLEX:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
@@ -182,6 +184,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
+				case ParserConstants.TOKEN_COMPLEX:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
@@ -192,6 +195,7 @@ public class Interpreter
 		}
 	}
 
+	/*
 	public PsiObject getPsiObject(PsiReader reader)
 		throws PsiException
 	{
@@ -234,7 +238,7 @@ public class Interpreter
 								break;
 							System.out.println(c);
 						}
-						System.out.println("END=====");*/
+						System.out.println("END=====");* /
 						return newPsiObject(token);
 					case ParserConstants.EOF:
 						return null;
@@ -270,6 +274,7 @@ public class Interpreter
 			}
 		}
 	}
+	*/
 
 	private PsiObject newPsiObject(Token token)
 		throws PsiException
@@ -342,6 +347,11 @@ public class Interpreter
 					return new PsiInteger(Long.parseLong(token.image.substring(2), 2));
 			case ParserConstants.TOKEN_REAL:
 				return new PsiReal(Double.parseDouble(token.image));
+			case ParserConstants.TOKEN_COMPLEX:
+				{
+					String[] images=token.image.substring(3).split(":");
+					return new PsiComplex(Double.parseDouble(images[0]), Double.parseDouble(images[1]));
+				}
 			case ParserConstants.TOKEN_NAME_LITERAL:
 				{
 					PsiName name=new PsiName(token.image.substring(1));
