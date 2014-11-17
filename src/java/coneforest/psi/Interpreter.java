@@ -155,6 +155,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
+				case ParserConstants.TOKEN_REGEXP:
 					opstack.push(newPsiObject(token));
 					break;
 				case ParserConstants.TOKEN_OPEN_BRACE:
@@ -189,6 +190,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
+				case ParserConstants.TOKEN_REGEXP:
 					procstack.peek().psiAppend(newPsiObject(token));
 					break;
 			}
@@ -282,57 +284,165 @@ public class Interpreter
 		switch(token.kind)
 		{
 			case ParserConstants.TOKEN_STRING:
-				StringBuilder buffer=new StringBuilder();
-				for(int i=1; i<token.image.length()-1; i++)
 				{
-					char c=token.image.charAt(i);
-					switch(c)
+					StringBuilder buffer=new StringBuilder();
+					for(int i=1; i<token.image.length()-1; i++)
 					{
-						case '\\':
-							i++;
-							switch(token.image.charAt(i))
-							{
-								case '0':
-									buffer.append('\u0000');
-									break;
-								case 'a':
-									buffer.append('\u0007');
-									break;
-								case 'n':
-									buffer.append('\n');
-									break;
-								case 'r':
-									buffer.append('\r');
-									break;
-								case 't':
-									buffer.append('\t');
-									break;
-								case 'f':
-									buffer.append('\f');
-									break;
-								case 'e':
-									buffer.append('\u001B');
-									break;
-								case '"':
-									buffer.append('"');
-									break;
-								case '\\':
-									buffer.append('\\');
-									break;
-								case '\n':
-									break;
-								case 'u':
-									buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+1, i+5), 16)));
-									i+=4;
-									break;
-							}
-							break;
-						default:
-							buffer.append(c);
-							break;
+						char c=token.image.charAt(i);
+						switch(c)
+						{
+							case '\\':
+								i++;
+								switch(token.image.charAt(i))
+								{
+									case '0':
+										buffer.append('\u0000');
+										break;
+									case 'a':
+										buffer.append('\u0007');
+										break;
+									case 'n':
+										buffer.append('\n');
+										break;
+									case 'r':
+										buffer.append('\r');
+										break;
+									case 't':
+										buffer.append('\t');
+										break;
+									case 'f':
+										buffer.append('\f');
+										break;
+									case 'e':
+										buffer.append('\u001B');
+										break;
+									case '"':
+										buffer.append('"');
+										break;
+									case '\\':
+										buffer.append('\\');
+										break;
+									case '\n':
+										break;
+									case 'u':
+										buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+1, i+5), 16)));
+										i+=4;
+										break;
+									case 'c':
+										int ch=token.image.charAt(++i);
+										ch=ch+(ch<64? 64: -64);
+										buffer.append(Character.toChars(ch));
+										break;
+									case 'x':
+										try
+										{
+											int j=token.image.indexOf('}', i+2);
+											buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
+											i=j;
+										}
+										catch(IllegalArgumentException e)
+										{
+											throw new PsiException("syntax");
+										}
+										break;
+								}
+								break;
+							default:
+								buffer.append(c);
+								break;
+						}
 					}
+					return new PsiString(buffer);
 				}
-				return new PsiString(buffer);
+			case ParserConstants.TOKEN_REGEXP:
+				{
+					StringBuilder buffer=new StringBuilder();
+					for(int i=1; i<token.image.length()-1; i++)
+					{
+						char c=token.image.charAt(i);
+						switch(c)
+						{
+							case '\\':
+								i++;
+								switch(token.image.charAt(i))
+								{
+									case '0':
+										buffer.append('\u0000');
+										break;
+									case 'a':
+										buffer.append('\u0007');
+										break;
+									case 'n':
+										buffer.append('\n');
+										break;
+									case 'r':
+										buffer.append('\r');
+										break;
+									case 't':
+										buffer.append('\t');
+										break;
+									case 'f':
+										buffer.append('\f');
+										break;
+									case 'e':
+										buffer.append('\u001B');
+										break;
+									case '!':
+										buffer.append('!');
+										break;
+									//case '\\':
+									//	buffer.append('\\');
+									//	break;
+									case '\n':
+										break;
+									case 'u':
+										buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+1, i+5), 16)));
+										i+=4;
+										break;
+									case 'c':
+										int ch=token.image.charAt(++i);
+										ch=ch+(ch<64? 64: -64);
+										buffer.append(Character.toChars(ch));
+										break;
+									case 'x':
+										try
+										{
+											int j=token.image.indexOf('}', i+2);
+											buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
+											i=j;
+										}
+										catch(IllegalArgumentException e)
+										{
+											throw new PsiException("syntax");
+										}
+										break;
+									case '\\':
+									case 'd':
+									case 'D':
+									case 's':
+									case 'S':
+									case 'w':
+									case 'W':
+									case 'p':
+									case 'b':
+									case 'B':
+									case 'A':
+									case 'G':
+									case 'z':
+									case 'Z':
+									case 'Q':
+									case 'E':
+										buffer.append("\\"+token.image.charAt(i));
+										break;
+								}
+								break;
+							default:
+								buffer.append(c);
+								break;
+						}
+					}
+					return new PsiRegExp(buffer);
+				}
 			case ParserConstants.TOKEN_INTEGER:
 				return new PsiInteger(Long.parseLong(token.image));
 			case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
