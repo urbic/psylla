@@ -17,6 +17,13 @@
 </para>
 </section>
 
+<section xml:id="PsiReference_Errors_Details_invalidregexp">
+<title><errorname language="psi">invalidregexp</errorname></title>
+<para>
+Синтаксическая ошибка в регулярном выражении.
+</para>
+</section>
+
 <section xml:id="PsiReference_Errors_Details_ioerror">
 <title><errorname language="psi">ioerror</errorname></title>
 <para>
@@ -63,6 +70,13 @@
 <section xml:id="PsiReference_Errors_Details_undefined">
 <title><errorname language="psi">undefined</errorname></title>
 <para>
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_undefinedexternal">
+<title><errorname language="psi">undefinedexternal</errorname></title>
+<para>
+Ошибка при загрузке внешнего класса или создании объекта этого класса.
 </para>
 </section>
 
