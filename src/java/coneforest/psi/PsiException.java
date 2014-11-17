@@ -1,10 +1,16 @@
 package coneforest.psi;
 
-public class PsiException extends Exception
+public class PsiException
+	extends Exception
 {
 	public PsiException(final String kind)
 	{
 		this.kind=kind;
+	}
+
+	public PsiException()
+	{
+		this.kind=getClass().getSimpleName().substring(1);
 	}
 
 	public String kind()
@@ -12,11 +18,8 @@ public class PsiException extends Exception
 		return kind;
 	}
 
-	public static final String
-		IOERROR="ioerror",
-		RANGECHECK="rangecheck",
-		TYPECHECK="typecheck"
-		;
-
 	private String kind;
+
+	public class _typecheck extends PsiException {}
+	public class _stackunderflow extends PsiException {}
 }
