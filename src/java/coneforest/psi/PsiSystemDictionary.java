@@ -147,6 +147,7 @@ public class PsiSystemDictionary
 					_sub.class,
 					_tan.class,
 					_tanh.class,
+					_time.class,
 					_tointeger.class,
 					_token.class,
 					_toname.class,
