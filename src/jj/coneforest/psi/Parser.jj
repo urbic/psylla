@@ -104,6 +104,25 @@ TOKEN:
 			["0", "a", "n", "t", "f", "\"", "\\", "e", "r", "\n"]
 			|
 			"u" <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT>
+			|
+			"x{" (<TOKEN_HEXDIGIT>)+ "}"
+			|
+			"c" ["\u0000"-"\u00FF"]
+		)
+	>
+}
+
+TOKEN:
+{
+	<TOKEN_REGEXP: "!" (<TOKEN_STRING_SPECIAL> | <TOKEN_REGEXP_SPECIAL> | ~["!", "\\"])* "!">
+}
+
+TOKEN:
+{
+	<#TOKEN_REGEXP_SPECIAL:
+		"\\"
+		(
+			["d", "D", "s", "S", "w", "W", "b", "B", "A", "G", "z", "Z", "p", "k", "Q", "E", "!"]
 		)
 	>
 }
