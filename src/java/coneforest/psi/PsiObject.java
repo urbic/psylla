@@ -36,26 +36,6 @@ abstract public class PsiObject
 	}
 
 	/**
-	 *	Query if this object is readable.
-	 *
-	 *	@return an readability status of this object.
-	 */
-	public boolean isReadable()
-	{
-		return (access&ACCESS_READ)!=0;
-	}
-
-	/**
-	 *	Query if this object is writable.
-	 *
-	 *	@return an writability status of this object.
-	 */
-	public boolean isWritable()
-	{
-		return (access&ACCESS_WRITE)!=0;
-	}
-
-	/**
 	 *	Query if this object is executable.
 	 *
 	 *	@return an executability status of this object.
@@ -129,9 +109,7 @@ abstract public class PsiObject
 	
 	private static final byte
 		ACCESS_NOACCESS=0,
-		ACCESS_EXECUTE=1,
-		ACCESS_WRITE=2,
-		ACCESS_READ=4;
+		ACCESS_EXECUTE=1;
 
-	protected byte access=ACCESS_READ|ACCESS_WRITE;
+	protected byte access=ACCESS_NOACCESS;
 }
