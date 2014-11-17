@@ -4,6 +4,7 @@ public class PsiModule
 	extends PsiDictionary
 {
 	protected void registerOperatorClasses(Class<? extends PsiOperator>... operatorClasses)
+		throws PsiException
 	{
 		try
 		{
@@ -13,15 +14,9 @@ public class PsiModule
 				psiPut(operator.getName(), operator);
 			}
 		}
-		catch(InstantiationException e)
+		catch(InstantiationException|IllegalAccessException e)
 		{
-			// TODO
-			System.out.println("INSTANTIATION EXCEPTION");
-		}
-		catch(IllegalAccessException e)
-		{
-			// TODO
-			System.out.println("ILLEGAL ACCESS EXCEPTION");
+			throw new PsiException("undefinedexternal");
 		}
 	}
 }

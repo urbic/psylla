@@ -24,7 +24,6 @@ public class _undef extends PsiOperator
 			opstack.push(dictionarylike);
 			opstack.push(key);
 			interpreter.error(e, this);
-			// TODO errors: invalidaccess
 		}
 	}
 }

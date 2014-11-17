@@ -17,11 +17,7 @@ public class PsiClassLoader
 		{
 			return objectClass.newInstance();
 		}
-		catch(InstantiationException e)
-		{
-			throw new PsiException("undefinedexternal");
-		}
-		catch(IllegalAccessException e)
+		catch(InstantiationException|IllegalAccessException e)
 		{
 			throw new PsiException("undefinedexternal");
 		}

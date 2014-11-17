@@ -10,9 +10,5 @@ public interface PsiLengthy<T extends PsiObject>
 
 	public PsiBoolean psiIsEmpty();
 
-	public boolean isReadable();
-
-	public boolean isWritable();
-
 	public String toString(PsiLengthy composite);
 }
