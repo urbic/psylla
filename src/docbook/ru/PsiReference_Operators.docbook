@@ -615,11 +615,6 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_rcheck" xrefstyle="template:%t"/></term>
-<listitem>проверка читаемости объекта</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tointeger" xrefstyle="template:%t"/></term>
 <listitem>преобразование объекта в целое число</listitem>
 </varlistentry>
@@ -642,11 +637,6 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_type" xrefstyle="template:%t"/></term>
 <listitem>тип объекта</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_wcheck" xrefstyle="template:%t"/></term>
-<listitem>проверка изменяемости объекта</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -3270,25 +3260,6 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Ес�
 </synopsis>
 </section>
 
-<section xml:id="PsiReference_Operators_Details_rcheck">
-<title><token language="psi">rcheck</token></title>
-<synopsis>
-<replaceable>объект</replaceable>
-<token language="psi">rcheck</token>
-<replaceable>результат</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>результат</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-</section>
-
 <section xml:id="PsiReference_Operators_Details_read">
 <title><token language="psi">read</token></title>
 <synopsis>
@@ -4119,6 +4090,11 @@ linkend="PsiReference_Types_Details_complex"/>, таким же будет ти
 <para>
 Возвращает очередное псевдослучайное равновероятное булевское значение.
 </para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_uniformdeviate">
@@ -4140,28 +4116,15 @@ linkend="PsiReference_Types_Details_complex"/>, таким же будет ти
 </listitem>
 </itemizedlist>
 </synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <!-- W -->
-
-<section xml:id="PsiReference_Operators_Details_wcheck">
-<title><token language="psi">wcheck</token></title>
-<synopsis>
-<replaceable>объект</replaceable>
-<token language="psi">wcheck</token>
-<replaceable>результат</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>результат</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-</section>
 
 <section xml:id="PsiReference_Operators_Details_where">
 <title><token language="psi">where</token></title>
