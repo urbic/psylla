@@ -126,36 +126,19 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заме�
 
 </section>
 
-<section xml:id="PsiReference_Language_Attributes">
-<title>Атрибуты объектов</title>
-
-<para>
-Каждый объект в языке Ψ снабжён
-<firstterm>атрибутами</firstterm><indexterm><primary>атрибут
-объекта</primary></indexterm>, влияющими на его исполнение. У всех объектов
-есть <firstterm>атрибут
-исполняемости</firstterm><indexterm><primary>атрибут</primary><secondary>исполняемости</secondary></indexterm>.
-Объекты сложных типов имеют также <firstterm>атрибуты
-доступа</firstterm><indexterm><primary>атрибут</primary><secondary>доступа</secondary></indexterm>.
-</para>
-
-<section xml:id="PsiReference_Language_Attributes_Executable">
+<section xml:id="PsiReference_Language_Executability">
 <title>Атрибут исполняемости</title>
 
 <para>
-Атрибут исполняемости объекта может находиться в одном из двух состояний —
-выключенном или включённом. Если атрибут выключен, объект называется
+Каждый объект в языке Ψ имеет <firstterm>атрибут
+исполняемости</firstterm><indexterm><primary>атрибут
+исполняемости</primary></indexterm>, влияющий на его исполнение.  Атрибут
+исполняемости объекта может находиться в одном из двух состояний — выключенном
+или включённом. Если атрибут выключен, объект называется
 <firstterm>литеральным</firstterm><indexterm><primary>объект</primary><secondary>литеральный</secondary></indexterm>.
 В противном случае объект называют
 <firstterm>исполняемым</firstterm><indexterm><primary>объект</primary><secondary>исполняемый</secondary></indexterm>.
 </para>
-
-</section>
-
-<section xml:id="PsiReference_Language_Attributes_Access">
-<title>Атрибут доступа</title>
-
-</section>
 
 </section>
 

@@ -7,7 +7,14 @@ public class PsiRomanNumerals
 	public PsiRomanNumerals()
 	{
 		super();
-		registerOperatorClasses(_toroman.class, _fromroman.class);
+		try
+		{
+			registerOperatorClasses(_toroman.class, _fromroman.class);
+		}
+		catch(PsiException e)
+		{
+			// TODO
+		}
 	}
 
 	public static class _toroman
