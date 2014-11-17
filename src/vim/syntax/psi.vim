@@ -27,7 +27,7 @@ syn match psiOperator       "[\[\]{}<>()?]"
 syn match psiNameLiteral	"/\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
 syn match psiNameImmediate	"//\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
 
-syn region psiString start=+"+ end=+"+ skip=+"[^"]*"+ contains=psiStringSpecial
+syn region psiString start=+"+ end=+"+ skip=+"[^"]*?"+ contains=psiStringSpecial
 syn match psiStringSpecial contained "\\[0antf"\\er]"
 syn match psiStringSpecial contained "\\u[:xdigit:]{4}"
 
