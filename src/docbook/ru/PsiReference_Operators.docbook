@@ -842,6 +842,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_time" xrefstyle="template:%t"/></term>
+<listitem>получение текущего времени</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_where" xrefstyle="template:%t"/></term>
 <listitem>поиск словаря в глубину в стеке словарей по содержащемуся в нём ключу</listitem>
 </varlistentry>
@@ -3925,6 +3930,33 @@ linkend="PsiReference_Types_Details_complex"/>, таким же будет ти
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">1 tanh	<lineannotation>⇒ 0.7615941559557649</lineannotation></programlisting>
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Operators_Details_time">
+<title><token language="psi">time</token></title>
+<synopsis>
+—
+<token language="psi">time</token>
+<replaceable>время</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>время</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<para>
+Возвращает текущее время (в миллисекундах), прошедшее
+с 01.01.1970 00:00:00 GMT.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">time	<lineannotation>⇒ 1416249783295</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+нет.
 </formalpara>
 </section>
 
