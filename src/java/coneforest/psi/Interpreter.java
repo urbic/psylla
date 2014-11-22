@@ -42,22 +42,37 @@ public class Interpreter
 			execstack.pop().execute(this);
 	}
 
-	public PsiDictionary getCurrentDictionary()
+	public PsiDictionarylike getCurrentDictionary()
 	{
 		return dictstack.peek();
 	}
 
-	public PsiDictionary getSystemDictionary()
+	/**
+	 *	Returns system dictionary.
+	 *
+	 *	@return system dictionary.
+	 */
+	public PsiDictionarylike getSystemDictionary()
 	{
 		return dictstack.get(0);
 	}
 
-	public PsiDictionary getGlobalDictionary()
+	/**
+	 *	Returns global dictionary.
+	 *
+	 *	@return global dictionary.
+	 */
+	public PsiDictionarylike getGlobalDictionary()
 	{
 		return dictstack.get(1);
 	}
 
-	public PsiDictionary getUserDictionary()
+	/**
+	 *	Returns user dictionary.
+	 *
+	 *	@return user dictionary.
+	 */
+	public PsiDictionarylike getUserDictionary()
 	{
 		return dictstack.get(2);
 	}
@@ -151,7 +166,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
-				case ParserConstants.TOKEN_COMPLEX:
+				//case ParserConstants.TOKEN_COMPLEX:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
@@ -185,7 +200,7 @@ public class Interpreter
 				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
-				case ParserConstants.TOKEN_COMPLEX:
+				//case ParserConstants.TOKEN_COMPLEX:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
@@ -457,11 +472,12 @@ public class Interpreter
 					return new PsiInteger(Long.parseLong(token.image.substring(2), 2));
 			case ParserConstants.TOKEN_REAL:
 				return new PsiReal(Double.parseDouble(token.image));
-			case ParserConstants.TOKEN_COMPLEX:
+			/*case ParserConstants.TOKEN_COMPLEX:
 				{
 					String[] images=token.image.substring(3).split(":");
 					return new PsiComplex(Double.parseDouble(images[0]), Double.parseDouble(images[1]));
 				}
+			*/
 			case ParserConstants.TOKEN_NAME_LITERAL:
 				{
 					PsiName name=new PsiName(token.image.substring(1));
