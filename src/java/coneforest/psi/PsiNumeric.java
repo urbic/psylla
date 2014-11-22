@@ -36,13 +36,14 @@ abstract public class PsiNumeric
 
 	@Override
 	public PsiReal psiArg()
+		throws PsiException
 	{
-		if(doubleValue()>0.D)
-			return new PsiReal(0.D);
-		else if(doubleValue()<0.D)
+		if(doubleValue()>0)
+			return new PsiReal(0);
+		else if(doubleValue()<0)
 			return new PsiReal(Math.PI);
 		else
-			return new PsiReal(1.D/0.D);
+			throw new PsiException("undefinedresult");
 	}
 
 	@Override

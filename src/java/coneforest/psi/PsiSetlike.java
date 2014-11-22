@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public interface PsiSetlike<T extends PsiObject>
 	extends
-		PsiLengthy<T>,
+		PsiLengthy,
 		PsiIterable<T>,
 		PsiAppendable<T>,
 		PsiClearable

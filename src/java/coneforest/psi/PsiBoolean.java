@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ boolean object.
+ *	A representation of Ψ <code class="type">boolean</code> object.
  */
 public class PsiBoolean
 	extends PsiObject

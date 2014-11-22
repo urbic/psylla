@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ real object.
+ *	A representation of Ψ <code class="type">real</code> object.
  */
 public class PsiReal
 	extends PsiNumeric
@@ -80,7 +80,7 @@ public class PsiReal
 	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
 	{
 		if(cn instanceof PsiNumeric)
-			return new PsiReal(value+((PsiNumeric)cn).doubleValue());
+			return new PsiReal(value-((PsiNumeric)cn).doubleValue());
 		return super.psiSub(cn);
 	}
 

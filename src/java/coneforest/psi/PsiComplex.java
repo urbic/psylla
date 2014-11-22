@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ complex object.
+ *	A representation of Ψ <code class="type">complex</code> object.
  */
 public class PsiComplex
 	extends PsiComplexNumeric
@@ -50,7 +50,8 @@ public class PsiComplex
 	public String toString()
 	{
 		//return re+(im>=0.D? "+": "")+im+"i";
-		return "%C%"+re+":"+im;
+		//return "%C%"+re+":"+im;
+		return re+" "+im+" complex";
 	}
 
 	@Override
@@ -67,8 +68,14 @@ public class PsiComplex
 
 	@Override
 	public PsiReal psiArg()
+		throws PsiException
 	{
-		return new PsiReal(Math.atan2(im, re));
+		if(im==0 && re==0)
+			throw new PsiException("undefinedresult");
+		double argValue=Math.atan2(im, re);
+		if(argValue<0)
+			argValue+=2.D*Math.PI;
+		return new PsiReal(argValue);
 	}
 
 	@Override
@@ -142,13 +149,22 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiSqrt()
 	{
-		return psiFromPolar((PsiReal)psiAbs().psiSqrt(), psiArg().psiDiv(new PsiReal(2.D)));
+		if(re==0 && im==0)
+			return new PsiComplex(0, 0);
+		//double theta=Math.atan2(im, re)/2;
+		//double rho=Math.sqrt(Math.hypot(re, im));
+		return psiFromPolar(Math.sqrt(Math.hypot(re, im)), Math.atan2(im, re)/2);
 	}
 
 	@Override
 	public PsiComplex psiCbrt()
 	{
-		return psiFromPolar((PsiReal)psiAbs().psiCbrt(), psiArg().psiDiv(new PsiReal(3.D)));
+		//return psiFromPolar((PsiReal)psiAbs().psiCbrt(), psiArg().psiDiv(new PsiReal(3.D)));
+		if(re==0 && im==0)
+			return new PsiComplex(0, 0);
+		//double theta=Math.atan2(im, re)/2;
+		//double rho=Math.sqrt(Math.hypot(re, im));
+		return psiFromPolar(Math.cbrt(Math.hypot(re, im)), Math.atan2(im, re)/3);
 	}
 
 	@Override

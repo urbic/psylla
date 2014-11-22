@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ integer object.
+ *	A representation of Ψ <code class="type">integer</code> object.
  */
 public class PsiInteger
 	extends PsiNumeric

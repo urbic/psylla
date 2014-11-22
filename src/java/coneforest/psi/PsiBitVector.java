@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ bitvector object.
+ *	A representation of Ψ <code class="type">bitvector</code> object.
  */
 public class PsiBitVector
 	extends PsiAbstractArray<PsiBoolean>
@@ -100,7 +100,7 @@ public class PsiBitVector
 		if(indexValue<0
 				||
 				iterable instanceof PsiLengthy
-				&& indexValue+((PsiLengthy<PsiBoolean>)iterable).length()>=size)
+				&& indexValue+((PsiLengthy)iterable).length()>=size)
 			throw new PsiException("rangecheck");
 		for(PsiBoolean bool: iterable)
 		{

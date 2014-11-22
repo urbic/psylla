@@ -10,7 +10,8 @@ abstract public class PsiComplexNumeric
 
 	abstract public PsiNumeric psiIm();
 
-	abstract public PsiNumeric psiArg();
+	abstract public PsiNumeric psiArg()
+		throws PsiException;
 
 	abstract public PsiComplexNumeric psiConjugate();
 

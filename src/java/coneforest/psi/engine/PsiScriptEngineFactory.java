@@ -1,14 +1,27 @@
 package coneforest.psi.engine;
 
+/**
+ * A Ψ programming language scripting engine.
+ */
 public class PsiScriptEngineFactory
 	implements javax.script.ScriptEngineFactory
 {
+	/**
+	 * Returns an engine name.
+	 *
+	 * @return a <code class="constant">"Psi"</code> string.
+	 */
 	@Override
 	public String getEngineName()
 	{
 		return "Psi";
 	}
 
+	/**
+	 * Returns an engine.
+	 *
+	 * @return aa engine.
+	 */
 	@Override
 	public javax.script.ScriptEngine getScriptEngine()
 	{
@@ -18,19 +31,22 @@ public class PsiScriptEngineFactory
 	@Override
 	public java.util.List<String> getNames()
 	{
-		java.util.ArrayList<String> names=new java.util.ArrayList<String>();
-		names.add("psi");
-		return names;
+		return java.util.Collections.unmodifiableList(java.util.Arrays.asList("psi"));
 	}
 
 	@Override
 	public String getProgram(String... statements)
 	{
-		throw new UnsupportedOperationException(getClass().getName()+".getProgram not supported");
+		//throw new UnsupportedOperationException(getClass().getName()+".getProgram not supported");
+		StringBuilder sb=new StringBuilder();
+		for(String statement: statements)
+			sb.append(statement+'\n');
+		return sb.toString();
 	}
 
 	@Override
 	public String getOutputStatement(String toDisplay)
+		throws UnsupportedOperationException
 	{
 		throw new UnsupportedOperationException(getClass().getName()+".getOutputStatement not supported");
 	}
@@ -55,7 +71,7 @@ public class PsiScriptEngineFactory
 		if(key.equals(javax.script.ScriptEngine.LANGUAGE_VERSION))
 			return getLanguageVersion();
 		if(key.equals("THREADING"))
-			return "MULTITHREADED";
+			return "MULTITHREADED";	// TODO
 		return null;
 	}
 
@@ -71,6 +87,11 @@ public class PsiScriptEngineFactory
 		return coneforest.psi.Version.getVersion();
 	}
 
+	/**
+	 * Returns a name of a language.
+	 *
+	 * @return a name of a language.
+	 */
 	@Override
 	public String getLanguageName()
 	{
@@ -81,11 +102,7 @@ public class PsiScriptEngineFactory
 	public java.util.List<String> getMimeTypes()
 	{
 		if(mimeTypes==null)
-		{
-			java.util.ArrayList<String> mimeTypesList=new java.util.ArrayList<String>(1);
-			mimeTypesList.add("application/psi");
-			mimeTypes=java.util.Collections.unmodifiableList(mimeTypesList);
-		}
+			mimeTypes=java.util.Collections.unmodifiableList(java.util.Arrays.asList("application/psi"));
 		return mimeTypes;
 	}
 
@@ -93,11 +110,7 @@ public class PsiScriptEngineFactory
 	public java.util.List<String> getExtensions()
 	{
 		if(extensions==null)
-		{
-			java.util.ArrayList<String> extensionsList=new java.util.ArrayList<String>(1);
-			extensionsList.add("psi");
-			extensions=java.util.Collections.unmodifiableList(extensions);
-		}
+			extensions=java.util.Collections.unmodifiableList(java.util.Arrays.asList("psi"));
 		return extensions;
 	}
 

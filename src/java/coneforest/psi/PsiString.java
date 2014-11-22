@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ string object.
+ *	A representation of Ψ <code class="type">string</code> object.
  */
 public class PsiString
 	extends PsiAbstractString
@@ -103,7 +103,7 @@ public class PsiString
 		if(indexValue<0
 				||
 				iterable instanceof PsiLengthy
-				&& indexValue+((PsiLengthy<PsiInteger>)iterable).length()>=length())
+				&& indexValue+((PsiLengthy)iterable).length()>=length())
 			throw new PsiException("rangecheck");
 		for(PsiInteger character: iterable)
 		{

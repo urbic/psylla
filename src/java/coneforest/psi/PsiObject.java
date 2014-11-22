@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of basic Ψ object.
+ *	A representation of basic Ψ <code class="type">object</code>.
  */
 abstract public class PsiObject
 	implements PsiConvertableToString
