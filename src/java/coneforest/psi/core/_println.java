@@ -18,7 +18,7 @@ public class _println extends PsiOperator
 		{
 			PsiWriter stdwriter=(PsiWriter)interpreter.getSystemDictionary().psiGet("stdout");
 			stdwriter.psiWriteString((PsiStringlike)stringlike);
-			stdwriter.psiWrite(new PsiInteger(10));
+			stdwriter.psiWriteString((PsiStringlike)interpreter.getSystemDictionary().psiGet("eol"));
 		}
 		catch(ClassCastException|PsiException e)
 		{
