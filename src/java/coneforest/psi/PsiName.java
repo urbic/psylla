@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	Representation of Ψ name object.
+ *	A representation of Ψ <code class="type">name</code> object.
  */
 public class PsiName
 	extends PsiAbstractStringlike

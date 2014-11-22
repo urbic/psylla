@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ random object.
+ *	A representation of Ψ <code class="type">random</code> object.
  */
 public class PsiRandom
 	extends PsiObject

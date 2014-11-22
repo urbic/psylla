@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public interface PsiLengthy<T extends PsiObject>
+public interface PsiLengthy
 {
 	public int length();
 

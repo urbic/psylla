@@ -1,5 +1,8 @@
 package coneforest.psi.engine;
 
+/**
+ *	A Ψ programming language scripting engine.
+ */
 public class PsiScriptEngine
 	extends javax.script.AbstractScriptEngine
 {
