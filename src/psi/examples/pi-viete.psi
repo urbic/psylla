@@ -1,0 +1,20 @@
+#!/usr/bin/psi
+
+/next
+{
+	2 copy lt
+	{
+		exch
+		1 index add
+		1 index 3 pow
+		exch div
+		2 mul
+		sqrt
+		next
+	}
+	if
+}
+bind def
+
+0 2 next
+tostring say pop

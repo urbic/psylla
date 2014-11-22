@@ -12,31 +12,32 @@ public class _for extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
+
 		PsiObject obj=opstack.pop();
-		PsiObject limit=opstack.pop();
-		PsiObject increment=opstack.pop();
-		PsiObject initial=opstack.pop();
+		PsiObject limit_=opstack.pop();
+		PsiObject increment_=opstack.pop();
+		PsiObject initial_=opstack.pop();
 
 		try
 		{
+			PsiNumeric initial=(PsiNumeric)initial_;
+			PsiNumeric increment=(PsiNumeric)increment_;
+			PsiNumeric limit=(PsiNumeric)limit_;
 
-			int looplevel=interpreter.pushLoopLevel();
-			// TODO: reverse
+			int loopLevel=interpreter.pushLoopLevel();
 			for(
-					PsiNumeric counter=(PsiNumeric)initial;
-					counter.psiLe((PsiNumeric)limit).booleanValue()
+					PsiNumeric counter=initial;
+					(counter.psiLe(limit).booleanValue()
+								&& counter.psiGe(initial).booleanValue()
+							|| counter.psiGe(limit).booleanValue()
+								&& counter.psiLe(initial).booleanValue())
 						&& !interpreter.getExitFlag();
-					counter=(PsiNumeric)counter.psiAdd((PsiNumeric)increment)
-					// increment cast try is too late
+					counter=(PsiNumeric)counter.psiAdd(increment)
 				)
 			{
 				opstack.push(counter);
-					//int level=interpreter.getExecutionStack().size();
-				//int currentLoopLevel=interpreter.getLoopLevel();
 				obj.invoke(interpreter);
-				//System.out.println("UUU "+currentLoopLevel);
-				interpreter.handleExecutionStack(looplevel);
-				//interpreter.setLoopLevel(currentLoopLevel);
+				interpreter.handleExecutionStack(loopLevel);
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
@@ -44,9 +45,9 @@ public class _for extends PsiOperator
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(initial);
-			opstack.push(increment);
-			opstack.push(limit);
+			opstack.push(initial_);
+			opstack.push(increment_);
+			opstack.push(limit_);
 			opstack.push(obj);
 			interpreter.error(e, this);
 		}
