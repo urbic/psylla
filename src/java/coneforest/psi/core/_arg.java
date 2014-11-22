@@ -18,7 +18,7 @@ public class _arg extends PsiOperator
 		{
 			opstack.push(((PsiComplexNumeric)cn).psiArg());
 		}
-		catch(ClassCastException e)
+		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(cn);
 			interpreter.error(e, this);
