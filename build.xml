@@ -80,7 +80,9 @@
 			encoding="UTF-8"
 			charset="UTF-8"
 			>
+			<!-- stylesheetfile="${src}/css/javadoc.css" -->
 			<link href="${home.javadoc.java}"/>
+			<link href="http://jline.sourceforge.net/apidocs/"/>
 		</javadoc>
 	</target>
 
