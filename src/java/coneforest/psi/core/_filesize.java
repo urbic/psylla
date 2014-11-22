@@ -16,8 +16,7 @@ public class _filesize extends PsiOperator
 		PsiObject stringlike=opstack.pop();
 		try
 		{
-			String name=((PsiStringlike)stringlike).getString()
-					.replace('/', java.io.File.separatorChar);
+			String name=Utility.fileNameToNative(((PsiStringlike)stringlike).getString());
 			try
 			{
 				java.nio.file.attribute.BasicFileAttributes attrs

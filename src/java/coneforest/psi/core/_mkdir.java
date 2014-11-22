@@ -16,8 +16,7 @@ public class _mkdir extends PsiOperator
 		PsiObject stringlike=opstack.pop();
 		try
 		{
-			String dirName=((PsiStringlike)stringlike).getString()
-					.replace('/', java.io.File.separatorChar);
+			String dirName=Utility.fileNameToNative(((PsiStringlike)stringlike).getString());
 			try
 			{
 				opstack.push(new PsiBoolean(new java.io.File(dirName).mkdir()));

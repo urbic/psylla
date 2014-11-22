@@ -16,8 +16,7 @@ public class _lsdir extends PsiOperator
 		PsiObject stringlike=opstack.pop();
 		try
 		{
-			String dirName=((PsiStringlike)stringlike).getString()
-					.replace('/', java.io.File.separatorChar);
+			String dirName=Utility.fileNameToNative(((PsiStringlike)stringlike).getString());
 			try
 			{
 				String[] list=new java.io.File(dirName).list();

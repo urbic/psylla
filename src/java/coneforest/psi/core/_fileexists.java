@@ -16,8 +16,7 @@ public class _fileexists extends PsiOperator
 		PsiObject stringlike=opstack.pop();
 		try
 		{
-			String name=((PsiStringlike)stringlike).getString()
-					.replace('/', java.io.File.separatorChar);
+			String name=Utility.fileNameToNative(((PsiStringlike)stringlike).getString());
 			try
 			{
 				opstack.push(new PsiBoolean((new java.io.File(name)).exists()));
