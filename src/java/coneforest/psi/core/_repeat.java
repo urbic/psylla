@@ -21,7 +21,6 @@ public class _repeat extends PsiOperator
 			if(countValue<0)
 				throw new PsiException("rangecheck");
 			int looplevel=interpreter.pushLoopLevel();
-			// TODO: reverse
 			for(int i=0;
 					i<countValue && !interpreter.getExitFlag();
 					i++)

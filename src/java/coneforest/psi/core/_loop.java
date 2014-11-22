@@ -15,9 +15,7 @@ public class _loop extends PsiOperator
 
 		PsiObject obj=opstack.pop();
 
-		//interpreter.show("LOOP BEFORE");
 		int looplevel=interpreter.pushLoopLevel();
-		//interpreter.show("LOOP MIDDLE");
 		while(!interpreter.getExitFlag())
 		{
 			obj.invoke(interpreter);
@@ -25,6 +23,5 @@ public class _loop extends PsiOperator
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
-		//interpreter.show("LOOP AFTER");
 	}
 }

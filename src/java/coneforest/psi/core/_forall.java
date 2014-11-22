@@ -12,12 +12,12 @@ public class _forall extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		PsiObject proc=opstack.pop();
+		PsiObject obj=opstack.pop();
 		PsiObject iterable=opstack.pop();
 
 		if(iterable instanceof PsiDictionarylike)
 		{
-			int looplevel=interpreter.pushLoopLevel();
+			int loopLevel=interpreter.pushLoopLevel();
 			for(java.util.Map.Entry<String, PsiObject> entry:
 						(PsiIterable<java.util.Map.Entry<String, PsiObject>>)iterable)
 			{
@@ -25,23 +25,22 @@ public class _forall extends PsiOperator
 					break;
 				opstack.push(new PsiName(entry.getKey()));
 				opstack.push(entry.getValue());
-				proc.invoke(interpreter);
-				interpreter.handleExecutionStack(looplevel);
+				obj.invoke(interpreter);
+				interpreter.handleExecutionStack(loopLevel);
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
 		}
 		else if(iterable instanceof PsiIterable)
 		{
-			//System.out.println("IT FORALL");
-			int looplevel=interpreter.pushLoopLevel();
+			int loopLevel=interpreter.pushLoopLevel();
 			for(PsiObject element: ((PsiIterable<? extends PsiObject>)iterable))
 			{
 				if(interpreter.getExitFlag())
 					break;
 				opstack.push(element);
-				proc.invoke(interpreter);
-				interpreter.handleExecutionStack(looplevel);
+				obj.invoke(interpreter);
+				interpreter.handleExecutionStack(loopLevel);
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
