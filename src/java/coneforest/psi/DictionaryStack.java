@@ -4,12 +4,12 @@ package coneforest.psi;
  *	An interpreter’s dictionary stack.
  */
 public class DictionaryStack
-	extends Stack<PsiDictionary>
+	extends Stack<PsiDictionarylike>
 {
 	public PsiObject load(String keyString)
 		throws PsiException
 	{
-		PsiDictionary dict=where(keyString);
+		PsiDictionarylike dict=where(keyString);
 		if(dict!=null)
 			return dict.psiGet(keyString);
 		else
@@ -22,17 +22,18 @@ public class DictionaryStack
 		return load(key.getString());
 	}
 	
-	public PsiDictionary where(String keyString)
+	public PsiDictionarylike where(String keyString)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			if(get(i).psiKnown(keyString).booleanValue())
-				return get(i);
+			PsiDictionarylike dict=get(i);
+			if(dict.psiKnown(keyString).booleanValue())
+				return dict;
 		}
 		return null;
 	}
 	
-	public PsiDictionary where(PsiStringlike key)
+	public PsiDictionarylike where(PsiStringlike key)
 	{
 		return where(key.getString());
 	}

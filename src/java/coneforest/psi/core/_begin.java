@@ -16,7 +16,7 @@ public class _begin extends PsiOperator
 		PsiObject dict=opstack.pop();
 		try
 		{
-			interpreter.getDictionaryStack().push((PsiDictionary)dict);
+			interpreter.getDictionaryStack().push((PsiDictionarylike)dict);
 		}
 		catch(ClassCastException e)
 		{
