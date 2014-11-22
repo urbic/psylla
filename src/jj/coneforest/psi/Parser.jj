@@ -71,6 +71,7 @@ TOKEN:
 	<TOKEN_REAL: (<TOKEN_SIGN>)? <TOKEN_REAL_UNSIGNED>>
 }
 
+/*
 TOKEN:
 {
 	<TOKEN_COMPLEX:
@@ -80,6 +81,7 @@ TOKEN:
 		(<TOKEN_INTEGER>|<TOKEN_REAL>)
 	>
 }
+*/
 
 TOKEN:
 {
