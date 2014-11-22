@@ -32,9 +32,9 @@ public class _bind extends PsiOperator
 
 	private static void bindHelper(PsiArray array, java.util.HashSet<PsiArray> bound, DictionaryStack dictstack)
 	{
-		for(int i=0; i<array.length(); i++)
+		try
 		{
-			try
+			for(int i=0; i<array.length(); i++)
 			{
 				PsiObject obj=array.psiGet(i);
 				if(obj instanceof PsiArray && bound.add((PsiArray)obj))
@@ -46,10 +46,10 @@ public class _bind extends PsiOperator
 						array.psiPut(i, value);
 				}
 			}
-			catch(PsiException e)
-			{
-				// NOP
-			}
+		}
+		catch(PsiException e)
+		{
+			// NOP
 		}
 	}
 }
