@@ -1,0 +1,58 @@
+#!/usr/bin/psyche
+
+/n arguments 0 get tointeger def
+
+/nextshuffle
+{
+	dict begin
+		/shuffle exch def
+		/flag false def
+		0 1 shuffle length 1 sub
+		{
+			/i exch def
+			/e shuffle i get def
+			e i lt
+			{
+				shuffle i shuffle i get 1 add put
+				/flag true def
+				shuffle
+				exit
+			}
+			{
+				shuffle i 0 put
+			}
+			ifelse
+		}
+		for
+		flag
+	end
+}
+bind def
+
+
+[ //n 0 repeat ]
+
+{
+	/shuffle exch def
+	
+	/permutations [ 1 1 //n {} for ] def
+	0 1 //n 1 sub
+	{
+		/i exch def
+		/j shuffle i get def
+		/tmp permutations i get def
+		permutations i permutations j get put
+		permutations j tmp put
+	}
+	for
+	0 1 //n 1 sub
+	{
+		dup 0 ne { " " print } if
+		permutations exch get tostring print
+	}
+	for
+	"" say
+	
+	shuffle nextshuffle not { exit } if
+}
+bind loop
