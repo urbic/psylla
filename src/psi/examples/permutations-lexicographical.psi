@@ -1,0 +1,81 @@
+#!/usr/bin/psi
+
+/n arguments 0 get tointeger def
+
+/swap
+{
+	dict begin
+		/j exch def
+		/i exch def
+		/a exch def
+		/tmp a i get def
+		a i a j get put
+		a j tmp put
+	end
+}
+bind def
+
+/next
+{
+	dict begin
+		/p exch def
+		
+		/i p length 2 sub def
+		{
+			i 0 lt { exit } if
+			p i get p i 1 add get lt { exit } if
+			/i i 1 sub def
+		}
+		loop
+		
+		i 0 ge
+		{
+			/j i 1 add def
+			{
+				j p length 1 sub ge { exit } if
+				p j 1 add get p i get le # <<<<
+				{ exit } if
+				/j j 1 add def
+			}
+			loop
+
+			p i j swap
+			
+			/i i 1 add def
+
+			/k 0 def
+			{
+				p
+				i k add
+				p length 1 sub k sub
+				2 copy ge { pop pop pop exit } if
+				swap
+				/k k 1 add def
+			}
+			loop
+			p true
+		}
+		{ false }
+		ifelse
+
+	end
+}
+bind def
+
+
+[ 1 1 //n {} for ]
+{
+	/p exch def
+	
+	0 1 p length 1 sub
+	{
+		dup 0 ne { " " print } if
+		p exch get tostring print
+	}
+	for
+	"" say
+
+	p next
+	not { exit } if
+}
+bind loop
