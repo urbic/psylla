@@ -581,6 +581,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_slice" xrefstyle="template:%t"/></term>
+<listitem>TODO</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_string" xrefstyle="template:%t"/></term>
 <listitem>создание пустой строки</listitem>
 </varlistentry>
@@ -588,6 +593,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_undef" xrefstyle="template:%t"/></term>
 <listitem>удаление ключа из словаря</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_values" xrefstyle="template:%t"/></term>
+<listitem>создание массива значений словаря</listitem>
 </varlistentry>
 
 </variablelist>
@@ -3704,6 +3714,34 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Ес�
 </formalpara>
 </section>
 
+<section xml:id="PsiReference_Operators_Details_slice">
+<title><token language="psi">slice</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">slice</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+</section>
+
+
 <section xml:id="PsiReference_Operators_Details_split">
 <title><token language="psi">split</token></title>
 <synopsis>
@@ -4152,6 +4190,27 @@ linkend="PsiReference_Types_Details_complex"/>, таким же будет ти
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
+</section>
+
+<!-- V -->
+
+<section xml:id="PsiReference_Operators_Details_values">
+<title><token language="psi">values</token></title>
+<synopsis>
+<replaceable>словарь</replaceable>
+<token language="psi">values</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
 </section>
 
 <!-- W -->

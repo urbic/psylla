@@ -7,4 +7,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 
 	public void psiPut(K key, V value)
 		throws PsiException;
+
+	public PsiIndexed<K, V> psiSlice(PsiIterable<K> keys)
+		throws PsiException;
 }
