@@ -146,6 +146,16 @@ public class PsiArray
 	}
 
 	@Override
+	public PsiArray psiSlice(PsiIterable<PsiInteger> indices)
+		throws PsiException
+	{
+		PsiArray values=new PsiArray();
+		for(PsiInteger index: indices)
+			values.psiAppend(psiGet(index));
+		return values;
+	}
+
+	@Override
 	public void psiClear()
 	{
 		array.clear();

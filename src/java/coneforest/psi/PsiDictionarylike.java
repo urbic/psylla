@@ -21,4 +21,10 @@ public interface PsiDictionarylike<V extends PsiObject>
 	public void psiUndef(PsiStringlike key);
 
 	public PsiSet psiKeys();
+
+	public PsiArray psiValues();
+
+	@Override
+	public PsiDictionarylike<V> psiSlice(PsiIterable<PsiStringlike> keys)
+		throws PsiException;
 }

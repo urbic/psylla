@@ -101,6 +101,17 @@ public class PsiDictionary
 		return sb.toString();
 	}
 	*/
+	
+	@Override
+	public PsiDictionary psiSlice(PsiIterable<PsiStringlike> keys)
+		throws PsiException
+	{
+		PsiDictionary values=new PsiDictionary();
+		for(PsiStringlike key: keys)
+			values.psiPut(key, psiGet(key));
+		return values;
+	}
+
 
 	private java.util.HashMap<String, PsiObject> dictionary
 		=new java.util.HashMap<String, PsiObject>();

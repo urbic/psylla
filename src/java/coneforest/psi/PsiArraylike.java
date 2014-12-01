@@ -31,4 +31,8 @@ public interface PsiArraylike<T extends PsiObject>
 
 	public void psiReverse()
 		throws PsiException;
+
+	@Override
+	public PsiArraylike<T> psiSlice(PsiIterable<PsiInteger> indices)
+		throws PsiException;
 }

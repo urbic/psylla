@@ -27,7 +27,14 @@ public class PsiString
 		OperandStack opstack=interpreter.getOperandStack();
 		if(isExecutable())
 		{
-			interpreter.interpretBraced(new PsiStringReader(this));
+			try
+			{
+				interpreter.interpretBraced(new PsiStringReader(this));
+			}
+			catch(PsiException e)
+			{
+				interpreter.error(e, this);
+			}
 			opstack.pop().invoke(interpreter);
 		}
 		else
@@ -173,6 +180,16 @@ public class PsiString
 		{
 			throw new PsiException("rangecheck");
 		}
+	}
+
+	@Override
+	public PsiString psiSlice(PsiIterable<PsiInteger> indices)
+		throws PsiException
+	{
+		PsiString values=new PsiString();
+		for(PsiInteger index: indices)
+			values.psiAppend(psiGet(index));
+		return values;
 	}
 
 	@Override

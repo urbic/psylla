@@ -198,6 +198,16 @@ public class PsiBitVector
 	*/
 
 	@Override
+	public PsiBitVector psiSlice(PsiIterable<PsiInteger> indices)
+		throws PsiException
+	{
+		PsiBitVector values=new PsiBitVector();
+		for(PsiInteger index: indices)
+			values.psiAppend(psiGet(index));
+		return values;
+	}
+
+	@Override
 	public PsiBoolean psiIsEmpty()
 	{
 		return new PsiBoolean(bitvector.size()==0);

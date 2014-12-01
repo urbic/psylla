@@ -48,6 +48,15 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 	}
 
 	@Override
+	public PsiArray psiValues()
+	{
+		PsiArray values=new PsiArray();
+		for(java.util.Map.Entry<String, V> entry: this)
+			values.psiAppend(entry.getValue());
+		return values;
+	}
+
+	@Override
 	public void psiClear()
 	{
 		for(java.util.Map.Entry<String, V> entry: this)
