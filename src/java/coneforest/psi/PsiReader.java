@@ -24,7 +24,14 @@ public class PsiReader
 		OperandStack opstack=interpreter.getOperandStack();
 		if(isExecutable())
 		{
-			interpreter.interpretBraced(this);
+			try
+			{
+				interpreter.interpretBraced(this);
+			}
+			catch(PsiException e)
+			{
+				interpreter.error(e, this);
+			}
 			opstack.pop().invoke(interpreter);
 		}
 		else
