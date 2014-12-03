@@ -4,16 +4,16 @@ import coneforest.psi.*;
 public class _sort extends PsiOperator
 {
 	@Override
-	public void invoke(Interpreter interpreter)
+	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject proc=opstack.pop();
+		final PsiObject proc=opstack.pop();
 		PsiObject arraylike=opstack.pop();
 		try
 		{
@@ -22,7 +22,21 @@ public class _sort extends PsiOperator
 			for(PsiObject obj: ((PsiArraylike<PsiObject>)arraylike))
 				a[i++]=obj;
 
-			java.util.Arrays.sort(a, new Comparator(interpreter, (PsiArray)proc));
+			java.util.Arrays.sort(a, new java.util.Comparator<PsiObject>()
+				{
+					@Override
+					public int compare(PsiObject obj1, PsiObject obj2)
+					{
+						opstack.push(obj1);
+						opstack.push(obj2);
+					
+						int execlevel=interpreter.getExecLevel();
+						proc.invoke(interpreter);
+						interpreter.handleExecutionStack(execlevel);
+
+						return ((PsiInteger)opstack.pop()).intValue();
+					}
+				});
 
 			PsiArray result=new PsiArray();
 			for(PsiObject obj: a)
@@ -39,6 +53,7 @@ public class _sort extends PsiOperator
 		}
 	}
 
+	/*
 	private class Comparator
 		implements java.util.Comparator<PsiObject>
 	{
@@ -66,4 +81,5 @@ public class _sort extends PsiOperator
 
 		private PsiArray proc;
 	}
+	*/
 }

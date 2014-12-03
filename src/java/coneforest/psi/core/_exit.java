@@ -4,9 +4,8 @@ import coneforest.psi.*;
 public class _exit extends PsiOperator
 {
 	@Override
-	public void invoke(Interpreter interpreter)
+	public void invoke(final Interpreter interpreter)
 	{
-		//interpreter.show("EXIT BEFORE");
 		if(interpreter.currentLoopLevel()==-1)
 		{
 			interpreter.error("invalidexit", this);
@@ -14,6 +13,5 @@ public class _exit extends PsiOperator
 		}
 		interpreter.getExecutionStack().setSize(interpreter.currentLoopLevel());
 		interpreter.setExitFlag(true);
-		//interpreter.show("EXIT AFTER");
 	}
 }

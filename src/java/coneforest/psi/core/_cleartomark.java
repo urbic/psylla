@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _cleartomark extends PsiOperator
 {
 	@Override
-	public void invoke(Interpreter interpreter)
+	public void invoke(final Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
