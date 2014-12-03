@@ -92,19 +92,32 @@ public class Interpreter
 		getSystemDictionary().psiPut("stderr", new PsiWriter(writer));
 	}
 
-	public void eval(java.io.Reader reader)
+	public void eval(PsiReader reader)
 	{
-		interpret(new PsiReader(reader));
+		try
+		{
+			interpret(reader);
+		}
+		catch(PsiException e)
+		{
+			error(e.kind(), reader);
+		}
+	}
+
+	public void eval(java.io.Reader readerValue)
+	{
+		eval(new PsiReader(readerValue));
 	}
 
 	public void eval(String string)
 	{
-		interpret(new PsiStringReader(string));
+		eval(new PsiStringReader(string));
 	}
 
 	public void interpret(PsiReader reader)
+		throws PsiException
 	{
-		int proclevel=procstack.size();
+		int procLevel=procstack.size();
 		Parser parser=new Parser(reader.getReader());
 		try
 		{
@@ -112,7 +125,7 @@ public class Interpreter
 			{
 				Token token=parser.getNextToken();
 				if(token.kind==ParserConstants.EOF)
-					if(procstack.size()==proclevel)
+					if(procstack.size()==procLevel)
 						return;
 					else
 						throw new PsiException("syntaxerror");
@@ -121,19 +134,24 @@ public class Interpreter
 		}
 		catch(TokenMgrError e)
 		{
-			error("syntaxerror", reader);
+			//error("syntaxerror", reader);
+			throw new PsiException("syntaxerror");
 		}
+		/*
 		catch(PsiException e)
 		{
 			error(e.kind(), reader);
 		}
+		*/
 		catch(StackOverflowError e)
 		{
-			error("limitcheck", reader);
+			//error("limitcheck", reader);
+			throw new PsiException("limitcheck");
 		}
 	}
 
 	public void interpretBraced(PsiReader reader)
+		throws PsiException
 	{
 		procstack.push(new PsiArray());
 		procstack.peek().setExecutable();
