@@ -1514,6 +1514,32 @@
 </formalpara>
 </section>
 
+<section xml:id="PsiReference_Operators_Details_cmp">
+<title><token language="psi">cmp</token></title>
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">cmp</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+</section>
+
 <section xml:id="PsiReference_Operators_Details_complex">
 <title><token language="psi">complex</token></title>
 <synopsis>
@@ -1559,6 +1585,10 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+<para>
+Возвращает комплексное число с данным <replaceable>модулем</replaceable> и
+<replaceable>аргументом</replaceable>.
+</para>
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
