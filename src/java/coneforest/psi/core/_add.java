@@ -7,7 +7,7 @@ import coneforest.psi.*;
 public class _add extends PsiOperator
 {
 	@Override
-	public void invoke(Interpreter interpreter)
+	public void invoke(final Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)

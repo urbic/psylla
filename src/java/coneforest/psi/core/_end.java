@@ -4,7 +4,7 @@ import coneforest.psi.*;
 public class _end extends PsiOperator
 {
 	@Override
-	public void invoke(Interpreter interpreter)
+	public void invoke(final Interpreter interpreter)
 	{
 		DictionaryStack dictstack=interpreter.getDictionaryStack();
 		if(dictstack.size()<=3)
