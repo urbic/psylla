@@ -53,14 +53,12 @@
 		<javac
 			srcdir="${src.java}:${target.src.java}"
 			destdir="${target.classes}"
+			source="1.7"
+			target="1.7"
 			includeantruntime="false"
 			classpathref="project.class.path"
 			encoding="UTF-8"
 			/>
-			<!--sourcepath="${src.java}:${target.src.java}"-->
-		<!--copy todir="${target.classes}">
-			<fileset dir="${src.java}" includes="**/*.properties"/>
-		</copy-->
 		<native2ascii
 			src="${src.java}"
 			encoding="UTF-8"
@@ -70,7 +68,7 @@
 			/>
 	</target>
 
-	<target name="compile" depends="compile.java"/>
+	<target name="compile" depends="compile.jj,compile.java"/>
 	
 	<target name="javadoc" depends="compile.jj">
 		<javadoc
