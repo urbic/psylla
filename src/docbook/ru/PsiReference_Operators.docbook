@@ -85,6 +85,11 @@
 <variablelist>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_cmp" xrefstyle="template:%t"/></term>
+<listitem>сравнение двух объектов</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_eq" xrefstyle="template:%t"/></term>
 <listitem>проверка равенства двух объектов</listitem>
 </varlistentry>
@@ -583,6 +588,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_slice" xrefstyle="template:%t"/></term>
 <listitem>TODO</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_sort" xrefstyle="template:%t"/></term>
+<listitem>Сортировка массива с компаратором</listitem>
 </varlistentry>
 
 <varlistentry>

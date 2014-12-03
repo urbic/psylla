@@ -9,4 +9,6 @@ public interface PsiScalar<T extends PsiScalar>
 	public PsiBoolean psiGt(T scalar);
 
 	public PsiBoolean psiGe(T scalar);
+	
+	public PsiInteger psiCmp(T scalar);
 }
