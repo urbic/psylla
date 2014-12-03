@@ -93,6 +93,12 @@ abstract public class PsiAbstractStringlike
 	}
 	
 	@Override
+	public PsiInteger psiCmp(final PsiStringlike stringlike)
+	{
+		return new PsiInteger(getString().compareTo(stringlike.getString()));
+	}
+
+	@Override
 	public String toString(PsiLengthy composite)
 	{
 		return toString();

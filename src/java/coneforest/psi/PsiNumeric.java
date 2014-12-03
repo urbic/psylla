@@ -197,4 +197,11 @@ abstract public class PsiNumeric
 	{
 		return new PsiBoolean(doubleValue()>=numeric.doubleValue());
 	}
+
+	@Override
+	public PsiInteger psiCmp(final PsiNumeric numeric)
+	{
+		return new PsiInteger(doubleValue()<numeric.doubleValue()? -1:
+			doubleValue()>numeric.doubleValue()? 1: 0);
+	}
 }
