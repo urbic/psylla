@@ -6,14 +6,14 @@ public class _stringwriter extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject string=opstack.pop();
+		final PsiObject string=opstack.pop();
 		try
 		{
 			opstack.push(new PsiStringWriter((PsiString)string));

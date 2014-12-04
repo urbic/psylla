@@ -6,15 +6,15 @@ public class _hypot extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject numeric2=opstack.pop();
-		PsiObject numeric1=opstack.pop();
+		final PsiObject numeric2=opstack.pop();
+		final PsiObject numeric1=opstack.pop();
 		try
 		{
 			opstack.push(((PsiNumeric)numeric1).hypot((PsiNumeric)numeric2));

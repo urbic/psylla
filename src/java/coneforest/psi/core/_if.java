@@ -6,15 +6,15 @@ public class _if extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject obj=opstack.pop();
-		PsiObject cond=opstack.pop();
+		final PsiObject obj=opstack.pop();
+		final PsiObject cond=opstack.pop();
 		try
 		{
 			if(((PsiBoolean)cond).booleanValue())

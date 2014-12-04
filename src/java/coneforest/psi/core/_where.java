@@ -6,14 +6,14 @@ public class _where extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject key=opstack.pop();
+		final PsiObject key=opstack.pop();
 		try
 		{
 			PsiDictionarylike dict=interpreter.getDictionaryStack().where((PsiStringlike)key);

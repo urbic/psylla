@@ -14,10 +14,10 @@ public class _sort extends PsiOperator
 		}
 
 		final PsiObject proc=opstack.pop();
-		PsiObject arraylike=opstack.pop();
+		final PsiObject arraylike=opstack.pop();
 		try
 		{
-			PsiObject[] a=new PsiObject[((PsiArraylike)arraylike).length()];
+			final PsiObject[] a=new PsiObject[((PsiArraylike)arraylike).length()];
 			int i=0;
 			for(PsiObject obj: ((PsiArraylike<PsiObject>)arraylike))
 				a[i++]=obj;

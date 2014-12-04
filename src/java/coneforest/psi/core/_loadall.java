@@ -6,13 +6,13 @@ public class _loadall extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 		}
 
-		PsiObject iterable=opstack.pop();
+		final PsiObject iterable=opstack.pop();
 		try
 		{
 			for(PsiObject obj: (PsiIterable<PsiObject>)iterable)
@@ -21,6 +21,7 @@ public class _loadall extends PsiOperator
 		}
 		catch(ClassCastException e)
 		{
+			// TODO
 			interpreter.error(e, this);
 		}
 	}

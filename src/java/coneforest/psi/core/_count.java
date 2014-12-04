@@ -6,7 +6,7 @@ public class _count extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		opstack.push(new PsiInteger(opstack.size()));
 	}
 }

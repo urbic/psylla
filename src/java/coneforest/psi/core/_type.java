@@ -6,14 +6,14 @@ public class _type extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiName result=new PsiName(opstack.pop().getTypeName()+"type");
+		final PsiName result=new PsiName(opstack.pop().getTypeName()+"type");
 		result.setExecutable();
 		opstack.push(result);
 	}

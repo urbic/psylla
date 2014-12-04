@@ -6,15 +6,15 @@ public class _normaldeviate extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject numeric=opstack.pop();
-		PsiObject random=opstack.pop();
+		final PsiObject numeric=opstack.pop();
+		final PsiObject random=opstack.pop();
 		try
 		{
 			opstack.push(((PsiRandom)random).psiNormalDeviate((PsiNumeric)numeric));

@@ -6,15 +6,15 @@ public class _pow extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject cn2=opstack.pop();
-		PsiObject cn1=opstack.pop();
+		final PsiObject cn2=opstack.pop();
+		final PsiObject cn1=opstack.pop();
 		try
 		{
 			opstack.push(((PsiComplexNumeric)cn1).psiPow((PsiComplexNumeric)cn2));

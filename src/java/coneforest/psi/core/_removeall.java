@@ -6,15 +6,15 @@ public class _removeall extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject iterable=opstack.pop();
-		PsiObject setlike=opstack.pop();
+		final PsiObject iterable=opstack.pop();
+		final PsiObject setlike=opstack.pop();
 		try
 		{
 			((PsiSetlike)setlike).psiRemoveAll((PsiIterable)iterable);

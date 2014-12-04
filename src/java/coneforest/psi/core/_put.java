@@ -6,15 +6,16 @@ public class _put extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		PsiObject obj=opstack.pop();
-		PsiObject key=opstack.pop();
-		PsiObject indexed=opstack.pop();
+
+		final PsiObject obj=opstack.pop();
+		final PsiObject key=opstack.pop();
+		final PsiObject indexed=opstack.pop();
 		try
 		{
 			((PsiIndexed)indexed).psiPut(key, obj);

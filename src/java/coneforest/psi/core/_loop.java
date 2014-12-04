@@ -6,14 +6,14 @@ public class _loop extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject obj=opstack.pop();
+		final PsiObject obj=opstack.pop();
 
 		int looplevel=interpreter.pushLoopLevel();
 		while(!interpreter.getExitFlag())

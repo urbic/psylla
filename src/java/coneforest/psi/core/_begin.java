@@ -6,14 +6,14 @@ public class _begin extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject dict=opstack.pop();
+		final PsiObject dict=opstack.pop();
 		try
 		{
 			interpreter.getDictionaryStack().push((PsiDictionarylike)dict);

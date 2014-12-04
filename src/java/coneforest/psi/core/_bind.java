@@ -6,14 +6,14 @@ public class _bind extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject array=opstack.peek();
+		final PsiObject array=opstack.peek();
 		try
 		{
 			bind((PsiArray)array, interpreter.getDictionaryStack());

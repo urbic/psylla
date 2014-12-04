@@ -6,15 +6,15 @@ public class _intersects extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject setlike2=opstack.pop();
-		PsiObject setlike1=opstack.pop();
+		final PsiObject setlike2=opstack.pop();
+		final PsiObject setlike1=opstack.pop();
 		try
 		{
 			opstack.push(((PsiSetlike)setlike1).psiIntersects((PsiSetlike)setlike2));

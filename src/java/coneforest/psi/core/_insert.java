@@ -6,16 +6,16 @@ public class _insert extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject obj=opstack.pop();
-		PsiObject index=opstack.pop();
-		PsiObject arraylike=opstack.pop();
+		final PsiObject obj=opstack.pop();
+		final PsiObject index=opstack.pop();
+		final PsiObject arraylike=opstack.pop();
 		try
 		{
 			((PsiArraylike)arraylike).psiInsert((PsiInteger)index, obj);

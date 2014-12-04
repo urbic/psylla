@@ -6,15 +6,15 @@ public class _setseed extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject integer=opstack.pop();
-		PsiObject random=opstack.pop();
+		final PsiObject integer=opstack.pop();
+		final PsiObject random=opstack.pop();
 		try
 		{
 			((PsiRandom)random).psiSetSeed((PsiInteger)integer);

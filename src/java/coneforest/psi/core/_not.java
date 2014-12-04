@@ -6,14 +6,14 @@ public class _not extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject logical=opstack.pop();
+		final PsiObject logical=opstack.pop();
 		try
 		{
 			opstack.push((PsiObject)((PsiLogical)logical).psiNot());

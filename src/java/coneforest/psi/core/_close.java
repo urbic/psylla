@@ -6,14 +6,14 @@ public class _close extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject closeable=opstack.pop();
+		final PsiObject closeable=opstack.pop();
 		try
 		{
 			((PsiCloseable)closeable).psiClose();

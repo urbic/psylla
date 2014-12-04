@@ -6,15 +6,15 @@ public class _eq extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject obj2=opstack.pop();
-		PsiObject obj1=opstack.pop();
+		final PsiObject obj2=opstack.pop();
+		final PsiObject obj1=opstack.pop();
 		opstack.push(obj1.psiEq(obj2));
 	}
 }

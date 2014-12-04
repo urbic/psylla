@@ -6,14 +6,14 @@ public class _read extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject readable=opstack.pop();
+		final PsiObject readable=opstack.pop();
 		try
 		{
 			PsiInteger character=((PsiReadable)readable).psiRead();

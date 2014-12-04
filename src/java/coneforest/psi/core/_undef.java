@@ -6,15 +6,15 @@ public class _undef extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject key=opstack.pop();
-		PsiObject dictionarylike=opstack.pop();
+		final PsiObject key=opstack.pop();
+		final PsiObject dictionarylike=opstack.pop();
 		try
 		{
 			((PsiDictionarylike)dictionarylike).psiUndef((PsiStringlike)key);

@@ -6,15 +6,15 @@ public class _lt extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject scalar2=opstack.pop();
-		PsiObject scalar1=opstack.pop();
+		final PsiObject scalar2=opstack.pop();
+		final PsiObject scalar1=opstack.pop();
 		try
 		{
 			opstack.push(((PsiScalar)scalar1).psiLt((PsiScalar)scalar2));

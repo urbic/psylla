@@ -6,14 +6,14 @@ public class _index extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject n=opstack.pop();
+		final PsiObject n=opstack.pop();
 		try
 		{
 			int nValue=((PsiInteger)n).intValue();

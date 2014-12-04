@@ -6,14 +6,14 @@ public class _reverse extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject arraylike=opstack.pop();
+		final PsiObject arraylike=opstack.pop();
 		try
 		{
 			((PsiArraylike)arraylike).psiReverse();
