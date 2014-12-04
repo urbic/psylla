@@ -6,7 +6,7 @@ public class _filereader extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 
 		if(opstack.size()<1)
 		{
@@ -14,7 +14,7 @@ public class _filereader extends PsiOperator
 			return;
 		}
 
-		PsiObject stringlike=opstack.pop();
+		final PsiObject stringlike=opstack.pop();
 		try
 		{
 			opstack.push(new PsiFileReader((PsiStringlike)stringlike));

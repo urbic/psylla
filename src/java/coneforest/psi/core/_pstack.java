@@ -6,7 +6,7 @@ public class _pstack extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		// TODO reverse order
 		for(PsiObject obj: opstack)
 			System.out.print(obj+" ");

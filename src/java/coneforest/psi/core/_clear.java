@@ -6,14 +6,14 @@ public class _clear extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject clearable=opstack.pop();
+		final PsiObject clearable=opstack.pop();
 		try
 		{
 			((PsiClearable)clearable).psiClear();

@@ -6,15 +6,15 @@ public class _keysforall extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject proc=opstack.pop();
-		PsiObject dictionarylike=opstack.pop();
+		final PsiObject proc=opstack.pop();
+		final PsiObject dictionarylike=opstack.pop();
 		try
 		{
 			int looplevel=interpreter.pushLoopLevel();

@@ -6,16 +6,16 @@ public class _ifelse extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject obj2=opstack.pop();
-		PsiObject obj1=opstack.pop();
-		PsiObject cond=opstack.pop();
+		final PsiObject obj2=opstack.pop();
+		final PsiObject obj1=opstack.pop();
+		final PsiObject cond=opstack.pop();
 		try
 		{
 			//int execlevel=interpreter.getExecutionStack().size();

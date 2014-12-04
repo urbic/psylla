@@ -10,14 +10,14 @@ public class _abs extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject arithmetic=opstack.pop();
+		final PsiObject arithmetic=opstack.pop();
 		try
 		{
 			opstack.push(((PsiArithmetic)arithmetic).psiAbs());

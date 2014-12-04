@@ -6,17 +6,17 @@ public class _for extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<4)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject obj=opstack.pop();
-		PsiObject limit_=opstack.pop();
-		PsiObject increment_=opstack.pop();
-		PsiObject initial_=opstack.pop();
+		final PsiObject obj=opstack.pop();
+		final PsiObject limit_=opstack.pop();
+		final PsiObject increment_=opstack.pop();
+		final PsiObject initial_=opstack.pop();
 
 		try
 		{

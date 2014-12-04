@@ -6,15 +6,15 @@ public class _split extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject stringlike=opstack.pop();
-		PsiObject regexp=opstack.pop();
+		final PsiObject stringlike=opstack.pop();
+		final PsiObject regexp=opstack.pop();
 		try
 		{
 			opstack.push(((PsiRegExp)regexp).psiSplit((PsiStringlike)stringlike));

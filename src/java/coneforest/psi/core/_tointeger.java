@@ -6,14 +6,14 @@ public class _tointeger extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject convertable=opstack.pop();
+		final PsiObject convertable=opstack.pop();
 		try
 		{
 			opstack.push(((PsiConvertableToInteger)convertable).psiToInteger());

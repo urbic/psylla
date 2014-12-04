@@ -6,7 +6,7 @@ public class _roll extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 
 		if(opstack.size()<3)
 		{
@@ -14,8 +14,8 @@ public class _roll extends PsiOperator
 			return;
 		}
 
-		PsiObject j=opstack.pop();
-		PsiObject n=opstack.pop();
+		final PsiObject j=opstack.pop();
+		final PsiObject n=opstack.pop();
 		try
 		{
 			int nValue=((PsiInteger)n).intValue();

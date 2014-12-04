@@ -6,14 +6,14 @@ public class _flush extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject flushable=opstack.pop();
+		final PsiObject flushable=opstack.pop();
 		try
 		{
 			((PsiFlushable)flushable).psiFlush();

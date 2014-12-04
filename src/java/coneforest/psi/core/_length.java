@@ -6,21 +6,21 @@ public class _length extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
 			interpreter.error("stackunderflow", this);
 			return;
 		}
 
-		PsiObject composite=opstack.pop();
+		final PsiObject lengthy=opstack.pop();
 		try
 		{
-			opstack.push(((PsiLengthy)composite).psiLength());
+			opstack.push(((PsiLengthy)lengthy).psiLength());
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(composite);
+			opstack.push(lengthy);
 			interpreter.error(e, this);
 		}
 	}
