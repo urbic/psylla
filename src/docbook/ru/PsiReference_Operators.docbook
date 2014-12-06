@@ -2076,6 +2076,7 @@
 из циклических операторов
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_keysforall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
 Выполнение программы продолжается с объекта, следующего за циклическим
@@ -2348,6 +2349,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_get">
@@ -2369,6 +2375,13 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_getinterval">
@@ -2413,6 +2426,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <!-- H -->
@@ -2749,6 +2767,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Operators_Details_length">
@@ -2895,6 +2918,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 </section>
 
 <!-- M -->

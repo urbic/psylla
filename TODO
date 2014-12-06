@@ -24,4 +24,6 @@ introspective isa
 
 random access files, tell seek
 
-sort
+DONE: sort
+
+rename count to countstack?
