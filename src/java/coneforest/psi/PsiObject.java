@@ -106,10 +106,10 @@ abstract public class PsiObject
 	{
 		return "-"+getTypeName()+"-";
 	}
-	
+
 	private static final byte
 		ACCESS_NOACCESS=0,
 		ACCESS_EXECUTE=1;
 
-	protected byte access=ACCESS_NOACCESS;
+	private byte access=ACCESS_NOACCESS;
 }

@@ -28,7 +28,7 @@ public class PsiInteger
 	public double doubleValue()
 	{
 		return value;
-	}	
+	}
 
 	@Override
 	public PsiInteger psiRe()

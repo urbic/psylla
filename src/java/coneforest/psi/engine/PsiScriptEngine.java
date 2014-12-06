@@ -11,7 +11,7 @@ public class PsiScriptEngine
 		this.factory=factory;
 		interpreter=new coneforest.psi.Interpreter();
 	}
-	
+
 	@Override
 	public javax.script.ScriptEngineFactory getFactory()
 	{

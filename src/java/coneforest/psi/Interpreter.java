@@ -546,7 +546,7 @@ public class Interpreter
 		for(PsiObject obj: opstack)
 			System.out.print(" "+obj);
 		System.out.println();
-		
+
 		System.out.print("Execution stack:\n\t");
 		for(PsiObject obj: execstack)
 			System.out.print(" "+obj);

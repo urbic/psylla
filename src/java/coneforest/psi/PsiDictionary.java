@@ -50,6 +50,7 @@ public class PsiDictionary
 		return new PsiBoolean(dictionary.containsKey(keyString));
 	}
 
+	@Override
 	public java.util.Iterator<java.util.Map.Entry<String, PsiObject>> iterator()
 	{
 		return dictionary.entrySet().iterator();
@@ -85,23 +86,6 @@ public class PsiDictionary
 		dictionary.clear();
 	}
 
-	/*
-	@Override
-	public String toString()
-	{
-		StringBuilder sb=new StringBuilder("<");
-		if(dictionary.size()>0)
-		{
-			//for(java.util.Map.Entry<String, PsiObject> entry: entrySet())
-			for(java.util.Map.Entry<String, PsiObject> entry: this)
-				sb.append("/"+entry.getKey()+" "+entry.getValue()+" ");
-			sb.deleteCharAt(sb.length()-1);
-		}
-		sb.append(">");
-		return sb.toString();
-	}
-	*/
-	
 	@Override
 	public PsiDictionary psiSlice(PsiIterable<PsiStringlike> keys)
 		throws PsiException
@@ -111,7 +95,6 @@ public class PsiDictionary
 			values.psiPut(key, psiGet(key));
 		return values;
 	}
-
 
 	private java.util.HashMap<String, PsiObject> dictionary
 		=new java.util.HashMap<String, PsiObject>();

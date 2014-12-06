@@ -12,7 +12,7 @@ public class _tokens extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-			
+
 		final PsiObject stringlike=opstack.pop();
 		try
 		{

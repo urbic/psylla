@@ -123,7 +123,7 @@ public class PsiReal
 	{
 		return String.valueOf(value);
 	}
-	
+
 	@Override
 	public int hashCode()
 	{

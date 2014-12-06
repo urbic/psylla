@@ -13,11 +13,11 @@ public interface PsiDictionarylike<V extends PsiObject>
 	public void psiPut(String key, V value);
 
 	public PsiBoolean psiKnown(String keyString);
-	
+
 	public PsiBoolean psiKnown(PsiStringlike key);
 
 	public void psiUndef(String keyString);
-	
+
 	public void psiUndef(PsiStringlike key);
 
 	public PsiSet psiKeys();

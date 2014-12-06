@@ -62,7 +62,7 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		for(java.util.Map.Entry<String, V> entry: this)
 			psiUndef(entry.getKey());
 	}
-	
+
 	@Override
 	public String toString()
 	{
