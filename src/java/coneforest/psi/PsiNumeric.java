@@ -54,12 +54,6 @@ abstract public class PsiNumeric
 	{
 		return new PsiComplex(this).psiAdd(cn);
 	}
-	/*
-	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
-	{
-		return new PsiComplex(this).psiAdd(cn);
-	}
-	*/
 
 	@Override
 	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
