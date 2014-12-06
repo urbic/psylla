@@ -48,6 +48,12 @@ public class PsiName
 		return "name";
 	}
 
+	@Override
+	public PsiString psiToString()
+	{
+		return new PsiString(getString());
+	}
+
 	/**
 	 *	Execute this object in the context of the interpreter.
 	 *
