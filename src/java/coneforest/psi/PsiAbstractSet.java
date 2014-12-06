@@ -10,13 +10,13 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 		return "set";
 	}
 
-	
 	@Override
 	public String toString()
 	{
 		return toString(this);
 	}
 
+	@Override
 	public String toString(PsiLengthy composite)
 	{
 		StringBuilder sb=new StringBuilder("(");

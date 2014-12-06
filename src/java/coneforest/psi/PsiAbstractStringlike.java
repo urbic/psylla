@@ -67,7 +67,7 @@ abstract public class PsiAbstractStringlike
 		return new PsiBoolean(obj instanceof PsiStringlike
 				&& getString().equals(((PsiStringlike)obj).getString()));
 	}
-	
+
 	@Override
 	public PsiBoolean psiLt(final PsiStringlike string)
 	{
@@ -91,7 +91,7 @@ abstract public class PsiAbstractStringlike
 	{
 		return new PsiBoolean(getString().compareTo(string.getString())>=0);
 	}
-	
+
 	@Override
 	public PsiInteger psiCmp(final PsiStringlike stringlike)
 	{

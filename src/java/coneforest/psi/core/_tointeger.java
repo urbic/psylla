@@ -70,6 +70,6 @@ public class _tointeger extends PsiOperator
 		else
 			interpreter.error("typecheck", this);
 		*/
-		
+
 	}
 }

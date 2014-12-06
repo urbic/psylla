@@ -41,7 +41,8 @@ public class PsiBoolean
 	 */
 	public String toString()
 	{
-		return value? "true": "false";
+		//return value? "true": "false";
+		return ""+value;
 	}
 
 	public PsiBoolean psiNot()
@@ -69,7 +70,7 @@ public class PsiBoolean
 		return new PsiBoolean(obj instanceof PsiBoolean
 				&& value==((PsiBoolean)obj).value);
 	}
-	
+
 	/**
 	 *	Returns a hash code for this object (<code>1</code> or <code>0</code>).
 	 *

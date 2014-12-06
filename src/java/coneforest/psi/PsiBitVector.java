@@ -189,13 +189,6 @@ public class PsiBitVector
 	{
 		return size;
 	}
-	/*
-	@Override
-	public PsiInteger psiLength()
-	{
-		return new PsiInteger(size);
-	}
-	*/
 
 	@Override
 	public PsiBitVector psiSlice(PsiIterable<PsiInteger> indices)
@@ -212,7 +205,7 @@ public class PsiBitVector
 	{
 		return new PsiBoolean(bitvector.size()==0);
 	}
-	
+
 	@Override
 	public void psiClear()
 	{

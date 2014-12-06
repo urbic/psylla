@@ -21,7 +21,7 @@ public class DictionaryStack
 	{
 		return load(key.getString());
 	}
-	
+
 	public PsiDictionarylike where(String keyString)
 	{
 		for(int i=size()-1; i>=0; i--)
@@ -32,7 +32,7 @@ public class DictionaryStack
 		}
 		return null;
 	}
-	
+
 	public PsiDictionarylike where(PsiStringlike key)
 	{
 		return where(key.getString());

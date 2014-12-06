@@ -5,12 +5,12 @@ public class Psyche
 	public static void main(String args[])
 	{
 		String consoleEncoding=System.getProperty("consoleEncoding");
-		
+
 		int processed;
 		try
 		{
 			processed=cli.parse(args, 0);
-			
+
 			if(cli.getValue("help"))
 				help();
 
@@ -39,10 +39,10 @@ public class Psyche
 
 			interpreter.setReader(new java.io.InputStreamReader(System.in));
 			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
-			
+
 			if(cli.getValue("classpath")!=null)
 				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
-			
+
 			if(cli.getValue("eval")!=null)
 			{
 				interpreter.acceptScriptName("--eval");
@@ -96,7 +96,7 @@ public class Psyche
 
 	private static java.util.ResourceBundle messages
 		=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
-			
+
 	private static coneforest.cli.CLIProcessor cli;
 
 	static

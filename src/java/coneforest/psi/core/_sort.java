@@ -29,7 +29,7 @@ public class _sort extends PsiOperator
 					{
 						opstack.push(obj1);
 						opstack.push(obj2);
-					
+
 						int execlevel=interpreter.getExecLevel();
 						proc.invoke(interpreter);
 						interpreter.handleExecutionStack(execlevel);
@@ -52,34 +52,4 @@ public class _sort extends PsiOperator
 			interpreter.error(e, this);
 		}
 	}
-
-	/*
-	private class Comparator
-		implements java.util.Comparator<PsiObject>
-	{
-		public Comparator(Interpreter interpreter, PsiArray proc)
-		{
-			this.interpreter=interpreter;
-			this.proc=proc;
-		}
-
-		@Override
-		public int compare(PsiObject obj1, PsiObject obj2)
-		{
-			OperandStack opstack=interpreter.getOperandStack();
-			opstack.push(obj1);
-			opstack.push(obj2);
-		
-			int execlevel=interpreter.getExecLevel();
-			proc.invoke(interpreter);
-			interpreter.handleExecutionStack(execlevel);
-
-			return ((PsiInteger)opstack.pop()).intValue();
-		}
-
-		private Interpreter interpreter;
-
-		private PsiArray proc;
-	}
-	*/
 }
