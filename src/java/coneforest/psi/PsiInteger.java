@@ -136,12 +136,17 @@ public class PsiInteger
 
 	public PsiNumeric psiAdd(final PsiNumeric numeric)
 	{
-		double result=value+numeric.doubleValue();
-		if(numeric instanceof PsiInteger
-				&& result>=Long.MIN_VALUE
-				&& result<=Long.MAX_VALUE)
-			return new PsiInteger(((Double)result).longValue());
-		return new PsiReal(result);
+		if(numeric instanceof PsiInteger)
+		{
+			long numericValue=((PsiInteger)numeric).value;
+			if(value>=0 && numericValue>=0 && value>Long.MAX_VALUE-numericValue
+					|| value<0 && numericValue<0 && value<Long.MIN_VALUE-numericValue)
+				return new PsiReal(doubleValue()+numeric.doubleValue());
+			else
+				return new PsiInteger(value+numericValue);
+		}
+		else
+			return new PsiReal(doubleValue()+numeric.doubleValue());
 	}
 
 	@Override
@@ -154,6 +159,7 @@ public class PsiInteger
 
 	public PsiNumeric psiSub(final PsiNumeric numeric)
 	{
+		// TODO
 		double result=value-numeric.doubleValue();
 		if(numeric instanceof PsiInteger
 				&& result>=Long.MIN_VALUE

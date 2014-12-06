@@ -42,24 +42,6 @@ abstract public class PsiComplexNumeric
 
 	abstract public PsiComplexNumeric psiCbrt();
 
-
-	/*
-	public PsiReal cos()
-	{
-		return new PsiReal(Math.cos(getValue().doubleValue()));
-	}
-
-	public PsiReal sin()
-	{
-		return new PsiReal(Math.sin(getValue().doubleValue()));
-	}
-
-	public PsiReal tan()
-	{
-		return new PsiReal(Math.tan(getValue().doubleValue()));
-	}
-	*/
-
 	abstract public PsiComplexNumeric psiCosh();
 
 	abstract public PsiComplexNumeric psiSinh();
