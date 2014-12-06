@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /sequence
 {
 	<
@@ -6,9 +8,10 @@
 		{
 			/n n 1 add def n
 		}
+		bind
 	>
 }
-bind def
+def
 
 /filter
 {
@@ -25,6 +28,7 @@ bind def
 			}
 			if
 		}
+		bind
 	>
 }
 bind def
