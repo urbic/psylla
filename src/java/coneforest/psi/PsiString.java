@@ -22,6 +22,12 @@ public class PsiString
 	}
 
 	@Override
+	public PsiString psiToString()
+	{
+		return this;
+	}
+
+	@Override
 	public void invoke(Interpreter interpreter)
 	{
 		OperandStack opstack=interpreter.getOperandStack();
