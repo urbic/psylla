@@ -30,15 +30,15 @@ public class _sort extends PsiOperator
 						opstack.push(obj1);
 						opstack.push(obj2);
 
-						int execlevel=interpreter.getExecLevel();
+						final int execLevel=interpreter.getExecLevel();
 						proc.invoke(interpreter);
-						interpreter.handleExecutionStack(execlevel);
+						interpreter.handleExecutionStack(execLevel);
 
 						return ((PsiInteger)opstack.pop()).intValue();
 					}
 				});
 
-			PsiArray result=new PsiArray();
+			final PsiArray result=new PsiArray();
 			for(PsiObject obj: a)
 				result.psiAppend(obj);
 
