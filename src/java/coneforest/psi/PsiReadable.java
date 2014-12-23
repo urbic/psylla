@@ -8,6 +8,6 @@ public interface PsiReadable
 	public PsiString psiReadString(PsiInteger count)
 		throws PsiException;
 
-	public PsiString psiReadLine()
+	public PsiString psiReadLine(PsiStringlike stringlike)
 		throws PsiException;
 }
