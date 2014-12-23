@@ -89,23 +89,30 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiString psiReadLine()
+	public PsiString psiReadLine(PsiStringlike eol)
 		throws PsiException
 	{
-		// TODO
-		PsiInteger eol=new PsiInteger('\n');
-		PsiString string=new PsiString();
-		do
-		{
-			PsiInteger character=psiRead();
-			string.psiAppend(character);
-			if(character.psiEq(eol).booleanValue())
-				break;
-		}
-		while(true);
-		return string;
-	}
+		String eolString=eol.getString();
+		StringBuilder sb=new StringBuilder();
 
+		try
+		{
+			do
+			{
+				int c=reader.read();
+				if(c==-1)
+					return new PsiString(sb);
+				sb.append((char)c);
+				if(sb.substring(sb.length()-eolString.length()).equals(eolString))
+					return new PsiString(sb);
+			}
+			while(true);
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
 
 	@Override
 	public void psiClose()
@@ -122,4 +129,9 @@ public class PsiReader
 	}
 
 	private java.io.Reader reader;
+
+	static
+	{
+		TypeRegistry.put("reader", PsiReader.class);
+	}
 }
