@@ -140,6 +140,7 @@ public class PsiSystemDictionary
 					_signum.class,
 					_sin.class,
 					_sinh.class,
+					_sleep.class,
 					_slice.class,
 					_sort.class,
 					_split.class,

@@ -1,0 +1,13 @@
+#!/usr/bin/psyche
+
+/n arguments 0 get tointeger def
+
+/sqrt5 5 sqrt def
+/phi 1 sqrt5 add 2 div def
+
+0 1 //n
+{
+	phi exch pow sqrt5 div round
+	tostring say
+}
+bind for
