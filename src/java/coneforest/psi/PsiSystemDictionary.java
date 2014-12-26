@@ -88,6 +88,8 @@ public class PsiSystemDictionary
 					_isdir.class,
 					_isempty.class,
 					_isfile.class,
+					_iszero.class,
+					_join.class,
 					_keys.class,
 					_keysforall.class,
 					_known.class,
