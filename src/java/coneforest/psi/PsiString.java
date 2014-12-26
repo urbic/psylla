@@ -198,6 +198,29 @@ public class PsiString
 		return values;
 	}
 
+	public PsiString psiJoin(PsiArraylike<? extends PsiString> arraylike)
+		throws PsiException
+	{
+		if(arraylike.isEmpty())
+			return new PsiString("");
+		PsiString result=((PsiString)arraylike.psiGet(0)).psiClone();
+		for(int i=1; i<arraylike.length(); i++)
+		{
+			result.psiAppendAll(this);
+			result.psiAppendAll(arraylike.psiGet(i));
+		}
+		return result;
+	}
+
+	public PsiDictionary psiSearch(PsiRegExp regexp)
+	{
+		PsiDictionary result=null;
+		java.util.regex.Pattern pattern=regexp.getPattern();
+		java.util.regex.Matcher matcher=pattern.matcher(buffer);
+		matcher.find();
+		return result;
+	}
+
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
