@@ -20,18 +20,16 @@ public class _for extends PsiOperator
 
 		try
 		{
-			PsiNumeric initial=(PsiNumeric)initial_;
-			PsiNumeric increment=(PsiNumeric)increment_;
-			PsiNumeric limit=(PsiNumeric)limit_;
+			final PsiNumeric initial=(PsiNumeric)initial_;
+			final PsiNumeric increment=(PsiNumeric)increment_;
+			final PsiNumeric limit=(PsiNumeric)limit_;
 
-			int loopLevel=interpreter.pushLoopLevel();
+			final int loopLevel=interpreter.pushLoopLevel();
+			final boolean forward=increment.psiGt(zero).booleanValue();
 			for(
 					PsiNumeric counter=initial;
-					(counter.psiLe(limit).booleanValue()
-								&& counter.psiGe(initial).booleanValue()
-							|| counter.psiGe(limit).booleanValue()
-								&& counter.psiLe(initial).booleanValue())
-						&& !interpreter.getExitFlag();
+					(forward && counter.psiLe(limit).booleanValue()
+							|| !forward && counter.psiGe(limit).booleanValue());
 					counter=(PsiNumeric)counter.psiAdd(increment)
 				)
 			{
@@ -52,4 +50,6 @@ public class _for extends PsiOperator
 			interpreter.error(e, this);
 		}
 	}
+	
+	private final PsiInteger zero=new PsiInteger(0);
 }
