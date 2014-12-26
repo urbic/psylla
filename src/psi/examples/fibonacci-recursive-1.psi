@@ -1,0 +1,18 @@
+#!/usr/bin/psyche
+
+/n arguments 0 get tointeger def
+
+/fibonacci
+{
+	n 0 ne
+	{
+		1 index tostring say
+		exch 1 index add	
+		/n n 1 sub def
+		fibonacci
+	}
+	if
+}
+bind def
+
+0 1 fibonacci
