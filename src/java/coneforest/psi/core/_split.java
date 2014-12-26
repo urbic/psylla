@@ -13,16 +13,16 @@ public class _split extends PsiOperator
 			return;
 		}
 
-		final PsiObject stringlike=opstack.pop();
+		final PsiObject string=opstack.pop();
 		final PsiObject regexp=opstack.pop();
 		try
 		{
-			opstack.push(((PsiRegExp)regexp).psiSplit((PsiStringlike)stringlike));
+			opstack.push(((PsiRegExp)regexp).psiSplit((PsiString)string));
 		}
 		catch(ClassCastException e)
 		{
 			opstack.push(regexp);
-			opstack.push(stringlike);
+			opstack.push(string);
 			interpreter.error(e, this);
 		}
 	}
