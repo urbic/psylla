@@ -89,12 +89,13 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiArray psiGetInterval(PsiInteger index, PsiInteger count)
+	public PsiArray psiGetInterval(PsiInteger start, PsiInteger count)
 		throws PsiException
 	{
 		try
 		{
-			return new PsiArray((java.util.ArrayList<PsiObject>)array.subList(index.intValue(), count.intValue()));
+			return new PsiArray(new java.util.ArrayList<PsiObject>(array.subList(start.intValue(),
+					start.intValue()+count.intValue())));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -164,6 +165,15 @@ public class PsiArray
 		{
 			throw new PsiException("rangecheck");
 		}
+	}
+
+	@Override
+	public PsiArray psiDeleteInterval(PsiInteger start, PsiInteger count)
+		throws PsiException
+	{
+		PsiArray result=psiGetInterval(start, count);
+		array.subList(start.intValue(), start.intValue()+count.intValue()).clear();
+		return result;
 	}
 
 	@Override

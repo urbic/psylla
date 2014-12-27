@@ -205,6 +205,15 @@ public class PsiString
 	}
 
 	@Override
+	public PsiString psiDeleteInterval(PsiInteger start, PsiInteger length)
+		throws PsiException
+	{
+		PsiString result=psiGetInterval(start, length);
+		buffer.replace(start.intValue(), start.intValue()+length.intValue(), "");
+		return result;
+	}
+
+	@Override
 	public PsiString psiSlice(PsiIterable<PsiInteger> indices)
 		throws PsiException
 	{

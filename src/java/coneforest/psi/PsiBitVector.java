@@ -145,6 +145,19 @@ public class PsiBitVector
 	}
 
 	@Override
+	public PsiBitVector psiDeleteInterval(PsiInteger start, PsiInteger count)
+		throws PsiException
+	{
+		PsiBitVector result=psiGetInterval(start, count);
+		int startValue=start.intValue();
+		int countValue=count.intValue();
+		for(int i=startValue+countValue; i<size; i++)
+			bitvector.set(i-countValue, bitvector.get(i));
+		size-=countValue;
+		return result;
+	}
+
+	@Override
 	public PsiBitVector psiNot()
 	{
 		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
