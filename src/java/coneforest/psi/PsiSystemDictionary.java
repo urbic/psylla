@@ -50,6 +50,7 @@ public class PsiSystemDictionary
 					_counttomark.class,
 					_currentdict.class,
 					_def.class,
+					_delete.class,
 					_dict.class,
 					_dicttomark.class,
 					_div.class,

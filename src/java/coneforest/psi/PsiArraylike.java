@@ -2,9 +2,10 @@ package coneforest.psi;
 
 public interface PsiArraylike<T extends PsiObject>
 	extends
-		PsiLengthy,
+		//PsiLengthy,
+		//PsiIterable<T>,
+		PsiContainer<T>,
 		PsiIndexed<PsiInteger, T>,
-		PsiIterable<T>,
 		PsiAppendable<T>,
 		PsiClearable
 {
@@ -30,6 +31,9 @@ public interface PsiArraylike<T extends PsiObject>
 		throws PsiException;
 
 	public void psiReverse()
+		throws PsiException;
+
+	abstract public T psiDelete(int indexValue)
 		throws PsiException;
 
 	@Override

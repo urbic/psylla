@@ -39,6 +39,15 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 	}
 
 	@Override
+	public V psiDelete(PsiStringlike key)
+		throws PsiException
+	{
+		V result=psiGet(key);
+		psiUndef(key);
+		return result;
+	}
+
+	@Override
 	public PsiSet psiKeys()
 	{
 		PsiSet set=new PsiSet();
@@ -63,13 +72,34 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 			psiUndef(entry.getKey());
 	}
 
+	/*
+	@Override
+	public void psiForAll(PsiObject obj, Interpreter interpreter)
+		
+	{
+		final OperandStack opstack=interpreter.getOperandStack();
+		final int loopLevel=interpreter.pushLoopLevel();
+		for(java.util.Map.Entry<String, V> entry: this)
+		{
+			if(interpreter.getExitFlag())
+				break;
+			opstack.push(new PsiName(entry.getKey()));
+			opstack.push(entry.getValue());
+			obj.invoke(interpreter);
+			interpreter.handleExecutionStack(loopLevel);
+		}
+		interpreter.popLoopLevel();
+		interpreter.setExitFlag(false);
+	}
+	*/
+
 	@Override
 	public String toString()
 	{
 		return toString(this);
 	}
 
-	public String toString(PsiLengthy composite)
+	public String toString(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder("<");
 		if(length()>0)
@@ -81,7 +111,7 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 				sb.append(' ');
 				PsiObject obj=entry.getValue();
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');

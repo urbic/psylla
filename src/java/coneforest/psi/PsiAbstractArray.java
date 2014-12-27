@@ -83,6 +83,13 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
+	public T psiDelete(PsiInteger index)
+		throws PsiException
+	{
+		return psiDelete(index.intValue());
+	}
+
+	@Override
 	public void psiReverse()
 		throws PsiException
 	{
@@ -105,7 +112,7 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		return toString(this);
 	}
 
-	public String toString(PsiLengthy composite)
+	public String toString(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder(isExecutable()? "{": "[");
 		if(length()>0)
@@ -113,7 +120,7 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');

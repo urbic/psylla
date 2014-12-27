@@ -189,6 +189,22 @@ public class PsiString
 	}
 
 	@Override
+	public PsiInteger psiDelete(int indexValue)
+		throws PsiException
+	{
+		try
+		{
+			PsiInteger result=psiGet(indexValue);
+			buffer.deleteCharAt(indexValue);
+			return result;
+		}
+		catch(StringIndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
 	public PsiString psiSlice(PsiIterable<PsiInteger> indices)
 		throws PsiException
 	{

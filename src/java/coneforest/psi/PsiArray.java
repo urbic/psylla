@@ -142,7 +142,28 @@ public class PsiArray
 	public void psiPut(int indexValue, PsiObject obj)
 		throws PsiException
 	{
-		array.set(indexValue, obj);
+		try
+		{
+			array.set(indexValue, obj);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
+	public PsiObject psiDelete(int indexValue)
+		throws PsiException
+	{
+		try
+		{
+			return array.remove(indexValue);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
 	}
 
 	@Override
