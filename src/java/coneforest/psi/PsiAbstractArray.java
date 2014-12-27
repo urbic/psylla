@@ -103,10 +103,6 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
-	abstract public PsiAbstractArray psiSlice(PsiIterable<PsiInteger> indices)
-		throws PsiException;
-
-	@Override
 	public String toString()
 	{
 		return toString(this);
