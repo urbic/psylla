@@ -29,6 +29,8 @@ public class Stack<E> extends java.util.ArrayList<E>
 
 	/**
 	 *	Pushes an element to the stack.
+	 *
+	 *	@param element an element
 	 */
 	public void push(E element)
 	{
