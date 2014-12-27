@@ -36,6 +36,9 @@ public interface PsiArraylike<T extends PsiObject>
 	abstract public T psiDelete(int indexValue)
 		throws PsiException;
 
+	public PsiArraylike<T> psiDeleteInterval(PsiInteger index, PsiInteger count)
+		throws PsiException;
+
 	@Override
 	public PsiArraylike<T> psiSlice(PsiIterable<PsiInteger> indices)
 		throws PsiException;
