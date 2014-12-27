@@ -127,6 +127,24 @@ public class PsiBitVector
 	}
 
 	@Override
+	public PsiBoolean psiDelete(int indexValue)
+		throws PsiException
+	{
+		try
+		{
+			PsiBoolean result=psiGet(indexValue);
+			for(int i=indexValue; i<size; i++)
+				bitvector.set(i-1, bitvector.get(i));
+			size--;
+			return result;
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
 	public PsiBitVector psiNot()
 	{
 		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
