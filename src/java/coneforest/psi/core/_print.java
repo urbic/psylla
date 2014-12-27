@@ -16,7 +16,7 @@ public class _print extends PsiOperator
 		final PsiObject string=opstack.pop();
 		try
 		{
-			((PsiWriter)interpreter.getSystemDictionary().psiGet("stdout"))
+			((PsiWriter)interpreter.getDictionaryStack().load("stdout"))
 				.psiWriteString((PsiString)string);
 		}
 		catch(ClassCastException|PsiException e)

@@ -16,9 +16,9 @@ public class _say extends PsiOperator
 		final PsiObject stringlike=opstack.pop();
 		try
 		{
-			PsiWriter stdwriter=(PsiWriter)interpreter.getSystemDictionary().psiGet("stdout");
+			final PsiWriter stdwriter=(PsiWriter)interpreter.getDictionaryStack().load("stdout");
 			stdwriter.psiWriteString((PsiStringlike)stringlike);
-			stdwriter.psiWriteString((PsiStringlike)interpreter.getSystemDictionary().psiGet("eol"));
+			stdwriter.psiWriteString((PsiStringlike)interpreter.getDictionaryStack().load("eol"));
 			stdwriter.psiFlush();
 		}
 		catch(ClassCastException|PsiException e)
