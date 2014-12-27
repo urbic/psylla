@@ -13,14 +13,14 @@ public class _isempty extends PsiOperator
 			return;
 		}
 
-		final PsiObject composite=opstack.pop();
+		final PsiObject lengthy=opstack.pop();
 		try
 		{
-			opstack.push(((PsiLengthy)composite).psiIsEmpty());
+			opstack.push(((PsiLengthy)lengthy).psiIsEmpty());
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(composite);
+			opstack.push(lengthy);
 			interpreter.error(e, this);
 		}
 	}
