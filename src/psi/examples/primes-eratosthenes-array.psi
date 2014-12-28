@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /n arguments 0 get tointeger def
 
 /sieve
