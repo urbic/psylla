@@ -17,7 +17,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	}
 
 	@Override
-	public String toString(PsiLengthy composite)
+	public String toString(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder("(");
 		if(length()>0)
@@ -25,7 +25,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==composite? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');
