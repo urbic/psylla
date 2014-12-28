@@ -13,6 +13,12 @@ public class PsiInteger
 	}
 
 	@Override
+	public PsiBoolean psiIsZero()
+	{
+		return new PsiBoolean(value==0L);
+	}
+
+	@Override
 	public int intValue()
 	{
 		return (int)value;
@@ -229,6 +235,12 @@ public class PsiInteger
 	}
 
 	@Override
+	public PsiInteger psiRound()
+	{
+		return new PsiInteger(value);
+	}
+
+	@Override
 	public PsiInteger psiCeiling()
 	{
 		return new PsiInteger(value);
@@ -279,4 +291,9 @@ public class PsiInteger
 	}
 
 	private final long value;
+
+	static
+	{
+		TypeRegistry.put("integer", PsiInteger.class);
+	}
 }

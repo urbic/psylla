@@ -55,7 +55,7 @@ public class PsiInput
 	}
 
 	@Override
-	public PsiString psiReadLine()
+	public PsiString psiReadLine(PsiStringlike eol)
 		throws PsiException
 	{
 		throw new PsiException("TODO");

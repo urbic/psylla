@@ -164,6 +164,8 @@ abstract public class PsiNumeric
 	}
 
 	abstract public PsiNumeric psiFloor();
+	
+	abstract public PsiNumeric psiRound();
 
 	abstract public PsiNumeric psiCeiling();
 
@@ -203,5 +205,10 @@ abstract public class PsiNumeric
 	{
 		return new PsiInteger(doubleValue()<numeric.doubleValue()? -1:
 			doubleValue()>numeric.doubleValue()? 1: 0);
+	}
+
+	static
+	{
+		TypeRegistry.put("numeric", PsiNumeric.class);
 	}
 }

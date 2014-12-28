@@ -5,7 +5,9 @@ package coneforest.psi;
  */
 public class PsiBoolean
 	extends PsiObject
-	implements PsiAtomic, PsiLogical<PsiBoolean>
+	implements
+		PsiAtomic,
+		PsiLogical<PsiBoolean>
 {
 	public PsiBoolean(final boolean value)
 	{
@@ -90,4 +92,9 @@ public class PsiBoolean
 	}
 
 	private final boolean value;
+
+	static
+	{
+		TypeRegistry.put("boolean", PsiBoolean.class);
+	}
 }

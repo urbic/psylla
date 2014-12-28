@@ -29,6 +29,12 @@ public class PsiComplex
 	}
 
 	@Override
+	public PsiBoolean psiIsZero()
+	{
+		return new PsiBoolean(re==0.D && im==0.D);
+	}
+
+	@Override
 	public PsiReal psiAbs()
 	{
 		return new PsiReal(Math.hypot(re, im));
