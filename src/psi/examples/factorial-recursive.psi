@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /factorial
 {
 	dup 0 eq

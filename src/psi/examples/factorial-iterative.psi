@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /factorial
 {
 	1 2 1 4 -1 roll { mul } for
