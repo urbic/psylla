@@ -16,7 +16,11 @@ public class _readline extends PsiOperator
 		final PsiObject readable=opstack.pop();
 		try
 		{
-			opstack.push(((PsiReadable)readable).psiReadLine());
+			PsiStringlike eol=(PsiStringlike)interpreter.getDictionaryStack().load("eol");
+			PsiString string=((PsiReadable)readable).psiReadLine(eol);
+			if(string.length()>0)
+				opstack.push(string);
+			opstack.push(new PsiBoolean(string.length()>0));
 		}
 		catch(ClassCastException|PsiException e)
 		{
