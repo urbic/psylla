@@ -27,3 +27,7 @@ random access files, tell seek
 DONE: sort
 
 rename count to countstack?
+
+pow: return PsiInteger for PsiInteger operands
+
+Set: union, intersection
