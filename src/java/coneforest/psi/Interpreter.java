@@ -375,7 +375,7 @@ public class Interpreter
 										}
 										catch(IllegalArgumentException e)
 										{
-											throw new PsiException("syntax");
+											throw new PsiException("syntaxerror");
 										}
 										break;
 								}
@@ -446,7 +446,7 @@ public class Interpreter
 										}
 										catch(IllegalArgumentException e)
 										{
-											throw new PsiException("syntax");
+											throw new PsiException("syntaxerror");
 										}
 										break;
 									case '\\':
@@ -477,7 +477,14 @@ public class Interpreter
 					return new PsiRegExp(buffer);
 				}
 			case ParserConstants.TOKEN_INTEGER:
-				return new PsiInteger(Long.parseLong(token.image));
+				try
+				{
+					return new PsiInteger(Long.parseLong(token.image));
+				}
+				catch(NumberFormatException e)
+				{
+					throw new PsiException("syntaxerror");
+				}
 			case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				if(token.image.startsWith("+")||token.image.startsWith("-"))
 					return new PsiInteger(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 16));
