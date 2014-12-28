@@ -269,7 +269,7 @@ public class PsiInteger
 	{
 		if(integer.value==0)
 			throw new PsiException("undefinedresult");
-		return new PsiInteger(psiDiv(integer).longValue());
+		return new PsiInteger(value/integer.value);
 	}
 
 	public PsiInteger psiBitShift(final PsiInteger shift)
