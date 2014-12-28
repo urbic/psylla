@@ -107,9 +107,17 @@ abstract public class PsiObject
 		return "-"+getTypeName()+"-";
 	}
 
+	public PsiBoolean psiIsA(PsiStringlike stringlike)
+	{
+		Class<? extends PsiObject> clazz=TypeRegistry.get(stringlike.getString());
+		return new PsiBoolean(clazz!=null && clazz.isInstance(this));
+	}
+
 	private static final byte
 		ACCESS_NOACCESS=0,
 		ACCESS_EXECUTE=1;
 
 	private byte access=ACCESS_NOACCESS;
+
+	//private static final String TYPE_NAME="object";
 }

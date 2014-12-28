@@ -69,6 +69,8 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	public void psiAppendAll(PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
+		//if(this==iterable)
+		//	iterable=iterable.psiClone();
 		for(T obj: iterable)
 			psiAppend(obj);
 	}

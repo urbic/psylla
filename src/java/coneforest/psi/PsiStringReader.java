@@ -11,4 +11,15 @@ public class PsiStringReader extends PsiReader
 	{
 		this(stringlike.getString());
 	}
+
+	@Override
+	public String getTypeName()
+	{
+		return "stringreader";
+	}
+
+	static
+	{
+		TypeRegistry.put("stringreader", PsiStringReader.class);
+	}
 }

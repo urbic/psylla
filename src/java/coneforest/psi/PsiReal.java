@@ -13,6 +13,12 @@ public class PsiReal
 
 	@Override
 	public String getTypeName() { return "real"; }
+	
+	@Override
+	public PsiBoolean psiIsZero()
+	{
+		return new PsiBoolean(value==0.D);
+	}
 
 	@Override
 	public int intValue()
@@ -107,6 +113,12 @@ public class PsiReal
 	*/
 
 	@Override
+	public PsiInteger psiRound()
+	{
+		return new PsiInteger((long)Math.round(value));
+	}
+
+	@Override
 	public PsiReal psiFloor()
 	{
 		return new PsiReal(Math.floor(value));
@@ -138,4 +150,9 @@ public class PsiReal
 	}
 
 	private final double value;
+
+	static
+	{
+		TypeRegistry.put("real", PsiReal.class);
+	}
 }

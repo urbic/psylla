@@ -3813,18 +3813,18 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Ес�
 <section xml:id="PsiReference_Operators_Details_split">
 <title><token language="psi">split</token></title>
 <synopsis>
-<replaceable>шаблон</replaceable>
 <replaceable>строковое</replaceable>
+<replaceable>шаблон</replaceable>
 <token language="psi">split</token>
 <replaceable>массив</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>шаблон</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
-</listitem>
-<listitem>
 <replaceable>строковое</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>шаблон</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
 </listitem>
 <listitem>
 <replaceable>массив</replaceable>:

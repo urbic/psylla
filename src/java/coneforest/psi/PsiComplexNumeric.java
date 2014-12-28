@@ -6,6 +6,8 @@ abstract public class PsiComplexNumeric
 		PsiAtomic,
 		PsiArithmetic<PsiComplexNumeric>
 {
+	abstract public PsiBoolean psiIsZero();
+
 	abstract public PsiNumeric psiRe();
 
 	abstract public PsiNumeric psiIm();
