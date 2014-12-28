@@ -10,5 +10,5 @@ public interface PsiLengthy
 
 	public PsiBoolean psiIsEmpty();
 
-	public String toString(PsiLengthy composite);
+	public String toString(PsiLengthy lengthy);
 }
