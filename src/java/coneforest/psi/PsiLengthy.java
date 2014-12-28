@@ -1,16 +1,17 @@
 package coneforest.psi;
 
 public interface PsiLengthy
+	extends PsiObject
 {
-	public int length();
+	int length();
 
-	public boolean isEmpty();
+	boolean isEmpty();
 
-	public PsiInteger psiLength();
+	PsiInteger psiLength();
 
-	public PsiBoolean psiIsEmpty();
+	PsiBoolean psiIsEmpty();
 
-	public String toString(PsiLengthy lengthy);
+	String toStringHelper(PsiLengthy lengthy);
 
 	static class Registrator
 	{

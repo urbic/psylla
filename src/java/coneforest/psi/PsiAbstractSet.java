@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 abstract public class PsiAbstractSet<T extends PsiObject>
-	extends PsiObject
+	extends PsiAbstractObject
 	implements PsiSetlike<T>
 {
 	@Override
@@ -13,11 +13,11 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	@Override
 	public String toString()
 	{
-		return toString(this);
+		return toStringHelper(this);
 	}
 
 	@Override
-	public String toString(PsiLengthy lengthy)
+	public String toStringHelper(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder("(");
 		if(length()>0)
@@ -25,7 +25,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toStringHelper(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');
@@ -37,9 +37,11 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	}
 
 	@Override
-	public void psiAppendAll(PsiIterable<? extends T> iterable)
+	public void psiAppendAll(final PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
+		if(this==iterable)
+			return;
 		for(T obj: iterable)
 			psiAppend(obj);
 	}
@@ -47,8 +49,11 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	@Override
 	public void psiRemoveAll(PsiIterable<? extends T> iterable)
 	{
-		for(T obj: iterable)
-			psiRemove(obj);
+		if(this==iterable)
+			psiClear();
+		else
+			for(T obj: iterable)
+				psiRemove(obj);
 	}
 
 	@Override
@@ -94,7 +99,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	}
 
 	@Override
-	public PsiBoolean psiIntersects(PsiSetlike<? extends T> setlike)
+	public PsiBoolean psiIntersects(final PsiSetlike<? extends T> setlike)
 	{
 		for(T obj: setlike)
 			if(psiContains(obj).booleanValue())

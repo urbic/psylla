@@ -1,6 +1,7 @@
 package coneforest.psi;
 
 public interface PsiArithmetic<T extends PsiArithmetic>
+	extends PsiObject
 {
 	public T psiNeg();
 

@@ -1,6 +1,7 @@
 package coneforest.psi;
 
 public interface PsiAppendable<T extends PsiObject>
+	extends PsiObject
 {
 	public void psiAppend(T obj)
 		throws PsiException;

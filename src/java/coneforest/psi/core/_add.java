@@ -20,7 +20,7 @@ public class _add extends PsiOperator
 		final PsiObject arithmetic1=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).psiAdd((PsiArithmetic)arithmetic2));
+			opstack.push(((PsiArithmetic)arithmetic1).psiAdd((PsiArithmetic)arithmetic2));
 		}
 		catch(ClassCastException e)
 		{

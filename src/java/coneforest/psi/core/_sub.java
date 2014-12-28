@@ -17,7 +17,7 @@ public class _sub extends PsiOperator
 		final PsiObject arithmetic1=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiArithmetic)arithmetic1).psiSub((PsiArithmetic)arithmetic2));
+			opstack.push(((PsiArithmetic)arithmetic1).psiSub((PsiArithmetic)arithmetic2));
 		}
 		catch(ClassCastException e)
 		{

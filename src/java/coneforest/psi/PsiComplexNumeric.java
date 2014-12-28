@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 abstract public class PsiComplexNumeric
-	extends PsiObject
+	extends PsiAbstractObject
 	implements
 		PsiAtomic,
 		PsiArithmetic<PsiComplexNumeric>

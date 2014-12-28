@@ -18,7 +18,7 @@ public class _deleteinterval extends PsiOperator
 		final PsiObject arraylike=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiArraylike)arraylike).psiDeleteInterval((PsiInteger)index, (PsiInteger)count));
+			opstack.push(((PsiArraylike)arraylike).psiDeleteInterval((PsiInteger)index, (PsiInteger)count));
 		}
 		catch(ClassCastException|PsiException e)
 		{

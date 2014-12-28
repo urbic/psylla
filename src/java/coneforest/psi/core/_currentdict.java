@@ -6,6 +6,6 @@ public class _currentdict extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push((PsiObject)interpreter.getCurrentDictionary());
+		interpreter.getOperandStack().push(interpreter.getCurrentDictionary());
 	}
 }
