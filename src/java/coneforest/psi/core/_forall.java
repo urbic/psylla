@@ -18,7 +18,8 @@ public class _forall extends PsiOperator
 
 		if(iterable instanceof PsiDictionarylike)
 		{
-			int loopLevel=interpreter.pushLoopLevel();
+			///*
+			final int loopLevel=interpreter.pushLoopLevel();
 			for(java.util.Map.Entry<String, PsiObject> entry:
 						(PsiIterable<java.util.Map.Entry<String, PsiObject>>)iterable)
 			{
@@ -31,10 +32,12 @@ public class _forall extends PsiOperator
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
+			//*/
+			//((PsiDictionarylike)iterable).psiForAll(obj, interpreter);
 		}
 		else if(iterable instanceof PsiIterable)
 		{
-			int loopLevel=interpreter.pushLoopLevel();
+			final int loopLevel=interpreter.pushLoopLevel();
 			for(PsiObject element: ((PsiIterable<? extends PsiObject>)iterable))
 			{
 				if(interpreter.getExitFlag())
