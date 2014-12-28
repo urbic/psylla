@@ -58,7 +58,9 @@
 			includeantruntime="false"
 			classpathref="project.class.path"
 			encoding="UTF-8"
-			/>
+			>
+			<!--compilerarg value="-Xlint"/-->
+		</javac>
 		<native2ascii
 			src="${src.java}"
 			encoding="UTF-8"
