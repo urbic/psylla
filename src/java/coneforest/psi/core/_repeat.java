@@ -20,13 +20,13 @@ public class _repeat extends PsiOperator
 			long countValue=((PsiInteger)count).longValue();
 			if(countValue<0)
 				throw new PsiException("rangecheck");
-			int looplevel=interpreter.pushLoopLevel();
+			int loopLevel=interpreter.pushLoopLevel();
 			for(int i=0;
 					i<countValue && !interpreter.getExitFlag();
 					i++)
 			{
 				obj.invoke(interpreter);
-				interpreter.handleExecutionStack(looplevel);
+				interpreter.handleExecutionStack(loopLevel);
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
