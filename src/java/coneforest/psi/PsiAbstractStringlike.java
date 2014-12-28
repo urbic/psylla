@@ -99,7 +99,31 @@ abstract public class PsiAbstractStringlike
 	}
 
 	@Override
-	public String toString(PsiLengthy composite)
+	public java.util.Iterator<PsiInteger> iterator()
+	{
+		return new java.util.Iterator<PsiInteger>()
+			{
+				public boolean hasNext()
+				{
+					return index<getString().length();
+				}
+
+				public PsiInteger next()
+				{
+					return new PsiInteger(getString().charAt(index++));
+				}
+
+				public void remove()
+				{
+					throw new UnsupportedOperationException();
+				}
+
+				private int index=0;
+			};
+	}
+
+	@Override
+	public String toString(PsiLengthy lengthy)
 	{
 		return toString();
 	}
@@ -109,5 +133,4 @@ abstract public class PsiAbstractStringlike
 	{
 		return getString().hashCode();
 	}
-
 }
