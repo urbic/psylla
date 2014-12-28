@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 abstract public class PsiAbstractDictionary<V extends PsiObject>
-	extends PsiObject
+	extends PsiAbstractObject
 	implements PsiDictionarylike<V>
 {
 	@Override
@@ -96,10 +96,11 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 	@Override
 	public String toString()
 	{
-		return toString(this);
+		return toStringHelper(this);
 	}
 
-	public String toString(PsiLengthy lengthy)
+	@Override
+	public String toStringHelper(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder("<");
 		if(length()>0)
@@ -111,7 +112,7 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 				sb.append(' ');
 				PsiObject obj=entry.getValue();
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toStringHelper(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');

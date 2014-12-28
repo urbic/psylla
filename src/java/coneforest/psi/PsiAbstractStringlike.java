@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 abstract public class PsiAbstractStringlike
-	extends PsiObject
+	extends PsiAbstractObject
 	implements
 		PsiStringlike
 {
@@ -123,7 +123,7 @@ abstract public class PsiAbstractStringlike
 	}
 
 	@Override
-	public String toString(PsiLengthy lengthy)
+	public String toStringHelper(PsiLengthy lengthy)
 	{
 		return toString();
 	}

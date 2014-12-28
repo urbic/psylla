@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 public class PsiReader
-	extends PsiObject
+	extends PsiAbstractObject
 	implements PsiReadable, PsiCloseable
 {
 	public PsiReader()

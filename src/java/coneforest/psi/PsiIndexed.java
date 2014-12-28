@@ -6,6 +6,7 @@ package coneforest.psi;
 *	@param V A type of elements.
 */
 public interface PsiIndexed<K, V extends PsiObject>
+	extends PsiObject
 {
 	/**
 	*	Returns the element with given key or index.

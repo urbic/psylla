@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 public class PsiRegExp
-	extends PsiObject
+	extends PsiAbstractObject
 {
 	public PsiRegExp(CharSequence value)
 		throws PsiException

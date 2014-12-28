@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 abstract public class PsiAbstractArray<T extends PsiObject>
-	extends PsiObject
+	extends PsiAbstractObject
 	implements PsiArraylike<T>
 {
 	@Override
@@ -66,12 +66,10 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
-	public void psiAppendAll(PsiIterable<? extends T> iterable)
+	public void psiAppendAll(final PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
-		//if(this==iterable)
-		//	iterable=iterable.psiClone();
-		for(T obj: iterable)
+		for(T obj: (this!=iterable? iterable: (PsiIterable<? extends T>)psiClone()))
 			psiAppend(obj);
 	}
 
@@ -80,7 +78,8 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		throws PsiException
 	{
 		int indexValue=index.intValue();
-		for(T obj: iterable)
+		//for(T obj: iterable)
+		for(T obj: (this!=iterable? iterable: (PsiIterable<? extends T>)psiClone()))
 			psiInsert(indexValue++, obj);
 	}
 
@@ -107,10 +106,11 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	@Override
 	public String toString()
 	{
-		return toString(this);
+		return toStringHelper(this);
 	}
 
-	public String toString(PsiLengthy lengthy)
+	@Override
+	public String toStringHelper(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder(isExecutable()? "{": "[");
 		if(length()>0)
@@ -118,7 +118,7 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toStringHelper(this));
 				else
 					sb.append(obj.toString());
 				sb.append(' ');

@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ <code class="type">mark</code> object.
  */
 public final class PsiMark
-	extends PsiObject
+	extends PsiAbstractObject
 	implements PsiAtomic
 {
 	public String getTypeName() { return "mark"; }

@@ -3,7 +3,8 @@ package coneforest.psi;
 /**
  *	A representation of Ψ <code class="type">operator</code> object.
  */
-public abstract class PsiOperator extends PsiObject
+public abstract class PsiOperator
+	extends PsiAbstractObject
 {
 	/**
 	 *	Creates a new Ψ operator object with executable flag set.

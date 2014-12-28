@@ -1,6 +1,7 @@
 package coneforest.psi;
 
 public interface PsiLogical<T extends PsiLogical>
+	extends PsiObject
 {
 	public T psiNot();
 

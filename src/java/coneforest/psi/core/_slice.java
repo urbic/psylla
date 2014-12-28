@@ -17,7 +17,7 @@ public class _slice extends PsiOperator
 		final PsiObject indexed=opstack.pop();
 		try
 		{
-			opstack.push((PsiObject)((PsiIndexed)indexed).psiSlice((PsiIterable)keys));
+			opstack.push(((PsiIndexed)indexed).psiSlice((PsiIterable)keys));
 		}
 		catch(PsiException|ClassCastException e)
 		{

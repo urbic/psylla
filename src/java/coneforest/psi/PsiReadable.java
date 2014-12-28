@@ -1,6 +1,7 @@
 package coneforest.psi;
 
 public interface PsiReadable
+	extends PsiObject
 {
 	public PsiInteger psiRead()
 		throws PsiException;

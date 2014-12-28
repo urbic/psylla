@@ -109,7 +109,7 @@ public class PsiString
 	}
 
 	@Override
-	public void psiPutInterval(PsiInteger index, PsiIterable<? extends PsiInteger> iterable)
+	public void psiPutInterval(final PsiInteger index, final PsiIterable<? extends PsiInteger> iterable)
 		throws PsiException
 	{
 		int indexValue=index.intValue();
@@ -127,15 +127,16 @@ public class PsiString
 	}
 
 	@Override
-	public void psiAppend(PsiInteger character)
+	public void psiAppend(final PsiInteger character)
 	{
 		buffer.append((char)character.intValue());
 	}
 
 	@Override
-	public void psiAppendAll(PsiIterable<? extends PsiInteger> iterable)
+	public void psiAppendAll(final PsiIterable<? extends PsiInteger> iterable)
 	{
-		for(PsiInteger character: iterable)
+		for(PsiInteger character:
+				(this!=iterable? iterable: (PsiIterable<? extends PsiInteger>)psiClone()))
 			psiAppend(character);
 	}
 
