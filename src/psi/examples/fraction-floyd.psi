@@ -1,0 +1,46 @@
+#!/usr/bin/psyche
+
+!/! arguments 0 get split
+loadall pop
+tointeger /q exch def
+tointeger /p exch def
+
+p q idiv tostring print
+
+/p p q mod def
+
+p 0 ne { "," print } { "" println quit } ifelse
+
+/t p def
+/h p def
+
+{
+	/t 10 t mul q mod def
+	2 { /h 10 h mul q mod def } repeat
+	t h eq { exit } if
+}
+bind loop
+
+/t p def
+{
+	t h eq { exit } if
+	10 t mul q idiv tostring print
+	/t 10 t mul q mod def
+	/h 10 h mul q mod def
+}
+bind loop
+
+h 0 ne
+{
+	"(" print
+	{
+		10 h mul q idiv tostring print
+		/h 10 h mul q mod def
+		t h eq { exit } if
+	}
+	loop
+	")" print
+}
+bind if
+
+"" say
