@@ -8,4 +8,8 @@ public interface PsiAppendable<T extends PsiObject>
 
 	public void psiAppendAll(PsiIterable<? extends T> setlike)
 		throws PsiException;
+
+	public PsiAppendable psiReplicate(PsiInteger index)
+		throws PsiException;
+
 }

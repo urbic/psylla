@@ -3,15 +3,15 @@ package coneforest.psi;
 public interface PsiLengthy
 	extends PsiObject
 {
-	int length();
+	public int length();
 
-	boolean isEmpty();
+	public boolean isEmpty();
 
-	PsiInteger psiLength();
+	public PsiInteger psiLength();
 
-	PsiBoolean psiIsEmpty();
+	public PsiBoolean psiIsEmpty();
 
-	String toStringHelper(PsiLengthy lengthy);
+	public String toStringHelper(PsiLengthy lengthy);
 
 	static class Registrator
 	{

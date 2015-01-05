@@ -6,6 +6,20 @@ abstract public class PsiAbstractStringlike
 		PsiStringlike
 {
 	@Override
+	public PsiAbstractStringlike psiCloneEmpty()
+		throws PsiException
+	{
+		try
+		{
+			return getClass().newInstance();
+		}
+		catch(InstantiationException|IllegalAccessException e)
+		{
+			throw new PsiException("unknownerror");
+		}
+	}
+
+	@Override
 	public PsiName psiToName()
 	{
 		return new PsiName(getString());
@@ -97,6 +111,21 @@ abstract public class PsiAbstractStringlike
 	{
 		return new PsiInteger(getString().compareTo(stringlike.getString()));
 	}
+
+	/*
+	@Override
+	public PsiAbstractStringlike psiReplicate(PsiInteger count)
+		throws PsiException
+	{
+		int countValue=count.intValue();
+		if(countValue<0)
+			throw new PsiException("rangecheck");
+		PsiAbstractStringlike result=psiCloneEmpty();
+		while(countValue-->0)
+			result.psiAppendAll(this);
+		return result;
+	}
+	*/
 
 	@Override
 	public java.util.Iterator<PsiInteger> iterator()

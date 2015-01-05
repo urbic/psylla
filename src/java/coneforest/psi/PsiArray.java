@@ -8,24 +8,25 @@ public class PsiArray
 {
 	public PsiArray()
 	{
+		this(new java.util.ArrayList<PsiObject>());
 	}
 
-	public PsiArray(java.util.ArrayList<PsiObject> list)
+	public PsiArray(final java.util.ArrayList<PsiObject> list)
 	{
 		array=list;
 	}
 
-	public PsiArray(PsiArray array)
+	public PsiArray(final PsiArray array)
 	{
 		this.array=(java.util.ArrayList<PsiObject>)array.array.clone();
 	}
 
-	public void execute(Interpreter interpreter)
+	public void execute(final Interpreter interpreter)
 	{
 		interpreter.getOperandStack().push(this);
 	}
 
-	public void invoke(Interpreter interpreter)
+	public void invoke(final Interpreter interpreter)
 	{
 		if(isExecutable())
 		{
@@ -63,24 +64,18 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiInteger psiLength()
-	{
-		return new PsiInteger(array.size());
-	}
-
-	@Override
 	public PsiBoolean psiIsEmpty()
 	{
 		return new PsiBoolean(array.isEmpty());
 	}
 
 	@Override
-	public PsiObject psiGet(int index)
+	public PsiObject psiGet(final int indexValue)
 		throws PsiException
 	{
 		try
 		{
-			return array.get(index);
+			return array.get(indexValue);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -89,7 +84,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiArray psiGetInterval(PsiInteger start, PsiInteger count)
+	public PsiArray psiGetInterval(final PsiInteger start, final PsiInteger count)
 		throws PsiException
 	{
 		try
@@ -104,13 +99,13 @@ public class PsiArray
 	}
 
 	@Override
-	public void psiAppend(PsiObject obj)
+	public void psiAppend(final PsiObject obj)
 	{
 		array.add(obj);
 	}
 
 	@Override
-	public void psiInsert(int indexValue, PsiObject obj)
+	public void psiInsert(final int indexValue, final PsiObject obj)
 		throws PsiException
 	{
 		try
@@ -124,7 +119,7 @@ public class PsiArray
 	}
 
 	@Override
-	public void psiPut(int indexValue, PsiObject obj)
+	public void psiPut(final int indexValue, final PsiObject obj)
 		throws PsiException
 	{
 		try
@@ -138,7 +133,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiObject psiDelete(int indexValue)
+	public PsiObject psiDelete(final int indexValue)
 		throws PsiException
 	{
 		try
@@ -152,7 +147,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiArray psiDeleteInterval(PsiInteger start, PsiInteger count)
+	public PsiArray psiDeleteInterval(final PsiInteger start, final PsiInteger count)
 		throws PsiException
 	{
 		PsiArray result=psiGetInterval(start, count);
@@ -161,7 +156,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiArray psiSlice(PsiIterable<PsiInteger> indices)
+	public PsiArray psiSlice(final PsiIterable<PsiInteger> indices)
 		throws PsiException
 	{
 		PsiArray values=new PsiArray();
@@ -193,5 +188,5 @@ public class PsiArray
 	}
 	*/
 
-	private java.util.ArrayList<PsiObject> array=new java.util.ArrayList<PsiObject>();
+	private java.util.ArrayList<PsiObject> array;
 }

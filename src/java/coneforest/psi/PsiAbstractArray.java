@@ -23,6 +23,20 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
+	public PsiAbstractArray<T> psiCloneEmpty()
+		throws PsiException
+	{
+		try
+		{
+			return getClass().newInstance();
+		}
+		catch(InstantiationException|IllegalAccessException e)
+		{
+			throw new PsiException("unknownerror");
+		}
+	}
+
+	@Override
 	public T psiGet(PsiInteger index)
 		throws PsiException
 	{
@@ -84,10 +98,23 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
-	public T psiDelete(PsiInteger index)
+	public T psiDelete(final PsiInteger index)
 		throws PsiException
 	{
 		return psiDelete(index.intValue());
+	}
+
+	@Override
+	public PsiAbstractArray<T> psiReplicate(final PsiInteger count)
+		throws PsiException
+	{
+		int countValue=count.intValue();
+		if(countValue<0)
+			throw new PsiException("rangecheck");
+		PsiAbstractArray<T> result=psiCloneEmpty();
+		while(countValue-->0)
+			result.psiAppendAll(this);
+		return result;
 	}
 
 	@Override
