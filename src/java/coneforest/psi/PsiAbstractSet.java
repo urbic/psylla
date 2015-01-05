@@ -99,6 +99,15 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	}
 
 	@Override
+	abstract public PsiAbstractSet psiClone();
+
+	@Override
+	public PsiAbstractSet psiReplicate(PsiInteger count)
+	{
+		return psiClone();
+	}
+
+	@Override
 	public PsiBoolean psiIntersects(final PsiSetlike<? extends T> setlike)
 	{
 		for(T obj: setlike)

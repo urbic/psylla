@@ -6,6 +6,26 @@ package coneforest.psi;
 public class PsiBitSet
 	extends PsiAbstractSet<PsiInteger>
 {
+	public PsiBitSet()
+	{
+		this(new java.util.BitSet());
+	}
+
+	public PsiBitSet(java.util.BitSet bitsetValue)
+	{
+		bitset=bitsetValue;
+	}
+
+	public PsiBitSet(PsiBitSet bitset)
+	{
+		this((java.util.BitSet)bitset.bitset.clone());
+	}
+
+	@Override
+	public PsiBitSet psiClone()
+	{
+		return new PsiBitSet(this);
+	}
 	@Override
 	public String getTypeName()
 	{
@@ -142,5 +162,5 @@ public class PsiBitSet
 				&& bitset.equals(((PsiBitSet)obj).bitset));
 	}
 
-	private java.util.BitSet bitset=new java.util.BitSet();
+	private java.util.BitSet bitset;//=new java.util.BitSet();
 }

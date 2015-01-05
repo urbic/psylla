@@ -41,6 +41,22 @@ abstract public class PsiAbstractString
 	}
 
 	@Override
+	abstract public PsiAbstractString psiCloneEmpty();
+
+	@Override
+	public PsiAbstractString psiReplicate(final PsiInteger count)
+		throws PsiException
+	{
+		int countValue=count.intValue();
+		if(countValue<0)
+			throw new PsiException("rangecheck");
+		PsiAbstractString result=psiCloneEmpty();
+		while(countValue-->0)
+			result.psiAppendAll(this);
+		return result;
+	}
+
+	@Override
 	public void psiReverse()
 		throws PsiException
 	{

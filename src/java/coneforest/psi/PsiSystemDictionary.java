@@ -133,6 +133,7 @@ public class PsiSystemDictionary
 					_remove.class,
 					_removeall.class,
 					_repeat.class,
+					_replicate.class,
 					_retainall.class,
 					_reverse.class,
 					_roll.class,
