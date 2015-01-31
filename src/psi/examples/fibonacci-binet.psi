@@ -7,7 +7,7 @@
 
 0 1 //n
 {
-	phi exch pow sqrt5 div round
+	//phi exch pow //sqrt5 div round
 	tostring say
 }
 bind for

@@ -1,6 +1,6 @@
 #!/usr/bin/psyche
 
-!/! arguments 0 get split
+@/@ arguments 0 get split
 loadall pop
 tointeger /q exch def
 tointeger /p exch def
