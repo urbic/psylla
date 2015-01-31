@@ -116,7 +116,17 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_REGEXP: "!" (<TOKEN_STRING_SPECIAL> | <TOKEN_REGEXP_SPECIAL> | ~["!", "\\"])* "!">
+	<TOKEN_REGEXP:
+		"@"
+		(
+			<TOKEN_STRING_SPECIAL>
+			|
+			<TOKEN_REGEXP_SPECIAL>
+			|
+			~["@", "\\"]
+		)*
+		"@"
+	>
 }
 
 TOKEN:
@@ -124,7 +134,13 @@ TOKEN:
 	<#TOKEN_REGEXP_SPECIAL:
 		"\\"
 		(
-			["d", "D", "s", "S", "w", "W", "b", "B", "A", "G", "z", "Z", "p", "k", "Q", "E", "!"]
+			//["d", "D", "s", "S", "w", "W", "b", "B", "A", "G", "z", "Z", "p", "k", "Q", "E", "!"]
+				//["!"]
+			//"!"
+			//"!"
+			~[]
+			//|
+			//(<TOKEN_DIGIT>)+
 		)
 	>
 }
@@ -151,7 +167,7 @@ TOKEN:
 
 TOKEN:
 {
-	<#TOKEN_NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$", "@"]>
+	<#TOKEN_NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$"]>
 }
 
 TOKEN:
