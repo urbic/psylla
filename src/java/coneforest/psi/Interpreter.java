@@ -36,7 +36,7 @@ public class Interpreter
 		return execstack;
 	}
 
-	public void handleExecutionStack(int level)
+	public void handleExecutionStack(final int level)
 	{
 		while(execstack.size()>level)
 			execstack.pop().execute(this);
@@ -77,22 +77,22 @@ public class Interpreter
 		return dictstack.get(2);
 	}
 
-	public void setReader(java.io.Reader reader)
+	public void setReader(final java.io.Reader reader)
 	{
 		getSystemDictionary().psiPut("stdin", new PsiReader(reader));
 	}
 
-	public void setWriter(java.io.Writer writer)
+	public void setWriter(final java.io.Writer writer)
 	{
 		getSystemDictionary().psiPut("stdout", new PsiWriter(writer));
 	}
 
-	public void setErrorWriter(java.io.Writer writer)
+	public void setErrorWriter(final java.io.Writer writer)
 	{
 		getSystemDictionary().psiPut("stderr", new PsiWriter(writer));
 	}
 
-	public void eval(PsiReader reader)
+	public void eval(final PsiReader reader)
 	{
 		try
 		{
@@ -104,20 +104,20 @@ public class Interpreter
 		}
 	}
 
-	public void eval(java.io.Reader readerValue)
+	public void eval(final java.io.Reader readerValue)
 	{
 		eval(new PsiReader(readerValue));
 	}
 
-	public void eval(String string)
+	public void eval(final String string)
 	{
 		eval(new PsiStringReader(string));
 	}
 
-	public void interpret(PsiReader reader)
+	public void interpret(final PsiReader reader)
 		throws PsiException
 	{
-		int procLevel=procstack.size();
+		final int procLevel=procstack.size();
 		Parser parser=new Parser(reader.getReader());
 		try
 		{
@@ -134,23 +134,15 @@ public class Interpreter
 		}
 		catch(TokenMgrError e)
 		{
-			//error("syntaxerror", reader);
 			throw new PsiException("syntaxerror");
 		}
-		/*
-		catch(PsiException e)
-		{
-			error(e.kind(), reader);
-		}
-		*/
 		catch(StackOverflowError e)
 		{
-			//error("limitcheck", reader);
 			throw new PsiException("limitcheck");
 		}
 	}
 
-	public void interpretBraced(PsiReader reader)
+	public void interpretBraced(final PsiReader reader)
 		throws PsiException
 	{
 		procstack.push(new PsiArray());
@@ -168,7 +160,7 @@ public class Interpreter
 		}
 	}
 
-	public void processToken(Token token)
+	public void processToken(final Token token)
 		throws PsiException
 	{
 		if(procstack.size()==0)
@@ -184,7 +176,6 @@ public class Interpreter
 				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
-				//case ParserConstants.TOKEN_COMPLEX:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_IMMEDIATE:
@@ -218,7 +209,6 @@ public class Interpreter
 				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				case ParserConstants.TOKEN_INTEGER_BINARY:
 				case ParserConstants.TOKEN_REAL:
-				//case ParserConstants.TOKEN_COMPLEX:
 				case ParserConstants.TOKEN_STRING:
 				case ParserConstants.TOKEN_NAME_LITERAL:
 				case ParserConstants.TOKEN_NAME_EXECUTABLE:
@@ -230,88 +220,7 @@ public class Interpreter
 		}
 	}
 
-	/*
-	public PsiObject getPsiObject(PsiReader reader)
-		throws PsiException
-	{
-		Parser parser=new Parser(reader.getReader());
-		for(int i=0; ; i++)
-		{
-			Token token=parser.getToken(i);
-						System.out.println("BEGIN=====");
-						//while(true)
-						{
-							PsiInteger c=reader.psiRead();
-							//if(c==-1)
-							//	break;
-							System.out.println(c);
-						}
-						System.out.println("END=====");
-
-			if(procstack.size()==0)
-			{
-				switch(token.kind)
-				{
-					case ParserConstants.TOKEN_OPEN_BRACE:
-						procstack.push(new PsiArray());
-						procstack.peek().setExecutable();
-						break;
-					case ParserConstants.TOKEN_CLOSE_BRACE:
-						throw new PsiException("syntaxerror");
-					case ParserConstants.TOKEN_INTEGER:
-					case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
-					case ParserConstants.TOKEN_INTEGER_BINARY:
-					case ParserConstants.TOKEN_REAL:
-					case ParserConstants.TOKEN_STRING:
-					case ParserConstants.TOKEN_NAME_LITERAL:
-					case ParserConstants.TOKEN_NAME_EXECUTABLE:
-						/*System.out.println("BEGIN=====");
-						while(true)
-						{
-							int c=reader.read();
-							if(c==-1)
-								break;
-							System.out.println(c);
-						}
-						System.out.println("END=====");* /
-						return newPsiObject(token);
-					case ParserConstants.EOF:
-						return null;
-				}
-			}
-			else
-			{
-				switch(token.kind)
-				{
-					case ParserConstants.TOKEN_OPEN_BRACE:
-						procstack.push(new PsiArray());
-						procstack.peek().setExecutable();
-						break;
-					case ParserConstants.TOKEN_CLOSE_BRACE:
-						PsiArray proc=procstack.pop();
-						if(procstack.size()>0)
-							procstack.peek().psiAppend(proc);
-						else
-							return proc;
-						break;
-					case ParserConstants.TOKEN_INTEGER:
-					case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
-					case ParserConstants.TOKEN_INTEGER_BINARY:
-					case ParserConstants.TOKEN_REAL:
-					case ParserConstants.TOKEN_STRING:
-					case ParserConstants.TOKEN_NAME_LITERAL:
-					case ParserConstants.TOKEN_NAME_EXECUTABLE:
-						procstack.peek().psiAppend(newPsiObject(token));
-						break;
-					case ParserConstants.EOF:
-						throw new PsiException("syntaxerror");
-				}
-			}
-		}
-	}
-	*/
-
-	private PsiObject newPsiObject(Token token)
+	private PsiObject newPsiObject(final Token token)
 		throws PsiException
 	{
 		switch(token.kind)
@@ -321,7 +230,7 @@ public class Interpreter
 					StringBuilder buffer=new StringBuilder();
 					for(int i=1; i<token.image.length()-1; i++)
 					{
-						char c=token.image.charAt(i);
+						final char c=token.image.charAt(i);
 						switch(c)
 						{
 							case '\\':
@@ -362,14 +271,15 @@ public class Interpreter
 										i+=4;
 										break;
 									case 'c':
-										int ch=token.image.charAt(++i);
-										ch=ch+(ch<64? 64: -64);
-										buffer.append(Character.toChars(ch));
+										{
+											final int ch=token.image.charAt(++i);
+											buffer.append(Character.toChars(ch+(ch<64? 64: -64)));
+										}
 										break;
 									case 'x':
 										try
 										{
-											int j=token.image.indexOf('}', i+2);
+											final int j=token.image.indexOf('}', i+2);
 											buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 											i=j;
 										}
@@ -392,7 +302,7 @@ public class Interpreter
 					StringBuilder buffer=new StringBuilder();
 					for(int i=1; i<token.image.length()-1; i++)
 					{
-						char c=token.image.charAt(i);
+						final char c=token.image.charAt(i);
 						switch(c)
 						{
 							case '\\':
@@ -420,12 +330,6 @@ public class Interpreter
 									case 'e':
 										buffer.append('\u001B');
 										break;
-									case '!':
-										buffer.append('!');
-										break;
-									//case '\\':
-									//	buffer.append('\\');
-									//	break;
 									case '\n':
 										break;
 									case 'u':
@@ -433,14 +337,16 @@ public class Interpreter
 										i+=4;
 										break;
 									case 'c':
-										int ch=token.image.charAt(++i);
-										ch=ch+(ch<64? 64: -64);
-										buffer.append(Character.toChars(ch));
+										{
+											final int ch=token.image.charAt(++i);
+											buffer.append(Character.toChars(ch+(ch<64? 64: -64)));
+										}
 										break;
 									case 'x':
 										try
 										{
-											int j=token.image.indexOf('}', i+2);
+											// TODO: if not found
+											final int j=token.image.indexOf('}', i+2);
 											buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 											i=j;
 										}
@@ -449,22 +355,27 @@ public class Interpreter
 											throw new PsiException("syntaxerror");
 										}
 										break;
+									/*
 									case '\\':
-									case 'd':
-									case 'D':
-									case 's':
-									case 'S':
-									case 'w':
-									case 'W':
+									case 'd': case 'D':
+									case 's': case 'S':
+									case 'w': case 'W':
 									case 'p':
-									case 'b':
-									case 'B':
+									case 'b': case 'B':
 									case 'A':
 									case 'G':
-									case 'z':
-									case 'Z':
+									case 'z': case 'Z':
 									case 'Q':
 									case 'E':
+									case '!':
+									case '1': case '2': case '3':
+									case '4': case '5': case '6':
+									case '7': case '8': case '9':
+									*/
+									case '@':
+										buffer.append('@');
+										break;
+									default:
 										buffer.append("\\"+token.image.charAt(i));
 										break;
 								}
@@ -497,21 +408,15 @@ public class Interpreter
 					return new PsiInteger(Long.parseLong(token.image.substring(2), 2));
 			case ParserConstants.TOKEN_REAL:
 				return new PsiReal(Double.parseDouble(token.image));
-			/*case ParserConstants.TOKEN_COMPLEX:
-				{
-					String[] images=token.image.substring(3).split(":");
-					return new PsiComplex(Double.parseDouble(images[0]), Double.parseDouble(images[1]));
-				}
-			*/
 			case ParserConstants.TOKEN_NAME_LITERAL:
 				{
-					PsiName name=new PsiName(token.image.substring(1));
+					final PsiName name=new PsiName(token.image.substring(1));
 					name.setLiteral();
 					return name;
 				}
 			case ParserConstants.TOKEN_NAME_EXECUTABLE:
 				{
-					PsiName name=new PsiName(token.image);
+					final PsiName name=new PsiName(token.image);
 					name.setExecutable();
 					return name;
 				}
@@ -526,7 +431,7 @@ public class Interpreter
 		throw new PsiException("unknownerror");
 	}
 
-	public void error(Exception e, PsiObject obj)
+	public void error(final Exception e, final PsiObject obj)
 	{
 		String errorName;
 		if(e instanceof ClassCastException)
@@ -538,7 +443,7 @@ public class Interpreter
 		error(errorName, obj);
 	}
 
-	public void error(String errorName, PsiObject obj)
+	public void error(final String errorName, final PsiObject obj)
 	{
 		// TODO
 		opstack.push(obj);
@@ -583,7 +488,7 @@ public class Interpreter
 		return exitFlag;
 	}
 
-	public void setExitFlag(boolean exitFlag)
+	public void setExitFlag(final boolean exitFlag)
 	{
 		this.exitFlag=exitFlag;
 	}
@@ -593,7 +498,7 @@ public class Interpreter
 		return stopFlag;
 	}
 
-	public void setStopFlag(boolean stopFlag)
+	public void setStopFlag(final boolean stopFlag)
 	{
 		this.stopFlag=stopFlag;
 	}
@@ -655,7 +560,7 @@ public class Interpreter
 		getSystemDictionary().psiPut("environment", environment);
 	}
 
-	public void acceptClassPath(String[] classPath)
+	public void acceptClassPath(final String[] classPath)
 	{
 		try
 		{
@@ -669,11 +574,11 @@ public class Interpreter
 		}
 	}
 
-	private OperandStack opstack;
-	private DictionaryStack dictstack;
-	private ExecutionStack execstack;
-	private ProcedureStack procstack;
-	private Stack<Integer>
+	private final OperandStack opstack;
+	private final DictionaryStack dictstack;
+	private final ExecutionStack execstack;
+	private final ProcedureStack procstack;
+	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
