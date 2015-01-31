@@ -103,7 +103,16 @@ public class PsiRegExp
 		}
 		*/
 		//return "!"+sb.toString()+"!";
-		return "!"+pattern.toString()+"!";
+		StringBuilder sb=new StringBuilder("@");
+		String patternImage=pattern.toString();
+		for(int i=0; i<patternImage.length(); i++)
+		{
+			if(patternImage.charAt(i)=='@')
+				sb.append('\\');
+			sb.append(patternImage.charAt(i));
+		}
+		sb.append('@');
+		return sb.toString();
 	}
 
 	private java.util.regex.Pattern pattern;
