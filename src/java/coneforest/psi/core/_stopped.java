@@ -8,15 +8,16 @@ public class _stopped extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
-			interpreter.error("stackunderflow", this);
-		else
 		{
-			int stoplevel=interpreter.pushStopLevel();
-			opstack.pop().invoke(interpreter);
-			interpreter.handleExecutionStack(stoplevel);
-			interpreter.getOperandStack().push(new PsiBoolean(interpreter.getStopFlag()));
-			interpreter.setStopFlag(false);
-			interpreter.popStopLevel();
+			interpreter.error("stackunderflow", this);
+			return;
 		}
+
+		final int stopLevel=interpreter.pushStopLevel();
+		opstack.pop().invoke(interpreter);
+		interpreter.handleExecutionStack(stopLevel);
+		opstack.push(new PsiBoolean(interpreter.getStopFlag()));
+		interpreter.setStopFlag(false);
+		interpreter.popStopLevel();
 	}
 }
