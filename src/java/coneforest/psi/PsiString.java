@@ -253,6 +253,14 @@ public class PsiString
 		return result;
 	}
 
+	public PsiArray psiSplit(PsiRegExp regexp)
+	{
+		PsiArray array=new PsiArray();
+		for(String item: regexp.getPattern().split(getString(), -1))
+			array.psiAppend(new PsiString(item));
+		return array;
+	}
+
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{

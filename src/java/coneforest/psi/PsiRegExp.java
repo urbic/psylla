@@ -32,14 +32,6 @@ public class PsiRegExp
 		return pattern;
 	}
 
-	public PsiArray psiSplit(PsiString string)
-	{
-		PsiArray array=new PsiArray();
-		for(String item: pattern.split(string.getString(), -1))
-			array.psiAppend(new PsiString(item));
-		return array;
-	}
-
 	@Override
 	public String toString()
 	{
