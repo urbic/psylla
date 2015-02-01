@@ -92,7 +92,7 @@ public class PsiArray
 			return new PsiArray(new java.util.ArrayList<PsiObject>(array.subList(start.intValue(),
 					start.intValue()+count.intValue())));
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(IndexOutOfBoundsException|IllegalArgumentException e)
 		{
 			throw new PsiException("rangecheck");
 		}
