@@ -1,10 +1,13 @@
 package coneforest.psi;
 
 /**
- *	An interpreter.
+ *	An interpreter class.
  */
 public class Interpreter
 {
+	/**
+	 *	Creates new Ψ language interpreter.
+	 */
 	public Interpreter()
 	{
 		opstack=new OperandStack();
@@ -13,24 +16,42 @@ public class Interpreter
 		procstack=new ProcedureStack();
 
 		dictstack.push(new PsiSystemDictionary());
-		PsiDictionary globaldict=new PsiDictionary();
-		getSystemDictionary().psiPut("globaldict", globaldict);
-		dictstack.push(globaldict);
-		PsiDictionary userdict=new PsiDictionary();
-		getSystemDictionary().psiPut("userdict", userdict);
-		dictstack.push(userdict);
+		try
+		{
+			dictstack.push((PsiDictionarylike)getSystemDictionary().psiGet("globaldict"));
+			dictstack.push((PsiDictionarylike)getSystemDictionary().psiGet("userdict"));
+		}
+		catch(PsiException e)
+		{
+			// NOP
+		}
 	}
 
+	/**
+	 *	Returns operand stack.
+	 *
+	 *	@return an operand stack.
+	 */
 	public OperandStack getOperandStack()
 	{
 		return opstack;
 	}
 
+	/**
+	 *	Returns dictionary stack.
+	 *
+	 *	@return a dictionary stack.
+	 */
 	public DictionaryStack getDictionaryStack()
 	{
 		return dictstack;
 	}
 
+	/**
+	 *	Returns execution stack.
+	 *
+	 *	@return an execution stack.
+	 */
 	public ExecutionStack getExecutionStack()
 	{
 		return execstack;
@@ -42,6 +63,11 @@ public class Interpreter
 			execstack.pop().execute(this);
 	}
 
+	/**
+	 *	Returns current dictionary.
+	 *
+	 *	@return a current dictionary.
+	 */
 	public PsiDictionarylike getCurrentDictionary()
 	{
 		return dictstack.peek();
@@ -50,7 +76,7 @@ public class Interpreter
 	/**
 	 *	Returns system dictionary.
 	 *
-	 *	@return system dictionary.
+	 *	@return a system dictionary.
 	 */
 	public PsiDictionarylike getSystemDictionary()
 	{
@@ -60,7 +86,7 @@ public class Interpreter
 	/**
 	 *	Returns global dictionary.
 	 *
-	 *	@return global dictionary.
+	 *	@return a global dictionary.
 	 */
 	public PsiDictionarylike getGlobalDictionary()
 	{
@@ -406,13 +432,6 @@ public class Interpreter
 			case ParserConstants.TOKEN_REAL:
 				return new PsiReal(Double.parseDouble(token.image));
 			case ParserConstants.TOKEN_NAME:
-				/*
-				{
-					final PsiName name=new PsiName(token.image.substring(1));
-					name.setLiteral();
-					return name;
-				}
-				*/
 				return new PsiName(token.image.substring(1));
 			case ParserConstants.TOKEN_COMMAND:
 				return new PsiCommand(token.image);
