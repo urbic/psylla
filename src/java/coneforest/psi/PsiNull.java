@@ -16,18 +16,6 @@ public final class PsiNull
 	public String getTypeName() { return "null"; }
 
 	/**
-	 *	Invokes this object in the context of the interpreter.
-	 *
-	 *	@param interpreter an interpreter
-	 */
-	@Override
-	public void invoke(Interpreter interpreter)
-	{
-		if(isLiteral())
-			interpreter.getOperandStack().push(this);
-	}
-
-	/**
 	 *	Returns a syntactic representation of this object, the string <code
 	 *	class="constant">"null"</code>.
 	 *

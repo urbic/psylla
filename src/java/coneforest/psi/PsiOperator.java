@@ -7,15 +7,6 @@ public abstract class PsiOperator
 	extends PsiAbstractObject
 {
 	/**
-	 *	Creates a new Ψ operator object with executable flag set.
-	 */
-	public PsiOperator()
-	{
-		super();
-		setExecutable();
-	}
-
-	/**
 	 *	Returns a string representation of a type name (<code>"operator"</code>).
 	 *
 	 *	@return a string representation of a type name.
@@ -27,18 +18,14 @@ public abstract class PsiOperator
 	}
 
 	/**
-	 *	Execute this object in the context of the interpreter. For literal
-	 *	operators pushes this object on interpreter’s operand stack. For
-	 *	executable operators calls {@link #invoke(Interpreter)} method.
+	 *	Execute this object in the context of the interpreter.  Calls {@link
+	 *	#invoke(Interpreter)} method.
 	 *
 	 *	@param interpreter an interpreter.
 	 */
 	public void execute(Interpreter interpreter)
 	{
-		if(isExecutable())
-			invoke(interpreter);
-		else
-			super.execute(interpreter);
+		invoke(interpreter);
 	}
 
 	/**

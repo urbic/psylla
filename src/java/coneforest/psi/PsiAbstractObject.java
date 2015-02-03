@@ -37,42 +37,6 @@ abstract public class PsiAbstractObject
 		interpreter.getOperandStack().push(this);
 	}
 
-	/**
-	 *	Query if this object is executable.
-	 *
-	 *	@return an executability status of this object.
-	 */
-	public boolean isExecutable()
-	{
-		return (access&ACCESS_EXECUTE)!=0;
-	}
-
-	/**
-	 *	Query if this object is literal.
-	 *
-	 *	@return a literal status of this object.
-	 */
-	public boolean isLiteral()
-	{
-		return !isExecutable();
-	}
-
-	/**
-	 *	Make this object executable.
-	 */
-	public void setExecutable()
-	{
-		access|=ACCESS_EXECUTE;
-	}
-
-	/**
-	 *	Make this object literal.
-	 */
-	public void setLiteral()
-	{
-		access&=~ACCESS_EXECUTE;
-	}
-
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return new PsiBoolean(this==obj);
@@ -109,17 +73,12 @@ abstract public class PsiAbstractObject
 		return "-"+getTypeName()+"-";
 	}
 
+	@Override
 	public PsiBoolean psiIsA(PsiStringlike stringlike)
 	{
 		Class<? extends PsiObject> clazz=TypeRegistry.get(stringlike.getString());
 		return new PsiBoolean(clazz!=null && clazz.isInstance(this));
 	}
-
-	private static final byte
-		ACCESS_NOACCESS=0,
-		ACCESS_EXECUTE=1;
-
-	private byte access=ACCESS_NOACCESS;
 
 	//private static final String TYPE_NAME="object";
 }

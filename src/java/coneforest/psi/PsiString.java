@@ -34,26 +34,6 @@ public class PsiString
 	}
 
 	@Override
-	public void invoke(Interpreter interpreter)
-	{
-		OperandStack opstack=interpreter.getOperandStack();
-		if(isExecutable())
-		{
-			try
-			{
-				interpreter.interpretBraced(new PsiStringReader(this));
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e, this);
-			}
-			opstack.pop().invoke(interpreter);
-		}
-		else
-			super.execute(interpreter);
-	}
-
-	@Override
 	public String getString()
 	{
 		return buffer.toString();

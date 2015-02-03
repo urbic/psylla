@@ -2,7 +2,10 @@ package coneforest.psi;
 
 public class PsiReader
 	extends PsiAbstractObject
-	implements PsiReadable, PsiCloseable
+	implements
+		PsiReadable,
+		PsiCloseable,
+		PsiEvaluable
 {
 	public PsiReader()
 	{
@@ -19,23 +22,12 @@ public class PsiReader
 	}
 
 	@Override
-	public void invoke(Interpreter interpreter)
+	public void eval(Interpreter interpreter)
+		throws PsiException
 	{
-		OperandStack opstack=interpreter.getOperandStack();
-		if(isExecutable())
-		{
-			try
-			{
-				interpreter.interpretBraced(this);
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e, this);
-			}
-			opstack.pop().invoke(interpreter);
-		}
-		else
-			super.execute(interpreter);
+		// TODO: replace to psiToProcedure?
+		interpreter.interpretBraced(this);
+		interpreter.getOperandStack().pop().invoke(interpreter);
 	}
 
 	@Override

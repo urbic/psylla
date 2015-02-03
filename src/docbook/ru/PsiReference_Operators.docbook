@@ -614,24 +614,14 @@
 
 </section>
 
-<section xml:id="PsiReference_Operators_ByCategory_TypeAttributeConversion">
-<title>Операторы, связанные с типами, атрибутами и конверсией</title>
+<section xml:id="PsiReference_Operators_ByCategory_TypeConversion">
+<title>Операторы, связанные с типами и конверсией</title>
 
 <variablelist>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clone" xrefstyle="template:%t"/></term>
 <listitem>создание копии объекта</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_executable" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в исполняемый</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_literal" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в литеральный</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -657,11 +647,6 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_type" xrefstyle="template:%t"/></term>
 <listitem>тип объекта</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_xcheck" xrefstyle="template:%t"/></term>
-<listitem>проверка исполняемости объекта</listitem>
 </varlistentry>
 
 </variablelist>
@@ -2047,21 +2032,6 @@
 </synopsis>
 </section>
 
-<section xml:id="PsiReference_Operators_Details_executable">
-<title><token language="psi">executable</token></title>
-<synopsis>
-<replaceable>объект</replaceable>
-<token language="psi">exec</token>
-<replaceable>объект</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-</section>
-
 <section xml:id="PsiReference_Operators_Details_exit">
 <title><token language="psi">exit</token></title>
 <synopsis>
@@ -2788,21 +2758,6 @@
 <listitem>
 <replaceable>длина</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-</section>
-
-<section xml:id="PsiReference_Operators_Details_literal">
-<title><token language="psi">literal</token></title>
-<synopsis>
-<replaceable>объект</replaceable>
-<token language="psi">literal</token>
-<replaceable>объект</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -4333,25 +4288,6 @@ linkend="PsiReference_Types_Details_complex"/>, таким же будет ти
 </section>
 
 <!-- X -->
-
-<section xml:id="PsiReference_Operators_Details_xcheck">
-<title><token language="psi">xcheck</token></title>
-<synopsis>
-<replaceable>объект</replaceable>
-<token language="psi">xcheck</token>
-<replaceable>результат</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>результат</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-</section>
 
 <section xml:id="PsiReference_Operators_Details_xor">
 <title><token language="psi">xor</token></title>

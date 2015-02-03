@@ -55,40 +55,6 @@ public class PsiName
 	}
 
 	/**
-	 *	Execute this object in the context of the interpreter.
-	 *
-	 *	@param interpreter interpreter
-	 */
-	public void execute(Interpreter interpreter)
-	{
-		if(isExecutable())
-		{
-			/*
-			PsiObject obj=interpreter.getDictionaryStack().load(this);
-			if(obj==null)
-				interpreter.error("undefined");
-			else if(obj instanceof PsiArray && ((PsiArray)obj).isExecutable())
-			{
-				//((PsiArray)obj).invoke(interpreter);
-				obj.invoke(interpreter);
-			}
-			else
-				obj.execute(interpreter);
-			*/
-			try
-			{
-				interpreter.getDictionaryStack().load(this).invoke(interpreter);
-			}
-			catch(PsiException e)
-			{
-				interpreter.error(e, this);
-			}
-		}
-		else
-			interpreter.getOperandStack().push(this);
-	}
-
-	/**
 	 *	Returns a length of this object’s value as a Ψ integer.
 	 *
 	 *	@return a length.
@@ -112,8 +78,7 @@ public class PsiName
 	}
 
 	/**
-	 *	Returns a syntactic representation of this object’s value. For
-	 *	executable names, returns a value string. For literal names, returns a
+	 *	Returns a syntactic representation of this object’s value. Returns a
 	 *	value string prepended with <code>/</code>.
 	 *
 	 *	@return a syntactic representation of this object’s value.
@@ -121,7 +86,7 @@ public class PsiName
 	@Override
 	public String toString()
 	{
-		return (isExecutable()? "": "/")+getString();
+		return "/"+name;
 	}
 
 	/**

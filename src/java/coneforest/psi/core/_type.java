@@ -13,8 +13,6 @@ public class _type extends PsiOperator
 			return;
 		}
 
-		final PsiName result=new PsiName(opstack.pop().getTypeName()+"type");
-		result.setExecutable();
-		opstack.push(result);
+		opstack.push(new PsiCommand(opstack.pop().getTypeName()+"type"));
 	}
 }
