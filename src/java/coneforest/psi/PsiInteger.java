@@ -98,7 +98,7 @@ public class PsiInteger
 	public PsiNumeric psiAbs()
 	{
 		if(value!=Long.MIN_VALUE)
-			return new PsiInteger(value>=0L? value: -value);
+			return new PsiInteger(value>=0? value: -value);
 		else
 			return new PsiReal(Math.abs(value));
 	}
@@ -109,47 +109,17 @@ public class PsiInteger
 		return new PsiInteger(value>0? 1: value<0? -1: 0);
 	}
 
-	/*
-	@Override
-	public PsiNumeric add(final PsiInteger integer)
-	{
-		double result=value+integer.getValue().doubleValue();
-		if(result>=Long.MIN_VALUE && result<=Long.MAX_VALUE)
-			return new PsiInteger(((Double)result).longValue());
-		return new PsiReal(result);
-	}
-
-	@Override
-	public PsiReal add(final PsiReal real)
-	{
-		return new PsiReal(value+real.getValue().doubleValue());
-	}
-
-	@Override
-	public PsiComplex add(final PsiComplex complex)
-	{
-		return new PsiComplex(this).add(complex);
-	}
-
-	@Override
-	public PsiComplexNumeric add(final PsiComplexNumeric cn)
-		//throws PsiException
-	{
-		return null;
-		//throw new PsiException("XXX");
-	}
-	*/
-
 	public PsiNumeric psiAdd(final PsiNumeric numeric)
 	{
 		if(numeric instanceof PsiInteger)
 		{
 			long numericValue=((PsiInteger)numeric).value;
-			if(value>=0 && numericValue>=0 && value>Long.MAX_VALUE-numericValue
-					|| value<0 && numericValue<0 && value<Long.MIN_VALUE-numericValue)
-				return new PsiReal(doubleValue()+numeric.doubleValue());
-			else
-				return new PsiInteger(value+numericValue);
+			long resultValue=value+numericValue;
+
+			// Overflow condition from
+			// com.google.common.math.LongMath.checkedAdd(long, long)
+			return ((value^numericValue)<0|(value^resultValue)>=0)?
+					new PsiInteger(resultValue): new PsiReal(doubleValue()+numeric.doubleValue());
 		}
 		else
 			return new PsiReal(doubleValue()+numeric.doubleValue());
@@ -165,13 +135,18 @@ public class PsiInteger
 
 	public PsiNumeric psiSub(final PsiNumeric numeric)
 	{
-		// TODO
-		double result=value-numeric.doubleValue();
-		if(numeric instanceof PsiInteger
-				&& result>=Long.MIN_VALUE
-				&& result<=Long.MAX_VALUE)
-			return new PsiInteger(((Double)result).longValue());
-		return new PsiReal(result);
+		if(numeric instanceof PsiInteger)
+		{
+			long numericValue=((PsiInteger)numeric).value;
+			long resultValue=value-numericValue;
+
+			// Overflow condition from
+			// com.google.common.math.LongMath.checkedSubtract(long, long)
+			return ((value^numericValue)>=0|(value^resultValue)>=0)?
+					new PsiInteger(resultValue): new PsiReal(doubleValue()-numeric.doubleValue());
+		}
+		else
+			return new PsiReal(doubleValue()+numeric.doubleValue());
 	}
 
 	@Override
@@ -184,12 +159,39 @@ public class PsiInteger
 
 	public PsiNumeric psiMul(final PsiNumeric numeric)
 	{
+		/*
 		double result=value*numeric.doubleValue();
 		if(numeric instanceof PsiInteger
 				&& result>=Long.MIN_VALUE
 				&& result<=Long.MAX_VALUE)
 			return new PsiInteger(((Double)result).longValue());
 		return new PsiReal(result);
+		*/
+		if(numeric instanceof PsiInteger)
+		{
+			// Overflow condition from
+			// com.google.common.math.LongMath.checkedMultiply(long, long)
+			long numericValue=((PsiInteger)numeric).value;
+			int leadingZeros
+				=Long.numberOfLeadingZeros(value)
+				+Long.numberOfLeadingZeros(~value)
+				+Long.numberOfLeadingZeros(numericValue)
+				+Long.numberOfLeadingZeros(~numericValue);
+			if(leadingZeros>Long.SIZE+1)
+				return new PsiInteger(value*numericValue);
+
+			if(leadingZeros>=Long.SIZE && value>=0 | numericValue!=Long.MIN_VALUE)
+			{
+				long resultValue=value*numericValue;
+				return (value==0 || resultValue/value==numericValue)?
+					new PsiInteger(resultValue): new PsiReal(doubleValue()*numeric.doubleValue());
+			}
+			else
+				return new PsiReal(doubleValue()*numeric.doubleValue());
+
+		}
+		return new PsiReal(doubleValue()*numeric.doubleValue());
+
 	}
 
 	@Override
@@ -228,6 +230,54 @@ public class PsiInteger
 	}
 	*/
 
+	/*
+	@Override
+	public PsiComplexNumeric psiPow(final PsiComplexNumeric cn)
+		throws PsiException
+	{
+		if(cn instanceof PsiInteger)
+		{
+			long cnValue=((PsiInteger)cn).value;
+			if(cnValue<0)
+				throw new PsiException("rangecheck");
+			if(value>=-2 & value<=2)
+			{
+				switch((int)value)
+				{
+					case 0:
+						return new PsiInteger((cnValue==0)? 1: 0);
+					case 1:
+						return new PsiInteger(1L);
+					case -1:
+						return new PsiInteger(((cnValue&1)==0)? 1: -1);
+					case 2:
+						return (cnValue<Long.SIZE-1)?
+							new PsiInteger(1L<<cnValue):
+							new PsiReal(Math.pow(value, cnValue));
+					case -2:
+						return (cnValue<Long.SIZE)?
+							new PsiInteger(((cnValue&1)==0)? (1L<<cnValue): (-1L<<cnValue)):
+							new PsiReal(Math.pow(value, cnValue));
+					default:
+						throw new AssertionError();
+				}
+			}
+			long accum=1;
+			while(true)
+			{
+				if(cnValue==0)
+					return new PsiInteger(accum);
+				else if(cnValue==1)
+					return psiMul()
+			}
+		}
+		else if(cn instanceof PsiReal)
+			return new PsiReal(Math.pow(value, ((PsiReal)cn).doubleValue()));
+		else
+			return super.psiPow((PsiComplex)cn);
+	}
+	*/
+
 	@Override
 	public PsiInteger psiFloor()
 	{
@@ -249,17 +299,16 @@ public class PsiInteger
 	public PsiInteger psiMod(final PsiInteger integer)
 		throws PsiException
 	{
+		long integerValue=integer.value;
+		if(integerValue<=0)
+			throw new PsiException("rangecheck");
+		long resultValue=value % integerValue;
+		return new PsiInteger((resultValue>=0)? resultValue: resultValue+integerValue);
+		/*
 		if(integer.value>0)
 			return new PsiInteger(value>=0? value%integer.value: integer.value-(-value)%integer.value);
 		if(integer.value<0)
 			return new PsiInteger(value>=0? value%(-integer.value)+(value!=0? integer.value:0): -((-value)%(-integer.value)));
-		throw new PsiException("undefinedresult");
-		/*
-		long integerValue=integer.getValue();
-		if(integerValue>0)
-			return new PsiInteger(value>=0? value%integerValue: integerValue-(-value)%integerValue);
-		if(integerValue<0)
-			return new PsiInteger(value>=0? value%(-integerValue)+(value!=0? integerValue:0): -((-value)%(-integerValue)));
 		throw new PsiException("undefinedresult");
 		*/
 	}
