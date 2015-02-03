@@ -25,7 +25,7 @@
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 	</path>
-	<property file="${src.java}/coneforest/psi/version.properties" prefix="psi"/>
+	<property file="${src.java}/coneforest/psi/Version.properties" prefix="psi"/>
 	<property
 		name="project.version"
 		value="${psi.version.major}.${psi.version.minor}.${psi.version.revision}"

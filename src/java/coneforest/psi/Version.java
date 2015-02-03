@@ -62,7 +62,7 @@ public class Version
 		{
 			java.util.Properties versionProperties=new java.util.Properties();
 			versionProperties.load
-				(Version.class.getResourceAsStream("version.properties"));
+				(Version.class.getResourceAsStream("Version.properties"));
 			major=Integer.parseInt(versionProperties.getProperty("version.major"));
 			minor=Integer.parseInt(versionProperties.getProperty("version.minor"));
 			revision=Integer.parseInt(versionProperties.getProperty("version.revision"));
