@@ -115,7 +115,7 @@ public class PsiReal
 	@Override
 	public PsiInteger psiRound()
 	{
-		return new PsiInteger((long)Math.round(value));
+		return new PsiInteger(Math.round(value));
 	}
 
 	@Override

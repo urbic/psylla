@@ -20,6 +20,7 @@ abstract public class PsiAbstractObject
 	 *	@param interpreter an interpreter.
 	 */
 	public void execute(Interpreter interpreter)
+		//throws PsiException
 	{
 		interpreter.getOperandStack().push(this);
 	}
@@ -31,6 +32,7 @@ abstract public class PsiAbstractObject
 	 *	@param interpreter an interpreter.
 	 */
 	public void invoke(Interpreter interpreter)
+		//throws PsiException
 	{
 		interpreter.getOperandStack().push(this);
 	}

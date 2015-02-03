@@ -23,7 +23,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 	*	containers replaces an old or creates a new element associated with
 	*	specified key.
 	*	@param key A key or an index.
-	*	@param value An element to be stored with
+	*	@param value An element to be stored.
 	*	@throws PsiException when index is out of range.
 	*/
 	public void psiPut(K key, V value)
