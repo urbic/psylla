@@ -12,13 +12,4 @@ public interface PsiLengthy
 	public PsiBoolean psiIsEmpty();
 
 	public String toStringHelper(PsiLengthy lengthy);
-
-	static class Registrator
-	{
-		static
-		{
-			System.out.println("REGISTRATOR");
-			TypeRegistry.put("lengthy", PsiLengthy.class);
-		}
-	}
 }

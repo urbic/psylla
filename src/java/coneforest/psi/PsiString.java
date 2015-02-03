@@ -244,6 +244,7 @@ public class PsiString
 		return result;
 	}
 
+	/*
 	public PsiDictionary psiSearch(PsiRegExp regexp)
 	{
 		PsiDictionary result=null;
@@ -252,6 +253,7 @@ public class PsiString
 		matcher.find();
 		return result;
 	}
+	*/
 
 	public PsiArray psiSplit(PsiRegExp regexp)
 	{

@@ -194,13 +194,14 @@ public class PsiSystemDictionary
 			// TODO
 		}
 		psiPut("systemdict", this);
-		psiPut("errordict", new coneforest.psi.errordict.ErrorDictionary());
+		psiPut("errordict", new coneforest.psi.PsiErrorDictionary());
 		psiPut("mathPI", new PsiReal(Math.PI));
 		psiPut("mathE", new PsiReal(Math.E));
 		psiPut("stdrandom", new PsiRandom());
 		psiPut("version", new PsiString(""+Version.getVersion()));
-		psiPut("product", new PsiString("Psi"));
+		psiPut("product", new PsiString("Psyche"));
 		psiPut("classpath", new PsiClassLoader());
 		psiPut("eol", new PsiString(System.getProperty("line.separator")));
+		psiPut("$error", new PsiDictionary());
 	}
 }

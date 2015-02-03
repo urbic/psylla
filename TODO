@@ -31,3 +31,7 @@ rename count to countstack?
 pow: return PsiInteger for PsiInteger operands
 
 Set: union, intersection
+
+Array: prepend
+
+String literals: "\N{…}"
