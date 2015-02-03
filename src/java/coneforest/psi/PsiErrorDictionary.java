@@ -1,12 +1,22 @@
-package coneforest.psi.errordict;
-import coneforest.psi.*;
+package coneforest.psi;
+import coneforest.psi.errordict.*;
 
-public class ErrorDictionary extends PsiModule
+public class PsiErrorDictionary extends PsiModule
 {
-	public ErrorDictionary()
+	public PsiErrorDictionary()
 	{
 		super();
 
-		//register(_handleerror.class);
+		try
+		{
+			registerOperatorClasses
+				(
+					_handleerror.class
+				);
+		}
+		catch(PsiException e)
+		{
+			// TODO
+		}
 	}
 }
