@@ -440,16 +440,38 @@ public class Interpreter
 			errorName=((PsiException)e).kind();
 		else
 			errorName="unknownerror";
-		error(errorName, obj);
+		try
+		{
+			handleError(errorName, obj);
+		}
+		catch(PsiException xxx)
+		{
+			// TODO?
+		}
 	}
 
 	public void error(final String errorName, final PsiObject obj)
 	{
 		// TODO
 		opstack.push(obj);
-		System.out.println("Error: /"+errorName+" in "+obj);
+		System.out.println("XXX Error: /"+errorName+" in "+obj);
 		showStacks();
 		System.exit(1);
+	}
+
+	private void handleError(final String errorName, final PsiObject obj)
+		throws PsiException
+	{
+		PsiDictionarylike errorObj=(PsiDictionarylike)getSystemDictionary().psiGet("$error");
+		errorObj.psiPut("newerror", new PsiBoolean(true));
+		errorObj.psiPut("errorname", new PsiName(errorName));
+		errorObj.psiPut("command", obj);
+		errorObj.psiPut("ostack", new PsiArray((java.util.ArrayList<PsiObject>)opstack.clone()));
+		errorObj.psiPut("estack", new PsiArray((java.util.ArrayList<PsiObject>)execstack.clone()));
+		errorObj.psiPut("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dictstack.clone()));
+		// TODO invoke "stop"
+		PsiDictionarylike errorDict=(PsiDictionarylike)dictstack.load("errordict");
+		errorDict.psiGet("handleerror").invoke(this);
 	}
 
 	public void showStacks()
