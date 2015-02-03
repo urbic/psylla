@@ -192,6 +192,8 @@ public class PsiSystemDictionary
 			// TODO
 		}
 		psiPut("systemdict", this);
+		psiPut("globaldict", new PsiDictionary());
+		psiPut("userdict", new PsiDictionary());
 		psiPut("errordict", new coneforest.psi.PsiErrorDictionary());
 		psiPut("mathPI", new PsiReal(Math.PI));
 		psiPut("mathE", new PsiReal(Math.E));
