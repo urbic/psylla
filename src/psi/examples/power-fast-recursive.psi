@@ -1,0 +1,24 @@
+#!/usr/bin/psi
+
+/power
+{
+	dup 0 eq
+	{ pop pop 1 }
+	{
+		dup 2 mod 0 ne
+		{
+			1 index dup mul
+			exch 1 sub 2 idiv power mul
+		}
+		{
+			2 idiv exch dup mul exch power
+		}
+		ifelse
+	}
+	ifelse
+}
+bind def
+
+arguments 0 get tointeger
+arguments 1 get tointeger
+power tostring say
