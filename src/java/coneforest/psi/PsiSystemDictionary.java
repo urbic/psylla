@@ -59,9 +59,9 @@ public class PsiSystemDictionary
 					_editline.class,
 					_end.class,
 					_eq.class,
+					_eval.class,
 					_exch.class,
 					_exec.class,
-					_executable.class,
 					_exit.class,
 					_exp.class,
 					_external.class,
@@ -101,7 +101,6 @@ public class PsiSystemDictionary
 					_known.class,
 					_le.class,
 					_length.class,
-					_literal.class,
 					_load.class,
 					_loadall.class,
 					_log.class,
@@ -176,7 +175,6 @@ public class PsiSystemDictionary
 					_values.class,
 					_where.class,
 					_writestring.class,
-					_xcheck.class,
 					_xor.class
 				);
 

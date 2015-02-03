@@ -26,6 +26,13 @@ abstract public class PsiAbstractStringlike
 	}
 
 	@Override
+	public void eval(Interpreter interpreter)
+		throws PsiException
+	{
+		(new PsiStringReader(this)).eval(interpreter);
+	}
+
+	@Override
 	public PsiInteger psiToInteger()
 		throws PsiException
 	{
@@ -36,8 +43,7 @@ abstract public class PsiAbstractStringlike
 		}
 		catch(NumberFormatException e)
 		{
-			// TODO maybe "syntaxerror"?
-			throw new PsiException("typecheck");
+			throw new PsiException("syntaxerror");
 		}
 	}
 

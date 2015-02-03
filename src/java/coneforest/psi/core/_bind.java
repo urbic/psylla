@@ -39,7 +39,7 @@ public class _bind extends PsiOperator
 					PsiObject obj=array.psiGet(i);
 					if(obj instanceof PsiArray && bound.add((PsiArray)obj))
 						bindHelper((PsiArray)obj, bound, dictstack);
-					else if(obj instanceof PsiName && ((PsiName)obj).isExecutable())
+					else if(obj instanceof PsiCommand)
 					{
 						PsiObject value=dictstack.load((PsiName)obj);
 						if(value instanceof PsiOperator)

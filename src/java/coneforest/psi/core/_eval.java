@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _xcheck extends PsiOperator
+public class _eval extends PsiOperator
 {
 	@Override
 	public void invoke(final Interpreter interpreter)
@@ -12,6 +12,16 @@ public class _xcheck extends PsiOperator
 			interpreter.error("stackunderflow", this);
 			return;
 		}
-		opstack.push(new PsiBoolean(opstack.pop().isExecutable()));
+
+		final PsiObject evaluable=opstack.pop();
+		try
+		{
+			((PsiEvaluable)evaluable).eval(interpreter);
+		}
+		catch(ClassCastException|PsiException e)
+		{
+			opstack.push(evaluable);
+			interpreter.error(e, this);
+		}
 	}
 }

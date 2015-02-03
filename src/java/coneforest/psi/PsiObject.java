@@ -29,30 +29,6 @@ public interface PsiObject
 	 */
 	public void invoke(Interpreter interpreter);
 
-	/**
-	 *	Query if this object is executable.
-	 *
-	 *	@return an executability status of this object.
-	 */
-	public boolean isExecutable();
-
-	/**
-	 *	Query if this object is literal.
-	 *
-	 *	@return a literal status of this object.
-	 */
-	public boolean isLiteral();
-
-	/**
-	 *	Make this object executable.
-	 */
-	public void setExecutable();
-
-	/**
-	 *	Make this object literal.
-	 */
-	public void setLiteral();
-
 	public PsiBoolean psiEq(final PsiObject obj);
 
 	public PsiBoolean psiNe(final PsiObject obj);
@@ -76,12 +52,6 @@ public interface PsiObject
 	public String toString();
 
 	public PsiBoolean psiIsA(PsiStringlike stringlike);
-
-	//private static final byte
-	//	ACCESS_NOACCESS=0,
-	//	ACCESS_EXECUTE=1;
-
-	//private byte access=ACCESS_NOACCESS;
 
 	//private static final String TYPE_NAME="object";
 }

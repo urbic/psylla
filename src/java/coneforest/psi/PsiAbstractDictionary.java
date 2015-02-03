@@ -72,27 +72,6 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 			psiUndef(entry.getKey());
 	}
 
-	/*
-	@Override
-	public void psiForAll(PsiObject obj, Interpreter interpreter)
-		
-	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final int loopLevel=interpreter.pushLoopLevel();
-		for(java.util.Map.Entry<String, V> entry: this)
-		{
-			if(interpreter.getExitFlag())
-				break;
-			opstack.push(new PsiName(entry.getKey()));
-			opstack.push(entry.getValue());
-			obj.invoke(interpreter);
-			interpreter.handleExecutionStack(loopLevel);
-		}
-		interpreter.popLoopLevel();
-		interpreter.setExitFlag(false);
-	}
-	*/
-
 	@Override
 	public String toString()
 	{

@@ -21,37 +21,13 @@ public class PsiArray
 		this.array=(java.util.ArrayList<PsiObject>)array.array.clone();
 	}
 
-	public void execute(final Interpreter interpreter)
-	{
-		interpreter.getOperandStack().push(this);
-	}
-
-	public void invoke(final Interpreter interpreter)
-	{
-		if(isExecutable())
-		{
-			try
-			{
-				ExecutionStack execstack=interpreter.getExecutionStack();
-				//int level=execstack.size();
-				for(int i=array.size()-1; i>=0; i--)
-					execstack.push(psiGet(i));
-				//interpreter.handleExecutionStack(level);
-			}
-			catch(PsiException e)
-			{
-			}
-		}
-		else
-			execute(interpreter);
-	}
-
 	@Override
 	public int length()
 	{
 		return array.size();
 	}
 
+	@Override
 	public java.util.Iterator<PsiObject> iterator()
 	{
 		return array.iterator();
@@ -170,23 +146,6 @@ public class PsiArray
 	{
 		array.clear();
 	}
-
-	/*
-	@Override
-	public String toString()
-	{
-		StringBuilder sb=new StringBuilder();
-		sb.append(isExecutable()? "{": "[");
-		if(array.size()>0)
-		{
-			for(PsiObject obj: array)
-				sb.append(obj+" ");
-			sb.deleteCharAt(sb.length()-1);
-		}
-		sb.append(isExecutable()? "}": "]");
-		return sb.toString();
-	}
-	*/
 
 	private java.util.ArrayList<PsiObject> array;
 }

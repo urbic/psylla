@@ -133,26 +133,25 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	@Override
 	public String toString()
 	{
-		return toStringHelper(this);
+		return "["+toStringHelper(this)+"]";
 	}
 
 	@Override
 	public String toStringHelper(PsiLengthy lengthy)
 	{
-		StringBuilder sb=new StringBuilder(isExecutable()? "{": "[");
+		StringBuilder sb=new StringBuilder();
 		if(length()>0)
 		{
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toStringHelper(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString());
 				else
 					sb.append(obj.toString());
 				sb.append(' ');
 			}
 			sb.deleteCharAt(sb.length()-1);
 		}
-		sb.append(isExecutable()? '}': ']');
 		return sb.toString();
 	}
 }
