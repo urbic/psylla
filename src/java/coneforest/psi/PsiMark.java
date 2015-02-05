@@ -17,6 +17,8 @@ public final class PsiMark
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(obj instanceof PsiMark);
+		return PsiBoolean.valueOf(obj instanceof PsiMark);
 	}
+
+	public static final PsiMark MARK=new PsiMark();
 }

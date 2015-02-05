@@ -246,7 +246,7 @@ public class PsiString
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
-		return new PsiBoolean(buffer.length()==0);
+		return PsiBoolean.valueOf(buffer.length()==0);
 	}
 
 	@Override

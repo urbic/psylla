@@ -6,6 +6,6 @@ public class _mark extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(new PsiMark());
+		interpreter.getOperandStack().push(PsiMark.MARK);
 	}
 }

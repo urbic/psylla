@@ -48,7 +48,7 @@ public class PsiSet
 	@Override
 	public PsiBoolean psiContains(PsiObject obj)
 	{
-		return new PsiBoolean(set.contains(obj));
+		return PsiBoolean.valueOf(set.contains(obj));
 	}
 
 	@Override

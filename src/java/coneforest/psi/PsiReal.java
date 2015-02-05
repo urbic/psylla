@@ -17,7 +17,7 @@ public class PsiReal
 	@Override
 	public PsiBoolean psiIsZero()
 	{
-		return new PsiBoolean(value==0.D);
+		return PsiBoolean.valueOf(value==0.D);
 	}
 
 	@Override
@@ -128,6 +128,14 @@ public class PsiReal
 	public PsiReal psiCeiling()
 	{
 		return new PsiReal(Math.ceil(value));
+	}
+
+	@Override
+	public PsiInteger psiCmp(final PsiNumeric numeric)
+	{
+		final int result=Double.compare(value, numeric.doubleValue());
+		return result<0? PsiInteger.MINUS_ONE:
+			result>0? PsiInteger.ONE: PsiInteger.ZERO;
 	}
 
 	@Override

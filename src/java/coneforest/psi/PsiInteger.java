@@ -15,7 +15,7 @@ public class PsiInteger
 	@Override
 	public PsiBoolean psiIsZero()
 	{
-		return new PsiBoolean(value==0L);
+		return PsiBoolean.valueOf(value==0L);
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class PsiInteger
 	@Override
 	public PsiInteger psiIm()
 	{
-		return new PsiInteger(0);
+		return PsiInteger.ZERO;
 	}
 
 	@Override
@@ -92,6 +92,19 @@ public class PsiInteger
 	{
 		return value!=Long.MIN_VALUE?
 			new PsiInteger(-value): new PsiReal(-value);
+	}
+
+	@Override
+	public PsiInteger psiCmp(final PsiNumeric numeric)
+	{
+		if(numeric instanceof PsiInteger)
+			return value<((PsiInteger)numeric).value? PsiInteger.MINUS_ONE:
+				value>((PsiInteger)numeric).value? PsiInteger.ONE:
+				PsiInteger.ZERO;
+		else
+			return value<((PsiReal)numeric).doubleValue()? PsiInteger.MINUS_ONE:
+				value>((PsiReal)numeric).doubleValue()? PsiInteger.ONE:
+				PsiInteger.ZERO;
 	}
 
 	@Override
@@ -247,7 +260,7 @@ public class PsiInteger
 					case 0:
 						return new PsiInteger((cnValue==0)? 1: 0);
 					case 1:
-						return new PsiInteger(1L);
+						return new PsiInteger.MINUS_ONE;
 					case -1:
 						return new PsiInteger(((cnValue&1)==0)? 1: -1);
 					case 2:
@@ -338,6 +351,12 @@ public class PsiInteger
 		return object instanceof PsiInteger
 				&& psiEq((PsiInteger)object).booleanValue();
 	}
+
+	public static final PsiInteger
+		ZERO=new PsiInteger(0L),
+		ONE=new PsiInteger(1L),
+		TWO=new PsiInteger(1L),
+		MINUS_ONE=new PsiInteger(-1L);
 
 	private final long value;
 

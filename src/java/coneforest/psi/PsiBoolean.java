@@ -56,7 +56,7 @@ public class PsiBoolean
 	@Override
 	public PsiBoolean psiNot()
 	{
-		return new PsiBoolean(!value);
+		return PsiBoolean.valueOf(!value);
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class PsiBoolean
 	@Override
 	public PsiBoolean psiOr(final PsiBoolean bool)
 	{
-		return new PsiBoolean(value || bool.value);
+		return PsiBoolean.valueOf(value || bool.value);
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class PsiBoolean
 	@Override
 	public PsiBoolean psiAnd(final PsiBoolean bool)
 	{
-		return new PsiBoolean(value && bool.value);
+		return PsiBoolean.valueOf(value && bool.value);
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class PsiBoolean
 	@Override
 	public PsiBoolean psiXor(final PsiBoolean bool)
 	{
-		return new PsiBoolean(value ^ bool.value);
+		return PsiBoolean.valueOf(value ^ bool.value);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class PsiBoolean
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(equals(obj));
+		return PsiBoolean.valueOf(equals(obj));
 	}
 
 	/**
@@ -126,6 +126,15 @@ public class PsiBoolean
 		return object instanceof PsiBoolean
 				&& value==((PsiBoolean)object).value;
 	}
+
+	public static PsiBoolean valueOf(boolean b)
+	{
+		return b? TRUE: FALSE;
+	}
+
+	public static final PsiBoolean
+		FALSE=new PsiBoolean(false),
+		TRUE=new PsiBoolean(true);
 
 	private final boolean value;
 

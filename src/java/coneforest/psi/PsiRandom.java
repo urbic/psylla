@@ -48,7 +48,7 @@ public class PsiRandom
 
 	public PsiBoolean psiUniformBoolean()
 	{
-		return new PsiBoolean(random.nextBoolean());
+		return PsiBoolean.valueOf(random.nextBoolean());
 	}
 
 	public PsiReal psiNormalDeviate(PsiNumeric numeric)

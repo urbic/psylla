@@ -143,14 +143,14 @@ public class PsiBitSet
 	@Override
 	public PsiBoolean psiContains(PsiInteger integer)
 	{
-		return new PsiBoolean(bitset.get(integer.intValue()));
+		return PsiBoolean.valueOf(bitset.get(integer.intValue()));
 	}
 
 	@Override
 	public PsiBoolean psiIntersects(PsiSetlike setlike)
 	{
 		if(setlike instanceof PsiBitSet)
-			return new PsiBoolean(bitset.intersects(((PsiBitSet)setlike).bitset));
+			return PsiBoolean.valueOf(bitset.intersects(((PsiBitSet)setlike).bitset));
 		else
 			return super.psiIntersects(setlike);
 	}
@@ -158,9 +158,9 @@ public class PsiBitSet
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(obj instanceof PsiBitSet
+		return PsiBoolean.valueOf(obj instanceof PsiBitSet
 				&& bitset.equals(((PsiBitSet)obj).bitset));
 	}
 
-	private java.util.BitSet bitset;//=new java.util.BitSet();
+	private final java.util.BitSet bitset;
 }

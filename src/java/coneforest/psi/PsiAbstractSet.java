@@ -88,7 +88,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
-		return new PsiBoolean(isEmpty());
+		return PsiBoolean.valueOf(isEmpty());
 	}
 
 	@Override
@@ -112,7 +112,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	{
 		for(T obj: setlike)
 			if(psiContains(obj).booleanValue())
-				return new PsiBoolean(true);
-		return new PsiBoolean(false);
+				return PsiBoolean.TRUE;
+		return PsiBoolean.FALSE;
 	}
 }

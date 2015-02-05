@@ -37,6 +37,8 @@ public final class PsiNull
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(obj instanceof PsiNull);
+		return PsiBoolean.valueOf(obj instanceof PsiNull);
 	}
+
+	public static final PsiNull NULL=new PsiNull();
 }

@@ -39,7 +39,7 @@ abstract public class PsiAbstractObject
 
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(this==obj);
+		return PsiBoolean.valueOf(this==obj);
 	}
 
 	public PsiBoolean psiNe(final PsiObject obj)
@@ -77,7 +77,7 @@ abstract public class PsiAbstractObject
 	public PsiBoolean psiIsA(PsiStringlike stringlike)
 	{
 		Class<? extends PsiObject> clazz=TypeRegistry.get(stringlike.getString());
-		return new PsiBoolean(clazz!=null && clazz.isInstance(this));
+		return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));
 	}
 
 	//private static final String TYPE_NAME="object";

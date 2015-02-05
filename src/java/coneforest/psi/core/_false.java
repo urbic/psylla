@@ -6,6 +6,6 @@ public class _false extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(new PsiBoolean(false));
+		interpreter.getOperandStack().push(PsiBoolean.FALSE);
 	}
 }

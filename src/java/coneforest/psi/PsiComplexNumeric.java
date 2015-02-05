@@ -49,14 +49,11 @@ abstract public class PsiComplexNumeric
 	abstract public PsiComplexNumeric psiSinh();
 
 	abstract public PsiComplexNumeric psiTanh();
-	/*{
-		return psiSinh().psiDiv(psiCosh());
-	}*/
 
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(obj instanceof PsiComplexNumeric
+		return PsiBoolean.valueOf(obj instanceof PsiComplexNumeric
 				&& psiRe().psiEq(((PsiComplexNumeric)obj).psiRe()).booleanValue()
 				&& psiIm().psiEq(((PsiComplexNumeric)obj).psiIm()).booleanValue());
 	}
