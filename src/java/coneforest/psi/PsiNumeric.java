@@ -172,39 +172,32 @@ abstract public class PsiNumeric
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(obj instanceof PsiNumeric
+		return PsiBoolean.valueOf(obj instanceof PsiNumeric
 				&& doubleValue()==((PsiNumeric)obj).doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiLt(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(doubleValue()<numeric.doubleValue());
+		return PsiBoolean.valueOf(doubleValue()<numeric.doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiLe(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(doubleValue()<=numeric.doubleValue());
+		return PsiBoolean.valueOf(doubleValue()<=numeric.doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiGt(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(doubleValue()>numeric.doubleValue());
+		return PsiBoolean.valueOf(doubleValue()>numeric.doubleValue());
 	}
 
 	@Override
 	public PsiBoolean psiGe(final PsiNumeric numeric)
 	{
-		return new PsiBoolean(doubleValue()>=numeric.doubleValue());
-	}
-
-	@Override
-	public PsiInteger psiCmp(final PsiNumeric numeric)
-	{
-		return new PsiInteger(doubleValue()<numeric.doubleValue()? -1:
-			doubleValue()>numeric.doubleValue()? 1: 0);
+		return PsiBoolean.valueOf(doubleValue()>=numeric.doubleValue());
 	}
 
 	static

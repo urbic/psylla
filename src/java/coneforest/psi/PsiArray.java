@@ -42,7 +42,7 @@ public class PsiArray
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
-		return new PsiBoolean(array.isEmpty());
+		return PsiBoolean.valueOf(array.isEmpty());
 	}
 
 	@Override

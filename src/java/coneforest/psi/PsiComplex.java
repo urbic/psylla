@@ -31,7 +31,7 @@ public class PsiComplex
 	@Override
 	public PsiBoolean psiIsZero()
 	{
-		return new PsiBoolean(re==0.D && im==0.D);
+		return PsiBoolean.valueOf(re==0.D && im==0.D);
 	}
 
 	@Override

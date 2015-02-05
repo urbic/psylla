@@ -10,7 +10,7 @@ public class PsiMatcher
 
 	public PsiBoolean psiFind()
 	{
-		return new PsiBoolean(matcher.find());
+		return PsiBoolean.valueOf(matcher.find());
 	}
 
 	public PsiString psiGetGroup(PsiInteger number)

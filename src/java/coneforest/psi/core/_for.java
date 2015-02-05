@@ -25,7 +25,7 @@ public class _for extends PsiOperator
 			final PsiNumeric limit=(PsiNumeric)limit_;
 
 			final int loopLevel=interpreter.pushLoopLevel();
-			final boolean forward=increment.psiGt(zero).booleanValue();
+			final boolean forward=increment.psiGt(PsiInteger.ZERO).booleanValue();
 			for(
 					PsiNumeric counter=initial;
 					(forward && counter.psiLe(limit).booleanValue()
@@ -50,6 +50,4 @@ public class _for extends PsiOperator
 			interpreter.error(e, this);
 		}
 	}
-	
-	private final PsiInteger zero=new PsiInteger(0);
 }

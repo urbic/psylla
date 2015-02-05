@@ -84,32 +84,32 @@ abstract public class PsiAbstractStringlike
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return new PsiBoolean(obj instanceof PsiStringlike
+		return PsiBoolean.valueOf(obj instanceof PsiStringlike
 				&& getString().equals(((PsiStringlike)obj).getString()));
 	}
 
 	@Override
 	public PsiBoolean psiLt(final PsiStringlike string)
 	{
-		return new PsiBoolean(getString().compareTo(string.getString())<0);
+		return PsiBoolean.valueOf(getString().compareTo(string.getString())<0);
 	}
 
 	@Override
 	public PsiBoolean psiLe(final PsiStringlike string)
 	{
-		return new PsiBoolean(getString().compareTo(string.getString())<=0);
+		return PsiBoolean.valueOf(getString().compareTo(string.getString())<=0);
 	}
 
 	@Override
 	public PsiBoolean psiGt(final PsiStringlike string)
 	{
-		return new PsiBoolean(getString().compareTo(string.getString())>0);
+		return PsiBoolean.valueOf(getString().compareTo(string.getString())>0);
 	}
 
 	@Override
 	public PsiBoolean psiGe(final PsiStringlike string)
 	{
-		return new PsiBoolean(getString().compareTo(string.getString())>=0);
+		return PsiBoolean.valueOf(getString().compareTo(string.getString())>=0);
 	}
 
 	@Override

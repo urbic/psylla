@@ -74,7 +74,7 @@ public class PsiName
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
-		return new PsiBoolean(name.length()==0);
+		return PsiBoolean.valueOf(name.length()==0);
 	}
 
 	/**

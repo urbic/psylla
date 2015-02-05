@@ -47,7 +47,7 @@ public class PsiDictionary
 	@Override
 	public PsiBoolean psiKnown(String keyString)
 	{
-		return new PsiBoolean(dictionary.containsKey(keyString));
+		return PsiBoolean.valueOf(dictionary.containsKey(keyString));
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class PsiDictionary
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
-		return new PsiBoolean(isEmpty());
+		return PsiBoolean.valueOf(isEmpty());
 	}
 
 	@Override

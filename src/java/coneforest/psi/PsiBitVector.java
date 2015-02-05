@@ -37,7 +37,7 @@ public class PsiBitVector
 			throw new PsiException("rangecheck");
 		try
 		{
-			return new PsiBoolean(bitvector.get(index));
+			return PsiBoolean.valueOf(bitvector.get(index));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -201,7 +201,7 @@ public class PsiBitVector
 				public PsiBoolean next()
 				{
 					//if(hasNext())
-						return new PsiBoolean(bitvector.get(index++));
+						return PsiBoolean.valueOf(bitvector.get(index++));
 					//else
 					//	throw new java.util.NoSuchElementException();
 				}
@@ -234,7 +234,7 @@ public class PsiBitVector
 	@Override
 	public PsiBoolean psiIsEmpty()
 	{
-		return new PsiBoolean(bitvector.size()==0);
+		return PsiBoolean.valueOf(bitvector.size()==0);
 	}
 
 	@Override
