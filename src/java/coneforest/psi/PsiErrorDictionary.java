@@ -11,6 +11,7 @@ public class PsiErrorDictionary extends PsiModule
 		{
 			registerOperatorClasses
 				(
+					_defaulthandler.class,
 					_handleerror.class
 				);
 		}

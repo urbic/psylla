@@ -10,6 +10,8 @@ public class _handleerror extends PsiOperator
 		{
 			PsiDictionary errorObj=(PsiDictionary)interpreter.getSystemDictionary().psiGet("$error");
 
+			errorObj.psiPut("newerror", PsiBoolean.FALSE);
+
 			System.out.println("Error: "
 					+errorObj.psiGet("errorname")
 					+" in "

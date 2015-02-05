@@ -12,7 +12,7 @@
 		lt { pop exit } if
 
 		1 index exch
-		mod 0 eq
+		mod iszero
 		{
 			exch not exch
 			exit

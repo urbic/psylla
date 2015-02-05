@@ -25,6 +25,7 @@ public class Interpreter
 		{
 			// NOP
 		}
+		pushStopLevel();
 	}
 
 	/**
@@ -127,6 +128,18 @@ public class Interpreter
 		catch(PsiException e)
 		{
 			error(e.kind(), reader);
+			if(getStopFlag())
+			{
+				try
+				{
+					((PsiDictionarylike)dictstack.load("errordict"))
+						.psiGet("handleerror").invoke(this);
+				}
+				catch(PsiException xxx)
+				{
+					// NOP
+				}
+			}
 		}
 	}
 
@@ -174,7 +187,7 @@ public class Interpreter
 		procstack.push(new PsiProcedure());
 		interpret(reader);
 		if(procstack.size()==0)
-			error("syntaxerror", reader);
+			throw new PsiException("syntaxerror");
 		else
 		{
 			PsiProcedure proc=procstack.pop();
@@ -194,7 +207,6 @@ public class Interpreter
 			{
 				case ParserConstants.TOKEN_COMMAND:
 					(newPsiObject(token)).execute(this);
-					assert execstack.size()==0: "Execution stack not empty";
 					handleExecutionStack(0);
 					break;
 				case ParserConstants.TOKEN_INTEGER:
@@ -478,7 +490,7 @@ public class Interpreter
 		throws PsiException
 	{
 		PsiDictionarylike errorObj=(PsiDictionarylike)getSystemDictionary().psiGet("$error");
-		errorObj.psiPut("newerror", new PsiBoolean(true));
+		errorObj.psiPut("newerror", PsiBoolean.TRUE);
 		errorObj.psiPut("errorname", new PsiName(errorName));
 		errorObj.psiPut("command", obj);
 		errorObj.psiPut("ostack", new PsiArray((java.util.ArrayList<PsiObject>)opstack.clone()));
@@ -486,7 +498,17 @@ public class Interpreter
 		errorObj.psiPut("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dictstack.clone()));
 		// TODO invoke "stop"
 		PsiDictionarylike errorDict=(PsiDictionarylike)dictstack.load("errordict");
-		errorDict.psiGet("handleerror").invoke(this);
+	
+		try
+		{
+			errorDict.psiGet(errorName).invoke(this);
+		}
+		catch(PsiException e)
+		{
+			//errorDict.psiGet("defaulthandler").invoke(this);
+			getSystemDictionary().psiGet("stop").invoke(this);
+		}
+		
 	}
 
 	public void showStacks()

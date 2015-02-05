@@ -14,7 +14,7 @@ public class _stop extends PsiOperator
 		else
 		{
 			// TODO?
-			//System.out.println("STOP OUTSIDE STOPPED CONTEXT");
+			System.out.println("STOP OUTSIDE STOPPED CONTEXT, EXITING…");
 			System.exit(0);
 		}
 	}
