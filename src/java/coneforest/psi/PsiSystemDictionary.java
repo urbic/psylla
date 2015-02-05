@@ -200,6 +200,9 @@ public class PsiSystemDictionary
 		psiPut("stdrandom", new PsiRandom());
 		psiPut("version", new PsiString(""+Version.getVersion()));
 		psiPut("product", new PsiString("Psyche"));
+		psiPut("osname", new PsiName(System.getProperty("os.name")));
+		psiPut("osversion", new PsiName(System.getProperty("os.version")));
+		psiPut("username", new PsiName(System.getProperty("user.name")));
 		psiPut("classpath", new PsiClassLoader());
 		psiPut("eol", new PsiString(System.getProperty("line.separator")));
 		psiPut("$error", new PsiDictionary());

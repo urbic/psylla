@@ -9,13 +9,23 @@ public class Psyche
 		int processed;
 		try
 		{
+			try
+			{
+				cli=new coneforest.cli.CLIProcessor
+					(
+						new coneforest.cli.OptionFlag("help", "h", "?"),
+						new coneforest.cli.OptionFlag("version", "V"),
+						new coneforest.cli.OptionString("console-encoding", "C"),
+						new coneforest.cli.OptionPath("classpath", "cp"),
+						new coneforest.cli.OptionString("eval", "e")
+					);
+			}
+			catch(coneforest.cli.CLIConfigurationException e)
+			{
+				System.err.println(e.getMessage());
+				System.exit(1);
+			}
 			processed=cli.parse(args, 0);
-
-			if(cli.getValue("help"))
-				help();
-
-			if(cli.getValue("version"))
-				version();
 
 			if(cli.getValue("console-encoding")!=null)
 				consoleEncoding=((String)cli.getValue("console-encoding"));
@@ -26,17 +36,20 @@ public class Psyche
 					System.setOut(new java.io.PrintStream(System.out, true, consoleEncoding));
 					System.setErr(new java.io.PrintStream(System.err, true, consoleEncoding));
 				}
-				catch(java.io.UnsupportedEncodingException ex)
+				catch(java.io.UnsupportedEncodingException e)
 				{
 					System.err.println(String.format(messages.getString("unsupportedEncodingText"),
 						consoleEncoding));
 					System.exit(1);
 				}
 			}
+			if(cli.getValue("help"))
+				help();
+			if(cli.getValue("version"))
+				version();
 
 			Interpreter interpreter=new Interpreter();
 			interpreter.acceptEnvironment(System.getenv());
-
 			interpreter.setReader(new java.io.InputStreamReader(System.in));
 			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
 
@@ -72,6 +85,7 @@ public class Psyche
 		catch(coneforest.cli.CLIProcessingException e)
 		{
 			System.err.println(e.getMessage());
+			System.exit(1);
 		}
 		catch(java.io.FileNotFoundException e)
 		{
@@ -98,24 +112,4 @@ public class Psyche
 		=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
 
 	private static coneforest.cli.CLIProcessor cli;
-
-	static
-	{
-		try
-		{
-			cli=new coneforest.cli.CLIProcessor
-				(
-					new coneforest.cli.OptionFlag("help", "h", "?"),
-					new coneforest.cli.OptionFlag("version", "V"),
-					new coneforest.cli.OptionString("console-encoding", "C"),
-					new coneforest.cli.OptionPath("classpath", "cp"),
-					new coneforest.cli.OptionString("eval", "e")
-				);
-		}
-		catch(coneforest.cli.CLIConfigurationException e)
-		{
-			System.err.println(e.getMessage());
-			System.exit(1);
-		}
-	}
 }
