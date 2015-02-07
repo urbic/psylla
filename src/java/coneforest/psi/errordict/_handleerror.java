@@ -29,7 +29,7 @@ public class _handleerror extends PsiOperator
 		}
 		catch(PsiException e)
 		{
-			throw new AssertionError();
+			// NOP
 		}
 
 		/*
