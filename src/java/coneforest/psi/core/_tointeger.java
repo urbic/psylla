@@ -9,7 +9,7 @@ public class _tointeger extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -21,7 +21,7 @@ public class _tointeger extends PsiOperator
 		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(convertable);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 
 		/*
@@ -34,12 +34,12 @@ public class _tointeger extends PsiOperator
 		catch(ClassCastException e)
 		{
 			opstack.push(numeric);
-			interpreter.error("typecheck", this);
+			interpreter.handleError("typecheck", this);
 		}
 		catch(PsiException e)
 		{
 			opstack.push(numeric);
-			interpreter.error(e.kind(), this);
+			interpreter.handleError(e.kind(), this);
 		}
 		*/
 
@@ -54,7 +54,7 @@ public class _tointeger extends PsiOperator
 			if(objValue>=Long.MIN_VALUE && objValue<=Long.MAX_VALUE)
 				opstack.push(new PsiInteger(((PsiReal)obj).getValue().intValue()));
 			else
-				interpreter.error("rangecheck", this);
+				interpreter.handleError("rangecheck", this);
 		}
 		else if(obj instanceof PsiString)
 		{
@@ -64,11 +64,11 @@ public class _tointeger extends PsiOperator
 			}
 			catch(NumberFormatException e)
 			{
-				interpreter.error("syntaxerror", this);
+				interpreter.handleError("syntaxerror", this);
 			}
 		}
 		else
-			interpreter.error("typecheck", this);
+			interpreter.handleError("typecheck", this);
 		*/
 
 	}

@@ -32,14 +32,14 @@ public class PsiScriptEngine
 	@Override
 	public Object eval(java.io.Reader reader, javax.script.ScriptContext context)
 	{
-		interpreter.eval(reader);
+		interpreter.interpret(reader);
 		return interpreter;
 	}
 
 	@Override
 	public Object eval(String string, javax.script.ScriptContext context)
 	{
-		interpreter.eval(string);
+		interpreter.interpret(string);
 		return interpreter;
 	}
 

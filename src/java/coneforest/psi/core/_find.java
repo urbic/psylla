@@ -9,7 +9,7 @@ public class _find extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -27,7 +27,7 @@ public class _find extends PsiOperator
 		{
 			opstack.push(stringlike);
 			opstack.push(regexp);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

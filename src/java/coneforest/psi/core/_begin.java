@@ -9,7 +9,7 @@ public class _begin extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -21,7 +21,7 @@ public class _begin extends PsiOperator
 		catch(ClassCastException e)
 		{
 			opstack.push(dict);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

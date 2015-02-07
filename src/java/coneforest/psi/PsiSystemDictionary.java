@@ -194,7 +194,7 @@ public class PsiSystemDictionary
 		psiPut("systemdict", this);
 		psiPut("globaldict", new PsiDictionary());
 		psiPut("userdict", new PsiDictionary());
-		psiPut("errordict", new coneforest.psi.PsiErrorDictionary());
+		psiPut("errordict", new PsiErrorDictionary());
 		psiPut("mathPI", new PsiReal(Math.PI));
 		psiPut("mathE", new PsiReal(Math.E));
 		psiPut("stdrandom", new PsiRandom());

@@ -9,7 +9,7 @@ public class _sqrt extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -21,7 +21,7 @@ public class _sqrt extends PsiOperator
 		catch(ClassCastException e)
 		{
 			opstack.push(cn);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 
 		/*
@@ -29,12 +29,12 @@ public class _sqrt extends PsiOperator
 		{
 			PsiReal result=PsiNumeric.sqrt((PsiNumeric)obj);
 			if(result.getValue().isNaN())
-				interpreter.error("rangecheck");
+				interpreter.handleError("rangecheck");
 			else
 				opstack.push(result);
 		}
 		else
-			interpreter.error("typecheck");
+			interpreter.handleError("typecheck");
 		*/
 	}
 }

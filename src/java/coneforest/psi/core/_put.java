@@ -9,7 +9,7 @@ public class _put extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -25,7 +25,7 @@ public class _put extends PsiOperator
 			opstack.push(indexed);
 			opstack.push(key);
 			opstack.push(obj);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

@@ -12,6 +12,8 @@ public interface PsiDictionarylike<V extends PsiObject>
 
 	public void psiPut(String key, V value);
 
+	public boolean known(String keyString);
+
 	public PsiBoolean psiKnown(String keyString);
 
 	public PsiBoolean psiKnown(PsiStringlike key);

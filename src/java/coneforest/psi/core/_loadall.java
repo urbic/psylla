@@ -9,7 +9,7 @@ public class _loadall extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 		}
 
 		final PsiObject iterable=opstack.pop();
@@ -22,7 +22,7 @@ public class _loadall extends PsiOperator
 		catch(ClassCastException e)
 		{
 			// TODO
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

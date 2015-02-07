@@ -61,7 +61,7 @@ public class Psyche
 				interpreter.acceptScriptName("--eval");
 				interpreter.acceptShellArguments(
 						java.util.Arrays.copyOfRange(args, processed, args.length));
-				interpreter.eval(new java.io.StringReader(cli.<String>getValue("eval")));
+				interpreter.interpret(new java.io.StringReader(cli.<String>getValue("eval")));
 			}
 			else if(processed<args.length)
 			{
@@ -69,7 +69,7 @@ public class Psyche
 				interpreter.acceptScriptName(scriptNname);
 				interpreter.acceptShellArguments(
 						java.util.Arrays.copyOfRange(args, processed+1, args.length));
-				interpreter.eval
+				interpreter.interpret
 					(
 						scriptNname.equals("-")?
 							new java.io.InputStreamReader(System.in):

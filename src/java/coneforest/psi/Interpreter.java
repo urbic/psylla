@@ -23,7 +23,7 @@ public class Interpreter
 		}
 		catch(PsiException e)
 		{
-			// NOP
+			throw new AssertionError();
 		}
 		pushStopLevel();
 	}
@@ -119,42 +119,17 @@ public class Interpreter
 		getSystemDictionary().psiPut("stderr", new PsiWriter(writer));
 	}
 
-	public void eval(final PsiReader reader)
+	public void interpret(final java.io.Reader readerValue)
 	{
-		try
-		{
-			interpret(reader);
-		}
-		catch(PsiException e)
-		{
-			error(e.kind(), reader);
-			if(getStopFlag())
-			{
-				try
-				{
-					((PsiDictionarylike)dictstack.load("errordict"))
-						.psiGet("handleerror").invoke(this);
-				}
-				catch(PsiException xxx)
-				{
-					// NOP
-				}
-			}
-		}
+		interpret(new PsiReader(readerValue));
 	}
 
-	public void eval(final java.io.Reader readerValue)
+	public void interpret(final String string)
 	{
-		eval(new PsiReader(readerValue));
-	}
-
-	public void eval(final String string)
-	{
-		eval(new PsiStringReader(string));
+		interpret(new PsiStringReader(string));
 	}
 
 	public void interpret(final PsiReader reader)
-		throws PsiException
 	{
 		final int procLevel=procstack.size();
 		Parser parser=new Parser(reader.getReader());
@@ -167,35 +142,40 @@ public class Interpreter
 					if(procstack.size()==procLevel)
 						return;
 					else
-						throw new PsiException("syntaxerror");
+						handleError("syntaxerror", reader);
 				processToken(token);
+				if(getStopFlag())
+				{
+					(new coneforest.psi.errordict._handleerror()).invoke(this);
+					System.exit(1);
+				}
 			}
+		}
+		catch(PsiException e)
+		{
+			handleError(e.kind(), reader);
 		}
 		catch(TokenMgrError e)
 		{
-			throw new PsiException("syntaxerror");
+			handleError("syntaxerror", reader);
 		}
 		catch(StackOverflowError e)
 		{
-			throw new PsiException("limitcheck");
+			handleError("limitcheck", reader);
 		}
 	}
 
 	public void interpretBraced(final PsiReader reader)
-		throws PsiException
 	{
 		procstack.push(new PsiProcedure());
 		interpret(reader);
 		if(procstack.size()==0)
-			throw new PsiException("syntaxerror");
+			handleError("syntaxerror", reader);
+		PsiProcedure proc=procstack.pop();
+		if(procstack.size()>0)
+			procstack.peek().psiAppend(proc);
 		else
-		{
-			PsiProcedure proc=procstack.pop();
-			if(procstack.size()>0)
-				procstack.peek().psiAppend(proc);
-			else
-				opstack.push(proc);
-		}
+			opstack.push(proc);
 	}
 
 	public void processToken(final Token token)
@@ -458,57 +438,47 @@ public class Interpreter
 		throw new PsiException("unknownerror");
 	}
 
-	public void error(final Exception e, final PsiObject obj)
+	public PsiDictionary getErrorDictionary()
 	{
-		String errorName;
-		if(e instanceof ClassCastException)
-			errorName="typecheck";
-		else if(e instanceof PsiException)
-			errorName=((PsiException)e).kind();
-		else
-			errorName="unknownerror";
 		try
 		{
-			handleError(errorName, obj);
+			return (PsiDictionary)getSystemDictionary().psiGet("errordict");
 		}
-		catch(PsiException xxx)
+		catch(PsiException e)
 		{
-			// TODO?
+			throw new AssertionError();
 		}
 	}
 
-	public void error(final String errorName, final PsiObject obj)
+	public void handleError(final Exception e, final PsiObject obj)
 	{
-		// TODO
-		opstack.push(obj);
-		System.out.println("XXX Error: /"+errorName+" in "+obj);
-		showStacks();
-		System.exit(1);
+		if(e instanceof PsiException)
+			handleError(((PsiException)e).kind(), obj);
+		else if(e instanceof ClassCastException)
+			handleError("typecheck", obj);
 	}
 
-	private void handleError(final String errorName, final PsiObject obj)
-		throws PsiException
+	public void handleError(final String errorName, final PsiObject obj)
 	{
-		PsiDictionarylike errorObj=(PsiDictionarylike)getSystemDictionary().psiGet("$error");
+		PsiDictionarylike errorObj=new PsiDictionary();
 		errorObj.psiPut("newerror", PsiBoolean.TRUE);
 		errorObj.psiPut("errorname", new PsiName(errorName));
 		errorObj.psiPut("command", obj);
 		errorObj.psiPut("ostack", new PsiArray((java.util.ArrayList<PsiObject>)opstack.clone()));
 		errorObj.psiPut("estack", new PsiArray((java.util.ArrayList<PsiObject>)execstack.clone()));
 		errorObj.psiPut("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dictstack.clone()));
-		// TODO invoke "stop"
-		PsiDictionarylike errorDict=(PsiDictionarylike)dictstack.load("errordict");
-	
+		getSystemDictionary().psiPut("$error", errorObj);
+
 		try
 		{
-			errorDict.psiGet(errorName).invoke(this);
+			PsiDictionary errorDict=getErrorDictionary();
+			(errorDict.known(errorName)? errorDict.psiGet(errorName): new coneforest.psi.core._stop())
+				.invoke(this);
 		}
 		catch(PsiException e)
 		{
-			//errorDict.psiGet("defaulthandler").invoke(this);
-			getSystemDictionary().psiGet("stop").invoke(this);
+			throw new AssertionError();
 		}
-		
 	}
 
 	public void showStacks()
