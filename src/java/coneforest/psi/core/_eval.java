@@ -9,7 +9,7 @@ public class _eval extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -21,7 +21,7 @@ public class _eval extends PsiOperator
 		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(evaluable);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

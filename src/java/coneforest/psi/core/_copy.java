@@ -9,7 +9,7 @@ public class _copy extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -18,9 +18,9 @@ public class _copy extends PsiOperator
 		{
 			int nValue=((PsiInteger)n).intValue();
 			if(nValue<0)
-				interpreter.error("rangecheck", this);
+				interpreter.handleError("rangecheck", this);
 			else if(opstack.size()<nValue)
-				interpreter.error("stackunderflow", this);
+				interpreter.handleError("stackunderflow", this);
 			else
 			{
 				int opsize=opstack.size();
@@ -32,7 +32,7 @@ public class _copy extends PsiOperator
 		catch(ClassCastException e)
 		{
 			opstack.push(n);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

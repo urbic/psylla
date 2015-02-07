@@ -9,7 +9,7 @@ public class _retainall extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -23,7 +23,7 @@ public class _retainall extends PsiOperator
 		{
 			opstack.push(setlike);
 			opstack.push(iterable);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

@@ -9,7 +9,7 @@ public class _pow extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -23,7 +23,7 @@ public class _pow extends PsiOperator
 		{
 			opstack.push(cn1);
 			opstack.push(cn2);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

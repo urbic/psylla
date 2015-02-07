@@ -9,7 +9,7 @@ public class _for extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<4)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -47,7 +47,7 @@ public class _for extends PsiOperator
 			opstack.push(increment_);
 			opstack.push(limit_);
 			opstack.push(obj);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

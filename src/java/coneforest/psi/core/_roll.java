@@ -10,7 +10,7 @@ public class _roll extends PsiOperator
 
 		if(opstack.size()<3)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -38,7 +38,7 @@ public class _roll extends PsiOperator
 		{
 			opstack.push(n);
 			opstack.push(j);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

@@ -24,6 +24,9 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 	}
 
 	@Override
+	abstract public boolean known(String keyString);
+
+	@Override
 	public PsiBoolean psiKnown(PsiStringlike key)
 	{
 		return psiKnown(key.getString());

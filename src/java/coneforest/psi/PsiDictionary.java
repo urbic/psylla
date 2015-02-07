@@ -45,9 +45,15 @@ public class PsiDictionary
 	}
 
 	@Override
+	public boolean known(String keyString)
+	{
+		return dictionary.containsKey(keyString);
+	}
+
+	@Override
 	public PsiBoolean psiKnown(String keyString)
 	{
-		return PsiBoolean.valueOf(dictionary.containsKey(keyString));
+		return PsiBoolean.valueOf(known(keyString));
 	}
 
 	@Override

@@ -9,7 +9,7 @@ public class _getinterval extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<3)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -25,7 +25,7 @@ public class _getinterval extends PsiOperator
 			opstack.push(arraylike);
 			opstack.push(index);
 			opstack.push(count);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

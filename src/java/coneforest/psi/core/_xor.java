@@ -9,7 +9,7 @@ public class _xor extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -23,7 +23,7 @@ public class _xor extends PsiOperator
 		{
 			opstack.push(logical1);
 			opstack.push(logical2);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

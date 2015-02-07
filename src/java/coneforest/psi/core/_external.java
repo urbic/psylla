@@ -9,7 +9,7 @@ public class _external extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -22,7 +22,7 @@ public class _external extends PsiOperator
 		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(stringlike);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

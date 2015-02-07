@@ -9,7 +9,7 @@ public class _repeat extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -36,7 +36,7 @@ public class _repeat extends PsiOperator
 		{
 			opstack.push(count);
 			opstack.push(obj);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

@@ -17,7 +17,7 @@ public class PsiCommand
 		}
 		catch(PsiException e)
 		{
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 

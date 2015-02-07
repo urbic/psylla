@@ -9,6 +9,6 @@ public class _abort extends PsiOperator
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
-		interpreter.error("abort", this);
+		interpreter.handleError("abort", this);
 	}
 }

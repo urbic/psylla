@@ -9,7 +9,7 @@ public class _read extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -25,7 +25,7 @@ public class _read extends PsiOperator
 		catch(ClassCastException|PsiException e)
 		{
 			opstack.push(readable);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

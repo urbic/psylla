@@ -9,7 +9,7 @@ public class _getgroupstart extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<2)
 		{
-			interpreter.error("stackunderflow", this);
+			interpreter.handleError("stackunderflow", this);
 			return;
 		}
 
@@ -23,7 +23,7 @@ public class _getgroupstart extends PsiOperator
 		{
 			opstack.push(matcher);
 			opstack.push(key);
-			interpreter.error(e, this);
+			interpreter.handleError(e, this);
 		}
 	}
 }

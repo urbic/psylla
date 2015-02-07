@@ -26,7 +26,7 @@ public class PsiRomanNumerals
 			OperandStack opstack=interpreter.getOperandStack();
 			if(opstack.size()<1)
 			{
-				interpreter.error("stackunderflow", this);
+				interpreter.handleError("stackunderflow", this);
 				return;
 			}
 
@@ -38,7 +38,7 @@ public class PsiRomanNumerals
 			catch(ClassCastException|PsiException e)
 			{
 				opstack.push(integer);
-				interpreter.error(e, this);
+				interpreter.handleError(e, this);
 			}
 		}
 
@@ -64,7 +64,7 @@ public class PsiRomanNumerals
 			OperandStack opstack=interpreter.getOperandStack();
 			if(opstack.size()<1)
 			{
-				interpreter.error("stackunderflow", this);
+				interpreter.handleError("stackunderflow", this);
 				return;
 			}
 
@@ -76,7 +76,7 @@ public class PsiRomanNumerals
 			catch(ClassCastException|PsiException e)
 			{
 				opstack.push(stringlike);
-				interpreter.error(e, this);
+				interpreter.handleError(e, this);
 			}
 		}
 

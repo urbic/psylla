@@ -19,6 +19,6 @@ public class _arraytomark extends PsiOperator
 				return;
 			}
 		}
-		interpreter.error("unmatchedmark", this);
+		interpreter.handleError("unmatchedmark", this);
 	}
 }
