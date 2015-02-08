@@ -21,25 +21,11 @@ public class PsiRomanNumerals
 		extends PsiOperator
 	{
 		@Override
-		public void invoke(Interpreter interpreter)
+		public void action(Interpreter interpreter)
+			throws ClassCastException, PsiException
 		{
 			OperandStack opstack=interpreter.getOperandStack();
-			if(opstack.size()<1)
-			{
-				interpreter.handleError("stackunderflow", this);
-				return;
-			}
-
-			PsiObject integer=opstack.pop();
-			try
-			{
-				opstack.push(psiToRoman((PsiInteger)integer));
-			}
-			catch(ClassCastException|PsiException e)
-			{
-				opstack.push(integer);
-				interpreter.handleError(e, this);
-			}
+			opstack.push(psiToRoman((PsiInteger)opstack.popOperands(1)[0]));
 		}
 
 		private PsiString psiToRoman(PsiInteger integer)
@@ -59,25 +45,11 @@ public class PsiRomanNumerals
 		extends PsiOperator
 	{
 		@Override
-		public void invoke(Interpreter interpreter)
+		public void action(Interpreter interpreter)
+			throws ClassCastException, PsiException
 		{
 			OperandStack opstack=interpreter.getOperandStack();
-			if(opstack.size()<1)
-			{
-				interpreter.handleError("stackunderflow", this);
-				return;
-			}
-
-			PsiObject stringlike=opstack.pop();
-			try
-			{
-				opstack.push(psiFromRoman((PsiStringlike)stringlike));
-			}
-			catch(ClassCastException|PsiException e)
-			{
-				opstack.push(stringlike);
-				interpreter.handleError(e, this);
-			}
+			opstack.push(psiFromRoman((PsiStringlike)opstack.popOperands(1)[0]));
 		}
 
 		private PsiInteger psiFromRoman(PsiStringlike stringlike)

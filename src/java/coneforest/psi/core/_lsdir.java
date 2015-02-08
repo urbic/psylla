@@ -4,38 +4,24 @@ import coneforest.psi.*;
 public class _lsdir extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject stringlike=opstack.pop();
+		String dirName=Utility.fileNameToNative(((PsiStringlike)opstack.popOperands(1)[0]).getString());
 		try
 		{
-			String dirName=Utility.fileNameToNative(((PsiStringlike)stringlike).getString());
-			try
-			{
-				String[] list=new java.io.File(dirName).list();
-				PsiArray array=new PsiArray();
-				if(array==null)
-					throw new PsiException("ioerror");
-				for(String item: list)
-					array.psiAppend(new PsiString(item));
-				opstack.push(array);
-			}
-			catch(SecurityException e)
-			{
-				throw new PsiException("security");
-			}
+			String[] list=new java.io.File(dirName).list();
+			PsiArray array=new PsiArray();
+			if(list==null)
+				throw new PsiException("ioerror");
+			for(String item: list)
+				array.psiAppend(new PsiString(item));
+			opstack.push(array);
 		}
-		catch(ClassCastException|PsiException e)
+		catch(SecurityException e)
 		{
-			opstack.push(stringlike);
-			interpreter.handleError(e, this);
+			throw new PsiException("security");
 		}
 	}
 }

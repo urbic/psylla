@@ -4,7 +4,8 @@ import coneforest.psi.*;
 public class _cleartomark extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
@@ -13,6 +14,6 @@ public class _cleartomark extends PsiOperator
 				opstack.setSize(i);
 				return;
 			}
-		interpreter.handleError("unmatchedmark", this);
+		throw new PsiException("unmatchedmark");
 	}
 }

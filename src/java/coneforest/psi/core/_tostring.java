@@ -4,24 +4,10 @@ import coneforest.psi.*;
 public class _tostring extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject convertable=opstack.pop();
-		try
-		{
-			opstack.push(((PsiConvertableToString)convertable).psiToString());
-		}
-		catch(ClassCastException e)
-		{
-			opstack.push(convertable);
-			interpreter.handleError(e, this);
-		}
+		opstack.push(((PsiConvertableToString)opstack.popOperands(1)[0]).psiToString());
 	}
 }

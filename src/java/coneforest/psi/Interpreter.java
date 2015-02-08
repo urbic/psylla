@@ -146,7 +146,7 @@ public class Interpreter
 				processToken(token);
 				if(getStopFlag())
 				{
-					(new coneforest.psi.errordict._handleerror()).invoke(this);
+					(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
 					System.exit(1);
 				}
 			}
@@ -460,6 +460,7 @@ public class Interpreter
 
 	public void handleError(final String errorName, final PsiObject obj)
 	{
+		opstack.restore();
 		PsiDictionarylike errorObj=new PsiDictionary();
 		errorObj.psiPut("newerror", PsiBoolean.TRUE);
 		errorObj.psiPut("errorname", new PsiName(errorName));

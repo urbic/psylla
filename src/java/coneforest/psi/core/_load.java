@@ -4,24 +4,10 @@ import coneforest.psi.*;
 public class _load extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject key=opstack.pop();
-		try
-		{
-			opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)key));
-		}
-		catch(ClassCastException|PsiException e)
-		{
-			opstack.push(key);
-			interpreter.handleError(e, this);
-		}
+		opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)opstack.popOperands(1)[0]));
 	}
 }

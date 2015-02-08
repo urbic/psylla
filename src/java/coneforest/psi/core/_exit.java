@@ -4,13 +4,11 @@ import coneforest.psi.*;
 public class _exit extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		if(interpreter.currentLoopLevel()==-1)
-		{
-			interpreter.handleError("invalidexit", this);
-			return;
-		}
+			throw new PsiException("invalidexit");
 		interpreter.getExecutionStack().setSize(interpreter.currentLoopLevel());
 		interpreter.setExitFlag(true);
 	}

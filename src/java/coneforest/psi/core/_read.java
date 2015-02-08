@@ -4,28 +4,14 @@ import coneforest.psi.*;
 public class _read extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject readable=opstack.pop();
-		try
-		{
-			PsiInteger character=((PsiReadable)readable).psiRead();
-			boolean notEOF=(character.intValue()!=-1);
-			if(notEOF)
-				opstack.push(character);
-			opstack.push(new PsiBoolean(notEOF));
-		}
-		catch(ClassCastException|PsiException e)
-		{
-			opstack.push(readable);
-			interpreter.handleError(e, this);
-		}
+		PsiInteger character=((PsiReadable)opstack.popOperands(1)[0]).psiRead();
+		boolean notEOF=(character.intValue()!=-1);
+		if(notEOF)
+			opstack.push(character);
+		opstack.push(new PsiBoolean(notEOF));
 	}
 }

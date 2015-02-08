@@ -4,16 +4,11 @@ import coneforest.psi.*;
 public class _loop extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject obj=opstack.pop();
+		final PsiObject obj=opstack.popOperands(1)[0];
 
 		int looplevel=interpreter.pushLoopLevel();
 		while(!interpreter.getExitFlag())

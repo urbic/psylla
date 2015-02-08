@@ -52,9 +52,8 @@ public abstract class PsiOperator
 		}
 	}
 
-	public void action(Interpreter interpreter)
-		throws ClassCastException, PsiException
-	{}
+	abstract public void action(Interpreter interpreter)
+		throws ClassCastException, PsiException;
 
 	/**
 	 *	Returns a syntatctic string representation of a name of this operator.

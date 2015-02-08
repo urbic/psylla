@@ -4,14 +4,10 @@ import coneforest.psi.*;
 public class _clone extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-		opstack.push(opstack.pop().psiClone());
+		opstack.push(opstack.popOperands(1)[0].psiClone());
 	}
 }
