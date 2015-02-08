@@ -34,7 +34,27 @@ public abstract class PsiOperator
 	 *
 	 *	@param interpreter an interpreter.
 	 */
-	public abstract void invoke(Interpreter interpreter);
+	//public abstract void invoke(Interpreter interpreter);
+	public void invoke(Interpreter interpreter)
+	{
+		interpreter.getOperandStack().clearBackup();
+		try
+		{
+			action(interpreter);
+		}
+		catch(ClassCastException e)
+		{
+			interpreter.handleError("typecheck", this);
+		}
+		catch(PsiException e)
+		{
+			interpreter.handleError(e.kind(), this);
+		}
+	}
+
+	public void action(Interpreter interpreter)
+		throws ClassCastException, PsiException
+	{}
 
 	/**
 	 *	Returns a syntatctic string representation of a name of this operator.
