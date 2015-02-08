@@ -4,24 +4,10 @@ import coneforest.psi.*;
 public class _cbrt extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject cn=opstack.pop();
-		try
-		{
-			opstack.push(((PsiComplexNumeric)cn).psiCbrt());
-		}
-		catch(ClassCastException e)
-		{
-			opstack.push(cn);
-			interpreter.handleError(e, this);
-		}
+		opstack.push(((PsiComplexNumeric)opstack.popOperands(1)[0]).psiCbrt());
 	}
 }

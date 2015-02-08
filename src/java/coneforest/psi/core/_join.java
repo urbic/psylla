@@ -4,26 +4,11 @@ import coneforest.psi.*;
 public class _join extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<2)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject arraylike=opstack.pop();
-		final PsiObject string=opstack.pop();
-		try
-		{
-			opstack.push(((PsiString)string).psiJoin((PsiArraylike)arraylike));
-		}
-		catch(ClassCastException|PsiException e)
-		{
-			opstack.push(string);
-			opstack.push(arraylike);
-			interpreter.handleError(e, this);
-		}
+		final PsiObject[] ops=opstack.popOperands(2);
+		opstack.push(((PsiString)ops[0]).psiJoin((PsiArraylike)ops[1]));
 	}
 }

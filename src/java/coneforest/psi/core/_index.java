@@ -4,30 +4,14 @@ import coneforest.psi.*;
 public class _index extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject n=opstack.pop();
-		try
-		{
-			int nValue=((PsiInteger)n).intValue();
-			if(nValue<0)
-				throw new PsiException("rangecheck");
-			else if(opstack.size()<nValue+1)
-				throw new PsiException("stackunderflow");
-			else
-				opstack.push(opstack.get(opstack.size()-nValue-1));
-		}
-		catch(ClassCastException|PsiException e)
-		{
-			opstack.push(n);
-			interpreter.handleError(e, this);
-		}
+		int nValue=((PsiInteger)opstack.popOperands(1)[0]).intValue();
+		if(nValue<0)
+			throw new PsiException("rangecheck");
+		opstack.ensureSize(nValue+1);
+		opstack.push(opstack.get(opstack.size()-nValue-1));
 	}
 }

@@ -4,26 +4,11 @@ import coneforest.psi.*;
 public class _bitshift extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<2)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject shift=opstack.pop();
-		final PsiObject obj=opstack.pop();
-		try
-		{
-			opstack.push(((PsiInteger)obj).psiBitShift((PsiInteger)shift));
-		}
-		catch(ClassCastException e)
-		{
-			opstack.push(obj);
-			opstack.push(shift);
-			interpreter.handleError(e, this);
-		}
+		final PsiObject[] ops=opstack.popOperands(2);
+		opstack.push(((PsiInteger)ops[0]).psiBitShift((PsiInteger)ops[1]));
 	}
 }

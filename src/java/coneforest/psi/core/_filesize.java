@@ -4,38 +4,24 @@ import coneforest.psi.*;
 public class _filesize extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject stringlike=opstack.pop();
+		String name=Utility.fileNameToNative(((PsiStringlike)opstack.popOperands(1)[0]).getString());
 		try
 		{
-			String name=Utility.fileNameToNative(((PsiStringlike)stringlike).getString());
-			try
-			{
-				java.nio.file.attribute.BasicFileAttributes attrs
-					=java.nio.file.Files.readAttributes((new java.io.File(name)).toPath(), java.nio.file.attribute.BasicFileAttributes.class);
-				opstack.push(new PsiInteger(attrs.size()));
-			}
-			catch(java.io.IOException e)
-			{
-				throw new PsiException("ioerror");
-			}
-			catch(SecurityException e)
-			{
-				throw new PsiException("security");
-			}
+			java.nio.file.attribute.BasicFileAttributes attrs
+				=java.nio.file.Files.readAttributes((new java.io.File(name)).toPath(), java.nio.file.attribute.BasicFileAttributes.class);
+			opstack.push(new PsiInteger(attrs.size()));
 		}
-		catch(ClassCastException|PsiException e)
+		catch(java.io.IOException e)
 		{
-			opstack.push(stringlike);
-			interpreter.handleError(e, this);
+			throw new PsiException("ioerror");
+		}
+		catch(SecurityException e)
+		{
+			throw new PsiException("security");
 		}
 	}
 }

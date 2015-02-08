@@ -4,23 +4,10 @@ import coneforest.psi.*;
 public class _ceiling extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject numeric=opstack.pop();
-		try
-		{
-			opstack.push(((PsiNumeric)numeric).psiCeiling());
-		}
-		catch(ClassCastException e)
-		{
-			interpreter.handleError(e, this);
-		}
+		opstack.push(((PsiNumeric)opstack.popOperands(1)[0]).psiCeiling());
 	}
 }

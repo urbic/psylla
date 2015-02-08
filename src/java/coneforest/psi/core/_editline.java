@@ -4,7 +4,8 @@ import coneforest.psi.*;
 public class _editline extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		try
 		{
@@ -14,11 +15,7 @@ public class _editline extends PsiOperator
 		}
 		catch(java.io.IOException e)
 		{
-			interpreter.handleError("ioerror", this);
-		}
-		catch(ClassCastException e)
-		{
-			interpreter.handleError(e, this);
+			throw new PsiException("ioerror");
 		}
 	}
 

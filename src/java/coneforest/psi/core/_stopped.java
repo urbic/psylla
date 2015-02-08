@@ -4,17 +4,13 @@ import coneforest.psi.*;
 public class _stopped extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
+		PsiObject obj=opstack.popOperands(1)[0];
 		final int stopLevel=interpreter.pushStopLevel();
-		opstack.pop().invoke(interpreter);
+		obj.invoke(interpreter);
 		interpreter.handleExecutionStack(stopLevel);
 		opstack.push(new PsiBoolean(interpreter.getStopFlag()));
 		interpreter.setStopFlag(false);

@@ -8,24 +8,10 @@ import coneforest.psi.*;
 public class _abs extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject arithmetic=opstack.pop();
-		try
-		{
-			opstack.push(((PsiArithmetic)arithmetic).psiAbs());
-		}
-		catch(ClassCastException e)
-		{
-			opstack.push(arithmetic);
-			interpreter.handleError(e, this);
-		}
+		opstack.push(((PsiArithmetic)opstack.popOperands(1)[0]).psiAbs());
 	}
 }

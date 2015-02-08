@@ -4,11 +4,11 @@ import coneforest.psi.*;
 public class _settomark extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
-		{
 			if(opstack.get(i) instanceof PsiMark)
 			{
 				PsiSet set=new PsiSet();
@@ -18,7 +18,6 @@ public class _settomark extends PsiOperator
 				opstack.push(set);
 				return;
 			}
-		}
-		interpreter.handleError("unmatchedmark", this);
+		throw new PsiException("unmatchedmark");
 	}
 }

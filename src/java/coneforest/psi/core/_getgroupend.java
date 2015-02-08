@@ -4,26 +4,11 @@ import coneforest.psi.*;
 public class _getgroupend extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<2)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject key=opstack.pop();
-		final PsiObject matcher=opstack.pop();
-		try
-		{
-			opstack.push(((PsiMatcher)matcher).psiGetGroupEnd((PsiInteger)key));
-		}
-		catch(PsiException|ClassCastException e)
-		{
-			opstack.push(matcher);
-			opstack.push(key);
-			interpreter.handleError(e, this);
-		}
+		final PsiObject[] ops=opstack.popOperands(2);
+		opstack.push(((PsiMatcher)ops[0]).psiGetGroupEnd((PsiInteger)ops[1]));
 	}
 }

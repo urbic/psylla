@@ -13,6 +13,8 @@ public interface PsiObject
 	 */
 	public String getTypeName();
 
+	public PsiCommand psiType();
+
 	/**
 	 *	Execute this object in the context of the interpreter. Pushes this
 	 *	object into interpreter’s operand stack.

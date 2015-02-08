@@ -4,12 +4,12 @@ import coneforest.psi.*;
 public class _pop extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-			interpreter.handleError("stackunderflow", this);
-		else
-			opstack.pop();
+		opstack.ensureSize(1);
+		opstack.pop();
+		//opstack.popOperands(1);
 	}
 }

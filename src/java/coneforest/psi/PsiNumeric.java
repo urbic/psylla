@@ -158,7 +158,7 @@ abstract public class PsiNumeric
 		return new PsiReal(Math.atan(doubleValue()));
 	}
 
-	public PsiReal hypot(PsiNumeric numeric)
+	public PsiReal psiHypot(PsiNumeric numeric)
 	{
 		return new PsiReal(Math.hypot(doubleValue(), numeric.doubleValue()));
 	}

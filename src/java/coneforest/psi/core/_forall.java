@@ -4,21 +4,16 @@ import coneforest.psi.*;
 public class _forall extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<2)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject obj=opstack.pop();
-		final PsiObject iterable=opstack.pop();
+		final PsiObject[] ops=opstack.popOperands(2);
+		final PsiIterable iterable=(PsiIterable)ops[0];
+		final PsiObject obj=ops[1];
 
 		if(iterable instanceof PsiDictionarylike)
 		{
-			///*
 			final int loopLevel=interpreter.pushLoopLevel();
 			for(java.util.Map.Entry<String, PsiObject> entry:
 						(PsiIterable<java.util.Map.Entry<String, PsiObject>>)iterable)
@@ -32,13 +27,11 @@ public class _forall extends PsiOperator
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
-			//*/
-			//((PsiDictionarylike)iterable).psiForAll(obj, interpreter);
 		}
 		else if(iterable instanceof PsiIterable)
 		{
 			final int loopLevel=interpreter.pushLoopLevel();
-			for(PsiObject element: ((PsiIterable<? extends PsiObject>)iterable))
+			for(PsiObject element: (PsiIterable<? extends PsiObject>)iterable)
 			{
 				if(interpreter.getExitFlag())
 					break;
@@ -50,7 +43,6 @@ public class _forall extends PsiOperator
 			interpreter.setExitFlag(false);
 		}
 		else
-			interpreter.handleError("typecheck", this);
+			throw new PsiException("typecheck");
 	}
-
 }

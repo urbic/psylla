@@ -4,28 +4,11 @@ import coneforest.psi.*;
 public class _getinterval extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<3)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject count=opstack.pop();
-		final PsiObject index=opstack.pop();
-		final PsiObject arraylike=opstack.pop();
-		try
-		{
-			opstack.push(((PsiArraylike)arraylike).psiGetInterval((PsiInteger)index, (PsiInteger)count));
-		}
-		catch(ClassCastException|PsiException e)
-		{
-			opstack.push(arraylike);
-			opstack.push(index);
-			opstack.push(count);
-			interpreter.handleError(e, this);
-		}
+		final PsiObject[] ops=opstack.popOperands(3);
+		opstack.push(((PsiArraylike)ops[0]).psiGetInterval((PsiInteger)ops[1], (PsiInteger)ops[2]));
 	}
 }

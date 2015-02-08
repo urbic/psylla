@@ -4,32 +4,18 @@ import coneforest.psi.*;
 public class _isfile extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject stringlike=opstack.pop();
+		String name=Utility.fileNameToNative(((PsiStringlike)opstack.popOperands(1)[0]).getString());
 		try
 		{
-			String name=Utility.fileNameToNative(((PsiStringlike)stringlike).getString());
-			try
-			{
-				opstack.push(new PsiBoolean((new java.io.File(name)).isFile()));
-			}
-			catch(SecurityException e)
-			{
-				throw new PsiException("security");
-			}
+			opstack.push(new PsiBoolean((new java.io.File(name)).isFile()));
 		}
-		catch(ClassCastException|PsiException e)
+		catch(SecurityException e)
 		{
-			opstack.push(stringlike);
-			interpreter.handleError(e, this);
+			throw new PsiException("security");
 		}
 	}
 }

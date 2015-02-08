@@ -4,24 +4,10 @@ import coneforest.psi.*;
 public class _not extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
-
-		final PsiObject logical=opstack.pop();
-		try
-		{
-			opstack.push(((PsiLogical)logical).psiNot());
-		}
-		catch(ClassCastException e)
-		{
-			opstack.push(logical);
-			interpreter.handleError(e, this);
-		}
+		opstack.push(((PsiLogical)opstack.popOperands(1)[0]).psiNot());
 	}
 }

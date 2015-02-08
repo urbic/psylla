@@ -7,8 +7,9 @@ import coneforest.psi.*;
 public class _abort extends PsiOperator
 {
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
-		interpreter.handleError("abort", this);
+		throw new PsiException("abort");
 	}
 }

@@ -12,6 +12,11 @@ abstract public class PsiAbstractObject
 	 *	@return a type name.
 	 */
 	abstract public String getTypeName();
+	
+	public PsiCommand psiType()
+	{
+		return new PsiCommand(getTypeName()+"type");
+	}
 
 	/**
 	 *	Execute this object in the context of the interpreter. Pushes this
