@@ -65,7 +65,6 @@ public class PsiSystemDictionary
 					_exit.class,
 					_exp.class,
 					_external.class,
-					_false.class,
 					_fileexists.class,
 					_filereader.class,
 					_filesize.class,
@@ -107,7 +106,6 @@ public class PsiSystemDictionary
 					_loop.class,
 					_lt.class,
 					_lsdir.class,
-					_mark.class,
 					_max.class,
 					_min.class,
 					_mkdir.class,
@@ -117,7 +115,6 @@ public class PsiSystemDictionary
 					_neg.class,
 					_normaldeviate.class,
 					_not.class,
-					_null.class,
 					_or.class,
 					_pop.class,
 					_pow.class,
@@ -167,7 +164,6 @@ public class PsiSystemDictionary
 					_toname.class,
 					_toreal.class,
 					_tostring.class,
-					_true.class,
 					_type.class,
 					_undef.class,
 					_uniformboolean.class,
@@ -178,33 +174,36 @@ public class PsiSystemDictionary
 					_xor.class
 				);
 
-			PsiOperator markOperator=(PsiOperator)psiGet("mark");
-			psiPut("[", markOperator);
-			psiPut("<", markOperator);
-			psiPut("(", markOperator);
 			psiPut("]", psiGet("arraytomark"));
 			psiPut(">", psiGet("dicttomark"));
 			psiPut(")", psiGet("settomark"));
 			psiPut("?", psiGet("prettyprint"));
+			psiPut("systemdict", this);
+			psiPut("mark", PsiMark.MARK);
+			psiPut("null", PsiNull.NULL);
+			psiPut("[", PsiMark.MARK);
+			psiPut("<", PsiMark.MARK);
+			psiPut("(", PsiMark.MARK);
+			psiPut("true", PsiBoolean.TRUE);
+			psiPut("false", PsiBoolean.FALSE);
+			psiPut("globaldict", new PsiDictionary());
+			psiPut("userdict", new PsiDictionary());
+			psiPut("errordict", new PsiErrorDictionary());
+			psiPut("mathPI", new PsiReal(Math.PI));
+			psiPut("mathE", new PsiReal(Math.E));
+			psiPut("stdrandom", new PsiRandom());
+			psiPut("version", new PsiString(""+Version.getVersion()));
+			psiPut("product", new PsiString("Psyche"));
+			psiPut("osname", new PsiName(System.getProperty("os.name")));
+			psiPut("osversion", new PsiName(System.getProperty("os.version")));
+			psiPut("username", new PsiName(System.getProperty("user.name")));
+			psiPut("classpath", new PsiClassLoader());
+			psiPut("eol", new PsiString(System.getProperty("line.separator")));
+			psiPut("$error", new PsiDictionary());
 		}
 		catch(PsiException e)
 		{
-			// TODO
+			throw new AssertionError();
 		}
-		psiPut("systemdict", this);
-		psiPut("globaldict", new PsiDictionary());
-		psiPut("userdict", new PsiDictionary());
-		psiPut("errordict", new PsiErrorDictionary());
-		psiPut("mathPI", new PsiReal(Math.PI));
-		psiPut("mathE", new PsiReal(Math.E));
-		psiPut("stdrandom", new PsiRandom());
-		psiPut("version", new PsiString(""+Version.getVersion()));
-		psiPut("product", new PsiString("Psyche"));
-		psiPut("osname", new PsiName(System.getProperty("os.name")));
-		psiPut("osversion", new PsiName(System.getProperty("os.version")));
-		psiPut("username", new PsiName(System.getProperty("user.name")));
-		psiPut("classpath", new PsiClassLoader());
-		psiPut("eol", new PsiString(System.getProperty("line.separator")));
-		psiPut("$error", new PsiDictionary());
 	}
 }

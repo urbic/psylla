@@ -12,6 +12,6 @@ public class _readline extends PsiOperator
 		PsiString string=((PsiReadable)opstack.popOperands(1)[0]).psiReadLine(eol);
 		if(string.length()>0)
 			opstack.push(string);
-		opstack.push(new PsiBoolean(string.length()>0));
+		opstack.push(PsiBoolean.valueOf(string.length()>0));
 	}
 }

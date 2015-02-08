@@ -12,6 +12,6 @@ public class _read extends PsiOperator
 		boolean notEOF=(character.intValue()!=-1);
 		if(notEOF)
 			opstack.push(character);
-		opstack.push(new PsiBoolean(notEOF));
+		opstack.push(PsiBoolean.valueOf(notEOF));
 	}
 }

@@ -11,7 +11,7 @@ public class _isfile extends PsiOperator
 		String name=Utility.fileNameToNative(((PsiStringlike)opstack.popOperands(1)[0]).getString());
 		try
 		{
-			opstack.push(new PsiBoolean((new java.io.File(name)).isFile()));
+			opstack.push(PsiBoolean.valueOf((new java.io.File(name)).isFile()));
 		}
 		catch(SecurityException e)
 		{

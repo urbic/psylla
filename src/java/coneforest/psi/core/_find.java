@@ -13,6 +13,6 @@ public class _find extends PsiOperator
 		boolean resultValue=matcher.psiFind().booleanValue();
 		if(resultValue)
 			opstack.push(matcher);
-		opstack.push(new PsiBoolean(resultValue));
+		opstack.push(PsiBoolean.valueOf(resultValue));
 	}
 }

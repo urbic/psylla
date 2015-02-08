@@ -7,6 +7,10 @@ public final class PsiMark
 	extends PsiAbstractObject
 	implements PsiAtomic
 {
+	private PsiMark()
+	{
+	}
+
 	public String getTypeName() { return "mark"; }
 
 	public String toString()
@@ -17,7 +21,7 @@ public final class PsiMark
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return PsiBoolean.valueOf(obj instanceof PsiMark);
+		return PsiBoolean.valueOf(obj==MARK);
 	}
 
 	public static final PsiMark MARK=new PsiMark();

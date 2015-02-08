@@ -7,6 +7,10 @@ public final class PsiNull
 	extends PsiAbstractObject
 	implements PsiAtomic
 {
+	private PsiNull()
+	{
+	}
+
 	/**
 	 *	Returns a string representation of a type name.
 	 *
@@ -37,7 +41,7 @@ public final class PsiNull
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return PsiBoolean.valueOf(obj instanceof PsiNull);
+		return PsiBoolean.valueOf(obj==NULL);
 	}
 
 	public static final PsiNull NULL=new PsiNull();
