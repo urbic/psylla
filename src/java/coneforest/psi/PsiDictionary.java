@@ -71,7 +71,7 @@ public class PsiDictionary
 	@Override
 	public PsiInteger psiLength()
 	{
-		return new PsiInteger(length());
+		return PsiInteger.valueOf(length());
 	}
 
 	@Override

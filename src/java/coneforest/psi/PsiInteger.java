@@ -39,7 +39,7 @@ public class PsiInteger
 	@Override
 	public PsiInteger psiRe()
 	{
-		return new PsiInteger(value);
+		return this;
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class PsiInteger
 	@Override
 	public PsiInteger psiConjugate()
 	{
-		return new PsiInteger(value);
+		return this;
 	}
 
 	@Override
@@ -66,32 +66,32 @@ public class PsiInteger
 	@Override
 	public PsiInteger psiNot()
 	{
-		return new PsiInteger(~value);
+		return PsiInteger.valueOf(~value);
 	}
 
 	@Override
 	public PsiInteger psiOr(final PsiInteger integer)
 	{
-		return new PsiInteger(value | integer.value);
+		return PsiInteger.valueOf(value | integer.value);
 	}
 
 	@Override
 	public PsiInteger psiAnd(final PsiInteger integer)
 	{
-		return new PsiInteger(value & integer.value);
+		return PsiInteger.valueOf(value & integer.value);
 	}
 
 	@Override
 	public PsiInteger psiXor(final PsiInteger obj)
 	{
-		return new PsiInteger(value ^ obj.value);
+		return PsiInteger.valueOf(value ^ obj.value);
 	}
 
 	@Override
 	public PsiNumeric psiNeg()
 	{
 		return value!=Long.MIN_VALUE?
-			new PsiInteger(-value): new PsiReal(-value);
+			PsiInteger.valueOf(-value): new PsiReal(-value);
 	}
 
 	@Override
@@ -110,16 +110,15 @@ public class PsiInteger
 	@Override
 	public PsiNumeric psiAbs()
 	{
-		if(value!=Long.MIN_VALUE)
-			return new PsiInteger(value>=0? value: -value);
-		else
-			return new PsiReal(Math.abs(value));
+		if(value>0L)
+			return this;
+		return psiNeg();
 	}
 
 	@Override
 	public PsiInteger psiSignum()
 	{
-		return new PsiInteger(value>0? 1: value<0? -1: 0);
+		return value>0? ONE: value<0? MINUS_ONE: ZERO;
 	}
 
 	public PsiNumeric psiAdd(final PsiNumeric numeric)
@@ -132,7 +131,7 @@ public class PsiInteger
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedAdd(long, long)
 			return ((value^numericValue)<0|(value^resultValue)>=0)?
-					new PsiInteger(resultValue): new PsiReal(doubleValue()+numeric.doubleValue());
+					PsiInteger.valueOf(resultValue): new PsiReal(doubleValue()+numeric.doubleValue());
 		}
 		else
 			return new PsiReal(doubleValue()+numeric.doubleValue());
@@ -156,7 +155,7 @@ public class PsiInteger
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedSubtract(long, long)
 			return ((value^numericValue)>=0|(value^resultValue)>=0)?
-					new PsiInteger(resultValue): new PsiReal(doubleValue()-numeric.doubleValue());
+					PsiInteger.valueOf(resultValue): new PsiReal(doubleValue()-numeric.doubleValue());
 		}
 		else
 			return new PsiReal(doubleValue()+numeric.doubleValue());
@@ -191,13 +190,13 @@ public class PsiInteger
 				+Long.numberOfLeadingZeros(numericValue)
 				+Long.numberOfLeadingZeros(~numericValue);
 			if(leadingZeros>Long.SIZE+1)
-				return new PsiInteger(value*numericValue);
+				return PsiInteger.valueOf(value*numericValue);
 
 			if(leadingZeros>=Long.SIZE && value>=0 | numericValue!=Long.MIN_VALUE)
 			{
 				long resultValue=value*numericValue;
 				return (value==0 || resultValue/value==numericValue)?
-					new PsiInteger(resultValue): new PsiReal(doubleValue()*numeric.doubleValue());
+					PsiInteger.valueOf(resultValue): new PsiReal(doubleValue()*numeric.doubleValue());
 			}
 			else
 				return new PsiReal(doubleValue()*numeric.doubleValue());
@@ -294,19 +293,19 @@ public class PsiInteger
 	@Override
 	public PsiInteger psiFloor()
 	{
-		return new PsiInteger(value);
+		return this;
 	}
 
 	@Override
 	public PsiInteger psiRound()
 	{
-		return new PsiInteger(value);
+		return this;
 	}
 
 	@Override
 	public PsiInteger psiCeiling()
 	{
-		return new PsiInteger(value);
+		return this;
 	}
 
 	public PsiInteger psiMod(final PsiInteger integer)
@@ -316,7 +315,7 @@ public class PsiInteger
 		if(integerValue<=0)
 			throw new PsiException("rangecheck");
 		long resultValue=value % integerValue;
-		return new PsiInteger((resultValue>=0)? resultValue: resultValue+integerValue);
+		return PsiInteger.valueOf((resultValue>=0)? resultValue: resultValue+integerValue);
 		/*
 		if(integer.value>0)
 			return new PsiInteger(value>=0? value%integer.value: integer.value-(-value)%integer.value);
@@ -331,12 +330,12 @@ public class PsiInteger
 	{
 		if(integer.value==0)
 			throw new PsiException("undefinedresult");
-		return new PsiInteger(value/integer.value);
+		return PsiInteger.valueOf(value/integer.value);
 	}
 
 	public PsiInteger psiBitShift(final PsiInteger shift)
 	{
-		return new PsiInteger(shift.value>=0? value<<shift.value: value>>(-shift.value));
+		return PsiInteger.valueOf(shift.value>=0? value<<shift.value: value>>(-shift.value));
 	}
 
 	@Override
@@ -353,15 +352,35 @@ public class PsiInteger
 	}
 
 	public static final PsiInteger
-		ZERO=new PsiInteger(0L),
-		ONE=new PsiInteger(1L),
-		TWO=new PsiInteger(1L),
-		MINUS_ONE=new PsiInteger(-1L);
+		ZERO=PsiInteger.valueOf(0L),
+		ONE=PsiInteger.valueOf(1L),
+		TWO=PsiInteger.valueOf(1L),
+		MINUS_ONE=PsiInteger.valueOf(-1L);
 
 	private final long value;
 
 	static
 	{
 		TypeRegistry.put("integer", PsiInteger.class);
+	}
+
+	public static PsiInteger valueOf(long integerValue)
+	{
+		if(integerValue>=-128 && integerValue<=127)
+			return Cache.cache[(int)integerValue+128];
+		return new PsiInteger(integerValue);
+	}
+
+	private static class Cache
+	{
+		private Cache() {}
+		
+		static final PsiInteger cache[]=new PsiInteger[256];
+
+		static
+		{
+			for(int i=0; i<cache.length; i++)
+				cache[i]=new PsiInteger(i-128);
+		}
 	}
 }

@@ -52,7 +52,7 @@ public class PsiReader
 	{
 		try
 		{
-			return new PsiInteger(reader.read());
+			return PsiInteger.valueOf(reader.read());
 		}
 		catch(java.io.IOException e)
 		{

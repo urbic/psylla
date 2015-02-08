@@ -56,7 +56,7 @@ public class PsiString
 	{
 		try
 		{
-			return new PsiInteger(buffer.charAt(index));
+			return PsiInteger.valueOf(buffer.charAt(index));
 		}
 		catch(IndexOutOfBoundsException e)
 		{

@@ -35,7 +35,7 @@ public class PsiRandom
 				throw new PsiException("rangecheck");
 			try
 			{
-				return new PsiInteger(random.nextInt(numericValue));
+				return PsiInteger.valueOf(random.nextInt(numericValue));
 			}
 			catch(IllegalArgumentException e)
 			{

@@ -9,13 +9,11 @@ public class _counttomark extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		for(int i=opstack.size()-1; i>=0; i--)
-		{
 			if(opstack.get(i) instanceof PsiMark)
 			{
-				opstack.push(new PsiInteger(opstack.size()-1-i));
+				opstack.push(PsiInteger.valueOf(opstack.size()-1-i));
 				return;
 			}
-		}
 		throw new PsiException("unmatchedmark");
 	}
 }

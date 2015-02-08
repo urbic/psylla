@@ -405,7 +405,7 @@ public class Interpreter
 			case ParserConstants.TOKEN_INTEGER:
 				try
 				{
-					return new PsiInteger(Long.parseLong(token.image));
+					return PsiInteger.valueOf(Long.parseLong(token.image));
 				}
 				catch(NumberFormatException e)
 				{
@@ -413,14 +413,14 @@ public class Interpreter
 				}
 			case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
 				if(token.image.startsWith("+")||token.image.startsWith("-"))
-					return new PsiInteger(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 16));
+					return PsiInteger.valueOf(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 16));
 				else
-					return new PsiInteger(Long.parseLong(token.image.substring(2), 16));
+					return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 16));
 			case ParserConstants.TOKEN_INTEGER_BINARY:
 				if(token.image.startsWith("+")||token.image.startsWith("-"))
-					return new PsiInteger(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 2));
+					return PsiInteger.valueOf(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 2));
 				else
-					return new PsiInteger(Long.parseLong(token.image.substring(2), 2));
+					return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 2));
 			case ParserConstants.TOKEN_REAL:
 				return new PsiReal(Double.parseDouble(token.image));
 			case ParserConstants.TOKEN_NAME:
