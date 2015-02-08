@@ -66,7 +66,7 @@ public class PsiRomanNumerals
 						result=10*result+n;
 						break;
 					}
-			return new PsiInteger(result);
+			return PsiInteger.valueOf(result);
 		}
 
 		private static java.util.regex.Pattern romanPattern

@@ -39,7 +39,7 @@ abstract public class PsiAbstractStringlike
 		try
 		{
 			// TODO fractional
-			return new PsiInteger(Long.parseLong(getString()));
+			return PsiInteger.valueOf(Long.parseLong(getString()));
 		}
 		catch(NumberFormatException e)
 		{
@@ -78,7 +78,7 @@ abstract public class PsiAbstractStringlike
 	@Override
 	public PsiInteger psiLength()
 	{
-		return new PsiInteger(getString().length());
+		return PsiInteger.valueOf(getString().length());
 	}
 
 	@Override
@@ -115,7 +115,7 @@ abstract public class PsiAbstractStringlike
 	@Override
 	public PsiInteger psiCmp(final PsiStringlike stringlike)
 	{
-		return new PsiInteger(getString().compareTo(stringlike.getString()));
+		return PsiInteger.valueOf(getString().compareTo(stringlike.getString()));
 	}
 
 	/*
@@ -145,7 +145,7 @@ abstract public class PsiAbstractStringlike
 
 				public PsiInteger next()
 				{
-					return new PsiInteger(getString().charAt(index++));
+					return PsiInteger.valueOf(getString().charAt(index++));
 				}
 
 				public void remove()

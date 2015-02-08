@@ -13,7 +13,7 @@ public class _filesize extends PsiOperator
 		{
 			java.nio.file.attribute.BasicFileAttributes attrs
 				=java.nio.file.Files.readAttributes((new java.io.File(name)).toPath(), java.nio.file.attribute.BasicFileAttributes.class);
-			opstack.push(new PsiInteger(attrs.size()));
+			opstack.push(PsiInteger.valueOf(attrs.size()));
 		}
 		catch(java.io.IOException e)
 		{

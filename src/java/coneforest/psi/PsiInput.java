@@ -39,7 +39,7 @@ public class PsiInput
 	{
 		try
 		{
-			return new PsiInteger(input.read());
+			return PsiInteger.valueOf(input.read());
 		}
 		catch(java.io.IOException e)
 		{

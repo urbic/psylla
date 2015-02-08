@@ -6,6 +6,6 @@ public class _countexecstack extends PsiOperator
 	@Override
 	public void action(final Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(new PsiInteger(interpreter.getExecutionStack().size()));
+		interpreter.getOperandStack().push(PsiInteger.valueOf(interpreter.getExecutionStack().size()));
 	}
 }
