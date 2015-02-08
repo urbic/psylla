@@ -31,7 +31,7 @@ public class PsiMatcher
 	{
 		try
 		{
-			return new PsiInteger(matcher.start(number.intValue()));
+			return PsiInteger.valueOf(matcher.start(number.intValue()));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -44,7 +44,7 @@ public class PsiMatcher
 	{
 		try
 		{
-			return new PsiInteger(matcher.end(number.intValue()));
+			return PsiInteger.valueOf(matcher.end(number.intValue()));
 		}
 		catch(IndexOutOfBoundsException e)
 		{

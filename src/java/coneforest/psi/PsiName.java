@@ -62,7 +62,7 @@ public class PsiName
 	@Override
 	public PsiInteger psiLength()
 	{
-		return new PsiInteger(name.length());
+		return PsiInteger.valueOf(name.length());
 	}
 
 	/**
