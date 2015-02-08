@@ -21,7 +21,7 @@ abstract public class PsiNumeric
 		if(doubleValue()>=Long.MIN_VALUE
 				&& doubleValue()<=Long.MAX_VALUE)
 		{
-			return new PsiInteger(longValue());
+			return PsiInteger.valueOf(longValue());
 		}
 		else
 			throw new PsiException("rangecheck");

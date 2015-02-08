@@ -111,7 +111,7 @@ public class PsiBitSet
 				{
 					//if(hasNext())
 					//{
-						PsiInteger result=new PsiInteger(index);
+						PsiInteger result=PsiInteger.valueOf(index);
 						index=bitset.nextSetBit(index+1);
 						return result;
 					//}

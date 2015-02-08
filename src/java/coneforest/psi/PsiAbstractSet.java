@@ -76,7 +76,7 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	@Override
 	public PsiInteger psiLength()
 	{
-		return new PsiInteger(length());
+		return PsiInteger.valueOf(length());
 	}
 
 	@Override
