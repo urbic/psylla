@@ -9,7 +9,7 @@ public class PsiBoolean
 		PsiAtomic,
 		PsiLogical<PsiBoolean>
 {
-	public PsiBoolean(final boolean value)
+	private PsiBoolean(final boolean value)
 	{
 		this.value=value;
 	}
