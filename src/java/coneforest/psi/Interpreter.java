@@ -26,6 +26,19 @@ public class Interpreter
 			throw new AssertionError();
 		}
 		pushStopLevel();
+
+		/*
+		sun.misc.Signal.handle(new sun.misc.Signal("INT"), new SignalHandler());
+		
+		Runtime.getRuntime().addShutdownHook(new Thread()
+			{
+				public void run()
+				{
+					//System.out.println("TERMINATED");
+					running=false;
+				}
+			});
+		*/
 	}
 
 	/**
@@ -132,10 +145,11 @@ public class Interpreter
 	public void interpret(final PsiReader reader)
 	{
 		final int procLevel=procstack.size();
+
 		Parser parser=new Parser(reader.getReader());
 		try
 		{
-			while(true)
+			while(running)
 			{
 				Token token=parser.getNextToken();
 				if(token.kind==ParserConstants.EOF)
@@ -607,6 +621,8 @@ public class Interpreter
 			// NOP
 		}
 	}
+
+	private volatile boolean running=true;
 
 	private final OperandStack opstack;
 	private final DictionaryStack dictstack;
