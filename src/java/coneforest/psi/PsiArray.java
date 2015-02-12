@@ -147,5 +147,12 @@ public class PsiArray
 		array.clear();
 	}
 
+	public PsiArray psiSort(java.util.Comparator<? super PsiObject> comparator)
+	{
+		PsiArray result=psiClone();
+		java.util.Collections.sort(result.array, comparator);
+		return result;
+	}
+
 	private java.util.ArrayList<PsiObject> array;
 }

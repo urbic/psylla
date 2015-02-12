@@ -28,7 +28,7 @@ public interface PsiArraylike<T extends PsiObject>
 	public void psiInsertAll(PsiInteger index, PsiIterable<? extends T> iterable)
 		throws PsiException;
 
-	public void psiReverse()
+	public PsiArraylike psiReverse()
 		throws PsiException;
 
 	abstract public T psiDelete(int indexValue)

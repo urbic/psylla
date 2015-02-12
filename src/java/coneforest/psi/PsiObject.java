@@ -36,9 +36,9 @@ public interface PsiObject
 	public PsiBoolean psiNe(final PsiObject obj);
 
 	/**
-	 *	Returns this object.
+	 *	Returns a clone of this object.
 	 *
-	 *	@return this object.
+	 *	@return a clone.
 	 */
 	public PsiObject psiClone();
 

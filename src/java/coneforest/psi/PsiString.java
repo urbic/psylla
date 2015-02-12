@@ -256,9 +256,9 @@ public class PsiString
 	}
 
 	@Override
-	public void psiReverse()
+	public PsiString psiReverse()
 	{
-		buffer.reverse();
+		return new PsiString((new StringBuilder(buffer)).reverse());
 	}
 
 	@Override

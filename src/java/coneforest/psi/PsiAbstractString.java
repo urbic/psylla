@@ -44,6 +44,9 @@ abstract public class PsiAbstractString
 	abstract public PsiAbstractString psiCloneEmpty();
 
 	@Override
+	abstract public PsiAbstractString psiClone();
+
+	@Override
 	public PsiAbstractString psiReplicate(final PsiInteger count)
 		throws PsiException
 	{
@@ -57,16 +60,18 @@ abstract public class PsiAbstractString
 	}
 
 	@Override
-	public void psiReverse()
+	public PsiAbstractString psiReverse()
 		throws PsiException
 	{
-		int length=length();
+		PsiAbstractString result=psiClone();
+		int length=result.length();
 		for(int i=0; i<(int)(length/2); i++)
 		{
-			PsiInteger character=psiGet(i);
-			psiPut(i, psiGet(length-1-i));
-			psiPut(length-1-i, character);
+			PsiInteger character=result.psiGet(i);
+			result.psiPut(i, result.psiGet(length-1-i));
+			result.psiPut(length-1-i, character);
 		}
+		return result;
 	}
 
 	@Override
