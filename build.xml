@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="psyche" default="dist" basedir=".">
+<project name="psyche" default="jar" basedir=".">
 	
 	<property name="project.name" value="${ant.project.name}"/>
 	<property name="src" location="src"/>

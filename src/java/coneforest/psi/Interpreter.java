@@ -159,6 +159,10 @@ public class Interpreter
 		{
 			handleError("syntaxerror", reader);
 		}
+		catch(OutOfMemoryError e)
+		{
+			handleError("limitcheck", reader);
+		}
 		catch(StackOverflowError e)
 		{
 			handleError("limitcheck", reader);

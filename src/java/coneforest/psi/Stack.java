@@ -33,7 +33,6 @@ public class Stack<E> extends java.util.ArrayList<E>
 	 *	@param element an element
 	 */
 	public void push(E element)
-		//throws PsiException
 	{
 		add(element);
 	}
