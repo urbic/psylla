@@ -194,8 +194,8 @@ public class PsiSystemDictionary
 			psiPut("mathPI", new PsiReal(Math.PI));
 			psiPut("mathE", new PsiReal(Math.E));
 			psiPut("stdrandom", new PsiRandom());
-			psiPut("version", new PsiString(""+Version.getVersion()));
-			psiPut("product", new PsiString("Psyche"));
+			psiPut("product", new PsiName("Psyche"));
+			psiPut("version", new PsiName(""+Version.getVersion()));
 			psiPut("osname", new PsiName(System.getProperty("os.name")));
 			psiPut("osversion", new PsiName(System.getProperty("os.version")));
 			psiPut("username", new PsiName(System.getProperty("user.name")));

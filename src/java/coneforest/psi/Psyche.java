@@ -5,24 +5,26 @@ public class Psyche
 	public static void main(String args[])
 	{
 		String consoleEncoding=System.getProperty("consoleEncoding");
+	
 
 		int processed;
 		try
 		{
 			try
 			{
-				cli=new coneforest.cli.CLIProcessor
+				cli=new coneforest.cli.Processor
 					(
 						new coneforest.cli.OptionFlag("help", "h", "?"),
 						new coneforest.cli.OptionFlag("version", "V"),
 						new coneforest.cli.OptionString("console-encoding", "C"),
 						new coneforest.cli.OptionPath("classpath", "cp"),
-						new coneforest.cli.OptionString("eval", "e")
+						new coneforest.cli.OptionString("eval", "e"),
+						new coneforest.cli.OptionString("locale", "L")
 					);
 			}
 			catch(coneforest.cli.CLIConfigurationException e)
 			{
-				System.err.println(e.getMessage());
+				System.err.println(e.getLocalizedMessage());
 				System.exit(1);
 			}
 			processed=cli.parse(args, 0);
@@ -30,7 +32,6 @@ public class Psyche
 			if(cli.getValue("console-encoding")!=null)
 				consoleEncoding=((String)cli.getValue("console-encoding"));
 			if(consoleEncoding!=null)
-			{
 				try
 				{
 					System.setOut(new java.io.PrintStream(System.out, true, consoleEncoding));
@@ -42,11 +43,14 @@ public class Psyche
 						consoleEncoding));
 					System.exit(1);
 				}
-			}
 			if(cli.getValue("help"))
 				help();
 			if(cli.getValue("version"))
 				version();
+			if(cli.getValue("locale")!=null)
+				java.util.Locale.setDefault(java.util.Locale.forLanguageTag((String)cli.getValue("locale")));
+	
+			messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
 
 			Interpreter interpreter=new Interpreter();
 			interpreter.acceptEnvironment(System.getenv());
@@ -84,13 +88,13 @@ public class Psyche
 		}
 		catch(coneforest.cli.CLIProcessingException e)
 		{
-			System.err.println(e.getMessage());
+			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
 		}
 		catch(java.io.FileNotFoundException e)
 		{
 			System.out.println(String.format(messages.getString("scriptNotFoundText"),
-					e.getMessage()));
+					e.getLocalizedMessage()));
 			System.exit(1);
 		}
 	}
@@ -108,8 +112,8 @@ public class Psyche
 		System.exit(0);
 	}
 
-	private static java.util.ResourceBundle messages
-		=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
+	//private final java.util.ResourceBundle messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
+	private static java.util.ResourceBundle messages;
 
-	private static coneforest.cli.CLIProcessor cli;
+	private static coneforest.cli.Processor cli;
 }

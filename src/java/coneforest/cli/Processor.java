@@ -5,13 +5,13 @@ import java.util.Locale;
 /**
  * Options processor class
  */
-public class CLIProcessor
+public class Processor
 {
 	/**
 	 * Constructor	
 	 * @param options a list of option descriptions
 	 */
-	public CLIProcessor(final Option... options)
+	public Processor(final Option... options)
 		throws CLIConfigurationException
 	{
 		this.options=options;
