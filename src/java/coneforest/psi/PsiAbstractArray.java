@@ -37,6 +37,9 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
+	abstract public PsiAbstractArray<T> psiClone();
+
+	@Override
 	public T psiGet(PsiInteger index)
 		throws PsiException
 	{
@@ -118,16 +121,18 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
-	public void psiReverse()
+	public PsiAbstractArray<T> psiReverse()
 		throws PsiException
 	{
-		int length=length();
+		PsiAbstractArray<T> result=psiClone();
+		int length=result.length();
 		for(int i=0; i<(int)(length/2); i++)
 		{
-			T obj=psiGet(i);
-			psiPut(i, psiGet(length-1-i));
-			psiPut(length-1-i, obj);
+			T obj=result.psiGet(i);
+			result.psiPut(i, result.psiGet(length-1-i));
+			result.psiPut(length-1-i, obj);
 		}
+		return result;
 	}
 
 	@Override

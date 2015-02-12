@@ -238,6 +238,12 @@ public class PsiBitVector
 	}
 
 	@Override
+	public PsiBitVector psiClone()
+	{
+		return new PsiBitVector((java.util.BitSet)bitvector.clone());
+	}
+
+	@Override
 	public void psiClear()
 	{
 		bitvector.clear();
