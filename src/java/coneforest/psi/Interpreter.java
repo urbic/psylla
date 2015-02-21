@@ -18,7 +18,7 @@ public class Interpreter
 		dictstack.push(new PsiSystemDictionary());
 		try
 		{
-			dictstack.push((PsiDictionarylike)getSystemDictionary().psiGet("globaldict"));
+			//dictstack.push((PsiDictionarylike)getSystemDictionary().psiGet("globaldict"));
 			dictstack.push((PsiDictionarylike)getSystemDictionary().psiGet("userdict"));
 		}
 		catch(PsiException e)
