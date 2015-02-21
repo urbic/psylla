@@ -34,7 +34,6 @@ public abstract class PsiOperator
 	 *
 	 *	@param interpreter an interpreter.
 	 */
-	//public abstract void invoke(Interpreter interpreter);
 	public void invoke(Interpreter interpreter)
 	{
 		interpreter.getOperandStack().clearBackup();
@@ -56,7 +55,7 @@ public abstract class PsiOperator
 		throws ClassCastException, PsiException;
 
 	/**
-	 *	Returns a syntatctic string representation of a name of this operator.
+	 *	Returns a syntatctic string representation of this operator.
 	 *	A syntatctic representation has a form of
 	 *	<code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a
 	 *	string returned by {@link #getName()} method.
@@ -74,7 +73,7 @@ public abstract class PsiOperator
 	 *	simple class name with first character (underscore) discarded. This
 	 *	method must be overriden when using another naming scheme.
 	 *
-	 *	@return a name of this operator.
+	 *	@return a name.
 	 */
 	public String getName()
 	{

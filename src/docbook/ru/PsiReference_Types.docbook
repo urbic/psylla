@@ -215,6 +215,19 @@ XXX
 </para>
 </section>
 
+<section xml:id="PsiReference_Types_Details_command">
+<title><type>command</type></title>
+<para>
+Команда.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<!--xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/-->.
+</formalpara>
+</section>
+
 <section xml:id="PsiReference_Types_Details_complex">
 <title><type>complex</type></title>
 <para>
@@ -409,6 +422,31 @@ XXX
 <formalpara>
 <title>Наследует:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_operator">
+<title><type>operator</type></title>
+<para>
+Оператор.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<!--xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/-->.
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_proc">
+<title><type>proc</type></title>
+<para>
+Процедура.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<!--xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/-->.
 </formalpara>
 </section>
 

@@ -433,13 +433,10 @@ public class Interpreter
 				return new PsiCommand(token.image);
 			case ParserConstants.TOKEN_IMMEDIATE:
 				return dictstack.load(token.image.substring(2));
-			/*
 			default:
-				System.out.println(token);
-				return null;
-			*/
+				throw new AssertionError();
 		}
-		throw new PsiException("unknownerror");
+		//throw new PsiException("unknownerror");
 	}
 
 	public PsiDictionary getErrorDictionary()
@@ -477,8 +474,10 @@ public class Interpreter
 		try
 		{
 			PsiDictionary errorDict=getErrorDictionary();
-			(errorDict.known(errorName)? errorDict.psiGet(errorName): new coneforest.psi.core._stop())
-				.invoke(this);
+			(errorDict.known(errorName)?
+				errorDict.psiGet(errorName):
+				new coneforest.psi.core._stop())
+					.invoke(this);
 		}
 		catch(PsiException e)
 		{
