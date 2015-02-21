@@ -8,7 +8,7 @@ public class _end extends PsiOperator
 		throws PsiException
 	{
 		DictionaryStack dictstack=interpreter.getDictionaryStack();
-		if(dictstack.size()<=3)
+		if(dictstack.size()<=2)
 			throw new PsiException("dictstackunderflow");
 		dictstack.pop();
 	}
