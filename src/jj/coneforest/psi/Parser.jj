@@ -157,6 +157,16 @@ TOKEN:
 
 TOKEN:
 {
+	<TOKEN_COMMAND:
+		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR>)
+		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR> | <TOKEN_DIGIT>)*
+		|
+		["[", "]", "(", ")", "<", ">", "=", "?"]
+	>
+}
+
+TOKEN:
+{
 	<TOKEN_OPEN_BRACE: "{">
 }
 
@@ -168,14 +178,4 @@ TOKEN:
 TOKEN:
 {
 	<#TOKEN_NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$"]>
-}
-
-TOKEN:
-{
-	<TOKEN_COMMAND:
-		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR>)
-		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR> | <TOKEN_DIGIT>)*
-		|
-		["[", "]", "(", ")", "<", ">", "=", "?"]
-	>
 }
