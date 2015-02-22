@@ -74,6 +74,7 @@ public class PsiSystemDictionary
 					_flush.class,
 					_for.class,
 					_forall.class,
+					_fork.class,
 					_ge.class,
 					_get.class,
 					_getgroup.class,
@@ -103,6 +104,7 @@ public class PsiSystemDictionary
 					_length.class,
 					_load.class,
 					_loadall.class,
+					_lock.class,
 					_log.class,
 					_loop.class,
 					_lt.class,
@@ -111,6 +113,7 @@ public class PsiSystemDictionary
 					_min.class,
 					_mkdir.class,
 					_mod.class,
+					_monitor.class,
 					_mul.class,
 					_ne.class,
 					_neg.class,
@@ -173,7 +176,8 @@ public class PsiSystemDictionary
 					_values.class,
 					_where.class,
 					_writestring.class,
-					_xor.class
+					_xor.class,
+					_yield.class
 				);
 
 			psiPut("]", psiGet("arraytomark"));
