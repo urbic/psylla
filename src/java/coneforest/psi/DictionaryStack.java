@@ -6,6 +6,20 @@ package coneforest.psi;
 public class DictionaryStack
 	extends Stack<PsiDictionarylike>
 {
+	public DictionaryStack()
+	{
+		PsiDictionary systemdict=new PsiSystemDictionary();
+		push(systemdict);
+		try
+		{
+			push((PsiDictionarylike)systemdict.psiGet("userdict"));
+		}
+		catch(PsiException e)
+		{
+			throw new AssertionError();
+		}
+	}
+
 	public PsiObject load(String keyString)
 		throws PsiException
 	{
