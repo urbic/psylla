@@ -10,22 +10,23 @@ public class Interpreter
 	 */
 	public Interpreter()
 	{
+		this(new DictionaryStack());
+	}
+
+	public Interpreter(DictionaryStack dictstack)
+	{
 		opstack=new OperandStack();
-		dictstack=new DictionaryStack();
 		execstack=new ExecutionStack();
 		procstack=new ProcedureStack();
-
-		dictstack.push(new PsiSystemDictionary());
-		try
-		{
-			//dictstack.push((PsiDictionarylike)getSystemDictionary().psiGet("globaldict"));
-			dictstack.push((PsiDictionarylike)getSystemDictionary().psiGet("userdict"));
-		}
-		catch(PsiException e)
-		{
-			throw new AssertionError();
-		}
+		this.dictstack=dictstack;
 		pushStopLevel();
+	}
+
+	public Interpreter forkedInterpreter()
+	{
+		Interpreter forkedInterpreter=new Interpreter(dictstack);
+		//forkedInterpreter.context=new PsiContext(forkedInterpreter, new Thread(runnable));
+		return forkedInterpreter;
 	}
 
 	/**
@@ -135,7 +136,7 @@ public class Interpreter
 		Parser parser=new Parser(reader.getReader());
 		try
 		{
-			while(true)
+			while(running)
 			{
 				Token token=parser.getNextToken();
 				if(token.kind==ParserConstants.EOF)
@@ -147,12 +148,13 @@ public class Interpreter
 				if(getStopFlag())
 				{
 					(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
-					System.exit(1);
+					return;
 				}
 			}
 		}
 		catch(PsiException e)
 		{
+			//System.out.println(e.kind());
 			handleError(e.kind(), reader);
 		}
 		catch(TokenMgrError e)
@@ -607,6 +609,22 @@ public class Interpreter
 		}
 	}
 
+	public void setContext(PsiContext context)
+	{
+		this.context=context;
+	}
+
+	public PsiContext getContext()
+	{
+		return context;
+	}
+
+	public void quit()
+	{
+		running=false;
+		execstack.clear();
+	}
+
 	private final OperandStack opstack;
 	private final DictionaryStack dictstack;
 	private final ExecutionStack execstack;
@@ -615,4 +633,7 @@ public class Interpreter
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
+	private PsiContext context=new PsiContext(this, Thread.currentThread());
+
+	private boolean running=true;
 }
