@@ -1,0 +1,21 @@
+#!/usr/bin/psyche
+
+/lines array def
+
+/collectlines
+{
+	{
+		dup readline
+		{ lines exch append } { exit } ifelse
+	}
+	loop
+}
+bind def
+
+arguments { filereader collectlines } forall
+
+arguments length 0 eq { stdin collectlines } if
+
+lines { 2 { reverse exch } repeat cmp } bind sort { print } bind forall
+
+stdout flush
