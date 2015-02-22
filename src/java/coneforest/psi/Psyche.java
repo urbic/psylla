@@ -84,7 +84,7 @@ public class Psyche
 			{
 				// REPL
 			}
-			System.exit(0);
+			//System.exit(0);
 		}
 		catch(coneforest.cli.CLIProcessingException e)
 		{
