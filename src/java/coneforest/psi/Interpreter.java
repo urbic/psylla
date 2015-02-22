@@ -4,6 +4,7 @@ package coneforest.psi;
  *	An interpreter class.
  */
 public class Interpreter
+	extends Thread
 {
 	/**
 	 *	Creates new Ψ language interpreter.
@@ -24,9 +25,7 @@ public class Interpreter
 
 	public Interpreter forkedInterpreter()
 	{
-		Interpreter forkedInterpreter=new Interpreter(dictstack);
-		//forkedInterpreter.context=new PsiContext(forkedInterpreter, new Thread(runnable));
-		return forkedInterpreter;
+		return new Interpreter(dictstack);
 	}
 
 	/**
@@ -154,7 +153,6 @@ public class Interpreter
 		}
 		catch(PsiException e)
 		{
-			//System.out.println(e.kind());
 			handleError(e.kind(), reader);
 		}
 		catch(TokenMgrError e)
@@ -542,7 +540,6 @@ public class Interpreter
 	{
 		int level=execstack.size();
 		loopstack.push(level);
-		//show("PUSH LOOP LEVEL "+level);
 		return level;
 	}
 
@@ -599,24 +596,14 @@ public class Interpreter
 	{
 		try
 		{
+			final PsiClassLoader classLoader=(PsiClassLoader)getSystemDictionary().psiGet("classpath");
 			for(String pathElement: classPath)
-				((PsiClassLoader)getSystemDictionary().psiGet("classpath"))
-						.psiAppend(new PsiString(pathElement));
+				classLoader.psiAppend(new PsiString(pathElement));
 		}
 		catch(PsiException e)
 		{
 			// NOP
 		}
-	}
-
-	public void setContext(PsiContext context)
-	{
-		this.context=context;
-	}
-
-	public PsiContext getContext()
-	{
-		return context;
 	}
 
 	public void quit()
@@ -633,7 +620,5 @@ public class Interpreter
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
-	private PsiContext context=new PsiContext(this, Thread.currentThread());
-
 	private boolean running=true;
 }

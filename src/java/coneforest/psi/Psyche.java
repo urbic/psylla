@@ -52,39 +52,47 @@ public class Psyche
 	
 			messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
 
-			Interpreter interpreter=new Interpreter();
-			interpreter.acceptEnvironment(System.getenv());
-			interpreter.setReader(new java.io.InputStreamReader(System.in));
-			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
-
-			if(cli.getValue("classpath")!=null)
-				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
-
+			final java.io.Reader scriptReader;
+			final String scriptName;
+			final String[] shellArguments;
 			if(cli.getValue("eval")!=null)
 			{
-				interpreter.acceptScriptName("--eval");
-				interpreter.acceptShellArguments(
-						java.util.Arrays.copyOfRange(args, processed, args.length));
-				interpreter.interpret(new java.io.StringReader(cli.<String>getValue("eval")));
+				scriptName="--eval";
+				shellArguments=java.util.Arrays.copyOfRange(args, processed, args.length);
+				scriptReader=new java.io.StringReader(cli.<String>getValue("eval"));
 			}
 			else if(processed<args.length)
 			{
-				String scriptNname=args[processed];
-				interpreter.acceptScriptName(scriptNname);
-				interpreter.acceptShellArguments(
-						java.util.Arrays.copyOfRange(args, processed+1, args.length));
-				interpreter.interpret
-					(
-						scriptNname.equals("-")?
-							new java.io.InputStreamReader(System.in):
-							new java.io.FileReader(scriptNname)
-					);
+				scriptName=args[processed];
+				shellArguments=java.util.Arrays.copyOfRange(args, processed+1, args.length);
+				scriptReader=scriptName.equals("-")?
+						new java.io.InputStreamReader(System.in):
+						new java.io.FileReader(scriptName);
 			}
 			else
 			{
-				// REPL
+				scriptName=null;
+				scriptReader=null;
+				shellArguments=null;
+				// TODO REPL
 			}
-			//System.exit(0);
+			Interpreter interpreter=new Interpreter()
+				{
+					@Override
+					public void run()
+					{
+						interpret(scriptReader);
+					}
+				};
+			interpreter.acceptEnvironment(System.getenv());
+			interpreter.acceptScriptName(scriptName);
+			interpreter.acceptShellArguments(shellArguments);
+			interpreter.setReader(new java.io.InputStreamReader(System.in));
+			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
+			if(cli.getValue("classpath")!=null)
+				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
+
+			interpreter.start();
 		}
 		catch(coneforest.cli.CLIProcessingException e)
 		{
@@ -112,8 +120,6 @@ public class Psyche
 		System.exit(0);
 	}
 
-	//private final java.util.ResourceBundle messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
 	private static java.util.ResourceBundle messages;
-
 	private static coneforest.cli.Processor cli;
 }
