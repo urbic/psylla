@@ -20,7 +20,7 @@ public class PsiString
 	{
 		this.buffer=buffer;
 	}
-	
+
 	@Override
 	public PsiAbstractString psiCloneEmpty()
 	{

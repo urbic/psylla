@@ -23,11 +23,6 @@ public class Interpreter
 		pushStopLevel();
 	}
 
-	public Interpreter forkedInterpreter()
-	{
-		return new Interpreter(dictstack);
-	}
-
 	/**
 	 *	Returns operand stack.
 	 *

@@ -5,7 +5,6 @@ public class Psyche
 	public static void main(String args[])
 	{
 		String consoleEncoding=System.getProperty("consoleEncoding");
-	
 
 		int processed;
 		try
@@ -49,7 +48,7 @@ public class Psyche
 				version();
 			if(cli.getValue("locale")!=null)
 				java.util.Locale.setDefault(java.util.Locale.forLanguageTag((String)cli.getValue("locale")));
-	
+
 			messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
 
 			final java.io.Reader scriptReader;

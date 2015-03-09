@@ -164,7 +164,7 @@ abstract public class PsiNumeric
 	}
 
 	abstract public PsiNumeric psiFloor();
-	
+
 	abstract public PsiNumeric psiRound();
 
 	abstract public PsiNumeric psiCeiling();

@@ -374,7 +374,7 @@ public class PsiInteger
 	private static class Cache
 	{
 		private Cache() {}
-		
+
 		static final PsiInteger cache[]=new PsiInteger[256];
 
 		static

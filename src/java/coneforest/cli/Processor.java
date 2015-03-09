@@ -8,7 +8,7 @@ import java.util.Locale;
 public class Processor
 {
 	/**
-	 * Constructor	
+	 * Constructor
 	 * @param options a list of option descriptions
 	 */
 	public Processor(final Option... options)

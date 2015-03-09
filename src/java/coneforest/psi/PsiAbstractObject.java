@@ -12,7 +12,7 @@ abstract public class PsiAbstractObject
 	 *	@return a type name.
 	 */
 	abstract public String getTypeName();
-	
+
 	public PsiCommand psiType()
 	{
 		return new PsiCommand(getTypeName()+"type");
