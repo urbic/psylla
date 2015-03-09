@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_complexpolar">
 <title><token language="psi">complexpolar</token></title>
+
 <synopsis>
 <replaceable>модуль</replaceable>
 <replaceable>аргумент</replaceable>
@@ -18,13 +19,16 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
-Возвращает <replaceable>комплексное</replaceable> число с данным
+Возвращает <replaceable>комплексное</replaceable> число с данным
 <replaceable>модулем</replaceable> и <replaceable>аргументом</replaceable>.
 </para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
+
 </section>

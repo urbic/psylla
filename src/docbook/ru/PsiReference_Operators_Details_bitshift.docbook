@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_bitshift">
 <title><token language="psi">bitshift</token></title>
+
 <synopsis>
 <replaceable>целое</replaceable> <replaceable>сдвиг</replaceable> <token language="psi">bitshift</token> <replaceable>результат</replaceable>
 <itemizedlist>
@@ -12,9 +13,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
+
 </section>

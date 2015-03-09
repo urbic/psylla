@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_conjugate">
 <title><token language="psi">conjugate</token></title>
+
 <synopsis>
 <replaceable>число<subscript>1</subscript></replaceable>
 <token language="psi">conjugate</token>
@@ -13,4 +14,5 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 </section>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_yield">
+<title><token language="psi">yield</token></title>
+
+<synopsis>
+—
+<token language="psi">yield</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Приостанавливает исполнение текущего контекста с тем, чтобы остальные контексты
+получили возможность исполняться.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+</formalpara>
+
+</section>

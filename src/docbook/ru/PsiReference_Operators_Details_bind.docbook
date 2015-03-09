@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_bind">
 <title><token language="psi">bind</token></title>
+
 <synopsis>
 <replaceable>массив<subscript>1</subscript></replaceable> <token language="psi">bind</token> <replaceable>массив<subscript>2</subscript></replaceable>
 <itemizedlist>
@@ -11,4 +12,5 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 </section>

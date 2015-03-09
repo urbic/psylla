@@ -13,7 +13,7 @@
 </synopsis>
 
 <para>
-Создаёт новый пустой <replaceable>массив</replaceable> и помещает его на стек
+Создаёт новый пустой <replaceable>массив</replaceable> и помещает его на стек
 операндов.
 </para>
 

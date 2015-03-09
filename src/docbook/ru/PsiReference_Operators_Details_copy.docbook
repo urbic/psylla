@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_copy">
 <title><token language="psi">copy</token></title>
+
 <synopsis>
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
@@ -26,28 +27,34 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
-Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
-копирует в стек операндов верхние <replaceable>n</replaceable> объектов.
+Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
+копирует в стек операндов верхние <replaceable>n</replaceable> объектов.
 </para>
+
 <para>
-Копируются только объекты, но не их значения. При копировании композитных
+Копируются только объекты, но не их значения. При копировании композитных
 объектов их значение остаётся общим.
 </para>
+
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">"A" "B" "C" 2 copy	<lineannotation>⇒ "A" "B" "C" "B" "C"</lineannotation>
 1 2 3 0 copy		<lineannotation>⇒ 1 2 3</lineannotation></programlisting>
 </formalpara>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
 </formalpara>
+
 <formalpara>
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
 </formalpara>
+
 </section>

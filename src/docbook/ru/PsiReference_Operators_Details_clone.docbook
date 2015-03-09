@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_clone">
 <title><token language="psi">clone</token></title>
+
 <synopsis>
 <replaceable>объект<subscript>1</subscript></replaceable>
 <token language="psi">clone</token>
@@ -13,8 +14,10 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
 </formalpara>
+
 </section>
