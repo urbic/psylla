@@ -7,6 +7,6 @@ public class _yield extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		Thread.currentThread().yield();
+		Thread.yield();
 	}
 }

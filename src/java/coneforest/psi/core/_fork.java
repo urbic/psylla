@@ -8,21 +8,20 @@ public class _fork extends PsiOperator
 		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		
-		final Interpreter forkedInterpreter=interpreter.forkedInterpreter();
 
 		opstack.ensureSize(1);
 		final PsiObject obj=opstack.pop();
-		final PsiContext context=new PsiContext(forkedInterpreter,
-			new Thread()
-			{
-				@Override
-				public void run()
+
+		final Interpreter forkedInterpreter
+			=new Interpreter(interpreter.getDictionaryStack())
 				{
-					obj.invoke(forkedInterpreter);
-					forkedInterpreter.handleExecutionStack(0);
-				}
-			});
+					@Override
+					public void run()
+					{
+						obj.invoke(this);
+						handleExecutionStack(0);
+					}
+				};
 
 		for(int i=opstack.size()-1; i>=0; i--)
 			if(opstack.get(i) instanceof PsiMark)
@@ -31,8 +30,8 @@ public class _fork extends PsiOperator
 				for(int j=i+1; j<opstack.size(); j++)
 					forkedOpstack.push(opstack.get(j));
 				opstack.setSize(i);
-				opstack.push(context);
-				context.start();
+				opstack.push(new PsiContext(forkedInterpreter));
+				forkedInterpreter.start();
 				return;
 			}
 		throw new PsiException("unmatchedmark");
