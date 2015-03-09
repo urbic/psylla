@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_writestring">
+<title><token language="psi">writestring</token></title>
+<synopsis>
+<replaceable>потребитель</replaceable>
+<replaceable>строковое</replaceable>
+<token language="psi">writestring</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>потребитель</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
+</listitem>
+<listitem>
+<replaceable>строковое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_time">
+<title><token language="psi">time</token></title>
+
+<synopsis>
+—
+<token language="psi">time</token>
+<replaceable>время</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>время</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает текущее время (в миллисекундах), прошедшее
+с 01.01.1970 00:00:00 GMT.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">time	<lineannotation>⇒ 1416249783295</lineannotation></programlisting>
+</formalpara>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
+</section>

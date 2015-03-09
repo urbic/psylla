@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_if">
+<title><token language="psi">if</token></title>
+<synopsis>
+<replaceable>условие</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">if</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>условие</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+</section>

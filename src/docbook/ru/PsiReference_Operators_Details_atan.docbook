@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_atan">
+<title><token language="psi">atan</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">atan</token>
+<replaceable>арктангенс</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>арктангенс</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

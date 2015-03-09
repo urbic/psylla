@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_stringreader">
+<title><token language="psi">stringreader</token></title>
+
+<synopsis>
+<replaceable>строковое</replaceable>
+<token language="psi">stringreader</token>
+<replaceable>читатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строковое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>читатель</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringreader"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

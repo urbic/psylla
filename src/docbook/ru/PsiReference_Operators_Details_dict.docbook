@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_dict">
+<title><token language="psi">dict</token></title>
+
+<synopsis>
+— <token language="psi">dict</token> <replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает новый пустой <replaceable>словарь</replaceable>.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>.
+</formalpara>
+
+</section>

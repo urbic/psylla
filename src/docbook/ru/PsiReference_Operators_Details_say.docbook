@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_say">
+<title><token language="psi">say</token></title>
+<synopsis>
+<replaceable>строка</replaceable>
+<token language="psi">say</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_cleardictstack">
+<title><token language="psi">cleardictstack</token></title>
+<synopsis>
+—
+<token language="psi">cleardictstack</token>
+—
+</synopsis>
+<para>
+Удаляет все непостоянные словари из стека словарей.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>.
+</formalpara>
+</section>

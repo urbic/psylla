@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_for">
+<title><token language="psi">for</token></title>
+<synopsis>
+<replaceable>начальное</replaceable>
+<replaceable>инкремент</replaceable>
+<replaceable>предел</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">for</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>начальное</replaceable>,
+<replaceable>инкремент</replaceable>,
+<replaceable>предел</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

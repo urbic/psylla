@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_false">
+<title><constant language="psi">false</constant></title>
+
+<synopsis>
+—
+<token language="psi">false</token>
+<replaceable>ложь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ложь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <constant>false</constant>.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_true"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

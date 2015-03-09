@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_loadall">
+<title><token language="psi">loadall</token></title>
+<synopsis>
+<replaceable>перечисление</replaceable>
+<token language="psi">loadall</token>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>перечисление</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

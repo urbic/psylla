@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_dicttomark">
+<title><token language="psi">dicttomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">dicttomark</token>
+<replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

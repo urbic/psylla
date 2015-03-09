@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_bitset">
+<title><token language="psi">bitset</token></title>
+
+<synopsis>
+— <token language="psi">bitset</token> <replaceable>битовое_множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>битовое_множество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitset"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает новое пустое <replaceable>битовое_множество</replaceable>.
+</para>
+
+<formalpara>
+<title>Смотри также:</title>
+</formalpara>
+
+</section>

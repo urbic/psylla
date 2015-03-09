@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_read">
+<title><token language="psi">read</token></title>
+
+<synopsis>
+<replaceable>источник</replaceable>
+<token language="psi">read</token>
+<replaceable>символ</replaceable>
+<token language="psi">true</token>
+<sbr/>
+<replaceable>источник</replaceable>
+<token language="psi">read</token>
+<token language="psi">false</token>
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
+</listitem>
+<listitem>
+<replaceable>символ</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Пытается прочитать <replaceable>символ</replaceable> из
+<replaceable>источника</replaceable>. Возвращает прочитанный
+<replaceable>символ</replaceable> в случае успеха (если
+<replaceable>источник</replaceable> не исчерпан. Возвращает также булевское
+значение, показывающее успешность операции. Генерирует <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> при
+ошибке ввода.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

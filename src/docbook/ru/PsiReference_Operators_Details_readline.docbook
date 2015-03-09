@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_readline">
+<title><token language="psi">readline</token></title>
+<synopsis>
+<replaceable>источник</replaceable>
+<token language="psi">readline</token>
+<replaceable>строка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
+</listitem>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

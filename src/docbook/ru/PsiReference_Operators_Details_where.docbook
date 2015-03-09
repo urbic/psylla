@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_where">
+<title><token language="psi">where</token></title>
+<synopsis>
+<replaceable>ключ</replaceable>
+<token language="psi">where</token>
+<replaceable>словарь</replaceable>
+<replaceable>истина</replaceable>
+<sbr/>
+<replaceable>ключ</replaceable>
+<token language="psi">where</token>
+<replaceable>ложь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
+</listitem>
+<listitem>
+<replaceable>истина</replaceable>,
+<replaceable>ложь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

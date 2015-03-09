@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_countexecstack">
+<title><token language="psi">countexecstack</token></title>
+<synopsis>
+—
+<token language="psi">countexecstack</token>
+<replaceable>длина</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>длина</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

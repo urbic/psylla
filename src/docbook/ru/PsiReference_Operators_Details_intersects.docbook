@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_intersects">
+<title><token language="psi">intersects</token></title>
+<synopsis>
+<replaceable>множество<subscript>1</subscript></replaceable>
+<replaceable>множество<subscript>2</subscript></replaceable>
+<token language="psi">intersects</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>множество<subscript>1</subscript></replaceable>,
+<replaceable>множество<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает булевское значение показывающее, пересекаются ли два
+<replaceable>множества</replaceable>, то есть содержат ли элементы, равные друг
+другу.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

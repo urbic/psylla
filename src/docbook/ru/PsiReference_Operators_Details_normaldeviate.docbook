@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_normaldeviate">
+<title><token language="psi">normaldeviate</token></title>
+<synopsis>
+<replaceable>генератор</replaceable>
+<replaceable>уклонение</replaceable>
+<token language="psi">normaldeviate</token>
+<replaceable>случайное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>генератор</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
+</listitem>
+<listitem>
+<replaceable>уклонение</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+<listitem>
+<replaceable>случайное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

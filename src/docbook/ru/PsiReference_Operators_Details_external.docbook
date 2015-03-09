@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_external">
+<title><token language="psi">external</token></title>
+
+<synopsis>
+<replaceable>имя_класса</replaceable>
+<token language="psi">external</token>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя_класса</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Загружает внешний класс Java по <replaceable>имени_класса</replaceable> и
+возвращает объект этого класса. Класс должен присутствовать на пути поиска
+классов, должен реализовывать интерфейс
+<classname>coneforest.psi.PsiObject</classname> и иметь общий конструктор без
+аргументов.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">/coneforest.psi.PsiString external	<lineannotation>⇒ ""</lineannotation></programlisting>
+</formalpara>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedexternal"/>.
+</formalpara>
+
+</section>

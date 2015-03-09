@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_counttomark">
+<title><token language="psi">counttomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">counttomark</token>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

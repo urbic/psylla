@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_undef">
+<title><token language="psi">undef</token></title>
+<synopsis>
+<replaceable>ключ</replaceable>
+<replaceable>словарь</replaceable>
+<token language="psi">undef</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

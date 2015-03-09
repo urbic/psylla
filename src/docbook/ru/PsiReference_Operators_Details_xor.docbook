@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_xor">
+<title><token language="psi">xor</token></title>
+<synopsis>
+<replaceable>операнд<subscript>1</subscript></replaceable>
+<replaceable>операнд<subscript>2</subscript></replaceable>
+<token language="psi">xor</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>операнд<subscript>1</subscript></replaceable>,
+<replaceable>операнд<subscript>2</subscript></replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<para>
+Возвращает исключающую дизъюнкцию двух операндов. Для операндов типа
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая исключающая дизъюнкция. Для
+операндов типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/> вычисляется
+побитовая исключающая дизъюнкция.
+</para>
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">true false and	<lineannotation>⇒ true</lineannotation>
+12 6 xor		<lineannotation>⇒ 10</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+</section>

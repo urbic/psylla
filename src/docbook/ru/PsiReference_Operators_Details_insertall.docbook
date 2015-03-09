@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_insertall">
+<title><token language="psi">insertall</token></title>
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">insertall</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

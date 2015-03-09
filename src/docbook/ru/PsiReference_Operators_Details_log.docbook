@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_log">
+<title><token language="psi">log</token></title>
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">log</token>
+<replaceable>логарифм</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>логарифм</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<para>
+Возвращает логарифм ненулевого числового операнда. Для положительных операндов
+целого и вещественного типа возвращается вещественное число, для отрицательных
+и комплексных операндов возвращается комплексное число.
+</para>
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">1 log			<lineannotation>⇒ 0.0</lineannotation>
+-1 log			<lineannotation>⇒ 0.0+3.141592653589793i</lineannotation>
+0 1 complex log	<lineannotation>⇒ 0.0+1.5707963267948966i</lineannotation></programlisting>
+</formalpara>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+</formalpara>
+</section>

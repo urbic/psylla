@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_forall">
+<title><token language="psi">forall</token></title>
+<synopsis>
+<replaceable>словарь</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">forall</token>
+—
+<sbr/>
+<replaceable>перечисление</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">forall</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

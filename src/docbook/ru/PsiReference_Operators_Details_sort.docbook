@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_sort">
+<title><token language="psi">sort</token></title>
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>процедура</replaceable>
+<token language="psi">sort</token>
+<replaceable>сортированный_массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>,
+<replaceable>сортированный_массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>процедура</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<para>
+Возвращает отсортированную копию <replaceable>массива</replaceable>. Сортировка
+производится при помощи <replaceable>процедуры</replaceable>-компаратора.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+</section>

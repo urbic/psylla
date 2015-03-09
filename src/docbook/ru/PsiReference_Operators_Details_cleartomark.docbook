@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_cleartomark">
+<title><token language="psi">cleartomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">cleartomark</token>
+⊢
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+</formalpara>
+</section>

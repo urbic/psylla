@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_arraytomark">
+<title><token language="psi">arraytomark</token></title>
+
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">arraytomark</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+</section>
