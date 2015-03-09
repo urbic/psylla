@@ -11,7 +11,7 @@ public class _monitor extends PsiOperator
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiLock lock=(PsiLock)ops[0];
 		final PsiObject obj=ops[1];
-	
+
 		if(lock.isHeldByCurrentThread())
 			throw new PsiException("invalidcontext");
 		lock.lock();
