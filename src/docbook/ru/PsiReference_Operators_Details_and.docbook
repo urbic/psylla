@@ -16,9 +16,9 @@
 </itemizedlist>
 </synopsis>
 <para>
-Возвращает конъюнкцию двух операндов. Для операндов типа <xref
+Возвращает конъюнкцию двух операндов. Для операндов типа <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
-вычисляется логическая конъюнкция. Для операндов типа <xref
+вычисляется логическая конъюнкция. Для операндов типа <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или типа
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 вычисляется побитовая конъюнкция.

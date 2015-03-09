@@ -15,7 +15,7 @@
 </synopsis>
 
 <para>
-Создаёт новую пустую <replaceable>строку</replaceable> и помещает её на стек операндов.
+Возвращает новую пустую <replaceable>строку</replaceable>.
 </para>
 
 <formalpara>

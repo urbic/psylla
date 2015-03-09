@@ -15,8 +15,8 @@
 </itemizedlist>
 </synopsis>
 <para>
-Добавляет все объекты из <replaceable>перечисления</replaceable> в
-<replaceable>контейнер</replaceable>.
+Добавляет все объекты из <replaceable>перечисления</replaceable>
+в <replaceable>контейнер</replaceable>.
 </para>
 <formalpara>
 <title>Ошибки:</title>

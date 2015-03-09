@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_eq">
 <title><token language="psi">eq</token></title>
+
 <synopsis>
 <replaceable>объект<subscript>1</subscript></replaceable>
 <replaceable>объект<subscript>2</subscript></replaceable>
@@ -18,4 +19,5 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 </section>

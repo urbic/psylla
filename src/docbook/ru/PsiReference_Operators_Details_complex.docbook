@@ -21,7 +21,7 @@
 </synopsis>
 
 <para>
-Возвращает новое <replaceable>комплексное</replaceable> число с заданными
+Возвращает новое <replaceable>комплексное</replaceable> число с заданными
 <replaceable>вещественной_частью</replaceable> и
 <replaceable>мнимой_частью</replaceable>.
 </para>

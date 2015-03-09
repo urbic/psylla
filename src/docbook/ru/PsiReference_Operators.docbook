@@ -364,12 +364,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_quit" xrefstyle="template:%t"/></term>
-<listitem>завершение программы</listitem>
+<listitem>завершение исполнения текущего контекста</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_repeat" xrefstyle="template:%t"/></term>
 <listitem>цикл с заданным числом повторений</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_sleep" xrefstyle="template:%t"/></term>
+<listitem>приостановка исполнения текущего контекста на заданное время</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -851,6 +856,40 @@
 
 </section>
 
+<section xml:id="PsiReference_Operators_ByCategory_Multicontext">
+<title>Операторы, связанные с многоконтекстным исполнением</title>
+
+<variablelist>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_currentcontext" xrefstyle="template:%t"/></term>
+<listitem>получение текущего контекста</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_fork" xrefstyle="template:%t"/></term>
+<listitem>запуск процедуры в новом контексте</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_join" xrefstyle="template:%t"/></term>
+<listitem><remark>TODO</remark></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
+<listitem><remark>TODO</remark></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_yield" xrefstyle="template:%t"/></term>
+<listitem>приостановка на мгновение исполнения текущего контекста</listitem>
+</varlistentry>
+
+</variablelist>
+
+</section>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details">
@@ -1031,6 +1070,7 @@
 &PsiReference_Operators_Details_countdictstack;
 &PsiReference_Operators_Details_countexecstack;
 &PsiReference_Operators_Details_counttomark;
+&PsiReference_Operators_Details_currentcontext;
 &PsiReference_Operators_Details_currentdict;
 &PsiReference_Operators_Details_def;
 &PsiReference_Operators_Details_dict;
@@ -1051,6 +1091,7 @@
 &PsiReference_Operators_Details_flush;
 &PsiReference_Operators_Details_for;
 &PsiReference_Operators_Details_forall;
+&PsiReference_Operators_Details_fork;
 &PsiReference_Operators_Details_ge;
 &PsiReference_Operators_Details_get;
 &PsiReference_Operators_Details_getinterval;
@@ -1113,6 +1154,7 @@
 &PsiReference_Operators_Details_signum;
 &PsiReference_Operators_Details_sin;
 &PsiReference_Operators_Details_sinh;
+&PsiReference_Operators_Details_sleep;
 &PsiReference_Operators_Details_slice;
 &PsiReference_Operators_Details_sort;
 &PsiReference_Operators_Details_split;
@@ -1139,6 +1181,7 @@
 &PsiReference_Operators_Details_where;
 &PsiReference_Operators_Details_writestring;
 &PsiReference_Operators_Details_xor;
+&PsiReference_Operators_Details_yield;
 
 </section>
 

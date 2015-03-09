@@ -15,8 +15,8 @@
 </synopsis>
 
 <para>
-Возвращает <replaceable>кубический_корень</replaceable> из
-<replaceable>числа</replaceable>.
+Возвращает <replaceable>кубический_корень</replaceable>
+из <replaceable>числа</replaceable>.
 </para>
 
 <formalpara>

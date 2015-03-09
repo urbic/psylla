@@ -254,6 +254,17 @@ XXX
 </formalpara>
 </section>
 
+<section xml:id="PsiReference_Types_Details_context">
+<title><type>context</type></title>
+<para>
+Контекст исполнения.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
 <section xml:id="PsiReference_Types_Details_convertabletointeger">
 <title><type>convertabletointeger</type></title>
 <para>

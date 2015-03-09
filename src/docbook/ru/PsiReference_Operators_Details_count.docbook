@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_count">
 <title><token language="psi">count</token></title>
+
 <synopsis>
 ⊢
 <replaceable>объект<subscript>1</subscript></replaceable>
@@ -25,4 +26,5 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 </section>
