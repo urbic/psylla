@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_close">
+<title><token language="psi">close</token></title>
+<synopsis>
+<replaceable>закрываемое</replaceable>
+<token language="psi">close</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>закрываемое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+</section>

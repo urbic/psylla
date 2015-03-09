@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_filewriter">
+<title><token language="psi">filewriter</token></title>
+<synopsis>
+<replaceable>имя_файла</replaceable>
+<token language="psi">filewriter</token>
+<replaceable>писатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя_файла</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>писатель</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filewriter"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedfilename"/>.
+</formalpara>
+</section>

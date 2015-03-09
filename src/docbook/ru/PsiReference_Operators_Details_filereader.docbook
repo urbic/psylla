@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_filereader">
+<title><token language="psi">filereader</token></title>
+<synopsis>
+<replaceable>имя_файла</replaceable>
+<token language="psi">filereader</token>
+<replaceable>читатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя_файла</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>читатель</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filereader"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedfilename"/>.
+</formalpara>
+</section>

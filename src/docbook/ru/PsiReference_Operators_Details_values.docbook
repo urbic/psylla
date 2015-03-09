@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_values">
+<title><token language="psi">values</token></title>
+<synopsis>
+<replaceable>словарь</replaceable>
+<token language="psi">values</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

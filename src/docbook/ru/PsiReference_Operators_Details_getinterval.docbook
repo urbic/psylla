@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_getinterval">
+<title><token language="psi">getinterval</token></title>
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>длина</replaceable>
+<token language="psi">getinterval</token>
+<replaceable>подмассив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>,
+<replaceable>подмассив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>,
+<replaceable>длина</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_hypot">
+<title><token language="psi">hypot</token></title>
+<synopsis>
+<replaceable>катет<subscript>1</subscript></replaceable>
+<replaceable>катет<subscript>2</subscript></replaceable>
+<token language="psi">hypot</token>
+<replaceable>гипотенуза</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>катет<subscript>1</subscript></replaceable>,
+<replaceable>катет<subscript>2</subscript></replaceable>,
+<replaceable>гипотенуза<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

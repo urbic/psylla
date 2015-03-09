@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_append">
+<title><token language="psi">append</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable> <replaceable>объект</replaceable> <token language="psi">append</token> —
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<para>
+Добавляет <replaceable>объект</replaceable>
+в <replaceable>контейнер</replaceable>. Для контейнеров типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+добавление происходит в конец массива.
+</para>
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+</section>

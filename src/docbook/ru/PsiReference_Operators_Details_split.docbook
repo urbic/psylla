@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_split">
+<title><token language="psi">split</token></title>
+<synopsis>
+<replaceable>строковое</replaceable>
+<replaceable>шаблон</replaceable>
+<token language="psi">split</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строковое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>шаблон</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

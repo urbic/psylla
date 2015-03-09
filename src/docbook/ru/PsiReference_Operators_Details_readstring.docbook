@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_readstring">
+<title><token language="psi">readstring</token></title>
+
+<synopsis>
+<replaceable>источник</replaceable>
+<replaceable>длина</replaceable>
+<token language="psi">readstring</token>
+<replaceable>строка</replaceable>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
+</listitem>
+<listitem>
+<replaceable>длина</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Пытается прочитать <replaceable>строку</replaceable> заданной
+<replaceable>длины</replaceable> из источника. Возвращает прочитанную
+<replaceable>строку</replaceable>. Возвращает также булевское значение,
+показывающее, исчерпан ли <replaceable>источник</replaceable> в результате
+операции. Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_put">
+<title><token language="psi">put</token></title>
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>элемент</replaceable>
+<token language="psi">put</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>,
+<replaceable>элемент</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

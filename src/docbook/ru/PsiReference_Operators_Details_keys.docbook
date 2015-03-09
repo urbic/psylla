@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_keys">
+<title><token language="psi">keys</token></title>
+
+<synopsis>
+<replaceable>словарь</replaceable>
+<token language="psi">keys</token>
+<replaceable>множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
+</listitem>
+<listitem>
+<replaceable>множество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>множество</replaceable> ключей из
+<replaceable>словаря</replaceable>.
+</para>
+
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">&lt; /a 1 /b 2 &gt; keys	<lineannotation>⇒ ( /a /b )</lineannotation></programlisting>
+</formalpara>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

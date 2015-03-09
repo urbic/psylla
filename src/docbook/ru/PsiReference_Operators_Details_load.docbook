@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_load">
+<title><token language="psi">load</token></title>
+<synopsis>
+<replaceable>ключ</replaceable>
+<token language="psi">load</token>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

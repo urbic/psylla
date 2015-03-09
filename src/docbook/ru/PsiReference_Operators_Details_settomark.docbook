@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_settomark">
+<title><token language="psi">settomark</token></title>
+<synopsis>
+<replaceable>метка</replaceable>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">settomark</token>
+<replaceable>множество</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>множество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</section>

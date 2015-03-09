@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_mark">
+<title><token language="psi">mark</token></title>
+
+<synopsis>
+—
+<token language="psi">mark</token>
+<replaceable>метка</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>метка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+<para>
+Добавляет метку в стек операндов.
+</para>
+
+<para>
+Метки используются для обозначения позиции в стеке операндов, с которой
+начинается список неопределённой длины, сожержащий операнды оператора или
+процедуры. Операторы конструирования массивов, словарей и множеств <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>, <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>, <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>, снимают
+со стека операндов неопределённое количество операндов вплоть до метки,
+оставленной операторами <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_&lt;"/>, <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_["/>, <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_("/> (это всё синонимы оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Есть
+возможность определять процедуры с подобным поведением.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_("/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_["/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cleartomark"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>.
+</formalpara>
+
+</section>

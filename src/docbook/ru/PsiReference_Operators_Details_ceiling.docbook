@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_ceiling">
+<title><token language="psi">ceiling</token></title>
+
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">ceiling</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>потолок</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>потолок</replaceable> <replaceable>числа</replaceable>.
+Если операнд типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, возвращается он же. Для
+операнда типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/>, <replaceable>потолок</replaceable>
+имеет тот же тип.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_floor"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_round"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_regexp">
+<title><token language="psi">regexp</token></title>
+
+<synopsis>
+<replaceable>строковое</replaceable>
+<token language="psi">regexp</token>
+<replaceable>шаблон</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строковое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+<listitem>
+<replaceable>шаблон</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Создаёт шаблон регулярного выражения. 
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidregexp"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>
