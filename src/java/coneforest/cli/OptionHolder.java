@@ -44,6 +44,6 @@ abstract public class OptionHolder<T>
 	 */
 	abstract public T parseArg(final String arg)
 		throws CLIProcessingException;
-	
+
 	private T value;
 }

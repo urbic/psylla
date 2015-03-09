@@ -13,7 +13,7 @@ public class PsiReal
 
 	@Override
 	public String getTypeName() { return "real"; }
-	
+
 	@Override
 	public PsiBoolean psiIsZero()
 	{
