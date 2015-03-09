@@ -3,10 +3,9 @@ package coneforest.psi;
 public class PsiContext
 	extends PsiAbstractObject
 {
-	public PsiContext(Interpreter interpreter, Thread thread)
+	public PsiContext(Interpreter interpreter)
 	{
 		this.interpreter=interpreter;
-		this.thread=thread;
 	}
 
 	public String getTypeName()
@@ -16,7 +15,18 @@ public class PsiContext
 
 	public void start()
 	{
-		thread.start();
+		interpreter.start();
+	}
+
+	@Override
+	public String toString()
+	{
+		return "--context:"+interpreter.getId()+"--";
+	}
+
+	public Interpreter getInterpreter()
+	{
+		return interpreter;
 	}
 
 	public void join()
@@ -24,7 +34,7 @@ public class PsiContext
 	{
 		try
 		{
-			thread.join();
+			interpreter.join();
 		}
 		catch(InterruptedException e)
 		{
@@ -33,5 +43,4 @@ public class PsiContext
 	}
 
 	private final Interpreter interpreter;
-	private final Thread thread;
 }
