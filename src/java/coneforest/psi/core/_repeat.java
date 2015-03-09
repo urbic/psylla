@@ -11,7 +11,7 @@ public class _repeat extends PsiOperator
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiInteger count=(PsiInteger)ops[0];
 		final PsiObject obj=ops[1];
-		
+
 		long countValue=count.longValue();
 		if(countValue<0)
 			throw new PsiException("rangecheck");

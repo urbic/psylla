@@ -48,6 +48,7 @@ public class PsiSystemDictionary
 					_countdictstack.class,
 					_countexecstack.class,
 					_counttomark.class,
+					_currentcontext.class,
 					_currentdict.class,
 					_def.class,
 					_delete.class,

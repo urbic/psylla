@@ -11,7 +11,7 @@ public class _sort extends PsiOperator
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiArray array=(PsiArray)ops[0];
 		final PsiObject comparator=ops[1];
-		
+
 		opstack.push(array.psiSort(new java.util.Comparator<PsiObject>()
 				{
 					@Override
@@ -36,7 +36,7 @@ public class _sort extends PsiOperator
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiIterable iterable=(PsiIterable)ops[0];
 		final PsiObject comparator=ops[1];
-		
+
 		final PsiObject[] a=new PsiObject[((PsiLengthy)iterable).length()];
 		int i=0;
 
