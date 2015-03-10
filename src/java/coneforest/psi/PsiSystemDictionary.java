@@ -176,6 +176,7 @@ public class PsiSystemDictionary
 					_uniformdeviate.class,
 					_values.class,
 					_where.class,
+					_write.class,
 					_writestring.class,
 					_xor.class,
 					_yield.class
