@@ -225,6 +225,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_im" xrefstyle="template:%t"/></term>
+<listitem>вещественная часть числа</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_log" xrefstyle="template:%t"/></term>
 <listitem>натуральный логарифм числа</listitem>
 </varlistentry>
@@ -247,6 +252,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_pow" xrefstyle="template:%t"/></term>
 <listitem>возведение числа в степень другого числа</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_re" xrefstyle="template:%t"/></term>
+<listitem>вещественная часть числа</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -474,6 +484,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_def" xrefstyle="template:%t"/></term>
 <listitem>добавление записи в текущий словарь</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_delete" xrefstyle="template:%t"/></term>
+<listitem>удаление элемента из контейнера по заданному ключу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -743,6 +758,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stringwriter" xrefstyle="template:%t"/></term>
 <listitem>создание строкового писателя</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_write" xrefstyle="template:%t"/></term>
+<listitem>вывод символа в вывод или писатель</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1073,6 +1093,7 @@
 &PsiReference_Operators_Details_currentcontext;
 &PsiReference_Operators_Details_currentdict;
 &PsiReference_Operators_Details_def;
+&PsiReference_Operators_Details_delete;
 &PsiReference_Operators_Details_dict;
 &PsiReference_Operators_Details_dicttomark;
 &PsiReference_Operators_Details_div;
@@ -1100,6 +1121,7 @@
 &PsiReference_Operators_Details_idiv;
 &PsiReference_Operators_Details_if;
 &PsiReference_Operators_Details_ifelse;
+&PsiReference_Operators_Details_im;
 &PsiReference_Operators_Details_index;
 &PsiReference_Operators_Details_insert;
 &PsiReference_Operators_Details_insertall;
@@ -1136,6 +1158,7 @@
 &PsiReference_Operators_Details_putinterval;
 &PsiReference_Operators_Details_quit;
 &PsiReference_Operators_Details_random;
+&PsiReference_Operators_Details_re;
 &PsiReference_Operators_Details_read;
 &PsiReference_Operators_Details_readline;
 &PsiReference_Operators_Details_readstring;
@@ -1179,6 +1202,7 @@
 &PsiReference_Operators_Details_uniformdeviate;
 &PsiReference_Operators_Details_values;
 &PsiReference_Operators_Details_where;
+&PsiReference_Operators_Details_write;
 &PsiReference_Operators_Details_writestring;
 &PsiReference_Operators_Details_xor;
 &PsiReference_Operators_Details_yield;

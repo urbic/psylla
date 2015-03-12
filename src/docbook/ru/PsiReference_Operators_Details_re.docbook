@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_re">
+<title><token language="psi">re</token></title>
+
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">re</token>
+<replaceable>вещественная_часть</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+</listitem>
+<listitem>
+<replaceable>вещественная_часть</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>вещественную_часть</replaceable>
+<replaceable>числа</replaceable>. Для операндов целого и вещественного типов
+возвращается он же.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_im"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_signum"/>.
+</formalpara>
+
+</section>

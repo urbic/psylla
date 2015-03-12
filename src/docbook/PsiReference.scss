@@ -186,9 +186,12 @@ table.productionset
 	font-family: monospace;
 }
 
-.errorname
+:link:hover .errorname,
+.errorname,
 {
 	color: #A22;
+	-moz-text-decoration-color: #A22;
+	text-decoration-color: #A22;
 }
 
 .formalpara-title

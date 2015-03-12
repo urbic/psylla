@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_undef">
 <title><token language="psi">undef</token></title>
+
 <synopsis>
 <replaceable>ключ</replaceable>
 <replaceable>словарь</replaceable>
@@ -13,8 +14,20 @@
 </listitem>
 <listitem>
 <replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Удаляет <replaceable>ключ</replaceable> и связанное с ним значение
+из <replaceable>словаря</replaceable>. При отсутствии ключа
+в <replaceable>словаре</replaceable> ошибки не возникает.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
 </section>
