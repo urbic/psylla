@@ -320,4 +320,26 @@ public class Utility
 		}
 	}
 
+	public static PsiArray psiListDirectory(final PsiStringlike stringlike)
+		throws PsiException
+	{
+		PsiArray array=new PsiArray();
+		try
+		{
+			java.nio.file.DirectoryStream<java.nio.file.Path> dirStream
+				=java.nio.file.Files.newDirectoryStream(getNativePath(stringlike));
+			for(java.nio.file.Path item: dirStream)
+				array.psiAppend(new PsiString(item.toString()));
+			return array;
+		}
+		//catch(java.nio.file.DirectoryIteratorException e)
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+		catch(SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+	}
 }
