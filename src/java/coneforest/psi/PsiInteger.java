@@ -355,7 +355,9 @@ public class PsiInteger
 		ZERO=PsiInteger.valueOf(0L),
 		ONE=PsiInteger.valueOf(1L),
 		TWO=PsiInteger.valueOf(1L),
-		MINUS_ONE=PsiInteger.valueOf(-1L);
+		MINUS_ONE=PsiInteger.valueOf(-1L),
+		MAX_VALUE=PsiInteger.valueOf(Long.MAX_VALUE),
+		MIN_VALUE=PsiInteger.valueOf(Long.MIN_VALUE);
 
 	private final long value;
 

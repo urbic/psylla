@@ -189,6 +189,8 @@ public class PsiSystemDictionary
 			psiPut("systemdict", this);
 			psiPut("mark", PsiMark.MARK);
 			psiPut("null", PsiNull.NULL);
+			psiPut("maxinteger", PsiInteger.MAX_VALUE);
+			psiPut("mininteger", PsiInteger.MIN_VALUE);
 			psiPut("[", PsiMark.MARK);
 			psiPut("<", PsiMark.MARK);
 			psiPut("(", PsiMark.MARK);
