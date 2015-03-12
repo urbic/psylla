@@ -8,7 +8,7 @@
 <replaceable>ложь</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>ложь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_false"/>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>

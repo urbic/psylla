@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_insertall">
 <title><token language="psi">insertall</token></title>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <replaceable>индекс</replaceable>
@@ -22,4 +23,27 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Вставляет все объекты из <replaceable>перечисления</replaceable> в
+<replaceable>массив</replaceable> перед элементом с заданным
+<replaceable>индексом</replaceable> или в конец
+<replaceable>массива</replaceable>. Если <replaceable>индекс</replaceable>
+отрицателен или больше длины <replaceable>массива</replaceable>, генерирует
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insertall"/>.
+</formalpara>
+
 </section>

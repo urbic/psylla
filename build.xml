@@ -150,7 +150,7 @@
 			<arg value="${share.dir}/css"-->
 			<srcfile/>
 			<targetfile/>
-			<fileset dir="${src.docbook}" includes="${project.name}.scss"/>
+			<fileset dir="${src.docbook}" includes="PsiReference.scss"/>
 			<mapper type="glob" from="*.scss" to="*.css"/>
 		</apply>
 	</target>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_delete">
+<title><token language="psi">delete</token></title>
+
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>ключ</replaceable>
+<token language="psi">delete</token>
+<replaceable>элемент</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>ключ</replaceable>,
+<replaceable>элемент</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Удаляет <replaceable>элемент</replaceable> с заданным
+<replaceable>ключом</replaceable> из <replaceable>контейнера</replaceable>, и
+возвращает удалённый элемент. Тип ключа должен соответствовать типу контейнера.
+При отсутствии ключа в контейнере генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefined"/> (для словарей) или <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> (для
+массивов).
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_deleteinterval"/>.
+</formalpara>
+
+</section>
