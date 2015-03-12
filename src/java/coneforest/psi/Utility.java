@@ -104,8 +104,8 @@ public class Utility
 	{
 		try
 		{
-			java.nio.file.Files.createSymbolicLink(getNativePath(stringlike1),
-				getNativePath(stringlike2));
+			java.nio.file.Files.createSymbolicLink(getNativePath(stringlike2),
+				getNativePath(stringlike1));
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
@@ -172,11 +172,20 @@ public class Utility
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.isRegularFile(getNativePath(stringlike)));
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+					java.nio.file.attribute.BasicFileAttributes.class).isRegularFile());
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("undefinedfilename");
 		}
 		catch(java.lang.SecurityException e)
 		{
 			throw new PsiException("securityerror");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
 		}
 	}
 
@@ -185,11 +194,20 @@ public class Utility
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.isDirectory(getNativePath(stringlike)));
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+					java.nio.file.attribute.BasicFileAttributes.class).isDirectory());
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("undefinedfilename");
 		}
 		catch(java.lang.SecurityException e)
 		{
 			throw new PsiException("securityerror");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
 		}
 	}
 
@@ -198,7 +216,16 @@ public class Utility
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.isSymbolicLink(getNativePath(stringlike)));
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+					java.nio.file.attribute.BasicFileAttributes.class).isSymbolicLink());
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("undefinedfilename");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
 		}
 		catch(java.lang.SecurityException e)
 		{
@@ -212,6 +239,72 @@ public class Utility
 		try
 		{
 			return PsiInteger.valueOf(java.nio.file.Files.size(getNativePath(stringlike)));
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("undefinedfilename");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+	}
+
+	public static PsiInteger psiFileAccessTime(final PsiStringlike stringlike)
+		throws PsiException
+	{
+		try
+		{
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+					java.nio.file.attribute.BasicFileAttributes.class).lastAccessTime().toMillis());
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("undefinedfilename");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+	}
+
+	public static PsiInteger psiFileCreationTime(final PsiStringlike stringlike)
+		throws PsiException
+	{
+		try
+		{
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+					java.nio.file.attribute.BasicFileAttributes.class).creationTime().toMillis());
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("undefinedfilename");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+	}
+
+	public static PsiInteger psiFileModifiedTime(final PsiStringlike stringlike)
+		throws PsiException
+	{
+		try
+		{
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+					java.nio.file.attribute.BasicFileAttributes.class).lastModifiedTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
