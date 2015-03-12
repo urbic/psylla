@@ -785,13 +785,28 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_filesize" xrefstyle="template:%t"/></term>
-<listitem>размер файла</listitem>
+<term><xref linkend="PsiReference_Operators_Details_fileaccesstime" xrefstyle="template:%t"/></term>
+<listitem>время последнего доступа к файлу</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_filecreationtime" xrefstyle="template:%t"/></term>
+<listitem>время создания файла</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_fileexists" xrefstyle="template:%t"/></term>
 <listitem>существует ли файл?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_filemodifiedtime" xrefstyle="template:%t"/></term>
+<listitem>время последнего изменения файла</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_filesize" xrefstyle="template:%t"/></term>
+<listitem>размер файла</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1156,7 +1171,10 @@
 &PsiReference_Operators_Details_exp;
 &PsiReference_Operators_Details_external;
 &PsiReference_Operators_Details_false;
+&PsiReference_Operators_Details_fileaccesstime;
+&PsiReference_Operators_Details_filecreationtime;
 &PsiReference_Operators_Details_fileexists;
+&PsiReference_Operators_Details_filemodifiedtime;
 &PsiReference_Operators_Details_filereader;
 &PsiReference_Operators_Details_filesize;
 &PsiReference_Operators_Details_filewriter;
