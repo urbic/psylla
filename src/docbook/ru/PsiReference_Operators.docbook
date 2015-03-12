@@ -774,6 +774,55 @@
 
 </section>
 
+<section xml:id="PsiReference_Operators_ByCategory_FileSystem">
+<title>Операторы, связанные с файловой системой</title>
+
+<variablelist>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_createdirectory" xrefstyle="template:%t"/></term>
+<listitem>создание директории</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_filesize" xrefstyle="template:%t"/></term>
+<listitem>размер файла</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_fileexists" xrefstyle="template:%t"/></term>
+<listitem>существует ли файл?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_isdirectory" xrefstyle="template:%t"/></term>
+<listitem>является ли файл директорией?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_isfile" xrefstyle="template:%t"/></term>
+<listitem>является ли файл обычным?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_issymlink" xrefstyle="template:%t"/></term>
+<listitem>является ли файл символической ссылкой?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_renamefile" xrefstyle="template:%t"/></term>
+<listitem>переименование файла</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_symlink" xrefstyle="template:%t"/></term>
+<listitem>создание символической ссылки</listitem>
+</varlistentry>
+
+</variablelist>
+
+</section>
+
 <section xml:id="PsiReference_Operators_ByCategory_RegExp">
 <title>Операторы, связанные с регулярными выражениями</title>
 
@@ -1090,6 +1139,7 @@
 &PsiReference_Operators_Details_countdictstack;
 &PsiReference_Operators_Details_countexecstack;
 &PsiReference_Operators_Details_counttomark;
+&PsiReference_Operators_Details_createdirectory;
 &PsiReference_Operators_Details_currentcontext;
 &PsiReference_Operators_Details_currentdict;
 &PsiReference_Operators_Details_def;
@@ -1106,7 +1156,9 @@
 &PsiReference_Operators_Details_exp;
 &PsiReference_Operators_Details_external;
 &PsiReference_Operators_Details_false;
+&PsiReference_Operators_Details_fileexists;
 &PsiReference_Operators_Details_filereader;
+&PsiReference_Operators_Details_filesize;
 &PsiReference_Operators_Details_filewriter;
 &PsiReference_Operators_Details_floor;
 &PsiReference_Operators_Details_flush;
@@ -1126,7 +1178,10 @@
 &PsiReference_Operators_Details_insert;
 &PsiReference_Operators_Details_insertall;
 &PsiReference_Operators_Details_intersects;
+&PsiReference_Operators_Details_isdirectory;
 &PsiReference_Operators_Details_isempty;
+&PsiReference_Operators_Details_isfile;
+&PsiReference_Operators_Details_issymlink;
 &PsiReference_Operators_Details_keys;
 &PsiReference_Operators_Details_keysforall;
 &PsiReference_Operators_Details_known;
@@ -1165,6 +1220,7 @@
 &PsiReference_Operators_Details_regexp;
 &PsiReference_Operators_Details_remove;
 &PsiReference_Operators_Details_removeall;
+&PsiReference_Operators_Details_renamefile;
 &PsiReference_Operators_Details_repeat;
 &PsiReference_Operators_Details_retainall;
 &PsiReference_Operators_Details_reverse;
@@ -1188,6 +1244,7 @@
 &PsiReference_Operators_Details_stringreader;
 &PsiReference_Operators_Details_stringwriter;
 &PsiReference_Operators_Details_sub;
+&PsiReference_Operators_Details_symlink;
 &PsiReference_Operators_Details_tan;
 &PsiReference_Operators_Details_tanh;
 &PsiReference_Operators_Details_time;

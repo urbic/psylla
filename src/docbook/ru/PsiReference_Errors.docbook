@@ -8,12 +8,28 @@
 <section xml:id="PsiReference_Errors_Details_dictstackunderflow">
 <title><errorname language="psi">dictstackunderflow</errorname></title>
 <para>
+Недополнение стека словарей.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_directorynotempty">
+<title><errorname language="psi">directorynotempty</errorname></title>
+<para>
+Директория не пуста.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_fileexists">
+<title><errorname language="psi">fileexists</errorname></title>
+<para>
+Файл существует.
 </para>
 </section>
 
 <section xml:id="PsiReference_Errors_Details_invalidexit">
 <title><errorname language="psi">invalidexit</errorname></title>
 <para>
+Неправильный exit.
 </para>
 </section>
 
@@ -41,6 +57,13 @@
 <title><errorname language="psi">rangecheck</errorname></title>
 <para>
 Операнд выходит за границы допустимого диапазона.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_securityerror">
+<title><errorname language="psi">securityerror</errorname></title>
+<para>
+<remark>TODO</remark>
 </para>
 </section>
 

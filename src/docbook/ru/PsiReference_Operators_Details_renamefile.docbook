@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_renamefile">
+<title><token language="psi">renamefile</token></title>
+
+<synopsis>
+<replaceable>старое</replaceable>
+<replaceable>новое</replaceable>
+<token language="psi">renamefile</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>новое</replaceable>,
+<replaceable>старое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Изменяет имя файла <replaceable>старое</replaceable> на
+<replaceable>новое</replaceable>.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_directorynotempty"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedfilename"/>.
+</formalpara>
+
+</section>
