@@ -1,13 +1,13 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _fileexists extends PsiOperator
+public class _isdirectory extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(Utility.psiFileExists(((PsiStringlike)opstack.popOperands(1)[0])));
+		opstack.push(Utility.psiIsDirectory(((PsiStringlike)opstack.popOperands(1)[0])));
 	}
 }

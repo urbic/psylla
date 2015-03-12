@@ -8,14 +8,6 @@ public class _isfile extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		String name=Utility.fileNameToNative(((PsiStringlike)opstack.popOperands(1)[0]).getString());
-		try
-		{
-			opstack.push(PsiBoolean.valueOf((new java.io.File(name)).isFile()));
-		}
-		catch(SecurityException e)
-		{
-			throw new PsiException("security");
-		}
+		opstack.push(Utility.psiIsFile(((PsiStringlike)opstack.popOperands(1)[0])));
 	}
 }
