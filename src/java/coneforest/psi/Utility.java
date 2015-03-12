@@ -30,6 +30,27 @@ public class Utility
 		}
 	}
 
+	public static void psiCreateDirectory(final PsiStringlike stringlike)
+		throws PsiException
+	{
+		try
+		{
+			java.nio.file.Files.createDirectory(getNativePath(stringlike));
+		}
+		catch(java.nio.file.FileAlreadyExistsException e)
+		{
+			throw new PsiException("fileexists");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
 	public static void psiDeleteFile(final PsiStringlike stringlike)
 		throws PsiException
 	{
@@ -66,6 +87,29 @@ public class Utility
 		catch(java.nio.file.NotLinkException e)
 		{
 			throw new PsiException("notlink");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	public static void psiSymLink(final PsiStringlike stringlike1,
+			final PsiStringlike stringlike2)
+		throws PsiException
+	{
+		try
+		{
+			java.nio.file.Files.createSymbolicLink(getNativePath(stringlike1),
+				getNativePath(stringlike2));
+		}
+		catch(java.nio.file.FileAlreadyExistsException e)
+		{
+			throw new PsiException("fileexists");
 		}
 		catch(java.lang.SecurityException e)
 		{
@@ -149,12 +193,33 @@ public class Utility
 		}
 	}
 
-	public static PsiBoolean psiIsSymlink(final PsiStringlike stringlike)
+	public static PsiBoolean psiIsSymLink(final PsiStringlike stringlike)
 		throws PsiException
 	{
 		try
 		{
 			return PsiBoolean.valueOf(java.nio.file.Files.isSymbolicLink(getNativePath(stringlike)));
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+	}
+
+	public static PsiInteger psiFileSize(final PsiStringlike stringlike)
+		throws PsiException
+	{
+		try
+		{
+			return PsiInteger.valueOf(java.nio.file.Files.size(getNativePath(stringlike)));
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("undefinedfilename");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
 		}
 		catch(java.lang.SecurityException e)
 		{
