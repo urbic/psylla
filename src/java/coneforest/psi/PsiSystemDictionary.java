@@ -39,6 +39,7 @@ public class PsiSystemDictionary
 					_cmp.class,
 					_complex.class,
 					_complexpolar.class,
+					_condition.class,
 					_conjugate.class,
 					_contains.class,
 					_copy.class,
