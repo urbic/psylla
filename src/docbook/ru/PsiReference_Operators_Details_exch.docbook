@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_exch">
 <title><token language="psi">exch</token></title>
+
 <synopsis>
 <replaceable>объект<subscript>1</subscript></replaceable>
 <replaceable>объект<subscript>2</subscript></replaceable>
@@ -15,15 +16,24 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
 Меняет местами два верхних операнда в стеке операндов.
 </para>
+
 <formalpara>
 <title>Пример:</title>
 <programlisting language="psi">1 2 exch	<lineannotation>⇒ 2 1</lineannotation></programlisting>
 </formalpara>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
 </formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
+</formalpara>
+
 </section>

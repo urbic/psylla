@@ -53,6 +53,7 @@
 <formalpara>
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exch"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
 </formalpara>

@@ -20,7 +20,7 @@
 
 <para>
 Возвращает булевское значение, показывающее, существует ли файл или директория
-<replaceable>имя</replaceable>.
+с заданным <replaceable>именем</replaceable>.
 </para>
 
 <formalpara>

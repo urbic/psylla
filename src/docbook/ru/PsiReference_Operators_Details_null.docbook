@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_null">
 <title><token language="psi">null</token></title>
+
 <synopsis>
 —
 <token language="psi">null</token>
-<replaceable>ничто</replaceable>
+<constant>null</constant>
 <itemizedlist>
 <listitem>
-<replaceable>ничто</replaceable>:
+<constant>null</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Возвращает <constant>null</constant>.
+</para>
+
 </section>

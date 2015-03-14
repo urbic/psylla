@@ -358,6 +358,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_halt" xrefstyle="template:%t"/></term>
+<listitem>завершение исполнения программы со статусом</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_if" xrefstyle="template:%t"/></term>
 <listitem>условный вызов объекта для исполнения</listitem>
 </varlistentry>
@@ -1187,6 +1192,7 @@
 &PsiReference_Operators_Details_get;
 &PsiReference_Operators_Details_getinterval;
 &PsiReference_Operators_Details_gt;
+&PsiReference_Operators_Details_halt;
 &PsiReference_Operators_Details_hypot;
 &PsiReference_Operators_Details_idiv;
 &PsiReference_Operators_Details_if;

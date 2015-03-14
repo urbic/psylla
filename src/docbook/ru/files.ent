@@ -75,6 +75,7 @@
 <!ENTITY PsiReference_Operators_Details_get				SYSTEM "PsiReference_Operators_Details_get.docbook">
 <!ENTITY PsiReference_Operators_Details_getinterval		SYSTEM "PsiReference_Operators_Details_getinterval.docbook">
 <!ENTITY PsiReference_Operators_Details_gt				SYSTEM "PsiReference_Operators_Details_gt.docbook">
+<!ENTITY PsiReference_Operators_Details_halt			SYSTEM "PsiReference_Operators_Details_halt.docbook">
 <!ENTITY PsiReference_Operators_Details_hypot			SYSTEM "PsiReference_Operators_Details_hypot.docbook">
 <!ENTITY PsiReference_Operators_Details_idiv			SYSTEM "PsiReference_Operators_Details_idiv.docbook">
 <!ENTITY PsiReference_Operators_Details_if				SYSTEM "PsiReference_Operators_Details_if.docbook">

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_settomark">
 <title><token language="psi">settomark</token></title>
+
 <synopsis>
 <replaceable>метка</replaceable>
 <replaceable>объект<subscript>0</subscript></replaceable>
@@ -25,4 +26,10 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+</formalpara>
+
 </section>

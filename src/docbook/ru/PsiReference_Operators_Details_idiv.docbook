@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_idiv">
 <title><token language="psi">idiv</token></title>
+
 <synopsis>
 <replaceable>делимое</replaceable>
 <replaceable>делитель</replaceable>
@@ -15,11 +16,13 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
 Возвращает результат целочисленного деления <replaceable>делимого</replaceable>
 на ненулевой <replaceable>делитель</replaceable>. Знак
 <replaceable>частного</replaceable> совпадает с произведением знаков операндов.
 </para>
+
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">17 3 idiv	<lineannotation>⇒ 5</lineannotation>
@@ -27,9 +30,17 @@
 17 -3 idiv	<lineannotation>⇒ -5</lineannotation>
 -17 -3 idiv	<lineannotation>⇒ 5</lineannotation></programlisting>
 </formalpara>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
 </formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mod"/>.
+</formalpara>
+
 </section>
