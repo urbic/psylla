@@ -3,7 +3,6 @@ package coneforest.psi;
 public class PsiLock
 	extends PsiAbstractObject
 	implements PsiAtomic
-	//implements java.util.concurrent.locks.Lock
 {
 	public String getTypeName()
 	{
@@ -25,6 +24,11 @@ public class PsiLock
 		return lock.isHeldByCurrentThread();
 	}
 
-	private java.util.concurrent.locks.ReentrantLock lock
+	public PsiCondition psiCondition()
+	{
+		return new PsiCondition(lock.newCondition());
+	}
+
+	private final java.util.concurrent.locks.ReentrantLock lock
 		=new java.util.concurrent.locks.ReentrantLock();
 }
