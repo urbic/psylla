@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_print">
 <title><token language="psi">print</token></title>
+
 <synopsis>
 <replaceable>строка</replaceable>
 <token language="psi">print</token>
@@ -12,4 +13,12 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
 </section>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_setseed">
 <title><token language="psi">setseed</token></title>
+
 <synopsis>
 <replaceable>генератор</replaceable>
 <replaceable>целое</replaceable>
@@ -17,4 +18,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
 </section>

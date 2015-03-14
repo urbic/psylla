@@ -5,10 +5,10 @@
 <synopsis>
 —
 <token language="psi">true</token>
-<costant>true</costant>
+<constant>true</constant>
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_true"/>:
+<constant>true</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
