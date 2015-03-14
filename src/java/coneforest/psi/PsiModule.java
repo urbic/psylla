@@ -16,7 +16,7 @@ public class PsiModule
 		}
 		catch(InstantiationException|IllegalAccessException e)
 		{
-			throw new PsiException("undefinedexternal");
+			throw new PsiException("invalidexternal");
 		}
 	}
 }
