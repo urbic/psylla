@@ -14,5 +14,23 @@ public class PsiCondition
 		this.condition=condition;
 	}
 
+	public void psiNotify()
+	{
+		condition.signal();
+	}
+
+	public void psiWait()
+		throws PsiException
+	{
+		try
+		{
+			condition.await();
+		}
+		catch(InterruptedException e)
+		{
+			throw new PsiException("interrupted");
+		}
+	}
+
 	private java.util.concurrent.locks.Condition condition;
 }
