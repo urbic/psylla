@@ -20,5 +20,4 @@ public class PsiFileWriter extends PsiWriter
 	{
 		this(name.getString());
 	}
-
 }
