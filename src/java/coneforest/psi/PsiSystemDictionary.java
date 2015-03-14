@@ -171,6 +171,7 @@ public class PsiSystemDictionary
 					_stringwriter.class,
 					_sub.class,
 					_symlink.class,
+					_synchronized.class,
 					_tan.class,
 					_tanh.class,
 					_time.class,
