@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_false">
-<title><constant language="psi">false</constant></title>
+<title><token language="psi">false</token></title>
 
 <synopsis>
 —
 <token language="psi">false</token>
-<replaceable>ложь</replaceable>
+<constant>false</constant>
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_false"/>:
+<constant>false</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <constant>false</constant>.
+Возвращает будевское значение <constant>false</constant>.
 </para>
 
 <formalpara>

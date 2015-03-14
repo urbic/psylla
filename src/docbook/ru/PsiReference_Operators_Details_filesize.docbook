@@ -19,8 +19,8 @@
 </synopsis>
 
 <para>
-Возвращает <replaceable>размер</replaceable> (в байтах) для файла
-<replaceable>имя</replaceable>.
+Возвращает <replaceable>размер</replaceable> (в байтах) для файла с заданным
+<replaceable>именем</replaceable>.
 </para>
 
 <formalpara>

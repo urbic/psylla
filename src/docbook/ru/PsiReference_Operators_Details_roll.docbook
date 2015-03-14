@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_roll">
 <title><token language="psi">roll</token></title>
+
 <synopsis>
 <replaceable>объект<subscript>n−1</subscript></replaceable>
 …
@@ -28,4 +29,10 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exch"/>.
+</formalpara>
+
 </section>

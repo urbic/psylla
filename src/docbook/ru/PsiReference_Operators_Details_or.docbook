@@ -29,7 +29,7 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или т
 <formalpara>
 <title>Пример:</title>
 <programlisting language="psi">true false or	<lineannotation>⇒ true</lineannotation>
-12 17 or		<lineannotation>⇒ 29</lineannotation></programlisting>
+12 6 or			<lineannotation>⇒ 14</lineannotation></programlisting>
 </formalpara>
 
 <formalpara>

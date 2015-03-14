@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_true">
-<title><constant language="psi">true</constant></title>
+<title><token language="psi">true</token></title>
 
 <synopsis>
 —
 <token language="psi">true</token>
-<replaceable>истина</replaceable>
+<costant>true</costant>
 <itemizedlist>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_true"/>:
@@ -15,7 +15,7 @@
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>.
+Возвращает булевское значение <constant>true</constant>.
 </para>
 
 <formalpara>

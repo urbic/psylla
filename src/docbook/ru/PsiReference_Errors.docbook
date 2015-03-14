@@ -96,8 +96,8 @@
 </para>
 </section>
 
-<section xml:id="PsiReference_Errors_Details_undefinedexternal">
-<title><errorname language="psi">undefinedexternal</errorname></title>
+<section xml:id="PsiReference_Errors_Details_invalidexternal">
+<title><errorname language="psi">invalidexternal</errorname></title>
 <para>
 Ошибка при загрузке внешнего класса или создании объекта этого класса.
 </para>

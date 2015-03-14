@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_countdictstack">
 <title><token language="psi">countdictstack</token></title>
+
 <synopsis>
 —
 <token language="psi">countdictstack</token>
@@ -12,4 +13,10 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
 </section>

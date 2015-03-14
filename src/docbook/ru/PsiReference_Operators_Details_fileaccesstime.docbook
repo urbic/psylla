@@ -20,7 +20,8 @@
 
 <para>
 Возвращает <replaceable>время</replaceable> последнего доступа (в миллисекундах
-с 01.01.1970 00:00:00 GMT) для файла <replaceable>имя</replaceable>.
+с 01.01.1970 00:00:00 GMT) для файла с заданным
+<replaceable>именем</replaceable>.
 </para>
 
 <formalpara>

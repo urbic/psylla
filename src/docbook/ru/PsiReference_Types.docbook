@@ -326,6 +326,26 @@ XXX
 </formalpara>
 </section>
 
+<section xml:id="PsiReference_Types_Details_filereader">
+<title><type>filereader</type></title>
+<para>
+Файловый читатель.
+</para>
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_filewriter">
+<title><type>filewriter</type></title>
+<para>
+Файловый писатель.
+</para>
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+</section>
+
 <section xml:id="PsiReference_Types_Details_flushable">
 <title><type>flushable</type></title>
 <para>
@@ -576,6 +596,46 @@ XXX
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
 </formalpara>
 </section>
+
+<section xml:id="PsiReference_Types_Details_stringreader">
+<title><type>stringreader</type></title>
+<para>
+Строковый читатель.
+</para>
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_stringwriter">
+<title><type>stringwriter</type></title>
+<para>
+Строковый писатель.
+</para>
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_writable">
+<title><type>writable</type></title>
+<para>
+</para>
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+</section>
+
+<section xml:id="PsiReference_Types_Details_writer">
+<title><type>writer</type></title>
+<para>
+Писатель.
+</para>
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+</section>
+
 
 
 </section>

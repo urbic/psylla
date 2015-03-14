@@ -17,4 +17,9 @@
 нет.
 </formalpara>
 
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_halt"/>.
+</formalpara>
+
 </section>
