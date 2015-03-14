@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_values">
 <title><token language="psi">values</token></title>
+
 <synopsis>
 <replaceable>словарь</replaceable>
 <token language="psi">values</token>
@@ -16,4 +17,26 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Возвращает <replaceable>массив</replaceable> значений, содержащихся
+в <replaceable>словаре</replaceable>. Порядок значений в словаре не определён.
+</para>
+
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">&lt; /a 1 /b 2 /c 1 &gt; values	<lineannotation>⇒ [ 2 1 1 ]</lineannotation></programlisting>
+</formalpara>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_keys"/>.
+</formalpara>
+
 </section>

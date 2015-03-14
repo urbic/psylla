@@ -6,11 +6,11 @@
 <replaceable>ключ</replaceable>
 <token language="psi">where</token>
 <replaceable>словарь</replaceable>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_true"/>
+<constant>true</constant>
 <sbr/>
 <replaceable>ключ</replaceable>
 <token language="psi">where</token>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_false"/>
+<constant>false</constant>
 <itemizedlist>
 <listitem>
 <replaceable>ключ</replaceable>:
@@ -21,8 +21,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_false"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_true"/>:
+<constant>false</constant>,
+<constant>true</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
@@ -42,9 +42,13 @@
 
 <formalpara>
 <title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentdict"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_def"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_get"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_known"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_load"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_load"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_undef"/>.
 </formalpara>
 
 </section>

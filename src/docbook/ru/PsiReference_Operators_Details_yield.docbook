@@ -6,13 +6,6 @@
 —
 <token language="psi">yield</token>
 —
-<itemizedlist>
-<listitem>
-<replaceable>число</replaceable>,
-<replaceable>результат</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
-</listitem>
-</itemizedlist>
 </synopsis>
 
 <para>
@@ -27,6 +20,11 @@
 
 <formalpara>
 <title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentcontext"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_monitor"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_wait"/>.
 </formalpara>
 
 </section>

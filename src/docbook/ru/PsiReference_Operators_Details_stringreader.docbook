@@ -3,12 +3,12 @@
 <title><token language="psi">stringreader</token></title>
 
 <synopsis>
-<replaceable>строковое</replaceable>
+<replaceable>строка</replaceable>
 <token language="psi">stringreader</token>
 <replaceable>читатель</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строковое</replaceable>:
+<replaceable>строка</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
@@ -17,6 +17,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Возвращает новый файловый читатель для заданной
+<replaceable>строки</replaceable>.
+</para>
 
 <formalpara>
 <title>Ошибки:</title>

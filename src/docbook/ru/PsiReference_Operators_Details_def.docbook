@@ -32,7 +32,13 @@
 
 <formalpara>
 <title>Смотри также:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentdict"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentdict"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_get"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_known"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_load"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_undef"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_where"/>.
 </formalpara>
 
 </section>

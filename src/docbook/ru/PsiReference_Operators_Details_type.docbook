@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_type">
 <title><token language="psi">type</token></title>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">type</token>
-<replaceable>имя_типа</replaceable>
+<replaceable>тип</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>имя_типа</replaceable>:
+<replaceable>тип</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Возвращает имя типа <replaceable>объекта</replaceable>.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
 </section>
