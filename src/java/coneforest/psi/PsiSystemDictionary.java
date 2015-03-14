@@ -88,6 +88,7 @@ public class PsiSystemDictionary
 					_getgroupstart.class,
 					_getinterval.class,
 					_gt.class,
+					_halt.class,
 					_hypot.class,
 					_idiv.class,
 					_if.class,
