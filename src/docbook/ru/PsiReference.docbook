@@ -18,37 +18,8 @@
 
 <title>Язык Ψ — полное руководство</title>
 
-<chapter xml:id="PsiReference_Introduction">
-<title>Введение</title>
 
-<para>
-Ψ — это интерпретируемый скриптовый алгоритмический язык, синтаксис которого
-основан на PostScript®.
-</para>
-
-<para>
-Интерпретатор Ψ запрограммирован на Java. Предусмотрена возможность расширения
-языка как новыми операторами, так и новыми типами, а также встраивания
-интерпретатора в приложения Java.
-</para>
-
-<section xml:id="PsiReference_Introduction_CopyrightAndLicense">
-<title>Копирайт и лицензия</title>
-
-<para>
-Программное обеспечение Ψ и настоящая документация выпускаются под лицензией
-<link xlink:href="http://opensource.org/licenses/Zlib">zlib/libpng</link>,
-текст которой приводится ниже:
-
-<literallayout><textobject><textdata
-fileref="LICENSE.txt"/></textobject></literallayout>
-
-</para>
-
-</section>
-
-</chapter>
-
+&PsiReference_Preface;
 &PsiReference_Interpreter;
 &PsiReference_Language;
 &PsiReference_Types;

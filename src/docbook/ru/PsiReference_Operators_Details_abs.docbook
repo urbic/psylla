@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_abs">
 <title><token language="psi">abs</token></title>
+
 <synopsis>
 <replaceable>операнд</replaceable> <token language="psi">abs</token> <replaceable>результат</replaceable>
 <itemizedlist>
@@ -11,6 +12,7 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
 Возвращает абсолютную величину операнда. Если операнд имеет тип <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>, и
@@ -23,9 +25,11 @@ linkend="PsiReference_Types_Details_real"/> или <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_complex"/>, тип результата <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>.
 </para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
+
 </section>

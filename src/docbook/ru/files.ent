@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!ENTITY PsiReference_Preface		SYSTEM "PsiReference_Preface.docbook">
 <!ENTITY PsiReference_Interpreter	SYSTEM "PsiReference_Interpreter.docbook">
 <!ENTITY PsiReference_Language		SYSTEM "PsiReference_Language.docbook">
 <!ENTITY PsiReference_Types			SYSTEM "PsiReference_Types.docbook">
