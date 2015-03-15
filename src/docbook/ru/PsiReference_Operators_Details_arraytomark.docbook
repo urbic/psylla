@@ -3,7 +3,7 @@
 <title><token language="psi">arraytomark</token></title>
 
 <synopsis>
-<replaceable>метка</replaceable>
+<constant>mark</constant>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>
@@ -11,7 +11,7 @@
 <replaceable>массив</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>

@@ -26,10 +26,24 @@
 </para>
 </section>
 
+<section xml:id="PsiReference_Errors_Details_invalidcontext">
+<title><errorname language="psi">invalidcontext</errorname></title>
+<para>
+Неверный контекст.
+</para>
+</section>
+
 <section xml:id="PsiReference_Errors_Details_invalidexit">
 <title><errorname language="psi">invalidexit</errorname></title>
 <para>
 Неправильный exit.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_invalidexternal">
+<title><errorname language="psi">invalidexternal</errorname></title>
+<para>
+Ошибка при загрузке внешнего класса или создании объекта этого класса.
 </para>
 </section>
 
@@ -93,13 +107,6 @@
 <section xml:id="PsiReference_Errors_Details_undefined">
 <title><errorname language="psi">undefined</errorname></title>
 <para>
-</para>
-</section>
-
-<section xml:id="PsiReference_Errors_Details_invalidexternal">
-<title><errorname language="psi">invalidexternal</errorname></title>
-<para>
-Ошибка при загрузке внешнего класса или создании объекта этого класса.
 </para>
 </section>
 
