@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preface xml:id="PsiReference_Introduction">
+<title>Введение</title>
+
+<para>
+Ψ — это интерпретируемый скриптовый алгоритмический язык, синтаксис которого
+основан на PostScript®.
+</para>
+
+<para>
+Интерпретатор Ψ запрограммирован на Java. Предусмотрена возможность расширения
+языка как новыми операторами, так и новыми типами, а также встраивания
+интерпретатора в приложения Java.
+</para>
+
+<section xml:id="PsiReference_Introduction_CopyrightAndLicense">
+<title>Копирайт и лицензия</title>
+
+<para>
+Программное обеспечение Ψ и настоящая документация выпускаются под лицензией
+<link xlink:href="http://opensource.org/licenses/Zlib">zlib/libpng</link>,
+текст которой приводится ниже:
+
+<literallayout><textobject><textdata
+fileref="../../../LICENSE.txt"/></textobject></literallayout>
+
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Introduction_AboutThisManual">
+<title>Об этом руководстве</title>
+
+<para>
+Здесь описывается алгоритмический язык, очень похожий на PostScript. Это
+руководство основано на книгах <link
+xlink:href="https://www.adobe.com/products/postscript/pdfs/PLRM.pdf">PostScript®
+Language Reference (third edition)</link> и <link
+xlink:href="http://partners.adobe.com/public/developer/en/ps/psrefman.pdf">PostScript
+Language Reference Manual (second edition)</link>. Структура руководства,
+описание языка, операторов во многом позаимствовано из этих источников. Мы
+выражаем благодарность писателям из Adobe Systems Incorporated за прекрасные
+книги.
+</para>
+
+</section>
+
+</preface>

@@ -9,10 +9,10 @@
 Интерпретатор работает с так называемыми
 <firstterm>объектами</firstterm><indexterm><primary>объект</primary></indexterm>
 языка Ψ. Некоторые из них представляют данные, такие как числа, булевские
-значения, строки или контейнеры. Другие объекты рассматриваются как команды и
-подлежат исполнению — имена, процедуры, операторы. Однако в языке нет
-принципиальных различий между данными и командами — любой объект может,
-в зависимости от ситуации, рассматриваться или как данные, или как команда.
+значения, строки или контейнеры. Другие объекты рассматриваются как инструкции
+и подлежат исполнению — команды, процедуры, операторы. Однако в языке нет
+принципиальных различий между данными и инструкциями — любой объект может,
+в зависимости от ситуации, рассматриваться или как данные, или как инструкция.
 </para>
 
 <para>
@@ -43,11 +43,194 @@ linkend="PsiReference_Language_Stacks"/>.
 
 </section>
 
-<section xml:id="PsiReference_Language_ProgremStructure">
-<title>Структура программы</title>
+<section xml:id="PsiReference_Language_Syntax">
+<title>Синтаксис</title>
+
+<section xml:id="PsiReference_Language_Syntax_Comments">
+<title>Комментарии</title>
 
 <para>
+Символ <literal>#</literal> вне строкового литерала или регулярного выражения
+начинает однострочный
+<firstterm>комментарий</firstterm><indexterm><primary>комментарий</primary></indexterm>.
+Он состоит из символов, следующих после <literal>#</literal> вплоть до символа
+конца строки.
 </para>
+
+<para>
+Комментарии игнорируются парсером, который рассматривает их как пробельный
+символ.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Numbers">
+<title>Числа</title>
+
+<para>
+В программе могут создаваться числовые объекты целого, вещественного и комплексного типов.
+</para>
+
+<para>
+Целые числа могут записываться в десятичной, шестнадцатеричной или двоичной
+форме.
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Strings">
+<title>Строки</title>
+
+<para>
+Строковые литералы заключаются в двойные кавычки <code
+language="psi">"…"</code>. Символ <literal>\</literal> между кавычками имеет
+особый смысл. Символ, следующий за <literal>\</literal>, определяет его
+действие.
+
+<informaltable frame="0">
+<tgroup cols="2">
+<tbody>
+<row>
+<entry><literal>\0</literal></entry>
+<entry>нулевой символ, <constant>U+0000</constant></entry>
+</row>
+<row>
+<entry><literal>\a</literal></entry>
+<entry>гудок, <constant>U+0007</constant></entry>
+</row>
+<row>
+<entry><literal>\t</literal></entry>
+<entry>символ табуляции, <constant>U+0009</constant></entry>
+</row>
+<row>
+<entry><literal>\n</literal></entry>
+<entry>конец строки, <constant>U+000A</constant></entry>
+</row>
+<row>
+<entry><literal>\f</literal></entry>
+<entry>конец страницы, <constant>U+000C</constant></entry>
+</row>
+<row>
+<entry><literal>\r</literal></entry>
+<entry>возврат каретки, <constant>U+000D</constant></entry>
+</row>
+<row>
+<entry><literal>\e</literal></entry>
+<entry>escape, <constant>U+001B</constant></entry>
+</row>
+<row>
+<entry><literal>\"</literal></entry>
+<entry>двойная кавычка (<literal>"</literal>) <constant>U+0022</constant></entry>
+</row>
+<row>
+<entry><literal>\\</literal></entry>
+<entry>бэкслэш (<literal>\</literal>) <constant>U+005C</constant></entry>
+</row>
+<row>
+<entry><literal>\u<replaceable>XXXX</replaceable></literal></entry>
+<entry>символ <constant>U+<replaceable>XXXX</replaceable></constant></entry>
+</row>
+<row>
+<entry><literal>\x{<replaceable>XXXXXXXX</replaceable>}</literal></entry>
+<entry>символ <constant>U+<replaceable>XXXXXXXX</replaceable></constant></entry>
+</row>
+<row>
+<entry><literal>\N{<replaceable>name</replaceable>}</literal></entry>
+<entry>символ с именем Unicode <replaceable>name</replaceable> <remark>(не реализовано)</remark></entry>
+</row>
+<row>
+<entry><literal>\c<replaceable>C</replaceable></literal></entry>
+<entry>для символов <replaceable>C</replaceable> от <constant>U+0000</constant>
+до <constant>U+003F</constant> прибавляет к коду 64, для символов от
+<constant>U+0040</constant> до <constant>U+007F</constant> вычитает 64 из кода</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Names">
+<title>Имена</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Commands">
+<title>Команды</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Arrays">
+<title>Массивы</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Procedures">
+<title>Процедуры</title>
+
+<para>
+Символы <code language="psi">{</code> и <code language="psi">}</code>
+используются для создания
+<firstterm>процедур</firstterm><indexterm><primary>процедура</primary></indexterm>.
+</para>
+
+<para>
+Интерпретация фрагмента программы
+
+<programlisting language="psi">{ 1 exch div }</programlisting>
+
+приводит к созданию объекта процедуры, которая содержит целочисленный объект
+<code language="psi">1</code> и два объекта-команды <code
+language="psi">exch</code> и <code language="psi">div</code>. Когда парсер
+встречает символ <code language="psi">{</code>, он продолжает сканировать и
+создавать объекты, однако интерпретатор их не исполняет. Когда парсер встречает
+<code language="psi">}</code>, он помещает все объекты, созданные после
+обнаружения <code language="psi">{</code> в новый объект-процедуру.
+</para>
+
+<para>
+Интерпретатор не исполняет процедуру; вместо этого он загружает её на стек
+операндов. Процедура будет исполнена лишь при её вызове. Исполнение процедуры
+(и всех составляющих её объектов
+<firstterm>отложенное</firstterm><indexterm><primary>исполнение</primary><secondary>отложенное</secondary></indexterm>).
+Смысл отложенного исполнения объясняется в разделе <xref
+linkend="PsiReference_Language_ObjectExecution"/>.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Dictionaries">
+<title>Словари</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Sets">
+<title>Множества</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_RegExps">
+<title>Регулярные выражения</title>
+
+<remark>TODO</remark>
+
+</section>
 
 </section>
 
@@ -62,11 +245,9 @@ linkend="PsiReference_Language_Stacks"/>.
 </para>
 
 <para>
-У каждого объекта имеется
-<firstterm>тип</firstterm><indexterm><primary>тип</primary></indexterm>,
-несколько
-<firstterm>атрибутов</firstterm><indexterm><primary>атрибут</primary></indexterm>.
-Тип объекта влияет на то, как он будет обрабатываться операторами. Типы
+Каждый объект принадлежит некоторому
+<firstterm>типу</firstterm><indexterm><primary>тип</primary></indexterm>.  Тип
+объекта влияет на то, как тот будет обрабатываться операторами. Типы
 подразделяются
 на <firstterm>простые</firstterm><indexterm><primary>тип</primary><secondary>простой</secondary></indexterm>
 и
@@ -368,8 +549,6 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 
 </section>
 
-</section>
-
 <section xml:id="PsiReference_Language_CoreTypes_RegExps">
 <title>Регулярные выражения</title>
 
@@ -377,6 +556,8 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <firstterm>Регулярные выражения</firstterm><indexterm><primary>регулярное
 выражение</primary></indexterm> представляет шаблон поиска в строке.
 </para>
+
+</section>
 
 </section>
 
@@ -472,30 +653,16 @@ xml:lang="en">Last In—First Out</foreignphrase> (последний пришё
 <title>Исполнение объектов</title>
 
 <para>
-Смысл исполнения объекта зависит от состояния его атрибута исполняемости. Любой
-литеральный объект при исполнении просто загружается на стек операндов.
-</para>
-
-<para>
-Для исполняемых объектов результат исполнения зависит от их типа, а также
-от того, получен этот объект парсером или же другим способом. Здесь нужно
-отметить, что существует лишь два типа исполненяемых объектов, получаемых
-непосредственно парсером — это процедуры и команды.
+Смысл исполнения объекта зависит от его типа, а также от того, получен этот
+объект парсером или же другим способом. Здесь нужно отметить, что существует
+лишь два типа исполненяемых объектов, получаемых непосредственно парсером — это
+процедуры и команды.
 
 <itemizedlist>
 
 <listitem>
-Пустой исполняемый объект игнорируется.
-</listitem>
-
-<listitem>
 Исполняемый оператор вызывается, то есть выполняется запрограммированное в нём
 действие.
-</listitem>
-
-<listitem>
-Исполняемая строка считывается парсером и превращается в последовательность
-объектов, которая затем превращается в процедуру.
 </listitem>
 
 <listitem>
@@ -505,6 +672,21 @@ xml:lang="en">Last In—First Out</foreignphrase> (последний пришё
 </itemizedlist>
 
 </para>
+
+</section>
+
+<section xml:id="PsiReference_Language_EarlyNameBinding">
+<title>Раннее связывание имён</title>
+
+<section xml:id="PsiReference_Language_EarlyNameBinding_BindOperator">
+<title>Оператор <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bind"/></title>
+
+</section>
+
+<section xml:id="PsiReference_Language_EarlyNameBinding_Immediate">
+<title>Немедленные имена</title>
+
+</section>
 
 </section>
 
