@@ -157,6 +157,11 @@ public class PsiReal
 				&& psiEq((PsiReal)object).booleanValue();
 	}
 
+	public static final PsiReal
+		MAX_VALUE=new PsiReal(Double.MAX_VALUE),
+		MIN_VALUE=new PsiReal(Double.MIN_VALUE),
+		NAN=new PsiReal(Double.NaN);
+
 	private final double value;
 
 	static

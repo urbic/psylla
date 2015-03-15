@@ -204,6 +204,9 @@ public class PsiSystemDictionary
 			psiPut("null", PsiNull.NULL);
 			psiPut("maxinteger", PsiInteger.MAX_VALUE);
 			psiPut("mininteger", PsiInteger.MIN_VALUE);
+			psiPut("maxreal", PsiReal.MAX_VALUE);
+			psiPut("minreal", PsiReal.MIN_VALUE);
+			psiPut("nan", PsiReal.NAN);
 			psiPut("[", PsiMark.MARK);
 			psiPut("<", PsiMark.MARK);
 			psiPut("(", PsiMark.MARK);
