@@ -951,6 +951,11 @@
 <variablelist>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_condition" xrefstyle="template:%t"/></term>
+<listitem>создание условия</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_currentcontext" xrefstyle="template:%t"/></term>
 <listitem>получение текущего контекста</listitem>
 </varlistentry>
@@ -966,7 +971,17 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_lock" xrefstyle="template:%t"/></term>
+<listitem>создание замка</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
+<listitem><remark>TODO</remark></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_wait" xrefstyle="template:%t"/></term>
 <listitem><remark>TODO</remark></listitem>
 </varlistentry>
 
@@ -1150,6 +1165,7 @@
 &PsiReference_Operators_Details_cmp;
 &PsiReference_Operators_Details_complex;
 &PsiReference_Operators_Details_complexpolar;
+&PsiReference_Operators_Details_condition;
 &PsiReference_Operators_Details_conjugate;
 &PsiReference_Operators_Details_contains;
 &PsiReference_Operators_Details_copy;
@@ -1213,6 +1229,7 @@
 &PsiReference_Operators_Details_length;
 &PsiReference_Operators_Details_load;
 &PsiReference_Operators_Details_loadall;
+&PsiReference_Operators_Details_lock;
 &PsiReference_Operators_Details_log;
 &PsiReference_Operators_Details_loop;
 &PsiReference_Operators_Details_lt;
@@ -1220,11 +1237,13 @@
 &PsiReference_Operators_Details_max;
 &PsiReference_Operators_Details_min;
 &PsiReference_Operators_Details_mod;
+&PsiReference_Operators_Details_monitor;
 &PsiReference_Operators_Details_mul;
 &PsiReference_Operators_Details_ne;
 &PsiReference_Operators_Details_neg;
 &PsiReference_Operators_Details_normaldeviate;
 &PsiReference_Operators_Details_not;
+&PsiReference_Operators_Details_notify;
 &PsiReference_Operators_Details_null;
 &PsiReference_Operators_Details_or;
 &PsiReference_Operators_Details_pop;
@@ -1282,6 +1301,7 @@
 &PsiReference_Operators_Details_uniformboolean;
 &PsiReference_Operators_Details_uniformdeviate;
 &PsiReference_Operators_Details_values;
+&PsiReference_Operators_Details_wait;
 &PsiReference_Operators_Details_where;
 &PsiReference_Operators_Details_write;
 &PsiReference_Operators_Details_writestring;

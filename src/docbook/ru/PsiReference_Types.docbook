@@ -254,6 +254,13 @@ XXX
 </formalpara>
 </section>
 
+<section xml:id="PsiReference_Types_Details_condition">
+<title><type>condition</type></title>
+<para>
+XXX
+</para>
+</section>
+
 <section xml:id="PsiReference_Types_Details_context">
 <title><type>context</type></title>
 <para>
@@ -384,6 +391,13 @@ XXX
 <para>
 Тип контейнеров, для которых можно определить длину — количество содержащихся в
 контейнере объектов.
+</para>
+</section>
+
+<section xml:id="PsiReference_Types_Details_lock">
+<title><type>lock</type></title>
+<para>
+XXX
 </para>
 </section>
 

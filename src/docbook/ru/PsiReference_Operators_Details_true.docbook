@@ -15,7 +15,7 @@
 </synopsis>
 
 <para>
-Возвращает булевское значение <constant>true</constant>.
+Булевское значение <constant>true</constant>.
 </para>
 
 <formalpara>
