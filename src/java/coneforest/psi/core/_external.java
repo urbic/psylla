@@ -8,7 +8,7 @@ public class _external extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiClassLoader)interpreter.getSystemDictionary().psiGet("classpath"))
-				.psiExternal(((PsiStringlike)opstack.popOperands(1)[0]).getString()));
+		opstack.push(((PsiClassLoader)interpreter.getSystemDictionary().get("classpath"))
+				.psiExternal(((PsiStringlike)opstack.popOperands(1)[0])));
 	}
 }

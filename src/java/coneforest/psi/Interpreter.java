@@ -591,7 +591,7 @@ public class Interpreter
 	{
 		try
 		{
-			final PsiClassLoader classLoader=(PsiClassLoader)getSystemDictionary().psiGet("classpath");
+			final PsiClassLoader classLoader=(PsiClassLoader)getSystemDictionary().get("classpath");
 			for(String pathElement: classPath)
 				classLoader.psiAppend(new PsiString(pathElement));
 		}

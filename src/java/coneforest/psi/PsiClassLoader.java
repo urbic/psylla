@@ -7,10 +7,10 @@ public class PsiClassLoader
 	public PsiObject psiExternal(PsiStringlike stringlike)
 		throws PsiException
 	{
-		return psiExternal(stringlike.getString());
+		return external(stringlike.getString());
 	}
 
-	public PsiObject psiExternal(Class<? extends PsiObject> objectClass)
+	public PsiObject external(Class<? extends PsiObject> objectClass)
 		throws PsiException
 	{
 		try
@@ -23,12 +23,12 @@ public class PsiClassLoader
 		}
 	}
 
-	public PsiObject psiExternal(String objectClassName)
+	public PsiObject external(String objectClassName)
 		throws PsiException
 	{
 		try
 		{
-			return psiExternal((Class<? extends PsiObject>)Class.forName(objectClassName, true, classLoader));
+			return external((Class<? extends PsiObject>)Class.forName(objectClassName, true, classLoader));
 		}
 		catch(ClassCastException e)
 		{
