@@ -932,6 +932,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_signalerror" xrefstyle="template:%t"/></term>
+<listitem>вызов обработчика ошибки</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_time" xrefstyle="template:%t"/></term>
 <listitem>получение текущего времени</listitem>
 </varlistentry>
@@ -1273,6 +1278,7 @@
 &PsiReference_Operators_Details_set;
 &PsiReference_Operators_Details_setseed;
 &PsiReference_Operators_Details_settomark;
+&PsiReference_Operators_Details_signalerror;
 &PsiReference_Operators_Details_signum;
 &PsiReference_Operators_Details_sin;
 &PsiReference_Operators_Details_sinh;
