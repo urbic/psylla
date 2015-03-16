@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_signalerror">
+<title><token language="psi">signalerror</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<replaceable>имя</replaceable>
+<token language="psi">signalerror</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>имя</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Вызывает обработчик ошибки с заданным <replaceable>именем</replaceable> и заданным
+ошибочным <replaceable>объектом</replaceable>.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>
