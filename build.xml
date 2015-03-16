@@ -8,6 +8,7 @@
 	<property name="src.docbook" location="${src}/docbook"/>
 	<property name="src.ant" location="${src}/ant"/>
 	<property name="src.bin" location="${src}/bin"/>
+	<property name="src.css" location="${src}/css"/>
 	<property name="target" location="target"/>
 	<property name="target.src.java" location="${target}/src/java"/>
 	<property name="target.doc" location="${target}/doc"/>
@@ -82,8 +83,22 @@
 			>
 			<!-- stylesheetfile="${src}/css/javadoc.css" -->
 			<link href="${home.javadoc.java}"/>
-			<link href="http://jline.sourceforge.net/apidocs/"/>
+			<!--link href="http://jline.sourceforge.net/apidocs/"/-->
 		</javadoc>
+		<!--
+		<move file="${target.doc.javadoc}/stylesheet.css" tofile="${target.doc.javadoc}/default.scss"/>
+		<apply executable="sass" dest="${target.doc.javadoc}" parallel="false">
+			<arg value="- -load-path"/>
+			<arg value="${target.doc.javadoc}"/>
+			<arg value="- -style"/>
+			<arg value="compact"/>
+			<srcfile/>
+			<targetfile/>
+			<fileset dir="${src.css}" includes="javadoc.scss"/>
+			<mapper type="glob" from="javadoc.scss" to="stylesheet.css"/>
+		</apply>
+		<delete file="${target.doc.javadoc}/default.scss"/>
+		-->
 	</target>
 
 	<target name="jar" depends="compile">

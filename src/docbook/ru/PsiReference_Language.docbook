@@ -480,9 +480,9 @@ linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/>. Он н
 </para>
 
 <para>
-Массивы индексируются начиная с <math xmlns="&nsMathML;"><mn>0</mn></math>.
-При доступе к элементам массива осуществляется проверка границ индекса.
-В случае выхода индекса за пределы границ возбуждается ошибка <xref
+Массивы индексируются начиная с 0.  При доступе к элементам массива
+осуществляется проверка границ индекса.  В случае выхода индекса за пределы
+границ возбуждается ошибка <xref
 linkend="PsiReference_Errors_Details_rangecheck" xrefstyle="template:%t"/>.
 </para>
 
@@ -510,22 +510,21 @@ linkend="PsiReference_Errors_Details_rangecheck" xrefstyle="template:%t"/>.
 
 <para>
 <firstterm>Строки</firstterm><indexterm><primary>строка</primary></indexterm>
-концептуально устроены как массивы, элементами которых служат целые
-числа из диапазона от <math xmlns="&nsMathML;"><mn>0</mn></math> до <math
-xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
+концептуально устроены как массивы, элементами которых служат целые числа
+из диапазона от 0 до 65535 — <firstterm>кодовые
 единицы</firstterm><indexterm><primary>кодовая единица</primary></indexterm>.
 </para>
 
 <para>
-Строки используются для хранения текста. Каждый символ текста одной или двумя
-кодовыми единицами в соответствии с кодировкой
+Строки используются для хранения текста. Каждый символ текста представлен одной
+или двумя кодовыми единицами в соответствии с кодировкой
 <firstterm><acronym>UTF-16</acronym></firstterm><indexterm><primary>UTF-16</primary></indexterm>.
 Одна кодовая единица кодирует символы из <firstterm>основной многоязычной
 плоскости</firstterm><indexterm><primary>основная многоязычная
 плоскость</primary><see><acronym>BMP</acronym></see></indexterm>
 (<acronym>BMP</acronym><indexterm><primary><acronym>BMP</acronym></primary></indexterm>).
 Остальные символы Unicode кодируются так называемыми <firstterm>суррогатными
-парами</firstterm><indexterm><primary>суррогатная пара</primary></indexterm>).
+парами</firstterm><indexterm><primary>суррогатная пара</primary></indexterm>.
 </para>
 
 </section>
