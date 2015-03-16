@@ -56,7 +56,7 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 	<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
 
 	<xsl:output method="xml" omit-xml-declaration="yes"/>
-	
+
 	<xsl:template name="root.attributes">
 		<xsl:attribute name="xml:lang">
 			<xsl:value-of select="ancestor-or-self::d:*/@xml:lang"/>

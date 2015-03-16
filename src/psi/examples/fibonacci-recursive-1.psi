@@ -7,7 +7,7 @@
 	n 0 ne
 	{
 		1 index tostring say
-		exch 1 index add	
+		exch 1 index add
 		/n n 1 sub def
 		fibonacci
 	}

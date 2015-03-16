@@ -33,7 +33,7 @@ bind def
 
 {
 	/shuffle exch def
-	
+
 	/permutations [ 1 1 //n {} for ] def
 	0 1 //n 1 sub
 	{
@@ -51,7 +51,7 @@ bind def
 	}
 	for
 	"" say
-	
+
 	shuffle nextshuffle not { exit } if
 }
 bind loop
