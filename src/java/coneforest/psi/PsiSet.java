@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">set</code> object.
+ *	A representation of Ψ-<code class="type">set</code> object.
  */
 public class PsiSet
 	extends PsiAbstractSet<PsiObject>

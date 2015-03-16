@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">boolean</code> object.
+ *	A representation of Ψ-<code class="type">boolean</code> object.
  */
 public class PsiBoolean
 	extends PsiAbstractObject
@@ -15,10 +15,7 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a string representation of a type name, the string
-	 *	<code>"boolean"</code>.
-	 *
-	 *	@return a string representation of a type name.
+	 *	@return a string <code class="constant">"boolean"</code>.
 	 */
 	@Override
 	public String getTypeName()
@@ -37,10 +34,8 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a syntactic representation of this object boolean value, the
-	 *	string <code>"true"</code> or <code>"false"</code>.
-	 *
-	 *	@return a string representing this object’s boolean value.
+	 *	@return a string <code class="type">false</code> or <code
+	 *	class="type">true</code> depending on this object value.
 	 */
 	@Override
 	public String toString()
@@ -121,20 +116,35 @@ public class PsiBoolean
 	}
 
 	@Override
-	public boolean equals(Object object)
+	public boolean equals(final Object object)
 	{
 		return object instanceof PsiBoolean
 				&& value==((PsiBoolean)object).value;
 	}
 
-	public static PsiBoolean valueOf(boolean b)
+	/**
+	 *	Returns a Ψ-<code class="type">boolean</code> object, representing
+	 *	given value.
+	 *
+	 *	@param bool a given value.
+	 *	@return a Ψ-<code class="type">boolean</code> object.
+	 */
+	public static PsiBoolean valueOf(final boolean bool)
 	{
-		return b? TRUE: FALSE;
+		return bool? TRUE: FALSE;
 	}
 
-	public static final PsiBoolean
-		FALSE=new PsiBoolean(false),
-		TRUE=new PsiBoolean(true);
+	/**
+	 *	A Ψ-<code class="type">boolean</code> constant, representing <code
+	 *	class="constant">false</code>.
+	 */
+	public static final PsiBoolean FALSE=new PsiBoolean(false);
+
+	/**
+	 *	A Ψ-<code class="type">boolean</code> constant, representing <code
+	 *	class="constant">true</code>.
+	 */
+	public static final PsiBoolean TRUE=new PsiBoolean(true);
 
 	private final boolean value;
 

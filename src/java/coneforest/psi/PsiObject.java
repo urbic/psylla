@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of basic Ψ <code class="type">object</code>.
+ *	A type of basic Ψ object.
  */
 public interface PsiObject
 	extends PsiConvertableToString
@@ -16,7 +16,7 @@ public interface PsiObject
 	public PsiCommand psiType();
 
 	/**
-	 *	Execute this object in the context of the interpreter. Pushes this
+	 *	Execute this object in the context of an interpreter. Pushes this
 	 *	object into interpreter’s operand stack.
 	 *
 	 *	@param interpreter an interpreter.
@@ -24,7 +24,7 @@ public interface PsiObject
 	public void execute(Interpreter interpreter);
 
 	/**
-	 *	Invoke this object in the context of the interpreter. Pushes this
+	 *	Invoke this object in the context of an interpreter. Pushes this
 	 *	object into interpreter’s operand stack.
 	 *
 	 *	@param interpreter an interpreter.

@@ -16,32 +16,32 @@ abstract public class PsiAbstractString
 	public PsiInteger psiGet(PsiInteger index)
 		throws PsiException
 	{
-		return psiGet(index.intValue());
+		return get(index.intValue());
 	}
 
 	@Override
 	public void psiPut(PsiInteger index, PsiInteger character)
 		throws PsiException
 	{
-		psiPut(index.intValue(), character);
+		put(index.intValue(), character);
 	}
 
 	@Override
 	public void psiInsert(PsiInteger index, PsiInteger character)
 		throws PsiException
 	{
-		psiInsert(index.intValue(), character);
+		insert(index.intValue(), character);
 	}
 
 	@Override
 	public PsiInteger psiDelete(PsiInteger index)
 		throws PsiException
 	{
-		return psiDelete(index.intValue());
+		return delete(index.intValue());
 	}
 
 	@Override
-	abstract public PsiAbstractString psiCloneEmpty();
+	abstract public PsiAbstractString psiNewEmpty();
 
 	@Override
 	abstract public PsiAbstractString psiClone();
@@ -53,7 +53,7 @@ abstract public class PsiAbstractString
 		int countValue=count.intValue();
 		if(countValue<0)
 			throw new PsiException("rangecheck");
-		PsiAbstractString result=psiCloneEmpty();
+		PsiAbstractString result=psiNewEmpty();
 		while(countValue-->0)
 			result.psiAppendAll(this);
 		return result;
@@ -67,9 +67,9 @@ abstract public class PsiAbstractString
 		int length=result.length();
 		for(int i=0; i<(int)(length/2); i++)
 		{
-			PsiInteger character=result.psiGet(i);
-			result.psiPut(i, result.psiGet(length-1-i));
-			result.psiPut(length-1-i, character);
+			PsiInteger character=result.get(i);
+			result.put(i, result.get(length-1-i));
+			result.put(length-1-i, character);
 		}
 		return result;
 	}

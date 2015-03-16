@@ -37,6 +37,20 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 	}
 
 	@Override
+	public PsiAbstractSet<T> psiNewEmpty()
+		throws PsiException
+	{
+		try
+		{
+			return getClass().newInstance();
+		}
+		catch(InstantiationException|IllegalAccessException e)
+		{
+			throw new PsiException("unknownerror");
+		}
+	}
+
+	@Override
 	public void psiAppendAll(final PsiIterable<? extends T> iterable)
 		throws PsiException
 	{

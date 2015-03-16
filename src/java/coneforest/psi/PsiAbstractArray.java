@@ -4,11 +4,6 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	extends PsiAbstractObject
 	implements PsiArraylike<T>
 {
-	@Override
-	public String getTypeName()
-	{
-		return "array";
-	}
 
 	@Override
 	public boolean isEmpty()
@@ -23,7 +18,7 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
-	public PsiAbstractArray<T> psiCloneEmpty()
+	public PsiAbstractArray<T> psiNewEmpty()
 		throws PsiException
 	{
 		try
@@ -43,14 +38,14 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	public T psiGet(PsiInteger index)
 		throws PsiException
 	{
-		return psiGet(index.intValue());
+		return get(index.intValue());
 	}
 
 	@Override
 	public void psiPut(PsiInteger index, T obj)
 		throws PsiException
 	{
-		psiPut(index.intValue(), obj);
+		put(index.intValue(), obj);
 	}
 
 	@Override
@@ -65,21 +60,21 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 			throw new PsiException("rangecheck");
 		for(T obj: iterable)
 		{
-			psiPut(indexValue++, obj);
+			put(indexValue++, obj);
 			if(indexValue==length())
 				break;
 		}
 	}
 
 	@Override
-	abstract public void psiInsert(int indexValue, T obj)
+	abstract public void insert(int indexValue, T obj)
 		throws PsiException;
 
 	@Override
 	public void psiInsert(PsiInteger index, T obj)
 		throws PsiException
 	{
-		psiInsert(index.intValue(), obj);
+		insert(index.intValue(), obj);
 	}
 
 	@Override
@@ -97,14 +92,14 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		int indexValue=index.intValue();
 		//for(T obj: iterable)
 		for(T obj: (this!=iterable? iterable: (PsiIterable<? extends T>)psiClone()))
-			psiInsert(indexValue++, obj);
+			insert(indexValue++, obj);
 	}
 
 	@Override
 	public T psiDelete(final PsiInteger index)
 		throws PsiException
 	{
-		return psiDelete(index.intValue());
+		return delete(index.intValue());
 	}
 
 	@Override
@@ -114,7 +109,7 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		int countValue=count.intValue();
 		if(countValue<0)
 			throw new PsiException("rangecheck");
-		PsiAbstractArray<T> result=psiCloneEmpty();
+		PsiAbstractArray<T> result=psiNewEmpty();
 		while(countValue-->0)
 			result.psiAppendAll(this);
 		return result;
@@ -128,9 +123,9 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		int length=result.length();
 		for(int i=0; i<(int)(length/2); i++)
 		{
-			T obj=result.psiGet(i);
-			result.psiPut(i, result.psiGet(length-1-i));
-			result.psiPut(length-1-i, obj);
+			T obj=result.get(i);
+			result.put(i, result.get(length-1-i));
+			result.put(length-1-i, obj);
 		}
 		return result;
 	}

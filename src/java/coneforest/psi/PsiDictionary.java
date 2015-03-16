@@ -1,13 +1,20 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">dictionary</code> object.
+ *	A representation of Ψ-<code class="type">dictionary</code> object.
  */
 public class PsiDictionary
 	extends PsiAbstractDictionary<PsiObject>
 {
+	@Override
+	public String getTypeName()
+	{
+		return "dict";
+	}
+
 	public PsiDictionary()
 	{
+		this.dictionary=new java.util.HashMap<String, PsiObject>();
 	}
 
 	public PsiDictionary(PsiDictionary dict)
@@ -22,7 +29,7 @@ public class PsiDictionary
 	}
 
 	@Override
-	public PsiObject psiGet(String key)
+	public PsiObject get(String key)
 		throws PsiException
 	{
 		PsiObject result=dictionary.get(key);
@@ -33,13 +40,13 @@ public class PsiDictionary
 	}
 
 	@Override
-	public void psiPut(String keyString, PsiObject obj)
+	public void put(String keyString, PsiObject obj)
 	{
 		dictionary.put(keyString, obj);
 	}
 
 	@Override
-	public void psiUndef(String keyString)
+	public void undef(String keyString)
 	{
 		dictionary.remove(keyString);
 	}
@@ -48,12 +55,6 @@ public class PsiDictionary
 	public boolean known(String keyString)
 	{
 		return dictionary.containsKey(keyString);
-	}
-
-	@Override
-	public PsiBoolean psiKnown(String keyString)
-	{
-		return PsiBoolean.valueOf(known(keyString));
 	}
 
 	@Override
@@ -102,6 +103,5 @@ public class PsiDictionary
 		return values;
 	}
 
-	private java.util.HashMap<String, PsiObject> dictionary
-		=new java.util.HashMap<String, PsiObject>();
+	private java.util.HashMap<String, PsiObject> dictionary;
 }

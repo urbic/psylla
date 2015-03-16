@@ -1,5 +1,10 @@
 package coneforest.psi;
 
+/**
+ *	A type of dictionary-like objects.
+ *
+ *	@param <V> a type of contained values.
+ */
 public interface PsiDictionarylike<V extends PsiObject>
 	extends
 		PsiLengthy,
@@ -7,19 +12,22 @@ public interface PsiDictionarylike<V extends PsiObject>
 		PsiIterable<java.util.Map.Entry<String, V>>,
 		PsiClearable
 {
-	public V psiGet(String key)
+	public V get(String key)
 		throws PsiException;
 
-	public void psiPut(String key, V value);
+	public void put(String key, V value);
 
 	public boolean known(String keyString);
 
-	public PsiBoolean psiKnown(String keyString);
-
 	public PsiBoolean psiKnown(PsiStringlike key);
 
-	public void psiUndef(String keyString);
+	public void undef(String keyString);
 
+	/**
+	 *	Delete a key and a value associated with it from this object.
+	 *
+	 *	@param key a key. 
+	 */
 	public void psiUndef(PsiStringlike key);
 
 	public PsiSet psiKeys();

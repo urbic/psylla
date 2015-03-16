@@ -44,10 +44,11 @@ public interface PsiScalar<T extends PsiScalar>
 	public PsiBoolean psiGe(T scalar);
 
 	/**
-	 *	Compares this object against given object and returns a Ψ integer
-	 *	indicating the result of the comparison. Returns negative value if this
-	 *	object is less than given one, zero if this object is equal to given
-	 *	one, and positive value if this object is greater than given one.
+	 *	Compares this object against given object and returns a Ψ-<code
+	 *	class="type">integer</code> indicating the result of the comparison.
+	 *	Returns negative value if this object is less than given one, zero if
+	 *	this object is equal to given one, and positive value if this object is
+	 *	greater than given one.
 	 *
 	 *	@param scalar An object with which this object is compared.
 	 *	@return A result of the comparison.

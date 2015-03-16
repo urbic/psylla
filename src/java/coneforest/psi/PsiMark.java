@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">mark</code> object.
+ *	A representation of Ψ-<code class="type">mark</code> object.
  */
 public final class PsiMark
 	extends PsiAbstractObject
@@ -11,11 +11,12 @@ public final class PsiMark
 	{
 	}
 
-	public String getTypeName() { return "mark"; }
-
-	public String toString()
+	/**
+	 *	@return a string <code class="constant">"mark"</code>.
+	 */
+	public String getTypeName()
 	{
-		return "-mark-";
+		return "mark";
 	}
 
 	@Override

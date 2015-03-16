@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">string</code> object.
+ *	A representation of Ψ-<code class="type">string</code> object.
  */
 public class PsiString
 	extends PsiAbstractString
@@ -22,7 +22,7 @@ public class PsiString
 	}
 
 	@Override
-	public PsiAbstractString psiCloneEmpty()
+	public PsiAbstractString psiNewEmpty()
 	{
 		return new PsiString();
 	}
@@ -51,7 +51,7 @@ public class PsiString
 	}
 
 	@Override
-	public PsiInteger psiGet(int index)
+	public PsiInteger get(int index)
 		throws PsiException
 	{
 		try
@@ -81,7 +81,7 @@ public class PsiString
 	}
 
 	@Override
-	public void psiPut(int index, PsiInteger character)
+	public void put(int index, PsiInteger character)
 		throws PsiException
 	{
 		try
@@ -127,7 +127,7 @@ public class PsiString
 	}
 
 	@Override
-	public void psiInsert(int indexValue, PsiInteger character)
+	public void insert(int indexValue, PsiInteger character)
 		throws PsiException
 	{
 		try
@@ -176,12 +176,12 @@ public class PsiString
 	}
 
 	@Override
-	public PsiInteger psiDelete(int indexValue)
+	public PsiInteger delete(int indexValue)
 		throws PsiException
 	{
 		try
 		{
-			PsiInteger result=psiGet(indexValue);
+			PsiInteger result=get(indexValue);
 			buffer.deleteCharAt(indexValue);
 			return result;
 		}
@@ -215,11 +215,11 @@ public class PsiString
 	{
 		if(arraylike.isEmpty())
 			return new PsiString("");
-		PsiString result=((PsiString)arraylike.psiGet(0)).psiClone();
+		PsiString result=((PsiString)arraylike.get(0)).psiClone();
 		for(int i=1; i<arraylike.length(); i++)
 		{
 			result.psiAppendAll(this);
-			result.psiAppendAll(arraylike.psiGet(i));
+			result.psiAppendAll(arraylike.get(i));
 		}
 		return result;
 	}

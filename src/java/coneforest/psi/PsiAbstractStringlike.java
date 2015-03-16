@@ -6,7 +6,7 @@ abstract public class PsiAbstractStringlike
 		PsiStringlike
 {
 	@Override
-	public PsiAbstractStringlike psiCloneEmpty()
+	public PsiAbstractStringlike psiNewEmpty()
 		throws PsiException
 	{
 		try
@@ -126,7 +126,7 @@ abstract public class PsiAbstractStringlike
 		int countValue=count.intValue();
 		if(countValue<0)
 			throw new PsiException("rangecheck");
-		PsiAbstractStringlike result=psiCloneEmpty();
+		PsiAbstractStringlike result=psiNewEmpty();
 		while(countValue-->0)
 			result.psiAppendAll(this);
 		return result;

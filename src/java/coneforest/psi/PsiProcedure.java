@@ -16,7 +16,7 @@ public class PsiProcedure
 		{
 			ExecutionStack execstack=interpreter.getExecutionStack();
 			for(int i=length()-1; i>=0; i--)
-				execstack.push(psiGet(i));
+				execstack.push(get(i));
 		}
 		catch(PsiException e)
 		{

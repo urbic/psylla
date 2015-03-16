@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">integer</code> object.
+ *	A representation of Ψ-<code class="type">integer</code> object.
  */
 public class PsiInteger
 	extends PsiNumeric
@@ -54,6 +54,9 @@ public class PsiInteger
 		return this;
 	}
 
+	/**
+	 *	@return a string <code class="constant">"integer"</code>.
+	 */
 	@Override
 	public String getTypeName()	{ return "integer"; }
 
@@ -351,13 +354,37 @@ public class PsiInteger
 				&& psiEq((PsiInteger)object).booleanValue();
 	}
 
-	public static final PsiInteger
-		ZERO=PsiInteger.valueOf(0L),
-		ONE=PsiInteger.valueOf(1L),
-		TWO=PsiInteger.valueOf(1L),
-		MINUS_ONE=PsiInteger.valueOf(-1L),
-		MAX_VALUE=PsiInteger.valueOf(Long.MAX_VALUE),
-		MIN_VALUE=PsiInteger.valueOf(Long.MIN_VALUE);
+	/**
+	 *	A Ψ-<code class="type">integer</code> representing the number 0.
+	 */
+	public static final PsiInteger ZERO=PsiInteger.valueOf(0L);
+
+	/**
+	 *	A Ψ-<code class="type">integer</code> representing the number 1.
+	 */
+	public static final PsiInteger ONE=PsiInteger.valueOf(1L);
+
+	/**
+	 *	A Ψ-<code class="type">integer</code> representing the number 2.
+	 */
+	public static final PsiInteger TWO=PsiInteger.valueOf(1L);
+
+	/**
+	 *	A Ψ-<code class="type">integer</code> representing the number −1.
+	 */
+	public static final PsiInteger MINUS_ONE=PsiInteger.valueOf(-1L);
+
+	/**
+	 *	A Ψ-<code class="type">integer</code> representing the maximum
+	 *	representable value.
+	 */
+	public static final PsiInteger MAX_VALUE=PsiInteger.valueOf(Long.MAX_VALUE);
+
+	/**
+	 *	A Ψ-<code class="type">integer</code> representing the minimum
+	 *	representable value.
+	 */
+	public static final PsiInteger MIN_VALUE=PsiInteger.valueOf(Long.MIN_VALUE);
 
 	private final long value;
 

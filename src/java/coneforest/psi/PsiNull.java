@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">null</code> object.
+ *	A representation of Ψ-<code class="type">null</code> object.
  */
 public final class PsiNull
 	extends PsiAbstractObject
@@ -12,18 +12,13 @@ public final class PsiNull
 	}
 
 	/**
-	 *	Returns a string representation of a type name.
-	 *
-	 *	@return <code class="constant">"null"</code> string.
+	 *	@return a string <code class="constant">"null"</code>.
 	 */
 	@Override
 	public String getTypeName() { return "null"; }
 
 	/**
-	 *	Returns a syntactic representation of this object, the string <code
-	 *	class="constant">"null"</code>.
-	 *
-	 *	@return a syntactic representation of an object.
+	 *	@return a string <code class="constant">"null"</code>.
 	 */
 	@Override
 	public String toString()
@@ -44,5 +39,8 @@ public final class PsiNull
 		return PsiBoolean.valueOf(obj==NULL);
 	}
 
+	/**
+	 *	A single Ψ-<code class="type">null</code> object.
+	 */
 	public static final PsiNull NULL=new PsiNull();
 }

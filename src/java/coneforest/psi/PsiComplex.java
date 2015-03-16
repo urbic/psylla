@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">complex</code> object.
+ *	A representation of Ψ-<code class="type">complex</code> object.
  */
 public class PsiComplex
 	extends PsiComplexNumeric
@@ -46,6 +46,9 @@ public class PsiComplex
 		return (re==0.D && im==0.D)? new PsiComplex(0.D, 0.D): psiDiv(psiAbs());
 	}
 
+	/**
+	 *	@return a string <code class="constant">"complex"</code>.
+	 */
 	@Override
 	public String getTypeName()
 	{
