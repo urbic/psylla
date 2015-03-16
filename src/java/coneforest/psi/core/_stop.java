@@ -10,6 +10,6 @@ public class _stop extends PsiOperator
 		if(interpreter.currentStopLevel()!=-1)
 			interpreter.getExecutionStack().setSize(interpreter.currentStopLevel());
 		else
-			System.exit(0);
+			interpreter.quit();
 	}
 }

@@ -395,7 +395,7 @@ public class PsiInteger
 
 	public static PsiInteger valueOf(long integerValue)
 	{
-		if(integerValue>=-128 && integerValue<=127)
+		if(integerValue>=-128 && integerValue<128)
 			return Cache.cache[(int)integerValue+128];
 		return new PsiInteger(integerValue);
 	}
