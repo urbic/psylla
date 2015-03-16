@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+ *	A representation of Ψ-<code class="type">regexp</code> object.
+ */
 public class PsiRegExp
 	extends PsiAbstractObject
 {
@@ -22,6 +25,9 @@ public class PsiRegExp
 		this(stringlike.getString());
 	}
 
+	/**
+	 *	@return a string <code class="constant">"regexp"</code>.
+	 */
 	public String getTypeName()
 	{
 		return "regexp";
