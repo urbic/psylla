@@ -19,7 +19,7 @@ public class Interpreter
 		opstack=new OperandStack();
 		execstack=new ExecutionStack();
 		procstack=new ProcedureStack();
-		this.dictstack=dictstack;
+		this.dictstack=(DictionaryStack)dictstack.clone();
 		pushStopLevel();
 	}
 
@@ -101,17 +101,17 @@ public class Interpreter
 
 	public void setReader(final java.io.Reader reader)
 	{
-		getSystemDictionary().psiPut("stdin", new PsiReader(reader));
+		getSystemDictionary().put("stdin", new PsiReader(reader));
 	}
 
 	public void setWriter(final java.io.Writer writer)
 	{
-		getSystemDictionary().psiPut("stdout", new PsiWriter(writer));
+		getSystemDictionary().put("stdout", new PsiWriter(writer));
 	}
 
 	public void setErrorWriter(final java.io.Writer writer)
 	{
-		getSystemDictionary().psiPut("stderr", new PsiWriter(writer));
+		getSystemDictionary().put("stderr", new PsiWriter(writer));
 	}
 
 	public void interpret(final java.io.Reader readerValue)
@@ -438,7 +438,7 @@ public class Interpreter
 	{
 		try
 		{
-			return (PsiDictionary)getSystemDictionary().psiGet("errordict");
+			return (PsiDictionary)getSystemDictionary().get("errordict");
 		}
 		catch(PsiException e)
 		{
@@ -458,19 +458,19 @@ public class Interpreter
 	{
 		opstack.restore();
 		PsiDictionarylike errorObj=new PsiDictionary();
-		errorObj.psiPut("newerror", PsiBoolean.TRUE);
-		errorObj.psiPut("errorname", new PsiName(errorName));
-		errorObj.psiPut("command", obj);
-		errorObj.psiPut("ostack", new PsiArray((java.util.ArrayList<PsiObject>)opstack.clone()));
-		errorObj.psiPut("estack", new PsiArray((java.util.ArrayList<PsiObject>)execstack.clone()));
-		errorObj.psiPut("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dictstack.clone()));
-		getSystemDictionary().psiPut("$error", errorObj);
+		errorObj.put("newerror", PsiBoolean.TRUE);
+		errorObj.put("errorname", new PsiName(errorName));
+		errorObj.put("command", obj);
+		errorObj.put("ostack", new PsiArray((java.util.ArrayList<PsiObject>)opstack.clone()));
+		errorObj.put("estack", new PsiArray((java.util.ArrayList<PsiObject>)execstack.clone()));
+		errorObj.put("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dictstack.clone()));
+		getSystemDictionary().put("$error", errorObj);
 
 		try
 		{
 			PsiDictionary errorDict=getErrorDictionary();
 			(errorDict.known(errorName)?
-				errorDict.psiGet(errorName):
+				errorDict.get(errorName):
 				new coneforest.psi.core._stop())
 					.invoke(this);
 		}
@@ -568,7 +568,7 @@ public class Interpreter
 	public void acceptScriptName(final String scriptName)
 	{
 		PsiString script=new PsiString(scriptName);
-		getSystemDictionary().psiPut("script", script);
+		getSystemDictionary().put("script", script);
 	}
 
 	public void acceptShellArguments(final String[] args)
@@ -576,15 +576,15 @@ public class Interpreter
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)
 			arguments.psiAppend(new PsiString(arg));
-		getSystemDictionary().psiPut("arguments", arguments);
+		getSystemDictionary().put("arguments", arguments);
 	}
 
 	public void acceptEnvironment(final java.util.Map<String, String> env)
 	{
 		PsiDictionary environment=new PsiDictionary();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
-			environment.psiPut(entry.getKey(), new PsiString(entry.getValue()));
-		getSystemDictionary().psiPut("environment", environment);
+			environment.put(entry.getKey(), new PsiString(entry.getValue()));
+		getSystemDictionary().put("environment", environment);
 	}
 
 	public void acceptClassPath(final String[] classPath)

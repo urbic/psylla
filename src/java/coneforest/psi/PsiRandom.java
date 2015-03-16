@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">random</code> object.
+ *	A representation of Ψ-<code class="type">random</code> object.
  */
 public class PsiRandom
 	extends PsiAbstractObject
@@ -12,6 +12,9 @@ public class PsiRandom
 		random=new java.util.Random();
 	}
 
+	/**
+	 *	@return a string <code class="constant">"random"</code>.
+	 */
 	@Override
 	public String getTypeName()
 	{

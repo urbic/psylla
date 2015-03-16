@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">array</code> object.
+ *	A representation of Ψ-<code class="type">array</code> object.
  */
 public class PsiArray
 	extends PsiAbstractArray<PsiObject>
@@ -19,6 +19,15 @@ public class PsiArray
 	public PsiArray(final PsiArray array)
 	{
 		this.array=(java.util.ArrayList<PsiObject>)array.array.clone();
+	}
+
+	/**
+	 *	@return <code class="constant">"real"</code>.
+	 */
+	@Override
+	public String getTypeName()
+	{
+		return "array";
 	}
 
 	@Override
@@ -46,7 +55,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiObject psiGet(final int indexValue)
+	public PsiObject get(final int indexValue)
 		throws PsiException
 	{
 		try
@@ -81,7 +90,7 @@ public class PsiArray
 	}
 
 	@Override
-	public void psiInsert(final int indexValue, final PsiObject obj)
+	public void insert(final int indexValue, final PsiObject obj)
 		throws PsiException
 	{
 		try
@@ -95,7 +104,7 @@ public class PsiArray
 	}
 
 	@Override
-	public void psiPut(final int indexValue, final PsiObject obj)
+	public void put(final int indexValue, final PsiObject obj)
 		throws PsiException
 	{
 		try
@@ -109,7 +118,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiObject psiDelete(final int indexValue)
+	public PsiObject delete(final int indexValue)
 		throws PsiException
 	{
 		try

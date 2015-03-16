@@ -11,7 +11,7 @@ public class PsiModule
 			for(Class<? extends PsiOperator> operatorClass: operatorClasses)
 			{
 				PsiOperator operator=operatorClass.newInstance();
-				psiPut(operator.getName(), operator);
+				put(operator.getName(), operator);
 			}
 		}
 		catch(InstantiationException|IllegalAccessException e)

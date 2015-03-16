@@ -26,21 +26,21 @@ public class PsiErrorDictionary extends PsiModule
 		{
 			try
 			{
-				PsiDictionary errorObj=(PsiDictionary)interpreter.getSystemDictionary().psiGet("$error");
-				errorObj.psiPut("newerror", PsiBoolean.FALSE);
+				PsiDictionary errorObj=(PsiDictionary)interpreter.getSystemDictionary().get("$error");
+				errorObj.put("newerror", PsiBoolean.FALSE);
 
 				System.out.println("Error: "
-						+errorObj.psiGet("errorname")
+						+errorObj.get("errorname")
 						+" in "
-						+errorObj.psiGet("command"));
+						+errorObj.get("command"));
 
 				System.out.print("Operand stack:\n\t");
-				for(PsiObject obj: (PsiArray)errorObj.psiGet("ostack"))
+				for(PsiObject obj: (PsiArray)errorObj.get("ostack"))
 					System.out.print(" "+obj);
 				System.out.println();
 
 				System.out.print("Execution stack:\n\t");
-				for(PsiObject obj: (PsiArray)errorObj.psiGet("estack"))
+				for(PsiObject obj: (PsiArray)errorObj.get("estack"))
 					System.out.print(" "+obj);
 				System.out.println();
 			}

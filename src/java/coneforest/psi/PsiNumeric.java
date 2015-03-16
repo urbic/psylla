@@ -176,24 +176,36 @@ abstract public class PsiNumeric
 				&& doubleValue()==((PsiNumeric)obj).doubleValue());
 	}
 
+	/**
+	 *	“Less” arithmetic comparison.
+	 */
 	@Override
 	public PsiBoolean psiLt(final PsiNumeric numeric)
 	{
 		return PsiBoolean.valueOf(doubleValue()<numeric.doubleValue());
 	}
 
+	/**
+	 *	“Less or equal” arithmetic comparison.
+	 */
 	@Override
 	public PsiBoolean psiLe(final PsiNumeric numeric)
 	{
 		return PsiBoolean.valueOf(doubleValue()<=numeric.doubleValue());
 	}
 
+	/**
+	 *	“Greater” arithmetic comparison.
+	 */
 	@Override
 	public PsiBoolean psiGt(final PsiNumeric numeric)
 	{
 		return PsiBoolean.valueOf(doubleValue()>numeric.doubleValue());
 	}
 
+	/**
+	 *	“Greater or equal” arithmetic comparison.
+	 */
 	@Override
 	public PsiBoolean psiGe(final PsiNumeric numeric)
 	{

@@ -12,7 +12,7 @@ public class DictionaryStack
 		push(systemdict);
 		try
 		{
-			push((PsiDictionarylike)systemdict.psiGet("userdict"));
+			push((PsiDictionarylike)systemdict.get("userdict"));
 		}
 		catch(PsiException e)
 		{
@@ -25,7 +25,7 @@ public class DictionaryStack
 	{
 		PsiDictionarylike dict=where(keyString);
 		if(dict!=null)
-			return dict.psiGet(keyString);
+			return dict.get(keyString);
 		else
 			throw new PsiException("undefined");
 	}
@@ -41,7 +41,7 @@ public class DictionaryStack
 		for(int i=size()-1; i>=0; i--)
 		{
 			PsiDictionarylike dict=get(i);
-			if(dict.psiKnown(keyString).booleanValue())
+			if(dict.known(keyString))
 				return dict;
 		}
 		return null;

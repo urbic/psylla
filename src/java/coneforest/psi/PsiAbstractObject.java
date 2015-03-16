@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of basic Ψ <code class="type">object</code>.
+ *	A representation of basic Ψ-<code class="type">object</code>.
  */
 abstract public class PsiAbstractObject
 	implements PsiObject
@@ -19,25 +19,19 @@ abstract public class PsiAbstractObject
 	}
 
 	/**
-	 *	Execute this object in the context of the interpreter. Pushes this
+	 *	Execute this object in the context of an interpreter. Pushes this
 	 *	object into interpreter’s operand stack.
-	 *
-	 *	@param interpreter an interpreter.
 	 */
 	public void execute(Interpreter interpreter)
-		//throws PsiException
 	{
 		interpreter.getOperandStack().push(this);
 	}
 
 	/**
-	 *	Invoke this object in the context of the interpreter. Pushes this
+	 *	Invoke this object in the context of an interpreter. Pushes this
 	 *	object into interpreter’s operand stack.
-	 *
-	 *	@param interpreter an interpreter.
 	 */
 	public void invoke(Interpreter interpreter)
-		//throws PsiException
 	{
 		interpreter.getOperandStack().push(this);
 	}
@@ -63,15 +57,22 @@ abstract public class PsiAbstractObject
 	}
 
 	/**
-	 *	Returns a Ψ string representing this object.
+	 *	Returns a Ψ-<code class="type">string</code> representing this object.
 	 *
-	 *	@return a Ψ string representing this object.
+	 *	@return a Ψ-<code class="type">string</code> representation of this object.
 	 */
 	public PsiString psiToString()
 	{
 		return new PsiString(toString());
 	}
 
+	/**
+	 *	Returns a string representing this object.
+	 *
+	 *	@return a string <code class="constant">"-<em
+	 *	class="replaceable">type</em>-"</code>, where <em
+	 *	class="replaceable">type</em> is the type name of this object.
+	 */
 	@Override
 	public String toString()
 	{

@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">bitvector</code> object.
+ *	A representation of Ψ-<code class="type">bitvector</code> object.
  */
 public class PsiBitVector
 	extends PsiAbstractArray<PsiBoolean>
@@ -30,7 +30,7 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBoolean psiGet(int index)
+	public PsiBoolean get(int index)
 		throws PsiException
 	{
 		if(index>=size)
@@ -77,7 +77,7 @@ public class PsiBitVector
 	}
 
 	@Override
-	public void psiPut(int index, PsiBoolean bool)
+	public void put(int index, PsiBoolean bool)
 		throws PsiException
 	{
 		if(index>=size)
@@ -118,7 +118,7 @@ public class PsiBitVector
 	}
 
 	@Override
-	public void psiInsert(int indexValue, PsiBoolean bool)
+	public void insert(int indexValue, PsiBoolean bool)
 	{
 		size++;
 		for(int i=size-1; i>indexValue; i--)
@@ -127,12 +127,12 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBoolean psiDelete(int indexValue)
+	public PsiBoolean delete(int indexValue)
 		throws PsiException
 	{
 		try
 		{
-			PsiBoolean result=psiGet(indexValue);
+			PsiBoolean result=get(indexValue);
 			for(int i=indexValue; i<size; i++)
 				bitvector.set(i-1, bitvector.get(i));
 			size--;

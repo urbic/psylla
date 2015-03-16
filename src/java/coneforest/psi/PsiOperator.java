@@ -1,15 +1,13 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ <code class="type">operator</code> object.
+ *	A representation of Ψ-<code class="type">operator</code> object.
  */
 public abstract class PsiOperator
 	extends PsiAbstractObject
 {
 	/**
-	 *	Returns a string representation of a type name (<code>"operator"</code>).
-	 *
-	 *	@return a string representation of a type name.
+	 *	@return a string <code class="constant">"operator"</code>.
 	 */
 	@Override
 	public String getTypeName()
@@ -20,8 +18,6 @@ public abstract class PsiOperator
 	/**
 	 *	Execute this object in the context of the interpreter.  Calls {@link
 	 *	#invoke(Interpreter)} method.
-	 *
-	 *	@param interpreter an interpreter.
 	 */
 	public void execute(Interpreter interpreter)
 	{
@@ -31,8 +27,6 @@ public abstract class PsiOperator
 	/**
 	 *	Invoke this object in the context of the interpreter performing an
 	 *	action associated with it.
-	 *
-	 *	@param interpreter an interpreter.
 	 */
 	public void invoke(Interpreter interpreter)
 	{

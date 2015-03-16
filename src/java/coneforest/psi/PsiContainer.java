@@ -5,6 +5,6 @@ public interface PsiContainer<T extends PsiObject>
 		PsiLengthy,
 		PsiIterable<T>
 {
-	public PsiContainer<T> psiCloneEmpty()
+	public PsiContainer<T> psiNewEmpty()
 		throws PsiException;
 }
