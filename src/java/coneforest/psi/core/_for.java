@@ -26,6 +26,8 @@ public class _for extends PsiOperator
 			opstack.push(counter);
 			obj.invoke(interpreter);
 			interpreter.handleExecutionStack(loopLevel);
+			if(interpreter.getStopFlag() || interpreter.getExitFlag())
+				break;
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);

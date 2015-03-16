@@ -15,11 +15,11 @@ public class _keysforall extends PsiOperator
 		int looplevel=interpreter.pushLoopLevel();
 		for(java.util.Map.Entry<String, PsiObject> entry: dict)
 		{
-			if(interpreter.getExitFlag())
-				break;
 			opstack.push(new PsiName(entry.getKey()));
 			obj.invoke(interpreter);
 			interpreter.handleExecutionStack(looplevel);
+			if(interpreter.getStopFlag() || interpreter.getExitFlag())
+				break;
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);

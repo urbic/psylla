@@ -11,10 +11,12 @@ public class _loop extends PsiOperator
 		final PsiObject obj=opstack.popOperands(1)[0];
 
 		int loopLevel=interpreter.pushLoopLevel();
-		while(!interpreter.getExitFlag())
+		while(true)
 		{
 			obj.invoke(interpreter);
 			interpreter.handleExecutionStack(loopLevel);
+			if(interpreter.getStopFlag() || interpreter.getExitFlag())
+				break;
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
