@@ -18,15 +18,15 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Возвращает новый строковый <replaceable>писатель</replaceable> для заданной
+<replaceable>строки</replaceable>.
+</para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
-
-<para>
-Возвращает новый файловый писатель для заданной
-<replaceable>строки</replaceable>.
-</para>
 
 </section>

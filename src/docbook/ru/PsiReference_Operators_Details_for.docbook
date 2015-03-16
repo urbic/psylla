@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_for">
 <title><token language="psi">for</token></title>
+
 <synopsis>
 <replaceable>начальное</replaceable>
 <replaceable>инкремент</replaceable>
@@ -21,4 +22,5 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 </section>

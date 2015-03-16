@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_loop">
 <title><token language="psi">loop</token></title>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">loop</token>
@@ -12,4 +13,5 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 </section>
