@@ -19,8 +19,8 @@
 </synopsis>
 
 <para>
-Возвращает новый файловый писатель для файла с заданным
-<replaceable>именем</replaceable>.
+Возвращает новый файловый <replaceable>писатель</replaceable> для файла
+с заданным <replaceable>именем</replaceable>.
 </para>
 
 <formalpara>

@@ -19,8 +19,8 @@
 </synopsis>
 
 <para>
-Возвращает новый файловый читатель для файла с заданным
-<replaceable>именем</replaceable>.
+Возвращает новый файловый <replaceable>читатель</replaceable> для файла
+с заданным <replaceable>именем</replaceable>.
 </para>
 
 <formalpara>

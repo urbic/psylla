@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_stopped">
 <title><token language="psi">stopped</token></title>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">stop</token>
@@ -16,4 +17,10 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
 </section>

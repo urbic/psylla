@@ -1227,6 +1227,7 @@
 &PsiReference_Operators_Details_isempty;
 &PsiReference_Operators_Details_isfile;
 &PsiReference_Operators_Details_issymlink;
+&PsiReference_Operators_Details_join;
 &PsiReference_Operators_Details_keys;
 &PsiReference_Operators_Details_keysforall;
 &PsiReference_Operators_Details_known;

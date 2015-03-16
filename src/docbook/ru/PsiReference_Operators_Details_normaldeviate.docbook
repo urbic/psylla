@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_normaldeviate">
 <title><token language="psi">normaldeviate</token></title>
+
 <synopsis>
 <replaceable>генератор</replaceable>
 <replaceable>уклонение</replaceable>
@@ -21,4 +22,5 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 </section>

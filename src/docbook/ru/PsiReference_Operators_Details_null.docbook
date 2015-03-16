@@ -18,4 +18,9 @@
 Возвращает <constant>null</constant>.
 </para>
 
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
 </section>

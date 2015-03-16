@@ -3,7 +3,7 @@
 <title><token language="psi">fork</token></title>
 
 <synopsis>
-<replaceable>метка</replaceable>
+<constant>mark</constant>
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>
@@ -12,7 +12,7 @@
 <replaceable>контекст</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>

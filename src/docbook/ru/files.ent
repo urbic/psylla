@@ -92,6 +92,7 @@
 <!ENTITY PsiReference_Operators_Details_isempty			SYSTEM "PsiReference_Operators_Details_isempty.docbook">
 <!ENTITY PsiReference_Operators_Details_isfile			SYSTEM "PsiReference_Operators_Details_isfile.docbook">
 <!ENTITY PsiReference_Operators_Details_issymlink		SYSTEM "PsiReference_Operators_Details_issymlink.docbook">
+<!ENTITY PsiReference_Operators_Details_join			SYSTEM "PsiReference_Operators_Details_join.docbook">
 <!ENTITY PsiReference_Operators_Details_keys			SYSTEM "PsiReference_Operators_Details_keys.docbook">
 <!ENTITY PsiReference_Operators_Details_keysforall		SYSTEM "PsiReference_Operators_Details_keysforall.docbook">
 <!ENTITY PsiReference_Operators_Details_known			SYSTEM "PsiReference_Operators_Details_known.docbook">

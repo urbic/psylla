@@ -19,7 +19,7 @@
 </synopsis>
 
 <para>
-Возвращает новый файловый читатель для заданной
+Возвращает новый строковый <replaceable>читатель</replaceable> для заданной
 <replaceable>строки</replaceable>.
 </para>
 
