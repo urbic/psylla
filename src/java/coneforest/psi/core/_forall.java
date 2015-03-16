@@ -18,12 +18,12 @@ public class _forall extends PsiOperator
 			for(java.util.Map.Entry<String, PsiObject> entry:
 						(PsiIterable<java.util.Map.Entry<String, PsiObject>>)iterable)
 			{
-				if(interpreter.getExitFlag())
-					break;
 				opstack.push(new PsiName(entry.getKey()));
 				opstack.push(entry.getValue());
 				obj.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
+				if(interpreter.getStopFlag() || interpreter.getExitFlag())
+					break;
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
@@ -33,11 +33,11 @@ public class _forall extends PsiOperator
 			final int loopLevel=interpreter.pushLoopLevel();
 			for(PsiObject element: (PsiIterable<? extends PsiObject>)iterable)
 			{
-				if(interpreter.getExitFlag())
-					break;
 				opstack.push(element);
 				obj.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
+				if(interpreter.getStopFlag() || interpreter.getExitFlag())
+					break;
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
