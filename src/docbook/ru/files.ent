@@ -143,6 +143,7 @@
 <!ENTITY PsiReference_Operators_Details_set				SYSTEM "PsiReference_Operators_Details_set.docbook">
 <!ENTITY PsiReference_Operators_Details_setseed			SYSTEM "PsiReference_Operators_Details_setseed.docbook">
 <!ENTITY PsiReference_Operators_Details_settomark		SYSTEM "PsiReference_Operators_Details_settomark.docbook">
+<!ENTITY PsiReference_Operators_Details_signalerror		SYSTEM "PsiReference_Operators_Details_signalerror.docbook">
 <!ENTITY PsiReference_Operators_Details_signum			SYSTEM "PsiReference_Operators_Details_signum.docbook">
 <!ENTITY PsiReference_Operators_Details_sin				SYSTEM "PsiReference_Operators_Details_sin.docbook">
 <!ENTITY PsiReference_Operators_Details_sinh			SYSTEM "PsiReference_Operators_Details_sinh.docbook">
