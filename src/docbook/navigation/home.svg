@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-$URL: svn://domestic/54/doc/share/img/navigation/home.svg $
-$Id: home.svg 794 2014-06-06 19:52:55Z  $
--->
 <svg
     xmlns="http://www.w3.org/2000/svg"
     version="1.1"
@@ -18,5 +14,5 @@ $Id: home.svg 794 2014-06-06 19:52:55Z  $
 		stroke-width="4"
 		stroke-linejoin="round"
 		stroke-linecap="round"
-		/>	
+		/>
 </svg>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project name="install" default="dist" basedir=".">
-	
+
 	<target name="install">
 		<mkdir dir="${dest.dir}/${java.dir}"/>
 		<mkdir dir="${dest.dir}/${bin.dir}"/>

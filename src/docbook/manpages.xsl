@@ -59,7 +59,7 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 		<xsl:apply-imports/>
 		<xsl:text>"</xsl:text>
 	</xsl:template>
-	
+
 	<xsl:template match="d:token">
 		<!--xsl:call-template name="bold">
 			<xsl:with-param name="node" select="exsl:node-set(.)"/>

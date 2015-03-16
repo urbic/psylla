@@ -19,7 +19,7 @@ bind def
 {
 	dict begin
 		/p exch def
-		
+
 		/i p length 2 sub def
 		{
 			i 0 lt { exit } if
@@ -27,7 +27,7 @@ bind def
 			/i i 1 sub def
 		}
 		loop
-		
+
 		i 0 ge
 		{
 			/j i 1 add def
@@ -40,7 +40,7 @@ bind def
 			loop
 
 			p i j swap
-			
+
 			/i i 1 add def
 
 			/k 0 def
@@ -66,7 +66,7 @@ bind def
 [ 1 1 //n {} for ]
 {
 	/p exch def
-	
+
 	0 1 p length 1 sub
 	{
 		dup 0 ne { " " print } if

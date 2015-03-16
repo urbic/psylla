@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project name="obs" default="dist" basedir=".">
-	
+
 	<property name="obs.project.name" value="home:concyclic"/>
 	<property name="obs.package.name" value="psilang"/>
 	<property name="obs.package.version" value="${project.version}"/>
