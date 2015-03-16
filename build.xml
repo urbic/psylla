@@ -22,7 +22,7 @@
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<property name="home.javadoc.java" location="/usr/share/javadoc/java"/>
-	<path id="project.class.path">
+	<path id="project.classpath">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 	</path>
@@ -57,7 +57,7 @@
 			source="1.7"
 			target="1.7"
 			includeantruntime="false"
-			classpathref="project.class.path"
+			classpathref="project.classpath"
 			encoding="UTF-8"
 			>
 			<!--compilerarg value="-Xlint"/-->
@@ -77,13 +77,13 @@
 		<javadoc
 			sourcepath="${src.java}:${target.src.java}"
 			destdir="${target.doc.javadoc}"
+			classpathref="project.classpath"
 			access="public"
 			encoding="UTF-8"
 			charset="UTF-8"
 			>
-			<!-- stylesheetfile="${src}/css/javadoc.css" -->
 			<link href="${home.javadoc.java}"/>
-			<!--link href="http://jline.sourceforge.net/apidocs/"/-->
+			<link href="http://jline.sourceforge.net/apidocs/"/>
 		</javadoc>
 		<!--
 		<move file="${target.doc.javadoc}/stylesheet.css" tofile="${target.doc.javadoc}/default.scss"/>
@@ -130,7 +130,7 @@
 		<java
 			classname="coneforest.psi.Psyche"
 			fork="true"
-			classpathref="project.class.path"
+			classpathref="project.classpath"
 			>
 			<arg file="${test.file}"/>
 		</java>
