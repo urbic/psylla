@@ -23,31 +23,25 @@ public class PsiErrorDictionary extends PsiModule
 	{
 		@Override
 		public void action(final Interpreter interpreter)
+			throws ClassCastException, PsiException
 		{
-			try
-			{
-				PsiDictionary errorObj=(PsiDictionary)interpreter.getSystemDictionary().get("$error");
-				errorObj.put("newerror", PsiBoolean.FALSE);
+			PsiDictionary errorObj=(PsiDictionary)interpreter.getSystemDictionary().get("$error");
+			errorObj.put("newerror", PsiBoolean.FALSE);
 
-				System.out.println("Error: "
-						+errorObj.get("errorname")
-						+" in "
-						+errorObj.get("command"));
+			System.out.println("Error: "
+					+errorObj.get("errorname")
+					+" in "
+					+errorObj.get("command"));
 
-				System.out.print("Operand stack:\n\t");
-				for(PsiObject obj: (PsiArray)errorObj.get("ostack"))
-					System.out.print(" "+obj);
-				System.out.println();
+			System.out.print("Operand stack:\n\t");
+			for(PsiObject obj: (PsiArray)errorObj.get("ostack"))
+				System.out.print(" "+obj);
+			System.out.println();
 
-				System.out.print("Execution stack:\n\t");
-				for(PsiObject obj: (PsiArray)errorObj.get("estack"))
-					System.out.print(" "+obj);
-				System.out.println();
-			}
-			catch(PsiException e)
-			{
-				throw new AssertionError();
-			}
+			System.out.print("Execution stack:\n\t");
+			for(PsiObject obj: (PsiArray)errorObj.get("estack"))
+				System.out.print(" "+obj);
+			System.out.println();
 		}
 	}
 }

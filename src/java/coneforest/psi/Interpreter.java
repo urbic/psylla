@@ -126,25 +126,11 @@ public class Interpreter
 
 	public void interpret(final PsiReader reader)
 	{
-		final int procLevel=procstack.size();
 		Parser parser=new Parser(reader.getReader());
 		try
 		{
 			while(running)
-			{
-				Token token=parser.getNextToken();
-				if(token.kind==ParserConstants.EOF)
-					if(procstack.size()==procLevel)
-						return;
-					else
-						handleError("syntaxerror", reader);
-				processToken(token);
-				if(getStopFlag())
-				{
-					(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
-					return;
-				}
-			}
+				processToken(parser.getNextToken());
 		}
 		catch(PsiException e)
 		{
@@ -161,6 +147,11 @@ public class Interpreter
 		catch(StackOverflowError e)
 		{
 			handleError("limitcheck", reader);
+		}
+		finally
+		{
+			if(getStopFlag())
+				(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
 		}
 	}
 
@@ -203,6 +194,9 @@ public class Interpreter
 					break;
 				case ParserConstants.TOKEN_CLOSE_BRACE:
 					throw new PsiException("syntaxerror");
+				case ParserConstants.EOF:
+					quit();
+					break;
 			}
 		}
 		else
@@ -213,11 +207,13 @@ public class Interpreter
 					procstack.push(new PsiProcedure());
 					break;
 				case ParserConstants.TOKEN_CLOSE_BRACE:
-					PsiArray proc=procstack.pop();
-					if(procstack.size()>0)
-						procstack.peek().psiAppend(proc);
-					else
-						opstack.push(proc);
+					{
+						final PsiArray proc=procstack.pop();
+						if(procstack.size()>0)
+							procstack.peek().psiAppend(proc);
+						else
+							opstack.push(proc);
+					}
 					break;
 				case ParserConstants.TOKEN_INTEGER:
 				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
@@ -230,6 +226,8 @@ public class Interpreter
 				case ParserConstants.TOKEN_REGEXP:
 					procstack.peek().psiAppend(newPsiObject(token));
 					break;
+				case ParserConstants.EOF:
+					throw new PsiException("syntaxerror");
 			}
 		}
 	}
@@ -404,7 +402,14 @@ public class Interpreter
 			case ParserConstants.TOKEN_INTEGER:
 				try
 				{
-					return PsiInteger.valueOf(Long.parseLong(token.image));
+					try
+					{
+						return PsiInteger.valueOf(Long.parseLong(token.image));
+					}
+					catch(NumberFormatException e)
+					{
+						return new PsiReal(Double.parseDouble(token.image));
+					}
 				}
 				catch(NumberFormatException e)
 				{
@@ -469,10 +474,11 @@ public class Interpreter
 		try
 		{
 			PsiDictionary errorDict=getErrorDictionary();
-			(errorDict.known(errorName)?
-				errorDict.get(errorName):
-				new coneforest.psi.core._stop())
-					.invoke(this);
+			(
+				errorDict.known(errorName)?
+					errorDict.get(errorName):
+					new coneforest.psi.core._stop()
+			).invoke(this);
 		}
 		catch(PsiException e)
 		{
