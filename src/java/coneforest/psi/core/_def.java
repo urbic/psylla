@@ -9,6 +9,6 @@ public class _def extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		interpreter.getDictionaryStack().peek().psiPut((PsiStringlike)ops[0], ops[1]);
+		interpreter.getCurrentDictionary().psiPut((PsiStringlike)ops[0], ops[1]);
 	}
 }
