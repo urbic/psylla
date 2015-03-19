@@ -47,7 +47,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.nio.file.DirectoryNotEmptyException e)
 		{
@@ -121,7 +121,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
@@ -164,7 +164,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.lang.SecurityException e)
 		{
@@ -186,7 +186,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.lang.SecurityException e)
 		{
@@ -208,7 +208,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.io.IOException e)
 		{
@@ -229,7 +229,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.io.IOException e)
 		{
@@ -251,7 +251,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.io.IOException e)
 		{
@@ -273,7 +273,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.io.IOException e)
 		{
@@ -295,7 +295,7 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 		catch(java.io.IOException e)
 		{
