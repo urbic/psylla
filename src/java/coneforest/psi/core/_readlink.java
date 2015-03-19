@@ -8,6 +8,6 @@ public class _readlink extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(Utility.psiReadLink((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(FileSystem.psiReadLink((PsiStringlike)opstack.popOperands(1)[0]));
 	}
 }

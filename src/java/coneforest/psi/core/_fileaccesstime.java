@@ -8,6 +8,6 @@ public class _fileaccesstime extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(Utility.psiFileAccessTime((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(FileSystem.psiFileAccessTime((PsiStringlike)opstack.popOperands(1)[0]));
 	}
 }

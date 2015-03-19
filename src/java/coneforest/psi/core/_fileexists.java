@@ -8,6 +8,6 @@ public class _fileexists extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(Utility.psiFileExists(((PsiStringlike)opstack.popOperands(1)[0])));
+		opstack.push(FileSystem.psiFileExists(((PsiStringlike)opstack.popOperands(1)[0])));
 	}
 }

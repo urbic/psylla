@@ -11,6 +11,6 @@ public class _symlink extends PsiOperator
 		PsiObject[] ops=opstack.popOperands(2);
 		PsiStringlike oldName=(PsiStringlike)ops[0];
 		PsiStringlike newName=(PsiStringlike)ops[1];
-		Utility.psiSymLink(oldName, newName);
+		FileSystem.psiSymLink(oldName, newName);
 	}
 }

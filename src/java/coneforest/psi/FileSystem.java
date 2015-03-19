@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public class Utility
+public class FileSystem
 {
 	public static String fileNameToNative(final String fileName)
 	{
@@ -15,19 +15,6 @@ public class Utility
 	public static java.nio.file.Path getNativePath(final PsiStringlike stringlike)
 	{
 		return new java.io.File(fileNameToNative(stringlike.getString())).toPath();
-	}
-
-	public static void psiSleep(final PsiNumeric numeric)
-		throws PsiException
-	{
-		try
-		{
-			java.util.concurrent.TimeUnit.NANOSECONDS.sleep((long)(1E9*numeric.doubleValue()));
-		}
-		catch(InterruptedException e)
-		{
-			throw new PsiException("interrupt");
-		}
 	}
 
 	public static void psiCreateDirectory(final PsiStringlike stringlike)

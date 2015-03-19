@@ -7,7 +7,7 @@ public class PsiFileWriter extends PsiWriter
 	{
 		try
 		{
-			setWriter(new java.io.FileWriter(Utility.fileNameToNative(name)));
+			setWriter(new java.io.FileWriter(FileSystem.fileNameToNative(name)));
 		}
 		catch(java.io.IOException e)
 		{

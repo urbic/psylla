@@ -11,6 +11,6 @@ public class _renamefile extends PsiOperator
 		PsiObject[] ops=opstack.popOperands(2);
 		PsiStringlike oldName=(PsiStringlike)ops[0];
 		PsiStringlike newName=(PsiStringlike)ops[1];
-		Utility.psiRenameFile(oldName, newName);
+		FileSystem.psiRenameFile(oldName, newName);
 	}
 }

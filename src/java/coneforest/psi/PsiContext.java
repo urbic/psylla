@@ -21,7 +21,7 @@ public class PsiContext
 	@Override
 	public String toString()
 	{
-		return "--context:"+interpreter.getId()+"--";
+		return "-context:"+interpreter.getId()+"-";
 	}
 
 	public Interpreter getInterpreter()
@@ -35,6 +35,19 @@ public class PsiContext
 		try
 		{
 			interpreter.join();
+		}
+		catch(InterruptedException e)
+		{
+			throw new PsiException("interrupt");
+		}
+	}
+
+	public static void psiSleep(final PsiNumeric numeric)
+		throws PsiException
+	{
+		try
+		{
+			java.util.concurrent.TimeUnit.NANOSECONDS.sleep((long)(1E9*numeric.doubleValue()));
 		}
 		catch(InterruptedException e)
 		{

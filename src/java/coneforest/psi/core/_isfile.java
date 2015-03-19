@@ -8,6 +8,6 @@ public class _isfile extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(Utility.psiIsFile(((PsiStringlike)opstack.popOperands(1)[0])));
+		opstack.push(FileSystem.psiIsFile(((PsiStringlike)opstack.popOperands(1)[0])));
 	}
 }
