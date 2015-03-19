@@ -60,7 +60,7 @@ public class PsiComplex
 	{
 		//return re+(im>=0.D? "+": "")+im+"i";
 		//return "%C%"+re+":"+im;
-		return re+" "+im+" complex";
+		return "-complex:"+re+","+im+"-";
 	}
 
 	@Override
