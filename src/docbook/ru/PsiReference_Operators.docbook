@@ -578,7 +578,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_putinterval" xrefstyle="template:%t"/></term>
-<listitem>TODO размещение всех объектов перечисления в массиве по заданному индексу</listitem>
+<listitem>размещение всех объектов перечисления в массиве по заданному индексу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -790,6 +790,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_deletefile" xrefstyle="template:%t"/></term>
+<listitem>удаление файла или директории</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_fileaccesstime" xrefstyle="template:%t"/></term>
 <listitem>время последнего доступа к файлу</listitem>
 </varlistentry>
@@ -827,6 +832,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_issymlink" xrefstyle="template:%t"/></term>
 <listitem>является ли файл символической ссылкой?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_readlink" xrefstyle="template:%t"/></term>
+<listitem>получение цели символической ссылки</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -972,7 +982,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_join" xrefstyle="template:%t"/></term>
-<listitem><remark>TODO</remark></listitem>
+<listitem>ожидание завершения контекста и получение результатов</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -982,7 +992,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
-<listitem><remark>TODO</remark></listitem>
+<listitem>вызов процедуры под замком</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1185,6 +1195,7 @@
 &PsiReference_Operators_Details_currentdict;
 &PsiReference_Operators_Details_def;
 &PsiReference_Operators_Details_delete;
+&PsiReference_Operators_Details_deletefile;
 &PsiReference_Operators_Details_dict;
 &PsiReference_Operators_Details_dicttomark;
 &PsiReference_Operators_Details_div;
@@ -1265,6 +1276,7 @@
 &PsiReference_Operators_Details_re;
 &PsiReference_Operators_Details_read;
 &PsiReference_Operators_Details_readline;
+&PsiReference_Operators_Details_readlink;
 &PsiReference_Operators_Details_readstring;
 &PsiReference_Operators_Details_regexp;
 &PsiReference_Operators_Details_remove;
