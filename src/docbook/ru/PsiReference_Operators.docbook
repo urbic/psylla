@@ -836,7 +836,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_readlink" xrefstyle="template:%t"/></term>
-<listitem>получение цели символической ссылки</listitem>
+<listitem>цель символической ссылки</listitem>
 </varlistentry>
 
 <varlistentry>
