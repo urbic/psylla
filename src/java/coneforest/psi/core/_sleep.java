@@ -8,6 +8,6 @@ public class _sleep extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		Utility.psiSleep((PsiNumeric)opstack.popOperands(1)[0]);
+		PsiContext.psiSleep((PsiNumeric)opstack.popOperands(1)[0]);
 	}
 }

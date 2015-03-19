@@ -8,7 +8,7 @@ public class PsiFileReader
 	{
 		try
 		{
-			setReader(new java.io.FileReader(Utility.fileNameToNative(name)));
+			setReader(new java.io.FileReader(FileSystem.fileNameToNative(name)));
 		}
 		catch(java.io.FileNotFoundException e)
 		{

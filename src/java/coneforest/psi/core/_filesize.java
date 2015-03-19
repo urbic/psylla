@@ -8,6 +8,6 @@ public class _filesize extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(Utility.psiFileSize((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(FileSystem.psiFileSize((PsiStringlike)opstack.popOperands(1)[0]));
 	}
 }

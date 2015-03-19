@@ -8,6 +8,6 @@ public class _filecreationtime extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(Utility.psiFileCreationTime((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(FileSystem.psiFileCreationTime((PsiStringlike)opstack.popOperands(1)[0]));
 	}
 }
