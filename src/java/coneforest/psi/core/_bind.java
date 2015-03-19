@@ -10,28 +10,28 @@ public class _bind extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 			throw new PsiException("stackunderflow");
-		bind((PsiArray)opstack.peek(), interpreter.getDictionaryStack());
+		bind((PsiProcedure)opstack.peek(), interpreter.getDictionaryStack());
 	}
 
-	private static void bind(PsiArray array, DictionaryStack dictstack)
+	private static void bind(PsiProcedure proc, DictionaryStack dictstack)
 	{
-		bindHelper(array, new java.util.HashSet<PsiArray>(), dictstack);
+		bindHelper(proc, new java.util.HashSet<PsiProcedure>(), dictstack);
 	}
 
-	private static void bindHelper(PsiArray array, java.util.HashSet<PsiArray> bound, DictionaryStack dictstack)
+	private static void bindHelper(PsiProcedure proc, java.util.HashSet<PsiProcedure> bound, DictionaryStack dictstack)
 	{
-			for(int i=0; i<array.length(); i++)
+			for(int i=0; i<proc.length(); i++)
 			{
 				try
 				{
-					PsiObject obj=array.get(i);
-					if(obj instanceof PsiArray && bound.add((PsiArray)obj))
-						bindHelper((PsiArray)obj, bound, dictstack);
+					PsiObject obj=proc.get(i);
+					if(obj instanceof PsiProcedure && bound.add((PsiProcedure)obj))
+						bindHelper((PsiProcedure)obj, bound, dictstack);
 					else if(obj instanceof PsiCommand)
 					{
 						PsiObject value=dictstack.load((PsiName)obj);
 						if(value instanceof PsiOperator)
-							array.put(i, value);
+							proc.put(i, value);
 					}
 				}
 				catch(PsiException e)
