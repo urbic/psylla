@@ -1,9 +1,9 @@
 package coneforest.cli;
 
 /**
- * Base class representing an abstract option holding an object.
+ *	Base class representing an abstract option holding an object.
  *
- * @param <T> class of containing object
+ *	@param <T> class of containing object.
  */
 abstract public class OptionHolder<T>
 	extends OptionWithArg<T>
@@ -13,9 +13,10 @@ abstract public class OptionHolder<T>
 		super(names);
 	}
 
-	/** Returns containing object.
+	/**
+	 *	Returns containing object.
 	 *
-	 * @return an object
+	 *	@return an object
 	 */
 	@Override
 	public T getValue()
@@ -23,11 +24,12 @@ abstract public class OptionHolder<T>
 		return value;
 	}
 
-	/** Replaces current option value with parsed argument. Argument is parsed
-	 * by {@link #parseArg(String)}.
+	/**
+	 *	Replaces current option value with parsed argument. Argument is parsed
+	 *	by {@link #parseArg(String)}.
 	 *
-	 * @param arg an argument
-	 * @throws CLIProcessingException when parse error occured
+	 *	@param arg an argument,
+	 *	@throws CLIProcessingException when parse error occured.
 	 */
 	@Override
 	public void handle(final String arg)
@@ -36,11 +38,12 @@ abstract public class OptionHolder<T>
 		value=parseArg(arg);
 	}
 
-	/** Parses an argument and returns an object.
+	/**
+	 *	Parses an argument and returns an object.
 	 *
-	 * @param arg an argument
-	 * @return an object
-	 * @throws CLIProcessingException when parse error occured
+	 *	@param arg an argument.
+	 *	@return an object.
+	 *	@throws CLIProcessingException when parse error occured.
 	 */
 	abstract public T parseArg(final String arg)
 		throws CLIProcessingException;

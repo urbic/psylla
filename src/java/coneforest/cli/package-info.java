@@ -6,7 +6,7 @@
  * <ul>
  * <li>Support for either short (<code>-V</code>) or long
  * (<code>--version</code>) option forms.</li>
- * <li>Support fot options with arguments (<code>-o
+ * <li>Support for options with arguments (<code>-o
  * file.txt</code>, <code>-ofile.txt</code>, <code>--output-file
  * file.txt</code>, <code>--output-file=file.txt</code>).</li>
  * <li>Short options can be bundled (<code>-xvf</code>).</li>
