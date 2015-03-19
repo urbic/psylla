@@ -6,6 +6,7 @@ package coneforest.psi;
  *	@param T A type of object compared against this object.
  */
 public interface PsiScalar<T extends PsiScalar>
+	extends PsiObject
 {
 	/**
 	 *	“Less” comparison.
