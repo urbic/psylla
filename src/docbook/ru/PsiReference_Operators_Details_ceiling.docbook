@@ -5,7 +5,7 @@
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">ceiling</token>
-<replaceable>результат</replaceable>
+<replaceable>потолок</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
