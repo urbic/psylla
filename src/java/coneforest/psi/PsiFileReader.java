@@ -12,7 +12,7 @@ public class PsiFileReader
 		}
 		catch(java.io.FileNotFoundException e)
 		{
-			throw new PsiException("undefinedfilename");
+			throw new PsiException("filenotfound");
 		}
 	}
 
