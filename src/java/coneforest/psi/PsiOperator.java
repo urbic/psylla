@@ -30,17 +30,20 @@ public abstract class PsiOperator
 	 */
 	public void invoke(Interpreter interpreter)
 	{
-		interpreter.getOperandStack().clearBackup();
+		final OperandStack opstack=interpreter.getOperandStack();
+		opstack.clearBackup();
 		try
 		{
 			action(interpreter);
 		}
 		catch(ClassCastException e)
 		{
+			opstack.restore();
 			interpreter.handleError("typecheck", this);
 		}
 		catch(PsiException e)
 		{
+			opstack.restore();
 			interpreter.handleError(e.kind(), this);
 		}
 	}
