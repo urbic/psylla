@@ -20,7 +20,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 		throws PsiException;
 
 	/**
-	 *	Store an element with given key or index. In {@link PsiArraylike}
+	 *	Stores an element with given key or index. In {@link PsiArraylike}
 	 *	containers replaces existing element. In {@link PsiDictionarylike}
 	 *	containers replaces an old or creates a new element associated with
 	 *	specified key.
@@ -33,7 +33,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 		throws PsiException;
 
 	/**
-	 *	Delete a key or index and a value associated with it from this object.
+	 *	Deletes a key or index and a value associated with it from this object.
 	 *
 	 *	@param key a key or an index. 
 	 *	@throws PsiException when key is absent or index is out of range.
@@ -42,7 +42,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 		throws PsiException;
 
 	/**
-	 *	Return a container of the same type as this object consisting of keys
+	 *	Returns a container of the same type as this object consisting of keys
 	 *	or indices from given Ψ-<code class="type">iterable</code> and of
 	 *	assiciated values.
 	 *
