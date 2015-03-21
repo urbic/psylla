@@ -10,7 +10,7 @@ ProfilingInterpreter
 
 DONE: executable string & reader handling
 
-filesystem manipulation
+DONE: filesystem manipulation
 
 RE
 
@@ -34,4 +34,8 @@ Set: union, intersection
 
 Array: prepend
 
-String literals: "\N{…}"
+String literals: "\N{…}"?
+
+Thread-safe containers
+
+detach operator
