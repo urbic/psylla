@@ -26,6 +26,13 @@
 </para>
 </section>
 
+<section xml:id="PsiReference_Errors_Details_filenotfound">
+<title><errorname language="psi">filenotfound</errorname></title>
+<para>
+Файл не найден.
+</para>
+</section>
+
 <section xml:id="PsiReference_Errors_Details_invalidcontext">
 <title><errorname language="psi">invalidcontext</errorname></title>
 <para>
@@ -64,6 +71,13 @@
 <section xml:id="PsiReference_Errors_Details_limitcheck">
 <title><errorname language="psi">limitcheck</errorname></title>
 <para>
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_notlink">
+<title><errorname language="psi">notlink</errorname></title>
+<para>
+Не ссылка.
 </para>
 </section>
 
@@ -107,13 +121,6 @@
 <section xml:id="PsiReference_Errors_Details_undefined">
 <title><errorname language="psi">undefined</errorname></title>
 <para>
-</para>
-</section>
-
-<section xml:id="PsiReference_Errors_Details_undefinedfilename">
-<title><errorname language="psi">undefinedfilename</errorname></title>
-<para>
-Файл не найден.
 </para>
 </section>
 
