@@ -42,6 +42,8 @@ public class PsiErrorDictionary extends PsiModule
 			for(PsiObject obj: (PsiArray)errorObj.get("estack"))
 				System.out.print(" "+obj);
 			System.out.println();
+
+			interpreter.quit();
 		}
 	}
 }

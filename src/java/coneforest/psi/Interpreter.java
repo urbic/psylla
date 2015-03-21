@@ -130,26 +130,22 @@ public class Interpreter
 		try
 		{
 			while(running)
+			{
 				processToken(parser.getNextToken());
+				if(getStopFlag())
+					(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
+			}
 		}
 		catch(PsiException e)
 		{
 			handleError(e.kind(), reader);
+			if(getStopFlag())
+				(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
 		}
 		catch(TokenMgrError e)
 		{
+			System.out.println("TOKENMGR ERROR");
 			handleError("syntaxerror", reader);
-		}
-		catch(OutOfMemoryError e)
-		{
-			handleError("limitcheck", reader);
-		}
-		catch(StackOverflowError e)
-		{
-			handleError("limitcheck", reader);
-		}
-		finally
-		{
 			if(getStopFlag())
 				(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
 		}
@@ -461,7 +457,6 @@ public class Interpreter
 
 	public void handleError(final String errorName, final PsiObject obj)
 	{
-		opstack.restore();
 		PsiDictionarylike errorObj=new PsiDictionary();
 		errorObj.put("newerror", PsiBoolean.TRUE);
 		errorObj.put("errorname", new PsiName(errorName));
