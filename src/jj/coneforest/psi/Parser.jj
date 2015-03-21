@@ -90,7 +90,9 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_COMMENT: "#" (~["\n"])* "\n">
+	<TOKEN_COMMENT: "#" (~["\n"])* "\n"
+		|
+		"/#" (~["/"] | ("/" ~["#"]))* "#/">
 }
 
 TOKEN:
