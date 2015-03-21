@@ -174,6 +174,7 @@
 <!ENTITY PsiReference_Operators_Details_undef			SYSTEM "PsiReference_Operators_Details_undef.docbook">
 <!ENTITY PsiReference_Operators_Details_uniformboolean	SYSTEM "PsiReference_Operators_Details_uniformboolean.docbook">
 <!ENTITY PsiReference_Operators_Details_uniformdeviate	SYSTEM "PsiReference_Operators_Details_uniformdeviate.docbook">
+<!ENTITY PsiReference_Operators_Details_unite			SYSTEM "PsiReference_Operators_Details_unite.docbook">
 <!ENTITY PsiReference_Operators_Details_values			SYSTEM "PsiReference_Operators_Details_values.docbook">
 <!ENTITY PsiReference_Operators_Details_wait			SYSTEM "PsiReference_Operators_Details_wait.docbook">
 <!ENTITY PsiReference_Operators_Details_where			SYSTEM "PsiReference_Operators_Details_where.docbook">

@@ -163,5 +163,26 @@ public class PsiArray
 		return result;
 	}
 
+	public PsiString psiUnite(PsiStringlike separator)
+		throws PsiException
+	{
+		try
+		{
+			final StringBuilder sb=new StringBuilder();
+			final String separatorString=separator.getString();
+			for(int i=0; i<length(); i++)
+			{
+				if(i>0)
+					sb.append(separatorString);
+				sb.append(((PsiStringlike)get(i)).getString());
+			}
+			return new PsiString(sb);
+		}
+		catch(ClassCastException e)
+		{
+			throw new PsiException("typecheck");
+		}
+	}
+
 	private java.util.ArrayList<PsiObject> array;
 }

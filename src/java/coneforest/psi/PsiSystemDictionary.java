@@ -187,6 +187,7 @@ public class PsiSystemDictionary
 					_undef.class,
 					_uniformboolean.class,
 					_uniformdeviate.class,
+					_unite.class,
 					_values.class,
 					_wait.class,
 					_where.class,

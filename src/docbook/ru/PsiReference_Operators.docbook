@@ -632,6 +632,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_unite" xrefstyle="template:%t"/></term>
+<listitem>конкатенация строк из массива с сепаратором</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_values" xrefstyle="template:%t"/></term>
 <listitem>создание массива значений словаря</listitem>
 </varlistentry>
@@ -1319,6 +1324,7 @@
 &PsiReference_Operators_Details_undef;
 &PsiReference_Operators_Details_uniformboolean;
 &PsiReference_Operators_Details_uniformdeviate;
+&PsiReference_Operators_Details_unite;
 &PsiReference_Operators_Details_values;
 &PsiReference_Operators_Details_wait;
 &PsiReference_Operators_Details_where;
