@@ -421,6 +421,17 @@ XXX
 </formalpara>
 </section>
 
+<section xml:id="PsiReference_Types_Details_matcher">
+<title><type>matcher</type></title>
+<para>
+Матчер.
+</para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+</section>
+
 <section xml:id="PsiReference_Types_Details_name">
 <title><type>name</type></title>
 <para>

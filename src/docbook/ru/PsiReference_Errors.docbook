@@ -61,6 +61,13 @@
 </para>
 </section>
 
+<section xml:id="PsiReference_Errors_Details_invalidstate">
+<title><errorname language="psi">invalidstate</errorname></title>
+<para>
+Неправильное состояние.
+</para>
+</section>
+
 <section xml:id="PsiReference_Errors_Details_ioerror">
 <title><errorname language="psi">ioerror</errorname></title>
 <para>
@@ -91,7 +98,7 @@
 <section xml:id="PsiReference_Errors_Details_securityerror">
 <title><errorname language="psi">securityerror</errorname></title>
 <para>
-<remark>TODO</remark>
+Нарушение политики безопасности.
 </para>
 </section>
 

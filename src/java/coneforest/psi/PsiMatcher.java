@@ -13,12 +13,45 @@ public class PsiMatcher
 		return PsiBoolean.valueOf(matcher.find());
 	}
 
-	public PsiString psiGetGroup(PsiInteger number)
+	public PsiInteger psiCaptureGroupCount()
+	{
+		return PsiInteger.valueOf(matcher.groupCount());
+	}
+
+	public PsiObject psiCaptureGroup(final PsiObject key)
 		throws PsiException
 	{
 		try
 		{
-			return new PsiString(matcher.group(number.intValue()));
+			String group=null;
+			if(key instanceof PsiInteger)
+				group=matcher.group(((PsiInteger)key).intValue());
+			else if(key instanceof PsiStringlike)
+				group=matcher.group(((PsiStringlike)key).getString());
+			else
+				throw new ClassCastException();
+			return group!=null? new PsiString(group): PsiNull.NULL;
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+		catch(IllegalArgumentException e)
+		{
+			throw new PsiException("undefined");
+		}
+		catch(IllegalStateException e)
+		{
+			throw new PsiException("invalidstate");
+		}
+	}
+
+	public PsiInteger psiCaptureGroupStart(final PsiInteger integer)
+		throws PsiException
+	{
+		try
+		{
+			return PsiInteger.valueOf(matcher.start(integer.intValue()));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -26,25 +59,12 @@ public class PsiMatcher
 		}
 	}
 
-	public PsiInteger psiGetGroupStart(PsiInteger number)
+	public PsiInteger psiCaptureGroupEnd(final PsiInteger integer)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(matcher.start(number.intValue()));
-		}
-		catch(IndexOutOfBoundsException e)
-		{
-			throw new PsiException("rangecheck");
-		}
-	}
-
-	public PsiInteger psiGetGroupEnd(PsiInteger number)
-		throws PsiException
-	{
-		try
-		{
-			return PsiInteger.valueOf(matcher.end(number.intValue()));
+			return PsiInteger.valueOf(matcher.end(integer.intValue()));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
