@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_arg">
 <title><token language="psi">arg</token></title>
+
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">arg</token>
@@ -16,19 +17,23 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
 Возвращает аргумент операнда, рассматриваемого как комплексное число.
 </para>
+
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">1 arg				<lineannotation>⇒ 0.0</lineannotation>
 -1. arg				<lineannotation>⇒ 3.141592653589793</lineannotation>
 0 -1 complex arg	<lineannotation>⇒ 4.71238898038469</lineannotation></programlisting>
 </formalpara>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
 </formalpara>
+
 </section>

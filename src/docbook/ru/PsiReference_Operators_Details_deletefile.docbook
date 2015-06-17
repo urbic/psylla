@@ -16,6 +16,15 @@
 
 <para>
 Удаляет файл или директорию с заданным <replaceable>именем</replaceable>.
+При попытке удалить непустую директорию генерируется <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_directorynotempty"/>. При попытке удалить
+несуществующий файл или директорию генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>. При ошибке ввода/вывода
+генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/>.  При нарушении политики
+безопасности генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/>.
 </para>
 
 <formalpara>

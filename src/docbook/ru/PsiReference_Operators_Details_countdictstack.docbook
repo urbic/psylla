@@ -5,14 +5,18 @@
 <synopsis>
 —
 <token language="psi">countdictstack</token>
-<replaceable>длина</replaceable>
+<replaceable>количество</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>длина</replaceable>:
+<replaceable>количество</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Возвращает количество объектов в стеке словарей.
+</para>
 
 <formalpara>
 <title>Ошибки:</title>
