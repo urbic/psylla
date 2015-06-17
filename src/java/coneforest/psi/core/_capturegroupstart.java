@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _getgroupend extends PsiOperator
+public class _capturegroupstart extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
@@ -9,6 +9,6 @@ public class _getgroupend extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiMatcher)ops[0]).psiGetGroupEnd((PsiInteger)ops[1]));
+		opstack.push(((PsiMatcher)ops[0]).psiCaptureGroupStart((PsiInteger)ops[1]));
 	}
 }

@@ -864,6 +864,21 @@
 <variablelist>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_capturegroup" xrefstyle="template:%t"/></term>
+<listitem>группа захвата по номеру или по имени</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_capturegroupcount" xrefstyle="template:%t"/></term>
+<listitem>количество групп захвата</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_find" xrefstyle="template:%t"/></term>
+<listitem>поиск по шаблону</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_regexp" xrefstyle="template:%t"/></term>
 <listitem>создание регулярного выражения</listitem>
 </varlistentry>
@@ -1174,6 +1189,8 @@
 &PsiReference_Operators_Details_bitset;
 &PsiReference_Operators_Details_bitshift;
 &PsiReference_Operators_Details_bitvector;
+&PsiReference_Operators_Details_capturegroup;
+&PsiReference_Operators_Details_capturegroupcount;
 &PsiReference_Operators_Details_cbrt;
 &PsiReference_Operators_Details_ceiling;
 &PsiReference_Operators_Details_clear;
@@ -1220,6 +1237,8 @@
 &PsiReference_Operators_Details_filereader;
 &PsiReference_Operators_Details_filesize;
 &PsiReference_Operators_Details_filewriter;
+&PsiReference_Operators_Details_find;
+&PsiReference_Operators_Details_findall;
 &PsiReference_Operators_Details_floor;
 &PsiReference_Operators_Details_flush;
 &PsiReference_Operators_Details_for;

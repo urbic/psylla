@@ -1,14 +1,13 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _getgroupstart extends PsiOperator
+public class _capturegroupcount extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiMatcher)ops[0]).psiGetGroupStart((PsiInteger)ops[1]));
+		opstack.push(((PsiMatcher)opstack.popOperands(1)[0]).psiCaptureGroupCount());
 	}
 }

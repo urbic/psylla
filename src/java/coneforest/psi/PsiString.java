@@ -235,6 +235,11 @@ public class PsiString
 	}
 	*/
 
+	/*public PsiMatcher PsiMatches(PsiRegExp regexp)
+	{
+		
+	}*/
+
 	public PsiArray psiSplit(PsiRegExp regexp)
 	{
 		PsiArray array=new PsiArray();
