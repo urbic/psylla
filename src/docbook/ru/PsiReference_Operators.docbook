@@ -497,6 +497,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_deleteinterval" xrefstyle="template:%t"/></term>
+<listitem>удаление непрерывного фрагмента из массива</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dict" xrefstyle="template:%t"/></term>
 <listitem>создание пустого словаря</listitem>
 </varlistentry>
@@ -604,6 +609,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_set" xrefstyle="template:%t"/></term>
 <listitem>создание пустого множества</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_setlength" xrefstyle="template:%t"/></term>
+<listitem>изменение длины массива</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -875,7 +885,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_find" xrefstyle="template:%t"/></term>
-<listitem>поиск по шаблону</listitem>
+<listitem>поиск по шаблону TODO</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_findall" xrefstyle="template:%t"/></term>
+<listitem>поиск по шаблону TODO</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1218,6 +1233,7 @@
 &PsiReference_Operators_Details_def;
 &PsiReference_Operators_Details_delete;
 &PsiReference_Operators_Details_deletefile;
+&PsiReference_Operators_Details_deleteinterval;
 &PsiReference_Operators_Details_dict;
 &PsiReference_Operators_Details_dicttomark;
 &PsiReference_Operators_Details_div;
@@ -1307,12 +1323,14 @@
 &PsiReference_Operators_Details_removeall;
 &PsiReference_Operators_Details_renamefile;
 &PsiReference_Operators_Details_repeat;
+&PsiReference_Operators_Details_replicate;
 &PsiReference_Operators_Details_retainall;
 &PsiReference_Operators_Details_reverse;
 &PsiReference_Operators_Details_roll;
 &PsiReference_Operators_Details_round;
 &PsiReference_Operators_Details_say;
 &PsiReference_Operators_Details_set;
+&PsiReference_Operators_Details_setlength;
 &PsiReference_Operators_Details_setseed;
 &PsiReference_Operators_Details_settomark;
 &PsiReference_Operators_Details_signalerror;

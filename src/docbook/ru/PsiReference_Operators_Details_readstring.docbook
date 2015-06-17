@@ -33,7 +33,11 @@
 <replaceable>длины</replaceable> из источника. Возвращает прочитанную
 <replaceable>строку</replaceable>. Возвращает также булевское значение,
 показывающее, исчерпан ли <replaceable>источник</replaceable> в результате
-операции. Генерирует <xref xrefstyle="template:%t"
+операции.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
 </para>
 

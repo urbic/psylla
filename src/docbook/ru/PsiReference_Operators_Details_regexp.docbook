@@ -19,7 +19,14 @@
 </synopsis>
 
 <para>
-Создаёт шаблон регулярного выражения. 
+Создаёт <replaceable>шаблон</replaceable> регулярного выражения, записанного
+в <replaceable>строковом</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_invalidregexp"/> в случае синтаксической
+ошибки.
 </para>
 
 <formalpara>
