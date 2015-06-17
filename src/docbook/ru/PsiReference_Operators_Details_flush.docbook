@@ -14,6 +14,10 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Сбрасывает буфер.
+</para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,

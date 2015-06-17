@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_split">
 <title><token language="psi">split</token></title>
+
 <synopsis>
 <replaceable>строковое</replaceable>
 <replaceable>шаблон</replaceable>
@@ -21,4 +22,10 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_unite"/>.
+</formalpara>
+
 </section>

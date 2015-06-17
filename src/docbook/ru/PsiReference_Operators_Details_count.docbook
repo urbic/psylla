@@ -27,9 +27,18 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Возвращает количество объектов в стеке операндов.
+</para>
+
 <formalpara>
 <title>Ошибки:</title>
 нет.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>.
 </formalpara>
 
 </section>

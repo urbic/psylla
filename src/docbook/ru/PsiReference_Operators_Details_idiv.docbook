@@ -23,6 +23,12 @@
 <replaceable>частного</replaceable> совпадает с произведением знаков операндов.
 </para>
 
+<para>
+Для нулевого <replaceable>делителя</replaceable> генерируется <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/>.
+</para>
+
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">17 3 idiv	<lineannotation>⇒ 5</lineannotation>

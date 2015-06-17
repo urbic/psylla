@@ -1,14 +1,6 @@
-/*
- *	$Id: highlight.scss 5 2014-06-05 01:35:35Z concyclic $
- *	$URL: svn+ssh://concyclic@svn.code.sf.net/p/mathjax4svg/code/sources/site/highlight.scss $
- */
-
 @namespace url("http://www.w3.org/1999/xhtml");
 
-//$color-hl-constant: #700;
-$color-hl-constant: crimson;
-//$color-hl-keyword: #260;
-//$color-hl-keyword: #A60;
+$color-hl-constant: #077; //crimson;
 $color-hl-keyword: darken(mediumseagreen, 10%);
 $color-hl-comment: #999;
 $color-hl-directive: #777;

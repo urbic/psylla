@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_sub">
 <title><token language="psi">sub</token></title>
+
 <synopsis>
 <replaceable>уменьшаемое</replaceable>
 <replaceable>вычитаемое</replaceable>
@@ -9,12 +10,13 @@
 <itemizedlist>
 <listitem>
 <replaceable>уменьшаемое</replaceable>,
-<replaceable>вычитаемое<subscript>2</subscript></replaceable>,
+<replaceable>вычитаемое</replaceable>,
 <replaceable>разность</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
 Возвращает разность двух операндов. Если оба операнда имеют тип <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>, и
@@ -26,9 +28,11 @@ linkend="PsiReference_Types_Details_real"/>, таким же будет тип 
 Если хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
 </para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
+
 </section>

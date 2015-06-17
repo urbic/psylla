@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_appendall">
 <title><token language="psi">appendall</token></title>
+
 <synopsis>
 <replaceable>контейнер</replaceable> <replaceable>перечисление</replaceable> <token language="psi">appendall</token> —
 <itemizedlist>
@@ -14,13 +15,16 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
 Добавляет все объекты из <replaceable>перечисления</replaceable>
 в <replaceable>контейнер</replaceable>.
 </para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
+
 </section>
