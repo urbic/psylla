@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_retainall">
 <title><token language="psi">retainall</token></title>
+
 <synopsis>
 <replaceable>множество</replaceable>
 <replaceable>перечисление</replaceable>
@@ -17,4 +18,24 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Удаляет из <replaceable>множества</replaceable> все элементы, отсутствующие
+в <replaceable>перечислении</replaceable>.  <replaceable>Элемент</replaceable>
+считается присутствующим во <replaceable>множестве</replaceable>, если оно
+содержит равный ему элемент.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_remove"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_removeall"/>.
+</formalpara>
+
 </section>

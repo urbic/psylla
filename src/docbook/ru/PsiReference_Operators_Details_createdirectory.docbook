@@ -15,9 +15,12 @@
 </synopsis>
 
 <para>
-Создаёт директорию с заданным <replaceable>именем</replaceable>. Если
-директория с заданным <replaceable>именем</replaceable> существует,
-генерируется <xref xrefstyle="template:%t"
+Создаёт директорию с заданным <replaceable>именем</replaceable>.
+</para>
+
+<para>
+Если файл или директория с заданным <replaceable>именем</replaceable>
+существует, генерируется <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_fileexists"/>. При ошибке ввода/вывода
 генерируется <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики

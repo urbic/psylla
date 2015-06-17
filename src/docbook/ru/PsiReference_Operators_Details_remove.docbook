@@ -35,7 +35,8 @@
 
 <formalpara>
 <title>Смотри также:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_removeall"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_removeall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_retainall"/>.
 </formalpara>
 
 </section>
