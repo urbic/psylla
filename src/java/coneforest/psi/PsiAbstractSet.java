@@ -117,7 +117,15 @@ abstract public class PsiAbstractSet<T extends PsiObject>
 
 	@Override
 	public PsiAbstractSet psiReplicate(PsiInteger count)
+		throws PsiException
 	{
+		long countValue=count.longValue();
+		if(countValue<0)
+			throw new PsiException("rangecheck");
+		if(countValue>Integer.MAX_VALUE)
+			throw new PsiException("limitcheck");
+		if(countValue==0)
+			return psiNewEmpty();
 		return psiClone();
 	}
 

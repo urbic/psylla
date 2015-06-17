@@ -159,6 +159,7 @@ public class PsiSystemDictionary
 					_round.class,
 					_say.class,
 					_set.class,
+					_setlength.class,
 					_setseed.class,
 					_settomark.class,
 					_signalerror.class,

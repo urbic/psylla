@@ -238,6 +238,25 @@ public class PsiBitVector
 	}
 
 	@Override
+	public void psiSetLength(final PsiInteger length)
+		throws PsiException
+	{
+		final long lengthValue=length.longValue();
+		if(lengthValue<0)
+			throw new PsiException("rangecheck");
+		if(lengthValue>Integer.MAX_VALUE)
+			throw new PsiException("limitcheck");
+		int i=length();
+		if(lengthValue<i)
+			bitvector.clear((int)lengthValue, i);
+		else
+		{
+			bitvector.clear(i, (int)lengthValue);
+		}
+		size=(int)lengthValue;
+	}
+
+	@Override
 	public PsiBitVector psiClone()
 	{
 		return new PsiBitVector((java.util.BitSet)bitvector.clone());
