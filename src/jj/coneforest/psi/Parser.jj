@@ -90,9 +90,17 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_COMMENT: "#" (~["\n"])* "\n"
-		|
-		"/#" (~["/"] | ("/" ~["#"]))* "#/">
+	<TOKEN_COMMENT: <TOKEN_COMMENT_ONELINE> | <TOKEN_COMMENT_MULTILINE>>
+}
+
+TOKEN:
+{
+	<#TOKEN_COMMENT_ONELINE: "#" (~["\n"])* "\n">
+}
+
+TOKEN:
+{
+	<#TOKEN_COMMENT_MULTILINE: "/#" (~["/"] | ("/" ~["#"]))* "#/">
 }
 
 TOKEN:
