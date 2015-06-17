@@ -156,6 +156,26 @@ public class PsiArray
 		array.clear();
 	}
 
+	@Override
+	public void psiSetLength(final PsiInteger length)
+		throws PsiException
+	{
+		final long lengthValue=length.longValue();
+		if(lengthValue<0)
+			throw new PsiException("rangecheck");
+		if(lengthValue>Integer.MAX_VALUE)
+			throw new PsiException("limitcheck");
+		int i=length();
+		if(lengthValue<i)
+			array.subList((int)lengthValue, i).clear();
+		else
+		{
+			array.ensureCapacity((int)lengthValue);
+			while(i++<lengthValue)
+				array.add(PsiNull.NULL);
+		}
+	}
+
 	public PsiArray psiSort(java.util.Comparator<? super PsiObject> comparator)
 	{
 		PsiArray result=psiClone();

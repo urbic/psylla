@@ -31,7 +31,10 @@ public interface PsiArraylike<T extends PsiObject>
 	public PsiArraylike psiReverse()
 		throws PsiException;
 
-	abstract public T delete(int indexValue)
+	public void psiSetLength(PsiInteger length)
+		throws PsiException;
+
+	public T delete(int indexValue)
 		throws PsiException;
 
 	public PsiArraylike<T> psiDeleteInterval(PsiInteger index, PsiInteger count)

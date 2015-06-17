@@ -90,7 +90,6 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 		throws PsiException
 	{
 		int indexValue=index.intValue();
-		//for(T obj: iterable)
 		for(T obj: (this!=iterable? iterable: (PsiIterable<? extends T>)psiClone()))
 			insert(indexValue++, obj);
 	}
@@ -106,9 +105,11 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	public PsiAbstractArray<T> psiReplicate(final PsiInteger count)
 		throws PsiException
 	{
-		int countValue=count.intValue();
+		long countValue=count.longValue();
 		if(countValue<0)
 			throw new PsiException("rangecheck");
+		if(countValue>Integer.MAX_VALUE)
+			throw new PsiException("limitcheck");
 		PsiAbstractArray<T> result=psiNewEmpty();
 		while(countValue-->0)
 			result.psiAppendAll(this);

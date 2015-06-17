@@ -249,6 +249,23 @@ public class PsiString
 	}
 
 	@Override
+	public void psiSetLength(final PsiInteger length)
+		throws PsiException
+	{
+		final long lengthValue=length.longValue();
+		if(lengthValue>Integer.MAX_VALUE)
+			throw new PsiException("limitcheck");
+		try
+		{
+			buffer.setLength((int)lengthValue);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+	}
+
+	@Override
 	public PsiBoolean psiIsEmpty()
 	{
 		return PsiBoolean.valueOf(buffer.length()==0);
