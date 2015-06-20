@@ -25,9 +25,9 @@
 </synopsis>
 
 <para>
-Вставляет все объекты из <replaceable>перечисления</replaceable> в
-<replaceable>массив</replaceable> перед элементом с заданным
-<replaceable>индексом</replaceable> или в конец
+Вставляет все объекты из <replaceable>перечисления</replaceable>
+в <replaceable>массив</replaceable> перед элементом с заданным
+<replaceable>индексом</replaceable> или в конец
 <replaceable>массива</replaceable>. Если <replaceable>индекс</replaceable>
 отрицателен или больше длины <replaceable>массива</replaceable>, генерирует
 <xref xrefstyle="template:%t"
@@ -43,7 +43,9 @@ linkend="PsiReference_Errors_Details_rangecheck"/>.
 
 <formalpara>
 <title>Смотри также:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insertall"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_append"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_appendall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insert"/>.
 </formalpara>
 
 </section>
