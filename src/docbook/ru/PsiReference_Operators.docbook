@@ -532,6 +532,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_grep" xrefstyle="template:%t"/></term>
+<listitem>отбор элементов контейнера, удовлетворяющих условию</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_insert" xrefstyle="template:%t"/></term>
 <listitem>вставка объекта в массив в заданном месте</listitem>
 </varlistentry>
@@ -572,8 +577,8 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_loadall" xrefstyle="template:%t"/></term>
-<listitem>копирование всех элементов перечисления на стек операндов</listitem>
+<term><xref linkend="PsiReference_Operators_Details_map" xrefstyle="template:%t"/></term>
+<listitem>поэлементное применение процедуры в контейнере</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -879,8 +884,18 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_capturegroupend" xrefstyle="template:%t"/></term>
+<listitem>позиция после последнего символа, захваченного в группу</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_capturegroupcount" xrefstyle="template:%t"/></term>
 <listitem>количество групп захвата</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_capturegroupstart" xrefstyle="template:%t"/></term>
+<listitem>позиция первого символа, захваченного в группу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1205,7 +1220,9 @@
 &PsiReference_Operators_Details_bitshift;
 &PsiReference_Operators_Details_bitvector;
 &PsiReference_Operators_Details_capturegroup;
+&PsiReference_Operators_Details_capturegroupend;
 &PsiReference_Operators_Details_capturegroupcount;
+&PsiReference_Operators_Details_capturegroupstart;
 &PsiReference_Operators_Details_cbrt;
 &PsiReference_Operators_Details_ceiling;
 &PsiReference_Operators_Details_clear;
@@ -1263,6 +1280,7 @@
 &PsiReference_Operators_Details_ge;
 &PsiReference_Operators_Details_get;
 &PsiReference_Operators_Details_getinterval;
+&PsiReference_Operators_Details_grep;
 &PsiReference_Operators_Details_gt;
 &PsiReference_Operators_Details_halt;
 &PsiReference_Operators_Details_hypot;
@@ -1285,11 +1303,11 @@
 &PsiReference_Operators_Details_le;
 &PsiReference_Operators_Details_length;
 &PsiReference_Operators_Details_load;
-&PsiReference_Operators_Details_loadall;
 &PsiReference_Operators_Details_lock;
 &PsiReference_Operators_Details_log;
 &PsiReference_Operators_Details_loop;
 &PsiReference_Operators_Details_lt;
+&PsiReference_Operators_Details_map;
 &PsiReference_Operators_Details_mark;
 &PsiReference_Operators_Details_max;
 &PsiReference_Operators_Details_min;

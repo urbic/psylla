@@ -27,4 +27,10 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_tan"/>.
+</formalpara>
+
 </section>

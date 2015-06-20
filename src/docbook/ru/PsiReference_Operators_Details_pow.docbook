@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_pow">
 <title><token language="psi">pow</token></title>
+
 <synopsis>
 <replaceable>основание</replaceable>
 <replaceable>показатель</replaceable>
@@ -15,4 +16,11 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
 </section>

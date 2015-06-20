@@ -31,10 +31,10 @@ linkend="PsiReference_Errors_Details_undefinedresult"/>.
 
 <formalpara>
 <title>Примеры:</title>
-<programlisting language="psi">17 3 idiv	<lineannotation>⇒ 5</lineannotation>
--17 3 idiv	<lineannotation>⇒ -5</lineannotation>
-17 -3 idiv	<lineannotation>⇒ -5</lineannotation>
--17 -3 idiv	<lineannotation>⇒ 5</lineannotation></programlisting>
+<programlisting language="psi">17 3 idiv	▶ 5
+-17 3 idiv	▶ -5
+17 -3 idiv	▶ -5
+-17 -3 idiv	▶ 5</programlisting>
 </formalpara>
 
 <formalpara>

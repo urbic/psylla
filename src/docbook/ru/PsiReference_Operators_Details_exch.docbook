@@ -18,12 +18,12 @@
 </synopsis>
 
 <para>
-Меняет местами два верхних операнда в стеке операндов.
+Меняет местами два верхних операнда в стеке операндов.
 </para>
 
 <formalpara>
 <title>Пример:</title>
-<programlisting language="psi">1 2 exch	<lineannotation>⇒ 2 1</lineannotation></programlisting>
+<programlisting language="psi">1 2 exch	▶ 2 1</programlisting>
 </formalpara>
 
 <formalpara>

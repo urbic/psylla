@@ -25,6 +25,7 @@
 
 <formalpara>
 <title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notlink"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,

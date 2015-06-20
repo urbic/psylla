@@ -39,8 +39,8 @@ linkend="PsiReference_Errors_Details_rangecheck"/>.
 <formalpara>
 <title>Пример:</title>
 
-<programlisting language="psi">[ 2 3 5 7 11 13 ] 3 2 deleteinterval	<lineannotation>⇒ [ 2 3 5 13 ] [ 7 11 ]</lineannotation>
-"hello" dup 1 3 deleteinterval			<lineannotation>⇒ "ho" "ell"</lineannotation></programlisting>
+<programlisting language="psi">[ 2 3 5 7 11 13 ] dup 3 2 deleteinterval	▶ [ 2 3 5 13 ] [ 7 11 ]
+"hello" dup 1 3 deleteinterval			▶ "ho" "ell"</programlisting>
 
 </formalpara>
 
