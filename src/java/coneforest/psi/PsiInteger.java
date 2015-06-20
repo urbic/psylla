@@ -94,7 +94,7 @@ public class PsiInteger
 	public PsiNumeric psiNeg()
 	{
 		return value!=Long.MIN_VALUE?
-			PsiInteger.valueOf(-value): new PsiReal(-value);
+			PsiInteger.valueOf(-value): new PsiReal(-(double)value);
 	}
 
 	@Override
