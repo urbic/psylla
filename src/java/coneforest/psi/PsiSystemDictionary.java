@@ -90,6 +90,7 @@ public class PsiSystemDictionary
 					_ge.class,
 					_get.class,
 					_getinterval.class,
+					_grep.class,
 					_gt.class,
 					_halt.class,
 					_hypot.class,
@@ -115,11 +116,11 @@ public class PsiSystemDictionary
 					_length.class,
 					_listdirectory.class,
 					_load.class,
-					_loadall.class,
 					_lock.class,
 					_log.class,
 					_loop.class,
 					_lt.class,
+					_map.class,
 					_matcher.class,
 					_max.class,
 					_min.class,
@@ -218,7 +219,6 @@ public class PsiSystemDictionary
 			put("(", PsiMark.MARK);
 			put("true", PsiBoolean.TRUE);
 			put("false", PsiBoolean.FALSE);
-			put("globaldict", new PsiDictionary());
 			put("userdict", new PsiDictionary());
 			put("errordict", new PsiErrorDictionary());
 			put("mathPI", new PsiReal(Math.PI));
