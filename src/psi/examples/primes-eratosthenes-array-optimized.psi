@@ -1,0 +1,32 @@
+#!/usr/bin/psyche
+
+/n arguments 0 get tointeger def
+
+/sieve
+[
+	0 1 //n
+	{
+		dup 2 mod mul
+	}
+	bind for
+]
+def
+
+//n 2 ge { 2 tostring say } if
+
+3 2 //n
+{
+	/p exch def
+	//sieve p get 0 ne
+	{
+		p tostring say
+		p dup mul p //n
+		{
+			p dup mul //n gt { exit } if
+			//sieve exch 0 put
+		}
+		for
+	}
+	if
+}
+bind for
