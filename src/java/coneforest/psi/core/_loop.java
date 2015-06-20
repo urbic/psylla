@@ -8,12 +8,12 @@ public class _loop extends PsiOperator
 		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject obj=opstack.popOperands(1)[0];
+		final PsiProcedure proc=(PsiProcedure)opstack.popOperands(1)[0];
 
 		final int loopLevel=interpreter.pushLoopLevel();
 		while(true)
 		{
-			obj.invoke(interpreter);
+			proc.invoke(interpreter);
 			interpreter.handleExecutionStack(loopLevel);
 			if(interpreter.getStopFlag() || interpreter.getExitFlag())
 				break;

@@ -14,6 +14,8 @@ public class _roll extends PsiOperator
 		int opstackSize=opstack.size();
 		if(nValue<0)
 			throw new PsiException("rangecheck");
+		if(nValue==0)
+			return;
 		opstack.ensureSize(nValue);
 		while(jValue<0)
 			jValue+=nValue;

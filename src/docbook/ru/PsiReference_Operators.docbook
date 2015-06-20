@@ -353,6 +353,11 @@
 <variablelist>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_eval" xrefstyle="template:%t"/></term>
+<listitem>вычисление выражения</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exec" xrefstyle="template:%t"/></term>
 <listitem>вызов объекта для исполнения</listitem>
 </varlistentry>
@@ -1267,6 +1272,7 @@
 &PsiReference_Operators_Details_dup;
 &PsiReference_Operators_Details_end;
 &PsiReference_Operators_Details_eq;
+&PsiReference_Operators_Details_eval;
 &PsiReference_Operators_Details_exch;
 &PsiReference_Operators_Details_exec;
 &PsiReference_Operators_Details_exit;
