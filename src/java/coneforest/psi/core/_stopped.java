@@ -9,6 +9,7 @@ public class _stopped extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		PsiObject obj=opstack.popOperands(1)[0];
+
 		final int stopLevel=interpreter.pushStopLevel();
 		obj.invoke(interpreter);
 		interpreter.handleExecutionStack(stopLevel);
