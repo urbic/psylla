@@ -18,12 +18,13 @@
 </synopsis>
 
 <para>
-Возвращает остаток от деления двух целых операндов. Делитель не должен быть
-нулевым. Результат имеет тот же знак, что и делитель.
+Возвращает <replaceable>остаток</replaceable> от деления
+<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
+Результат имеет тот же знак, что и делитель.
 </para>
 
 <para>
-Для нулевого <replaceable>делителя</replaceable> генерируется <xref
+Для нулевого <replaceable>делителя</replaceable> генерирует <xref
 xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_undefinedresult"/>.
 </para>

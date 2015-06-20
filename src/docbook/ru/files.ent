@@ -62,6 +62,7 @@
 <!ENTITY PsiReference_Operators_Details_dup				SYSTEM "PsiReference_Operators_Details_dup.docbook">
 <!ENTITY PsiReference_Operators_Details_end				SYSTEM "PsiReference_Operators_Details_end.docbook">
 <!ENTITY PsiReference_Operators_Details_eq				SYSTEM "PsiReference_Operators_Details_eq.docbook">
+<!ENTITY PsiReference_Operators_Details_eval			SYSTEM "PsiReference_Operators_Details_eval.docbook">
 <!ENTITY PsiReference_Operators_Details_exch			SYSTEM "PsiReference_Operators_Details_exch.docbook">
 <!ENTITY PsiReference_Operators_Details_exec			SYSTEM "PsiReference_Operators_Details_exec.docbook">
 <!ENTITY PsiReference_Operators_Details_exit			SYSTEM "PsiReference_Operators_Details_exit.docbook">

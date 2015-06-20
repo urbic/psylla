@@ -3,13 +3,13 @@
 <title><token language="psi">loop</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>процедура</replaceable>
 <token language="psi">loop</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+<replaceable>процедура</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
 </synopsis>

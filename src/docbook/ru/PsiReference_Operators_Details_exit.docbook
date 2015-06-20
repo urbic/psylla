@@ -16,8 +16,10 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_keysforall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
 Выполнение программы продолжается с объекта, следующего за циклическим
 оператором.
@@ -40,7 +42,9 @@ linkend="PsiReference_Errors_Details_invalidexit"/>.
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stop"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stopped"/>.
