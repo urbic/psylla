@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _count extends PsiOperator
+public class _countstack extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)

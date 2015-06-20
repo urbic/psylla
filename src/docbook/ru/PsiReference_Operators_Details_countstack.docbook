@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_count">
-<title><token language="psi">count</token></title>
+<section xml:id="PsiReference_Operators_Details_countstack">
+<title><token language="psi">countstack</token></title>
 
 <synopsis>
 ⊢
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>
-<token language="psi">count</token>
+<token language="psi">countstack</token>
 ⊢
 <replaceable>объект<subscript>1</subscript></replaceable>
 …

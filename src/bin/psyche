@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# psi script
+# psyche script
 # JPackage Project <http://www.jpackage.org/>
 
 # Source functions library
@@ -18,7 +18,7 @@ if [ -f $HOME/.psycherc ] ; then
 fi
 
 # Configuration
-MAIN_CLASS=coneforest.psi.Psi
+MAIN_CLASS=coneforest.psi.Psyche
 BASE_FLAGS=""
 BASE_OPTIONS=""
 BASE_JARS=psyche
