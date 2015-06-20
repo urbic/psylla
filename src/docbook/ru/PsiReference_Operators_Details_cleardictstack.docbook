@@ -20,7 +20,9 @@
 <formalpara>
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_begin"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countdictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_where"/>.
 </formalpara>
 
 </section>

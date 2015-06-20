@@ -42,8 +42,13 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_count" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsiReference_Operators_Details_countstack" xrefstyle="template:%t"/></term>
 <listitem>подсчёт объектов в стеке операндов</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_counttomark" xrefstyle="template:%t"/></term>
+<listitem>подсчёт объектов в стеке операндов над верхней меткой</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -227,6 +232,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_im" xrefstyle="template:%t"/></term>
 <listitem>вещественная часть числа</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_iszero" xrefstyle="template:%t"/></term>
+<listitem>число нулевое?</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1240,9 +1250,9 @@
 &PsiReference_Operators_Details_copy;
 &PsiReference_Operators_Details_cos;
 &PsiReference_Operators_Details_cosh;
-&PsiReference_Operators_Details_count;
 &PsiReference_Operators_Details_countdictstack;
 &PsiReference_Operators_Details_countexecstack;
+&PsiReference_Operators_Details_countstack;
 &PsiReference_Operators_Details_counttomark;
 &PsiReference_Operators_Details_createdirectory;
 &PsiReference_Operators_Details_currentcontext;
@@ -1296,6 +1306,7 @@
 &PsiReference_Operators_Details_isempty;
 &PsiReference_Operators_Details_isfile;
 &PsiReference_Operators_Details_issymlink;
+&PsiReference_Operators_Details_iszero;
 &PsiReference_Operators_Details_join;
 &PsiReference_Operators_Details_keys;
 &PsiReference_Operators_Details_keysforall;

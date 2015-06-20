@@ -19,8 +19,9 @@
 </synopsis>
 
 <para>
-Возвращает булевское значение, показывающее, является ли
-<replaceable>имя</replaceable> именем символической ссылки.
+Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
+является именем символической ссылки, и <constant>false</constant> в противном
+случае.
 </para>
 
 <para>

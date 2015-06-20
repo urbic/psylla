@@ -1,6 +1,6 @@
 Infinity
 
-error handling
+DONE: error handling
 
 io
 
@@ -26,7 +26,7 @@ random access files, tell seek
 
 DONE: sort
 
-rename count to countstack?
+DONE: rename count to countstack?
 
 pow: return PsiInteger for PsiInteger operands
 
@@ -39,3 +39,9 @@ String literals: "\N{…}"?
 Thread-safe containers
 
 detach operator
+
+Change semantics of "known" operator, "contains" operator for dictionary?
+
+Error in PsiProcedure.tostring()
+
+Conversion between names and strings, procedures and arrays

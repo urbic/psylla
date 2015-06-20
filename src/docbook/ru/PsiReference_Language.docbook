@@ -934,7 +934,7 @@ linkend="PsiReference_Errors_Details_stackunderflow"/>. Подробное оп�
 <production xml:id="PsiReference_Language_Grammar_Comment">
 <lhs>COMMENT</lhs>
 <rhs>
-<nonterminal def="#PsiReference_Language_Grammar_CommentOneline">COMMENT_ONELINE</nonterminal>
+<nonterminal def="#PsiReference_Language_Grammar_CommentOneLine">COMMENT_ONELINE</nonterminal>
 | <nonterminal def="#PsiReference_Language_Grammar_CommentMultiline">COMMENT_MULTILINE</nonterminal>
 </rhs>
 </production>
