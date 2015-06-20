@@ -71,6 +71,10 @@ public class FileSystem
 			return new PsiString(java.nio.file.Files.readSymbolicLink(getNativePath(stringlike))
 					.toString());
 		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("filenotfound");
+		}
 		catch(java.nio.file.NotLinkException e)
 		{
 			throw new PsiException("notlink");
