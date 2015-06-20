@@ -9,14 +9,15 @@ public class _keysforall extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		// TODO: PsiDictionarylike?
-		final PsiDictionary dict=(PsiDictionary)ops[0];
-		final PsiObject obj=ops[1];
-		int looplevel=interpreter.pushLoopLevel();
-		for(java.util.Map.Entry<String, PsiObject> entry: dict)
+		final PsiDictionarylike dictlike=(PsiDictionarylike)ops[0];
+		final PsiProcedure proc=(PsiProcedure)ops[1];
+
+		final int looplevel=interpreter.pushLoopLevel();
+		for(java.util.Map.Entry<String, PsiObject> entry:
+				(PsiIterable<java.util.Map.Entry<String, PsiObject>>)dictlike)
 		{
 			opstack.push(new PsiName(entry.getKey()));
-			obj.invoke(interpreter);
+			proc.invoke(interpreter);
 			interpreter.handleExecutionStack(looplevel);
 			if(interpreter.getStopFlag() || interpreter.getExitFlag())
 				break;
