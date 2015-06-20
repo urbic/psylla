@@ -19,8 +19,8 @@
 </synopsis>
 
 <para>
-Возвращает булевское значение, показывающее, является ли
-<replaceable>имя</replaceable> именем директории.
+Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
+является именем директории, и <constant>false</constant> в противном случае.
 </para>
 
 <para>

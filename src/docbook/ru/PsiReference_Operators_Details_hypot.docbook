@@ -18,6 +18,11 @@
 </synopsis>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">3 4 hypot	▶ 5.0</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.

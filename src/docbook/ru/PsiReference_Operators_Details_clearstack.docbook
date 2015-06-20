@@ -30,7 +30,7 @@
 
 <formalpara>
 <title>Смотри также:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_count"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countstack"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cleartomark"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_pop"/>.

@@ -27,6 +27,7 @@
 
 <formalpara>
 <title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_pow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sqrt"/>.
 </formalpara>
 
