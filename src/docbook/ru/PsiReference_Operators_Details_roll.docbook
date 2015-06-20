@@ -30,6 +30,27 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Выполняет циклический сдвиг <replaceable>n</replaceable> самых верхних
+элементов на стеке операндов на <replaceable>k mod n</replaceable> позиций
+вверх по стеку.
+</para>
+
+<para>
+Если <replaceable>n</replaceable> отрицательно, генерирует <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
+Если в стеке операндов менее <replaceable>n</replaceable> элементов, генерирует
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">/x /y /z 3 -1 roll	▶ /y /z /x
+/x /y /z 3 1 roll	▶ /z /x /y
+/x /y /z 3 0 roll	▶ /x /y /z</programlisting>
+</formalpara>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,

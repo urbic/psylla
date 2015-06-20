@@ -25,7 +25,7 @@
 
 	<highlighter type="regex">
 		<style>keyword</style>
-		<pattern>[A-Za-z_\.\$@][A-Za-z_\.\$@\d]*</pattern>
+		<pattern>(//)?[A-Za-z_\.\$@][A-Za-z_\.\$@\d]*</pattern>
 	</highlighter>
 
 	<highlighter type="regex">
