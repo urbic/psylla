@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_forall">
 <title><token language="psi">forall</token></title>
+
 <synopsis>
 <replaceable>словарь</replaceable>
 <replaceable>объект</replaceable>
@@ -26,4 +27,16 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Вызывает <replaceable>процедуру</replaceable> для каждого элемента
+<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
+операндов.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">0 [ 0 1 2 3 4 5 6 7 8 9 ] { add } forall	▶ 45</programlisting>
+</formalpara>
+
 </section>

@@ -19,16 +19,21 @@
 </synopsis>
 
 <para>
-Загружает внешний класс Java по <replaceable>имени_класса</replaceable> и
-возвращает объект этого класса. Класс должен присутствовать на пути поиска
-классов, должен реализовывать интерфейс
-<classname>coneforest.psi.PsiObject</classname> и иметь общий конструктор без
-аргументов.
+Загружает внешний класс Java по <replaceable>имени_класса</replaceable> и
+возвращает объект этого класса.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_invalidexternal"/>, если класс не найден
+на пути поиска классов, не реализует интерфейс
+<classname>coneforest.psi.PsiObject</classname>, не имеет общего конструктора
+без аргументов или если вызов такого конструктора завершился ненормально.
 </para>
 
 <formalpara>
 <title>Примеры:</title>
-<programlisting language="psi">/coneforest.psi.PsiString external	<lineannotation>⇒ ""</lineannotation></programlisting>
+<programlisting language="psi">/coneforest.psi.PsiString external	▶ ""</programlisting>
 </formalpara>
 
 <formalpara>

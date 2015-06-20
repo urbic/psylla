@@ -24,9 +24,9 @@
 
 <formalpara>
 <title>Примеры:</title>
-<programlisting language="psi">1 arg				<lineannotation>⇒ 0.0</lineannotation>
--1. arg				<lineannotation>⇒ 3.141592653589793</lineannotation>
-0 -1 complex arg	<lineannotation>⇒ 4.71238898038469</lineannotation></programlisting>
+<programlisting language="psi">1 arg				▶ 0.0
+-1. arg				▶ 3.141592653589793
+0 -1 complex arg	▶ 4.71238898038469</programlisting>
 </formalpara>
 
 <formalpara>

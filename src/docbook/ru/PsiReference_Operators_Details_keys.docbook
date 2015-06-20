@@ -25,7 +25,7 @@
 
 <formalpara>
 <title>Пример:</title>
-<programlisting language="psi">&lt; /a 1 /b 2 &gt; keys	<lineannotation>⇒ ( /a /b )</lineannotation></programlisting>
+<programlisting language="psi">&lt; /a 1 /b 2 &gt; keys	▶ ( /a /b )</programlisting>
 </formalpara>
 
 <formalpara>

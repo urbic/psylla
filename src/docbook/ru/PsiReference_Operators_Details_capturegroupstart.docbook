@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_capturegroup">
-<title><token language="psi">capturegroup</token></title>
+<section xml:id="PsiReference_Operators_Details_capturegroupstart">
+<title><token language="psi">capturegroupstart</token></title>
 
 <synopsis>
 <replaceable>матчер</replaceable>
 <replaceable>индекс</replaceable>
-<token language="psi">capturegroup</token>
-<replaceable>группа</replaceable>
+<token language="psi">capturegroupstart</token>
+<replaceable>позиция</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>матчер</replaceable>:
@@ -15,22 +15,21 @@
 <listitem>
 <replaceable>индекс</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
-| <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
-<replaceable>группа</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+<replaceable>позиция</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 | <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>группу</replaceable> с заданным
-<replaceable>индексом</replaceable>, захваченную во время последней операции
-поиска для заданного <replaceable>матчера</replaceable>. Если поиск прошёл
-успешно, но указанная <replaceable>группа</replaceable> не захватывает никакую
-часть входной строки, возвращает <constant>null</constant>.
+Возвращает <replaceable>позицию</replaceable> первого символа, захваченного
+в группу с заданным <replaceable>индексом</replaceable> во время последней
+операции поиска для заданного <replaceable>матчера</replaceable>. Если поиск
+прошёл успешно, но указанная <replaceable>группа</replaceable> не захватывает
+никакую часть входной строки, возвращает <constant>null</constant>.
 </para>
 
 <para>
@@ -40,13 +39,6 @@ linkend="PsiReference_Types_Details_integer"/> группа выбирается
 с номером <constant>0</constant> соответствует всему шаблону. Для отрицательных
 индексов или индексов, превышающих количество групп, генерируется <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
-</para>
-
-<para>
-Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_stringlike"/> возвращается именованная
-группа по её имени. При отсутствии группы с заданным именем генерируется <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
 </para>
 
 <para>
@@ -60,17 +52,16 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_find"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroup"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupcount"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>.
 </formalpara>
 
 </section>

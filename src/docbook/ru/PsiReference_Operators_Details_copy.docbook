@@ -40,8 +40,8 @@
 
 <formalpara>
 <title>Примеры:</title>
-<programlisting language="psi">"A" "B" "C" 2 copy	<lineannotation>⇒ "A" "B" "C" "B" "C"</lineannotation>
-1 2 3 0 copy		<lineannotation>⇒ 1 2 3</lineannotation></programlisting>
+<programlisting language="psi">"A" "B" "C" 2 copy	▶ "A" "B" "C" "B" "C"
+1 2 3 0 copy		▶ 1 2 3</programlisting>
 </formalpara>
 
 <formalpara>

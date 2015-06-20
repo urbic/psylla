@@ -20,6 +20,31 @@
 <replaceable>числа</replaceable>.
 </para>
 
+<para>
+Для операнда типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> тип
+<replaceable>результата</replaceable> также будет <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, кроме случая, когда операнд
+равен <constant>-9223372036854775808</constant>, тогда тип
+<replaceable>результата</replaceable> будет <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/>.
+</para>
+
+<para>
+Для операнда типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/> или <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/> тип
+<replaceable>результата</replaceable> будет тем же.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">4 neg						▶ -4
+-9223372036854775808 neg	▶ 9.223372036854776E18
+-4. neg						▶ 4.0
+0 1 complex neg				▶ -complex:-0.0,-1.0-</programlisting>
+</formalpara>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,

@@ -14,42 +14,35 @@
 </listitem>
 <listitem>
 <replaceable>индекс</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
-<replaceable>группа</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+<replaceable>позиция</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 | <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
-<remark>TODO</remark>
-
 <para>
-Возвращает <replaceable>группу</replaceable> с заданным
-<replaceable>индексом</replaceable>, захваченную во время последней операции
-поиска для заданного <replaceable>матчера</replaceable>.
+Возвращает <replaceable>позицию</replaceable> после последнего символа,
+захваченного в группу с заданным <replaceable>индексом</replaceable> во время
+последней операции поиска для заданного <replaceable>матчера</replaceable>.
+Если поиск прошёл успешно, но указанная <replaceable>группа</replaceable> не
+захватывает никакую часть входной строки, возвращает <constant>null</constant>.
 </para>
 
 <para>
-Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> группа выбирается по её номеру.
-Группы захвата в шаблоне пронумерованы начиная с <constant>1</constant>. Группа
-с номером <constant>0</constant> соответствует всему шаблону. Для отрицательных
+Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> группа выбирается по её номеру.
+Группы захвата в шаблоне пронумерованы начиная с <constant>1</constant>. Группа
+с номером <constant>0</constant> соответствует всему шаблону. Для отрицательных
 индексов или индексов, превышающих количество групп, генерируется <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
 </para>
 
 <para>
-Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_stringlike"/> возвращается именованная
-группа по её имени. При отсутствии группы с заданным именем генерируется <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
-</para>
-
-<para>
-Если для заданного <replaceable>матчера</replaceable> ещё не выполнялась
+Если для заданного <replaceable>матчера</replaceable> ещё не выполнялась
 операция поиска или последний поиск не принёс результатов, генерируется <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
 </para>
@@ -59,8 +52,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>

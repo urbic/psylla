@@ -38,4 +38,11 @@ linkend="PsiReference_Types_Details_complex"/>, таким же будет ти
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sub"/>.
 </formalpara>
 
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_add"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mul"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sub"/>.
+</formalpara>
+
 </section>
