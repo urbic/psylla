@@ -26,8 +26,16 @@ public class PsiReader
 		throws PsiException
 	{
 		// TODO: replace to psiToProcedure?
-		interpreter.interpretBraced(this);
+		try
+		{
+		//interpreter.interpretBraced(this);
+		interpreter.interpret(this);
 		interpreter.getOperandStack().pop().invoke(interpreter);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 	@Override
@@ -64,20 +72,26 @@ public class PsiReader
 	public PsiString psiReadString(PsiInteger count)
 		throws PsiException
 	{
-		int countValue=count.intValue();
+		final long countValue=count.longValue();
 		if(countValue<=0)
 			throw new PsiException("rangecheck");
-		java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate(countValue);
+		if(countValue>Integer.MAX_VALUE)
+			throw new PsiException("limitcheck");
 		try
 		{
+			java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate((int)countValue);
 			reader.read(buffer);
+			buffer.flip();
+			return new PsiString(buffer.toString());
+		}
+		catch(OutOfMemoryError e)
+		{
+			throw new PsiException("limitcheck");
 		}
 		catch(java.io.IOException e)
 		{
 			throw new PsiException("ioerror");
 		}
-		buffer.flip();
-		return new PsiString(buffer.toString());
 	}
 
 	@Override

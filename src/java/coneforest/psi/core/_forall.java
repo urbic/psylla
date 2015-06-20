@@ -10,7 +10,7 @@ public class _forall extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiIterable iterable=(PsiIterable)ops[0];
-		final PsiObject obj=ops[1];
+		final PsiProcedure proc=(PsiProcedure)ops[1];
 
 		if(iterable instanceof PsiDictionarylike)
 		{
@@ -20,7 +20,7 @@ public class _forall extends PsiOperator
 			{
 				opstack.push(new PsiName(entry.getKey()));
 				opstack.push(entry.getValue());
-				obj.invoke(interpreter);
+				proc.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
 				if(interpreter.getStopFlag() || interpreter.getExitFlag())
 					break;
@@ -34,7 +34,7 @@ public class _forall extends PsiOperator
 			for(PsiObject element: (PsiIterable<? extends PsiObject>)iterable)
 			{
 				opstack.push(element);
-				obj.invoke(interpreter);
+				proc.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
 				if(interpreter.getStopFlag() || interpreter.getExitFlag())
 					break;

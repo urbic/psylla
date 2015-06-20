@@ -17,8 +17,18 @@
 </synopsis>
 
 <para>
-Создаёт символьную ссылку с именем <replaceable>ссылка</replaceable> на файл
+Создаёт символьную ссылку с именем <replaceable>ссылка</replaceable> на файл
 с именем <replaceable>цель</replaceable>.
+</para>
+
+<para>
+Если файл или директория с заданным <replaceable>именем</replaceable>
+существует, генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_fileexists"/>. При ошибке ввода/вывода
+генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
+безопасности генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/>.
 </para>
 
 <formalpara>

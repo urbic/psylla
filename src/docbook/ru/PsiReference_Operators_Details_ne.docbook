@@ -20,6 +20,18 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Возвращает <constant>true</constant>, если
+<replaceable>объект<subscript>1</subscript></replaceable> не равен
+<replaceable>объекту<subscript>2</subscript></replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
+<para>
+Какие объекты считаются равными, объясняется в описании оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eq"/>.
+</para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.

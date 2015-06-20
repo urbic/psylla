@@ -4,7 +4,7 @@
 
 <synopsis>
 <replaceable>количество</replaceable>
-<replaceable>объект</replaceable>
+<replaceable>процедура</replaceable>
 <token language="psi">repeat</token>
 —
 <itemizedlist>
@@ -13,22 +13,21 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+<replaceable>процедура</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Вызывает <replaceable>объект</replaceable> заданное
+Вызывает <replaceable>процедуру</replaceable> заданное
 <replaceable>количество</replaceable> раз.
 </para>
 
 <para>
-Если в качестве <replaceable>объекта</replaceable> выступает процедура,
-исполнение в ней оператора <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_exit"/> досрочно прерывает исполнение
-<xref xrefstyle="template:%t"
+Исполнение в <replaceable>процедуре</replaceable> оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>
+досрочно прерывает исполнение <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_repeat"/>.
 </para>
 

@@ -21,7 +21,7 @@
 
 <para>
 Удаляет <replaceable>ключ</replaceable> и связанное с ним значение
-из <replaceable>словаря</replaceable>. Отсутствии ключа
+из <replaceable>словаря</replaceable>. Отсутствие ключа
 в <replaceable>словаре</replaceable> ошибки не вызывает.
 </para>
 

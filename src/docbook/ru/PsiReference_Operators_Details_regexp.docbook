@@ -3,12 +3,12 @@
 <title><token language="psi">regexp</token></title>
 
 <synopsis>
-<replaceable>строковое</replaceable>
+<replaceable>строка</replaceable>
 <token language="psi">regexp</token>
 <replaceable>шаблон</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строковое</replaceable>:
+<replaceable>строка</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
@@ -20,7 +20,7 @@
 
 <para>
 Создаёт <replaceable>шаблон</replaceable> регулярного выражения, записанного
-в <replaceable>строковом</replaceable>.
+в <replaceable>строке</replaceable>.
 </para>
 
 <para>

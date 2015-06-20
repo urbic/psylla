@@ -32,10 +32,13 @@
 Пытается прочитать <replaceable>символ</replaceable>
 из <replaceable>источника</replaceable>. Возвращает прочитанный
 <replaceable>символ</replaceable> в случае успеха (если
-<replaceable>источник</replaceable> не исчерпан. Возвращает также булевское
-значение, показывающее успешность операции. Генерирует <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода.
+<replaceable>источник</replaceable> не исчерпан). Возвращает также булевское
+значение, показывающее успешность операции.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
 </para>
 
 <formalpara>

@@ -8,4 +8,13 @@
 —
 </synopsis>
 
+<para>
+Выводит на стандартный вывод содержимое стека операндов.
+</para>
+
+<formalpara>
+<title>Ошибки:</title>
+нет.
+</formalpara>
+
 </section>

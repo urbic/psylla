@@ -20,7 +20,8 @@
 
 <para>
 Возвращает <replaceable>массив</replaceable> значений, содержащихся
-в <replaceable>словаре</replaceable>. Порядок значений в словаре не определён.
+в <replaceable>словаре</replaceable>. Порядок значений
+в <replaceable>массиве</replaceable> не определён.
 </para>
 
 <formalpara>
