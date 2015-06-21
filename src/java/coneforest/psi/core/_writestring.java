@@ -9,6 +9,6 @@ public class _writestring extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		((PsiWriter)ops[0]).psiWriteString((PsiStringlike)ops[1]);
+		((PsiWritable)ops[0]).psiWriteString((PsiStringlike)ops[1]);
 	}
 }
