@@ -56,6 +56,7 @@ public class PsiSystemDictionary
 					_createdirectory.class,
 					_currentcontext.class,
 					_currentdict.class,
+					_currentdirectory.class,
 					_def.class,
 					_delete.class,
 					_deletefile.class,

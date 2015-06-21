@@ -825,6 +825,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_currentdirectory" xrefstyle="template:%t"/></term>
+<listitem>текущая директория</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_deletefile" xrefstyle="template:%t"/></term>
 <listitem>удаление файла или директории</listitem>
 </varlistentry>
@@ -1262,6 +1267,7 @@
 &PsiReference_Operators_Details_createdirectory;
 &PsiReference_Operators_Details_currentcontext;
 &PsiReference_Operators_Details_currentdict;
+&PsiReference_Operators_Details_currentdirectory;
 &PsiReference_Operators_Details_def;
 &PsiReference_Operators_Details_delete;
 &PsiReference_Operators_Details_deletefile;

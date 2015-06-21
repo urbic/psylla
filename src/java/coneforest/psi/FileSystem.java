@@ -333,4 +333,10 @@ public class FileSystem
 			throw new PsiException("securityerror");
 		}
 	}
+
+	public static PsiString psiCurrentDirectory()
+		throws PsiException
+	{
+		return new PsiString(fileNameFromNative(java.nio.file.Paths.get("").toAbsolutePath().toString()));
+	}
 }
