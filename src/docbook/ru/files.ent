@@ -52,6 +52,7 @@
 <!ENTITY PsiReference_Operators_Details_createdirectory	SYSTEM "PsiReference_Operators_Details_createdirectory.docbook">
 <!ENTITY PsiReference_Operators_Details_currentcontext	SYSTEM "PsiReference_Operators_Details_currentcontext.docbook">
 <!ENTITY PsiReference_Operators_Details_currentdict		SYSTEM "PsiReference_Operators_Details_currentdict.docbook">
+<!ENTITY PsiReference_Operators_Details_currentdirectory	SYSTEM "PsiReference_Operators_Details_currentdirectory.docbook">
 <!ENTITY PsiReference_Operators_Details_def				SYSTEM "PsiReference_Operators_Details_def.docbook">
 <!ENTITY PsiReference_Operators_Details_delete			SYSTEM "PsiReference_Operators_Details_delete.docbook">
 <!ENTITY PsiReference_Operators_Details_deletefile		SYSTEM "PsiReference_Operators_Details_deletefile.docbook">
