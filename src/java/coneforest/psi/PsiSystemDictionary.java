@@ -139,6 +139,7 @@ public class PsiSystemDictionary
 					_prettyprint.class,
 					_print.class,
 					_println.class,
+					_process.class,
 					_pstack.class,
 					_put.class,
 					_putinterval.class,
@@ -149,6 +150,7 @@ public class PsiSystemDictionary
 					_readline.class,
 					_readlink.class,
 					_readstring.class,
+					_ready.class,
 					_regexp.class,
 					_remove.class,
 					_removeall.class,
@@ -233,6 +235,9 @@ public class PsiSystemDictionary
 			put("classpath", new PsiClassLoader());
 			put("eol", new PsiString(System.getProperty("line.separator")));
 			put("$error", new PsiDictionary());
+			put("stdin", new PsiReader(new java.io.InputStreamReader(System.in)));
+			put("stdout", new PsiWriter(new java.io.OutputStreamWriter(System.out)));
+			put("stderr", new PsiWriter(new java.io.OutputStreamWriter(System.err)));
 		}
 		catch(PsiException e)
 		{

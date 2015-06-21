@@ -86,8 +86,8 @@ public class Psyche
 			interpreter.acceptEnvironment(System.getenv());
 			interpreter.acceptScriptName(scriptName);
 			interpreter.acceptShellArguments(shellArguments);
-			interpreter.setReader(new java.io.InputStreamReader(System.in));
-			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
+			//interpreter.setReader(new java.io.InputStreamReader(System.in));
+			//interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
 			if(cli.getValue("classpath")!=null)
 				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
 
