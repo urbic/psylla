@@ -34,6 +34,7 @@
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_conjugate"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_re"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_signum"/>.
 </formalpara>

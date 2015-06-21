@@ -3,22 +3,36 @@
 <title><token language="psi">conjugate</token></title>
 
 <synopsis>
-<replaceable>число<subscript>1</subscript></replaceable>
+<replaceable>число</replaceable>
 <token language="psi">conjugate</token>
-<replaceable>число<subscript>2</subscript></replaceable>
+<replaceable>результат</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число<subscript>1</subscript></replaceable>,
-<replaceable>число<subscript>2</subscript></replaceable>:
+<replaceable>число</replaceable>,
+<replaceable>результат</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
+<para>
+Возвращает <replaceable>результат</replaceable> комплексного сопряжения
+для заданного <replaceable>числа</replaceable>.
+</para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_im"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_re"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_signum"/>.
 </formalpara>
 
 </section>

@@ -36,8 +36,8 @@
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dict"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dict"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>.
 </formalpara>
 
 </section>

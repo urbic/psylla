@@ -40,7 +40,8 @@ Thread-safe containers
 
 detach operator
 
-Change semantics of "known" operator, "contains" operator for dictionary?
+Change semantics of "known" operator, "contains" operator for dictionary,
+"undef" operator?
 
 Error in PsiProcedure.tostring()
 

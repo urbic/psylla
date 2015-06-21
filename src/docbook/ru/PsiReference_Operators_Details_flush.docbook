@@ -15,7 +15,13 @@
 </synopsis>
 
 <para>
-Сбрасывает буфер.
+Сбрасывает буфер для объекта ввода/вывода
+<replaceable>сбрасываемое</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
 </para>
 
 <formalpara>
