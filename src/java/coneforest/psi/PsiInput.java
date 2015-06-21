@@ -13,15 +13,19 @@ public class PsiInput
 		setInput(input);
 	}
 
+	@Override
 	public String getTypeName()
 	{
 		return "input";
 	}
 
+	/*
+	@Override
 	public String toString()
 	{
 		return "-input-";
 	}
+	*/
 
 	public void setInput(java.io.InputStream input)
 	{
@@ -68,6 +72,20 @@ public class PsiInput
 		try
 		{
 			input.close();
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	@Override
+	public PsiBoolean psiReady()
+		throws PsiException
+	{
+		try
+		{
+			return PsiBoolean.valueOf(input.available()>0);
 		}
 		catch(java.io.IOException e)
 		{

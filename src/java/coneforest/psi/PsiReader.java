@@ -114,6 +114,20 @@ public class PsiReader
 	}
 
 	@Override
+	public PsiBoolean psiReady()
+		throws PsiException
+	{
+		try
+		{
+			return PsiBoolean.valueOf(reader.ready());
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	@Override
 	public void psiClose()
 		throws PsiException
 	{
