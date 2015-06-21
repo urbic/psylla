@@ -16,16 +16,24 @@
 </synopsis>
 
 <para>
-Возвращает логарифм ненулевого числового операнда. Для положительных операндов
-целого и вещественного типа возвращается вещественное число, для отрицательных
-и комплексных операндов возвращается комплексное число.
+Возвращает натуральный <replaceable>логарифм</replaceable>
+<replaceable>числа</replaceable>. Для положительных операндов целого и
+вещественного типа возвращается вещественное число, для отрицательных и
+комплексных операндов возвращается комплексное число.
+</para>
+
+<para>
+Генерирует
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого значения
+операнда.
 </para>
 
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">1 log			▶ 0.0
--1 log			▶ 0.0+3.141592653589793i
-0 1 complex log	▶ 0.0+1.5707963267948966i</programlisting>
+-1 log			▶ -complex:0.0,3.141592653589793-
+0 1 complex log	▶ -complex:0.0,1.5707963267948966-</programlisting>
 </formalpara>
 
 <formalpara>
