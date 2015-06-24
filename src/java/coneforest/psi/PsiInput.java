@@ -93,5 +93,24 @@ public class PsiInput
 		}
 	}
 
+	@Override
+	public void psiSkip(PsiInteger count)
+		throws PsiException
+	{
+		long countValue=count.longValue();
+		try
+		{
+			input.skip(countValue);
+		}
+		catch(IllegalArgumentException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
 	private java.io.InputStream input;
 }

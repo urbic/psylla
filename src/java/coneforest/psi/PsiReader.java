@@ -114,6 +114,25 @@ public class PsiReader
 	}
 
 	@Override
+	public void psiSkip(PsiInteger count)
+		throws PsiException
+	{
+		long countValue=count.longValue();
+		try
+		{
+			reader.skip(countValue);
+		}
+		catch(IllegalArgumentException e)
+		{
+			throw new PsiException("rangecheck");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	@Override
 	public PsiBoolean psiReady()
 		throws PsiException
 	{
