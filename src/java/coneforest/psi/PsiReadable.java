@@ -36,6 +36,9 @@ public interface PsiReadable
 	public PsiString psiReadLine(PsiStringlike stringlike)
 		throws PsiException;
 
+	public void psiSkip(PsiInteger count)
+		throws PsiException;
+
 	public PsiBoolean psiReady()
 		throws PsiException;
 }
