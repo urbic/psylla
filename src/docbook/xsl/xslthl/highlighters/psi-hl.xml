@@ -13,9 +13,16 @@
 		<string>"</string>
 	</highlighter>
 
+	<highlighter type="string">
+		<string>@</string>
+		<string>@</string>
+	</highlighter>
+
 	<highlighter type="number">
+		<exponent>E</exponent>
 		<point>.</point>
 		<pointStarts/>
+		<ignoreCase/>
 	</highlighter>
 
 	<highlighter type="regex">
