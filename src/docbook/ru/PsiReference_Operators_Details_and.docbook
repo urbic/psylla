@@ -6,23 +6,28 @@
 <replaceable>операнд<subscript>1</subscript></replaceable>
 <replaceable>операнд<subscript>2</subscript></replaceable>
 <token language="psi">and</token>
-<replaceable>результат</replaceable>
+<replaceable>конъюнкция</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>операнд<subscript>1</subscript></replaceable>,
 <replaceable>операнд<subscript>2</subscript></replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>конъюнкция</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает конъюнкцию двух операндов. Для операндов типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
-вычисляется логическая конъюнкция. Для операндов типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или типа
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
+Возвращает <replaceable>конъюнкцию</replaceable> двух
+<replaceable>операндов</replaceable>.
+</para>
+
+<para>
+Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
+конъюнкция. Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> или типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 вычисляется побитовая конъюнкция.
 </para>
 

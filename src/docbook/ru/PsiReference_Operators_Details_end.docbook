@@ -7,8 +7,11 @@
 </synopsis>
 
 <para>
-Удаляет верхний словарь со стека словарей. При попытке удалить постоянный
-словарь генерирует <xref xrefstyle="template:%t"
+Удаляет верхний словарь со стека словарей.
+</para>
+
+<para>
+При попытке удалить постоянный словарь генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
 </para>
 

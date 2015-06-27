@@ -18,11 +18,15 @@
 </synopsis>
 
 <para>
-Возвращает исключающую дизъюнкцию двух операндов. Для операндов типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
-вычисляется логическая исключающая дизъюнкция. Для операндов типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или типа
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
+Возвращает исключающую дизъюнкцию двух операндов.
+</para>
+
+<para>
+Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
+исключающая дизъюнкция. Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> или типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 вычисляется побитовая исключающая дизъюнкция.
 </para>
 

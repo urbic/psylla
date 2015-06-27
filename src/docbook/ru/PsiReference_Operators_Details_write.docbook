@@ -3,13 +3,13 @@
 <title><token language="psi">write</token></title>
 
 <synopsis>
-<replaceable>писатель</replaceable>
+<replaceable>вывод</replaceable>
 <replaceable>символ</replaceable>
 <token language="psi">write</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>писатель</replaceable>:
+<replaceable>вывод</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writable"/>
 </listitem>
 <listitem>
@@ -20,6 +20,12 @@
 </synopsis>
 
 <para>
+Записывает <replaceable>символ</replaceable> в <replaceable>вывод</replaceable>.
+</para>
+
+<para>
+При ошибке ввода/вывода генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/>.
 </para>
 
 <formalpara>
@@ -31,6 +37,7 @@
 
 <formalpara>
 <title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_print"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_say"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
