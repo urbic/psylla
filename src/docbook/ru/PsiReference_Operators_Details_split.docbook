@@ -3,13 +3,13 @@
 <title><token language="psi">split</token></title>
 
 <synopsis>
-<replaceable>строковое</replaceable>
+<replaceable>строка</replaceable>
 <replaceable>шаблон</replaceable>
 <token language="psi">split</token>
 <replaceable>массив</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строковое</replaceable>:
+<replaceable>строка</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
 </listitem>
 <listitem>
@@ -22,6 +22,23 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Разделяет <replaceable>строку</replaceable> на подстроки, ограниченные
+частями, соответствующими <replaceable>шаблону</replaceable>, и возвращает
+<replaceable>массив</replaceable> подстрок.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">"Мама мыла раму" @ +@ split	▶ ["Мама" "мыла" "раму"]</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
 
 <formalpara>
 <title>Смотри также:</title>
