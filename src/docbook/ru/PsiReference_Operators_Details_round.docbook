@@ -17,9 +17,13 @@
 
 <para>
 Возвращает <replaceable>результат</replaceable> округления
-<replaceable>числа</replaceable>.  Если операнд типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>,
-возвращается он же. Для операнда типа <xref xrefstyle="template:%t"
+<replaceable>числа</replaceable>.
+</para>
+
+<para>
+Если операнд типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, возвращается он же.
+Для операнда типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_real"/>
 <replaceable>результат</replaceable> имеет тот же тип.
 </para>

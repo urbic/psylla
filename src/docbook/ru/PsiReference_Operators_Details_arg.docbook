@@ -19,7 +19,14 @@
 </synopsis>
 
 <para>
-Возвращает аргумент операнда, рассматриваемого как комплексное число.
+Возвращает комплексный <replaceable>аргумент</replaceable>
+<replaceable>числа</replaceable>.
+</para>
+
+<para>
+В случае нулевого целого, вещественного или комплексного
+<replaceable>числа</replaceable> генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/>.
 </para>
 
 <formalpara>

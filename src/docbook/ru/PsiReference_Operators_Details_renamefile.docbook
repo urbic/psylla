@@ -17,8 +17,24 @@
 </synopsis>
 
 <para>
-Изменяет имя файла <replaceable>старое</replaceable> на
-<replaceable>новое</replaceable>.
+Изменяет имя файла <replaceable>старое</replaceable>
+на <replaceable>новое</replaceable>.
+</para>
+
+<para>
+Если файл или директория с заданным <replaceable>старым</replaceable> именем не
+существует, генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>. Если директория
+с заданным <replaceable>старым</replaceable> именем не пуста, генерируется
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_directorynotempty"/>. Если файл или
+директория с заданным <replaceable>новым</replaceable> именем существует,
+генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_fileexists"/>. При ошибке ввода/вывода
+генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
+безопасности генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/>.
 </para>
 
 <formalpara>
