@@ -17,8 +17,8 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		put(key.getString(), obj);
 	}
 
-	@Override
-	abstract public boolean known(String keyString);
+	//@Override
+	//abstract public boolean known(String keyString);
 
 	@Override
 	public PsiBoolean psiKnown(PsiStringlike key)
@@ -26,8 +26,8 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 		return PsiBoolean.valueOf(known(key.getString()));
 	}
 
-	@Override
-	abstract public void undef(String keyString);
+	//@Override
+	//abstract public void undef(String keyString);
 
 	@Override
 	public void psiUndef(PsiStringlike key)
@@ -72,13 +72,13 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 	@Override
 	public String toString()
 	{
-		return toStringHelper(this);
+		return "<"+toStringHelper(this)+">";
 	}
 
 	@Override
 	public String toStringHelper(PsiLengthy lengthy)
 	{
-		StringBuilder sb=new StringBuilder("<");
+		StringBuilder sb=new StringBuilder();
 		if(length()>0)
 		{
 			for(java.util.Map.Entry<String, ? extends PsiObject> entry: this)
@@ -88,14 +88,13 @@ abstract public class PsiAbstractDictionary<V extends PsiObject>
 				sb.append(' ');
 				PsiObject obj=entry.getValue();
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toStringHelper(this));
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toString());
 				else
 					sb.append(obj.toString());
 				sb.append(' ');
 			}
 			sb.deleteCharAt(sb.length()-1);
 		}
-		sb.append('>');
 		return sb.toString();
 	}
 }

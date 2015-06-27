@@ -29,5 +29,4 @@ public class PsiProcedure
 	{
 		return "{"+toStringHelper(this)+"}";
 	}
-
 }
