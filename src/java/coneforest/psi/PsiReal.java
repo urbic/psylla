@@ -161,6 +161,11 @@ public class PsiReal
 	}
 
 	public static final PsiReal
+		ZERO=new PsiReal(0.D),
+		ONE=new PsiReal(1.D),
+		TWO=new PsiReal(2.D),
+		PI=new PsiReal(Math.PI),
+		E=new PsiReal(Math.E),
 		MAX_VALUE=new PsiReal(Double.MAX_VALUE),
 		MIN_VALUE=new PsiReal(Double.MIN_VALUE),
 		NAN=new PsiReal(Double.NaN);

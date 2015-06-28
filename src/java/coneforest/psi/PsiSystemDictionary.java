@@ -229,8 +229,8 @@ public class PsiSystemDictionary
 			put("false", PsiBoolean.FALSE);
 			put("userdict", new PsiDictionary());
 			put("errordict", new PsiErrorDictionary());
-			put("mathPI", new PsiReal(Math.PI));
-			put("mathE", new PsiReal(Math.E));
+			put("mathPI", PsiReal.PI);
+			put("mathE", PsiReal.E);
 			put("stdrandom", new PsiRandom());
 			put("product", new PsiName("Psyche"));
 			put("version", new PsiName(""+Version.getVersion()));

@@ -34,11 +34,8 @@ abstract public class PsiComplexNumeric
 	abstract public PsiComplexNumeric psiLog()
 		throws PsiException;
 
-	public PsiComplexNumeric psiAtan()
-		throws PsiException
-	{
-		throw new UnsupportedOperationException();
-	}
+	abstract public PsiComplexNumeric psiAtan()
+		throws PsiException;
 
 	abstract public PsiComplexNumeric psiSqrt();
 
