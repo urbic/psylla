@@ -20,4 +20,11 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
+</formalpara>
+
 </section>

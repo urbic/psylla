@@ -23,4 +23,22 @@
 </itemizedlist>
 </synopsis>
 
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">0 1 1 100 { add } for	▶ 5050</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
+</formalpara>
+
 </section>
