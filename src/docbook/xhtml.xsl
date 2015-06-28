@@ -68,20 +68,11 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 		<link rel="shortcut icon" href="{$shortcut.icon}" type="image/png"/>
 		<link rel="author" href="https://plus.google.com/113215332542811715537?rel=author"/>
 		<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="application/ecmascript"><xsl:comment/></script>
-		<meta name="google-site-verification" content="93Z31Ol33qRY3Xte6j53s1OTLxxuTm7kAmVXUAhUHLA"/>
-		<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
-			Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-			ga('create', 'UA-23282328-2', 'sourceforge.net');
-			ga('send', 'pageview');</script>
+		<meta name="google-site-verification" content=""/>
+		<script></script>
 	</xsl:template>
 
 	<xsl:template name="user.footer.navigation">
-		<!--a href="http://sourceforge.net"><img
-			src="http://sflogo.sourceforge.net/sflogo.php?group_id=2246943&amp;type=4"
-			alt="SourceForge.net Logo"/></a-->
 	</xsl:template>
 
 	<xsl:template name="is.graphic.format">

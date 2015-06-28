@@ -38,6 +38,12 @@
 объектов их значение остаётся общим.
 </para>
 
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/> для отрицательного
+<replaceable>n</replaceable>.
+</para>
+
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">"A" "B" "C" 2 copy	▶ "A" "B" "C" "B" "C"
@@ -47,7 +53,8 @@
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>

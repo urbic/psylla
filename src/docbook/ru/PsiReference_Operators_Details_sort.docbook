@@ -4,7 +4,7 @@
 
 <synopsis>
 <replaceable>массив</replaceable>
-<replaceable>процедура</replaceable>
+<replaceable>компаратор</replaceable>
 <token language="psi">sort</token>
 <replaceable>сортированный_массив</replaceable>
 <itemizedlist>
@@ -14,7 +14,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
-<replaceable>процедура</replaceable>:
+<replaceable>компаратор</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
@@ -22,7 +22,7 @@
 
 <para>
 Возвращает отсортированную копию <replaceable>массива</replaceable>. Сортировка
-производится при помощи <replaceable>процедуры</replaceable>-компаратора.
+производится при помощи процедуры-<replaceable>компаратора</replaceable>.
 </para>
 
 <formalpara>

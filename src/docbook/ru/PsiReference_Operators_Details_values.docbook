@@ -20,8 +20,12 @@
 
 <para>
 Возвращает <replaceable>массив</replaceable> значений, содержащихся
-в <replaceable>словаре</replaceable>. Порядок значений
-в <replaceable>массиве</replaceable> не определён.
+в <replaceable>словаре</replaceable>.
+</para>
+
+<para>
+Порядок значений в <replaceable>массиве</replaceable> не определён, и программа
+не должна на него полагаться.
 </para>
 
 <formalpara>
@@ -37,6 +41,7 @@
 
 <formalpara>
 <title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_keys"/>.
 </formalpara>
 
