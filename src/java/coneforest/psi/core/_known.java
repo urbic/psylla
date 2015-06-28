@@ -9,6 +9,6 @@ public class _known extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiDictionarylike)ops[0]).psiKnown((PsiStringlike)ops[1]));
+		opstack.push(((PsiDictlike)ops[0]).psiKnown((PsiStringlike)ops[1]));
 	}
 }

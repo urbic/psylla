@@ -8,6 +8,6 @@ public class _values extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiDictionarylike)opstack.popOperands(1)[0]).psiValues());
+		opstack.push(((PsiDictlike)opstack.popOperands(1)[0]).psiValues());
 	}
 }

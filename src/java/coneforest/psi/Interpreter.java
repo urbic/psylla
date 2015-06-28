@@ -11,15 +11,15 @@ public class Interpreter
 	 */
 	public Interpreter()
 	{
-		this(new DictionaryStack());
+		this(new DictStack());
 	}
 
-	public Interpreter(DictionaryStack dictstack)
+	public Interpreter(DictStack dictstack)
 	{
 		opstack=new OperandStack();
 		execstack=new ExecutionStack();
 		procstack=new ProcedureStack();
-		this.dictstack=(DictionaryStack)dictstack.clone();
+		this.dictstack=(DictStack)dictstack.clone();
 		pushStopLevel();
 	}
 
@@ -38,7 +38,7 @@ public class Interpreter
 	 *
 	 *	@return a dictionary stack.
 	 */
-	public DictionaryStack getDictionaryStack()
+	public DictStack getDictStack()
 	{
 		return dictstack;
 	}
@@ -64,7 +64,7 @@ public class Interpreter
 	 *
 	 *	@return a current dictionary.
 	 */
-	public PsiDictionarylike getCurrentDictionary()
+	public PsiDictlike getCurrentDict()
 	{
 		return dictstack.peek();
 	}
@@ -74,7 +74,7 @@ public class Interpreter
 	 *
 	 *	@return a system dictionary.
 	 */
-	public PsiDictionarylike getSystemDictionary()
+	public PsiDictlike getSystemDict()
 	{
 		return dictstack.get(0);
 	}
@@ -84,7 +84,7 @@ public class Interpreter
 	 *
 	 *	@return a global dictionary.
 	 */
-	public PsiDictionarylike getGlobalDictionary()
+	public PsiDictlike getGlobalDict()
 	{
 		return dictstack.get(1);
 	}
@@ -94,24 +94,24 @@ public class Interpreter
 	 *
 	 *	@return user dictionary.
 	 */
-	public PsiDictionarylike getUserDictionary()
+	public PsiDictlike getUserDict()
 	{
 		return dictstack.get(2);
 	}
 
 	public void setReader(final java.io.Reader reader)
 	{
-		getSystemDictionary().put("stdin", new PsiReader(reader));
+		getSystemDict().put("stdin", new PsiReader(reader));
 	}
 
 	public void setWriter(final java.io.Writer writer)
 	{
-		getSystemDictionary().put("stdout", new PsiWriter(writer));
+		getSystemDict().put("stdout", new PsiWriter(writer));
 	}
 
 	public void setErrorWriter(final java.io.Writer writer)
 	{
-		getSystemDictionary().put("stderr", new PsiWriter(writer));
+		getSystemDict().put("stderr", new PsiWriter(writer));
 	}
 
 	public void interpret(final java.io.Reader readerValue)
@@ -133,21 +133,21 @@ public class Interpreter
 			{
 				processToken(parser.getNextToken());
 				if(getStopFlag())
-					(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
+					(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
 			}
 		}
 		catch(PsiException e)
 		{
 			handleError(e.kind(), reader);
 			if(getStopFlag())
-				(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
+				(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
 		}
 		catch(TokenMgrError e)
 		{
 			System.out.println("TOKENMGR ERROR");
 			handleError("syntaxerror", reader);
 			if(getStopFlag())
-				(new coneforest.psi.PsiErrorDictionary._handleerror()).invoke(this);
+				(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
 		}
 	}
 
@@ -442,11 +442,11 @@ public class Interpreter
 		//throw new PsiException("unknownerror");
 	}
 
-	public PsiDictionary getErrorDictionary()
+	public PsiDict getErrorDict()
 	{
 		try
 		{
-			return (PsiDictionary)getSystemDictionary().get("errordict");
+			return (PsiDict)getSystemDict().get("errordict");
 		}
 		catch(PsiException e)
 		{
@@ -464,18 +464,18 @@ public class Interpreter
 
 	public void handleError(final String errorName, final PsiObject obj)
 	{
-		PsiDictionarylike errorObj=new PsiDictionary();
+		PsiDict errorObj=new PsiDict();
 		errorObj.put("newerror", PsiBoolean.TRUE);
 		errorObj.put("errorname", new PsiName(errorName));
 		errorObj.put("command", obj);
 		errorObj.put("ostack", new PsiArray((java.util.ArrayList<PsiObject>)opstack.clone()));
 		errorObj.put("estack", new PsiArray((java.util.ArrayList<PsiObject>)execstack.clone()));
 		errorObj.put("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dictstack.clone()));
-		getSystemDictionary().put("$error", errorObj);
+		getSystemDict().put("$error", errorObj);
 
 		try
 		{
-			PsiDictionary errorDict=getErrorDictionary();
+			PsiDict errorDict=getErrorDict();
 			(
 				errorDict.known(errorName)?
 					errorDict.get(errorName):
@@ -576,7 +576,7 @@ public class Interpreter
 	public void acceptScriptName(final String scriptName)
 	{
 		PsiString script=new PsiString(scriptName);
-		getSystemDictionary().put("script", script);
+		getSystemDict().put("script", script);
 	}
 
 	public void acceptShellArguments(final String[] args)
@@ -584,22 +584,22 @@ public class Interpreter
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)
 			arguments.psiAppend(new PsiString(arg));
-		getSystemDictionary().put("arguments", arguments);
+		getSystemDict().put("arguments", arguments);
 	}
 
 	public void acceptEnvironment(final java.util.Map<String, String> env)
 	{
-		PsiDictionary environment=new PsiDictionary();
+		PsiDict environment=new PsiDict();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
 			environment.put(entry.getKey(), new PsiString(entry.getValue()));
-		getSystemDictionary().put("environment", environment);
+		getSystemDict().put("environment", environment);
 	}
 
 	public void acceptClassPath(final String[] classPath)
 	{
 		try
 		{
-			final PsiClassLoader classLoader=(PsiClassLoader)getSystemDictionary().get("classpath");
+			final PsiClassLoader classLoader=(PsiClassLoader)getSystemDict().get("classpath");
 			for(String pathElement: classPath)
 				classLoader.psiAppend(new PsiString(pathElement));
 		}
@@ -616,7 +616,7 @@ public class Interpreter
 	}
 
 	private final OperandStack opstack;
-	private final DictionaryStack dictstack;
+	private final DictStack dictstack;
 	private final ExecutionStack execstack;
 	private final ProcedureStack procstack;
 	private final Stack<Integer>

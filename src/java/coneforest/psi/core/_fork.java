@@ -13,7 +13,7 @@ public class _fork extends PsiOperator
 		final PsiObject obj=opstack.pop();
 
 		final Interpreter forkedInterpreter
-			=new Interpreter(interpreter.getDictionaryStack())
+			=new Interpreter(interpreter.getDictStack())
 				{
 					@Override
 					public void run()

@@ -1,8 +1,8 @@
 package coneforest.psi;
 
-abstract public class PsiAbstractDictionary<V extends PsiObject>
+abstract public class PsiAbstractDict<V extends PsiObject>
 	extends PsiAbstractObject
-	implements PsiDictionarylike<V>
+	implements PsiDictlike<V>
 {
 	@Override
 	public V psiGet(PsiStringlike key)

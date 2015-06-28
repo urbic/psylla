@@ -14,7 +14,7 @@ public class _dicttomark extends PsiOperator
 			{
 				if((opstack.size()-i) % 2==0)
 					throw new PsiException("rangecheck");
-				PsiDictionary dict=new PsiDictionary();
+				PsiDict dict=new PsiDict();
 
 				for(int j=i+1; j<opstack.size(); j++)
 				{

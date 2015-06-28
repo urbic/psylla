@@ -5,7 +5,7 @@ package coneforest.psi;
  *
  *	@param <V> a type of contained values.
  */
-public interface PsiDictionarylike<V extends PsiObject>
+public interface PsiDictlike<V extends PsiObject>
 	extends
 		PsiLengthy,
 		PsiIndexed<PsiStringlike, V>,
@@ -35,6 +35,6 @@ public interface PsiDictionarylike<V extends PsiObject>
 	public PsiArray psiValues();
 
 	@Override
-	public PsiDictionarylike<V> psiSlice(PsiIterable<PsiStringlike> keys)
+	public PsiDictlike<V> psiSlice(PsiIterable<PsiStringlike> keys)
 		throws PsiException;
 }

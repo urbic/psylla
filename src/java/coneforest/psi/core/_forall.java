@@ -12,7 +12,7 @@ public class _forall extends PsiOperator
 		final PsiIterable iterable=(PsiIterable)ops[0];
 		final PsiProcedure proc=(PsiProcedure)ops[1];
 
-		if(iterable instanceof PsiDictionarylike)
+		if(iterable instanceof PsiDictlike)
 		{
 			final int loopLevel=interpreter.pushLoopLevel();
 			for(java.util.Map.Entry<String, PsiObject> entry:
