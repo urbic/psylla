@@ -417,10 +417,17 @@ public class Interpreter
 				else
 					return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 16));
 			case ParserConstants.TOKEN_INTEGER_BINARY:
-				if(token.image.startsWith("+")||token.image.startsWith("-"))
-					return PsiInteger.valueOf(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 2));
-				else
-					return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 2));
+				try
+				{
+					if(token.image.startsWith("+")||token.image.startsWith("-"))
+						return PsiInteger.valueOf(Long.parseLong(token.image.substring(0, 1)+token.image.substring(3), 2));
+					else
+						return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 2));
+				}
+				catch(NumberFormatException e)
+				{
+					throw new PsiException("syntaxerror");
+				}
 			case ParserConstants.TOKEN_REAL:
 				return new PsiReal(Double.parseDouble(token.image));
 			case ParserConstants.TOKEN_NAME:
