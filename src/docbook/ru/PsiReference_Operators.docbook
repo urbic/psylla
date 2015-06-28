@@ -963,6 +963,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_stdrandom" xrefstyle="template:%t"/></term>
+<listitem>стандартный генератор псевдослучайных чисел</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_uniformboolean" xrefstyle="template:%t"/></term>
 <listitem>равновероятно распределённое псевдослучайное логическое значение</listitem>
 </varlistentry>
@@ -1383,6 +1388,7 @@
 &PsiReference_Operators_Details_sort;
 &PsiReference_Operators_Details_split;
 &PsiReference_Operators_Details_sqrt;
+&PsiReference_Operators_Details_stdrandom;
 &PsiReference_Operators_Details_stop;
 &PsiReference_Operators_Details_stopped;
 &PsiReference_Operators_Details_string;

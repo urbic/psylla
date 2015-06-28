@@ -13,8 +13,7 @@
 </synopsis>
 
 <para>
-Создаёт новый пустой <replaceable>массив</replaceable> и помещает его на стек
-операндов.
+Возвращает новый пустой <replaceable>массив</replaceable>.
 </para>
 
 <formalpara>
@@ -25,7 +24,7 @@
 <formalpara>
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_["/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arraytomark"/>.
 </formalpara>
 

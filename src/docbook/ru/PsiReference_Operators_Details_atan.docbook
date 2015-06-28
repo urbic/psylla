@@ -15,10 +15,24 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Возвращает <replaceable>арктангенс</replaceable>
+<replaceable>числа</replaceable>. Для операндов целого и вещественного типа
+возвращается вещественное число, для операндов комплексного типа возвращается
+комплексное число.
+</para>
+
+<para>
+Генерирует
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>
+при недопустимых значениях операнда.
+</para>
+
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
 </formalpara>
 
 </section>
