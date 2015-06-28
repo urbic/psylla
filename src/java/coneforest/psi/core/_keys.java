@@ -8,6 +8,6 @@ public class _keys extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiDictionarylike)opstack.popOperands(1)[0]).psiKeys());
+		opstack.push(((PsiDictlike)opstack.popOperands(1)[0]).psiKeys());
 	}
 }

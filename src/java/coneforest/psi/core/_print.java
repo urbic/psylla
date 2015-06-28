@@ -8,7 +8,7 @@ public class _print extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		((PsiWriter)interpreter.getDictionaryStack().load("stdout"))
+		((PsiWriter)interpreter.getDictStack().load("stdout"))
 			.psiWriteString((PsiStringlike)opstack.popOperands(1)[0]);
 	}
 }

@@ -225,9 +225,9 @@ public class PsiString
 	}
 
 	/*
-	public PsiDictionary psiSearch(PsiRegExp regexp)
+	public PsiDict psiSearch(PsiRegExp regexp)
 	{
-		PsiDictionary result=null;
+		PsiDict result=null;
 		java.util.regex.Pattern pattern=regexp.getPattern();
 		java.util.regex.Matcher matcher=pattern.matcher(buffer);
 		matcher.find();

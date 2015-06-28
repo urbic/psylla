@@ -3,8 +3,8 @@ package coneforest.psi;
 /**
  *	A representation of Ψ-<code class="type">dictionary</code> object.
  */
-public class PsiDictionary
-	extends PsiAbstractDictionary<PsiObject>
+public class PsiDict
+	extends PsiAbstractDict<PsiObject>
 {
 	@Override
 	public String getTypeName()
@@ -12,20 +12,20 @@ public class PsiDictionary
 		return "dict";
 	}
 
-	public PsiDictionary()
+	public PsiDict()
 	{
 		this.dictionary=new java.util.HashMap<String, PsiObject>();
 	}
 
-	public PsiDictionary(PsiDictionary dict)
+	public PsiDict(PsiDict dict)
 	{
 		this.dictionary=(java.util.HashMap<String, PsiObject>)dict.dictionary.clone();
 	}
 
 	@Override
-	public PsiDictionary psiClone()
+	public PsiDict psiClone()
 	{
-		return new PsiDictionary(this);
+		return new PsiDict(this);
 	}
 
 	@Override
@@ -94,10 +94,10 @@ public class PsiDictionary
 	}
 
 	@Override
-	public PsiDictionary psiSlice(PsiIterable<PsiStringlike> keys)
+	public PsiDict psiSlice(PsiIterable<PsiStringlike> keys)
 		throws PsiException
 	{
-		PsiDictionary values=new PsiDictionary();
+		PsiDict values=new PsiDict();
 		for(PsiStringlike key: keys)
 			values.psiPut(key, psiGet(key));
 		return values;

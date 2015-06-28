@@ -8,6 +8,6 @@ public class _process extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiProcess((PsiDictionarylike)opstack.popOperands(1)[0]));
+		opstack.push(new PsiProcess((PsiDictlike)opstack.popOperands(1)[0]));
 	}
 }

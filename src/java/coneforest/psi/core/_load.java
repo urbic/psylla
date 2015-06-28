@@ -8,6 +8,6 @@ public class _load extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(interpreter.getDictionaryStack().load((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(interpreter.getDictStack().load((PsiStringlike)opstack.popOperands(1)[0]));
 	}
 }

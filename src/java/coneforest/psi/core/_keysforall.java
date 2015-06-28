@@ -9,7 +9,7 @@ public class _keysforall extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		final PsiDictionarylike dictlike=(PsiDictionarylike)ops[0];
+		final PsiDictlike dictlike=(PsiDictlike)ops[0];
 		final PsiProcedure proc=(PsiProcedure)ops[1];
 
 		final int looplevel=interpreter.pushLoopLevel();

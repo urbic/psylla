@@ -1,10 +1,10 @@
 package coneforest.psi;
 import coneforest.psi.core.*;
 
-public class PsiSystemDictionary
+public class PsiSystemDict
 	extends PsiModule
 {
-	public PsiSystemDictionary()
+	public PsiSystemDict()
 	{
 		super();
 
@@ -227,8 +227,8 @@ public class PsiSystemDictionary
 			put("(", PsiMark.MARK);
 			put("true", PsiBoolean.TRUE);
 			put("false", PsiBoolean.FALSE);
-			put("userdict", new PsiDictionary());
-			put("errordict", new PsiErrorDictionary());
+			put("userdict", new PsiDict());
+			put("errordict", new PsiErrorDict());
 			put("mathPI", PsiReal.PI);
 			put("mathE", PsiReal.E);
 			put("stdrandom", new PsiRandom());
@@ -239,7 +239,7 @@ public class PsiSystemDictionary
 			put("username", new PsiName(System.getProperty("user.name")));
 			put("classpath", new PsiClassLoader());
 			put("eol", new PsiString(System.getProperty("line.separator")));
-			put("$error", new PsiDictionary());
+			put("$error", new PsiDict());
 			put("stdin", new PsiReader(new java.io.InputStreamReader(System.in)));
 			put("stdout", new PsiWriter(new java.io.OutputStreamWriter(System.out)));
 			put("stderr", new PsiWriter(new java.io.OutputStreamWriter(System.err)));

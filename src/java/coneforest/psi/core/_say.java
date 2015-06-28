@@ -8,9 +8,9 @@ public class _say extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiWriter stdwriter=(PsiWriter)interpreter.getDictionaryStack().load("stdout");
+		final PsiWriter stdwriter=(PsiWriter)interpreter.getDictStack().load("stdout");
 		stdwriter.psiWriteString((PsiStringlike)opstack.popOperands(1)[0]);
-		stdwriter.psiWriteString((PsiStringlike)interpreter.getDictionaryStack().load("eol"));
+		stdwriter.psiWriteString((PsiStringlike)interpreter.getDictStack().load("eol"));
 		stdwriter.psiFlush();
 	}
 }

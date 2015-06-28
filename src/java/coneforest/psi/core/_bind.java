@@ -10,15 +10,15 @@ public class _bind extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		if(opstack.size()<1)
 			throw new PsiException("stackunderflow");
-		bind((PsiProcedure)opstack.peek(), interpreter.getDictionaryStack());
+		bind((PsiProcedure)opstack.peek(), interpreter.getDictStack());
 	}
 
-	private static void bind(PsiProcedure proc, DictionaryStack dictstack)
+	private static void bind(PsiProcedure proc, DictStack dictstack)
 	{
 		bindHelper(proc, new java.util.HashSet<PsiProcedure>(), dictstack);
 	}
 
-	private static void bindHelper(PsiProcedure proc, java.util.HashSet<PsiProcedure> bound, DictionaryStack dictstack)
+	private static void bindHelper(PsiProcedure proc, java.util.HashSet<PsiProcedure> bound, DictStack dictstack)
 	{
 			for(int i=0; i<proc.length(); i++)
 			{

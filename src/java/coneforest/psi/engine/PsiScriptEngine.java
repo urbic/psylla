@@ -48,7 +48,7 @@ public class PsiScriptEngine
 	{
 		try
 		{
-			return interpreter.getSystemDictionary().get(key);
+			return interpreter.getSystemDict().get(key);
 		}
 		catch(coneforest.psi.PsiException e)
 		{

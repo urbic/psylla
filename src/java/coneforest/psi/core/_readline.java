@@ -8,7 +8,7 @@ public class _readline extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		PsiStringlike eol=(PsiStringlike)interpreter.getDictionaryStack().load("eol");
+		PsiStringlike eol=(PsiStringlike)interpreter.getDictStack().load("eol");
 		PsiString string=((PsiReadable)opstack.popOperands(1)[0]).psiReadLine(eol);
 		if(string.length()>0)
 			opstack.push(string);

@@ -1,8 +1,8 @@
 package coneforest.psi;
 
-public class PsiErrorDictionary extends PsiModule
+public class PsiErrorDict extends PsiModule
 {
-	public PsiErrorDictionary()
+	public PsiErrorDict()
 	{
 		super();
 
@@ -25,7 +25,7 @@ public class PsiErrorDictionary extends PsiModule
 		public void action(final Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			PsiDictionary errorObj=(PsiDictionary)interpreter.getSystemDictionary().get("$error");
+			PsiDict errorObj=(PsiDict)interpreter.getSystemDict().get("$error");
 			errorObj.put("newerror", PsiBoolean.FALSE);
 
 			System.out.println("Error: "

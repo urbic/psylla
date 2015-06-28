@@ -3,7 +3,7 @@ package coneforest.psi;
 public class PsiProcess
 	extends PsiAbstractObject
 {
-	public PsiProcess(PsiDictionarylike dictlike)
+	public PsiProcess(PsiDictlike dictlike)
 		throws PsiException
 	{
 		try
@@ -35,7 +35,7 @@ public class PsiProcess
 				// TODO
 				//bp.environment();
 			}
-			//PsiDictionarylike environment=(PsiDictionarylike)dictlike.get("environment");
+			//PsiDictlike environment=(PsiDictlike)dictlike.get("environment");
 
 			if(dictlike.known("inheritinput")
 					&& ((PsiBoolean)dictlike.get("inheritinput")).booleanValue())
