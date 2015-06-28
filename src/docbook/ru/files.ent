@@ -168,6 +168,7 @@
 <!ENTITY PsiReference_Operators_Details_sort			SYSTEM "PsiReference_Operators_Details_sort.docbook">
 <!ENTITY PsiReference_Operators_Details_split			SYSTEM "PsiReference_Operators_Details_split.docbook">
 <!ENTITY PsiReference_Operators_Details_sqrt			SYSTEM "PsiReference_Operators_Details_sqrt.docbook">
+<!ENTITY PsiReference_Operators_Details_stdrandom		SYSTEM "PsiReference_Operators_Details_stdrandom.docbook">
 <!ENTITY PsiReference_Operators_Details_stop			SYSTEM "PsiReference_Operators_Details_stop.docbook">
 <!ENTITY PsiReference_Operators_Details_stopped			SYSTEM "PsiReference_Operators_Details_stopped.docbook">
 <!ENTITY PsiReference_Operators_Details_string			SYSTEM "PsiReference_Operators_Details_string.docbook">

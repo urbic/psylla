@@ -15,7 +15,8 @@
 </synopsis>
 
 <para>
-Булевское значение <constant>true</constant>.
+Булевское значение <constant>true</constant>. Не оператор, а значение
+в системном словаре.
 </para>
 
 <formalpara>

@@ -28,6 +28,15 @@ linkend="PsiReference_Types_Details_real"/> <replaceable>потолок</replace
 </para>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">2 ceiling		▶ 2
+-2 ceiling		▶ -2
+-2.0 ceiling	▶ -2.0
+2.1 ceiling 	▶ 3.0
+-2.1 ceiling	▶ -2.0</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
