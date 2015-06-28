@@ -3,7 +3,8 @@
 <title><token language="psi">dict</token></title>
 
 <synopsis>
-— <token language="psi">dict</token> <replaceable>словарь</replaceable>
+— <token language="psi">dict</token>
+<replaceable>словарь</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
@@ -15,6 +16,11 @@
 <para>
 Возвращает новый пустой <replaceable>словарь</replaceable>.
 </para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">dict	▶ &lt;&gt;</programlisting>
+</formalpara>
 
 <formalpara>
 <title>Ошибки:</title>

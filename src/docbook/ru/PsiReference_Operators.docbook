@@ -1283,6 +1283,7 @@
 &PsiReference_Operators_Details_dup;
 &PsiReference_Operators_Details_end;
 &PsiReference_Operators_Details_eq;
+&PsiReference_Operators_Details_errordict;
 &PsiReference_Operators_Details_eval;
 &PsiReference_Operators_Details_exch;
 &PsiReference_Operators_Details_exec;
@@ -1396,6 +1397,7 @@
 &PsiReference_Operators_Details_stringwriter;
 &PsiReference_Operators_Details_sub;
 &PsiReference_Operators_Details_symlink;
+&PsiReference_Operators_Details_systemdict;
 &PsiReference_Operators_Details_tan;
 &PsiReference_Operators_Details_tanh;
 &PsiReference_Operators_Details_time;
@@ -1409,6 +1411,7 @@
 &PsiReference_Operators_Details_uniformboolean;
 &PsiReference_Operators_Details_uniformdeviate;
 &PsiReference_Operators_Details_unite;
+&PsiReference_Operators_Details_userdict;
 &PsiReference_Operators_Details_values;
 &PsiReference_Operators_Details_wait;
 &PsiReference_Operators_Details_where;

@@ -25,9 +25,23 @@
 </para>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ 0 1 2 3 ] length			▶ 4
+&lt; /x 0 /y 1 /z 2 &gt; length	▶ 3
+( /x /y /z ) length			▶ 3
+"abcd" length				▶ 4
+/abcd length				▶ 4</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_setlength"/>.
 </formalpara>
 
 </section>
