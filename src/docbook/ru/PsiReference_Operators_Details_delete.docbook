@@ -31,6 +31,12 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> (дл
 </para>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ 0 1 2 3 4 ] dup 2 delete			▶ [ 0 1 3 4 ] 2
+&lt; /a 0 /b 1 /c 2 &gt; dup /b delete	▶ &lt; /c 2 /a 0 &gt; 1</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,

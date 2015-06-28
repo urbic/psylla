@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!ENTITY % namespaces SYSTEM "../namespaces.ent">
-<!ENTITY % files SYSTEM "files.ent">
+<!ENTITY % entities SYSTEM "PsiReference.ent">
 %namespaces;
-%files;
+%entities;
 ]>
 <book
 	xml:id="PsiReference"

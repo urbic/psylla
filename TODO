@@ -50,3 +50,5 @@ Conversion between names and strings, procedures and arrays
 Fix error in "eval"
 
 "readstring" causes java.lang.OutOfMemoryError for large strings
+
+Filter IO
