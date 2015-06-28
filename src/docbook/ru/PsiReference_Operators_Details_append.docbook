@@ -25,7 +25,9 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 
 <formalpara>
 <title>Примеры:</title>
-<programlisting language="psi">[ 0 1 2 ] dup 3 append	▶ [ 0 1 2 3 ]</programlisting>
+<programlisting language="psi">[ 0 1 2 ] dup 3 append		▶ [ 0 1 2 3 ]
+( /x /y ) dup /z append		▶ ( /z /y /x )
+( /x /y /z ) dup /z append	▶ ( /z /y /x )</programlisting>
 </formalpara>
 
 <formalpara>

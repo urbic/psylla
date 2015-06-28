@@ -30,6 +30,11 @@ linkend="PsiReference_Errors_Details_invalidregexp"/> в случае синт�
 </para>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">"(.)\\1" regexp	▶ @(.)\1@</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidregexp"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,

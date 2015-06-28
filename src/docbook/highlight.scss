@@ -1,6 +1,7 @@
 @namespace url("http://www.w3.org/1999/xhtml");
 
-$color-hl-constant: #077; //crimson;
+//$color-hl-constant: #077; //crimson;
+$color-hl-constant: darken(tomato, 40%); //crimson;
 $color-hl-keyword: darken(mediumseagreen, 10%);
 $color-hl-comment: #999;
 $color-hl-directive: #777;
