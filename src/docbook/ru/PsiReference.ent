@@ -8,6 +8,17 @@
 <!ENTITY PsiReference_Errors		SYSTEM "PsiReference_Errors.docbook">
 <!ENTITY PsiReference_Development	SYSTEM "PsiReference_Development.docbook">
 
+<!ENTITY PsiReference_Types_Details_boolean				SYSTEM "PsiReference_Types_Details_boolean.docbook">
+<!ENTITY PsiReference_Types_Details_complex				SYSTEM "PsiReference_Types_Details_complex.docbook">
+<!ENTITY PsiReference_Types_Details_dict				SYSTEM "PsiReference_Types_Details_dict.docbook">
+<!ENTITY PsiReference_Types_Details_integer				SYSTEM "PsiReference_Types_Details_integer.docbook">
+<!ENTITY PsiReference_Types_Details_name				SYSTEM "PsiReference_Types_Details_name.docbook">
+<!ENTITY PsiReference_Types_Details_null				SYSTEM "PsiReference_Types_Details_null.docbook">
+<!ENTITY PsiReference_Types_Details_object				SYSTEM "PsiReference_Types_Details_object.docbook">
+<!ENTITY PsiReference_Types_Details_operator			SYSTEM "PsiReference_Types_Details_operator.docbook">
+<!ENTITY PsiReference_Types_Details_real				SYSTEM "PsiReference_Types_Details_real.docbook">
+<!ENTITY PsiReference_Types_Details_string				SYSTEM "PsiReference_Types_Details_string.docbook">
+
 <!ENTITY PsiReference_Operators_Details_abort			SYSTEM "PsiReference_Operators_Details_abort.docbook">
 <!ENTITY PsiReference_Operators_Details_abs				SYSTEM "PsiReference_Operators_Details_abs.docbook">
 <!ENTITY PsiReference_Operators_Details_add				SYSTEM "PsiReference_Operators_Details_add.docbook">

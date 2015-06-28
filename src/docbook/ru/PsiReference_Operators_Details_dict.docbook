@@ -8,7 +8,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionary"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
 </synopsis>

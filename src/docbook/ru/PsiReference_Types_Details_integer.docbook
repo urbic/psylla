@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_integer">
+<title><type>integer</type></title>
+
+<para>
+Целочисленный тип.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>.
+</formalpara>
+
+</section>

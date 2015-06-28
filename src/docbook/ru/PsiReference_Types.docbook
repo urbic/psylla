@@ -187,18 +187,7 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполне
 </formalpara>
 </section>
 
-<section xml:id="PsiReference_Types_Details_boolean">
-<title><type>boolean</type></title>
-<para>
-Булевский тип.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
-</formalpara>
-</section>
+&PsiReference_Types_Details_boolean;
 
 <section xml:id="PsiReference_Types_Details_clearable">
 <title><type>clearable</type></title>
@@ -228,17 +217,7 @@ XXX
 </formalpara>
 </section>
 
-<section xml:id="PsiReference_Types_Details_complex">
-<title><type>complex</type></title>
-<para>
-Комплексные числа.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>.
-</formalpara>
-</section>
+&PsiReference_Types_Details_complex;
 
 <section xml:id="PsiReference_Types_Details_complexnumeric">
 <title><type>complexnumeric</type></title>
@@ -320,16 +299,7 @@ linkend="PsiReference_Types_Details_real"/>.
 </para>
 </section>
 
-<section xml:id="PsiReference_Types_Details_dictionary">
-<title><type>dictionary</type></title>
-<para>
-Тип словарей.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractdictionary"/>.
-</formalpara>
-</section>
+&PsiReference_Types_Details_dict;
 
 <section xml:id="PsiReference_Types_Details_dictionarylike">
 <title><type>dictionarylike</type></title>
@@ -379,17 +349,7 @@ XXX
 </para>
 </section>
 
-<section xml:id="PsiReference_Types_Details_integer">
-<title><type>integer</type></title>
-<para>
-Целочисленный тип.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>.
-</formalpara>
-</section>
+&PsiReference_Types_Details_integer;
 
 <section xml:id="PsiReference_Types_Details_iterable">
 <title><type>iterable</type></title>
@@ -444,28 +404,8 @@ XXX
 </formalpara>
 </section>
 
-<section xml:id="PsiReference_Types_Details_name">
-<title><type>name</type></title>
-<para>
-Тип имён.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstringlike"/>,
-</formalpara>
-</section>
-
-<section xml:id="PsiReference_Types_Details_null">
-<title><type>null</type></title>
-<para>
-Пустой тип.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
-</formalpara>
-</section>
+&PsiReference_Types_Details_name;
+&PsiReference_Types_Details_null;
 
 <section xml:id="PsiReference_Types_Details_numeric">
 <title><type>numeric</type></title>
@@ -482,29 +422,8 @@ XXX
 </formalpara>
 </section>
 
-<section xml:id="PsiReference_Types_Details_object">
-<title><type>object</type></title>
-<para>
-Базовый тип объекта в языке Ψ.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>.
-</formalpara>
-</section>
-
-<section xml:id="PsiReference_Types_Details_operator">
-<title><type>operator</type></title>
-<para>
-Оператор.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<!--xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/-->.
-</formalpara>
-</section>
+&PsiReference_Types_Details_object;
+&PsiReference_Types_Details_operator;
 
 <section xml:id="PsiReference_Types_Details_proc">
 <title><type>proc</type></title>
@@ -525,7 +444,6 @@ XXX
 </para>
 <formalpara>
 <title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
 </formalpara>
 </section>
@@ -535,6 +453,10 @@ XXX
 <para>
 XXX
 </para>
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
 </section>
 
 <section xml:id="PsiReference_Types_Details_reader">
@@ -550,21 +472,12 @@ XXX
 </formalpara>
 </section>
 
-<section xml:id="PsiReference_Types_Details_real">
-<title><type>real</type></title>
-<para>
-Вещественный тип.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>.
-</formalpara>
-</section>
+&PsiReference_Types_Details_real;
 
 <section xml:id="PsiReference_Types_Details_regexp">
 <title><type>regexp</type></title>
 <para>
-Шаблон резулярного выражения
+Шаблон регулярного выражения
 </para>
 <formalpara>
 <title>Наследует:</title>
@@ -608,16 +521,7 @@ XXX
 </formalpara>
 </section>
 
-<section xml:id="PsiReference_Types_Details_string">
-<title><type>string</type></title>
-<para>
-Строковый тип.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstring"/>.
-</formalpara>
-</section>
+&PsiReference_Types_Details_string;
 
 <section xml:id="PsiReference_Types_Details_stringlike">
 <title><type>stringlike</type></title>
