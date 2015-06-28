@@ -33,7 +33,11 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 
 <formalpara>
 <title>Пример:</title>
-<programlisting language="psi">true false and	▶ false
+<programlisting language="psi">false false and	▶ false
+false true and	▶ false
+true false and	▶ false
+true true and	▶ true
+
 12 6 and		▶ 4</programlisting>
 </formalpara>
 
