@@ -5,7 +5,7 @@
 <para>
 В языке Ψ имеется гибкая и расширяемая система типов. Типы реализованы как
 классы или интерфейсы языка Java. Каждый объект в Ψ представлен как объект
-некоторого класса, производного от <classname>PsiObject</classname>.
+некоторого класса, реализующий интерфейс <classname>PsiObject</classname>.
 </para>
 
 <para>
@@ -52,7 +52,7 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 <section xml:id="PsiReference_Types_Details">
 <title>Типы детально</title>
 
-<section xml:id="PsiReference_Types_Details_abstractarray">
+<!--section xml:id="PsiReference_Types_Details_abstractarray">
 <title><type>abstractarray</type></title>
 <para>
 Тип абстрактных массивов, проиндексированных целыми неотрицательными числами
@@ -63,21 +63,21 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
 </formalpara>
-</section>
+</section-->
 
-<section xml:id="PsiReference_Types_Details_abstractdictionary">
+<!--section xml:id="PsiReference_Types_Details_abstractdictionary">
 <title><type>abstractdictionary</type></title>
 <para>
 Тип абстрактных словарей.
 </para>
 <formalpara>
 <title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
 </formalpara>
-</section>
+</section-->
 
-<section xml:id="PsiReference_Types_Details_abstractset">
+<!--section xml:id="PsiReference_Types_Details_abstractset">
 <title><type>abstractset</type></title>
 <para>
 Тип абстрактного множества.
@@ -87,9 +87,9 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>.
 </formalpara>
-</section>
+</section-->
 
-<section xml:id="PsiReference_Types_Details_abstractstring">
+<!--section xml:id="PsiReference_Types_Details_abstractstring">
 <title><type>abstractstring</type></title>
 <para>
 Тип абстрактных строк, проиндексированных целыми неотрицательными числами
@@ -101,9 +101,9 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>.
 </formalpara>
-</section>
+</section-->
 
-<section xml:id="PsiReference_Types_Details_abstractstringlike">
+<!--section xml:id="PsiReference_Types_Details_abstractstringlike">
 <title><type>abstractstringlike</type></title>
 <para>
 Тип абстрактных строкоподобных величин.
@@ -113,7 +113,7 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>.
 </formalpara>
-</section>
+</section-->
 
 &PsiReference_Types_Details_appendable;
 &PsiReference_Types_Details_arithmetic;
@@ -185,27 +185,8 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_dict;
 &PsiReference_Types_Details_dictlike;
 &PsiReference_Types_Details_evaluable;
-
-<section xml:id="PsiReference_Types_Details_filereader">
-<title><type>filereader</type></title>
-<para>
-Файловый читатель.
-</para>
-<formalpara>
-<title>Наследует:</title>
-</formalpara>
-</section>
-
-<section xml:id="PsiReference_Types_Details_filewriter">
-<title><type>filewriter</type></title>
-<para>
-Файловый писатель.
-</para>
-<formalpara>
-<title>Наследует:</title>
-</formalpara>
-</section>
-
+&PsiReference_Types_Details_filereader;
+&PsiReference_Types_Details_filewriter;
 &PsiReference_Types_Details_flushable;
 &PsiReference_Types_Details_indexed;
 &PsiReference_Types_Details_integer;
