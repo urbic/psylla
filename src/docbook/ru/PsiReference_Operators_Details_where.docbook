@@ -18,7 +18,7 @@
 </listitem>
 <listitem>
 <replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictionarylike"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
 </listitem>
 <listitem>
 <constant>false</constant>,

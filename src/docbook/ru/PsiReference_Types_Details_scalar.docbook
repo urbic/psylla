@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_scalar">
+<title><type>scalar</type></title>
+
+<para>
+Базовый тип для упорядоченных типов, для которых определены операторы сравнения.
+</para>
+
+</section>

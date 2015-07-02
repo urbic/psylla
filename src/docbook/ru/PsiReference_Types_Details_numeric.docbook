@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_numeric">
+<title><type>numeric</type></title>
+
+<para>
+Базовый тип для целых или вещественных чисел.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletointeger"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoreal"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
+</formalpara>
+
+</section>
