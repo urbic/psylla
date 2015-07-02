@@ -786,6 +786,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_reset" xrefstyle="template:%t"/></term>
+<listitem>переустановка читателя</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_say" xrefstyle="template:%t"/></term>
 <listitem>вывод строкового объекта и символа конца строки в вывод или писатель со сбросом</listitem>
 </varlistentry>
@@ -1371,6 +1376,7 @@
 &PsiReference_Operators_Details_renamefile;
 &PsiReference_Operators_Details_repeat;
 &PsiReference_Operators_Details_replicate;
+&PsiReference_Operators_Details_reset;
 &PsiReference_Operators_Details_retainall;
 &PsiReference_Operators_Details_reverse;
 &PsiReference_Operators_Details_roll;
