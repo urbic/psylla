@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_filewriter">
+<title><type>filewriter</type></title>
+
+<para>
+Файловый писатель.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+
+</section>
