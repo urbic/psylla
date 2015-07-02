@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_iterable">
+<title><type>iterable</type></title>
+
+<para>
+Тип контейнеров с итератором элементов.
+</para>
+
+</section>

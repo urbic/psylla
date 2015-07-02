@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_atomic">
+<title><type>atomic</type></title>
+
+<para>
+Базовый тип атомарных объектов.
+</para>
+
+</section>

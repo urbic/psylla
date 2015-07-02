@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_stringwriter">
+<title><type>stringwriter</type></title>
+
+<para>
+Строковый писатель.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+</formalpara>
+
+</section>
