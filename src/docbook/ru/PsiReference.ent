@@ -201,6 +201,7 @@
 <!ENTITY PsiReference_Operators_Details_renamefile		SYSTEM "PsiReference_Operators_Details_renamefile.docbook">
 <!ENTITY PsiReference_Operators_Details_repeat			SYSTEM "PsiReference_Operators_Details_repeat.docbook">
 <!ENTITY PsiReference_Operators_Details_replicate		SYSTEM "PsiReference_Operators_Details_replicate.docbook">
+<!ENTITY PsiReference_Operators_Details_reset			SYSTEM "PsiReference_Operators_Details_reset.docbook">
 <!ENTITY PsiReference_Operators_Details_retainall		SYSTEM "PsiReference_Operators_Details_retainall.docbook">
 <!ENTITY PsiReference_Operators_Details_reverse			SYSTEM "PsiReference_Operators_Details_reverse.docbook">
 <!ENTITY PsiReference_Operators_Details_roll			SYSTEM "PsiReference_Operators_Details_roll.docbook">

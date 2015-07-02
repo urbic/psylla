@@ -3,9 +3,10 @@ package coneforest.psi;
 public class PsiReader
 	extends PsiAbstractObject
 	implements
-		PsiReadable,
 		PsiCloseable,
-		PsiEvaluable
+		PsiEvaluable,
+		PsiReadable,
+		PsiResettable
 {
 	public PsiReader()
 	{
@@ -153,6 +154,20 @@ public class PsiReader
 		try
 		{
 			reader.close();
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	@Override
+	public void psiReset()
+		throws PsiException
+	{
+		try
+		{
+			reader.reset();
 		}
 		catch(java.io.IOException e)
 		{

@@ -162,6 +162,7 @@ public class PsiSystemDict
 					_replicate.class,
 					_retainall.class,
 					_reverse.class,
+					_reset.class,
 					_roll.class,
 					_round.class,
 					_say.class,
