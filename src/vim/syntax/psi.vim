@@ -16,11 +16,12 @@ syn keyword psiTodo contained  XXX
 syn match psiComment		"#.*$" contains=psiTodo,@Spell extend
 syn match psiSharpBang		"^#!.*"
 syn match psiInteger		"[+-]\=\d\+"
+syn match psiHexInteger		"[+-]\=0x\x\+"
 syn match psiReal			"[+-]\=\d\+\."
 syn match psiReal			"[+-]\=\d\+\.\d*\([Ee][+-]\=\d\+\)\=\>"
 syn match psiReal			"[+-]\=\.\d\+\([Ee][+-]\=\d\+\)\=\>"
 syn match psiReal			"[+-]\=\d\+[Ee][+-]\=\d\+\>"
-syn cluster psiNumeric		contains=psiInteger,psiReal
+syn cluster psiNumeric		contains=psiInteger,psiHexInteger,psiReal
 syn region psiComment		start="/#" end="#/" contains=psiTodo
 
 
@@ -51,6 +52,7 @@ hi link psiString			Constant
 hi link psiRegExp			Constant
 hi link psiComment			Comment
 hi link psiInteger			Number
+hi link psiHexInteger		Number
 hi link psiReal				Number
 hi link psiNameExecutable	Identifier
 hi link psiNameLiteral		Constant
