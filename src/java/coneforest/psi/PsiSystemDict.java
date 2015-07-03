@@ -204,6 +204,7 @@ public class PsiSystemDict
 					_unite.class,
 					_values.class,
 					_wait.class,
+					_warn.class,
 					_where.class,
 					_write.class,
 					_writestring.class,
