@@ -1,0 +1,49 @@
+#!/usr/bin/psyche
+
+/wc
+{
+	dict begin
+		/filename exch def
+
+		/f filename filereader def
+
+		/lines 0 def
+		/words 0 def
+		/chars 0 def
+
+		/flag false def
+
+		{
+			f read
+			{
+				/c exch def
+				/chars chars 1 add def
+				c 10 eq { /lines lines 1 add def } if
+				( 9 10 12 13 32 0xA0 ) c contains
+				{
+					flag { /words words 1 add def } if
+					/flag false def
+				}
+				{ /flag true def }
+				ifelse
+			}
+			{ exit }
+			ifelse
+		}
+		loop
+
+		f close
+		filename print ":\t" print
+		lines tostring print "\t" print
+		words tostring print "\t" print
+		chars tostring print "\n" print
+		stdout flush
+	end
+}
+bind def
+
+arguments
+{
+	{ wc } stopped { warn ": Can not open\n" warn } if
+}
+bind forall
