@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _warn extends PsiOperator
+public class _die extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
@@ -11,5 +11,6 @@ public class _warn extends PsiOperator
 		final PsiWriter stderror=(PsiWriter)interpreter.getDictStack().load("stderr");
 		stderror.psiWriteString((PsiStringlike)opstack.popOperands(1)[0]);
 		stderror.psiFlush();
+		interpreter.quit();
 	}
 }
