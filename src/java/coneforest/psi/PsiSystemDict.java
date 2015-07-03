@@ -63,6 +63,7 @@ public class PsiSystemDict
 					_deleteinterval.class,
 					_dict.class,
 					_dicttomark.class,
+					_die.class,
 					_div.class,
 					_dup.class,
 					_editline.class,
