@@ -786,6 +786,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_ready" xrefstyle="template:%t"/></term>
+<listitem>проверка доступности символа в читателе</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_reset" xrefstyle="template:%t"/></term>
 <listitem>переустановка читателя</listitem>
 </varlistentry>
@@ -1375,6 +1380,7 @@
 &PsiReference_Operators_Details_readline;
 &PsiReference_Operators_Details_readlink;
 &PsiReference_Operators_Details_readstring;
+&PsiReference_Operators_Details_ready;
 &PsiReference_Operators_Details_regexp;
 &PsiReference_Operators_Details_remove;
 &PsiReference_Operators_Details_removeall;

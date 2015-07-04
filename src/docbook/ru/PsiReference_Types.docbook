@@ -207,6 +207,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_reader;
 &PsiReference_Types_Details_real;
 &PsiReference_Types_Details_regexp;
+&PsiReference_Types_Details_resettable;
 &PsiReference_Types_Details_scalar;
 &PsiReference_Types_Details_set;
 &PsiReference_Types_Details_setlike;
