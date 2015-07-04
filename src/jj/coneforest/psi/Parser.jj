@@ -56,6 +56,11 @@ TOKEN:
 
 TOKEN:
 {
+	<TOKEN_CHAR: "`" (~["\\"] | <TOKEN_STRING_SPECIAL>)>
+}
+
+TOKEN:
+{
 	<#TOKEN_REAL_UNSIGNED:
 		(
 			<TOKEN_INTEGER_UNSIGNED> ("." (<TOKEN_DIGIT>)*)?
