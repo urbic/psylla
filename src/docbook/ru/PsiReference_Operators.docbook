@@ -806,6 +806,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_warn" xrefstyle="template:%t"/></term>
+<listitem>вывод строки в стандартный вывод сообщений об ошибках со сбросом</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_write" xrefstyle="template:%t"/></term>
 <listitem>вывод символа в вывод или писатель</listitem>
 </varlistentry>
@@ -1420,6 +1425,7 @@
 &PsiReference_Operators_Details_userdict;
 &PsiReference_Operators_Details_values;
 &PsiReference_Operators_Details_wait;
+&PsiReference_Operators_Details_warn;
 &PsiReference_Operators_Details_where;
 &PsiReference_Operators_Details_write;
 &PsiReference_Operators_Details_writestring;

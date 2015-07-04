@@ -245,6 +245,7 @@
 <!ENTITY PsiReference_Operators_Details_userdict		SYSTEM "PsiReference_Operators_Details_userdict.docbook">
 <!ENTITY PsiReference_Operators_Details_values			SYSTEM "PsiReference_Operators_Details_values.docbook">
 <!ENTITY PsiReference_Operators_Details_wait			SYSTEM "PsiReference_Operators_Details_wait.docbook">
+<!ENTITY PsiReference_Operators_Details_warn			SYSTEM "PsiReference_Operators_Details_warn.docbook">
 <!ENTITY PsiReference_Operators_Details_where			SYSTEM "PsiReference_Operators_Details_where.docbook">
 <!ENTITY PsiReference_Operators_Details_write			SYSTEM "PsiReference_Operators_Details_write.docbook">
 <!ENTITY PsiReference_Operators_Details_writestring		SYSTEM "PsiReference_Operators_Details_writestring.docbook">

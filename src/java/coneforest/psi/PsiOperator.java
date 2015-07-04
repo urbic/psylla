@@ -25,8 +25,8 @@ public abstract class PsiOperator
 	}
 
 	/**
-	 *	Invoke this object in the context of the interpreter performing an
-	 *	action associated with it.
+	 *	Invoke this object in the context of the interpreter performing
+	 *	an action associated with it.
 	 */
 	public void invoke(Interpreter interpreter)
 	{
