@@ -26,10 +26,7 @@ public class PsiReader
 	public void eval(Interpreter interpreter)
 		throws PsiException
 	{
-		// TODO: replace to psiToProcedure?
-		//interpreter.interpretBraced(this);
 		interpreter.interpret(this);
-		interpreter.getOperandStack().pop().invoke(interpreter);
 	}
 
 	@Override
