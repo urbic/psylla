@@ -131,7 +131,10 @@ public class Interpreter
 		{
 			while(running)
 			{
-				processToken(parser.getNextToken());
+				Token token=parser.getNextToken();
+				if(token.kind==ParserConstants.EOF)
+					break;
+				processToken(token);
 				if(getStopFlag())
 					(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
 			}
@@ -144,7 +147,6 @@ public class Interpreter
 		}
 		catch(TokenMgrError e)
 		{
-			System.out.println("TOKENMGR ERROR");
 			handleError("syntaxerror", reader);
 			if(getStopFlag())
 				(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
@@ -190,9 +192,9 @@ public class Interpreter
 					break;
 				case ParserConstants.TOKEN_CLOSE_BRACE:
 					throw new PsiException("syntaxerror");
-				case ParserConstants.EOF:
-					quit();
-					break;
+				//case ParserConstants.EOF:
+				//	quit();
+				//	break;
 			}
 		}
 		else
