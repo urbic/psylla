@@ -837,6 +837,7 @@ linkend="PsiReference_Errors_Details_stackunderflow"/>. Подробное оп�
 <nonterminal def="#PsiReference_Language_Grammar_Integer">INTEGER</nonterminal>
 | <nonterminal def="#PsiReference_Language_Grammar_IntegerHexadecimal">INTEGER_HEXADECIMAL</nonterminal>
 | <nonterminal def="#PsiReference_Language_Grammar_IntegerBinary">INTEGER_BINARY</nonterminal>
+| <nonterminal def="#PsiReference_Language_Grammar_Char">CHAR</nonterminal>
 | <nonterminal def="#PsiReference_Language_Grammar_Real">REAL</nonterminal>
 | <nonterminal def="#PsiReference_Language_Grammar_String">STRING</nonterminal>
 | <nonterminal def="#PsiReference_Language_Grammar_RegExp">REGEXP</nonterminal>
@@ -900,6 +901,15 @@ linkend="PsiReference_Errors_Details_stackunderflow"/>. Подробное оп�
 <constant>"0"</constant>
 [<constant>"B"</constant>, <constant>"b"</constant>]
 [<constant>"0"</constant>, <constant>"1"</constant>]+
+</rhs>
+</production>
+
+<production xml:id="PsiReference_Language_Grammar_Char">
+<lhs>CHAR</lhs>
+<rhs>
+<constant>"`"</constant>
+(~[<constant>"\\"</constant>]
+| <nonterminal def="PsiReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>)
 </rhs>
 </production>
 
