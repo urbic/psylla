@@ -2,7 +2,13 @@
 
 /gcd
 {
-	2 copy lt { exch gcd } if
+	2 copy lt { exch } if
+	dup iszero { pop }
+	{
+		dup 3 1 roll
+		sub gcd
+	}
+	ifelse
 }
 bind def
 
