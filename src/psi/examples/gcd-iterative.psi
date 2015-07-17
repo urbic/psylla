@@ -2,13 +2,12 @@
 
 /gcd
 {
-	2 copy lt { exch } if
-	dup iszero { pop }
 	{
-		dup 3 1 roll
-		mod gcd
+		2 copy lt { exch } if
+		dup iszero { pop exit } if
+		dup 3 1 roll mod
 	}
-	ifelse
+	loop
 }
 bind def
 
