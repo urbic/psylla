@@ -661,6 +661,7 @@ public class Interpreter
 	public void quit()
 	{
 		running=false;
+		stopFlag=true;
 		execstack.clear();
 	}
 
