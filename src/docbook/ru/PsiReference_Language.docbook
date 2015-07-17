@@ -650,9 +650,192 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <title>Регулярные выражения</title>
 
 <para>
-<firstterm>Регулярные выражения</firstterm><indexterm><primary>регулярное
+<firstterm>Регулярное выражение</firstterm><indexterm><primary>регулярное
 выражение</primary></indexterm> представляет шаблон поиска в строке.
 </para>
+
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs">
+<title>Конструкции в регулярных выражениях</title>
+
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Characters">
+<title>Символы</title>
+
+<informaltable pgwide="1">
+<tgroup cols="2">
+<colspec colwidth="1*"/>
+<colspec colwidth="3*"/>
+<tbody>
+<row>
+<entry><literal><replaceable>X</replaceable></literal></entry>
+<entry>символ <replaceable>X</replaceable></entry>
+</row>
+<row>
+<entry><literal>\\</literal></entry>
+<entry>символ бэкслэш (<constant>U+5C</constant>)</entry>
+</row>
+<row>
+<entry><literal>\u<replaceable>HHHH</replaceable></literal></entry>
+<entry>символ с шестнадцатеричным значением <replaceable>HHHH</replaceable></entry>
+</row>
+<row>
+<entry><literal>\x<replaceable>H…H</replaceable></literal></entry>
+<entry>символ с шестнадцатеричным значением <replaceable>H…H</replaceable></entry>
+</row>
+<row>
+<entry><literal>\t</literal></entry>
+<entry>символ табуляции (<constant>U+9</constant>)</entry>
+</row>
+<row>
+<entry><literal>\n</literal></entry>
+<entry>символ конца строки (<constant>U+A</constant>)</entry>
+</row>
+<row>
+<entry><literal>\r</literal></entry>
+<entry>символ возврата каретки (<constant>U+D</constant>)</entry>
+</row>
+<row>
+<entry><literal>\f</literal></entry>
+<entry>символ конца страницы (<constant>U+C</constant>)</entry>
+</row>
+<row>
+<entry><literal>\a</literal></entry>
+<entry>символ гудка (<constant>U+7</constant>)</entry>
+</row>
+<row>
+<entry><literal>\e</literal></entry>
+<entry>символ escape (<constant>U+1B</constant>)</entry>
+</row>
+<row>
+<entry><literal>\c<replaceable>X</replaceable></literal></entry>
+<entry>управляющий символ, соответствующий <replaceable>X</replaceable></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</section>
+
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_CharacterClasses">
+<title>Символьные классы</title>
+
+<informaltable pgwide="1">
+<tgroup cols="2">
+<colspec colwidth="1*"/>
+<colspec colwidth="3*"/>
+<tbody>
+<row>
+<entry><literal>[abc]</literal></entry>
+<entry><literal>a</literal>, <literal>b</literal> или <literal>c</literal></entry>
+</row>
+<row>
+<entry><literal>[^abc]</literal></entry>
+<entry>любой символ, кроме <literal>a</literal>, <literal>b</literal> и <literal>c</literal></entry>
+</row>
+<row>
+<entry><literal>[A-Za-z]</literal></entry>
+<entry>символы от <literal>A</literal> до <literal>Z</literal> или
+от <literal>a</literal> до <literal>z</literal> (включительно)</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</section>
+
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_PredefinedCharacterClasses">
+<title>Предопределённые символьные классы</title>
+
+<informaltable pgwide="1">
+<tgroup cols="2">
+<colspec colwidth="1*"/>
+<colspec colwidth="3*"/>
+<tbody>
+<row>
+<entry><literal>.</literal></entry>
+<entry>любой символ</entry>
+</row>
+<row>
+<entry><literal>\d</literal></entry>
+<entry>десятичная цифра, <literal>[0-9]</literal></entry>
+</row>
+<row>
+<entry><literal>\D</literal></entry>
+<entry>не десятичная цифра, <literal>[^0-9]</literal></entry>
+</row>
+<row>
+<entry><literal>\s</literal></entry>
+<entry>пробельный символ, <literal>[ \t\n\r\f\x{0B}]</literal></entry>
+</row>
+<row>
+<entry><literal>\S</literal></entry>
+<entry>непробельный символ, <literal>[^ \t\n\r\f\x{0B}]</literal></entry>
+</row>
+<row>
+<entry><literal>\w</literal></entry>
+<entry>словный символ, <literal>[A-Za-z_\d]</literal></entry>
+</row>
+<row>
+<entry><literal>\W</literal></entry>
+<entry>не словный символ, <literal>[^A-Za-z_\d]</literal></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</section>
+
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_POSIXCharacterClasses">
+<title>Символьные классы POSIX</title>
+
+</section>
+
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Boundaries">
+<title>Граничные привязки</title>
+
+<informaltable pgwide="1">
+<tgroup cols="2">
+<colspec colwidth="1*"/>
+<colspec colwidth="3*"/>
+<tbody>
+<row>
+<entry><literal>^</literal></entry>
+<entry>начало строки</entry>
+</row>
+<row>
+<entry><literal>$</literal></entry>
+<entry>конец строки</entry>
+</row>
+<row>
+<entry><literal>\b</literal></entry>
+<entry>граница слова</entry>
+</row>
+<row>
+<entry><literal>\B</literal></entry>
+<entry>не граница слова</entry>
+</row>
+<row>
+<entry><literal>\A</literal></entry>
+<entry>начало входа</entry>
+</row>
+<row>
+<entry><literal>\G</literal></entry>
+<entry>конец последнего совпадения</entry>
+</row>
+<row>
+<entry><literal>\Z</literal></entry>
+<entry>TODO</entry>
+</row>
+<row>
+<entry><literal>\z</literal></entry>
+<entry>TODO</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</section>
+
+</section>
 
 </section>
 
