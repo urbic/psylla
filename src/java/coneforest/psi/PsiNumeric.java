@@ -211,9 +211,4 @@ abstract public class PsiNumeric
 	{
 		return PsiBoolean.valueOf(doubleValue()>=numeric.doubleValue());
 	}
-
-	static
-	{
-		TypeRegistry.put("numeric", PsiNumeric.class);
-	}
 }

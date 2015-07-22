@@ -21,9 +21,4 @@ public class PsiFileReader
 	{
 		this(name.getString());
 	}
-
-	static
-	{
-		TypeRegistry.put("filereader", PsiFileReader.class);
-	}
 }

@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-public class PsiStringReader extends PsiReader
+public class PsiStringReader
+	extends PsiReader
 {
 	public PsiStringReader(String stringValue)
 	{
@@ -16,10 +17,5 @@ public class PsiStringReader extends PsiReader
 	public String getTypeName()
 	{
 		return "stringreader";
-	}
-
-	static
-	{
-		TypeRegistry.put("stringreader", PsiStringReader.class);
 	}
 }

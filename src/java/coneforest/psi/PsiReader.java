@@ -173,9 +173,4 @@ public class PsiReader
 	}
 
 	private java.io.Reader reader;
-
-	static
-	{
-		TypeRegistry.put("reader", PsiReader.class);
-	}
 }
