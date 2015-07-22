@@ -10,7 +10,7 @@ public class _forall extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiIterable iterable=(PsiIterable)ops[0];
-		final PsiProcedure proc=(PsiProcedure)ops[1];
+		final PsiObject proc=ops[1];
 
 		if(iterable instanceof PsiDictlike)
 		{

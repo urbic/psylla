@@ -10,7 +10,7 @@ public class _repeat extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiInteger count=(PsiInteger)ops[0];
-		final PsiProcedure proc=(PsiProcedure)ops[1];
+		final PsiObject proc=ops[1];
 
 		long countValue=count.longValue();
 		if(countValue<0)
