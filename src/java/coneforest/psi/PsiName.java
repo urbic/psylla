@@ -11,9 +11,9 @@ public class PsiName
 	 *
 	 *	@param name a name.
 	 */
-	public PsiName(String name)
+	public PsiName(CharSequence cs)
 	{
-		this.name=name;
+		name=cs.toString();
 	}
 
 	/**
@@ -75,6 +75,18 @@ public class PsiName
 	public PsiBoolean psiIsEmpty()
 	{
 		return PsiBoolean.valueOf(name.length()==0);
+	}
+
+	@Override
+	public PsiName psiUpperCase()
+	{
+		return new PsiName(name.toUpperCase());
+	}
+
+	@Override
+	public PsiName psiLowerCase()
+	{
+		return new PsiName(name.toLowerCase());
 	}
 
 	/**

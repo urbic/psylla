@@ -10,4 +10,8 @@ public interface PsiStringlike
 		PsiConvertableToReal
 {
 	public String getString();
+
+	public PsiStringlike psiUpperCase();
+	
+	public PsiStringlike psiLowerCase();
 }
