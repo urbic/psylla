@@ -284,6 +284,18 @@ public class PsiString
 	}
 
 	@Override
+	public PsiString psiUpperCase()
+	{
+		return new PsiString(buffer.toString().toUpperCase());
+	}
+
+	@Override
+	public PsiString psiLowerCase()
+	{
+		return new PsiString(buffer.toString().toLowerCase());
+	}
+
+	@Override
 	public int length()
 	{
 		return buffer.length();
