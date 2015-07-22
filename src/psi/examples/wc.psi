@@ -33,10 +33,10 @@
 		loop
 
 		f close
-		filename print ":\t" print
-		lines tostring print "\t" print
-		words tostring print "\t" print
-		chars tostring print "\n" print
+		filename print ':\t' print
+		lines tostring print '\t' print
+		words tostring print '\t' print
+		chars tostring print '\n' print
 		stdout flush
 	end
 }
@@ -44,6 +44,7 @@ bind def
 
 arguments
 {
-	{ wc } stopped { warn ": Can not open\n" warn } if
+	dup { wc } stopped
+	{ 'Can not open file “' warn warn '”!\n' warn } { pop } ifelse
 }
 bind forall

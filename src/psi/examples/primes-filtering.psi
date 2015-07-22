@@ -8,10 +8,9 @@
 		{
 			/n n 1 add def n
 		}
-		bind
 	>
 }
-def
+bind def
 
 /filter
 {
@@ -21,14 +20,13 @@ def
 		/next
 		{
 			source begin next end
-			dup p mod 0 eq
+			dup p mod iszero
 			{
 				pop
 				source begin next end
 			}
 			if
 		}
-		bind
 	>
 }
 bind def

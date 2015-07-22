@@ -3,22 +3,22 @@
 /power
 {
 	dict begin
-	/n exch def
-	/x exch def
-	/p 1 def
-	{
-		n 0 eq { exit } if
-		n 2 mod 0 ne
+		/n exch def
+		/x exch def
+		/p 1 def
 		{
-			/p p x mul def
-			/n n 1 sub def
+			n iszero { exit } if
+			n 2 mod 0 ne
+			{
+				/p p x mul def
+				/n n 1 sub def
+			}
+			if
+			/n n 2 idiv def
+			/x x dup mul def
 		}
-		if
-		/n n 2 idiv def
-		/x x dup mul def
-	}
-	loop
-	p
+		loop
+		p
 	end
 }
 bind def

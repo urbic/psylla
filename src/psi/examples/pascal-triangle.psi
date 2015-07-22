@@ -9,7 +9,7 @@
 	{
 		dup
 		a exch get tostring print
-		a length 1 sub ne "\t" "\n" ifelse print
+		a length 1 sub ne '\t' '\n' ifelse print
 	}
 	for
 	a 0 0 insert

@@ -16,113 +16,118 @@ SKIP:
 
 TOKEN:
 {
-	<#TOKEN_DIGIT: ["0"-"9"]>
+	<#DIGIT: ["0"-"9"]>
 }
 
 TOKEN:
 {
-	<#TOKEN_HEXDIGIT: <TOKEN_DIGIT> | ["A"-"F", "a"-"f"]>
+	<#HEXDIGIT: <DIGIT> | ["A"-"F", "a"-"f"]>
 }
 
 TOKEN:
 {
-	<#TOKEN_LETTER: ["A"-"Z", "a"-"z"]>
+	<#LETTER: ["A"-"Z", "a"-"z"]>
 }
 
 TOKEN:
 {
-	<#TOKEN_SIGN: ["-", "+"]>
+	<#SIGN: ["-", "+"]>
 }
 
 TOKEN:
 {
-	<#TOKEN_INTEGER_UNSIGNED: (<TOKEN_DIGIT>)+>
+	<#INTEGER_UNSIGNED: (<DIGIT>)+>
 }
 
 TOKEN:
 {
-	<TOKEN_INTEGER: (<TOKEN_SIGN>)? <TOKEN_INTEGER_UNSIGNED>>
+	<INTEGER: (<SIGN>)? <INTEGER_UNSIGNED>>
 }
 
 TOKEN:
 {
-	<TOKEN_INTEGER_HEXADECIMAL: (<TOKEN_SIGN>)? "0" ["X", "x"] (<TOKEN_HEXDIGIT>)+>
+	<INTEGER_HEXADECIMAL: (<SIGN>)? "0" ["X", "x"] (<HEXDIGIT>)+>
 }
 
 TOKEN:
 {
-	<TOKEN_INTEGER_BINARY: (<TOKEN_SIGN>)? "0" ["B", "b"] (["0", "1"])+>
+	<INTEGER_BINARY: (<SIGN>)? "0" ["B", "b"] (["0", "1"])+>
 }
 
 TOKEN:
 {
-	<TOKEN_CHAR: "`" (~["\\"] | <TOKEN_STRING_SPECIAL>)>
+	<CHAR: "`" (~["\\"] | <STRING_SPECIAL>)>
 }
 
 TOKEN:
 {
-	<#TOKEN_REAL_UNSIGNED:
+	<#REAL_UNSIGNED:
 		(
-			<TOKEN_INTEGER_UNSIGNED> ("." (<TOKEN_DIGIT>)*)?
+			<INTEGER_UNSIGNED> ("." (<DIGIT>)*)?
 			|
-			"." <TOKEN_INTEGER_UNSIGNED>
+			"." <INTEGER_UNSIGNED>
 		)
-		(<TOKEN_EXPONENT>)?
+		(<EXPONENT>)?
 	>
 }
 
 TOKEN:
 {
-	<TOKEN_REAL: (<TOKEN_SIGN>)? <TOKEN_REAL_UNSIGNED>>
+	<REAL: (<SIGN>)? <REAL_UNSIGNED>>
 }
 
 /*
 TOKEN:
 {
-	<TOKEN_COMPLEX:
+	<COMPLEX:
 		"%C%"
-		(<TOKEN_INTEGER>|<TOKEN_REAL>)
+		(<INTEGER>|<REAL>)
 		":"
-		(<TOKEN_INTEGER>|<TOKEN_REAL>)
+		(<INTEGER>|<REAL>)
 	>
 }
 */
 
 TOKEN:
 {
-	<#TOKEN_EXPONENT: ["E", "e"] <TOKEN_INTEGER>>
+	<#EXPONENT: ["E", "e"] <INTEGER>>
 }
 
 TOKEN:
 {
-	<TOKEN_COMMENT: <TOKEN_COMMENT_ONELINE> | <TOKEN_COMMENT_MULTILINE>>
+	<COMMENT: <COMMENT_ONELINE> | <COMMENT_MULTILINE>>
 }
 
 TOKEN:
 {
-	<#TOKEN_COMMENT_ONELINE: "#" (~["\n"])* "\n">
+	<#COMMENT_ONELINE: "#" (~["\n"])* "\n">
 }
 
 TOKEN:
 {
-	<#TOKEN_COMMENT_MULTILINE: "/#" (~["/"] | ("/" ~["#"]))* "#/">
+	<#COMMENT_MULTILINE: "/#" (~["/"] | ("/" ~["#"]))* "#/">
 }
 
 TOKEN:
 {
-	<TOKEN_STRING: "\"" (<TOKEN_STRING_SPECIAL> | ~["\"", "\\"])* "\"">
+	<STRING: "\"" (<STRING_SPECIAL> | "\\\"" | ~["\"", "\\"])* "\"">
 }
 
 TOKEN:
 {
-	<#TOKEN_STRING_SPECIAL:
+	<NAME_QUOTED: "'" (<STRING_SPECIAL> | "\\'" | ~["'", "\\"])* "'">
+}
+
+TOKEN:
+{
+	<#STRING_SPECIAL:
 		"\\"
 		(
-			["0", "a", "n", "t", "f", "\"", "\\", "e", "r", "\n"]
+			["0", "a", "n", "t", "f", "\\", "e", "r", "\n"]
 			|
-			"u" <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT> <TOKEN_HEXDIGIT>
+			"u" <HEXDIGIT> <HEXDIGIT> <HEXDIGIT> <HEXDIGIT>
 			|
-			"x{" (<TOKEN_HEXDIGIT>)+ "}"
+			"x{" (<HEXDIGIT>)+ "}"
 			|
 			"c" ["\u0000"-"\u00FF"]
 		)
@@ -131,12 +136,12 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_REGEXP:
+	<REGEXP:
 		"@"
 		(
-			<TOKEN_STRING_SPECIAL>
+			<STRING_SPECIAL>
 			|
-			<TOKEN_REGEXP_SPECIAL>
+			<REGEXP_SPECIAL>
 			|
 			~["@", "\\"]
 		)*
@@ -146,7 +151,7 @@ TOKEN:
 
 TOKEN:
 {
-	<#TOKEN_REGEXP_SPECIAL:
+	<#REGEXP_SPECIAL:
 		"\\"
 		(
 			//["d", "D", "s", "S", "w", "W", "b", "B", "A", "G", "z", "Z", "p", "k", "Q", "E", "!"]
@@ -155,26 +160,26 @@ TOKEN:
 			//"!"
 			~[]
 			//|
-			//(<TOKEN_DIGIT>)+
+			//(<DIGIT>)+
 		)
 	>
 }
 
 TOKEN:
 {
-	<TOKEN_NAME: "/" <TOKEN_COMMAND>>
+	<NAME_SLASHED: "/" <COMMAND>>
 }
 
 TOKEN:
 {
-	<TOKEN_IMMEDIATE: "/" <TOKEN_NAME>>
+	<IMMEDIATE: "/" <NAME_SLASHED>>
 }
 
 TOKEN:
 {
-	<TOKEN_COMMAND:
-		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR>)
-		(<TOKEN_LETTER> | <TOKEN_NAME_SPECIAL_CHAR> | <TOKEN_DIGIT>)*
+	<COMMAND:
+		(<LETTER> | <NAME_SPECIAL_CHAR>)
+		(<LETTER> | <NAME_SPECIAL_CHAR> | <DIGIT>)*
 		|
 		["[", "]", "(", ")", "<", ">", "=", "?"]
 	>
@@ -182,15 +187,15 @@ TOKEN:
 
 TOKEN:
 {
-	<TOKEN_OPEN_BRACE: "{">
+	<OPEN_BRACE: "{">
 }
 
 TOKEN:
 {
-	<TOKEN_CLOSE_BRACE: "}">
+	<CLOSE_BRACE: "}">
 }
 
 TOKEN:
 {
-	<#TOKEN_NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$"]>
+	<#NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$"]>
 }

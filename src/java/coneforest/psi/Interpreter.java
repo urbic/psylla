@@ -21,6 +21,9 @@ public class Interpreter
 		procstack=new ProcedureStack();
 		this.dictstack=(DictStack)dictstack.clone();
 		pushStopLevel();
+
+		//typeRegistry.load(Interpreter.class.getResourceAsStream("TypeRegistry.properties"));
+		//TypeRegistry("object");
 	}
 
 	/**
@@ -173,25 +176,26 @@ public class Interpreter
 		{
 			switch(token.kind)
 			{
-				case ParserConstants.TOKEN_COMMAND:
+				case ParserConstants.COMMAND:
 					(newPsiObject(token)).execute(this);
 					handleExecutionStack(0);
 					break;
-				case ParserConstants.TOKEN_INTEGER:
-				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
-				case ParserConstants.TOKEN_INTEGER_BINARY:
-				case ParserConstants.TOKEN_REAL:
-				case ParserConstants.TOKEN_STRING:
-				case ParserConstants.TOKEN_NAME:
-				case ParserConstants.TOKEN_IMMEDIATE:
-				case ParserConstants.TOKEN_REGEXP:
-				case ParserConstants.TOKEN_CHAR:
+				case ParserConstants.INTEGER:
+				case ParserConstants.INTEGER_HEXADECIMAL:
+				case ParserConstants.INTEGER_BINARY:
+				case ParserConstants.REAL:
+				case ParserConstants.STRING:
+				case ParserConstants.NAME_SLASHED:
+				case ParserConstants.NAME_QUOTED:
+				case ParserConstants.IMMEDIATE:
+				case ParserConstants.REGEXP:
+				case ParserConstants.CHAR:
 					opstack.push(newPsiObject(token));
 					break;
-				case ParserConstants.TOKEN_OPEN_BRACE:
+				case ParserConstants.OPEN_BRACE:
 					procstack.push(new PsiProcedure());
 					break;
-				case ParserConstants.TOKEN_CLOSE_BRACE:
+				case ParserConstants.CLOSE_BRACE:
 					throw new PsiException("syntaxerror");
 				//case ParserConstants.EOF:
 				//	quit();
@@ -202,10 +206,10 @@ public class Interpreter
 		{
 			switch(token.kind)
 			{
-				case ParserConstants.TOKEN_OPEN_BRACE:
+				case ParserConstants.OPEN_BRACE:
 					procstack.push(new PsiProcedure());
 					break;
-				case ParserConstants.TOKEN_CLOSE_BRACE:
+				case ParserConstants.CLOSE_BRACE:
 					{
 						final PsiArray proc=procstack.pop();
 						if(procstack.size()>0)
@@ -214,16 +218,17 @@ public class Interpreter
 							opstack.push(proc);
 					}
 					break;
-				case ParserConstants.TOKEN_INTEGER:
-				case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
-				case ParserConstants.TOKEN_INTEGER_BINARY:
-				case ParserConstants.TOKEN_REAL:
-				case ParserConstants.TOKEN_STRING:
-				case ParserConstants.TOKEN_NAME:
-				case ParserConstants.TOKEN_COMMAND:
-				case ParserConstants.TOKEN_IMMEDIATE:
-				case ParserConstants.TOKEN_REGEXP:
-				case ParserConstants.TOKEN_CHAR:
+				case ParserConstants.INTEGER:
+				case ParserConstants.INTEGER_HEXADECIMAL:
+				case ParserConstants.INTEGER_BINARY:
+				case ParserConstants.REAL:
+				case ParserConstants.STRING:
+				case ParserConstants.NAME_SLASHED:
+				case ParserConstants.NAME_QUOTED:
+				case ParserConstants.COMMAND:
+				case ParserConstants.IMMEDIATE:
+				case ParserConstants.REGEXP:
+				case ParserConstants.CHAR:
 					procstack.peek().psiAppend(newPsiObject(token));
 					break;
 				case ParserConstants.EOF:
@@ -237,7 +242,7 @@ public class Interpreter
 	{
 		switch(token.kind)
 		{
-			case ParserConstants.TOKEN_STRING:
+			case ParserConstants.STRING:
 				{
 					final StringBuilder buffer=new StringBuilder();
 					for(int i=1; i<token.image.length()-1; i++)
@@ -309,7 +314,79 @@ public class Interpreter
 					}
 					return new PsiString(buffer);
 				}
-			case ParserConstants.TOKEN_REGEXP:
+			case ParserConstants.NAME_QUOTED:
+				{
+					final StringBuilder buffer=new StringBuilder();
+					for(int i=1; i<token.image.length()-1; i++)
+					{
+						final char c=token.image.charAt(i);
+						switch(c)
+						{
+							case '\\':
+								i++;
+								switch(token.image.charAt(i))
+								{
+									case '0':
+										buffer.append('\u0000');
+										break;
+									case 'a':
+										buffer.append('\u0007');
+										break;
+									case 'n':
+										buffer.append('\n');
+										break;
+									case 'r':
+										buffer.append('\r');
+										break;
+									case 't':
+										buffer.append('\t');
+										break;
+									case 'f':
+										buffer.append('\f');
+										break;
+									case 'e':
+										buffer.append('\u001B');
+										break;
+									case '\'':
+										buffer.append('\'');
+										break;
+									case '\\':
+										buffer.append('\\');
+										break;
+									case '\n':
+										break;
+									case 'u':
+										buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+1, i+5), 16)));
+										i+=4;
+										break;
+									case 'c':
+										{
+											final int ch=token.image.charAt(++i);
+											buffer.append(Character.toChars(ch+(ch<64? 64: -64)));
+										}
+										break;
+									case 'x':
+										try
+										{
+											final int j=token.image.indexOf('}', i+2);
+											buffer.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
+											i=j;
+										}
+										catch(IllegalArgumentException e)
+										{
+											throw new PsiException("syntaxerror");
+										}
+										break;
+								}
+								break;
+							default:
+								buffer.append(c);
+								break;
+						}
+					}
+					return new PsiName(buffer);
+				}
+			case ParserConstants.REGEXP:
 				{
 					StringBuilder buffer=new StringBuilder();
 					for(int i=1; i<token.image.length()-1; i++)
@@ -399,7 +476,7 @@ public class Interpreter
 					}
 					return new PsiRegExp(buffer);
 				}
-			case ParserConstants.TOKEN_INTEGER:
+			case ParserConstants.INTEGER:
 				try
 				{
 					try
@@ -415,13 +492,20 @@ public class Interpreter
 				{
 					throw new PsiException("syntaxerror");
 				}
-			case ParserConstants.TOKEN_INTEGER_HEXADECIMAL:
-				if(token.image.startsWith("+") || token.image.startsWith("-"))
-					return PsiInteger.valueOf(Long.parseLong(token.image.substring(0, 1)
-							+token.image.substring(3), 16));
-				else
-					return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 16));
-			case ParserConstants.TOKEN_INTEGER_BINARY:
+			case ParserConstants.INTEGER_HEXADECIMAL:
+				try
+				{
+					if(token.image.startsWith("+") || token.image.startsWith("-"))
+						return PsiInteger.valueOf(Long.parseLong(token.image.substring(0, 1)
+								+token.image.substring(3), 16));
+					else
+						return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 16));
+				}
+				catch(NumberFormatException e)
+				{
+					throw new PsiException("syntaxerror");
+				}
+			case ParserConstants.INTEGER_BINARY:
 				try
 				{
 					if(token.image.startsWith("+") || token.image.startsWith("-"))
@@ -434,7 +518,7 @@ public class Interpreter
 				{
 					throw new PsiException("syntaxerror");
 				}
-			case ParserConstants.TOKEN_CHAR:
+			case ParserConstants.CHAR:
 				switch(token.image.charAt(1))
 				{
 					case '\\':
@@ -477,13 +561,13 @@ public class Interpreter
 					default:
 						return PsiInteger.valueOf(token.image.charAt(1));
 				}
-			case ParserConstants.TOKEN_REAL:
+			case ParserConstants.REAL:
 				return new PsiReal(Double.parseDouble(token.image));
-			case ParserConstants.TOKEN_NAME:
+			case ParserConstants.NAME_SLASHED:
 				return new PsiName(token.image.substring(1));
-			case ParserConstants.TOKEN_COMMAND:
+			case ParserConstants.COMMAND:
 				return new PsiCommand(token.image);
-			case ParserConstants.TOKEN_IMMEDIATE:
+			case ParserConstants.IMMEDIATE:
 				return dictstack.load(token.image.substring(2));
 			default:
 				throw new AssertionError();
@@ -674,4 +758,5 @@ public class Interpreter
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
 	private boolean running=true;
+	//private TypeRegistry typeRegistry=new TypeRegistry();
 }
