@@ -5,7 +5,7 @@ arguments 0 get @/@ split
 tointeger /q exch def
 tointeger /p exch def
 
-p q idiv tostring print
+p q idiv toname print
 
 /p p q mod def
 
@@ -24,7 +24,7 @@ bind loop
 /t p def
 {
 	t h eq { exit } if
-	10 t mul q idiv tostring print
+	10 t mul q idiv toname print
 	/t 10 t mul q mod def
 	/h 10 h mul q mod def
 }
@@ -34,7 +34,7 @@ h 0 ne
 {
 	'(' print
 	{
-		10 h mul q idiv tostring print
+		10 h mul q idiv toname print
 		/h 10 h mul q mod def
 		t h eq { exit } if
 	}

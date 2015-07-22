@@ -6,7 +6,7 @@
 {
 	n 0 ne
 	{
-		1 index tostring say
+		1 index toname say
 		exch 1 index add
 		/n n 1 sub def
 		fibonacci

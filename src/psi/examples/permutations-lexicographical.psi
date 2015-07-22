@@ -1,4 +1,4 @@
-#!/usr/bin/psi
+#!/usr/bin/psyche
 
 /n arguments 0 get tointeger def
 
@@ -70,7 +70,7 @@ bind def
 	0 1 p length 1 sub
 	{
 		dup 0 ne { ' ' print } if
-		p exch get tostring print
+		p exch get toname print
 	}
 	for
 	'' say

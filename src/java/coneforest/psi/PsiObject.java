@@ -4,7 +4,9 @@ package coneforest.psi;
  *	A type of basic Ψ object.
  */
 public interface PsiObject
-	extends PsiConvertableToString
+	extends
+		PsiConvertableToName,
+		PsiConvertableToString
 {
 	/**
 	 *	Returns a string representation of a type name.
@@ -47,13 +49,6 @@ public interface PsiObject
 	 *
 	 *	@return a Ψ string representing this object.
 	 */
-	@Override
-	public PsiString psiToString();
-
-	@Override
-	public String toString();
 
 	public PsiBoolean psiIsA(PsiStringlike stringlike);
-
-	//private static final String TYPE_NAME="object";
 }

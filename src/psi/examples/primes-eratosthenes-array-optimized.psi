@@ -12,14 +12,14 @@
 ]
 def
 
-//n 2 ge { 2 tostring say } if
+//n 2 ge { 2 toname say } if
 
 3 2 //n
 {
 	/p exch def
 	//sieve p get 0 ne
 	{
-		p tostring say
+		p toname say
 		p dup mul p //n
 		{
 			p dup mul //n gt { exit } if

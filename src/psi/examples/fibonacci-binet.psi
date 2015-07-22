@@ -8,6 +8,6 @@
 0 1 //n
 {
 	//phi exch pow //sqrt5 div round
-	tostring say
+	toname say
 }
 bind for

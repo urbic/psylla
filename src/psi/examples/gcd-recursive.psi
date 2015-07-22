@@ -15,4 +15,4 @@ bind def
 arguments 0 get tointeger
 arguments 1 get tointeger
 gcd
-tostring say
+toname say

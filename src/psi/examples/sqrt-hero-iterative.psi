@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /x arguments 0 get toreal def
 
 x 1 add 2 div
@@ -8,4 +10,4 @@ x 1 add 2 div
 	ge { exit } if
 }
 bind loop
-tostring say
+toname say

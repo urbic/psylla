@@ -47,7 +47,7 @@ bind def
 	0 1 //n 1 sub
 	{
 		dup 0 ne { ' ' print } if
-		permutations exch get tostring print
+		permutations exch get toname print
 	}
 	for
 	'' say

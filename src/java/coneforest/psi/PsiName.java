@@ -13,7 +13,8 @@ public class PsiName
 	 */
 	public PsiName(CharSequence cs)
 	{
-		name=cs.toString();
+		name=cs.toString().intern();
+		//name=cs.toString();
 	}
 
 	/**

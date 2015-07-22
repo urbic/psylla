@@ -23,7 +23,7 @@ bind def
 {
 	dup
 	isprime
-	{ tostring say }
+	{ toname say }
 	{ pop }
 	ifelse
 }
