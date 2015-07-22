@@ -1,4 +1,4 @@
-#!/usr/bin/psi
+#!/usr/bin/psyche
 
 /next
 {
@@ -17,4 +17,4 @@
 bind def
 
 0 2 next
-tostring say pop
+toname say pop

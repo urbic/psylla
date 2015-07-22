@@ -66,6 +66,11 @@ abstract public class PsiAbstractObject
 		return new PsiString(toString());
 	}
 
+	public PsiName psiToName()
+	{
+		return new PsiName(toString());
+	}
+
 	/**
 	 *	Returns a string representing this object.
 	 *
@@ -82,9 +87,8 @@ abstract public class PsiAbstractObject
 	@Override
 	public PsiBoolean psiIsA(PsiStringlike stringlike)
 	{
-		Class<? extends PsiObject> clazz=TypeRegistry.get(stringlike.getString());
-		return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));
+		//Class<? extends PsiObject> clazz=TypeRegistry.get(stringlike.getString());
+		//return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));
+		return PsiBoolean.TRUE;
 	}
-
-	//private static final String TYPE_NAME="object";
 }

@@ -35,7 +35,7 @@ n permutations
 	0 1 p length 1 sub
 	{
 		dup 0 ne { ' ' print } if
-		p exch get tostring print
+		p exch get toname print
 	}
 	for
 	'\n' print

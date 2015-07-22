@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /in arguments 0 get filereader def
 
 {
@@ -7,6 +9,3 @@
 }
 bind loop
 stdout flush
-
-quit
-

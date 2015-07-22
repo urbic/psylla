@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /x arguments 0 get toreal def
 
 /tleft 0 def
@@ -20,4 +22,4 @@
 }
 bind loop
 
-tmid tostring say
+tmid toname say

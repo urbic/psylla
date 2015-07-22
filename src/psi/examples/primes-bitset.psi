@@ -2,7 +2,7 @@
 
 /primes bitset def
 
-/testprime
+/isprime
 {
 	true exch
 	//primes
@@ -24,8 +24,8 @@ bind def
 2 1 arguments 0 get tointeger
 {
 	dup
-	testprime
-	{ tostring say }
+	isprime
+	{ toname say }
 	{ pop }
 	ifelse
 }

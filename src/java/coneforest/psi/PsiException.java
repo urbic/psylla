@@ -27,6 +27,12 @@ public class PsiException
 	}
 
 	@Override
+	public PsiName psiToName()
+	{
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
 	public PsiException psiClone()
 	{
 		throw new UnsupportedOperationException();

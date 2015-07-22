@@ -1,4 +1,4 @@
-#!/usr/bin/psi
+#!/usr/bin/psyche
 
 /power
 {
@@ -25,4 +25,4 @@ bind def
 
 arguments 0 get tointeger
 arguments 1 get tointeger
-power tostring say
+power toname say

@@ -13,4 +13,4 @@
 }
 bind def
 
-arguments 0 get tointeger factorial tostring say
+arguments 0 get tointeger factorial toname say
