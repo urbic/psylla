@@ -171,9 +171,4 @@ public class PsiReal
 		NAN=new PsiReal(Double.NaN);
 
 	private final double value;
-
-	static
-	{
-		TypeRegistry.put("real", PsiReal.class);
-	}
 }

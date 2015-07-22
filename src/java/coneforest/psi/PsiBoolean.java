@@ -147,9 +147,4 @@ public class PsiBoolean
 	public static final PsiBoolean TRUE=new PsiBoolean(true);
 
 	private final boolean value;
-
-	static
-	{
-		TypeRegistry.put("boolean", PsiBoolean.class);
-	}
 }

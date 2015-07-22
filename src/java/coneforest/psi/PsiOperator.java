@@ -76,9 +76,4 @@ public abstract class PsiOperator
 	{
 		return getClass().getSimpleName().substring(1);
 	}
-
-	static
-	{
-		TypeRegistry.put("operator", PsiOperator.class);
-	}
 }

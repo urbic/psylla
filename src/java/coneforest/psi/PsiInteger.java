@@ -161,7 +161,7 @@ public class PsiInteger
 					PsiInteger.valueOf(resultValue): new PsiReal(doubleValue()-numeric.doubleValue());
 		}
 		else
-			return new PsiReal(doubleValue()+numeric.doubleValue());
+			return new PsiReal(doubleValue()-numeric.doubleValue());
 	}
 
 	@Override
@@ -341,6 +341,12 @@ public class PsiInteger
 		return PsiInteger.valueOf(shift.value>=0? value<<shift.value: value>>(-shift.value));
 	}
 
+	public PsiBoolean psiInUnicodeBlock(PsiStringlike stringlike)
+	{
+		return PsiBoolean.valueOf(Character.UnicodeBlock.of((int)value).equals(
+				Character.UnicodeBlock.forName(stringlike.getString())));
+	}
+
 	@Override
 	public int hashCode()
 	{
@@ -387,11 +393,6 @@ public class PsiInteger
 	public static final PsiInteger MIN_VALUE=PsiInteger.valueOf(Long.MIN_VALUE);
 
 	private final long value;
-
-	static
-	{
-		TypeRegistry.put("integer", PsiInteger.class);
-	}
 
 	public static PsiInteger valueOf(long integerValue)
 	{
