@@ -2,7 +2,7 @@
 
 /factorial
 {
-	dup 0 eq
+	dup iszero
 	{ pop 1 }
 	{
 		dup 1 sub

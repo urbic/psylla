@@ -29,6 +29,7 @@ syn match psiNameExecutable	"\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
 syn match psiOperator       "[\[\]{}<>()?]"
 syn match psiNameLiteral	"/\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
 syn match psiNameImmediate	"//\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
+syn region psiNameQuoted	start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=psiStringSpecial
 
 syn region psiString		start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psiStringSpecial
 syn match psiStringSpecial	contained +\\[0antf"\\er]+
@@ -56,6 +57,7 @@ hi link psiHexInteger		Number
 hi link psiReal				Number
 hi link psiNameExecutable	Identifier
 hi link psiNameLiteral		Constant
+hi link psiNameQuoted		Constant
 hi link psiStringSpecial	SpecialChar
 hi link psiRegExpSpecial	SpecialChar
 hi link psiTodo				Todo

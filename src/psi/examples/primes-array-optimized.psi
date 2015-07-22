@@ -2,7 +2,7 @@
 
 /primes array def
 
-/testprime
+/isprime
 {
 	true exch
 	//primes
@@ -12,7 +12,7 @@
 		lt { pop exit } if
 
 		1 index exch
-		mod 0 eq
+		mod iszero
 		{
 			exch not exch
 			exit
@@ -28,11 +28,9 @@ bind def
 2 1 arguments 0 get tointeger
 {
 	dup
-	testprime
+	isprime
 	{ tostring say }
 	{ pop }
 	ifelse
 }
 bind for
-
-quit

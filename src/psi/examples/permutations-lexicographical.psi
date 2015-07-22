@@ -69,11 +69,11 @@ bind def
 
 	0 1 p length 1 sub
 	{
-		dup 0 ne { " " print } if
+		dup 0 ne { ' ' print } if
 		p exch get tostring print
 	}
 	for
-	"" say
+	'' say
 
 	p next
 	not { exit } if

@@ -1,10 +1,12 @@
+#!/usr/bin/psyche
+
 /n arguments 0 get tointeger def
 
 /permutations
 {
 	dict begin
 		/n exch def
-		n 0 eq
+		n iszero
 		[ array ]
 		{
 			/perms array def
@@ -32,11 +34,11 @@ n permutations
 	/p exch def
 	0 1 p length 1 sub
 	{
-		dup 0 ne { " " print } if
+		dup 0 ne { ' ' print } if
 		p exch get tostring print
 	}
 	for
-	"\n" print
+	'\n' print
 }
 bind forall
 

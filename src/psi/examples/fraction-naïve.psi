@@ -1,14 +1,14 @@
 #!/usr/bin/psyche
 
 arguments 0 get @/@ split
-loadall pop
+{ tointeger } forall
 tointeger /q exch def
 tointeger /p exch def
 
 p q idiv tostring print
 /p p q mod def
 
-p 0 ne { "," print } { "" say quit } ifelse
+p 0 ne { ',' print } { '' say quit } ifelse
 
 /pp array def
 
@@ -26,17 +26,17 @@ p 0 ne { "," print } { "" say quit } ifelse
 			for
 			p 0 ne
 			{
-				"(" print
+				'(' print
 				i 1 pp length 1 sub
 				{
 					pp exch get
 					10 mul q idiv tostring print
 				}
 				for
-				")" print
+				')' print
 			}
 			if
-			"" say quit
+			'' say quit
 		}
 		if
 	}

@@ -1,3 +1,5 @@
+#!/usr/bin/psyche
+
 /n arguments 0 get tointeger 1 sub 2 div floor tointeger def
 
 /sieve bitset def
@@ -18,7 +20,7 @@
 }
 bind for
 
-arguments 0 get tointeger 1 gt { "2" say } if
+arguments 0 get tointeger 1 gt { '2' say } if
 sieve
 {
 	2 mul 1 add tostring say

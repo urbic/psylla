@@ -14,7 +14,7 @@ bind def
 
 arguments { filereader collectlines } forall
 
-arguments length 0 eq { stdin collectlines } if
+arguments isempty { stdin collectlines } if
 
 lines { 2 { length exch } repeat cmp } bind sort { print } bind forall
 

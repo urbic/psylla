@@ -16,7 +16,7 @@ bind for
 
 	//sieve
 	{
-		dup p mod 0 eq
+		dup p mod iszero
 		{ //sieve exch remove }
 		{ pop }
 		ifelse

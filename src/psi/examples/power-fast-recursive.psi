@@ -2,7 +2,7 @@
 
 /power
 {
-	dup 0 eq
+	dup iszero
 	{ pop pop 1 }
 	{
 		dup 2 mod 0 ne

@@ -5,7 +5,7 @@
 	toroman
 	dup fromroman
 	tostring print
-	"\t" print
+	'\t' print
 	say
 }
 bind for

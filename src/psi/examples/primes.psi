@@ -1,12 +1,13 @@
-/testprime
+#!/usr/bin/psyche
+
+/isprime
 {
 	true exch
 	2 1 2 index
 	1 sub
 	{
 		1 index exch
-		mod
-		0 eq
+		mod iszero
 		{
 			exch not exch
 			exit
@@ -18,15 +19,12 @@
 }
 bind def
 
-
 2 1 arguments 0 get tointeger
 {
 	dup
-	testprime
+	isprime
 	{ tostring say }
 	{ pop }
 	ifelse
 }
 bind for
-
-quit
