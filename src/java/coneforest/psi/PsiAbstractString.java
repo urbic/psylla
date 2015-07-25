@@ -56,10 +56,10 @@ abstract public class PsiAbstractString
 
 
 	@Override
-	public PsiInteger psiDelete(PsiInteger index)
+	public PsiInteger psiExtract(PsiInteger index)
 		throws PsiException
 	{
-		return delete(index.intValue());
+		return extract(index.intValue());
 	}
 
 	@Override

@@ -176,7 +176,7 @@ public class PsiString
 	}
 
 	@Override
-	public PsiInteger delete(int indexValue)
+	public PsiInteger extract(int indexValue)
 		throws PsiException
 	{
 		try
@@ -192,7 +192,7 @@ public class PsiString
 	}
 
 	@Override
-	public PsiString psiDeleteInterval(PsiInteger start, PsiInteger length)
+	public PsiString psiExtractInterval(PsiInteger start, PsiInteger length)
 		throws PsiException
 	{
 		PsiString result=psiGetInterval(start, length);

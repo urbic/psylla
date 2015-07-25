@@ -36,7 +36,7 @@ abstract public class PsiAbstractDict<V extends PsiObject>
 	}
 
 	@Override
-	public V psiDelete(PsiStringlike key)
+	public V psiExtract(PsiStringlike key)
 		throws PsiException
 	{
 		V result=psiGet(key);

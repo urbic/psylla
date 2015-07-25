@@ -4,76 +4,76 @@
 <title>Операторы</title>
 
 <section xml:id="PsiReference_Operators_ByCategory">
-<title>Сводка операторов по категориям</title>
+<title>Сводка операторов по категориям</title>
 
 <section xml:id="PsiReference_Operators_ByCategory_StackManipulation">
-<title>Операторы для манипуляций со стеком операндов</title>
+<title>Операторы для манипуляций со стеком операндов</title>
 
 <variablelist>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_(" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>добавление метки в стек операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_&lt;" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>добавление метки в стек операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_[" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>добавление метки в стек операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clearstack" xrefstyle="template:%t"/></term>
-<listitem>удаление всех объектов из стека операндов</listitem>
+<listitem>удаление всех объектов из стека операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cleartomark" xrefstyle="template:%t"/></term>
-<listitem>удаление объектов из стека операндов вплоть до отметки</listitem>
+<listitem>удаление объектов из стека операндов вплоть до отметки</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_copy" xrefstyle="template:%t"/></term>
-<listitem>копирование нескольких верхних элементов в стеке операндов</listitem>
+<listitem>копирование нескольких верхних элементов в стеке операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countstack" xrefstyle="template:%t"/></term>
-<listitem>подсчёт объектов в стеке операндов</listitem>
+<listitem>подсчёт объектов в стеке операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_counttomark" xrefstyle="template:%t"/></term>
-<listitem>подсчёт объектов в стеке операндов над верхней меткой</listitem>
+<listitem>подсчёт объектов в стеке операндов над верхней меткой</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dup" xrefstyle="template:%t"/></term>
-<listitem>копирование верхнего объекта в стеке операндов</listitem>
+<listitem>копирование верхнего объекта в стеке операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exch" xrefstyle="template:%t"/></term>
-<listitem>обмен местами двух верхних объектов в стеке операндов</listitem>
+<listitem>обмен местами двух верхних объектов в стеке операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_index" xrefstyle="template:%t"/></term>
-<listitem>копирование объекта с заданным положением в стеке операндов</listitem>
+<listitem>копирование объекта с заданным положением в стеке операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_mark" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>добавление метки в стек операндов</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_pop" xrefstyle="template:%t"/></term>
-<listitem>удаление верхнего объекта из стека операндов</listitem>
+<listitem>удаление верхнего объекта из стека операндов</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -171,7 +171,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cbrt" xrefstyle="template:%t"/></term>
-<listitem>кубический корень из числа</listitem>
+<listitem>кубический корень из числа</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -181,12 +181,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_complex" xrefstyle="template:%t"/></term>
-<listitem>создание комплексного числа по его вещественной и мнимой частям</listitem>
+<listitem>создание комплексного числа по его вещественной и мнимой частям</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_complexpolar" xrefstyle="template:%t"/></term>
-<listitem>создание комплексного числа по его модулю и аргументу</listitem>
+<listitem>создание комплексного числа по его модулю и аргументу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -221,7 +221,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_hypot" xrefstyle="template:%t"/></term>
-<listitem>гипотенуза по двум катетам</listitem>
+<listitem>гипотенуза по двум катетам</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -246,7 +246,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_mod" xrefstyle="template:%t"/></term>
-<listitem>остаток от деления двух целых чисел</listitem>
+<listitem>остаток от деления двух целых чисел</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -261,7 +261,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_pow" xrefstyle="template:%t"/></term>
-<listitem>возведение числа в степень другого числа</listitem>
+<listitem>возведение числа в степень другого числа</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -286,7 +286,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sqrt" xrefstyle="template:%t"/></term>
-<listitem>квадратный корень из числа</listitem>
+<listitem>квадратный корень из числа</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -359,32 +359,32 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exec" xrefstyle="template:%t"/></term>
-<listitem>вызов объекта для исполнения</listitem>
+<listitem>вызов объекта для исполнения</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exit" xrefstyle="template:%t"/></term>
-<listitem>выход из цикла</listitem>
+<listitem>выход из цикла</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_for" xrefstyle="template:%t"/></term>
-<listitem>цикл с числовым параметром</listitem>
+<listitem>цикл с числовым параметром</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_halt" xrefstyle="template:%t"/></term>
-<listitem>завершение исполнения программы со статусом</listitem>
+<listitem>завершение исполнения программы со статусом</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_if" xrefstyle="template:%t"/></term>
-<listitem>условный вызов объекта для исполнения</listitem>
+<listitem>условный вызов объекта для исполнения</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ifelse" xrefstyle="template:%t"/></term>
-<listitem>условный вызов того или иного объекта для исполнения</listitem>
+<listitem>условный вызов того или иного объекта для исполнения</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -399,12 +399,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_repeat" xrefstyle="template:%t"/></term>
-<listitem>цикл с заданным числом повторений</listitem>
+<listitem>цикл с заданным числом повторений</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sleep" xrefstyle="template:%t"/></term>
-<listitem>приостановка исполнения текущего контекста на заданное время</listitem>
+<listitem>приостановка исполнения текущего контекста на заданное время</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -414,7 +414,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stopped" xrefstyle="template:%t"/></term>
-<listitem>установка контекста для перехвата остановки</listitem>
+<listitem>установка контекста для перехвата остановки</listitem>
 </varlistentry>
 
 </variablelist>
@@ -422,7 +422,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_Containers">
-<title>Операторы для работы с контейнерами и перечислениями</title>
+<title>Операторы для работы с контейнерами и перечислениями</title>
 
 <variablelist>
 
@@ -443,12 +443,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_append" xrefstyle="template:%t"/></term>
-<listitem>добавление элемента в контейнер</listitem>
+<listitem>добавление элемента в контейнер</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_appendall" xrefstyle="template:%t"/></term>
-<listitem>добавление в контейнер всех элементов перечисления</listitem>
+<listitem>добавление в контейнер всех элементов перечисления</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -463,12 +463,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_begin" xrefstyle="template:%t"/></term>
-<listitem>добавление словаря в стек словарей</listitem>
+<listitem>добавление словаря в стек словарей</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bind" xrefstyle="template:%t"/></term>
-<listitem>рекурсивная замена имён операторов на сами операторы в массиве</listitem>
+<listitem>рекурсивная замена имён операторов на сами операторы в массиве</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -488,7 +488,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cleardictstack" xrefstyle="template:%t"/></term>
-<listitem>удаление всех непостоянных словарей из стека словарей</listitem>
+<listitem>удаление всех непостоянных словарей из стека словарей</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -498,22 +498,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_currentdict" xrefstyle="template:%t"/></term>
-<listitem>получение текущего словаря (верхнего в стеке словарей)</listitem>
+<listitem>получение текущего словаря (верхнего в стеке словарей)</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_def" xrefstyle="template:%t"/></term>
-<listitem>добавление записи в текущий словарь</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_delete" xrefstyle="template:%t"/></term>
-<listitem>удаление элемента из контейнера по заданному ключу</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_deleteinterval" xrefstyle="template:%t"/></term>
-<listitem>удаление непрерывного фрагмента из массива</listitem>
+<listitem>добавление записи в текущий словарь</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -528,17 +518,27 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_end" xrefstyle="template:%t"/></term>
-<listitem>удаление верхнего словаря из стека словарей</listitem>
+<listitem>удаление верхнего словаря из стека словарей</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_extract" xrefstyle="template:%t"/></term>
+<listitem>извлечение с удалением элемента из контейнера по заданному ключу</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_extractinterval" xrefstyle="template:%t"/></term>
+<listitem>извлечение с удалением непрерывного фрагмента из массива</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_forall" xrefstyle="template:%t"/></term>
-<listitem>цикл перебора для перечисления</listitem>
+<listitem>цикл перебора для перечисления</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_get" xrefstyle="template:%t"/></term>
-<listitem>извлечение объекта из контейнера по ключу или индексу</listitem>
+<listitem>извлечение объекта из контейнера по ключу или индексу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -553,12 +553,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_insert" xrefstyle="template:%t"/></term>
-<listitem>вставка объекта в массив в заданном месте</listitem>
+<listitem>вставка объекта в массив в заданном месте</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_insertall" xrefstyle="template:%t"/></term>
-<listitem>вставка в массив в заданном месте всех элементов перечисления</listitem>
+<listitem>вставка в массив в заданном месте всех элементов перечисления</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -583,7 +583,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_known" xrefstyle="template:%t"/></term>
-<listitem>проверка наличия ключа в словаре</listitem>
+<listitem>проверка наличия ключа в словаре</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -593,37 +593,47 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_map" xrefstyle="template:%t"/></term>
-<listitem>поэлементное применение процедуры в контейнере</listitem>
+<listitem>поэлементное применение процедуры в контейнере</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_prepend" xrefstyle="template:%t"/></term>
+<listitem>добавление элемента в начало контейнера</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_prependall" xrefstyle="template:%t"/></term>
+<listitem>добавление в начало контейнера всех элементов перечисления</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_put" xrefstyle="template:%t"/></term>
-<listitem>размещение объекта в контейнере по заданному ключу или индексу</listitem>
+<listitem>размещение объекта в контейнере по заданному ключу или индексу</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_putinterval" xrefstyle="template:%t"/></term>
-<listitem>размещение всех объектов перечисления в массиве по заданному индексу</listitem>
+<listitem>размещение всех объектов перечисления в массиве по заданному индексу</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_remove" xrefstyle="template:%t"/></term>
-<listitem>удаление элемента из множества</listitem>
+<listitem>удаление элемента из множества</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_removeall" xrefstyle="template:%t"/></term>
-<listitem>удаление из множества всех элементов перечисления</listitem>
+<listitem>удаление из множества всех элементов перечисления</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_retainall" xrefstyle="template:%t"/></term>
-<listitem>удаление из множества всех элементов, не входящих в перечисление</listitem>
+<listitem>удаление из множества всех элементов, не входящих в перечисление</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_reverse" xrefstyle="template:%t"/></term>
-<listitem>смена порядка элементов массива на противоположный</listitem>
+<listitem>смена порядка элементов массива на противоположный</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -648,7 +658,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sort" xrefstyle="template:%t"/></term>
-<listitem>Сортировка массива с компаратором</listitem>
+<listitem>Сортировка массива с компаратором</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -658,12 +668,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_undef" xrefstyle="template:%t"/></term>
-<listitem>удаление ключа из словаря</listitem>
+<listitem>удаление ключа из словаря</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_unite" xrefstyle="template:%t"/></term>
-<listitem>конкатенация строк из массива с сепаратором</listitem>
+<listitem>конкатенация строк из массива с сепаратором</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -676,7 +686,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_TypeConversion">
-<title>Операторы, связанные с типами и конверсией</title>
+<title>Операторы, связанные с типами и конверсией</title>
 
 <variablelist>
 
@@ -687,22 +697,22 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tointeger" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в целое число</listitem>
+<listitem>преобразование объекта в целое число</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_toname" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в имя</listitem>
+<listitem>преобразование объекта в имя</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_toreal" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в вещественное число</listitem>
+<listitem>преобразование объекта в вещественное число</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tostring" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в строку</listitem>
+<listitem>преобразование объекта в строку</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -722,7 +732,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_?" xrefstyle="template:%t"/></term>
-<listitem>вывод объекта в стандартный вывод в синтаксической форме</listitem>
+<listitem>вывод объекта в стандартный вывод в синтаксической форме</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -732,7 +742,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_editline" xrefstyle="template:%t"/></term>
-<listitem>ввод строки из строкового редактора</listitem>
+<listitem>ввод строки из строкового редактора</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -752,42 +762,42 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_prettyprint" xrefstyle="template:%t"/></term>
-<listitem>вывод объекта в стандартный вывод в синтаксической форме</listitem>
+<listitem>вывод объекта в стандартный вывод в синтаксической форме</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_print" xrefstyle="template:%t"/></term>
-<listitem>вывод строкового объекта в стандартный вывод</listitem>
+<listitem>вывод строкового объекта в стандартный вывод</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_println" xrefstyle="template:%t"/></term>
-<listitem>вывод строкового объекта и символа конца строки в стандартный вывод</listitem>
+<listitem>вывод строкового объекта и символа конца строки в стандартный вывод</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_pstack" xrefstyle="template:%t"/></term>
-<listitem>вывод содержимого стека операндов в стандартный вывод</listitem>
+<listitem>вывод содержимого стека операндов в стандартный вывод</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_read" xrefstyle="template:%t"/></term>
-<listitem>чтение символа из входа или читателя</listitem>
+<listitem>чтение символа из входа или читателя</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_readline" xrefstyle="template:%t"/></term>
-<listitem>чтение строки вплоть до символа конца строки из входа или читателя</listitem>
+<listitem>чтение строки вплоть до символа конца строки из входа или читателя</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_readstring" xrefstyle="template:%t"/></term>
-<listitem>чтение строки из входа или читателя</listitem>
+<listitem>чтение строки из входа или читателя</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ready" xrefstyle="template:%t"/></term>
-<listitem>проверка доступности символа в читателе</listitem>
+<listitem>проверка доступности символа в читателе</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -797,7 +807,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_say" xrefstyle="template:%t"/></term>
-<listitem>вывод строкового объекта и символа конца строки в вывод или писатель со сбросом</listitem>
+<listitem>вывод строкового объекта и символа конца строки в вывод или писатель со сбросом</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -812,17 +822,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_warn" xrefstyle="template:%t"/></term>
-<listitem>вывод строки в стандартный вывод сообщений об ошибках со сбросом</listitem>
+<listitem>вывод строки в стандартный вывод сообщений об ошибках со сбросом</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_write" xrefstyle="template:%t"/></term>
-<listitem>вывод символа в вывод или писатель</listitem>
+<listitem>вывод символа в вывод или писатель</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_writestring" xrefstyle="template:%t"/></term>
-<listitem>вывод строкового значения в вывод или писатель</listitem>
+<listitem>вывод строкового значения в вывод или писатель</listitem>
 </varlistentry>
 
 </variablelist>
@@ -830,7 +840,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_FileSystem">
-<title>Операторы, связанные с файловой системой</title>
+<title>Операторы, связанные с файловой системой</title>
 
 <variablelist>
 
@@ -851,7 +861,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_fileaccesstime" xrefstyle="template:%t"/></term>
-<listitem>время последнего доступа к файлу</listitem>
+<listitem>время последнего доступа к файлу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -909,18 +919,18 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_RegExp">
-<title>Операторы, связанные с регулярными выражениями</title>
+<title>Операторы, связанные с регулярными выражениями</title>
 
 <variablelist>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_capturegroup" xrefstyle="template:%t"/></term>
-<listitem>группа захвата по номеру или по имени</listitem>
+<listitem>группа захвата по номеру или по имени</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_capturegroupend" xrefstyle="template:%t"/></term>
-<listitem>позиция после последнего символа, захваченного в группу</listitem>
+<listitem>позиция после последнего символа, захваченного в группу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -930,17 +940,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_capturegroupstart" xrefstyle="template:%t"/></term>
-<listitem>позиция первого символа, захваченного в группу</listitem>
+<listitem>позиция первого символа, захваченного в группу</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_find" xrefstyle="template:%t"/></term>
-<listitem>поиск по шаблону TODO</listitem>
+<listitem>поиск по шаблону TODO</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_findall" xrefstyle="template:%t"/></term>
-<listitem>поиск по шаблону TODO</listitem>
+<listitem>поиск по шаблону TODO</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -950,7 +960,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_split" xrefstyle="template:%t"/></term>
-<listitem>разбиение строки в массив подстрок по разделителю</listitem>
+<listitem>разбиение строки в массив подстрок по разделителю</listitem>
 </varlistentry>
 
 </variablelist>
@@ -958,7 +968,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_Random">
-<title>Операторы, связанные с псевдослучайными числами</title>
+<title>Операторы, связанные с псевдослучайными числами</title>
 
 <variablelist>
 
@@ -1023,7 +1033,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_load" xrefstyle="template:%t"/></term>
-<listitem>поиск значения по ключу в глубину в стеке словарей</listitem>
+<listitem>поиск значения по ключу в глубину в стеке словарей</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1043,7 +1053,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_where" xrefstyle="template:%t"/></term>
-<listitem>поиск словаря в глубину в стеке словарей по содержащемуся в нём ключу</listitem>
+<listitem>поиск словаря в глубину в стеке словарей по содержащемуся в нём ключу</listitem>
 </varlistentry>
 
 </variablelist>
@@ -1051,7 +1061,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_Multicontext">
-<title>Операторы, связанные с многоконтекстным исполнением</title>
+<title>Операторы, связанные с многоконтекстным исполнением</title>
 
 <variablelist>
 
@@ -1067,7 +1077,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_fork" xrefstyle="template:%t"/></term>
-<listitem>запуск процедуры в новом контексте</listitem>
+<listitem>запуск процедуры в новом контексте</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1082,7 +1092,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
-<listitem>вызов процедуры под замком</listitem>
+<listitem>вызов процедуры под замком</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1092,7 +1102,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_yield" xrefstyle="template:%t"/></term>
-<listitem>приостановка на мгновение исполнения текущего контекста</listitem>
+<listitem>приостановка на мгновение исполнения текущего контекста</listitem>
 </varlistentry>
 
 </variablelist>
@@ -1102,7 +1112,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_Details">
-<title>Операторы в деталях</title>
+<title>Операторы в деталях</title>
 
 <section xml:id="PsiReference_Operators_Details_(">
 <title><token language="psi">(</token></title>
@@ -1289,9 +1299,7 @@
 &PsiReference_Operators_Details_currentdict;
 &PsiReference_Operators_Details_currentdirectory;
 &PsiReference_Operators_Details_def;
-&PsiReference_Operators_Details_delete;
 &PsiReference_Operators_Details_deletefile;
-&PsiReference_Operators_Details_deleteinterval;
 &PsiReference_Operators_Details_dict;
 &PsiReference_Operators_Details_dicttomark;
 &PsiReference_Operators_Details_div;
@@ -1305,6 +1313,8 @@
 &PsiReference_Operators_Details_exit;
 &PsiReference_Operators_Details_exp;
 &PsiReference_Operators_Details_external;
+&PsiReference_Operators_Details_extract;
+&PsiReference_Operators_Details_extractinterval;
 &PsiReference_Operators_Details_false;
 &PsiReference_Operators_Details_fileaccesstime;
 &PsiReference_Operators_Details_filecreationtime;
@@ -1367,6 +1377,8 @@
 &PsiReference_Operators_Details_or;
 &PsiReference_Operators_Details_pop;
 &PsiReference_Operators_Details_pow;
+&PsiReference_Operators_Details_prepend;
+&PsiReference_Operators_Details_prependall;
 &PsiReference_Operators_Details_prettyprint;
 &PsiReference_Operators_Details_print;
 &PsiReference_Operators_Details_println;

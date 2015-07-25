@@ -47,7 +47,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 	 *	@param key a key or an index. 
 	 *	@throws PsiException when key is absent or index is out of range.
 	 */
-	public V psiDelete(K key)
+	public V psiExtract(K key)
 		throws PsiException;
 
 	/**

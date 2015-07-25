@@ -118,7 +118,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiObject delete(final int indexValue)
+	public PsiObject extract(final int indexValue)
 		throws PsiException
 	{
 		try
@@ -132,7 +132,7 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiArray psiDeleteInterval(final PsiInteger start, final PsiInteger count)
+	public PsiArray psiExtractInterval(final PsiInteger start, final PsiInteger count)
 		throws PsiException
 	{
 		PsiArray result=psiGetInterval(start, count);
