@@ -10,10 +10,19 @@ public interface PsiIndexed<K, V extends PsiObject>
 	extends PsiObject
 {
 	/**
+	 *	Returns a Ψ boolean value indicating if given key or index exists
+	 *	in this object.
+	 *
+	 *	@param key a key or an index.
+	 *	@return a result.
+	 */
+	public PsiBoolean psiKnown(K key);
+
+	/**
 	 *	Returns the element with given key or index.
 	 *
-	 *	@param key A key or an index.
-	 *	@return An element.
+	 *	@param key a key or an index.
+	 *	@return an element.
 	 *	@throws PsiException when index is out of range.
 	 */
 	public V psiGet(K key)
@@ -42,9 +51,9 @@ public interface PsiIndexed<K, V extends PsiObject>
 		throws PsiException;
 
 	/**
-	 *	Returns a container of the same type as this object consisting of keys
-	 *	or indices from given Ψ-<code class="type">iterable</code> and of
-	 *	assiciated values.
+	 *	Returns a container of the same type as this object consisting of keys
+	 *	or indices from given Ψ-<code class="type">iterable</code> and
+	 *	of associated values.
 	 *
 	 *	@param keys a sequence of keys. 
 	 *	@throws PsiException when key is absent or index is out of range.

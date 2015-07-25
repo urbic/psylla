@@ -13,6 +13,13 @@ abstract public class PsiAbstractString
 	}
 
 	@Override
+	public PsiBoolean psiKnown(PsiInteger key)
+	{
+		long keyValue=key.longValue();
+		return PsiBoolean.valueOf(keyValue>=0 && keyValue<length());
+	}
+
+	@Override
 	public PsiInteger psiGet(PsiInteger index)
 		throws PsiException
 	{
