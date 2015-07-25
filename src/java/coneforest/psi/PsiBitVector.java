@@ -127,7 +127,7 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBoolean delete(int indexValue)
+	public PsiBoolean extract(int indexValue)
 		throws PsiException
 	{
 		try
@@ -145,7 +145,7 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBitVector psiDeleteInterval(PsiInteger start, PsiInteger count)
+	public PsiBitVector psiExtractInterval(PsiInteger start, PsiInteger count)
 		throws PsiException
 	{
 		PsiBitVector result=psiGetInterval(start, count);

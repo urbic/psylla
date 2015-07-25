@@ -115,10 +115,10 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
-	public T psiDelete(final PsiInteger index)
+	public T psiExtract(final PsiInteger index)
 		throws PsiException
 	{
-		return delete(index.intValue());
+		return extract(index.intValue());
 	}
 
 	@Override
