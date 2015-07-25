@@ -101,6 +101,20 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
+	public void psiPrepend(T obj)
+		throws PsiException
+	{
+		insert(0, obj);
+	}
+
+	@Override
+	public void psiPrependAll(PsiIterable<? extends T> iterable)
+		throws PsiException
+	{
+		psiInsertAll(PsiInteger.ZERO, iterable);
+	}
+
+	@Override
 	public T psiDelete(final PsiInteger index)
 		throws PsiException
 	{

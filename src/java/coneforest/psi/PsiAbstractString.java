@@ -41,6 +41,21 @@ abstract public class PsiAbstractString
 	}
 
 	@Override
+	public void psiPrepend(PsiInteger character)
+		throws PsiException
+	{
+		psiInsert(PsiInteger.ZERO, character);
+	}
+
+	@Override
+	public void psiPrependAll(PsiIterable<? extends PsiInteger> iterable)
+		throws PsiException
+	{
+		psiInsertAll(PsiInteger.ZERO, iterable);
+	}
+
+
+	@Override
 	public PsiInteger psiDelete(PsiInteger index)
 		throws PsiException
 	{

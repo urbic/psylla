@@ -27,11 +27,22 @@
 <para>
 Вставляет <replaceable>объект</replaceable> в <replaceable>массив</replaceable>
 перед элементом с заданным <replaceable>индексом</replaceable> или в конец
-<replaceable>массива</replaceable>. Если <replaceable>индекс</replaceable>
-отрицателен или больше длины <replaceable>массива</replaceable>, генерирует
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>.
+<replaceable>массива</replaceable>.
 </para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, если
+<replaceable>индекс</replaceable> отрицателен или больше длины
+<replaceable>массива</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ 0 1 2 ] dup 2 3 insert	▶ [ 0 1 3 2 ]
+[ 0 1 2 ] dup 3 3 insert	▶ [ 0 1 2 3 ]
+"abc" dup `d 2 insert		▶ "abdc"</programlisting>
+</formalpara>
 
 <formalpara>
 <title>Ошибки:</title>
@@ -44,7 +55,9 @@ linkend="PsiReference_Errors_Details_rangecheck"/>.
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_append"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_appendall"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insertall"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insertall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_prepend"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_prependall"/>.
 </formalpara>
 
 </section>

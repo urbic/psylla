@@ -141,6 +141,8 @@ public class PsiSystemDict
 					_prettyprint.class,
 					_print.class,
 					_println.class,
+					_prepend.class,
+					_prependall.class,
 					_process.class,
 					_processerror.class,
 					_processreader.class,
