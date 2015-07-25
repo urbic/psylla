@@ -4,6 +4,12 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	extends PsiAbstractObject
 	implements PsiArraylike<T>
 {
+	@Override
+	public PsiBoolean psiKnown(PsiInteger key)
+	{
+		long keyValue=key.longValue();
+		return PsiBoolean.valueOf(keyValue>=0 && keyValue<length());
+	}
 
 	@Override
 	public boolean isEmpty()
