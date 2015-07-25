@@ -27,6 +27,15 @@
 </para>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">1 2 ge				▶ false
+2 1. ge				▶ true
+"abc" "abcd" ge		▶ false
+/abcd "abc" ge		▶ true
+/abc "abc" ge		▶ true</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.

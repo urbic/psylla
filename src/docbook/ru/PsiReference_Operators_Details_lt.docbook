@@ -28,6 +28,15 @@
 </para>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">1 2 lt				▶ true
+2 1. lt				▶ false
+"abc" "abcd" lt		▶ true
+/abcd "abc" lt		▶ false
+/abc "abc" lt		▶ false</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
