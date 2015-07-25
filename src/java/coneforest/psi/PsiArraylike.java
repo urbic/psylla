@@ -5,6 +5,7 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiContainer<T>,
 		PsiIndexed<PsiInteger, T>,
 		PsiAppendable<T>,
+		PsiPrependable<T>,
 		PsiClearable
 {
 	public T get(int indexValue)
