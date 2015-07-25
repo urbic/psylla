@@ -35,10 +35,10 @@ public interface PsiArraylike<T extends PsiObject>
 	public void psiSetLength(PsiInteger length)
 		throws PsiException;
 
-	public T delete(int indexValue)
+	public T extract(int indexValue)
 		throws PsiException;
 
-	public PsiArraylike<T> psiDeleteInterval(PsiInteger index, PsiInteger count)
+	public PsiArraylike<T> psiExtractInterval(PsiInteger index, PsiInteger count)
 		throws PsiException;
 
 	@Override
