@@ -26,6 +26,11 @@
 	</highlighter>
 
 	<highlighter type="regex">
+		<pattern>`([^\\]|\\[efranux])</pattern>
+		<style>string</style>
+	</highlighter>
+
+	<highlighter type="regex">
 		<pattern>/[A-Za-z_\.\$@][A-Za-z_\.\$@\d]*</pattern>
 		<style>string</style>
 	</highlighter>
