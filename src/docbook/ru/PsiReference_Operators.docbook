@@ -542,6 +542,12 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_get" xrefstyle="template:%t"/></term>
+<listitem>получение массива значений из контейнера по перечислению ключей или
+индексов</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_getinterval" xrefstyle="template:%t"/></term>
 <listitem>извлечение подмассива</listitem>
 </varlistentry>
@@ -1332,6 +1338,7 @@
 &PsiReference_Operators_Details_fork;
 &PsiReference_Operators_Details_ge;
 &PsiReference_Operators_Details_get;
+&PsiReference_Operators_Details_getall;
 &PsiReference_Operators_Details_getinterval;
 &PsiReference_Operators_Details_grep;
 &PsiReference_Operators_Details_gt;

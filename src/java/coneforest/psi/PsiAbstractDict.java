@@ -12,6 +12,16 @@ abstract public class PsiAbstractDict<V extends PsiObject>
 	}
 
 	@Override
+	public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringlike> iterable)
+		throws PsiException
+	{
+		PsiArraylike<V> result=(PsiArraylike<V>)new PsiArray();
+		for(PsiStringlike key: iterable)
+			result.psiAppend(psiGet(key));
+		return result;
+	}
+
+	@Override
 	public void psiPut(PsiStringlike key, V obj)
 	{
 		put(key.getString(), obj);

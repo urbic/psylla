@@ -90,6 +90,7 @@ public class PsiSystemDict
 					_fork.class,
 					_ge.class,
 					_get.class,
+					_getall.class,
 					_getinterval.class,
 					_grep.class,
 					_gt.class,

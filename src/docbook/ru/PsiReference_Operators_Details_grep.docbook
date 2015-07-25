@@ -38,7 +38,7 @@ linkend="PsiReference_Types_Details_boolean"/>, и если его значен�
 операндов и после её вызова на вершине стека находится объект типа <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>,
 в противном случае результат исполнения <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_map"/> непредсказуем.
+linkend="PsiReference_Operators_Details_grep"/> непредсказуем.
 </para>
 
 <formalpara>

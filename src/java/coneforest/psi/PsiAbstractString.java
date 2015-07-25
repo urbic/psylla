@@ -27,6 +27,16 @@ abstract public class PsiAbstractString
 	}
 
 	@Override
+	public PsiAbstractString psiGetAll(PsiIterable<PsiInteger> iterable)
+		throws PsiException
+	{
+		PsiAbstractString result=psiNewEmpty();
+		for(PsiInteger integer: iterable)
+			result.psiAppend(psiGet(integer));
+		return result;
+	}
+
+	@Override
 	public void psiPut(PsiInteger index, PsiInteger character)
 		throws PsiException
 	{
