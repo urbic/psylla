@@ -53,13 +53,11 @@ abstract public class PsiAbstractStringlike
 	{
 		try
 		{
-			// TODO fractional
 			return new PsiReal(Double.parseDouble(getString()));
 		}
 		catch(NumberFormatException e)
 		{
-			// TODO maybe "syntaxerror"?
-			throw new PsiException("typecheck");
+			throw new PsiException("syntaxerror");
 		}
 	}
 

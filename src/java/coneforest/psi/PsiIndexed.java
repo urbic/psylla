@@ -60,4 +60,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 	 */
 	public PsiIndexed<K, V> psiSlice(PsiIterable<K> keys)
 		throws PsiException;
+
+	public PsiArraylike<V> psiGetAll(PsiIterable<K> keys)
+		throws PsiException;
 }

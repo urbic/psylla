@@ -139,6 +139,7 @@
 <!ENTITY PsiReference_Operators_Details_fork			SYSTEM "PsiReference_Operators_Details_fork.docbook">
 <!ENTITY PsiReference_Operators_Details_ge				SYSTEM "PsiReference_Operators_Details_ge.docbook">
 <!ENTITY PsiReference_Operators_Details_get				SYSTEM "PsiReference_Operators_Details_get.docbook">
+<!ENTITY PsiReference_Operators_Details_getall			SYSTEM "PsiReference_Operators_Details_getall.docbook">
 <!ENTITY PsiReference_Operators_Details_getinterval		SYSTEM "PsiReference_Operators_Details_getinterval.docbook">
 <!ENTITY PsiReference_Operators_Details_grep			SYSTEM "PsiReference_Operators_Details_grep.docbook">
 <!ENTITY PsiReference_Operators_Details_gt				SYSTEM "PsiReference_Operators_Details_gt.docbook">

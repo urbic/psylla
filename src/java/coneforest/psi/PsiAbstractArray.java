@@ -152,6 +152,16 @@ abstract public class PsiAbstractArray<T extends PsiObject>
 	}
 
 	@Override
+	public PsiAbstractArray<T> psiGetAll(PsiIterable<PsiInteger> iterable)
+		throws PsiException
+	{
+		PsiAbstractArray<T> result=psiNewEmpty();
+		for(PsiInteger integer: iterable)
+			result.psiAppend(psiGet(integer));
+		return result;
+	}
+
+	@Override
 	public String toString()
 	{
 		return "["+toStringHelper(this)+"]";
