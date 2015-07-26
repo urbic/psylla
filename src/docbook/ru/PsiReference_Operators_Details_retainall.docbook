@@ -20,11 +20,16 @@
 </synopsis>
 
 <para>
-Удаляет из <replaceable>множества</replaceable> все элементы, отсутствующие
-в <replaceable>перечислении</replaceable>.  <replaceable>Элемент</replaceable>
-считается присутствующим во <replaceable>множестве</replaceable>, если оно
+Удаляет из <replaceable>множества</replaceable> все элементы, отсутствующие
+в <replaceable>перечислении</replaceable>. <replaceable>Элемент</replaceable>
+считается присутствующим во <replaceable>множестве</replaceable>, если оно
 содержит равный ему элемент.
 </para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">( 0 1 2 3 4 ) dup [ 2 3 7 ] retainall	▶ ( 2 3 )</programlisting>
+</formalpara>
 
 <formalpara>
 <title>Ошибки:</title>
