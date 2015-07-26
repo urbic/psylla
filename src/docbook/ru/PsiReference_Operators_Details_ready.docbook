@@ -9,7 +9,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>читатель</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_resettable"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:

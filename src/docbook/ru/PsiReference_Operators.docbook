@@ -664,7 +664,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sort" xrefstyle="template:%t"/></term>
-<listitem>Сортировка массива с компаратором</listitem>
+<listitem>сортировка массива с компаратором</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_store" xrefstyle="template:%t"/></term>
+<listitem>замена самого верхнего определения в стеке словарей</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1428,6 +1433,7 @@
 &PsiReference_Operators_Details_stdrandom;
 &PsiReference_Operators_Details_stop;
 &PsiReference_Operators_Details_stopped;
+&PsiReference_Operators_Details_store;
 &PsiReference_Operators_Details_string;
 &PsiReference_Operators_Details_stringreader;
 &PsiReference_Operators_Details_stringwriter;

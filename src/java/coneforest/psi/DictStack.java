@@ -51,4 +51,17 @@ public class DictStack
 	{
 		return where(key.getString());
 	}
+
+	public void store(String keyString, PsiObject obj)
+	{
+		PsiDictlike dict=where(keyString);
+		if(dict==null)
+			dict=peek();
+		dict.put(keyString, obj);
+	}
+
+	public void store(PsiStringlike key, PsiObject obj)
+	{
+		store(key.getString(), obj);
+	}
 }

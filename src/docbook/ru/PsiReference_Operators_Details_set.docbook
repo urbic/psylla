@@ -19,6 +19,11 @@
 </para>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">set	▶ ()</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 нет.
 </formalpara>
