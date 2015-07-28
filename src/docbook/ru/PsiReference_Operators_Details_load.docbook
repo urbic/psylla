@@ -19,10 +19,15 @@
 </synopsis>
 
 <para>
-Ищет <replaceable>ключ</replaceable> в стеке словарей. Поиск производится
-от вершины стека к основанию. Если <replaceable>ключ</replaceable> найден,
-возвращает ассоциированный с ним объект, в противном случае генерирует <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+Ищет <replaceable>ключ</replaceable> в стеке словарей и возвращает
+ассоциированный с ним <replaceable>объект</replaceable>. Поиск производится
+от вершины стека к основанию.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefined"/>, если
+<replaceable>ключ</replaceable> не найден.
 </para>
 
 <formalpara>
@@ -39,7 +44,13 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
 
 <formalpara>
 <title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentdict"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_def"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_get"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_known"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_store"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_undef"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_where"/>.
 </formalpara>
 

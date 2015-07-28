@@ -896,6 +896,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_hardlink" xrefstyle="template:%t"/></term>
+<listitem>создание жёсткой ссылки</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_isdirectory" xrefstyle="template:%t"/></term>
 <listitem>является ли файл директорией?</listitem>
 </varlistentry>
@@ -903,6 +908,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_isfile" xrefstyle="template:%t"/></term>
 <listitem>является ли файл обычным?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_issamefile" xrefstyle="template:%t"/></term>
+<listitem>принадлежат ли имена одному файлу?</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1348,6 +1358,7 @@
 &PsiReference_Operators_Details_grep;
 &PsiReference_Operators_Details_gt;
 &PsiReference_Operators_Details_halt;
+&PsiReference_Operators_Details_hardlink;
 &PsiReference_Operators_Details_hypot;
 &PsiReference_Operators_Details_idiv;
 &PsiReference_Operators_Details_if;
@@ -1360,6 +1371,7 @@
 &PsiReference_Operators_Details_isdirectory;
 &PsiReference_Operators_Details_isempty;
 &PsiReference_Operators_Details_isfile;
+&PsiReference_Operators_Details_issamefile;
 &PsiReference_Operators_Details_issymlink;
 &PsiReference_Operators_Details_iszero;
 &PsiReference_Operators_Details_join;
