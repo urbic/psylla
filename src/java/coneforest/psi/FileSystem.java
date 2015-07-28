@@ -2,19 +2,9 @@ package coneforest.psi;
 
 public class FileSystem
 {
-	public static String fileNameToNative(final String fileName)
+	public static java.nio.file.Path getPath(final PsiStringlike stringlike)
 	{
-		return java.io.File.separatorChar=='/'? fileName: fileName.replace('/', java.io.File.separatorChar);
-	}
-
-	public static String fileNameFromNative(final String fileNameNative)
-	{
-		return java.io.File.separatorChar=='/'? fileNameNative: fileNameNative.replace(java.io.File.separatorChar, '/');
-	}
-
-	public static java.nio.file.Path getNativePath(final PsiStringlike stringlike)
-	{
-		return new java.io.File(fileNameToNative(stringlike.getString())).toPath();
+		return new java.io.File(stringlike.getString()).toPath();
 	}
 
 	public static void psiCreateDirectory(final PsiStringlike stringlike)
@@ -22,7 +12,7 @@ public class FileSystem
 	{
 		try
 		{
-			java.nio.file.Files.createDirectory(getNativePath(stringlike));
+			java.nio.file.Files.createDirectory(getPath(stringlike));
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
@@ -43,7 +33,7 @@ public class FileSystem
 	{
 		try
 		{
-			java.nio.file.Files.delete(getNativePath(stringlike));
+			java.nio.file.Files.delete(getPath(stringlike));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -68,7 +58,7 @@ public class FileSystem
 	{
 		try
 		{
-			return new PsiString(java.nio.file.Files.readSymbolicLink(getNativePath(stringlike))
+			return new PsiString(java.nio.file.Files.readSymbolicLink(getPath(stringlike))
 					.toString());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -95,8 +85,12 @@ public class FileSystem
 	{
 		try
 		{
-			java.nio.file.Files.createSymbolicLink(getNativePath(stringlike2),
-				getNativePath(stringlike1));
+			java.nio.file.Files.createSymbolicLink(getPath(stringlike2),
+				getPath(stringlike1));
+		}
+		catch(UnsupportedOperationException e)
+		{
+			throw new PsiException("unsupported");
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
@@ -112,16 +106,47 @@ public class FileSystem
 		}
 	}
 
+	public static void psiHardLink(final PsiStringlike stringlike1,
+			final PsiStringlike stringlike2)
+		throws PsiException
+	{
+		try
+		{
+			java.nio.file.Files.createLink(getPath(stringlike2),
+				getPath(stringlike1));
+		}
+		catch(UnsupportedOperationException e)
+		{
+			throw new PsiException("unsupported");
+		}
+		catch(java.nio.file.FileAlreadyExistsException e)
+		{
+			throw new PsiException("fileexists");
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("filenotfound");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
 	public static void psiRenameFile(final PsiStringlike stringlike1,
 			final PsiStringlike stringlike2)
 		throws PsiException
 	{
-		String fileName1=fileNameToNative(stringlike1.getString());
-		String fileName2=fileNameToNative(stringlike2.getString());
+		String fileName1=stringlike1.getString();
+		String fileName2=stringlike2.getString();
 		try
 		{
-			java.nio.file.Files.move(getNativePath(stringlike1),
-					getNativePath(stringlike2));
+			java.nio.file.Files.move(getPath(stringlike1),
+					getPath(stringlike2));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -150,7 +175,7 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.exists(getNativePath(stringlike)));
+			return PsiBoolean.valueOf(java.nio.file.Files.exists(getPath(stringlike)));
 		}
 		catch(java.lang.SecurityException e)
 		{
@@ -163,7 +188,7 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
 					java.nio.file.attribute.BasicFileAttributes.class).isRegularFile());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -185,8 +210,29 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
 					java.nio.file.attribute.BasicFileAttributes.class).isDirectory());
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("filenotfound");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	public static PsiBoolean psiIsSameFile(final PsiStringlike name1, final PsiStringlike name2)
+		throws PsiException
+	{
+		try
+		{
+			return PsiBoolean.valueOf(java.nio.file.Files.isSameFile(getPath(name1), getPath(name2)));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -207,7 +253,7 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
 					java.nio.file.attribute.BasicFileAttributes.class).isSymbolicLink());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -229,7 +275,7 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.size(getNativePath(stringlike)));
+			return PsiInteger.valueOf(java.nio.file.Files.size(getPath(stringlike)));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -250,7 +296,7 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
 					java.nio.file.attribute.BasicFileAttributes.class).lastAccessTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -272,7 +318,7 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
 					java.nio.file.attribute.BasicFileAttributes.class).creationTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -294,7 +340,7 @@ public class FileSystem
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getNativePath(stringlike),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
 					java.nio.file.attribute.BasicFileAttributes.class).lastModifiedTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -318,7 +364,7 @@ public class FileSystem
 		try
 		{
 			java.nio.file.DirectoryStream<java.nio.file.Path> dirStream
-				=java.nio.file.Files.newDirectoryStream(getNativePath(stringlike));
+				=java.nio.file.Files.newDirectoryStream(getPath(stringlike));
 			for(java.nio.file.Path item: dirStream)
 				array.psiAppend(new PsiString(item.toString()));
 			return array;
@@ -337,6 +383,6 @@ public class FileSystem
 	public static PsiString psiCurrentDirectory()
 		throws PsiException
 	{
-		return new PsiString(fileNameFromNative(java.nio.file.Paths.get("").toAbsolutePath().toString()));
+		return new PsiString(java.nio.file.Paths.get("").toAbsolutePath().toString());
 	}
 }
