@@ -30,7 +30,7 @@ public interface PsiIndexed<K, V extends PsiObject>
 
 	/**
 	 *	Stores an element with given key or index. In {@link PsiArraylike}
-	 *	containers replaces existing element. In {@link PsiDictionarylike}
+	 *	containers replaces existing element. In {@link PsiDictlike}
 	 *	containers replaces an old or creates a new element associated with
 	 *	specified key.
 	 *
