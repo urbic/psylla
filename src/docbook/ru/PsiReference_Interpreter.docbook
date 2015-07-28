@@ -71,16 +71,16 @@ jar.
 <varlistentry>
 <term><parameter><replaceable>программа</replaceable></parameter></term>
 <listitem>
-Имя файла с программой Ψ. Если указан дефис, программа считывается со
-стандартного ввода. Если <option>программа</option> не указана, запускается
-<acronym>REPL</acronym> (цикл прочитать — выполнить — напечатать).
+Имя файла с программой Ψ. Если указан дефис, программа считывается
+со стандартного ввода. Если <replaceable>программа</replaceable> не указана,
+запускается <acronym>REPL</acronym> (цикл прочитать — выполнить — напечатать).
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><parameter><replaceable>аргумент</replaceable></parameter></term>
 <listitem>
-Аргумент, передаваемый в программу Ψ.
+Аргумент, передаваемый в программу Ψ.
 </listitem>
 </varlistentry>
 
