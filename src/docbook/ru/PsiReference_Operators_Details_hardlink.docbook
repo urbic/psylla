@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_symlink">
-<title><token language="psi">symlink</token></title>
+<section xml:id="PsiReference_Operators_Details_hardlink">
+<title><token language="psi">hardlink</token></title>
 
 <synopsis>
 <replaceable>цель</replaceable>
 <replaceable>ссылка</replaceable>
-<token language="psi">symlink</token>
+<token language="psi">hardlink</token>
 —
 <itemizedlist>
 <listitem>
@@ -17,7 +17,7 @@
 </synopsis>
 
 <para>
-Создаёт символьную ссылку с именем <replaceable>ссылка</replaceable> на файл
+Создаёт ссылку с именем <replaceable>ссылка</replaceable> на файл
 с именем <replaceable>цель</replaceable>.
 </para>
 
@@ -25,17 +25,20 @@
 Генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_fileexists"/>, если файл или директория
 с именем <replaceable>ссылка</replaceable> существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>, при нарушении политики
-безопасности; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unsupported"/>, если создание
-символических ссылок не поддерживается платформой.
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+если файл или директория с именем <replaceable>цель</replaceable> не
+существует; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
+при нарушении политики безопасности; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unsupported"/>, если создание жёстких
+ссылок не поддерживается платформой.
 </para>
 
 <formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
@@ -45,8 +48,7 @@ linkend="PsiReference_Errors_Details_unsupported"/>, если создание
 
 <formalpara>
 <title>Смотри также:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_hardlink"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readlink"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_symlink"/>.
 </formalpara>
 
 </section>
