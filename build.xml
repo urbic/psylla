@@ -54,8 +54,8 @@
 		<javac
 			srcdir="${src.java}:${target.src.java}"
 			destdir="${target.classes}"
-			source="1.7"
-			target="1.7"
+			source="1.8"
+			target="1.8"
 			includeantruntime="false"
 			classpathref="project.classpath"
 			encoding="UTF-8"
