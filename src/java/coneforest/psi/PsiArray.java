@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">array</code> object.
  */
 public class PsiArray
-	extends PsiAbstractArray<PsiObject>
+	implements PsiArraylike<PsiObject>
 {
 	public PsiArray()
 	{
@@ -46,12 +46,6 @@ public class PsiArray
 	public PsiArray psiClone()
 	{
 		return new PsiArray(this);
-	}
-
-	@Override
-	public PsiBoolean psiIsEmpty()
-	{
-		return PsiBoolean.valueOf(array.isEmpty());
 	}
 
 	@Override

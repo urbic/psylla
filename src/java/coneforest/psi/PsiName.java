@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">name</code> object.
  */
 public class PsiName
-	extends PsiAbstractStringlike
+	implements PsiStringlike
 {
 	/**
 	 *	Instantiate a new Ψ name object with given name.
@@ -66,18 +66,6 @@ public class PsiName
 		return PsiInteger.valueOf(name.length());
 	}
 
-	/**
-	 *	Returns a Ψ boolean indicating whether or not this object’s value is
-	 *	empty.
-	 *
-	 *	@return a result.
-	 */
-	@Override
-	public PsiBoolean psiIsEmpty()
-	{
-		return PsiBoolean.valueOf(name.length()==0);
-	}
-
 	@Override
 	public PsiName psiUpperCase()
 	{
@@ -114,6 +102,12 @@ public class PsiName
 	{
 		return object instanceof PsiName
 				&& psiEq((PsiName)object).booleanValue();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getString().hashCode();
 	}
 
 	private final String name;

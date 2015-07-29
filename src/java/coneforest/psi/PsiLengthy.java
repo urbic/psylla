@@ -18,7 +18,10 @@ public interface PsiLengthy
 	 *
 	 *	@return a result.
 	 */
-	public boolean isEmpty();
+	default public boolean isEmpty()
+	{
+		return length()==0;
+	}
 
 	/**
 	 *	Returns a Ψ-<code class="type">integer</code> representing the length
@@ -26,7 +29,10 @@ public interface PsiLengthy
 	 *
 	 *	@return a length.
 	 */
-	public PsiInteger psiLength();
+	default public PsiInteger psiLength()
+	{
+		return PsiInteger.valueOf(length());
+	}
 
 	/**
 	 *	Returns a Ψ-<code class="type">boolean</code> indicating if this object
@@ -34,7 +40,10 @@ public interface PsiLengthy
 	 *
 	 *	@return a result.
 	 */
-	public PsiBoolean psiIsEmpty();
+	default public PsiBoolean psiIsEmpty()
+	{
+		return PsiBoolean.valueOf(isEmpty());
+	}
 
-	public String toStringHelper(PsiLengthy lengthy);
+	//public String toSyntaxStringHelper(PsiLengthy lengthy);
 }
