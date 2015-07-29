@@ -1,21 +1,21 @@
 package coneforest.psi;
 
-abstract public class PsiAbstractString
-	implements
+public interface PsiStringlike
+	extends
 		PsiStringy,
 		PsiArraylike<PsiInteger>
 {
 	@Override
-	public String getTypeName()
+	default public String getTypeName()
 	{
 		return "string";
 	}
 
 	@Override
-	abstract public PsiAbstractString psiClone();
+	abstract public PsiStringlike psiClone();
 
 	@Override
-	public String toSyntaxString()
+	default public String toSyntaxString()
 	{
 		StringBuilder sb=new StringBuilder();
 		String string=getString();
@@ -56,18 +56,5 @@ abstract public class PsiAbstractString
 			}
 		}
 		return "\""+sb.toString()+"\"";
-	}
-
-	@Override
-	public boolean equals(Object object)
-	{
-		return getClass().isInstance(object)
-				&& psiEq((PsiString)object).booleanValue();
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return getString().hashCode();
 	}
 }
