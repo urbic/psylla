@@ -4,10 +4,10 @@ public class PsiClassLoader
 	extends PsiArray
 {
 
-	public PsiObject psiExternal(PsiStringlike stringlike)
+	public PsiObject psiExternal(PsiStringy stringy)
 		throws PsiException
 	{
-		return external(stringlike.getString());
+		return external(stringy.getString());
 	}
 
 	public PsiObject external(Class<? extends PsiObject> objectClass)
@@ -56,7 +56,7 @@ public class PsiClassLoader
 				for(PsiObject file: PsiClassLoader.this)
 				{
 					Class cl=findClassAtPathElement(className,
-							new java.io.File(((PsiStringlike)file).getString()));
+							new java.io.File(((PsiStringy)file).getString()));
 					if(cl!=null)
 						return cl;
 				}
@@ -110,7 +110,7 @@ public class PsiClassLoader
 				}
 			}
 
-			private PsiIterable<PsiStringlike> path;
+			private PsiIterable<PsiStringy> path;
 
 			private java.util.Hashtable<String, Class> classes
 				=new java.util.Hashtable<String, Class>();

@@ -2,7 +2,7 @@ package coneforest.psi;
 
 abstract public class PsiAbstractString
 	implements
-		PsiStringlike,
+		PsiStringy,
 		PsiArraylike<PsiInteger>
 {
 	@Override

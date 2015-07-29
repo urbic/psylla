@@ -8,6 +8,6 @@ public class _lowercase extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiStringlike)opstack.popOperands(1)[0]).psiLowerCase());
+		opstack.push(((PsiStringy)opstack.popOperands(1)[0]).psiLowerCase());
 	}
 }

@@ -9,6 +9,6 @@ public class _store extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		interpreter.getDictStack().store((PsiStringlike)ops[0], ops[1]);
+		interpreter.getDictStack().store((PsiStringy)ops[0], ops[1]);
 	}
 }

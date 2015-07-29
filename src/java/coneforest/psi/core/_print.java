@@ -9,6 +9,6 @@ public class _print extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		((PsiWriter)interpreter.getDictStack().load("stdout"))
-			.psiWriteString((PsiStringlike)opstack.popOperands(1)[0]);
+			.psiWriteString((PsiStringy)opstack.popOperands(1)[0]);
 	}
 }

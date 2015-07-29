@@ -177,7 +177,7 @@ public class PsiArray
 		return result;
 	}
 
-	public PsiString psiUnite(PsiStringlike separator)
+	public PsiString psiUnite(PsiStringy separator)
 		throws PsiException
 	{
 		try
@@ -188,7 +188,7 @@ public class PsiArray
 			{
 				if(i>0)
 					sb.append(separatorString);
-				sb.append(((PsiStringlike)get(i)).getString());
+				sb.append(((PsiStringy)get(i)).getString());
 			}
 			return new PsiString(sb);
 		}

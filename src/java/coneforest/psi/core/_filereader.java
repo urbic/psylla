@@ -8,6 +8,6 @@ public class _filereader extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiFileReader((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(new PsiFileReader((PsiStringy)opstack.popOperands(1)[0]));
 	}
 }

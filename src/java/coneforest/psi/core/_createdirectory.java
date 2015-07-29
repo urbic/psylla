@@ -8,6 +8,6 @@ public class _createdirectory extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		FileSystem.psiCreateDirectory((PsiStringlike)opstack.popOperands(1)[0]);
+		FileSystem.psiCreateDirectory((PsiStringy)opstack.popOperands(1)[0]);
 	}
 }

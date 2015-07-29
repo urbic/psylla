@@ -3,9 +3,9 @@ package coneforest.psi;
 public class PsiMatcher
 	implements PsiObject
 {
-	public PsiMatcher(PsiStringlike stringlike, PsiRegExp regexp)
+	public PsiMatcher(PsiStringy stringy, PsiRegExp regexp)
 	{
-		matcher=regexp.getPattern().matcher(stringlike.getString());
+		matcher=regexp.getPattern().matcher(stringy.getString());
 	}
 
 	public PsiBoolean psiFind()
@@ -26,8 +26,8 @@ public class PsiMatcher
 			String group=null;
 			if(key instanceof PsiInteger)
 				group=matcher.group(((PsiInteger)key).intValue());
-			else if(key instanceof PsiStringlike)
-				group=matcher.group(((PsiStringlike)key).getString());
+			else if(key instanceof PsiStringy)
+				group=matcher.group(((PsiStringy)key).getString());
 			else
 				throw new ClassCastException();
 			return group!=null? new PsiString(group): PsiNull.NULL;

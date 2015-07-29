@@ -15,7 +15,7 @@
 <listitem>
 <replaceable>индекс</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
-| <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+| <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
 <replaceable>группа</replaceable>:
@@ -44,8 +44,8 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
 
 <para>
 Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_stringlike"/> возвращается именованная
-группа по её имени. При отсутствии группы с заданным именем генерируется <xref
+linkend="PsiReference_Types_Details_stringy"/> возвращается именованная группа
+по её имени. При отсутствии группы с заданным именем генерируется <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
 </para>
 

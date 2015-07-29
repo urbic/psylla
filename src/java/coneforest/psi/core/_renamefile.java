@@ -9,6 +9,6 @@ public class _renamefile extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		FileSystem.psiRenameFile((PsiStringlike)ops[0], (PsiStringlike)ops[1]);
+		FileSystem.psiRenameFile((PsiStringy)ops[0], (PsiStringy)ops[1]);
 	}
 }

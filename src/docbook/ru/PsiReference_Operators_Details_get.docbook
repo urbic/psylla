@@ -32,7 +32,7 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/> —
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>,
 для <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_dictlike"/> — <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_stringlike"/>), в противном случае
+linkend="PsiReference_Types_Details_stringy"/>), в противном случае
 генерируется <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_typecheck"/>.
 </para>

@@ -9,6 +9,6 @@ public class _undef extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		((PsiDictlike)ops[0]).psiUndef((PsiStringlike)ops[1]);
+		((PsiDictlike)ops[0]).psiUndef((PsiStringy)ops[1]);
 	}
 }

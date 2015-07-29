@@ -9,6 +9,6 @@ public class _issamefile extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(FileSystem.psiIsSameFile((PsiStringlike)ops[0], (PsiStringlike)ops[1]));
+		opstack.push(FileSystem.psiIsSameFile((PsiStringy)ops[0], (PsiStringy)ops[1]));
 	}
 }

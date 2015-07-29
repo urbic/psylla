@@ -33,7 +33,7 @@ public interface PsiReadable
 	 *	@return a line,
 	 *	@throws PsiException when error occurs.
 	 */
-	public PsiString psiReadLine(PsiStringlike stringlike)
+	public PsiString psiReadLine(PsiStringy stringy)
 		throws PsiException;
 
 	public void psiSkip(PsiInteger count)

@@ -8,6 +8,6 @@ public class _stringreader extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiStringReader((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(new PsiStringReader((PsiStringy)opstack.popOperands(1)[0]));
 	}
 }

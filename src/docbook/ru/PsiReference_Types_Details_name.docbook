@@ -8,7 +8,7 @@
 
 <formalpara>
 <title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstringlike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>,
 </formalpara>
 
 </section>

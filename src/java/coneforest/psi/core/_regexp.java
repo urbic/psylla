@@ -8,6 +8,6 @@ public class _regexp extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiRegExp((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(new PsiRegExp((PsiStringy)opstack.popOperands(1)[0]));
 	}
 }

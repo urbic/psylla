@@ -105,9 +105,9 @@ public interface PsiObject
 	}
 	*/
 
-	default public PsiBoolean psiIsA(PsiStringlike stringlike)
+	default public PsiBoolean psiIsA(PsiStringy stringy)
 	{
-		//Class<? extends PsiObject> clazz=TypeRegistry.get(stringlike.getString());
+		//Class<? extends PsiObject> clazz=TypeRegistry.get(stringy.getString());
 		//return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));
 		return PsiBoolean.TRUE;
 	}

@@ -9,7 +9,7 @@ public class _findall extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(3);
-		final PsiMatcher matcher=new PsiMatcher((PsiStringlike)ops[0], (PsiRegExp)ops[1]);
+		final PsiMatcher matcher=new PsiMatcher((PsiStringy)ops[0], (PsiRegExp)ops[1]);
 		final PsiObject obj=ops[2];
 
 		final int loopLevel=interpreter.pushLoopLevel();

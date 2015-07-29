@@ -8,6 +8,6 @@ public class _filewriter extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiFileWriter((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(new PsiFileWriter((PsiStringy)opstack.popOperands(1)[0]));
 	}
 }

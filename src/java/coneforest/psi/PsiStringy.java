@@ -1,18 +1,18 @@
 package coneforest.psi;
 
-public interface PsiStringlike
+public interface PsiStringy
 	extends
 		PsiContainer<PsiInteger>,
-		PsiScalar<PsiStringlike>,
+		PsiScalar<PsiStringy>,
 		PsiEvaluable,
 		PsiConvertableToInteger,
 		PsiConvertableToReal
 {
 	public String getString();
 
-	public PsiStringlike psiUpperCase();
+	public PsiStringy psiUpperCase();
 	
-	public PsiStringlike psiLowerCase();
+	public PsiStringy psiLowerCase();
 
 	@Override
 	default public PsiName psiToName()
@@ -65,38 +65,38 @@ public interface PsiStringlike
 	@Override
 	default public PsiBoolean psiEq(final PsiObject obj)
 	{
-		return PsiBoolean.valueOf(obj instanceof PsiStringlike
-				&& getString().equals(((PsiStringlike)obj).getString()));
+		return PsiBoolean.valueOf(obj instanceof PsiStringy
+				&& getString().equals(((PsiStringy)obj).getString()));
 	}
 
 	@Override
-	default public PsiBoolean psiLt(final PsiStringlike string)
+	default public PsiBoolean psiLt(final PsiStringy string)
 	{
 		return PsiBoolean.valueOf(getString().compareTo(string.getString())<0);
 	}
 
 	@Override
-	default public PsiBoolean psiLe(final PsiStringlike string)
+	default public PsiBoolean psiLe(final PsiStringy string)
 	{
 		return PsiBoolean.valueOf(getString().compareTo(string.getString())<=0);
 	}
 
 	@Override
-	default public PsiBoolean psiGt(final PsiStringlike string)
+	default public PsiBoolean psiGt(final PsiStringy string)
 	{
 		return PsiBoolean.valueOf(getString().compareTo(string.getString())>0);
 	}
 
 	@Override
-	default public PsiBoolean psiGe(final PsiStringlike string)
+	default public PsiBoolean psiGe(final PsiStringy string)
 	{
 		return PsiBoolean.valueOf(getString().compareTo(string.getString())>=0);
 	}
 
 	@Override
-	default public PsiInteger psiCmp(final PsiStringlike stringlike)
+	default public PsiInteger psiCmp(final PsiStringy stringy)
 	{
-		return PsiInteger.valueOf(getString().compareTo(stringlike.getString()));
+		return PsiInteger.valueOf(getString().compareTo(stringy.getString()));
 	}
 
 	@Override

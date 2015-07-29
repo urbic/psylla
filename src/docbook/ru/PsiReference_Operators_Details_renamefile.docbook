@@ -11,7 +11,7 @@
 <listitem>
 <replaceable>новое</replaceable>,
 <replaceable>старое</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
 </synopsis>

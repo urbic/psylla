@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">name</code> object.
  */
 public class PsiName
-	implements PsiStringlike
+	implements PsiStringy
 {
 	/**
 	 *	Instantiate a new Ψ name object with given name.
@@ -18,13 +18,13 @@ public class PsiName
 	}
 
 	/**
-	 *	Instantiate a new Ψ name object with name given as Ψ stringlike.
+	 *	Instantiate a new Ψ name object with name given as Ψ stringy.
 	 *
-	 *	@param stringlike a stringlike.
+	 *	@param stringy a stringy.
 	 */
-	public PsiName(PsiStringlike stringlike)
+	public PsiName(PsiStringy stringy)
 	{
-		this(stringlike.getString());
+		this(stringy.getString());
 	}
 
 	/**

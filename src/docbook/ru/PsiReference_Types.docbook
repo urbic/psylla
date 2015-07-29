@@ -97,21 +97,21 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 </para>
 <formalpara>
 <title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstringlike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstringy"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
 </formalpara>
 </section-->
 
-<!--section xml:id="PsiReference_Types_Details_abstractstringlike">
-<title><type>abstractstringlike</type></title>
+<!--section xml:id="PsiReference_Types_Details_abstractstringy">
+<title><type>abstractstringy</type></title>
 <para>
 Тип абстрактных строкоподобных величин.
 </para>
 <formalpara>
 <title>Наследует:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
 </formalpara>
 </section-->
 
@@ -213,9 +213,9 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_set;
 &PsiReference_Types_Details_setlike;
 &PsiReference_Types_Details_string;
-&PsiReference_Types_Details_stringlike;
 &PsiReference_Types_Details_stringreader;
 &PsiReference_Types_Details_stringwriter;
+&PsiReference_Types_Details_stringy;
 &PsiReference_Types_Details_writable;
 &PsiReference_Types_Details_writer;
 

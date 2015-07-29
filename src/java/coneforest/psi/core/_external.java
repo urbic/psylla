@@ -9,6 +9,6 @@ public class _external extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		opstack.push(((PsiClassLoader)interpreter.getSystemDict().get("classpath"))
-				.psiExternal(((PsiStringlike)opstack.popOperands(1)[0])));
+				.psiExternal(((PsiStringy)opstack.popOperands(1)[0])));
 	}
 }

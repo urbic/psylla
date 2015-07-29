@@ -19,10 +19,10 @@ public class PsiRegExp
 		}
 	}
 
-	public PsiRegExp(PsiStringlike stringlike)
+	public PsiRegExp(PsiStringy stringy)
 		throws PsiException
 	{
-		this(stringlike.getString());
+		this(stringy.getString());
 	}
 
 	/**

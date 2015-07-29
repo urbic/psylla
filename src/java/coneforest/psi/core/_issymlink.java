@@ -8,6 +8,6 @@ public class _issymlink extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiIsSymLink(((PsiStringlike)opstack.popOperands(1)[0])));
+		opstack.push(FileSystem.psiIsSymLink(((PsiStringy)opstack.popOperands(1)[0])));
 	}
 }

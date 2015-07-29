@@ -8,9 +8,9 @@ public class PsiStringReader
 		super(new java.io.StringReader(stringValue));
 	}
 
-	public PsiStringReader(PsiStringlike stringlike)
+	public PsiStringReader(PsiStringy stringy)
 	{
-		this(stringlike.getString());
+		this(stringy.getString());
 	}
 
 	@Override

@@ -82,11 +82,11 @@ public class PsiDict
 	}
 
 	@Override
-	public PsiDict psiSlice(PsiIterable<PsiStringlike> keys)
+	public PsiDict psiSlice(PsiIterable<PsiStringy> keys)
 		throws PsiException
 	{
 		PsiDict values=new PsiDict();
-		for(PsiStringlike key: keys)
+		for(PsiStringy key: keys)
 			values.psiPut(key, psiGet(key));
 		return values;
 	}
