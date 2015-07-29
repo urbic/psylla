@@ -9,6 +9,6 @@ public class _signalerror extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		interpreter.handleError(((PsiStringlike)ops[1]).getString(), ops[0]);
+		interpreter.handleError(((PsiStringy)ops[1]).getString(), ops[0]);
 	}
 }

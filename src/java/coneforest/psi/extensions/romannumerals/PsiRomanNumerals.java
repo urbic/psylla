@@ -49,13 +49,13 @@ public class PsiRomanNumerals
 			throws ClassCastException, PsiException
 		{
 			OperandStack opstack=interpreter.getOperandStack();
-			opstack.push(psiFromRoman((PsiStringlike)opstack.popOperands(1)[0]));
+			opstack.push(psiFromRoman((PsiStringy)opstack.popOperands(1)[0]));
 		}
 
-		private PsiInteger psiFromRoman(PsiStringlike stringlike)
+		private PsiInteger psiFromRoman(PsiStringy stringy)
 			throws PsiException
 		{
-			java.util.regex.Matcher romanMatcher=romanPattern.matcher(stringlike.getString());
+			java.util.regex.Matcher romanMatcher=romanPattern.matcher(stringy.getString());
 			if(!romanMatcher.matches())
 				throw new PsiException("undefinedresult");
 			int result=0;

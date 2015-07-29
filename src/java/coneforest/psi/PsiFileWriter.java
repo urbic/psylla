@@ -15,7 +15,7 @@ public class PsiFileWriter extends PsiWriter
 		}
 	}
 
-	public PsiFileWriter(PsiStringlike name)
+	public PsiFileWriter(PsiStringy name)
 		throws PsiException
 	{
 		this(name.getString());

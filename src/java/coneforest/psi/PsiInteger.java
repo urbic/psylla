@@ -341,10 +341,10 @@ public class PsiInteger
 		return PsiInteger.valueOf(shift.value>=0? value<<shift.value: value>>(-shift.value));
 	}
 
-	public PsiBoolean psiInUnicodeBlock(PsiStringlike stringlike)
+	public PsiBoolean psiInUnicodeBlock(PsiStringy stringy)
 	{
 		return PsiBoolean.valueOf(Character.UnicodeBlock.of((int)value).equals(
-				Character.UnicodeBlock.forName(stringlike.getString())));
+				Character.UnicodeBlock.forName(stringy.getString())));
 	}
 
 	@Override

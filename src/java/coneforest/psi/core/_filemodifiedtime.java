@@ -8,6 +8,6 @@ public class _filemodifiedtime extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiFileModifiedTime((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(FileSystem.psiFileModifiedTime((PsiStringy)opstack.popOperands(1)[0]));
 	}
 }

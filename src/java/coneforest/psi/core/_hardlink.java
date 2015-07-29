@@ -9,6 +9,6 @@ public class _hardlink extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		FileSystem.psiHardLink((PsiStringlike)ops[0], (PsiStringlike)ops[1]);
+		FileSystem.psiHardLink((PsiStringy)ops[0], (PsiStringy)ops[1]);
 	}
 }

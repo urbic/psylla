@@ -14,14 +14,14 @@ public class _tokens extends PsiOperator
 			return;
 		}
 
-		final PsiObject stringlike=opstack.pop();
+		final PsiObject stringy=opstack.pop();
 		try
 		{
-			interpreter.interpretBraced(new PsiStringReader((PsiStringlike)stringlike));
+			interpreter.interpretBraced(new PsiStringReader((PsiStringy)stringy));
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(stringlike);
+			opstack.push(stringy);
 			interpreter.handleError(e, this);
 		}
 	}

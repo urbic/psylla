@@ -9,6 +9,6 @@ public class _unite extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiArray)ops[0]).psiUnite((PsiStringlike)ops[1]));
+		opstack.push(((PsiArray)ops[0]).psiUnite((PsiStringy)ops[1]));
 	}
 }

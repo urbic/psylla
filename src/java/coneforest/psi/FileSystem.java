@@ -2,17 +2,17 @@ package coneforest.psi;
 
 public class FileSystem
 {
-	public static java.nio.file.Path getPath(final PsiStringlike stringlike)
+	public static java.nio.file.Path getPath(final PsiStringy stringy)
 	{
-		return new java.io.File(stringlike.getString()).toPath();
+		return new java.io.File(stringy.getString()).toPath();
 	}
 
-	public static void psiCreateDirectory(final PsiStringlike stringlike)
+	public static void psiCreateDirectory(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.createDirectory(getPath(stringlike));
+			java.nio.file.Files.createDirectory(getPath(stringy));
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
@@ -28,12 +28,12 @@ public class FileSystem
 		}
 	}
 
-	public static void psiDeleteFile(final PsiStringlike stringlike)
+	public static void psiDeleteFile(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.delete(getPath(stringlike));
+			java.nio.file.Files.delete(getPath(stringy));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -53,12 +53,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiString psiReadLink(final PsiStringlike stringlike)
+	public static PsiString psiReadLink(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return new PsiString(java.nio.file.Files.readSymbolicLink(getPath(stringlike))
+			return new PsiString(java.nio.file.Files.readSymbolicLink(getPath(stringy))
 					.toString());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -79,14 +79,14 @@ public class FileSystem
 		}
 	}
 
-	public static void psiSymLink(final PsiStringlike stringlike1,
-			final PsiStringlike stringlike2)
+	public static void psiSymLink(final PsiStringy stringy1,
+			final PsiStringy stringy2)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.createSymbolicLink(getPath(stringlike2),
-				getPath(stringlike1));
+			java.nio.file.Files.createSymbolicLink(getPath(stringy2),
+				getPath(stringy1));
 		}
 		catch(UnsupportedOperationException e)
 		{
@@ -106,14 +106,14 @@ public class FileSystem
 		}
 	}
 
-	public static void psiHardLink(final PsiStringlike stringlike1,
-			final PsiStringlike stringlike2)
+	public static void psiHardLink(final PsiStringy stringy1,
+			final PsiStringy stringy2)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.createLink(getPath(stringlike2),
-				getPath(stringlike1));
+			java.nio.file.Files.createLink(getPath(stringy2),
+				getPath(stringy1));
 		}
 		catch(UnsupportedOperationException e)
 		{
@@ -137,16 +137,16 @@ public class FileSystem
 		}
 	}
 
-	public static void psiRenameFile(final PsiStringlike stringlike1,
-			final PsiStringlike stringlike2)
+	public static void psiRenameFile(final PsiStringy stringy1,
+			final PsiStringy stringy2)
 		throws PsiException
 	{
-		String fileName1=stringlike1.getString();
-		String fileName2=stringlike2.getString();
+		String fileName1=stringy1.getString();
+		String fileName2=stringy2.getString();
 		try
 		{
-			java.nio.file.Files.move(getPath(stringlike1),
-					getPath(stringlike2));
+			java.nio.file.Files.move(getPath(stringy1),
+					getPath(stringy2));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -170,12 +170,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiFileExists(final PsiStringlike stringlike)
+	public static PsiBoolean psiFileExists(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.exists(getPath(stringlike)));
+			return PsiBoolean.valueOf(java.nio.file.Files.exists(getPath(stringy)));
 		}
 		catch(java.lang.SecurityException e)
 		{
@@ -183,12 +183,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsFile(final PsiStringlike stringlike)
+	public static PsiBoolean psiIsFile(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
 					java.nio.file.attribute.BasicFileAttributes.class).isRegularFile());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -205,12 +205,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsDirectory(final PsiStringlike stringlike)
+	public static PsiBoolean psiIsDirectory(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
 					java.nio.file.attribute.BasicFileAttributes.class).isDirectory());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -227,7 +227,7 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsSameFile(final PsiStringlike name1, final PsiStringlike name2)
+	public static PsiBoolean psiIsSameFile(final PsiStringy name1, final PsiStringy name2)
 		throws PsiException
 	{
 		try
@@ -248,12 +248,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsSymLink(final PsiStringlike stringlike)
+	public static PsiBoolean psiIsSymLink(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
 					java.nio.file.attribute.BasicFileAttributes.class).isSymbolicLink());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -270,12 +270,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileSize(final PsiStringlike stringlike)
+	public static PsiInteger psiFileSize(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.size(getPath(stringlike)));
+			return PsiInteger.valueOf(java.nio.file.Files.size(getPath(stringy)));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -291,12 +291,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileAccessTime(final PsiStringlike stringlike)
+	public static PsiInteger psiFileAccessTime(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
 					java.nio.file.attribute.BasicFileAttributes.class).lastAccessTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -313,12 +313,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileCreationTime(final PsiStringlike stringlike)
+	public static PsiInteger psiFileCreationTime(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
 					java.nio.file.attribute.BasicFileAttributes.class).creationTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -335,12 +335,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileModifiedTime(final PsiStringlike stringlike)
+	public static PsiInteger psiFileModifiedTime(final PsiStringy stringy)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringlike),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
 					java.nio.file.attribute.BasicFileAttributes.class).lastModifiedTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -357,14 +357,14 @@ public class FileSystem
 		}
 	}
 
-	public static PsiArray psiListDirectory(final PsiStringlike stringlike)
+	public static PsiArray psiListDirectory(final PsiStringy stringy)
 		throws PsiException
 	{
 		PsiArray array=new PsiArray();
 		try
 		{
 			java.nio.file.DirectoryStream<java.nio.file.Path> dirStream
-				=java.nio.file.Files.newDirectoryStream(getPath(stringlike));
+				=java.nio.file.Files.newDirectoryStream(getPath(stringy));
 			for(java.nio.file.Path item: dirStream)
 				array.psiAppend(new PsiString(item.toString()));
 			return array;

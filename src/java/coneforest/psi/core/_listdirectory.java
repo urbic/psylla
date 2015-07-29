@@ -8,6 +8,6 @@ public class _listdirectory extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiListDirectory((PsiStringlike)opstack.popOperands(1)[0]));
+		opstack.push(FileSystem.psiListDirectory((PsiStringy)opstack.popOperands(1)[0]));
 	}
 }

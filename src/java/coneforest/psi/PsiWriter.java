@@ -46,7 +46,7 @@ public class PsiWriter
 	}
 
 	@Override
-	public void psiWriteString(PsiStringlike string)
+	public void psiWriteString(PsiStringy string)
 		throws PsiException
 	{
 		try

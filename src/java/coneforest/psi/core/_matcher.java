@@ -9,6 +9,6 @@ public class _matcher extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(new PsiMatcher((PsiStringlike)ops[0], (PsiRegExp)ops[1]));
+		opstack.push(new PsiMatcher((PsiStringy)ops[0], (PsiRegExp)ops[1]));
 	}
 }

@@ -30,7 +30,7 @@ public class DictStack
 			throw new PsiException("undefined");
 	}
 
-	public PsiObject load(PsiStringlike key)
+	public PsiObject load(PsiStringy key)
 		throws PsiException
 	{
 		return load(key.getString());
@@ -47,7 +47,7 @@ public class DictStack
 		return null;
 	}
 
-	public PsiDictlike where(PsiStringlike key)
+	public PsiDictlike where(PsiStringy key)
 	{
 		return where(key.getString());
 	}
@@ -60,7 +60,7 @@ public class DictStack
 		dict.put(keyString, obj);
 	}
 
-	public void store(PsiStringlike key, PsiObject obj)
+	public void store(PsiStringy key, PsiObject obj)
 	{
 		store(key.getString(), obj);
 	}

@@ -9,8 +9,8 @@ public class _say extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiWriter stdwriter=(PsiWriter)interpreter.getDictStack().load("stdout");
-		stdwriter.psiWriteString((PsiStringlike)opstack.popOperands(1)[0]);
-		stdwriter.psiWriteString((PsiStringlike)interpreter.getDictStack().load("eol"));
+		stdwriter.psiWriteString((PsiStringy)opstack.popOperands(1)[0]);
+		stdwriter.psiWriteString((PsiStringy)interpreter.getDictStack().load("eol"));
 		stdwriter.psiFlush();
 	}
 }

@@ -8,7 +8,7 @@ package coneforest.psi;
 public interface PsiDictlike<V extends PsiObject>
 	extends
 		PsiLengthy,
-		PsiIndexed<PsiStringlike, V>,
+		PsiIndexed<PsiStringy, V>,
 		PsiIterable<java.util.Map.Entry<String, V>>,
 		PsiClearable
 {
@@ -16,18 +16,18 @@ public interface PsiDictlike<V extends PsiObject>
 		throws PsiException;
 
 	@Override
-	default public V psiGet(PsiStringlike key)
+	default public V psiGet(PsiStringy key)
 		throws PsiException
 	{
 		return get(key.getString());
 	}
 
 	@Override
-	default public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringlike> iterable)
+	default public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringy> iterable)
 		throws PsiException
 	{
 		PsiArraylike<V> result=(PsiArraylike<V>)new PsiArray();
-		for(PsiStringlike key: iterable)
+		for(PsiStringy key: iterable)
 			result.psiAppend(psiGet(key));
 		return result;
 	}
@@ -35,7 +35,7 @@ public interface PsiDictlike<V extends PsiObject>
 	public void put(String key, V value);
 
 	@Override
-	default public void psiPut(PsiStringlike key, V obj)
+	default public void psiPut(PsiStringy key, V obj)
 	{
 		put(key.getString(), obj);
 	}
@@ -43,7 +43,7 @@ public interface PsiDictlike<V extends PsiObject>
 	public boolean known(String keyString);
 
 	@Override
-	default public PsiBoolean psiKnown(PsiStringlike key)
+	default public PsiBoolean psiKnown(PsiStringy key)
 	{
 		return PsiBoolean.valueOf(known(key.getString()));
 	}
@@ -55,7 +55,7 @@ public interface PsiDictlike<V extends PsiObject>
 	 *
 	 *	@param key a key. 
 	 */
-	default public void psiUndef(PsiStringlike key)
+	default public void psiUndef(PsiStringy key)
 	{
 		undef(key.getString());
 	}
@@ -78,7 +78,7 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 
 	@Override
-	default public V psiExtract(PsiStringlike key)
+	default public V psiExtract(PsiStringy key)
 		throws PsiException
 	{
 		V result=psiGet(key);
@@ -87,7 +87,7 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 
 	@Override
-	public PsiDictlike<V> psiSlice(PsiIterable<PsiStringlike> keys)
+	public PsiDictlike<V> psiSlice(PsiIterable<PsiStringy> keys)
 		throws PsiException;
 
 	@Override

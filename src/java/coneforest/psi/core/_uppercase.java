@@ -8,6 +8,6 @@ public class _uppercase extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiStringlike)opstack.popOperands(1)[0]).psiUpperCase());
+		opstack.push(((PsiStringy)opstack.popOperands(1)[0]).psiUpperCase());
 	}
 }

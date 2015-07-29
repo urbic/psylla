@@ -8,6 +8,6 @@ public class _deletefile extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		FileSystem.psiDeleteFile((PsiStringlike)opstack.popOperands(1)[0]);
+		FileSystem.psiDeleteFile((PsiStringy)opstack.popOperands(1)[0]);
 	}
 }
