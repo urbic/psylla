@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 public class PsiMatcher
-	extends PsiAbstractObject
+	implements PsiObject
 {
 	public PsiMatcher(PsiStringlike stringlike, PsiRegExp regexp)
 	{

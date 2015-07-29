@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">operator</code> object.
  */
 public abstract class PsiOperator
-	extends PsiAbstractObject
+	implements PsiAtomic
 {
 	/**
 	 *	@return a string <code class="constant">"operator"</code>.

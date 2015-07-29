@@ -1,7 +1,6 @@
 package coneforest.psi;
 
 abstract public class PsiAbstractDict<V extends PsiObject>
-	extends PsiAbstractObject
 	implements PsiDictlike<V>
 {
 	@Override

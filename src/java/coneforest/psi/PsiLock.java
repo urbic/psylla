@@ -4,7 +4,6 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">lock</code> object.
  */
 public class PsiLock
-	extends PsiAbstractObject
 	implements PsiAtomic
 {
 	/**

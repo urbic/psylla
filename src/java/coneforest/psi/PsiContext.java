@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 public class PsiContext
-	extends PsiAbstractObject
+	implements PsiObject
 {
 	public PsiContext(Interpreter interpreter)
 	{

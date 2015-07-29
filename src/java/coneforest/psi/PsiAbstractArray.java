@@ -1,7 +1,6 @@
 package coneforest.psi;
 
 abstract public class PsiAbstractArray<T extends PsiObject>
-	extends PsiAbstractObject
 	implements PsiArraylike<T>
 {
 	@Override
