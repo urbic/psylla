@@ -61,6 +61,7 @@
 			encoding="UTF-8"
 			>
 			<!--compilerarg value="-Xlint"/-->
+			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 		<native2ascii
 			src="${src.java}"
