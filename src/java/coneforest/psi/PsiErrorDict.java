@@ -29,9 +29,9 @@ public class PsiErrorDict extends PsiModule
 			errorObj.put("newerror", PsiBoolean.FALSE);
 
 			System.out.println("Error: "
-					+errorObj.get("errorname")
+					+errorObj.get("errorname").toSyntaxString()
 					+" in "
-					+errorObj.get("command"));
+					+errorObj.get("command").toSyntaxString());
 
 			System.out.print("Operand stack:\n\t");
 			for(PsiObject obj: (PsiArray)errorObj.get("ostack"))

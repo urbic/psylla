@@ -60,7 +60,7 @@ public abstract class PsiOperator
 	 *	@return a syntatctic string representation of a name of this operator.
 	 */
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return "--"+getName()+"--";
 	}
