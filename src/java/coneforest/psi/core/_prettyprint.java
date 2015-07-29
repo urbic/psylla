@@ -8,6 +8,6 @@ public class _prettyprint extends PsiOperator
 		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		System.out.println(opstack.popOperands(1)[0]);
+		System.out.println(opstack.popOperands(1)[0].toSyntaxString());
 	}
 }

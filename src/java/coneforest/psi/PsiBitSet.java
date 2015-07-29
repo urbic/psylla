@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">bitset</code> object.
  */
 public class PsiBitSet
-	extends PsiAbstractSet<PsiInteger>
+	implements PsiSetlike<PsiInteger>
 {
 	public PsiBitSet()
 	{
@@ -67,6 +67,7 @@ public class PsiBitSet
 		}
 	}
 
+	/*
 	@Override
 	public void psiAppendAll(PsiIterable<? extends PsiInteger> iterable)
 		throws PsiException
@@ -75,6 +76,12 @@ public class PsiBitSet
 			bitset.or(((PsiBitSet)iterable).bitset);
 		else
 			super.psiAppendAll(iterable);
+	}
+	*/
+	public void psiAppendAll(PsiBitSet bitset)
+		throws PsiException
+	{
+		this.bitset.or(bitset.bitset);
 	}
 
 	@Override
@@ -89,6 +96,7 @@ public class PsiBitSet
 		}
 	}
 
+	/*
 	@Override
 	public void psiRemoveAll(PsiIterable<? extends PsiInteger> iterable)
 	{
@@ -96,6 +104,11 @@ public class PsiBitSet
 			bitset.andNot(((PsiBitSet)iterable).bitset);
 		else
 			super.psiRemoveAll(iterable);
+	}
+	*/
+	public void psiRemoveAll(PsiBitSet bitset)
+	{
+		this.bitset.andNot(bitset.bitset);
 	}
 
 	public java.util.Iterator<PsiInteger> iterator()
@@ -146,6 +159,7 @@ public class PsiBitSet
 		return PsiBoolean.valueOf(bitset.get(integer.intValue()));
 	}
 
+	/*
 	@Override
 	public PsiBoolean psiIntersects(PsiSetlike setlike)
 	{
@@ -153,6 +167,11 @@ public class PsiBitSet
 			return PsiBoolean.valueOf(bitset.intersects(((PsiBitSet)setlike).bitset));
 		else
 			return super.psiIntersects(setlike);
+	}
+	*/
+	public PsiBoolean psiIntersects(PsiBitSet bitset)
+	{
+		return PsiBoolean.valueOf(this.bitset.intersects(bitset.bitset));
 	}
 
 	@Override

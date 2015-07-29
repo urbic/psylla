@@ -10,7 +10,7 @@ public class _pstack extends PsiOperator
 		// TODO reverse order
 		System.out.print("OPSTACK> ");
 		for(PsiObject obj: opstack)
-			System.out.print(obj+" ");
+			System.out.print(obj.toSyntaxString()+" ");
 		System.out.println();
 	}
 }

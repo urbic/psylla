@@ -62,4 +62,43 @@ public interface PsiSetlike<T extends PsiObject>
 				return PsiBoolean.TRUE;
 		return PsiBoolean.FALSE;
 	}
+
+	@Override
+	default public PsiSetlike<T> psiReplicate(PsiInteger count)
+		throws PsiException
+	{
+		long countValue=count.longValue();
+		if(countValue<0)
+			throw new PsiException("rangecheck");
+		if(countValue>Integer.MAX_VALUE)
+			throw new PsiException("limitcheck");
+		if(countValue==0)
+			return (PsiSetlike<T>)psiNewEmpty();
+		return (PsiSetlike<T>)psiClone();
+	}
+	
+	@Override
+	default public String toSyntaxString()
+	{
+		return "("+toSyntaxStringHelper(this)+")";
+	}
+
+	default public String toSyntaxStringHelper(PsiLengthy lengthy)
+	{
+		StringBuilder sb=new StringBuilder();
+		if(length()>0)
+		{
+			for(PsiObject obj: this)
+			{
+				if(obj instanceof PsiLengthy)
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
+				else
+					sb.append(obj.toSyntaxString());
+				sb.append(' ');
+			}
+			sb.deleteCharAt(sb.length()-1);
+		}
+		return sb.toString();
+	}
+
 }
