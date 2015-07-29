@@ -8,7 +8,7 @@ public class _setlength extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		PsiObject[] ops=opstack.popOperands(2);
+		final PsiObject[] ops=opstack.popOperands(2);
 		((PsiArraylike)ops[0]).psiSetLength((PsiInteger)ops[1]);
 	}
 }

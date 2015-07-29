@@ -8,9 +8,7 @@ public class _renamefile extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		PsiObject[] ops=opstack.popOperands(2);
-		PsiStringlike oldName=(PsiStringlike)ops[0];
-		PsiStringlike newName=(PsiStringlike)ops[1];
-		FileSystem.psiRenameFile(oldName, newName);
+		final PsiObject[] ops=opstack.popOperands(2);
+		FileSystem.psiRenameFile((PsiStringlike)ops[0], (PsiStringlike)ops[1]);
 	}
 }
