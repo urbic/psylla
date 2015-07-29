@@ -5,7 +5,6 @@ public interface PsiStringlike
 		PsiContainer<PsiInteger>,
 		PsiScalar<PsiStringlike>,
 		PsiEvaluable,
-		PsiConvertableToName,
 		PsiConvertableToInteger,
 		PsiConvertableToReal
 {

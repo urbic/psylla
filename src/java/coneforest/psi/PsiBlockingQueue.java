@@ -1,7 +1,6 @@
 package coneforest.psi;
 
 public class PsiBlockingQueue
-	extends PsiAbstractObject
 	implements
 		PsiQueuelike<PsiObject>,
 		PsiCloseable

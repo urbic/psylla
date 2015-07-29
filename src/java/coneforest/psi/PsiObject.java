@@ -15,7 +15,10 @@ public interface PsiObject
 	 */
 	public String getTypeName();
 
-	public PsiCommand psiType();
+	default public PsiCommand psiType()
+	{
+		return new PsiCommand(getTypeName()+"type");
+	}
 
 	/**
 	 *	Execute this object in the context of an interpreter. Pushes this
@@ -23,7 +26,10 @@ public interface PsiObject
 	 *
 	 *	@param interpreter an interpreter.
 	 */
-	public void execute(Interpreter interpreter);
+	default public void execute(Interpreter interpreter)
+	{
+		interpreter.getOperandStack().push(this);
+	}
 
 	/**
 	 *	Invoke this object in the context of an interpreter. Pushes this
@@ -31,24 +37,80 @@ public interface PsiObject
 	 *
 	 *	@param interpreter an interpreter.
 	 */
-	public void invoke(Interpreter interpreter);
+	default public void invoke(Interpreter interpreter)
+	{
+		interpreter.getOperandStack().push(this);
+	}
 
-	public PsiBoolean psiEq(final PsiObject obj);
+	default public PsiBoolean psiEq(final PsiObject obj)
+	{
+		return PsiBoolean.valueOf(this==obj);
+	}
 
-	public PsiBoolean psiNe(final PsiObject obj);
+	default public PsiBoolean psiNe(final PsiObject obj)
+	{
+		return psiEq(obj).psiNot();
+	}
 
 	/**
 	 *	Returns a clone of this object.
 	 *
 	 *	@return a clone.
 	 */
-	public PsiObject psiClone();
+	default public PsiObject psiClone()
+	{
+		return this;
+	}
 
 	/**
 	 *	Returns a Ψ string representing this object.
 	 *
 	 *	@return a Ψ string representing this object.
 	 */
+	@Override
+	default public PsiString psiToString()
+	{
+		return new PsiString(toSyntaxString());
+	}
 
-	public PsiBoolean psiIsA(PsiStringlike stringlike);
+	/**
+	 *	Returns a Ψ name representing this object.
+	 *
+	 *	@return a Ψ string representing this object.
+	 */
+	@Override
+	default public PsiName psiToName()
+	{
+		return new PsiName(toSyntaxString());
+	}
+
+	default public String toSyntaxString()
+	{
+		return "-"+getTypeName()+"-";
+	}
+
+	
+	/**
+	 *	Returns a string representing this object.
+	 *
+	 *	@return a string <code class="constant">"-<em
+	 *	class="replaceable">type</em>-"</code>, where <em
+	 *	class="replaceable">type</em> is the type name of this object.
+	 */
+	/*
+	@Override
+	default public String toString()
+	{
+		return "-"+getTypeName()+"-";
+	}
+	*/
+
+	default public PsiBoolean psiIsA(PsiStringlike stringlike)
+	{
+		//Class<? extends PsiObject> clazz=TypeRegistry.get(stringlike.getString());
+		//return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));
+		return PsiBoolean.TRUE;
+	}
+	
+	public static final String TYPE="object";
 }

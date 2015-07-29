@@ -58,10 +58,10 @@ public class PsiInteger
 	 *	@return a string <code class="constant">"integer"</code>.
 	 */
 	@Override
-	public String getTypeName()	{ return "integer"; }
+	public String getTypeName()	{ return TYPE; }
 
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return String.valueOf(value);
 	}
@@ -413,4 +413,6 @@ public class PsiInteger
 				cache[i]=new PsiInteger(i-128);
 		}
 	}
+
+	public static final String TYPE="integer";
 }

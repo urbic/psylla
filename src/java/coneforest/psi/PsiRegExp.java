@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">regexp</code> object.
  */
 public class PsiRegExp
-	extends PsiAbstractObject
+	implements PsiObject
 {
 	public PsiRegExp(CharSequence value)
 		throws PsiException

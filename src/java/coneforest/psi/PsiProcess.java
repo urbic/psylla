@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 public class PsiProcess
-	extends PsiAbstractObject
+	implements PsiObject
 {
 	public PsiProcess(PsiDictlike dictlike)
 		throws PsiException

@@ -9,7 +9,7 @@ public class PsiName
 	/**
 	 *	Instantiate a new Ψ name object with given name.
 	 *
-	 *	@param name a name.
+	 *	@param cs a name.
 	 */
 	public PsiName(CharSequence cs)
 	{
@@ -97,7 +97,7 @@ public class PsiName
 	 *	@return a syntactic representation of this object’s value.
 	 */
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return "/"+name;
 	}

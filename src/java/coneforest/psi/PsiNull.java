@@ -4,7 +4,6 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">null</code> object.
  */
 public final class PsiNull
-	extends PsiAbstractObject
 	implements PsiAtomic
 {
 	private PsiNull()

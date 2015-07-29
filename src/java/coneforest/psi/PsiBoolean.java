@@ -4,7 +4,6 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">boolean</code> object.
  */
 public class PsiBoolean
-	extends PsiAbstractObject
 	implements
 		PsiAtomic,
 		PsiLogical<PsiBoolean>
@@ -38,7 +37,7 @@ public class PsiBoolean
 	 *	class="type">true</code> depending on this object value.
 	 */
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return ""+value;
 	}

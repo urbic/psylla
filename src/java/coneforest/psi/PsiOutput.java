@@ -1,8 +1,9 @@
 package coneforest.psi;
 
 public class PsiOutput
-	extends PsiAbstractObject
-	implements PsiCloseable, PsiFlushable
+	implements
+		PsiCloseable,
+		PsiFlushable
 {
 	public PsiOutput()
 	{

@@ -1,8 +1,10 @@
 package coneforest.psi;
 
 public class PsiWriter
-	extends PsiAbstractObject
-	implements PsiWritable, PsiCloseable, PsiFlushable
+	implements
+		PsiCloseable,
+		PsiFlushable,
+		PsiWritable
 {
 	public PsiWriter()
 	{
