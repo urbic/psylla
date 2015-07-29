@@ -4,8 +4,8 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">bitvector</code> object.
  */
 public class PsiBitVector
-	extends PsiAbstractArray<PsiBoolean>
 	implements
+		PsiArraylike<PsiBoolean>,
 		PsiLogical<PsiBitVector>
 {
 	public PsiBitVector()
@@ -108,7 +108,6 @@ public class PsiBitVector
 			if(indexValue==size)
 				break;
 		}
-
 	}
 
 	@Override
@@ -229,12 +228,6 @@ public class PsiBitVector
 		for(PsiInteger index: indices)
 			values.psiAppend(psiGet(index));
 		return values;
-	}
-
-	@Override
-	public PsiBoolean psiIsEmpty()
-	{
-		return PsiBoolean.valueOf(bitvector.size()==0);
 	}
 
 	@Override

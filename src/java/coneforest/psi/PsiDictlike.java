@@ -15,11 +15,38 @@ public interface PsiDictlike<V extends PsiObject>
 	public V get(String key)
 		throws PsiException;
 
+	@Override
+	default public V psiGet(PsiStringlike key)
+		throws PsiException
+	{
+		return get(key.getString());
+	}
+
+	@Override
+	default public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringlike> iterable)
+		throws PsiException
+	{
+		PsiArraylike<V> result=(PsiArraylike<V>)new PsiArray();
+		for(PsiStringlike key: iterable)
+			result.psiAppend(psiGet(key));
+		return result;
+	}
+
 	public void put(String key, V value);
+
+	@Override
+	default public void psiPut(PsiStringlike key, V obj)
+	{
+		put(key.getString(), obj);
+	}
 
 	public boolean known(String keyString);
 
-	public PsiBoolean psiKnown(PsiStringlike key);
+	@Override
+	default public PsiBoolean psiKnown(PsiStringlike key)
+	{
+		return PsiBoolean.valueOf(known(key.getString()));
+	}
 
 	public void undef(String keyString);
 
@@ -28,13 +55,74 @@ public interface PsiDictlike<V extends PsiObject>
 	 *
 	 *	@param key a key. 
 	 */
-	public void psiUndef(PsiStringlike key);
+	default public void psiUndef(PsiStringlike key)
+	{
+		undef(key.getString());
+	}
 
-	public PsiSet psiKeys();
+	default public PsiSetlike<PsiObject> psiKeys()
+	{
+		PsiSet set=new PsiSet();
+		for(java.util.Map.Entry<String, V> entry: this)
+			set.psiAppend(new PsiName(entry.getKey()));
+		return set;
+	}
 
-	public PsiArray psiValues();
+	// TODO return Set?
+	default public PsiArray psiValues()
+	{
+		PsiArray values=new PsiArray();
+		for(java.util.Map.Entry<String, V> entry: this)
+			values.psiAppend(entry.getValue());
+		return values;
+	}
+
+	@Override
+	default public V psiExtract(PsiStringlike key)
+		throws PsiException
+	{
+		V result=psiGet(key);
+		psiUndef(key);
+		return result;
+	}
 
 	@Override
 	public PsiDictlike<V> psiSlice(PsiIterable<PsiStringlike> keys)
 		throws PsiException;
+
+	@Override
+	default public String toSyntaxString()
+	{
+		return "<"+toSyntaxStringHelper(this)+">";
+	}
+
+	//@Override
+	default public String toSyntaxStringHelper(PsiLengthy lengthy)
+	{
+		StringBuilder sb=new StringBuilder();
+		if(length()>0)
+		{
+			for(java.util.Map.Entry<String, ? extends PsiObject> entry: this)
+			{
+				sb.append('/');
+				sb.append(entry.getKey());
+				sb.append(' ');
+				PsiObject obj=entry.getValue();
+				if(obj instanceof PsiLengthy)
+					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
+				else
+					sb.append(obj.toSyntaxString());
+				sb.append(' ');
+			}
+			sb.deleteCharAt(sb.length()-1);
+		}
+		return sb.toString();
+	}
+
+	@Override
+	default public void psiClear()
+	{
+		for(java.util.Map.Entry<String, V> entry: this)
+			undef(entry.getKey());
+	}
 }

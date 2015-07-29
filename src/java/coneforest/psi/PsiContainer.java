@@ -5,6 +5,16 @@ public interface PsiContainer<T extends PsiObject>
 		PsiIterable<T>,
 		PsiLengthy
 {
-	public PsiContainer<T> psiNewEmpty()
-		throws PsiException;
+	default public PsiContainer<T> psiNewEmpty()
+		throws PsiException
+	{
+		try
+		{
+			return getClass().newInstance();
+		}
+		catch(InstantiationException|IllegalAccessException e)
+		{
+			throw new PsiException("unknownerror");
+		}
+	}
 }

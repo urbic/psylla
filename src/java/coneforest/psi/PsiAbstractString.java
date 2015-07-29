@@ -1,10 +1,9 @@
 package coneforest.psi;
 
 abstract public class PsiAbstractString
-	extends PsiAbstractStringlike
 	implements
-		PsiArraylike<PsiInteger>,
-		PsiStringlike
+		PsiStringlike,
+		PsiArraylike<PsiInteger>
 {
 	@Override
 	public String getTypeName()
@@ -13,101 +12,10 @@ abstract public class PsiAbstractString
 	}
 
 	@Override
-	public PsiBoolean psiKnown(PsiInteger key)
-	{
-		long keyValue=key.longValue();
-		return PsiBoolean.valueOf(keyValue>=0 && keyValue<length());
-	}
-
-	@Override
-	public PsiInteger psiGet(PsiInteger index)
-		throws PsiException
-	{
-		return get(index.intValue());
-	}
-
-	@Override
-	public PsiAbstractString psiGetAll(PsiIterable<PsiInteger> iterable)
-		throws PsiException
-	{
-		PsiAbstractString result=psiNewEmpty();
-		for(PsiInteger integer: iterable)
-			result.psiAppend(psiGet(integer));
-		return result;
-	}
-
-	@Override
-	public void psiPut(PsiInteger index, PsiInteger character)
-		throws PsiException
-	{
-		put(index.intValue(), character);
-	}
-
-	@Override
-	public void psiInsert(PsiInteger index, PsiInteger character)
-		throws PsiException
-	{
-		insert(index.intValue(), character);
-	}
-
-	@Override
-	public void psiPrepend(PsiInteger character)
-		throws PsiException
-	{
-		psiInsert(PsiInteger.ZERO, character);
-	}
-
-	@Override
-	public void psiPrependAll(PsiIterable<? extends PsiInteger> iterable)
-		throws PsiException
-	{
-		psiInsertAll(PsiInteger.ZERO, iterable);
-	}
-
-
-	@Override
-	public PsiInteger psiExtract(PsiInteger index)
-		throws PsiException
-	{
-		return extract(index.intValue());
-	}
-
-	@Override
-	abstract public PsiAbstractString psiNewEmpty();
-
-	@Override
 	abstract public PsiAbstractString psiClone();
 
 	@Override
-	public PsiAbstractString psiReplicate(final PsiInteger count)
-		throws PsiException
-	{
-		int countValue=count.intValue();
-		if(countValue<0)
-			throw new PsiException("rangecheck");
-		PsiAbstractString result=psiNewEmpty();
-		while(countValue-->0)
-			result.psiAppendAll(this);
-		return result;
-	}
-
-	@Override
-	public PsiAbstractString psiReverse()
-		throws PsiException
-	{
-		PsiAbstractString result=psiClone();
-		int length=result.length();
-		for(int i=0; i<(int)(length/2); i++)
-		{
-			PsiInteger character=result.get(i);
-			result.put(i, result.get(length-1-i));
-			result.put(length-1-i, character);
-		}
-		return result;
-	}
-
-	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		StringBuilder sb=new StringBuilder();
 		String string=getString();
@@ -155,5 +63,11 @@ abstract public class PsiAbstractString
 	{
 		return getClass().isInstance(object)
 				&& psiEq((PsiString)object).booleanValue();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getString().hashCode();
 	}
 }

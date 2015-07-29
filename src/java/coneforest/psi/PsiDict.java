@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">dictionary</code> object.
  */
 public class PsiDict
-	extends PsiAbstractDict<PsiObject>
+	implements PsiDictlike<PsiObject>
 {
 	@Override
 	public String getTypeName()
@@ -70,21 +70,9 @@ public class PsiDict
 	}
 
 	@Override
-	public PsiInteger psiLength()
-	{
-		return PsiInteger.valueOf(length());
-	}
-
-	@Override
 	public boolean isEmpty()
 	{
 		return dictionary.isEmpty();
-	}
-
-	@Override
-	public PsiBoolean psiIsEmpty()
-	{
-		return PsiBoolean.valueOf(isEmpty());
 	}
 
 	@Override

@@ -21,11 +21,13 @@ public class PsiString
 		this.buffer=buffer;
 	}
 
+	/*
 	@Override
 	public PsiAbstractString psiNewEmpty()
 	{
 		return new PsiString();
 	}
+	*/
 
 	@Override
 	public PsiString psiToString()
@@ -263,12 +265,6 @@ public class PsiString
 		{
 			throw new PsiException("rangecheck");
 		}
-	}
-
-	@Override
-	public PsiBoolean psiIsEmpty()
-	{
-		return PsiBoolean.valueOf(buffer.length()==0);
 	}
 
 	@Override
