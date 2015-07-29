@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">string</code> object.
  */
 public class PsiString
-	extends PsiAbstractString
+	implements PsiStringlike
 {
 	public PsiString()
 	{
@@ -20,14 +20,6 @@ public class PsiString
 	{
 		this.buffer=buffer;
 	}
-
-	/*
-	@Override
-	public PsiAbstractString psiNewEmpty()
-	{
-		return new PsiString();
-	}
-	*/
 
 	@Override
 	public PsiString psiToString()
@@ -296,5 +288,19 @@ public class PsiString
 	{
 		return buffer.length();
 	}
+
+	@Override
+	public boolean equals(Object object)
+	{
+		return getClass().isInstance(object)
+				&& psiEq((PsiString)object).booleanValue();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return buffer.hashCode();
+	}
+
 	private StringBuilder buffer;
 }

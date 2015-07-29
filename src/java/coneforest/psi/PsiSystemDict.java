@@ -15,7 +15,6 @@ public class PsiSystemDict
 					_abort.class,
 					_abs.class,
 					_add.class,
-					_addZZZ.class,
 					_and.class,
 					_append.class,
 					_appendall.class,
