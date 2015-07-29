@@ -52,69 +52,6 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 <section xml:id="PsiReference_Types_Details">
 <title>Типы детально</title>
 
-<!--section xml:id="PsiReference_Types_Details_abstractarray">
-<title><type>abstractarray</type></title>
-<para>
-Тип абстрактных массивов, проиндексированных целыми неотрицательными числами
-последовательностей объектов.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
-</formalpara>
-</section-->
-
-<!--section xml:id="PsiReference_Types_Details_abstractdictionary">
-<title><type>abstractdictionary</type></title>
-<para>
-Тип абстрактных словарей.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
-</formalpara>
-</section-->
-
-<!--section xml:id="PsiReference_Types_Details_abstractset">
-<title><type>abstractset</type></title>
-<para>
-Тип абстрактного множества.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>.
-</formalpara>
-</section-->
-
-<!--section xml:id="PsiReference_Types_Details_abstractstring">
-<title><type>abstractstring</type></title>
-<para>
-Тип абстрактных строк, проиндексированных целыми неотрицательными числами
-целочисленных последовательностей.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_abstractstringy"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
-</formalpara>
-</section-->
-
-<!--section xml:id="PsiReference_Types_Details_abstractstringy">
-<title><type>abstractstringy</type></title>
-<para>
-Тип абстрактных строкоподобных величин.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
-</formalpara>
-</section-->
-
 &PsiReference_Types_Details_appendable;
 &PsiReference_Types_Details_arithmetic;
 &PsiReference_Types_Details_array;
