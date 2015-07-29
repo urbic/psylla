@@ -8,7 +8,7 @@ public class _skip extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		PsiObject[] ops=opstack.popOperands(2);
+		final PsiObject[] ops=opstack.popOperands(2);
 		((PsiReadable)ops[0]).psiSkip((PsiInteger)ops[1]);
 	}
 }
