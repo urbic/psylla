@@ -8,6 +8,12 @@ public interface PsiStringy
 		PsiConvertableToInteger,
 		PsiConvertableToReal
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "stringy";
+	}
+
 	public String getString();
 
 	public PsiStringy psiUpperCase();

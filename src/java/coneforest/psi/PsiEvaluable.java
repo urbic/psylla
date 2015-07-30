@@ -5,6 +5,12 @@ package coneforest.psi;
  */
 public interface PsiEvaluable extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "evaluable";
+	}
+
 	/**
 	 *	Evaluate this object in the context of interpreter.
 	 *

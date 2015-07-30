@@ -3,6 +3,12 @@ package coneforest.psi;
 public interface PsiAppendable<T extends PsiObject>
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "appendable";
+	}
+
 	public void psiAppend(T obj)
 		throws PsiException;
 
@@ -12,6 +18,7 @@ public interface PsiAppendable<T extends PsiObject>
 	public PsiAppendable psiReplicate(PsiInteger count)
 		throws PsiException;
 
+	/*
 	public final String TYPE="appendable";
 
 	public class Proxy
@@ -47,4 +54,5 @@ public interface PsiAppendable<T extends PsiObject>
 
 		private PsiDictlike metatable;
 	}
+	*/
 }

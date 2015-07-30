@@ -12,6 +12,12 @@ public interface PsiDictlike<V extends PsiObject>
 		PsiIterable<java.util.Map.Entry<String, V>>,
 		PsiClearable
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "dictlike";
+	}
+
 	public V get(String key)
 		throws PsiException;
 

@@ -140,6 +140,7 @@ public class PsiSystemDict
 					_normaldeviate.class,
 					_not.class,
 					_notify.class,
+					_notzero.class,
 					_or.class,
 					_pop.class,
 					_pow.class,

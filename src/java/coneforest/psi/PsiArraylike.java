@@ -9,6 +9,12 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiClearable
 {
 	@Override
+	default public String getTypeName()
+	{
+		return "arraylike";
+	}
+
+	@Override
 	public PsiArraylike<T> psiClone();
 
 	default public PsiArraylike<T> psiReverse()

@@ -6,6 +6,12 @@ package coneforest.psi;
 public interface PsiReadable
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "readable";
+	}
+
 	/**
 	 *	Read a character (Ψ-<code class="type">integer</code>) from this object
 	 *	and return it.

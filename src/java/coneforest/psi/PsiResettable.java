@@ -6,6 +6,12 @@ package coneforest.psi;
 public interface PsiResettable
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "resettable";
+	}
+
 	/**
 	 *	Reset this object.
 	 *
