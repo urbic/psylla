@@ -132,11 +132,6 @@ public class PsiBitSet
 					//	throw new java.util.NoSuchElementException();
 				}
 
-				public void remove()
-				{
-					throw new UnsupportedOperationException();
-				}
-
 				private int index=bitset.nextSetBit(0);
 			};
 	}
