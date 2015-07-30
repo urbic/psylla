@@ -189,7 +189,8 @@ public class FileSystem
 		try
 		{
 			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
-					java.nio.file.attribute.BasicFileAttributes.class).isRegularFile());
+					java.nio.file.attribute.BasicFileAttributes.class,
+					java.nio.file.LinkOption.NOFOLLOW_LINKS).isRegularFile());
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -211,7 +212,8 @@ public class FileSystem
 		try
 		{
 			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
-					java.nio.file.attribute.BasicFileAttributes.class).isDirectory());
+					java.nio.file.attribute.BasicFileAttributes.class,
+					java.nio.file.LinkOption.NOFOLLOW_LINKS).isDirectory());
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -254,7 +256,8 @@ public class FileSystem
 		try
 		{
 			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
-					java.nio.file.attribute.BasicFileAttributes.class).isSymbolicLink());
+					java.nio.file.attribute.BasicFileAttributes.class,
+					java.nio.file.LinkOption.NOFOLLOW_LINKS).isSymbolicLink());
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -384,5 +387,63 @@ public class FileSystem
 		throws PsiException
 	{
 		return new PsiString(java.nio.file.Paths.get("").toAbsolutePath().toString());
+	}
+
+	public static PsiIterable<PsiName> psiFiles(final PsiStringy stringy)
+		throws PsiException
+	{
+		try
+		{
+			return new PsiIterable<PsiName>()
+				{
+
+					public java.util.Iterator<PsiName> iterator()
+					{
+						return new java.util.Iterator<PsiName>()
+							{
+								@Override
+								public boolean hasNext()
+								{
+									if(directoryIterator.hasNext())
+										return true;
+									else
+										try
+										{
+											directoryStream.close();
+											return false;
+										}
+										catch(java.io.IOException e)
+										{
+											return false;
+											//throw new PsiException("ioerror");
+										}
+								}
+
+								@Override
+								public PsiName next()
+								{
+									return new PsiName(directoryIterator.next().toString());
+								}
+							};
+					}
+								
+					private java.nio.file.DirectoryStream directoryStream
+						=java.nio.file.Files.newDirectoryStream(getPath(stringy));
+					private java.util.Iterator<java.nio.file.Path> directoryIterator
+						=directoryStream.iterator();
+				};
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("filenotfound");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+		catch(SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
 	}
 }

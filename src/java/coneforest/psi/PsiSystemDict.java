@@ -80,6 +80,7 @@ public class PsiSystemDict
 					_fileexists.class,
 					_filemodifiedtime.class,
 					_filereader.class,
+					_files.class,
 					_filesize.class,
 					_filewriter.class,
 					_find.class,
