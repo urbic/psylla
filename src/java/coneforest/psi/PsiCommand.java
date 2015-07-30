@@ -22,7 +22,7 @@ public class PsiCommand
 	}
 
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return getString();
 	}

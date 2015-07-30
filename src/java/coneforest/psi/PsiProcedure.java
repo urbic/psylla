@@ -25,7 +25,7 @@ public class PsiProcedure
 	}
 
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return "{"+toSyntaxStringHelper(this)+"}";
 	}
