@@ -17,7 +17,7 @@ public class PsiRandom
 	@Override
 	public String getTypeName()
 	{
-		return TYPE;
+		return "random";
 	}
 
 	public void psiSetSeed(PsiInteger seed)
@@ -59,6 +59,4 @@ public class PsiRandom
 	}
 
 	private java.util.Random random;
-	
-	public static final String TYPE="random";
 }

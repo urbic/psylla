@@ -15,7 +15,10 @@ public class PsiReal
 	 *	@return a string <code class="constant">"real"</code>.
 	 */
 	@Override
-	public String getTypeName() { return TYPE; }
+	public String getTypeName()
+	{
+		return "real";
+	}
 
 	@Override
 	public PsiBoolean psiIsZero()
@@ -171,6 +174,4 @@ public class PsiReal
 		NAN=new PsiReal(Double.NaN);
 
 	private final double value;
-
-	public static final String TYPE="real";
 }
