@@ -9,6 +9,8 @@ public class Psyche
 		int processed;
 		try
 		{
+			messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
+
 			try
 			{
 				cli=new coneforest.cli.Processor
@@ -49,7 +51,6 @@ public class Psyche
 			if(cli.getValue("locale")!=null)
 				java.util.Locale.setDefault(java.util.Locale.forLanguageTag((String)cli.getValue("locale")));
 
-			messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
 
 			final java.io.Reader scriptReader;
 			final String scriptName;
