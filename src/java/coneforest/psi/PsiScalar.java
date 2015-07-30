@@ -8,6 +8,12 @@ package coneforest.psi;
 public interface PsiScalar<T extends PsiScalar>
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "scalar";
+	}
+
 	/**
 	 *	“Less” comparison.
 	 *

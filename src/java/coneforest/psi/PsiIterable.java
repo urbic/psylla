@@ -5,5 +5,11 @@ public interface PsiIterable<T>
 		PsiObject,
 		Iterable<T>
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "iterable";
+	}
+
 	public java.util.Iterator<T> iterator();
 }

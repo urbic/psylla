@@ -6,6 +6,12 @@ package coneforest.psi;
 public interface PsiCloseable
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "closeable";
+	}
+
 	/**
 	 *	Close this object.
 	 *

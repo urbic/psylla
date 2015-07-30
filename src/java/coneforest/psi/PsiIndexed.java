@@ -9,6 +9,12 @@ package coneforest.psi;
 public interface PsiIndexed<K, V extends PsiObject>
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "indexed";
+	}
+
 	/**
 	 *	Returns a Ψ boolean value indicating if given key or index exists
 	 *	in this object.

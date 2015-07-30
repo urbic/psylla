@@ -6,6 +6,12 @@ package coneforest.psi;
 public interface PsiFlushable
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "flushable";
+	}
+
 	/**
 	 *	Flush this object.
 	 *

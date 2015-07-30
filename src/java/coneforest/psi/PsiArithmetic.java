@@ -10,6 +10,12 @@ package coneforest.psi;
 public interface PsiArithmetic<T extends PsiArithmetic>
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "arithmetic";
+	}
+
 	/**
 	 *	Returns a result of arithmetic negation of this object.
 	 *

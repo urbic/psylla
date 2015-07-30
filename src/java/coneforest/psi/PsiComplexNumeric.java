@@ -5,6 +5,12 @@ abstract public class PsiComplexNumeric
 		PsiAtomic,
 		PsiArithmetic<PsiComplexNumeric>
 {
+	@Override
+	public String getTypeName()
+	{
+		return "complexnumeric";
+	}
+
 	abstract public PsiBoolean psiIsZero();
 
 	public PsiBoolean psiNotZero()

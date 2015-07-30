@@ -3,6 +3,12 @@ package coneforest.psi;
 public interface PsiLogical<T extends PsiLogical>
 	extends PsiObject
 {
+	@Override
+	default public String getTypeName()
+	{
+		return "logical";
+	}
+
 	/**
 	 *	Returns a result of logical negation of this object.
 	 *
