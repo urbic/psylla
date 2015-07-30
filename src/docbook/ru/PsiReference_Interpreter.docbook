@@ -22,13 +22,19 @@
 <variablelist>
 
 <varlistentry>
+<term><parameter><replaceable>опции</replaceable></parameter>
+</term>
+<listitem>
+
+<variablelist>
+
+<varlistentry>
 <term>
 <option>--help</option>,
 <option>--usage</option>,
 <option>-h</option>,
 <option>-?</option>
 </term>
-<!--term><option>- -help</option>, <option>- -usage</option>, <option>-h</option>, <option>-?</option></term-->
 <listitem>
 Вывод сводки опций.
 </listitem>
@@ -66,6 +72,23 @@
 Дополнительный путь поиска классов расширений, включающий директории и архивы
 jar.
 </listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--console-encoding</option>,
+<option>-C</option>
+<parameter><replaceable>кодировка</replaceable></parameter>
+</term>
+<listitem>
+Установка кодировки консоли.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+
 </varlistentry>
 
 <varlistentry>
