@@ -211,6 +211,4 @@ abstract public class PsiNumeric
 	{
 		return PsiBoolean.valueOf(doubleValue()>=numeric.doubleValue());
 	}
-
-	public static final String TYPE="numeric";
 }
