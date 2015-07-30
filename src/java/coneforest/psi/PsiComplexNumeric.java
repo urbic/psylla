@@ -7,6 +7,11 @@ abstract public class PsiComplexNumeric
 {
 	abstract public PsiBoolean psiIsZero();
 
+	public PsiBoolean psiNotZero()
+	{
+		return psiIsZero().psiNot();
+	}
+
 	abstract public PsiNumeric psiRe();
 
 	abstract public PsiNumeric psiIm();

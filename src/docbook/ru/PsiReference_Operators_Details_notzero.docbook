@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_iszero">
-<title><token language="psi">iszero</token></title>
+<section xml:id="PsiReference_Operators_Details_notzero">
+<title><token language="psi">notzero</token></title>
 
 <synopsis>
 <replaceable>число</replaceable>
-<token language="psi">iszero</token>
+<token language="psi">notzero</token>
 <replaceable>результат</replaceable>
 <itemizedlist>
 <listitem>
@@ -20,7 +20,7 @@
 
 <para>
 Возвращает <constant>true</constant>, если <replaceable>число</replaceable>
-равно нулю, и <constant>false</constant> в противном случае.
+не равно нулю, и <constant>false</constant> в противном случае.
 </para>
 
 <formalpara>
@@ -31,7 +31,7 @@
 
 <formalpara>
 <title>Смотри также:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notzero"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_iszero"/>.
 </formalpara>
 
 </section>

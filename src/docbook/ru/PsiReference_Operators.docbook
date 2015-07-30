@@ -260,6 +260,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_notzero" xrefstyle="template:%t"/></term>
+<listitem>число ненулевое?</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_pow" xrefstyle="template:%t"/></term>
 <listitem>возведение числа в степень другого числа</listitem>
 </varlistentry>
@@ -1397,6 +1402,7 @@
 &PsiReference_Operators_Details_normaldeviate;
 &PsiReference_Operators_Details_not;
 &PsiReference_Operators_Details_notify;
+&PsiReference_Operators_Details_notzero;
 &PsiReference_Operators_Details_null;
 &PsiReference_Operators_Details_or;
 &PsiReference_Operators_Details_pop;

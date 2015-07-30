@@ -183,6 +183,7 @@
 <!ENTITY PsiReference_Operators_Details_normaldeviate	SYSTEM "PsiReference_Operators_Details_normaldeviate.docbook">
 <!ENTITY PsiReference_Operators_Details_not				SYSTEM "PsiReference_Operators_Details_not.docbook">
 <!ENTITY PsiReference_Operators_Details_notify			SYSTEM "PsiReference_Operators_Details_notify.docbook">
+<!ENTITY PsiReference_Operators_Details_notzero			SYSTEM "PsiReference_Operators_Details_notzero.docbook">
 <!ENTITY PsiReference_Operators_Details_null			SYSTEM "PsiReference_Operators_Details_null.docbook">
 <!ENTITY PsiReference_Operators_Details_or				SYSTEM "PsiReference_Operators_Details_or.docbook">
 <!ENTITY PsiReference_Operators_Details_pop				SYSTEM "PsiReference_Operators_Details_pop.docbook">
