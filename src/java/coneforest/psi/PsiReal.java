@@ -145,7 +145,7 @@ public class PsiReal
 	}
 
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return String.valueOf(value);
 	}

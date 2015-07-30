@@ -20,7 +20,7 @@ public final class PsiNull
 	 *	@return a string <code class="constant">"null"</code>.
 	 */
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return "null";
 	}
