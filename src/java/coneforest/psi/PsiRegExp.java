@@ -39,7 +39,7 @@ public class PsiRegExp
 	}
 
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		/*
 		StringBuilder sb=new StringBuilder();

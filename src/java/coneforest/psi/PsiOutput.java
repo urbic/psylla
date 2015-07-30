@@ -19,11 +19,6 @@ public class PsiOutput
 		return "output";
 	}
 
-	public String toString()
-	{
-		return "-output-";
-	}
-
 	public void setOutput(java.io.OutputStream output)
 	{
 		this.output=output;

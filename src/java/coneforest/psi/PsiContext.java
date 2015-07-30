@@ -19,7 +19,7 @@ public class PsiContext
 	}
 
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		return "-context:"+interpreter.getId()+"-";
 	}

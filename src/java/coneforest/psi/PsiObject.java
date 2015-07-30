@@ -89,23 +89,7 @@ public interface PsiObject
 		return "-"+getTypeName()+"-";
 	}
 
-
-	/**
-	 *	Returns a string representing this object.
-	 *
-	 *	@return a string <code class="constant">"-<em
-	 *	class="replaceable">type</em>-"</code>, where <em
-	 *	class="replaceable">type</em> is the type name of this object.
-	 */
-	/*
-	@Override
-	default public String toString()
-	{
-		return "-"+getTypeName()+"-";
-	}
-	*/
-
-	default public PsiBoolean psiIsA(PsiStringy stringy)
+	default public PsiBoolean psiInstanceOf(PsiStringy stringy)
 	{
 		//Class<? extends PsiObject> clazz=TypeRegistry.get(stringy.getString());
 		//return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));

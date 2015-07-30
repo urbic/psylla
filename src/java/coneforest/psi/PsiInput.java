@@ -20,14 +20,6 @@ public class PsiInput
 		return "input";
 	}
 
-	/*
-	@Override
-	public String toString()
-	{
-		return "-input-";
-	}
-	*/
-
 	public void setInput(java.io.InputStream input)
 	{
 		this.input=input;

@@ -33,7 +33,7 @@ public class PsiBitSet
 	}
 
 	@Override
-	public String toString()
+	public String toSyntaxString()
 	{
 		StringBuilder sb=new StringBuilder("-bitset:");
 		int j=-1;

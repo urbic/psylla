@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _isa extends PsiOperator
+public class _instanceof extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
@@ -9,6 +9,6 @@ public class _isa extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(ops[0].psiIsA((PsiStringy)ops[1]));
+		opstack.push(ops[0].psiInstanceOf((PsiStringy)ops[1]));
 	}
 }
