@@ -76,7 +76,7 @@ public interface PsiSetlike<T extends PsiObject>
 			return (PsiSetlike<T>)psiNewEmpty();
 		return (PsiSetlike<T>)psiClone();
 	}
-	
+
 	@Override
 	default public String toSyntaxString()
 	{

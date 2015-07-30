@@ -89,7 +89,7 @@ public interface PsiObject
 		return "-"+getTypeName()+"-";
 	}
 
-	
+
 	/**
 	 *	Returns a string representing this object.
 	 *

@@ -26,7 +26,7 @@ public class PsiProcess
 				}
 				else throw new PsiException("typecheck");
 			}
-			
+
 			if(dictlike.known("directory"))
 				pb.directory(new java.io.File(((PsiStringy)dictlike.get("dictlike")).getString()));
 

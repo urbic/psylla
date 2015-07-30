@@ -17,7 +17,7 @@ public interface PsiStringy
 	public String getString();
 
 	public PsiStringy psiUpperCase();
-	
+
 	public PsiStringy psiLowerCase();
 
 	@Override
