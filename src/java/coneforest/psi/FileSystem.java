@@ -426,7 +426,7 @@ public class FileSystem
 								}
 							};
 					}
-								
+
 					private java.nio.file.DirectoryStream directoryStream
 						=java.nio.file.Files.newDirectoryStream(getPath(stringy));
 					private java.util.Iterator<java.nio.file.Path> directoryIterator
