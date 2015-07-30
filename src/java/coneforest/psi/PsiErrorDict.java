@@ -35,12 +35,12 @@ public class PsiErrorDict extends PsiModule
 
 			System.out.print("Operand stack:\n\t");
 			for(PsiObject obj: (PsiArray)errorObj.get("ostack"))
-				System.out.print(" "+obj);
+				System.out.print(" "+obj.toSyntaxString());
 			System.out.println();
 
 			System.out.print("Execution stack:\n\t");
 			for(PsiObject obj: (PsiArray)errorObj.get("estack"))
-				System.out.print(" "+obj);
+				System.out.print(" "+obj.toSyntaxString());
 			System.out.println();
 
 			interpreter.quit();
