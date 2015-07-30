@@ -205,11 +205,6 @@ public class PsiBitVector
 					//	throw new java.util.NoSuchElementException();
 				}
 
-				public void remove()
-				{
-					throw new UnsupportedOperationException();
-				}
-
 				private int index=0;
 			};
 	}

@@ -120,11 +120,6 @@ public interface PsiStringy
 					return PsiInteger.valueOf(getString().charAt(index++));
 				}
 
-				public void remove()
-				{
-					throw new UnsupportedOperationException();
-				}
-
 				private int index=0;
 			};
 	}
