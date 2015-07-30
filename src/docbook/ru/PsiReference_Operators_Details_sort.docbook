@@ -39,7 +39,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_le"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_lt"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_max"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_min"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_min"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_reverse"/>.
 </formalpara>
 
 </section>

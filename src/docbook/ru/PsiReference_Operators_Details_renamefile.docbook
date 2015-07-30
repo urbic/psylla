@@ -22,19 +22,18 @@
 </para>
 
 <para>
-Если файл или директория с заданным <replaceable>старым</replaceable> именем не
-существует, генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>. Если директория
-с заданным <replaceable>старым</replaceable> именем не пуста, генерируется
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_directorynotempty"/>. Если файл или
-директория с заданным <replaceable>новым</replaceable> именем существует,
-генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_fileexists"/>. При ошибке ввода/вывода
-генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
-безопасности генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>.
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
+с заданным <replaceable>старым</replaceable> именем не существует; <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_directorynotempty"/>, если директория
+с заданным <replaceable>старым</replaceable> именем не пуста; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
+если файл или директория с заданным <replaceable>новым</replaceable> именем
+существует; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
+при нарушении политики безопасности.
 </para>
 
 <formalpara>
