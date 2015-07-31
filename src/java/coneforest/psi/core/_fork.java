@@ -9,7 +9,7 @@ public class _fork extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 
-		opstack.ensureSize(1);
+		opstack.ensureSize(2);
 		final PsiObject obj=opstack.pop();
 
 		final Interpreter forkedInterpreter
