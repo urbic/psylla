@@ -749,6 +749,11 @@ public class Interpreter
 		execstack.clear();
 	}
 
+	public static Interpreter currentInterpreter()
+	{
+		return (Interpreter)Thread.currentThread();
+	}
+
 	private final OperandStack opstack;
 	private final DictStack dictstack;
 	private final ExecutionStack execstack;
