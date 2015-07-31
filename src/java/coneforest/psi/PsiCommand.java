@@ -9,11 +9,12 @@ public class PsiCommand
 	}
 
 	@Override
-	public void execute(Interpreter interpreter)
+	public void execute()
 	{
+		Interpreter interpreter=Interpreter.currentInterpreter();
 		try
 		{
-			interpreter.getDictStack().load(this).invoke(interpreter);
+			interpreter.getDictStack().load(this).invoke();
 		}
 		catch(PsiException e)
 		{

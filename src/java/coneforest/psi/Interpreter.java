@@ -59,7 +59,7 @@ public class Interpreter
 	public void handleExecutionStack(final int level)
 	{
 		while(execstack.size()>level)
-			execstack.pop().execute(this);
+			execstack.pop().execute();
 	}
 
 	/**
@@ -177,7 +177,7 @@ public class Interpreter
 			switch(token.kind)
 			{
 				case ParserConstants.COMMAND:
-					(newPsiObject(token)).execute(this);
+					(newPsiObject(token)).execute();
 					handleExecutionStack(0);
 					break;
 				case ParserConstants.INTEGER:
@@ -613,7 +613,7 @@ public class Interpreter
 				errorDict.known(errorName)?
 					errorDict.get(errorName):
 					new coneforest.psi.core._stop()
-			).invoke(this);
+			).invoke();
 		}
 		catch(PsiException e)
 		{
@@ -747,6 +747,11 @@ public class Interpreter
 		running=false;
 		stopFlag=true;
 		execstack.clear();
+	}
+
+	public static Interpreter currentInterpreter()
+	{
+		return (Interpreter)Thread.currentThread();
 	}
 
 	private final OperandStack opstack;

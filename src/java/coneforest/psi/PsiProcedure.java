@@ -10,11 +10,11 @@ public class PsiProcedure
 	}
 
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void invoke()
 	{
 		try
 		{
-			ExecutionStack execstack=interpreter.getExecutionStack();
+			ExecutionStack execstack=Interpreter.currentInterpreter().getExecutionStack();
 			for(int i=length()-1; i>=0; i--)
 				execstack.push(get(i));
 		}
