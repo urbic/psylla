@@ -95,4 +95,9 @@ public interface PsiObject
 		//return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));
 		return PsiBoolean.TRUE;
 	}
+
+	public static Interpreter currentInterpreter()
+	{
+		return (Interpreter)Thread.currentThread();
+	}
 }
