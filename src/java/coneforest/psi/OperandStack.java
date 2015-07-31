@@ -5,22 +5,6 @@ package coneforest.psi;
  */
 public class OperandStack extends Stack<PsiObject>
 {
-	/*
-	@Override
-	public void push(PsiObject obj)
-		throws PsiException
-	{
-		try
-		{
-			super.push(obj);
-		}
-		catch(OutOfMemoryError e)
-		{
-			throw new PsiException("stackoverflow");
-		}
-	}
-	*/
-
 	public void clearBackup()
 	{
 		backupSize=0;
@@ -36,7 +20,7 @@ public class OperandStack extends Stack<PsiObject>
 	public PsiObject[] popOperands(final int count)
 		throws PsiException
 	{
-		int offset=size()-count;
+		final int offset=size()-count;
 		if(offset<0)
 		{
 			backupSize=0;
