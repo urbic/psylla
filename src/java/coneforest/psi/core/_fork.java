@@ -30,7 +30,7 @@ public class _fork extends PsiOperator
 				for(int j=i+1; j<opstack.size(); j++)
 					forkedOpstack.push(opstack.get(j));
 				opstack.setSize(i);
-				opstack.push(new PsiContext(forkedInterpreter));
+				opstack.push(forkedInterpreter);
 				forkedInterpreter.start();
 				return;
 			}

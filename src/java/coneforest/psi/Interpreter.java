@@ -5,6 +5,7 @@ package coneforest.psi;
  */
 public class Interpreter
 	extends Thread
+	implements PsiContext
 {
 	/**
 	 *	Creates new Ψ language interpreter.
