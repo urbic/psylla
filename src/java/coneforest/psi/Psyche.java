@@ -55,6 +55,8 @@ public class Psyche
 			final java.io.Reader scriptReader;
 			final String scriptName;
 			final String[] shellArguments;
+			final Interpreter interpreter;
+
 			if(cli.getValue("eval")!=null)
 			{
 				scriptName="--eval";
@@ -71,19 +73,40 @@ public class Psyche
 			}
 			else
 			{
-				scriptName=null;
+				scriptName="--repl";
 				scriptReader=null;
-				shellArguments=null;
+				shellArguments=new String[]{};
 				// TODO REPL
 			}
-			Interpreter interpreter=new Interpreter()
-				{
-					@Override
-					public void run()
+
+			if(scriptReader!=null)
+			{
+				interpreter=new Interpreter()
 					{
-						interpret(scriptReader);
-					}
-				};
+						@Override
+						public void run()
+						{
+							interpret(scriptReader);
+						}
+					};
+			}
+			else
+			{
+				interpreter=new Interpreter()
+					{
+						@Override
+						public void run()
+						{
+							try
+							{
+								repl();
+							}
+							catch(PsiException e)
+							{
+							}
+						}
+					};
+			}
 			interpreter.acceptEnvironment(System.getenv());
 			interpreter.acceptScriptName(scriptName);
 			interpreter.acceptShellArguments(shellArguments);

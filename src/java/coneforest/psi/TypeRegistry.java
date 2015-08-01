@@ -4,6 +4,7 @@ public class TypeRegistry
 {
 	public static void put(String typeName, Class clazz)
 	{
+		System.out.println(typeName+" registered");
 		registry.put(typeName, clazz);
 	}
 
