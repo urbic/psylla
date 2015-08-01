@@ -138,9 +138,16 @@ public class Interpreter
 				if(token.kind==ParserConstants.EOF)
 					break;
 				processToken(token);
+
+				// If "stop" invoked outside the stopping context
 				if(getStopFlag())
+				{
 					(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
+					return;
+				}
 			}
+			if(procstack.size()>0)
+				throw new PsiException("syntaxerror");
 		}
 		catch(PsiException e)
 		{
@@ -197,9 +204,9 @@ public class Interpreter
 					break;
 				case ParserConstants.CLOSE_BRACE:
 					throw new PsiException("syntaxerror");
-				//case ParserConstants.EOF:
+				case ParserConstants.EOF:
 				//	quit();
-				//	break;
+					break;
 			}
 		}
 		else
@@ -747,6 +754,71 @@ public class Interpreter
 		running=false;
 		stopFlag=true;
 		execstack.clear();
+	}
+
+	public void repl()
+		throws PsiException
+	{
+		try
+		{
+			final jline.ConsoleReader cr=new jline.ConsoleReader();
+			while(running)
+			{
+				cr.setDefaultPrompt(prompt());
+				String line=cr.readLine();
+				if(line==null)
+				{
+					cr.printNewline();
+					cr.flushConsole();
+					return;
+				}
+				final Parser parser=new Parser(new java.io.StringReader(line));
+				try
+				{
+					while(running)
+					{
+						final Token token=parser.getNextToken();
+						if(token.kind==ParserConstants.EOF)
+							break;
+						processToken(token);
+						// If "stop" invoked outside the stopping context
+						if(getStopFlag())
+						{
+							(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
+							setStopFlag(false);
+							break;
+						}
+					}
+				}
+				catch(PsiException e)
+				{
+					handleError(e.kind(), PsiNull.NULL);
+					if(getStopFlag())
+						(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
+				}
+				catch(TokenMgrError e)
+				{
+					handleError("syntaxerror", PsiNull.NULL);
+					if(getStopFlag())
+						(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
+				}
+			}
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
+	public String prompt()
+	{
+		StringBuilder sb=new StringBuilder("PSYCHE");
+		for(int i=procstack.size(); i>0; i--)
+			sb.append('{');
+		if(opstack.size()>0)
+			sb.append("<"+opstack.size());
+		sb.append("> ");
+		return sb.toString();
 	}
 
 	public static Interpreter currentInterpreter()

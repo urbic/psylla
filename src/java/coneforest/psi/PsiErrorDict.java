@@ -43,7 +43,9 @@ public class PsiErrorDict extends PsiModule
 				System.out.print(" "+obj.toSyntaxString());
 			System.out.println();
 
-			interpreter.quit();
+			interpreter.setStopFlag(false);
+
+			//interpreter.quit();
 		}
 	}
 }
