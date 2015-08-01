@@ -70,6 +70,7 @@ public class PsiSystemDict
 					_eval.class,
 					_exch.class,
 					_exec.class,
+					_executive.class,
 					_exit.class,
 					_exp.class,
 					_external.class,
