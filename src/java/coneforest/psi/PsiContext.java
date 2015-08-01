@@ -1,45 +1,36 @@
 package coneforest.psi;
 
-public class PsiContext
-	implements PsiObject
+public interface PsiContext
+	extends PsiObject
 {
-	public PsiContext(Interpreter interpreter)
-	{
-		this.interpreter=interpreter;
-	}
-
-	public String getTypeName()
+	@Override
+	default public String getTypeName()
 	{
 		return "context";
 	}
 
-	public void start()
-	{
-		interpreter.start();
-	}
-
-	@Override
-	public String toSyntaxString()
-	{
-		return "-context:"+interpreter.getId()+"-";
-	}
-
-	public Interpreter getInterpreter()
-	{
-		return interpreter;
-	}
-
+	public long getId();
+	
 	public void join()
+		throws InterruptedException;
+
+	default public void psiJoin()
 		throws PsiException
 	{
 		try
 		{
-			interpreter.join();
+			join();
 		}
 		catch(InterruptedException e)
 		{
 			throw new PsiException("interrupt");
 		}
+	}
+
+	@Override
+	default public String toSyntaxString()
+	{
+		return "-context:"+getId()+"-";
 	}
 
 	public static void psiSleep(final PsiNumeric numeric)
@@ -54,6 +45,4 @@ public class PsiContext
 			throw new PsiException("interrupt");
 		}
 	}
-
-	private final Interpreter interpreter;
 }

@@ -10,8 +10,8 @@ public class _join extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(1);
 		final PsiContext context=(PsiContext)ops[0];
-		context.join();
-		OperandStack joinedOpstack=context.getInterpreter().getOperandStack();
+		context.psiJoin();
+		OperandStack joinedOpstack=((Interpreter)context).getOperandStack();
 		opstack.push(PsiMark.MARK);
 		for(PsiObject obj: joinedOpstack)
 			opstack.push(obj);
