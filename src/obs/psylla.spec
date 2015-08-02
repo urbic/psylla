@@ -46,7 +46,9 @@ Psi is scriptable interpretive PostScript-like programming language.
 %setup -q
 
 %build
-CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant build
+LANG=ru_RU.UTF-8 \
+CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar \
+	ant build
 
 %install
 ant\
