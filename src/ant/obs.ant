@@ -46,9 +46,16 @@
 
 	<target name="obs.checkin" depends="obs.add.spec">
 		<mkdir dir="${target.obs}"/>
+		<exec outputproperty="git.last.message" executable="git">
+			<arg value="log"/>
+			<arg value="--pretty=%s"/>
+			<arg value="-1"/>
+		</exec>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="checkin"/>
 			<arg value="-v"/>
+			<arg value="-m"/>
+			<arg value="${git.last.message}"/>
 		</exec>
 	</target>
 
@@ -56,6 +63,7 @@
 		<mkdir dir="${target.obs}"/>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
+			<arg value="openSUSE_13.2"/>
 		</exec>
 	</target>
 
