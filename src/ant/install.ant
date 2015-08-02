@@ -20,7 +20,7 @@
 			<fileset dir="${target.bin}" includes="*"/>
 		</copy>
 		<chmod dir="${installroot}/${bin.dir}" perm="ugo+x" includes="*"/>
-		<copy todir="${installroot}/${doc.dir}-manual">
+		<copy todir="${installroot}/${doc.dir}-doc">
 			<fileset dir="${target.doc}" includes="examples/** html/**"/>
 		</copy>
 		<copy todir="${installroot}/${doc.dir}">
