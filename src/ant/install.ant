@@ -13,6 +13,9 @@
 			link="${installroot}/${java.dir}/${project.name}.jar"
 			overwrite="true"
 			/>
+		<copy todir="${installroot}/${java.dir}">
+			<fileset dir="${target.lib}" includes="*"/>
+		</copy>
 		<copy todir="${installroot}/${bin.dir}">
 			<fileset dir="${target.bin}" includes="*"/>
 		</copy>
