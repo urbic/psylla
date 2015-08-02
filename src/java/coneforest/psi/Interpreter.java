@@ -763,6 +763,7 @@ public class Interpreter
 		try
 		{
 			final jline.ConsoleReader cr=new jline.ConsoleReader();
+			cr.printString(banner());
 			while(running)
 			{
 				cr.setDefaultPrompt(prompt());
@@ -809,6 +810,11 @@ public class Interpreter
 		{
 			throw new PsiException("ioerror");
 		}
+	}
+
+	public String banner()
+	{
+		return String.format(Messages.getString("bannerText"), Version.getVersion());
 	}
 
 	public String prompt()
