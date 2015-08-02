@@ -71,6 +71,8 @@ ant\
 %{_defaultdocdir}/AUTHORS
 
 %package manual
+%description
+Manual for Psylla.
 
 %files
 %defattr(-,root,root)
