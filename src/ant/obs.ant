@@ -15,7 +15,6 @@
 		<mkdir dir="${target.obs}"/>
 		<exec executable="osc">
 			<arg value="checkout"/>
-			<arg value="-v"/>
 			<arg value="-o"/>
 			<arg value="${target.obs}"/>
 			<arg value="${obs.project.name}"/>

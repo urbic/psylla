@@ -20,8 +20,11 @@
 			<fileset dir="${target.bin}" includes="*"/>
 		</copy>
 		<chmod dir="${installroot}/${bin.dir}" perm="ugo+x" includes="*"/>
+		<copy todir="${installroot}/${doc.dir}-manual">
+			<fileset dir="${target.doc}" includes="examples/** html/**"/>
+		</copy>
 		<copy todir="${installroot}/${doc.dir}">
-			<fileset dir="${target.doc}" includes="**"/>
+			<fileset dir="${target.doc}" includes="README LICENSE AUTHORS"/>
 		</copy>
 	</target>
 
