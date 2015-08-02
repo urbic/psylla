@@ -63,6 +63,7 @@
 		<mkdir dir="${target.obs}"/>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
+			<arg value="--clean"/>
 			<arg value="openSUSE_13.2"/>
 		</exec>
 	</target>

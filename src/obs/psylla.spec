@@ -28,12 +28,7 @@ BuildRequires:	java-devel >= 1.8.0
 BuildRequires:	jline
 BuildRequires:	ant
 BuildRequires:	javacc
-BuildRequires:	saxon6
-BuildRequires:	docbook5-xsl-stylesheets
-BuildRequires:	ant-apache-resolver
-BuildRequires:	xerces-j2-xml-apis
-BuildRequires:	xslthl
-BuildRequires:	rubygem-sass
+
 Requires:		java >= 1.8.0
 Requires:		jline
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -58,6 +53,9 @@ ant\
 	-Ddoc.dir=%{_defaultdocdir}/%{name}\
 	install
 
+%clean
+%{__rm} -rf %{buildroot}
+
 #%%post
 
 #%%postun
@@ -66,17 +64,23 @@ ant\
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
-%{_defaultdocdir}/README
-%{_defaultdocdir}/LICENSE
-%{_defaultdocdir}/AUTHORS
+%doc README LICENSE AUTHORS
 
 %package manual
-%description
+Summary: Manual for Psylla
+BuildRequires:	saxon6
+BuildRequires:	docbook5-xsl-stylesheets
+BuildRequires:	ant-apache-resolver
+BuildRequires:	xerces-j2-xml-apis
+BuildRequires:	xslthl
+BuildRequires:	rubygem-sass
+
+%description manual
 Manual for Psylla.
 
-%files
+%files manual
 %defattr(-,root,root)
-%{_defaultdocdir}/%{name}/html
+%doc target/doc/examples target/doc/html
 
 #%%changelog
 
