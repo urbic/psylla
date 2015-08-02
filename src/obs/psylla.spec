@@ -20,12 +20,11 @@ Version:		@obs.package.version@
 Release:		0
 License:		Zlib
 Summary:		Psi programming language
-Url:			http://mech.math.msu.su/~shvetz/projects/psi
+Url:			https://github.com/urbic/psylla
 Group:			Development/Libraries/Java
 Source:			%{name}-%{version}.tar.xz
 BuildArch:		noarch
 BuildRequires:	java-devel >= 1.8.0
-BuildRequires:	java >= 1.8.0
 BuildRequires:	jline
 BuildRequires:	ant
 BuildRequires:	javacc
@@ -35,6 +34,7 @@ BuildRequires:	ant-apache-resolver
 BuildRequires:	xerces-j2-xml-apis
 BuildRequires:	xslthl
 BuildRequires:	rubygem-sass
+Requires:		java >= 1.8.0
 Requires:		jline
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
@@ -46,8 +46,8 @@ Psi is scriptable interpretive PostScript-like programming language.
 %setup -q
 
 %build
-ls -l /etc/alternatives/javac
-CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant build
+#CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar
+ant build
 
 %install
 ant\
