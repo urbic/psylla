@@ -72,10 +72,10 @@ linkend="PsiReference_Language_Stacks"/>.
 <firstterm>шебанга</firstterm><indexterm><primary>шебанг</primary></indexterm>.
 К примеру, программа, начинающаяся со строки
 
-<programlisting language="psi">#!/usr/bin/psyche</programlisting>
+<programlisting language="psi">#!/usr/bin/psylla</programlisting>
 
 и помещённая в исполняемый файл, будет исполняться интерпретатором
-<command>/usr/bin/psyche</command>.
+<command>/usr/bin/psylla</command>.
 
 </para>
 

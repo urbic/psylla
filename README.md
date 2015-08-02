@@ -1,5 +1,5 @@
-# Psyche
+# Psylla
 
-This is Psyche, extensible and embeddable Psi implementation written in Java.
+This is Psylla, extensible and embeddable Psi implementation written in Java.
 
 Psi is scriptable interpretive PostScript-like programming language.

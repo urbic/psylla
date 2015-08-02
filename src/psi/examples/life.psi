@@ -1,4 +1,4 @@
-#!/usr/bin/psyche
+#!/usr/bin/psylla
 
 /width environment /COLUMNS get tointeger def
 /height environment /LINES get tointeger def

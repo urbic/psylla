@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="psyche" default="jar" basedir=".">
+<project name="psylla" default="jar" basedir=".">
 	
 	<property name="project.name" value="${ant.project.name}"/>
 	<property name="src" location="src"/>
@@ -108,7 +108,7 @@
 			basedir="${target.classes}"
 			>
 			<manifest>
-				<attribute name="Main-Class" value="coneforest.psi.Psyche"/>
+				<attribute name="Main-Class" value="coneforest.psi.Psylla"/>
 				<!--attribute name="Class-Path" value="/usr/share/java/regexp.jar"/-->
 			</manifest>
 			<service
@@ -129,7 +129,7 @@
 
 	<target name="test" depends="jar">
 		<java
-			classname="coneforest.psi.Psyche"
+			classname="coneforest.psi.Psylla"
 			fork="true"
 			classpathref="project.classpath"
 			>

@@ -1,4 +1,4 @@
-#!/usr/bin/psyche
+#!/usr/bin/psylla
 
 /n arguments 0 get tointeger def
 
