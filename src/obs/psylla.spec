@@ -24,7 +24,9 @@ Url:			http://mech.math.msu.su/~shvetz/projects/psi
 Group:			Development/Libraries/Java
 Source:			%{name}-%{version}.tar.xz
 BuildArch:		noarch
-BuildRequires:	java
+BuildRequires:	java-devel >= 1.8.0
+BuildRequires:	java >= 1.8.0
+BuildRequires:	jline
 BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	saxon6
@@ -41,6 +43,7 @@ BuildRequires:	rubygem-sass
 #BuildRequires:	xml-commons-resolver-bootstrap
 #PreReq:
 #Provides:
+Requires:		jline
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
@@ -49,11 +52,12 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 %setup -q
 
 %build
+ls -l /etc/alternatives/javac
 CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar ant build
 
 %install
 ant\
-	-Ddest.dir=%{buildroot}\
+	-Dinstallroot=%{buildroot}\
 	-Djava.dir=%{_javadir}\
 	-Dbin.dir=%{_bindir}\
 	-Ddoc.dir=%{_defaultdocdir}/%{name}\
