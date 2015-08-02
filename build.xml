@@ -16,9 +16,10 @@
 	<property name="target.classes" location="${target}/classes"/>
 	<property name="target.lib"  location="${target}/lib"/>
 	<property name="target.bin"  location="${target}/bin"/>
+	<property name="target.obs" value="${target}/obs"/>
 	<property name="target.man"  location="${target}/man"/>
 	<property name="target.doc.html" location="${target.doc}/html"/>
-	<property name="dest.dir"  location="dest"/>
+	<property name="installroot"  location="${target}/installroot"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<property name="home.javadoc.java" location="/usr/share/javadoc/java"/>
@@ -26,10 +27,10 @@
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 	</path>
-	<property file="${src.java}/coneforest/psi/Version.properties" prefix="psi"/>
+	<property file="${src.java}/coneforest/psi/Version.properties" prefix="project"/>
 	<property
 		name="project.version"
-		value="${psi.version.major}.${psi.version.minor}.${psi.version.revision}"
+		value="${project.version.major}.${project.version.minor}.${project.version.revision}"
 		/>
 	
 	<import file="${src.ant}/htmldocs.ant"/>

@@ -2,25 +2,30 @@
 <project name="obs" default="dist" basedir=".">
 
 	<property name="obs.project.name" value="home:concyclic"/>
-	<property name="obs.package.name" value="psilang"/>
+	<property name="obs.package.name" value="${project.name}"/>
 	<property name="obs.package.version" value="${project.version}"/>
+	<property name="src.obs" location="${src}/obs"/>
 
 	<available
 		property="obs.dir.available"
-		file="${target}/obs/${obs.project.name}/${obs.package.name}/.osc"
+		file="${target.obs}/.osc"
 		/>
 
 	<target name="obs.checkout" unless="obs.dir.available">
-		<mkdir dir="${target}/obs"/>
-		<exec executable="osc" dir="${target}/obs">
+		<mkdir dir="${target.obs}"/>
+		<exec executable="osc">
 			<arg value="checkout"/>
-			<arg value="${obs.project.name}/${obs.package.name}"/>
+			<arg value="-v"/>
+			<arg value="-o"/>
+			<arg value="${target.obs}"/>
+			<arg value="${obs.project.name}"/>
+			<arg value="${obs.package.name}"/>
 		</exec>
 	</target>
 
-	<target name="obs" depends="obs.checkout">
-		<copy todir="${target}/obs/${obs.project.name}/${obs.package.name}" filtering="true">
-			<fileset dir="${src}/obs/"/>
+	<target name="obs.copy.spec" depends="obs.checkout">
+		<copy todir="${target.obs}" filtering="true" overwrite="yes">
+			<fileset dir="${src.obs}"/>
 			<filterset>
 				<propertyset>
 					<propertyref name="obs.package.name"/>
@@ -28,7 +33,28 @@
 				</propertyset>
 			</filterset>
 		</copy>
-		<exec executable="osc" dir="${target}/obs/${obs.project.name}/${obs.package.name}">
+	</target>
+
+	<target name="obs.add.spec" depends="obs.copy.spec">
+		<mkdir dir="${target.obs}"/>
+		<exec executable="osc" dir="${target.obs}">
+			<arg value="add"/>
+			<arg value="_service"/>
+			<arg value="${obs.package.name}.spec"/>
+		</exec>
+	</target>
+
+	<target name="obs.checkin" depends="obs.add.spec">
+		<mkdir dir="${target.obs}"/>
+		<exec executable="osc" dir="${target.obs}">
+			<arg value="checkin"/>
+			<arg value="-v"/>
+		</exec>
+	</target>
+
+	<target name="obs.build" depends="obs.add.spec">
+		<mkdir dir="${target.obs}"/>
+		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
 		</exec>
 	</target>
