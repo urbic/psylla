@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><title>Глава 2. Язык</title><link rel="stylesheet" type="text/css" href="../PsiReference.css"/><link rev="made" href="${xslt.link.mailto.url}"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="PsiReference.xhtml" title="Язык Ψ — полное руководство"/><link rel="up" href="PsiReference.xhtml" title="Язык Ψ — полное руководство"/><link rel="prev" href="PsiReference_Interpreter.xhtml" title="Глава 1. Интерпретатор"/><link rel="next" href="PsiReference_Types.xhtml" title="Глава 3. Типы"/><link rel="preface" href="PsiReference_Introduction.xhtml" title="Введение"/><link rel="chapter" href="PsiReference_Interpreter.xhtml" title="Глава 1. Интерпретатор"/><link rel="chapter" href="PsiReference_Language.xhtml" title="Глава 2. Язык"/><link rel="chapter" href="PsiReference_Types.xhtml" title="Глава 3. Типы"/><link rel="chapter" href="PsiReference_Operators.xhtml" title="Глава 4. Операторы"/><link rel="chapter" href="PsiReference_Errors.xhtml" title="Глава 5. Ошибки"/><link rel="chapter" href="PsiReference_Development.xhtml" title="Глава 6. Разработка"/><link rel="index" href="PsiReference_Index.xhtml" title="Предметный указатель"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_Interpreter" title="2.1. Интерпретатор"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_Syntax" title="2.2. Синтаксис"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes" title="2.3. Основные типы"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_Stacks" title="2.4. Стеки"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_ObjectExecution" title="2.5. Исполнение объектов"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_EarlyNameBinding" title="2.6. Раннее связывание имён"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_MultipleExecutionContexts" title="2.7. Множественные контексты исполнения"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_Errors" title="2.8. Ошибки"/><link rel="section" href="PsiReference_Language.xhtml#PsiReference_Language_Grammar" title="2.9. Грамматика"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="shortcut icon" href="../psyche-16.png" type="image/png"/><link rel="author" href="https://plus.google.com/113215332542811715537?rel=author"/><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="application/ecmascript"><!----></script><meta name="google-site-verification" content=""/><script/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Глава 2. Язык</th></tr><tr><td align="left"><a accesskey="p" href="PsiReference_Interpreter.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><th width="60%" align="center"> </th><td align="right"> <a accesskey="n" href="PsiReference_Types.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr></table></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="PsiReference_Language"/>Глава 2. Язык</h1></div></div></div><div class="toc"><div class="toc-title">Содержание</div><dl class="toc"><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Interpreter">2.1. Интерпретатор</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax">2.2. Синтаксис</a></span></dt><dd><dl><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Comments">2.2.1. Комментарии</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Numbers">2.2.2. Числа</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Strings">2.2.3. Строки</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Names">2.2.4. Имена</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Commands">2.2.5. Команды</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Arrays">2.2.6. Массивы</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Procedures">2.2.7. Процедуры</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Dictionaries">2.2.8. Словари</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_Sets">2.2.9. Множества</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Syntax_RegExps">2.2.10. Регулярные выражения</a></span></dt></dl></dd><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes">2.3. Основные типы</a></span></dt><dd><dl><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_AtomicAndComposite">2.3.1. Простые и сложные объекты</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Operators">2.3.2. Операторы</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Numbers">2.3.3. Числа</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Booleans">2.3.4. Булевские значения</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Marks">2.3.5. Метки</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Nulls">2.3.6. Пустой объект</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Names">2.3.7. Имена</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Commands">2.3.8. Команды</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Arrays">2.3.9. Массивы</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Procedures">2.3.10. Процедуры</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Strings">2.3.11. Строки</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_Dictionaries">2.3.12. Словари</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_RegExps">2.3.13. Регулярные выражения</a></span></dt></dl></dd><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Stacks">2.4. Стеки</a></span></dt><dd><dl><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Stacks_OperandStack">2.4.1. Стек операндов</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Stacks_DictionaryStack">2.4.2. Стек словарей</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Stacks_ExecutionStack">2.4.3. Стек исполнения</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Stacks_Auxiliary">2.4.4. Служебные стеки</a></span></dt></dl></dd><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_ObjectExecution">2.5. Исполнение объектов</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_EarlyNameBinding">2.6. Раннее связывание имён</a></span></dt><dd><dl><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_EarlyNameBinding_BindOperator">2.6.1. Оператор <code class="token"><span class="hl-keyword">bind</span></code></a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_EarlyNameBinding_Immediate">2.6.2. Немедленные имена</a></span></dt></dl></dd><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_MultipleExecutionContexts">2.7. Множественные контексты исполнения</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Errors">2.8. Ошибки</a></span></dt><dt><span class="section"><a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar">2.9. Грамматика</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_Interpreter"/>2.1. Интерпретатор</h2></div></div></div><p>
+Интерпретатор работает с так называемыми
+<em class="firstterm">объектами</em><a id="d0e179" class="indexterm"/>
+языка Ψ. Некоторые из них представляют данные, такие как числа, булевские
+значения, строки или контейнеры. Другие объекты рассматриваются как инструкции
+и подлежат исполнению — команды, процедуры, операторы. Однако в языке нет
+принципиальных различий между данными и инструкциями — любой объект может,
+в зависимости от ситуации, рассматриваться или как данные, или как инструкция.
+</p><p>
+Интерпретатор читает текст программы, извлекая из него
+<em class="firstterm">лексемы</em><a id="d0e187" class="indexterm"/>,
+также называемые
+<em class="firstterm">токенами</em><a id="d0e193" class="indexterm"/>.
+Часть интерпретатора, которая последовательно извлекает токены из текста
+программы, называется
+<em class="firstterm">парсером</em><a id="d0e199" class="indexterm"/>.
+В большинстве случаев прочитанный токен преобразуется в объект, который
+немедленно исполняется. Результат исполнения объекта полностью определяется его
+<em class="firstterm">типом</em><a id="d0e205" class="indexterm"/>,
+<em class="firstterm">атрибутами</em><a id="d0e213" class="indexterm"/>
+и его
+<em class="firstterm">значением</em><a id="d0e221" class="indexterm"/>.
+Особый вид токенов,
+<em class="firstterm">комментарий</em><a id="d0e229" class="indexterm"/>,
+игнорируется интерпретатором. Объекты некоторых типов не могут быть созданы
+из токенов, но они могут возникать как результат исполнения операторов.
+</p><p>
+Для хранения данных во время исполнения программы интерпретатор имеет несколько
+<em class="firstterm">стеков</em>, которым посвящён раздел <a class="xref" href="PsiReference_Language.xhtml#PsiReference_Language_Stacks" title="2.4. Стеки">2.4. «Стеки»</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_Syntax"/>2.2. Синтаксис</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Comments"/>2.2.1. Комментарии</h3></div></div></div><p>
+<em class="firstterm">Комментарии</em> — часть текста программы, игнорируемой
+парсером. В языке Ψ предусмотрено два типа комментариев — однострочные и
+многострочные.
+</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsiReference_Language_Syntax_Comments_OneLine"/>2.2.1.1. Однострочные комментарии</h4></div></div></div><p>
+Символ <code class="literal">#</code> вне строкового литерала или регулярного выражения
+начинает <em class="firstterm">однострочный
+комментарий</em><a id="d0e261" class="indexterm"/>.
+Он состоит из символов, следующих после <code class="literal">#</code> вплоть до символа
+конца строки.
+</p><p>
+Комментарий вида <code class="literal">#!…</code> в первой строке программы
+в юниксоподобных операционных системах играют роль
+<em class="firstterm">шебанга</em><a id="d0e277" class="indexterm"/>.
+К примеру, программа, начинающаяся со строки
+
+</p><pre class="programlisting"><span class="hl-sharpBang">#!/usr/bin/psyche</span></pre><p>
+
+и помещённая в исполняемый файл, будет исполняться интерпретатором
+<span class="command"><strong>/usr/bin/psyche</strong></span>.
+
+</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsiReference_Language_Syntax_Comments_MultiLine"/>2.2.1.2. Многострочные комментарии</h4></div></div></div><p>
+Символы <code class="literal">/#</code> вне строкового литерала или регулярного выражения
+служат началом <em class="firstterm">многострочного
+комментария</em><a id="d0e297" class="indexterm"/>,
+продолжающегося до ближайших символов <code class="literal">#/</code>. Вложение
+многострочных комментариев друг в друга не допускается.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Numbers"/>2.2.2. Числа</h3></div></div></div><p>
+В программе могут создаваться числовые объекты целого, вещественного и
+комплексного типов. В языке предусмотрено литеральное представление только
+для целых и вещественных чисел.  Целые числа могут записываться в десятичной,
+шестнадцатеричной или двоичной форме.
+</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsiReference_Language_Syntax_Numbers_Decimal"/>2.2.2.1. Десятичные литералы</h4></div></div></div><p>
+<em class="firstterm">Десятичные
+литералы</em><a id="d0e318" class="indexterm"/>
+состоят из десятичных цифр. Кроме того, они могут содержать единственную
+десятичную точку <code class="literal">.</code> и начинаться с необязательного знака
+<code class="literal">+</code> или <code class="literal">-</code>.
+</p><p>
+Литералы, не содержащие десятичной точки, обычно приводят к созданию
+целочисленного объекта. В случае, если обозначаемое число выходит за границы
+допустимых значений целых чисел, создаётся вещественный объект.
+</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsiReference_Language_Syntax_Numbers_Hexadecimal"/>2.2.2.2. Шестнадцатеричные литералы</h4></div></div></div><p>
+<em class="firstterm">Шестнадцатеричные
+литералы</em><a id="d0e342" class="indexterm"/>
+начинаются с необязательного знака <code class="literal">+</code> или
+<code class="literal">-</code>, символов <code class="literal">0X</code> или <code class="literal">0x</code>
+и завершаются произвольным количеством шестнадцатеричных цифр
+<code class="literal">0</code>—<code class="literal">9</code> и
+<code class="literal">A</code>—<code class="literal">F</code> или
+<code class="literal">a</code>—<code class="literal">f</code>.
+</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsiReference_Language_Syntax_Numbers_Binary"/>2.2.2.3. Двоичные литералы</h4></div></div></div><p>
+<em class="firstterm">Двоичные
+литералы</em><a id="d0e385" class="indexterm"/>
+начинаются с необязательного знака <code class="literal">+</code> или
+<code class="literal">-</code>, символов <code class="literal">0B</code> или <code class="literal">0b</code>
+и завершаются произвольным количеством двоичных цифр <code class="literal">0</code> или
+<code class="literal">1</code>.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Strings"/>2.2.3. Строки</h3></div></div></div><p>
+Строковые литералы заключаются между двойными кавычками <code class="literal">"</code>
+(<code class="constant">U+22</code>). Бэкслэш <code class="literal">\</code>
+(<code class="constant">U+5C</code>) между кавычками имеет особый смысл, определяемый
+следующим за ним символом.
+
+</p><div class="informaltable"><table style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="50%"/><col width="50%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\0</code></td><td style="border-bottom: 0.5pt solid ; ">нулевой символ, <code class="constant">U+0</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\a</code></td><td style="border-bottom: 0.5pt solid ; ">гудок, <code class="constant">U+7</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\t</code></td><td style="border-bottom: 0.5pt solid ; ">символ табуляции, <code class="constant">U+9</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\n</code></td><td style="border-bottom: 0.5pt solid ; ">конец строки, <code class="constant">U+A</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\f</code></td><td style="border-bottom: 0.5pt solid ; ">конец страницы, <code class="constant">U+C</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\r</code></td><td style="border-bottom: 0.5pt solid ; ">возврат каретки, <code class="constant">U+D</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\e</code></td><td style="border-bottom: 0.5pt solid ; ">escape, <code class="constant">U+1B</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\"</code></td><td style="border-bottom: 0.5pt solid ; ">двойная кавычка <code class="literal">"</code> <code class="constant">U+22</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\\</code></td><td style="border-bottom: 0.5pt solid ; ">бэкслэш <code class="literal">\</code> <code class="constant">U+5C</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\u<em class="replaceable"><code>XXXX</code></em></code></td><td style="border-bottom: 0.5pt solid ; ">символ <code class="constant">U+<em class="replaceable"><code>XXXX</code></em></code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\x{<em class="replaceable"><code>XXXXXXXX</code></em>}</code></td><td style="border-bottom: 0.5pt solid ; ">символ <code class="constant">U+<em class="replaceable"><code>XXXXXXXX</code></em></code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\N{<em class="replaceable"><code>name</code></em>}</code></td><td style="border-bottom: 0.5pt solid ; ">символ с именем Unicode <em class="replaceable"><code>name</code></em> <em><span class="remark">(не реализовано)</span></em></td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\c<em class="replaceable"><code>C</code></em></code></td><td style="">для символов <em class="replaceable"><code>C</code></em> от <code class="constant">U+0</code>
+до <code class="constant">U+3F</code> прибавляет к коду 64, для символов
+от <code class="constant">U+40</code> до <code class="constant">U+7F</code> вычитает 64
+из кода</td></tr></tbody></table></div><p>
+
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Names"/>2.2.4. Имена</h3></div></div></div><p>
+<em class="firstterm">Имена</em><a id="d0e579" class="indexterm"/>
+состоят из букв от <code class="literal">A</code> до <code class="literal">Z</code> и
+от <code class="literal">a</code> до <code class="literal">z</code>
+(<code class="constant">U+41</code>—<code class="constant">U+5A</code>,
+<code class="constant">U+61</code>—<code class="constant">U+7A</code>), десятичных цифр
+(<code class="constant">U+30</code>—<code class="constant">U+39</code>), символов
+<code class="literal">_</code> (<code class="constant">U+5F</code>), <code class="literal">.</code>
+(<code class="constant">U+2E</code>), <code class="literal">+</code> (<code class="constant">U+2B</code>),
+<code class="literal">-</code> (<code class="constant">U+2D</code>), <code class="literal">=</code>
+(<code class="constant">U+3D</code>), <code class="literal">$</code> (<code class="constant">U+24</code>) и
+не начинаются с десятичной цифры. Имени предшествует символ
+<code class="literal">/</code> (<code class="constant">U+2F</code>).
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Commands"/>2.2.5. Команды</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Arrays"/>2.2.6. Массивы</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Procedures"/>2.2.7. Процедуры</h3></div></div></div><p>
+Символы <code class="code">{</code> и <code class="code">}</code>
+используются для создания
+<em class="firstterm">процедур</em><a id="d0e680" class="indexterm"/>.
+</p><p>
+Интерпретация фрагмента программы
+
+</p><pre class="programlisting">{ <span class="hl-number">1</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">div</span> }</pre><p>
+
+приводит к созданию объекта процедуры, которая содержит целочисленный объект
+<code class="code"><span class="hl-number">1</span></code> и два объекта-команды <code class="code"><span class="hl-keyword">exch</span></code> и <code class="code"><span class="hl-keyword">div</span></code>. Когда парсер
+встречает символ <code class="code">{</code>, он продолжает сканировать и
+создавать объекты, однако интерпретатор их не исполняет. Когда парсер встречает
+<code class="code">}</code>, он помещает все объекты, созданные после
+обнаружения <code class="code">{</code> в новый объект-процедуру.
+</p><p>
+Интерпретатор не исполняет процедуру; вместо этого он загружает её на стек
+операндов. Процедура будет исполнена лишь при её вызове. Исполнение процедуры
+(и всех составляющих её объектов
+<em class="firstterm">отложенное</em><a id="d0e711" class="indexterm"/>).
+Смысл отложенного исполнения объясняется в разделе <a class="xref" href="PsiReference_Language.xhtml#PsiReference_Language_ObjectExecution" title="2.5. Исполнение объектов">2.5. «Исполнение объектов»</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Dictionaries"/>2.2.8. Словари</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_Sets"/>2.2.9. Множества</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Syntax_RegExps"/>2.2.10. Регулярные выражения</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_CoreTypes"/>2.3. Основные типы</h2></div></div></div><p>
+Все данные в языке Ψ существуют в форме
+<em class="firstterm">объектов</em><a id="d0e741" class="indexterm"/>.
+Большинство объектов создаётся и обрабатывается операторами Ψ. Некоторые типы
+объектов также создаются парсером и исполняются интерпретатором.
+</p><p>
+Каждый объект принадлежит некоторому
+<em class="firstterm">типу</em><a id="d0e749" class="indexterm"/>. Тип
+объекта влияет на то, как тот будет обрабатываться операторами. Типы
+подразделяются
+на <em class="firstterm">простые</em><a id="d0e755" class="indexterm"/>
+и
+<em class="firstterm">сложные</em><a id="d0e763" class="indexterm"/>.
+Разница между простыми и сложными объектами объясняется в разделе <a class="xref" href="PsiReference_Language.xhtml#PsiReference_Language_CoreTypes_AtomicAndComposite" title="2.3.1. Простые и сложные объекты">2.3.1. «Простые и сложные объекты»</a>.  Ниже
+приводится сводка простых и сложных типов, входящих в ядро языка.  Расширения
+языка могут вводить новые типы объектов.
+</p><div class="informaltable"><table width="100%" style="border: none;"><colgroup><col width="50%"/><col width="50%"/></colgroup><tbody valign="top"><tr><td style="" valign="top">
+<div class="itemizedlist"><div class="itemizedlist-title">Простые типы</div><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_boolean" title="3.1.8. boolean"><span class="type">boolean</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_complex" title="3.1.12. complex"><span class="type">complex</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_integer" title="3.1.28. integer"><span class="type">integer</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_mark" title="3.1.33. mark"><span class="type">mark</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_name" title="3.1.35. name"><span class="type">name</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_command" title="3.1.11. command"><span class="type">command</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_null" title="3.1.36. null"><span class="type">null</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_operator" title="3.1.39. operator"><span class="type">operator</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_real" title="3.1.45. real"><span class="type">real</span></a></li></ul></div>
+</td><td style="" valign="top">
+<div class="itemizedlist"><div class="itemizedlist-title">Сложные типы</div><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_array" title="3.1.3. array"><span class="type">array</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_bitset" title="3.1.7. bitset"><span class="type">bitset</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_bitvector" title="3.1.6. bitvector"><span class="type">bitvector</span></a></li><li class="listitem"><a class="xref" href="">???</a></li><li class="listitem"><a class="xref" href="">???</a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_proc" title="3.1.41. proc"><span class="type">proc</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_random" title="3.1.42. random"><span class="type">random</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_reader" title="3.1.44. reader"><span class="type">reader</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_regexp" title="3.1.46. regexp"><span class="type">regexp</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_set" title="3.1.49. set"><span class="type">set</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_string" title="3.1.51. string"><span class="type">string</span></a></li><li class="listitem"><a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_writer" title="3.1.56. writer"><span class="type">writer</span></a></li></ul></div>
+</td></tr></tbody></table></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_AtomicAndComposite"/>2.3.1. Простые и сложные объекты</h3></div></div></div><p>
+Объекты простых типов не могут быть изменены, они лишь создаются в результате
+вычислений. Например, оператор <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_neg" title="4.2.127. neg"><code class="token"><span class="hl-keyword">neg</span></code></a> не изменяет знак у самого числа,
+а создаёт новый числовой объект, отличающийся знаком от исходного числа.
+</p><p>
+Объекты сложных типов могут изменять своё состояние. К примеру, оператор <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_put" title="4.2.142. put"><code class="token"><span class="hl-keyword">put</span></code></a> заменяет
+элемент массива, имеющий заданный индекс.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Operators"/>2.3.2. Операторы</h3></div></div></div><p>
+<em class="firstterm">Оператор</em><a id="d0e847" class="indexterm"/>
+в языке Ψ представляет код, манипулирующий интерпретатором. Объекты-операторы
+имеют тип <a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_operator" title="3.1.39. operator"><span class="type">operator</span></a>.  Все операторы изначально размещены в системном
+словаре и доступны по их именам. Операторы не могут быть созданы Ψ-программой.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Numbers"/>2.3.3. Числа</h3></div></div></div><p>
+В языке Ψ предусмотрены три числовых типа: целый (<a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_integer" title="3.1.28. integer"><span class="type">integer</span></a>),
+вещественный (<a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_real" title="3.1.45. real"><span class="type">real</span></a>) и комплексный (<a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_complex" title="3.1.12. complex"><span class="type">complex</span></a>).
+</p><p>
+Объект целого типа представляет математическое целое число из диапазона от
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ssi="urn:coneforest:xsl:xhtml:ssi">
+	<mo>−</mo>
+	<msup>
+		<mn>2</mn>
+		<mn>63</mn>
+	</msup>
+</math>
+
+до
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ssi="urn:coneforest:xsl:xhtml:ssi">
+	<msup>
+		<mn>2</mn>
+		<mn>63</mn>
+	</msup>
+	<mo>−</mo>
+	<mn>1</mn>
+</math>
+
+включительно.
+</p><p>
+Объект вещественного типа приближает математическое вещественное число
+из существенно большего диапазона, однако с ограниченной точностью,
+реализованное как число с плавающей точкой.
+</p><p>
+Объект комплексного типа представляет математическое комплексное число. Он
+реализован как пара вещественных чисел — вещественная и мнимая части числа.
+</p><p>
+Большинство математических операторов Ψ могут применяться к операндам всех трёх
+типов, производя при необходимости нужное преобразование типа.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Booleans"/>2.3.4. Булевские значения</h3></div></div></div><p>
+Объекты булевского типа (<a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_boolean" title="3.1.8. boolean"><span class="type">boolean</span></a>) представляют логические значения «ложь» и «правда».
+Их главное предназначение — служить операндами в условных управляющих
+операторах <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_if" title="4.2.95. if"><code class="token"><span class="hl-keyword">if</span></code></a> и <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_ifelse" title="4.2.96. ifelse"><code class="token"><span class="hl-keyword">ifelse</span></code></a>.  Оба
+булевских объекта присутствуют в системном словаре под именами <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_false" title="4.2.70. false"><code class="token"><span class="hl-keyword">false</span></code></a> и
+<a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_true" title="4.2.194. true"><code class="token"><span class="hl-keyword">true</span></code></a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Marks"/>2.3.5. Метки</h3></div></div></div><p>
+<em class="firstterm">Метка</em><a id="d0e927" class="indexterm"/> —
+единственный объект типа <a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_mark" title="3.1.33. mark"><span class="type">mark</span></a> — служит для обозначения позиции на стеке операндов.
+Метка доступна в системном словаре по именам <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_mark" title="4.2.120. mark"><code class="token"><span class="hl-keyword">mark</span></code></a> (<a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_[" title="4.2.6. ["><code class="token"><span class="hl-structure">[</span></code></a>, <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_&lt;" title="4.2.3. &lt;"><code class="token"><span class="hl-structure">&lt;</span></code></a>, <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_(" title="4.2.1. ("><code class="token"><span class="hl-structure">(</span></code></a>).
+В основном метки служат операндами для операторов <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_arraytomark" title="4.2.16. arraytomark"><code class="token"><span class="hl-keyword">arraytomark</span></code></a>
+(<a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_]" title="4.2.7. ]"><code class="token"><span class="hl-structure">]</span></code></a>),
+<a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_dicttomark" title="4.2.56. dicttomark"><code class="token"><span class="hl-keyword">dicttomark</span></code></a> (<a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_&gt;" title="4.2.4. &gt;"><code class="token"><span class="hl-structure">&gt;</span></code></a>), <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_settomark" title="4.2.167. settomark"><code class="token"><span class="hl-keyword">settomark</span></code></a>
+(<a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_)" title="4.2.2. )"><code class="token"><span class="hl-structure">)</span></code></a>),
+<a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_counttomark" title="4.2.48. counttomark"><code class="token"><span class="hl-keyword">counttomark</span></code></a>, <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_cleartomark" title="4.2.33. cleartomark"><code class="token"><span class="hl-keyword">cleartomark</span></code></a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Nulls"/>2.3.6. Пустой объект</h3></div></div></div><p>
+Особый тип <a class="xref" href="PsiReference_Types.xhtml#PsiReference_Types_Details_null" title="3.1.36. null"><span class="type">null</span></a> содержит единственный объект. Этот объект служит
+заполнителем в контейнерах, чьи элементы ещё не инициализированы. Главным
+образом пустой объект появляется в массивах при увеличении их размера. Пустой
+объект доступен в системном словаре по имени <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_null" title="4.2.132. null"><code class="token"><span class="hl-keyword">null</span></code></a>. Он не
+может быть операндом для большинства операторов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Names"/>2.3.7. Имена</h3></div></div></div><p>
+<em class="firstterm">Имена</em><a id="d0e973" class="indexterm"/>
+представляют неизменяемые строки. Имена главным образом используются как ключи
+в словарях, по которым извлекаются соответствующие значения. С каждым
+оператором языка Ψ ассоциировано имя в системном словаре.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Commands"/>2.3.8. Команды</h3></div></div></div><p>
+<em class="firstterm">Команды</em><a id="d0e984" class="indexterm"/>
+(<em class="firstterm">исполняемые
+имена</em><a id="d0e990" class="indexterm"/>)
+отличаются от имён семантикой исполнения. Исполнение команды заключается
+в поиске объекта, ассоциированого с именем команды, в стеке словарей, и
+последующем исполнении найденного объекта.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Arrays"/>2.3.9. Массивы</h3></div></div></div><p>
+<em class="firstterm">Массив</em><a id="d0e1003" class="indexterm"/> —
+это контейнер для объектов, пронумерованных целыми неотрицательными числами
+(<em class="firstterm">индексами</em><a id="d0e1009" class="indexterm"/>).
+Массивы в языке Ψ являются
+<em class="firstterm">неоднородными</em><a id="d0e1017" class="indexterm"/>,
+то есть элементы массива могут быть объектами любого типа. В частности, массивы
+могут содержать контейнеры (массивы, словари, множества), что позволяет
+конструировать многомерные структуры данных любой сложности.
+</p><p>
+Массивы индексируются начиная с нуля. При доступе к элементам массива
+осуществляется проверка границ индекса.  В случае выхода индекса за пределы
+границ возбуждается ошибка <a class="xref" href="PsiReference_Errors.xhtml#PsiReference_Errors_Details_rangecheck" title="5.1.13. rangecheck"><span class="errorname">rangecheck</span></a>.
+</p><p>
+Длина массива может изменяться за счёт добавления или удаления элементов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Procedures"/>2.3.10. Процедуры</h3></div></div></div><p>
+<em class="firstterm">Процедура</em><a id="d0e1036" class="indexterm"/>
+(<em class="firstterm">исполняемые
+массивы</em><a id="d0e1042" class="indexterm"/>)
+отличается от массива семантикой исполнения. Исполнение процедуры заключается
+в поочерёдном исполнении всех её элементов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Strings"/>2.3.11. Строки</h3></div></div></div><p>
+<em class="firstterm">Строка</em><a id="d0e1055" class="indexterm"/>
+концептуально устроена как массив, элементами которого служат целые числа
+из диапазона от <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ssi="urn:coneforest:xsl:xhtml:ssi"><mn>0</mn></math> до <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ssi="urn:coneforest:xsl:xhtml:ssi"><mn>65535</mn></math> — <em class="firstterm">кодовые
+единицы</em><a id="d0e1069" class="indexterm"/>.
+</p><p>
+Строки используются для хранения текста. Каждый символ текста представлен одной
+или двумя кодовыми единицами в соответствии с кодировкой
+<em class="firstterm"><acronym class="acronym">UTF-16</acronym></em><a id="d0e1078" class="indexterm"/>.
+Одна кодовая единица кодирует символы из <em class="firstterm">основной многоязычной
+плоскости</em><a id="d0e1084" class="indexterm"/>
+(<acronym class="acronym">BMP</acronym><a id="d0e1093" class="indexterm"/>).
+Остальные символы Unicode кодируются так называемыми <em class="firstterm">суррогатными
+парами</em><a id="d0e1100" class="indexterm"/>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_Dictionaries"/>2.3.12. Словари</h3></div></div></div><p>
+<em class="firstterm">Словарь</em><a id="d0e1111" class="indexterm"/> представляет
+собой контейнер для объектов, проиндексированных именами. Такие структуры
+называют также <em class="firstterm">ассоциативными
+массивами</em><a id="d0e1117" class="indexterm"/>.
+</p><p>
+Словари интенсивно используются интерпретатором для ассоциации объектов
+(по большей части операторов и процедур) с именами. Каждый раз, когда парсер
+обнаруживает команду, интерпретатор осуществляет поиск объекта по имени команды
+в стеке словарей, после чего исполняет найденный объект.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_CoreTypes_RegExps"/>2.3.13. Регулярные выражения</h3></div></div></div><p>
+<em class="firstterm">Регулярное выражение</em><a id="d0e1132" class="indexterm"/> представляет шаблон поиска в строке.
+</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsiReference_Language_CoreTypes_RegExps_Constructs"/>2.3.13.1. Конструкции в регулярных выражениях</h4></div></div></div><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="PsiReference_Language_CoreTypes_RegExps_Constructs_Characters"/>2.3.13.1.1. Символы</h5></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal"><em class="replaceable"><code>X</code></em></code></td><td style="border-bottom: 0.5pt solid ; ">символ <em class="replaceable"><code>X</code></em></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\\</code></td><td style="border-bottom: 0.5pt solid ; ">символ бэкслэш (<code class="constant">U+5C</code>)</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\u<em class="replaceable"><code>HHHH</code></em></code></td><td style="border-bottom: 0.5pt solid ; ">символ с шестнадцатеричным значением <em class="replaceable"><code>HHHH</code></em></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\x<em class="replaceable"><code>H…H</code></em></code></td><td style="border-bottom: 0.5pt solid ; ">символ с шестнадцатеричным значением <em class="replaceable"><code>H…H</code></em></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\t</code></td><td style="border-bottom: 0.5pt solid ; ">символ табуляции (<code class="constant">U+9</code>)</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\n</code></td><td style="border-bottom: 0.5pt solid ; ">символ конца строки (<code class="constant">U+A</code>)</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\r</code></td><td style="border-bottom: 0.5pt solid ; ">символ возврата каретки (<code class="constant">U+D</code>)</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\f</code></td><td style="border-bottom: 0.5pt solid ; ">символ конца страницы (<code class="constant">U+C</code>)</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\a</code></td><td style="border-bottom: 0.5pt solid ; ">символ гудка (<code class="constant">U+7</code>)</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\e</code></td><td style="border-bottom: 0.5pt solid ; ">символ escape (<code class="constant">U+1B</code>)</td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\c<em class="replaceable"><code>X</code></em></code></td><td style="">управляющий символ, соответствующий <em class="replaceable"><code>X</code></em></td></tr></tbody></table></div></div><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="PsiReference_Language_CoreTypes_RegExps_Constructs_CharacterClasses"/>2.3.13.1.2. Символьные классы</h5></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">[abc]</code></td><td style="border-bottom: 0.5pt solid ; "><code class="literal">a</code>, <code class="literal">b</code> или <code class="literal">c</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">[^abc]</code></td><td style="border-bottom: 0.5pt solid ; ">любой символ, кроме <code class="literal">a</code>, <code class="literal">b</code> и <code class="literal">c</code></td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">[A-Za-z]</code></td><td style="">символы от <code class="literal">A</code> до <code class="literal">Z</code> или
+от <code class="literal">a</code> до <code class="literal">z</code> (включительно)</td></tr></tbody></table></div></div><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="PsiReference_Language_CoreTypes_RegExps_Constructs_PredefinedCharacterClasses"/>2.3.13.1.3. Предопределённые символьные классы</h5></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">.</code></td><td style="border-bottom: 0.5pt solid ; ">любой символ</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\d</code></td><td style="border-bottom: 0.5pt solid ; ">десятичная цифра, <code class="literal">[0-9]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\D</code></td><td style="border-bottom: 0.5pt solid ; ">не десятичная цифра, <code class="literal">[^0-9]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\s</code></td><td style="border-bottom: 0.5pt solid ; ">пробельный символ, <code class="literal">[ \t\n\r\f\x{0B}]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\S</code></td><td style="border-bottom: 0.5pt solid ; ">непробельный символ, <code class="literal">[^ \t\n\r\f\x{0B}]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\w</code></td><td style="border-bottom: 0.5pt solid ; ">словный символ, <code class="literal">[A-Za-z_\d]</code></td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\W</code></td><td style="">не словный символ, <code class="literal">[^A-Za-z_\d]</code></td></tr></tbody></table></div></div><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="PsiReference_Language_CoreTypes_RegExps_Constructs_POSIXCharacterClasses"/>2.3.13.1.4. Символьные классы POSIX</h5></div></div></div></div><div class="section"><div class="titlepage"><div><div><h5 class="title"><a id="PsiReference_Language_CoreTypes_RegExps_Constructs_Boundaries"/>2.3.13.1.5. Граничные привязки</h5></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">^</code></td><td style="border-bottom: 0.5pt solid ; ">начало строки</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">$</code></td><td style="border-bottom: 0.5pt solid ; ">конец строки</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\b</code></td><td style="border-bottom: 0.5pt solid ; ">граница слова</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\B</code></td><td style="border-bottom: 0.5pt solid ; ">не граница слова</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\A</code></td><td style="border-bottom: 0.5pt solid ; ">начало входа</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\G</code></td><td style="border-bottom: 0.5pt solid ; ">конец последнего совпадения</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\Z</code></td><td style="border-bottom: 0.5pt solid ; ">TODO</td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\z</code></td><td style="">TODO</td></tr></tbody></table></div></div></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_Stacks"/>2.4. Стеки</h2></div></div></div><p>
+Интерпретатор Ψ поддерживает несколько стеков, предназначенных для хранения
+данных во время исполнения программы или для представления состояния её
+исполнения. Три из них являются ключевыми — <em class="firstterm">стек
+операндов</em><a id="d0e1430" class="indexterm"/>,
+<em class="firstterm">стек
+словарей</em><a id="d0e1438" class="indexterm"/>
+и <em class="firstterm">стек
+исполнения</em><a id="d0e1446" class="indexterm"/>.
+</p><p>
+Каждый из стеков устроен по принципу <acronym class="acronym">LIFO</acronym> — <span xml:lang="en" class="foreignphrase"><em xml:lang="en" class="foreignphrase">Last In—First Out</em></span> (последний пришёл — первый ушёл).
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Stacks_OperandStack"/>2.4.1. Стек операндов</h3></div></div></div><p>
+Исполнение литеральных объектов всегда приводит к их добавлению в стек
+операндов. Если оператор нуждается в данных для обработки, он снимает нужное
+количество объектов их со стека операндов. Объекты, созданные в результате
+работы оператора, добавлются в этот стек. Так действует большинство операторов
+языка. Таким образом, свободно манипулировать стеком операндов может как
+интерпретатор, так и любой из операторов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Stacks_DictionaryStack"/>2.4.2. Стек словарей</h3></div></div></div><p>
+Стек словарей способен хранить только словари. Текущее состояние стека словарей
+служит контекстом для поиска объектов по именам. Необходимость в таком поиске
+возникает каждый раз, когда интерпретатор встречает команду. Имеется
+несколько операторов, предназначенных для управления стеком словарей.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Stacks_ExecutionStack"/>2.4.3. Стек исполнения</h3></div></div></div><p>
+Стек исполнения отражает фазу исполнения процедуры. При исполнении процедуры её
+элементы загружаются на стек исполнения в обратном порядке, так что самый
+первый элемент оказывается на вершине стека. Затем интерпретатор по очереди
+снимает объекты из стека исполнения и исполняет их до тех пор, пока уровень
+стека не сравняется с первоначальным (тем, что был к началу исполнения
+процедуры).
+</p><p>
+Стек исполнения служит также для поддержки исполнения исполняемых строк и
+читателей: эти объекты преобразуются в процедуры, которые, в свою очередь,
+исполняются в соответствии с описанными выше правилами.
+</p><p>
+Стеком исполнения может управлять интерпретатор. В языке лишь несколько
+операторов, управляющих напрямую стеком исполнения. Это управляющие операторы,
+реализующие циклы.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_Stacks_Auxiliary"/>2.4.4. Служебные стеки</h3></div></div></div><p>
+Помимо трёх основных стеков, в интерпретатор встроены и другие, служебные. Это
+<em class="firstterm">стек контекстов
+выхода</em><a id="d0e1486" class="indexterm"/> и <em class="firstterm">стек контекстов
+остановки</em><a id="d0e1494" class="indexterm"/>. Используют служебные стеки лишь несколько
+управляющих операторов.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_ObjectExecution"/>2.5. Исполнение объектов</h2></div></div></div><p>
+Смысл исполнения объекта зависит от его типа, а также от того, получен этот
+объект парсером или же другим способом. Здесь нужно отметить, что существует
+лишь два типа исполненяемых объектов, получаемых непосредственно парсером — это
+процедуры и команды.
+
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Исполняемый оператор вызывается, то есть выполняется запрограммированное в нём
+действие.
+</li><li class="listitem">
+Объекты всех прочих типов загружаются на стек операндов.
+</li></ul></div><p>
+
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_EarlyNameBinding"/>2.6. Раннее связывание имён</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_EarlyNameBinding_BindOperator"/>2.6.1. Оператор <a class="xref" href="PsiReference_Operators.xhtml#PsiReference_Operators_Details_bind" title="4.2.20. bind"><code class="token"><span class="hl-keyword">bind</span></code></a></h3></div></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Language_EarlyNameBinding_Immediate"/>2.6.2. Немедленные имена</h3></div></div></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_MultipleExecutionContexts"/>2.7. Множественные контексты исполнения</h2></div></div></div><p>
+В языке Ψ имеется поддержка асинхронных <em class="firstterm">контекстов
+исполнения</em><a id="d0e1528" class="indexterm"/>. Контекст исполнения представляет
+собой отдельный интерпретатор.
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_Errors"/>2.8. Ошибки</h2></div></div></div><p>
+Во время исполнения программы Ψ возможны различные ошибки. Некоторые из них
+генерируются интерпретатором. Другие возникают при исполнении операторов,
+например, ошибки несоответствия типа операндов или недополнения стека
+операндов.
+</p><p>
+Ошибки отнесены к нескольким типам. Каждому типу соответствует имя, например,
+<a class="xref" href="PsiReference_Errors.xhtml#PsiReference_Errors_Details_typecheck" title="5.1.17. typecheck"><span class="errorname">typecheck</span></a>
+или <a class="xref" href="PsiReference_Errors.xhtml#PsiReference_Errors_Details_stackunderflow" title="5.1.15. stackunderflow"><span class="errorname">stackunderflow</span></a>. Подробное описание
+разных типов ошибок имеется в главе <a class="xref" href="PsiReference_Errors.xhtml" title="Глава 5. Ошибки">5. «<em>Ошибки</em>»</a>.
+</p><p>
+Обработка всех ошибок проводится единообразно.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Language_Grammar"/>2.9. Грамматика</h2></div></div></div><table width="100%" cellpadding="5" style="background-color: none" class="productionset" summary="EBNF for Грамматические правила для токенов"><tr><th align="left" valign="top" class="productionset">Грамматические правила для токенов</th></tr><tr><td><table border="0" width="99%" cellpadding="0" style="background-color: none" class="productionset" summary="EBNF productions"><tr><td align="left" valign="top">[1]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Token"/>TOKEN</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Integer">INTEGER</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_IntegerHexadecimal">INTEGER_HEXADECIMAL</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_IntegerBinary">INTEGER_BINARY</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Char">CHAR</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Real">REAL</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_String">STRING</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_RegExp">REGEXP</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Command">COMMAND</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Name">NAME</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Immediate">IMMEDIATE</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_OpenBrace">OPEN_BRACE</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_CloseBrace">CLOSE_BRACE</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Comment">COMMENT</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[2]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Sign"/>SIGN</td><td valign="top" align="center"><code>::=</code></td><td valign="top">[<code class="constant">"+"</code>, <code class="constant">"-"</code>]</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[3]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Digit"/>DIGIT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">[<code class="constant">"0"</code> - <code class="constant">"9"</code>]</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[4]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_IntegerUnsigned"/>INTEGER_UNSIGNED</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Digit">DIGIT</a>+
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[5]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Integer"/>INTEGER</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Sign">SIGN</a>?
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[6]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_HexDigit"/>HEXDIGIT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Digit">DIGIT</a>
+| [<code class="constant">"A"</code> - <code class="constant">"F"</code>,
+<code class="constant">"a"</code> - <code class="constant">"f"</code>]
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[7]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_IntegerHexadecimal"/>INTEGER_HEXADECIMAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Sign">SIGN</a>?
+<code class="constant">"0"</code>
+[<code class="constant">"X"</code>,
+<code class="constant">"x"</code>]
+<a href="PsiReference_Language_Grammar_HexDigit">HEXDIGIT</a>+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[8]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_IntegerBinary"/>INTEGER_BINARY</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language_Grammar_Sign">SIGN</a>?
+<code class="constant">"0"</code>
+[<code class="constant">"B"</code>, <code class="constant">"b"</code>]
+[<code class="constant">"0"</code>, <code class="constant">"1"</code>]+
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[9]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Char"/>CHAR</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"`"</code>
+(~[<code class="constant">"\\"</code>]
+| <a href="PsiReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>)
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[10]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_RealUnsigned"/>REAL_UNSIGNED</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+(<a href="PsiReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</a>
+(<code class="constant">"."</code>
+<a href="">DIGIT</a>*)?
+| <code class="constant">"."</code>
+<a href="PsiReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</a>)
+<a href="PsiReference_Language_Grammar_Exponent">EXPONENT</a>?
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[11]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Real"/>REAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Sign">SIGN</a>?
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_RealUnsigned">REAL_UNSIGNED</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[12]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Exponent"/>EXPONENT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+[<code class="constant">"E"</code>, <code class="constant">"e"</code>]
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Integer">INTEGER</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[13]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Comment"/>COMMENT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_CommentOneLine">COMMENT_ONELINE</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_CommentMultiline">COMMENT_MULTILINE</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[14]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_CommentOneLine"/>COMMENT_ONELINE</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"#"</code>
+(~[<code class="constant">"\n"</code>])*
+<code class="constant">"\n"</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[15]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_CommentMultiline"/>COMMENT_MULTILINE</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"/#"</code>
+(~[<code class="constant">"/"</code>]
+| (<code class="constant">"/"</code> ~[<code class="constant">"#"</code>]))*
+<code class="constant">"#/"</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[16]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_String"/>STRING</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"\""</code>
+(<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>
+| ~[ <code class="constant">"\""</code>,
+<code class="constant">"\\"</code>])*
+<code class="constant">"\""</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[17]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_StringSpecial"/>STRING_SPECIAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"\\"</code>
+([<code class="constant">"0"</code>,
+<code class="constant">"a"</code>,
+<code class="constant">"n"</code>,
+<code class="constant">"t"</code>,
+<code class="constant">"f"</code>,
+<code class="constant">"\""</code>,
+<code class="constant">"\\"</code>,
+<code class="constant">"e"</code>,
+<code class="constant">"r"</code>,
+<code class="constant">"\n"</code>]
+<br/>
+| <code class="constant">"u"</code>
+<a href="PsiReference_Language_Grammar_HexDigit">HEXDIGIT</a>{4}
+| <code class="constant">"x{"</code>
+<a href="PsiReference_Language_Grammar_HexDigit">HEXDIGIT</a>+
+<code class="constant">"}"</code>
+| <code class="constant">"c"</code>
+[<code class="constant">"\u0000" - "\u00FF"</code>])
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[18]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_RegExp"/>REGEXP</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"@"</code>
+(<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_RegExpSpecial">REGEXP_SPECIAL</a>
+| ~[<code class="constant">"@"</code>,
+<code class="constant">"\\"</code>])*
+<code class="constant">"@"</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[19]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_RegExpSpecial"/>REGEXP_SPECIAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"\\"</code>
+(~[])
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[20]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Name"/>NAME</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"/"</code>
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Command">COMMAND</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[21]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Immediate"/>IMMEDIATE</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"/"</code>
+<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Name">NAME</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[22]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Command"/>COMMAND</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+(<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Letter">LETTER</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</a>)
+(<a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Letter">LETTER</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</a>
+| <a href="PsiReference_Language.xhtml#PsiReference_Language_Grammar_Digit">DIGIT</a>)*<br/>
+| [<code class="constant">"["</code>,
+<code class="constant">"]"</code>,
+<code class="constant">"("</code>,
+<code class="constant">")"</code>,
+<code class="constant">"&lt;"</code>,
+<code class="constant">"&gt;"</code>,
+<code class="constant">"="</code>,
+<code class="constant">"?"</code>]
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[23]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_OpenBrace"/>OPEN_BRACE</td><td valign="top" align="center"><code>::=</code></td><td valign="top"><code class="constant">"{"</code></td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[24]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_CloseBrace"/>CLOSE_BRACE</td><td valign="top" align="center"><code>::=</code></td><td valign="top"><code class="constant">"}"</code></td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[25]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_Letter"/>LETTER</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+[<code class="constant">"A"</code> - <code class="constant">"Z"</code>,
+<code class="constant">"a"</code> - <code class="constant">"z"</code>]
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[26]</td><td align="right" valign="top"><a id="PsiReference_Language_Grammar_NameSpecialChar"/>NAME_SPECIAL_CHAR</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+[<code class="constant">"_"</code>,
+<code class="constant">"."</code>,
+<code class="constant">"+"</code>,
+<code class="constant">"-"</code>,
+<code class="constant">"="</code>,
+<code class="constant">"$"</code>]
+</td><td align="left" valign="top"> </td></tr></table></td></tr></table></div></div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td align="left"><a accesskey="p" href="PsiReference_Interpreter.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><td align="center"> </td><td align="right"> <a accesskey="n" href="PsiReference_Types.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr><tr><td align="left" valign="top">Глава 1. Интерпретатор </td><td align="center"><a accesskey="h" href="PsiReference.xhtml"><img src="../navigation/home.svg" alt="Начало"/></a></td><td align="right" valign="top"> Глава 3. Типы</td></tr></table></div></body></html>
