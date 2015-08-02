@@ -66,7 +66,15 @@ ant\
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
-%{_defaultdocdir}/%{name}
+%{_defaultdocdir}/README
+%{_defaultdocdir}/LICENSE
+%{_defaultdocdir}/AUTHORS
+
+%package manual
+
+%files
+%defattr(-,root,root)
+%{_defaultdocdir}/%{name}/html
 
 #%%changelog
 
