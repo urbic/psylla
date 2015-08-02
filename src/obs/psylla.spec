@@ -37,6 +37,18 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Psylla is extensible and embeddable Psi implementation written in Java.
 Psi is scriptable interpretive PostScript-like programming language.
 
+%package manual
+Summary: Manual for Psylla
+BuildRequires:	saxon6
+BuildRequires:	docbook5-xsl-stylesheets
+BuildRequires:	ant-apache-resolver
+BuildRequires:	xerces-j2-xml-apis
+BuildRequires:	xslthl
+BuildRequires:	rubygem-sass
+
+%description manual
+Manual for Psylla.
+
 %prep
 %setup -q
 
@@ -56,31 +68,18 @@ ant\
 %clean
 %{__rm} -rf %{buildroot}
 
-#%%post
-
-#%%postun
-
 %files
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
-%doc README LICENSE AUTHORS
-
-%package manual
-Summary: Manual for Psylla
-BuildRequires:	saxon6
-BuildRequires:	docbook5-xsl-stylesheets
-BuildRequires:	ant-apache-resolver
-BuildRequires:	xerces-j2-xml-apis
-BuildRequires:	xslthl
-BuildRequires:	rubygem-sass
-
-%description manual
-Manual for Psylla.
+%{_defaultdocdir}/%{name}/README
+%{_defaultdocdir}/%{name}/LICENSE
+%{_defaultdocdir}/%{name}/AUTHORS
 
 %files manual
 %defattr(-,root,root)
-%doc target/doc/examples target/doc/html
+%{_defaultdocdir}/%{name}-manual/examples/*
+%{_defaultdocdir}/%{name}-manual/html/*
 
 #%%changelog
 
