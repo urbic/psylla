@@ -8,7 +8,7 @@
 <section xml:id="PsiReference_Interpreter_CLI_Synopsis">
 <title>Синопсис</title>
 
-<cmdsynopsis><command>psyche</command>
+<cmdsynopsis><command>psylla</command>
 <arg rep="repeat"><replaceable>опция</replaceable></arg>
 <arg><option>--</option></arg>
 <arg><replaceable>программа</replaceable>

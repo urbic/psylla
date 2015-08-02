@@ -819,7 +819,7 @@ public class Interpreter
 
 	public String prompt()
 	{
-		StringBuilder sb=new StringBuilder("PSYCHE");
+		StringBuilder sb=new StringBuilder("PSYLLA");
 		for(int i=procstack.size(); i>0; i--)
 			sb.append('{');
 		if(opstack.size()>0)

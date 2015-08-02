@@ -249,7 +249,7 @@ public class PsiSystemDict
 			put("mathPI", PsiReal.PI);
 			put("mathE", PsiReal.E);
 			put("stdrandom", new PsiRandom());
-			put("product", new PsiName("Psyche"));
+			put("product", new PsiName("Psylla"));
 			put("version", new PsiName(""+Version.getVersion()));
 			put("osname", new PsiName(System.getProperty("os.name")));
 			put("osversion", new PsiName(System.getProperty("os.version")));

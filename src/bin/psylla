@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# psyche script
+# psylla script
 # JPackage Project <http://www.jpackage.org/>
 
 # Source functions library
@@ -8,20 +8,20 @@ _prefer_jre="true"
 . /usr/share/java-utils/java-functions
 
 # Source system prefs
-if [ -f /etc/java/psyche.conf ] ; then
-  . /etc/java/psyche.conf
+if [ -f /etc/java/psylla.conf ] ; then
+  . /etc/java/psylla.conf
 fi
 
 # Source user prefs
-if [ -f $HOME/.psycherc ] ; then
-  . $HOME/.psycherc
+if [ -f $HOME/.psyllarc ] ; then
+  . $HOME/.psyllarc
 fi
 
 # Configuration
-MAIN_CLASS=coneforest.psi.Psyche
+MAIN_CLASS=coneforest.psi.Psylla
 BASE_FLAGS=""
 BASE_OPTIONS=""
-BASE_JARS=psyche
+BASE_JARS=psylla
 
 # Set parameters
 set_jvm

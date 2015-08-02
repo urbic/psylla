@@ -1,4 +1,4 @@
-#!/usr/bin/psyche
+#!/usr/bin/psylla
 
 /n arguments 0 get tointeger 1 sub 2 div floor tointeger def
 

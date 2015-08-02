@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public class Psyche
+public class Psylla
 {
 	public static void main(String args[])
 	{
