@@ -9,8 +9,6 @@ public class Psyche
 		int processed;
 		try
 		{
-			messages=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
-
 			try
 			{
 				cli=new coneforest.cli.Processor
@@ -40,8 +38,7 @@ public class Psyche
 				}
 				catch(java.io.UnsupportedEncodingException e)
 				{
-					System.err.println(String.format(messages.getString("unsupportedEncodingText"),
-						consoleEncoding));
+					System.err.println(Messages.format("unsupportedEncodingText", consoleEncoding));
 					System.exit(1);
 				}
 			if(cli.getValue("help"))
@@ -124,25 +121,22 @@ public class Psyche
 		}
 		catch(java.io.FileNotFoundException e)
 		{
-			System.out.println(String.format(messages.getString("scriptNotFoundText"),
-					e.getLocalizedMessage()));
+			System.out.println(Messages.format("scriptNotFoundText", e.getLocalizedMessage()));
 			System.exit(1);
 		}
 	}
 
 	private static void help()
 	{
-		System.out.println(messages.getString("helpText"));
+		System.out.println(Messages.getString("helpText"));
 		System.exit(0);
 	}
 
 	private static void version()
 	{
-		System.out.print(String.format(messages.getString("versionText"),
-				Version.getVersion()));
+		System.out.print(Messages.format("versionText", Version.getVersion()));
 		System.exit(0);
 	}
 
-	private static java.util.ResourceBundle messages;
 	private static coneforest.cli.Processor cli;
 }
