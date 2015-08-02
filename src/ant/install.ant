@@ -16,7 +16,7 @@
 		<copy todir="${installroot}/${bin.dir}">
 			<fileset dir="${target.bin}" includes="*"/>
 		</copy>
-		<chmod dir="${installroot}/${bin.dir}" perl="ugo+x" includes="*"/>
+		<chmod dir="${installroot}/${bin.dir}" perm="ugo+x" includes="*"/>
 		<copy todir="${installroot}/${doc.dir}">
 			<fileset dir="${target.doc}" includes="**"/>
 		</copy>
