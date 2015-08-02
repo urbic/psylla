@@ -2,21 +2,21 @@
 <project name="install" default="dist" basedir=".">
 
 	<target name="install">
-		<mkdir dir="${dest.dir}/${java.dir}"/>
-		<mkdir dir="${dest.dir}/${bin.dir}"/>
-		<mkdir dir="${dest.dir}/${doc.dir}"/>
-		<copy todir="${dest.dir}/${java.dir}">
+		<mkdir dir="${installroot}/${java.dir}"/>
+		<mkdir dir="${installroot}/${bin.dir}"/>
+		<mkdir dir="${installroot}/${doc.dir}"/>
+		<copy todir="${installroot}/${java.dir}">
 			<fileset dir="${target.lib}" includes="${obs.package.name}.jar"/>
 		</copy>
 		<symlink
 			resource="${obs.package.name}-${project.version}.jar"
-			link="${dest.dir}/${java.dir}/${project.name}.jar"
+			link="${installroot}/${java.dir}/${project.name}.jar"
 			overwrite="true"
 			/>
-		<copy todir="${dest.dir}/${bin.dir}">
+		<copy todir="${installroot}/${bin.dir}">
 			<fileset dir="${target.bin}" includes="*"/>
 		</copy>
-		<copy todir="${dest.dir}/${doc.dir}">
+		<copy todir="${installroot}/${doc.dir}">
 			<fileset dir="${target.doc}" includes="**"/>
 		</copy>
 	</target>

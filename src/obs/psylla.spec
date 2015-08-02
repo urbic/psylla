@@ -1,5 +1,5 @@
 #
-# spec file for package 
+# spec file for package @obs.package.name@
 #
 # Copyright (c) 2014 SUSE LINUX Products GmbH, Nuernberg, Germany.
 #
