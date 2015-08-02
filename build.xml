@@ -5,6 +5,7 @@
 	<property name="src" location="src"/>
 	<property name="src.java" location="${src}/java"/>
 	<property name="src.jj" location="${src}/jj"/>
+	<property name="src.psi" location="${src}/psi"/>
 	<property name="src.docbook" location="${src}/docbook"/>
 	<property name="src.ant" location="${src}/ant"/>
 	<property name="src.bin" location="${src}/bin"/>
@@ -200,7 +201,10 @@
 	
 	<target name="build" description="Build project" depends="jar,htmldocs">
 		<copy todir="${target.bin}" file="${src.bin}/${project.name}"/>
-		<copy todir="${target.doc}" file="LICENSE"/>
+		<copy todir="${target.doc}">
+			<fileset dir="." includes="README LICENSE AUTHORS"/>
+			<fileset dir="${src.psi}" includes="examples/*"/>
+		</copy>
 	</target>
 
 </project>
