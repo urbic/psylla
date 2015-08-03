@@ -39,6 +39,7 @@ Psi is scriptable interpretive PostScript-like programming language.
 
 %package doc
 Summary: Documentation for Psylla
+Requires:		paratype-pt-sans-fonts
 BuildRequires:	saxon6
 BuildRequires:	docbook5-xsl-stylesheets
 BuildRequires:	ant-apache-resolver
