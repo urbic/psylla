@@ -3,16 +3,20 @@
 <title><token language="psi">loop</token></title>
 
 <synopsis>
-<replaceable>процедура</replaceable>
+<replaceable>объект</replaceable>
 <token language="psi">loop</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>процедура</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Вызывает <replaceable>объект</replaceable> в беконечном цикле.
+</para>
 
 <formalpara>
 <title>Ошибки:</title>
@@ -24,6 +28,9 @@
 <title>Смотри также:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
 </formalpara>
 

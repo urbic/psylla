@@ -7,4 +7,11 @@
 и некоторых других.
 </para>
 
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoname"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+
 </section>
