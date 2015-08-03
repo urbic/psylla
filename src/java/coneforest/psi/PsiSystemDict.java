@@ -66,6 +66,7 @@ public class PsiSystemDict
 					_dup.class,
 					_editline.class,
 					_end.class,
+					_entries.class,
 					_eq.class,
 					_eval.class,
 					_exch.class,

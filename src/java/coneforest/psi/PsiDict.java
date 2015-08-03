@@ -57,10 +57,18 @@ public class PsiDict
 		return dictionary.containsKey(keyString);
 	}
 
+	/*
 	@Override
 	public java.util.Iterator<java.util.Map.Entry<String, PsiObject>> iterator()
 	{
 		return dictionary.entrySet().iterator();
+	}
+	*/
+
+	@Override
+	public java.util.Iterator<PsiObject> iterator()
+	{
+		return dictionary.values().iterator();
 	}
 
 	@Override
@@ -89,6 +97,35 @@ public class PsiDict
 		for(PsiStringy key: keys)
 			values.psiPut(key, psiGet(key));
 		return values;
+	}
+
+	@Override
+	public PsiIterable<PsiStringy> psiKeys()
+	{
+		return new PsiIterable<PsiStringy>()
+			{
+				@Override
+				public java.util.Iterator<PsiStringy> iterator()
+				{
+					return new java.util.Iterator<PsiStringy>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsiStringy next()
+							{
+								return new PsiName(parentIterator.next());
+							}
+					
+							private java.util.Iterator<String> parentIterator
+								=dictionary.keySet().iterator();
+						};					
+				}
+			};
 	}
 
 	private java.util.HashMap<String, PsiObject> dictionary;

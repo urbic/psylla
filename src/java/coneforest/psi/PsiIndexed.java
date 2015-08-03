@@ -6,7 +6,8 @@ package coneforest.psi;
  *	@param <K> a type of indices.
  *	@param <V> a type of elements.
  */
-public interface PsiIndexed<K, V extends PsiObject>
+public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
+	// TODO maybe PsiContainer?
 	extends PsiObject
 {
 	@Override
@@ -69,4 +70,10 @@ public interface PsiIndexed<K, V extends PsiObject>
 
 	public PsiArraylike<V> psiGetAll(PsiIterable<K> keys)
 		throws PsiException;
+
+	public PsiIterable<K> psiKeys();
+
+	public PsiIterable<V> psiValues();
+
+	public PsiIterable<PsiObject> psiEntries();
 }

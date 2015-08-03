@@ -9,7 +9,8 @@ public interface PsiDictlike<V extends PsiObject>
 	extends
 		PsiLengthy,
 		PsiIndexed<PsiStringy, V>,
-		PsiIterable<java.util.Map.Entry<String, V>>,
+		//PsiIterable<java.util.Map.Entry<String, V>>,
+		PsiIterable<PsiObject>,
 		PsiClearable
 {
 	@Override
@@ -66,21 +67,43 @@ public interface PsiDictlike<V extends PsiObject>
 		undef(key.getString());
 	}
 
-	default public PsiSetlike<PsiObject> psiKeys()
-	{
-		PsiSet set=new PsiSet();
-		for(java.util.Map.Entry<String, V> entry: this)
-			set.psiAppend(new PsiName(entry.getKey()));
-		return set;
-	}
+	@Override
+	public PsiIterable<PsiStringy> psiKeys();
 
-	// TODO return Set?
-	default public PsiArray psiValues()
+	@Override
+	default public PsiIterable<V> psiValues()
 	{
-		PsiArray values=new PsiArray();
-		for(java.util.Map.Entry<String, V> entry: this)
-			values.psiAppend(entry.getValue());
-		return values;
+		return new PsiIterable<V>()
+			{
+				@Override
+				public java.util.Iterator<V> iterator()
+				{
+					return new java.util.Iterator<V>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public V next()
+							{
+								try
+								{
+									return psiGet(parentIterator.next());
+								}
+								catch(PsiException e)
+								{
+									throw new AssertionError(e);
+								}
+							}
+
+							private java.util.Iterator<PsiStringy> parentIterator
+								=psiKeys().iterator();
+						};
+				}
+			};
 	}
 
 	@Override
@@ -102,18 +125,56 @@ public interface PsiDictlike<V extends PsiObject>
 		return "<"+toSyntaxStringHelper(this)+">";
 	}
 
+	@Override
+	default public PsiIterable<PsiObject> psiEntries()
+	{
+		return new PsiIterable<PsiObject>()
+			{
+				@Override
+				public java.util.Iterator<PsiObject> iterator()
+				{
+					return new java.util.Iterator<PsiObject>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext() || flag;
+							}
+
+							@Override
+							public PsiObject next()
+							{
+								try
+								{
+									return (flag=!flag)?
+										(key=(PsiName)parentIterator.next()): psiGet(key);
+								}
+								catch(PsiException e)
+								{
+									throw new AssertionError(e);
+								}
+							}
+
+							private boolean flag=false;
+
+							private PsiName key;
+
+							private java.util.Iterator<PsiStringy> parentIterator
+								=psiKeys().iterator();
+
+						};
+				}
+			};
+	}
+
 	//@Override
 	default public String toSyntaxStringHelper(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder();
 		if(length()>0)
 		{
-			for(java.util.Map.Entry<String, ? extends PsiObject> entry: this)
+			for(PsiObject obj: this.psiEntries())
 			{
-				sb.append('/');
-				sb.append(entry.getKey());
-				sb.append(' ');
-				PsiObject obj=entry.getValue();
 				if(obj instanceof PsiLengthy)
 					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
 				else
@@ -124,11 +185,11 @@ public interface PsiDictlike<V extends PsiObject>
 		}
 		return sb.toString();
 	}
-
+	
 	@Override
 	default public void psiClear()
 	{
-		for(java.util.Map.Entry<String, V> entry: this)
-			undef(entry.getKey());
+		for(PsiStringy key: this.psiKeys())
+			psiUndef(key);
 	}
 }
