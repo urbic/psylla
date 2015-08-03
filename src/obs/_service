@@ -1,13 +1,12 @@
 <services>
-	<service name="download_files"/>
-	<service name="tar_scm">
+	<!--service name="tar_scm">
 		<param name="scm">git</param>
 		<param name="url">https://github.com/urbic/@obs.package.name@.git</param>
 		<param name="filename">@obs.package.name@</param>
 		<param name="version">@obs.package.version@</param>
-	</service>
+	</service-->
 	<service name="recompress">
-		<param name="file">*.tar</param>
+		<param name="file">*.tar.gz</param>
 		<param name="compression">xz</param>
 	</service>
 </services>

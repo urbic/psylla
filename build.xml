@@ -181,22 +181,49 @@
         </copy>
 		<mkdir dir="${target.doc}"/>
 		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
-		<!--xslt.lang lang="en"/-->
 		<xslt.manpages.lang lang="en" base.name="PsiManpages"/>
 		<symlink action="delete" link="examples"/>
 	</target>
 
-	<target name="dist.zip" description="Make zip distribution">
-		<symlink resource="." link="${project.name}-${project.version}" overwrite="true"/>
+	<target name="dist.zip" description="Make Zip distribution">
+		<mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
+		<copy todir="${target}/tmp/${project.name}-${project.version}">
+			<fileset
+				dir="."
+				includes="src/** build.xml README LICENSE AUTHORS"
+				/>
+		</copy>
 		<zip
 			destfile="${target}/${project.name}-${project.version}.zip"
+			basedir="${target}/tmp"
 			>
 			<fileset
-				dir="${project.name}-${project.version}"
-				includes="src/** build.xml LICENSE"
+				dir="${target}/tmp"
+				includes="${project.name}-${project.version}/**"
 				/>
 		</zip>
-		<symlink action="delete" link="${project.name}-${project.version}"/>
+		<delete dir="${target}/tmp" quiet="yes"/>
+	</target>
+	
+	<target name="dist.tar" description="Make Tar distribution">
+		<mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
+		<copy todir="${target}/tmp/${project.name}-${project.version}">
+			<fileset
+				dir="."
+				includes="src/** build.xml README LICENSE AUTHORS"
+				/>
+		</copy>
+		<tar
+			destfile="${target}/${project.name}-${project.version}.tar.gz"
+			compression="gzip"
+			basedir="${target}/tmp"
+			>
+			<fileset
+				dir="${target}/tmp"
+				includes="${project.name}-${project.version}/**"
+				/>
+		</tar>
+		<delete dir="${target}/tmp" quiet="yes"/>
 	</target>
 	
 	<target name="build" description="Build project" depends="jar,htmldocs">

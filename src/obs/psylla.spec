@@ -47,7 +47,9 @@ BuildRequires:	xslthl
 BuildRequires:	rubygem-sass
 
 %description doc
-Documentation for Psylla.
+This package contains documentation for Psylla.
+Psylla is extensible and embeddable Psi implementation written in Java.
+Psi is scriptable interpretive PostScript-like programming language.
 
 %prep
 %setup -q
@@ -76,8 +78,8 @@ ant\
 
 %files doc
 %defattr(-,root,root)
-%doc target/doc/examples/*
-%doc target/doc/html/*
+%doc target/doc/examples
+%doc target/doc/html
 
 #%%changelog
 

@@ -22,7 +22,7 @@
 		</exec>
 	</target>
 
-	<target name="obs.copy.spec" depends="obs.checkout">
+	<target name="obs.copy.spec" depends="obs.checkout,dist.tar">
 		<copy todir="${target.obs}" filtering="true" overwrite="yes">
 			<fileset dir="${src.obs}"/>
 			<filterset>
@@ -32,12 +32,16 @@
 				</propertyset>
 			</filterset>
 		</copy>
+		<copy todir="${target.obs}" overwrite="yes">
+			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.gz"/>
+		</copy>
 	</target>
 
 	<target name="obs.add.spec" depends="obs.copy.spec">
 		<mkdir dir="${target.obs}"/>
 		<exec executable="osc" dir="${target.obs}">
-			<arg value="add"/>
+			<arg value="addremove"/>
+			<arg value="${project.name}-${project.version}.tar.gz"/>
 			<arg value="_service"/>
 			<arg value="${obs.package.name}.spec"/>
 		</exec>
