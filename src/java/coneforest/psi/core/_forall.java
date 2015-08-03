@@ -30,6 +30,7 @@ public class _forall extends PsiOperator
 		}
 		else if(iterable instanceof PsiIterable)
 		{
+			/*
 			final int loopLevel=interpreter.pushLoopLevel();
 			for(PsiObject element: (PsiIterable<? extends PsiObject>)iterable)
 			{
@@ -41,6 +42,8 @@ public class _forall extends PsiOperator
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
+			*/
+			((PsiIterable<PsiObject>)iterable).psiForAll(proc);
 		}
 		else
 			throw new PsiException("typecheck");
