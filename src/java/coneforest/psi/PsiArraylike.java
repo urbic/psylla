@@ -163,12 +163,80 @@ public interface PsiArraylike<T extends PsiObject>
 		throws PsiException;
 
 	@Override
+	default public PsiIterable<PsiInteger> psiKeys()
+	{
+		return new PsiIterable<PsiInteger>()
+			{
+				@Override
+				public java.util.Iterator<PsiInteger> iterator()
+				{
+					return new java.util.Iterator<PsiInteger>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return index<length();
+							}
+
+							@Override
+							public PsiInteger next()
+							{
+								return PsiInteger.valueOf(index++);
+							}
+
+							private int index=0;							
+						};
+				}
+			};
+	}
+
+	@Override
+	default public PsiIterable<T> psiValues()
+	{
+		return this;
+	}
+
+	@Override
+	default public PsiIterable<PsiObject> psiEntries()
+	{
+		return new PsiIterable<PsiObject>()
+			{
+				@Override
+				public java.util.Iterator<PsiObject> iterator()
+				{
+					return new java.util.Iterator<PsiObject>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsiObject next()
+							{
+								return (flag=!flag)?
+									PsiInteger.valueOf(index++): parentIterator.next();
+							}
+
+							private boolean flag=false;
+
+							private int index=0;
+
+							private java.util.Iterator<PsiObject> parentIterator
+								=(java.util.Iterator<PsiObject>)PsiArraylike.this.iterator();
+
+						};
+				}
+			};
+	}
+
+	@Override
 	default public String toSyntaxString()
 	{
 		return "["+toSyntaxStringHelper(this)+"]";
 	}
 
-	//@Override
 	default public String toSyntaxStringHelper(PsiLengthy lengthy)
 	{
 		StringBuilder sb=new StringBuilder();
