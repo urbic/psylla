@@ -120,7 +120,6 @@ public class PsiSystemDict
 					_iszero.class,
 					_join.class,
 					_keys.class,
-					_keysforall.class,
 					_known.class,
 					_le.class,
 					_length.class,
