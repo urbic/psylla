@@ -59,6 +59,7 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 &PsiReference_Types_Details_atomic;
 &PsiReference_Types_Details_bitvector;
 &PsiReference_Types_Details_bitset;
+&PsiReference_Types_Details_blockingqueue;
 &PsiReference_Types_Details_boolean;
 &PsiReference_Types_Details_clearable;
 &PsiReference_Types_Details_closeable;
@@ -140,6 +141,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_operator;
 &PsiReference_Types_Details_prependable;
 &PsiReference_Types_Details_proc;
+&PsiReference_Types_Details_queuelike;
 &PsiReference_Types_Details_random;
 &PsiReference_Types_Details_readable;
 &PsiReference_Types_Details_reader;
