@@ -24,10 +24,10 @@
 </para>
 
 <para>
-При ошибке ввода/вывода генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
-безопасности генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>.
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>.
+при нарушении политики безопасности.
 </para>
 
 <formalpara>

@@ -24,9 +24,9 @@
 </para>
 
 <para>
-Для нулевого <replaceable>делителя</replaceable> генерируется <xref
-xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/>.
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого
+<replaceable>делителя</replaceable>.
 </para>
 
 <formalpara>
