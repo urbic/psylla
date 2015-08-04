@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_values">
-<title><token language="psi">values</token></title>
+<section xml:id="PsiReference_Operators_Details_entries">
+<title><token language="psi">entries</token></title>
 
 <synopsis>
 <replaceable>индексированное</replaceable>
-<token language="psi">values</token>
+<token language="psi">entries</token>
 <replaceable>перечисление</replaceable>
 <itemizedlist>
 <listitem>
@@ -19,14 +19,14 @@
 </synopsis>
 
 <para>
-Возвращает <replaceable>перечисление</replaceable> значений, содержащихся
-в <replaceable>индексированном</replaceable>.
+Возвращает <replaceable>перечисление</replaceable> ключей и значений
+из <replaceable>индексированного</replaceable>.
 </para>
 
 <formalpara>
 <title>Пример:</title>
-<programlisting language="psi">&lt; /a 1 /b 2 /c 1 &gt; values {} forall	▶ 2 1 1
-[ /a /b /c ] values {} forall		▶ /a /b /c</programlisting>
+<programlisting language="psi">&lt; /a 1 /b 2 &gt; entries {} forall	▶ /a 1 /b 2
+[ /a /b /c ] entries {} forall	▶ 0 /a 1 /b 2 /c</programlisting>
 </formalpara>
 
 <formalpara>
@@ -37,9 +37,9 @@
 
 <formalpara>
 <title>Смотри также:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_entries"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_keys"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_keys"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_values"/>.
 </formalpara>
 
 </section>
