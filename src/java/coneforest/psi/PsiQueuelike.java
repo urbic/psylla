@@ -2,7 +2,7 @@ package coneforest.psi;
 
 public interface PsiQueuelike<T extends PsiObject>
 	extends
-		PsiObject
+		PsiLengthy
 {
 	@Override
 	default public String getTypeName()
