@@ -81,6 +81,11 @@
 <listitem>циклический сдвиг верхней части стека операндов</listitem>
 </varlistentry>
 
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_stack" xrefstyle="template:%t"/></term>
+<listitem>содержимое стека операндов</listitem>
+</varlistentry>
+
 </variablelist>
 
 </section>
@@ -1063,6 +1068,16 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_dictstack" xrefstyle="template:%t"/></term>
+<listitem>содержимое стека словарей</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_execstack" xrefstyle="template:%t"/></term>
+<listitem>содержимое стека исполнения</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_external" xrefstyle="template:%t"/></term>
 <listitem>загрузка внешнего объекта</listitem>
 </varlistentry>
@@ -1338,6 +1353,7 @@
 &PsiReference_Operators_Details_def;
 &PsiReference_Operators_Details_deletefile;
 &PsiReference_Operators_Details_dict;
+&PsiReference_Operators_Details_dictstack;
 &PsiReference_Operators_Details_dicttomark;
 &PsiReference_Operators_Details_div;
 &PsiReference_Operators_Details_dup;
@@ -1348,6 +1364,7 @@
 &PsiReference_Operators_Details_eval;
 &PsiReference_Operators_Details_exch;
 &PsiReference_Operators_Details_exec;
+&PsiReference_Operators_Details_execstack;
 &PsiReference_Operators_Details_exit;
 &PsiReference_Operators_Details_exp;
 &PsiReference_Operators_Details_external;
@@ -1460,6 +1477,7 @@
 &PsiReference_Operators_Details_sort;
 &PsiReference_Operators_Details_split;
 &PsiReference_Operators_Details_sqrt;
+&PsiReference_Operators_Details_stack;
 &PsiReference_Operators_Details_stdrandom;
 &PsiReference_Operators_Details_stop;
 &PsiReference_Operators_Details_stopped;

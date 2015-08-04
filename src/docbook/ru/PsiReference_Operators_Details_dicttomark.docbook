@@ -27,8 +27,22 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
+содержит метку; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, если количество объектов
+выше метки на стеке операндов нечётно.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 2 /two 2 &gt;</programlisting>
+</formalpara>
+
 <formalpara>
 <title>Ошибки:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
 </formalpara>
 

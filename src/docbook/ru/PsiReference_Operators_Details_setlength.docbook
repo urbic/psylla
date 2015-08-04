@@ -30,7 +30,7 @@
 <para>
 Генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_rangecheck"/> при отрицательной
-<replaceable>длине</replaceable>. Генерирует <xref xrefstyle="template:%t"
+<replaceable>длине</replaceable>; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_limitcheck"/>
 при <replaceable>длине</replaceable>, превышающей предельную длину массивов.
 </para>

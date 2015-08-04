@@ -28,6 +28,11 @@
 </synopsis>
 
 <formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">mark 1 2 3 2 /x settomark	▶ ( 1 3 /x 2 )</programlisting>
+</formalpara>
+
+<formalpara>
 <title>Ошибки:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
 </formalpara>
