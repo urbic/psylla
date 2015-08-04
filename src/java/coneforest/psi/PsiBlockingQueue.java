@@ -21,9 +21,20 @@ public class PsiBlockingQueue
 		}
 	}
 
+	@Override
 	public String getTypeName()
 	{
 		return "blockingqueue";
+	}
+
+	/**
+	 *	Returns the number of elements in this queue.
+	 *	@return the number of elements in this queue.
+	 */
+	@Override
+	public int length()
+	{
+		return queue.size();
 	}
 
 	@Override
