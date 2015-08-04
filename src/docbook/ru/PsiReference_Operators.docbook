@@ -487,6 +487,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_blockingqueue" xrefstyle="template:%t"/></term>
+<listitem>создание блокирующей очереди</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clear" xrefstyle="template:%t"/></term>
 <listitem>опустошение контейнера</listitem>
 </varlistentry>
@@ -1300,6 +1305,7 @@
 &PsiReference_Operators_Details_bitset;
 &PsiReference_Operators_Details_bitshift;
 &PsiReference_Operators_Details_bitvector;
+&PsiReference_Operators_Details_blockingqueue;
 &PsiReference_Operators_Details_capturegroup;
 &PsiReference_Operators_Details_capturegroupend;
 &PsiReference_Operators_Details_capturegroupcount;
