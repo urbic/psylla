@@ -15,6 +15,7 @@
 <listitem>
 <replaceable>индекс</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+| <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
 <replaceable>позиция</replaceable>:
@@ -39,6 +40,13 @@ linkend="PsiReference_Types_Details_integer"/> группа выбирается
 с номером <constant>0</constant> соответствует всему шаблону. Для отрицательных
 индексов или индексов, превышающих количество групп, генерируется <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
+</para>
+
+<para>
+Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_stringy"/> возвращается именованная группа
+по её имени. При отсутствии группы с заданным именем генерируется <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
 </para>
 
 <para>

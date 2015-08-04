@@ -23,13 +23,13 @@ public class PsiMatcher
 	{
 		try
 		{
-			String group=null;
+			String group;
 			if(key instanceof PsiInteger)
 				group=matcher.group(((PsiInteger)key).intValue());
 			else if(key instanceof PsiStringy)
 				group=matcher.group(((PsiStringy)key).getString());
 			else
-				throw new ClassCastException();
+				throw new PsiException("typecheck");
 			return group!=null? new PsiString(group): PsiNull.NULL;
 		}
 		catch(IndexOutOfBoundsException e)
@@ -46,29 +46,59 @@ public class PsiMatcher
 		}
 	}
 
-	public PsiInteger psiCaptureGroupStart(final PsiInteger integer)
+	public PsiObject psiCaptureGroupStart(final PsiObject key)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(matcher.start(integer.intValue()));
+			int start;
+			if(key instanceof PsiInteger)
+				start=matcher.start(((PsiInteger)key).intValue());
+			else if(key instanceof PsiStringy)
+				start=matcher.start(((PsiStringy)key).getString());
+			else
+				throw new PsiException("typecheck");
+			return start>=0? PsiInteger.valueOf(start): PsiNull.NULL;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
 			throw new PsiException("rangecheck");
+		}
+		catch(IllegalArgumentException e)
+		{
+			throw new PsiException("undefined");
+		}
+		catch(IllegalStateException e)
+		{
+			throw new PsiException("invalidstate");
 		}
 	}
 
-	public PsiInteger psiCaptureGroupEnd(final PsiInteger integer)
+	public PsiObject psiCaptureGroupEnd(final PsiObject key)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(matcher.end(integer.intValue()));
+			int end;
+			if(key instanceof PsiInteger)
+				end=matcher.start(((PsiInteger)key).intValue());
+			else if(key instanceof PsiStringy)
+				end=matcher.start(((PsiStringy)key).getString());
+			else
+				throw new PsiException("typecheck");
+			return end>=0? PsiInteger.valueOf(end): PsiNull.NULL;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
 			throw new PsiException("rangecheck");
+		}
+		catch(IllegalArgumentException e)
+		{
+			throw new PsiException("undefined");
+		}
+		catch(IllegalStateException e)
+		{
+			throw new PsiException("invalidstate");
 		}
 	}
 
