@@ -3,29 +3,30 @@
 <title><token language="psi">keys</token></title>
 
 <synopsis>
-<replaceable>словарь</replaceable>
+<replaceable>индексированное</replaceable>
 <token language="psi">keys</token>
-<replaceable>множество</replaceable>
+<replaceable>перечисление</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+<replaceable>индексированное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>множество</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>множество</replaceable> ключей
-из <replaceable>словаря</replaceable>.
+Возвращает <replaceable>перечисление</replaceable> ключей
+из <replaceable>индексированного</replaceable>.
 </para>
 
 <formalpara>
 <title>Пример:</title>
-<programlisting language="psi">&lt; /a 1 /b 2 &gt; keys	▶ ( /a /b )</programlisting>
+<programlisting language="psi">&lt; /a 1 /b 2 &gt; keys {} forall	▶ /a /b
+[ /a /b /c ] keys {} forall		▶ 0 1 2</programlisting>
 </formalpara>
 
 <formalpara>
@@ -36,6 +37,7 @@
 
 <formalpara>
 <title>Смотри также:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_entries"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_values"/>.
 </formalpara>

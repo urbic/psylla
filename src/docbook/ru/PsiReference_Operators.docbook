@@ -527,6 +527,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_entries" xrefstyle="template:%t"/></term>
+<listitem>создание перечисления значений контейнера</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_extract" xrefstyle="template:%t"/></term>
 <listitem>извлечение с удалением элемента из контейнера по заданному ключу</listitem>
 </varlistentry>
@@ -548,7 +553,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_get" xrefstyle="template:%t"/></term>
-<listitem>получение массива значений из контейнера по перечислению ключей или
+<listitem>получение массива значений из контейнера по перечислению ключей или
 индексов</listitem>
 </varlistentry>
 
@@ -584,12 +589,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_keys" xrefstyle="template:%t"/></term>
-<listitem>создание множества ключей словаря</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_keysforall" xrefstyle="template:%t"/></term>
-<listitem>цикл перебора ключей словаря</listitem>
+<listitem>создание перечисления ключей контейнера</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -893,6 +893,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_filemodifiedtime" xrefstyle="template:%t"/></term>
 <listitem>время последнего изменения файла</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_files" xrefstyle="template:%t"/></term>
+<listitem>перечисление имён файлов в директории</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1331,6 +1336,7 @@
 &PsiReference_Operators_Details_div;
 &PsiReference_Operators_Details_dup;
 &PsiReference_Operators_Details_end;
+&PsiReference_Operators_Details_entries;
 &PsiReference_Operators_Details_eq;
 &PsiReference_Operators_Details_errordict;
 &PsiReference_Operators_Details_eval;
@@ -1347,6 +1353,7 @@
 &PsiReference_Operators_Details_fileexists;
 &PsiReference_Operators_Details_filemodifiedtime;
 &PsiReference_Operators_Details_filereader;
+&PsiReference_Operators_Details_files;
 &PsiReference_Operators_Details_filesize;
 &PsiReference_Operators_Details_filewriter;
 &PsiReference_Operators_Details_find;
@@ -1381,7 +1388,6 @@
 &PsiReference_Operators_Details_iszero;
 &PsiReference_Operators_Details_join;
 &PsiReference_Operators_Details_keys;
-&PsiReference_Operators_Details_keysforall;
 &PsiReference_Operators_Details_known;
 &PsiReference_Operators_Details_le;
 &PsiReference_Operators_Details_length;

@@ -19,8 +19,8 @@
 </synopsis>
 
 <para>
-Возвращает <replaceable>размер</replaceable> (в байтах) для файла с заданным
-<replaceable>именем</replaceable>.
+Возвращает <replaceable>размер</replaceable> (в байтах) для файла или
+директории с заданным <replaceable>именем</replaceable>.
 </para>
 
 <para>
@@ -35,7 +35,8 @@ linkend="PsiReference_Errors_Details_securityerror"/>.
 
 <formalpara>
 <title>Примеры:</title>
-<programlisting language="psi">"/etc/passwd" filesize	▶ 2186</programlisting>
+<programlisting language="psi">'/etc/passwd' filesize	▶ 2186
+'/etc' filesize			▶ 5302</programlisting>
 </formalpara>
 
 <formalpara>
