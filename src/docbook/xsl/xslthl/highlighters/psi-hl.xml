@@ -9,12 +9,14 @@
 	<highlighter type="oneline-comment">#</highlighter>
 
 	<highlighter type="string">
-		<string>"</string>
+		<string>'</string>
+	</highlighter>
+
+	<highlighter type="string">
 		<string>"</string>
 	</highlighter>
 
 	<highlighter type="string">
-		<string>@</string>
 		<string>@</string>
 	</highlighter>
 
