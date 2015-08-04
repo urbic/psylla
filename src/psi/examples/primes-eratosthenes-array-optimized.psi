@@ -2,15 +2,8 @@
 
 /n arguments 0 get tointeger def
 
-/sieve
-[
-	0 1 //n
-	{
-		dup 2 mod mul
-	}
-	bind for
-]
-def
+/sieve array def
+0 1 //n { dup 2 mod mul //sieve exch append } bind for
 
 //n 2 ge { 2 toname say } if
 
