@@ -25,13 +25,13 @@
 </para>
 
 <para>
-Если файл или директория с заданным <replaceable>именем</replaceable> не
-существует, генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>. При ошибке ввода/вывода
-генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
-безопасности генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>.
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
+с заданным <replaceable>именем</replaceable> не существует; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
+безопасности.
 </para>
 
 <formalpara>
