@@ -107,7 +107,7 @@ public interface PsiArraylike<T extends PsiObject>
 		long countValue=count.longValue();
 		if(countValue<0)
 			throw new PsiException("rangecheck");
-		if(countValue>Integer.MAX_VALUE)
+		if(countValue*length()>Integer.MAX_VALUE)
 			throw new PsiException("limitcheck");
 		PsiArraylike<T> result=(PsiArraylike<T>)psiNewEmpty();
 		while(countValue-->0)
@@ -118,7 +118,7 @@ public interface PsiArraylike<T extends PsiObject>
 	default public void psiPutInterval(PsiInteger index, PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
-		int indexValue=index.intValue();
+		long indexValue=index.intValue();
 		if(indexValue<0
 			||
 			iterable instanceof PsiLengthy
@@ -126,7 +126,7 @@ public interface PsiArraylike<T extends PsiObject>
 			throw new PsiException("rangecheck");
 		for(T obj: iterable)
 		{
-			put(indexValue++, obj);
+			put((int)indexValue++, obj);
 			if(indexValue==length())
 				break;
 		}
