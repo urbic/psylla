@@ -415,7 +415,6 @@ public class FileSystem
 										catch(java.io.IOException e)
 										{
 											return false;
-											//throw new PsiException("ioerror");
 										}
 								}
 
