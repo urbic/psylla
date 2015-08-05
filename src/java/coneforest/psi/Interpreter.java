@@ -392,7 +392,7 @@ public class Interpreter
 								break;
 						}
 					}
-					return new PsiName(buffer);
+					return new PsiName(buffer.toString().intern());
 				}
 			case ParserConstants.REGEXP:
 				{
@@ -572,7 +572,7 @@ public class Interpreter
 			case ParserConstants.REAL:
 				return new PsiReal(Double.parseDouble(token.image));
 			case ParserConstants.NAME_SLASHED:
-				return new PsiName(token.image.substring(1));
+				return new PsiName(token.image.substring(1).intern());
 			case ParserConstants.COMMAND:
 				return new PsiCommand(token.image);
 			case ParserConstants.IMMEDIATE:
