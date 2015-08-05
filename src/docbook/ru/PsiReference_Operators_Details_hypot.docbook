@@ -17,6 +17,12 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Возвращает пифагорову сумму операндов (кадратный корень из суммы квадратов), то
+есть <replaceable>гипотенузу</replaceable>, вычисленную по
+<replaceable>катетам</replaceable>.
+</para>
+
 <formalpara>
 <title>Примеры:</title>
 <programlisting language="psi">3 4 hypot	▶ 5.0</programlisting>
