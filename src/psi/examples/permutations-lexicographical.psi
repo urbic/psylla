@@ -69,7 +69,7 @@ bind def
 
 	0 1 p length 1 sub
 	{
-		dup 0 ne { ' ' print } if
+		dup notzero { ' ' print } if
 		p exch get toname print
 	}
 	for
