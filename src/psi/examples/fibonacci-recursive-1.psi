@@ -4,7 +4,7 @@
 
 /fibonacci
 {
-	n 0 ne
+	n notzero
 	{
 		1 index toname say
 		exch 1 index add

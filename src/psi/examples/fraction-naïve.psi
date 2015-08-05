@@ -8,7 +8,7 @@ tointeger /p exch def
 p q idiv toname print
 /p p q mod def
 
-p 0 ne { ',' print } { '' say quit } ifelse
+p notzero { ',' print } { '' say quit } ifelse
 
 /pp array def
 
@@ -24,7 +24,7 @@ p 0 ne { ',' print } { '' say quit } ifelse
 				10 mul q idiv toname print
 			}
 			for
-			p 0 ne
+			p notzero
 			{
 				'(' print
 				i 1 pp length 1 sub

@@ -5,7 +5,7 @@
 	dup iszero
 	{ pop pop 1 }
 	{
-		dup 2 mod 0 ne
+		dup 2 mod notzero
 		{
 			1 index dup mul
 			exch 1 sub 2 idiv power mul

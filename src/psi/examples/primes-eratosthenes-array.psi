@@ -17,7 +17,7 @@ def
 3 2 //n
 {
 	/p exch def
-	//sieve p get 0 ne
+	//sieve p get notzero
 	{
 		p toname say
 		p 2 mul p //n
