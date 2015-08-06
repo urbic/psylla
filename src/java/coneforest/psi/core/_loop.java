@@ -10,6 +10,7 @@ public class _loop extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject proc=opstack.popOperands(1)[0];
 
+		/*
 		final int loopLevel=interpreter.pushLoopLevel();
 		while(true)
 		{
@@ -20,5 +21,23 @@ public class _loop extends PsiOperator
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
+		*/
+
+		///*
+		final ExecutionStack execstack=interpreter.getExecutionStack();
+		System.out.println("LOOP "+execstack.size());
+		if(interpreter.getStopFlag() || interpreter.getExitFlag())
+		{
+			interpreter.popLoopLevel();
+			interpreter.setExitFlag(false);
+			return;
+		}
+			final int loopLevel=interpreter.pushLoopLevel();
+			proc.invoke(interpreter);
+			//interpreter.handleExecutionStack(loopLevel);
+		execstack.push(this);
+		execstack.push(proc);
+		//*/
+
 	}
 }

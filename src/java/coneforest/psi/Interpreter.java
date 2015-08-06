@@ -60,7 +60,29 @@ public class Interpreter
 	public void handleExecutionStack(final int level)
 	{
 		while(execstack.size()>level)
-			execstack.pop().execute(this);
+		{
+			PsiObject obj=execstack.pop();
+			if(obj instanceof PsiCommand)
+			{
+				try
+				{
+					dictstack.load((PsiCommand)obj).invoke(this);
+				}
+				catch(PsiException e)
+				{
+					handleError("undefined", obj);
+				}
+			}
+			else
+			{
+			//System.out.print(execstack.size()+" ");
+			//System.out.println(obj.toSyntaxString());
+				obj.execute(this);
+			}
+		}
+		//while(execstack.size()>level)
+		//{
+		//}
 	}
 
 	/**
@@ -138,7 +160,10 @@ public class Interpreter
 				final Token token=parser.getNextToken();
 				if(token.kind==ParserConstants.EOF)
 					break;
+
+				final int execLevel=getExecLevel();
 				processToken(token);
+				handleExecutionStack(execLevel);
 
 				// If "stop" invoked outside the stopping context
 				if(getStopFlag())
@@ -633,12 +658,12 @@ public class Interpreter
 	{
 		System.out.print("Operand stack:\n\t");
 		for(PsiObject obj: opstack)
-			System.out.print(" "+obj);
+			System.out.print(" "+obj.toSyntaxString());
 		System.out.println();
 
 		System.out.print("Execution stack:\n\t");
 		for(PsiObject obj: execstack)
-			System.out.print(" "+obj);
+			System.out.print(" "+obj.toSyntaxString());
 		System.out.println();
 
 		/*
@@ -783,6 +808,7 @@ public class Interpreter
 						if(token.kind==ParserConstants.EOF)
 							break;
 						processToken(token);
+						handleExecutionStack(0);
 						// If "stop" invoked outside the stopping context
 						if(getStopFlag())
 						{

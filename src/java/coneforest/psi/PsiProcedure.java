@@ -14,9 +14,17 @@ public class PsiProcedure
 	{
 		try
 		{
+			//interpreter.getExecutionStack().push(this);
+			///*
 			ExecutionStack execstack=interpreter.getExecutionStack();
+			final int execLevel=interpreter.getExecLevel();
 			for(int i=length()-1; i>=0; i--)
+			{
 				execstack.push(get(i));
+				//interpreter.showStacks();
+			}
+			//interpreter.handleExecutionStack(execLevel);
+			//*/
 		}
 		catch(PsiException e)
 		{

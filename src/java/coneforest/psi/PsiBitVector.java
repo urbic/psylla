@@ -256,6 +256,22 @@ public class PsiBitVector
 		bitvector.clear();
 	}
 
+	@Override
+	public String toSyntaxString()
+	{
+		StringBuilder sb=new StringBuilder("-bitvector:");
+		int j=-1;
+		for(int i=bitvector.nextSetBit(0); i>=0; i=bitvector.nextSetBit(i+1))
+		{
+			for(int k=j+1; k<i; k++)
+				sb.append('0');
+			sb.append('1');
+			j=i;
+		}
+		sb.append('-');
+		return sb.toString();
+	}
+
 
 	private java.util.BitSet bitvector;
 	private int size;
