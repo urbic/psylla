@@ -1,0 +1,52 @@
+#!/usr/bin/psylla
+
+# https://golang.org/doc/play/sieve.go
+
+/generate
+{
+	dup 2 give
+	3
+	{
+		dup 2 add
+		exch
+		2 index exch
+		give
+	}
+	loop
+}
+bind def
+
+/filter
+{
+	{
+		2 index take
+		dup 2 index
+		mod 0 ne
+		{
+			2 index exch
+			give
+		}
+		{ pop }
+		ifelse
+	}
+	loop
+}
+bind def
+
+/q 1 blockingqueue def
+
+mark q /generate load fork pop
+
+/n arguments 0 get tointeger def
+
+{
+	/p q take def
+	p n gt { exit } if
+	p toname say
+	/tmpq 1 blockingqueue def
+	mark q tmpq p /filter load fork pop
+	/q tmpq def
+}
+bind loop
+
+0 halt
