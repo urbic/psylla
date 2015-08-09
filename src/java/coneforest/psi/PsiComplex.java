@@ -4,8 +4,9 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">complex</code> object.
  */
 public class PsiComplex
-	extends PsiComplexNumeric
-	implements PsiAtomic
+	implements
+		PsiAtomic,
+		PsiComplexNumeric
 {
 	public PsiComplex(final double reValue, final double imValue)
 	{
@@ -28,10 +29,9 @@ public class PsiComplex
 		this(re, PsiReal.ZERO);
 	}
 
-	@Override
-	public PsiComplex psiZero()
+	public PsiComplex(final PsiComplexNumeric cn)
 	{
-		return ZERO;
+		this(cn.psiRe(), cn.psiIm());
 	}
 
 	@Override
@@ -85,10 +85,7 @@ public class PsiComplex
 	{
 		if(re==0.D && im==0.D)
 			throw new PsiException("undefinedresult");
-		double argValue=Math.atan2(im, re);
-		//if(argValue<0.D)
-		//	argValue+=2.D*Math.PI;
-		return new PsiReal(argValue);
+		return new PsiReal(Math.atan2(im, re));
 	}
 
 	@Override
