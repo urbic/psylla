@@ -11,6 +11,12 @@ public class PsiReal
 		this.value=value;
 	}
 
+	@Override
+	public PsiReal psiZero()
+	{
+		return ZERO;
+	}
+
 	/**
 	 *	@return a string <code class="constant">"real"</code>.
 	 */

@@ -11,6 +11,8 @@ abstract public class PsiComplexNumeric
 		return "complexnumeric";
 	}
 
+	abstract public PsiComplexNumeric psiZero();
+
 	abstract public PsiBoolean psiIsZero();
 
 	public PsiBoolean psiNotZero()
@@ -30,6 +32,8 @@ abstract public class PsiComplexNumeric
 	public PsiComplexNumeric psiPow(PsiComplexNumeric cn)
 		throws PsiException
 	{
+		if(psiIsZero().booleanValue() && cn.psiNotZero().booleanValue())
+			return psiZero();
 		return cn.psiMul(psiLog()).psiExp();
 	}
 

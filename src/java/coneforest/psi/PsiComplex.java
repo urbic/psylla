@@ -29,6 +29,12 @@ public class PsiComplex
 	}
 
 	@Override
+	public PsiComplex psiZero()
+	{
+		return ZERO;
+	}
+
+	@Override
 	public PsiBoolean psiIsZero()
 	{
 		return PsiBoolean.valueOf(re==0.D && im==0.D);
@@ -43,7 +49,7 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiSignum()
 	{
-		return (re==0.D && im==0.D)? PsiComplex.ZERO: psiDiv(psiAbs());
+		return (re==0.D && im==0.D)? ZERO: psiDiv(psiAbs());
 	}
 
 	/**
