@@ -4,18 +4,13 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">integer</code> object.
  */
 public class PsiInteger
-	extends PsiNumeric
-	implements PsiLogical<PsiInteger>
+	implements
+		PsiNumeric,
+		PsiLogical<PsiInteger>
 {
 	public PsiInteger(final long value)
 	{
 		this.value=value;
-	}
-
-	@Override
-	public PsiInteger psiZero()
-	{
-		return ZERO;
 	}
 
 	@Override
@@ -43,28 +38,19 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiRe()
-	{
-		return this;
-	}
-
-	@Override
 	public PsiInteger psiIm()
 	{
-		return PsiInteger.ZERO;
-	}
-
-	@Override
-	public PsiInteger psiConjugate()
-	{
-		return this;
+		return ZERO;
 	}
 
 	/**
 	 *	@return a string <code class="constant">"integer"</code>.
 	 */
 	@Override
-	public String getTypeName()	{ return "integer"; }
+	public String getTypeName()
+	{
+		return "integer";
+	}
 
 	@Override
 	public String toSyntaxString()
@@ -107,13 +93,11 @@ public class PsiInteger
 	public PsiInteger psiCmp(final PsiNumeric numeric)
 	{
 		if(numeric instanceof PsiInteger)
-			return value<((PsiInteger)numeric).value? PsiInteger.MINUS_ONE:
-				value>((PsiInteger)numeric).value? PsiInteger.ONE:
-				PsiInteger.ZERO;
+			return value<((PsiInteger)numeric).value? MINUS_ONE:
+				value>((PsiInteger)numeric).value? ONE: ZERO;
 		else
-			return value<((PsiReal)numeric).doubleValue()? PsiInteger.MINUS_ONE:
-				value>((PsiReal)numeric).doubleValue()? PsiInteger.ONE:
-				PsiInteger.ZERO;
+			return value<((PsiReal)numeric).doubleValue()? MINUS_ONE:
+				value>((PsiReal)numeric).doubleValue()? ONE: ZERO;
 	}
 
 	@Override
@@ -130,6 +114,7 @@ public class PsiInteger
 		return value>0? ONE: value<0? MINUS_ONE: ZERO;
 	}
 
+	@Override
 	public PsiNumeric psiAdd(final PsiNumeric numeric)
 	{
 		if(numeric instanceof PsiInteger)
@@ -147,13 +132,6 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
-	{
-		if(cn instanceof PsiNumeric)
-			return psiAdd((PsiNumeric)cn);
-		return super.psiAdd(cn);
-	}
-
 	public PsiNumeric psiSub(final PsiNumeric numeric)
 	{
 		if(numeric instanceof PsiInteger)
@@ -171,23 +149,8 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
-	{
-		if(cn instanceof PsiNumeric)
-			return psiSub((PsiNumeric)cn);
-		return super.psiSub(cn);
-	}
-
 	public PsiNumeric psiMul(final PsiNumeric numeric)
 	{
-		/*
-		double result=value*numeric.doubleValue();
-		if(numeric instanceof PsiInteger
-				&& result>=Long.MIN_VALUE
-				&& result<=Long.MAX_VALUE)
-			return new PsiInteger(((Double)result).longValue());
-		return new PsiReal(result);
-		*/
 		if(numeric instanceof PsiInteger)
 		{
 			// Overflow condition from
@@ -213,14 +176,6 @@ public class PsiInteger
 		}
 		return new PsiReal(doubleValue()*numeric.doubleValue());
 
-	}
-
-	@Override
-	public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
-	{
-		if(cn instanceof PsiNumeric)
-			return psiMul((PsiNumeric)cn);
-		return super.psiMul(cn);
 	}
 
 	/*
@@ -379,7 +334,7 @@ public class PsiInteger
 	/**
 	 *	A Ψ-<code class="type">integer</code> representing the number 2.
 	 */
-	public static final PsiInteger TWO=PsiInteger.valueOf(1L);
+	public static final PsiInteger TWO=PsiInteger.valueOf(2L);
 
 	/**
 	 *	A Ψ-<code class="type">integer</code> representing the number −1.

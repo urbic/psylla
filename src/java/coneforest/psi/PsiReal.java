@@ -4,17 +4,11 @@ package coneforest.psi;
  *	A representation of Ψ-<code class="type">real</code> object.
  */
 public class PsiReal
-	extends PsiNumeric
+	implements PsiNumeric
 {
 	public PsiReal(final double value)
 	{
 		this.value=value;
-	}
-
-	@Override
-	public PsiReal psiZero()
-	{
-		return ZERO;
 	}
 
 	/**
@@ -51,21 +45,9 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiReal psiRe()
-	{
-		return new PsiReal(value);
-	}
-
-	@Override
 	public PsiReal psiIm()
 	{
 		return new PsiReal(0.D);
-	}
-
-	@Override
-	public PsiNumeric psiConjugate()
-	{
-		return new PsiReal(value);
 	}
 
 	@Override
@@ -87,27 +69,21 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiAdd(final PsiNumeric numeric)
 	{
-		if(cn instanceof PsiNumeric)
-			return new PsiReal(value+((PsiNumeric)cn).doubleValue());
-		return super.psiAdd(cn);
+		return new PsiReal(value+numeric.doubleValue());
 	}
 
 	@Override
-	public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiSub(final PsiNumeric numeric)
 	{
-		if(cn instanceof PsiNumeric)
-			return new PsiReal(value-((PsiNumeric)cn).doubleValue());
-		return super.psiSub(cn);
+		return new PsiReal(value-numeric.doubleValue());
 	}
 
 	@Override
-	public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
+	public PsiComplexNumeric psiMul(final PsiNumeric numeric)
 	{
-		if(cn instanceof PsiNumeric)
-			return new PsiReal(value*((PsiNumeric)cn).doubleValue());
-		return super.psiMul(cn);
+		return new PsiReal(value*numeric.doubleValue());
 	}
 
 	/*
