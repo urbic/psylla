@@ -13,6 +13,12 @@ public class PsiInteger
 	}
 
 	@Override
+	public PsiInteger psiZero()
+	{
+		return ZERO;
+	}
+
+	@Override
 	public PsiBoolean psiIsZero()
 	{
 		return PsiBoolean.valueOf(value==0L);
