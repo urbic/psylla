@@ -10,14 +10,14 @@ public class PsiBlockingQueue
 	{
 		long integerValue=integer.longValue();
 		if(integerValue>=Integer.MAX_VALUE)
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		try
 		{
 			queue=new java.util.concurrent.ArrayBlockingQueue<PsiObject>((int)integerValue);
 		}
 		catch(IllegalArgumentException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -47,7 +47,7 @@ public class PsiBlockingQueue
 		}
 		catch(InterruptedException e)
 		{
-			throw new PsiException("interrupt");
+			throw new PsiInterruptException();
 		}
 	}
 
@@ -61,7 +61,7 @@ public class PsiBlockingQueue
 		}
 		catch(InterruptedException e)
 		{
-			throw new PsiException("interrupt");
+			throw new PsiInterruptException();
 		}
 	}
 

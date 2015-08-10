@@ -58,7 +58,7 @@ public class PsiArray
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -73,7 +73,7 @@ public class PsiArray
 		}
 		catch(IndexOutOfBoundsException|IllegalArgumentException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -93,7 +93,7 @@ public class PsiArray
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -107,7 +107,7 @@ public class PsiArray
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -121,7 +121,7 @@ public class PsiArray
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -156,9 +156,9 @@ public class PsiArray
 	{
 		final long lengthValue=length.longValue();
 		if(lengthValue<0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		if(lengthValue>Integer.MAX_VALUE)
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		int i=length();
 		if(lengthValue<i)
 			array.subList((int)lengthValue, i).clear();
@@ -194,7 +194,7 @@ public class PsiArray
 		}
 		catch(ClassCastException e)
 		{
-			throw new PsiException("typecheck");
+			throw new PsiTypeCheckException();
 		}
 	}
 

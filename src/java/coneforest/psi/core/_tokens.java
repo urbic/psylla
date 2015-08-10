@@ -8,11 +8,7 @@ public class _tokens extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-		{
-			interpreter.handleError("stackunderflow", this);
-			return;
-		}
+		opstack.ensureSize(1);
 
 		final PsiObject stringy=opstack.pop();
 		try

@@ -9,7 +9,7 @@ public class _end extends PsiOperator
 	{
 		DictStack dictstack=interpreter.getDictStack();
 		if(dictstack.size()<=2)
-			throw new PsiException("dictstackunderflow");
+			throw new PsiDictStackUnderflowException();
 		dictstack.pop();
 	}
 }

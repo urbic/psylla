@@ -13,7 +13,7 @@ public class _monitor extends PsiOperator
 		final PsiObject obj=ops[1];
 
 		if(lock.isHeldByCurrentThread())
-			throw new PsiException("invalidcontext");
+			throw new PsiInvalidContextException();
 		lock.lock();
 		try
 		{

@@ -69,9 +69,9 @@ public interface PsiSetlike<T extends PsiObject>
 	{
 		long countValue=count.longValue();
 		if(countValue<0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		if(countValue>Integer.MAX_VALUE)
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		if(countValue==0)
 			return (PsiSetlike<T>)psiNewEmpty();
 		return (PsiSetlike<T>)psiClone();

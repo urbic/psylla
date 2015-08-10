@@ -11,7 +11,7 @@ public class PsiFileWriter extends PsiWriter
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 

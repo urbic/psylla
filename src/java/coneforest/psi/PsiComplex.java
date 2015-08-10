@@ -84,7 +84,7 @@ public class PsiComplex
 		throws PsiException
 	{
 		if(re==0.D && im==0.D)
-			throw new PsiException("undefinedresult");
+			throw new PsiUndefinedResultException();
 		return new PsiReal(Math.atan2(im, re));
 	}
 

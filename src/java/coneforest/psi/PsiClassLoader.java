@@ -19,7 +19,7 @@ public class PsiClassLoader
 		}
 		catch(InstantiationException|IllegalAccessException e)
 		{
-			throw new PsiException("invalidexternal");
+			throw new PsiInvalidExternalException();
 		}
 	}
 
@@ -32,11 +32,11 @@ public class PsiClassLoader
 		}
 		catch(ClassCastException e)
 		{
-			throw new PsiException("typecheck");
+			throw new PsiTypeCheckException();
 		}
 		catch(ClassNotFoundException e)
 		{
-			throw new PsiException("invalidexternal");
+			throw new PsiInvalidExternalException();
 		}
 	}
 

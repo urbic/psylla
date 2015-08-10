@@ -14,7 +14,7 @@ public class OperandStack extends Stack<PsiObject>
 		throws PsiException
 	{
 		if(size()<size)
-			throw new PsiException("stackunderflow");
+			throw new PsiStackUnderflowException();
 	}
 
 	public PsiObject[] popOperands(final int count)
@@ -24,7 +24,7 @@ public class OperandStack extends Stack<PsiObject>
 		if(offset<0)
 		{
 			backupSize=0;
-			throw new PsiException("stackunderflow");
+			throw new PsiStackUnderflowException();
 		}
 		for(backupSize=0; backupSize<count; backupSize++)
 			backup[backupSize]=get(offset+backupSize);

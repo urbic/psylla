@@ -18,6 +18,6 @@ public class _settomark extends PsiOperator
 				opstack.push(set);
 				return;
 			}
-		throw new PsiException("unmatchedmark");
+		throw new PsiUnmatchedMarkException();
 	}
 }

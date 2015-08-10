@@ -20,6 +20,6 @@ public class _arraytomark extends PsiOperator
 				return;
 			}
 		}
-		throw new PsiException("unmatchedmark");
+		throw new PsiUnmatchedMarkException();
 	}
 }

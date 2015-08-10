@@ -215,7 +215,7 @@ public class PsiInteger
 		{
 			long cnValue=((PsiInteger)cn).value;
 			if(cnValue<0)
-				throw new PsiException("rangecheck");
+				throw new PsiRangeCheckException();
 			if(value>=-2 & value<=2)
 			{
 				switch((int)value)
@@ -277,7 +277,7 @@ public class PsiInteger
 	{
 		long integerValue=integer.value;
 		if(integerValue<=0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		long resultValue=value % integerValue;
 		return PsiInteger.valueOf((resultValue>=0)? resultValue: resultValue+integerValue);
 		/*
@@ -285,7 +285,7 @@ public class PsiInteger
 			return new PsiInteger(value>=0? value%integer.value: integer.value-(-value)%integer.value);
 		if(integer.value<0)
 			return new PsiInteger(value>=0? value%(-integer.value)+(value!=0? integer.value:0): -((-value)%(-integer.value)));
-		throw new PsiException("undefinedresult");
+		throw new PsiUndefinedResultException();
 		*/
 	}
 
@@ -293,7 +293,7 @@ public class PsiInteger
 		throws PsiException
 	{
 		if(integer.value==0)
-			throw new PsiException("undefinedresult");
+			throw new PsiUndefinedResultException();
 		return PsiInteger.valueOf(value/integer.value);
 	}
 

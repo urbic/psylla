@@ -10,7 +10,7 @@ public class _index extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		int nValue=((PsiInteger)opstack.popOperands(1)[0]).intValue();
 		if(nValue<0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		opstack.ensureSize(nValue+1);
 		opstack.push(opstack.get(opstack.size()-nValue-1));
 	}

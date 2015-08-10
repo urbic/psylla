@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public class PsiException
+abstract public class PsiException
 	extends Exception
 	implements PsiObject
 {
@@ -10,15 +10,9 @@ public class PsiException
 		return "exception";
 	}
 
-	public PsiException(final String kind)
+	public PsiException()
 	{
-		this.kind=kind;
 	}
 
-	public String kind()
-	{
-		return kind;
-	}
-
-	private String kind;
+	abstract public String getName();
 }

@@ -23,7 +23,7 @@ public interface PsiContext
 		}
 		catch(InterruptedException e)
 		{
-			throw new PsiException("interrupt");
+			throw new PsiInterruptException();
 		}
 	}
 
@@ -42,7 +42,7 @@ public interface PsiContext
 		}
 		catch(InterruptedException e)
 		{
-			throw new PsiException("interrupt");
+			throw new PsiInterruptException();
 		}
 	}
 }

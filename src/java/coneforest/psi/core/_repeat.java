@@ -14,7 +14,7 @@ public class _repeat extends PsiOperator
 
 		long countValue=count.longValue();
 		if(countValue<0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		int loopLevel=interpreter.pushLoopLevel();
 		for(int i=0; i<countValue; i++)
 		{

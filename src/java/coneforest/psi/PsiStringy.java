@@ -44,7 +44,7 @@ public interface PsiStringy
 		}
 		catch(NumberFormatException e)
 		{
-			throw new PsiException("syntaxerror");
+			throw new PsiSyntaxErrorException();
 		}
 	}
 
@@ -58,7 +58,7 @@ public interface PsiStringy
 		}
 		catch(NumberFormatException e)
 		{
-			throw new PsiException("syntaxerror");
+			throw new PsiSyntaxErrorException();
 		}
 	}
 

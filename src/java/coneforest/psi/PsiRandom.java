@@ -34,18 +34,18 @@ public class PsiRandom
 		{
 			int numericValue=numeric.intValue();
 			if(numericValue>Integer.MAX_VALUE)
-				throw new PsiException("rangecheck");
+				throw new PsiRangeCheckException();
 			try
 			{
 				return PsiInteger.valueOf(random.nextInt(numericValue));
 			}
 			catch(IllegalArgumentException e)
 			{
-				throw new PsiException("rangecheck");
+				throw new PsiRangeCheckException();
 			}
 		}
 		else
-			throw new PsiException("typecheck");
+			throw new PsiTypeCheckException();
 	}
 
 	public PsiBoolean psiUniformBoolean()

@@ -15,7 +15,7 @@ public class PsiRegExp
 		}
 		catch(java.util.regex.PatternSyntaxException e)
 		{
-			throw new PsiException("invalidregexp");
+			throw new PsiInvalidRegExpException();
 		}
 	}
 

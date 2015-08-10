@@ -63,7 +63,7 @@ public class PsiBitSet
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 

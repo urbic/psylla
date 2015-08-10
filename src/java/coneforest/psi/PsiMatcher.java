@@ -29,20 +29,20 @@ public class PsiMatcher
 			else if(key instanceof PsiStringy)
 				group=matcher.group(((PsiStringy)key).getString());
 			else
-				throw new PsiException("typecheck");
+				throw new PsiTypeCheckException();
 			return group!=null? new PsiString(group): PsiNull.NULL;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 		catch(IllegalArgumentException e)
 		{
-			throw new PsiException("undefined");
+			throw new PsiUndefinedException();
 		}
 		catch(IllegalStateException e)
 		{
-			throw new PsiException("invalidstate");
+			throw new PsiInvalidStateException();
 		}
 	}
 
@@ -57,20 +57,20 @@ public class PsiMatcher
 			else if(key instanceof PsiStringy)
 				start=matcher.start(((PsiStringy)key).getString());
 			else
-				throw new PsiException("typecheck");
+				throw new PsiTypeCheckException();
 			return start>=0? PsiInteger.valueOf(start): PsiNull.NULL;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 		catch(IllegalArgumentException e)
 		{
-			throw new PsiException("undefined");
+			throw new PsiUndefinedException();
 		}
 		catch(IllegalStateException e)
 		{
-			throw new PsiException("invalidstate");
+			throw new PsiInvalidStateException();
 		}
 	}
 
@@ -85,20 +85,20 @@ public class PsiMatcher
 			else if(key instanceof PsiStringy)
 				end=matcher.start(((PsiStringy)key).getString());
 			else
-				throw new PsiException("typecheck");
+				throw new PsiTypeCheckException();
 			return end>=0? PsiInteger.valueOf(end): PsiNull.NULL;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 		catch(IllegalArgumentException e)
 		{
-			throw new PsiException("undefined");
+			throw new PsiUndefinedException();
 		}
 		catch(IllegalStateException e)
 		{
-			throw new PsiException("invalidstate");
+			throw new PsiInvalidStateException();
 		}
 	}
 

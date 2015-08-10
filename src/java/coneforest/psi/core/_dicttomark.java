@@ -13,7 +13,7 @@ public class _dicttomark extends PsiOperator
 			if(opstack.get(i)==PsiMark.MARK)
 			{
 				if((opstack.size()-i) % 2==0)
-					throw new PsiException("rangecheck");
+					throw new PsiRangeCheckException();
 				PsiDict dict=new PsiDict();
 
 				for(int j=i+1; j<opstack.size(); j++)
@@ -27,6 +27,6 @@ public class _dicttomark extends PsiOperator
 				return;
 			}
 		}
-		throw new PsiException("unmatchedmark");
+		throw new PsiUnmatchedMarkException();
 	}
 }

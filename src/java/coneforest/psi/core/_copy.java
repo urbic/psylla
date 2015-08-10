@@ -10,7 +10,7 @@ public class _copy extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		int nValue=((PsiInteger)opstack.popOperands(1)[0]).intValue();
 		if(nValue<0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		opstack.ensureSize(nValue);
 		int opsize=opstack.size();
 		for(int j=opsize-nValue; j<opsize; j++)

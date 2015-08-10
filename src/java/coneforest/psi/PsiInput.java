@@ -40,7 +40,7 @@ public class PsiInput
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -48,14 +48,16 @@ public class PsiInput
 	public PsiString psiReadString(PsiInteger count)
 		throws PsiException
 	{
-		throw new PsiException("TODO");
+		// TODO
+		throw new PsiUnsupportedException();
 	}
 
 	@Override
 	public PsiString psiReadLine(PsiStringy eol)
 		throws PsiException
 	{
-		throw new PsiException("TODO");
+		// TODO
+		throw new PsiUnsupportedException();
 	}
 
 	@Override
@@ -68,7 +70,7 @@ public class PsiInput
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -82,7 +84,7 @@ public class PsiInput
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -97,11 +99,11 @@ public class PsiInput
 		}
 		catch(IllegalArgumentException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 

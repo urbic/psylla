@@ -8,8 +8,7 @@ public class _bind extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		if(opstack.size()<1)
-			throw new PsiException("stackunderflow");
+		opstack.ensureSize(1);
 		bind((PsiProcedure)opstack.peek(), interpreter.getDictStack());
 	}
 

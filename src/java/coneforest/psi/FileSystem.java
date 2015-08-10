@@ -16,19 +16,19 @@ public class FileSystem
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
-			throw new PsiException("fileexists");
+			throw new PsiFileExistsException();
 		}
 		catch(java.nio.file.AccessDeniedException e)
 		{
-			throw new PsiException("fileaccessdenied");
+			throw new PsiFileAccessDeniedException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -41,19 +41,19 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.nio.file.DirectoryNotEmptyException e)
 		{
-			throw new PsiException("directorynotempty");
+			throw new PsiDirectoryNotEmptyException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -66,27 +66,27 @@ public class FileSystem
 		}
 		catch(UnsupportedOperationException e)
 		{
-			throw new PsiException("unsupported");
+			throw new PsiUnsupportedException();
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.nio.file.DirectoryNotEmptyException e)
 		{
-			throw new PsiException("directorynotempty");
+			throw new PsiDirectoryNotEmptyException();
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
-			throw new PsiException("fileexists");
+			throw new PsiFileExistsException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -100,19 +100,19 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.nio.file.NotLinkException e)
 		{
-			throw new PsiException("notlink");
+			throw new PsiNotLinkException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -126,19 +126,19 @@ public class FileSystem
 		}
 		catch(UnsupportedOperationException e)
 		{
-			throw new PsiException("unsupported");
+			throw new PsiUnsupportedException();
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
-			throw new PsiException("fileexists");
+			throw new PsiFileExistsException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -153,23 +153,23 @@ public class FileSystem
 		}
 		catch(UnsupportedOperationException e)
 		{
-			throw new PsiException("unsupported");
+			throw new PsiUnsupportedException();
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
-			throw new PsiException("fileexists");
+			throw new PsiFileExistsException();
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -186,23 +186,23 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
-			throw new PsiException("fileexists");
+			throw new PsiFileExistsException();
 		}
 		catch(java.nio.file.DirectoryNotEmptyException e)
 		{
-			throw new PsiException("directorynotempty");
+			throw new PsiDirectoryNotEmptyException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -215,7 +215,7 @@ public class FileSystem
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 
@@ -230,15 +230,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -253,15 +253,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -274,15 +274,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -297,15 +297,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 
@@ -318,15 +318,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 
@@ -340,15 +340,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 
@@ -362,15 +362,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 
@@ -384,15 +384,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 		catch(java.lang.SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 
@@ -411,11 +411,11 @@ public class FileSystem
 		//catch(java.nio.file.DirectoryIteratorException e)
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 		catch(SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 
@@ -470,15 +470,15 @@ public class FileSystem
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
-			throw new PsiException("filenotfound");
+			throw new PsiFileNotFoundException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 		catch(SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 	}
 }

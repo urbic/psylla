@@ -13,7 +13,7 @@ public class _editline extends PsiOperator
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -27,7 +27,7 @@ public class _editline extends PsiOperator
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 

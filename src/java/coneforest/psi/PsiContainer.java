@@ -20,7 +20,7 @@ public interface PsiContainer<T extends PsiObject>
 		}
 		catch(InstantiationException|IllegalAccessException e)
 		{
-			throw new PsiException("unknownerror");
+			throw new PsiUnsupportedException();
 		}
 	}
 }

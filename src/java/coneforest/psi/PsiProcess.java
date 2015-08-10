@@ -24,7 +24,8 @@ public class PsiProcess
 						commandList.add(((PsiStringy)obj).getString());
 					pb=new ProcessBuilder(commandList);
 				}
-				else throw new PsiException("typecheck");
+				else
+					throw new PsiTypeCheckException();
 			}
 
 			if(dictlike.known("directory"))
@@ -50,15 +51,15 @@ public class PsiProcess
 		}
 		catch(ClassCastException e)
 		{
-			throw new PsiException("typecheck");
+			throw new PsiTypeCheckException();
 		}
 		catch(SecurityException e)
 		{
-			throw new PsiException("securityerror");
+			throw new PsiSecurityErrorException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -89,7 +90,7 @@ public class PsiProcess
 		}
 		catch(IllegalThreadStateException e)
 		{
-			throw new PsiException("invalidstate");
+			throw new PsiInvalidStateException();
 		}
 	}
 

@@ -44,7 +44,7 @@ public abstract class PsiOperator
 		catch(PsiException e)
 		{
 			opstack.restore();
-			interpreter.handleError(e.kind(), this);
+			interpreter.handleError(e.getName(), this);
 		}
 	}
 

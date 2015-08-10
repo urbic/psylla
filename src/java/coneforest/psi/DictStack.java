@@ -27,7 +27,7 @@ public class DictStack
 		if(dict!=null)
 			return dict.get(keyString);
 		else
-			throw new PsiException("undefined");
+			throw new PsiUndefinedException();
 	}
 
 	public PsiObject load(PsiStringy key)

@@ -34,14 +34,14 @@ public class PsiBitVector
 		throws PsiException
 	{
 		if(index>=size)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		try
 		{
 			return PsiBoolean.valueOf(bitvector.get(index));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -54,7 +54,7 @@ public class PsiBitVector
 		int indexValue=index.getValue().intValue();
 		int countValue=count.getValue().intValue();
 		if(indexValue<0 || indexValue+countValue>=size)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		for(int i=0; i<countValue && i<size; i++)
 			newBitVector.bitvector.set(i, bitvector.get(i+indexValue));
 		newBitVector.size=countValue;
@@ -63,7 +63,7 @@ public class PsiBitVector
 		int indexValue=index.intValue();
 		int countValue=count.intValue();
 		if(indexValue+countValue>size)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		try
 		{
 			PsiBitVector newBitvector=new PsiBitVector(bitvector.get(indexValue, indexValue+countValue));
@@ -72,7 +72,7 @@ public class PsiBitVector
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -81,14 +81,14 @@ public class PsiBitVector
 		throws PsiException
 	{
 		if(index>=size)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		try
 		{
 			bitvector.set(index, bool.booleanValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -101,7 +101,7 @@ public class PsiBitVector
 				||
 				iterable instanceof PsiLengthy
 				&& indexValue+((PsiLengthy)iterable).length()>=size)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		for(PsiBoolean bool: iterable)
 		{
 			bitvector.set(indexValue++, bool.booleanValue());
@@ -139,7 +139,7 @@ public class PsiBitVector
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -231,9 +231,9 @@ public class PsiBitVector
 	{
 		final long lengthValue=length.longValue();
 		if(lengthValue<0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		if(lengthValue>Integer.MAX_VALUE)
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		int i=length();
 		if(lengthValue<i)
 			bitvector.clear((int)lengthValue, i);
