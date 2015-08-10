@@ -5,6 +5,13 @@
 <section xml:id="PsiReference_Errors_Details">
 <title>Ошибки в деталях</title>
 
+<section xml:id="PsiReference_Errors_Details_concurrentmodification">
+<title><errorname language="psi">concurrentmodification</errorname></title>
+<para>
+Генерируется при обнаружении конкурентной модификации.
+</para>
+</section>
+
 <section xml:id="PsiReference_Errors_Details_dictstackunderflow">
 <title><errorname language="psi">dictstackunderflow</errorname></title>
 <para>
@@ -19,6 +26,13 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>, если
 <para>
 Директория не пуста. Генерируется операторами, рассчитывающими, что директория
 пуста, при невыполнениии этого условия.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_fileaccessdenied">
+<title><errorname language="psi">fileaccessdenied</errorname></title>
+<para>
+Ошибка доступа к файлу.
 </para>
 </section>
 
