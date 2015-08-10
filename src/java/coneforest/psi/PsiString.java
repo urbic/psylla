@@ -54,7 +54,7 @@ public class PsiString
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -70,7 +70,7 @@ public class PsiString
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -84,7 +84,7 @@ public class PsiString
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -97,7 +97,7 @@ public class PsiString
 				||
 				iterable instanceof PsiLengthy
 				&& indexValue+((PsiLengthy)iterable).length()>=length())
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		for(PsiInteger character: iterable)
 		{
 			buffer.setCharAt(indexValue++, (char)character.intValue());
@@ -130,7 +130,7 @@ public class PsiString
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -144,7 +144,7 @@ public class PsiString
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -165,7 +165,7 @@ public class PsiString
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -181,7 +181,7 @@ public class PsiString
 		}
 		catch(StringIndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 
@@ -248,14 +248,14 @@ public class PsiString
 	{
 		final long lengthValue=length.longValue();
 		if(lengthValue>Integer.MAX_VALUE)
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		try
 		{
 			buffer.setLength((int)lengthValue);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 	}
 

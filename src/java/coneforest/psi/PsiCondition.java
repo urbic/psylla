@@ -44,7 +44,7 @@ public class PsiCondition
 		}
 		catch(InterruptedException e)
 		{
-			throw new PsiException("interrupted");
+			throw new PsiInterruptException();
 		}
 	}
 

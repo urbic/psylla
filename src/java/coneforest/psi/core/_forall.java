@@ -46,6 +46,6 @@ public class _forall extends PsiOperator
 			((PsiIterable<PsiObject>)iterable).psiForAll(proc);
 		}
 		else
-			throw new PsiException("typecheck");
+			throw new PsiTypeCheckException();
 	}
 }

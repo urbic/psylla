@@ -10,6 +10,7 @@ public class _abort extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		throw new PsiException("abort");
+		// TODO
+		//throw new PsiException("abort");
 	}
 }

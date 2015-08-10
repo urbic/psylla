@@ -14,6 +14,6 @@ public class _counttomark extends PsiOperator
 				opstack.push(PsiInteger.valueOf(opstack.size()-1-i));
 				return;
 			}
-		throw new PsiException("unmatchedmark");
+		throw new PsiUnmatchedMarkException();
 	}
 }

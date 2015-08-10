@@ -34,7 +34,7 @@ public interface PsiIterable<T>
 		}
 		catch(java.util.ConcurrentModificationException e)
 		{
-			throw new PsiException("concurrentmodification");
+			throw new PsiConcurrentModificationException();
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);

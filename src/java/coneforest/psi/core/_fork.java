@@ -34,6 +34,6 @@ public class _fork extends PsiOperator
 				forkedInterpreter.start();
 				return;
 			}
-		throw new PsiException("unmatchedmark");
+		throw new PsiUnmatchedMarkException();
 	}
 }

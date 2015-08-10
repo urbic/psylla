@@ -54,7 +54,7 @@ public class PsiReader
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -64,9 +64,9 @@ public class PsiReader
 	{
 		final long countValue=count.longValue();
 		if(countValue<=0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		if(countValue>Integer.MAX_VALUE)
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		try
 		{
 			java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate((int)countValue);
@@ -76,11 +76,11 @@ public class PsiReader
 		}
 		catch(OutOfMemoryError e)
 		{
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -106,7 +106,7 @@ public class PsiReader
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -121,11 +121,11 @@ public class PsiReader
 		}
 		catch(IllegalArgumentException e)
 		{
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -139,7 +139,7 @@ public class PsiReader
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -153,7 +153,7 @@ public class PsiReader
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
@@ -167,7 +167,7 @@ public class PsiReader
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 

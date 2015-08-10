@@ -33,7 +33,7 @@ public class PsiRomanNumerals
 		{
 			long n=integer.longValue();
 			if(n<0 || n>=4000)
-				throw new PsiException("rangecheck");
+				throw new PsiRangeCheckException();
 			StringBuilder sb=new StringBuilder();
 			for(int d=0; n>0; n/=10, d++)
 				sb.insert(0, conversionTable[d][(int)n%10]);
@@ -57,7 +57,7 @@ public class PsiRomanNumerals
 		{
 			java.util.regex.Matcher romanMatcher=romanPattern.matcher(stringy.getString());
 			if(!romanMatcher.matches())
-				throw new PsiException("undefinedresult");
+				throw new PsiUndefinedResultException();
 			int result=0;
 			for(int d=3; d>=0; d--)
 				for(int n=0; n<conversionTable[d].length; n++)

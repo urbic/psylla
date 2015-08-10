@@ -36,7 +36,7 @@ public class PsiDict
 		if(result!=null)
 			return result;
 		else
-			throw new PsiException("undefined");
+			throw new PsiUndefinedException();
 	}
 
 	@Override

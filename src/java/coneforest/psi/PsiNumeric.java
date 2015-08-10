@@ -40,7 +40,7 @@ public interface PsiNumeric
 			return PsiInteger.valueOf(longValue());
 		}
 		else
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public interface PsiNumeric
 		else if(doubleValue()<0)
 			return PsiReal.PI;
 		else
-			throw new PsiException("undefinedresult");
+			throw new PsiUndefinedResultException();
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public interface PsiNumeric
 		else if(doubleValue()<0.D)
 			return new PsiComplex((PsiNumeric)psiAbs().psiLog(), new PsiReal(Math.PI));
 		else
-			throw new PsiException("undefinedresult");
+			throw new PsiUndefinedResultException();
 	}
 
 	@Override

@@ -106,9 +106,9 @@ public interface PsiArraylike<T extends PsiObject>
 	{
 		long countValue=count.longValue();
 		if(countValue<0)
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		if(countValue*length()>Integer.MAX_VALUE)
-			throw new PsiException("limitcheck");
+			throw new PsiLimitCheckException();
 		PsiArraylike<T> result=(PsiArraylike<T>)psiNewEmpty();
 		while(countValue-->0)
 			result.psiAppendAll(this);
@@ -123,7 +123,7 @@ public interface PsiArraylike<T extends PsiObject>
 			||
 			iterable instanceof PsiLengthy
 			&& indexValue+((PsiLengthy)iterable).length()>=length())
-			throw new PsiException("rangecheck");
+			throw new PsiRangeCheckException();
 		for(T obj: iterable)
 		{
 			put((int)indexValue++, obj);

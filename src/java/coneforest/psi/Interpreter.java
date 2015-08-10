@@ -148,11 +148,11 @@ public class Interpreter
 				}
 			}
 			if(procstack.size()>0)
-				throw new PsiException("syntaxerror");
+				throw new PsiSyntaxErrorException();
 		}
 		catch(PsiException e)
 		{
-			handleError(e.kind(), reader);
+			handleError(e.getName(), reader);
 			if(getStopFlag())
 				(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
 		}
@@ -204,7 +204,7 @@ public class Interpreter
 					procstack.push(new PsiProcedure());
 					break;
 				case ParserConstants.CLOSE_BRACE:
-					throw new PsiException("syntaxerror");
+					throw new PsiSyntaxErrorException();
 				case ParserConstants.EOF:
 				//	quit();
 					break;
@@ -240,7 +240,7 @@ public class Interpreter
 					procstack.peek().psiAppend(newPsiObject(token));
 					break;
 				case ParserConstants.EOF:
-					throw new PsiException("syntaxerror");
+					throw new PsiSyntaxErrorException();
 			}
 		}
 	}
@@ -310,7 +310,7 @@ public class Interpreter
 										}
 										catch(IllegalArgumentException e)
 										{
-											throw new PsiException("syntaxerror");
+											throw new PsiSyntaxErrorException();
 										}
 										break;
 								}
@@ -382,7 +382,7 @@ public class Interpreter
 										}
 										catch(IllegalArgumentException e)
 										{
-											throw new PsiException("syntaxerror");
+											throw new PsiSyntaxErrorException();
 										}
 										break;
 								}
@@ -449,7 +449,7 @@ public class Interpreter
 										}
 										catch(IllegalArgumentException e)
 										{
-											throw new PsiException("syntaxerror");
+											throw new PsiSyntaxErrorException();
 										}
 										break;
 									/*
@@ -498,7 +498,7 @@ public class Interpreter
 				}
 				catch(NumberFormatException e)
 				{
-					throw new PsiException("syntaxerror");
+					throw new PsiSyntaxErrorException();
 				}
 			case ParserConstants.INTEGER_HEXADECIMAL:
 				try
@@ -511,7 +511,7 @@ public class Interpreter
 				}
 				catch(NumberFormatException e)
 				{
-					throw new PsiException("syntaxerror");
+					throw new PsiSyntaxErrorException();
 				}
 			case ParserConstants.INTEGER_BINARY:
 				try
@@ -524,7 +524,7 @@ public class Interpreter
 				}
 				catch(NumberFormatException e)
 				{
-					throw new PsiException("syntaxerror");
+					throw new PsiSyntaxErrorException();
 				}
 			case ParserConstants.CHAR:
 				switch(token.image.charAt(1))
@@ -563,7 +563,7 @@ public class Interpreter
 								}
 								catch(IllegalArgumentException e)
 								{
-									throw new PsiException("syntaxerror");
+									throw new PsiSyntaxErrorException();
 								}
 						}
 					default:
@@ -598,7 +598,7 @@ public class Interpreter
 	public void handleError(final Exception e, final PsiObject obj)
 	{
 		if(e instanceof PsiException)
-			handleError(((PsiException)e).kind(), obj);
+			handleError(((PsiException)e).getName(), obj);
 		else if(e instanceof ClassCastException)
 			handleError("typecheck", obj);
 	}
@@ -794,7 +794,7 @@ public class Interpreter
 				}
 				catch(PsiException e)
 				{
-					handleError(e.kind(), PsiNull.NULL);
+					handleError(e.getName(), PsiNull.NULL);
 					if(getStopFlag())
 						(new coneforest.psi.PsiErrorDict._handleerror()).invoke(this);
 				}
@@ -808,7 +808,7 @@ public class Interpreter
 		}
 		catch(java.io.IOException e)
 		{
-			throw new PsiException("ioerror");
+			throw new PsiIOErrorException();
 		}
 	}
 
