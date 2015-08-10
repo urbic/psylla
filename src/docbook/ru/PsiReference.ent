@@ -99,6 +99,7 @@
 <!ENTITY PsiReference_Operators_Details_conjugate		SYSTEM "PsiReference_Operators_Details_conjugate.docbook">
 <!ENTITY PsiReference_Operators_Details_contains		SYSTEM "PsiReference_Operators_Details_contains.docbook">
 <!ENTITY PsiReference_Operators_Details_copy			SYSTEM "PsiReference_Operators_Details_copy.docbook">
+<!ENTITY PsiReference_Operators_Details_copyfile		SYSTEM "PsiReference_Operators_Details_copyfile.docbook">
 <!ENTITY PsiReference_Operators_Details_cos				SYSTEM "PsiReference_Operators_Details_cos.docbook">
 <!ENTITY PsiReference_Operators_Details_cosh			SYSTEM "PsiReference_Operators_Details_cosh.docbook">
 <!ENTITY PsiReference_Operators_Details_countdictstack	SYSTEM "PsiReference_Operators_Details_countdictstack.docbook">
