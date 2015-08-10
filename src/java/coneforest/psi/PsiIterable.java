@@ -15,26 +15,26 @@ public interface PsiIterable<T>
 		return "iterable";
 	}
 
-	/**
-	 *	Returns an iterator over elements of type T.
-	 *	@return an iterator.
-	 */
-	@Override
-	public java.util.Iterator<T> iterator();
-
 	default public void psiForAll(final PsiObject proc)
 		throws PsiException
 	{
 		final Interpreter interpreter=Interpreter.currentInterpreter();
 		final OperandStack opstack=interpreter.getOperandStack();
 		final int loopLevel=interpreter.pushLoopLevel();
-		for(PsiObject element: (PsiIterable<? extends PsiObject>)this)
+		try
 		{
-			opstack.push(element);
-			proc.invoke(interpreter);
-			interpreter.handleExecutionStack(loopLevel);
-			if(interpreter.getStopFlag() || interpreter.getExitFlag())
-				break;
+			for(PsiObject element: (PsiIterable<? extends PsiObject>)this)
+			{
+				opstack.push(element);
+				proc.invoke(interpreter);
+				interpreter.handleExecutionStack(loopLevel);
+				if(interpreter.getStopFlag() || interpreter.getExitFlag())
+					break;
+			}
+		}
+		catch(java.util.ConcurrentModificationException e)
+		{
+			throw new PsiException("concurrentmodification");
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
