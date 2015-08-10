@@ -53,6 +53,39 @@ public class FileSystem
 		}
 	}
 
+	public static void psiCopyFile(final PsiStringy stringy1, final PsiStringy stringy2)
+		throws PsiException
+	{
+		try
+		{
+			java.nio.file.Files.copy(getPath(stringy1), getPath(stringy2));
+		}
+		catch(UnsupportedOperationException e)
+		{
+			throw new PsiException("unsupported");
+		}
+		catch(java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiException("filenotfound");
+		}
+		catch(java.nio.file.DirectoryNotEmptyException e)
+		{
+			throw new PsiException("directorynotempty");
+		}
+		catch(java.nio.file.FileAlreadyExistsException e)
+		{
+			throw new PsiException("fileexists");
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiException("securityerror");
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiException("ioerror");
+		}
+	}
+
 	public static PsiString psiReadLink(final PsiStringy stringy)
 		throws PsiException
 	{
@@ -79,8 +112,7 @@ public class FileSystem
 		}
 	}
 
-	public static void psiSymLink(final PsiStringy stringy1,
-			final PsiStringy stringy2)
+	public static void psiSymLink(final PsiStringy stringy1, final PsiStringy stringy2)
 		throws PsiException
 	{
 		try

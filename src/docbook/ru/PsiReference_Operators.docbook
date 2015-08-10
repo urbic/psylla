@@ -871,6 +871,11 @@
 <variablelist>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_copyfile" xrefstyle="template:%t"/></term>
+<listitem>копирование файла</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_createdirectory" xrefstyle="template:%t"/></term>
 <listitem>создание директории</listitem>
 </varlistentry>
@@ -1340,6 +1345,7 @@
 &PsiReference_Operators_Details_conjugate;
 &PsiReference_Operators_Details_contains;
 &PsiReference_Operators_Details_copy;
+&PsiReference_Operators_Details_copyfile;
 &PsiReference_Operators_Details_cos;
 &PsiReference_Operators_Details_cosh;
 &PsiReference_Operators_Details_countdictstack;

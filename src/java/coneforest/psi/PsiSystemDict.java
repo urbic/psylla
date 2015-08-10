@@ -48,6 +48,7 @@ public class PsiSystemDict
 					_conjugate.class,
 					_contains.class,
 					_copy.class,
+					_copyfile.class,
 					_cos.class,
 					_cosh.class,
 					_countdictstack.class,
