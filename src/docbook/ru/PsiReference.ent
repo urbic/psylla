@@ -154,6 +154,7 @@
 <!ENTITY PsiReference_Operators_Details_gt				SYSTEM "PsiReference_Operators_Details_gt.docbook">
 <!ENTITY PsiReference_Operators_Details_halt			SYSTEM "PsiReference_Operators_Details_halt.docbook">
 <!ENTITY PsiReference_Operators_Details_hardlink		SYSTEM "PsiReference_Operators_Details_hardlink.docbook">
+<!ENTITY PsiReference_Operators_Details_hashcode		SYSTEM "PsiReference_Operators_Details_hashcode.docbook">
 <!ENTITY PsiReference_Operators_Details_hypot			SYSTEM "PsiReference_Operators_Details_hypot.docbook">
 <!ENTITY PsiReference_Operators_Details_idiv			SYSTEM "PsiReference_Operators_Details_idiv.docbook">
 <!ENTITY PsiReference_Operators_Details_if				SYSTEM "PsiReference_Operators_Details_if.docbook">

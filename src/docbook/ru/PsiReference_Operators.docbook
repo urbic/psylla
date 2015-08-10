@@ -1088,6 +1088,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_hashcode" xrefstyle="template:%t"/></term>
+<listitem>хэш-код объекта</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_load" xrefstyle="template:%t"/></term>
 <listitem>поиск значения по ключу в глубину в стеке словарей</listitem>
 </varlistentry>
@@ -1400,6 +1405,7 @@
 &PsiReference_Operators_Details_gt;
 &PsiReference_Operators_Details_halt;
 &PsiReference_Operators_Details_hardlink;
+&PsiReference_Operators_Details_hashcode;
 &PsiReference_Operators_Details_hypot;
 &PsiReference_Operators_Details_idiv;
 &PsiReference_Operators_Details_if;

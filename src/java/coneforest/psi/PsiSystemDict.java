@@ -104,6 +104,7 @@ public class PsiSystemDict
 					_gt.class,
 					_halt.class,
 					_hardlink.class,
+					_hashcode.class,
 					_hypot.class,
 					_idiv.class,
 					_if.class,
