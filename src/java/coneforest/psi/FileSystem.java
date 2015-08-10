@@ -18,6 +18,10 @@ public class FileSystem
 		{
 			throw new PsiException("fileexists");
 		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiException("fileaccessdenied");
+		}
 		catch(java.lang.SecurityException e)
 		{
 			throw new PsiException("securityerror");
