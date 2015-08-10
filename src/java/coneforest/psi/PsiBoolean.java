@@ -111,7 +111,7 @@ public class PsiBoolean
 	@Override
 	public int hashCode()
 	{
-		return value? 1: 0;
+		return value? 1231: 1237;
 	}
 
 	@Override

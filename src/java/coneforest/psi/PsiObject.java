@@ -96,6 +96,11 @@ public interface PsiObject
 		return PsiBoolean.TRUE;
 	}
 
+	default public PsiInteger psiHashCode()
+	{
+		return PsiInteger.valueOf(hashCode());
+	}
+
 	public static Interpreter currentInterpreter()
 	{
 		return (Interpreter)Thread.currentThread();
