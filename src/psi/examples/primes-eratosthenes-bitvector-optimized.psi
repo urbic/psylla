@@ -1,0 +1,24 @@
+#!/usr/bin/psylla
+
+/n arguments 0 get tointeger def
+
+/sieve bitvector def
+0 1 //n { 2 mod notzero //sieve exch append } bind for
+
+//n 2 ge { 2 toname say } if
+
+3 2 //n
+{
+	/p exch def
+	//sieve p get
+	{
+		p toname say
+		p dup mul p //n
+		{
+			//sieve exch false put
+		}
+		for
+	}
+	if
+}
+bind for
