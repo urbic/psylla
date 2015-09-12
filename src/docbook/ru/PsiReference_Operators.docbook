@@ -562,7 +562,7 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_get" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsiReference_Operators_Details_getall" xrefstyle="template:%t"/></term>
 <listitem>получение массива значений из контейнера по перечислению ключей или
 индексов</listitem>
 </varlistentry>
