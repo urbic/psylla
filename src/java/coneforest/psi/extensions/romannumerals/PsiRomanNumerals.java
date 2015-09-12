@@ -24,20 +24,20 @@ public class PsiRomanNumerals
 		public void action(Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			OperandStack opstack=interpreter.getOperandStack();
+			final OperandStack opstack=interpreter.getOperandStack();
 			opstack.push(psiToRoman((PsiInteger)opstack.popOperands(1)[0]));
 		}
 
-		private PsiString psiToRoman(PsiInteger integer)
+		private static PsiName psiToRoman(PsiInteger integer)
 			throws PsiException
 		{
 			long n=integer.longValue();
 			if(n<0 || n>=4000)
 				throw new PsiRangeCheckException();
-			StringBuilder sb=new StringBuilder();
+			final StringBuilder sb=new StringBuilder();
 			for(int d=0; n>0; n/=10, d++)
-				sb.insert(0, conversionTable[d][(int)n%10]);
-			return new PsiString(sb);
+				sb.insert(0, conversionTable[d][(int)n % 10]);
+			return new PsiName(sb);
 		}
 	}
 
@@ -48,14 +48,15 @@ public class PsiRomanNumerals
 		public void action(Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			OperandStack opstack=interpreter.getOperandStack();
+			final OperandStack opstack=interpreter.getOperandStack();
 			opstack.push(psiFromRoman((PsiStringy)opstack.popOperands(1)[0]));
 		}
 
-		private PsiInteger psiFromRoman(PsiStringy stringy)
+		private static PsiInteger psiFromRoman(PsiStringy stringy)
 			throws PsiException
 		{
-			java.util.regex.Matcher romanMatcher=romanPattern.matcher(stringy.getString());
+			final java.util.regex.Matcher romanMatcher
+				=romanPattern.matcher(stringy.getString());
 			if(!romanMatcher.matches())
 				throw new PsiUndefinedResultException();
 			int result=0;
@@ -69,11 +70,11 @@ public class PsiRomanNumerals
 			return PsiInteger.valueOf(result);
 		}
 
-		private static java.util.regex.Pattern romanPattern
+		private static final java.util.regex.Pattern romanPattern
 			=java.util.regex.Pattern.compile("^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$");
 	}
 
-	private static String[][] conversionTable=new String[][]
+	private static final String[][] conversionTable=new String[][]
 		{
 			{"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
 			{"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},

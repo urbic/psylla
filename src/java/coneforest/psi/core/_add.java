@@ -4,7 +4,7 @@ import coneforest.psi.*;
 /**
  * The implementation of the <code>add</code> operator
  */
-public class _add extends PsiOperator
+public final class _add extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)

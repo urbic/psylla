@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _unite extends PsiOperator
+public final class _unite extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
