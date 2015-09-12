@@ -4,7 +4,7 @@ import coneforest.psi.*;
 /**
  * The implementation of the <code>abort</code> operator.
  */
-public class _abort extends PsiOperator
+public final class _abort extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)

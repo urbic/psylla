@@ -5,7 +5,7 @@ import coneforest.psi.*;
  * The implementation of the <code>abs</code> operator.
  * 
  */
-public class _abs extends PsiOperator
+public final class _abs extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)

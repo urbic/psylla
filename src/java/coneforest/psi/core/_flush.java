@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _flush extends PsiOperator
+public final class _flush extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)

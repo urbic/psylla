@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-public class _editline extends PsiOperator
+public final class _editline extends PsiOperator
 {
 	public _editline()
 		throws PsiException
