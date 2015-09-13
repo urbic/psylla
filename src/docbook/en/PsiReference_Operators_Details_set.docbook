@@ -5,17 +5,17 @@
 <synopsis>
 —
 <token language="psi">set</token>
-<replaceable>множество</replaceable>
+<replaceable>set</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>множество</replaceable>:
+<replaceable>set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новое пустое <replaceable>множество</replaceable>.
+Returns a new empty <replaceable>set</replaceable>.
 </para>
 
 <formalpara>

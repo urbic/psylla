@@ -13,7 +13,7 @@
 </synopsis>
 
 <para>
-Returns new empty <replaceable>array</replaceable>.
+Returns a new empty <replaceable>array</replaceable>.
 </para>
 
 <formalpara>
