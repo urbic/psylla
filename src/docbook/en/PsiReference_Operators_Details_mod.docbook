@@ -43,4 +43,10 @@ linkend="PsiReference_Errors_Details_undefinedresult"/>.
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
 </formalpara>
 
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_idiv"/>.
+</formalpara>
+
 </section>

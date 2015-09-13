@@ -51,4 +51,10 @@ linkend="PsiReference_Types_Details_complex"/> тип
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_add"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sub"/>.
+</formalpara>
+
 </section>
