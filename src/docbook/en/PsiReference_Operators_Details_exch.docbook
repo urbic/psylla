@@ -3,11 +3,11 @@
 <title><token language="psi">exch</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>1</subscript></replaceable>
-<replaceable>объект<subscript>2</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>2</subscript></replaceable>
 <token language="psi">exch</token>
-<replaceable>объект<subscript>2</subscript></replaceable>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>2</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
@@ -18,7 +18,7 @@
 </synopsis>
 
 <para>
-Меняет местами два верхних операнда в стеке операндов.
+Exchanges tho topmost operands in the operand stack.
 </para>
 
 <formalpara>

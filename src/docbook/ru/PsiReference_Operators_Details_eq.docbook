@@ -51,7 +51,7 @@ linkend="PsiReference_Types_Details_stringy"/> считаются равными
 /xyz "xyz" eq			▶ true	# Имя и строка с одинаковыми значениями равны
 [ 0 1 2 ] dup eq		▶ true	# Два экземпляра одного и того же массива равны
 [ 0 1 2 ] [ 0 1 2 ] eq	▶ false	# Отдельные экземпляры массивов не равны
-1 77777777 div 77777777 mul 1 eq	▶ false	# Равенство нарушено из=за потери точности</programlisting>
+1 77777777 div 77777777 mul 1 eq	▶ false	# Равенство нарушено из-за потери точности</programlisting>
 </formalpara>
 
 <formalpara>

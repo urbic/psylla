@@ -7,12 +7,13 @@
 </synopsis>
 
 <para>
-Удаляет верхний словарь со стека словарей.
+Removes the topmost dictionary from the dictionary stack.
 </para>
 
 <para>
-При попытке удалить постоянный словарь генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_dictstackunderflow"/> when try to remove a
+permanent dictionary.
 </para>
 
 <formalpara>

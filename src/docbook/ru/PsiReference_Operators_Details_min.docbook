@@ -10,10 +10,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
-<replaceable>скаляр<subscript>2</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
-</listitem>
-<listitem>
+<replaceable>скаляр<subscript>2</subscript></replaceable>,
 <replaceable>минимум</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>

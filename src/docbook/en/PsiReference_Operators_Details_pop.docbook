@@ -3,19 +3,19 @@
 <title><token language="psi">pop</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">pop</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет верхний <replaceable>объект</replaceable> из стека операндов.
+Removes the topmost <replaceable>object</replaceable> from the operand stack.
 </para>
 
 <formalpara>

@@ -3,28 +3,28 @@
 <title><token language="psi">ne</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>1</subscript></replaceable>
-<replaceable>объект<subscript>2</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>2</subscript></replaceable>
 <token language="psi">ne</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
-<replaceable>объект<subscript>2</subscript></replaceable>:
+<replaceable>object<subscript>1</subscript></replaceable>,
+<replaceable>object<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>, если
-<replaceable>объект<subscript>1</subscript></replaceable> не равен
-<replaceable>объекту<subscript>2</subscript></replaceable>, и
-<constant>false</constant> в противном случае.
+Returns <constant>true</constant> if
+<replaceable>object<subscript>1</subscript></replaceable> not equals to
+<replaceable>object<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
 </para>
 
 <para>
