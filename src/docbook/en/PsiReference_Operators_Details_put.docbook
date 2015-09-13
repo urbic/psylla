@@ -3,19 +3,19 @@
 <title><token language="psi">put</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable>
-<replaceable>индекс</replaceable>
-<replaceable>элемент</replaceable>
+<replaceable>container</replaceable>
+<replaceable>index</replaceable>
+<replaceable>element</replaceable>
 <token language="psi">put</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>индекс</replaceable>,
-<replaceable>элемент</replaceable>:
+<replaceable>index</replaceable>,
+<replaceable>element</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
@@ -26,6 +26,11 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_putinterval"/>.
 </formalpara>
 
 </section>

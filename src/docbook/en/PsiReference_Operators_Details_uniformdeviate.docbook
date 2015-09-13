@@ -37,7 +37,7 @@ linkend="PsiReference_Types_Details_integer"/> и неположительна.
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">stdrandom 1. uniformdeviate	▶ 0.6520579058825042
 stdrandom 5 uniformdeviate	▶ 4</programlisting>
 </formalpara>

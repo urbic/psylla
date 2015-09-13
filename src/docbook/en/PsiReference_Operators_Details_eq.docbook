@@ -44,7 +44,7 @@ linkend="PsiReference_Types_Details_stringy"/> считаются равными
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">3. 3 eq					▶ true	# Равные вещественное и целое числа
 1 0 complex 1. eq		▶ true	# Равные комплексное и вещественное числа
 "xyz" "xyz" eq			▶ true	# Строки с одинаковыми значениями равны

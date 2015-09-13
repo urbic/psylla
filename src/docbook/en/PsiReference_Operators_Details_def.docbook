@@ -3,17 +3,17 @@
 <title><token language="psi">def</token></title>
 
 <synopsis>
-<replaceable>ключ</replaceable>
-<replaceable>объект</replaceable>
+<replaceable>key</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">def</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>ключ</replaceable>:
+<replaceable>key</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
@@ -25,7 +25,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">/zero 0 def zero	▶ 0</programlisting>
 </formalpara>
 

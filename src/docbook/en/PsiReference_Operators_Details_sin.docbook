@@ -22,7 +22,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">3.141592653589793 sin	 ▶ 1.2246467991473532E-16</programlisting>
 </formalpara>
 

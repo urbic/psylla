@@ -37,7 +37,7 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если фрагмент н
 </para>
 
 <formalpara>
-<title>Пример:</title>
+<title>Examples:</title>
 
 <programlisting language="psi">[ 2 3 5 7 11 13 ] dup 3 2 extractinterval	▶ [ 2 3 5 13 ] [ 7 11 ]
 "hello" dup 1 3 extractinterval				▶ "ho" "ell"</programlisting>

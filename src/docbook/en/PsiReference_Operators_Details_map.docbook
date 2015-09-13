@@ -39,7 +39,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">[ 0 1 2 3 4 5 6 7 8 9 ] { dup mul } map	▶ [ 0 1 4 9 16 25 36 49 64 81 ]</programlisting>
 </formalpara>
 

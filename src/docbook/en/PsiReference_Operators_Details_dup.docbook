@@ -25,7 +25,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">2 dup		▶ 2 2
 [ 1 2 ] dup	▶ [ 1 2 ] [ 1 2 ]	# Тот же самый массив</programlisting>
 </formalpara>

@@ -41,7 +41,7 @@ linkend="PsiReference_Errors_Details_concurrentmodification"/>, если
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">0 [ 0 1 2 3 4 5 6 7 8 9 ] { add } forall	▶ 45</programlisting>
 </formalpara>
 

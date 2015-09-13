@@ -22,7 +22,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">[ 0 1 2 ] reverse	▶ [ 2 1 0 ]
 "xyz" reverse		▶ "zyx"</programlisting>
 </formalpara>
