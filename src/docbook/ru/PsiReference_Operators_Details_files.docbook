@@ -35,9 +35,8 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 безопасности.
 </para>
 
-
 <formalpara>
-<title>Пример:</title>
+<title>Примеры:</title>
 <programlisting language="psi">'/' files {} forall	▶ '/boot' '/opt' '/srv' '/tmp' '/usr' '/var' '/etc' '/home' …</programlisting>
 </formalpara>
 

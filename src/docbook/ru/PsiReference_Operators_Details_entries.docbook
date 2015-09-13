@@ -24,7 +24,7 @@
 </para>
 
 <formalpara>
-<title>Пример:</title>
+<title>Примеры:</title>
 <programlisting language="psi">&lt; /a 1 /b 2 &gt; entries {} forall	▶ /a 1 /b 2
 [ /a /b /c ] entries {} forall	▶ 0 /a 1 /b 2 /c</programlisting>
 </formalpara>

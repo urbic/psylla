@@ -28,7 +28,7 @@ linkend="PsiReference_Types_Details_real"/> <replaceable>потолок</replace
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">2 ceiling		▶ 2
 -2 ceiling		▶ -2
 -2.0 ceiling	▶ -2.0

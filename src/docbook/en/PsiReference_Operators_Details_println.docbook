@@ -3,12 +3,12 @@
 <title><token language="psi">println</token></title>
 
 <synopsis>
-<replaceable>строка</replaceable>
+<replaceable>string</replaceable>
 <token language="psi">println</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>

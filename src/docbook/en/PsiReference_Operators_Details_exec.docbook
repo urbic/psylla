@@ -19,7 +19,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">"xyz" exec		▶ "xyz"
 1 2 //add exec	▶ 3</programlisting>
 </formalpara>

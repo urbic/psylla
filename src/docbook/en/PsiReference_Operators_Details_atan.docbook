@@ -29,7 +29,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">1 atan	▶ 0.7853981633974483</programlisting>
 </formalpara>
 

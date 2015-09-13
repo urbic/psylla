@@ -34,7 +34,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">[ 0 1 2 3 4 ] dup 2 extract			▶ [ 0 1 3 4 ] 2
 &lt; /a 0 /b 1 /c 2 &gt; dup /b extract	▶ &lt; /c 2 /a 0 &gt; 1</programlisting>
 </formalpara>

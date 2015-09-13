@@ -45,7 +45,7 @@ linkend="PsiReference_Errors_Details_rangecheck"/> для отрицатель�
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">"A" "B" "C" 2 copy	▶ "A" "B" "C" "B" "C"
 1 2 3 0 copy		▶ 1 2 3</programlisting>
 </formalpara>

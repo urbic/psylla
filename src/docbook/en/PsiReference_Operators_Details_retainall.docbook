@@ -27,7 +27,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">( 0 1 2 3 4 ) dup [ 2 3 7 ] retainall	▶ ( 2 3 )</programlisting>
 </formalpara>
 

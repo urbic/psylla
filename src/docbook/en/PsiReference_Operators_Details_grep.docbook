@@ -42,7 +42,7 @@ linkend="PsiReference_Operators_Details_grep"/> непредсказуем.
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">[ 0 1 2 3 4 5 6 7 8 9 ] { 2 mod 0 eq } grep	▶ [ 0 2 4 6 8 ]</programlisting>
 </formalpara>
 

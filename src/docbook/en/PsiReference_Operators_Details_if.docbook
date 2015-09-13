@@ -25,7 +25,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+<title>Examples:</title>
 <programlisting language="psi">0 1 lt "меньше" if	▶ "меньше"
 1 0 lt "меньше" if	▶ —
 1 0 lt { neg } if	▶ 1
