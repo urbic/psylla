@@ -3,19 +3,19 @@
 <title><token language="psi">clear</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable>
+<replaceable>container</replaceable>
 <token language="psi">clear</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет все элементы из <replaceable>контейнера</replaceable>.
+Removes all elements from the <replaceable>container</replaceable>.
 </para>
 
 <formalpara>

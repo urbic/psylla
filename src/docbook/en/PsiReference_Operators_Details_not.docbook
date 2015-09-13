@@ -3,20 +3,24 @@
 <title><token language="psi">not</token></title>
 
 <synopsis>
-<replaceable>логическое</replaceable>
+<replaceable>logical</replaceable>
 <token language="psi">not</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>логическое</replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>logical</replaceable>,
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает отрицание операнда. Для операндов типа <xref xrefstyle="template:%t"
+Возвращает отрицание операнда.
+</para>
+
+<para>
+Для операндов типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_boolean"/> вычисляется логическое
 отрицание. Для операнда типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/> или типа <xref

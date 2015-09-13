@@ -3,24 +3,24 @@
 <title><token language="psi">notzero</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">notzero</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>:
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>, если <replaceable>число</replaceable>
-не равно нулю, и <constant>false</constant> в противном случае.
+Returns <constant>true</constant>, if the <replaceable>number</replaceable> not
+equals to zero, and <constant>false</constant> otherwise.
 </para>
 
 <formalpara>

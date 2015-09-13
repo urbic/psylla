@@ -3,17 +3,17 @@
 <title><token language="psi">bitset</token></title>
 
 <synopsis>
-— <token language="psi">bitset</token> <replaceable>битовое_множество</replaceable>
+— <token language="psi">bitset</token> <replaceable>bit_set</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>битовое_множество</replaceable>:
+<replaceable>bit_set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitset"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новое пустое <replaceable>битовое_множество</replaceable>.
+Returns new empty <replaceable>bit_set</replaceable>.
 </para>
 
 <formalpara>

@@ -3,24 +3,24 @@
 <title><token language="psi">isempty</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable>
+<replaceable>container</replaceable>
 <token language="psi">isempty</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>, если <replaceable>контейнер</replaceable>
-пуст, и <constant>false</constant> в противном случае.
+Returns <constant>true</constant>, if <replaceable>container</replaceable>
+is empty, and <constant>false</constant> otherwise.
 </para>
 
 <formalpara>

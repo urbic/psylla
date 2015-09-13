@@ -4,17 +4,17 @@
 
 <synopsis>
 — <token language="psi">dict</token>
-<replaceable>словарь</replaceable>
+<replaceable>dictionary</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>словарь</replaceable>:
+<replaceable>dictionary</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новый пустой <replaceable>словарь</replaceable>.
+Returns new empty <replaceable>dictionary</replaceable>.
 </para>
 
 <formalpara>

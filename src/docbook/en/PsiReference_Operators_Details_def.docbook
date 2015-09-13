@@ -20,8 +20,9 @@
 </synopsis>
 
 <para>
-Связывает <replaceable>объект</replaceable> с <replaceable>ключом</replaceable>
-в текущем словаре (верхнем в стеке словарей).
+Associates an <replaceable>object</replaceable> with the
+<replaceable>key</replaceable> at the current dictionary (the topmost in the
+dictionary stack).
 </para>
 
 <formalpara>

@@ -3,17 +3,17 @@
 <title><token language="psi">index</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 …
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>0</subscript></replaceable>
 <replaceable>n</replaceable>
 <token language="psi">index</token>
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>0</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>

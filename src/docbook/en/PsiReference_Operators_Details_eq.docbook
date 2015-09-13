@@ -3,28 +3,28 @@
 <title><token language="psi">eq</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>1</subscript></replaceable>
-<replaceable>объект<subscript>2</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>2</subscript></replaceable>
 <token language="psi">eq</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
-<replaceable>объект<subscript>2</subscript></replaceable>:
+<replaceable>object<subscript>1</subscript></replaceable>,
+<replaceable>object<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>, если
-<replaceable>объект<subscript>1</subscript></replaceable> равен
-<replaceable>объекту<subscript>2</subscript></replaceable>, и
-<constant>false</constant> в противном случае.
+Returns <constant>true</constant> if
+<replaceable>object<subscript>1</subscript></replaceable> is equal to
+<replaceable>object<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
 </para>
 
 <para>
@@ -45,13 +45,13 @@ linkend="PsiReference_Types_Details_stringy"/> считаются равными
 
 <formalpara>
 <title>Examples:</title>
-<programlisting language="psi">3. 3 eq					▶ true	# Равные вещественное и целое числа
-1 0 complex 1. eq		▶ true	# Равные комплексное и вещественное числа
-"xyz" "xyz" eq			▶ true	# Строки с одинаковыми значениями равны
-/xyz "xyz" eq			▶ true	# Имя и строка с одинаковыми значениями равны
-[ 0 1 2 ] dup eq		▶ true	# Два экземпляра одного и того же массива равны
-[ 0 1 2 ] [ 0 1 2 ] eq	▶ false	# Отдельные экземпляры массивов не равны
-1 77777777 div 77777777 mul 1 eq	▶ false	# Равенство нарушено из=за потери точности</programlisting>
+<programlisting language="psi">3. 3 eq					▶ true	# Equal real and integer numbers
+1 0 complex 1. eq		▶ true	# Equal complex and real numbers
+"xyz" "xyz" eq			▶ true	# Strings with equal content are equal
+/xyz "xyz" eq			▶ true	# Name and string with equal content ane equal
+[ 0 1 2 ] dup eq		▶ true	# Two instances of the same array are equal
+[ 0 1 2 ] [ 0 1 2 ] eq	▶ false	# Two distinct instances of arrays are not equal
+1 77777777 div 77777777 mul 1 eq	▶ false	# Equality is broken due to the loss of accuracy</programlisting>
 </formalpara>
 
 <formalpara>

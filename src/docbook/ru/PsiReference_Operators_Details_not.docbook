@@ -16,7 +16,11 @@
 </synopsis>
 
 <para>
-Возвращает отрицание операнда. Для операндов типа <xref xrefstyle="template:%t"
+Возвращает отрицание операнда.
+</para>
+
+<para>
+Для операндов типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_boolean"/> вычисляется логическое
 отрицание. Для операнда типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/> или типа <xref
