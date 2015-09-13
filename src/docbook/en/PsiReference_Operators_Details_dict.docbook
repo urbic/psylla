@@ -14,7 +14,7 @@
 </synopsis>
 
 <para>
-Returns new empty <replaceable>dictionary</replaceable>.
+Returns a new empty <replaceable>dictionary</replaceable>.
 </para>
 
 <formalpara>

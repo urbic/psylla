@@ -5,17 +5,17 @@
 <synopsis>
 —
 <token language="psi">string</token>
-<replaceable>строка</replaceable>
+<replaceable>string</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новую пустую <replaceable>строку</replaceable>.
+Returns a new empty <replaceable>string</replaceable>.
 </para>
 
 <formalpara>
