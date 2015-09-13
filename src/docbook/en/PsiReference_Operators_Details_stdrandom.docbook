@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_stdrandom">
+<title><token language="psi">stdrandom</token></title>
+
+<synopsis>
+—
+<token language="psi">stdrandom</token>
+<replaceable>генератор</replaceable>
+</synopsis>
+
+<para>
+Стандартный <replaceable>генератор</replaceable> случайных величин. Не
+оператор, а значение в системном словаре.
+</para>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_normaldeviate"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_setseed"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_uniformboolean"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_uniformdeviate"/>.
+</formalpara>
+
+</section>

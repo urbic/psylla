@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_stack">
+<title><token language="psi">stack</token></title>
+
+<synopsis>
+⊢
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">stack</token>
+⊢
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает содержимое стека операндов.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>.
+</formalpara>
+
+</section>

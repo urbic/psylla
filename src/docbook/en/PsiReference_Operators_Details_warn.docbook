@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_warn">
+<title><token language="psi">warn</token></title>
+
+<synopsis>
+<replaceable>строка</replaceable>
+<token language="psi">warn</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Записывает <replaceable>строку</replaceable> в стандартный вывод сообщений
+об ошибках и сбрасывает вывод.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stderr"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
+</formalpara>
+
+</section>

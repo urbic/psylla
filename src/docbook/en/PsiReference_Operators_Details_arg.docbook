@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_arg">
+<title><token language="psi">arg</token></title>
+
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">arg</token>
+<replaceable>аргумент</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+</listitem>
+<listitem>
+<replaceable>аргумент</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает комплексный <replaceable>аргумент</replaceable>
+<replaceable>числа</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/> в случае нулевого
+целого, вещественного или комплексного <replaceable>числа</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">1 arg				▶ 0.0
+-1. arg				▶ 3.141592653589793
+0 -1 complex arg	▶ -1.5707963267948966</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_signum"/>.
+</formalpara>
+
+</section>

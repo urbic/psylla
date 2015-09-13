@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_bitvector">
+<title><type>bitvector</type></title>
+
+<para>
+Битовый массив.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>.
+</formalpara>
+
+</section>

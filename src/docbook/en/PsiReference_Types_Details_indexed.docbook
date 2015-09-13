@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_indexed">
+<title><type>indexed</type></title>
+
+<para>
+Тип контейнеров, элементы которых проиндексированы.
+</para>
+
+</section>

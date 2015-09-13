@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_stringy">
+<title><type>stringy</type></title>
+
+<para>
+Тип строкоподобных величин, объединяющий строки и имена.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletointeger"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoname"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoreal"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
+</formalpara>
+
+</section>

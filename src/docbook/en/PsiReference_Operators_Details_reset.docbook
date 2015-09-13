@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_reset">
+<title><token language="psi">reset</token></title>
+
+<synopsis>
+<replaceable>читатель</replaceable>
+<token language="psi">reset</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>читатель</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_resettable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Переустанавливает <replaceable>читатель</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_putinterval">
+<title><token language="psi">putinterval</token></title>
+
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">putinterval</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_issamefile">
+<title><token language="psi">issamefile</token></title>
+
+<synopsis>
+<replaceable>имя<subscript>1</subscript></replaceable>
+<replaceable>имя<subscript>2</subscript></replaceable>
+<token language="psi">issamefile</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя<subscript>1</subscript></replaceable>,
+<replaceable>имя<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <constant>true</constant>, если
+<replaceable>имя<subscript>1</subscript></replaceable> и
+<replaceable>имя<replaceable>2</replaceable></replaceable> являются именами
+одного и того же файла или директории, и <constant>false</constant> в противном
+случае.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
+не существует; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
+при нарушении политики безопасности.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

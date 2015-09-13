@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_iszero">
+<title><token language="psi">iszero</token></title>
+
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">iszero</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <constant>true</constant>, если <replaceable>число</replaceable>
+равно нулю, и <constant>false</constant> в противном случае.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notzero"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_stopped">
+<title><token language="psi">stopped</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">stop</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+</section>

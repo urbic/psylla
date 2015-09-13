@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_dict">
+<title><type>dict</type></title>
+
+<para>
+Тип словарей.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>.
+</formalpara>
+
+</section>

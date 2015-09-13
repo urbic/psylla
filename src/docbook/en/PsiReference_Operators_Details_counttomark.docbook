@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_counttomark">
+<title><token language="psi">counttomark</token></title>
+
+<synopsis>
+<constant>mark</constant>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psi">counttomark</token>
+<constant>mark</constant>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+<itemizedlist>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает количество объектов в стеке операндов, расположенных выше самой
+верхней метки вплоть до вершины стека.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
+содержит меток.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>.
+</formalpara>
+
+</section>

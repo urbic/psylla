@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_countexecstack">
+<title><token language="psi">countexecstack</token></title>
+
+<synopsis>
+—
+<token language="psi">countexecstack</token>
+<replaceable>number</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>number</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Returns the <replaceable>number</replaceable> of objects in execution stack.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+</section>

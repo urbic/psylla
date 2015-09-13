@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_dicttomark">
+<title><token language="psi">dicttomark</token></title>
+
+<synopsis>
+<constant>mark</constant>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">dicttomark</token>
+<replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
+содержит метку; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, если количество объектов
+выше метки на стеке операндов нечётно.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 2 /two 2 &gt;</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dict"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_setlength">
+<title><token language="psi">setlength</token></title>
+
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>длина</replaceable>
+<token language="psi">setlength</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>длина</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Устанавливает размер <replaceable>массива</replaceable> равным
+<replaceable>длине</replaceable>, удаляя нужное количество последних элементов,
+либо дополняя <replaceable>массив</replaceable> до заданной
+<replaceable>длины</replaceable> заполнителями, соответствующими типу
+<replaceable>массива</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/> при отрицательной
+<replaceable>длине</replaceable>; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_limitcheck"/>
+при <replaceable>длине</replaceable>, превышающей предельную длину массивов.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ 0 1 2 3 ] dup 6 setlength	▶ [ 0 1 2 3 null null ]
+[ 0 1 2 3 ] dup 3 setlength	▶ [ 0 1 2 ]
+"abcd" dup 6 setlength		▶ "abcd\0\0"
+"abcd" dup 3 setlength		▶ "abc"</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_length"/>.
+</formalpara>
+
+</section>

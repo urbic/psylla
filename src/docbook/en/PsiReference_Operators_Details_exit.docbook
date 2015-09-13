@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_exit">
+<title><token language="psi">exit</token></title>
+
+<synopsis>
+—
+<token language="psi">exit</token>
+—
+</synopsis>
+
+<para>
+Прерывает выполнение самого внутреннего циклического контекста.
+<firstterm>Циклический контекст</firstterm><indexterm><primary>циклический
+контекст</primary></indexterm> — это процедура, многократно выполняющаяся одним
+из циклических операторов
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
+Выполнение программы продолжается с объекта, следующего за циклическим
+оператором.
+</para>
+
+<para>
+Если оператор <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_exit"/> выполняется вне циклического
+контекста, генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_invalidexit"/>.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexit"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stop"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stopped"/>.
+</formalpara>
+
+</section>

@@ -144,6 +144,7 @@
 		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
 		<!--xslt.lang lang="en"/-->
 		<xslt.html.lang lang="ru" base.name="PsiReference"/>
+		<xslt.html.lang lang="en" base.name="PsiReference"/>
 		<copy todir="${target.doc.html}">
 			<fileset dir="${src.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
 			<fileset dir="${src.docbook}" includes="examples/**" excludes="**/.htaccess"/>

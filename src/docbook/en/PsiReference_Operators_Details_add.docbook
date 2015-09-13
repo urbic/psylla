@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_add">
+<title><token language="psi">add</token></title>
+
+<synopsis>
+<replaceable>summand<subscript>1</subscript></replaceable>
+<replaceable>summand<subscript>2</subscript></replaceable>
+<token language="psi">add</token>
+<replaceable>sum</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>summand<subscript>1</subscript></replaceable>,
+<replaceable>summand<subscript>2</subscript></replaceable>,
+<replaceable>sum</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Returns a <replaceable>sum</replaceable> of two
+<replaceable>summand</replaceable>s.
+</para>
+
+<para>
+Если оба операнда имеют тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, и результат принадлежит
+диапазону <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, тип результата будет <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>. Если
+хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/>, таким же будет тип результата.
+Если хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
+</para>
+
+<formalpara>
+<title>Examples:</title>
+<programlisting language="psi">9 16 add	▶ 25
+9. 16 add	▶ 25.</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mul"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sub"/>.
+</formalpara>
+
+</section>

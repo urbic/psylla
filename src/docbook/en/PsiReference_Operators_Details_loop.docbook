@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_loop">
+<title><token language="psi">loop</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">loop</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Вызывает <replaceable>объект</replaceable> в беконечном цикле.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
+</formalpara>
+
+</section>

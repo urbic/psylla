@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_currentdict">
+<title><token language="psi">currentdict</token></title>
+
+<synopsis>
+—
+<token language="psi">currentdict</token>
+<replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает текущий словарь (верхний в стеке словарей). Стек словарей остаётся
+нетронутым.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_def"/>.
+</formalpara>
+
+</section>

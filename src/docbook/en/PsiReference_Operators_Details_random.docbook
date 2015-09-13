@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_random">
+<title><token language="psi">random</token></title>
+
+<synopsis>
+—
+<token language="psi">random</token>
+<replaceable>генератор</replaceable>
+</synopsis>
+
+<para>
+Возвращает новый <replaceable>генератор</replaceable> случайных величин.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_normaldeviate"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_setseed"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_uniformboolean"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_uniformdeviate"/>.
+</formalpara>
+
+</section>

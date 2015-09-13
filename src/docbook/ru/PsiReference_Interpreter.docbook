@@ -16,7 +16,7 @@
 
 </section>
 
-<section>
+<section xml:id="PsiReference_Interpreter_CommandLineParameters">
 <title>Параметры командной строки</title>
 
 <variablelist>
@@ -81,7 +81,7 @@ jar.
 <parameter><replaceable>кодировка</replaceable></parameter>
 </term>
 <listitem>
-Установка кодировки консоли.
+Установка <replaceable>кодировки</replaceable> консоли.
 </listitem>
 </varlistentry>
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_begin">
+<title><token language="psi">begin</token></title>
+
+<synopsis>
+<replaceable>словарь</replaceable> <token language="psi">begin</token> —
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Добавляет <replaceable>словарь</replaceable> в стек словарей.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countdictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>.
+</formalpara>
+
+</section>

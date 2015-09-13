@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_yield">
+<title><token language="psi">yield</token></title>
+
+<synopsis>
+—
+<token language="psi">yield</token>
+—
+</synopsis>
+
+<para>
+Приостанавливает исполнение текущего контекста с тем, чтобы остальные контексты
+получили возможность исполняться.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentcontext"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_monitor"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_wait"/>.
+</formalpara>
+
+</section>

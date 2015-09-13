@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_appendable">
+<title><type>appendable</type></title>
+
+<para>
+Тип контейнеров, для которых предусмотрено добавление объектов в конец.
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoname"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+
+</section>

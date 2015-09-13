@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_files">
+<title><token language="psi">files</token></title>
+
+<synopsis>
+<replaceable>имя</replaceable>
+<token language="psi">files</token>
+<replaceable>перечисление</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>перечисление</replaceable> имён файлов, содержащихся
+в директории с заданным <replaceable>именем</replaceable>. Имена перечисляются
+как объекты <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, если директория
+с заданным <replaceable>именем</replaceable> не существует; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
+безопасности.
+</para>
+
+
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">'/' files {} forall	▶ '/boot' '/opt' '/srv' '/tmp' '/usr' '/var' '/etc' '/home' …</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>.
+</formalpara>
+
+</section>

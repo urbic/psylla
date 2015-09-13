@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_tointeger">
+<title><token language="psi">tointeger</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">tointeger</token>
+<replaceable>целое</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletointeger"/>
+</listitem>
+<listitem>
+<replaceable>целое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+</section>

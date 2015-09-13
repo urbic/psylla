@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsiReference_Errors">
+<title>Ошибки</title>
+
+<section xml:id="PsiReference_Errors_Details">
+<title>Ошибки в деталях</title>
+
+<section xml:id="PsiReference_Errors_Details_concurrentmodification">
+<title><errorname language="psi">concurrentmodification</errorname></title>
+<para>
+Генерируется при обнаружении конкурентной модификации.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_dictstackunderflow">
+<title><errorname language="psi">dictstackunderflow</errorname></title>
+<para>
+Недополнение стека словарей. Ошибка генерируется в операторе <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>, если
+стек словарей содержит лишь постоянные словари.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_directorynotempty">
+<title><errorname language="psi">directorynotempty</errorname></title>
+<para>
+Директория не пуста. Генерируется операторами, рассчитывающими, что директория
+пуста, при невыполнениии этого условия.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_fileaccessdenied">
+<title><errorname language="psi">fileaccessdenied</errorname></title>
+<para>
+Ошибка доступа к файлу.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_fileexists">
+<title><errorname language="psi">fileexists</errorname></title>
+<para>
+Файл существует. Генерируется операторами, рассчитывающими, что файл не
+существует, при невыполнениии этого условия.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_filenotfound">
+<title><errorname language="psi">filenotfound</errorname></title>
+<para>
+Файл не найден. Генерируется операторами, рассчитывающими, что файл
+существует, при невыполнениии этого условия.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_invalidcontext">
+<title><errorname language="psi">invalidcontext</errorname></title>
+<para>
+Неверный контекст.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_invalidexit">
+<title><errorname language="psi">invalidexit</errorname></title>
+<para>
+Неправильный <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_exit"/>. Генерируется оператором <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>
+при попытке его вызова вне циклического контекста.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_invalidexternal">
+<title><errorname language="psi">invalidexternal</errorname></title>
+<para>
+Неправильный внешний класс. Генерируется при загрузке внешнего класса или
+создании объекта этого класса, если класс не найден на пути поиска, не
+реализует интерфейс <classname>coneforest.psi.PsiObject</classname> или не
+имеет общего конструктора без аргументов.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_invalidregexp">
+<title><errorname language="psi">invalidregexp</errorname></title>
+<para>
+Неправильное регулярное выражение. Генерируется парсером или оператором <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_regexp"/>
+при обнаружении синтаксической ошибки в регулярном выражении.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_invalidstate">
+<title><errorname language="psi">invalidstate</errorname></title>
+<para>
+Неправильное состояние. Генерируется, если исполнение оператора невозможно
+при имеющемся состоянии операнда.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_ioerror">
+<title><errorname language="psi">ioerror</errorname></title>
+<para>
+Ошибка ввода/вывода.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_limitcheck">
+<title><errorname language="psi">limitcheck</errorname></title>
+<para>
+Превышение установленных ограничений.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_notlink">
+<title><errorname language="psi">notlink</errorname></title>
+<para>
+Не ссылка.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_rangecheck">
+<title><errorname language="psi">rangecheck</errorname></title>
+<para>
+Операнд выходит за границы допустимого диапазона.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_securityerror">
+<title><errorname language="psi">securityerror</errorname></title>
+<para>
+Нарушение политики безопасности.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_stackunderflow">
+<title><errorname language="psi">stackunderflow</errorname></title>
+<para>
+Недополнение стека операндов. Ошибка генерируется, если стек операндов содержит
+меньше операндов, чем требуется оператору.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_syntaxerror">
+<title><errorname language="psi">syntaxerror</errorname></title>
+<para>
+Синтаксическая ошибка.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_typecheck">
+<title><errorname language="psi">typecheck</errorname></title>
+<para>
+Несоответствие типов. Ошибка генерируется, если тип операндов не тот,
+на который рассчитывает оператор.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_undefined">
+<title><errorname language="psi">undefined</errorname></title>
+<para>
+Неизвестный ключ. Генерируется операторами, извлекающими ассоциированное
+с ключом значение из словаря, при отсутствии ключа в словаре. Также
+генерируется парсером при исполнении команды, с именем которой не ассоциирован
+объект в стеке словарей.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_undefinedresult">
+<title><errorname language="psi">undefinedresult</errorname></title>
+<para>
+Неопределённый результат. Генерируется, если результат операции не
+определён, например, при попытке целочисленного деления на ноль в операторе
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_idiv"/>.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_unmatchedmark">
+<title><errorname language="psi">unmatchedmark</errorname></title>
+<para>
+Непарная метка. Генерируется операторами, принимающими список операндов
+неопределённой длины, при отсутствии метки, ограничивающей список в стеке
+операндов.
+</para>
+</section>
+
+<section xml:id="PsiReference_Errors_Details_unsupported">
+<title><errorname language="psi">unsupported</errorname></title>
+<para>
+Генерируется операторами, пытающимися выполнить неподдерживаемую операцию.
+</para>
+</section>
+
+</section>
+
+</chapter>

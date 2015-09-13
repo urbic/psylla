@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_slice">
+<title><token language="psi">slice</token></title>
+
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">slice</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_getall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_getinterval"/>.
+</formalpara>
+
+</section>

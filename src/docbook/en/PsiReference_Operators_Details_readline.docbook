@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_readline">
+<title><token language="psi">readline</token></title>
+
+<synopsis>
+<replaceable>источник</replaceable>
+<token language="psi">readline</token>
+<replaceable>строка</replaceable>
+<constant>true</constant>
+<sbr/>
+<replaceable>источник</replaceable>
+<token language="psi">readline</token>
+<constant>false</constant>
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
+</listitem>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+</listitem>
+<listitem>
+<constant>false</constant>,
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Пытается прочитать из <replaceable>источника</replaceable>
+<replaceable>строку</replaceable>, ограниченную терминатором строк, принятым
+на данной платформе, или концом источника. Терминатор становится частью
+прочитанной <replaceable>строки</replaceable>. Возвращает также булевское
+значение, показывающее успешность операции. 
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

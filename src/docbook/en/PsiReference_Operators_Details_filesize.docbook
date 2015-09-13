@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_filesize">
+<title><token language="psi">filesize</token></title>
+
+<synopsis>
+<replaceable>имя</replaceable>
+<token language="psi">filesize</token>
+<replaceable>размер</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>размер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>размер</replaceable> (в байтах) для файла или
+директории с заданным <replaceable>именем</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
+с заданным <replaceable>именем</replaceable> не существует; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
+безопасности.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">'/etc/passwd' filesize	▶ 2186
+'/etc' filesize			▶ 5302</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fileaccesstime"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filecreationtime"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filemodifiedtime"/>.
+</formalpara>
+
+</section>
