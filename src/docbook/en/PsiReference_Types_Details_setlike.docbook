@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_setlike">
+<title><type>setlike</type></title>
+
+<para>
+XXX
+</para>
+
+<formalpara>
+<title>Наследует:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>.
+</formalpara>
+
+</section>

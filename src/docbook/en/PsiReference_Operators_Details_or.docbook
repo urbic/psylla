@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_or">
+<title><token language="psi">or</token></title>
+
+<synopsis>
+<replaceable>операнд<subscript>1</subscript></replaceable>
+<replaceable>операнд<subscript>2</subscript></replaceable>
+<token language="psi">or</token>
+<replaceable>дизъюнкция</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>операнд<subscript>1</subscript></replaceable>,
+<replaceable>операнд<subscript>2</subscript></replaceable>,
+<replaceable>дизъюнкция</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>дизъюнкцию</replaceable> двух
+<replaceable>операндов</replaceable>.
+</para>
+
+<para>
+Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
+дизъюнкция. Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> или типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
+вычисляется побитовая дизъюнкция.
+</para>
+
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">false false or	▶ false
+false true or	▶ true
+true false or	▶ true
+true true or	▶ true
+
+12 6 or			▶ 14</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitshift"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

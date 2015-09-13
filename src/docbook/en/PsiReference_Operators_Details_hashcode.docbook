@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_hashcode">
+<title><token language="psi">hashcode</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">hashcode</token>
+<replaceable>хэш-код</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>код</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>хэш-код</replaceable>
+<replaceable>объекта</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">true hashcode	▶ 1231
+55 hashcode		▶ 55</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<!--formalpara>
+<title>See also:</title>
+</formalpara-->
+
+</section>

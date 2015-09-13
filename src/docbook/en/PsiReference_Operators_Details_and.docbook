@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_and">
+<title><token language="psi">and</token></title>
+
+<synopsis>
+<replaceable>operand<subscript>1</subscript></replaceable>
+<replaceable>operand<subscript>2</subscript></replaceable>
+<token language="psi">and</token>
+<replaceable>conjunction</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>operand<subscript>1</subscript></replaceable>,
+<replaceable>operand<subscript>2</subscript></replaceable>,
+<replaceable>conjunction</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Returns a <replaceable>conjunction</replaceable> of two
+<replaceable>operand</replaceable>s.
+</para>
+
+<para>
+Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
+конъюнкция. Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> или типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
+вычисляется побитовая конъюнкция.
+</para>
+
+<formalpara>
+<title>Examples:</title>
+<programlisting language="psi">false false and	▶ false
+false true and	▶ false
+true false and	▶ false
+true true and	▶ true
+
+12 6 and		▶ 4</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitshift"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

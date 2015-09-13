@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_join">
+<title><token language="psi">join</token></title>
+
+<synopsis>
+<replaceable>контекст</replaceable>
+<token language="psi">join</token>
+<constant>mark</constant>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контекст</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_context"/>
+</listitem>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+…,
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<remark>TODO</remark>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidcontext"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>.
+</formalpara>
+
+</section>

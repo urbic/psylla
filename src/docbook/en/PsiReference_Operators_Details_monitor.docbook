@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_monitor">
+<title><token language="psi">monitor</token></title>
+
+<synopsis>
+<replaceable>замок</replaceable>
+<replaceable>процедура</replaceable>
+<token language="psi">monitor</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>замок</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lock"/>
+</listitem>
+<listitem>
+<replaceable>процедура</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidcontext"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_condition"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_lock"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notify"/>.
+</formalpara>
+
+</section>

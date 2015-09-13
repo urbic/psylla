@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_replicate">
+<title><token language="psi">replicate</token></title>
+
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>количество</replaceable>
+<token language="psi">replicate</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>количество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>контейнер</replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает в качестве <replaceable>результата</replaceable> новый контейнер,
+полученный из <replaceable>контейнера</replaceable> многократным повторением
+списка его элементов.
+</para>
+
+<para>
+Если <replaceable>количество</replaceable> отрицательно, генерирует <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
+Если длина <replaceable>контейнера</replaceable>, умноженная
+на <replaceable>количество</replaceable>, превышает максимально возможную длину
+контейнера, генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ 0 1 2 ] 4 replicate	▶ [ 0 1 2 0 1 2 0 1 2 0 1 2 ]
+"xyz" 4 replicate		▶ "xyzxyzxyzxyz"</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

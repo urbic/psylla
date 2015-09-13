@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_length">
+<title><token language="psi">length</token></title>
+
+<synopsis>
+<replaceable>контейнер</replaceable>
+<token language="psi">length</token>
+<replaceable>длина</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>
+</listitem>
+<listitem>
+<replaceable>длина</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>длину</replaceable>
+<replaceable>контейнера</replaceable>, то есть количество содержащихся в нём
+элементов. Для словарей возвращается количество определённых в нём ключей.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ 0 1 2 3 ] length			▶ 4
+&lt; /x 0 /y 1 /z 2 &gt; length	▶ 3
+( /x /y /z ) length			▶ 3
+"abcd" length				▶ 4
+/abcd length				▶ 4</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_setlength"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_clearable">
+<title><type>clearable</type></title>
+
+<para>
+Тип контейнеров, для которых предусмотрена очистка (удаление всех содержащихся
+в контейнере объектов).
+</para>
+
+</section>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_end">
+<title><token language="psi">end</token></title>
+
+<synopsis>
+— <token language="psi">end</token> —
+</synopsis>
+
+<para>
+Удаляет верхний словарь со стека словарей.
+</para>
+
+<para>
+При попытке удалить постоянный словарь генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countdictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dictstack"/>.
+</formalpara>
+
+</section>

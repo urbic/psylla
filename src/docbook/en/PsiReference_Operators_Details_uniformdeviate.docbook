@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_uniformdeviate">
+<title><token language="psi">uniformdeviate</token></title>
+
+<synopsis>
+<replaceable>генератор</replaceable>
+<replaceable>граница</replaceable>
+<token language="psi">uniformdeviate</token>
+<replaceable>случайное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>генератор</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
+</listitem>
+<listitem>
+<replaceable>граница</replaceable>,
+<replaceable>случайное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает очередное равномерно распределённое
+<replaceable>случайное</replaceable> число для заданного
+<replaceable>генератора</replaceable> псевдослучайных чисел. Результат
+ограничен нулём (включительно) и <replaceable>границей</replaceable> (не
+включительно). Тип <replaceable>случайного</replaceable> совпадает с типом
+<replaceable>границы</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, если
+<replaceable>граница</replaceable> имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> и неположительна.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">stdrandom 1. uniformdeviate	▶ 0.6520579058825042
+stdrandom 5 uniformdeviate	▶ 4</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_normaldeviate"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdrandom"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_uniformboolean"/>.
+</formalpara>
+
+</section>

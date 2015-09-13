@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_pstack">
+<title><token language="psi">pstack</token></title>
+
+<synopsis>
+—
+<token language="psi">pstack</token>
+—
+</synopsis>
+
+<para>
+Выводит на стандартный вывод содержимое стека операндов.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+</section>

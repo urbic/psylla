@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_complex">
+<title><token language="psi">complex</token></title>
+
+<synopsis>
+<replaceable>вещественная_часть</replaceable>
+<replaceable>мнимая_часть</replaceable>
+<token language="psi">close</token>
+<replaceable>комплексное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>вещественная_часть</replaceable>,
+<replaceable>мнимая_часть</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+<listitem>
+<replaceable>комплексное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает новое <replaceable>комплексное</replaceable> число с заданными
+<replaceable>вещественной_частью</replaceable> и
+<replaceable>мнимой_частью</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">0 1 complex	▶ -complex:0.0,1.0-</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_complexpolar"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_conjugate"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_im"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_re"/>.
+</formalpara>
+
+</section>

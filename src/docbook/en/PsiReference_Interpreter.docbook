@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsiReference_Interpreter">
+<title>Interpreter</title>
+
+<section xml:id="PsiReference_Interpreter_CLI">
+<title>Command Line Interface</title>
+
+<section xml:id="PsiReference_Interpreter_CLI_Synopsis">
+<title>Synopsis</title>
+
+<cmdsynopsis><command>psylla</command>
+<arg rep="repeat"><replaceable>option</replaceable></arg>
+<arg><option>--</option></arg>
+<arg><replaceable>program</replaceable>
+<arg rep="repeat"><parameter><replaceable>argument</replaceable></parameter></arg></arg></cmdsynopsis>
+
+</section>
+
+<section xml:id="PsiReference_Interpreter_CommandLineParameters">
+<title>Command Line Parameters</title>
+
+<variablelist>
+
+<varlistentry>
+<term><parameter><replaceable>options</replaceable></parameter>
+</term>
+<listitem>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<option>--help</option>,
+<option>--usage</option>,
+<option>-h</option>,
+<option>-?</option>
+</term>
+<listitem>
+Show options summary.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--version</option>,
+<option>-V</option>
+</term>
+<listitem>
+Show the version of the interpreter.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--eval</option>,
+<option>-e</option>
+<parameter><replaceable>expression</replaceable></parameter>
+</term>
+<listitem>
+Evaluate an <parameter><replaceable>expression</replaceable></parameter>
+consisting of Ψ commands.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--classpath</option>,
+<option>--cp</option>
+<parameter><replaceable>path</replaceable></parameter>
+</term>
+<listitem>
+Additional extensions class path including directories and jar archives.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--console-encoding</option>,
+<option>-C</option>
+<parameter><replaceable>encoding</replaceable></parameter>
+</term>
+<listitem>
+Set the <replaceable>encoding</replaceable> of the console.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>program</replaceable></parameter></term>
+<listitem>
+The name of a file containing Ψ <replaceable>program</replaceable>. The program
+is read from standard input when the hyphen is specified. If the
+<replaceable>program</replaceable> is not specified, run
+<acronym>REPL</acronym> (read—evaluate—print cycle).
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>argument</replaceable></parameter></term>
+<listitem>
+Argument passed to Ψ program.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</section>
+
+</section>
+
+</chapter>

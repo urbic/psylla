@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_halt">
+<title><token language="psi">halt</token></title>
+
+<synopsis>
+<replaceable>статус</replaceable>
+<token language="psi">halt</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>статус</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Завершает исполнение программы с заданным <replaceable>статусом</replaceable>.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_quit"/>.
+</formalpara>
+
+</section>

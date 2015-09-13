@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_filewriter">
+<title><token language="psi">filewriter</token></title>
+
+<synopsis>
+<replaceable>имя</replaceable>
+<token language="psi">filewriter</token>
+<replaceable>писатель</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>писатель</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filewriter"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает новый файловый <replaceable>писатель</replaceable> для файла
+с заданным <replaceable>именем</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, если файл
+<replaceable>имя</replaceable> отсутствует или является директорией.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_write"/>.
+</formalpara>
+
+</section>

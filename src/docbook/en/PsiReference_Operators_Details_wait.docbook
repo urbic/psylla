@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_wait">
+<title><token language="psi">wait</token></title>
+
+<synopsis>
+<replaceable>условие</replaceable>
+<token language="psi">wait</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>условие</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_condition"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_condition"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_lock"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_monitor"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notify"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_false">
+<title><token language="psi">false</token></title>
+
+<synopsis>
+—
+<token language="psi">false</token>
+<constant>false</constant>
+<itemizedlist>
+<listitem>
+<constant>false</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Булевское значение <constant>false</constant>. Не оператор, а значение
+в системном словаре.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_true"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

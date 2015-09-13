@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_systemdict">
+<title><token language="psi">systemdict</token></title>
+
+<synopsis>
+— <token language="psi">systemdict</token>
+<replaceable>словарь</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Системный <replaceable>словарь</replaceable>. Не оператор, а значение
+в системном словаре.
+</para>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_userdict"/>.
+</formalpara>
+
+</section>

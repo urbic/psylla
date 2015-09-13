@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_dup">
+<title><token language="psi">dup</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">dup</token>
+<replaceable>объект</replaceable>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Копирует верхний <replaceable>объект</replaceable> в стеке операндов.
+</para>
+
+<para>
+Копируется только объект, но не его значение. При копировании композитных
+объектов их значение остаётся общим.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">2 dup		▶ 2 2
+[ 1 2 ] dup	▶ [ 1 2 ] [ 1 2 ]	# Тот же самый массив</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_copy"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>.
+</formalpara>
+
+</section>

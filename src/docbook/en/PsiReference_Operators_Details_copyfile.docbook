@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_copyfile">
+<title><token language="psi">copyfile</token></title>
+
+<synopsis>
+<replaceable>существующий</replaceable>
+<replaceable>новый</replaceable>
+<token language="psi">copyfile</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>существующий</replaceable>,
+<replaceable>новый</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Копирует файл с именем <replaceable>существующий</replaceable> под новым именем
+<replaceable>новый</replaceable>.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_fileexists"/>, если файл или директория
+с именем <replaceable>новый</replaceable> существует; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+если файл <replaceable>существующий</replaceable> не существует; TODO <xref
+xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_directorynotempty"/>; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/>, при нарушении политики
+безопасности; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unsupported"/>, если операция не
+поддерживается платформой.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_directorynotempty"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unsupported"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_hardlink"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_symlink"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_arraytomark">
+<title><token language="psi">arraytomark</token></title>
+
+<synopsis>
+<constant>mark</constant>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>
+<token language="psi">arraytomark</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>объект<subscript>0</subscript></replaceable>
+…
+<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает новый <replaceable>массив</replaceable>, заполненный объектами,
+расположенными над самой верхней меткой в стеке операндов. Объекты и метка
+удаляются из стека.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
+содержит метки.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">mark 0 "hello" false arraytomark	▶ [ 0 "hello" false ]</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_["/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_array"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>.
+</formalpara>
+
+</section>

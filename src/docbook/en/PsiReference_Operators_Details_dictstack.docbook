@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_dictstack">
+<title><token language="psi">dictstack</token></title>
+
+<synopsis>
+—
+<token language="psi">dictstack</token>
+<replaceable>массив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает в <replaceable>массиве</replaceable> содержимое стека словарей.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countdictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>.
+</formalpara>
+
+</section>

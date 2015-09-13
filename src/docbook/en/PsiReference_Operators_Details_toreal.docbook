@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_toreal">
+<title><token language="psi">toreal</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psi">toreal</token>
+<replaceable>вещественное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoreal"/>
+</listitem>
+<listitem>
+<replaceable>вещественное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+</section>

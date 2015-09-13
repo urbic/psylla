@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_load">
+<title><token language="psi">load</token></title>
+
+<synopsis>
+<replaceable>ключ</replaceable>
+<token language="psi">load</token>
+<replaceable>объект</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Ищет <replaceable>ключ</replaceable> в стеке словарей и возвращает
+ассоциированный с ним <replaceable>объект</replaceable>. Поиск производится
+от вершины стека к основанию.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefined"/>, если
+<replaceable>ключ</replaceable> не найден.
+</para>
+
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">/add load	▶ --add--</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentdict"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_def"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_get"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_known"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_store"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_undef"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_where"/>.
+</formalpara>
+
+</section>

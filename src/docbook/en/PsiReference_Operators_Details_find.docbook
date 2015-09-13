@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_find">
+<title><token language="psi">find</token></title>
+
+<synopsis>
+<replaceable>матчер</replaceable>
+<token language="psi">find</token>
+<replaceable>матчер</replaceable>
+<constant>true</constant>
+<sbr/>
+<replaceable>матчер</replaceable>
+<token language="psi">find</token>
+<constant>false</constant>
+<itemizedlist>
+<listitem>
+<replaceable>матчер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_matcher"/>
+</listitem>
+<listitem>
+<constant>false</constant>,
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroup"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupcount"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>.
+</formalpara>
+
+</section>

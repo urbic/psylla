@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_isfile">
+<title><token language="psi">isfile</token></title>
+
+<synopsis>
+<replaceable>имя</replaceable>
+<token language="psi">isfile</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>имя</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
+является именем обычного файла, и <constant>false</constant> в противном
+случае.
+</para>
+
+<para>
+Если файл или директория с заданным <replaceable>именем</replaceable> не
+существует, генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>. При ошибке ввода/вывода
+генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
+безопасности генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/>.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_isdirectory"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_issymlink"/>.
+</formalpara>
+
+</section>

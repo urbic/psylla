@@ -32,7 +32,7 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 </para>
 
 <formalpara>
-<title>Пример:</title>
+<title>Примеры:</title>
 <programlisting language="psi">false false and	▶ false
 false true and	▶ false
 true false and	▶ false

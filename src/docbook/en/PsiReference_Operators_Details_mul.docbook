@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_mul">
+<title><token language="psi">mul</token></title>
+
+<synopsis>
+<replaceable>множитель<subscript>1</subscript></replaceable>
+<replaceable>множитель<subscript>2</subscript></replaceable>
+<token language="psi">mul</token>
+<replaceable>произведение</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>множитель<subscript>1</subscript></replaceable>,
+<replaceable>множитель<subscript>2</subscript></replaceable>,
+<replaceable>произведение</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>произведение</replaceable> двух <replaceable>множителей</replaceable>.
+</para>
+
+<para>
+Если оба операнда имеют тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, и результат принадлежит
+диапазону <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, тип результата будет <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>. Если
+хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/>, таким же будет тип результата.
+Если хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_add"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sub"/>.
+</formalpara>
+
+</section>

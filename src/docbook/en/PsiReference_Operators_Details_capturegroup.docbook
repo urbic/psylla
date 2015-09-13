@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_capturegroup">
+<title><token language="psi">capturegroup</token></title>
+
+<synopsis>
+<replaceable>матчер</replaceable>
+<replaceable>индекс</replaceable>
+<token language="psi">capturegroup</token>
+<replaceable>группа</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>матчер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_matcher"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+| <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>группа</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+| <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>группу</replaceable> с заданным
+<replaceable>индексом</replaceable>, захваченную во время последней операции
+поиска для заданного <replaceable>матчера</replaceable>. Если поиск прошёл
+успешно, но указанная <replaceable>группа</replaceable> не захватывает никакую
+часть входной строки, возвращает <constant>null</constant>.
+</para>
+
+<para>
+Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> группа выбирается по её номеру.
+Группы захвата в шаблоне пронумерованы начиная с <constant>1</constant>. Группа
+с номером <constant>0</constant> соответствует всему шаблону. Для отрицательных
+индексов или индексов, превышающих количество групп, генерируется <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
+</para>
+
+<para>
+Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_stringy"/> возвращается именованная группа
+по её имени. При отсутствии группы с заданным именем генерируется <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+</para>
+
+<para>
+Если для заданного <replaceable>матчера</replaceable> ещё не выполнялась
+операция поиска или последний поиск не принёс результатов, генерируется <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_find"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupcount"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>.
+</formalpara>
+
+</section>

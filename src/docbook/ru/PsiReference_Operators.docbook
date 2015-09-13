@@ -1025,7 +1025,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_random" xrefstyle="template:%t"/></term>
-<listitem>создание нового генератора псевдослучайных чисел</listitem>
+<listitem>создание генератора псевдослучайных чисел</listitem>
 </varlistentry>
 
 <varlistentry>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_undef">
+<title><token language="psi">undef</token></title>
+
+<synopsis>
+<replaceable>ключ</replaceable>
+<replaceable>словарь</replaceable>
+<token language="psi">undef</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>ключ</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>словарь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Удаляет <replaceable>ключ</replaceable> и связанное с ним значение
+из <replaceable>словаря</replaceable>. Отсутствие ключа
+в <replaceable>словаре</replaceable> ошибки не вызывает.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentdict"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_def"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_get"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_known"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_load"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_where"/>.
+</formalpara>
+
+</section>

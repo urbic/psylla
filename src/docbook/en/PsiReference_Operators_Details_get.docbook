@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_get">
+<title><token language="psi">get</token></title>
+
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>ключ</replaceable>
+<token language="psi">get</token>
+<replaceable>элемент</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>ключ</replaceable>,
+<replaceable>элемент</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>элемент</replaceable> индексированного
+<replaceable>контейнера</replaceable>, ассоциированный с заданным
+<replaceable>ключом</replaceable>.
+</para>
+
+<para>
+Тип ключа должен соответствовать типу контейнера (для контейнеров типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/> —
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>,
+для <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_dictlike"/> — <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_stringy"/>), в противном случае
+генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_typecheck"/>.
+</para>
+
+<para>
+Для <replaceable>контейнера</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_arraylike"/>
+<replaceable>ключ</replaceable> служит индексом в массиве. При выходе индекса
+за допустимые границы генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>.
+</para>
+
+<para>
+Для <replaceable>контейнера</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_dictlike"/>
+при отсутствии <replaceable>ключа</replaceable> в словаре генерируется <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ /a /b /c /d ] 2 get		▶ /c
+"abcd" 2 get				▶ 99
+&lt; /x 0 /y 1 /z 2 &gt; /y get	▶ 1</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_getall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_getinterval"/>.
+</formalpara>
+
+</section>

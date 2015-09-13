@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_array">
+<title><token language="psi">array</token></title>
+
+<synopsis>
+— <token language="psi">array</token> <replaceable>array</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>array</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Returns new empty <replaceable>array</replaceable>.
+</para>
+
+<formalpara>
+<title>Examples:</title>
+<programlisting language="psi">array	▶ []</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_["/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arraytomark"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_sqrt">
+<title><token language="psi">sqrt</token></title>
+
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">sqrt</token>
+<replaceable>квадратный_корень</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>квадратный_корень</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>квадратный_корень</replaceable> из
+<replaceable>числа</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">2 sqrt				▶ 1.4142135623730951
+-1 sqrt	 			▶ -complex:0.0,1.0-
+0 1 complex sqrt	▶ -complex:0.7071067811865476,0.7071067811865475-</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cbrt"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_pow"/>.
+</formalpara>
+
+</section>

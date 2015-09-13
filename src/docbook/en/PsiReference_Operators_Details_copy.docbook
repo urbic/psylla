@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_copy">
+<title><token language="psi">copy</token></title>
+
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+<token language="psi">copy</token>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
+копирует в стек операндов верхние <replaceable>n</replaceable> объектов.
+</para>
+
+<para>
+Копируются только объекты, но не их значения. При копировании композитных
+объектов их значение остаётся общим.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/> для отрицательного
+<replaceable>n</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">"A" "B" "C" 2 copy	▶ "A" "B" "C" "B" "C"
+1 2 3 0 copy		▶ 1 2 3</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exch"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
+</formalpara>
+
+</section>

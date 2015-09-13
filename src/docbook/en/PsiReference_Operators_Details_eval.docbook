@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_eval">
+<title><token language="psi">eval</token></title>
+
+<synopsis>
+<replaceable>вычисляемое</replaceable>
+<token language="psi">eval</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>вычисляемое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_evaluable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Интерпретирует <replaceable>вычисляемое</replaceable> как программу на языке Ψ.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">"1 2 add" eval	▶ 3</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+</section>

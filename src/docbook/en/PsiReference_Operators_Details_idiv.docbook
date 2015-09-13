@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_idiv">
+<title><token language="psi">idiv</token></title>
+
+<synopsis>
+<replaceable>делимое</replaceable>
+<replaceable>делитель</replaceable>
+<token language="psi">idiv</token>
+<replaceable>частное</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>делимое</replaceable>,
+<replaceable>делитель</replaceable>,
+<replaceable>частное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает результат целочисленного деления <replaceable>делимого</replaceable>
+на ненулевой <replaceable>делитель</replaceable>. Знак
+<replaceable>частного</replaceable> совпадает с произведением знаков операндов.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого
+<replaceable>делителя</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">17 3 idiv	▶ 5
+-17 3 idiv	▶ -5
+17 -3 idiv	▶ -5
+-17 -3 idiv	▶ 5</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mod"/>.
+</formalpara>
+
+</section>

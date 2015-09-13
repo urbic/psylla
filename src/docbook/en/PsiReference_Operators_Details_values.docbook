@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_values">
+<title><token language="psi">values</token></title>
+
+<synopsis>
+<replaceable>индексированное</replaceable>
+<token language="psi">values</token>
+<replaceable>перечисление</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>индексированное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>перечисление</replaceable> значений, содержащихся
+в <replaceable>индексированном</replaceable>.
+</para>
+
+<formalpara>
+<title>Пример:</title>
+<programlisting language="psi">&lt; /a 1 /b 2 /c 1 &gt; values {} forall	▶ 2 1 1
+[ /a /b /c ] values {} forall		▶ /a /b /c</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_entries"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_keys"/>.
+</formalpara>
+
+</section>

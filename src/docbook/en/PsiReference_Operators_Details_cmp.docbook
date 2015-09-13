@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_cmp">
+<title><token language="psi">cmp</token></title>
+
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psi">cmp</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>результат</replaceable> сравнения двух
+<replaceable>скаляров</replaceable>. Результат равен <constant>-1</constant>,
+если первый операнд меньше второго, <constant>0</constant>, если операнды равны
+и <constant>1</constant>, если первый операнд больше второго.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">1 2 cmp				▶ -1
+2 1. cmp			▶ 1
+"abc" "abcd" cmp	▶ -1
+/abcd "abc" cmp		▶ 1
+/abc "abc" cmp		▶ 0</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_ge"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_gt"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_le"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_lt"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_max"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_min"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sort"/>.
+</formalpara>
+
+</section>

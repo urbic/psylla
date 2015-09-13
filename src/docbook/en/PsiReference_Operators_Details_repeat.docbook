@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_repeat">
+<title><token language="psi">repeat</token></title>
+
+<synopsis>
+<replaceable>количество</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">repeat</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>количество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Вызывает <replaceable>объект</replaceable> заданное
+<replaceable>количество</replaceable> раз.
+</para>
+
+<para>
+Исполнение в <replaceable>процедуре</replaceable> оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>
+досрочно прерывает исполнение <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_repeat"/>.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>.
+</formalpara>
+
+</section>

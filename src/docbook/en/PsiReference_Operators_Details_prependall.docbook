@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_prependall">
+<title><token language="psi">prependall</token></title>
+
+<synopsis>
+<replaceable>контейнер</replaceable> <replaceable>перечисление</replaceable> <token language="psi">prependall</token> —
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_prependable"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Добавляет все объекты из <replaceable>перечисления</replaceable>
+в начало <replaceable>контейнера</replaceable>.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">[ /x /y ] dup [ 1 2 3 ] prependall	▶ [ 1 2 3 /x /y ]
+"abc" dup "xyz" prependall			▶ "xyzabc"</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_append"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_appendall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insert"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insertall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_prepend"/>.
+</formalpara>
+
+</section>

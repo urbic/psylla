@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_currentcontext">
+<title><token language="psi">currentcontext</token></title>
+
+<synopsis>
+—
+<token language="psi">currentcontext</token>
+<replaceable>контекст</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>контекст</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_context"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает текущий контекст исполнения.
+</para>
+
+<formalpara>
+<title>Errors:</title>
+none.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+</formalpara>
+
+</section>

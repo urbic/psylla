@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_extractinterval">
+<title><token language="psi">extractinterval</token></title>
+
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>индекс</replaceable>
+<replaceable>длина</replaceable>
+<token language="psi">extractinterval</token>
+<replaceable>подмассив</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>,
+<replaceable>подмассив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>,
+<replaceable>длина</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Удаляет из <replaceable>массива</replaceable> непрерывный фрагмент с заданными
+начальным <replaceable>индексом</replaceable> и
+<replaceable>длиной</replaceable>. Удалённый фрагмент возвращается
+в <replaceable>подмассиве</replaceable> того же типа, что и
+<replaceable>массив</replaceable>.
+</para>
+
+<para>
+Генерируется <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, если фрагмент не содержится
+в границах <replaceable>массива</replaceable>.
+</para>
+
+<formalpara>
+<title>Пример:</title>
+
+<programlisting language="psi">[ 2 3 5 7 11 13 ] dup 3 2 extractinterval	▶ [ 2 3 5 13 ] [ 7 11 ]
+"hello" dup 1 3 extractinterval				▶ "ho" "ell"</programlisting>
+
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_extract"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_remove">
+<title><token language="psi">remove</token></title>
+
+<synopsis>
+<replaceable>множество</replaceable>
+<replaceable>элемент</replaceable>
+<token language="psi">remove</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>множество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
+</listitem>
+<listitem>
+<replaceable>элемент</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Удаляет <replaceable>элемент</replaceable> из
+<replaceable>множества</replaceable>, если он там присутствует.
+<replaceable>Элемент</replaceable> считается присутствующим во
+<replaceable>множестве</replaceable>, если оно содержит равный ему
+элемент.
+</para>
+
+<formalpara>
+<title>Примеры:</title>
+<programlisting language="psi">( 0 1 2 3 4 ) dup 2 remove	▶ ( 0 1 3 4 )</programlisting>
+</formalpara>
+
+<formalpara>
+<title>Errors:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+<title>See also:</title>
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_removeall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_retainall"/>.
+</formalpara>
+
+</section>
