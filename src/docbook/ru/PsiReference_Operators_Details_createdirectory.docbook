@@ -20,12 +20,13 @@
 
 <para>
 Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_fileexists"/>, Если файл или директория
-с заданным <replaceable>именем</replaceable> существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
-безопасности.
+linkend="PsiReference_Errors_Details_fileaccessdenied"/>, если операция
+запрещена в результате проверки прав доступа; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_fileexists"/>, если файл или директория
+существует; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
+при нарушении политики безопасности.
 </para>
 
 <formalpara>
@@ -36,6 +37,11 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_deletefile"/>.
 </formalpara>
 
 </section>

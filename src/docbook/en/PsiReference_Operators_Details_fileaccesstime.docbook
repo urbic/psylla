@@ -3,35 +3,35 @@
 <title><token language="psi">fileaccesstime</token></title>
 
 <synopsis>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">fileaccesstime</token>
-<replaceable>время</replaceable>
+<replaceable>time</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>время</replaceable>:
+<replaceable>time</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>время</replaceable> последнего доступа (в миллисекундах
-с 1970.01.01 00:00:00 GMT) для файла с заданным
-<replaceable>именем</replaceable>.
+Returns the last access <replaceable>time</replaceable> (in milliseconds
+since 1970.01.01 00:00:00 GMT) for the file with the given
+<replaceable>name</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
-с заданным <replaceable>именем</replaceable> не существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
-безопасности.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
+does not exist; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/ouput error occures;
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated.
 </para>
 
 <formalpara>
@@ -52,7 +52,8 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filecreationtime"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filemodifiedtime"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filesize"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filesize"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_time"/>.
 </formalpara>
 
 </section>

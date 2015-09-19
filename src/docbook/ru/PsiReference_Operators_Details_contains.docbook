@@ -24,15 +24,21 @@
 </synopsis>
 
 <para>
-Возвращает булевское значение показывающее, принадлежит ли
-<replaceable>объект</replaceable> <replaceable>множеству</replaceable>. Объект
-считается принадлежащим множеству, если он равен некоторому элементу множества.
+Возвращает булевский <replaceable>результат</replaceable> показывающий,
+принадлежит ли <replaceable>объект</replaceable>
+<replaceable>множеству</replaceable>. Объект считается принадлежащим множеству,
+если он равен некоторому элементу множества.
 </para>
 
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_intersects"/>.
 </formalpara>
 
 </section>

@@ -3,28 +3,27 @@
 <title><token language="psi">complexpolar</token></title>
 
 <synopsis>
-<replaceable>модуль</replaceable>
-<replaceable>аргумент</replaceable>
+<replaceable>magnitude</replaceable>
+<replaceable>argument</replaceable>
 <token language="psi">complexpolar</token>
-<replaceable>комплексное</replaceable>
+<replaceable>complex_number</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>модуль</replaceable>,
-<replaceable>аргумент</replaceable>:
+<replaceable>magnitude</replaceable>,
+<replaceable>argument</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
-<replaceable>комплексное</replaceable>:
+<replaceable>complex_number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>комплексное</replaceable> число с данным
-<replaceable>модулем</replaceable> и <replaceable>аргументом</replaceable>.
+Returns a new <replaceable>complex_number</replaceable> with given
+<replaceable>magnitude</replaceable> and <replaceable>argument</replaceable>.
 </para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">1 3.141592653589793 complexpolar	▶ -complex:-1.0,1.2246467991473532E-16-</programlisting>

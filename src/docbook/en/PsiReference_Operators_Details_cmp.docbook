@@ -3,28 +3,35 @@
 <title><token language="psi">cmp</token></title>
 
 <synopsis>
-<replaceable>скаляр<subscript>1</subscript></replaceable>
-<replaceable>скаляр<subscript>2</subscript></replaceable>
+<replaceable>scalar<subscript>1</subscript></replaceable>
+<replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psi">cmp</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>скаляр<subscript>1</subscript></replaceable>,
-<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<replaceable>scalar<subscript>1</subscript></replaceable>,
+<replaceable>scalar<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>результат</replaceable> сравнения двух
-<replaceable>скаляров</replaceable>. Результат равен <constant>-1</constant>,
-если первый операнд меньше второго, <constant>0</constant>, если операнды равны
-и <constant>1</constant>, если первый операнд больше второго.
+Returns the <replaceable>result</replaceable> of the comparison of two
+<replaceable>scalars</replaceable>. The <replaceable>result</replaceable>
+equals to <constant>-1</constant> when
+<replaceable>scalar<subscript>1</subscript></replaceable> is less than
+<replaceable>scalar<subscript>2</subscript></replaceable>,
+<constant>0</constant> when
+<replaceable>scalar<subscript>1</subscript></replaceable> is equal to
+<replaceable>scalar<subscript>2</subscript></replaceable>, and
+<constant>1</constant> when
+<replaceable>scalar<subscript>1</subscript></replaceable> is greater than
+<replaceable>scalar<subscript>2</subscript></replaceable>.
 </para>
 
 <formalpara>
