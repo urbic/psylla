@@ -3,24 +3,24 @@
 <title><token language="psi">keys</token></title>
 
 <synopsis>
-<replaceable>индексированное</replaceable>
+<replaceable>indexed</replaceable>
 <token language="psi">keys</token>
-<replaceable>перечисление</replaceable>
+<replaceable>enumeration</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>индексированное</replaceable>:
+<replaceable>indexed</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>перечисление</replaceable> ключей
-из <replaceable>индексированного</replaceable>.
+Returns an <replaceable>enumeration</replaceable> of keys from
+the <replaceable>indexed</replaceable> container.
 </para>
 
 <formalpara>

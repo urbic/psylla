@@ -3,31 +3,31 @@
 <title><token language="psi">load</token></title>
 
 <synopsis>
-<replaceable>ключ</replaceable>
+<replaceable>key</replaceable>
 <token language="psi">load</token>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>ключ</replaceable>:
+<replaceable>key</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Ищет <replaceable>ключ</replaceable> в стеке словарей и возвращает
-ассоциированный с ним <replaceable>объект</replaceable>. Поиск производится
-от вершины стека к основанию.
+Looks for the <replaceable>key</replaceable> in the dictionary stack and
+returns an associated <replaceable>object</replaceable>. The search is
+performed from the top to the bottom of the stack.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefined"/>, если
-<replaceable>ключ</replaceable> не найден.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefined"/>, if the
+<replaceable>key</replaceable> is not found.
 </para>
 
 <formalpara>

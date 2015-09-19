@@ -3,30 +3,30 @@
 <title><token language="psi">known</token></title>
 
 <synopsis>
-<replaceable>словарь</replaceable>
-<replaceable>ключ</replaceable>
+<replaceable>indexed</replaceable>
+<replaceable>key</replaceable>
 <token language="psi">known</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+<replaceable>indexed</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>ключ</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+<replaceable>key</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>, если <replaceable>ключ</replaceable>
-содержится в <replaceable>словаре</replaceable>, и <constant>false</constant> в
-противном случае.
+Returns <constant>true</constant>, if the <replaceable>key</replaceable>
+contains in the <replaceable>indexed</replaceable> container, and
+<constant>false</constant> otherwise.
 </para>
 
 <formalpara>
@@ -38,7 +38,9 @@
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">&lt; /a 1 /b 2 /c 3 &gt;	/b known ▶ true
-&lt; /a 1 /b 2 /c 3 &gt;	/x known ▶ false</programlisting>
+&lt; /a 1 /b 2 /c 3 &gt; /x known ▶ false
+[ /x /y /z ] 1 known	▶ true
+[ /x /y /z ] 3 known	▶ false</programlisting>
 </formalpara>
 
 <formalpara>

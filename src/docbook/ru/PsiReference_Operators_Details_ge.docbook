@@ -20,7 +20,7 @@
 </synopsis>
 
 <para>
-Возвращается <constant>true</constant>, если
+Возвращает <constant>true</constant>, если
 <replaceable>скаляр<subscript>1</subscript></replaceable> больше либо равен
 <replaceable>скаляру<subscript>2</subscript></replaceable>, и
 <constant>false</constant> в противном случае.

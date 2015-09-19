@@ -3,19 +3,19 @@
 <title><token language="psi">halt</token></title>
 
 <synopsis>
-<replaceable>статус</replaceable>
+<replaceable>status</replaceable>
 <token language="psi">halt</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>статус</replaceable>:
+<replaceable>status</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Завершает исполнение программы с заданным <replaceable>статусом</replaceable>.
+Terminates the program execution with a given <replaceable>status</replaceable>.
 </para>
 
 <formalpara>

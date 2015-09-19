@@ -3,18 +3,18 @@
 <title><token language="psi">known</token></title>
 
 <synopsis>
-<replaceable>словарь</replaceable>
+<replaceable>индексированное</replaceable>
 <replaceable>ключ</replaceable>
 <token language="psi">known</token>
 <replaceable>результат</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+<replaceable>индексированное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
 <replaceable>ключ</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>результат</replaceable>:
@@ -25,8 +25,8 @@
 
 <para>
 Возвращает <constant>true</constant>, если <replaceable>ключ</replaceable>
-содержится в <replaceable>словаре</replaceable>, и <constant>false</constant> в
-противном случае.
+содержится в <replaceable>индексированном</replaceable>, и
+<constant>false</constant> в противном случае.
 </para>
 
 <formalpara>
@@ -38,7 +38,9 @@
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">&lt; /a 1 /b 2 /c 3 &gt;	/b known ▶ true
-&lt; /a 1 /b 2 /c 3 &gt;	/x known ▶ false</programlisting>
+&lt; /a 1 /b 2 /c 3 &gt;	/x known ▶ false
+[ /x /y /z ] 1 known	▶ true
+[ /x /y /z ] 3 known	▶ false</programlisting>
 </formalpara>
 
 <formalpara>

@@ -19,7 +19,7 @@
 </synopsis>
 
 <para>
-Returns <constant>true</constant>, if <replaceable>container</replaceable>
+Returns <constant>true</constant>, if the <replaceable>container</replaceable>
 is empty, and <constant>false</constant> otherwise.
 </para>
 

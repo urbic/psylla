@@ -3,24 +3,24 @@
 <title><token language="psi">hashcode</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">hashcode</token>
-<replaceable>хэш-код</replaceable>
+<replaceable>hashcode</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>код</replaceable>:
+<replaceable>hashcode</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>хэш-код</replaceable>
-<replaceable>объекта</replaceable>.
+Returns the <replaceable>object</replaceable>’s
+<replaceable>hashcode</replaceable>.
 </para>
 
 <formalpara>

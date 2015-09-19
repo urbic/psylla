@@ -6,7 +6,7 @@
 <section xml:id="PsiReference_Operators_ByCategory">
 <title>Сводка операторов по категориям</title>
 
-<section xml:id="PsiReference_Operators_ByCategory_StackManipulation">
+<section xml:id="PsiReference_Operators_ByCategory_OperandStackManipulation">
 <title>Операторы для манипуляций со стеком операндов</title>
 
 <variablelist>
@@ -863,7 +863,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_writestring" xrefstyle="template:%t"/></term>
-<listitem>вывод строкового значения в вывод или писатель</listitem>
+<listitem>вывод строки</listitem>
 </varlistentry>
 
 </variablelist>

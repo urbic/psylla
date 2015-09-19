@@ -2,28 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_ge">
 <title><token language="psi">ge</token></title>
 <synopsis>
-<replaceable>скаляр<subscript>1</subscript></replaceable>
-<replaceable>скаляр<subscript>2</subscript></replaceable>
+<replaceable>scalar<subscript>1</subscript></replaceable>
+<replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psi">ge</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>скаляр<subscript>1</subscript></replaceable>,
-<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<replaceable>scalar<subscript>1</subscript></replaceable>,
+<replaceable>scalar<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращается <constant>true</constant>, если
-<replaceable>скаляр<subscript>1</subscript></replaceable> больше либо равен
-<replaceable>скаляру<subscript>2</subscript></replaceable>, и
-<constant>false</constant> в противном случае.
+Returns <constant>true</constant>, if
+<replaceable>scalar<subscript>1</subscript></replaceable> is greater or equals
+to <replaceable>scalar<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
 </para>
 
 <formalpara>

@@ -3,7 +3,10 @@
 <title><token language="psi">appendall</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable> <replaceable>перечисление</replaceable> <token language="psi">appendall</token> —
+<replaceable>контейнер</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psi">appendall</token>
+—
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:

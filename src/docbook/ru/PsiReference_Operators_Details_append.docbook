@@ -3,7 +3,10 @@
 <title><token language="psi">append</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable> <replaceable>объект</replaceable> <token language="psi">append</token> —
+<replaceable>контейнер</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">append</token>
+—
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:

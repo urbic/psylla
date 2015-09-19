@@ -15,7 +15,7 @@
 </synopsis>
 
 <para>
-Возвращает текущий контекст исполнения.
+Возвращает текущий <replaceable>контекст</replaceable> исполнения.
 </para>
 
 <formalpara>

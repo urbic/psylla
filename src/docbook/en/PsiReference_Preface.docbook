@@ -28,8 +28,13 @@ fileref="../../../LICENSE"/></textobject></literallayout>
 
 </section>
 
-<section xml:id="PsiReference_Introduction_AboutThisManual">
-<title>About this Manual</title>
+<section xml:id="PsiReference_Introduction_AboutThisReference">
+<title>About this Reference</title>
+
+<para>
+This reference also available in <link
+xlink:href="../ru/PsiReference.xhtml">Russian</link>.
+</para>
 
 <para>
 Здесь описывается алгоритмический язык, очень похожий на PostScript. Это

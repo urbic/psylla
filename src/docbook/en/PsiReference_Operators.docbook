@@ -6,8 +6,8 @@
 <section xml:id="PsiReference_Operators_ByCategory">
 <title>Operators Summary by Category</title>
 
-<section xml:id="PsiReference_Operators_ByCategory_StackManipulation">
-<title>Stack Manipulation Operators</title>
+<section xml:id="PsiReference_Operators_ByCategory_OperandStackManipulation">
+<title>Operand Stack Manipulation Operators</title>
 
 <variablelist>
 
@@ -432,7 +432,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_Containers">
-<title>Операторы для работы с контейнерами и перечислениями</title>
+<title>Container and Enumeration Handling Operators</title>
 
 <variablelist>
 
@@ -463,7 +463,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_array" xrefstyle="template:%t"/></term>
-<listitem>создание пустого массива</listitem>
+<listitem>the creation of an array</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -503,12 +503,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clear" xrefstyle="template:%t"/></term>
-<listitem>опустошение контейнера</listitem>
+<listitem>the emptying the container</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cleardictstack" xrefstyle="template:%t"/></term>
-<listitem>удаление всех непостоянных словарей из стека словарей</listitem>
+<listitem>the removal of all non-permanent dictionaries from the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -518,7 +518,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_currentdict" xrefstyle="template:%t"/></term>
-<listitem>получение текущего словаря (верхнего в стеке словарей)</listitem>
+<listitem>current dictionary (the upper in the dictionary stack)</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -528,7 +528,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dict" xrefstyle="template:%t"/></term>
-<listitem>создание пустого словаря</listitem>
+<listitem>the creation of empty dictionary</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -624,7 +624,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_prepend" xrefstyle="template:%t"/></term>
-<listitem>добавление элемента в начало контейнера</listitem>
+<listitem>the addition an element to the beginning of the container</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -634,17 +634,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_put" xrefstyle="template:%t"/></term>
-<listitem>размещение объекта в контейнере по заданному ключу или индексу</listitem>
+<listitem>placing the object in a container for a given key or index</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_putinterval" xrefstyle="template:%t"/></term>
-<listitem>размещение всех объектов перечисления в массиве по заданному индексу</listitem>
+<listitem>placing all the objects from an enumeration in a container</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_remove" xrefstyle="template:%t"/></term>
-<listitem>удаление элемента из множества</listitem>
+<listitem>remove an element from a set</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -897,12 +897,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_fileaccesstime" xrefstyle="template:%t"/></term>
-<listitem>время последнего доступа к файлу</listitem>
+<listitem>last access time of the file</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_filecreationtime" xrefstyle="template:%t"/></term>
-<listitem>время создания файла</listitem>
+<listitem>file creation time</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -912,7 +912,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_filemodifiedtime" xrefstyle="template:%t"/></term>
-<listitem>время последнего изменения файла</listitem>
+<listitem>last modification time of the file</listitem>
 </varlistentry>
 
 <varlistentry>

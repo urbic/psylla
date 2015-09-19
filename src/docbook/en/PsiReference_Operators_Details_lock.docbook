@@ -5,17 +5,17 @@
 <synopsis>
 —
 <token language="psi">lock</token>
-<replaceable>замок</replaceable>
+<replaceable>lock</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>замок</replaceable>:
+<replaceable>lock</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lock"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новый <replaceable>замок</replaceable>.
+Returns a new <replaceable>lock</replaceable>.
 </para>
 
 <formalpara>
@@ -25,7 +25,8 @@ none.
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_condition"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_condition"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_monitor"/>.
 </formalpara>
 
 </section>

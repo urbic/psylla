@@ -15,8 +15,8 @@
 <replaceable>массив</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>
-…
+<replaceable>объект<subscript>1</subscript></replaceable>,
+…,
 <replaceable>объект<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
@@ -28,7 +28,8 @@
 </synopsis>
 
 <para>
-Возвращает содержимое стека операндов.
+Возвращает <replaceable>массив</replaceable>, содержащий все элементы стека
+операндов.
 </para>
 
 <formalpara>
@@ -38,6 +39,8 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arraytomark"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countstack"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>.
 </formalpara>

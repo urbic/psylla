@@ -3,23 +3,23 @@
 <title><token language="psi">or</token></title>
 
 <synopsis>
-<replaceable>операнд<subscript>1</subscript></replaceable>
-<replaceable>операнд<subscript>2</subscript></replaceable>
+<replaceable>operand<subscript>1</subscript></replaceable>
+<replaceable>operand<subscript>2</subscript></replaceable>
 <token language="psi">or</token>
-<replaceable>дизъюнкция</replaceable>
+<replaceable>disjunction</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>операнд<subscript>1</subscript></replaceable>,
-<replaceable>операнд<subscript>2</subscript></replaceable>,
-<replaceable>дизъюнкция</replaceable>:
+<replaceable>operand<subscript>1</subscript></replaceable>,
+<replaceable>operand<subscript>2</subscript></replaceable>,
+<replaceable>disjunction</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>дизъюнкцию</replaceable> двух
-<replaceable>операндов</replaceable>.
+Returns the <replaceable>disjunction</replaceable> of two
+<replaceable>operands</replaceable>.
 </para>
 
 <para>
