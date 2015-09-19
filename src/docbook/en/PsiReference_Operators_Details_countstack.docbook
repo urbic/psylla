@@ -32,12 +32,12 @@ Returns the number of objects in operand stack.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>.
 </formalpara>
 

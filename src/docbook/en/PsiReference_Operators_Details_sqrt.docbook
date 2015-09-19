@@ -3,21 +3,21 @@
 <title><token language="psi">sqrt</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">sqrt</token>
-<replaceable>квадратный_корень</replaceable>
+<replaceable>square_root</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>квадратный_корень</replaceable>:
+<replaceable>number</replaceable>,
+<replaceable>square_root</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>квадратный_корень</replaceable> из
-<replaceable>числа</replaceable>.
+Returns the <replaceable>square_root</replaceable> of the
+<replaceable>number</replaceable>.
 </para>
 
 <formalpara>
@@ -28,13 +28,13 @@
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cbrt"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_pow"/>.
 </formalpara>

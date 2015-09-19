@@ -27,12 +27,12 @@ Exchanges tho topmost operands in the operand stack.
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_pop"/>,

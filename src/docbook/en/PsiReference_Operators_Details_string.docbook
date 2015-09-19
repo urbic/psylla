@@ -24,7 +24,7 @@ Returns a new empty <replaceable>string</replaceable>.
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 

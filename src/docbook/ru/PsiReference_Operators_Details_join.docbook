@@ -31,14 +31,14 @@
 <remark>TODO</remark>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidcontext"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>.
 </formalpara>
 

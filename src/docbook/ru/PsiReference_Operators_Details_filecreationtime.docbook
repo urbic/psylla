@@ -40,7 +40,7 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 </formalpara>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
@@ -49,7 +49,7 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fileaccesstime"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filemodifiedtime"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filesize"/>.

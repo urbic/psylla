@@ -271,3 +271,6 @@
 <!ENTITY PsiReference_Operators_Details_writestring		SYSTEM "PsiReference_Operators_Details_writestring.docbook">
 <!ENTITY PsiReference_Operators_Details_xor				SYSTEM "PsiReference_Operators_Details_xor.docbook">
 <!ENTITY PsiReference_Operators_Details_yield			SYSTEM "PsiReference_Operators_Details_yield.docbook">
+
+<!ENTITY TitleErrors	"<title>Errors:</title>">
+<!ENTITY TitleSeeAlso	"<title>See also:</title>">

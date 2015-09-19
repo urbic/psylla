@@ -34,12 +34,12 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Ес�
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_("/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,

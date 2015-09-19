@@ -56,7 +56,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
 </para>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
@@ -64,7 +64,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_find"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroup"/>,

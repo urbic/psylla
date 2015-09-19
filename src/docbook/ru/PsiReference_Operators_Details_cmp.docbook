@@ -22,9 +22,9 @@
 
 <para>
 Возвращает <replaceable>результат</replaceable> сравнения двух
-<replaceable>скаляров</replaceable>. Результат равен <constant>-1</constant>,
-если первый операнд меньше второго, <constant>0</constant>, если операнды равны
-и <constant>1</constant>, если первый операнд больше второго.
+<replaceable>скаляров</replaceable>: <constant>-1</constant>, если первый
+операнд меньше второго, <constant>0</constant>, если операнды равны и
+<constant>1</constant>, если первый операнд больше второго.
 </para>
 
 <formalpara>
@@ -37,13 +37,13 @@
 </formalpara>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_ge"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_gt"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_le"/>,

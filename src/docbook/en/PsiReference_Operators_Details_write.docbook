@@ -3,40 +3,41 @@
 <title><token language="psi">write</token></title>
 
 <synopsis>
-<replaceable>вывод</replaceable>
-<replaceable>символ</replaceable>
+<replaceable>writer</replaceable>
+<replaceable>character</replaceable>
 <token language="psi">write</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>вывод</replaceable>:
+<replaceable>writer</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writable"/>
 </listitem>
 <listitem>
-<replaceable>символ</replaceable>:
+<replaceable>character</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Записывает <replaceable>символ</replaceable> в <replaceable>вывод</replaceable>.
+Writes a <replaceable>character</replaceable> to a <replaceable>writer</replaceable>.
 </para>
 
 <para>
-Генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_print"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_say"/>,

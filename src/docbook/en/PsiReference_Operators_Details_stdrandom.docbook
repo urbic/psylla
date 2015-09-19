@@ -14,7 +14,7 @@
 </para>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_normaldeviate"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_setseed"/>,

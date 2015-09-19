@@ -27,14 +27,14 @@ linkend="PsiReference_Errors_Details_fileexists"/>, если файл или д�
 с именем <replaceable>ссылка</replaceable> существует; <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
 при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>, при нарушении политики
+linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
 безопасности; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_unsupported"/>, если создание
 символических ссылок не поддерживается платформой.
 </para>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
@@ -44,7 +44,7 @@ linkend="PsiReference_Errors_Details_unsupported"/>, если создание
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_hardlink"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readlink"/>.
 </formalpara>

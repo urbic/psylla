@@ -34,12 +34,12 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Ес�
 </para>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 нет.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_("/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,

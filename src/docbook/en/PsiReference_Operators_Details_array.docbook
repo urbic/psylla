@@ -22,12 +22,12 @@ Returns a new empty <replaceable>array</replaceable>.
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_["/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arraytomark"/>.

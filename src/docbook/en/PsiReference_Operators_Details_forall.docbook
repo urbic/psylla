@@ -46,7 +46,7 @@ linkend="PsiReference_Errors_Details_concurrentmodification"/>, если
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>,
@@ -56,7 +56,7 @@ linkend="PsiReference_Errors_Details_concurrentmodification"/>, если
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_concurrentmodification"/>
 </formalpara>
 

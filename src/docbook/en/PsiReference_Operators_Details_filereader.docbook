@@ -24,7 +24,7 @@
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
@@ -32,7 +32,7 @@
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>.
 </formalpara>
 
