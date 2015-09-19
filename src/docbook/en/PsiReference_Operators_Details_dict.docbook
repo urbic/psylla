@@ -23,12 +23,12 @@ Returns a new empty <replaceable>dictionary</replaceable>.
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&lt;"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>.
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dicttomark"/>.

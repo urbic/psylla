@@ -44,7 +44,7 @@ linkend="PsiReference_Errors_Details_limitcheck"/>
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
@@ -52,7 +52,7 @@ linkend="PsiReference_Errors_Details_limitcheck"/>
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_length"/>.
 </formalpara>
 

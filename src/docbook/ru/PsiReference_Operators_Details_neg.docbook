@@ -46,13 +46,13 @@ linkend="PsiReference_Types_Details_complex"/> тип
 </formalpara>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_add"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sub"/>.
 </formalpara>

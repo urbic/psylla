@@ -19,7 +19,7 @@ Returns the <replaceable>number</replaceable> of objects in dictionary stack.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 

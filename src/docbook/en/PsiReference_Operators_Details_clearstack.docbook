@@ -4,32 +4,32 @@
 
 <synopsis>
 ⊢
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <token language="psi">clearstack</token>
 ⊢
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет все объекты из стека операндов.
+Removes all <replaceable>objects</replaceable> from the operand stack.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countstack"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cleartomark"/>,

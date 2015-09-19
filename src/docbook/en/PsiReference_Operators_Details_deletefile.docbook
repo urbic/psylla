@@ -3,34 +3,34 @@
 <title><token language="psi">deletefile</token></title>
 
 <synopsis>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">deletefile</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет файл или непустую директорию с заданным <replaceable>именем</replaceable>.
+Deletes a file or nonempty directory with a given <replaceable>name</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_directorynotempty"/>, если директория не
-пуста; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, если файл не существует;
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_directorynotempty"/>, if a directory is
+not empty; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if a file not exist;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
-безопасности.
+when input/outpit error occures; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when security policy is
+violated.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_directorynotempty"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,

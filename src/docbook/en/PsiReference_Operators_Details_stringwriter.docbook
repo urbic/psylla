@@ -3,30 +3,37 @@
 <title><token language="psi">stringwriter</token></title>
 
 <synopsis>
-<replaceable>строка</replaceable>
+<replaceable>string</replaceable>
 <token language="psi">stringwriter</token>
-<replaceable>писатель</replaceable>
+<replaceable>writer</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 <listitem>
-<replaceable>писатель</replaceable>:
+<replaceable>writer</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringwriter"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новый строковый <replaceable>писатель</replaceable> для заданной
-<replaceable>строки</replaceable>.
+Returns a new string <replaceable>writer</replaceable> for a given
+<replaceable>string</replaceable>.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stringreader"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_write"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
 </formalpara>
 
 </section>

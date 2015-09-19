@@ -3,30 +3,37 @@
 <title><token language="psi">stringreader</token></title>
 
 <synopsis>
-<replaceable>строка</replaceable>
+<replaceable>string</replaceable>
 <token language="psi">stringreader</token>
-<replaceable>читатель</replaceable>
+<replaceable>reader</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>читатель</replaceable>:
+<replaceable>reader</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringreader"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новый строковый <replaceable>читатель</replaceable> для заданной
-<replaceable>строки</replaceable>.
+Returns a new string <replaceable>reader</replaceable> for a given
+<replaceable>string</replaceable>.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readstring"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stringwriter"/>.
 </formalpara>
 
 </section>

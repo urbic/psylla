@@ -44,13 +44,13 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>
 </formalpara>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_grep"/>.
 </formalpara>

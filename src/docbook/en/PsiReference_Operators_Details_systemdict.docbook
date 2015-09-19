@@ -19,7 +19,7 @@
 </para>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_userdict"/>.
 </formalpara>
 

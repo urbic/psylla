@@ -38,7 +38,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,

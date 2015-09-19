@@ -19,7 +19,7 @@ Returns the <replaceable>number</replaceable> of objects in execution stack.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 

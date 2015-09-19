@@ -33,12 +33,12 @@
 </formalpara>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_("/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>,

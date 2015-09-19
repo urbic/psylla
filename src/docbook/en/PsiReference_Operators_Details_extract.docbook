@@ -40,7 +40,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
@@ -48,7 +48,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_extractinterval"/>.
 </formalpara>
 

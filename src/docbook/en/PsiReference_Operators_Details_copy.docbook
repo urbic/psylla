@@ -51,14 +51,14 @@ linkend="PsiReference_Errors_Details_rangecheck"/> для отрицатель�
 </formalpara>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exch"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,

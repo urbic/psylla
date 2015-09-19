@@ -14,12 +14,12 @@
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 none.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentcontext"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>,

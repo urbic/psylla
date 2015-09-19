@@ -32,13 +32,13 @@ linkend="PsiReference_Operators_Details_repeat"/>.
 </para>
 
 <formalpara>
-<title>Errors:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>See also:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_forall"/>,

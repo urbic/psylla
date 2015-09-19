@@ -43,14 +43,14 @@ stdrandom 5 uniformdeviate	▶ 4</programlisting>
 </formalpara>
 
 <formalpara>
-<title>Ошибки:</title>
+&TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>
-<title>Смотри также:</title>
+&TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_normaldeviate"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdrandom"/>,
