@@ -5,7 +5,7 @@
 <synopsis>
 <replaceable>вещественная_часть</replaceable>
 <replaceable>мнимая_часть</replaceable>
-<token language="psi">close</token>
+<token language="psi">complex</token>
 <replaceable>комплексное</replaceable>
 <itemizedlist>
 <listitem>

@@ -19,18 +19,18 @@
 </synopsis>
 
 <para>
-Возвращает <replaceable>размер</replaceable> (в байтах) для файла или
-директории с заданным <replaceable>именем</replaceable>.
+Returns the <replaceable>size</replaceable> (in bytes) for the file or
+directory with the given <replaceable>name</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
-с заданным <replaceable>именем</replaceable> не существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
-безопасности.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
+does not exist; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/ouput error occures;
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated.
 </para>
 
 <formalpara>

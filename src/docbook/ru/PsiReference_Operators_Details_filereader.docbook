@@ -3,7 +3,7 @@
 <title><token language="psi">filereader</token></title>
 
 <synopsis>
-<replaceable>файла</replaceable>
+<replaceable>имя</replaceable>
 <token language="psi">filereader</token>
 <replaceable>читатель</replaceable>
 <itemizedlist>
@@ -23,6 +23,13 @@
 с заданным <replaceable>именем</replaceable>.
 </para>
 
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, если файл не существует;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода.
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
@@ -33,7 +40,9 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_close"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readstring"/>.
 </formalpara>
 
 </section>

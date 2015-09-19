@@ -3,24 +3,32 @@
 <title><token language="psi">filereader</token></title>
 
 <synopsis>
-<replaceable>файла</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">filereader</token>
-<replaceable>читатель</replaceable>
+<replaceable>reader</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>файла</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>читатель</replaceable>:
+<replaceable>reader</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filereader"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новый файловый <replaceable>читатель</replaceable> для файла
-с заданным <replaceable>именем</replaceable>.
+Returns a new file <replaceable>reader</replaceable> for a file with the given
+<replaceable>name</replaceable>.
+</para>
+
+<para>
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the file does not
+exist; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures.
 </para>
 
 <formalpara>
@@ -33,7 +41,9 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_close"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readstring"/>.
 </formalpara>
 
 </section>

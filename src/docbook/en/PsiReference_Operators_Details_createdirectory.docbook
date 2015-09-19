@@ -3,29 +3,31 @@
 <title><token language="psi">createdirectory</token></title>
 
 <synopsis>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">createdirectory</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Создаёт директорию с заданным <replaceable>именем</replaceable>.
+Creates a new directory with the given <replaceable>name</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_fileexists"/>, Если файл или директория
-с заданным <replaceable>именем</replaceable> существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
-безопасности.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_fileaccessdenied"/>, if the operation is
+prohibited due to a file permission or other access check; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>, if
+file or directory exists; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when security policy is
+violated.
 </para>
 
 <formalpara>
@@ -36,6 +38,11 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_deletefile"/>.
 </formalpara>
 
 </section>

@@ -3,24 +3,25 @@
 <title><token language="psi">close</token></title>
 
 <synopsis>
-<replaceable>закрываемое</replaceable>
+<replaceable>cleseable</replaceable>
 <token language="psi">close</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>закрываемое</replaceable>:
+<replaceable>cleseable</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Закрывает объект ввода/вывода <replaceable>закрываемое</replaceable>.
+Closes the <replaceable>closeable</replaceable> input/output object.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures.
 </para>
 
 <formalpara>
