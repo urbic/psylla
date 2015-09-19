@@ -17,7 +17,7 @@ Returns a new empty <replaceable>array</replaceable>.
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">array	▶ []</programlisting>
 </formalpara>
 

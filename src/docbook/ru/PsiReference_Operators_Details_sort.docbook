@@ -33,6 +33,7 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_binarysearch"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cmp"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_ge"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_gt"/>,

@@ -35,7 +35,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">"A" "B" "C" 2 index	▶ "A" "B" "C" "A"
 1 2 3 0 index		▶ 1 2 3 3</programlisting>
 </formalpara>

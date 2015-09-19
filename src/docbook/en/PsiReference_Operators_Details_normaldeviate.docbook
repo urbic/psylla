@@ -30,7 +30,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">stdrandom 1 normaldeviate	▶ -1.7063823635594297
 stdrandom 1 normaldeviate	▶ -0.31851714465547504</programlisting>
 </formalpara>

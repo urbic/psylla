@@ -23,7 +23,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">1 sinh	▶ 1.1752011936438014</programlisting>
 </formalpara>
 

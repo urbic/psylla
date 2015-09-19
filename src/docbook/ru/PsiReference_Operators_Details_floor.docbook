@@ -28,7 +28,7 @@ linkend="PsiReference_Types_Details_real"/> <replaceable>пол</replaceable>
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">2 floor		▶ 2
 -2 floor 	▶ -2
 -2.0 floor 	▶ -2.0

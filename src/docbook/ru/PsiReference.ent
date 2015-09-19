@@ -75,6 +75,7 @@
 <!ENTITY PsiReference_Operators_Details_astore			SYSTEM "PsiReference_Operators_Details_astore.docbook">
 <!ENTITY PsiReference_Operators_Details_atan			SYSTEM "PsiReference_Operators_Details_atan.docbook">
 <!ENTITY PsiReference_Operators_Details_begin			SYSTEM "PsiReference_Operators_Details_begin.docbook">
+<!ENTITY PsiReference_Operators_Details_binarysearch	SYSTEM "PsiReference_Operators_Details_binarysearch.docbook">
 <!ENTITY PsiReference_Operators_Details_bind			SYSTEM "PsiReference_Operators_Details_bind.docbook">
 <!ENTITY PsiReference_Operators_Details_bitset			SYSTEM "PsiReference_Operators_Details_bitset.docbook">
 <!ENTITY PsiReference_Operators_Details_bitshift		SYSTEM "PsiReference_Operators_Details_bitshift.docbook">
@@ -272,5 +273,6 @@
 <!ENTITY PsiReference_Operators_Details_xor				SYSTEM "PsiReference_Operators_Details_xor.docbook">
 <!ENTITY PsiReference_Operators_Details_yield			SYSTEM "PsiReference_Operators_Details_yield.docbook">
 
+<!ENTITY TitleExamples	"<title>Примеры:</title>">
 <!ENTITY TitleErrors	"<title>Ошибки:</title>">
 <!ENTITY TitleSeeAlso	"<title>Смотри также:</title>">

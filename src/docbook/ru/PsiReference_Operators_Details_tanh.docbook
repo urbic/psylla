@@ -22,7 +22,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">1 tanh	▶ 0.7615941559557649</programlisting>
 </formalpara>
 

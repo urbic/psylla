@@ -23,7 +23,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">1 exp			▶ 2.718281828459045
 1 0 complex exp	▶ -complex:2.718281828459045,0.0-</programlisting>
 </formalpara>

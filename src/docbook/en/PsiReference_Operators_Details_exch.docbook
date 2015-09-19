@@ -22,7 +22,7 @@ Exchanges tho topmost operands in the operand stack.
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 2 exch	▶ 2 1</programlisting>
 </formalpara>
 

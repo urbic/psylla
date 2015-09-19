@@ -19,7 +19,7 @@ Returns a new empty <replaceable>string</replaceable>.
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">string	▶ ""</programlisting>
 </formalpara>
 

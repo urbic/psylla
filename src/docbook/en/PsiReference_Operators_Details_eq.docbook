@@ -44,7 +44,7 @@ linkend="PsiReference_Types_Details_stringy"/> считаются равными
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">3. 3 eq					▶ true	# Equal real and integer numbers
 1 0 complex 1. eq		▶ true	# Equal complex and real numbers
 "xyz" "xyz" eq			▶ true	# Strings with equal content are equal

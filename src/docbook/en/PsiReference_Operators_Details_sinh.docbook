@@ -23,7 +23,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 sinh	▶ 1.1752011936438014</programlisting>
 </formalpara>
 

@@ -18,7 +18,7 @@ Returns a new empty <replaceable>dictionary</replaceable>.
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">dict	▶ &lt;&gt;</programlisting>
 </formalpara>
 

@@ -38,7 +38,7 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">[ 0 1 2 ] dup 2 3 insert	▶ [ 0 1 3 2 ]
 [ 0 1 2 ] dup 3 3 insert	▶ [ 0 1 2 3 ]
 "abc" dup `X 2 insert		▶ "abXc"</programlisting>

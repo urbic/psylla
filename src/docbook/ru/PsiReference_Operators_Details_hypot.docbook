@@ -24,7 +24,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">3 4 hypot	▶ 5.0</programlisting>
 </formalpara>
 

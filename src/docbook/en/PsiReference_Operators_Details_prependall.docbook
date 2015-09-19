@@ -22,7 +22,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">[ /x /y ] dup [ 1 2 3 ] prependall	▶ [ 1 2 3 /x /y ]
 "abc" dup "xyz" prependall			▶ "xyzabc"</programlisting>
 </formalpara>

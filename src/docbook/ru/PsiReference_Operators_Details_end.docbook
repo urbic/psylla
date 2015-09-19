@@ -23,6 +23,7 @@ linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cleardictstack"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countdictstack"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dictstack"/>.
 </formalpara>

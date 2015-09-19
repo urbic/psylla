@@ -36,7 +36,7 @@ linkend="PsiReference_Errors_Details_limitcheck"/>
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">[ 0 1 2 3 ] dup 6 setlength	▶ [ 0 1 2 3 null null ]
 [ 0 1 2 3 ] dup 3 setlength	▶ [ 0 1 2 ]
 "abcd" dup 6 setlength		▶ "abcd\0\0"

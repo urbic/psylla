@@ -28,7 +28,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 2 cmp				▶ -1
 2 1. cmp			▶ 1
 "abc" "abcd" cmp	▶ -1

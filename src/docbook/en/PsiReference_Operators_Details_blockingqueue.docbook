@@ -32,7 +32,7 @@ the <replaceable>capacity</replaceable> is less than one.
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 blockingqueue	▶ -blockingqueue-</programlisting>
 </formalpara>
 

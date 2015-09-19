@@ -30,7 +30,7 @@ linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">1 log			▶ 0.0
 -1 log			▶ -complex:0.0,3.141592653589793-
 0 1 complex log	▶ -complex:0.0,1.5707963267948966-</programlisting>

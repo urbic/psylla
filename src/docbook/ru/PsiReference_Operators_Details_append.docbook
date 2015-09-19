@@ -25,7 +25,7 @@ linkend="PsiReference_Types_Details_arraylike"/> добавление проис
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">[ 0 1 2 ] dup 3 append		▶ [ 0 1 2 3 ]
 "abc" dup `d append			▶ "abcd"
 ( /x /y ) dup /z append		▶ ( /z /y /x )

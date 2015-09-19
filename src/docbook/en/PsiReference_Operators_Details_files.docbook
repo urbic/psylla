@@ -37,7 +37,7 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">'/' files {} forall	▶ '/boot' '/opt' '/srv' '/tmp' '/usr' '/var' '/etc' '/home' …</programlisting>
 </formalpara>
 

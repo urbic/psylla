@@ -24,6 +24,7 @@ public class PsiSystemDict
 					_astore.class,
 					_atan.class,
 					_begin.class,
+					_binarysearch.class,
 					_bind.class,
 					_bitset.class,
 					_bitshift.class,

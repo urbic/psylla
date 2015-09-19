@@ -19,7 +19,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">{ 1 2 add execstack exch pop } exec	▶ [ pop exch ]</programlisting>
 </formalpara>
 

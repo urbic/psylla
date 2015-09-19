@@ -477,6 +477,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_binarysearch" xrefstyle="template:%t"/></term>
+<listitem>binary search for the element in the array using the comparator</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bind" xrefstyle="template:%t"/></term>
 <listitem>рекурсивная замена имён операторов на сами операторы в массиве</listitem>
 </varlistentry>
@@ -1326,6 +1331,7 @@
 &PsiReference_Operators_Details_astore;
 &PsiReference_Operators_Details_atan;
 &PsiReference_Operators_Details_begin;
+&PsiReference_Operators_Details_binarysearch;
 &PsiReference_Operators_Details_bind;
 &PsiReference_Operators_Details_bitset;
 &PsiReference_Operators_Details_bitshift;

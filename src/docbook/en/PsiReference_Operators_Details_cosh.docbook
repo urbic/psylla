@@ -23,7 +23,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 cosh	▶ 1.543080634815244</programlisting>
 </formalpara>
 

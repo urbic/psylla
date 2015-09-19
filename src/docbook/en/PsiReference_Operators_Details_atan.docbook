@@ -29,7 +29,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 atan	▶ 0.7853981633974483</programlisting>
 </formalpara>
 

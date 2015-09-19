@@ -30,7 +30,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">[ "hello" "world" ] " " unite	▶ "hello world"</programlisting>
 </formalpara>
 

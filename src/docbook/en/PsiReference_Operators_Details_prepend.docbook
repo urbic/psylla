@@ -22,7 +22,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">[ 0 1 2 ] dup 3 prepend	▶ [ 3 0 1 2 ]
 "abc" dup `d prepend	▶ "dabc"</programlisting>
 </formalpara>

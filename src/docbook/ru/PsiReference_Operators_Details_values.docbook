@@ -24,7 +24,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">&lt; /a 1 /b 2 /c 1 &gt; values {} forall	▶ 2 1 1
 [ /a /b /c ] values {} forall		▶ /a /b /c</programlisting>
 </formalpara>
