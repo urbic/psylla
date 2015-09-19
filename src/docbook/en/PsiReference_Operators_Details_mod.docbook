@@ -3,30 +3,33 @@
 <title><token language="psi">mod</token></title>
 
 <synopsis>
-<replaceable>делимое</replaceable>
-<replaceable>делитель</replaceable>
+<replaceable>dividend</replaceable>
+<replaceable>divisor</replaceable>
 <token language="psi">mod</token>
-<replaceable>остаток</replaceable>
+<replaceable>remainder</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>делимое</replaceable>,
-<replaceable>делитель</replaceable>,
-<replaceable>остаток</replaceable>:
+<replaceable>dividend</replaceable>,
+<replaceable>divisor</replaceable>,
+<replaceable>remainder</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>остаток</replaceable> от деления
-<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
-Результат имеет тот же знак, что и делитель.
+Returns a <replaceable>remainder</replaceable> of dividing the
+<replaceable>dividend</replaceable> by the <replaceable>divisor</replaceable>.
+The <replaceable>remainder</replaceable> has the same sign as the
+<replaceable>divisor</replaceable>.
 </para>
 
 <para>
-Для нулевого <replaceable>делителя</replaceable> генерирует <xref
-xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/>, if the
+<replaceable>divisor</replaceable> is zero; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, if the
+<replaceable>divisor</replaceable> is negative.
 </para>
 
 <formalpara>
@@ -38,6 +41,7 @@ linkend="PsiReference_Errors_Details_undefinedresult"/>.
 
 <formalpara>
 &TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.

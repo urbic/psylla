@@ -3,22 +3,25 @@
 <title><token language="psi">prepend</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable> <replaceable>объект</replaceable> <token language="psi">prepend</token> —
+<replaceable>container</replaceable>
+<replaceable>object</replaceable>
+<token language="psi">prepend</token>
+—
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_prependable"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Добавляет <replaceable>объект</replaceable>
-в начало <replaceable>контейнера</replaceable>.
+Inserts the <replaceable>object</replaceable> to the beginning of the
+<replaceable>container</replaceable>.
 </para>
 
 <formalpara>

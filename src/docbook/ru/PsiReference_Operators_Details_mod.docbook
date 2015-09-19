@@ -19,14 +19,17 @@
 
 <para>
 Возвращает <replaceable>остаток</replaceable> от деления
-<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
-Результат имеет тот же знак, что и делитель.
+<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
+Знак <replaceable>остатка</replaceable> совпадает со знаком
+<replaceable>делителя</replaceable>.
 </para>
 
 <para>
-Для нулевого <replaceable>делителя</replaceable> генерирует <xref
-xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/>.
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/>, если
+<replaceable>делитель</replaceable> нулевой, <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, если
+<replaceable>делитель</replaceable> отрицательный.
 </para>
 
 <formalpara>
@@ -38,6 +41,7 @@ linkend="PsiReference_Errors_Details_undefinedresult"/>.
 
 <formalpara>
 &TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.

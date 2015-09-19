@@ -3,7 +3,10 @@
 <title><token language="psi">prepend</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable> <replaceable>объект</replaceable> <token language="psi">prepend</token> —
+<replaceable>контейнер</replaceable>
+<replaceable>объект</replaceable>
+<token language="psi">prepend</token>
+—
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -17,8 +20,8 @@
 </synopsis>
 
 <para>
-Добавляет <replaceable>объект</replaceable>
-в начало <replaceable>контейнера</replaceable>.
+Добавляет <replaceable>объект</replaceable> в начало
+<replaceable>контейнера</replaceable>.
 </para>
 
 <formalpara>

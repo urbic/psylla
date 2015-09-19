@@ -3,28 +3,28 @@
 <title><token language="psi">lt</token></title>
 
 <synopsis>
-<replaceable>скаляр<subscript>1</subscript></replaceable>
-<replaceable>скаляр<subscript>2</subscript></replaceable>
+<replaceable>scalar<subscript>1</subscript></replaceable>
+<replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psi">lt</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>скаляр<subscript>1</subscript></replaceable>,
-<replaceable>скаляр<subscript>2</subscript></replaceable>:
+<replaceable>scalar<subscript>1</subscript></replaceable>,
+<replaceable>scalar<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращается <constant>true</constant>, если
-<replaceable>скаляр<subscript>1</subscript></replaceable> меньше
-<replaceable>скаляра<subscript>2</subscript></replaceable>, и
-<constant>false</constant> в противном случае.
+Returns <constant>true</constant>, if
+<replaceable>scalar<subscript>1</subscript></replaceable> is less than
+<replaceable>scalar<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
 </para>
 
 <formalpara>

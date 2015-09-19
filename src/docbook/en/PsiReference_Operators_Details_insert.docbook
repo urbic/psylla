@@ -3,38 +3,39 @@
 <title><token language="psi">insert</token></title>
 
 <synopsis>
-<replaceable>массив</replaceable>
-<replaceable>индекс</replaceable>
-<replaceable>объект</replaceable>
+<replaceable>array</replaceable>
+<replaceable>index</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">insert</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
-<replaceable>индекс</replaceable>:
+<replaceable>index</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Вставляет <replaceable>объект</replaceable> в <replaceable>массив</replaceable>
-перед элементом с заданным <replaceable>индексом</replaceable> или в конец
-<replaceable>массива</replaceable>.
+Inserts the <replaceable>object</replaceable> into the
+<replaceable>array</replaceable> before the element with the given
+<replaceable>index</replaceable> or at the end of the
+<replaceable>array</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если
-<replaceable>индекс</replaceable> отрицателен или больше длины
-<replaceable>массива</replaceable>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, if the
+<replaceable>index</replaceable> is negative or is greater than the length of
+the <replaceable>array</replaceable>.
 </para>
 
 <formalpara>

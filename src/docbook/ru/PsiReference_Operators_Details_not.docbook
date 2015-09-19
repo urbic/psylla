@@ -3,20 +3,20 @@
 <title><token language="psi">not</token></title>
 
 <synopsis>
-<replaceable>логическое</replaceable>
+<replaceable>операнд</replaceable>
 <token language="psi">not</token>
-<replaceable>результат</replaceable>
+<replaceable>отрицание</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>логическое</replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>операнд</replaceable>,
+<replaceable>отрицание</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает отрицание операнда.
+Возвращает <replaceable>отрицание</replaceable> <replaceable>операнда</replaceable>.
 </para>
 
 <para>

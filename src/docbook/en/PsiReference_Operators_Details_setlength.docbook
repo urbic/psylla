@@ -3,36 +3,36 @@
 <title><token language="psi">setlength</token></title>
 
 <synopsis>
-<replaceable>массив</replaceable>
-<replaceable>длина</replaceable>
+<replaceable>array</replaceable>
+<replaceable>length</replaceable>
 <token language="psi">setlength</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
-<replaceable>длина</replaceable>:
+<replaceable>length</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Устанавливает размер <replaceable>массива</replaceable> равным
-<replaceable>длине</replaceable>, удаляя нужное количество последних элементов,
-либо дополняя <replaceable>массив</replaceable> до заданной
-<replaceable>длины</replaceable> заполнителями, соответствующими типу
-<replaceable>массива</replaceable>.
+Set the size of the <replaceable>array</replaceable> to the
+<replaceable>length</replaceable> by removing the necessary number of last
+elements, or adding the <replaceable>array</replaceable> to the specified
+<replaceable>length</replaceable> placeholders, corresponding to the type of
+the <replaceable>array</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/> при отрицательной
-<replaceable>длине</replaceable>; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_limitcheck"/>
-при <replaceable>длине</replaceable>, превышающей предельную длину массивов.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, if the
+<replaceable>length</replaceable> is negative; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_limitcheck"/>, if
+the <replaceable>length</replaceable> exceeds the limit.
 </para>
 
 <formalpara>

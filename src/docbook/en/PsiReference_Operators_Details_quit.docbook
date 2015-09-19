@@ -9,7 +9,7 @@
 </synopsis>
 
 <para>
-Завершает текущий контекст исполнения.
+Terminates the current execution context.
 </para>
 
 <formalpara>

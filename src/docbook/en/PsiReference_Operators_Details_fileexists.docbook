@@ -3,31 +3,33 @@
 <title><token language="psi">fileexists</token></title>
 
 <synopsis>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">fileexists</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает булевское значение, показывающее, существует ли файл или директория
-с заданным <replaceable>именем</replaceable>.
+Returns <constant>true</constant> if a file or directory with the given
+<replaceable>name</replaceable> exists, and <constant>false</constant>
+otherwise.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>.
-при нарушении политики безопасности.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated.
 </para>
 
 <formalpara>

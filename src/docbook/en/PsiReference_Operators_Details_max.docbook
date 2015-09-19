@@ -19,7 +19,7 @@
 
 <para>
 Returns the <replaceable>maximum</replaceable> of two
-<replaceable>scalar</replaceable>s.
+<replaceable>scalars</replaceable>.
 </para>
 
 <formalpara>

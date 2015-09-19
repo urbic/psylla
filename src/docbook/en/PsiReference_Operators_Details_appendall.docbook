@@ -3,22 +3,25 @@
 <title><token language="psi">appendall</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable> <replaceable>перечисление</replaceable> <token language="psi">appendall</token> —
+<replaceable>container</replaceable>
+<replaceable>enumeration</replaceable>
+<token language="psi">appendall</token>
+—
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>
 </listitem>
 <listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Добавляет все объекты из <replaceable>перечисления</replaceable>
-в <replaceable>контейнер</replaceable>.
+Appends all the objects from the <replaceable>enumeration</replaceable> to
+the <replaceable>container</replaceable>.
 </para>
 
 <formalpara>

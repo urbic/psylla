@@ -27,8 +27,8 @@ linkend="PsiReference_Errors_Details_fileexists"/>, if a file or directory
 named <replaceable>ссылка</replaceable> exists; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
 occures; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> in violation of security
-policy; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_unsupported"/>, if the creation of
 symbolic links is not supported by the platform.
 </para>

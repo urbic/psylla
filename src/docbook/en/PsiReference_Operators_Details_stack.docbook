@@ -4,31 +4,32 @@
 
 <synopsis>
 ⊢
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <token language="psi">stack</token>
 ⊢
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
-<replaceable>массив</replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
+<replaceable>array</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>
-…
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>1</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает содержимое стека операндов.
+Returns an <replaceable>array</replaceable> containing all the elements of the
+operand stack.
 </para>
 
 <formalpara>
@@ -38,6 +39,8 @@ none.
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arraytomark"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_countstack"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>.
 </formalpara>
