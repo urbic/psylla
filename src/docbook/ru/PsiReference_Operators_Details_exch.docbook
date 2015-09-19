@@ -22,7 +22,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">1 2 exch	▶ 2 1</programlisting>
 </formalpara>
 

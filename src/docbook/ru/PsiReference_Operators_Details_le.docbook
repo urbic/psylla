@@ -28,7 +28,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">1 2 le				▶ true
 2 1. le				▶ false
 "abc" "abcd" le		▶ true

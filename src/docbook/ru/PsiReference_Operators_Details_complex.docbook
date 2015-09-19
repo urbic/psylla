@@ -27,7 +27,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">0 1 complex	▶ -complex:0.0,1.0-</programlisting>
 </formalpara>
 

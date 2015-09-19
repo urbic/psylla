@@ -22,7 +22,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">.7853981633974483 tan	▶ 0.9999999999999999</programlisting>
 </formalpara>
 

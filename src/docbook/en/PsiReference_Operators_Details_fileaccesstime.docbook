@@ -35,7 +35,7 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">'/etc/passwd' fileaccesstime	▶ 1435355038000</programlisting>
 </formalpara>
 

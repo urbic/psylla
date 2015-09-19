@@ -28,7 +28,7 @@
 </synopsis>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">mark 1 2 3 2 /x settomark	▶ ( 1 3 /x 2 )</programlisting>
 </formalpara>
 

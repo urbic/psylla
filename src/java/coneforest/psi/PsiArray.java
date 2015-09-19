@@ -177,6 +177,28 @@ public class PsiArray
 		return result;
 	}
 
+	public PsiInteger psiBinarySearch(PsiObject key, PsiProcedure comparator)
+		throws PsiException
+	{
+		final Interpreter interpreter=Interpreter.currentInterpreter();
+		final OperandStack opstack=interpreter.getOperandStack();
+		return PsiInteger.valueOf(java.util.Collections.<PsiObject>binarySearch(array, key,
+			new java.util.Comparator<PsiObject>()
+				{
+					@Override
+					public int compare(PsiObject obj1, PsiObject obj2)
+					{
+						opstack.push(obj1);
+						opstack.push(obj2);
+						final int execLevel=interpreter.getExecLevel();
+						comparator.invoke(interpreter);
+						interpreter.handleExecutionStack(execLevel);
+						// TODO: ensure stack size
+						return ((PsiInteger)opstack.pop()).intValue();
+					}
+				}));
+	}
+
 	public PsiString psiUnite(PsiStringy separator)
 		throws PsiException
 	{

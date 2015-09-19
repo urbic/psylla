@@ -17,7 +17,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">array	▶ []</programlisting>
 </formalpara>
 

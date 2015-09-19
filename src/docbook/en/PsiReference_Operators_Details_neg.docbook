@@ -38,7 +38,7 @@ linkend="PsiReference_Types_Details_complex"/> тип
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">4 neg						▶ -4
 -9223372036854775808 neg	▶ 9.223372036854776E18
 -4. neg						▶ 4.0

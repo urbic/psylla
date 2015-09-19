@@ -54,7 +54,7 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">[ /a /b /c /d ] [ 1 3 1 ] getall		▶ [ /b /d /b ]
 "abcd" [ 1 3 1 ] getall					▶ "bdb"
 &lt; /x 0 /y 1 /z 2 &gt; [ /x /x /z ] getall	▶ [ 0 0 2 ]</programlisting>

@@ -26,7 +26,7 @@ dictionary stack).
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">/zero 0 def zero	▶ 0</programlisting>
 </formalpara>
 

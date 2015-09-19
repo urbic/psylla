@@ -27,7 +27,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 2 ge				▶ false
 2 1. ge				▶ true
 "abc" "abcd" ge		▶ false

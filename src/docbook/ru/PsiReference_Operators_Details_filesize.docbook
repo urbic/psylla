@@ -34,7 +34,7 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">'/etc/passwd' filesize	▶ 2186
 '/etc' filesize			▶ 5302</programlisting>
 </formalpara>

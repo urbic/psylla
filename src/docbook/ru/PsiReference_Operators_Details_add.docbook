@@ -35,7 +35,7 @@ linkend="PsiReference_Types_Details_complex"/>, таким же будет ти
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">9 16 add	▶ 25
 9. 16 add	▶ 25.</programlisting>
 </formalpara>

@@ -21,7 +21,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">1 conjugate				▶ 1
 0 1 complex conjugate	▶ -complex:0.0,-1.0-</programlisting>
 </formalpara>

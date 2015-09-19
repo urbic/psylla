@@ -25,7 +25,7 @@ it. Для словарей возвращается количество опр
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">[ 0 1 2 3 ] length			▶ 4
 &lt; /x 0 /y 1 /z 2 &gt; length	▶ 3
 ( /x /y /z ) length			▶ 3

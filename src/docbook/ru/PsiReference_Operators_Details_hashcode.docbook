@@ -24,7 +24,7 @@
 </para>
 
 <formalpara>
-<title>Примеры:</title>
+&TitleExamples;
 <programlisting language="psi">true hashcode	▶ 1231
 55 hashcode		▶ 55</programlisting>
 </formalpara>

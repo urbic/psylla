@@ -29,7 +29,7 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">false not	▶ true
 true not	 false
 13 not		 -14</programlisting>

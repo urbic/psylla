@@ -36,8 +36,8 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если количеств�
 </para>
 
 <formalpara>
-<title>Примеры:</title>
-<programlisting language="psi">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 2 /two 2 &gt;</programlisting>
+&TitleExamples;
+<programlisting language="psi">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 3 /two 2 &gt;</programlisting>
 </formalpara>
 
 <formalpara>

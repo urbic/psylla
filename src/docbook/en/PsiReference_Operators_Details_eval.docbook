@@ -19,7 +19,7 @@
 </para>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">"1 2 add" eval	▶ 3</programlisting>
 </formalpara>
 

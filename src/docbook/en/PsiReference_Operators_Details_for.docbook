@@ -24,7 +24,7 @@
 </synopsis>
 
 <formalpara>
-<title>Examples:</title>
+&TitleExamples;
 <programlisting language="psi">0 1 1 100 { add } for	▶ 5050</programlisting>
 </formalpara>
 
