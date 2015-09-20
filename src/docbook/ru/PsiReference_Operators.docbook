@@ -599,7 +599,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_isempty" xrefstyle="template:%t"/></term>
-<listitem>проверка пустоты контейнера</listitem>
+<listitem>контейнер пуст?</listitem>
 </varlistentry>
 
 <varlistentry>
