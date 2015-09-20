@@ -3,30 +3,30 @@
 <title><token language="psi">regexp</token></title>
 
 <synopsis>
-<replaceable>строка</replaceable>
+<replaceable>string</replaceable>
 <token language="psi">regexp</token>
-<replaceable>шаблон</replaceable>
+<replaceable>pattern</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>шаблон</replaceable>:
+<replaceable>pattern</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Создаёт <replaceable>шаблон</replaceable> регулярного выражения, записанного
-в <replaceable>строке</replaceable>.
+Returns a new <replaceable>pattern</replaceable> for a regular expression
+containing in the <replaceable>string</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_invalidregexp"/> в случае синтаксической
-ошибки.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_invalidregexp"/> when the regular
+expression contains a syntax error.
 </para>
 
 <formalpara>
@@ -39,6 +39,11 @@ linkend="PsiReference_Errors_Details_invalidregexp"/> в случае синт�
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidregexp"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>.
 </formalpara>
 
 </section>

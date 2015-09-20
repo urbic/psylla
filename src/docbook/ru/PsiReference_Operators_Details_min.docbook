@@ -22,6 +22,12 @@
 </para>
 
 <formalpara>
+&TitleExamples;
+<programlisting language="psi">1 2 min	▶ 1
+/ab /aa min	▶ /aa</programlisting>
+</formalpara>
+
+<formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.

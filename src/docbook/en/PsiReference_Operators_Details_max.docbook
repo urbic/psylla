@@ -18,9 +18,15 @@
 </synopsis>
 
 <para>
-Returns the <replaceable>maximum</replaceable> of two
+Returns a <replaceable>maximum</replaceable> of two
 <replaceable>scalars</replaceable>.
 </para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">1 2 max		▶ 2
+/ab /aa max	▶ /ab</programlisting>
+</formalpara>
 
 <formalpara>
 &TitleErrors;
