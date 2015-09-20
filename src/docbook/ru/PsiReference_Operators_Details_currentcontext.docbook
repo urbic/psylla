@@ -25,6 +25,8 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>.
 </formalpara>
 
 </section>

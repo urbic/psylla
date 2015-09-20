@@ -26,7 +26,10 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_def"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_def"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_store"/>.
 </formalpara>
 
 </section>

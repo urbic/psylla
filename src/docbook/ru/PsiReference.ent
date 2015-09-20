@@ -183,6 +183,7 @@
 <!ENTITY PsiReference_Operators_Details_lt				SYSTEM "PsiReference_Operators_Details_lt.docbook">
 <!ENTITY PsiReference_Operators_Details_map				SYSTEM "PsiReference_Operators_Details_map.docbook">
 <!ENTITY PsiReference_Operators_Details_mark			SYSTEM "PsiReference_Operators_Details_mark.docbook">
+<!ENTITY PsiReference_Operators_Details_matcher			SYSTEM "PsiReference_Operators_Details_matcher.docbook">
 <!ENTITY PsiReference_Operators_Details_max				SYSTEM "PsiReference_Operators_Details_max.docbook">
 <!ENTITY PsiReference_Operators_Details_min				SYSTEM "PsiReference_Operators_Details_min.docbook">
 <!ENTITY PsiReference_Operators_Details_mod				SYSTEM "PsiReference_Operators_Details_mod.docbook">

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_matcher">
+<title><token language="psi">matcher</token></title>
+
+<synopsis>
+<replaceable>строка</replaceable>
+<replaceable>шаблон</replaceable>
+<token language="psi">matcher</token>
+<replaceable>матчер</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>шаблон</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
+</listitem>
+<listitem>
+<replaceable>матчер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_matcher"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Возвращает <replaceable>матчер</replaceable> для поиска
+в <replaceable>строке</replaceable> по <replaceable>шаблону</replaceable>.
+</para>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroup"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupcount"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_find"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_regexp"/>.
+</formalpara>
+
+</section>

@@ -3,16 +3,16 @@
 <title><token language="psi">ready</token></title>
 
 <synopsis>
-<replaceable>читатель</replaceable>
+<replaceable>input</replaceable>
 <token language="psi">ready</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>читатель</replaceable>:
+<replaceable>input</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
@@ -21,8 +21,9 @@
 <remark>TODO</remark>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures.
 </para>
 
 <formalpara>
@@ -30,6 +31,12 @@ linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readstring"/>.
 </formalpara>
 
 </section>

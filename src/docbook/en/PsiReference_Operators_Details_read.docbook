@@ -48,4 +48,10 @@ linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readline"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readstring"/>.
+</formalpara>
+
 </section>
