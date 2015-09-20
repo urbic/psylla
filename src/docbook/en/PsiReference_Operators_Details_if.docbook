@@ -3,25 +3,25 @@
 <title><token language="psi">if</token></title>
 
 <synopsis>
-<replaceable>условие</replaceable>
-<replaceable>объект</replaceable>
+<replaceable>condition</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">if</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>условие</replaceable>:
+<replaceable>condition</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Вызывает <replaceable>объект</replaceable> (обычно процедуру), если истинно
-<replaceable>условие</replaceable>.
+Invokes the <replaceable>object</replaceable> (typically a procedure), if the
+<replaceable>condition</replaceable> is true.
 </para>
 
 <formalpara>

@@ -364,22 +364,22 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_eval" xrefstyle="template:%t"/></term>
-<listitem>вычисление выражения</listitem>
+<listitem>evaluation of an expression</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exec" xrefstyle="template:%t"/></term>
-<listitem>вызов объекта для исполнения</listitem>
+<listitem>invocation of an object</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exit" xrefstyle="template:%t"/></term>
-<listitem>выход из цикла</listitem>
+<listitem>exit from a cycle</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_for" xrefstyle="template:%t"/></term>
-<listitem>цикл с числовым параметром</listitem>
+<listitem>cycle with a numeric parameter</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -389,12 +389,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_if" xrefstyle="template:%t"/></term>
-<listitem>условный вызов объекта для исполнения</listitem>
+<listitem>conditional invocation of an object</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ifelse" xrefstyle="template:%t"/></term>
-<listitem>условный вызов того или иного объекта для исполнения</listitem>
+<listitem>conditional invocation of one or the other object</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -404,12 +404,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_quit" xrefstyle="template:%t"/></term>
-<listitem>завершение исполнения текущего контекста</listitem>
+<listitem>termination of execution of the current context</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_repeat" xrefstyle="template:%t"/></term>
-<listitem>цикл с заданным числом повторений</listitem>
+<listitem>cycle with a given number of repetitions</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -438,42 +438,42 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_)" xrefstyle="template:%t"/></term>
-<listitem>завершение создания множества</listitem>
+<listitem>set creation completion</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_&gt;" xrefstyle="template:%t"/></term>
-<listitem>завершение создания словаря</listitem>
+<listitem>dictionary creation completion</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_]" xrefstyle="template:%t"/></term>
-<listitem>завершение создания массива</listitem>
+<listitem>array creation completion</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_append" xrefstyle="template:%t"/></term>
-<listitem>добавление элемента в контейнер</listitem>
+<listitem>append an element to a container</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_appendall" xrefstyle="template:%t"/></term>
-<listitem>добавление в контейнер всех элементов перечисления</listitem>
+<listitem>append all the elements from an enumeration to a container</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_array" xrefstyle="template:%t"/></term>
-<listitem>the creation of an array</listitem>
+<listitem>create of an empty array</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_arraytomark" xrefstyle="template:%t"/></term>
-<listitem>завершение создания массива</listitem>
+<listitem>array creation completion</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_begin" xrefstyle="template:%t"/></term>
-<listitem>добавление словаря в стек словарей</listitem>
+<listitem>push a dictionary to the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -488,27 +488,27 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bitset" xrefstyle="template:%t"/></term>
-<listitem>создание пустого битового множества</listitem>
+<listitem>create of an empty bit set</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bitvector" xrefstyle="template:%t"/></term>
-<listitem>the creation of empty bit vector</listitem>
+<listitem>create of an empty bit vector</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_blockingqueue" xrefstyle="template:%t"/></term>
-<listitem>the creation of blocking queue</listitem>
+<listitem>creation of a blocking queue</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clear" xrefstyle="template:%t"/></term>
-<listitem>the emptying the container</listitem>
+<listitem>empty a container</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cleardictstack" xrefstyle="template:%t"/></term>
-<listitem>the removal of all non-permanent dictionaries from the dictionary stack</listitem>
+<listitem>remove all non-permanent dictionaries from the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -528,22 +528,22 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dict" xrefstyle="template:%t"/></term>
-<listitem>the creation of empty dictionary</listitem>
+<listitem>create of an empty dictionary</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dicttomark" xrefstyle="template:%t"/></term>
-<listitem>завершение создания словаря</listitem>
+<listitem>dictionary creation completion</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_end" xrefstyle="template:%t"/></term>
-<listitem>удаление верхнего словаря из стека словарей</listitem>
+<listitem>pop the topmost dictionary from the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_entries" xrefstyle="template:%t"/></term>
-<listitem>создание перечисления значений контейнера</listitem>
+<listitem>create an enumeration of container values</listitem>
 </varlistentry>
 
 <varlistentry>
