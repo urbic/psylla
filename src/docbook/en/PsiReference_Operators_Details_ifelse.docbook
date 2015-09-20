@@ -3,28 +3,28 @@
 <title><token language="psi">ifelse</token></title>
 
 <synopsis>
-<replaceable>условие</replaceable>
-<replaceable>объект<subscript>1</subscript></replaceable>
-<replaceable>объект<subscript>2</subscript></replaceable>
+<replaceable>condition</replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>2</subscript></replaceable>
 <token language="psi">ifelse</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>условие</replaceable>:
+<replaceable>condition</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
-<replaceable>объект<subscript>2</subscript></replaceable>:
+<replaceable>object<subscript>1</subscript></replaceable>,
+<replaceable>object<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Вызывает <replaceable>объект<subscript>1</subscript></replaceable> либо
-<replaceable>объект<subscript>2</subscript></replaceable> в зависимости
-от истинности <replaceable>условия</replaceable>.
+Invokes <replaceable>object<subscript>1</subscript></replaceable>, if the
+<replaceable>condition</replaceable> is true, and
+<replaceable>object<subscript>2</subscript></replaceable> otherwise.
 </para>
 
 <formalpara>

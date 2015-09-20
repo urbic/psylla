@@ -3,30 +3,32 @@
 <title><token language="psi">idiv</token></title>
 
 <synopsis>
-<replaceable>делимое</replaceable>
-<replaceable>делитель</replaceable>
+<replaceable>dividend</replaceable>
+<replaceable>divisor</replaceable>
 <token language="psi">idiv</token>
-<replaceable>частное</replaceable>
+<replaceable>quotient</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>делимое</replaceable>,
-<replaceable>делитель</replaceable>,
-<replaceable>частное</replaceable>:
+<replaceable>dividend</replaceable>,
+<replaceable>divisor</replaceable>,
+<replaceable>quotient</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает результат целочисленного деления <replaceable>делимого</replaceable>
-на ненулевой <replaceable>делитель</replaceable>. Знак
-<replaceable>частного</replaceable> совпадает с произведением знаков операндов.
+Returns a <replaceable>quotient</replaceable> of the integer division of the
+<replaceable>dividend</replaceable> by the nonzero
+<replaceable>divisor</replaceable>. The sign of the
+<replaceable>quotient</replaceable> coincides with the product of the operands
+signs.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого
-<replaceable>делителя</replaceable>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/>, if the
+<replaceable>divisor</replaceable> is zero.
 </para>
 
 <formalpara>

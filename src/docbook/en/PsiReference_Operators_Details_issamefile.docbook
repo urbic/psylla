@@ -3,38 +3,38 @@
 <title><token language="psi">issamefile</token></title>
 
 <synopsis>
-<replaceable>имя<subscript>1</subscript></replaceable>
-<replaceable>имя<subscript>2</subscript></replaceable>
+<replaceable>name<subscript>1</subscript></replaceable>
+<replaceable>name<subscript>2</subscript></replaceable>
 <token language="psi">issamefile</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя<subscript>1</subscript></replaceable>,
-<replaceable>имя<subscript>2</subscript></replaceable>:
+<replaceable>name<subscript>1</subscript></replaceable>,
+<replaceable>name<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>, если
-<replaceable>имя<subscript>1</subscript></replaceable> и
-<replaceable>имя<replaceable>2</replaceable></replaceable> являются именами
-одного и того же файла или директории, и <constant>false</constant> в противном
-случае.
+Returns <constant>true</constant>, if the
+<replaceable>name<subscript>1</subscript></replaceable> and the
+<replaceable>name<replaceable>2</replaceable></replaceable> are the names of
+the same file or directory, and <constant>false</constant> otherwise.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
-не существует; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
-при нарушении политики безопасности.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
+does not exist; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated.
 </para>
 
 <formalpara>
