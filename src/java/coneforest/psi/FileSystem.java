@@ -472,6 +472,10 @@ public class FileSystem
 		{
 			throw new PsiFileNotFoundException();
 		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
+		}
 		catch(java.io.IOException e)
 		{
 			throw new PsiIOErrorException();

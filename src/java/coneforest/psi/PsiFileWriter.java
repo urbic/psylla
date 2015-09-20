@@ -9,6 +9,10 @@ public class PsiFileWriter extends PsiWriter
 		{
 			setWriter(new java.io.FileWriter(name));
 		}
+		catch(java.io.FileNotFoundException e)
+		{
+			throw new PsiFileNotFoundException();
+		}
 		catch(java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
