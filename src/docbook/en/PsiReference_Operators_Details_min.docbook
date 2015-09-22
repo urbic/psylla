@@ -18,9 +18,15 @@
 </synopsis>
 
 <para>
-Returns the <replaceable>minimum</replaceable> of two
+Returns a <replaceable>minimum</replaceable> of two
 <replaceable>scalars</replaceable>.
 </para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">1 2 min	▶ 1
+/ab /aa min	▶ /aa</programlisting>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

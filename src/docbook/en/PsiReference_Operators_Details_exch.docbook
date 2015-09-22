@@ -18,7 +18,7 @@
 </synopsis>
 
 <para>
-Exchanges tho topmost operands in the operand stack.
+Exchanges two topmost operands in the operand stack.
 </para>
 
 <formalpara>

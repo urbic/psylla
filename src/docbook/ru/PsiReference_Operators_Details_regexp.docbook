@@ -41,4 +41,9 @@ linkend="PsiReference_Errors_Details_invalidregexp"/> в случае синт�
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>.
+</formalpara>
+
 </section>
