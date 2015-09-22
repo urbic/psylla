@@ -69,7 +69,8 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupcount"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>.
 </formalpara>
 
 </section>

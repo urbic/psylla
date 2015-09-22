@@ -15,8 +15,10 @@
 </synopsis>
 
 <para>
-Булевское значение <constant>false</constant>. Не оператор, а значение
-в системном словаре.
+The boolean value <constant>false</constant>. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_false"/> is not an operator, but a
+value of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> in the system dictionary.
 </para>
 
 <formalpara>

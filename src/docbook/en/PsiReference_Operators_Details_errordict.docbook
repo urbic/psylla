@@ -4,18 +4,17 @@
 
 <synopsis>
 — <token language="psi">errordict</token>
-<replaceable>словарь</replaceable>
+<constant>errordict</constant>
 <itemizedlist>
 <listitem>
-<replaceable>словарь</replaceable>:
+<constant>errordict</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-<replaceable>Словарь</replaceable> ошибок. Не оператор, а значение
-в системном словаре.
+Словарь ошибок. Не оператор, а значение в системном словаре.
 </para>
 
 <formalpara>

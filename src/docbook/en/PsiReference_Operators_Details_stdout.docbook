@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_stdout">
+<title><token language="psi">stdout</token></title>
+
+<synopsis>
+—
+<token language="psi">stdout</token>
+<constant>stdout</constant>
+<itemizedlist>
+<listitem>
+<constant>stdout</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+The standard output. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_stdout"/> is not an operator, but a
+value of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_writer"/> in the system dictionary.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_print"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_println"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stderr"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdin"/>.
+</formalpara>
+
+</section>

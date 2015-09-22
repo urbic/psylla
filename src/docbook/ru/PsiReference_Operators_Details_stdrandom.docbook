@@ -5,12 +5,18 @@
 <synopsis>
 —
 <token language="psi">stdrandom</token>
-<replaceable>генератор</replaceable>
+<constant>stdrandom</constant>
+<itemizedlist>
+<listitem>
+<constant>stdrandom</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
+</listitem>
+</itemizedlist>
 </synopsis>
 
 <para>
-Стандартный <replaceable>генератор</replaceable> случайных величин. Не
-оператор, а значение в системном словаре.
+Стандартный генератор случайных величин. Не оператор, а значение в системном
+словаре.
 </para>
 
 <formalpara>
