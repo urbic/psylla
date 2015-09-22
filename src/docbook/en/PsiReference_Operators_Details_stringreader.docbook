@@ -19,7 +19,7 @@
 </synopsis>
 
 <para>
-Returns a new string <replaceable>reader</replaceable> for a given
+Returns a new string <replaceable>reader</replaceable> for the given
 <replaceable>string</replaceable>.
 </para>
 
