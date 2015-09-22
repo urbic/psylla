@@ -16,7 +16,7 @@
 
 <para>
 Записывает <replaceable>строку</replaceable> в стандартный вывод сообщений
-об ошибках и сбрасывает вывод.
+об ошибках.
 </para>
 
 <para>
@@ -33,7 +33,6 @@ linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stderr"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
 </formalpara>
