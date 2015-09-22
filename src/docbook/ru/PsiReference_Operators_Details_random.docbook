@@ -21,6 +21,7 @@
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_normaldeviate"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_setseed"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdrandom"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_uniformboolean"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_uniformdeviate"/>.
 </formalpara>

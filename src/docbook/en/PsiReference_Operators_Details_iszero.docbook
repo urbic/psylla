@@ -20,7 +20,7 @@
 
 <para>
 Returns <constant>true</constant>, if <replaceable>number</replaceable> is
-equal to zero, and <constant>false</constant> otherwise.
+zero, and <constant>false</constant> otherwise.
 </para>
 
 <formalpara>

@@ -256,7 +256,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_mul" xrefstyle="template:%t"/></term>
-<listitem>произведение двух целых чисел</listitem>
+<listitem>произведение двух чисел</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1005,6 +1005,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_matcher" xrefstyle="template:%t"/></term>
+<listitem>создание матчера для поиска в строке по шаблону</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_regexp" xrefstyle="template:%t"/></term>
 <listitem>создание регулярного выражения</listitem>
 </varlistentry>
@@ -1439,6 +1444,7 @@
 &PsiReference_Operators_Details_lt;
 &PsiReference_Operators_Details_map;
 &PsiReference_Operators_Details_mark;
+&PsiReference_Operators_Details_matcher;
 &PsiReference_Operators_Details_max;
 &PsiReference_Operators_Details_min;
 &PsiReference_Operators_Details_mod;

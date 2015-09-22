@@ -14,11 +14,29 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Записывает <replaceable>строку</replaceable> в стандартный вывод.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_println"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_say"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_write"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
 </formalpara>
 
 </section>

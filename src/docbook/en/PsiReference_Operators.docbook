@@ -151,7 +151,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_abs" xrefstyle="template:%t"/></term>
-<listitem>absolute value of the number</listitem>
+<listitem>absolute value of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -161,27 +161,27 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_arg" xrefstyle="template:%t"/></term>
-<listitem>the argument of the number</listitem>
+<listitem>the argument of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_atan" xrefstyle="template:%t"/></term>
-<listitem>арктангенс числа</listitem>
+<listitem>arctangent of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bitshift" xrefstyle="template:%t"/></term>
-<listitem>побитовый сдвиг целого числа</listitem>
+<listitem>bitwise shift</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cbrt" xrefstyle="template:%t"/></term>
-<listitem>кубический корень из числа</listitem>
+<listitem>cubic root of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ceiling" xrefstyle="template:%t"/></term>
-<listitem>потолок числа</listitem>
+<listitem>ceiling of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -196,17 +196,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_conjugate" xrefstyle="template:%t"/></term>
-<listitem>комплексное сопряжение числа</listitem>
+<listitem>complex conjugate of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cos" xrefstyle="template:%t"/></term>
-<listitem>косинус числа</listitem>
+<listitem>cosine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cosh" xrefstyle="template:%t"/></term>
-<listitem>гиперболический косинус числа</listitem>
+<listitem>hyperbolic cosine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -216,12 +216,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exp" xrefstyle="template:%t"/></term>
-<listitem>экспонента числа</listitem>
+<listitem>exponent of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_floor" xrefstyle="template:%t"/></term>
-<listitem>пол числа</listitem>
+<listitem>floor of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -236,17 +236,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_im" xrefstyle="template:%t"/></term>
-<listitem>вещественная часть числа</listitem>
+<listitem>real part of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_iszero" xrefstyle="template:%t"/></term>
-<listitem>число нулевое?</listitem>
+<listitem>a number is zero?</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_log" xrefstyle="template:%t"/></term>
-<listitem>натуральный логарифм числа</listitem>
+<listitem>natural logarithm of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -256,7 +256,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_mul" xrefstyle="template:%t"/></term>
-<listitem>произведение двух целых чисел</listitem>
+<listitem>product of two numbers</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -266,7 +266,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_notzero" xrefstyle="template:%t"/></term>
-<listitem>число ненулевое?</listitem>
+<listitem>a numbers is non-zero?</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -276,42 +276,42 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_re" xrefstyle="template:%t"/></term>
-<listitem>вещественная часть числа</listitem>
+<listitem>real part of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_signum" xrefstyle="template:%t"/></term>
-<listitem>знак числа</listitem>
+<listitem>signum of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sin" xrefstyle="template:%t"/></term>
-<listitem>синус числа</listitem>
+<listitem>sine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sinh" xrefstyle="template:%t"/></term>
-<listitem>гиперболический синус числа</listitem>
+<listitem>hyperbolic sine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sqrt" xrefstyle="template:%t"/></term>
-<listitem>квадратный корень из числа</listitem>
+<listitem>square root of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sub" xrefstyle="template:%t"/></term>
-<listitem>разность двух чисел</listitem>
+<listitem>difference of two numbers</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tan" xrefstyle="template:%t"/></term>
-<listitem>тангенс числа</listitem>
+<listitem>tangent of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tanh" xrefstyle="template:%t"/></term>
-<listitem>гиперболический тангенс числа</listitem>
+<listitem>hyperbolic tangent of a number</listitem>
 </varlistentry>
 
 </variablelist>
@@ -330,22 +330,22 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_false" xrefstyle="template:%t"/></term>
-<listitem>логическое значение «ложь»</listitem>
+<listitem>boolean false</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_not" xrefstyle="template:%t"/></term>
-<listitem>логическое или побитовое отрицание</listitem>
+<listitem>logical or bitwise negation</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_or" xrefstyle="template:%t"/></term>
-<listitem>логическая или побитовая дизъюнкция</listitem>
+<listitem>logical or bitwise disjunction</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_true" xrefstyle="template:%t"/></term>
-<listitem>логическое значение «истина»</listitem>
+<listitem>boolean true</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -414,7 +414,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sleep" xrefstyle="template:%t"/></term>
-<listitem>приостановка исполнения текущего контекста на заданное время</listitem>
+<listitem>suspend current execution context</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1005,6 +1005,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_matcher" xrefstyle="template:%t"/></term>
+<listitem>create a matcher for the search in the string against a pattern</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_regexp" xrefstyle="template:%t"/></term>
 <listitem>create a regular expression</listitem>
 </varlistentry>
@@ -1439,6 +1444,7 @@
 &PsiReference_Operators_Details_lt;
 &PsiReference_Operators_Details_map;
 &PsiReference_Operators_Details_mark;
+&PsiReference_Operators_Details_matcher;
 &PsiReference_Operators_Details_max;
 &PsiReference_Operators_Details_min;
 &PsiReference_Operators_Details_mod;
