@@ -3,30 +3,30 @@
 <title><token language="psi">split</token></title>
 
 <synopsis>
-<replaceable>строка</replaceable>
-<replaceable>шаблон</replaceable>
+<replaceable>string</replaceable>
+<replaceable>pattern</replaceable>
 <token language="psi">split</token>
-<replaceable>массив</replaceable>
+<replaceable>array</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>шаблон</replaceable>:
+<replaceable>pattern</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
 </listitem>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Разделяет <replaceable>строку</replaceable> на подстроки, ограниченные
-частями, соответствующими <replaceable>шаблону</replaceable>, и возвращает
-<replaceable>массив</replaceable> подстрок.
+Splits the <replaceable>string</replaceable> into substrings delimites by
+substrings matching the <replaceable>pattern</replaceable>, and returns the
+<replaceable>array</replaceable> composed of substrings.
 </para>
 
 <formalpara>

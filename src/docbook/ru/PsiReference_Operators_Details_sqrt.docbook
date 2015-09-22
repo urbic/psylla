@@ -5,19 +5,19 @@
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">sqrt</token>
-<replaceable>квадратный_корень</replaceable>
+<replaceable>корень</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
-<replaceable>квадратный_корень</replaceable>:
+<replaceable>корень</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>квадратный_корень</replaceable> из
-<replaceable>числа</replaceable>.
+Возвращает квадратный <replaceable>корень</replaceable>
+из <replaceable>числа</replaceable>.
 </para>
 
 <formalpara>

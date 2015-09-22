@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_stdout">
+<title><token language="psi">stdout</token></title>
+
+<synopsis>
+—
+<token language="psi">stdout</token>
+<replaceable>stdout</replaceable>
+<itemizedlist>
+<listitem>
+<constant>stdout</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Стандартный вывод. Не оператор, а значение в системном словаре.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_print"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_println"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stderr"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdin"/>.
+</formalpara>
+
+</section>

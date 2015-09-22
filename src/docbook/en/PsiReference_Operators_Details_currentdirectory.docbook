@@ -5,22 +5,27 @@
 <synopsis>
 —
 <token language="psi">currentdirectory</token>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>имя</replaceable> текущей директории.
+Returns the <replaceable>name</replaceable> of the current directory.
 </para>
 
 <formalpara>
 &TitleErrors;
 none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_files"/>.
 </formalpara>
 
 </section>

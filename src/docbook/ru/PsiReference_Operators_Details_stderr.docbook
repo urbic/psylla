@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_stderr">
+<title><token language="psi">stderr</token></title>
+
+<synopsis>
+—
+<token language="psi">stderr</token>
+<constant>stderr</constant>
+<itemizedlist>
+<listitem>
+<constant>stderr</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Стандартный вывод сообщений об ошибках. Не оператор, а значение в системном
+словаре.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdin"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdout"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_warn"/>.
+</formalpara>
+
+</section>

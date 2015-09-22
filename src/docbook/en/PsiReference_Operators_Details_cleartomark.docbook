@@ -38,6 +38,7 @@ linkend="PsiReference_Errors_Details_unmatchedmark"/>, а сам стек ост
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_clearstack"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_counttomark"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>.
 </formalpara>

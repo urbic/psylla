@@ -3,25 +3,25 @@
 <title><token language="psi">warn</token></title>
 
 <synopsis>
-<replaceable>строка</replaceable>
+<replaceable>string</replaceable>
 <token language="psi">warn</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Записывает <replaceable>строку</replaceable> в стандартный вывод сообщений
-об ошибках и сбрасывает вывод.
+Writes the <replaceable>string</replaceable> to the standard error writer.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
+occures.
 </para>
 
 <formalpara>
@@ -33,7 +33,6 @@ linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stderr"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
 </formalpara>
