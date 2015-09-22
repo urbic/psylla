@@ -842,6 +842,21 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_stderr" xrefstyle="template:%t"/></term>
+<listitem>стандартный вывод сообщений об ошибках</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_stdin" xrefstyle="template:%t"/></term>
+<listitem>стандартный ввод</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_stdout" xrefstyle="template:%t"/></term>
+<listitem>стандартный вывод</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stringreader" xrefstyle="template:%t"/></term>
 <listitem>создание строкового читателя</listitem>
 </varlistentry>
@@ -1502,6 +1517,9 @@
 &PsiReference_Operators_Details_split;
 &PsiReference_Operators_Details_sqrt;
 &PsiReference_Operators_Details_stack;
+&PsiReference_Operators_Details_stderr;
+&PsiReference_Operators_Details_stdin;
+&PsiReference_Operators_Details_stdout;
 &PsiReference_Operators_Details_stdrandom;
 &PsiReference_Operators_Details_stop;
 &PsiReference_Operators_Details_stopped;

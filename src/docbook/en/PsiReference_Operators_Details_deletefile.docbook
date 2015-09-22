@@ -24,7 +24,7 @@ linkend="PsiReference_Errors_Details_directorynotempty"/>, if a directory is
 not empty; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_filenotfound"/>, if a file not exist;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-when input/outpit error occures; <xref xrefstyle="template:%t"
+when input/output error occures; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_securityerror"/> when security policy is
 violated.
 </para>
