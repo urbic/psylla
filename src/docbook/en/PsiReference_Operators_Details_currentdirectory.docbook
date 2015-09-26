@@ -23,4 +23,9 @@ Returns the <replaceable>name</replaceable> of the current directory.
 none.
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_files"/>.
+</formalpara>
+
 </section>

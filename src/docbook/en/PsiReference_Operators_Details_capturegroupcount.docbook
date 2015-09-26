@@ -3,25 +3,25 @@
 <title><token language="psi">capturegroupcount</token></title>
 
 <synopsis>
-<replaceable>матчер</replaceable>
+<replaceable>matcher</replaceable>
 <token language="psi">capturegroupcount</token>
-<replaceable>количество</replaceable>
+<replaceable>count</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>матчер</replaceable>:
+<replaceable>matcher</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_matcher"/>
 </listitem>
 <listitem>
-<replaceable>количество</replaceable>:
+<replaceable>count</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>количество</replaceable> групп захвата для заданного
-<replaceable>матчера</replaceable>. Группа <constant>0</constant> соответствует
-всему шаблону; она не учитывается при подсчёте.
+Returns a <replaceable>count</replaceable> of capture groups for the given
+<replaceable>matcher</replaceable>. The group numbered <constant>0</constant> corresponds
+to the whole pattern; it does not counted.
 </para>
 
 <formalpara>
@@ -36,7 +36,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroup"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>.
 </formalpara>
 
 </section>

@@ -5,18 +5,18 @@
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">sqrt</token>
-<replaceable>square_root</replaceable>
+<replaceable>root</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
-<replaceable>square_root</replaceable>:
+<replaceable>root</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Returns the <replaceable>square_root</replaceable> of the
+Returns a square <replaceable>root</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 

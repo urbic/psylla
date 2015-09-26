@@ -5,12 +5,18 @@
 <synopsis>
 —
 <token language="psi">stderr</token>
-<replaceable>вывод</replaceable>
+<constant>stderr</constant>
+<itemizedlist>
+<listitem>
+<constant>stderr</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
+</listitem>
+</itemizedlist>
 </synopsis>
 
 <para>
-Стандартный <replaceable>вывод</replaceable> сообщений об ошибках. Не оператор,
-а значение в системном словаре.
+Стандартный вывод сообщений об ошибках. Не оператор, а значение в системном
+словаре.
 </para>
 
 <formalpara>
