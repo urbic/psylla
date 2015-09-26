@@ -3,28 +3,33 @@
 <title><token language="psi">type</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">type</token>
-<replaceable>тип</replaceable>
+<replaceable>type</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>тип</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
+<replaceable>type</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_type"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает имя типа <replaceable>объекта</replaceable>.
+Returns a <replaceable>type</replaceable> of the <replaceable>object</replaceable>.
 </para>
 
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_isinstance"/>.
 </formalpara>
 
 </section>
