@@ -5,12 +5,20 @@
 <synopsis>
 —
 <token language="psi">stdout</token>
-<replaceable>вывод</replaceable>
+<constant>stdout</constant>
+<itemizedlist>
+<listitem>
+<constant>stdout</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
+</listitem>
+</itemizedlist>
 </synopsis>
 
 <para>
-Стандартный <replaceable>вывод</replaceable>. Не оператор, а значение
-в системном словаре.
+The standard output. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_stdout"/> is not an operator, but a
+value of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_writer"/> in the system dictionary.
 </para>
 
 <formalpara>

@@ -5,12 +5,20 @@
 <synopsis>
 —
 <token language="psi">stdrandom</token>
-<replaceable>генератор</replaceable>
+<constant>stdrandom</constant>
+<itemizedlist>
+<listitem>
+<constant>stdrandom</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
+</listitem>
+</itemizedlist>
 </synopsis>
 
 <para>
-Стандартный <replaceable>генератор</replaceable> случайных величин. Не
-оператор, а значение в системном словаре.
+The standard source of random objects. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_stdrandom"/> is not an operator, but a
+value of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_random"/> in the system dictionary.
 </para>
 
 <formalpara>

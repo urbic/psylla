@@ -4,18 +4,17 @@
 
 <synopsis>
 — <token language="psi">userdict</token>
-<replaceable>словарь</replaceable>
+<constant>userdict</constant>
 <itemizedlist>
 <listitem>
-<replaceable>словарь</replaceable>:
+<constant>userdict</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Пользовательский <replaceable>словарь</replaceable>. Не оператор, а значение
-в системном словаре.
+The user dictionary. Не оператор, а значение в системном словаре.
 </para>
 
 <formalpara>

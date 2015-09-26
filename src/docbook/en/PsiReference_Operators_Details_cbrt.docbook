@@ -2,21 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_cbrt">
 <title><token language="psi">cbrt</token></title>
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">cbrt</token>
-<replaceable>кубический_корень</replaceable>
+<replaceable>root</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>кубический_корень</replaceable>:
+<replaceable>number</replaceable>,
+<replaceable>root</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>кубический_корень</replaceable>
-из <replaceable>числа</replaceable>.
+Returns a cubic <replaceable>root</replaceable> of
+the <replaceable>number</replaceable>.
 </para>
 
 <formalpara>

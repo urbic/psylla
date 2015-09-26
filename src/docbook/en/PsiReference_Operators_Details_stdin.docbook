@@ -5,12 +5,20 @@
 <synopsis>
 —
 <token language="psi">stdin</token>
-<replaceable>ввод</replaceable>
+<constant>stdin</constant>
+<itemizedlist>
+<listitem>
+<constant>stdin</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_reader"/>
+</listitem>
+</itemizedlist>
 </synopsis>
 
 <para>
-Стандартный <replaceable>ввод</replaceable>. Не оператор, а значение
-в системном словаре.
+The standard input. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_stdin"/> is not an operator, but a
+value of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_reader"/> in the system dictionary.
 </para>
 
 <formalpara>
