@@ -13,12 +13,22 @@ public interface PsiObject
 	 *
 	 *	@return a type name.
 	 */
-	public String getTypeName();
+	default public String getTypeName()
+	{
+		return "object";
+	}
 
+	default public PsiType<PsiObject> psiType()
+	{
+		return new PsiType<PsiObject>((Class<PsiObject>)getClass());
+	}
+
+	/*
 	default public PsiCommand psiType()
 	{
 		return new PsiCommand(getTypeName()+"type");
 	}
+	*/
 
 	/**
 	 *	Execute this object in the context of an interpreter. Pushes this

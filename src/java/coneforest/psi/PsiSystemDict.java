@@ -120,6 +120,7 @@ public class PsiSystemDict
 					_isdirectory.class,
 					_isempty.class,
 					_isfile.class,
+					_isinstance.class,
 					_issamefile.class,
 					_issymlink.class,
 					_iszero.class,
