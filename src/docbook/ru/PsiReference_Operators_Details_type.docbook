@@ -13,18 +13,23 @@
 </listitem>
 <listitem>
 <replaceable>тип</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_type"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает имя типа <replaceable>объекта</replaceable>.
+Возвращает <replaceable>тип</replaceable> <replaceable>объекта</replaceable>.
 </para>
 
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_isinstance"/>.
 </formalpara>
 
 </section>

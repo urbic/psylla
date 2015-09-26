@@ -60,6 +60,7 @@
 <!ENTITY PsiReference_Types_Details_stringreader		SYSTEM "PsiReference_Types_Details_stringreader.docbook">
 <!ENTITY PsiReference_Types_Details_stringwriter		SYSTEM "PsiReference_Types_Details_stringwriter.docbook">
 <!ENTITY PsiReference_Types_Details_stringy				SYSTEM "PsiReference_Types_Details_stringy.docbook">
+<!ENTITY PsiReference_Types_Details_type				SYSTEM "PsiReference_Types_Details_type.docbook">
 <!ENTITY PsiReference_Types_Details_writable			SYSTEM "PsiReference_Types_Details_writable.docbook">
 <!ENTITY PsiReference_Types_Details_writer				SYSTEM "PsiReference_Types_Details_writer.docbook">
 
@@ -168,6 +169,7 @@
 <!ENTITY PsiReference_Operators_Details_isdirectory		SYSTEM "PsiReference_Operators_Details_isdirectory.docbook">
 <!ENTITY PsiReference_Operators_Details_isempty			SYSTEM "PsiReference_Operators_Details_isempty.docbook">
 <!ENTITY PsiReference_Operators_Details_isfile			SYSTEM "PsiReference_Operators_Details_isfile.docbook">
+<!ENTITY PsiReference_Operators_Details_isinstance		SYSTEM "PsiReference_Operators_Details_isinstance.docbook">
 <!ENTITY PsiReference_Operators_Details_issamefile		SYSTEM "PsiReference_Operators_Details_issamefile.docbook">
 <!ENTITY PsiReference_Operators_Details_issymlink		SYSTEM "PsiReference_Operators_Details_issymlink.docbook">
 <!ENTITY PsiReference_Operators_Details_iszero			SYSTEM "PsiReference_Operators_Details_iszero.docbook">

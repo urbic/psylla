@@ -3,27 +3,27 @@
 <title><token language="psi">complex</token></title>
 
 <synopsis>
-<replaceable>вещественная_часть</replaceable>
-<replaceable>мнимая_часть</replaceable>
+<replaceable>вещественная</replaceable>
+<replaceable>мнимая</replaceable>
 <token language="psi">complex</token>
-<replaceable>комплексное</replaceable>
+<replaceable>число</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>вещественная_часть</replaceable>,
-<replaceable>мнимая_часть</replaceable>:
+<replaceable>вещественная</replaceable>,
+<replaceable>мнимая</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
-<replaceable>комплексное</replaceable>:
+<replaceable>число</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новое <replaceable>комплексное</replaceable> число с заданными
-<replaceable>вещественной_частью</replaceable> и
-<replaceable>мнимой_частью</replaceable>.
+Возвращает новое комплексное <replaceable>число</replaceable> с заданными
+<replaceable>вещественной</replaceable> и <replaceable>мнимой</replaceable>
+частями.
 </para>
 
 <formalpara>

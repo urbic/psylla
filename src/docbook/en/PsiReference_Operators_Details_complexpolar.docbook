@@ -6,7 +6,7 @@
 <replaceable>magnitude</replaceable>
 <replaceable>argument</replaceable>
 <token language="psi">complexpolar</token>
-<replaceable>complex_number</replaceable>
+<replaceable>number</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>magnitude</replaceable>,
@@ -14,14 +14,14 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
-<replaceable>complex_number</replaceable>:
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Returns a new <replaceable>complex_number</replaceable> with given
+Returns a new complex <replaceable>number</replaceable> with given
 <replaceable>magnitude</replaceable> and <replaceable>argument</replaceable>.
 </para>
 <formalpara>
