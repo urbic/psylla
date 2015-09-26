@@ -6,7 +6,7 @@
 <replaceable>модуль</replaceable>
 <replaceable>аргумент</replaceable>
 <token language="psi">complexpolar</token>
-<replaceable>комплексное</replaceable>
+<replaceable>число</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>модуль</replaceable>,
@@ -14,14 +14,14 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
-<replaceable>комплексное</replaceable>:
+<replaceable>число</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>комплексное</replaceable> число с данным
+Возвращает комплексное <replaceable>число</replaceable> с данными
 <replaceable>модулем</replaceable> и <replaceable>аргументом</replaceable>.
 </para>
 

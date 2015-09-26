@@ -727,6 +727,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_isinstance" xrefstyle="template:%t"/></term>
+<listitem>принадлежит ли объект типу</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tointeger" xrefstyle="template:%t"/></term>
 <listitem>преобразование объекта в целое число</listitem>
 </varlistentry>
@@ -1444,6 +1449,7 @@
 &PsiReference_Operators_Details_isdirectory;
 &PsiReference_Operators_Details_isempty;
 &PsiReference_Operators_Details_isfile;
+&PsiReference_Operators_Details_isinstance;
 &PsiReference_Operators_Details_issamefile;
 &PsiReference_Operators_Details_issymlink;
 &PsiReference_Operators_Details_iszero;

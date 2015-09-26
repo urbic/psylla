@@ -155,6 +155,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_stringreader;
 &PsiReference_Types_Details_stringwriter;
 &PsiReference_Types_Details_stringy;
+&PsiReference_Types_Details_type;
 &PsiReference_Types_Details_writable;
 &PsiReference_Types_Details_writer;
 
