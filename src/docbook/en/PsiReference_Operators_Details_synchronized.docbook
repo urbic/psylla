@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_monitor">
-<title><token language="psi">monitor</token></title>
+<section xml:id="PsiReference_Operators_Details_synchronized">
+<title><token language="psi">synchronized</token></title>
 
 <synopsis>
-<replaceable>замок</replaceable>
+<replaceable>объект</replaceable>
 <replaceable>процедура</replaceable>
-<token language="psi">monitor</token>
+<token language="psi">synchronized</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>замок</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lock"/>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
 <replaceable>процедура</replaceable>:
@@ -24,7 +24,6 @@
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidcontext"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
@@ -33,8 +32,8 @@
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_condition"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_lock"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notify"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_synchronized"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_monitor"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notify"/>.
 </formalpara>
 
 </section>

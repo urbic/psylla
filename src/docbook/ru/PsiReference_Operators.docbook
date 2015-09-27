@@ -782,6 +782,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_eol" xrefstyle="template:%t"/></term>
+<listitem>терминатор строк</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_filereader" xrefstyle="template:%t"/></term>
 <listitem>создание файлового читателя</listitem>
 </varlistentry>
@@ -1133,6 +1138,16 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_osname" xrefstyle="template:%t"/></term>
+<listitem>имя операционной системы</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_osversion" xrefstyle="template:%t"/></term>
+<listitem>версия операционной системы</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_signalerror" xrefstyle="template:%t"/></term>
 <listitem>вызов обработчика ошибки</listitem>
 </varlistentry>
@@ -1140,6 +1155,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_time" xrefstyle="template:%t"/></term>
 <listitem>получение текущего времени</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_version" xrefstyle="template:%t"/></term>
+<listitem>версия интерпретатора</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1184,6 +1204,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
 <listitem>вызов процедуры под замком</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_synchronized" xrefstyle="template:%t"/></term>
+<listitem></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1401,6 +1426,7 @@
 &PsiReference_Operators_Details_dup;
 &PsiReference_Operators_Details_end;
 &PsiReference_Operators_Details_entries;
+&PsiReference_Operators_Details_eol;
 &PsiReference_Operators_Details_eq;
 &PsiReference_Operators_Details_errordict;
 &PsiReference_Operators_Details_eval;
@@ -1479,6 +1505,8 @@
 &PsiReference_Operators_Details_notzero;
 &PsiReference_Operators_Details_null;
 &PsiReference_Operators_Details_or;
+&PsiReference_Operators_Details_osname;
+&PsiReference_Operators_Details_osversion;
 &PsiReference_Operators_Details_pop;
 &PsiReference_Operators_Details_pow;
 &PsiReference_Operators_Details_prepend;
@@ -1535,6 +1563,7 @@
 &PsiReference_Operators_Details_stringwriter;
 &PsiReference_Operators_Details_sub;
 &PsiReference_Operators_Details_symlink;
+&PsiReference_Operators_Details_synchronized;
 &PsiReference_Operators_Details_systemdict;
 &PsiReference_Operators_Details_tan;
 &PsiReference_Operators_Details_tanh;
@@ -1551,6 +1580,7 @@
 &PsiReference_Operators_Details_unite;
 &PsiReference_Operators_Details_userdict;
 &PsiReference_Operators_Details_values;
+&PsiReference_Operators_Details_version;
 &PsiReference_Operators_Details_wait;
 &PsiReference_Operators_Details_warn;
 &PsiReference_Operators_Details_where;
