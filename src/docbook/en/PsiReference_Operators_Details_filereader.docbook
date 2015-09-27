@@ -27,8 +27,7 @@ Returns a new file <replaceable>reader</replaceable> for a file with the given
 Generates <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_filenotfound"/>, if the file does not
 exist; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
-occures.
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error occurs.
 </para>
 
 <formalpara>

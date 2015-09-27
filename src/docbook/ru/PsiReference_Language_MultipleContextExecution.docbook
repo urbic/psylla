@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Language_MultipleContextExecution">
+<title>Многоконтекстное исполнение</title>
+
+<para>
+В языке Ψ имеется поддержка асинхронных <firstterm>контекстов
+исполнения</firstterm><indexterm><primary>контекст</primary>
+<secondary>исполнения</secondary></indexterm>. Контекст исполнения представляет
+собой отдельный интерпретатор.
+</para>
+
+<para>
+Каждый контекст создаёт для исполняющейся программы окружение, состоящее
+из стеков. Различные контексты делят между собой общий стек словарей. Остальные
+стеки (операндов, исполнения, служебные) являются частными и не видны
+за пределами своего контекста.
+</para>
+
+<para>
+Для исполнения программы создаётся главный контекст. Программа может создавать
+дополнительные контексты, исполняя оператор <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/>.
+</para>
+
+<section xml:id="PsiReference_Language_MultipleContextExecution_Operators">
+<title>Операторы для работы с контекстами</title>
+
+<para>
+Оператор <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/> возвращает новый контекст. Один
+из операндов <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/> — это процедура, вызываемая
+в новом контексте, а остальные служат для инициализации стека операндов нового
+контекста.
+</para>
+
+<para>
+Оператор <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_join"/> ожидает завершения процедуры
+в контексте, ранее созданом оператором <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/>, а затем копирует содержимое
+стека операндов этого контекста в стек операндов контекста, вызвавшего <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>.
+</para>
+
+<para>
+Контекст
+<firstterm>приостанавливается</firstterm><indexterm><primary>контекст</primary><secondary>приостановка</secondary></indexterm>
+по завершении исполняющейся в нём процедуры, ожидая оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>. Кроме
+того, приостановка контекста происходит в результате исполнения в нём
+операторов <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_wait"/>, <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_monitor"/>, <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_yield"/> и
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sleep"/>.
+</para>
+
+<para>
+Контекст
+<firstterm>завершается</firstterm><indexterm><primary>контекст</primary><secondary>завершение</secondary></indexterm>
+при исполнении в нём оператора <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_quit"/>.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_MultipleContextExecution_Synchronization">
+<title>Синхронизация контекстов</title>
+
+<para>
+
+</para>
+
+</section>
+
+</section>

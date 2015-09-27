@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_eol">
+<title><token language="psi">eol</token></title>
+
+<synopsis>
+—
+<token language="psi">eol</token>
+<constant>eol</constant>
+<itemizedlist>
+<listitem>
+<constant>eol</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Терминатор строк. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_eol"/> не оператор, а значение типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в системном
+словаре.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_println"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readline"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_say"/>.
+</formalpara>
+
+</section>
