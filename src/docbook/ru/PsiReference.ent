@@ -8,6 +8,7 @@
 <!ENTITY PsiReference_Language_CoreTypes				SYSTEM "PsiReference_Language_CoreTypes.docbook">
 <!ENTITY PsiReference_Language_IO						SYSTEM "PsiReference_Language_IO.docbook">
 <!ENTITY PsiReference_Language_MultipleContextExecution	SYSTEM "PsiReference_Language_MultipleContextExecution.docbook">
+<!ENTITY PsiReference_Language_Errors					SYSTEM "PsiReference_Language_Errors.docbook">
 <!ENTITY PsiReference_Types								SYSTEM "PsiReference_Types.docbook">
 <!ENTITY PsiReference_Operators							SYSTEM "PsiReference_Operators.docbook">
 <!ENTITY PsiReference_Errors							SYSTEM "PsiReference_Errors.docbook">

@@ -28,7 +28,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_condition"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_lock"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_monitor"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notify"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notify"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_sleep"/>.
 </formalpara>
 
 </section>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Language_Errors">
+<title>Ошибки</title>
+
+<para>
+Во время исполнения программы Ψ возможны различные ошибки. Некоторые из них
+генерируются интерпретатором. Другие возникают при исполнении операторов,
+например, ошибки несоответствия типа операндов или недополнения стека
+операндов.
+</para>
+
+<para>
+Ошибки отнесены к нескольким типам. Каждому типу соответствует имя, например,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+или <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_stackunderflow"/>. Подробное описание
+разных типов ошибок имеется в главе <xref linkend="PsiReference_Errors"/>.
+</para>
+
+<para>
+Обработка всех ошибок проводится единообразно.
+</para>
+
+</section>
