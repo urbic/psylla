@@ -1,0 +1,16 @@
+#!/usr/bin/psylla
+
+/n arguments 0 get tointeger def
+
+n
+{
+	n
+	{
+		stdout `* write
+	}
+	repeat
+	stdout `\n write
+}
+bind repeat
+
+stdout flush

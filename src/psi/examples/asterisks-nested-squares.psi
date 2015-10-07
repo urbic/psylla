@@ -1,0 +1,23 @@
+#!/usr/bin/psylla
+
+/n arguments 0 get tointeger def
+
+0 1 n 1 sub
+{
+	0 1 n 1 sub
+	{
+		1 index
+		2 { n 2 index sub 1 sub } repeat
+		3 { min } repeat
+		2 mod iszero
+		stdout exch
+		`* `  ifelse
+		write
+	}
+	for
+	pop
+	stdout `\n write
+}
+bind for
+
+stdout flush
