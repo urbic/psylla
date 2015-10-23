@@ -9,6 +9,9 @@
 <replaceable>n</replaceable>
 <token language="psi">index</token>
 <replaceable>object<subscript>n</subscript></replaceable>
+…
+<replaceable>object<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>object<subscript>0</subscript></replaceable>

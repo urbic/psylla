@@ -108,16 +108,11 @@ public class PsiString
 
 	@Override
 	public void psiAppend(final PsiInteger character)
+		throws PsiException
 	{
+		if(length()==Integer.MAX_VALUE)
+			throw new PsiLimitCheckException();
 		buffer.append((char)character.intValue());
-	}
-
-	@Override
-	public void psiAppendAll(final PsiIterable<? extends PsiInteger> iterable)
-	{
-		for(PsiInteger character:
-				(this!=iterable? iterable: (PsiIterable<? extends PsiInteger>)psiClone()))
-			psiAppend(character);
 	}
 
 	@Override
@@ -235,6 +230,7 @@ public class PsiString
 	}*/
 
 	public PsiArray psiSplit(PsiRegExp regexp)
+		throws PsiException
 	{
 		PsiArray array=new PsiArray();
 		for(String item: regexp.getPattern().split(getString(), -1))

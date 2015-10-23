@@ -3,22 +3,31 @@
 <title><token language="psi">sin</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">sin</token>
-<replaceable>синус</replaceable>
+<replaceable>sine</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>синус</replaceable>:
+<replaceable>number</replaceable>,
+<replaceable>sine</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>синус</replaceable> <replaceable>числа</replaceable>.
-Для операндов целого и вещественного типа возвращается вещественное число,
-для операндов комплексного типа возвращается комплексное число.
+Returns a <replaceable>sine</replaceable> of a <replaceable>number</replaceable>.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> and <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/> operands,
+returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/> result. For <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
+operands, returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/> result.
 </para>
 
 <formalpara>

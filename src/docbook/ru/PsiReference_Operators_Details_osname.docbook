@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_osname">
+<title><token language="psi">osname</token></title>
+
+<synopsis>
+—
+<token language="psi">osname</token>
+<constant>osname</constant>
+<itemizedlist>
+<listitem>
+<constant>osname</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Имя операционной системы. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_osname"/> не оператор, а значение типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в системном
+словаре.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">osname	▶ /Linux</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_osversion"/>.
+</formalpara>
+
+</section>

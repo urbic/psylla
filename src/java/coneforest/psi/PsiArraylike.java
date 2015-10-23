@@ -64,14 +64,6 @@ public interface PsiArraylike<T extends PsiObject>
 	public void insert(int indexValue, T obj)
 		throws PsiException;
 
-	@Override
-	default public void psiAppendAll(final PsiIterable<? extends T> iterable)
-		throws PsiException
-	{
-		for(T obj: (this!=iterable? iterable: (PsiIterable<? extends T>)psiClone()))
-			psiAppend(obj);
-	}
-
 	default public void psiInsert(PsiInteger index, T obj)
 		throws PsiException
 	{

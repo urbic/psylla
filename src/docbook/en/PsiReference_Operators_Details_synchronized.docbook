@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_synchronized">
+<title><token language="psi">synchronized</token></title>
+
+<synopsis>
+<replaceable>object</replaceable>
+<replaceable>procedure</replaceable>
+<token language="psi">synchronized</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>procedure</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+</para>
+
+<formalpara>
+&TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_condition"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_lock"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_monitor"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_notify"/>.
+</formalpara>
+
+</section>

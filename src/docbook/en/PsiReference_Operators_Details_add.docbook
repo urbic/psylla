@@ -18,8 +18,8 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>sum</replaceable> of two
-<replaceable>summandd</replaceable>.
+Returns the <replaceable>sum</replaceable> of two
+<replaceable>summands</replaceable>.
 </para>
 
 <para>

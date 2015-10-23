@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_version">
+<title><token language="psi">version</token></title>
+
+<synopsis>
+—
+<token language="psi">version</token>
+<constant>version</constant>
+<itemizedlist>
+<listitem>
+<constant>version</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Версия интерпретатора Ψ. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_version"/> не оператор, а значение типа
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в
+системном словаре.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">version	▶ '0.1.1'</programlisting>
+</formalpara>
+
+</section>

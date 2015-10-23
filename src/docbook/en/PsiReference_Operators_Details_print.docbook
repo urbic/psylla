@@ -21,7 +21,7 @@ Writes the <replaceable>string</replaceable> to the standard output.
 <para>
 Generates <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_ioerror"/> when the input/output error
-occures.
+occurs.
 </para>
 
 <formalpara>

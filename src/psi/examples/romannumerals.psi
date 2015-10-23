@@ -6,7 +6,7 @@
 {
 	toroman
 	dup fromroman
-	tosname print
+	toname print
 	'\t' print
 	say
 }

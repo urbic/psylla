@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Language_MultipleContextExecution">
+<title>Multiple Context Execution</title>
+
+<para>
+В языке Ψ имеется поддержка асинхронных <firstterm>контекстов
+исполнения</firstterm><indexterm><primary>контекст</primary>
+<secondary>исполнения</secondary></indexterm>. Контекст исполнения представляет
+собой отдельный интерпретатор.
+</para>
+
+<section xml:id="PsiReference_Language_MultipleContextExecution_Creation">
+<title>Creating Contexts</title>
+
+</section>
+
+<section xml:id="PsiReference_Language_MultipleContextExecution_Operators">
+<title>Context Operators</title>
+
+</section>
+
+<section xml:id="PsiReference_Language_MultipleContextExecution_Synchronization">
+<title>Context Synchronization</title>
+
+</section>
+
+
+</section>

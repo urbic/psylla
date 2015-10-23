@@ -14,7 +14,10 @@
 </synopsis>
 
 <para>
-The system dictionary. Не оператор, а значение в системном словаре.
+The system dictionary. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_systemdict"/> is not an operator, but a
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/> value
+in the system dictionary.
 </para>
 
 <formalpara>

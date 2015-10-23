@@ -3,22 +3,32 @@
 <title><token language="psi">tanh</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">tanh</token>
-<replaceable>гиперболический_тангенс</replaceable>
+<replaceable>hyperbolic_tangent</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>гиперболический_тангенс</replaceable>:
+<replaceable>number</replaceable>,
+<replaceable>hyperbolic_tangent</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает гиперболический тангенс числового операнда. Для операндов целого и
-вещественного типа возвращается вещественное число, для операндов комплексного
-типа возвращается комплексное число.
+Returns a <replaceable>hyperbolic_tangent</replaceable> of a
+<replaceable>number</replaceable>.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> and <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/> operands,
+returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/> result. For <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
+operands, returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/> result.
 </para>
 
 <formalpara>

@@ -33,12 +33,16 @@ public interface PsiContext
 		return "-context:"+getId()+"-";
 	}
 
-	public static void psiSleep(final PsiNumeric numeric)
+	public static void psiSleep(final PsiInteger integer)
 		throws PsiException
 	{
 		try
 		{
-			java.util.concurrent.TimeUnit.NANOSECONDS.sleep((long)(1E9*numeric.doubleValue()));
+			Thread.sleep(integer.longValue());
+		}
+		catch(IllegalArgumentException e)
+		{
+			throw new PsiRangeCheckException();
 		}
 		catch(InterruptedException e)
 		{
