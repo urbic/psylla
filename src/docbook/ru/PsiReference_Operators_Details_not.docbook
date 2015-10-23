@@ -31,8 +31,8 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">false not	▶ true
-true not	 false
-13 not		 -14</programlisting>
+true not	▶ false
+13 not		▶ -14</programlisting>
 </formalpara>
 
 <formalpara>

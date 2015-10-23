@@ -23,8 +23,8 @@
 <para>
 Возвращает <constant>true</constant>, если
 <replaceable>имя<subscript>1</subscript></replaceable> и
-<replaceable>имя<replaceable>2</replaceable></replaceable> являются именами
-одного и того же файла или директории, и <constant>false</constant> в противном
+<replaceable>имя<subscript>2</subscript></replaceable> являются именами одного
+и того же файла или директории, и <constant>false</constant> в противном
 случае.
 </para>
 
