@@ -15,7 +15,8 @@
 </synopsis>
 
 <para>
-Returns the <replaceable>number</replaceable> of objects in dictionary stack.
+Returns the <replaceable>number</replaceable> of objects in the dictionary
+stack.
 </para>
 
 <formalpara>

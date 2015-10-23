@@ -3,31 +3,32 @@
 <title><token language="psi">xor</token></title>
 
 <synopsis>
-<replaceable>операнд<subscript>1</subscript></replaceable>
-<replaceable>операнд<subscript>2</subscript></replaceable>
+<replaceable>operand<subscript>1</subscript></replaceable>
+<replaceable>operand<subscript>2</subscript></replaceable>
 <token language="psi">xor</token>
-<replaceable>результат</replaceable>
+<replaceable>exclusive_disjunction</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>операнд<subscript>1</subscript></replaceable>,
-<replaceable>операнд<subscript>2</subscript></replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>operand<subscript>1</subscript></replaceable>,
+<replaceable>operand<subscript>2</subscript></replaceable>,
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает исключающую дизъюнкцию двух операндов.
+Returns the <replaceable>exclusive_disjunction</replaceable> of two
+<replaceable>operands</replaceable>.
 </para>
 
 <para>
-Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
-исключающая дизъюнкция. Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> или типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
-вычисляется побитовая исключающая дизъюнкция.
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> operands, returns the logical
+exclusive disjunction. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_bitvector"/> operands returns the bitwise
+exclusive disjunction.
 </para>
 
 <formalpara>

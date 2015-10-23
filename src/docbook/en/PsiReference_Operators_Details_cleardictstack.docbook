@@ -9,7 +9,7 @@
 </synopsis>
 
 <para>
-Удаляет все непостоянные словари из стека словарей.
+Removes all non-permanent dictionaries from the dictionary stack.
 </para>
 
 <formalpara>

@@ -3,17 +3,17 @@
 <title><token language="psi">synchronized</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
-<replaceable>процедура</replaceable>
+<replaceable>object</replaceable>
+<replaceable>procedure</replaceable>
 <token language="psi">synchronized</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>процедура</replaceable>:
+<replaceable>procedure</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>

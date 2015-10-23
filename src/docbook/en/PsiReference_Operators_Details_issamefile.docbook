@@ -23,8 +23,8 @@
 <para>
 Returns <constant>true</constant>, if the
 <replaceable>name<subscript>1</subscript></replaceable> and the
-<replaceable>name<replaceable>2</replaceable></replaceable> are the names of
-the same file or directory, and <constant>false</constant> otherwise.
+<replaceable>name<subscript>2</subscript></replaceable> are the names of the
+same file or directory, and <constant>false</constant> otherwise.
 </para>
 
 <para>

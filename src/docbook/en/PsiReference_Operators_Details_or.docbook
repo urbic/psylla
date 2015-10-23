@@ -23,12 +23,12 @@ Returns the <replaceable>disjunction</replaceable> of two
 </para>
 
 <para>
-Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
-дизъюнкция. Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> или типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
-вычисляется побитовая дизъюнкция.
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> operands, returns the logical
+disjunction. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_bitvector"/> operands returns the bitwise
+disjunction.
 </para>
 
 <formalpara>

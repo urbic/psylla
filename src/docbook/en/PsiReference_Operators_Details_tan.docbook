@@ -3,22 +3,32 @@
 <title><token language="psi">tan</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">tan</token>
-<replaceable>тангенс</replaceable>
+<replaceable>tangent</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>тангенс</replaceable>:
+<replaceable>number</replaceable>,
+<replaceable>tangent</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>тангенс</replaceable> <replaceable>числа</replaceable>.
-Для операндов целого и вещественного типа возвращается вещественное число,
-для операндов комплексного типа возвращается комплексное число.
+Returns the <replaceable>tangent</replaceable> of a
+<replaceable>number</replaceable>.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> and <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/> operands,
+returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/> result. For <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
+operands, returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/> result.
 </para>
 
 <formalpara>

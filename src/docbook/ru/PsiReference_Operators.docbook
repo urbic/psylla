@@ -1234,10 +1234,10 @@
 <title><token language="psi">(</token></title>
 <synopsis>
 — <token language="psi">(</token>
-<replaceable>метка</replaceable>
+<constant>mark</constant>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
@@ -1247,7 +1247,7 @@
 <section xml:id="PsiReference_Operators_Details_)">
 <title><token language="psi">)</token></title>
 <synopsis>
-<replaceable>метка</replaceable>
+<constant>mark</constant>
 <replaceable>объект<subscript>0</subscript></replaceable>
 …
 <replaceable>объект<subscript>n−1</subscript></replaceable>
@@ -1255,7 +1255,7 @@
 <replaceable>множество</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
