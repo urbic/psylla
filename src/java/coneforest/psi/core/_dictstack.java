@@ -5,6 +5,7 @@ public final class _dictstack extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final DictStack dictstack=interpreter.getDictStack();
