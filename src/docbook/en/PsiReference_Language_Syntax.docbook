@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Language_Syntax">
+<title>Syntax</title>
+
+<section xml:id="PsiReference_Language_Syntax_Comments">
+<title>Comments</title>
+
+<para>
+<firstterm>Comments</firstterm> are parts of the program text which are ignored
+by the parser. There are two types of comments in the Ψ language: oneline and
+multiline.
+</para>
+
+<section xml:id="PsiReference_Language_Syntax_Comments_OneLine">
+<title>Oneline Comments</title>
+
+<para>
+The character <literal>#</literal> outside a string or regular expression
+introduces a <firstterm>oneline
+comment</firstterm><indexterm><primary>comment</primary><secondary>oneline</secondary></indexterm>.
+It composed of the characters following the <literal>#</literal> character
+until the end of line character.
+</para>
+
+<para>
+The oneline comment starting with <literal>#!</literal> in the first line of
+code in Unix-like operating systems play the role of the
+<firstterm>shebang</firstterm><indexterm><primary>shebang</primary></indexterm>.
+For example, the program, starting with the line
+
+<programlisting language="psi">#!/usr/bin/psylla</programlisting>
+
+and placed into an executable file, will be executed by the interpreter
+<command>/usr/bin/psylla</command>.
+
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Comments_MultiLine">
+<title>Multiline Comments</title>
+
+<para>
+Characters <literal>/#</literal> outside a string or regular expression
+introduce a <firstterm>multiline
+comment</firstterm><indexterm><primary>comment</primary><secondary>multiline</secondary></indexterm>,
+continuing to the next <literal>#/</literal> characters. Embedding multiline
+comments into each other is not allowed.
+</para>
+
+</section>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Numbers">
+<title>Numbers</title>
+
+<para>
+В программе могут создаваться числовые объекты целого, вещественного и
+комплексного типов. В языке предусмотрено литеральное представление только
+для целых и вещественных чисел.  Целые числа могут записываться в десятичной,
+шестнадцатеричной или двоичной форме.
+</para>
+
+<section xml:id="PsiReference_Language_Syntax_Numbers_Decimal">
+<title>Decimal Literals</title>
+
+<para>
+<firstterm>Десятичные
+литералы</firstterm><indexterm><primary>литерал</primary><secondary>десятичный</secondary></indexterm>
+состоят из десятичных цифр. Кроме того, они могут содержать единственную
+десятичную точку <literal>.</literal> и начинаться с необязательного знака
+<literal>+</literal> или <literal>-</literal>.
+</para>
+
+<para>
+Литералы, не содержащие десятичной точки, обычно приводят к созданию
+целочисленного объекта. В случае, если обозначаемое число выходит за границы
+допустимых значений целых чисел, создаётся вещественный объект.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Numbers_Hexadecimal">
+<title>Hexadecimal Literals</title>
+
+<para>
+<firstterm>Шестнадцатеричные
+литералы</firstterm><indexterm><primary>литерал</primary><secondary>шестнадцатеричный</secondary></indexterm>
+начинаются с необязательного знака <literal>+</literal> или
+<literal>-</literal>, символов <literal>0X</literal> или <literal>0x</literal>
+и завершаются произвольным количеством шестнадцатеричных цифр
+<literal>0</literal>—<literal>9</literal> и
+<literal>A</literal>—<literal>F</literal> или
+<literal>a</literal>—<literal>f</literal>.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Numbers_Binary">
+<title>Binary Literals</title>
+
+<para>
+<firstterm>Двоичные
+литералы</firstterm><indexterm><primary>литерал</primary><secondary>двоичный</secondary></indexterm>
+начинаются с необязательного знака <literal>+</literal> или
+<literal>-</literal>, символов <literal>0B</literal> или <literal>0b</literal>
+и завершаются произвольным количеством двоичных цифр <literal>0</literal> или
+<literal>1</literal>.
+</para>
+
+</section>
+
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Strings">
+<title>Strings</title>
+
+<para>
+Строковые литералы заключаются между двойными кавычками <literal>"</literal>
+(<constant>U+22</constant>). Бэкслэш <literal>\</literal>
+(<constant>U+5C</constant>) между кавычками имеет особый смысл, определяемый
+следующим за ним символом.
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry><literal>\0</literal></entry>
+<entry>null character, <constant>U+0</constant></entry>
+</row>
+<row>
+<entry><literal>\a</literal></entry>
+<entry>bell character, <constant>U+7</constant></entry>
+</row>
+<row>
+<entry><literal>\t</literal></entry>
+<entry>tab character, <constant>U+9</constant></entry>
+</row>
+<row>
+<entry><literal>\n</literal></entry>
+<entry>end of line character, <constant>U+A</constant></entry>
+</row>
+<row>
+<entry><literal>\f</literal></entry>
+<entry>end of page character, <constant>U+C</constant></entry>
+</row>
+<row>
+<entry><literal>\r</literal></entry>
+<entry>carriage return character, <constant>U+D</constant></entry>
+</row>
+<row>
+<entry><literal>\e</literal></entry>
+<entry>escape character, <constant>U+1B</constant></entry>
+</row>
+<row>
+<entry><literal>\"</literal></entry>
+<entry>double quote character <literal>"</literal> <constant>U+22</constant></entry>
+</row>
+<row>
+<entry><literal>\\</literal></entry>
+<entry>backslash character <literal>\</literal> <constant>U+5C</constant></entry>
+</row>
+<row>
+<entry><literal>\u<replaceable>XXXX</replaceable></literal></entry>
+<entry>Unicode code unit <constant>U+<replaceable>XXXX</replaceable></constant></entry>
+</row>
+<row>
+<entry><literal>\x{<replaceable>XXXXXXXX</replaceable>}</literal></entry>
+<entry>Unicode code point <constant>U+<replaceable>XXXXXXXX</replaceable></constant></entry>
+</row>
+<row>
+<entry><literal>\N{<replaceable>name</replaceable>}</literal></entry>
+<entry>Unicode character named <replaceable>name</replaceable> <remark>(not implemented)</remark></entry>
+</row>
+<row>
+<entry><literal>\c<replaceable>C</replaceable></literal></entry>
+<entry>для символов <replaceable>C</replaceable> от <constant>U+0</constant>
+до <constant>U+3F</constant> прибавляет к коду 64, для символов
+от <constant>U+40</constant> до <constant>U+7F</constant> вычитает 64
+из кода</entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Names">
+<title>Names</title>
+
+<para>
+<firstterm>Имена</firstterm><indexterm><primary>имя</primary></indexterm>
+состоят из букв от <literal>A</literal> до <literal>Z</literal> и
+от <literal>a</literal> до <literal>z</literal>
+(<constant>U+41</constant>—<constant>U+5A</constant>,
+<constant>U+61</constant>—<constant>U+7A</constant>), десятичных цифр
+(<constant>U+30</constant>—<constant>U+39</constant>), символов
+<literal>_</literal> (<constant>U+5F</constant>),
+<literal>.</literal> (<constant>U+2E</constant>),
+<literal>+</literal> (<constant>U+2B</constant>),
+<literal>-</literal> (<constant>U+2D</constant>),
+<literal>=</literal> (<constant>U+3D</constant>),
+<literal>$</literal> (<constant>U+24</constant>) и не начинаются с десятичной
+цифры. Имени предшествует символ
+<literal>/</literal> (<constant>U+2F</constant>).
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Commands">
+<title>Commands</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Arrays">
+<title>Arrays</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Procedures">
+<title>Procedures</title>
+
+<para>
+Символы <code language="psi">{</code> и <code language="psi">}</code>
+используются для создания
+<firstterm>процедур</firstterm><indexterm><primary>процедура</primary></indexterm>.
+</para>
+
+<para>
+Интерпретация фрагмента программы
+
+<programlisting language="psi">{ 1 exch div }</programlisting>
+
+приводит к созданию объекта процедуры, которая содержит целочисленный объект
+<code language="psi">1</code> и два объекта-команды <code
+language="psi">exch</code> и <code language="psi">div</code>. Когда парсер
+встречает символ <code language="psi">{</code>, он продолжает сканировать и
+создавать объекты, однако интерпретатор их не исполняет. Когда парсер встречает
+<code language="psi">}</code>, он помещает все объекты, созданные после
+обнаружения <code language="psi">{</code> в новый объект-процедуру.
+</para>
+
+<para>
+Интерпретатор не исполняет процедуру; вместо этого он загружает её на стек
+операндов. Процедура будет исполнена лишь при её вызове. Исполнение процедуры
+(и всех составляющих её объектов
+<firstterm>отложенное</firstterm><indexterm><primary>исполнение</primary><secondary>отложенное</secondary></indexterm>).
+Смысл отложенного исполнения объясняется в разделе <xref
+linkend="PsiReference_Language_ObjectExecution"/>.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Dictionaries">
+<title>Dictionaries</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_Sets">
+<title>Sets</title>
+
+<remark>TODO</remark>
+
+</section>
+
+<section xml:id="PsiReference_Language_Syntax_RegExps">
+<title>Regular Expressions</title>
+
+<remark>TODO</remark>
+
+</section>
+
+</section>
+

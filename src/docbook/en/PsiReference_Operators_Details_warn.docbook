@@ -20,8 +20,7 @@ Writes the <replaceable>string</replaceable> to the standard error writer.
 
 <para>
 Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
-occures.
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error occurs.
 </para>
 
 <formalpara>

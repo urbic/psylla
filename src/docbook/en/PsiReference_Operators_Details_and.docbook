@@ -18,17 +18,17 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>conjunction</replaceable> of two
+Returns the <replaceable>conjunction</replaceable> of two
 <replaceable>operands</replaceable>.
 </para>
 
 <para>
-Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
-конъюнкция. Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> или типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
-вычисляется побитовая конъюнкция.
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> operands, returns the logical
+conjunction. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_bitvector"/> operands returns the bitwise
+conjunction.
 </para>
 
 <formalpara>

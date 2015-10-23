@@ -37,6 +37,7 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_clone"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_copy"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>.
 </formalpara>

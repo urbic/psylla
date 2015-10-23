@@ -9,6 +9,9 @@
 <replaceable>n</replaceable>
 <token language="psi">index</token>
 <replaceable>объект<subscript>n</subscript></replaceable>
+…
+<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>объект<subscript>n</subscript></replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>

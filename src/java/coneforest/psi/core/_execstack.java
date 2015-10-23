@@ -5,6 +5,7 @@ public final class _execstack extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final ExecutionStack execstack=interpreter.getExecutionStack();

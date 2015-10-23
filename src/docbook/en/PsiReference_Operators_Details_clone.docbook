@@ -3,21 +3,38 @@
 <title><token language="psi">clone</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object</replaceable>
 <token language="psi">clone</token>
-<replaceable>объект<subscript>2</subscript></replaceable>
+<replaceable>copy</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
-<replaceable>объект<subscript>2</subscript></replaceable>:
+<replaceable>object</replaceable>,
+<replaceable>copy</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
+<para>
+Returns a <replaceable>copy</replaceable> of an
+<replaceable>object</replaceable>.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>
+<replaceable>object</replaceable>, returns an <replaceable>object</replaceable>
+itself. For composite <replaceable>object</replaceable>, returns a new object
+copy fully dissociated from an <replaceable>object</replaceable>.
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>.
 </formalpara>
 
 </section>

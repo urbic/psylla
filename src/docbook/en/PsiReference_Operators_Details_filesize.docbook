@@ -27,7 +27,7 @@ directory with the given <replaceable>name</replaceable>.
 Generates <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
 does not exist; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/ouput error occures;
+linkend="PsiReference_Errors_Details_ioerror"/> when input/ouput error occurs;
 <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
 is violated.

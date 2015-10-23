@@ -3,30 +3,30 @@
 <title><token language="psi">arg</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">arg</token>
-<replaceable>аргумент</replaceable>
+<replaceable>argument</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>:
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 <listitem>
-<replaceable>аргумент</replaceable>:
+<replaceable>argument</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает комплексный <replaceable>аргумент</replaceable>
-<replaceable>числа</replaceable>.
+Returns the <replaceable>argument</replaceable> of a
+<replaceable>number</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/> в случае нулевого
-целого, вещественного или комплексного <replaceable>числа</replaceable>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/> if the
+<replaceable>number</replaceable> is zero.
 </para>
 
 <formalpara>

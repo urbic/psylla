@@ -3,21 +3,30 @@
 <title><token language="psi">clone</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>объект</replaceable>
 <token language="psi">clone</token>
-<replaceable>объект<subscript>2</subscript></replaceable>
+<replaceable>копия</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
-<replaceable>объект<subscript>2</subscript></replaceable>:
+<replaceable>объект</replaceable>,
+<replaceable>копия</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
+<para>
+TODO
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>.
 </formalpara>
 
 </section>

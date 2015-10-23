@@ -3,29 +3,29 @@
 <title><token language="psi">writestring</token></title>
 
 <synopsis>
-<replaceable>вывод</replaceable>
-<replaceable>строка</replaceable>
+<replaceable>output</replaceable>
+<replaceable>string</replaceable>
 <token language="psi">writestring</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>вывод</replaceable>:
+<replaceable>output</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writable"/>
 </listitem>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Записывает <replaceable>строку</replaceable> в <replaceable>вывод</replaceable>.
+Writes the <replaceable>string</replaceable> to the <replaceable>output</replaceable>.
 </para>
 
 <para>
-При ошибке ввода/вывода генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when input/output error occurs.
 </para>
 
 <formalpara>
