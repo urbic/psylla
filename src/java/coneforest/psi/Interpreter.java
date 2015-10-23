@@ -165,6 +165,7 @@ public class Interpreter
 	}
 
 	public void interpretBraced(final PsiReader reader)
+		throws PsiException
 	{
 		procstack.push(new PsiProcedure());
 		interpret(reader);
@@ -721,6 +722,7 @@ public class Interpreter
 	}
 
 	public void acceptShellArguments(final String[] args)
+		throws PsiException
 	{
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)

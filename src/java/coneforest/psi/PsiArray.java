@@ -79,7 +79,10 @@ public class PsiArray
 
 	@Override
 	public void psiAppend(final PsiObject obj)
+		throws PsiException
 	{
+		if(length()==Integer.MAX_VALUE)
+			throw new PsiLimitCheckException();
 		array.add(obj);
 	}
 

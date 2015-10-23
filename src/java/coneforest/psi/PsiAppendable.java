@@ -12,8 +12,12 @@ public interface PsiAppendable<T extends PsiObject>
 	public void psiAppend(T obj)
 		throws PsiException;
 
-	public void psiAppendAll(PsiIterable<? extends T> iterable)
-		throws PsiException;
+	default public void psiAppendAll(final PsiIterable<? extends T> iterable)
+		throws PsiException
+	{
+		for(T obj: (this!=iterable? iterable: (PsiIterable<? extends T>)psiClone()))
+			psiAppend(obj);
+	}
 
 	public PsiAppendable psiReplicate(PsiInteger count)
 		throws PsiException;

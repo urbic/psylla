@@ -5,6 +5,7 @@ public final class _stack extends PsiOperator
 {
 	@Override
 	public void action(final Interpreter interpreter)
+		throws PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		PsiArray result=new PsiArray();
