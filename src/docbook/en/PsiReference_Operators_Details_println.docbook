@@ -14,11 +14,35 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Writes the <replaceable>string</replaceable> and the line terminator (<xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>) to the
+standard output.
+</para>
+
+<para>
+The operator is equvalent to the program
+
+<programlisting language="psi">print eol print</programlisting>
+
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_print"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_say"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdout"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_write"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
 </formalpara>
 
 </section>

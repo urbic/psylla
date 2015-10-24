@@ -19,19 +19,18 @@
 </synopsis>
 
 <para>
-Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
-является именем обычного файла, и <constant>false</constant> в противном
-случае.
+Returns <constant>true</constant>, if the <replaceable>name</replaceable>
+belongs to an ordinary file, and <constant>false</constant> otherwise.
 </para>
 
 <para>
-Если файл или директория с заданным <replaceable>именем</replaceable> не
-существует, генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>. При ошибке ввода/вывода
-генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
-безопасности генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
+does not exist; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when an input/output error
+occurs; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated.
 </para>
 
 <formalpara>

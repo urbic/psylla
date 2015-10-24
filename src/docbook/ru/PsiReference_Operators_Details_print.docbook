@@ -35,6 +35,7 @@ linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flush"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_println"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_say"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdout"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_write"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>.
 </formalpara>

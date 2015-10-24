@@ -5,32 +5,36 @@
 <synopsis>
 —
 <token language="psi">mark</token>
-<replaceable>метка</replaceable>
+<constant>mark</constant>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
 <para>
-Добавляет метку в стек операндов.
+Appends a <constant>mark</constant> to the operand stack. <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/> is not
+an operator, but a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_mark"/> value in the system dictionary.
 </para>
 
 <para>
-Метки используются для обозначения позиции в стеке операндов, с которой
-начинается список неопределённой длины, содержащий операнды оператора или
-процедуры. Операторы конструирования массивов, словарей и множеств <xref
+Marks are used to indicate the position in the operand stack, sfter which
+begins the list of undefined length containing the operands of the operator or
+the procedure. Operators constructing arrays, dictionaries and sets <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>, <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_]"/>, <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>, снимают
-со стека операндов неопределённое количество операндов вплоть до метки,
-оставленной операторами <xref xrefstyle="template:%t"
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/> remove
+from the operand stack indefinite number of operands up to the mark left by the
+operators <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_&lt;"/>, <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_["/>, <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_("/> (это всё синонимы оператора <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>).  Есть
-возможность определять процедуры с подобным поведением.
+linkend="PsiReference_Operators_Details_("/> (this all are synonyms of <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/>). It is
+possible to define the procedures with such behaviour.
 </para>
 
 <formalpara>

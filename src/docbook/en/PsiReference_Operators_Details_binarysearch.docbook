@@ -40,7 +40,7 @@ of the <replaceable>array</replaceable> must be ordered according to the
 specified <replaceable>comparator</replaceable>, or the search result will be
 unpredictable. Returns the <replaceable>index</replaceable> of the
 <replaceable>object</replaceable> found, or of its insertion place, and also
-the <replaceable>result</replaceable> indicating the success of the search.  If
+the <replaceable>result</replaceable> indicating the success of the search. If
 the <replaceable>array</replaceable> contains multiple elements equal
 (according to the <replaceable>comparator</replaceable>) to given
 <replaceable>object</replaceable>, <replaceable>index</replaceable> may belong
