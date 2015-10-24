@@ -3,41 +3,32 @@
 <title><token language="psi">forall</token></title>
 
 <synopsis>
-<replaceable>словарь</replaceable>
-<replaceable>процедура</replaceable>
-<token language="psi">forall</token>
-—
-<sbr/>
-<replaceable>перечисление</replaceable>
-<replaceable>процедура</replaceable>
+<replaceable>enumeration</replaceable>
+<replaceable>procedure</replaceable>
 <token language="psi">forall</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
-</listitem>
-<listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 <listitem>
-<replaceable>процедура</replaceable>:
+<replaceable>procedure</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Вызывает <replaceable>процедуру</replaceable> для каждого элемента
-<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
-операндов.
+Invokes a <replaceable>procedure</replaceable> for each element in the
+<replaceable>enumeration</replaceable>, previously adding an element to the
+operand stack.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_concurrentmodification"/>, если
-обнаружена конкурентная модификация.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_concurrentmodification"/> when the
+concurrent modification occured.
 </para>
 
 <formalpara>
