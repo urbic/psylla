@@ -25,8 +25,8 @@ Creates a symbolic link named <replaceable>link</replaceable> to a file named
 Generates <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_fileexists"/>, if a file or directory
 named <replaceable>ссылка</replaceable> exists; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/output error occurs;
-<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when an input/output error
+occurs; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
 is violated; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_unsupported"/>, if the creation of

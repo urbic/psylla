@@ -24,8 +24,8 @@ linkend="PsiReference_Errors_Details_fileaccessdenied"/>, if the operation is
 prohibited due to a file permission or other access check; <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>, if
 file or directory exists; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/output error occurs;
-<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when an input/output error
+occurs; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_securityerror"/> when security policy is
 violated.
 </para>

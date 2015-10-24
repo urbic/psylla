@@ -24,7 +24,7 @@
 </synopsis>
 
 <para>
-Splits the <replaceable>string</replaceable> into substrings delimites by
+Splits the <replaceable>string</replaceable> into substrings delimited by
 substrings matching the <replaceable>pattern</replaceable>, and returns the
 <replaceable>array</replaceable> composed of substrings.
 </para>

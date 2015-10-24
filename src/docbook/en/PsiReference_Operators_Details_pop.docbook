@@ -23,4 +23,14 @@ Removes the topmost <replaceable>object</replaceable> from the operand stack.
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_clearstack"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_cleartomark"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dup"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exch"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_index"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_roll"/>.
+</formalpara>
+
 </section>
