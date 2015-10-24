@@ -31,8 +31,11 @@
 Генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
 содержит метку; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если количество объектов
-выше метки на стеке операндов нечётно.
+linkend="PsiReference_Errors_Details_rangecheck"/>, если
+<replaceable>n</replaceable> нечётно; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_typecheck"/>, если хотя бы один из
+<replaceable>объектов</replaceable> с чётным индексом не принадлежит типу <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
 </para>
 
 <formalpara>
@@ -43,6 +46,7 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если количеств�
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
 </formalpara>
 
