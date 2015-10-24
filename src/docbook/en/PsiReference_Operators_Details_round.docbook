@@ -3,29 +3,25 @@
 <title><token language="psi">round</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">round</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+<listitem>
+<replaceable>result</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>результат</replaceable> округления
-<replaceable>числа</replaceable>.
-</para>
-
-<para>
-Если операнд типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/>, возвращается он же.
-Для операнда типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_real"/>
-<replaceable>результат</replaceable> имеет тот же тип.
+Returns the <replaceable>number</replaceable> rounded to the nearest
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+<replaceable>result</replaceable>.
 </para>
 
 <formalpara>

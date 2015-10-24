@@ -28,14 +28,19 @@ Returns <constant>true</constant>, if the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">(1 2 3) (1 2 4) intersects		▶ true
-(1 2 3) (1. 2. 3.) intersects	▶ false</programlisting>
+<programlisting language="psi">( 1 2 3 ) ( 1 2 4 ) intersects		▶ true
+( 1 2 3 ) ( 1. 2. 3. ) intersects	▶ false</programlisting>
 </formalpara>
 
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_contains"/>.
 </formalpara>
 
 </section>

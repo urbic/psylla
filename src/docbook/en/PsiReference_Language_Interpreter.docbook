@@ -9,7 +9,7 @@ deals with
 <firstterm>objects</firstterm><indexterm><primary>object</primary></indexterm>.
 Some of them represent data, such as numbers, Boolean values, names or
 containers. Other objects are considered as the executable instructions:
-commands, procedures, operators.  However, in the language no fundamental
+commands, procedures, operators. However, in the language no fundamental
 differences between the data and instructions: any object may be treated,
 depending on situation, as data or instruction.
 </para>

@@ -31,8 +31,8 @@ same file or directory, and <constant>false</constant> otherwise.
 Generates <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
 does not exist; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/output error occurs;
-<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when an input/output error
+occurs; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
 is violated.
 </para>
