@@ -246,6 +246,7 @@
 <!ENTITY PsiReference_Operators_Details_signum			SYSTEM "PsiReference_Operators_Details_signum.docbook">
 <!ENTITY PsiReference_Operators_Details_sin				SYSTEM "PsiReference_Operators_Details_sin.docbook">
 <!ENTITY PsiReference_Operators_Details_sinh			SYSTEM "PsiReference_Operators_Details_sinh.docbook">
+<!ENTITY PsiReference_Operators_Details_skip			SYSTEM "PsiReference_Operators_Details_skip.docbook">
 <!ENTITY PsiReference_Operators_Details_sleep			SYSTEM "PsiReference_Operators_Details_sleep.docbook">
 <!ENTITY PsiReference_Operators_Details_slice			SYSTEM "PsiReference_Operators_Details_slice.docbook">
 <!ENTITY PsiReference_Operators_Details_sort			SYSTEM "PsiReference_Operators_Details_sort.docbook">

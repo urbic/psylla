@@ -20,11 +20,13 @@ Returns a <replaceable>floor</replaceable> of the <replaceable>number</replaceab
 </para>
 
 <para>
-Если операнд типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/>, возвращается он же.
-Для операнда типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_real"/> <replaceable>пол</replaceable>
-имеет тот же тип.
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>
+<replaceable>number</replaceable>, returns a <replaceable>number</replaceable>
+itself. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/> <replaceable>number</replaceable>,
+the type of a <replaceable>floor</replaceable> is also <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>.
 </para>
 
 <formalpara>

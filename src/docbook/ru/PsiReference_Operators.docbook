@@ -852,6 +852,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_skip" xrefstyle="template:%t"/></term>
+<listitem>пропуск символов</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stderr" xrefstyle="template:%t"/></term>
 <listitem>стандартный вывод сообщений об ошибках</listitem>
 </varlistentry>
@@ -1545,6 +1550,7 @@
 &PsiReference_Operators_Details_signum;
 &PsiReference_Operators_Details_sin;
 &PsiReference_Operators_Details_sinh;
+&PsiReference_Operators_Details_skip;
 &PsiReference_Operators_Details_sleep;
 &PsiReference_Operators_Details_slice;
 &PsiReference_Operators_Details_sort;

@@ -30,15 +30,15 @@
 
 <para>
 Пытается прочитать <replaceable>строку</replaceable> заданной
-<replaceable>длины</replaceable> из источника. Возвращает прочитанную
-<replaceable>строку</replaceable>. Возвращает также булевское значение,
-показывающее, исчерпан ли <replaceable>источник</replaceable> в результате
-операции.
+<replaceable>длины</replaceable> из источника. Возвращает прочитанную
+<replaceable>строку</replaceable>. Возвращает также булевский
+<replaceable>результат</replaceable>, показывающий, исчерпан ли
+<replaceable>источник</replaceable> в результате операции.
 </para>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
 </para>
 
 <formalpara>

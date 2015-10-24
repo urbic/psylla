@@ -14,8 +14,8 @@
 <replaceable>object<subscript>n</subscript></replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>object<subscript>0</subscript></replaceable>
-…
+<replaceable>object<subscript>0</subscript></replaceable>,
+…,
 <replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
@@ -45,7 +45,7 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, if
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">"A" "B" "C" 2 index	▶ "A" "B" "C" "A"
+<programlisting language="psi">/A /B /C 2 index	▶ /A /B /C /A
 1 2 3 0 index		▶ 1 2 3 3</programlisting>
 </formalpara>
 

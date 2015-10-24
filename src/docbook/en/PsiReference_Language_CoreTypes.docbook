@@ -12,7 +12,7 @@ also created by the parser and executed by the interpreter.
 <para>
 Each object belongs to a certain
 <firstterm>type</firstterm><indexterm><primary>type</primary></indexterm>.
-Object type affects the way that will be handled by operators.  Types are
+Object type affects the way that will be handled by operators. Types are
 divided into
 <firstterm>simple</firstterm><indexterm><primary>type</primary><secondary>simple</secondary></indexterm>
 and
@@ -88,7 +88,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заме�
 <firstterm>Оператор</firstterm><indexterm><primary>оператор</primary></indexterm>
 в языке Ψ представляет код, манипулирующий интерпретатором. Объекты-операторы
 имеют тип <xref linkend="PsiReference_Types_Details_operator"
-xrefstyle="template:%t"/>.  Все операторы изначально размещены в системном
+xrefstyle="template:%t"/>. Все операторы изначально размещены в системном
 словаре и доступны по их именам. Операторы не могут быть созданы Ψ-программой.
 </para>
 
@@ -157,7 +157,7 @@ xrefstyle="template:%t"/>) представляют логические зна�
 Их главное предназначение — служить операндами в условных управляющих
 операторах <xref linkend="PsiReference_Operators_Details_if"
 xrefstyle="template:%t"/> и <xref
-linkend="PsiReference_Operators_Details_ifelse" xrefstyle="template:%t"/>.  Оба
+linkend="PsiReference_Operators_Details_ifelse" xrefstyle="template:%t"/>. Оба
 булевских объекта присутствуют в системном словаре под именами <xref
 linkend="PsiReference_Operators_Details_false" xrefstyle="template:%t"/> и
 <xref linkend="PsiReference_Operators_Details_true" xrefstyle="template:%t"/>.
@@ -249,7 +249,7 @@ linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/>. Он н
 
 <para>
 Массивы индексируются начиная с нуля. При доступе к элементам массива
-осуществляется проверка границ индекса.  В случае выхода индекса за пределы
+осуществляется проверка границ индекса. В случае выхода индекса за пределы
 границ возбуждается ошибка <xref
 linkend="PsiReference_Errors_Details_rangecheck" xrefstyle="template:%t"/>.
 </para>

@@ -43,7 +43,7 @@ xml:lang="en">Last In—First Out</foreignphrase> (последний пришё
 <title>Dictionary Stack</title>
 
 <para>
-The dictionary stack can store only dictionaries.  The current stack of the
+The dictionary stack can store only dictionaries. The current stack of the
 dictionary stack serves as a context of search for objects by name. The need
 for such a search occurs every time the interpreter encounters a command. There
 are several operators to manipulate the dictionary stack.

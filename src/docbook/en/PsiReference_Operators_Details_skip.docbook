@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_readstring">
-<title><token language="psi">readstring</token></title>
+<section xml:id="PsiReference_Operators_Details_skip">
+<title><token language="psi">skip</token></title>
 
 <synopsis>
 <replaceable>input</replaceable>
-<replaceable>length</replaceable>
-<token language="psi">readstring</token>
-<replaceable>string</replaceable>
+<replaceable>count</replaceable>
+<token language="psi">skip</token>
 <replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
@@ -14,12 +13,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
-<replaceable>length</replaceable>:
+<replaceable>count</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
-</listitem>
-<listitem>
-<replaceable>string</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>result</replaceable>:
@@ -29,22 +24,25 @@
 </synopsis>
 
 <para>
-Tries to read a <replaceable>string</replaceable> of specified
-<replaceable>length</replaceable> from the source. Returns the read
-<replaceable>string</replaceable>. Also returns a boolean
-<replaceable>result</replaceable> indicating whether the
-<replaceable>input</replaceable> is exhausted after the operation.
+Attemps to skip the specified <replaceable>count</replaceable> of characters
+from the <replaceable>input</replaceable>. Returns <constant>true</constant>,
+if the given <replaceable>count</replaceable> of characters are skipped, and
+<constant>false</constant>, if the <replaceable>input</replaceable> is
+exhausted before end of the operation.
 </para>
 
 <para>
 Generates <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_ioerror"/> when an input/output error
-occurs.
+occurs; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, if the
+<replaceable>count</replaceable> is negative.
 </para>
 
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
@@ -52,7 +50,8 @@ occurs.
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_read"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readline"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readline"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readstring"/>.
 </formalpara>
 
 </section>
