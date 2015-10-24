@@ -14,7 +14,10 @@
 </synopsis>
 
 <para>
-Словарь ошибок. Не оператор, а значение в системном словаре.
+The error dictionary. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_errordict"/> is not an operator, but a
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/> value
+in the system dictionary.
 </para>
 
 <formalpara>

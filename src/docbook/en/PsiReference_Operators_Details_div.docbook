@@ -3,25 +3,36 @@
 <title><token language="psi">div</token></title>
 
 <synopsis>
-<replaceable>делимое</replaceable> <replaceable>делитель</replaceable> <token language="psi">div</token> <replaceable>частное</replaceable>
+<replaceable>dividend</replaceable>
+<replaceable>divisor</replaceable>
+<token language="psi">div</token>
+<replaceable>quotient</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>делимое</replaceable>,
-<replaceable>делитель</replaceable>,
-<replaceable>частное</replaceable>:
+<replaceable>dividend</replaceable>,
+<replaceable>divisor</replaceable>,
+<replaceable>quotient</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>частное</replaceable> при делении
-<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
-Если оба операнда имеют тип <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_numeric"/>, тип результата будет <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>. Если
-хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.
+Returns the <replaceable>quotient</replaceable> of the division a
+<replaceable>dividend</replaceable> by a <replaceable>divisor</replaceable>.
+</para>
+
+<para>
+If both <replaceable>dividend</replaceable> and
+<replaceable>divisor</replaceable> are of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_numeric"/>, the
+<replaceable>quotient</replaceable> type is <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/>. If the
+<replaceable>dividend</replaceable> or the <replaceable>divisor</replaceable>
+is of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/>, the
+<replaceable>quotient</replaceable> type is also <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/>.
 </para>
 
 <formalpara>

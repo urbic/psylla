@@ -43,6 +43,7 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если количеств�
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
 </formalpara>
 

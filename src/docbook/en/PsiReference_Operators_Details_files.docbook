@@ -31,8 +31,10 @@ linkend="PsiReference_Errors_Details_fileaccessdenied"/>, if the operation is
 prohibited due to a file permission or other access check; <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 if the directory does not exist; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/output error
-occurs; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_notdirectory"/>, if the file named
+<replaceable>name</replaceable> is not directory; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+when input/output error occurs; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_securityerror"/> when security policy
 is violated.
 </para>
@@ -48,6 +50,7 @@ is violated.
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notdirectory"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.

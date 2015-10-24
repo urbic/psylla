@@ -3,20 +3,11 @@
 <title><token language="psi">forall</token></title>
 
 <synopsis>
-<replaceable>словарь</replaceable>
-<replaceable>процедура</replaceable>
-<token language="psi">forall</token>
-—
-<sbr/>
 <replaceable>перечисление</replaceable>
 <replaceable>процедура</replaceable>
 <token language="psi">forall</token>
 —
 <itemizedlist>
-<listitem>
-<replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
-</listitem>
 <listitem>
 <replaceable>перечисление</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
@@ -30,8 +21,8 @@
 
 <para>
 Вызывает <replaceable>процедуру</replaceable> для каждого элемента
-<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
-операндов.
+<replaceable>перечисления</replaceable>, предварительно добавляя элемент
+на стек операндов.
 </para>
 
 <para>
