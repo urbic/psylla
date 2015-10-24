@@ -2,28 +2,35 @@
 <section xml:id="PsiReference_Operators_Details_intersects">
 <title><token language="psi">intersects</token></title>
 <synopsis>
-<replaceable>множество<subscript>1</subscript></replaceable>
-<replaceable>множество<subscript>2</subscript></replaceable>
+<replaceable>set<subscript>1</subscript></replaceable>
+<replaceable>set<subscript>2</subscript></replaceable>
 <token language="psi">intersects</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>множество<subscript>1</subscript></replaceable>,
-<replaceable>множество<subscript>2</subscript></replaceable>:
+<replaceable>set<subscript>1</subscript></replaceable>,
+<replaceable>set<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает булевское значение, показывающее, пересекаются ли два
-<replaceable>множества</replaceable>, то есть содержат ли элементы, равные друг
-другу.
+Returns <constant>true</constant>, if the
+<replaceable>set<subscript>1</subscript></replaceable> intersects with the
+<replaceable>set<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
 </para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">(1 2 3) (1 2 4) intersects		▶ true
+(1 2 3) (1. 2. 3.) intersects	▶ false</programlisting>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

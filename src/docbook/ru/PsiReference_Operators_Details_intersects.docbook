@@ -26,6 +26,12 @@
 </para>
 
 <formalpara>
+&TitleExamples;
+<programlisting language="psi">(1 2 3) (1 2 4) intersects		▶ true
+(1 2 3) (1. 2. 3.) intersects	▶ false</programlisting>
+</formalpara>
+
+<formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.

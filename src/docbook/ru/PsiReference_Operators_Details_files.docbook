@@ -31,7 +31,9 @@ linkend="PsiReference_Errors_Details_fileaccessdenied"/>, если операц�
 запрещена при проверке прав доступа; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_filenotfound"/>, если директория
 с заданным <replaceable>именем</replaceable> не существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notdirectory"/>,
+если файл с заданным <replaceable>именем</replaceable> не является директорией;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
 при ошибке ввода/вывода; <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
 безопасности.
@@ -47,6 +49,7 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notdirectory"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
