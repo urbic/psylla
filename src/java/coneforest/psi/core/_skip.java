@@ -9,6 +9,6 @@ public final class _skip extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		((PsiReadable)ops[0]).psiSkip((PsiInteger)ops[1]);
+		opstack.push(((PsiReadable)ops[0]).psiSkip((PsiInteger)ops[1]));
 	}
 }
