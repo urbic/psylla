@@ -24,7 +24,7 @@ syn match psiReal			"[+-]\=\d\+[Ee][+-]\=\d\+\>"
 syn cluster psiNumeric		contains=psiInteger,psiHexInteger,psiReal
 syn region psiComment		start="/#" end="#/" contains=psiTodo
 
-syn match psiCharacter		"`\([^\\]\|\\[afenrt]\)"
+syn match psiCharacter		"`\([^\\]\|\\[afenrt\\]\)"
 
 syn match psiNameExecutable	"\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
 syn match psiOperator       "[\[\]{}<>()?]"
