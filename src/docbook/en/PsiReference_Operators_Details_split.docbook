@@ -31,7 +31,7 @@ substrings matching the <replaceable>pattern</replaceable>, and returns the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">"Мама мыла раму" @ +@ split	▶ ["Мама" "мыла" "раму"]</programlisting>
+<programlisting language="psi">"Mind the Gap" @ +@ split	▶ [ "Mind" "the" "Gap" ]</programlisting>
 </formalpara>
 
 <formalpara>

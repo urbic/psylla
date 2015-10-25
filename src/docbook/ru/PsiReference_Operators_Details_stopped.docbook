@@ -4,7 +4,7 @@
 
 <synopsis>
 <replaceable>объект</replaceable>
-<token language="psi">stop</token>
+<token language="psi">stopped</token>
 <replaceable>результат</replaceable>
 <itemizedlist>
 <listitem>
@@ -21,6 +21,11 @@
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stop"/>.
 </formalpara>
 
 </section>

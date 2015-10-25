@@ -5,27 +5,28 @@
 <synopsis>
 <replaceable>операнд</replaceable>
 <token language="psi">not</token>
-<replaceable>отрицание</replaceable>
+<replaceable>дополнение</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>операнд</replaceable>,
-<replaceable>отрицание</replaceable>:
+<replaceable>дополнение</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>отрицание</replaceable> <replaceable>операнда</replaceable>.
+Возвращает <replaceable>дополнение</replaceable>
+<replaceable>операнда</replaceable>.
 </para>
 
 <para>
-Для операндов типа <xref xrefstyle="template:%t"
+Для <replaceable>операндов</replaceable> типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_boolean"/> вычисляется логическое
-отрицание. Для операнда типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> или типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
-вычисляется побитовое отрицание.
+<replaceable>дополнение</replaceable>. Для операнда типа <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
+вычисляется побитовое <replaceable>дополнение</replaceable>.
 </para>
 
 <formalpara>

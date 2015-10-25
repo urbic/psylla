@@ -22,7 +22,7 @@ linkend="PsiReference_Types_Details_mark"/> value in the system dictionary.
 </para>
 
 <para>
-Marks are used to indicate the position in the operand stack, sfter which
+Marks are used to indicate the position in the operand stack, after which
 begins the list of undefined length containing the operands of the operator or
 the procedure. Operators constructing arrays, dictionaries and sets <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_&gt;"/>, <xref
