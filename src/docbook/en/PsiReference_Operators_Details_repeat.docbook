@@ -32,6 +32,11 @@ linkend="PsiReference_Operators_Details_repeat"/>.
 </para>
 
 <formalpara>
+&TitleExamples;
+<programlisting language="psi">1 10 { 2 mul } repeat	▶ 1024</programlisting>
+</formalpara>
+
+<formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.

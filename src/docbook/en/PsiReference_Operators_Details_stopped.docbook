@@ -3,16 +3,16 @@
 <title><token language="psi">stopped</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
-<token language="psi">stop</token>
-<replaceable>результат</replaceable>
+<replaceable>object</replaceable>
+<token language="psi">stopped</token>
+<replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
@@ -21,6 +21,11 @@
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stop"/>.
 </formalpara>
 
 </section>

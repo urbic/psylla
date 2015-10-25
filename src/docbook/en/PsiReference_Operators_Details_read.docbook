@@ -3,21 +3,21 @@
 <title><token language="psi">read</token></title>
 
 <synopsis>
-<replaceable>источник</replaceable>
+<replaceable>input</replaceable>
 <token language="psi">read</token>
-<replaceable>символ</replaceable>
+<replaceable>character</replaceable>
 <constant>true</constant>
 <sbr/>
-<replaceable>источник</replaceable>
+<replaceable>input</replaceable>
 <token language="psi">read</token>
 <constant>false</constant>
 <itemizedlist>
 <listitem>
-<replaceable>источник</replaceable>:
+<replaceable>input</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
-<replaceable>символ</replaceable>:
+<replaceable>character</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
@@ -29,16 +29,16 @@
 </synopsis>
 
 <para>
-Пытается прочитать <replaceable>символ</replaceable>
-из <replaceable>источника</replaceable>. Возвращает прочитанный
-<replaceable>символ</replaceable> в случае успеха (если
-<replaceable>источник</replaceable> не исчерпан). Возвращает также булевское
-значение, показывающее успешность операции.
+Attempts to read a <replaceable>character</replaceable> from
+an <replaceable>input</replaceable>. Returns a
+<replaceable>character</replaceable> read on success (if an
+<replaceable>input</replaceable> is not exhausted). Also returns a boolean
+value indicating the success of the operation.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when an input error occurs.
 </para>
 
 <formalpara>

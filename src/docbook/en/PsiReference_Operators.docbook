@@ -166,22 +166,22 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_atan" xrefstyle="template:%t"/></term>
-<listitem>arctangent of a number</listitem>
+<listitem>the arctangent of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bitshift" xrefstyle="template:%t"/></term>
-<listitem>bitwise shift</listitem>
+<listitem>the bitwise shift of an integer</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cbrt" xrefstyle="template:%t"/></term>
-<listitem>cubic root of a number</listitem>
+<listitem>the cubic root of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ceiling" xrefstyle="template:%t"/></term>
-<listitem>ceiling of a number</listitem>
+<listitem>the ceiling of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -196,17 +196,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_conjugate" xrefstyle="template:%t"/></term>
-<listitem>complex conjugate of a number</listitem>
+<listitem>the complex conjugate of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cos" xrefstyle="template:%t"/></term>
-<listitem>cosine of a number</listitem>
+<listitem>the cosine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cosh" xrefstyle="template:%t"/></term>
-<listitem>hyperbolic cosine of a number</listitem>
+<listitem>the hyperbolic cosine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -216,12 +216,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exp" xrefstyle="template:%t"/></term>
-<listitem>exponent of a number</listitem>
+<listitem>the exponent of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_floor" xrefstyle="template:%t"/></term>
-<listitem>floor of a number</listitem>
+<listitem>the floor of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -236,7 +236,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_im" xrefstyle="template:%t"/></term>
-<listitem>real part of a number</listitem>
+<listitem>the real part of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -246,7 +246,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_log" xrefstyle="template:%t"/></term>
-<listitem>natural logarithm of a number</listitem>
+<listitem>the natural logarithm of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -256,12 +256,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_mul" xrefstyle="template:%t"/></term>
-<listitem>product of two numbers</listitem>
+<listitem>the product of two numbers</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_neg" xrefstyle="template:%t"/></term>
-<listitem>изменение знака числа</listitem>
+<listitem>the arithmetic negation</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -276,42 +276,42 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_re" xrefstyle="template:%t"/></term>
-<listitem>real part of a number</listitem>
+<listitem>the real part of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_signum" xrefstyle="template:%t"/></term>
-<listitem>signum of a number</listitem>
+<listitem>the signum of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sin" xrefstyle="template:%t"/></term>
-<listitem>sine of a number</listitem>
+<listitem>the sine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sinh" xrefstyle="template:%t"/></term>
-<listitem>hyperbolic sine of a number</listitem>
+<listitem>the hyperbolic sine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sqrt" xrefstyle="template:%t"/></term>
-<listitem>square root of a number</listitem>
+<listitem>the square root of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sub" xrefstyle="template:%t"/></term>
-<listitem>difference of two numbers</listitem>
+<listitem>the difference of two numbers</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tan" xrefstyle="template:%t"/></term>
-<listitem>tangent of a number</listitem>
+<listitem>the tangent of a number</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tanh" xrefstyle="template:%t"/></term>
-<listitem>hyperbolic tangent of a number</listitem>
+<listitem>the hyperbolic tangent of a number</listitem>
 </varlistentry>
 
 </variablelist>
@@ -325,32 +325,32 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_and" xrefstyle="template:%t"/></term>
-<listitem>логическая или побитовая конъюнкция</listitem>
+<listitem>the logical or bitwise conjunction of two operands</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_false" xrefstyle="template:%t"/></term>
-<listitem>boolean false</listitem>
+<listitem>the boolean false</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_not" xrefstyle="template:%t"/></term>
-<listitem>logical or bitwise negation</listitem>
+<listitem>the logical or bitwise negation of an operand</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_or" xrefstyle="template:%t"/></term>
-<listitem>logical or bitwise disjunction</listitem>
+<listitem>the logical or bitwise disjunction of two operands</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_true" xrefstyle="template:%t"/></term>
-<listitem>boolean true</listitem>
+<listitem>the boolean true</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_xor" xrefstyle="template:%t"/></term>
-<listitem>логическая или побитовая исключающая дизъюнкция</listitem>
+<listitem>the logical or bitwise exclusive disjunction</listitem>
 </varlistentry>
 
 </variablelist>
@@ -364,12 +364,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_eval" xrefstyle="template:%t"/></term>
-<listitem>evaluation of an expression</listitem>
+<listitem>evaluate an expression</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exec" xrefstyle="template:%t"/></term>
-<listitem>invocation of an object</listitem>
+<listitem>invoke an object</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -379,12 +379,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_for" xrefstyle="template:%t"/></term>
-<listitem>cycle with a numeric parameter</listitem>
+<listitem>the cycle with a numeric parameter</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_halt" xrefstyle="template:%t"/></term>
-<listitem>the termination of program with the given status</listitem>
+<listitem>terminate the program with a given status</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -399,32 +399,32 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_loop" xrefstyle="template:%t"/></term>
-<listitem>unconditional cycle</listitem>
+<listitem>the unconditional cycle</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_quit" xrefstyle="template:%t"/></term>
-<listitem>termination of execution of the current context</listitem>
+<listitem>terminate the execution of the current context</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_repeat" xrefstyle="template:%t"/></term>
-<listitem>cycle with a given number of repetitions</listitem>
+<listitem>the cycle with a given number of repetitions</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sleep" xrefstyle="template:%t"/></term>
-<listitem>suspend current execution context</listitem>
+<listitem>suspend the current execution context</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stop" xrefstyle="template:%t"/></term>
-<listitem>завершение контекста остановки</listitem>
+<listitem>terminate the stopped context</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stopped" xrefstyle="template:%t"/></term>
-<listitem>the creation of stop context</listitem>
+<listitem>create the stopped context</listitem>
 </varlistentry>
 
 </variablelist>
@@ -463,7 +463,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_array" xrefstyle="template:%t"/></term>
-<listitem>create of an empty array</listitem>
+<listitem>create an empty array</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -478,7 +478,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_binarysearch" xrefstyle="template:%t"/></term>
-<listitem>binary search for the element in the array using the comparator</listitem>
+<listitem>binary search for an element in an array using a comparator</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -488,17 +488,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bitset" xrefstyle="template:%t"/></term>
-<listitem>create of an empty bit set</listitem>
+<listitem>create an empty bit set</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_bitvector" xrefstyle="template:%t"/></term>
-<listitem>create of an empty bit vector</listitem>
+<listitem>create an empty bit vector</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_blockingqueue" xrefstyle="template:%t"/></term>
-<listitem>creation of a blocking queue</listitem>
+<listitem>create a blocking queue</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -513,22 +513,23 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_contains" xrefstyle="template:%t"/></term>
-<listitem>проверка принадлежности элемента множеству</listitem>
+<listitem>the set contains an element?</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_currentdict" xrefstyle="template:%t"/></term>
-<listitem>current dictionary (the upper in the dictionary stack)</listitem>
+<listitem>the current dictionary (the upper in the dictionary stack)</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_def" xrefstyle="template:%t"/></term>
-<listitem>добавление записи в текущий словарь</listitem>
+<listitem>store an object in the current dictionary for a given
+key</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dict" xrefstyle="template:%t"/></term>
-<listitem>create of an empty dictionary</listitem>
+<listitem>create an empty dictionary</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -558,12 +559,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_forall" xrefstyle="template:%t"/></term>
-<listitem>цикл перебора для перечисления</listitem>
+<listitem>cycle for each element of an enumeration</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_get" xrefstyle="template:%t"/></term>
-<listitem>извлечение объекта из контейнера по ключу или индексу</listitem>
+<listitem>fetch an object from a container by a key or an index</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -574,7 +575,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_getinterval" xrefstyle="template:%t"/></term>
-<listitem>извлечение подмассива</listitem>
+<listitem>fetch a subarray from an array</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -584,17 +585,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_insert" xrefstyle="template:%t"/></term>
-<listitem>вставка объекта в массив в заданном месте</listitem>
+<listitem>insert an object into an array at the given place</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_insertall" xrefstyle="template:%t"/></term>
-<listitem>вставка в массив в заданном месте всех элементов перечисления</listitem>
+<listitem>insert all the elements of an enumeration into an array at the given place</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_intersects" xrefstyle="template:%t"/></term>
-<listitem>проверка пересечения двух множеств</listitem>
+<listitem>two sets intersects?</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -609,12 +610,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_known" xrefstyle="template:%t"/></term>
-<listitem>проверка наличия ключа в словаре</listitem>
+<listitem>a key is contained in a container?</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_length" xrefstyle="template:%t"/></term>
-<listitem>the length of the container</listitem>
+<listitem>the length of a container</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -624,22 +625,23 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_prepend" xrefstyle="template:%t"/></term>
-<listitem>the addition an element to the beginning of the container</listitem>
+<listitem>add an element to the beginning of a container</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_prependall" xrefstyle="template:%t"/></term>
-<listitem>добавление в начало контейнера всех элементов перечисления</listitem>
+<listitem>add all the elements of an enumeration to the beginning of a
+container</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_put" xrefstyle="template:%t"/></term>
-<listitem>place an object in a container for a given key or index</listitem>
+<listitem>store an object in a container for a given key or index</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_putinterval" xrefstyle="template:%t"/></term>
-<listitem>placing all the objects from an enumeration in a container</listitem>
+<listitem>store all the objects from an enumeration in a container</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -699,12 +701,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_undef" xrefstyle="template:%t"/></term>
-<listitem>удаление ключа из словаря</listitem>
+<listitem>remove a key from a dictionary</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_unite" xrefstyle="template:%t"/></term>
-<listitem>concatenate strings in an array with separator</listitem>
+<listitem>concatenate strings in an array with a separator</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -717,7 +719,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_TypeConversion">
-<title>Операторы, связанные с типами и конверсией</title>
+<title>Type and Conversion Operators</title>
 
 <variablelist>
 
@@ -733,27 +735,27 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tointeger" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в целое число</listitem>
+<listitem>convert an object to integer</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_toname" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в имя</listitem>
+<listitem>convert an object to name</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_toreal" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в вещественное число</listitem>
+<listitem>convert an object to real</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tostring" xrefstyle="template:%t"/></term>
-<listitem>преобразование объекта в строку</listitem>
+<listitem>convert an object to string</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_type" xrefstyle="template:%t"/></term>
-<listitem>тип объекта</listitem>
+<listitem>the type of an object</listitem>
 </varlistentry>
 
 </variablelist>
@@ -768,12 +770,13 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_?" xrefstyle="template:%t"/></term>
-<listitem>вывод объекта в стандартный вывод в синтаксической форме</listitem>
+<listitem>write the syntactic representation of an object to the standard
+output</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_close" xrefstyle="template:%t"/></term>
-<listitem>close an input/output object</listitem>
+<listitem>close an input or output</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -783,7 +786,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_eol" xrefstyle="template:%t"/></term>
-<listitem>get the line terminator</listitem>
+<listitem>the line terminator</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -798,22 +801,23 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_flush" xrefstyle="template:%t"/></term>
-<listitem>flush object’s output buffer</listitem>
+<listitem>flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_prettyprint" xrefstyle="template:%t"/></term>
-<listitem>вывод объекта в стандартный вывод в синтаксической форме</listitem>
+<listitem>write the syntactic representation of an object to the standard
+output</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_print" xrefstyle="template:%t"/></term>
-<listitem>output a string to standard output</listitem>
+<listitem>write a string to the standard output</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_println" xrefstyle="template:%t"/></term>
-<listitem>вывод строкового объекта и символа конца строки в стандартный вывод</listitem>
+<listitem>write a string and the line terminator to the standard output</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -823,7 +827,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_read" xrefstyle="template:%t"/></term>
-<listitem>чтение символа из входа или читателя</listitem>
+<listitem>read a character from an input</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -838,17 +842,18 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ready" xrefstyle="template:%t"/></term>
-<listitem>проверка доступности символа в читателе</listitem>
+<listitem>input is ready?</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_reset" xrefstyle="template:%t"/></term>
-<listitem>reset a reader</listitem>
+<listitem>reset an input</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_say" xrefstyle="template:%t"/></term>
-<listitem>вывод строкового объекта и символа конца строки в вывод или писатель со сбросом</listitem>
+<listitem>write a string and the line terminator to the standard output and
+flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -883,17 +888,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_warn" xrefstyle="template:%t"/></term>
-<listitem>вывод строки в стандартный вывод сообщений об ошибках со сбросом</listitem>
+<listitem>write a string to the standard error output ant flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_write" xrefstyle="template:%t"/></term>
-<listitem>output a character</listitem>
+<listitem>write a character to an output</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_writestring" xrefstyle="template:%t"/></term>
-<listitem>output a string</listitem>
+<listitem>write a string to an output</listitem>
 </varlistentry>
 
 </variablelist>
@@ -901,7 +906,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_ByCategory_FileSystem">
-<title>File System Manipulation Operators</title>
+<title>File System Operators</title>
 
 <variablelist>
 
@@ -1233,7 +1238,7 @@
 </section>
 
 <section xml:id="PsiReference_Operators_Details">
-<title>Операторы в деталях</title>
+<title>Operators in Detail</title>
 
 <section xml:id="PsiReference_Operators_Details_(">
 <title><token language="psi">(</token></title>
