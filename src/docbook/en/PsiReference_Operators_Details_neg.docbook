@@ -3,38 +3,39 @@
 <title><token language="psi">neg</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">neg</token>
-<replaceable>результат</replaceable>
+<replaceable>negation</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>number</replaceable>,
+<replaceable>negation</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>результат</replaceable> арифметического отрицания
-<replaceable>числа</replaceable>.
+Returns the arithmetic <replaceable>negation</replaceable> of the
+<replaceable>number</replaceable>.
 </para>
 
 <para>
-Для операнда типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> тип
-<replaceable>результата</replaceable> также будет <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/>, кроме случая, когда операнд
-равен <constant>-9223372036854775808</constant>, тогда тип
-<replaceable>результата</replaceable> будет <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_real"/>.
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>
+<replaceable>number</replaceable> the type of a
+<replaceable>negation</replaceable> is also <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>, unless a
+<replaceable>number</replaceable> is <constant>-9223372036854775808</constant>,
+then the type of a <replaceable>negation</replaceable> is <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>.
 </para>
 
 <para>
-Для операнда типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_real"/> или <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_complex"/> тип
-<replaceable>результата</replaceable> будет тем же.
+For <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
+or <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
+<replaceable>number</replaceable> the type of a
+<replaceable>negation</replaceable> is the same.
 </para>
 
 <formalpara>
