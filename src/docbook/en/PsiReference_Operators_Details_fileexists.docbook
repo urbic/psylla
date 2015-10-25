@@ -19,7 +19,7 @@
 </synopsis>
 
 <para>
-Returns <constant>true</constant> if a file or directory with the given
+Returns <constant>true</constant> if a file or a directory with the given
 <replaceable>name</replaceable> exists, and <constant>false</constant>
 otherwise.
 </para>

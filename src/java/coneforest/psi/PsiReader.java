@@ -111,13 +111,13 @@ public class PsiReader
 	}
 
 	@Override
-	public void psiSkip(PsiInteger count)
+	public PsiBoolean psiSkip(PsiInteger count)
 		throws PsiException
 	{
 		long countValue=count.longValue();
 		try
 		{
-			reader.skip(countValue);
+			return PsiBoolean.valueOf(countValue==reader.skip(countValue));
 		}
 		catch(IllegalArgumentException e)
 		{

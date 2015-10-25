@@ -89,13 +89,13 @@ public class PsiInput
 	}
 
 	@Override
-	public void psiSkip(PsiInteger count)
+	public PsiBoolean psiSkip(PsiInteger count)
 		throws PsiException
 	{
 		long countValue=count.longValue();
 		try
 		{
-			input.skip(countValue);
+			return PsiBoolean.valueOf(countValue==input.skip(countValue));
 		}
 		catch(IllegalArgumentException e)
 		{

@@ -24,11 +24,13 @@ Returns the <replaceable>disjunction</replaceable> of two
 
 <para>
 For <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_boolean"/> operands, returns the logical
-disjunction. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/>
+<replaceable>operands</replaceable>, returns the logical
+<replaceable>disjunction</replaceable>. For <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_bitvector"/> operands returns the bitwise
-disjunction.
+linkend="PsiReference_Types_Details_bitvector"/>
+<replaceable>operands</replaceable>, returns the bitwise
+<replaceable>disjunction</replaceable>.
 </para>
 
 <formalpara>

@@ -42,7 +42,7 @@ public interface PsiReadable
 	public PsiString psiReadLine(PsiStringy stringy)
 		throws PsiException;
 
-	public void psiSkip(PsiInteger count)
+	public PsiBoolean psiSkip(PsiInteger count)
 		throws PsiException;
 
 	public PsiBoolean psiReady()

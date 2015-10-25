@@ -5,33 +5,36 @@
 <synopsis>
 <replaceable>logical</replaceable>
 <token language="psi">not</token>
-<replaceable>result</replaceable>
+<replaceable>complement</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>logical</replaceable>,
-<replaceable>result</replaceable>:
+<replaceable>complement</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает отрицание операнда.
+Returns the <replaceable>complement</replaceable> of a
+<replaceable>logical</replaceable>.
 </para>
 
 <para>
-Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_boolean"/> вычисляется логическое
-отрицание. Для операнда типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> или типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
-вычисляется побитовое отрицание.
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> operands, returns a logical
+<replaceable>complement</replaceable>. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_bitvector"/>
+<replaceable>logical</replaceable> returns the bitwise
+<replaceable>complement</replaceable>.
 </para>
 
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">false not	▶ true
 true not	▶ false
+
 13 not		▶ -14</programlisting>
 </formalpara>
 

@@ -25,7 +25,7 @@
 
 <para>
 Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке вывода.
 </para>
 
 <formalpara>
