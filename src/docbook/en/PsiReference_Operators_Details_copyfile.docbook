@@ -3,38 +3,38 @@
 <title><token language="psi">copyfile</token></title>
 
 <synopsis>
-<replaceable>существующий</replaceable>
-<replaceable>новый</replaceable>
+<replaceable>existing</replaceable>
+<replaceable>new</replaceable>
 <token language="psi">copyfile</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>существующий</replaceable>,
-<replaceable>новый</replaceable>:
+<replaceable>existing</replaceable>,
+<replaceable>new</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Копирует файл с именем <replaceable>существующий</replaceable> под новым именем
-<replaceable>новый</replaceable>.
+Copies an <replaceable>existing</replaceable> file with a
+<replaceable>new</replaceable> name.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_fileexists"/>, если файл или директория
-с именем <replaceable>новый</replaceable> существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-если файл <replaceable>существующий</replaceable> не существует; TODO <xref
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_fileexists"/>, if the file or directory
+named <replaceable>new</replaceable> exists; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the
+<replaceable>existing</replaceable> file does not exist; TODO <xref
 xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_directorynotempty"/>; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>, при нарушении политики
-безопасности; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unsupported"/>, если операция не
-поддерживается платформой.
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> when an
+input/output error occurs; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unsupported"/>, if the operation is not
+supported by the platform.
 </para>
 
 <formalpara>

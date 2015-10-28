@@ -3,24 +3,24 @@
 <title><token language="psi">reset</token></title>
 
 <synopsis>
-<replaceable>читатель</replaceable>
+<replaceable>input</replaceable>
 <token language="psi">reset</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>читатель</replaceable>:
+<replaceable>input</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_resettable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Переустанавливает <replaceable>читатель</replaceable>.
+Resets an <replaceable>input</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when an input error occurs.
 </para>
 
 <formalpara>

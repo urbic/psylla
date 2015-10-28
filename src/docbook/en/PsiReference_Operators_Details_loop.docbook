@@ -3,19 +3,19 @@
 <title><token language="psi">loop</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">loop</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Вызывает <replaceable>объект</replaceable> в беконечном цикле.
+Invokes an <replaceable>object</replaceable> in an infinite cycle.
 </para>
 
 <formalpara>

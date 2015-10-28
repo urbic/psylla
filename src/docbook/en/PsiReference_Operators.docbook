@@ -13,22 +13,22 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_(" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>add a mark to the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_&lt;" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>add a mark to the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_[" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>add a mark to the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clearstack" xrefstyle="template:%t"/></term>
-<listitem>удаление всех объектов из стека операндов</listitem>
+<listitem>remove all the operands from the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -43,7 +43,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countstack" xrefstyle="template:%t"/></term>
-<listitem>подсчёт объектов в стеке операндов</listitem>
+<listitem>count the objects at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -53,12 +53,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dup" xrefstyle="template:%t"/></term>
-<listitem>копирование верхнего объекта в стеке операндов</listitem>
+<listitem>duplicate the topmost operand at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exch" xrefstyle="template:%t"/></term>
-<listitem>обмен местами двух верхних объектов в стеке операндов</listitem>
+<listitem>exchange two the topmost operands at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -73,7 +73,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_pop" xrefstyle="template:%t"/></term>
-<listitem>удаление верхнего объекта из стека операндов</listitem>
+<listitem>remove the topmost operand at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -781,7 +781,7 @@ output</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_editline" xrefstyle="template:%t"/></term>
-<listitem>input line from the line editor</listitem>
+<listitem>input a line from the line editor</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -982,7 +982,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_issymlink" xrefstyle="template:%t"/></term>
-<listitem>является ли файл символической ссылкой?</listitem>
+<listitem>is file a symbolic link?</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1108,6 +1108,11 @@ flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_arguments" xrefstyle="template:%t"/></term>
+<listitem>command-line arguments</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
 <listitem>get a size of the dictionary stack</listitem>
 </varlistentry>
@@ -1120,6 +1125,11 @@ flush output buffer</listitem>
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dictstack" xrefstyle="template:%t"/></term>
 <listitem>содержимое стека словарей</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_environment" xrefstyle="template:%t"/></term>
+<listitem>the current environment</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1144,7 +1154,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/></term>
-<listitem>get a null object</listitem>
+<listitem>the null object</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1164,12 +1174,12 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_time" xrefstyle="template:%t"/></term>
-<listitem>get the current time</listitem>
+<listitem>the current time</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_version" xrefstyle="template:%t"/></term>
-<listitem>get the version of the interpreter</listitem>
+<listitem>the version of the interpreter</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1244,10 +1254,10 @@ flush output buffer</listitem>
 <title><token language="psi">(</token></title>
 <synopsis>
 — <token language="psi">(</token>
-<replaceable>метка</replaceable>
+<constant>mark</constant>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
@@ -1257,25 +1267,25 @@ flush output buffer</listitem>
 <section xml:id="PsiReference_Operators_Details_)">
 <title><token language="psi">)</token></title>
 <synopsis>
-<replaceable>метка</replaceable>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<constant>mark</constant>
+<replaceable>object<subscript>0</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
 <token language="psi">)</token>
-<replaceable>множество</replaceable>
+<replaceable>set</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>object<subscript>0</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>множество</replaceable>:
+<replaceable>set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
@@ -1286,10 +1296,10 @@ flush output buffer</listitem>
 <title><token language="psi">&lt;</token></title>
 <synopsis>
 — <token language="psi">&lt;</token>
-<replaceable>метка</replaceable>
+<constant>mark</constant>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
@@ -1299,25 +1309,25 @@ flush output buffer</listitem>
 <section xml:id="PsiReference_Operators_Details_&gt;">
 <title><token language="psi">&gt;</token></title>
 <synopsis>
-<replaceable>метка</replaceable>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<constant>mark</constant>
+<replaceable>object<subscript>0</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
 <token language="psi">&gt;</token>
-<replaceable>словарь</replaceable>
+<replaceable>dictionary</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>object<subscript>0</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>словарь</replaceable>:
+<replaceable>dictionary</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
@@ -1327,10 +1337,12 @@ flush output buffer</listitem>
 <section xml:id="PsiReference_Operators_Details_?">
 <title><token language="psi">?</token></title>
 <synopsis>
-<replaceable>объект</replaceable> <token language="psi">?</token> —
+<replaceable>object</replaceable>
+<token language="psi">?</token>
+—
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
@@ -1340,11 +1352,12 @@ flush output buffer</listitem>
 <section xml:id="PsiReference_Operators_Details_[">
 <title><token language="psi">[</token></title>
 <synopsis>
-— <token language="psi">[</token>
-<replaceable>mark</replaceable>
+—
+<token language="psi">[</token>
+<constant>mark</constant>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
@@ -1354,25 +1367,25 @@ flush output buffer</listitem>
 <section xml:id="PsiReference_Operators_Details_]">
 <title><token language="psi">]</token></title>
 <synopsis>
-<replaceable>метка</replaceable>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<constant>mark</constant>
+<replaceable>object<subscript>0</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
 <token language="psi">]</token>
-<replaceable>массив</replaceable>
+<replaceable>array</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>метка</replaceable>:
+<constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>object<subscript>0</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
@@ -1386,6 +1399,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_append;
 &PsiReference_Operators_Details_appendall;
 &PsiReference_Operators_Details_arg;
+&PsiReference_Operators_Details_arguments;
 &PsiReference_Operators_Details_array;
 &PsiReference_Operators_Details_arraytomark;
 &PsiReference_Operators_Details_astore;
@@ -1436,6 +1450,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_dup;
 &PsiReference_Operators_Details_end;
 &PsiReference_Operators_Details_entries;
+&PsiReference_Operators_Details_environment;
 &PsiReference_Operators_Details_eol;
 &PsiReference_Operators_Details_eq;
 &PsiReference_Operators_Details_errordict;

@@ -24,7 +24,7 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>matcher</replaceable> used for a search in the
+Returns a new <replaceable>matcher</replaceable> used for a search in the
 <replaceable>string</replaceable> against
 the <replaceable>pattern</replaceable>.
 </para>

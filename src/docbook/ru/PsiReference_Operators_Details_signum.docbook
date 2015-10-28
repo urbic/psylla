@@ -15,10 +15,21 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Возвращает <replaceable>сигнум</replaceable> <replaceable>числа</replaceable>.
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_neg"/>.
 </formalpara>
 
 </section>

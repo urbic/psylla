@@ -3,36 +3,36 @@
 <title><token language="psi">hardlink</token></title>
 
 <synopsis>
-<replaceable>цель</replaceable>
-<replaceable>ссылка</replaceable>
+<replaceable>target</replaceable>
+<replaceable>link</replaceable>
 <token language="psi">hardlink</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>ссылка</replaceable>,
-<replaceable>цель</replaceable>:
+<replaceable>target</replaceable>,
+<replaceable>link</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Создаёт ссылку с именем <replaceable>ссылка</replaceable> на файл
-с именем <replaceable>цель</replaceable>.
+Creates a hard link named <replaceable>link</replaceable> to a file named
+<replaceable>target</replaceable>.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_fileexists"/>, если файл или директория
-с именем <replaceable>ссылка</replaceable> существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-если файл или директория с именем <replaceable>цель</replaceable> не
-существует; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
-при нарушении политики безопасности; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unsupported"/>, если создание жёстких
-ссылок не поддерживается платформой.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_fileexists"/>, if the file or directory
+named <replaceable>link</replaceable> exists; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
+named <replaceable>target</replaceable> does not exist; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> when an
+input/output error occurs; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unsupported"/>, if the creation of hard
+links is not supported by the platform.
 </para>
 
 <formalpara>
@@ -48,6 +48,7 @@ linkend="PsiReference_Errors_Details_unsupported"/>, если создание �
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_copyfile"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_symlink"/>.
 </formalpara>
 

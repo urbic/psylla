@@ -24,7 +24,7 @@
 </synopsis>
 
 <para>
-Возвращает <replaceable>матчер</replaceable> для поиска
+Возвращает новый <replaceable>матчер</replaceable> для поиска
 в <replaceable>строке</replaceable> по <replaceable>шаблону</replaceable>.
 </para>
 

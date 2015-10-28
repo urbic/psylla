@@ -45,6 +45,7 @@ linkend="PsiReference_Errors_Details_unsupported"/>, если создание
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_copyfile"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_hardlink"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readlink"/>.
 </formalpara>
