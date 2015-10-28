@@ -3,37 +3,36 @@
 <title><token language="psi">readlink</token></title>
 
 <synopsis>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">readlink</token>
-<replaceable>цель</replaceable>
+<replaceable>target</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>цель</replaceable>:
+<replaceable>target</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>цель</replaceable> символической ссылки с заданным
-<replaceable>именем</replaceable>.
+Returns the <replaceable>target</replaceable> of a symbolic link with a given
+<replaceable>name</replaceable>.
 </para>
 
 <para>
-Если файл или директория с заданным <replaceable>именем</replaceable> не
-существует, генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>. Если
-<replaceable>имя</replaceable> не является именем символической ссылки,
-генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_notlink"/>. При ошибке ввода/вывода
-генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/>. При нарушении политики
-безопасности генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
+with a given <replaceable>name</replaceable> does not exist; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notlink"/>, if a
+<replaceable>name</replaceable> does not belong to a symbolic link; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> when an
+input error occurs; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
+is violated.
 </para>
 
 <formalpara>

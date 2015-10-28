@@ -61,6 +61,7 @@ public class PsiSystemDict
 					_currentdict.class,
 					_currentdirectory.class,
 					_def.class,
+					_delete.class,
 					_deletefile.class,
 					_dict.class,
 					_dictstack.class,

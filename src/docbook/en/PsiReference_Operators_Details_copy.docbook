@@ -3,22 +3,22 @@
 <title><token language="psi">copy</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>n</replaceable>
 <token language="psi">copy</token>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>object<subscript>1</subscript></replaceable>,
 …,
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>

@@ -5,10 +5,10 @@
 <synopsis>
 —
 <token language="psi">time</token>
-<replaceable>время</replaceable>
+<replaceable>time</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>время</replaceable>:
+<replaceable>time</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>

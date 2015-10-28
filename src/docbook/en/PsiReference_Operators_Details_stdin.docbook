@@ -17,8 +17,8 @@
 <para>
 The standard input. <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_stdin"/> is not an operator, but a
-value of type <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_reader"/> in the system dictionary.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_reader"/>
+value in the system dictionary.
 </para>
 
 <formalpara>

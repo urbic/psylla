@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_arguments">
+<title><token language="psi">arguments</token></title>
+
+<synopsis>
+—
+<token language="psi">arguments</token>
+<constant>arguments</constant>
+<itemizedlist>
+<listitem>
+<constant>arguments</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+The array of command-line arguments intended for the program. The arguments are
+presented as <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/> objects.  <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arguments"/> is
+not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_array"/> value in the system dictionary.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_environment"/>.
+</formalpara>
+
+</section>
