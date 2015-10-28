@@ -726,7 +726,7 @@ public class Interpreter
 	{
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)
-			arguments.psiAppend(new PsiString(arg));
+			arguments.psiAppend(new PsiName(arg));
 		getSystemDict().put("arguments", arguments);
 	}
 
@@ -734,7 +734,7 @@ public class Interpreter
 	{
 		PsiDict environment=new PsiDict();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
-			environment.put(entry.getKey(), new PsiString(entry.getValue()));
+			environment.put(entry.getKey(), new PsiName(entry.getValue()));
 		getSystemDict().put("environment", environment);
 	}
 
