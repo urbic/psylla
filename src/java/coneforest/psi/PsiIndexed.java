@@ -48,12 +48,16 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	public void psiPut(K key, V value)
 		throws PsiException;
 
+
 	/**
 	 *	Deletes a key or index and a value associated with it from this object.
 	 *
 	 *	@param key a key or an index. 
 	 *	@throws PsiException when key is absent or index is out of range.
 	 */
+	public void psiDelete(K key)
+		throws PsiException;
+
 	public V psiExtract(K key)
 		throws PsiException;
 

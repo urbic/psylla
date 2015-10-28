@@ -125,6 +125,16 @@ public interface PsiArraylike<T extends PsiObject>
 	}
 
 	@Override
+	default public void psiDelete(final PsiInteger index)
+		throws PsiException
+	{
+		delete(index.intValue());
+	}
+
+	public void delete(int indexValue)
+		throws PsiException;
+
+	@Override
 	default public T psiExtract(final PsiInteger index)
 		throws PsiException
 	{

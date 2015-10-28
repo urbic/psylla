@@ -115,6 +115,20 @@ public class PsiArray
 	}
 
 	@Override
+	public void delete(int indexValue)
+		throws PsiException
+	{
+		try
+		{
+			array.remove(indexValue);
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiRangeCheckException();
+		}
+	}
+
+	@Override
 	public PsiObject extract(final int indexValue)
 		throws PsiException
 	{

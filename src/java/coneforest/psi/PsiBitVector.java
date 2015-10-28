@@ -126,6 +126,22 @@ public class PsiBitVector
 	}
 
 	@Override
+	public void delete(int indexValue)
+		throws PsiException
+	{
+		try
+		{
+			for(int i=indexValue; i<size; i++)
+				bitvector.set(i-1, bitvector.get(i));
+			size--;
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			throw new PsiRangeCheckException();
+		}
+	}
+
+	@Override
 	public PsiBoolean extract(int indexValue)
 		throws PsiException
 	{
