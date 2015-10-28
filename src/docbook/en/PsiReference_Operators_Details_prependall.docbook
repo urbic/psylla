@@ -20,7 +20,7 @@
 </synopsis>
 
 <para>
-Inserts all the objects from the <replaceable>enumeration</replaceable> to
+Inserts all the objects from the <replaceable>enumeration</replaceable> at
 the beginning of the <replaceable>container</replaceable>.
 </para>
 

@@ -15,8 +15,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
+<replaceable>объект<subscript>0</subscript></replaceable>,
+…,
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>

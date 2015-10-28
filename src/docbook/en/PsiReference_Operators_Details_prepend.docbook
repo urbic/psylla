@@ -20,7 +20,7 @@
 </synopsis>
 
 <para>
-Inserts the <replaceable>object</replaceable> to the beginning of the
+Inserts the <replaceable>object</replaceable> at the beginning of the
 <replaceable>container</replaceable>.
 </para>
 

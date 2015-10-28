@@ -45,6 +45,7 @@ symbolic links is not supported by the platform.
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_copyfile"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_hardlink"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readlink"/>.
 </formalpara>

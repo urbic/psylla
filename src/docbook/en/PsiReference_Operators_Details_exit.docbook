@@ -9,7 +9,7 @@
 </synopsis>
 
 <para>
-Прерывает выполнение самого внутреннего циклического контекста.
+Terminates the most inner enclosing cycle context.
 <firstterm>Циклический контекст</firstterm><indexterm><primary>циклический
 контекст</primary></indexterm> — это процедура, многократно выполняющаяся одним
 из циклических операторов
@@ -25,10 +25,10 @@
 </para>
 
 <para>
-Если оператор <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_exit"/> выполняется вне циклического
-контекста, генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_invalidexit"/>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_invalidexit"/>, if <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/> is
+executed outside the cycle context.
 </para>
 
 <formalpara>
