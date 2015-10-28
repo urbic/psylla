@@ -165,6 +165,20 @@ public class PsiString
 	}
 
 	@Override
+	public void delete(int indexValue)
+		throws PsiException
+	{
+		try
+		{
+			buffer.deleteCharAt(indexValue);
+		}
+		catch(StringIndexOutOfBoundsException e)
+		{
+			throw new PsiRangeCheckException();
+		}
+	}
+
+	@Override
 	public PsiInteger extract(int indexValue)
 		throws PsiException
 	{

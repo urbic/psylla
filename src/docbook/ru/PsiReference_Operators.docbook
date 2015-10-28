@@ -1103,6 +1103,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_arguments" xrefstyle="template:%t"/></term>
+<listitem>аргументы командной строки</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
 <listitem>размер стека словарей</listitem>
 </varlistentry>
@@ -1115,6 +1120,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dictstack" xrefstyle="template:%t"/></term>
 <listitem>содержимое стека словарей</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_environment" xrefstyle="template:%t"/></term>
+<listitem>текущее окружение</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1381,6 +1391,7 @@
 &PsiReference_Operators_Details_append;
 &PsiReference_Operators_Details_appendall;
 &PsiReference_Operators_Details_arg;
+&PsiReference_Operators_Details_arguments;
 &PsiReference_Operators_Details_array;
 &PsiReference_Operators_Details_arraytomark;
 &PsiReference_Operators_Details_astore;
@@ -1431,6 +1442,7 @@
 &PsiReference_Operators_Details_dup;
 &PsiReference_Operators_Details_end;
 &PsiReference_Operators_Details_entries;
+&PsiReference_Operators_Details_environment;
 &PsiReference_Operators_Details_eol;
 &PsiReference_Operators_Details_eq;
 &PsiReference_Operators_Details_errordict;

@@ -3,22 +3,33 @@
 <title><token language="psi">signum</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">signum</token>
-<replaceable>сигнум</replaceable>
+<replaceable>signum</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>сигнум</replaceable>:
+<replaceable>number</replaceable>,
+<replaceable>signum</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
+<para>
+Returns the <replaceable>signum</replaceable> of a <replaceable>number</replaceable>.
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_neg"/>.
 </formalpara>
 
 </section>
