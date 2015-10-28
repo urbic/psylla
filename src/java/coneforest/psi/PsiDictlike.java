@@ -107,7 +107,14 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 
 	@Override
-	default public V psiExtract(PsiStringy key)
+	default public void psiDelete(final PsiStringy key)
+		throws PsiException
+	{
+		psiUndef(key);
+	}
+
+	@Override
+	default public V psiExtract(final PsiStringy key)
 		throws PsiException
 	{
 		V result=psiGet(key);
@@ -116,7 +123,7 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 
 	@Override
-	public PsiDictlike<V> psiSlice(PsiIterable<PsiStringy> keys)
+	public PsiDictlike<V> psiSlice(final PsiIterable<PsiStringy> keys)
 		throws PsiException;
 
 	@Override
