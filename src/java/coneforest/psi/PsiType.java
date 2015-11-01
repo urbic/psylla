@@ -13,10 +13,11 @@ public class PsiType<T extends PsiObject>
 		return PsiBoolean.valueOf(clazz.isInstance(obj));
 	}
 
+	@Override
 	public String getTypeName()
 	{
 		return "type";
 	}
 
-	public Class<T> clazz;
+	private Class<T> clazz;
 }
