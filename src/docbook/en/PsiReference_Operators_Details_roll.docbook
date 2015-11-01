@@ -3,23 +3,23 @@
 <title><token language="psi">roll</token></title>
 
 <synopsis>
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
 …
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>0</subscript></replaceable>
 <replaceable>n</replaceable>
 <replaceable>k</replaceable>
 <token language="psi">roll</token>
-<replaceable>объект<subscript>(k−1) mod n</subscript></replaceable>
+<replaceable>object<subscript>(k−1) mod n</subscript></replaceable>
 …
-<replaceable>объект<subscript>0</subscript></replaceable>
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>object<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
 …
-<replaceable>объект<subscript>k mod n</subscript></replaceable>
+<replaceable>object<subscript>k mod n</subscript></replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>0</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>object<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
@@ -37,11 +37,11 @@
 </para>
 
 <para>
-Если <replaceable>n</replaceable> отрицательно, генерирует <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
-Если в стеке операндов менее <replaceable>n</replaceable> элементов, генерирует
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_stackunderflow"/>.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, if
+<replaceable>n</replaceable> is negative; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_stackunderflow"/>, if the operand stack
+contains less than <replaceable>n</replaceable> elements.
 </para>
 
 <formalpara>
