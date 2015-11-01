@@ -46,10 +46,15 @@ public abstract class PsiOperator
 			opstack.restore();
 			interpreter.handleError(e.getName(), this);
 		}
+		catch(Throwable e)
+		{
+			opstack.restore();
+			interpreter.handleError("unregistered", this);
+		}
 	}
 
 	abstract public void action(Interpreter interpreter)
-		throws ClassCastException, PsiException;
+		throws ClassCastException, PsiException, Throwable;
 
 	/**
 	 *	Returns a syntatctic string representation of this operator.
@@ -75,5 +80,53 @@ public abstract class PsiOperator
 	public String getName()
 	{
 		return getClass().getSimpleName().substring(1);
+	}
+
+	protected static java.lang.invoke.MethodHandle
+			getVirtualHandle(final Class<?> ftype, final String name, final Class<?> rtype, final Class<? extends PsiObject>... ptypes)
+	{
+		try
+		{
+			///*
+			return java.lang.invoke.MethodHandles
+					.lookup()
+					.findVirtual(ftype, name,
+						java.lang.invoke.MethodType.methodType(rtype, ptypes));
+					//.asSpreader(PsiObject[].class, ptypes.length);
+			//*/
+			//return java.lang.invoke.MethodHandles
+			//	.invoker(java.lang.invoke.MethodType.methodType(rtype, ptypes));
+		}
+		catch(NoSuchMethodException|IllegalAccessException e)
+		{
+			throw new ExceptionInInitializerError(e);
+		}
+	}
+
+	protected static PsiObject invokeHandle(final java.lang.invoke.MethodHandle handle, final PsiObject[] params)
+		throws PsiException
+	{
+		try
+		{
+			//return (PsiObject)handle.invoke(params);
+			return (PsiObject)handle.invoke(params);
+		}
+		catch(java.lang.invoke.WrongMethodTypeException e)
+		{
+			System.out.println(e);
+			throw new PsiUnregisteredException();
+		}
+		/*catch(ClassCastException e)
+		{
+			throw new PsiTypeCheckException();
+		}*/
+		catch(PsiException e)
+		{
+			throw e;
+		}
+		catch(Throwable e)
+		{
+			throw new PsiUnregisteredException();
+		}
 	}
 }
