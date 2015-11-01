@@ -11,8 +11,8 @@
 ⊢
 <itemizedlist>
 <listitem>
-<replaceable>object<subscript>1</subscript></replaceable>
-…
+<replaceable>object<subscript>1</subscript></replaceable>,
+…,
 <replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>

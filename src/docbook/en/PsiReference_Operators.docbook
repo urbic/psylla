@@ -83,7 +83,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stack" xrefstyle="template:%t"/></term>
-<listitem>содержимое стека операндов</listitem>
+<listitem>the snapshot of the operand stack</listitem>
 </varlistentry>
 
 </variablelist>
@@ -102,27 +102,27 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_eq" xrefstyle="template:%t"/></term>
-<listitem>проверка равенства двух объектов</listitem>
+<listitem>test equal</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ge" xrefstyle="template:%t"/></term>
-<listitem>сравнение «больше или равно» двух объектов</listitem>
+<listitem>test greater than or equal</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_gt" xrefstyle="template:%t"/></term>
-<listitem>сравнение «больше» двух объектов</listitem>
+<listitem>test greater than</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_le" xrefstyle="template:%t"/></term>
-<listitem>сравнение «меньше или равно» двух объектов</listitem>
+<listitem>test less than or equal</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_lt" xrefstyle="template:%t"/></term>
-<listitem>сравнение «меньше» двух объектов</listitem>
+<listitem>test less than</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -137,7 +137,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ne" xrefstyle="template:%t"/></term>
-<listitem>проверка неравенства двух объектов</listitem>
+<listitem>test not equal</listitem>
 </varlistentry>
 
 </variablelist>
@@ -523,7 +523,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_def" xrefstyle="template:%t"/></term>
-<listitem>store an object in the current dictionary for a given
+<listitem>store an object in the current dictionary with a given
 key</listitem>
 </varlistentry>
 
@@ -1080,7 +1080,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stdrandom" xrefstyle="template:%t"/></term>
-<listitem>get a standard generator of pseudorandom objects</listitem>
+<listitem>the standard generator of pseudorandom objects</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1113,6 +1113,11 @@ flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_classpath" xrefstyle="template:%t"/></term>
+<listitem>the additional class path</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
 <listitem>get a size of the dictionary stack</listitem>
 </varlistentry>
@@ -1124,7 +1129,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dictstack" xrefstyle="template:%t"/></term>
-<listitem>содержимое стека словарей</listitem>
+<listitem>the snapshot of the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1134,7 +1139,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_execstack" xrefstyle="template:%t"/></term>
-<listitem>содержимое стека исполнения</listitem>
+<listitem>the snapshot of the execution stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1417,6 +1422,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_capturegroupstart;
 &PsiReference_Operators_Details_cbrt;
 &PsiReference_Operators_Details_ceiling;
+&PsiReference_Operators_Details_classpath;
 &PsiReference_Operators_Details_clear;
 &PsiReference_Operators_Details_cleardictstack;
 &PsiReference_Operators_Details_clearstack;

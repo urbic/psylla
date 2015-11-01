@@ -3,21 +3,21 @@
 <title><token language="psi">readline</token></title>
 
 <synopsis>
-<replaceable>источник</replaceable>
+<replaceable>input</replaceable>
 <token language="psi">readline</token>
-<replaceable>строка</replaceable>
+<replaceable>line</replaceable>
 <constant>true</constant>
 <sbr/>
-<replaceable>источник</replaceable>
+<replaceable>input</replaceable>
 <token language="psi">readline</token>
 <constant>false</constant>
 <itemizedlist>
 <listitem>
-<replaceable>источник</replaceable>:
+<replaceable>input</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>
 </listitem>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>line</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 <listitem>
@@ -29,9 +29,12 @@
 </synopsis>
 
 <para>
-Пытается прочитать из <replaceable>источника</replaceable>
-<replaceable>строку</replaceable>, ограниченную терминатором строк, принятым
-на данной платформе, или концом источника. Терминатор становится частью
+Attempts to read a <replaceable>line</replaceable> of characters terminated by
+a line terminator (<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>)
+from an <replaceable>input</replaceable>.
+
+Returns a <replaceable>line</replaceable> on success
+Терминатор становится частью
 прочитанной <replaceable>строки</replaceable>. Возвращает также булевское
 значение, показывающее успешность операции. 
 </para>
