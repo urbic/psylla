@@ -4,9 +4,9 @@
 
 /fibonacci
 {
+	1 index toname say
 	2 index n lt
 	{
-		1 index toname say
 		3 -1 roll 1 add 3 1 roll
 		exch 1 index add
 		fibonacci
