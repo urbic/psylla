@@ -83,6 +83,11 @@ public interface PsiObject
 		return new PsiString(toSyntaxString());
 	}
 
+	default public PsiString convert(Class<PsiString> clazz)
+	{
+		return new PsiString(toSyntaxString());
+	}
+
 	/**
 	 *	Returns a Ψ name representing this object.
 	 *
@@ -109,6 +114,31 @@ public interface PsiObject
 	default public PsiInteger psiHashCode()
 	{
 		return PsiInteger.valueOf(hashCode());
+	}
+
+	default public PsiObject psiConvert(PsiType type)
+		throws PsiException
+	{
+		if(getClass().equals(type.getTypeClass()))
+			return this;
+		try
+		{
+			java.lang.invoke.MethodHandle handle
+				=java.lang.invoke.MethodHandles
+					.lookup()
+					.findVirtual(getClass(), "convert",
+						java.lang.invoke.MethodType.methodType(type.getTypeClass(), type.getTypeClass().getClass()));
+			return (PsiObject)handle.invoke(this, type.getTypeClass());
+		}
+		catch(PsiException e)
+		{
+			throw e;
+		}
+		catch(Throwable e)
+		{
+			System.out.println(e);
+			throw new PsiUnregisteredException();
+		}
 	}
 
 	public static Interpreter currentInterpreter()
