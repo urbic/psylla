@@ -69,10 +69,15 @@ public class PsiReader
 			throw new PsiLimitCheckException();
 		try
 		{
+			/*
 			java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate((int)countValue);
 			reader.read(buffer);
 			buffer.flip();
 			return new PsiString(buffer.toString());
+			*/
+			char[] buffer=new char[(int)countValue];
+			reader.read(buffer);
+			return new PsiString(new String(buffer));
 		}
 		catch(OutOfMemoryError e)
 		{

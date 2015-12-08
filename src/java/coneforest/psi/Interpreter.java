@@ -19,7 +19,7 @@ public class Interpreter
 	{
 		opstack=new OperandStack();
 		execstack=new ExecutionStack();
-		procstack=new ProcedureStack();
+		procstack=new ProcStack();
 		this.dictstack=(DictStack)dictstack.clone();
 		pushStopLevel();
 
@@ -167,11 +167,11 @@ public class Interpreter
 	public void interpretBraced(final PsiReader reader)
 		throws PsiException
 	{
-		procstack.push(new PsiProcedure());
+		procstack.push(new PsiProc());
 		interpret(reader);
 		if(procstack.size()==0)
 			handleError("syntaxerror", reader);
-		PsiProcedure proc=procstack.pop();
+		PsiProc proc=procstack.pop();
 		if(procstack.size()>0)
 			procstack.peek().psiAppend(proc);
 		else
@@ -202,7 +202,7 @@ public class Interpreter
 					opstack.push(newPsiObject(token));
 					break;
 				case ParserConstants.OPEN_BRACE:
-					procstack.push(new PsiProcedure());
+					procstack.push(new PsiProc());
 					break;
 				case ParserConstants.CLOSE_BRACE:
 					throw new PsiSyntaxErrorException();
@@ -216,7 +216,7 @@ public class Interpreter
 			switch(token.kind)
 			{
 				case ParserConstants.OPEN_BRACE:
-					procstack.push(new PsiProcedure());
+					procstack.push(new PsiProc());
 					break;
 				case ParserConstants.CLOSE_BRACE:
 					{
@@ -838,7 +838,7 @@ public class Interpreter
 	private final OperandStack opstack;
 	private final DictStack dictstack;
 	private final ExecutionStack execstack;
-	private final ProcedureStack procstack;
+	private final ProcStack procstack;
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();

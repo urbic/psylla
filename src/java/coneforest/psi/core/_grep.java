@@ -9,6 +9,6 @@ public final class _grep extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiIterable)ops[0]).psiGrep((PsiProcedure)ops[1]));
+		opstack.push(((PsiIterable)ops[0]).psiGrep((PsiProc)ops[1]));
 	}
 }
