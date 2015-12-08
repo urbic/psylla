@@ -19,5 +19,10 @@ public class PsiType<T extends PsiObject>
 		return "type";
 	}
 
+	public Class<T> getTypeClass()
+	{
+		return clazz;
+	}
+
 	private Class<T> clazz;
 }
