@@ -12,7 +12,7 @@
 <replaceable>уменьшаемое</replaceable>,
 <replaceable>вычитаемое</replaceable>,
 <replaceable>разность</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>
 </listitem>
 </itemizedlist>
 </synopsis>
