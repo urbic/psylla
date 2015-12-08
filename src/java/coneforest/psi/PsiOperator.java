@@ -6,6 +6,15 @@ package coneforest.psi;
 public abstract class PsiOperator
 	implements PsiAtomic
 {
+	public PsiOperator()
+	{
+	}
+
+	public PsiOperator(final String name)
+	{
+		this.name=name;
+	}
+
 	/**
 	 *	@return a string <code class="constant">"operator"</code>.
 	 */
@@ -76,4 +85,111 @@ public abstract class PsiOperator
 	{
 		return getClass().getSimpleName().substring(1);
 	}
+
+	public static class Arity11
+		extends PsiOperator
+	{
+		@Override
+		public void action(final Interpreter interpreter)
+			throws ClassCastException, PsiException
+		{
+			final OperandStack opstack=interpreter.getOperandStack();
+			opstack.push(handler.handle(opstack.popOperands(1)));
+		}
+
+		public Arity11(String name, Handler handler)
+		{
+			super(name);
+			this.handler=handler;
+		}
+
+		private final Handler handler;
+
+		public interface Handler
+		{
+			public PsiObject handle(PsiObject[] ops)
+				throws PsiException;
+		}
+	}
+
+	public static class Arity21
+		extends PsiOperator
+	{
+		@Override
+		public void action(final Interpreter interpreter)
+			throws ClassCastException, PsiException
+		{
+			final OperandStack opstack=interpreter.getOperandStack();
+			opstack.push(handler.handle(opstack.popOperands(2)));
+		}
+
+		public Arity21(String name, Handler handler)
+		{
+			super(name);
+			this.handler=handler;
+		}
+
+		private final Handler handler;
+
+		public interface Handler
+		{
+			public PsiObject handle(PsiObject[] ops)
+				throws PsiException;
+		}
+	}
+
+	public static class Arity20
+		extends PsiOperator
+	{
+		@Override
+		public void action(final Interpreter interpreter)
+			throws ClassCastException, PsiException
+		{
+			final OperandStack opstack=interpreter.getOperandStack();
+			handler.handle(opstack.popOperands(2));
+		}
+
+		public Arity20(String name, Handler handler)
+		{
+			super(name);
+			this.handler=handler;
+		}
+
+		private final Handler handler;
+
+		public interface Handler
+		{
+			public void handle(PsiObject[] ops)
+				throws PsiException;
+		}
+
+	}
+
+	public static class Arity30
+		extends PsiOperator
+	{
+		@Override
+		public void action(final Interpreter interpreter)
+			throws ClassCastException, PsiException
+		{
+			final OperandStack opstack=interpreter.getOperandStack();
+			handler.handle(opstack.popOperands(3));
+		}
+
+		public Arity30(String name, Handler handler)
+		{
+			super(name);
+			this.handler=handler;
+		}
+
+		private final Handler handler;
+
+		public interface Handler
+		{
+			public void handle(PsiObject[] ops)
+				throws PsiException;
+		}
+	}
+
+	protected String name;
 }
