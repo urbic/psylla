@@ -18,7 +18,7 @@ public interface PsiIterable<T>
 	default public void psiForAll(final PsiObject proc)
 		throws PsiException
 	{
-		final Interpreter interpreter=Interpreter.currentInterpreter();
+		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
 		final OperandStack opstack=interpreter.getOperandStack();
 		final int loopLevel=interpreter.pushLoopLevel();
 		try
@@ -93,7 +93,7 @@ public interface PsiIterable<T>
 							private T nextObject;
 
 							private Interpreter interpreter
-								=Interpreter.currentInterpreter();
+								=(Interpreter)PsiContext.psiCurrentContext();
 
 						};
 				}

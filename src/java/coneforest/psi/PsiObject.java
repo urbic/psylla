@@ -140,9 +140,4 @@ public interface PsiObject
 			throw new PsiUnregisteredException();
 		}
 	}
-
-	public static Interpreter currentInterpreter()
-	{
-		return (Interpreter)Thread.currentThread();
-	}
 }
