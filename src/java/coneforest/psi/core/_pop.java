@@ -10,6 +10,5 @@ public final class _pop extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		opstack.ensureSize(1);
 		opstack.pop();
-		//opstack.popOperands(1);
 	}
 }

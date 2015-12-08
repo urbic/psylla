@@ -3,19 +3,19 @@
 <title><token language="psi">exec</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">exec</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Вызывает <replaceable>объект</replaceable> для исполнения.
+Invokes an <replaceable>object</replaceable>.
 </para>
 
 <formalpara>

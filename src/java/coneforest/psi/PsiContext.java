@@ -17,6 +17,8 @@ public interface PsiContext
 	default public void psiJoin()
 		throws PsiException
 	{
+		if(this==psiCurrentContext())
+			throw new PsiInvalidContextException();
 		try
 		{
 			join();
@@ -48,5 +50,10 @@ public interface PsiContext
 		{
 			throw new PsiInterruptException();
 		}
+	}
+
+	public static PsiContext psiCurrentContext()
+	{
+		return (PsiContext)Thread.currentThread();
 	}
 }

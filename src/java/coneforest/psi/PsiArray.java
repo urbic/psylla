@@ -197,7 +197,7 @@ public class PsiArray
 	public PsiInteger psiBinarySearch(PsiObject key, PsiProcedure comparator)
 		throws PsiException
 	{
-		final Interpreter interpreter=Interpreter.currentInterpreter();
+		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
 		final OperandStack opstack=interpreter.getOperandStack();
 		return PsiInteger.valueOf(java.util.Collections.<PsiObject>binarySearch(array, key,
 			new java.util.Comparator<PsiObject>()

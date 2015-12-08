@@ -4,16 +4,16 @@
 
 <synopsis>
 <constant>mark</constant>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <token language="psi">cleartomark</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>
-…
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>1</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
@@ -24,11 +24,14 @@
 </synopsis>
 
 <para>
-Удаляет объекты в стеке операндов, расположенные начиная с самой верхней метки
-вплоть до вершины стека. Если стек операндов не содержит меток, генерируется
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/>, а сам стек остаётся
-нетронутым.
+Removes all the objects situated above the highest <constant>mark</constant> on
+the operand stack.
+</para>
+
+<para>
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
+does not contain any mark.
 </para>
 
 <formalpara>

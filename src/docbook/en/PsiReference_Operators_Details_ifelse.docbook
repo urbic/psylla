@@ -22,7 +22,7 @@
 </synopsis>
 
 <para>
-Invokes <replaceable>object<subscript>1</subscript></replaceable>, if the
+Invokes an <replaceable>object<subscript>1</subscript></replaceable>, if a
 <replaceable>condition</replaceable> is true, and
 <replaceable>object<subscript>2</subscript></replaceable> otherwise.
 </para>

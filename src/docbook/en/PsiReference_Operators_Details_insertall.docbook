@@ -10,15 +10,15 @@
 —
 <itemizedlist>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
-<replaceable>индекс</replaceable>:
+<replaceable>index</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
