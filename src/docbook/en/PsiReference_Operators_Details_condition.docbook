@@ -3,24 +3,24 @@
 <title><token language="psi">condition</token></title>
 
 <synopsis>
-<replaceable>замок</replaceable>
+<replaceable>lock</replaceable>
 <token language="psi">condition</token>
-<replaceable>условие</replaceable>
+<replaceable>condition</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>замок</replaceable>:
+<replaceable>lock</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lock"/>
 </listitem>
 <listitem>
-<replaceable>условие</replaceable>:
+<replaceable>condition</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_condition"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новое <replaceable>условие</replaceable>, связанное
-с <replaceable>замком</replaceable>.
+Returns a new <replaceable>condition</replaceable> associated with a
+<replaceable>lock</replaceable>.
 </para>
 
 <formalpara>

@@ -12,7 +12,7 @@
 <replaceable>summand<subscript>1</subscript></replaceable>,
 <replaceable>summand<subscript>2</subscript></replaceable>,
 <replaceable>sum</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>
 </listitem>
 </itemizedlist>
 </synopsis>
