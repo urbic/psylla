@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-$URL: svn+ssh://concyclic@svn.code.sf.net/p/mathjax4svg/code/sources/site/xhtml.xsl $
-$Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
--->
+
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:d="http://docbook.org/ns/docbook"
@@ -31,6 +28,14 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 	<xsl:param name="make.year.ranges" select="1"/>
 	<xsl:param name="shortcut.icon"/>
 	<xsl:param name="make.clean.html" select="1"/>
+
+
+	<xsl:template match="/">
+		<xsl:variable name="content" select="."/>
+		<xsl:apply-imports select="$content"/>
+	</xsl:template>
+
+
 
 	<xsl:template match="d:subscript">
 		<xsl:text>_</xsl:text>
