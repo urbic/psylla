@@ -9,6 +9,6 @@ public final class _sub extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiArithmetic)ops[0]).psiSub((PsiArithmetic)ops[1]));
+		opstack.push(((PsiAdditive)ops[0]).psiSub((PsiAdditive)ops[1]));
 	}
 }

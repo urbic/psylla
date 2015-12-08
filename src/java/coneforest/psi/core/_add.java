@@ -1,9 +1,6 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
-/**
- * The implementation of the <code>add</code> operator
- */
 public final class _add extends PsiOperator
 {
 	@Override
@@ -12,6 +9,6 @@ public final class _add extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiArithmetic)ops[0]).psiAdd((PsiArithmetic)ops[1]));
+		opstack.push(((PsiAdditive)ops[0]).psiAdd((PsiAdditive)ops[1]));
 	}
 }
