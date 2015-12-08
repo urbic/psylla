@@ -3,24 +3,45 @@
 <title><token language="psi">getinterval</token></title>
 
 <synopsis>
-<replaceable>массив</replaceable>
-<replaceable>индекс</replaceable>
-<replaceable>длина</replaceable>
+<replaceable>array</replaceable>
+<replaceable>index</replaceable>
+<replaceable>length</replaceable>
 <token language="psi">getinterval</token>
-<replaceable>подмассив</replaceable>
+<replaceable>subarray</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>массив</replaceable>,
-<replaceable>подмассив</replaceable>:
+<replaceable>array</replaceable>,
+<replaceable>subarray</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
-<replaceable>индекс</replaceable>,
-<replaceable>длина</replaceable>:
+<replaceable>index</replaceable>,
+<replaceable>length</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Returns a <replaceable>subarray</replaceable> of an
+<replaceable>array</replaceable>. The <replaceable>subarray</replaceable>
+consists of <replaceable>length</replaceable> elements starting at the
+<replaceable>index</replaceable> in the <replaceable>array</replaceable>.
+</para>
+
+<para>
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, if either the
+<replaceable>index</replaceable> or the <replaceable>length</replaceable> is
+negative, or <replaceable>index</replaceable>+<replaceable>length</replaceable>
+is greater than the length of the <replaceable>array</replaceable>.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">[ 1 2 3 4 5 ] 1 3 getinterval	▶ [ 2 3 4 ]
+"Hello" 1 3 getinterval		▶ "ell"</programlisting>
+</formalpara>
 
 <formalpara>
 &TitleErrors;
