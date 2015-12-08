@@ -17,7 +17,7 @@ Psi is scriptable interpretive PostScript-like programming language.
 
 ### Jar:
 
-Java 8 (OpenJDK), JavaCC, Apache Ant, JavaCC
+Java 8 (OpenJDK), JavaCC, Apache Ant
 
 ### Documentation:
 
