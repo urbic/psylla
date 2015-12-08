@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-$URL: svn+ssh://concyclic@svn.code.sf.net/p/mathjax4svg/code/sources/site/xhtml.xsl $
-$Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
--->
 <xsl:stylesheet
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:d="http://docbook.org/ns/docbook"
@@ -67,9 +63,9 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="shortcut icon" href="{$shortcut.icon}" type="image/png"/>
 		<link rel="author" href="https://plus.google.com/113215332542811715537?rel=author"/>
-		<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="application/ecmascript"><xsl:comment/></script>
-		<meta name="google-site-verification" content=""/>
-		<script></script>
+		<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="application/ecmascript"><xsl:comment/></script-->
+		<!--meta name="google-site-verification" content=""/-->
+		<!--script></script-->
 	</xsl:template>
 
 	<xsl:template name="user.footer.navigation">
@@ -88,15 +84,6 @@ $Id: xhtml.xsl 5 2014-06-05 01:35:35Z concyclic $
 				or $format='BMP'
 				or $format='HTML'
 				or $format='XHTML'">1</xsl:if>
-	</xsl:template>
-
-	<xsl:template match="d:imagedata[@format='XHTML']">
-		<object
-			type="application/xhtml+xml"
-			data="{@fileref}"
-			width="{@width}"
-			height="{@height}"
-			/>
 	</xsl:template>
 
 	<xsl:template match="d:token|d:code">
