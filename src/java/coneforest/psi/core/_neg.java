@@ -8,6 +8,6 @@ public final class _neg extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiArithmetic)opstack.popOperands(1)[0]).psiNeg());
+		opstack.push(((PsiAdditive)opstack.popOperands(1)[0]).psiNeg());
 	}
 }

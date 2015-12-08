@@ -8,7 +8,8 @@ package coneforest.psi;
  *	@param <T> a type of the second operand at binary operation.
  */
 public interface PsiArithmetic<T extends PsiArithmetic>
-	extends PsiObject
+	extends
+		PsiAdditive<T>
 {
 	@Override
 	default public String getTypeName()
@@ -16,33 +17,9 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 		return "arithmetic";
 	}
 
-	/**
-	 *	Returns a result of arithmetic negation of this object.
-	 *
-	 *	@return a negation.
-	 */
-	public T psiNeg();
-
 	public PsiNumeric psiAbs();
 
 	public T psiSignum();
-
-	/**
-	 *	Returns a result of arithmetic addition of given object to this object.
-	 *
-	 *	@param arithmetic given object.
-	 *	@return a sum.
-	 */
-	public T psiAdd(T arithmetic);
-
-	/**
-	 *	Returns a result of arithmetic subtraction of given object from this
-	 *	object.
-	 *
-	 *	@param arithmetic given object.
-	 *	@return a difference.
-	 */
-	public T psiSub(T arithmetic);
 
 	/**
 	 *	Returns a result of arithmetic multiplication of given object by this object.
