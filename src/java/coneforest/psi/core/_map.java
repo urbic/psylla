@@ -10,7 +10,7 @@ public final class _map extends PsiOperator
 		final OperandStack opstack=interpreter.getOperandStack();
 		final PsiObject[] ops=opstack.popOperands(2);
 		final PsiContainer container=(PsiContainer)ops[0];
-		final PsiProcedure proc=(PsiProcedure)ops[1];
+		final PsiProc proc=(PsiProc)ops[1];
 		final PsiAppendable result=(PsiAppendable)container.psiNewEmpty();
 
 		final int loopLevel=interpreter.pushLoopLevel();

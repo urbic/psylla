@@ -3,6 +3,6 @@ package coneforest.psi;
 /**
  *	An interpreter’s procedure stack.
  */
-public class ProcedureStack extends Stack<PsiProcedure>
+public class ProcStack extends Stack<PsiProc>
 {
 }

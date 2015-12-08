@@ -1,6 +1,6 @@
 package coneforest.psi;
 
-public class PsiProcedure
+public class PsiProc
 	extends PsiArray
 {
 	@Override

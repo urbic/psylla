@@ -11,7 +11,7 @@ public final class _binarysearch extends PsiOperator
 		final PsiObject[] ops=opstack.popOperands(3);
 		final PsiArray array=(PsiArray)ops[0];
 		final PsiObject key=ops[1];
-		final PsiProcedure comparator=(PsiProcedure)ops[2];
+		final PsiProc comparator=(PsiProc)ops[2];
 
 		final PsiInteger index=array.psiBinarySearch(key, comparator);
 		final int indexValue=index.intValue();

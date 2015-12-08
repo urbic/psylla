@@ -46,7 +46,7 @@ public interface PsiIterable<T>
 	 *	@param proc a procedure
 	 *	@return an iterable
 	 */
-	default public PsiIterable<T> psiGrep(final PsiProcedure proc)
+	default public PsiIterable<T> psiGrep(final PsiProc proc)
 	{
 		return new PsiIterable<T>()
 			{

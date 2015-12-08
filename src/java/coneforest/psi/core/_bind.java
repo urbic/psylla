@@ -9,23 +9,23 @@ public final class _bind extends PsiOperator
 	{
 		final OperandStack opstack=interpreter.getOperandStack();
 		opstack.ensureSize(1);
-		bind((PsiProcedure)opstack.peek(), interpreter.getDictStack());
+		bind((PsiProc)opstack.peek(), interpreter.getDictStack());
 	}
 
-	private static void bind(PsiProcedure proc, DictStack dictstack)
+	private static void bind(PsiProc proc, DictStack dictstack)
 	{
-		bindHelper(proc, new java.util.HashSet<PsiProcedure>(), dictstack);
+		bindHelper(proc, new java.util.HashSet<PsiProc>(), dictstack);
 	}
 
-	private static void bindHelper(PsiProcedure proc, java.util.HashSet<PsiProcedure> bound, DictStack dictstack)
+	private static void bindHelper(PsiProc proc, java.util.HashSet<PsiProc> bound, DictStack dictstack)
 	{
 			for(int i=0; i<proc.length(); i++)
 			{
 				try
 				{
 					PsiObject obj=proc.get(i);
-					if(obj instanceof PsiProcedure && bound.add((PsiProcedure)obj))
-						bindHelper((PsiProcedure)obj, bound, dictstack);
+					if(obj instanceof PsiProc && bound.add((PsiProc)obj))
+						bindHelper((PsiProc)obj, bound, dictstack);
 					else if(obj instanceof PsiCommand)
 					{
 						PsiObject value=dictstack.load((PsiName)obj);

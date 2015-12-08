@@ -194,7 +194,7 @@ public class PsiArray
 		return result;
 	}
 
-	public PsiInteger psiBinarySearch(PsiObject key, PsiProcedure comparator)
+	public PsiInteger psiBinarySearch(PsiObject key, PsiProc comparator)
 		throws PsiException
 	{
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
