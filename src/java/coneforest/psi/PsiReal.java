@@ -149,6 +149,7 @@ public class PsiReal
 		ZERO=new PsiReal(0.D),
 		ONE=new PsiReal(1.D),
 		TWO=new PsiReal(2.D),
+		MINUS_ONE=new PsiReal(-1.D),
 		PI=new PsiReal(Math.PI),
 		E=new PsiReal(Math.E),
 		MAX_VALUE=new PsiReal(Double.MAX_VALUE),
