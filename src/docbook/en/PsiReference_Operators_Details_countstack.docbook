@@ -28,7 +28,7 @@
 </synopsis>
 
 <para>
-Returns the number of objects in operand stack.
+Returns the number of objects on the operand stack.
 </para>
 
 <formalpara>
