@@ -4,9 +4,9 @@
 
 /fibonacci
 {
+	1 index toname say
 	n notzero
 	{
-		1 index toname say
 		exch 1 index add
 		/n n 1 sub def
 		fibonacci

@@ -10,8 +10,8 @@
 <replaceable>object<subscript>1</subscript></replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
-<replaceable>объект<subscript>2</subscript></replaceable>:
+<replaceable>object<subscript>1</subscript></replaceable>,
+<replaceable>object<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>

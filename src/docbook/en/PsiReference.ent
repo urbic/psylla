@@ -95,6 +95,7 @@
 <!ENTITY PsiReference_Operators_Details_capturegroupstart	SYSTEM "PsiReference_Operators_Details_capturegroupstart.docbook">
 <!ENTITY PsiReference_Operators_Details_cbrt			SYSTEM "PsiReference_Operators_Details_cbrt.docbook">
 <!ENTITY PsiReference_Operators_Details_ceiling			SYSTEM "PsiReference_Operators_Details_ceiling.docbook">
+<!ENTITY PsiReference_Operators_Details_classpath		SYSTEM "PsiReference_Operators_Details_classpath.docbook">
 <!ENTITY PsiReference_Operators_Details_clear			SYSTEM "PsiReference_Operators_Details_clear.docbook">
 <!ENTITY PsiReference_Operators_Details_cleardictstack	SYSTEM "PsiReference_Operators_Details_cleardictstack.docbook">
 <!ENTITY PsiReference_Operators_Details_clearstack		SYSTEM "PsiReference_Operators_Details_clearstack.docbook">

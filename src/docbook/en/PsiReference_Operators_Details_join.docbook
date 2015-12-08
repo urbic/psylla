@@ -3,32 +3,44 @@
 <title><token language="psi">join</token></title>
 
 <synopsis>
-<replaceable>контекст</replaceable>
+<replaceable>context</replaceable>
 <token language="psi">join</token>
 <constant>mark</constant>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>контекст</replaceable>:
+<replaceable>context</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_context"/>
 </listitem>
 <listitem>
-<replaceable>число</replaceable>,
-<replaceable>результат</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>object<subscript>1</subscript></replaceable>,
 …,
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
-<remark>TODO</remark>
+<para>
+Waits for the <replaceable>context</replaceable> to finish executing its
+top-level procedure (the last operand of <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/>). It then pushes a mark
+followed by the entire contents of that <replaceable>context</replaceable>’s
+operand stack onto the current context’s operand stack. Finally, it causes the
+other context to terminate.
+</para>
+
+<para>
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_invalidcontext"/>, if the
+<replaceable>context</replaceable> is the current context.
+</para>
 
 <formalpara>
 &TitleErrors;

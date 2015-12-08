@@ -20,7 +20,7 @@
 </synopsis>
 
 <para>
-Invokes the <replaceable>object</replaceable> (typically a procedure), if the
+Invokes an <replaceable>object</replaceable> (typically a procedure), if a
 <replaceable>condition</replaceable> is true.
 </para>
 

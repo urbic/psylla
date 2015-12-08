@@ -1108,6 +1108,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_classpath" xrefstyle="template:%t"/></term>
+<listitem>дополнительный путь поиска классов</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
 <listitem>размер стека словарей</listitem>
 </varlistentry>
@@ -1409,6 +1414,7 @@
 &PsiReference_Operators_Details_capturegroupstart;
 &PsiReference_Operators_Details_cbrt;
 &PsiReference_Operators_Details_ceiling;
+&PsiReference_Operators_Details_classpath;
 &PsiReference_Operators_Details_clear;
 &PsiReference_Operators_Details_cleardictstack;
 &PsiReference_Operators_Details_clearstack;

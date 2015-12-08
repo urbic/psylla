@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_classpath">
+<title><token language="psi">classpath</token></title>
+
+<synopsis>
+—
+<token language="psi">classpath</token>
+<constant>classpath</constant>
+<itemizedlist>
+<listitem>
+<constant>classpath</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Массив с компонентами дополнительного пути поиска классов. <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_classpath"/> не
+оператор, а значение типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_array"/> в системном словаре.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_external"/>.
+</formalpara>
+
+</section>

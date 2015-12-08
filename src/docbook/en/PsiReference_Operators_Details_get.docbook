@@ -3,27 +3,27 @@
 <title><token language="psi">get</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable>
-<replaceable>ключ</replaceable>
+<replaceable>container</replaceable>
+<replaceable>key</replaceable>
 <token language="psi">get</token>
-<replaceable>элемент</replaceable>
+<replaceable>element</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>ключ</replaceable>,
-<replaceable>элемент</replaceable>:
+<replaceable>key</replaceable>,
+<replaceable>element</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>элемент</replaceable> индексированного
-<replaceable>контейнера</replaceable>, ассоциированный с заданным
-<replaceable>ключом</replaceable>.
+Returns the <replaceable>element</replaceable> associated with a given
+<replaceable>key</replaceable> from an indexed
+<replaceable>container</replaceable>.
 </para>
 
 <para>

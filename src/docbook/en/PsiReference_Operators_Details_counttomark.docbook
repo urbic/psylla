@@ -4,14 +4,14 @@
 
 <synopsis>
 <constant>mark</constant>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <token language="psi">counttomark</token>
 <constant>mark</constant>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>n</replaceable>
 <itemizedlist>
 <listitem>
@@ -19,9 +19,9 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>
-…
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>1</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
@@ -32,14 +32,14 @@
 </synopsis>
 
 <para>
-Возвращает количество объектов в стеке операндов, расположенных выше самой
-верхней метки вплоть до вершины стека.
+Returns the number of objects situated above the highest
+<constant>mark</constant> on the operand stack.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
-содержит меток.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
+does not contain any mark.
 </para>
 
 <formalpara>
