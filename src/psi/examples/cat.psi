@@ -1,11 +1,25 @@
 #!/usr/bin/psylla
+/##
+cat.psi — print files to standard output
 
-/in arguments 0 get filereader def
+Synopsis:
+	cat.psi [FILE]…
+##/
 
+arguments isempty { arguments '-' append } if
+
+arguments
 {
-	//in 4096 readstring
-	exch print
-	not { exit } if
+	dup '-' ne { filereader } { stdin } ifelse
+	/in exch def
+
+	{
+		in 4096 readstring
+		exch print
+		not { exit } if
+	}
+	loop
+	stdout flush
 }
-bind loop
-stdout flush
+bind forall
+
