@@ -22,11 +22,10 @@ Returns the <replaceable>complement</replaceable> of a
 
 <para>
 For <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_boolean"/> operands, returns a logical
+linkend="PsiReference_Types_Details_boolean"/> operand, returns a logical
 <replaceable>complement</replaceable>. For <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_bitvector"/>
-<replaceable>logical</replaceable> returns the bitwise
+linkend="PsiReference_Types_Details_bitvector"/> operand, returns the bitwise
 <replaceable>complement</replaceable>.
 </para>
 
