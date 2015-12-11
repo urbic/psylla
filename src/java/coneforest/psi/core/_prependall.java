@@ -8,6 +8,6 @@ public final class _prependall extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-		((PsiPrependable)ops[0]).psiPrependAll((PsiIterable)ops[1]);
+		((PsiArraylike)ops[0]).psiPrependAll((PsiIterable)ops[1]);
 	}
 }
