@@ -7,6 +7,7 @@ public class OptionInteger extends OptionHolder<Integer>
 		super(names);
 	}
 
+	@Override
 	public Integer parseArg(String arg)
 		throws CLIProcessingException
 	{

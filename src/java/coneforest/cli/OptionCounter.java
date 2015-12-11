@@ -16,12 +16,20 @@ public class OptionCounter extends OptionWithoutArg
 	 *
 	 * @return value
 	 */
-	public Integer getValue()	{ return counter; }
+	@Override
+	public Integer getValue()
+	{
+		return counter;
+	}
 
 	/**
 	 * Increments option value by one.
 	 */
-	public void handle()	{ counter++; }
+	@Override
+	public void handle()
+	{
+		counter++;
+	}
 
 	private int counter=0;
 }

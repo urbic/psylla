@@ -1,12 +1,14 @@
 package coneforest.cli;
 
-public class OptionDouble extends OptionHolder<Double>
+public class OptionDouble
+	extends OptionHolder<Double>
 {
 	public OptionDouble(String names)
 	{
 		super(names);
 	}
 
+	@Override
 	public Double parseArg(String arg)
 		throws CLIProcessingException
 	{

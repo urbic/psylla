@@ -5,9 +5,10 @@ import java.util.ArrayList;
 /**
  * Base class representing an abstract option holding an object list.
  *
- * @param <T> class of containing object
+ * @param <T> a type of containing object
  */
-abstract public class OptionCollector<T> extends OptionWithArg
+abstract public class OptionCollector<T>
+	extends OptionWithArg
 {
 	public OptionCollector(String names)
 	{
@@ -19,6 +20,7 @@ abstract public class OptionCollector<T> extends OptionWithArg
 	 *
 	 * @return array
 	 */
+	@Override
 	public T[] getValue()
 	{
 		return (T[])argList.toArray();
@@ -31,6 +33,7 @@ abstract public class OptionCollector<T> extends OptionWithArg
 	 * @param arg argument
 	 * @throws CLIProcessingException when parse error occured
 	 */
+	@Override
 	public void handle(final String arg)
 		throws CLIProcessingException
 	{

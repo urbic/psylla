@@ -26,6 +26,7 @@ public class OptionFlag
 	/**
 	 * Sets option value to true.
 	 */
+	@Override
 	public void handle()
 	{
 		flag=true;

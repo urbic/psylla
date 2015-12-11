@@ -1,12 +1,14 @@
 package coneforest.cli;
 
-public class OptionFloat extends OptionHolder<Float>
+public class OptionFloat
+	extends OptionHolder<Float>
 {
 	public OptionFloat(String names)
 	{
 		super(names);
 	}
 
+	@Override
 	public Float parseArg(String arg)
 		throws CLIProcessingException
 	{
