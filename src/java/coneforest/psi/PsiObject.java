@@ -1,18 +1,18 @@
 package coneforest.psi;
 
 /**
- *	A type of basic Ψ object.
- */
+*	A representation of Ψ-{@code object} type.
+*/
 public interface PsiObject
 	extends
 		PsiConvertableToName,
 		PsiConvertableToString
 {
 	/**
-	 *	Returns a string representation of a type name.
-	 *
-	 *	@return a type name.
-	 */
+	*	Returns a string representation of a type name.
+	*
+	*	@return a string {@code "object"}.
+	*/
 	default public String getTypeName()
 	{
 		return "object";
@@ -23,30 +23,23 @@ public interface PsiObject
 		return new PsiType<PsiObject>((Class<PsiObject>)getClass());
 	}
 
-	/*
-	default public PsiCommand psiType()
-	{
-		return new PsiCommand(getTypeName()+"type");
-	}
-	*/
-
 	/**
-	 *	Execute this object in the context of an interpreter. Pushes this
-	 *	object into interpreter’s operand stack.
-	 *
-	 *	@param interpreter an interpreter.
-	 */
+	*	Execute this object in the context of an interpreter. Pushes this
+	*	object into interpreter’s operand stack.
+	*
+	*	@param interpreter an interpreter.
+	*/
 	default public void execute(Interpreter interpreter)
 	{
 		interpreter.operandStack().push(this);
 	}
 
 	/**
-	 *	Invoke this object in the context of an interpreter. Pushes this
-	 *	object into interpreter’s operand stack.
-	 *
-	 *	@param interpreter an interpreter.
-	 */
+	*	Invoke this object in the context of an interpreter. Pushes this
+	*	object into interpreter’s operand stack.
+	*
+	*	@param interpreter an interpreter.
+	*/
 	default public void invoke(Interpreter interpreter)
 	{
 		interpreter.operandStack().push(this);
@@ -63,20 +56,20 @@ public interface PsiObject
 	}
 
 	/**
-	 *	Returns a clone of this object.
-	 *
-	 *	@return a clone.
-	 */
+	*	Returns a clone of this object.
+	*
+	*	@return a clone.
+	*/
 	default public PsiObject psiClone()
 	{
 		return this;
 	}
 
 	/**
-	 *	Returns a Ψ string representing this object.
-	 *
-	 *	@return a Ψ string representing this object.
-	 */
+	*	Returns a Ψ string representing this object.
+	*
+	*	@return a Ψ string representing this object.
+	*/
 	@Override
 	default public PsiString psiToString()
 	{
@@ -89,10 +82,10 @@ public interface PsiObject
 	}
 
 	/**
-	 *	Returns a Ψ name representing this object.
-	 *
-	 *	@return a Ψ string representing this object.
-	 */
+	*	Returns a Ψ name representing this object.
+	*
+	*	@return a Ψ string representing this object.
+	*/
 	@Override
 	default public PsiName psiToName()
 	{
