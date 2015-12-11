@@ -5,11 +5,12 @@ public class PsiSystemDict
 	extends PsiModule
 {
 	public PsiSystemDict()
+		throws PsiException
 	{
 		super();
 
-		try
-		{
+		//try
+		//{
 			registerOperatorClasses
 				(
 					_abort.class,
@@ -269,10 +270,10 @@ public class PsiSystemDict
 			put("userdict", new PsiDict());
 			put("username", new PsiName(System.getProperty("user.name")));
 			put("version", new PsiName(""+Version.getVersion()));
-		}
-		catch(PsiException e)
-		{
-			throw new AssertionError();
-		}
+		//}
+		//catch(PsiException e)
+		//{
+		//	throw new AssertionError();
+		//}
 	}
 }

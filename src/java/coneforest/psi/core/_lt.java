@@ -7,8 +7,8 @@ public final class _lt extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(((PsiScalar)ops[0]).psiLt((PsiScalar)ops[1]));
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(2);
+		ostack.push(((PsiScalar)ops[0]).psiLt((PsiScalar)ops[1]));
 	}
 }

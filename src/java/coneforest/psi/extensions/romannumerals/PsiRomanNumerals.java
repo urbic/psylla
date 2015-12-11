@@ -24,8 +24,8 @@ public class PsiRomanNumerals
 		public void action(Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			final OperandStack opstack=interpreter.getOperandStack();
-			opstack.push(psiToRoman((PsiInteger)opstack.popOperands(1)[0]));
+			final OperandStack ostack=interpreter.operandStack();
+			ostack.push(psiToRoman((PsiInteger)ostack.popOperands(1)[0]));
 		}
 
 		private static PsiName psiToRoman(PsiInteger integer)
@@ -48,8 +48,8 @@ public class PsiRomanNumerals
 		public void action(Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			final OperandStack opstack=interpreter.getOperandStack();
-			opstack.push(psiFromRoman((PsiStringy)opstack.popOperands(1)[0]));
+			final OperandStack ostack=interpreter.operandStack();
+			ostack.push(psiFromRoman((PsiStringy)ostack.popOperands(1)[0]));
 		}
 
 		private static PsiInteger psiFromRoman(PsiStringy stringy)

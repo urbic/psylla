@@ -7,8 +7,8 @@ public final class _max extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(ops[((PsiScalar)ops[0]).psiGt((PsiScalar)ops[1]).booleanValue()? 0: 1]);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(2);
+		ostack.push(ops[((PsiScalar)ops[0]).psiGt((PsiScalar)ops[1]).booleanValue()? 0: 1]);
 	}
 }

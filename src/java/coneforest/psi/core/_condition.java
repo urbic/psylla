@@ -7,7 +7,7 @@ public final class _condition extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiLock)opstack.popOperands(1)[0]).psiCondition());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiLock)ostack.popOperands(1)[0]).psiCondition());
 	}
 }

@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">string</code> object.
+ *	A representation of Ψ-{@code string} object.
  */
 public class PsiString
 	implements PsiStringlike

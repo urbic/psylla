@@ -14,7 +14,7 @@ public class PsiProc
 	{
 		try
 		{
-			ExecutionStack execstack=interpreter.getExecutionStack();
+			ExecutionStack execstack=interpreter.executionStack();
 			for(int i=length()-1; i>=0; i--)
 				execstack.push(get(i));
 		}

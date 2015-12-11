@@ -7,7 +7,6 @@ public final class _close extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		((PsiCloseable)opstack.popOperands(1)[0]).psiClose();
+		((PsiCloseable)interpreter.operandStack().popOperands(1)[0]).psiClose();
 	}
 }

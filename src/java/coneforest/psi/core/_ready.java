@@ -7,7 +7,7 @@ public final class _ready extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiReadable)opstack.popOperands(1)[0]).psiReady());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiReadable)ostack.popOperands(1)[0]).psiReady());
 	}
 }

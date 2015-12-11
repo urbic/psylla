@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">mark</code> object.
+ *	A representation of Ψ-{@code mark} object.
  */
 public final class PsiMark
 	implements PsiAtomic
@@ -11,7 +11,7 @@ public final class PsiMark
 	}
 
 	/**
-	 *	@return a string <code class="constant">"mark"</code>.
+	 *	@return a string {@code "mark"}.
 	 */
 	public String getTypeName()
 	{

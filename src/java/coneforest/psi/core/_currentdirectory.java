@@ -7,7 +7,6 @@ public final class _currentdirectory extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiCurrentDirectory());
+		interpreter.operandStack().push(FileSystem.psiCurrentDirectory());
 	}
 }

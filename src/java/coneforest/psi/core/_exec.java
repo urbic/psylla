@@ -7,7 +7,6 @@ public final class _exec extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.popOperands(1)[0].invoke(interpreter);
+		interpreter.operandStack().popOperands(1)[0].invoke(interpreter);
 	}
 }

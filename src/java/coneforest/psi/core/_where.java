@@ -7,10 +7,10 @@ public final class _where extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		PsiDictlike dict=interpreter.getDictStack().where((PsiStringy)opstack.popOperands(1)[0]);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiDictlike dict=interpreter.dictStack().where((PsiStringy)ostack.popOperands(1)[0]);
 		if(dict!=null)
-			opstack.push(dict);
-		opstack.push(PsiBoolean.valueOf(dict!=null));
+			ostack.push(dict);
+		ostack.push(PsiBoolean.valueOf(dict!=null));
 	}
 }

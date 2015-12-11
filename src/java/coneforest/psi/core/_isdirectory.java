@@ -7,7 +7,7 @@ public final class _isdirectory extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiIsDirectory(((PsiStringy)opstack.popOperands(1)[0])));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(FileSystem.psiIsDirectory(((PsiStringy)ostack.popOperands(1)[0])));
 	}
 }

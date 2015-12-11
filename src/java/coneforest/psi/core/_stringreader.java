@@ -7,7 +7,7 @@ public final class _stringreader extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiStringReader((PsiStringy)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(new PsiStringReader((PsiStringy)ostack.popOperands(1)[0]));
 	}
 }

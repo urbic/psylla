@@ -7,8 +7,8 @@ public final class _map extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(2);
 		final PsiContainer container=(PsiContainer)ops[0];
 		final PsiProc proc=(PsiProc)ops[1];
 		final PsiAppendable result=(PsiAppendable)container.psiNewEmpty();
@@ -16,15 +16,15 @@ public final class _map extends PsiOperator
 		final int loopLevel=interpreter.pushLoopLevel();
 		for(PsiObject element: (PsiContainer<? extends PsiObject>)container)
 		{
-			opstack.push(element);
+			ostack.push(element);
 			proc.invoke(interpreter);
 			interpreter.handleExecutionStack(loopLevel);
-			result.psiAppend(opstack.pop());
+			result.psiAppend(ostack.pop());
 			if(interpreter.getStopFlag() || interpreter.getExitFlag())
 				break;
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
-		opstack.push(result);
+		ostack.push(result);
 	}
 }

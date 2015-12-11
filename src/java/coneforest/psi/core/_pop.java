@@ -7,8 +7,8 @@ public final class _pop extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.ensureSize(1);
-		opstack.pop();
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.ensureSize(1);
+		ostack.pop();
 	}
 }

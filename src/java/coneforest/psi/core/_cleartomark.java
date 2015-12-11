@@ -7,11 +7,11 @@ public final class _cleartomark extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		for(int i=opstack.size()-1; i>=0; i--)
-			if(opstack.get(i) instanceof PsiMark)
+		final OperandStack ostack=interpreter.operandStack();
+		for(int i=ostack.size()-1; i>=0; i--)
+			if(ostack.get(i)==PsiMark.MARK)
 			{
-				opstack.setSize(i);
+				ostack.setSize(i);
 				return;
 			}
 		throw new PsiUnmatchedMarkException();

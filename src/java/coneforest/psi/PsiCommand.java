@@ -13,7 +13,7 @@ public class PsiCommand
 	{
 		try
 		{
-			interpreter.getDictStack().load(this).invoke(interpreter);
+			interpreter.dictStack().load(this).invoke(interpreter);
 		}
 		catch(PsiException e)
 		{

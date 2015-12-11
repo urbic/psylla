@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">boolean</code> object.
+ *	A representation of Ψ-{@code boolean} object.
  */
 public class PsiBoolean
 	implements
@@ -14,7 +14,7 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	@return a string <code class="constant">"boolean"</code>.
+	 *	@return a string {@code "boolean"}.
 	 */
 	@Override
 	public String getTypeName()
@@ -33,8 +33,8 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	@return a string <code class="type">false</code> or <code
-	 *	class="type">true</code> depending on this object value.
+	 *	@return a string {@code false} or {@code true} depending on this object
+	 *	value.
 	 */
 	@Override
 	public String toSyntaxString()
@@ -103,11 +103,6 @@ public class PsiBoolean
 		return PsiBoolean.valueOf(equals(obj));
 	}
 
-	/**
-	 *	Returns a hash code for this object (<code>1</code> or <code>0</code>).
-	 *
-	 *	@return a hash code.
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -122,11 +117,10 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a Ψ-<code class="type">boolean</code> object, representing
-	 *	given value.
+	 *	Returns a Ψ-{@code boolean} representing the given value.
 	 *
 	 *	@param bool a given value.
-	 *	@return a Ψ-<code class="type">boolean</code> object.
+	 *	@return a Ψ-{@code boolean} object.
 	 */
 	public static PsiBoolean valueOf(final boolean bool)
 	{
@@ -134,14 +128,12 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	A Ψ-<code class="type">boolean</code> constant, representing <code
-	 *	class="constant">false</code>.
+	 *	A Ψ-{@code boolean} constant, representing false.
 	 */
 	public static final PsiBoolean FALSE=new PsiBoolean(false);
 
 	/**
-	 *	A Ψ-<code class="type">boolean</code> constant, representing <code
-	 *	class="constant">true</code>.
+	 *	A Ψ-{@code boolean} constant, representing true.
 	 */
 	public static final PsiBoolean TRUE=new PsiBoolean(true);
 

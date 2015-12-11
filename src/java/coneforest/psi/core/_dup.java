@@ -7,8 +7,8 @@ public final class _dup extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.ensureSize(1);
-		opstack.push(opstack.peek());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.ensureSize(1);
+		ostack.push(ostack.peek());
 	}
 }

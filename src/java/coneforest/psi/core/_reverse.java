@@ -7,7 +7,7 @@ public final class _reverse extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiArraylike)opstack.popOperands(1)[0]).psiReverse());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiArraylike)ostack.popOperands(1)[0]).psiReverse());
 	}
 }

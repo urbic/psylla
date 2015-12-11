@@ -7,7 +7,7 @@ public final class _uppercase extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiStringy)opstack.popOperands(1)[0]).psiUpperCase());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiStringy)ostack.popOperands(1)[0]).psiUpperCase());
 	}
 }

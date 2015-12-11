@@ -6,6 +6,6 @@ public final class _lock extends PsiOperator
 	@Override
 	public void action(final Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(new PsiLock());
+		interpreter.operandStack().push(new PsiLock());
 	}
 }

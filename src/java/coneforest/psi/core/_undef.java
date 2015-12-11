@@ -7,8 +7,7 @@ public final class _undef extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
+		final PsiObject[] ops=interpreter.operandStack().popOperands(2);
 		((PsiDictlike)ops[0]).psiUndef((PsiStringy)ops[1]);
 	}
 }

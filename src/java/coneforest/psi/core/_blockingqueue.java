@@ -7,7 +7,7 @@ public final class _blockingqueue extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiBlockingQueue((PsiInteger)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(new PsiBlockingQueue((PsiInteger)ostack.popOperands(1)[0]));
 	}
 }

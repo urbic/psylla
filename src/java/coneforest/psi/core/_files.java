@@ -7,7 +7,7 @@ public final class _files extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiFiles((PsiStringy)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(FileSystem.psiFiles((PsiStringy)ostack.popOperands(1)[0]));
 	}
 }

@@ -7,7 +7,7 @@ public final class _toreal extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiConvertableToReal)opstack.popOperands(1)[0]).psiToReal());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiConvertableToReal)ostack.popOperands(1)[0]).psiToReal());
 	}
 }

@@ -7,23 +7,23 @@ public final class _sort extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(2);
 		final PsiArray array=(PsiArray)ops[0];
 		final PsiObject comparator=ops[1];
 
-		opstack.push(array.psiSort(new java.util.Comparator<PsiObject>()
+		ostack.push(array.psiSort(new java.util.Comparator<PsiObject>()
 				{
 					@Override
 					public int compare(PsiObject obj1, PsiObject obj2)
 					{
-						opstack.push(obj1);
-						opstack.push(obj2);
+						ostack.push(obj1);
+						ostack.push(obj2);
 						final int execLevel=interpreter.getExecLevel();
 						comparator.invoke(interpreter);
 						interpreter.handleExecutionStack(execLevel);
 						// TODO: ensure stack size
-						return ((PsiInteger)opstack.pop()).intValue();
+						return ((PsiInteger)ostack.pop()).intValue();
 					}
 				}));
 	}
@@ -32,8 +32,8 @@ public final class _sort extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(2);
 		final PsiIterable iterable=(PsiIterable)ops[0];
 		final PsiObject comparator=ops[1];
 
@@ -48,13 +48,13 @@ public final class _sort extends PsiOperator
 					@Override
 					public int compare(PsiObject obj1, PsiObject obj2)
 					{
-						opstack.push(obj1);
-						opstack.push(obj2);
+						ostack.push(obj1);
+						ostack.push(obj2);
 						final int execLevel=interpreter.getExecLevel();
 						comparator.invoke(interpreter);
 						interpreter.handleExecutionStack(execLevel);
 						// TODO: ensure stack size
-						return ((PsiInteger)opstack.pop()).intValue();
+						return ((PsiInteger)ostack.pop()).intValue();
 					}
 				});
 
@@ -62,7 +62,7 @@ public final class _sort extends PsiOperator
 		for(PsiObject obj: a)
 			result.psiAppend(obj);
 
-		opstack.push(result);
+		ostack.push(result);
 	}
 	*/
 }

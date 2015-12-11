@@ -7,11 +7,11 @@ public final class _index extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		int nValue=((PsiInteger)opstack.popOperands(1)[0]).intValue();
+		final OperandStack ostack=interpreter.operandStack();
+		int nValue=((PsiInteger)ostack.popOperands(1)[0]).intValue();
 		if(nValue<0)
 			throw new PsiRangeCheckException();
-		opstack.ensureSize(nValue+1);
-		opstack.push(opstack.get(opstack.size()-nValue-1));
+		ostack.ensureSize(nValue+1);
+		ostack.push(ostack.get(ostack.size()-nValue-1));
 	}
 }

@@ -12,19 +12,27 @@ public class Interpreter
 	 */
 	public Interpreter()
 	{
-		this(new DictStack());
+		try
+		{
+			ostack=new OperandStack();
+			estack=new ExecutionStack();
+			procstack=new ProcStack();
+			dstack=new DictStack();
+			pushStopLevel();
+		}
+		catch(PsiException e)
+		{
+			throw new AssertionError();
+		}
 	}
 
-	public Interpreter(DictStack dictstack)
+	public Interpreter(DictStack dstack)
 	{
-		opstack=new OperandStack();
-		execstack=new ExecutionStack();
+		ostack=new OperandStack();
+		estack=new ExecutionStack();
 		procstack=new ProcStack();
-		this.dictstack=(DictStack)dictstack.clone();
+		this.dstack=(DictStack)dstack.clone();
 		pushStopLevel();
-
-		//typeRegistry.load(Interpreter.class.getResourceAsStream("TypeRegistry.properties"));
-		//TypeRegistry("object");
 	}
 
 	/**
@@ -32,9 +40,9 @@ public class Interpreter
 	 *
 	 *	@return an operand stack.
 	 */
-	public OperandStack getOperandStack()
+	public OperandStack operandStack()
 	{
-		return opstack;
+		return ostack;
 	}
 
 	/**
@@ -42,9 +50,9 @@ public class Interpreter
 	 *
 	 *	@return a dictionary stack.
 	 */
-	public DictStack getDictStack()
+	public DictStack dictStack()
 	{
-		return dictstack;
+		return dstack;
 	}
 
 	/**
@@ -52,15 +60,15 @@ public class Interpreter
 	 *
 	 *	@return an execution stack.
 	 */
-	public ExecutionStack getExecutionStack()
+	public ExecutionStack executionStack()
 	{
-		return execstack;
+		return estack;
 	}
 
 	public void handleExecutionStack(final int level)
 	{
-		while(execstack.size()>level)
-			execstack.pop().execute(this);
+		while(estack.size()>level)
+			estack.pop().execute(this);
 	}
 
 	/**
@@ -70,7 +78,7 @@ public class Interpreter
 	 */
 	public PsiDictlike getCurrentDict()
 	{
-		return dictstack.peek();
+		return dstack.peek();
 	}
 
 	/**
@@ -80,7 +88,7 @@ public class Interpreter
 	 */
 	public PsiDictlike getSystemDict()
 	{
-		return dictstack.get(0);
+		return dstack.get(0);
 	}
 
 	/**
@@ -90,7 +98,7 @@ public class Interpreter
 	 */
 	public PsiDictlike getGlobalDict()
 	{
-		return dictstack.get(1);
+		return dstack.get(1);
 	}
 
 	/**
@@ -100,7 +108,7 @@ public class Interpreter
 	 */
 	public PsiDictlike getUserDict()
 	{
-		return dictstack.get(2);
+		return dstack.get(2);
 	}
 
 	public void setReader(final java.io.Reader reader)
@@ -175,7 +183,7 @@ public class Interpreter
 		if(procstack.size()>0)
 			procstack.peek().psiAppend(proc);
 		else
-			opstack.push(proc);
+			ostack.push(proc);
 	}
 
 	public void processToken(final Token token)
@@ -199,7 +207,7 @@ public class Interpreter
 				case ParserConstants.IMMEDIATE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.CHAR:
-					opstack.push(newPsiObject(token));
+					ostack.push(newPsiObject(token));
 					break;
 				case ParserConstants.OPEN_BRACE:
 					procstack.push(new PsiProc());
@@ -224,7 +232,7 @@ public class Interpreter
 						if(procstack.size()>0)
 							procstack.peek().psiAppend(proc);
 						else
-							opstack.push(proc);
+							ostack.push(proc);
 					}
 					break;
 				case ParserConstants.INTEGER:
@@ -577,7 +585,7 @@ public class Interpreter
 			case ParserConstants.COMMAND:
 				return new PsiCommand(token.image);
 			case ParserConstants.IMMEDIATE:
-				return dictstack.load(token.image.substring(2));
+				return dstack.load(token.image.substring(2));
 			default:
 				throw new AssertionError();
 		}
@@ -610,9 +618,9 @@ public class Interpreter
 		errorObj.put("newerror", PsiBoolean.TRUE);
 		errorObj.put("errorname", new PsiName(errorName));
 		errorObj.put("command", obj);
-		errorObj.put("ostack", new PsiArray((java.util.ArrayList<PsiObject>)opstack.clone()));
-		errorObj.put("estack", new PsiArray((java.util.ArrayList<PsiObject>)execstack.clone()));
-		errorObj.put("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dictstack.clone()));
+		errorObj.put("ostack", new PsiArray((java.util.ArrayList<PsiObject>)ostack.clone()));
+		errorObj.put("estack", new PsiArray((java.util.ArrayList<PsiObject>)estack.clone()));
+		errorObj.put("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dstack.clone()));
 		getSystemDict().put("$error", errorObj);
 
 		try
@@ -633,19 +641,19 @@ public class Interpreter
 	public void showStacks()
 	{
 		System.out.print("Operand stack:\n\t");
-		for(PsiObject obj: opstack)
+		for(PsiObject obj: ostack)
 			System.out.print(" "+obj);
 		System.out.println();
 
 		System.out.print("Execution stack:\n\t");
-		for(PsiObject obj: execstack)
+		for(PsiObject obj: estack)
 			System.out.print(" "+obj);
 		System.out.println();
 
 		/*
 		System.out.println("Dictionary stack:");
 		System.out.print("⊢\t");
-		for(PsiObject obj: dictstack)
+		for(PsiObject obj: dstack)
 			System.out.print(" "+obj);
 		System.out.println();
 		*/
@@ -658,7 +666,7 @@ public class Interpreter
 
 	public int getExecLevel()
 	{
-		return execstack.size();
+		return estack.size();
 	}
 
 	public boolean getExitFlag()
@@ -683,7 +691,7 @@ public class Interpreter
 
 	public int pushLoopLevel()
 	{
-		int level=execstack.size();
+		int level=estack.size();
 		loopstack.push(level);
 		return level;
 	}
@@ -700,7 +708,7 @@ public class Interpreter
 
 	public int pushStopLevel()
 	{
-		int level=execstack.size();
+		int level=estack.size();
 		stopstack.push(level);
 		return level;
 	}
@@ -756,7 +764,7 @@ public class Interpreter
 	{
 		running=false;
 		stopFlag=true;
-		execstack.clear();
+		estack.clear();
 	}
 
 	public void repl()
@@ -824,8 +832,8 @@ public class Interpreter
 		StringBuilder sb=new StringBuilder("PSYLLA");
 		for(int i=procstack.size(); i>0; i--)
 			sb.append('{');
-		if(opstack.size()>0)
-			sb.append("<"+opstack.size());
+		if(ostack.size()>0)
+			sb.append("<"+ostack.size());
 		sb.append("> ");
 		return sb.toString();
 	}
@@ -835,9 +843,9 @@ public class Interpreter
 		return (Interpreter)Thread.currentThread();
 	}
 
-	private final OperandStack opstack;
-	private final DictStack dictstack;
-	private final ExecutionStack execstack;
+	private final OperandStack ostack;
+	private final DictStack dstack;
+	private final ExecutionStack estack;
 	private final ProcStack procstack;
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),

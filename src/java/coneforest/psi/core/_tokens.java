@@ -7,17 +7,17 @@ public final class _tokens extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.ensureSize(1);
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.ensureSize(1);
 
-		final PsiObject stringy=opstack.pop();
+		final PsiObject stringy=ostack.pop();
 		try
 		{
 			interpreter.interpretBraced(new PsiStringReader((PsiStringy)stringy));
 		}
 		catch(ClassCastException e)
 		{
-			opstack.push(stringy);
+			ostack.push(stringy);
 			interpreter.handleError(e, this);
 		}
 	}

@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">bitvector</code> object.
+ *	A representation of Ψ-{@code bitvector} object.
  */
 public class PsiBitVector
 	implements
@@ -49,17 +49,6 @@ public class PsiBitVector
 	public PsiBitVector psiGetInterval(PsiInteger index, PsiInteger count)
 		throws PsiException
 	{
-		/*
-		PsiBitVector newBitVector=new PsiBitVector();
-		int indexValue=index.getValue().intValue();
-		int countValue=count.getValue().intValue();
-		if(indexValue<0 || indexValue+countValue>=size)
-			throw new PsiRangeCheckException();
-		for(int i=0; i<countValue && i<size; i++)
-			newBitVector.bitvector.set(i, bitvector.get(i+indexValue));
-		newBitVector.size=countValue;
-		return newBitVector;
-		*/
 		int indexValue=index.intValue();
 		int countValue=count.intValue();
 		if(indexValue+countValue>size)

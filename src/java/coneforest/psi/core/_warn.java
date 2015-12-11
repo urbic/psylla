@@ -7,9 +7,8 @@ public final class _warn extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiWriter stderror=(PsiWriter)interpreter.getDictStack().load("stderr");
-		stderror.psiWriteString((PsiStringy)opstack.popOperands(1)[0]);
+		final PsiWriter stderror=(PsiWriter)interpreter.dictStack().load("stderr");
+		stderror.psiWriteString((PsiStringy)interpreter.operandStack().popOperands(1)[0]);
 		stderror.psiFlush();
 	}
 }

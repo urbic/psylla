@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">null</code> object.
+ *	A representation of Ψ-{@code null} object.
  */
 public final class PsiNull
 	implements PsiAtomic
@@ -11,13 +11,13 @@ public final class PsiNull
 	}
 
 	/**
-	 *	@return a string <code class="constant">"null"</code>.
+	 *	@return a string {@code "null"}.
 	 */
 	@Override
 	public String getTypeName() { return "null"; }
 
 	/**
-	 *	@return a string <code class="constant">"null"</code>.
+	 *	@return a string {@code "null"}.
 	 */
 	@Override
 	public String toSyntaxString()
@@ -26,9 +26,9 @@ public final class PsiNull
 	}
 
 	/**
-	 *	Returns a boolean Ψ-object indicating whether some other Ψ-object is
-	 *	“equal to” this one. Return value is <code class="constant">true</code>
-	 *	if and only if other object has <code class="type">name</code> type.
+	 *	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
+	 *	“equal to” this one. Return value is {@code true} if and only if other
+	 *	object has {@code name} type.
 	 *
 	 *	@return a result.
 	 */
@@ -39,7 +39,7 @@ public final class PsiNull
 	}
 
 	/**
-	 *	A single Ψ-<code class="type">null</code> object.
+	 *	A single Ψ-{@code null} object.
 	 */
 	public static final PsiNull NULL=new PsiNull();
 }

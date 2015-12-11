@@ -7,19 +7,19 @@ public final class _find extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack ostack=interpreter.operandStack();
 		/*
-		final PsiObject[] ops=opstack.popOperands(2);
+		final PsiObject[] ops=ostack.popOperands(2);
 		PsiMatcher matcher=new PsiMatcher((PsiStringy)ops[0], (PsiRegExp)ops[1]);
 		boolean resultValue=matcher.psiFind().booleanValue();
 		if(resultValue)
-			opstack.push(matcher);
-		opstack.push(PsiBoolean.valueOf(resultValue));
+			ostack.push(matcher);
+		ostack.push(PsiBoolean.valueOf(resultValue));
 		*/
-		PsiMatcher matcher=(PsiMatcher)opstack.popOperands(1)[0];
+		PsiMatcher matcher=(PsiMatcher)ostack.popOperands(1)[0];
 		boolean resultValue=matcher.psiFind().booleanValue();
 		if(resultValue)
-			opstack.push(matcher);
-		opstack.push(PsiBoolean.valueOf(resultValue));
+			ostack.push(matcher);
+		ostack.push(PsiBoolean.valueOf(resultValue));
 	}
 }

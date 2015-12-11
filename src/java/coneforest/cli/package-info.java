@@ -14,7 +14,6 @@
  * </ul>
  * </p>
  *
- *
  * @author Anton Shvetz
  */
 package coneforest.cli;

@@ -7,11 +7,7 @@ public final class _dictstack extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final DictStack dictstack=interpreter.getDictStack();
-		PsiArray result=new PsiArray();
-		for(PsiObject obj: dictstack)
-			result.psiAppend(obj);
-		opstack.push(result);
+		interpreter.operandStack()
+				.push(new PsiArray((java.util.ArrayList<PsiObject>)interpreter.dictStack().clone()));
 	}
 }

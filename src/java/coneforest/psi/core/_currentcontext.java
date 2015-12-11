@@ -6,6 +6,6 @@ public final class _currentcontext extends PsiOperator
 	@Override
 	public void action(final Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(interpreter);
+		interpreter.operandStack().push(interpreter);
 	}
 }

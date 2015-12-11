@@ -7,8 +7,8 @@ public final class _findall extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(3);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(3);
 		final PsiMatcher matcher=new PsiMatcher((PsiStringy)ops[0], (PsiRegExp)ops[1]);
 		final PsiObject obj=ops[2];
 
@@ -17,7 +17,7 @@ public final class _findall extends PsiOperator
 		{
 			if(matcher.psiFind().booleanValue())
 			{
-				opstack.push(matcher);
+				ostack.push(matcher);
 				obj.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
 				if(interpreter.getStopFlag() || interpreter.getExitFlag())

@@ -1,13 +1,13 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">name</code> object.
+ *	A representation of Ψ-{@code name} object.
  */
 public class PsiName
 	implements PsiStringy
 {
 	/**
-	 *	Instantiate a new Ψ name object with given name.
+	 *	Instantiate a new Ψ-{@code name} object with given name.
 	 *
 	 *	@param cs a name.
 	 */
@@ -18,7 +18,8 @@ public class PsiName
 	}
 
 	/**
-	 *	Instantiate a new Ψ name object with name given as Ψ stringy.
+	 *	Instantiate a new Ψ-{@code name} object with name given as Ψ-{@code
+	 *	stringy} object.
 	 *
 	 *	@param stringy a stringy.
 	 */
@@ -28,25 +29,23 @@ public class PsiName
 	}
 
 	/**
-	 *	Returns a string representation of this object’s value.
-	 *
-	 *	@return an object value.
-	 */
-	@Override
-	public String getString()
-	{
-		return name;
-	}
-
-	/**
-	 *	Returns a string representation of this object’s type name.
-	 *
-	 *	@return <code>"name"</code> string.
+	 *	@return a {@code "name"} string.
 	 */
 	@Override
 	public String getTypeName()
 	{
 		return "name";
+	}
+	/**
+	 *	Returns a string value of this object’s value.
+	 *
+	 *	@return a string value of this object.
+	 */
+
+	@Override
+	public String getString()
+	{
+		return name;
 	}
 
 	@Override
@@ -56,9 +55,7 @@ public class PsiName
 	}
 
 	/**
-	 *	Returns a length of this object’s value as a Ψ integer.
-	 *
-	 *	@return a length.
+	 *	@return a Ψ-{@code integer} length (in characters) of this name.
 	 */
 	@Override
 	public PsiInteger psiLength()
@@ -66,12 +63,26 @@ public class PsiName
 		return PsiInteger.valueOf(name.length());
 	}
 
+	/**
+	 *	Converts all of the characters in this object to upper case according
+	 *	to default locale and returns a new Ψ-{@code name} object representing
+	 *	the result of the conversion.
+	 *
+	 *	@return a Ψ-{@code name} result of upper-casing.
+	 */
 	@Override
 	public PsiName psiUpperCase()
 	{
 		return new PsiName(name.toUpperCase());
 	}
 
+	/**
+	 *	Converts all of the characters in this object to lower case according
+	 *	to default locale and returns a new Ψ-{@code name} object representing
+	 *	the result of the conversion.
+	 *
+	 *	@return a Ψ-{@code name} result of lower-casing.
+	 */
 	@Override
 	public PsiName psiLowerCase()
 	{
@@ -80,7 +91,7 @@ public class PsiName
 
 	/**
 	 *	Returns a syntactic representation of this object’s value. Returns a
-	 *	value string prepended with <code>/</code>.
+	 *	value string prepended with {@code /}.
 	 *
 	 *	@return a syntactic representation of this object’s value.
 	 */
@@ -91,9 +102,9 @@ public class PsiName
 	}
 
 	/**
-	 *	Returns a Ψ boolean indicating whether some other Ψ-object is “equal
-	 *	to” this one. Return value is <i>true</i> if and only if other object
-	 *	has <code>name</code> type and its value is equal to this one’s.
+	 *	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
+	 *	“equal to” this one. Return value is <i>true</i> if and only if other
+	 *	object has {@code name} type and its value is equal to this one’s.
 	 *
 	 *	@return a result.
 	 */

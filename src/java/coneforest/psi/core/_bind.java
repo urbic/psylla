@@ -7,9 +7,9 @@ public final class _bind extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.ensureSize(1);
-		bind((PsiProc)opstack.peek(), interpreter.getDictStack());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.ensureSize(1);
+		bind((PsiProc)ostack.peek(), interpreter.dictStack());
 	}
 
 	private static void bind(PsiProc proc, DictStack dictstack)

@@ -7,11 +7,7 @@ public final class _execstack extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final ExecutionStack execstack=interpreter.getExecutionStack();
-		PsiArray result=new PsiArray();
-		for(PsiObject obj: execstack)
-			result.psiAppend(obj);
-		opstack.push(result);
+		interpreter.operandStack().push(
+			new PsiArray((java.util.ArrayList<PsiObject>)interpreter.executionStack().clone()));
 	}
 }

@@ -16,7 +16,7 @@ abstract public class Option
 	/**
 	 * Abstract method for fetching an option value.
 	 *
-	 * @param T a type of a value
+	 * @param <T> a type of a value
 	 * @return a value
   	 */
 	abstract public <T> T getValue();
@@ -25,6 +25,7 @@ abstract public class Option
 	 * Returns true if given name is found among option names, and false
 	 * otherwise.
 	 *
+	 * @param name a name
 	 * @return result
   	 */
 	public boolean hasName(final String name)

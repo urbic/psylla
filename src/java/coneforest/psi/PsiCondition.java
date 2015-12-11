@@ -1,13 +1,13 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">condition</code> object.
+ *	A representation of Ψ-{@code condition} object.
  */
 public class PsiCondition
 	implements PsiAtomic
 {
 	/**
-	 *	@return a string <code class="constant">"condition"</code>.
+	 *	@return a string {@code "condition"}.
 	 */
 	public String getTypeName()
 	{
@@ -15,8 +15,7 @@ public class PsiCondition
 	}
 
 	/**
-	 *	Constructs a Ψ-<code class="type">condition</code> object that wraps
-	 *	given condition.
+	 *	Constructs a Ψ-{@code condition} object that wraps given condition.
 	 *
 	 * 	@param condition a condition.
 	 */

@@ -7,23 +7,23 @@ public final class _dicttomark extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		for(int i=opstack.size()-1; i>=0; i--)
+		final OperandStack ostack=interpreter.operandStack();
+		for(int i=ostack.size()-1; i>=0; i--)
 		{
-			if(opstack.get(i)==PsiMark.MARK)
+			if(ostack.get(i)==PsiMark.MARK)
 			{
-				if((opstack.size()-i) % 2==0)
+				if((ostack.size()-i) % 2==0)
 					throw new PsiRangeCheckException();
 				PsiDict dict=new PsiDict();
 
-				for(int j=i+1; j<opstack.size(); j++)
+				for(int j=i+1; j<ostack.size(); j++)
 				{
-					PsiStringy key=(PsiStringy)opstack.get(j++);
-					PsiObject obj=opstack.get(j);
+					PsiStringy key=(PsiStringy)ostack.get(j++);
+					PsiObject obj=ostack.get(j);
 					dict.psiPut(key, obj);
 				}
-				opstack.setSize(i);
-				opstack.push(dict);
+				ostack.setSize(i);
+				ostack.push(dict);
 				return;
 			}
 		}

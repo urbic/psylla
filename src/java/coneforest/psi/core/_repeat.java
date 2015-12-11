@@ -7,8 +7,8 @@ public final class _repeat extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(2);
 		final PsiInteger count=(PsiInteger)ops[0];
 		final PsiObject proc=ops[1];
 

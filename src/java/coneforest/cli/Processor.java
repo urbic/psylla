@@ -9,10 +9,10 @@ public class Processor
 {
 	/**
 	 * Constructor
+	 *
 	 * @param options a list of option descriptions
 	 */
 	public Processor(final Option... options)
-		throws CLIConfigurationException
 	{
 		this.options=options;
 	}

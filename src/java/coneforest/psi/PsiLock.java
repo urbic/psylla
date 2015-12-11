@@ -1,13 +1,13 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">lock</code> object.
+ *	A representation of Ψ-{@code lock} object.
  */
 public class PsiLock
 	implements PsiAtomic
 {
 	/**
-	 *	@return a string <code class="constant">"lock"</code>.
+	 *	@return a string {@code "lock"}.
 	 */
 	public String getTypeName()
 	{
@@ -32,6 +32,9 @@ public class PsiLock
 
 	/**
 	 *	Queries if this lock is held by the current thread.
+	 *
+	 *	@return {@code true} if current context holds this lock and {@code
+	 *	false} otherwise.
 	 */
 	public boolean isHeldByCurrentThread()
 	{
@@ -39,7 +42,9 @@ public class PsiLock
 	}
 
 	/**
-	 *	Returns a Ψ-<code class="type">condition</code> for use with this lock.
+	 *	Returns a Ψ-{@code condition} for use with this lock.
+	 *
+	 *	@return a Ψ-{@code condition} object.
 	 */
 	public PsiCondition psiCondition()
 	{

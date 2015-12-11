@@ -3,20 +3,14 @@ package coneforest.psi;
 public class PsiErrorDict extends PsiModule
 {
 	public PsiErrorDict()
+		throws PsiException
 	{
 		super();
 
-		try
-		{
-			registerOperatorClasses
-				(
-					_handleerror.class
-				);
-		}
-		catch(PsiException e)
-		{
-			// TODO
-		}
+		registerOperatorClasses
+			(
+				_handleerror.class
+			);
 	}
 
 	public static class _handleerror extends PsiOperator

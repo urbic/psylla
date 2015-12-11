@@ -7,7 +7,7 @@ public final class _readlink extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiReadLink((PsiStringy)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(FileSystem.psiReadLink((PsiStringy)ostack.popOperands(1)[0]));
 	}
 }

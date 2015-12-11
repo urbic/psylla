@@ -7,16 +7,16 @@ public final class _arraytomark extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		for(int i=opstack.size()-1; i>=0; i--)
+		final OperandStack ostack=interpreter.operandStack();
+		for(int i=ostack.size()-1; i>=0; i--)
 		{
-			if(opstack.get(i)==PsiMark.MARK)
+			if(ostack.get(i)==PsiMark.MARK)
 			{
 				PsiArray array=new PsiArray();
-				for(int j=i+1; j<opstack.size(); j++)
-					array.psiAppend(opstack.get(j));
-				opstack.setSize(i);
-				opstack.push(array);
+				for(int j=i+1; j<ostack.size(); j++)
+					array.psiAppend(ostack.get(j));
+				ostack.setSize(i);
+				ostack.push(array);
 				return;
 			}
 		}
