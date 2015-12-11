@@ -9,7 +9,7 @@ package coneforest.psi;
 public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	extends PsiObject
 {
-	/*
+	/**
 	 *	@return a string {@code "indexed"}.
 	 */
 	@Override

@@ -5,6 +5,9 @@ public interface PsiComplexNumeric
 		PsiAtomic,
 		PsiArithmetic<PsiComplexNumeric>
 {
+	/**
+	 *	@return a string {@code "complexnumeric"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{
