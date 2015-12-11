@@ -5,7 +5,6 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiContainer<T>,
 		PsiIndexed<PsiInteger, T>,
 		PsiAppendable<T>,
-		PsiPrependable<T>,
 		PsiClearable
 {
 	@Override
@@ -78,14 +77,12 @@ public interface PsiArraylike<T extends PsiObject>
 			insert(indexValue++, obj);
 	}
 
-	@Override
 	default public void psiPrepend(T obj)
 		throws PsiException
 	{
 		insert(0, obj);
 	}
 
-	@Override
 	default public void psiPrependAll(PsiIterable<? extends T> iterable)
 		throws PsiException
 	{
