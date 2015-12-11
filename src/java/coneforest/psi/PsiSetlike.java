@@ -1,29 +1,52 @@
 package coneforest.psi;
 
+/**
+*	A representation of a Ψ-{@code setlike} type. An abstraction of finite set
+*	of Ψ-{@code object}s. This interface declares methods for appending,
+*	removal and set operations.
+*
+*	@param <T> a type of the elements.
+*/
 public interface PsiSetlike<T extends PsiObject>
 	extends
 		PsiContainer<T>,
 		PsiAppendable<T>,
 		PsiClearable
 {
+	/**
+	*	@return a string {@code "setlike"}.
+	*/
 	@Override
 	default public String getTypeName()
 	{
-		return "set";
+		return "setlike";
 	}
 
-	public void psiRemove(T obj);
+	/**
+	*	Removes a Ψ-{@code object} from this set. If a given object is not
+	*	present in this set, error does not occur.
+	*
+	*	@param o a given Ψ-{@code object}.
+	*/
+	public void psiRemove(T o);
 
-	default public void psiRemoveAll(PsiIterable<? extends T> iterable)
+	/**
+	*	Removes all the Ψ-{@code object}s in a given Ψ-{@code iterable}
+	*	enumeration from this set. If some object is not present in this set,
+	*	error does not occur.
+	*
+	*	@param oEnumeration a given Ψ-{@code iterable} enumeration.
+	*/
+	default public void psiRemoveAll(PsiIterable<? extends T> oEnumeration)
 	{
-		if(this==iterable)
+		if(this==oEnumeration)
 			psiClear();
 		else
-			for(T obj: iterable)
-				psiRemove(obj);
+			for(T o: oEnumeration)
+				psiRemove(o);
 	}
 
-	default public void psiRetainAll(PsiIterable<? extends T> iterable)
+	default public void psiRetainAll(PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
 	//	for(T obj: this)
@@ -33,11 +56,19 @@ public interface PsiSetlike<T extends PsiObject>
 		System.out.println("NOP RETAINALL ITERABLE");
 	}
 
-	//public void psiRetainAll(PsiSetlike<? extends T> setlike)
-	//	throws PsiException;
+	/**
+	*	Returns a Ψ-{@code boolean} object indicating whether a given Ψ-{@code
+	*	object} belongs to this set.
+	*
+	*	@param o a given Ψ-{@code object}.
+	*	@return {@link PsiBoolean#TRUE}, if an object belongs to this set, and
+	*	{@link PsiBoolean#FALSE} otherwise.
+	*/
+	public PsiBoolean psiContains(T o);
 
-	public PsiBoolean psiContains(T obj);
-
+	/**
+	*	Removes all the elements from this set.
+	*/
 	@Override
 	default public void psiClear()
 	{
@@ -45,34 +76,51 @@ public interface PsiSetlike<T extends PsiObject>
 			psiRemove(obj);
 	}
 
+	/**
+	*	Appends all the Ψ-{@code object}s from a given Ψ-{@code iterable}
+	*	enumeration to this set. When a given enumeration is the same as this
+	*	set, first clone the enumeration, and then appends all the elements
+	*	from the clone.
+	*
+	*	@param oEnumeration a Ψ-{@code iterable} enumeration.
+	*	@throws PsiException when an error occurs.
+	*/
 	@Override
-	default public void psiAppendAll(final PsiIterable<? extends T> iterable)
+	default public void psiAppendAll(final PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
-		if(this==iterable)
+		if(this==oEnumeration)
 			return;
-		for(T obj: iterable)
-			psiAppend(obj);
+		for(T o: oEnumeration)
+			psiAppend(o);
 	}
 
-	default public PsiBoolean psiIntersects(final PsiSetlike<? extends T> setlike)
+	/**
+	*	Returns a Ψ-{@code boolean} object indicating whether a given Ψ-{@code
+	*	setlike} set intersects with this set.
+	*
+	*	@param oSet a given Ψ-{@code setlike} set.
+	*	@return {@link PsiBoolean#TRUE}, if a given Ψ-{@code setlike} set
+	*	intersects with this set, and {@link PsiBoolean#FALSE} otherwise.
+	*/
+	default public PsiBoolean psiIntersects(final PsiSetlike<? extends T> oSet)
 	{
-		for(T obj: setlike)
-			if(psiContains(obj).booleanValue())
+		for(T o: oSet)
+			if(psiContains(o).booleanValue())
 				return PsiBoolean.TRUE;
 		return PsiBoolean.FALSE;
 	}
 
 	@Override
-	default public PsiSetlike<T> psiReplicate(PsiInteger count)
+	default public PsiSetlike<T> psiReplicate(PsiInteger oCount)
 		throws PsiException
 	{
-		long countValue=count.longValue();
-		if(countValue<0)
+		long count=oCount.longValue();
+		if(count<0)
 			throw new PsiRangeCheckException();
-		if(countValue>Integer.MAX_VALUE)
+		if(count>Integer.MAX_VALUE)
 			throw new PsiLimitCheckException();
-		if(countValue==0)
+		if(count==0)
 			return (PsiSetlike<T>)psiNewEmpty();
 		return (PsiSetlike<T>)psiClone();
 	}
@@ -100,5 +148,4 @@ public interface PsiSetlike<T extends PsiObject>
 		}
 		return sb.toString();
 	}
-
 }
