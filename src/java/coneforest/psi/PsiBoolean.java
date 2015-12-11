@@ -8,9 +8,8 @@ public class PsiBoolean
 		PsiAtomic,
 		PsiLogical<PsiBoolean>
 {
-	private PsiBoolean(final boolean value)
+	private PsiBoolean()
 	{
-		this.value=value;
 	}
 
 	/**
@@ -29,7 +28,7 @@ public class PsiBoolean
 	 */
 	public boolean booleanValue()
 	{
-		return value;
+		return this==TRUE;
 	}
 
 	/**
@@ -39,7 +38,7 @@ public class PsiBoolean
 	@Override
 	public String toSyntaxString()
 	{
-		return ""+value;
+		return ""+booleanValue();
 	}
 
 	/**
@@ -50,46 +49,46 @@ public class PsiBoolean
 	@Override
 	public PsiBoolean psiNot()
 	{
-		return PsiBoolean.valueOf(!value);
+		return booleanValue()? FALSE: TRUE;
 	}
 
 	/**
 	 *	Returns a result of boolean disjunction of this object and given
 	 *	object.
 	 *
-	 *	@param bool given object.
+	 *	@param oBoolean given object.
 	 *	@return a result.
 	 */
 	@Override
-	public PsiBoolean psiOr(final PsiBoolean bool)
+	public PsiBoolean psiOr(final PsiBoolean oBoolean)
 	{
-		return PsiBoolean.valueOf(value || bool.value);
+		return PsiBoolean.valueOf(booleanValue() || oBoolean.booleanValue());
 	}
 
 	/**
 	 *	Returns a result of boolean conjunction of this object and given
 	 *	object.
 	 *
-	 *	@param bool given object.
+	 *	@param oBoolean given object.
 	 *	@return a result.
 	 */
 	@Override
-	public PsiBoolean psiAnd(final PsiBoolean bool)
+	public PsiBoolean psiAnd(final PsiBoolean oBoolean)
 	{
-		return PsiBoolean.valueOf(value && bool.value);
+		return PsiBoolean.valueOf(booleanValue() && oBoolean.booleanValue());
 	}
 
 	/**
 	 *	Returns a result of boolean exclusive disjunction of this object and
 	 *	given object.
 	 *
-	 *	@param bool given object.
+	 *	@param oBoolean given object.
 	 *	@return a result.
 	 */
 	@Override
-	public PsiBoolean psiXor(final PsiBoolean bool)
+	public PsiBoolean psiXor(final PsiBoolean oBoolean)
 	{
-		return PsiBoolean.valueOf(value ^ bool.value);
+		return PsiBoolean.valueOf(booleanValue() ^ oBoolean.booleanValue());
 	}
 
 	/**
@@ -106,36 +105,34 @@ public class PsiBoolean
 	@Override
 	public int hashCode()
 	{
-		return value? 1231: 1237;
+		return booleanValue()? 1231: 1237;
 	}
 
 	@Override
 	public boolean equals(final Object object)
 	{
 		return object instanceof PsiBoolean
-				&& value==((PsiBoolean)object).value;
+				&& this==object;
 	}
 
 	/**
 	 *	Returns a Ψ-{@code boolean} representing the given value.
 	 *
-	 *	@param bool a given value.
+	 *	@param oBoolean a given value.
 	 *	@return a Ψ-{@code boolean} object.
 	 */
-	public static PsiBoolean valueOf(final boolean bool)
+	public static PsiBoolean valueOf(final boolean oBoolean)
 	{
-		return bool? TRUE: FALSE;
+		return oBoolean? TRUE: FALSE;
 	}
 
 	/**
 	 *	A Ψ-{@code boolean} constant, representing false.
 	 */
-	public static final PsiBoolean FALSE=new PsiBoolean(false);
+	public static final PsiBoolean FALSE=new PsiBoolean();
 
 	/**
 	 *	A Ψ-{@code boolean} constant, representing true.
 	 */
-	public static final PsiBoolean TRUE=new PsiBoolean(true);
-
-	private final boolean value;
+	public static final PsiBoolean TRUE=new PsiBoolean();
 }
