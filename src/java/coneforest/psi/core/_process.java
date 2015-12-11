@@ -7,7 +7,7 @@ public final class _process extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiProcess((PsiDictlike)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(new PsiProcess((PsiDictlike)ostack.popOperands(1)[0]));
 	}
 }

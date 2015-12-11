@@ -7,7 +7,7 @@ public final class _clone extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(opstack.popOperands(1)[0].psiClone());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(ostack.popOperands(1)[0].psiClone());
 	}
 }

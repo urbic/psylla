@@ -7,7 +7,7 @@ public final class _conjugate extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiComplexNumeric)opstack.popOperands(1)[0]).psiConjugate());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiComplexNumeric)ostack.popOperands(1)[0]).psiConjugate());
 	}
 }

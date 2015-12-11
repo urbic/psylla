@@ -7,13 +7,13 @@ public final class _copy extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		int nValue=((PsiInteger)opstack.popOperands(1)[0]).intValue();
+		final OperandStack ostack=interpreter.operandStack();
+		int nValue=((PsiInteger)ostack.popOperands(1)[0]).intValue();
 		if(nValue<0)
 			throw new PsiRangeCheckException();
-		opstack.ensureSize(nValue);
-		int opsize=opstack.size();
+		ostack.ensureSize(nValue);
+		int opsize=ostack.size();
 		for(int j=opsize-nValue; j<opsize; j++)
-			opstack.push(opstack.get(j));
+			ostack.push(ostack.get(j));
 	}
 }

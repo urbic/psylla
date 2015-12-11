@@ -7,8 +7,8 @@ public final class _ne extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
-		opstack.push(ops[0].psiNe(ops[1]));
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(2);
+		ostack.push(ops[0].psiNe(ops[1]));
 	}
 }

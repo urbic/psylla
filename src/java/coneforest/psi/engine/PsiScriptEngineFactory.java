@@ -7,9 +7,7 @@ public class PsiScriptEngineFactory
 	implements javax.script.ScriptEngineFactory
 {
 	/**
-	 * Returns an engine name.
-	 *
-	 * @return a <code class="constant">"Psi"</code> string.
+	 * @return a string {@code "Psi"}.
 	 */
 	@Override
 	public String getEngineName()
@@ -20,7 +18,7 @@ public class PsiScriptEngineFactory
 	/**
 	 * Returns an engine.
 	 *
-	 * @return aa engine.
+	 * @return an engine.
 	 */
 	@Override
 	public javax.script.ScriptEngine getScriptEngine()
@@ -28,6 +26,9 @@ public class PsiScriptEngineFactory
 		return new PsiScriptEngine(this);
 	}
 
+	/**
+	 * @return a list consisting of single string {@code "psi"}.
+	 */
 	@Override
 	public java.util.List<String> getNames()
 	{
@@ -37,10 +38,12 @@ public class PsiScriptEngineFactory
 	@Override
 	public String getProgram(String... statements)
 	{
-		//throw new UnsupportedOperationException(getClass().getName()+".getProgram not supported");
 		StringBuilder sb=new StringBuilder();
 		for(String statement: statements)
-			sb.append(statement+'\n');
+		{
+			sb.append(statement);
+			sb.append('\n');
+		}
 		return sb.toString();
 	}
 
@@ -98,6 +101,9 @@ public class PsiScriptEngineFactory
 		return "Psi";
 	}
 
+	/**
+	 * @return a list consisting of single string {@code "application/psi"}.
+	 */
 	@Override
 	public java.util.List<String> getMimeTypes()
 	{
@@ -106,6 +112,9 @@ public class PsiScriptEngineFactory
 		return mimeTypes;
 	}
 
+	/**
+	 * @return a list consisting of single string {@code "psi"}.
+	 */
 	@Override
 	public java.util.List<String> getExtensions()
 	{

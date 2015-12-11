@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">array</code> object.
+ *	A representation of Ψ-{@code array} object.
  */
 public class PsiArray
 	implements PsiArraylike<PsiObject>
@@ -22,7 +22,7 @@ public class PsiArray
 	}
 
 	/**
-	 *	@return <code class="constant">"real"</code>.
+	 *	@return a string {@code "real"}.
 	 */
 	@Override
 	public String getTypeName()
@@ -198,7 +198,7 @@ public class PsiArray
 		throws PsiException
 	{
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
-		final OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.operandStack();
 		return PsiInteger.valueOf(java.util.Collections.<PsiObject>binarySearch(array, key,
 			new java.util.Comparator<PsiObject>()
 				{

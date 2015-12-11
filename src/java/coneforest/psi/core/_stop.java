@@ -8,7 +8,7 @@ public final class _stop extends PsiOperator
 	{
 		interpreter.setStopFlag(true);
 		if(interpreter.currentStopLevel()!=-1)
-			interpreter.getExecutionStack().setSize(interpreter.currentStopLevel());
+			interpreter.executionStack().setSize(interpreter.currentStopLevel());
 		else
 			interpreter.quit();
 	}

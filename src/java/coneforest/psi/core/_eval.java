@@ -7,7 +7,6 @@ public final class _eval extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		((PsiEvaluable)opstack.popOperands(1)[0]).eval(interpreter);
+		((PsiEvaluable)interpreter.operandStack().popOperands(1)[0]).eval(interpreter);
 	}
 }

@@ -7,7 +7,7 @@ public final class _stringwriter extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiStringWriter((PsiString)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(new PsiStringWriter((PsiString)ostack.popOperands(1)[0]));
 	}
 }

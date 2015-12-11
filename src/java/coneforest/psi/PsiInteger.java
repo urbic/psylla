@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">integer</code> object.
+ *	A representation of Ψ-{@code integer} object.
  */
 public class PsiInteger
 	implements
@@ -11,6 +11,15 @@ public class PsiInteger
 	public PsiInteger(final long value)
 	{
 		this.value=value;
+	}
+
+	/**
+	 *	@return a string {@code "integer"}.
+	 */
+	@Override
+	public String getTypeName()
+	{
+		return "integer";
 	}
 
 	@Override
@@ -41,15 +50,6 @@ public class PsiInteger
 	public PsiInteger psiIm()
 	{
 		return ZERO;
-	}
-
-	/**
-	 *	@return a string <code class="constant">"integer"</code>.
-	 */
-	@Override
-	public String getTypeName()
-	{
-		return "integer";
 	}
 
 	@Override
@@ -322,34 +322,32 @@ public class PsiInteger
 	}
 
 	/**
-	 *	A Ψ-<code class="type">integer</code> representing the number 0.
+	 *	A Ψ-{@code integer} representing the number 0.
 	 */
 	public static final PsiInteger ZERO=PsiInteger.valueOf(0L);
 
 	/**
-	 *	A Ψ-<code class="type">integer</code> representing the number 1.
+	 *	A Ψ-{@code integer} representing the number 1.
 	 */
 	public static final PsiInteger ONE=PsiInteger.valueOf(1L);
 
 	/**
-	 *	A Ψ-<code class="type">integer</code> representing the number 2.
+	 *	A Ψ-{@code integer} representing the number 2.
 	 */
 	public static final PsiInteger TWO=PsiInteger.valueOf(2L);
 
 	/**
-	 *	A Ψ-<code class="type">integer</code> representing the number −1.
+	 *	A Ψ-{@code integer} representing the number −1.
 	 */
 	public static final PsiInteger MINUS_ONE=PsiInteger.valueOf(-1L);
 
 	/**
-	 *	A Ψ-<code class="type">integer</code> representing the maximum
-	 *	representable value.
+	 *	A Ψ-{@code integer} representing the maximum representable value.
 	 */
 	public static final PsiInteger MAX_VALUE=PsiInteger.valueOf(Long.MAX_VALUE);
 
 	/**
-	 *	A Ψ-<code class="type">integer</code> representing the minimum
-	 *	representable value.
+	 *	A Ψ-{@code integer} representing the minimum representable value.
 	 */
 	public static final PsiInteger MIN_VALUE=PsiInteger.valueOf(Long.MIN_VALUE);
 

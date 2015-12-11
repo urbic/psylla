@@ -6,6 +6,6 @@ public final class _cleardictstack extends PsiOperator
 	@Override
 	public void action(final Interpreter interpreter)
 	{
-		interpreter.getDictStack().setSize(2);
+		interpreter.dictStack().setSize(2);
 	}
 }

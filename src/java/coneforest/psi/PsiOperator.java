@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">operator</code> object.
+ *	A representation of Ψ-{@code operator} object.
  */
 public abstract class PsiOperator
 	implements PsiAtomic
@@ -16,7 +16,7 @@ public abstract class PsiOperator
 	}
 
 	/**
-	 *	@return a string <code class="constant">"operator"</code>.
+	 *	@return a string {@code "operator"}.
 	 */
 	@Override
 	public String getTypeName()
@@ -39,7 +39,7 @@ public abstract class PsiOperator
 	 */
 	public void invoke(Interpreter interpreter)
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack opstack=interpreter.operandStack();
 		opstack.clearBackup();
 		try
 		{
@@ -93,7 +93,7 @@ public abstract class PsiOperator
 		public void action(final Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			final OperandStack opstack=interpreter.getOperandStack();
+			final OperandStack opstack=interpreter.operandStack();
 			opstack.push(handler.handle(opstack.popOperands(1)));
 		}
 
@@ -119,7 +119,7 @@ public abstract class PsiOperator
 		public void action(final Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			final OperandStack opstack=interpreter.getOperandStack();
+			final OperandStack opstack=interpreter.operandStack();
 			opstack.push(handler.handle(opstack.popOperands(2)));
 		}
 
@@ -145,7 +145,7 @@ public abstract class PsiOperator
 		public void action(final Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			final OperandStack opstack=interpreter.getOperandStack();
+			final OperandStack opstack=interpreter.operandStack();
 			handler.handle(opstack.popOperands(2));
 		}
 
@@ -172,7 +172,7 @@ public abstract class PsiOperator
 		public void action(final Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			final OperandStack opstack=interpreter.getOperandStack();
+			final OperandStack opstack=interpreter.operandStack();
 			handler.handle(opstack.popOperands(3));
 		}
 

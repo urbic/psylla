@@ -3,11 +3,14 @@ package coneforest.psi;
 /**
  *	An interface bringing total ordering to implementing Ψ type.
  *
- *	@param T A type of object compared against this object.
+ *	@param <T> A type of object compared against this object.
  */
 public interface PsiScalar<T extends PsiScalar>
 	extends PsiObject
 {
+	/**
+	 *	@return a string {@code "scalar"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{
@@ -51,11 +54,11 @@ public interface PsiScalar<T extends PsiScalar>
 	public PsiBoolean psiGe(T scalar);
 
 	/**
-	 *	Compares this object against given object and returns a Ψ-<code
-	 *	class="type">integer</code> indicating the result of the comparison.
-	 *	Returns negative value if this object is less than given one, zero if
-	 *	this object is equal to given one, and positive value if this object is
-	 *	greater than given one.
+	 *	Compares this object against given object and returns a Ψ-{@code
+	 *	integer} indicating the result of the comparison. Returns negative
+	 *	value if this object is less than given one, zero if this object is
+	 *	equal to given one, and positive value if this object is greater than
+	 *	given one.
 	 *
 	 *	@param scalar An object with which this object is compared.
 	 *	@return A result of the comparison.

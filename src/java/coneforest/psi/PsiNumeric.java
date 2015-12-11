@@ -19,11 +19,17 @@ public interface PsiNumeric
 
 	double doubleValue();
 
+	/**
+	 *	@return this object.
+	 */
 	default public PsiNumeric psiRe()
 	{
 		return this;
 	}
 
+	/**
+	 *	@return this object.
+	 */
 	@Override
 	default PsiNumeric psiConjugate()
 	{
@@ -52,7 +58,7 @@ public interface PsiNumeric
 
 	@Override
 	default public PsiReal psiArg()
-		throws PsiException
+		throws PsiUndefinedResultException
 	{
 		if(doubleValue()>0)
 			return PsiReal.ZERO;
@@ -134,7 +140,7 @@ public interface PsiNumeric
 
 	@Override
 	default public PsiComplexNumeric psiLog()
-		throws PsiException
+		throws PsiUndefinedResultException
 	{
 		if(doubleValue()>0.D)
 			return new PsiReal(Math.log(doubleValue()));

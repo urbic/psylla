@@ -7,9 +7,11 @@ package coneforest.psi;
  *	@param <V> a type of elements.
  */
 public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
-	// TODO maybe PsiContainer?
 	extends PsiObject
 {
+	/*
+	 *	@return a string {@code "indexed"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{
@@ -48,7 +50,6 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	public void psiPut(K key, V value)
 		throws PsiException;
 
-
 	/**
 	 *	Deletes a key or index and a value associated with it from this object.
 	 *
@@ -63,10 +64,10 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 
 	/**
 	 *	Returns a container of the same type as this object consisting of keys
-	 *	or indices from given Ψ-<code class="type">iterable</code> and
-	 *	of associated values.
+	 *	or indices from given Ψ-{@code iterable} and of associated values.
 	 *
 	 *	@param keys a sequence of keys. 
+	 *	@return a container.
 	 *	@throws PsiException when key is absent or index is out of range.
 	 */
 	public PsiIndexed<K, V> psiSlice(PsiIterable<K> keys)
@@ -75,9 +76,27 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	public PsiArraylike<V> psiGetAll(PsiIterable<K> keys)
 		throws PsiException;
 
+	/**
+	 *	Returns an enumeration (Ψ-{@code iterable}) of all the keys of this
+	 *	object.
+	 *
+	 *	@return an enumeration of keys.
+	 */
 	public PsiIterable<K> psiKeys();
 
+	/**
+	 *	Returns an enumeration (Ψ-{@code iterable}) of all the values of this
+	 *	object.
+	 *
+	 *	@return an enumeration of values.
+	 */
 	public PsiIterable<V> psiValues();
 
+	/**
+	 *	Returns an enumeration (Ψ-{@code iterable}) of all the keys and values
+	 *	of this object.
+	 *
+	 *	@return an enumeration of entries.
+	 */
 	public PsiIterable<PsiObject> psiEntries();
 }

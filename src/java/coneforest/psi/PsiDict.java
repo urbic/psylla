@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">dictionary</code> object.
+ *	A representation of Ψ-{@code dictionary} object.
  */
 public class PsiDict
 	implements PsiDictlike<PsiObject>

@@ -101,7 +101,8 @@ public class Psylla
 
 			interpreter.start();
 		}
-		catch(coneforest.cli.CLIConfigurationException|coneforest.cli.CLIProcessingException|PsiException e)
+		//catch(coneforest.cli.CLIConfigurationException|coneforest.cli.CLIProcessingException|PsiException e)
+		catch(coneforest.cli.CLIProcessingException|PsiException e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);

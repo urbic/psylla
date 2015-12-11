@@ -7,7 +7,7 @@ public final class _take extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiQueuelike)opstack.popOperands(1)[0]).psiTake());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiQueuelike)ostack.popOperands(1)[0]).psiTake());
 	}
 }

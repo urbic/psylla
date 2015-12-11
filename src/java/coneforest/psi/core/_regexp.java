@@ -7,7 +7,7 @@ public final class _regexp extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(new PsiRegExp((PsiStringy)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(new PsiRegExp((PsiStringy)ostack.popOperands(1)[0]));
 	}
 }

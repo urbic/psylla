@@ -7,7 +7,7 @@ public final class _keys extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiIndexed)opstack.popOperands(1)[0]).psiKeys());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiIndexed)ostack.popOperands(1)[0]).psiKeys());
 	}
 }

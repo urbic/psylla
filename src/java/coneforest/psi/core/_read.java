@@ -7,11 +7,11 @@ public final class _read extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		PsiInteger character=((PsiReadable)opstack.popOperands(1)[0]).psiRead();
-		boolean notEOF=(character.intValue()!=-1);
+		final OperandStack ostack=interpreter.operandStack();
+		PsiInteger character=((PsiReadable)ostack.popOperands(1)[0]).psiRead();
+		boolean notEOF=(character!=PsiInteger.MINUS_ONE);
 		if(notEOF)
-			opstack.push(character);
-		opstack.push(PsiBoolean.valueOf(notEOF));
+			ostack.push(character);
+		ostack.push(PsiBoolean.valueOf(notEOF));
 	}
 }

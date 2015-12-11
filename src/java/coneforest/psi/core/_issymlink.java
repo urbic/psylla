@@ -7,7 +7,7 @@ public final class _issymlink extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiIsSymLink(((PsiStringy)opstack.popOperands(1)[0])));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(FileSystem.psiIsSymLink(((PsiStringy)ostack.popOperands(1)[0])));
 	}
 }

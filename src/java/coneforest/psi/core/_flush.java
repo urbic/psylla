@@ -7,7 +7,6 @@ public final class _flush extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		((PsiFlushable)opstack.popOperands(1)[0]).psiFlush();
+		((PsiFlushable)interpreter.operandStack().popOperands(1)[0]).psiFlush();
 	}
 }

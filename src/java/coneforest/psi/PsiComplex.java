@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">complex</code> object.
+ *	A representation of Ψ-{@code complex} object.
  */
 public class PsiComplex
 	implements
@@ -34,6 +34,15 @@ public class PsiComplex
 		this(cn.psiRe(), cn.psiIm());
 	}
 
+	/**
+	 *	@return a string {@code "complex"}.
+	 */
+	@Override
+	public String getTypeName()
+	{
+		return "complex";
+	}
+
 	@Override
 	public PsiBoolean psiIsZero()
 	{
@@ -50,15 +59,6 @@ public class PsiComplex
 	public PsiComplex psiSignum()
 	{
 		return (re==0.D && im==0.D)? ZERO: psiDiv(psiAbs());
-	}
-
-	/**
-	 *	@return a string <code class="constant">"complex"</code>.
-	 */
-	@Override
-	public String getTypeName()
-	{
-		return "complex";
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class PsiComplex
 
 	@Override
 	public PsiReal psiArg()
-		throws PsiException
+		throws PsiUndefinedResultException
 	{
 		if(re==0.D && im==0.D)
 			throw new PsiUndefinedResultException();
@@ -151,14 +151,14 @@ public class PsiComplex
 
 	@Override
 	public PsiComplex psiLog()
-		throws PsiException
+		throws PsiUndefinedResultException
 	{
 		return new PsiComplex((PsiReal)psiAbs().psiLog(), psiArg());
 	}
 
 	@Override
 	public PsiComplex psiAtan()
-		throws PsiException
+		throws PsiUndefinedResultException
 	{
 		final PsiComplex temp=psiMul(PsiComplex.I);
 		return PsiComplex.ONE.psiAdd(temp)

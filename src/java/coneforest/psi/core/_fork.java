@@ -7,13 +7,13 @@ public final class _fork extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack ostack=interpreter.operandStack();
 
-		opstack.ensureSize(2);
-		final PsiObject obj=opstack.pop();
+		ostack.ensureSize(2);
+		final PsiObject obj=ostack.pop();
 
 		final Interpreter forkedInterpreter
-			=new Interpreter(interpreter.getDictStack())
+			=new Interpreter(interpreter.dictStack())
 				{
 					@Override
 					public void run()
@@ -23,14 +23,14 @@ public final class _fork extends PsiOperator
 					}
 				};
 
-		for(int i=opstack.size()-1; i>=0; i--)
-			if(opstack.get(i) instanceof PsiMark)
+		for(int i=ostack.size()-1; i>=0; i--)
+			if(ostack.get(i)==PsiMark.MARK)
 			{
-				OperandStack forkedOpstack=forkedInterpreter.getOperandStack();
-				for(int j=i+1; j<opstack.size(); j++)
-					forkedOpstack.push(opstack.get(j));
-				opstack.setSize(i);
-				opstack.push(forkedInterpreter);
+				OperandStack forkedOpstack=forkedInterpreter.operandStack();
+				for(int j=i+1; j<ostack.size(); j++)
+					forkedOpstack.push(ostack.get(j));
+				ostack.setSize(i);
+				ostack.push(forkedInterpreter);
 				forkedInterpreter.start();
 				return;
 			}

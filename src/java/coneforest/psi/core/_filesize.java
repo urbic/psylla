@@ -7,7 +7,7 @@ public final class _filesize extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiFileSize((PsiStringy)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(FileSystem.psiFileSize((PsiStringy)ostack.popOperands(1)[0]));
 	}
 }

@@ -9,7 +9,7 @@ public final class _exit extends PsiOperator
 	{
 		if(interpreter.currentLoopLevel()==-1)
 			throw new PsiInvalidExitException();
-		interpreter.getExecutionStack().setSize(interpreter.currentLoopLevel());
+		interpreter.executionStack().setSize(interpreter.currentLoopLevel());
 		interpreter.setExitFlag(true);
 	}
 }

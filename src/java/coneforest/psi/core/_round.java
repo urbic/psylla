@@ -7,7 +7,7 @@ public final class _round extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiNumeric)opstack.popOperands(1)[0]).psiRound());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiNumeric)ostack.popOperands(1)[0]).psiRound());
 	}
 }

@@ -7,7 +7,7 @@ public final class _listdirectory extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(FileSystem.psiListDirectory((PsiStringy)opstack.popOperands(1)[0]));
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(FileSystem.psiListDirectory((PsiStringy)ostack.popOperands(1)[0]));
 	}
 }

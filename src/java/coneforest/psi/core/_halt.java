@@ -7,6 +7,6 @@ public final class _halt extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		System.exit(((PsiInteger)interpreter.getOperandStack().popOperands(1)[0]).intValue());
+		System.exit(((PsiInteger)interpreter.operandStack().popOperands(1)[0]).intValue());
 	}
 }

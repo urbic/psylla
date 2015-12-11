@@ -7,7 +7,7 @@ public final class _tointeger extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiConvertableToInteger)opstack.popOperands(1)[0]).psiToInteger());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiConvertableToInteger)ostack.popOperands(1)[0]).psiToInteger());
 	}
 }

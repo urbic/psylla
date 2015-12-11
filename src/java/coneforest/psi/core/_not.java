@@ -7,7 +7,7 @@ public final class _not extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiLogical)opstack.popOperands(1)[0]).psiNot());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiLogical)ostack.popOperands(1)[0]).psiNot());
 	}
 }

@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-<code class="type">bitset</code> object.
+ *	A representation of Ψ-{@code bitset} object.
  */
 public class PsiBitSet
 	implements PsiSetlike<PsiInteger>

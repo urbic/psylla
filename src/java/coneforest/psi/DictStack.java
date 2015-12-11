@@ -7,17 +7,18 @@ public class DictStack
 	extends Stack<PsiDictlike>
 {
 	public DictStack()
+		throws PsiException
 	{
 		PsiDict systemdict=new PsiSystemDict();
 		push(systemdict);
-		try
-		{
+		//try
+		//{
 			push((PsiDictlike)systemdict.get("userdict"));
-		}
-		catch(PsiException e)
-		{
-			throw new AssertionError();
-		}
+		//}
+		//catch(PsiException e)
+		//{
+		//	throw new AssertionError();
+		//}
 	}
 
 	public PsiObject load(String keyString)

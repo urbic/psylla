@@ -19,13 +19,13 @@ public interface PsiIterable<T>
 		throws PsiException
 	{
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
-		final OperandStack opstack=interpreter.getOperandStack();
+		final OperandStack ostack=interpreter.operandStack();
 		final int loopLevel=interpreter.pushLoopLevel();
 		try
 		{
 			for(PsiObject element: (PsiIterable<? extends PsiObject>)this)
 			{
-				opstack.push(element);
+				ostack.push(element);
 				proc.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
 				if(interpreter.getStopFlag() || interpreter.getExitFlag())
@@ -63,13 +63,13 @@ public interface PsiIterable<T>
 									while(parentIterator.hasNext())
 									{
 										nextObject=parentIterator.next();
-										OperandStack opstack=interpreter.getOperandStack();
-										opstack.push((PsiObject)nextObject);
+										OperandStack ostack=interpreter.operandStack();
+										ostack.push((PsiObject)nextObject);
 										final int loopLevel=interpreter.pushLoopLevel();
 										proc.invoke(interpreter);
 										interpreter.handleExecutionStack(loopLevel);
-										opstack.ensureSize(1);
-										boolean check=((PsiBoolean)opstack.pop()).booleanValue();
+										ostack.ensureSize(1);
+										boolean check=((PsiBoolean)ostack.pop()).booleanValue();
 										if(interpreter.getStopFlag()
 												|| interpreter.getExitFlag())
 											break;

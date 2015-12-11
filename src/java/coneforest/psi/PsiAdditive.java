@@ -2,14 +2,16 @@ package coneforest.psi;
 
 /**
  *	A type of Ψ object that is an operand of arithmetic operation. This
- *	interface declares methods for addition, subtraction, negation,
- *	multiplication and division.
+ *	interface declares methods for addition, subtraction and negation,
  *
  *	@param <T> a type of the second operand at binary operation.
  */
 public interface PsiAdditive<T extends PsiAdditive>
 	extends PsiObject
 {
+	/**
+	 *	@return a string {@code "additive"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{

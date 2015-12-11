@@ -7,8 +7,7 @@ public final class _signalerror extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(2);
+		final PsiObject[] ops=interpreter.operandStack().popOperands(2);
 		interpreter.handleError(((PsiStringy)ops[1]).getString(), ops[0]);
 	}
 }

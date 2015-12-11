@@ -7,6 +7,14 @@ public interface PsiLengthy
 	extends PsiObject
 {
 	/**
+	 *	@return a string {@code "lengthy"}.
+	 */
+	default public String getTypeName()
+	{
+		return "lengthy";
+	}
+
+	/**
 	 *	Returns a length of this object.
 	 *
 	 *	@return a length.
@@ -14,9 +22,11 @@ public interface PsiLengthy
 	public int length();
 
 	/**
-	 *	Returns a boolean indicating if this object is empty (has zero length).
+	 *	Returns a boolean indicating if this container is empty (has zero
+	 *	length).
 	 *
-	 *	@return a result.
+	 *	@return {@code true}, if this container is empty, and {@code false}
+	 *	otherwise.
 	 */
 	default public boolean isEmpty()
 	{
@@ -24,10 +34,9 @@ public interface PsiLengthy
 	}
 
 	/**
-	 *	Returns a Ψ-<code class="type">integer</code> representing the length
-	 *	of this object.
+	 *	Returns a Ψ-{@code integer} representing the length of this object.
 	 *
-	 *	@return a length.
+	 *	@return a Ψ-{@code integer} length.
 	 */
 	default public PsiInteger psiLength()
 	{
@@ -35,15 +44,13 @@ public interface PsiLengthy
 	}
 
 	/**
-	 *	Returns a Ψ-<code class="type">boolean</code> indicating if this object
-	 *	is empty (has zero length).
+	 *	Returns a Ψ-{@code boolean} indicating if this container is empty (has
+	 *	zero length).
 	 *
-	 *	@return a result.
+	 *	@return a Ψ-{@code boolean} result.
 	 */
 	default public PsiBoolean psiIsEmpty()
 	{
 		return PsiBoolean.valueOf(isEmpty());
 	}
-
-	//public String toSyntaxStringHelper(PsiLengthy lengthy);
 }

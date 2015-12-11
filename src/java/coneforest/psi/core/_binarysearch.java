@@ -7,8 +7,8 @@ public final class _binarysearch extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(3);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(3);
 		final PsiArray array=(PsiArray)ops[0];
 		final PsiObject key=ops[1];
 		final PsiProc comparator=(PsiProc)ops[2];
@@ -17,13 +17,13 @@ public final class _binarysearch extends PsiOperator
 		final int indexValue=index.intValue();
 		if(indexValue>=0)
 		{
-			opstack.push(index);
-			opstack.push(PsiBoolean.TRUE);
+			ostack.push(index);
+			ostack.push(PsiBoolean.TRUE);
 		}
 		else
 		{
-			opstack.push(PsiInteger.valueOf(-indexValue-1));
-			opstack.push(PsiBoolean.FALSE);
+			ostack.push(PsiInteger.valueOf(-indexValue-1));
+			ostack.push(PsiBoolean.FALSE);
 		}
 	}
 }

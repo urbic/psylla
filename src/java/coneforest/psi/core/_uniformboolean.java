@@ -7,7 +7,7 @@ public final class _uniformboolean extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiRandom)opstack.popOperands(1)[0]).psiUniformBoolean());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiRandom)ostack.popOperands(1)[0]).psiUniformBoolean());
 	}
 }

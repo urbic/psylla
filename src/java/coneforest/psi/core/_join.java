@@ -7,13 +7,13 @@ public final class _join extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject[] ops=opstack.popOperands(1);
+		final OperandStack ostack=interpreter.operandStack();
+		final PsiObject[] ops=ostack.popOperands(1);
 		final PsiContext context=(PsiContext)ops[0];
 		context.psiJoin();
-		OperandStack joinedOpstack=((Interpreter)context).getOperandStack();
-		opstack.push(PsiMark.MARK);
+		OperandStack joinedOpstack=((Interpreter)context).operandStack();
+		ostack.push(PsiMark.MARK);
 		for(PsiObject obj: joinedOpstack)
-			opstack.push(obj);
+			ostack.push(obj);
 	}
 }

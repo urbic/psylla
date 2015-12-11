@@ -7,7 +7,7 @@ public final class _status extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiProcess)opstack.popOperands(1)[0]).psiStatus());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiProcess)ostack.popOperands(1)[0]).psiStatus());
 	}
 }

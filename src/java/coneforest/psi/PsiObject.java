@@ -38,7 +38,7 @@ public interface PsiObject
 	 */
 	default public void execute(Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(this);
+		interpreter.operandStack().push(this);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public interface PsiObject
 	 */
 	default public void invoke(Interpreter interpreter)
 	{
-		interpreter.getOperandStack().push(this);
+		interpreter.operandStack().push(this);
 	}
 
 	default public PsiBoolean psiEq(final PsiObject obj)

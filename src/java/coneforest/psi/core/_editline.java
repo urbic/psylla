@@ -23,7 +23,7 @@ public final class _editline extends PsiOperator
 	{
 		try
 		{
-			interpreter.getOperandStack().push(new PsiString(consoleReader.readLine()+"\n"));
+			interpreter.operandStack().push(new PsiString(consoleReader.readLine()+"\n"));
 		}
 		catch(java.io.IOException e)
 		{

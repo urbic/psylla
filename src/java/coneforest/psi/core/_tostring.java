@@ -7,7 +7,7 @@ public final class _tostring extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiConvertableToString)opstack.popOperands(1)[0]).psiToString());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiConvertableToString)ostack.popOperands(1)[0]).psiToString());
 	}
 }

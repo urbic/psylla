@@ -7,15 +7,15 @@ public final class _settomark extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		for(int i=opstack.size()-1; i>=0; i--)
-			if(opstack.get(i)==PsiMark.MARK)
+		final OperandStack ostack=interpreter.operandStack();
+		for(int i=ostack.size()-1; i>=0; i--)
+			if(ostack.get(i)==PsiMark.MARK)
 			{
 				PsiSet set=new PsiSet();
-				while(opstack.size()>i+1)
-					set.psiAppend(opstack.pop());
-				opstack.pop();
-				opstack.push(set);
+				while(ostack.size()>i+1)
+					set.psiAppend(ostack.pop());
+				ostack.pop();
+				ostack.push(set);
 				return;
 			}
 		throw new PsiUnmatchedMarkException();

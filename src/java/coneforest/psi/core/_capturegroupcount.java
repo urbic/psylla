@@ -7,7 +7,7 @@ public final class _capturegroupcount extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		opstack.push(((PsiMatcher)opstack.popOperands(1)[0]).psiCaptureGroupCount());
+		final OperandStack ostack=interpreter.operandStack();
+		ostack.push(((PsiMatcher)ostack.popOperands(1)[0]).psiCaptureGroupCount());
 	}
 }

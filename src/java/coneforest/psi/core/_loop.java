@@ -7,8 +7,7 @@ public final class _loop extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws PsiException
 	{
-		final OperandStack opstack=interpreter.getOperandStack();
-		final PsiObject proc=opstack.popOperands(1)[0];
+		final PsiObject proc=interpreter.operandStack().popOperands(1)[0];
 
 		final int loopLevel=interpreter.pushLoopLevel();
 		while(true)
