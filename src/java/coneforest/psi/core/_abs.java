@@ -12,6 +12,6 @@ public final class _abs extends PsiOperator
 		throws ClassCastException, PsiException
 	{
 		final OperandStack ostack=interpreter.operandStack();
-		ostack.push(((PsiArithmetic)ostack.popOperands(1)[0]).psiAbs());
+		ostack.push(((PsiComplexNumeric)ostack.popOperands(1)[0]).psiAbs());
 	}
 }
