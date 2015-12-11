@@ -63,6 +63,7 @@
 			encoding="UTF-8"
 			>
 			<!--compilerarg value="-Xlint"/-->
+			<!--compilerarg value="-Xdoclint"/-->
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 		<native2ascii
@@ -78,13 +79,14 @@
 	
 	<target name="javadoc" depends="compile.jj">
 		<javadoc
-			sourcepath="${src.java}:${target.src.java}"
+			sourcepath="${src.java}"
 			destdir="${target.doc.javadoc}"
 			classpathref="project.classpath"
 			access="public"
 			encoding="UTF-8"
 			charset="UTF-8"
 			>
+			<arg value="-Xdoclint:missing,reference"/>
 			<link href="${home.javadoc.java}"/>
 			<link href="http://jline.sourceforge.net/apidocs/"/>
 		</javadoc>
