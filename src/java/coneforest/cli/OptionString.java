@@ -8,6 +8,7 @@ public class OptionString
 		super(names);
 	}
 
+	@Override
 	public String parseArg(String arg)
 	{
 		return arg;

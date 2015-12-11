@@ -16,7 +16,8 @@ abstract public class Option
 	/**
 	 * Abstract method for fetching an option value.
 	 *
-	 * @return value
+	 * @param T a type of a value
+	 * @return a value
   	 */
 	abstract public <T> T getValue();
 

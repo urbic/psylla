@@ -4,29 +4,19 @@ public class Psylla
 {
 	public static void main(String args[])
 	{
-		String consoleEncoding=System.getProperty("consoleEncoding");
-
-		int processed;
 		try
 		{
-			try
-			{
-				cli=new coneforest.cli.Processor
-					(
-						new coneforest.cli.OptionFlag("help", "h", "?"),
-						new coneforest.cli.OptionFlag("version", "V"),
-						new coneforest.cli.OptionString("console-encoding", "C"),
-						new coneforest.cli.OptionPath("classpath", "cp"),
-						new coneforest.cli.OptionString("eval", "e"),
-						new coneforest.cli.OptionString("locale", "L")
-					);
-			}
-			catch(coneforest.cli.CLIConfigurationException e)
-			{
-				System.err.println(e.getLocalizedMessage());
-				System.exit(1);
-			}
-			processed=cli.parse(args, 0);
+			String consoleEncoding=System.getProperty("consoleEncoding");
+			final coneforest.cli.Processor cli=new coneforest.cli.Processor
+				(
+					new coneforest.cli.OptionFlag("help", "h", "?"),
+					new coneforest.cli.OptionFlag("version", "V"),
+					new coneforest.cli.OptionString("console-encoding", "C"),
+					new coneforest.cli.OptionPath("classpath", "cp"),
+					new coneforest.cli.OptionString("eval", "e"),
+					new coneforest.cli.OptionString("locale", "L")
+				);
+			final int processed=cli.parse(args, 0);
 
 			if(cli.getValue("console-encoding")!=null)
 				consoleEncoding=((String)cli.getValue("console-encoding"));
@@ -47,7 +37,6 @@ public class Psylla
 				version();
 			if(cli.getValue("locale")!=null)
 				java.util.Locale.setDefault(java.util.Locale.forLanguageTag((String)cli.getValue("locale")));
-
 
 			final java.io.Reader scriptReader;
 			final String scriptName;
@@ -107,14 +96,12 @@ public class Psylla
 			interpreter.acceptEnvironment(System.getenv());
 			interpreter.acceptScriptName(scriptName);
 			interpreter.acceptShellArguments(shellArguments);
-			//interpreter.setReader(new java.io.InputStreamReader(System.in));
-			//interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
 			if(cli.getValue("classpath")!=null)
 				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
 
 			interpreter.start();
 		}
-		catch(coneforest.cli.CLIProcessingException|PsiException e)
+		catch(coneforest.cli.CLIConfigurationException|coneforest.cli.CLIProcessingException|PsiException e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
@@ -137,6 +124,4 @@ public class Psylla
 		System.out.print(Messages.format("versionText", Version.getVersion()));
 		System.exit(0);
 	}
-
-	private static coneforest.cli.Processor cli;
 }

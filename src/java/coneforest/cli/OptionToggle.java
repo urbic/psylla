@@ -4,7 +4,8 @@ package coneforest.cli;
  * Class representing a toggle. Boolean option value toggles every time when
  * option is processed.
  */
-public class OptionToggle extends OptionWithoutArg
+public class OptionToggle
+	extends OptionWithoutArg
 {
 	public OptionToggle(String names)
 	{
@@ -16,6 +17,7 @@ public class OptionToggle extends OptionWithoutArg
 	 *
 	 * @return value
 	 */
+	@Override
 	public Boolean getValue()
 	{
 		return toggle;
@@ -24,6 +26,7 @@ public class OptionToggle extends OptionWithoutArg
 	/**
 	 * Toggles option value.
 	 */
+	@Override
 	public void handle()
 	{
 		toggle=!toggle;
