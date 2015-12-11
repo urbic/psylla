@@ -33,6 +33,13 @@ public interface PsiComplexNumeric
 	}
 
 	/**
+	 *	Returns a Ψ-{@code numeric} absolute value of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} absolute value.
+	 */
+	public PsiNumeric psiAbs();
+
+	/**
 	 *	Returns a Ψ-{@code numeric} real part of this object.
 	 *
 	 *	@return a Ψ-{@code numeric} real part.

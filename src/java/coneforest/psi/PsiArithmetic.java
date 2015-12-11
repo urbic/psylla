@@ -17,8 +17,6 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 		return "arithmetic";
 	}
 
-	public PsiNumeric psiAbs();
-
 	public T psiSignum();
 
 	/**
