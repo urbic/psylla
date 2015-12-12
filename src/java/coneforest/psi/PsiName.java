@@ -1,8 +1,8 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-{@code name} object.
- */
+*	A representation of Ψ-{@code name}, a type of immutable string.
+*/
 public class PsiName
 	implements PsiStringy
 {
@@ -14,7 +14,6 @@ public class PsiName
 	public PsiName(CharSequence cs)
 	{
 		name=cs.toString();
-		//name=cs.toString();
 	}
 
 	/**
@@ -99,12 +98,13 @@ public class PsiName
 	public String toSyntaxString()
 	{
 		return "/"+name;
+		// TODO
 	}
 
 	/**
 	 *	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
-	 *	“equal to” this one. Return value is <i>true</i> if and only if other
-	 *	object has {@code name} type and its value is equal to this one’s.
+	 *	“equal to” this one. Return value is {@code true} if and only if other
+	 *	object has Ψ-{@code name} type and its value is equal to this one’s.
 	 *
 	 *	@return a result.
 	 */

@@ -1,8 +1,8 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-{@code boolean} object.
- */
+*	A representation of Ψ-{@code boolean} object.
+*/
 public class PsiBoolean
 	implements
 		PsiAtomic,
@@ -13,8 +13,8 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	@return a string {@code "boolean"}.
-	 */
+	*	@return a string {@code "boolean"}.
+	*/
 	@Override
 	public String getTypeName()
 	{
@@ -22,19 +22,19 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a boolean value of this object.
-	 *
-	 *	@return a boolean value of this object.
-	 */
+	*	Returns a boolean value of this object.
+	*
+	*	@return a boolean value of this object.
+	*/
 	public boolean booleanValue()
 	{
 		return this==TRUE;
 	}
 
 	/**
-	 *	@return a string {@code false} or {@code true} depending on this object
-	 *	value.
-	 */
+	*	@return a string {@code false} or {@code true} depending on this object
+	*	value.
+	*/
 	@Override
 	public String toSyntaxString()
 	{
@@ -42,10 +42,10 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a result of boolean negation of this object.
-	 *
-	 *	@return a result.
-	 */
+	*	Returns a result of boolean negation of this object.
+	*
+	*	@return a result.
+	*/
 	@Override
 	public PsiBoolean psiNot()
 	{
@@ -53,12 +53,12 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a result of boolean disjunction of this object and given
-	 *	object.
-	 *
-	 *	@param oBoolean given object.
-	 *	@return a result.
-	 */
+	*	Returns a result of boolean disjunction of this object and given
+	*	object.
+	*
+	*	@param oBoolean given object.
+	*	@return a result.
+	*/
 	@Override
 	public PsiBoolean psiOr(final PsiBoolean oBoolean)
 	{
@@ -66,12 +66,12 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a result of boolean conjunction of this object and given
-	 *	object.
-	 *
-	 *	@param oBoolean given object.
-	 *	@return a result.
-	 */
+	*	Returns a result of boolean conjunction of this object and given
+	*	object.
+	*
+	*	@param oBoolean given object.
+	*	@return a result.
+	*/
 	@Override
 	public PsiBoolean psiAnd(final PsiBoolean oBoolean)
 	{
@@ -79,12 +79,12 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a result of boolean exclusive disjunction of this object and
-	 *	given object.
-	 *
-	 *	@param oBoolean given object.
-	 *	@return a result.
-	 */
+	*	Returns a result of boolean exclusive disjunction of this object and
+	*	given object.
+	*
+	*	@param oBoolean given object.
+	*	@return a result.
+	*/
 	@Override
 	public PsiBoolean psiXor(final PsiBoolean oBoolean)
 	{
@@ -92,10 +92,10 @@ public class PsiBoolean
 	}
 
 	/**
-	 *	Returns a result of equality test of this object and given object. 
-	 *
-	 *	@return a result.
-	 */
+	*	Returns a result of equality test of this object and given object. 
+	*
+	*	@return a result.
+	*/
 	@Override
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
@@ -111,28 +111,27 @@ public class PsiBoolean
 	@Override
 	public boolean equals(final Object object)
 	{
-		return object instanceof PsiBoolean
-				&& this==object;
+		return this==object;
 	}
 
 	/**
-	 *	Returns a Ψ-{@code boolean} representing the given value.
-	 *
-	 *	@param oBoolean a given value.
-	 *	@return a Ψ-{@code boolean} object.
-	 */
-	public static PsiBoolean valueOf(final boolean oBoolean)
+	*	Returns a Ψ-{@code boolean} representing the given boolean value.
+	*
+	*	@param bool a given value.
+	*	@return a Ψ-{@code boolean} object.
+	*/
+	public static PsiBoolean valueOf(final boolean bool)
 	{
-		return oBoolean? TRUE: FALSE;
+		return bool? TRUE: FALSE;
 	}
 
 	/**
-	 *	A Ψ-{@code boolean} constant, representing false.
-	 */
+	*	A Ψ-{@code boolean} constant, representing false.
+	*/
 	public static final PsiBoolean FALSE=new PsiBoolean();
 
 	/**
-	 *	A Ψ-{@code boolean} constant, representing true.
-	 */
+	*	A Ψ-{@code boolean} constant, representing true.
+	*/
 	public static final PsiBoolean TRUE=new PsiBoolean();
 }

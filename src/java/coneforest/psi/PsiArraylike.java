@@ -1,5 +1,11 @@
 package coneforest.psi;
 
+/**
+*	A representation of Ψ-{@code arraylike}, an abstraction of an array
+*	composed of Ψ-{@code object}s.
+*
+*	@param <T> a type of contained objects.
+*/
 public interface PsiArraylike<T extends PsiObject>
 	extends
 		PsiContainer<T>,
@@ -7,6 +13,9 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiAppendable<T>,
 		PsiClearable
 {
+	/**
+	 *	@return a string {@code "arraylike"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{
@@ -23,142 +32,142 @@ public interface PsiArraylike<T extends PsiObject>
 		int length=result.length();
 		for(int i=0; i<(int)(length/2); i++)
 		{
-			T obj=result.get(i);
+			T o=result.get(i);
 			result.put(i, result.get(length-1-i));
-			result.put(length-1-i, obj);
+			result.put(length-1-i, o);
 		}
 		return result;
 	}
 
 	@Override
-	default public PsiBoolean psiKnown(PsiInteger key)
+	default public PsiBoolean psiKnown(PsiInteger oIndex)
 	{
-		long keyValue=key.longValue();
-		return PsiBoolean.valueOf(keyValue>=0 && keyValue<length());
+		long index=oIndex.longValue();
+		return PsiBoolean.valueOf(index>=0 && index<length());
 	}
 
 	public T get(int indexValue)
 		throws PsiException;
 
 	@Override
-	default public T psiGet(PsiInteger index)
+	default public T psiGet(PsiInteger oIndex)
 		throws PsiException
 	{
-		return get(index.intValue());
+		return get(oIndex.intValue());
 	}
 
-	public PsiArraylike<T> psiGetInterval(PsiInteger index, PsiInteger count)
+	public PsiArraylike<T> psiGetInterval(PsiInteger oIndex, PsiInteger oLength)
 		throws PsiException;
 
 	public void put(int indexValue, T obj)
 		throws PsiException;
 
 	@Override
-	default public void psiPut(PsiInteger index, T obj)
+	default public void psiPut(PsiInteger oIndex, T o)
 		throws PsiException
 	{
-		put(index.intValue(), obj);
+		put(oIndex.intValue(), o);
 	}
 
-	public void insert(int indexValue, T obj)
+	public void insert(int index, T o)
 		throws PsiException;
 
-	default public void psiInsert(PsiInteger index, T obj)
+	default public void psiInsert(PsiInteger oIndex, T o)
 		throws PsiException
 	{
-		insert(index.intValue(), obj);
+		insert(oIndex.intValue(), o);
 	}
 
-	default public void psiInsertAll(PsiInteger index, PsiIterable<? extends T> iterable)
+	default public void psiInsertAll(PsiInteger oIndex, PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
-		int indexValue=index.intValue();
-		for(T obj: (this!=iterable? iterable: (PsiIterable<? extends T>)psiClone()))
-			insert(indexValue++, obj);
+		int index=oIndex.intValue();
+		for(T o: (this!=oEnumeration? oEnumeration: (PsiIterable<? extends T>)psiClone()))
+			insert(index++, o);
 	}
 
-	default public void psiPrepend(T obj)
+	default public void psiPrepend(T o)
 		throws PsiException
 	{
-		insert(0, obj);
+		insert(0, o);
 	}
 
-	default public void psiPrependAll(PsiIterable<? extends T> iterable)
+	default public void psiPrependAll(PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
-		psiInsertAll(PsiInteger.ZERO, iterable);
+		psiInsertAll(PsiInteger.ZERO, oEnumeration);
 	}
 
 	@Override
-	default public PsiArraylike<T> psiReplicate(final PsiInteger count)
+	default public PsiArraylike<T> psiReplicate(final PsiInteger oCount)
 		throws PsiException
 	{
-		long countValue=count.longValue();
-		if(countValue<0)
+		long count=oCount.longValue();
+		if(count<0)
 			throw new PsiRangeCheckException();
-		if(countValue*length()>Integer.MAX_VALUE)
+		if(count*length()>Integer.MAX_VALUE)
 			throw new PsiLimitCheckException();
-		PsiArraylike<T> result=(PsiArraylike<T>)psiNewEmpty();
-		while(countValue-->0)
-			result.psiAppendAll(this);
-		return result;
+		PsiArraylike<T> oResult=(PsiArraylike<T>)psiNewEmpty();
+		while(count-->0)
+			oResult.psiAppendAll(this);
+		return oResult;
 	}
 
-	default public void psiPutInterval(PsiInteger index, PsiIterable<? extends T> iterable)
+	default public void psiPutInterval(PsiInteger oIndex, PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
-		long indexValue=index.intValue();
-		if(indexValue<0
+		long index=oIndex.intValue();
+		if(index<0
 			||
-			iterable instanceof PsiLengthy
-			&& indexValue+((PsiLengthy)iterable).length()>=length())
+			oEnumeration instanceof PsiLengthy
+			&& index+((PsiLengthy)oEnumeration).length()>=length())
 			throw new PsiRangeCheckException();
-		for(T obj: iterable)
+		for(T o: oEnumeration)
 		{
-			put((int)indexValue++, obj);
-			if(indexValue==length())
+			put((int)index++, o);
+			if(index==length())
 				break;
 		}
 	}
 
 	@Override
-	default public void psiDelete(final PsiInteger index)
+	default public void psiDelete(final PsiInteger oIndex)
 		throws PsiException
 	{
-		delete(index.intValue());
+		delete(oIndex.intValue());
 	}
 
-	public void delete(int indexValue)
+	public void delete(int index)
 		throws PsiException;
 
 	@Override
-	default public T psiExtract(final PsiInteger index)
+	default public T psiExtract(final PsiInteger oIndex)
 		throws PsiException
 	{
-		return extract(index.intValue());
+		return extract(oIndex.intValue());
 	}
 
 	@Override
-	default public PsiArraylike<T> psiGetAll(PsiIterable<PsiInteger> iterable)
+	default public PsiArraylike<T> psiGetAll(PsiIterable<PsiInteger> oEnumeration)
 		throws PsiException
 	{
-		PsiArraylike<T> result=(PsiArraylike<T>)psiNewEmpty();
-		for(PsiInteger integer: iterable)
-			result.psiAppend(psiGet(integer));
-		return result;
+		PsiArraylike<T> oResult=(PsiArraylike<T>)psiNewEmpty();
+		for(PsiInteger oIndex: oEnumeration)
+			oResult.psiAppend(psiGet(oIndex));
+		return oResult;
 	}
 
-	public void psiSetLength(PsiInteger length)
+	public void psiSetLength(PsiInteger oLength)
 		throws PsiException;
 
-	public T extract(int indexValue)
+	public T extract(int index)
 		throws PsiException;
 
-	public PsiArraylike<T> psiExtractInterval(PsiInteger index, PsiInteger count)
+	public PsiArraylike<T> psiExtractInterval(PsiInteger oIndex, PsiInteger oCount)
 		throws PsiException;
 
 	@Override
-	public PsiArraylike<T> psiSlice(PsiIterable<PsiInteger> indices)
+	public PsiArraylike<T> psiSlice(PsiIterable<PsiInteger> oIndices)
 		throws PsiException;
 
 	@Override

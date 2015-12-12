@@ -1,14 +1,19 @@
 package coneforest.psi;
 
 /**
- *	A type of Ψ objects that can be iterated.
- *	@param <T> the type of elements returned by the iterator.
- */
+*	A representation of Ψ-{@code iterable}, a type of objects that can be
+*	iterated.
+*
+*	@param <T> a type of elements returned by the iterator.
+*/
 public interface PsiIterable<T>
 	extends
 		PsiObject,
 		Iterable<T>
 {
+	/**
+	 *	@return a string {@code "iterable"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{

@@ -1,9 +1,9 @@
 package coneforest.psi;
 
 /**
-*	A representation of a Ψ-{@code setlike} type. An abstraction of finite set
-*	of Ψ-{@code object}s. This interface declares methods for appending,
-*	removal and set operations.
+*	A representation of a Ψ-{@code setlike}, an abstraction of a finite set of
+*	Ψ-{@code object}s. This interface declares methods for appending, removal
+*	and set operations.
 *
 *	@param <T> a type of the elements.
 */

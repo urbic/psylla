@@ -1,5 +1,12 @@
 package coneforest.psi;
 
+/**
+*	A representation of a Ψ-{@code logical}, a type of object that is an
+*	operand of logical operation. This interface declares methods for logical
+*	negation, disjunction, conjunction and exclusive disjunction.
+*
+*	@param <T> a type of the second operand at binary operation.
+*/
 public interface PsiLogical<T extends PsiLogical>
 	extends PsiObject
 {

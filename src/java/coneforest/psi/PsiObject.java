@@ -1,7 +1,7 @@
 package coneforest.psi;
 
 /**
-*	A representation of Ψ-{@code object} type.
+*	A representation of Ψ-{@code object}, a basic type of Ψ objects.
 */
 public interface PsiObject
 	extends
