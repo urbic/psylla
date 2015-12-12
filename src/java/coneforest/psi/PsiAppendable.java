@@ -1,9 +1,8 @@
 package coneforest.psi;
 
 /**
-*	A representation of a Ψ-{@code appendable} object. The containers of this
-*	type allow to append (usually to the end, if it makes sense) Ψ-{@code
-*	object}s.
+*	A representation of Ψ-{@code appendable}, a type of container that allow to
+*	append (usually to the end, if it makes sense) Ψ objects.
 *
 *	@param <T> a type of Ψ-{@code object}s being appended.
 */

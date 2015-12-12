@@ -98,7 +98,6 @@ public class PsiBitSet
 		}
 	}
 
-	
 	@Override
 	public void psiRemoveAll(PsiIterable<? extends PsiInteger> iterable)
 	{
@@ -146,9 +145,9 @@ public class PsiBitSet
 	}
 
 	@Override
-	public PsiBoolean psiContains(PsiInteger integer)
+	public PsiBoolean psiContains(PsiInteger oElement)
 	{
-		return PsiBoolean.valueOf(bitset.get(integer.intValue()));
+		return PsiBoolean.valueOf(bitset.get(oElement.intValue()));
 	}
 
 	@Override
