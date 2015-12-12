@@ -85,6 +85,7 @@
 			access="public"
 			encoding="UTF-8"
 			charset="UTF-8"
+			windowtitle="Psylla ${project.version} source documentation"
 			>
 			<arg value="-Xdoclint:missing,reference"/>
 			<link href="${home.javadoc.java}"/>
