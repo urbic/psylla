@@ -49,7 +49,6 @@
 <!ENTITY PsiReference_Types_Details_numeric				SYSTEM "PsiReference_Types_Details_numeric.docbook">
 <!ENTITY PsiReference_Types_Details_object				SYSTEM "PsiReference_Types_Details_object.docbook">
 <!ENTITY PsiReference_Types_Details_operator			SYSTEM "PsiReference_Types_Details_operator.docbook">
-<!ENTITY PsiReference_Types_Details_prependable			SYSTEM "PsiReference_Types_Details_prependable.docbook">
 <!ENTITY PsiReference_Types_Details_proc				SYSTEM "PsiReference_Types_Details_proc.docbook">
 <!ENTITY PsiReference_Types_Details_queuelike			SYSTEM "PsiReference_Types_Details_queuelike.docbook">
 <!ENTITY PsiReference_Types_Details_random				SYSTEM "PsiReference_Types_Details_random.docbook">
