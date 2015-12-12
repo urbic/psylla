@@ -56,7 +56,7 @@ public class PsiRomanNumerals
 			throws PsiException
 		{
 			final java.util.regex.Matcher romanMatcher
-				=romanPattern.matcher(stringy.getString());
+				=romanPattern.matcher(stringy.stringValue());
 			if(!romanMatcher.matches())
 				throw new PsiUndefinedResultException();
 			int result=0;

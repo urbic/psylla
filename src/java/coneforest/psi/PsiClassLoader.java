@@ -7,7 +7,7 @@ public class PsiClassLoader
 	public PsiObject psiExternal(PsiStringy stringy)
 		throws PsiException
 	{
-		return external(stringy.getString());
+		return external(stringy.stringValue());
 	}
 
 	public PsiObject external(Class<? extends PsiObject> objectClass)
@@ -56,7 +56,7 @@ public class PsiClassLoader
 				for(PsiObject file: PsiClassLoader.this)
 				{
 					Class cl=findClassAtPathElement(className,
-							new java.io.File(((PsiStringy)file).getString()));
+							new java.io.File(((PsiStringy)file).stringValue()));
 					if(cl!=null)
 						return cl;
 				}

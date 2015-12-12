@@ -15,13 +15,13 @@ public class PsiProcess
 			{
 				PsiObject command=dictlike.get("command");
 				if(command instanceof PsiStringy)
-					pb=new ProcessBuilder(((PsiStringy)command).getString());
+					pb=new ProcessBuilder(((PsiStringy)command).stringValue());
 				else if(command instanceof PsiArraylike)
 				{
 					java.util.ArrayList<String> commandList
 						=new java.util.ArrayList(((PsiArraylike)command).length());
 					for(PsiObject obj: (PsiArraylike<PsiObject>)command)
-						commandList.add(((PsiStringy)obj).getString());
+						commandList.add(((PsiStringy)obj).stringValue());
 					pb=new ProcessBuilder(commandList);
 				}
 				else
@@ -29,7 +29,7 @@ public class PsiProcess
 			}
 
 			if(dictlike.known("directory"))
-				pb.directory(new java.io.File(((PsiStringy)dictlike.get("dictlike")).getString()));
+				pb.directory(new java.io.File(((PsiStringy)dictlike.get("dictlike")).stringValue()));
 
 			if(dictlike.known("environment"))
 			{

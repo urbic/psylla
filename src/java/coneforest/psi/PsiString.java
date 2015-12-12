@@ -28,7 +28,7 @@ public class PsiString
 	}
 
 	@Override
-	public String getString()
+	public String stringValue()
 	{
 		return buffer.toString();
 	}
@@ -41,7 +41,7 @@ public class PsiString
 	@Override
 	public PsiString psiClone()
 	{
-		return new PsiString(getString());
+		return new PsiString(stringValue());
 	}
 
 	@Override
@@ -247,7 +247,7 @@ public class PsiString
 		throws PsiException
 	{
 		PsiArray array=new PsiArray();
-		for(String item: regexp.getPattern().split(getString(), -1))
+		for(String item: regexp.getPattern().split(stringValue(), -1))
 			array.psiAppend(new PsiString(item));
 		return array;
 	}

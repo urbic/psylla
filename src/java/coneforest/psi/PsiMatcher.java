@@ -5,7 +5,7 @@ public class PsiMatcher
 {
 	public PsiMatcher(PsiStringy stringy, PsiRegExp regexp)
 	{
-		matcher=regexp.getPattern().matcher(stringy.getString());
+		matcher=regexp.getPattern().matcher(stringy.stringValue());
 	}
 
 	public PsiBoolean psiFind()
@@ -27,7 +27,7 @@ public class PsiMatcher
 			if(key instanceof PsiInteger)
 				group=matcher.group(((PsiInteger)key).intValue());
 			else if(key instanceof PsiStringy)
-				group=matcher.group(((PsiStringy)key).getString());
+				group=matcher.group(((PsiStringy)key).stringValue());
 			else
 				throw new PsiTypeCheckException();
 			return group!=null? new PsiString(group): PsiNull.NULL;
@@ -55,7 +55,7 @@ public class PsiMatcher
 			if(key instanceof PsiInteger)
 				start=matcher.start(((PsiInteger)key).intValue());
 			else if(key instanceof PsiStringy)
-				start=matcher.start(((PsiStringy)key).getString());
+				start=matcher.start(((PsiStringy)key).stringValue());
 			else
 				throw new PsiTypeCheckException();
 			return start>=0? PsiInteger.valueOf(start): PsiNull.NULL;
@@ -83,7 +83,7 @@ public class PsiMatcher
 			if(key instanceof PsiInteger)
 				end=matcher.start(((PsiInteger)key).intValue());
 			else if(key instanceof PsiStringy)
-				end=matcher.start(((PsiStringy)key).getString());
+				end=matcher.start(((PsiStringy)key).stringValue());
 			else
 				throw new PsiTypeCheckException();
 			return end>=0? PsiInteger.valueOf(end): PsiNull.NULL;

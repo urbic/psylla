@@ -11,58 +11,51 @@ public class DictStack
 	{
 		PsiDict systemdict=new PsiSystemDict();
 		push(systemdict);
-		//try
-		//{
-			push((PsiDictlike)systemdict.get("userdict"));
-		//}
-		//catch(PsiException e)
-		//{
-		//	throw new AssertionError();
-		//}
+		push((PsiDictlike)systemdict.get("userdict"));
 	}
 
-	public PsiObject load(String keyString)
+	public PsiObject load(String key)
 		throws PsiException
 	{
-		PsiDictlike dict=where(keyString);
-		if(dict!=null)
-			return dict.get(keyString);
+		PsiDictlike oDict=where(key);
+		if(oDict!=null)
+			return oDict.get(key);
 		else
 			throw new PsiUndefinedException();
 	}
 
-	public PsiObject load(PsiStringy key)
+	public PsiObject load(PsiStringy oKey)
 		throws PsiException
 	{
-		return load(key.getString());
+		return load(oKey.stringValue());
 	}
 
-	public PsiDictlike where(String keyString)
+	public PsiDictlike where(String key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			PsiDictlike dict=get(i);
-			if(dict.known(keyString))
-				return dict;
+			PsiDictlike oDict=get(i);
+			if(oDict.known(key))
+				return oDict;
 		}
 		return null;
 	}
 
-	public PsiDictlike where(PsiStringy key)
+	public PsiDictlike where(PsiStringy oKey)
 	{
-		return where(key.getString());
+		return where(oKey.stringValue());
 	}
 
-	public void store(String keyString, PsiObject obj)
+	public void store(String key, PsiObject o)
 	{
-		PsiDictlike dict=where(keyString);
-		if(dict==null)
-			dict=peek();
-		dict.put(keyString, obj);
+		PsiDictlike oDict=where(key);
+		if(oDict==null)
+			oDict=peek();
+		oDict.put(key, o);
 	}
 
-	public void store(PsiStringy key, PsiObject obj)
+	public void store(PsiStringy oKey, PsiObject o)
 	{
-		store(key.getString(), obj);
+		store(oKey.stringValue(), o);
 	}
 }

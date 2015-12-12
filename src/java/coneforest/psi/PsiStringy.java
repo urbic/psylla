@@ -23,7 +23,7 @@ public interface PsiStringy
 	*
 	*	@return a string value.
 	*/
-	public String getString();
+	public String stringValue();
 
 	public PsiStringy psiUpperCase();
 
@@ -32,7 +32,7 @@ public interface PsiStringy
 	@Override
 	default public PsiName psiToName()
 	{
-		return new PsiName(getString());
+		return new PsiName(stringValue());
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public interface PsiStringy
 		try
 		{
 			// TODO fractional
-			return PsiInteger.valueOf(Long.parseLong(getString()));
+			return PsiInteger.valueOf(Long.parseLong(stringValue()));
 		}
 		catch(NumberFormatException e)
 		{
@@ -63,7 +63,7 @@ public interface PsiStringy
 	{
 		try
 		{
-			return new PsiReal(Double.parseDouble(getString()));
+			return new PsiReal(Double.parseDouble(stringValue()));
 		}
 		catch(NumberFormatException e)
 		{
@@ -74,44 +74,44 @@ public interface PsiStringy
 	@Override
 	default public int length()
 	{
-		return getString().length();
+		return stringValue().length();
 	}
 
 	@Override
 	default public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return PsiBoolean.valueOf(obj instanceof PsiStringy
-				&& getString().equals(((PsiStringy)obj).getString()));
+				&& stringValue().equals(((PsiStringy)obj).stringValue()));
 	}
 
 	@Override
 	default public PsiBoolean psiLt(final PsiStringy string)
 	{
-		return PsiBoolean.valueOf(getString().compareTo(string.getString())<0);
+		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())<0);
 	}
 
 	@Override
 	default public PsiBoolean psiLe(final PsiStringy string)
 	{
-		return PsiBoolean.valueOf(getString().compareTo(string.getString())<=0);
+		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())<=0);
 	}
 
 	@Override
 	default public PsiBoolean psiGt(final PsiStringy string)
 	{
-		return PsiBoolean.valueOf(getString().compareTo(string.getString())>0);
+		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())>0);
 	}
 
 	@Override
 	default public PsiBoolean psiGe(final PsiStringy string)
 	{
-		return PsiBoolean.valueOf(getString().compareTo(string.getString())>=0);
+		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())>=0);
 	}
 
 	@Override
 	default public PsiInteger psiCmp(final PsiStringy stringy)
 	{
-		return PsiInteger.valueOf(getString().compareTo(stringy.getString()));
+		return PsiInteger.valueOf(stringValue().compareTo(stringy.stringValue()));
 	}
 
 	@Override
@@ -121,12 +121,12 @@ public interface PsiStringy
 			{
 				public boolean hasNext()
 				{
-					return index<getString().length();
+					return index<stringValue().length();
 				}
 
 				public PsiInteger next()
 				{
-					return PsiInteger.valueOf(getString().charAt(index++));
+					return PsiInteger.valueOf(stringValue().charAt(index++));
 				}
 
 				private int index=0;
