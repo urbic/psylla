@@ -28,36 +28,36 @@ public interface PsiDictlike<V extends PsiObject>
 	default public V psiGet(PsiStringy oKey)
 		throws PsiException
 	{
-		return get(oKey.getString());
+		return get(oKey.stringValue());
 	}
 
 	@Override
 	default public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringy> oEnumeration)
 		throws PsiException
 	{
-		PsiArraylike<V> result=(PsiArraylike<V>)new PsiArray();
+		PsiArraylike<V> oResult=(PsiArraylike<V>)new PsiArray();
 		for(PsiStringy oKey: oEnumeration)
-			result.psiAppend(psiGet(oKey));
-		return result;
+			oResult.psiAppend(psiGet(oKey));
+		return oResult;
 	}
 
 	public void put(String key, V value);
 
 	@Override
-	default public void psiPut(PsiStringy key, V obj)
+	default public void psiPut(PsiStringy oKey, V oValue)
 	{
-		put(key.getString(), obj);
+		put(oKey.stringValue(), oValue);
 	}
 
 	public boolean known(String keyString);
 
 	@Override
-	default public PsiBoolean psiKnown(PsiStringy key)
+	default public PsiBoolean psiKnown(PsiStringy oKey)
 	{
-		return PsiBoolean.valueOf(known(key.getString()));
+		return PsiBoolean.valueOf(known(oKey.stringValue()));
 	}
 
-	public void undef(String keyString);
+	public void undef(String key);
 
 	/**
 	 *	Deletes a key and associated value from this dictionary.
@@ -66,7 +66,7 @@ public interface PsiDictlike<V extends PsiObject>
 	 */
 	default public void psiUndef(PsiStringy oKey)
 	{
-		undef(oKey.getString());
+		undef(oKey.stringValue());
 	}
 
 	@Override

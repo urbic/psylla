@@ -10,7 +10,7 @@ public class PsiStringReader
 
 	public PsiStringReader(PsiStringy stringy)
 	{
-		this(stringy.getString());
+		this(stringy.stringValue());
 	}
 
 	@Override

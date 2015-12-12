@@ -24,7 +24,7 @@ public class PsiName
 	 */
 	public PsiName(PsiStringy stringy)
 	{
-		this(stringy.getString());
+		this(stringy.stringValue());
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class PsiName
 	 */
 
 	@Override
-	public String getString()
+	public String stringValue()
 	{
 		return name;
 	}
@@ -50,7 +50,7 @@ public class PsiName
 	@Override
 	public PsiString psiToString()
 	{
-		return new PsiString(getString());
+		return new PsiString(name);
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class PsiName
 	@Override
 	public int hashCode()
 	{
-		return getString().hashCode();
+		return stringValue().hashCode();
 	}
 
 	private final String name;

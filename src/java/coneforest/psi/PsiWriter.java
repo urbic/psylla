@@ -51,7 +51,7 @@ public class PsiWriter
 	{
 		try
 		{
-			writer.write(string.getString());
+			writer.write(string.stringValue());
 		}
 		catch(java.io.IOException e)
 		{

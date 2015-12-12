@@ -305,7 +305,7 @@ public class PsiInteger
 	public PsiBoolean psiInUnicodeBlock(PsiStringy stringy)
 	{
 		return PsiBoolean.valueOf(Character.UnicodeBlock.of((int)value).equals(
-				Character.UnicodeBlock.forName(stringy.getString())));
+				Character.UnicodeBlock.forName(stringy.stringValue())));
 	}
 
 	@Override

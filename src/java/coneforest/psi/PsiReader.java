@@ -93,7 +93,7 @@ public class PsiReader
 	public PsiString psiReadLine(PsiStringy eol)
 		throws PsiException
 	{
-		String eolString=eol.getString();
+		String eolString=eol.stringValue();
 		StringBuilder sb=new StringBuilder();
 
 		try

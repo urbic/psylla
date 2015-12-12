@@ -4,7 +4,7 @@ public class FileSystem
 {
 	public static java.nio.file.Path getPath(final PsiStringy stringy)
 	{
-		return new java.io.File(stringy.getString()).toPath();
+		return new java.io.File(stringy.stringValue()).toPath();
 	}
 
 	public static void psiCreateDirectory(final PsiStringy stringy)
@@ -177,8 +177,8 @@ public class FileSystem
 			final PsiStringy stringy2)
 		throws PsiException
 	{
-		String fileName1=stringy1.getString();
-		String fileName2=stringy2.getString();
+		String fileName1=stringy1.stringValue();
+		String fileName2=stringy2.stringValue();
 		try
 		{
 			java.nio.file.Files.move(getPath(stringy1),

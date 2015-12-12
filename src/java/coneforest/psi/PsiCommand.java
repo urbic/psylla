@@ -24,6 +24,6 @@ public class PsiCommand
 	@Override
 	public String toSyntaxString()
 	{
-		return getString();
+		return stringValue();
 	}
 }

@@ -22,7 +22,7 @@ public class PsiRegExp
 	public PsiRegExp(PsiStringy stringy)
 		throws PsiException
 	{
-		this(stringy.getString());
+		this(stringy.stringValue());
 	}
 
 	/**

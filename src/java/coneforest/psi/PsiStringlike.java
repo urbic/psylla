@@ -18,7 +18,7 @@ public interface PsiStringlike
 	default public String toSyntaxString()
 	{
 		StringBuilder sb=new StringBuilder();
-		String string=getString();
+		String string=stringValue();
 		for(int i=0; i<string.length(); i++)
 		{
 			char c=string.charAt(i);

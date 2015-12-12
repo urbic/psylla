@@ -222,12 +222,12 @@ public class PsiArray
 		try
 		{
 			final StringBuilder sb=new StringBuilder();
-			final String separatorString=separator.getString();
+			final String separatorString=separator.stringValue();
 			for(int i=0; i<length(); i++)
 			{
 				if(i>0)
 					sb.append(separatorString);
-				sb.append(((PsiStringy)get(i)).getString());
+				sb.append(((PsiStringy)get(i)).stringValue());
 			}
 			return new PsiString(sb);
 		}

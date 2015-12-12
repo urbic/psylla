@@ -19,6 +19,6 @@ public class PsiFileReader
 	public PsiFileReader(PsiStringy name)
 		throws PsiException
 	{
-		this(name.getString());
+		this(name.stringValue());
 	}
 }
