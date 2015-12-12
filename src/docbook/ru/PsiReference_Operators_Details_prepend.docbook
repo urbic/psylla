@@ -10,7 +10,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_prependable"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
 <replaceable>объект</replaceable>:

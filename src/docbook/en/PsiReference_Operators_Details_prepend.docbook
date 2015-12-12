@@ -10,7 +10,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_prependable"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 <listitem>
 <replaceable>object</replaceable>:
@@ -42,7 +42,7 @@ Inserts the <replaceable>object</replaceable> at the beginning of the
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_appendall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insert"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insertall"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_prependall"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arraylike"/>.
 </formalpara>
 
 </section>

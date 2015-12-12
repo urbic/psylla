@@ -139,7 +139,6 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_numeric;
 &PsiReference_Types_Details_object;
 &PsiReference_Types_Details_operator;
-&PsiReference_Types_Details_prependable;
 &PsiReference_Types_Details_proc;
 &PsiReference_Types_Details_queuelike;
 &PsiReference_Types_Details_random;
