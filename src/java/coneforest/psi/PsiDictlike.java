@@ -41,7 +41,7 @@ public interface PsiDictlike<V extends PsiObject>
 		return oResult;
 	}
 
-	public void put(String key, V value);
+	public void put(String key, V oValue);
 
 	@Override
 	default public void psiPut(PsiStringy oKey, V oValue)
@@ -109,23 +109,23 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 
 	@Override
-	default public void psiDelete(final PsiStringy key)
+	default public void psiDelete(final PsiStringy oKey)
 		throws PsiException
 	{
-		psiUndef(key);
+		psiUndef(oKey);
 	}
 
 	@Override
-	default public V psiExtract(final PsiStringy key)
+	default public V psiExtract(final PsiStringy oKey)
 		throws PsiException
 	{
-		V result=psiGet(key);
-		psiUndef(key);
-		return result;
+		V oResult=psiGet(oKey);
+		psiUndef(oKey);
+		return oResult;
 	}
 
 	@Override
-	public PsiDictlike<V> psiSlice(final PsiIterable<PsiStringy> keys)
+	public PsiDictlike<V> psiSlice(final PsiIterable<PsiStringy> oEnumeration)
 		throws PsiException;
 
 	@Override
