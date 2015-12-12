@@ -1,35 +1,44 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-{@code bitset} object.
+ *	A representation of Ψ-{@code bitset}, a set of nonnegative Ψ-{@code
+ *	integer} objects.
  */
 public class PsiBitSet
 	implements PsiSetlike<PsiInteger>
 {
+	/**
+	*	Instantiate an empty Ψ-{@code bitset} object.
+	*/
 	public PsiBitSet()
 	{
 		this(new java.util.BitSet());
 	}
 
-	public PsiBitSet(java.util.BitSet bitsetValue)
+	/**
+	*	Instantiate a Ψ-{@code bitset} object from a given {@link
+	*	java.util.BitSet} object.
+	*
+	*	@param bitset a bit set. 
+	*/
+	public PsiBitSet(java.util.BitSet bitset)
 	{
-		bitset=bitsetValue;
+		this.bitset=bitset;
 	}
 
-	public PsiBitSet(PsiBitSet bitset)
+	/**
+	*	@return a string {@code "bitset"}.
+	*/
+	@Override
+	public String getTypeName()
 	{
-		this((java.util.BitSet)bitset.bitset.clone());
+		return "bitset";
 	}
 
 	@Override
 	public PsiBitSet psiClone()
 	{
-		return new PsiBitSet(this);
-	}
-	@Override
-	public String getTypeName()
-	{
-		return "bitset";
+		return new PsiBitSet((java.util.BitSet)bitset.clone());
 	}
 
 	@Override
@@ -67,7 +76,6 @@ public class PsiBitSet
 		}
 	}
 
-	/*
 	@Override
 	public void psiAppendAll(PsiIterable<? extends PsiInteger> iterable)
 		throws PsiException
@@ -75,13 +83,7 @@ public class PsiBitSet
 		if(iterable instanceof PsiBitSet)
 			bitset.or(((PsiBitSet)iterable).bitset);
 		else
-			super.psiAppendAll(iterable);
-	}
-	*/
-	public void psiAppendAll(PsiBitSet bitset)
-		throws PsiException
-	{
-		this.bitset.or(bitset.bitset);
+			PsiSetlike.super.psiAppendAll(iterable);
 	}
 
 	@Override
@@ -96,19 +98,14 @@ public class PsiBitSet
 		}
 	}
 
-	/*
+	
 	@Override
 	public void psiRemoveAll(PsiIterable<? extends PsiInteger> iterable)
 	{
 		if(iterable instanceof PsiBitSet)
 			bitset.andNot(((PsiBitSet)iterable).bitset);
 		else
-			super.psiRemoveAll(iterable);
-	}
-	*/
-	public void psiRemoveAll(PsiBitSet bitset)
-	{
-		this.bitset.andNot(bitset.bitset);
+			PsiSetlike.super.psiRemoveAll(iterable);
 	}
 
 	public java.util.Iterator<PsiInteger> iterator()
@@ -154,19 +151,13 @@ public class PsiBitSet
 		return PsiBoolean.valueOf(bitset.get(integer.intValue()));
 	}
 
-	/*
 	@Override
 	public PsiBoolean psiIntersects(PsiSetlike setlike)
 	{
 		if(setlike instanceof PsiBitSet)
 			return PsiBoolean.valueOf(bitset.intersects(((PsiBitSet)setlike).bitset));
 		else
-			return super.psiIntersects(setlike);
-	}
-	*/
-	public PsiBoolean psiIntersects(PsiBitSet bitset)
-	{
-		return PsiBoolean.valueOf(this.bitset.intersects(bitset.bitset));
+			return PsiSetlike.super.psiIntersects(setlike);
 	}
 
 	@Override
