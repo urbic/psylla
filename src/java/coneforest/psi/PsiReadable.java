@@ -1,11 +1,15 @@
 package coneforest.psi;
 
 /**
- *	A type of Ψ objects that can be read.
- */
+*	A representation of Ψ-{@code readable}, a type of objects that can be
+*	treated as source of characters.
+*/
 public interface PsiReadable
 	extends PsiObject
 {
+	/**
+	*	@return a string {@code "readable"}.
+	*/
 	@Override
 	default public String getTypeName()
 	{
@@ -13,14 +17,14 @@ public interface PsiReadable
 	}
 
 	/**
-	 *	Read a character (Ψ-{@code integer}) from this object and returns it.
-	 *	Returns {@link PsiInteger#MINUS_ONE} when end of input has been
-	 *	reached.
-	 *
-	 *	@return a Ψ-{@code integer} representing the character read from this
-	 *	object.
-	 *	@throws PsiException when error occurs.
-	 */
+	*	Read a character (Ψ-{@code integer}) from this object and returns it.
+	*	Returns {@link PsiInteger#MINUS_ONE} when end of input has been
+	*	reached.
+	*
+	*	@return a Ψ-{@code integer} representing the character read from this
+	*	object.
+	*	@throws PsiException when error occurs.
+	*/
 	public PsiInteger psiRead()
 		throws PsiException;
 

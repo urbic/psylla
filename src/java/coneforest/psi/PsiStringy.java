@@ -1,5 +1,9 @@
 package coneforest.psi;
 
+/**
+*	A representation of Ψ-{@code stringy}, a basic type of mutable and
+*	immutable strings.
+*/
 public interface PsiStringy
 	extends
 		PsiContainer<PsiInteger>,
@@ -14,6 +18,11 @@ public interface PsiStringy
 		return "stringy";
 	}
 
+	/**
+	*	Returns a string value of this object.
+	*
+	*	@return a string value.
+	*/
 	public String getString();
 
 	public PsiStringy psiUpperCase();

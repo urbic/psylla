@@ -1,8 +1,9 @@
 package coneforest.psi;
 
 /**
- *	A representation of Ψ-{@code null} object.
- */
+*	A representation of Ψ-{@code null}, a type of a void placeholder. There is
+*	the only instance of this class, {@link #NULL}.
+*/
 public final class PsiNull
 	implements PsiAtomic
 {
@@ -11,14 +12,14 @@ public final class PsiNull
 	}
 
 	/**
-	 *	@return a string {@code "null"}.
-	 */
+	*	@return a string {@code "null"}.
+	*/
 	@Override
 	public String getTypeName() { return "null"; }
 
 	/**
-	 *	@return a string {@code "null"}.
-	 */
+	*	@return a string {@code "null"}.
+	*/
 	@Override
 	public String toSyntaxString()
 	{

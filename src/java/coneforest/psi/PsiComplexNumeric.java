@@ -1,5 +1,9 @@
 package coneforest.psi;
 
+/**
+*	A representation of Ψ-{@code complexnumeric}, an abstraction of complex and
+*	real numbers.
+*/
 public interface PsiComplexNumeric
 	extends
 		PsiAtomic,

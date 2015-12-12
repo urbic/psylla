@@ -1,11 +1,15 @@
 package coneforest.psi;
 
 /**
- *	A type of Ψ objects that can be closed.
- */
+*	A representation of Ψ-{@code closeable}, a type of objects that can be
+*	closed in some sense.
+*/
 public interface PsiCloseable
 	extends PsiObject
 {
+	/**
+	*	@return a string {@code "closeable"}.
+	*/
 	@Override
 	default public String getTypeName()
 	{

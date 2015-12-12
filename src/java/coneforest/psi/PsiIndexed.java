@@ -1,7 +1,8 @@
 package coneforest.psi;
 
 /**
-*	A type of container whose elements are indexed.
+*	A representation of Ψ-{@code indexed}, a type of the container whose
+*	elements are indexed.
 *
 *	@param <K> a type of indices.
 *	@param <V> a type of elements.

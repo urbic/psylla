@@ -1,18 +1,20 @@
 package coneforest.psi;
 
 /**
- *	A type of dictionary-like objects.
- *
- *	@param <V> a type of contained values.
- */
+*	A representation of Ψ-{@code dictlike}, an abstraction of a dictionary.
+*
+*	@param <V> a type of contained values.
+*/
 public interface PsiDictlike<V extends PsiObject>
 	extends
 		PsiLengthy,
 		PsiIndexed<PsiStringy, V>,
-		//PsiIterable<java.util.Map.Entry<String, V>>,
 		PsiIterable<PsiObject>,
 		PsiClearable
 {
+	/**
+	 *	@return a string {@code "dictlike"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{
@@ -23,19 +25,19 @@ public interface PsiDictlike<V extends PsiObject>
 		throws PsiException;
 
 	@Override
-	default public V psiGet(PsiStringy key)
+	default public V psiGet(PsiStringy oKey)
 		throws PsiException
 	{
-		return get(key.getString());
+		return get(oKey.getString());
 	}
 
 	@Override
-	default public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringy> iterable)
+	default public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringy> oEnumeration)
 		throws PsiException
 	{
 		PsiArraylike<V> result=(PsiArraylike<V>)new PsiArray();
-		for(PsiStringy key: iterable)
-			result.psiAppend(psiGet(key));
+		for(PsiStringy oKey: oEnumeration)
+			result.psiAppend(psiGet(oKey));
 		return result;
 	}
 
@@ -58,13 +60,13 @@ public interface PsiDictlike<V extends PsiObject>
 	public void undef(String keyString);
 
 	/**
-	 *	Delete a key and a value associated with it from this object.
+	 *	Deletes a key and associated value from this dictionary.
 	 *
-	 *	@param key a key. 
+	 *	@param oKey a Ψ-{@code stringy} key.
 	 */
-	default public void psiUndef(PsiStringy key)
+	default public void psiUndef(PsiStringy oKey)
 	{
-		undef(key.getString());
+		undef(oKey.getString());
 	}
 
 	@Override

@@ -1,5 +1,8 @@
 package coneforest.psi;
 
+/**
+*	A representation of Ψ-{@code numeric}, an abstraction of real numbers.
+*/
 public interface PsiNumeric
 	extends
 		PsiComplexNumeric,
@@ -7,6 +10,9 @@ public interface PsiNumeric
 		PsiConvertableToReal,
 		PsiScalar<PsiNumeric>
 {
+	/**
+	 *	@return a string {@code "numeric"}.
+	 */
 	@Override
 	default public String getTypeName()
 	{

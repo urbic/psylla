@@ -1,11 +1,15 @@
 package coneforest.psi;
 
 /**
- *	A type of Ψ objects that can be reset.
- */
+*	A representation of Ψ-{@code evaluable}, a type of objects that can be
+*	reset in some sense.
+*/
 public interface PsiResettable
 	extends PsiObject
 {
+	/**
+	*	@return a string {@code "resettable"}.
+	*/
 	@Override
 	default public String getTypeName()
 	{

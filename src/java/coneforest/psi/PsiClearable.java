@@ -1,11 +1,21 @@
 package coneforest.psi;
 
 /**
- *	A type of Ψ objects that can be cleared.
- */
+*	A representation of Ψ-{@code clearable}, a type of objects that can be
+*	cleared (emptied) in some sense.
+*/
 public interface PsiClearable
 	extends PsiObject
 {
+	/**
+	*	@return a string {@code "clearable"}.
+	*/
+	@Override
+	default public String getTypeName()
+	{
+		return "clearable";
+	}
+
 	/**
 	 *	Clear this object.
 	 */
