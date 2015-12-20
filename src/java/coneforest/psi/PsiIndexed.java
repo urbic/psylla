@@ -20,8 +20,8 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	}
 
 	/**
-	*	Returns a Ψ boolean value indicating if given key or index exists
-	*	in this object.
+	*	Returns a Ψ-{@code boolean} value indicating whether given key or index
+	*	exists in this object.
 	*
 	*	@param key a key or an index.
 	*	@return a result.
@@ -78,7 +78,7 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 		throws PsiException;
 
 	/**
-	*	Returns an enumeration (Ψ-{@code iterable}) of all the keys of this
+	*	Returns a Ψ-{@code iterable} enumeration of all the keys of this
 	*	object.
 	*
 	*	@return an enumeration of keys.
@@ -86,7 +86,7 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	public PsiIterable<K> psiKeys();
 
 	/**
-	*	Returns an enumeration (Ψ-{@code iterable}) of all the values of this
+	*	Returns a Ψ-{@code iterable} enumeration of all the values of this
 	*	object.
 	*
 	*	@return an enumeration of values.
@@ -94,8 +94,8 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	public PsiIterable<V> psiValues();
 
 	/**
-	*	Returns an enumeration (Ψ-{@code iterable}) of all the keys and values
-	*	of this object.
+	*	Returns a Ψ-{@code iterable} enumeration of all the keys and values of
+	*	this object.
 	*
 	*	@return an enumeration of entries.
 	*/

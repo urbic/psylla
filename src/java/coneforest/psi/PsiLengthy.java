@@ -1,8 +1,9 @@
 package coneforest.psi;
 
 /**
-*	A representation of Ψ-{@code lengthy}, a type of object that has length in
-*	some sense. Ususally the length is the number of elements in the container.
+*	A representation of Ψ-{@code lengthy}, a type of an object that has length
+*	in some sense. Ususally the length is the number of elements in the
+*	container.
 */
 public interface PsiLengthy
 	extends PsiObject
