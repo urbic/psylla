@@ -1,8 +1,8 @@
 package coneforest.psi;
 
 /**
-*	A representation of Ψ-{@code iterable}, a type of objects that can be
-*	iterated.
+*	A representation of Ψ-{@code iterable}, a type of an object that can be
+*	iterated over.
 *
 *	@param <T> a type of elements returned by the iterator.
 */
