@@ -23,7 +23,7 @@ public class Processor
 		return parse(args, Integer.MAX_VALUE);
 	}
 
-	public int parse(final String[] args, int freeArgsCount)
+	public int parse(final String[] args, final int freeArgsCount)
 		throws CLIProcessingException
 	{
 		boolean optionsProcessing=true;
@@ -39,12 +39,12 @@ public class Processor
 			{
 				if(args[i].startsWith("--"))
 				{
-					int j=args[i].indexOf('=');
+					final int j=args[i].indexOf('=');
 					if(j>=0)
 					{
-						String name=args[i].substring(2, j);
-						String arg=args[i].substring(j+1);
-						Option option=findOption(name);
+						final String name=args[i].substring(2, j);
+						final String arg=args[i].substring(j+1);
+						final Option option=findOption(name);
 						if(option instanceof OptionWithArg)
 							((OptionWithArg)option).handle(arg);
 						else
@@ -52,8 +52,8 @@ public class Processor
 					}
 					else
 					{
-						String name=args[i].substring(2);
-						Option option=findOption(name);
+						final String name=args[i].substring(2);
+						final Option option=findOption(name);
 						if(option instanceof OptionWithArg)
 						{
 							if(++i<args.length)
@@ -69,8 +69,8 @@ public class Processor
 				{
 					for(int j=1; j<args[i].length(); j++)
 					{
-						String name=args[i].substring(j, j+1);
-						Option option=findOption(name);
+						final String name=args[i].substring(j, j+1);
+						final Option option=findOption(name);
 						if(option instanceof OptionWithArg)
 						{
 							if(++j==args[i].length())
@@ -101,13 +101,13 @@ public class Processor
 		return args.length;
 	}
 
-	public Option findOption(final String name)
+	private Option findOption(final String name)
 		throws CLIProcessingException
 	{
 		for(Option option: options)
 			if(option.hasName(name))
 				return option;
-		throw new CLIProcessingException("No definition for option: -"+(name.length()==1? "": "-")+name);
+		throw new CLIProcessingException("No definition for option -"+(name.length()==1? "": "-")+name);
 	}
 
 	public <T> T getValue(final String name)
@@ -123,5 +123,4 @@ public class Processor
 
 	private final java.util.ArrayList<String> freeArgs=new java.util.ArrayList<String>();
 	private final Option[] options;
-	private int unprocessedStart=0;
 }
