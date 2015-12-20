@@ -7,7 +7,6 @@ public final class _begin extends PsiOperator
 	public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException
 	{
-		final OperandStack ostack=interpreter.operandStack();
-		interpreter.dictStack().push((PsiDictlike)ostack.popOperands(1)[0]);
+		interpreter.dictStack().push((PsiDictlike)interpreter.operandStack().popOperands(1)[0]);
 	}
 }
