@@ -6,6 +6,7 @@ package coneforest.psi;
 public class PsiBoolean
 	implements
 		PsiAtomic,
+		PsiScalar<PsiBoolean>,
 		PsiLogical<PsiBoolean>
 {
 	private PsiBoolean()
@@ -100,6 +101,37 @@ public class PsiBoolean
 	public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return PsiBoolean.valueOf(equals(obj));
+	}
+
+	@Override
+	public PsiInteger psiCmp(final PsiBoolean oBoolean)
+	{
+		return this==oBoolean? PsiInteger.ZERO:
+				this==FALSE? PsiInteger.MINUS_ONE: PsiInteger.ONE;
+	}
+
+	@Override
+	public PsiBoolean psiLt(final PsiBoolean oBoolean)
+	{
+		return PsiBoolean.valueOf(this==FALSE && oBoolean==TRUE);
+	}
+
+	@Override
+	public PsiBoolean psiLe(final PsiBoolean oBoolean)
+	{
+		return PsiBoolean.valueOf(this==FALSE || this==oBoolean);
+	}
+
+	@Override
+	public PsiBoolean psiGt(final PsiBoolean oBoolean)
+	{
+		return PsiBoolean.valueOf(this==TRUE && this==FALSE);
+	}
+
+	@Override
+	public PsiBoolean psiGe(final PsiBoolean oBoolean)
+	{
+		return PsiBoolean.valueOf(this==TRUE || this==oBoolean);
 	}
 
 	@Override
