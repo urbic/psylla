@@ -92,6 +92,18 @@ public interface PsiArraylike<T extends PsiObject>
 		insert(0, o);
 	}
 
+	default public T psiPreChop()
+		throws PsiException
+	{
+		return extract(0);
+	}
+
+	default public T psiPostChop()
+		throws PsiException
+	{
+		return extract(length()-1);
+	}
+
 	default public void psiPrependAll(PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
