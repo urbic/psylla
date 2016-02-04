@@ -224,7 +224,7 @@
 			>
 			<fileset
 				dir="${target}/tmp"
-				includes="${project.name}-${project.version}/**"
+				includes="${project.name}-${project.version}/*"
 				/>
 		</tar>
 		<delete dir="${target}/tmp" quiet="yes"/>
