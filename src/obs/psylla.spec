@@ -66,6 +66,7 @@ ant\
 	-Djava.dir=%{_javadir}\
 	-Dbin.dir=%{_bindir}\
 	-Ddoc.dir=%{_defaultdocdir}/%{name}\
+	-Ddata.dir=%{_datadir}\
 	install
 
 %clean
@@ -75,6 +76,7 @@ ant\
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
+%{_datadir}/vim/site/*
 %doc README LICENSE AUTHORS
 
 %files doc
