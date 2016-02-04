@@ -23,14 +23,16 @@
 <para>
 Удаляет <replaceable>элемент</replaceable> с заданным
 <replaceable>ключом</replaceable> из <replaceable>контейнера</replaceable>, и
-возвращает удалённый элемент. Тип ключа должен соответствовать типу контейнера.
+возвращает удалённый элемент.
 </para>
 
 <para>
 При отсутствии ключа в контейнере генерируется <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_undefined"/> (для словарей) или <xref
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
-(для массивов).
+(для массивов). При несоответствии типа ключа типу контейнера генерируется
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_typecheck"/>.
 </para>
 
 <formalpara>

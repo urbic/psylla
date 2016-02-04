@@ -15,7 +15,7 @@
 </synopsis>
 
 <para>
-The boolean value <constant>false</constant>. <xref xrefstyle="template:%t"
+The <constant>false</constant> value. <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_false"/> is not an operator, but a
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 value in the system dictionary.

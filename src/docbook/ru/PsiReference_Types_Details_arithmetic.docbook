@@ -3,15 +3,13 @@
 <title><type>arithmetic</type></title>
 
 <para>
-Тип операндов арифметических операций: сложения, вычитания, умножения, деления
-и некоторых других.
+Тип операндов арифметических операций: сложения, вычитания, измениения знака,
+умножения, деления.
 </para>
 
 <formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoname"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>.
 </formalpara>
 
 </section>

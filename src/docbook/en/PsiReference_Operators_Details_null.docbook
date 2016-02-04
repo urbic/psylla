@@ -15,8 +15,12 @@
 </synopsis>
 
 <para>
-Возвращает <constant>null</constant>.
+The <constant>null</constant> value. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_null"/> is not an operator, but a <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/> value in
+the system dictionary.
 </para>
+
 
 <formalpara>
 &TitleErrors;

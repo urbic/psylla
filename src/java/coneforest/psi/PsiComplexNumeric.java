@@ -75,7 +75,7 @@ public interface PsiComplexNumeric
 	 *	Returns a Ψ-{@code complexnumeric} representing the complex conjugation
 	 *	of this object.
 	 *
-	 *	@return a Ψ-{@code complexnumeric} conjugation.
+	 *	@return a Ψ-{@code complexnumeric} conjugate of this number.
 	 */
 	public PsiComplexNumeric psiConjugate();
 
@@ -84,34 +84,34 @@ public interface PsiComplexNumeric
 	{
 		if(psiIsZero().booleanValue() && cn.psiNotZero().booleanValue())
 			return this;
-		return cn.psiMul(psiLog()).psiExp();
+		return psiLog().psiMul(cn).psiExp();
 	}
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the exponent of this object.
 	 *
-	 *	@return a Ψ-{@code numeric} exponent.
+	 *	@return a Ψ-{@code numeric} exponent of this number.
 	 */
 	public PsiComplexNumeric psiExp();
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the cosine of this object.
 	 *
-	 *	@return a Ψ-{@code numeric} cosine.
+	 *	@return a Ψ-{@code numeric} cosine of this number.
 	 */
 	public PsiComplexNumeric psiCos();
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the sine of this object.
 	 *
-	 *	@return a Ψ-{@code numeric} sine.
+	 *	@return a Ψ-{@code numeric} sine of this number.
 	 */
 	public PsiComplexNumeric psiSin();
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the tangent of this object.
 	 *
-	 *	@return a Ψ-{@code numeric} tangent.
+	 *	@return a Ψ-{@code numeric} tangent of this number.
 	 */
 	public PsiComplexNumeric psiTan();
 
@@ -125,6 +125,19 @@ public interface PsiComplexNumeric
 	 */
 	public PsiComplexNumeric psiLog()
 		throws PsiUndefinedResultException;
+
+	default public PsiComplexNumeric psiAcos()
+		throws PsiUndefinedResultException
+	{
+		return psiAdd(PsiComplex.ONE.psiSub(psiMul(this)).psiSqrt().psiMul(PsiComplex.I))
+				.psiLog().psiMul(PsiComplex.MINUS_I);
+	}
+
+	default public PsiComplexNumeric psiAsin()
+		throws PsiUndefinedResultException
+	{
+		return new PsiComplex(Math.PI/2.D).psiSub(psiAcos());
+	}
 
 	/**
 	 *	Returns a Ψ-{@code complexnumeric} representing the arc tangent
@@ -141,7 +154,7 @@ public interface PsiComplexNumeric
 	 *	Returns a Ψ-{@code complexnumeric} representing the square root of this
 	 *	object.
 	 *
-	 *	@return a Ψ-{@code complexnumeric} square root.
+	 *	@return a Ψ-{@code complexnumeric} square root of this number.
 	 */
 	public PsiComplexNumeric psiSqrt();
 
@@ -149,7 +162,7 @@ public interface PsiComplexNumeric
 	 *	Returns a Ψ-{@code complexnumeric} representing the cubic root of this
 	 *	object.
 	 *
-	 *	@return a Ψ-{@code complexnumeric} cubic root.
+	 *	@return a Ψ-{@code complexnumeric} cubic root of this number.
 	 */
 	public PsiComplexNumeric psiCbrt();
 
@@ -157,7 +170,7 @@ public interface PsiComplexNumeric
 	 *	Returns a Ψ-{@code numeric} representing the hyperbolic cosine of this
 	 *	object.
 	 *
-	 *	@return a Ψ-{@code numeric} hyperbolic cosine.
+	 *	@return a Ψ-{@code numeric} hyperbolic cosine of this number.
 	 */
 	public PsiComplexNumeric psiCosh();
 
@@ -165,7 +178,7 @@ public interface PsiComplexNumeric
 	 *	Returns a Ψ-{@code complexnumeric} representing the hyperbolic sine of this
 	 *	object.
 	 *
-	 *	@return a Ψ-{@code complexnumeric} hyperbolic sine.
+	 *	@return a Ψ-{@code complexnumeric} hyperbolic sine of this number.
 	 */
 	public PsiComplexNumeric psiSinh();
 
@@ -173,7 +186,7 @@ public interface PsiComplexNumeric
 	 *	Returns a Ψ-{@code complexnumeric} representing the hyperbolic tangent
 	 *	of this object.
 	 *
-	 *	@return a Ψ-{@code complexnumeric} hyperbolic tangent.
+	 *	@return a Ψ-{@code complexnumeric} hyperbolic tangent of this number.
 	 */
 	public PsiComplexNumeric psiTanh();
 

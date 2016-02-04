@@ -3,34 +3,41 @@
 <title><token language="psi">extract</token></title>
 
 <synopsis>
-<replaceable>контейнер</replaceable>
-<replaceable>ключ</replaceable>
+<replaceable>container</replaceable>
+<replaceable>key</replaceable>
 <token language="psi">extract</token>
-<replaceable>элемент</replaceable>
+<replaceable>element</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>ключ</replaceable>,
-<replaceable>элемент</replaceable>:
+<replaceable>key</replaceable>,
+<replaceable>element</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет <replaceable>элемент</replaceable> с заданным
-<replaceable>ключом</replaceable> из <replaceable>контейнера</replaceable>, и
-возвращает удалённый элемент. Тип ключа должен соответствовать типу контейнера.
+Removes and returns an <replaceable>element</replaceable> associated with the
+given <replaceable>key</replaceable> from
+the <replaceable>container</replaceable>.
 </para>
 
 <para>
-При отсутствии ключа в контейнере генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefined"/> (для словарей) или <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
-(для массивов).
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefined"/> when the
+<replaceable>key</replaceable> is not in the <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_dictlike"/> container or <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> when
+the <replaceable>key</replaceable> is not a valid index in the <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+container. Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_typecheck"/> when the type of the
+<replaceable>key</replaceable> does not correspond to the type of
+<replaceable>container</replaceable>.
 </para>
 
 <formalpara>

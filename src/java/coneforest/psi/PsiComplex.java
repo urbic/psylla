@@ -8,15 +8,15 @@ public class PsiComplex
 		PsiAtomic,
 		PsiComplexNumeric
 {
-	public PsiComplex(final double reValue, final double imValue)
+	public PsiComplex(final double re, final double im)
 	{
-		this.re=reValue;
-		this.im=imValue;
+		this.re=re;
+		this.im=im;
 	}
 
-	public PsiComplex(final double reValue)
+	public PsiComplex(final double re)
 	{
-		this(reValue, 0.D);
+		this(re, 0.D);
 	}
 
 	public PsiComplex(final PsiNumeric re, final PsiNumeric im)
@@ -24,14 +24,14 @@ public class PsiComplex
 		this(re.doubleValue(), im.doubleValue());
 	}
 
-	public PsiComplex(final PsiNumeric re)
+	public PsiComplex(final PsiNumeric oReal)
 	{
-		this(re, PsiReal.ZERO);
+		this(oReal, PsiReal.ZERO);
 	}
 
-	public PsiComplex(final PsiComplexNumeric cn)
+	public PsiComplex(final PsiComplexNumeric oNumber)
 	{
-		this(cn.psiRe(), cn.psiIm());
+		this(oNumber.psiRe(), oNumber.psiIm());
 	}
 
 	/**
@@ -115,19 +115,28 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiMul(final PsiComplexNumeric cn)
 	{
-		final double cnRe=cn.psiRe().doubleValue();
-		final double cnIm=cn.psiIm().doubleValue();
-		return new PsiComplex(re*cnRe-im*cnIm, im*cnRe+re*cnIm);
+		final double x=cn.psiRe().doubleValue();
+		final double y=cn.psiIm().doubleValue();
+		return new PsiComplex(re*x-im*y, im*x+re*y);
 	}
 
 	@Override
 	public PsiComplex psiDiv(final PsiComplexNumeric cn)
 	{
-		final double cnRe=cn.psiRe().doubleValue();
-		final double cnIm=cn.psiIm().doubleValue();
-		final double denom=cnRe*cnRe+cnIm*cnIm;
-		// TODO overflow
-		return new PsiComplex((re*cnRe+im*cnIm)/denom, (im*cnRe-re*cnIm)/denom);
+		final double x=cn.psiRe().doubleValue();
+		final double y=cn.psiIm().doubleValue();
+		if(Math.abs(x)<Math.abs(y))
+		{
+			final double q=x/y;
+			final double d=x*q+y;
+			return new PsiComplex((re*q+im)/d, (im*q-re)/d);
+		}
+		else
+		{
+			final double q=y/x;
+			final double d=y*q+x;
+			return new PsiComplex((im*q+re)/d, (im-re*q)/d);
+		}
 	}
 
 	@Override
@@ -157,13 +166,24 @@ public class PsiComplex
 	}
 
 	@Override
+	public PsiComplex psiAcos()
+		throws PsiUndefinedResultException
+	{
+		return psiAdd(ONE.psiSub(psiMul(this)).psiSqrt().psiMul(I)).psiLog().psiMul(MINUS_I);
+	}
+
+	@Override
+	public PsiComplex psiAsin()
+		throws PsiUndefinedResultException
+	{
+		return new PsiComplex(Math.PI/2.D).psiSub(psiAcos());
+	}
+
+	@Override
 	public PsiComplex psiAtan()
 		throws PsiUndefinedResultException
 	{
-		final PsiComplex temp=psiMul(PsiComplex.I);
-		return PsiComplex.ONE.psiAdd(temp)
-				.psiDiv(PsiComplex.ONE.psiSub(temp)).psiLog()
-				.psiDiv(PsiComplex.TWO).psiDiv(PsiComplex.I);
+		return (I.psiAdd(this).psiDiv(I.psiSub(this))).psiLog().psiMul(I).psiDiv(TWO);
 	}
 
 	@Override
@@ -182,7 +202,7 @@ public class PsiComplex
 	public PsiComplex psiCosh()
 	{
 		final PsiComplex tmpExp=psiExp();
-		return tmpExp.psiAdd(PsiComplex.ONE.psiDiv(tmpExp)).psiDiv(PsiComplex.TWO);
+		return tmpExp.psiAdd(ONE.psiDiv(tmpExp)).psiDiv(TWO);
 	}
 
 	@Override
@@ -194,8 +214,8 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiSinh()
 	{
-		final PsiComplex tmpExp=psiExp();
-		return tmpExp.psiSub(PsiComplex.ONE.psiDiv(tmpExp)).psiDiv(PsiComplex.TWO);
+		final PsiComplex oExp=psiExp();
+		return oExp.psiSub(ONE.psiDiv(oExp)).psiDiv(TWO);
 	}
 
 	@Override
@@ -204,21 +224,23 @@ public class PsiComplex
 		return psiSinh().psiDiv(psiCosh());
 	}
 
-	public static PsiComplex psiFromPolar(PsiNumeric abs, PsiNumeric arg)
+	public static PsiComplex psiFromPolar(final PsiNumeric oAbs, final PsiNumeric oArg)
 	{
-		return psiFromPolar(abs.doubleValue(), arg.doubleValue());
+		return psiFromPolar(oAbs.doubleValue(), oArg.doubleValue());
 	}
 
-	public static PsiComplex psiFromPolar(double absValue, double argValue)
+	public static PsiComplex psiFromPolar(final double abs, final double arg)
 	{
-		return new PsiComplex(absValue*Math.cos(argValue), absValue*Math.sin(argValue));
+		return new PsiComplex(abs*Math.cos(arg), abs*Math.sin(arg));
 	}
 
 	public static final PsiComplex
 		ZERO=new PsiComplex(0.D, 0.D),
 		ONE=new PsiComplex(1.D, 0.D),
+		MINUS_ONE=new PsiComplex(-1.D, 0.D),
 		TWO=new PsiComplex(2.D, 0.D),
-		I=new PsiComplex(0.D, 1.D);
+		I=new PsiComplex(0.D, 1.D),
+		MINUS_I=new PsiComplex(0.D, -1.D);
 
 	private final double re, im;
 }

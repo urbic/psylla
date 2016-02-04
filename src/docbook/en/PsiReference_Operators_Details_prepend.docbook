@@ -42,7 +42,7 @@ Inserts the <replaceable>object</replaceable> at the beginning of the
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_appendall"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insert"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_insertall"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arraylike"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_prependall"/>.
 </formalpara>
 
 </section>

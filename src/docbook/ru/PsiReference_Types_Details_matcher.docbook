@@ -7,7 +7,7 @@
 </para>
 
 <formalpara>
-<title>Наследует:</title>
+&TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
 </formalpara>
 

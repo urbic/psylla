@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Types_Details_additive">
+<title><type>additive</type></title>
+
+<para>
+Тип операндов для аддитивных операций: сложения, вычитания и изменения знака.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+
+</section>

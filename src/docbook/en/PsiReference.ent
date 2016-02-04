@@ -14,6 +14,7 @@
 <!ENTITY PsiReference_Errors							SYSTEM "PsiReference_Errors.docbook">
 <!ENTITY PsiReference_Development						SYSTEM "PsiReference_Development.docbook">
 
+<!ENTITY PsiReference_Types_Details_additive			SYSTEM "PsiReference_Types_Details_additive.docbook">
 <!ENTITY PsiReference_Types_Details_appendable			SYSTEM "PsiReference_Types_Details_appendable.docbook">
 <!ENTITY PsiReference_Types_Details_arithmetic			SYSTEM "PsiReference_Types_Details_arithmetic.docbook">
 <!ENTITY PsiReference_Types_Details_array				SYSTEM "PsiReference_Types_Details_array.docbook">
@@ -71,6 +72,7 @@
 
 <!ENTITY PsiReference_Operators_Details_abort			SYSTEM "PsiReference_Operators_Details_abort.docbook">
 <!ENTITY PsiReference_Operators_Details_abs				SYSTEM "PsiReference_Operators_Details_abs.docbook">
+<!ENTITY PsiReference_Operators_Details_acos			SYSTEM "PsiReference_Operators_Details_acos.docbook">
 <!ENTITY PsiReference_Operators_Details_add				SYSTEM "PsiReference_Operators_Details_add.docbook">
 <!ENTITY PsiReference_Operators_Details_and				SYSTEM "PsiReference_Operators_Details_and.docbook">
 <!ENTITY PsiReference_Operators_Details_append			SYSTEM "PsiReference_Operators_Details_append.docbook">
@@ -79,6 +81,7 @@
 <!ENTITY PsiReference_Operators_Details_arguments		SYSTEM "PsiReference_Operators_Details_arguments.docbook">
 <!ENTITY PsiReference_Operators_Details_array			SYSTEM "PsiReference_Operators_Details_array.docbook">
 <!ENTITY PsiReference_Operators_Details_arraytomark		SYSTEM "PsiReference_Operators_Details_arraytomark.docbook">
+<!ENTITY PsiReference_Operators_Details_asin			SYSTEM "PsiReference_Operators_Details_asin.docbook">
 <!ENTITY PsiReference_Operators_Details_astore			SYSTEM "PsiReference_Operators_Details_astore.docbook">
 <!ENTITY PsiReference_Operators_Details_atan			SYSTEM "PsiReference_Operators_Details_atan.docbook">
 <!ENTITY PsiReference_Operators_Details_begin			SYSTEM "PsiReference_Operators_Details_begin.docbook">
@@ -296,3 +299,4 @@
 <!ENTITY TitleExamples	"<title>Examples:</title>">
 <!ENTITY TitleErrors	"<title>Errors:</title>">
 <!ENTITY TitleSeeAlso	"<title>See Also:</title>">
+<!ENTITY TitleInherits	"<title>Inherits:</title>">

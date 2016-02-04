@@ -155,6 +155,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_acos" xrefstyle="template:%t"/></term>
+<listitem>арккосинус числа</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_add" xrefstyle="template:%t"/></term>
 <listitem>сумма двух чисел</listitem>
 </varlistentry>
@@ -162,6 +167,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_arg" xrefstyle="template:%t"/></term>
 <listitem>аргумент числа</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_asin" xrefstyle="template:%t"/></term>
+<listitem>арксинус числа</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1391,6 +1401,7 @@
 
 &PsiReference_Operators_Details_abort;
 &PsiReference_Operators_Details_abs;
+&PsiReference_Operators_Details_acos;
 &PsiReference_Operators_Details_add;
 &PsiReference_Operators_Details_and;
 &PsiReference_Operators_Details_append;
@@ -1399,6 +1410,7 @@
 &PsiReference_Operators_Details_arguments;
 &PsiReference_Operators_Details_array;
 &PsiReference_Operators_Details_arraytomark;
+&PsiReference_Operators_Details_asin;
 &PsiReference_Operators_Details_astore;
 &PsiReference_Operators_Details_atan;
 &PsiReference_Operators_Details_begin;

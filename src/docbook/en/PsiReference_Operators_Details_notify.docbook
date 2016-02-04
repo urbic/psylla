@@ -3,12 +3,12 @@
 <title><token language="psi">notify</token></title>
 
 <synopsis>
-<replaceable>условие</replaceable>
+<replaceable>condition</replaceable>
 <token language="psi">notify</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>условие</replaceable>:
+<replaceable>condition</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_condition"/>
 </listitem>
 </itemizedlist>
