@@ -2,7 +2,8 @@
 
 @import "highlight.scss";
 
-$background-color-body: lightskyblue;
+//$background-color-body: lightskyblue;
+$background-color-body: #EEE;
 $font-family-body: "PT Sans", sans-serif;
 $color-title: darken($background-color-body, 60%);
 $background-color-html: $color-title;
