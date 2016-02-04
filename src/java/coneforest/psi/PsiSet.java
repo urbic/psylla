@@ -21,6 +21,15 @@ public class PsiSet
 		this((java.util.HashSet<PsiObject>)setValue.set.clone());
 	}
 
+	/**
+	*	@return a string {@code "set"}.
+	*/
+	@Override
+	public String getTypeName()
+	{
+		return "set";
+	}
+
 	@Override
 	public PsiSet psiClone()
 	{
