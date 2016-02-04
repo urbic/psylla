@@ -15,6 +15,7 @@ public class PsiSystemDict
 				(
 					_abort.class,
 					_abs.class,
+					_acos.class,
 					_add.class,
 					_and.class,
 					_append.class,
@@ -22,6 +23,7 @@ public class PsiSystemDict
 					_arg.class,
 					_array.class,
 					_arraytomark.class,
+					_asin.class,
 					_astore.class,
 					_atan.class,
 					_begin.class,
