@@ -24,12 +24,12 @@ def
 		/n exch def
 
 		{
-			false
+			//false
 			primes
 			{
 				dup
-				n eq { pop not true exch exit } if
-				n exch mod iszero { true exit } if
+				n eq { pop not //true exch exit } if
+				n exch mod iszero { //true exit } if
 			}
 			forall { exit } if
 
@@ -37,8 +37,8 @@ def
 			{
 				/s wheel 0 extract def
 				wheel s step add append
-				s dup mul n gt { true exit } if
-				n s mod iszero { false exit } if
+				s dup mul n gt { //true exit } if
+				n s mod iszero { //false exit } if
 			}
 			loop
 
