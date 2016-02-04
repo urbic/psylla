@@ -146,7 +146,6 @@
 	<target name="htmldocs" description="Make documentation" depends="css">
 		<mkdir dir="${target.doc.html}"/>
 		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
-		<!--xslt.lang lang="en"/-->
 		<xslt.html.lang lang="ru" base.name="PsiReference"/>
 		<xslt.html.lang lang="en" base.name="PsiReference"/>
 		<copy todir="${target.doc.html}">
