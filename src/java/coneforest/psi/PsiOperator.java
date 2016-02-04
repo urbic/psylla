@@ -10,10 +10,12 @@ public abstract class PsiOperator
 	{
 	}
 
+	/*
 	public PsiOperator(final String name)
 	{
 		this.name=name;
 	}
+	*/
 
 	/**
 	 *	@return a string {@code "operator"}.
@@ -86,15 +88,68 @@ public abstract class PsiOperator
 		return getClass().getSimpleName().substring(1);
 	}
 
-	public static class Arity11
+	public static Object invokeVirtual11(String methodName, PsiObject[] ops)
+		throws PsiException
+	{
+		try
+		{
+			return (PsiObject)java.lang.invoke.MethodHandles.publicLookup()
+				.findVirtual(ops.getClass(), methodName,
+					java.lang.invoke.MethodType.methodType(PsiObject.class))
+				.invoke(ops);
+		}
+		catch(NoSuchMethodException|IllegalAccessException e)
+		{
+			System.out.println(e);
+			throw new PsiTypeCheckException();
+		}
+		catch(Throwable e)
+		{
+			throw new PsiUnregisteredException();
+		}
+	}
+
+	public static PsiObject invokeVirtual(String methodName, Class<? extends PsiObject> rtype, PsiObject[] ops, final int arity)
+		throws PsiException
+	{
+			final Class<? extends PsiObject>[] ptypes=new Class[arity];
+			for(int i=0; i<arity; i++)
+			{
+				ptypes[i]=ops[i].getClass();
+				System.out.println(ptypes[i]);
+			}
+			ptypes[0]=PsiAdditive.class;
+		try
+		{
+			return (PsiObject)java.lang.invoke.MethodHandles.publicLookup()
+				//.findVirtual(ops[0].getClass(), methodName,
+				.findVirtual(PsiAdditive.class, methodName,
+					java.lang.invoke.MethodType.methodType(rtype, ptypes))
+				.asSpreader(PsiObject[].class, arity)
+				.invoke(ops);
+		}
+		catch(NoSuchMethodException|IllegalAccessException e)
+		{
+			System.out.println(e);
+			throw new PsiTypeCheckException();
+		}
+		catch(Throwable e)
+		{
+			System.out.println(e);
+			throw new PsiUnregisteredException();
+		}
+	}
+
+	/*
+	public static class Arity11<T extends PsiObject>
 		extends PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
 			throws ClassCastException, PsiException
 		{
-			final OperandStack opstack=interpreter.operandStack();
-			opstack.push(handler.handle(opstack.popOperands(1)));
+			final OperandStack ostack=interpreter.operandStack();
+			ostack.push(handler.handle(ostack.popOperands(1)));
 		}
 
 		public Arity11(String name, Handler handler)
@@ -105,6 +160,7 @@ public abstract class PsiOperator
 
 		private final Handler handler;
 
+		@FunctionalInterface
 		public interface Handler
 		{
 			public PsiObject handle(PsiObject[] ops)
@@ -192,4 +248,5 @@ public abstract class PsiOperator
 	}
 
 	protected String name;
+	*/
 }
