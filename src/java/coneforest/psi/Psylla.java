@@ -31,12 +31,12 @@ public class Psylla
 					System.err.println(Messages.format("unsupportedEncodingText", consoleEncoding));
 					System.exit(1);
 				}
+			if(cli.getValue("locale")!=null)
+				java.util.Locale.setDefault(java.util.Locale.forLanguageTag((String)cli.getValue("locale")));
 			if(cli.getValue("help"))
 				help();
 			if(cli.getValue("version"))
 				version();
-			if(cli.getValue("locale")!=null)
-				java.util.Locale.setDefault(java.util.Locale.forLanguageTag((String)cli.getValue("locale")));
 
 			final java.io.Reader scriptReader;
 			final String scriptName;
