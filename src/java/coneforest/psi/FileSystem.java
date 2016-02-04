@@ -32,6 +32,29 @@ public class FileSystem
 		}
 	}
 
+	/*
+	public static PsiName psiCreateTempFile(final PsiStringy oPrefix,
+			final PsiStringy oSuffix, PsiStringy oDirectory)
+		throws PsiException
+	{
+		try
+		{
+			java.nio.file.Files.createTempFile()
+			//java.io.File file=java.io.File.createTempFile(oPrefix.stringValue(),
+			//		oSuffix.stringValue(), new java.io.File(oDirectory.stringValue()));
+			//return new PsiName(file.getPath());
+		}
+		catch(java.lang.SecurityException e)
+		{
+			throw new PsiSecurityErrorException();
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiIOErrorException();
+		}
+	}
+	*/
+
 	public static void psiDeleteFile(final PsiStringy stringy)
 		throws PsiException
 	{
