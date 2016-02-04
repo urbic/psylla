@@ -59,7 +59,7 @@ public interface PsiArraylike<T extends PsiObject>
 	public PsiArraylike<T> psiGetInterval(PsiInteger oIndex, PsiInteger oLength)
 		throws PsiException;
 
-	public void put(int indexValue, T obj)
+	public void put(int index, T o)
 		throws PsiException;
 
 	@Override
@@ -69,9 +69,25 @@ public interface PsiArraylike<T extends PsiObject>
 		put(oIndex.intValue(), o);
 	}
 
+	/**
+	*	Inserts the specified Ψ-{@code object} into this array at the position
+	*	specified by a given index.
+	*
+	*	@param index a Ψ-{@code integer} index.
+	*	@param o a Ψ-{@code object}.
+	*	@throws PsiException when an error occurs.
+	*/
 	public void insert(int index, T o)
 		throws PsiException;
 
+	/**
+	*	Inserts the specified Ψ-{@code object} into this array at the position
+	*	specified by a given Ψ-{@code integer} index.
+	*
+	*	@param oIndex a Ψ-{@code integer} index.
+	*	@param o a Ψ-{@code object}.
+	*	@throws PsiException when an error occurs.
+	*/
 	default public void psiInsert(PsiInteger oIndex, T o)
 		throws PsiException
 	{
@@ -86,6 +102,13 @@ public interface PsiArraylike<T extends PsiObject>
 			insert(index++, o);
 	}
 
+	/**
+	*	Inserts the specified Ψ-{@code object} into this array at the
+	*	beginning.
+	*
+	*	@param o a Ψ-{@code object}.
+	*	@throws PsiException when an error occurs.
+	*/
 	default public void psiPrepend(T o)
 		throws PsiException
 	{

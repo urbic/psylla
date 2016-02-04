@@ -155,6 +155,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_acos" xrefstyle="template:%t"/></term>
+<listitem>the arc cosine of a number</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_add" xrefstyle="template:%t"/></term>
 <listitem>the sum of two numbers</listitem>
 </varlistentry>
@@ -162,6 +167,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_arg" xrefstyle="template:%t"/></term>
 <listitem>the argument of a number</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_asin" xrefstyle="template:%t"/></term>
+<listitem>the arc sine of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1399,6 +1409,7 @@ flush output buffer</listitem>
 
 &PsiReference_Operators_Details_abort;
 &PsiReference_Operators_Details_abs;
+&PsiReference_Operators_Details_acos;
 &PsiReference_Operators_Details_add;
 &PsiReference_Operators_Details_and;
 &PsiReference_Operators_Details_append;
@@ -1407,6 +1418,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_arguments;
 &PsiReference_Operators_Details_array;
 &PsiReference_Operators_Details_arraytomark;
+&PsiReference_Operators_Details_asin;
 &PsiReference_Operators_Details_astore;
 &PsiReference_Operators_Details_atan;
 &PsiReference_Operators_Details_begin;

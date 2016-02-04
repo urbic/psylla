@@ -10,6 +10,7 @@
 	version="1.1"
 	>
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml-1_1/profile-chunk.xsl"/>
+
 	<xsl:import href="highlight.xsl"/>
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml-1_1/autoidx-kosek.xsl"/>
 
@@ -50,6 +51,7 @@
 	<xsl:param name="arg.rep.repeat.str">…</xsl:param>
 	<xsl:param name="section.label.includes.component.label" select="1"/>
 	<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
+	<xsl:param name="profile.lang"/>
 
 	<xsl:output method="xml" omit-xml-declaration="yes"/>
 

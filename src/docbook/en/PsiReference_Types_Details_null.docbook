@@ -3,11 +3,12 @@
 <title><type>null</type></title>
 
 <para>
-Пустой тип.
+The null type. The only object of this type serves as a placeholder in
+containers.
 </para>
 
 <formalpara>
-<title>Наследует:</title>
+&TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
 </formalpara>

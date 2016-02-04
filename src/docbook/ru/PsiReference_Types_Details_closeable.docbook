@@ -3,7 +3,12 @@
 <title><type>closeable</type></title>
 
 <para>
-XXX
+Тип объектов, которые могут быть закрыты в каком-нибудь смысле.
 </para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
 
 </section>

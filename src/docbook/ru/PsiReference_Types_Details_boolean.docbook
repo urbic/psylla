@@ -3,14 +3,16 @@
 <title><type>boolean</type></title>
 
 <para>
-Булевский тип.
+Объекты этого типа служат операндами для булевских операций, таких как
+дизъюнкция, конъюнкция, отрицание и исключающая дизъюнкция. Имеется дишь два
+объекта данного типа: <constant>false</constant> и <constant>true</constant>.
 </para>
 
 <formalpara>
-<title>Наследует:</title>
+&TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
 </formalpara>
 
 </section>

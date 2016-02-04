@@ -3,17 +3,17 @@
 <title><token language="psi">monitor</token></title>
 
 <synopsis>
-<replaceable>замок</replaceable>
-<replaceable>процедура</replaceable>
+<replaceable>loc</replaceable>
+<replaceable>procedure</replaceable>
 <token language="psi">monitor</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>замок</replaceable>:
+<replaceable>lock</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lock"/>
 </listitem>
 <listitem>
-<replaceable>процедура</replaceable>:
+<replaceable>procedure</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>

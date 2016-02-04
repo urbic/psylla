@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_asin">
+<title><token language="psi">asin</token></title>
+
+<synopsis>
+<replaceable>number</replaceable>
+<token language="psi">asin</token>
+<replaceable>arc_sine</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>number</replaceable>,
+<replaceable>arc_sine</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Returns a <replaceable>arc_sine</replaceable> of a
+<replaceable>number</replaceable>.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> and <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/> operands,
+returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_real"/> result. For <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
+operands, returns a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_complex"/> result.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">1 asin	 ▶ 1.5707963267948966</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_acos"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_atan"/>.
+</formalpara>
+
+</section>
