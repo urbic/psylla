@@ -193,6 +193,18 @@ public interface PsiNumeric
 	}
 
 	@Override
+	default public PsiReal psiAcos()
+	{
+		return new PsiReal(Math.acos(doubleValue()));
+	}
+
+	@Override
+	default public PsiReal psiAsin()
+	{
+		return new PsiReal(Math.asin(doubleValue()));
+	}
+
+	@Override
 	default public PsiReal psiAtan()
 	{
 		return new PsiReal(Math.atan(doubleValue()));
