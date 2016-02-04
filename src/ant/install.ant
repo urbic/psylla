@@ -2,6 +2,7 @@
 <project name="install" default="dist" basedir=".">
 
 	<target name="install">
+		<mkdir dir="${installroot}/${data.dir}"/>
 		<mkdir dir="${installroot}/${java.dir}"/>
 		<mkdir dir="${installroot}/${bin.dir}"/>
 		<mkdir dir="${installroot}/${doc.dir}"/>
@@ -25,6 +26,10 @@
 		</copy>
 		<copy todir="${installroot}/${doc.dir}">
 			<fileset dir="${target.doc}" includes="README LICENSE AUTHORS"/>
+		</copy>
+		<mkdir dir="${installroot}/${data.dir}/vim/site"/>
+		<copy todir="${installroot}/${data.dir}/vim/site">
+			<fileset dir="${target.vim}" includes="*"/>
 		</copy>
 	</target>
 
