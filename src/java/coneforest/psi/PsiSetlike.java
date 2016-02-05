@@ -9,9 +9,8 @@ package coneforest.psi;
 */
 public interface PsiSetlike<T extends PsiObject>
 	extends
-		PsiContainer<T>,
 		PsiAppendable<T>,
-		PsiClearable
+		PsiContainer<T>
 {
 	/**
 	*	@return a string {@code "setlike"}.

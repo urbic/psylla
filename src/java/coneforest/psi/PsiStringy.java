@@ -6,10 +6,11 @@ package coneforest.psi;
 */
 public interface PsiStringy
 	extends
-		PsiContainer<PsiInteger>,
 		PsiEvaluable,
 		PsiConvertableToInteger,
 		PsiConvertableToReal,
+		PsiIterable<PsiInteger>,
+		PsiLengthy,
 		PsiScalar<PsiStringy>
 {
 	@Override
