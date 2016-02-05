@@ -7,7 +7,6 @@ package coneforest.psi;
 */
 public interface PsiDictlike<V extends PsiObject>
 	extends
-		PsiClearable,
 		PsiContainer<PsiObject>,
 		PsiIndexed<PsiStringy, V>
 {

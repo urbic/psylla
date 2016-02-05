@@ -8,10 +8,9 @@ package coneforest.psi;
 */
 public interface PsiArraylike<T extends PsiObject>
 	extends
-		PsiContainer<T>,
-		PsiIndexed<PsiInteger, T>,
 		PsiAppendable<T>,
-		PsiClearable
+		PsiContainer<T>,
+		PsiIndexed<PsiInteger, T>
 {
 	/**
 	 *	@return a string {@code "arraylike"}.

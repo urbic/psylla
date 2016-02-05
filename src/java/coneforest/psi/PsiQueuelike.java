@@ -9,7 +9,6 @@ package coneforest.psi;
 public interface PsiQueuelike<T extends PsiObject>
 	extends
 		PsiBounded,
-		PsiClearable,
 		PsiContainer<T>
 {
 	/**
