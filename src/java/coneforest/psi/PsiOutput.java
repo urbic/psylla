@@ -1,9 +1,12 @@
 package coneforest.psi;
 
+// TODO
+abstract
 public class PsiOutput
 	implements
 		PsiCloseable,
-		PsiFlushable
+		PsiFlushable,
+		PsiWritable
 {
 	public PsiOutput()
 	{
