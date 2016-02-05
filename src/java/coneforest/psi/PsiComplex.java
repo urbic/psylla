@@ -5,7 +5,6 @@ package coneforest.psi;
  */
 public class PsiComplex
 	implements
-		PsiAtomic,
 		PsiComplexNumeric
 {
 	public PsiComplex(final double re, final double im)

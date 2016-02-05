@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-public class PsiStringWriter extends PsiWriter
+public class PsiStringWriter
+	extends PsiWriter
 {
 	public PsiStringWriter(PsiString string)
 	{

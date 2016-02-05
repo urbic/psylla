@@ -98,9 +98,9 @@ public class PsiBoolean
 	*	@return a result.
 	*/
 	@Override
-	public PsiBoolean psiEq(final PsiObject obj)
+	public PsiBoolean psiEq(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(equals(obj));
+		return PsiBoolean.valueOf(equals(o));
 	}
 
 	@Override
