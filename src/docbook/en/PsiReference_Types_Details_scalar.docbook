@@ -6,4 +6,9 @@
 Базовый тип для упорядоченных типов, для которых определены операторы сравнения.
 </para>
 
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+</formalpara>
+
 </section>
