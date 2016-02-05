@@ -2,8 +2,9 @@ package coneforest.psi;
 
 public class PsiInput
 	implements
+		PsiCloseable,
 		PsiReadable,
-		PsiCloseable
+		PsiResettable
 {
 	public PsiInput()
 	{
@@ -100,6 +101,20 @@ public class PsiInput
 		catch(IllegalArgumentException e)
 		{
 			throw new PsiRangeCheckException();
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiIOErrorException();
+		}
+	}
+
+	@Override
+	public void psiReset()
+		throws PsiException
+	{
+		try
+		{
+			input.reset();
 		}
 		catch(java.io.IOException e)
 		{
