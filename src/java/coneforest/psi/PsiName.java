@@ -4,7 +4,9 @@ package coneforest.psi;
 *	A representation of Ψ-{@code name}, a type of immutable string.
 */
 public class PsiName
-	implements PsiStringy
+	implements
+		PsiAtomic,
+		PsiStringy
 {
 	/**
 	 *	Instantiate a new Ψ-{@code name} object with given name.
