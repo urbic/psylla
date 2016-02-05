@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="install" default="dist" basedir=".">
 
-	<target name="install" depends="build">
+	<target name="install">
 		<mkdir dir="${installroot}/${data.dir}"/>
 		<mkdir dir="${installroot}/${java.dir}"/>
 		<mkdir dir="${installroot}/${bin.dir}"/>
@@ -27,10 +27,10 @@
 		<copy todir="${installroot}/${doc.dir}">
 			<fileset dir="${target.doc}" includes="README LICENSE AUTHORS"/>
 		</copy>
-		<mkdir dir="${installroot}/${data.dir}/vim/site"/>
-		<copy todir="${installroot}/${data.dir}/vim/site">
-			<fileset dir="${target.vim}" includes="*"/>
-		</copy>
+		<mkdir dir="${installroot}/${data.dir}/vim/site/ftdetect"/>
+		<copy todir="${installroot}/${data.dir}/vim/site/ftdetect" file="${target.vim}/ftdetect/psi.vim"/>
+		<mkdir dir="${installroot}/${data.dir}/vim/site/syntax"/>
+		<copy todir="${installroot}/${data.dir}/vim/site/syntax" file="${target.vim}/syntax/psi.vim"/>
 	</target>
 
 </project>
