@@ -7,10 +7,10 @@ package coneforest.psi;
 public interface PsiStringy
 	extends
 		PsiContainer<PsiInteger>,
-		PsiScalar<PsiStringy>,
 		PsiEvaluable,
 		PsiConvertableToInteger,
-		PsiConvertableToReal
+		PsiConvertableToReal,
+		PsiScalar<PsiStringy>
 {
 	@Override
 	default public String getTypeName()

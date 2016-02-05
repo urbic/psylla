@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-public class PsiErrorDict extends PsiModule
+public class PsiErrorDict
+	extends PsiModule
 {
 	public PsiErrorDict()
 		throws PsiException

@@ -1,6 +1,7 @@
 package coneforest.psi;
 
-public class PsiFileWriter extends PsiWriter
+public class PsiFileWriter
+	extends PsiWriter
 {
 	public PsiFileWriter(String name)
 		throws PsiException

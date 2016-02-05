@@ -4,7 +4,8 @@ package coneforest.psi;
 *	A representation of Ψ-{@code evaluable}, a type of objects that can be
 *	interpreted as the program.
 */
-public interface PsiEvaluable extends PsiObject
+public interface PsiEvaluable
+	extends PsiObject
 {
 	/**
 	*	@return a string {@code "evaluable"}.

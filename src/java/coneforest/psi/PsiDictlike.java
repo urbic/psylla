@@ -7,10 +7,9 @@ package coneforest.psi;
 */
 public interface PsiDictlike<V extends PsiObject>
 	extends
-		PsiLengthy,
-		PsiIndexed<PsiStringy, V>,
-		PsiIterable<PsiObject>,
-		PsiClearable
+		PsiClearable,
+		PsiContainer<PsiObject>,
+		PsiIndexed<PsiStringy, V>
 {
 	/**
 	 *	@return a string {@code "dictlike"}.
