@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-{@code lock} object.
  */
 public class PsiLock
-	implements PsiAtomic
+	implements PsiObject
 {
 	/**
 	 *	@return a string {@code "lock"}.
