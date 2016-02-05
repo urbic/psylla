@@ -76,6 +76,10 @@ ant\
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
+%dir %{_datadir}/vim
+%dir %{_datadir}/vim/site
+%dir %{_datadir}/vim/site/ftdetect
+%dir %{_datadir}/vim/site/syntax
 %{_datadir}/vim/site/ftdetect/psi.vim
 %{_datadir}/vim/site/syntax/psi.vim
 %doc README LICENSE AUTHORS
