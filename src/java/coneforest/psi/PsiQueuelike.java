@@ -7,7 +7,10 @@ package coneforest.psi;
 *	@param <T> a type of contained objects.
 */
 public interface PsiQueuelike<T extends PsiObject>
-	extends PsiLengthy
+	extends
+		PsiBounded,
+		PsiClearable,
+		PsiContainer<T>
 {
 	/**
 	 *	@return a string {@code "queuelike"}.
@@ -18,9 +21,15 @@ public interface PsiQueuelike<T extends PsiObject>
 		return "queuelike";
 	}
 
+	public T psiDequeue()
+		throws PsiException;
+
+	public void psiEnqueue(final T o)
+		throws PsiException;
+
 	public T psiTake()
 		throws PsiException;
 
-	public void psiGive(T obj)
+	public void psiGive(final T o)
 		throws PsiException;
 }
