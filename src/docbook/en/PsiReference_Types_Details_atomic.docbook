@@ -6,4 +6,16 @@
 Базовый тип атомарных объектов.
 </para>
 
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsiTypesHierarchy_atomic.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
 </section>

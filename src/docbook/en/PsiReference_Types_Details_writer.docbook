@@ -11,6 +11,13 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_flushable"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writable"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsiTypesHierarchy_writer.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
 </formalpara>
 
 </section>

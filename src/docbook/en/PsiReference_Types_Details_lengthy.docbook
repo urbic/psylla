@@ -7,4 +7,16 @@
 в контейнере объектов.
 </para>
 
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>,
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsiTypesHierarchy_lengthy.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
 </section>

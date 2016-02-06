@@ -6,4 +6,16 @@
 XXX
 </para>
 
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsiTypesHierarchy_flushable.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
 </section>

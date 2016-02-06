@@ -1,0 +1,65 @@
+additive: object
+appendable: object
+arithmetic: additive
+array: arraylike
+arraylike: appendable container indexed
+atomic: object
+bitset: setlike
+bitvector: arraylike logical
+blockingqueue: closeable queuelike
+boolean: atomic logical scalar
+bounded: lengthy
+classloader: array
+clearable: object
+closeable: object
+command: name
+complex: complexnumeric
+complexnumeric: arithmetic atomic
+condition: object
+container: clearable iterable lengthy
+context: object
+dict: dictlike
+dictlike: container indexed
+errordict: module
+evaluable: object
+exception: object
+filereader: reader
+filewriter: writer
+flushable: object
+indexed: object
+input: closeable readable resettable
+integer: logical numeric
+iterable: object
+lengthy: object
+lock: object
+logical: object
+mark: atomic
+matcher: object
+module: dict
+name: atomic stringy
+null: atomic
+numeric: complexnumeric scalar
+operator: atomic
+output: closeable flushable writable
+proc: array
+process: object
+queuelike: bounded container
+random: object
+readable: object
+reader: closeable evaluable readable resettable
+real: numeric
+regexp: object
+resettable: object
+scalar: object
+setlike: appendable container
+set: setlike
+streamlike: object
+stringlike: arraylike stringy
+stringreader: reader
+string: stringlike
+stringwriter: writer
+stringy: evaluable iterable lengthy scalar
+systemdict: module
+type: object
+writable: object
+writer: closeable flushable writable
