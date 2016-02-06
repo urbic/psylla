@@ -9,6 +9,13 @@
 <formalpara>
 <title>Наследует:</title>
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata scale="50" fileref="PsiTypesHierarchy_array.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
 </formalpara>
 
 </section>

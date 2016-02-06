@@ -11,6 +11,13 @@ containers.
 &TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsiTypesHierarchy_null.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
 </formalpara>
 
 </section>
