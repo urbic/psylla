@@ -4,7 +4,7 @@ package coneforest.psi;
  *	A representation of Ψ-{@code condition} object.
  */
 public class PsiCondition
-	implements PsiAtomic
+	implements PsiObject
 {
 	/**
 	 *	@return a string {@code "condition"}.
