@@ -16,6 +16,9 @@ public interface PsiReadable
 		return "readable";
 	}
 
+	public int read()
+		throws PsiException;
+
 	/**
 	*	Read a character (Ψ-{@code integer}) from this object and returns it.
 	*	Returns {@link PsiInteger#MINUS_ONE} when end of input has been
@@ -25,8 +28,11 @@ public interface PsiReadable
 	*	object.
 	*	@throws PsiException when error occurs.
 	*/
-	public PsiInteger psiRead()
-		throws PsiException;
+	default public PsiInteger psiRead()
+		throws PsiException
+	{
+		return PsiInteger.valueOf(read());
+	}
 
 	/**
 	 *	Read a Ψ-{@code string} from this object and returns it.
