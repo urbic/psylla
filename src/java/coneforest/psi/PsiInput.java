@@ -32,12 +32,12 @@ public class PsiInput
 	}
 
 	@Override
-	public PsiInteger psiRead()
+	public int read()
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(input.read());
+			return input.read();
 		}
 		catch(java.io.IOException e)
 		{

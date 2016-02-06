@@ -45,12 +45,12 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiInteger psiRead()
+	public int read()
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(reader.read());
+			return reader.read();
 		}
 		catch(java.io.IOException e)
 		{
@@ -59,13 +59,13 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiString psiReadString(PsiInteger count)
+	public PsiString psiReadString(PsiInteger oCount)
 		throws PsiException
 	{
-		final long countValue=count.longValue();
-		if(countValue<=0)
+		final long count=oCount.longValue();
+		if(count<=0)
 			throw new PsiRangeCheckException();
-		if(countValue>Integer.MAX_VALUE)
+		if(count>Integer.MAX_VALUE)
 			throw new PsiLimitCheckException();
 		try
 		{
@@ -75,7 +75,7 @@ public class PsiReader
 			buffer.flip();
 			return new PsiString(buffer.toString());
 			*/
-			char[] buffer=new char[(int)countValue];
+			char[] buffer=new char[(int)count];
 			reader.read(buffer);
 			return new PsiString(new String(buffer));
 		}
@@ -116,13 +116,13 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiBoolean psiSkip(PsiInteger count)
+	public PsiBoolean psiSkip(PsiInteger oCount)
 		throws PsiException
 	{
-		long countValue=count.longValue();
+		long count=oCount.longValue();
 		try
 		{
-			return PsiBoolean.valueOf(countValue==reader.skip(countValue));
+			return PsiBoolean.valueOf(count==reader.skip(count));
 		}
 		catch(IllegalArgumentException e)
 		{
