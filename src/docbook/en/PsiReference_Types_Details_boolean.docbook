@@ -17,7 +17,7 @@ objects of this type: <constant>false</constant> and <constant>true</constant>.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_boolean.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_boolean.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

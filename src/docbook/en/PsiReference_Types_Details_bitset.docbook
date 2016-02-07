@@ -18,7 +18,7 @@
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_bitset.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_bitset.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

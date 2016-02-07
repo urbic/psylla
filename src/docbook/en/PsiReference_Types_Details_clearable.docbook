@@ -12,7 +12,7 @@ The type of containers that can be cleared (emptied) in some sense.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_clearable.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_clearable.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

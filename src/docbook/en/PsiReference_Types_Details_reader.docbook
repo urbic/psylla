@@ -16,7 +16,7 @@ XXX
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_reader.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_reader.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

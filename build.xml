@@ -22,7 +22,6 @@
 	<property name="target.man"  location="${target}/man"/>
 	<property name="target.doc.html" location="${target.doc}/html"/>
 	<property name="target.vim" location="${target}/vim"/>
-	<property name="installroot"  location="${target}/installroot"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<property name="home.javadoc.java" location="/usr/share/javadoc/java"/>
@@ -39,7 +38,6 @@
 	<import file="${src.ant}/htmldocs.ant"/>
 	<import file="${src.ant}/manpages.ant"/>
 	<import file="${src.ant}/obs.ant"/>
-	<import file="${src.ant}/install.ant"/>
 
 	<target name="compile.jj">
 		<mkdir dir="${target.src.java}/coneforest/psi"/>
@@ -145,7 +143,16 @@
 
 	<target name="htmldocs" description="Make documentation" depends="css">
 		<mkdir dir="${target.doc.html}"/>
+		<mkdir dir="${target.doc.html}/common"/>
 		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
+		<apply dest="${target.doc.html}/common" dir="${src.docbook}" executable="perl">
+			<arg value="make-types-hierarchy.pl"/>
+			<arg value="-O"/>
+			<arg value="${target.doc.html}/common"/>
+			<srcfile/>
+			<fileset dir="${src.docbook}/common" includes="PsiTypesHierarchy.txt"/>
+			<mapper type="glob" from="*.txt" to="*.svg"/>
+		</apply>
 		<xslt.html.lang lang="ru" base.name="PsiReference"/>
 		<xslt.html.lang lang="en" base.name="PsiReference"/>
 		<copy todir="${target.doc.html}">

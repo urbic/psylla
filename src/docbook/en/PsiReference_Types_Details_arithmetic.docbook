@@ -14,7 +14,7 @@ negation, multiplication and division.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_arithmetic.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_arithmetic.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

@@ -12,7 +12,7 @@
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_string.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_string.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>
