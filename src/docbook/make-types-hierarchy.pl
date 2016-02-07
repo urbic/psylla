@@ -40,7 +40,8 @@ digraph $head
 		style="filled",
 		fillcolor="linen",
 		fontname="monospace",
-		// URL="PsiReference_Types.xhtml#PsiReference_Types_Details_\\N"
+		href="../PsiReference_Types.xhtml#PsiReference_Types_Details_\\N",
+		target="_parent"
 	]
 __DOT__
 	while(@agenda)
@@ -83,6 +84,7 @@ __DOT__
 	{
 		my $rhs=shift @agenda;
 		next if exists $processed{$rhs};
+		print "[$rhs]\n";
 		$processed{$rhs}++;
 		next unless defined $h{$rhs};
 		push @agenda, @{$h{$rhs}};

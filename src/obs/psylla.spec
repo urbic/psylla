@@ -28,7 +28,6 @@ BuildRequires:	java-devel >= 1.8.0
 BuildRequires:	jline
 BuildRequires:	ant
 BuildRequires:	javacc
-
 Requires:		java >= 1.8.0
 Requires:		jline
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -46,11 +45,20 @@ BuildRequires:	ant-apache-resolver
 BuildRequires:	xerces-j2-xml-apis
 BuildRequires:	xslthl
 BuildRequires:	rubygem-sass
+BuildRequires:	graphviz
 
 %description doc
 This package contains documentation for Psylla.
 Psylla is extensible and embeddable Psi implementation written in Java.
 Psi is scriptable interpretive PostScript-like programming language.
+
+%package javadoc
+Summary:	Javadocs for %{name}
+Group:		Documentation
+Requires:	jpackage-utils
+
+%description javadoc
+This package contains the API documentation for %{name}.
 
 %prep
 %setup -q
@@ -58,16 +66,22 @@ Psi is scriptable interpretive PostScript-like programming language.
 %build
 LANG=ru_RU.UTF-8 \
 CLASSPATH=/usr/share/java/xerces-j2-xml-apis.jar \
-	ant build
+	ant build javadoc
 
 %install
-ant\
-	-Dinstallroot=%{buildroot}\
-	-Djava.dir=%{_javadir}\
-	-Dbin.dir=%{_bindir}\
-	-Ddoc.dir=%{_defaultdocdir}/%{name}\
-	-Ddata.dir=%{_datadir}\
-	install
+%{__install} -d %{buildroot}%{_datadir}
+%{__install} -d %{buildroot}%{_javadir}
+%{__install} -d %{buildroot}%{_bindir}
+%{__install} -d %{buildroot}%{_defaultdocdir}/%{name}{,-doc}
+%{__install} -d %{buildroot}%{_javadocdir}/%{name}
+%{__install} -d %{buildroot}%{_datadir}/vim/site/{ftdetect,syntax}
+%{__install} -m 644 target/lib/%{name}.jar %{buildroot}%{_datadir}/java
+%{__install} -m 755 target/bin/* %{buildroot}%{_bindir}
+%{__cp} -pr target/doc/{html,examples} %{buildroot}%{_defaultdocdir}/%{name}-doc
+%{__install} -m 644 target/doc/{README,LICENSE,AUTHORS} %{buildroot}%{_defaultdocdir}/%{name}
+%{__install} -m 644 target/vim/syntax/*.vim %{buildroot}%{_datadir}/vim/site/syntax
+%{__install} -m 644 target/vim/ftdetect/*.vim %{buildroot}%{_datadir}/vim/site/ftdetect
+%{__cp} -pr target/doc/javadoc/* %{buildroot}%{_javadocdir}/%{name}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -86,8 +100,10 @@ ant\
 
 %files doc
 %defattr(-,root,root)
-%doc target/doc/examples
-%doc target/doc/html
+%doc target/doc/{examples,html}
+
+%files javadoc
+%defattr(0644,root,root,0755)
+%{_javadocdir}/%{name}
 
 #%%changelog
-

@@ -11,7 +11,7 @@ TODO.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_type.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_type.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

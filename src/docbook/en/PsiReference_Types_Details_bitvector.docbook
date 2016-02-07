@@ -20,7 +20,7 @@
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsiTypesHierarchy_bitvector.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_bitvector.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

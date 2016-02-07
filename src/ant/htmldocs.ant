@@ -58,11 +58,8 @@
 				<param name="base.dir" expression="${target.doc.html}/@{lang}"/>
 				<param name="l10n.gentext.language" expression="@{lang}"/>
 			</xslt.html>
-			<exec dir="${src.docbook}" executable="./make-types-hierarchy.pl">
-				<arg value="-O"/>
-				<arg value="${target.doc.html}/@{lang}"/>
-				<arg value="PsiTypesHierarchy.txt"/>
-			</exec>
+			<delete file="${target.doc.html}/@{lang}/@{base.name}.html" quiet="yes"/>
+			<symlink resource="../common" link="${target.doc.html}/@{lang}/common" overwrite="true"/>
 		</sequential>
 	</macrodef>
 
