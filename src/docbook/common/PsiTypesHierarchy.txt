@@ -6,6 +6,7 @@ arraylike: appendable container indexed
 atomic: object
 bitset: setlike
 bitvector: arraylike logical
+bitwise: object
 blockingqueue: closeable queuelike
 boolean: atomic logical scalar
 bounded: lengthy
@@ -28,7 +29,7 @@ filewriter: writer
 flushable: object
 indexed: object
 input: closeable readable resettable
-integer: logical numeric
+integer: bitwise logical numeric
 iterable: object
 lengthy: object
 lock: object

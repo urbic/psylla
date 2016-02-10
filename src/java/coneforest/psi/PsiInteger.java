@@ -5,8 +5,9 @@ package coneforest.psi;
  */
 public class PsiInteger
 	implements
-		PsiNumeric,
-		PsiLogical<PsiInteger>
+		PsiBitwise,
+		PsiLogical<PsiInteger>,
+		PsiNumeric
 {
 	public PsiInteger(final long value)
 	{
@@ -106,6 +107,46 @@ public class PsiInteger
 		if(value>0L)
 			return this;
 		return psiNeg();
+	}
+
+	@Override
+	public PsiBoolean psiTestBit(PsiInteger oBit)
+		throws PsiException
+	{
+		long bit=oBit.value;
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		return PsiBoolean.valueOf((value&(1<<bit))!=0);
+	}
+
+	@Override
+	public PsiInteger psiClearBit(PsiInteger oBit)
+		throws PsiException
+	{
+		long bit=oBit.value;
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		return PsiInteger.valueOf(value&~(1<<bit));
+	}
+
+	@Override
+	public PsiInteger psiSetBit(PsiInteger oBit)
+		throws PsiException
+	{
+		long bit=oBit.value;
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		return PsiInteger.valueOf(value|(1<<bit));
+	}
+
+	@Override
+	public PsiInteger psiFlipBit(PsiInteger oBit)
+		throws PsiException
+	{
+		long bit=oBit.value;
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		return PsiInteger.valueOf(value^(1<<bit));
 	}
 
 	@Override
@@ -297,9 +338,10 @@ public class PsiInteger
 		return PsiInteger.valueOf(value/integer.value);
 	}
 
-	public PsiInteger psiBitShift(final PsiInteger shift)
+	@Override
+	public PsiInteger psiBitShift(final PsiInteger oShift)
 	{
-		return PsiInteger.valueOf(shift.value>=0? value<<shift.value: value>>(-shift.value));
+		return PsiInteger.valueOf(oShift.value>=0? value<<oShift.value: value>>(-oShift.value));
 	}
 
 	public PsiBoolean psiInUnicodeBlock(PsiStringy stringy)
