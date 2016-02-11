@@ -22,6 +22,7 @@
 <!ENTITY PsiReference_Types_Details_atomic				SYSTEM "PsiReference_Types_Details_atomic.docbook">
 <!ENTITY PsiReference_Types_Details_bitvector			SYSTEM "PsiReference_Types_Details_bitvector.docbook">
 <!ENTITY PsiReference_Types_Details_bitset				SYSTEM "PsiReference_Types_Details_bitset.docbook">
+<!ENTITY PsiReference_Types_Details_bitwise				SYSTEM "PsiReference_Types_Details_bitwise.docbook">
 <!ENTITY PsiReference_Types_Details_blockingqueue		SYSTEM "PsiReference_Types_Details_blockingqueue.docbook">
 <!ENTITY PsiReference_Types_Details_boolean				SYSTEM "PsiReference_Types_Details_boolean.docbook">
 <!ENTITY PsiReference_Types_Details_clearable			SYSTEM "PsiReference_Types_Details_clearable.docbook">

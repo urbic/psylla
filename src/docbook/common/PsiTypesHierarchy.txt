@@ -4,6 +4,7 @@ arithmetic: additive
 array: arraylike
 arraylike: appendable container indexed
 atomic: object
+biginteger: bitwise logical numeric
 bitset: setlike
 bitvector: arraylike logical
 bitwise: object
