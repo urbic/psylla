@@ -852,7 +852,7 @@ output</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ready" xrefstyle="template:%t"/></term>
-<listitem>input is ready?</listitem>
+<listitem>input is ready to be read?</listitem>
 </varlistentry>
 
 <varlistentry>

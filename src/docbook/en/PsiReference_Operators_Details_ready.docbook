@@ -18,7 +18,10 @@
 </itemizedlist>
 </synopsis>
 
-<remark>TODO</remark>
+<para>
+Returns <constant>true</constant>, if the <replaceable>input</replaceable> is
+ready to be read, and <constant>false</constant> otherwise.
+</para>
 
 <para>
 Generates <xref xrefstyle="template:%t"

@@ -18,7 +18,10 @@
 </itemizedlist>
 </synopsis>
 
-<remark>TODO</remark>
+<para>
+Возвращает <constant>true</constant>, если <replaceable>читатель</replaceable>
+готов для чтения, и <constant>false</constant> в противном случае.
+</para>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"
