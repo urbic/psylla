@@ -51,14 +51,14 @@ public interface PsiComplexNumeric
 	 *
 	 *	@return a Ψ-{@code numeric} real part.
 	 */
-	public PsiNumeric psiRe();
+	public PsiNumeric psiRealPart();
 
 	/**
 	 *	Returns a Ψ-{@code numeric} imaginary part of this object.
 	 *
 	 *	@return a Ψ-{@code numeric} imaginary part.
 	 */
-	public PsiNumeric psiIm();
+	public PsiNumeric psiImagPart();
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the complex argument of this
@@ -194,7 +194,7 @@ public interface PsiComplexNumeric
 	default public PsiBoolean psiEq(final PsiObject obj)
 	{
 		return PsiBoolean.valueOf(obj instanceof PsiComplexNumeric
-				&& psiRe().psiEq(((PsiComplexNumeric)obj).psiRe()).booleanValue()
-				&& psiIm().psiEq(((PsiComplexNumeric)obj).psiIm()).booleanValue());
+				&& psiRealPart().psiEq(((PsiComplexNumeric)obj).psiRealPart()).booleanValue()
+				&& psiImagPart().psiEq(((PsiComplexNumeric)obj).psiImagPart()).booleanValue());
 	}
 }

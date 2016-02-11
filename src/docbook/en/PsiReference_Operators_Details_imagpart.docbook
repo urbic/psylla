@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_re">
-<title><token language="psi">re</token></title>
+<section xml:id="PsiReference_Operators_Details_imagpart">
+<title><token language="psi">imagpart</token></title>
 
 <synopsis>
-<replaceable>число</replaceable>
-<token language="psi">re</token>
-<replaceable>вещественная_часть</replaceable>
+<replaceable>number</replaceable>
+<token language="psi">imagpart</token>
+<replaceable>imaginary_part</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>число</replaceable>:
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
 </listitem>
 <listitem>
-<replaceable>вещественная_часть</replaceable>:
+<replaceable>imaginary_part</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>вещественную_часть</replaceable>
-<replaceable>числа</replaceable>.
+Returns the <replaceable>imaginary_part</replaceable> of the
+<replaceable>number</replaceable>.
 </para>
 
 <formalpara>
@@ -36,7 +36,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_complex"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_complexpolar"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_conjugate"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_im"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_realpart"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_signum"/>.
 </formalpara>
 

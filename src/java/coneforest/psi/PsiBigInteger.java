@@ -155,13 +155,13 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiBigInteger psiRe()
+	public PsiBigInteger psiRealPart()
 	{
 		return this;
 	}
 
 	@Override
-	public PsiBigInteger psiIm()
+	public PsiBigInteger psiImagPart()
 	{
 		return new PsiBigInteger(java.math.BigInteger.ZERO);
 	}

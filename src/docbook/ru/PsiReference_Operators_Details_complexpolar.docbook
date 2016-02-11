@@ -42,8 +42,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_complex"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_conjugate"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_im"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_re"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_imagpart"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_realpart"/>.
 </formalpara>
 
 </section>

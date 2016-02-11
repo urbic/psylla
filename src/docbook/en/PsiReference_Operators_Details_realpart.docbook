@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_re">
-<title><token language="psi">re</token></title>
+<section xml:id="PsiReference_Operators_Details_realpart">
+<title><token language="psi">realpart</token></title>
 
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psi">re</token>
+<token language="psi">realpart</token>
 <replaceable>real_part</replaceable>
 <itemizedlist>
 <listitem>
@@ -36,7 +36,7 @@ Returns the <replaceable>real_part</replaceable> of the
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_complex"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_complexpolar"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_conjugate"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_im"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_imagpart"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_signum"/>.
 </formalpara>
 

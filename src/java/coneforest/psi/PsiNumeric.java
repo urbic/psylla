@@ -28,7 +28,7 @@ public interface PsiNumeric
 	/**
 	 *	@return this object.
 	 */
-	default public PsiNumeric psiRe()
+	default public PsiNumeric psiRealPart()
 	{
 		return this;
 	}
