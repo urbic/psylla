@@ -91,14 +91,14 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiCmp(final PsiNumeric numeric)
+	public PsiInteger psiCmp(final PsiNumeric oNumeric)
 	{
-		if(numeric instanceof PsiInteger)
-			return value<((PsiInteger)numeric).value? MINUS_ONE:
-				value>((PsiInteger)numeric).value? ONE: ZERO;
+		if(oNumeric instanceof PsiInteger)
+			return value<((PsiInteger)oNumeric).value? MINUS_ONE:
+				value>((PsiInteger)oNumeric).value? ONE: ZERO;
 		else
-			return value<((PsiReal)numeric).doubleValue()? MINUS_ONE:
-				value>((PsiReal)numeric).doubleValue()? ONE: ZERO;
+			return value<((PsiReal)oNumeric).doubleValue()? MINUS_ONE:
+				value>((PsiReal)oNumeric).doubleValue()? ONE: ZERO;
 	}
 
 	@Override
@@ -190,32 +190,36 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiNumeric psiMul(final PsiNumeric numeric)
+	public PsiNumeric psiMul(final PsiNumeric oNumeric)
 	{
-		if(numeric instanceof PsiInteger)
+		if(oNumeric instanceof PsiInteger)
 		{
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedMultiply(long, long)
-			long numericValue=((PsiInteger)numeric).value;
+			long numeric=((PsiInteger)oNumeric).value;
 			int leadingZeros
 				=Long.numberOfLeadingZeros(value)
 				+Long.numberOfLeadingZeros(~value)
-				+Long.numberOfLeadingZeros(numericValue)
-				+Long.numberOfLeadingZeros(~numericValue);
+				+Long.numberOfLeadingZeros(numeric)
+				+Long.numberOfLeadingZeros(~numeric);
 			if(leadingZeros>Long.SIZE+1)
-				return PsiInteger.valueOf(value*numericValue);
+				return PsiInteger.valueOf(value*numeric);
 
-			if(leadingZeros>=Long.SIZE && value>=0 | numericValue!=Long.MIN_VALUE)
+			if(leadingZeros>=Long.SIZE && value>=0 | numeric!=Long.MIN_VALUE)
 			{
-				long resultValue=value*numericValue;
-				return (value==0 || resultValue/value==numericValue)?
-					PsiInteger.valueOf(resultValue): new PsiReal(doubleValue()*numeric.doubleValue());
+				long result=value*numeric;
+				return (value==0 || result/value==numeric)?
+					PsiInteger.valueOf(result): new PsiReal(doubleValue()*oNumeric.doubleValue());
 			}
 			else
-				return new PsiReal(doubleValue()*numeric.doubleValue());
+				return new PsiReal(doubleValue()*oNumeric.doubleValue());
 
 		}
-		return new PsiReal(doubleValue()*numeric.doubleValue());
+		else if(oNumeric instanceof PsiBigInteger)
+		{
+			return new PsiBigInteger(this).psiMul((PsiBigInteger)oNumeric);
+		}
+		return new PsiReal(doubleValue()*oNumeric.doubleValue());
 
 	}
 
