@@ -16,7 +16,8 @@
 </synopsis>
 
 <para>
-Returns an <replaceable>exponent</replaceable> of a <replaceable>number</replaceable>.
+Returns the <replaceable>exponent</replaceable> of a
+<replaceable>number</replaceable>.
 </para>
 
 <para>

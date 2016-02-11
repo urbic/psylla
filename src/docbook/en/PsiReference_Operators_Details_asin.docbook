@@ -16,7 +16,7 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>arc_sine</replaceable> of a
+Returns the <replaceable>arc_sine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 

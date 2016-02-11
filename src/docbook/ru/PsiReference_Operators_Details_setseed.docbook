@@ -32,7 +32,8 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdrandom"/>.
 </formalpara>
 
 </section>

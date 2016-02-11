@@ -16,7 +16,7 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>cosine</replaceable> of a
+Returns the <replaceable>cosine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 

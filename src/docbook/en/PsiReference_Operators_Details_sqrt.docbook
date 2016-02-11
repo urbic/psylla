@@ -16,7 +16,7 @@
 </synopsis>
 
 <para>
-Returns a square <replaceable>root</replaceable> of the
+Returns the square <replaceable>root</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 

@@ -16,7 +16,8 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>sine</replaceable> of a <replaceable>number</replaceable>.
+Returns the <replaceable>sine</replaceable> of a
+<replaceable>number</replaceable>.
 </para>
 
 <para>

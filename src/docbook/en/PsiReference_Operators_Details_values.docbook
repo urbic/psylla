@@ -19,7 +19,7 @@
 </synopsis>
 
 <para>
-Returns an <replaceable>enumeration</replaceable> of values containing in
+Returns the <replaceable>enumeration</replaceable> of values containing in
 the <replaceable>indexed</replaceable> container.
 </para>
 

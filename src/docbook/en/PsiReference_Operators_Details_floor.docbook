@@ -16,7 +16,8 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>floor</replaceable> of the <replaceable>number</replaceable>.
+Returns the <replaceable>floor</replaceable> of the
+<replaceable>number</replaceable>.
 </para>
 
 <para>
