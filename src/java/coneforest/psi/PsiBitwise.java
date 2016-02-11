@@ -21,5 +21,5 @@ public interface PsiBitwise
 	public PsiBoolean psiTestBit(final PsiInteger oBit)
 		throws PsiException;
 
-	public PsiInteger psiBitShift(final PsiInteger oShift);
+	public PsiBitwise psiBitShift(final PsiInteger oShift);
 }
