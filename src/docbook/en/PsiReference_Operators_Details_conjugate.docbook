@@ -36,8 +36,8 @@ Rturns the complex <replaceable>conjugation</replaceable> of the
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_im"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_re"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_imagpart"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_realpart"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_signum"/>.
 </formalpara>
 

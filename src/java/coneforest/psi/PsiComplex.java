@@ -30,7 +30,7 @@ public class PsiComplex
 
 	public PsiComplex(final PsiComplexNumeric oNumber)
 	{
-		this(oNumber.psiRe(), oNumber.psiIm());
+		this(oNumber.psiRealPart(), oNumber.psiImagPart());
 	}
 
 	/**
@@ -67,13 +67,13 @@ public class PsiComplex
 	}
 
 	@Override
-	public PsiReal psiRe()
+	public PsiReal psiRealPart()
 	{
 		return new PsiReal(re);
 	}
 
 	@Override
-	public PsiReal psiIm()
+	public PsiReal psiImagPart()
 	{
 		return new PsiReal(im);
 	}
@@ -102,28 +102,28 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiAdd(final PsiComplexNumeric cn)
 	{
-		return new PsiComplex(re+cn.psiRe().doubleValue(), im+cn.psiIm().doubleValue());
+		return new PsiComplex(re+cn.psiRealPart().doubleValue(), im+cn.psiImagPart().doubleValue());
 	}
 
 	@Override
 	public PsiComplex psiSub(final PsiComplexNumeric cn)
 	{
-		return new PsiComplex(re-cn.psiRe().doubleValue(), im-cn.psiIm().doubleValue());
+		return new PsiComplex(re-cn.psiRealPart().doubleValue(), im-cn.psiImagPart().doubleValue());
 	}
 
 	@Override
 	public PsiComplex psiMul(final PsiComplexNumeric cn)
 	{
-		final double x=cn.psiRe().doubleValue();
-		final double y=cn.psiIm().doubleValue();
+		final double x=cn.psiRealPart().doubleValue();
+		final double y=cn.psiImagPart().doubleValue();
 		return new PsiComplex(re*x-im*y, im*x+re*y);
 	}
 
 	@Override
 	public PsiComplex psiDiv(final PsiComplexNumeric cn)
 	{
-		final double x=cn.psiRe().doubleValue();
-		final double y=cn.psiIm().doubleValue();
+		final double x=cn.psiRealPart().doubleValue();
+		final double y=cn.psiImagPart().doubleValue();
 		if(Math.abs(x)<Math.abs(y))
 		{
 			final double q=x/y;

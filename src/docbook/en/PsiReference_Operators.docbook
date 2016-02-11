@@ -245,7 +245,7 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_im" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsiReference_Operators_Details_imagpart" xrefstyle="template:%t"/></term>
 <listitem>the real part of a number</listitem>
 </varlistentry>
 
@@ -285,7 +285,7 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_re" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsiReference_Operators_Details_realpart" xrefstyle="template:%t"/></term>
 <listitem>the real part of a number</listitem>
 </varlistentry>
 
@@ -1510,7 +1510,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_idiv;
 &PsiReference_Operators_Details_if;
 &PsiReference_Operators_Details_ifelse;
-&PsiReference_Operators_Details_im;
+&PsiReference_Operators_Details_imagpart;
 &PsiReference_Operators_Details_index;
 &PsiReference_Operators_Details_insert;
 &PsiReference_Operators_Details_insertall;
@@ -1562,12 +1562,12 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_putinterval;
 &PsiReference_Operators_Details_quit;
 &PsiReference_Operators_Details_random;
-&PsiReference_Operators_Details_re;
 &PsiReference_Operators_Details_read;
 &PsiReference_Operators_Details_readline;
 &PsiReference_Operators_Details_readlink;
 &PsiReference_Operators_Details_readstring;
 &PsiReference_Operators_Details_ready;
+&PsiReference_Operators_Details_realpart;
 &PsiReference_Operators_Details_regexp;
 &PsiReference_Operators_Details_remove;
 &PsiReference_Operators_Details_removeall;

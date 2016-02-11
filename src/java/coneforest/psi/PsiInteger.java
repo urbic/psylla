@@ -48,7 +48,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiIm()
+	public PsiInteger psiImagPart()
 	{
 		return ZERO;
 	}

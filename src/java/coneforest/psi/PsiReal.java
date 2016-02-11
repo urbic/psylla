@@ -45,7 +45,7 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiReal psiIm()
+	public PsiReal psiImagPart()
 	{
 		return new PsiReal(0.D);
 	}
