@@ -3,25 +3,25 @@
 <title><token language="psi">setseed</token></title>
 
 <synopsis>
-<replaceable>генератор</replaceable>
-<replaceable>значение</replaceable>
+<replaceable>generator</replaceable>
+<replaceable>seed</replaceable>
 <token language="psi">setseed</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>генератор</replaceable>:
+<replaceable>generator</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
 </listitem>
 <listitem>
-<replaceable>значение</replaceable>:
+<replaceable>seed</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Устанавливает начальное <replaceable>значение</replaceable>
-<replaceable>генератора</replaceable> псевдослучайных чисел.
+Sets the <replaceable>seed</replaceable> for pseudorandom
+<replaceable>generator</replaceable>.
 </para>
 
 <formalpara>
@@ -32,7 +32,8 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_random"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdrandom"/>.
 </formalpara>
 
 </section>

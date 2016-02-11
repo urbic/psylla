@@ -18,7 +18,7 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>quotient</replaceable> of the integer division of the
+Returns the <replaceable>quotient</replaceable> of the integer division of the
 <replaceable>dividend</replaceable> by the nonzero
 <replaceable>divisor</replaceable>. The sign of the
 <replaceable>quotient</replaceable> coincides with the product of the operands

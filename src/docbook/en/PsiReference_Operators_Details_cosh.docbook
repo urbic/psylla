@@ -16,7 +16,7 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>hyperbolic_cosine</replaceable> of a
+Returns the <replaceable>hyperbolic_cosine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 

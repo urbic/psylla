@@ -15,7 +15,7 @@
 </synopsis>
 
 <para>
-Returns a current execution <replaceable>context</replaceable>.
+Returns the current execution <replaceable>context</replaceable>.
 </para>
 
 <formalpara>

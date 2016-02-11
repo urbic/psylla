@@ -18,7 +18,7 @@
 </synopsis>
 
 <para>
-Returns a <replaceable>minimum</replaceable> of two
+Returns the <replaceable>minimum</replaceable> of two
 <replaceable>scalars</replaceable>.
 </para>
 

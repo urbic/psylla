@@ -15,7 +15,7 @@
 </synopsis>
 
 <para>
-Returns a cubic <replaceable>root</replaceable> of
+Returns the cubic <replaceable>root</replaceable> of
 the <replaceable>number</replaceable>.
 </para>
 
