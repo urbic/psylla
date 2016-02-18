@@ -56,13 +56,61 @@ comments into each other is not allowed.
 <title>Numbers</title>
 
 <para>
+There are several kinds of number literals in the Ψ language:
+
+<itemizedlist>
+<listitem>
+<para>
+Decimal integers, such as
+<programlisting language="psi">720
+-13
+0
++504</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Hexadecimal integers, such as
+<programlisting language="psi">0x13AF
+-0X31123e4</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Binary integers, such as
+<programlisting language="psi">0b101110101
+-0B111010</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Integers represented by characters, such as
+<programlisting language="psi">`X
+`\n</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Real numbers, such as
+<programlisting language="psi">-.5
+1.
+-1.0
+1e5
+7.673E-3</programlisting>
+</para>
+</listitem>
+</itemizedlist>
+
+</para>
+
+<para>
 В программе могут создаваться числовые объекты целого, вещественного и
 комплексного типов. В языке предусмотрено литеральное представление только
 для целых и вещественных чисел. Целые числа могут записываться в десятичной,
 шестнадцатеричной или двоичной форме.
 </para>
 
-<section xml:id="PsiReference_Language_Syntax_Numbers_Decimal">
+<!--section xml:id="PsiReference_Language_Syntax_Numbers_Decimal">
 <title>Decimal Literals</title>
 
 <para>
@@ -90,9 +138,9 @@ comments into each other is not allowed.
 начинаются с необязательного знака <literal>+</literal> или
 <literal>-</literal>, символов <literal>0X</literal> или <literal>0x</literal>
 и завершаются произвольным количеством шестнадцатеричных цифр
-<literal>0</literal>—<literal>9</literal> и
-<literal>A</literal>—<literal>F</literal> или
-<literal>a</literal>—<literal>f</literal>.
+<literal>0</literal>‥<literal>9</literal> и
+<literal>A</literal>‥<literal>F</literal> или
+<literal>a</literal>‥<literal>f</literal>.
 </para>
 
 </section>
@@ -109,7 +157,7 @@ comments into each other is not allowed.
 <literal>1</literal>.
 </para>
 
-</section>
+</section-->
 
 
 </section>
@@ -198,9 +246,9 @@ comments into each other is not allowed.
 <firstterm>Имена</firstterm><indexterm><primary>имя</primary></indexterm>
 состоят из букв от <literal>A</literal> до <literal>Z</literal> и
 от <literal>a</literal> до <literal>z</literal>
-(<constant>U+41</constant>—<constant>U+5A</constant>,
-<constant>U+61</constant>—<constant>U+7A</constant>), десятичных цифр
-(<constant>U+30</constant>—<constant>U+39</constant>), символов
+(<constant>U+41</constant>‥<constant>U+5A</constant>,
+<constant>U+61</constant>‥<constant>U+7A</constant>), десятичных цифр
+(<constant>U+30</constant>‥<constant>U+39</constant>), символов
 <literal>_</literal> (<constant>U+5F</constant>),
 <literal>.</literal> (<constant>U+2E</constant>),
 <literal>+</literal> (<constant>U+2B</constant>),

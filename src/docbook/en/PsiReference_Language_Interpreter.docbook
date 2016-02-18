@@ -15,29 +15,30 @@ depending on situation, as data or instruction.
 </para>
 
 <para>
-Интерпретатор читает текст программы, извлекая из него
-<firstterm>лексемы</firstterm><indexterm><primary>лексема</primary></indexterm>,
-также называемые
-<firstterm>токенами</firstterm><indexterm><primary>токен</primary></indexterm>.
-Часть интерпретатора, которая последовательно извлекает токены из текста
-программы, называется
-<firstterm>парсером</firstterm><indexterm><primary>парсер</primary></indexterm>.
-В большинстве случаев прочитанный токен преобразуется в объект, который
-немедленно исполняется. Результат исполнения объекта полностью определяется его
-<firstterm>типом</firstterm><indexterm><primary>тип</primary><secondary>объекта</secondary></indexterm>,
-<firstterm>атрибутами</firstterm><indexterm><primary>атрибут</primary><secondary>объекта</secondary></indexterm>
-и его
-<firstterm>значением</firstterm><indexterm><primary>значение</primary><secondary>объекта</secondary></indexterm>.
-Особый вид токенов,
-<firstterm>комментарий</firstterm><indexterm><primary>комментарий</primary></indexterm>,
-игнорируется интерпретатором. Объекты некоторых типов не могут быть созданы
-из токенов, но они могут возникать как результат исполнения операторов.
+The interpreter reads a program text and extracts
+<firstterm>lexemes</firstterm><indexterm><primary>lexeme</primary></indexterm>,
+also known as
+<firstterm>tokens</firstterm><indexterm><primary>token</primary></indexterm>.
+Part of the interpreter, which succesively extracts token from the program
+text, called
+<firstterm>parser</firstterm><indexterm><primary>parser</primary></indexterm>.
+In most cases, the token read is converted to object that is executed
+immediately. The result of the execution is completely determined by its
+type<firstterm>type</firstterm><indexterm><primary>type</primary><secondary>of
+an object</secondary></indexterm> and its
+<firstterm>value</firstterm><indexterm><primary>value</primary><secondary>of an
+object</secondary></indexterm>. A
+<firstterm>comment</firstterm><indexterm><primary>comment</primary></indexterm>,
+a special kind of tokens, is ignored by the interpreter. Objects of some types
+can not be created out of tokens, but they can occur as a result of the
+execution of operators.
 </para>
 
 <para>
-Для хранения данных во время исполнения программы интерпретатор имеет несколько
-<firstterm>стеков</firstterm>, которым посвящён раздел <xref
-linkend="PsiReference_Language_Stacks"/>.
+To store the data during the program execution the interpreter has several
+<firstterm>stacks</firstterm><indexterm><primary>stack</primary></indexterm>,
+to which the section <xref linkend="PsiReference_Language_Stacks"/> is
+dedicated.
 </para>
 
 </section>

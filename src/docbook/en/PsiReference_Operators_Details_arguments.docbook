@@ -19,7 +19,7 @@ The array of command-line arguments intended for the program. The arguments are
 presented as <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_name"/> objects.  <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arguments"/> is
-not an operator, but a <xref xrefstyle="template:%t"
+not an operator, but an <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_array"/> value in the system dictionary.
 </para>
 

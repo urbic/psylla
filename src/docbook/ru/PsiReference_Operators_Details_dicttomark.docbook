@@ -4,9 +4,11 @@
 
 <synopsis>
 <constant>mark</constant>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>ключ<subscript>1</subscript></replaceable>
+<replaceable>значение<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>ключ<subscript>n</subscript></replaceable>
+<replaceable>значение<subscript>n</subscript></replaceable>
 <token language="psi">dicttomark</token>
 <replaceable>словарь</replaceable>
 <itemizedlist>
@@ -15,9 +17,15 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>ключ<subscript>1</subscript></replaceable>,
+…,
+<replaceable>ключ<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>значение<subscript>1</subscript></replaceable>,
+…,
+<replaceable>значение<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
@@ -28,13 +36,19 @@
 </synopsis>
 
 <para>
+Возвращает новый <replaceable>словарь</replaceable>, содержащий пары
+ключ-значение, расположенные выше самой верхней метки в стеке операндов.
+Удаляет метку и объекты, расположенные выше неё, со стека операндов.
+</para>
+
+<para>
 Генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
 содержит метку; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если
-<replaceable>n</replaceable> нечётно; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_typecheck"/>, если хотя бы один из
-<replaceable>объектов</replaceable> с чётным индексом не принадлежит типу <xref
+linkend="PsiReference_Errors_Details_rangecheck"/>, если количество объектов
+выше самой верхней метки на стеке операндов нечётно; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>, если
+хотя бы один из <replaceable>ключей</replaceable> не принадлежит типу <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
 </para>
 

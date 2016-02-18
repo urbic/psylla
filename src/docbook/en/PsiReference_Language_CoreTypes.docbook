@@ -299,34 +299,35 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Dictionaries">
-<title>Словари</title>
+<title>Dictionaries</title>
 
 <para>
-<firstterm>Словарь</firstterm><indexterm><primary>словарь</primary></indexterm> представляет
-собой контейнер для объектов, проиндексированных именами. Такие структуры
-называют также <firstterm>ассоциативными
-массивами</firstterm><indexterm><primary>массив</primary><secondary>ассоциативный</secondary></indexterm>.
+A
+<firstterm>dictionary</firstterm><indexterm><primary>dictionary</primary></indexterm>
+is a container for objects indexed with names. Such structures also called
+<firstterm>associative
+arrays</firstterm><indexterm><primary>array</primary><secondary>associative</secondary></indexterm>.
 </para>
 
 <para>
-Словари интенсивно используются интерпретатором для ассоциации объектов
-(по большей части операторов и процедур) с именами. Каждый раз, когда парсер
-обнаруживает команду, интерпретатор осуществляет поиск объекта по имени команды
-в стеке словарей, после чего исполняет найденный объект.
+The interpreter intensively uses dictionaries to associate objects (typically
+operators and procedures) with names. Each time the parser detects a command,
+the interpreter searches the dictionary stack for an object associated withe
+the name of the command, and then executes the found object.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps">
-<title>Регулярные выражения</title>
+<title>Regular Expressions</title>
 
 <para>
-<firstterm>Регулярное выражение</firstterm><indexterm><primary>регулярное
-выражение</primary></indexterm> представляет шаблон поиска в строке.
+<firstterm>Regular expression</firstterm><indexterm><primary>regular
+expression</primary></indexterm> represents a template for search in a string.
 </para>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs">
-<title>Конструкции в регулярных выражениях</title>
+<title>Regular Expression Constructs</title>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Characters">
 <title>Символы</title>
@@ -387,7 +388,7 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_CharacterClasses">
-<title>Символьные классы</title>
+<title>Character Classes</title>
 
 <informaltable pgwide="1">
 <tgroup cols="2">
@@ -396,16 +397,16 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <tbody>
 <row>
 <entry><literal>[abc]</literal></entry>
-<entry><literal>a</literal>, <literal>b</literal> или <literal>c</literal></entry>
+<entry><literal>a</literal>, <literal>b</literal> or <literal>c</literal></entry>
 </row>
 <row>
 <entry><literal>[^abc]</literal></entry>
-<entry>любой символ, кроме <literal>a</literal>, <literal>b</literal> и <literal>c</literal></entry>
+<entry>any character except <literal>a</literal>, <literal>b</literal> и <literal>c</literal></entry>
 </row>
 <row>
 <entry><literal>[A-Za-z]</literal></entry>
-<entry>символы от <literal>A</literal> до <literal>Z</literal> или
-от <literal>a</literal> до <literal>z</literal> (включительно)</entry>
+<entry>characters from <literal>A</literal> to <literal>Z</literal> or
+from <literal>a</literal> to <literal>z</literal> (inclusively)</entry>
 </row>
 </tbody>
 </tgroup>
@@ -414,7 +415,7 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_PredefinedCharacterClasses">
-<title>Предопределённые символьные классы</title>
+<title>Predefined Character Classes</title>
 
 <informaltable pgwide="1">
 <tgroup cols="2">
@@ -423,31 +424,31 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <tbody>
 <row>
 <entry><literal>.</literal></entry>
-<entry>любой символ</entry>
+<entry>any character</entry>
 </row>
 <row>
 <entry><literal>\d</literal></entry>
-<entry>десятичная цифра, <literal>[0-9]</literal></entry>
+<entry>decimal digit, <literal>[0-9]</literal></entry>
 </row>
 <row>
 <entry><literal>\D</literal></entry>
-<entry>не десятичная цифра, <literal>[^0-9]</literal></entry>
+<entry>not decimal digit, <literal>[^0-9]</literal></entry>
 </row>
 <row>
 <entry><literal>\s</literal></entry>
-<entry>пробельный символ, <literal>[ \t\n\r\f\x{0B}]</literal></entry>
+<entry>whitespace character, <literal>[ \t\n\r\f\x{0B}]</literal></entry>
 </row>
 <row>
 <entry><literal>\S</literal></entry>
-<entry>непробельный символ, <literal>[^ \t\n\r\f\x{0B}]</literal></entry>
+<entry>non-whitespace character, <literal>[^ \t\n\r\f\x{0B}]</literal></entry>
 </row>
 <row>
 <entry><literal>\w</literal></entry>
-<entry>словный символ, <literal>[A-Za-z_\d]</literal></entry>
+<entry>word character, <literal>[A-Za-z_\d]</literal></entry>
 </row>
 <row>
 <entry><literal>\W</literal></entry>
-<entry>не словный символ, <literal>[^A-Za-z_\d]</literal></entry>
+<entry>non-word character, <literal>[^A-Za-z_\d]</literal></entry>
 </row>
 </tbody>
 </tgroup>
@@ -456,12 +457,12 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_POSIXCharacterClasses">
-<title>Символьные классы POSIX</title>
+<title><acronym>POSIX</acronym> Character Classes</title>
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Boundaries">
-<title>Граничные привязки</title>
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_BoundaryAnchors">
+<title>Boundary Anchors</title>
 
 <informaltable pgwide="1">
 <tgroup cols="2">
@@ -470,19 +471,19 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <tbody>
 <row>
 <entry><literal>^</literal></entry>
-<entry>начало строки</entry>
+<entry>beginning of the string</entry>
 </row>
 <row>
 <entry><literal>$</literal></entry>
-<entry>конец строки</entry>
+<entry>end of the string</entry>
 </row>
 <row>
 <entry><literal>\b</literal></entry>
-<entry>граница слова</entry>
+<entry>word boundary</entry>
 </row>
 <row>
 <entry><literal>\B</literal></entry>
-<entry>не граница слова</entry>
+<entry>not word boundary</entry>
 </row>
 <row>
 <entry><literal>\A</literal></entry>

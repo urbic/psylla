@@ -3,16 +3,16 @@
 <title><token language="psi">bitshift</token></title>
 
 <synopsis>
-<replaceable>integer</replaceable>
+<replaceable>bitwise</replaceable>
 <replaceable>shift</replaceable>
 <token language="psi">bitshift</token>
 <replaceable>result</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>integer</replaceable>,
+<replaceable>bitwise</replaceable>,
 <replaceable>shift</replaceable>,
 <replaceable>result</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitwise"/>
 </listitem>
 </itemizedlist>
 </synopsis>

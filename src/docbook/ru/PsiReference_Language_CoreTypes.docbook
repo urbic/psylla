@@ -456,11 +456,11 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_POSIXCharacterClasses">
-<title>Символьные классы POSIX</title>
+<title>Символьные классы <acronym>POSIX</acronym></title>
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Boundaries">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_BoundaryAnchors">
 <title>Граничные привязки</title>
 
 <informaltable pgwide="1">

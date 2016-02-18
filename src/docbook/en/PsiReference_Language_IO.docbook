@@ -28,19 +28,19 @@ characters and strings.
 </para>
 
 <section xml:id="PsiReference_Language_IO_BasicOperators">
-<title>Основные операторы ввода/вывода</title>
+<title>Basic Input/Output Operators</title>
 
 <para>
 Operators <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_read"/> and <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_write"/>,
-respectively read from a file or write from a file one character.
+respectively read from a file or write to a file one character.
 </para>
 
 <para>
 Operators <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_readstring"/> and <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>,
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>
 respectively read from a file or write to a file a character string. The <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readline"/>
 operator read from a file a string terminated by the platform-specific line

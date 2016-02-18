@@ -4,39 +4,40 @@
 
 <synopsis>
 <constant>mark</constant>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>0</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
 <token language="psi">arraytomark</token>
-<replaceable>массив</replaceable>
+<replaceable>array</replaceable>
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>,
+<replaceable>object<subscript>0</subscript></replaceable>,
 …,
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>object<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новый <replaceable>массив</replaceable>, заполненный объектами,
-расположенными над самой верхней меткой в стеке операндов. Объекты и метка
-удаляются из стека.
+Returns a new <replaceable>array</replaceable> filled with
+<replaceable>objects</replaceable> located above the topmost
+<constant>mark</constant> on the operand stack. Removes the
+<constant>mark</constant> and the objects from the operand stack.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
-содержит метки.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
+does not contain mark.
 </para>
 
 <formalpara>
