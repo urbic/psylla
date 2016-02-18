@@ -23,7 +23,7 @@
 Set the size of the <replaceable>array</replaceable> to the
 <replaceable>length</replaceable> by removing the necessary number of last
 elements, or adding the <replaceable>array</replaceable> to the specified
-<replaceable>length</replaceable> placeholders, corresponding to the type of
+<replaceable>length</replaceable> placeholders corresponding to the type of
 the <replaceable>array</replaceable>.
 </para>
 

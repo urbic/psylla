@@ -15,8 +15,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
+<replaceable>объект<subscript>0</subscript></replaceable>,
+…,
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
@@ -26,6 +26,18 @@
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Возвращает новое <replaceable>множество</replaceable>, элементами которого
+служат <replaceable>объекты</replaceable>, расположенные выше самой верхней
+метки на стеке операндов. Удаляет метку и расположенные выше неё объекты со стека.
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
+содержит метки.
+</para>
 
 <formalpara>
 &TitleExamples;
