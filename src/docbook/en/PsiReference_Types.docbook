@@ -3,38 +3,37 @@
 <title>Types</title>
 
 <para>
-В языке Ψ имеется гибкая и расширяемая система типов. Типы реализованы как
-классы или интерфейсы языка Java. Каждый объект в Ψ представлен как объект
-некоторого класса, реализующий интерфейс <classname>PsiObject</classname>.
+The Ψ language has a flexible and extendable type system. The types implemented
+as Java classes or interfaces. Each Ψ object is represented as an object of
+some class implementing the <classname>PsiObject</classname> interface.
 </para>
 
 <para>
-Расширяемость системы типов достигается за счёт программирования на Java новых
-производных от <classname>PsiObject</classname> классов. Создание новых типов
-средствами Ψ невозможно.
+Extensibility of the type system is based on the Java programming new classes
+from <classname>PsiObject</classname>. The creation of new types by means of
+Ψ language is impossible.
 </para>
 
 <para>
-Большинство операторов Ψ рассчитывают на определённый тип своих операндов. Так,
-оператор сложения <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_add"/> может применяться к числам, но
-не к строкам.
+Majority of Ψ operators expect operands of certain type. So, the addition
+operator <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_add"/> can be applied to the numbers,
+but not to strings.
 </para>
 
 <para>
-Некоторые операторы полиморфны, то есть способны менять свой смысл
-в соответствии с типом своих операндов. К примеру, тот же оператор <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_add"/>
-для целочисленных операндов возвращает результат целого типа (за исключением
-того случая, когда сумма выходит за границы целого типа; тогда результат имеет
-вещественный тип). Если один из операндов целый, а другой — вещественный,
-или же оба вещественные, результат также будет иметь вещественный тип. Если
-хотя бы один из операторов имеет комплексный тип, такого же типа будет
-результат. Другой пример: оператор <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_or"/> вычисляет дизъюнкцию своих
-операндов. Если оба операнда булевского типа, результат будет булевским, а если
-оба операнда целочисленные, выполняется побитовая дизъюнкция, и результат будет
-целым числом.
+Some operators are polymorphic, that is able to change its meaning in
+accordance with the type of its operands. For example, the same operator <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_add"/> for
+integer operands returns integer (except in the case where the sum is beyond
+the boundaries of integer type; then the result is real). If one of the
+operands is an integer, and the other is a real, or both are real, the result
+will also have a real type. If at least one of the operands has the complex
+type, the result will have the same type. Another example: the <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_or"/> operator
+returns the disjunction of its operands. If both operands are of boolean type,
+the result will be boolean, and if both operands are integer, bitwise
+disjunction is calculated, and the result will be integer.
 </para>
 
 <para>
@@ -50,7 +49,7 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 </para>
 
 <section xml:id="PsiReference_Types_Details">
-<title>Типы детально</title>
+<title>Types in Detail</title>
 
 &PsiReference_Types_Details_additive;
 &PsiReference_Types_Details_appendable;

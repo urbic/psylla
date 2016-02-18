@@ -20,16 +20,24 @@
 		<string>@</string>
 	</highlighter>
 
-	<highlighter type="number">
-		<exponent>E</exponent>
-		<point>.</point>
-		<pointStarts/>
-		<ignoreCase/>
+	<highlighter type="regex">
+		<pattern>[\+\-]?0[Xx][\dA-Fa-f]+</pattern>
+		<style>number</style>
+	</highlighter>
+
+	<highlighter type="regex">
+		<pattern>[\+\-]?0[Bb][01]+</pattern>
+		<style>number</style>
+	</highlighter>
+
+	<highlighter type="regex">
+		<pattern>[\+\-]?(\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?</pattern>
+		<style>number</style>
 	</highlighter>
 
 	<highlighter type="regex">
 		<pattern>`([^\\]|\\[efranux])</pattern>
-		<style>string</style>
+		<style>number</style>
 	</highlighter>
 
 	<highlighter type="regex">

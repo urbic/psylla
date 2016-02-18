@@ -4,35 +4,52 @@
 
 <synopsis>
 <constant>mark</constant>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>key<subscript>1</subscript></replaceable>
+<replaceable>value<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>key<subscript>n</subscript></replaceable>
+<replaceable>value<subscript>n</subscript></replaceable>
 <token language="psi">dicttomark</token>
-<replaceable>словарь</replaceable>
+<replaceable>dictionary</replaceable>
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>key<subscript>1</subscript></replaceable>,
+…,
+<replaceable>key<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>value<subscript>1</subscript></replaceable>,
+…,
+<replaceable>value<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>словарь</replaceable>:
+<replaceable>dictionary</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
-содержит метку; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если количество объектов
-выше метки на стеке операндов нечётно.
+Returns a new <replaceable>dictionary</replaceable> containing key-value pairs
+located above the topmost mark on the operand stack. Removes the mark and the
+objects above it from the operand stack.
+</para>
+
+<para>
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
+does not contain mark; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/> if there is an odd number of
+objects above the topmost mark on the operand stack; <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/> if at
+least one of <replaceable>keys</replaceable> does not belong to <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/> type.
 </para>
 
 <formalpara>

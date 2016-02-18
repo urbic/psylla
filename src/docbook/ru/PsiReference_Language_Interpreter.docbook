@@ -22,8 +22,7 @@
 <firstterm>парсером</firstterm><indexterm><primary>парсер</primary></indexterm>.
 В большинстве случаев прочитанный токен преобразуется в объект, который
 немедленно исполняется. Результат исполнения объекта полностью определяется его
-<firstterm>типом</firstterm><indexterm><primary>тип</primary><secondary>объекта</secondary></indexterm>,
-<firstterm>атрибутами</firstterm><indexterm><primary>атрибут</primary><secondary>объекта</secondary></indexterm>
+<firstterm>типом</firstterm><indexterm><primary>тип</primary><secondary>объекта</secondary></indexterm>
 и его
 <firstterm>значением</firstterm><indexterm><primary>значение</primary><secondary>объекта</secondary></indexterm>.
 Особый вид токенов,
