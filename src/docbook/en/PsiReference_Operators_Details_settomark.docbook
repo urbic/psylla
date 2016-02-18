@@ -4,28 +4,40 @@
 
 <synopsis>
 <constant>mark</constant>
-<replaceable>объект<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>0</subscript></replaceable>
 …
-<replaceable>объект<subscript>n−1</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
 <token language="psi">settomark</token>
-<replaceable>множество</replaceable>
+<replaceable>set</replaceable>
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
+<replaceable>object<subscript>0</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>множество</replaceable>:
+<replaceable>set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Returns a new <replaceable>set</replaceable> filled with
+<replaceable>objects</replaceable> located above the topmost mark on the
+operand stack. Removes the mark and the objects from the stack.
+</para>
+
+<para>
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
+does not contain mark.
+</para>
 
 <formalpara>
 &TitleExamples;

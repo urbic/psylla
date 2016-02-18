@@ -29,9 +29,8 @@
 
 <para>
 Returns a new <replaceable>array</replaceable> filled with
-<replaceable>objects</replaceable> located above the topmost
-<constant>mark</constant> on the operand stack. Removes the
-<constant>mark</constant> and the objects from the operand stack.
+<replaceable>objects</replaceable> located above the topmost mark on the
+operand stack. Removes the mark and the objects from the operand stack.
 </para>
 
 <para>
