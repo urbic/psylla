@@ -11,9 +11,14 @@ public class PsiBigInteger
 		this.value=value;
 	}
 
+	public PsiBigInteger(long integer)
+	{
+		this.value=java.math.BigInteger.valueOf(integer);
+	}
+
 	public PsiBigInteger(PsiInteger oInteger)
 	{
-		this.value=java.math.BigInteger.valueOf(oInteger.longValue());
+		this(oInteger.longValue());
 	}
 
 	@Override

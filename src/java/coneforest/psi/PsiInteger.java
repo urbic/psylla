@@ -355,6 +355,22 @@ public class PsiInteger
 	}
 
 	@Override
+	public PsiBoolean psiEq(final PsiObject o)
+	{
+		if(o instanceof PsiInteger)
+			return PsiBoolean.valueOf(value==((PsiInteger)o).value);
+		else if(o instanceof PsiReal)
+			return PsiBoolean.valueOf(doubleValue()==((PsiReal)o).doubleValue());
+		else if(o instanceof PsiBigInteger)
+			return PsiBoolean.valueOf(new PsiBigInteger(value).equals(((PsiBigInteger)o)));
+		else if(o instanceof PsiComplex)
+			return PsiBoolean.valueOf(
+					doubleValue()==((PsiComplex)o).psiRealPart().doubleValue()
+						&& ((PsiComplex)o).psiImagPart().doubleValue()==.0D);
+		return PsiBoolean.FALSE;
+	}
+
+	@Override
 	public int hashCode()
 	{
 		return (int)value;
@@ -364,7 +380,7 @@ public class PsiInteger
 	public boolean equals(Object object)
 	{
 		return object instanceof PsiInteger
-				&& psiEq((PsiInteger)object).booleanValue();
+				&& value==((PsiInteger)object).value;
 	}
 
 	/**
