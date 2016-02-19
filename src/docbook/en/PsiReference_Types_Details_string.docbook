@@ -8,7 +8,18 @@
 
 <formalpara>
 &TitleInherits;
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_container"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_evaluable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringlike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
