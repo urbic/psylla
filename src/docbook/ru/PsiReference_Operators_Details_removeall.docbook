@@ -28,7 +28,7 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">( 0 1 2 3 4 ) dup [ 2 3 ] removeall	▶ ( 0 1 4 )</programlisting>
+<programlisting language="psi">( 0 1 2 3 4 ) dup [ 2 5 3 ] removeall	▶ ( 0 1 4 )</programlisting>
 </formalpara>
 
 <formalpara>

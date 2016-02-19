@@ -28,17 +28,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clearstack" xrefstyle="template:%t"/></term>
-<listitem>remove all the operands from the operand stack</listitem>
+<listitem>drop all the operands from the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cleartomark" xrefstyle="template:%t"/></term>
-<listitem>удаление объектов из стека операндов вплоть до отметки</listitem>
+<listitem>drop operands down to mark at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_copy" xrefstyle="template:%t"/></term>
-<listitem>копирование нескольких верхних элементов в стеке операндов</listitem>
+<listitem>duplicate several topmost operands at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -48,7 +48,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_counttomark" xrefstyle="template:%t"/></term>
-<listitem>подсчёт объектов в стеке операндов над верхней меткой</listitem>
+<listitem>count operands down to mark at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -63,12 +63,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_index" xrefstyle="template:%t"/></term>
-<listitem>копирование объекта с заданным положением в стеке операндов</listitem>
+<listitem>duplicate arbitrary operand at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_mark" xrefstyle="template:%t"/></term>
-<listitem>добавление метки в стек операндов</listitem>
+<listitem>push a mark on the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -78,7 +78,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_roll" xrefstyle="template:%t"/></term>
-<listitem>циклический сдвиг верхней части стека операндов</listitem>
+<listitem>cyclic shift on several topmost operands at the operand stack</listitem>
 </varlistentry>
 
 <varlistentry>

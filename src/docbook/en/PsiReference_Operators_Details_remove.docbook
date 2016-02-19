@@ -3,28 +3,25 @@
 <title><token language="psi">remove</token></title>
 
 <synopsis>
-<replaceable>множество</replaceable>
-<replaceable>элемент</replaceable>
+<replaceable>set</replaceable>
+<replaceable>element</replaceable>
 <token language="psi">remove</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>множество</replaceable>:
+<replaceable>set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
-<replaceable>элемент</replaceable>:
+<replaceable>element</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет <replaceable>элемент</replaceable> из
-<replaceable>множества</replaceable>, если он там присутствует.
-<replaceable>Элемент</replaceable> считается присутствующим во
-<replaceable>множестве</replaceable>, если оно содержит равный ему
-элемент.
+Removes an <replaceable>element</replaceable> from the
+<replaceable>set</replaceable> if it is there.
 </para>
 
 <formalpara>

@@ -18,7 +18,7 @@
 </synopsis>
 
 <para>
-Raises <replaceable>base</replaceable> to the
+Raises the <replaceable>base</replaceable> to the
 <replaceable>exponent</replaceable> power and returns the
 <replaceable>power</replaceable>.
 </para>
