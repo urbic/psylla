@@ -3,27 +3,25 @@
 <title><token language="psi">retainall</token></title>
 
 <synopsis>
-<replaceable>множество</replaceable>
-<replaceable>перечисление</replaceable>
+<replaceable>set</replaceable>
+<replaceable>enumeration</replaceable>
 <token language="psi">retainall</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>множество</replaceable>:
+<replaceable>set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет из <replaceable>множества</replaceable> все элементы, отсутствующие
-в <replaceable>перечислении</replaceable>. <replaceable>Элемент</replaceable>
-считается присутствующим во <replaceable>множестве</replaceable>, если оно
-содержит равный ему элемент.
+Retains only the elements in the <replaceable>set</replaceable> that are
+contained in the <replaceable>enumeration</replaceable>.
 </para>
 
 <formalpara>

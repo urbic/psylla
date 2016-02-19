@@ -3,21 +3,21 @@
 <title><token language="psi">where</token></title>
 
 <synopsis>
-<replaceable>ключ</replaceable>
+<replaceable>key</replaceable>
 <token language="psi">where</token>
-<replaceable>словарь</replaceable>
+<replaceable>dictionary</replaceable>
 <constant>true</constant>
 <sbr/>
-<replaceable>ключ</replaceable>
+<replaceable>key</replaceable>
 <token language="psi">where</token>
 <constant>false</constant>
 <itemizedlist>
 <listitem>
-<replaceable>ключ</replaceable>:
+<replaceable>key</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>словарь</replaceable>:
+<replaceable>dictionary</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
 </listitem>
 <listitem>
@@ -29,9 +29,11 @@
 </synopsis>
 
 <para>
-Ищет словарь, содержащий заданный <replaceable>ключ</replaceable>, в стеке
-словарей, начиная от вершины стека. Если словарь найден, он возвращается. Кроме
-того, возвращается булевское значение, показывающее успешность поиска.
+Searches for a <replaceable>key</replaceable> in each dictionary on the
+dictionary stack, starting with the topmost dictionary. If the
+<replaceable>key</replaceable> is found in some dictionary, returns that
+dictionary and <constant>true</constant>, otherwise returns
+<constant>false</constant>.
 </para>
 
 <formalpara>

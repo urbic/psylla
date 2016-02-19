@@ -3,32 +3,30 @@
 <title><token language="psi">removeall</token></title>
 
 <synopsis>
-<replaceable>множество</replaceable>
-<replaceable>перечисление</replaceable>
+<replaceable>set</replaceable>
+<replaceable>enumeration</replaceable>
 <token language="psi">removeall</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>множество</replaceable>:
+<replaceable>set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_setlike"/>
 </listitem>
 <listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Удаляет из <replaceable>множества</replaceable> все элементы
-<replaceable>перечисления</replaceable>, если они там присутствуют.
-<replaceable>Элемент</replaceable> считается присутствующим во
-<replaceable>множестве</replaceable>, если оно содержит равный ему элемент.
+Removes all the objects from the <replaceable>enumeration</replaceable> from
+the <replaceable>set</replaceable>.
 </para>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">( 0 1 2 3 4 ) dup [ 2 3 ] removeall	▶ ( 0 1 4 )</programlisting>
+<programlisting language="psi">( 0 1 2 3 4 ) dup [ 2 5 3 ] removeall	▶ ( 0 1 4 )</programlisting>
 </formalpara>
 
 <formalpara>

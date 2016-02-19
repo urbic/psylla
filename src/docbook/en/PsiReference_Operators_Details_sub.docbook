@@ -3,24 +3,23 @@
 <title><token language="psi">sub</token></title>
 
 <synopsis>
-<replaceable>уменьшаемое</replaceable>
-<replaceable>вычитаемое</replaceable>
+<replaceable>minuend</replaceable>
+<replaceable>subtrahend</replaceable>
 <token language="psi">sub</token>
-<replaceable>разность</replaceable>
+<replaceable>difference</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>уменьшаемое</replaceable>,
-<replaceable>вычитаемое</replaceable>,
-<replaceable>разность</replaceable>:
+<replaceable>minuend</replaceable>,
+<replaceable>subtrahend</replaceable>,
+<replaceable>difference</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>разность</replaceable>
-<replaceable>уменьшаемого</replaceable> и
-<replaceable>вычитаемого</replaceable>.
+Returns the <replaceable>difference</replaceable> of the
+<replaceable>minuend</replaceable> and <replaceable>subtrahend</replaceable>.
 </para>
 
 <para>

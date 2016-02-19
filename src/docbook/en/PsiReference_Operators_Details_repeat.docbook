@@ -20,15 +20,15 @@
 </synopsis>
 
 <para>
-Invokes an <replaceable>object</replaceable> specified
+Invokes an <replaceable>object</replaceable>, typically a procedure, specified
 <replaceable>number</replaceable> of times.
 </para>
 
 <para>
-Исполнение в <replaceable>процедуре</replaceable> оператора <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>
-досрочно прерывает исполнение <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_repeat"/>.
+If the procedure executes the <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_exit"/> operator, <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>
+terminates prematurely.
 </para>
 
 <para>
