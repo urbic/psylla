@@ -7,7 +7,15 @@ TODO.
 </para>
 
 <formalpara>
-<title>Наследует:</title>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsiTypesHierarchy_type.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
 </formalpara>
 
 </section>
