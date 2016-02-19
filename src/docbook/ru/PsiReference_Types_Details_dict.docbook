@@ -7,12 +7,18 @@
 </para>
 
 <formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>.
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_container"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata scale="50" fileref="PsiTypesHierarchy_dict.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_dict.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

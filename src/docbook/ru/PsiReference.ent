@@ -29,6 +29,7 @@
 <!ENTITY PsiReference_Types_Details_closeable			SYSTEM "PsiReference_Types_Details_closeable.docbook">
 <!ENTITY PsiReference_Types_Details_command				SYSTEM "PsiReference_Types_Details_command.docbook">
 <!ENTITY PsiReference_Types_Details_complex				SYSTEM "PsiReference_Types_Details_complex.docbook">
+<!ENTITY PsiReference_Types_Details_complexnumeric		SYSTEM "PsiReference_Types_Details_complexnumeric.docbook">
 <!ENTITY PsiReference_Types_Details_condition			SYSTEM "PsiReference_Types_Details_condition.docbook">
 <!ENTITY PsiReference_Types_Details_container			SYSTEM "PsiReference_Types_Details_container.docbook">
 <!ENTITY PsiReference_Types_Details_context				SYSTEM "PsiReference_Types_Details_context.docbook">

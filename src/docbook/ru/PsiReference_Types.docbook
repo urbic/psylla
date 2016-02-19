@@ -67,21 +67,7 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 &PsiReference_Types_Details_closeable;
 &PsiReference_Types_Details_command;
 &PsiReference_Types_Details_complex;
-
-<section xml:id="PsiReference_Types_Details_complexnumeric">
-<title><type>complexnumeric</type></title>
-<para>
-Тип объектов, которые могут рассматриваться как комплексные числа. Целый,
-вещественный и комплексный типы являются производными от этого типа.
-</para>
-<formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
-</formalpara>
-</section>
-
+&PsiReference_Types_Details_complexnumeric;
 &PsiReference_Types_Details_condition;
 &PsiReference_Types_Details_container;
 &PsiReference_Types_Details_context;
@@ -153,6 +139,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_set;
 &PsiReference_Types_Details_setlike;
 &PsiReference_Types_Details_string;
+&PsiReference_Types_Details_stringlike;
 &PsiReference_Types_Details_stringreader;
 &PsiReference_Types_Details_stringwriter;
 &PsiReference_Types_Details_stringy;

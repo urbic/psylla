@@ -2,8 +2,16 @@
 <section xml:id="PsiReference_Types_Details_flushable">
 <title><type>flushable</type></title>
 
-<para>
-XXX
-</para>
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsiTypesHierarchy_flushable.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
 
 </section>

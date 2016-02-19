@@ -7,10 +7,15 @@
 </para>
 
 <formalpara>
-<title>Наследует:</title>
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoname"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletostring"/>,
+&TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsiTypesHierarchy_appendable.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
 </formalpara>
 
 </section>
