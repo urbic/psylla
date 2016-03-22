@@ -3,32 +3,33 @@
 <title><token language="psi">external</token></title>
 
 <synopsis>
-<replaceable>имя_класса</replaceable>
+<replaceable>class_name</replaceable>
 <token language="psi">external</token>
-<replaceable>объект</replaceable>
+<replaceable>instance</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя_класса</replaceable>:
+<replaceable>class_name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>instance</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Загружает внешний класс Java по <replaceable>имени_класса</replaceable> и
-возвращает объект этого класса.
+Loads an external Java class by its <replaceable>class_name</replaceable> and
+returns an <replaceable>instance</replaceable> of this class.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_invalidexternal"/>, если класс не найден
-на пути поиска классов, не реализует интерфейс
-<classname>coneforest.psi.PsiObject</classname>, не имеет общего конструктора
-без аргументов или если вызов такого конструктора завершился ненормально.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_invalidexternal"/>, if the class not found
+at class path, does not implement
+<classname>coneforest.psi.PsiObject</classname> interface, does not public
+constructor without arguments or if the invocation of this constructor
+terminated abnormally.
 </para>
 
 <formalpara>

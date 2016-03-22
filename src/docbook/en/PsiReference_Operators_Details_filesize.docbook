@@ -3,16 +3,16 @@
 <title><token language="psi">filesize</token></title>
 
 <synopsis>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">filesize</token>
-<replaceable>размер</replaceable>
+<replaceable>size</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>размер</replaceable>:
+<replaceable>size</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>

@@ -3,24 +3,24 @@
 <title><token language="psi">eval</token></title>
 
 <synopsis>
-<replaceable>вычисляемое</replaceable>
+<replaceable>evaluable</replaceable>
 <token language="psi">eval</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>вычисляемое</replaceable>:
+<replaceable>evaluable</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_evaluable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Интерпретирует <replaceable>вычисляемое</replaceable> как программу на языке Ψ.
+Interprets <replaceable>evaluable</replaceable> as a Ψ program.
 </para>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">"1 2 add" eval	▶ 3</programlisting>
+<programlisting language="psi">'1 2 add' eval	▶ 3</programlisting>
 </formalpara>
 
 <formalpara>

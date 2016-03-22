@@ -5,17 +5,18 @@
 <synopsis>
 —
 <token language="psi">dictstack</token>
-<replaceable>массив</replaceable>
+<replaceable>array</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>массив</replaceable>:
+<replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает в <replaceable>массиве</replaceable> содержимое стека словарей.
+Returns the contents of the dictionary stack in an
+<replaceable>array</replaceable>.
 </para>
 
 <formalpara>
