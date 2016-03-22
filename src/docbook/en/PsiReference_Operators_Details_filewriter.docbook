@@ -3,16 +3,16 @@
 <title><token language="psi">filewriter</token></title>
 
 <synopsis>
-<replaceable>имя</replaceable>
+<replaceable>name</replaceable>
 <token language="psi">filewriter</token>
-<replaceable>писатель</replaceable>
+<replaceable>writer</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>писатель</replaceable>:
+<replaceable>writer</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filewriter"/>
 </listitem>
 </itemizedlist>
