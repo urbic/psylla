@@ -84,6 +84,18 @@ Set the <replaceable>encoding</replaceable> of the console.
 </listitem>
 </varlistentry>
 
+<varlistentry>
+<term>
+<option>--random-seed</option>,
+<option>-S</option>
+<parameter><replaceable>seed</replaceable></parameter>
+</term>
+<listitem>
+Initialize the pseudorandom numbers generator with
+<replaceable>seed</replaceable>.
+</listitem>
+</varlistentry>
+
 </variablelist>
 
 </listitem>
