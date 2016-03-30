@@ -10,14 +10,13 @@
 <title>Stacks</title>
 
 <para>
-Интерпретатор Ψ поддерживает несколько стеков, предназначенных для хранения
-данных во время исполнения программы или для представления состояния её
-исполнения. Три из них являются ключевыми — <firstterm>стек
-операндов</firstterm><indexterm><primary>стек</primary><secondary>операндов</secondary></indexterm>,
-<firstterm>стек
-словарей</firstterm><indexterm><primary>стек</primary><secondary>словарей</secondary></indexterm>
-и <firstterm>стек
-исполнения</firstterm><indexterm><primary>стек</primary><secondary>исполнения</secondary></indexterm>.
+The Ψ interpreter supports several stacks intended to store data during the
+program execution or represent the program execution state.  Three of them are
+essential: the <firstterm>operand stack</firstterm><indexterm><primary>operand
+stack</primary></indexterm>, the <firstterm>dictionary
+stack</firstterm><indexterm><primary>dictionary stack</primary></indexterm> and
+the <firstterm>execution stack</firstterm><indexterm><primary>execution
+stack</primary></indexterm>.
 </para>
 
 <para>
