@@ -56,7 +56,7 @@ are several operators to manipulate the dictionary stack.
 <para>
 The execution stack reflects the execution phase of the procedure. During
 execution of the procedure its elements are loaded onto the execution stack in
-reverse order. so that the very first element is at the top of the stack. The
+reverse order, so that the very first element is at the top of the stack. The
 interpreter then in turn removes objects from the execution stack and executes
 them until the stack level is equal to the original (that was at the beginning
 of the procedure execution).
