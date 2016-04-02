@@ -243,6 +243,7 @@ public class PsiString
 
 	}*/
 
+	// TODO Make psiSplit return PsiIterable instead PsiArray?
 	public PsiArray psiSplit(PsiRegExp regexp)
 		throws PsiException
 	{
