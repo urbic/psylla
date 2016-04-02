@@ -274,6 +274,12 @@ public interface PsiArraylike<T extends PsiObject>
 	}
 
 	@Override
+	default public PsiInteger psiCount()
+	{
+		return psiLength();
+	}
+
+	@Override
 	default public String toSyntaxString()
 	{
 		return "["+toSyntaxStringHelper(this)+"]";
