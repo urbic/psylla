@@ -23,8 +23,6 @@ Raises the <replaceable>base</replaceable> to the
 <replaceable>power</replaceable>.
 </para>
 
-<remark>TODO</remark>
-
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,

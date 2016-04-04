@@ -1238,22 +1238,22 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
-<listitem>invoke a procedure under a lock</listitem>
+<listitem>invoke a procedure while holding lock</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_synchronized" xrefstyle="template:%t"/></term>
-<listitem></listitem>
+<listitem>invoke a procedure while holding internal object’s lock</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_wait" xrefstyle="template:%t"/></term>
-<listitem><remark>TODO</remark></listitem>
+<listitem>release lock, wait for condition, reacquire lock</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_yield" xrefstyle="template:%t"/></term>
-<listitem>приостановка на мгновение исполнения текущего контекста</listitem>
+<listitem>momentarily suspend current execution context</listitem>
 </varlistentry>
 
 </variablelist>

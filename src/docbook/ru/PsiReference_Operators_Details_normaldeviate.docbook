@@ -25,8 +25,9 @@
 
 <para>
 Возвращает нормально распределённое <replaceable>случайное</replaceable> число
-с заданным среднеквадратичным <replaceable>уклонением</replaceable>
-для заданного <replaceable>генератора</replaceable> псевдослучайных чисел.
+с заданным среднеквадратичным <replaceable>уклонением</replaceable> и нулевым
+средним, взятое из заданного <replaceable>генератора</replaceable>
+псевдослучайных чисел.
 </para>
 
 <formalpara>

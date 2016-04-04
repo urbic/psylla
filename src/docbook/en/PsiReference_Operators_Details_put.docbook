@@ -4,8 +4,8 @@
 
 <synopsis>
 <replaceable>container</replaceable>
-<replaceable>index</replaceable>
-<replaceable>element</replaceable>
+<replaceable>key</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">put</token>
 —
 <itemizedlist>
@@ -14,12 +14,35 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>index</replaceable>,
-<replaceable>element</replaceable>:
+<replaceable>key</replaceable>,
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </synopsis>
+
+<para>
+Stores an <replaceable>object</replaceable> into the indexed
+<replaceable>container</replaceable> with the given
+<replaceable>key</replaceable>. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_arraylike"/> containers,
+<replaceable>key</replaceable> is an <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> non-negative index. For <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+containers, <replaceable>key</replaceable> is a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_stringy"/> key.
+</para>
+
+<para>
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_typecheck"/>, if the type of the
+<replaceable>key</replaceable> does not correspond to the type of the
+<replaceable>container</replaceable>; <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/> for <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+<replaceable>container</replaceable>, if the <replaceable>key</replaceable> is
+negative or is greater than or equal to the length of the array.
+</para>
 
 <formalpara>
 &TitleErrors;

@@ -3,7 +3,7 @@
 <title><token language="psi">monitor</token></title>
 
 <synopsis>
-<replaceable>loc</replaceable>
+<replaceable>lock</replaceable>
 <replaceable>procedure</replaceable>
 <token language="psi">monitor</token>
 —
@@ -20,6 +20,9 @@
 </synopsis>
 
 <para>
+Acquires <replaceable>lock</replaceable>, first waiting for it to become free,
+then invokes <replaceable>procedure</replaceable>, and finally releases
+<replaceable>lock</replaceable> again.
 </para>
 
 <formalpara>

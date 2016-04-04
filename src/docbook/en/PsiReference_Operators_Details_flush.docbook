@@ -3,25 +3,26 @@
 <title><token language="psi">flush</token></title>
 
 <synopsis>
-<replaceable>сбрасываемое</replaceable>
+<replaceable>flushable</replaceable>
 <token language="psi">flush</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>сбрасываемое</replaceable>:
+<replaceable>flushable</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_flushable"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Сбрасывает буфер для объекта ввода/вывода
-<replaceable>сбрасываемое</replaceable>.
+Flushes the buffer for <replaceable>flushable</replaceable> input/output
+object.
 </para>
 
 <para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода.
+Generates <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> when the input/output error
+occurs.
 </para>
 
 <formalpara>

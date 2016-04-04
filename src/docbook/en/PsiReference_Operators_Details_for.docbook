@@ -3,21 +3,21 @@
 <title><token language="psi">for</token></title>
 
 <synopsis>
-<replaceable>начальное</replaceable>
-<replaceable>инкремент</replaceable>
-<replaceable>предел</replaceable>
-<replaceable>объект</replaceable>
+<replaceable>initial</replaceable>
+<replaceable>increment</replaceable>
+<replaceable>limit</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">for</token>
 —
 <itemizedlist>
 <listitem>
-<replaceable>начальное</replaceable>,
-<replaceable>инкремент</replaceable>,
-<replaceable>предел</replaceable>:
+<replaceable>initial</replaceable>,
+<replaceable>increment</replaceable>,
+<replaceable>limit</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
