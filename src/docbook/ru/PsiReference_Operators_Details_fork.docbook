@@ -35,8 +35,8 @@
 <para>
 Возвращает новый <replaceable>контекст</replaceable>, копируя в него стек
 словарей из текущего контекста, и копируя <replaceable>объекты</replaceable>
-в его стек операндов. В новом контексте исполняет
-<replaceable>процедуру</replaceable>.
+в его стек операндов. Асинхронно исполняет <replaceable>процедуру</replaceable>
+во вновь созданном <replaceable>контексте</replaceable>.
 </para>
 
 <formalpara>
@@ -48,6 +48,7 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentcontext"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>.
 </formalpara>
 

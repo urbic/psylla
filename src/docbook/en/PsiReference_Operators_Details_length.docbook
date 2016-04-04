@@ -21,7 +21,9 @@
 <para>
 Returns the <replaceable>length</replaceable> of the
 <replaceable>container</replaceable>, i. e. the number of elements contained in
-it. Для словарей возвращается количество определённых в нём ключей.
+it. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_dict"/> containers, returns the number of
+contained keys.
 </para>
 
 <formalpara>

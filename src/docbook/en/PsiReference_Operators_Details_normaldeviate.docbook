@@ -3,30 +3,30 @@
 <title><token language="psi">normaldeviate</token></title>
 
 <synopsis>
-<replaceable>генератор</replaceable>
-<replaceable>уклонение</replaceable>
+<replaceable>generator</replaceable>
+<replaceable>deviation</replaceable>
 <token language="psi">normaldeviate</token>
-<replaceable>случайное</replaceable>
+<replaceable>number</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>генератор</replaceable>:
+<replaceable>generator</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
 </listitem>
 <listitem>
-<replaceable>уклонение</replaceable>:
+<replaceable>deviation</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
-<replaceable>случайное</replaceable>:
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает нормально распределённое <replaceable>случайное</replaceable> число
-с заданным среднеквадратичным <replaceable>уклонением</replaceable>
-для заданного <replaceable>генератора</replaceable> псевдослучайных чисел.
+Returns the normally distributed pseudorandom <replaceable>number</replaceable>
+with the given standard <replaceable>deviation</replaceable> and zero mean
+taken from the given pseudorandom <replaceable>generator</replaceable>.
 </para>
 
 <formalpara>

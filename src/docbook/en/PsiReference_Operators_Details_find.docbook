@@ -3,17 +3,17 @@
 <title><token language="psi">find</token></title>
 
 <synopsis>
-<replaceable>матчер</replaceable>
+<replaceable>matcher</replaceable>
 <token language="psi">find</token>
-<replaceable>матчер</replaceable>
+<replaceable>matcher</replaceable>
 <constant>true</constant>
 <sbr/>
-<replaceable>матчер</replaceable>
+<replaceable>matcher</replaceable>
 <token language="psi">find</token>
 <constant>false</constant>
 <itemizedlist>
 <listitem>
-<replaceable>матчер</replaceable>:
+<replaceable>matcher</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_matcher"/>
 </listitem>
 <listitem>

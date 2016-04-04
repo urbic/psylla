@@ -4,39 +4,40 @@
 
 <synopsis>
 <constant>mark</constant>
-<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>object<subscript>1</subscript></replaceable>
 …
-<replaceable>объект<subscript>n</subscript></replaceable>
-<replaceable>процедура</replaceable>
+<replaceable>object<subscript>n</subscript></replaceable>
+<replaceable>procedure</replaceable>
 <token language="psi">fork</token>
-<replaceable>контекст</replaceable>
+<replaceable>context</replaceable>
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 <listitem>
-<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>object<subscript>1</subscript></replaceable>,
 …,
-<replaceable>объект<subscript>n</subscript></replaceable>:
+<replaceable>object<subscript>n</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>процедура</replaceable>:
+<replaceable>procedure</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 <listitem>
-<replaceable>контекст</replaceable>:
+<replaceable>context</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_context"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает новый <replaceable>контекст</replaceable>, копируя в него стек
-словарей из текущего контекста, и копируя <replaceable>объекты</replaceable>
-в его стек операндов. В новом контексте исполняет
-<replaceable>процедуру</replaceable>.
+Returns a new execution <replaceable>context</replaceable>, whose dictionary
+stack is copied from the current context, and then copies
+<replaceable>objects</replaceable> to its operand stack. The
+<replaceable>procedure</replaceable> is asynchronously executed within newly
+created <replaceable>context</replaceable>.
 </para>
 
 <formalpara>
@@ -48,6 +49,7 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_currentcontext"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>.
 </formalpara>
 

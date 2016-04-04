@@ -5,7 +5,7 @@
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
-<replaceable>iterable</replaceable>
+<replaceable>enumeration</replaceable>
 <token language="psi">putinterval</token>
 —
 <itemizedlist>
@@ -18,7 +18,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
-<replaceable>iterable</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
