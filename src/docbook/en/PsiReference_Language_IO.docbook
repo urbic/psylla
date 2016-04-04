@@ -3,8 +3,8 @@
 <title>Input and Output</title>
 
 <para>
-The <firstterm>file</firstterm><indexterm><primary>file</primary></indexterm>
-is a sequence of
+A <firstterm>file</firstterm><indexterm><primary>file</primary></indexterm> is
+a sequence of
 <firstterm>characters</firstterm><indexterm><primary>character</primary></indexterm>,
 usually the final. The file can be located in the file system or be created on
 the fly. Input/output operations are designed for exchange of character data
@@ -44,7 +44,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_writestring"/>
 respectively read from a file or write to a file a character string. The <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readline"/>
 operator read from a file a string terminated by the platform-specific line
-terminator. Terminator himself is available in the system dictionary by the
+terminator. Terminator itself is available in the system dictionary by the
 name <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_eol"/>.
 </para>

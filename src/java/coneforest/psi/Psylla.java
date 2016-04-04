@@ -14,7 +14,8 @@ public class Psylla
 					new coneforest.cli.OptionString("console-encoding", "C"),
 					new coneforest.cli.OptionPath("classpath", "cp"),
 					new coneforest.cli.OptionString("eval", "e"),
-					new coneforest.cli.OptionString("locale", "L")
+					new coneforest.cli.OptionString("locale", "L"),
+					new coneforest.cli.OptionLong("random-seed", "S")
 				);
 			final int processed=cli.parse(args, 0);
 
@@ -98,6 +99,12 @@ public class Psylla
 			interpreter.acceptShellArguments(shellArguments);
 			if(cli.getValue("classpath")!=null)
 				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
+
+			if(cli.getValue("random-seed")!=null)
+			{
+				long seed=cli.getValue("random-seed");
+				((PsiRandom)interpreter.dictStack().load("stdrandom")).psiSetSeed(PsiInteger.valueOf(seed));
+			}
 
 			interpreter.start();
 		}

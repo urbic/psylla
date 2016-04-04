@@ -6,7 +6,7 @@ package coneforest.psi;
 *
 *	@param <T> a type of elements returned by the iterator.
 */
-public interface PsiIterable<T>
+public interface PsiIterable<T extends PsiObject>
 	extends
 		PsiObject,
 		Iterable<T>
@@ -28,9 +28,9 @@ public interface PsiIterable<T>
 		final int loopLevel=interpreter.pushLoopLevel();
 		try
 		{
-			for(PsiObject element: (PsiIterable<? extends PsiObject>)this)
+			for(T o: this)
 			{
-				ostack.push(element);
+				ostack.push(o);
 				proc.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
 				if(interpreter.getStopFlag() || interpreter.getExitFlag())
@@ -109,4 +109,44 @@ public interface PsiIterable<T>
 					=PsiIterable.this.iterator();
 			};
 	}
+
+	default public PsiArray psiToArray()
+		throws PsiException
+	{
+		final PsiArray oArray=new PsiArray();
+		for(T o: this)
+			oArray.psiAppend(o);
+		return oArray;
+	}
+
+	default public PsiInteger psiCount()
+	{
+		long count=0L;
+		for(T o: this)
+			count++;
+		return PsiInteger.valueOf(count);
+	}
+
+	default public PsiString psiUnite(final PsiStringy oSeparator)
+		throws PsiException
+	{
+		final String separator=oSeparator.stringValue();
+		final StringBuilder sb=new StringBuilder();
+		final java.util.Iterator<T> iterator=iterator();
+		try
+		{
+			while(iterator.hasNext())
+			{
+				sb.append(((PsiStringy)iterator.next()).stringValue());
+				if(iterator.hasNext())
+					sb.append(separator);
+			}
+		}
+		catch(ClassCastException e)
+		{
+			throw new PsiTypeCheckException();
+		}
+		return new PsiString(sb);
+	}
+
 }

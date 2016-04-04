@@ -3,14 +3,14 @@
 <title><token language="psi">unite</token></title>
 
 <synopsis>
-<replaceable>массив</replaceable>
+<replaceable>перечисление</replaceable>
 <replaceable>сепаратор</replaceable>
 <token language="psi">unite</token>
 <replaceable>результат</replaceable>
 <itemizedlist>
 <listitem>
-<replaceable>массив</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 <listitem>
 <replaceable>сепаратор</replaceable>:
@@ -25,7 +25,7 @@
 
 <para>
 Возвращает строку, полученную конкатенацией элементов
-<replaceable>массива</replaceable>, разделённых
+<replaceable>перечисления</replaceable>, разделённых
 строкой-<replaceable>сепаратором</replaceable>.
 </para>
 

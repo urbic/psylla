@@ -10,14 +10,13 @@
 <title>Stacks</title>
 
 <para>
-Интерпретатор Ψ поддерживает несколько стеков, предназначенных для хранения
-данных во время исполнения программы или для представления состояния её
-исполнения. Три из них являются ключевыми — <firstterm>стек
-операндов</firstterm><indexterm><primary>стек</primary><secondary>операндов</secondary></indexterm>,
-<firstterm>стек
-словарей</firstterm><indexterm><primary>стек</primary><secondary>словарей</secondary></indexterm>
-и <firstterm>стек
-исполнения</firstterm><indexterm><primary>стек</primary><secondary>исполнения</secondary></indexterm>.
+The Ψ interpreter supports several stacks intended to store data during the
+program execution or represent the program execution state.  Three of them are
+essential: the <firstterm>operand stack</firstterm><indexterm><primary>operand
+stack</primary></indexterm>, the <firstterm>dictionary
+stack</firstterm><indexterm><primary>dictionary stack</primary></indexterm> and
+the <firstterm>execution stack</firstterm><indexterm><primary>execution
+stack</primary></indexterm>.
 </para>
 
 <para>
@@ -57,7 +56,7 @@ are several operators to manipulate the dictionary stack.
 <para>
 The execution stack reflects the execution phase of the procedure. During
 execution of the procedure its elements are loaded onto the execution stack in
-reverse order. so that the very first element is at the top of the stack. The
+reverse order, so that the very first element is at the top of the stack. The
 interpreter then in turn removes objects from the execution stack and executes
 them until the stack level is equal to the original (that was at the beginning
 of the procedure execution).

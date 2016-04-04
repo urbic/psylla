@@ -339,47 +339,47 @@ expression</primary></indexterm> represents a template for search in a string.
 <tbody>
 <row>
 <entry><literal><replaceable>X</replaceable></literal></entry>
-<entry>символ <replaceable>X</replaceable></entry>
+<entry>character <replaceable>X</replaceable></entry>
 </row>
 <row>
 <entry><literal>\\</literal></entry>
-<entry>символ бэкслэш (<constant>U+5C</constant>)</entry>
+<entry>backslash character (<constant>U+5C</constant>)</entry>
 </row>
 <row>
 <entry><literal>\u<replaceable>HHHH</replaceable></literal></entry>
-<entry>символ с шестнадцатеричным значением <replaceable>HHHH</replaceable></entry>
+<entry>character with hexadecimal code <replaceable>HHHH</replaceable></entry>
 </row>
 <row>
 <entry><literal>\x{<replaceable>H…H</replaceable>}</literal></entry>
-<entry>символ с шестнадцатеричным значением <replaceable>H…H</replaceable></entry>
+<entry>character with hexadecimal code <replaceable>H…H</replaceable></entry>
 </row>
 <row>
 <entry><literal>\t</literal></entry>
-<entry>символ табуляции (<constant>U+9</constant>)</entry>
+<entry>tab character (<constant>U+9</constant>)</entry>
 </row>
 <row>
 <entry><literal>\n</literal></entry>
-<entry>символ конца строки (<constant>U+A</constant>)</entry>
+<entry>end of line character (<constant>U+A</constant>)</entry>
 </row>
 <row>
 <entry><literal>\r</literal></entry>
-<entry>символ возврата каретки (<constant>U+D</constant>)</entry>
+<entry>carriage-return character (<constant>U+D</constant>)</entry>
 </row>
 <row>
 <entry><literal>\f</literal></entry>
-<entry>символ конца страницы (<constant>U+C</constant>)</entry>
+<entry>line feed character (<constant>U+C</constant>)</entry>
 </row>
 <row>
 <entry><literal>\a</literal></entry>
-<entry>символ гудка (<constant>U+7</constant>)</entry>
+<entry>bell character (<constant>U+7</constant>)</entry>
 </row>
 <row>
 <entry><literal>\e</literal></entry>
-<entry>символ escape (<constant>U+1B</constant>)</entry>
+<entry>escape character (<constant>U+1B</constant>)</entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>X</replaceable></literal></entry>
-<entry>управляющий символ, соответствующий <replaceable>X</replaceable></entry>
+<entry>control+<replaceable>X</replaceable> character</entry>
 </row>
 </tbody>
 </tgroup>
