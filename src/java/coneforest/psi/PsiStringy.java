@@ -115,6 +115,15 @@ public interface PsiStringy
 		return PsiInteger.valueOf(stringValue().compareTo(stringy.stringValue()));
 	}
 
+	default public PsiArray psiSplit(PsiRegExp regexp)
+		throws PsiException
+	{
+		PsiArray array=new PsiArray();
+		for(String item: regexp.getPattern().split(stringValue(), -1))
+			array.psiAppend(new PsiString(item));
+		return array;
+	}
+
 	@Override
 	default public java.util.Iterator<PsiInteger> iterator()
 	{
