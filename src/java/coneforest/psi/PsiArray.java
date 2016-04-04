@@ -216,26 +216,5 @@ public class PsiArray
 				}));
 	}
 
-	public PsiString psiUnite(PsiStringy separator)
-		throws PsiException
-	{
-		try
-		{
-			final StringBuilder sb=new StringBuilder();
-			final String separatorString=separator.stringValue();
-			for(int i=0; i<length(); i++)
-			{
-				if(i>0)
-					sb.append(separatorString);
-				sb.append(((PsiStringy)get(i)).stringValue());
-			}
-			return new PsiString(sb);
-		}
-		catch(ClassCastException e)
-		{
-			throw new PsiTypeCheckException();
-		}
-	}
-
 	private java.util.ArrayList<PsiObject> array;
 }

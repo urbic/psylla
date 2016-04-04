@@ -85,6 +85,18 @@ jar.
 </listitem>
 </varlistentry>
 
+<varlistentry>
+<term>
+<option>--random-seed</option>,
+<option>-S</option>
+<parameter><replaceable>начальное</replaceable></parameter>
+</term>
+<listitem>
+Инициализация генератора псевослучайных чисел
+<replaceable>начальным</replaceable> значением.
+</listitem>
+</varlistentry>
+
 </variablelist>
 
 </listitem>

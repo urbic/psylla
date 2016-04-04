@@ -14,6 +14,8 @@ public final class _forall extends PsiOperator
 
 		if(iterable instanceof PsiDictlike)
 		{
+			// TODO
+			/*
 			final int loopLevel=interpreter.pushLoopLevel();
 			for(java.util.Map.Entry<String, PsiObject> entry:
 						(PsiIterable<java.util.Map.Entry<String, PsiObject>>)iterable)
@@ -27,6 +29,7 @@ public final class _forall extends PsiOperator
 			}
 			interpreter.popLoopLevel();
 			interpreter.setExitFlag(false);
+			*/
 		}
 		else if(iterable instanceof PsiIterable)
 		{

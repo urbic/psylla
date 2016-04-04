@@ -2,7 +2,7 @@ package coneforest.cli;
 
 public class OptionLong extends OptionHolder<Long>
 {
-	public OptionLong(String names)
+	public OptionLong(String... names)
 	{
 		super(names);
 	}

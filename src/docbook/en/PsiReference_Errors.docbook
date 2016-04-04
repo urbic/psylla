@@ -3,7 +3,7 @@
 <title>Errors</title>
 
 <section xml:id="PsiReference_Errors_Details">
-<title>Ошибки в деталях</title>
+<title>Errors in Detail</title>
 
 <section xml:id="PsiReference_Errors_Details_concurrentmodification">
 <title><errorname language="psi">concurrentmodification</errorname></title>
@@ -127,7 +127,8 @@ Input/output error.
 <section xml:id="PsiReference_Errors_Details_rangecheck">
 <title><errorname language="psi">rangecheck</errorname></title>
 <para>
-Операнд выходит за границы допустимого диапазона.
+The error is generated when the operand has the value outside the range
+that is acceptable for the operator.
 </para>
 </section>
 
@@ -156,8 +157,8 @@ Syntax error.
 <section xml:id="PsiReference_Errors_Details_typecheck">
 <title><errorname language="psi">typecheck</errorname></title>
 <para>
-Несоответствие типов. Ошибка генерируется, если тип операндов не тот,
-на который рассчитывает оператор.
+Type mismatch. The error is generated if the operand has the type that is
+unexpected for the operator.
 </para>
 </section>
 
