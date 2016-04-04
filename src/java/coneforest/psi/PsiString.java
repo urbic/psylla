@@ -243,15 +243,6 @@ public class PsiString
 
 	}*/
 
-	public PsiArray psiSplit(PsiRegExp regexp)
-		throws PsiException
-	{
-		PsiArray array=new PsiArray();
-		for(String item: regexp.getPattern().split(stringValue(), -1))
-			array.psiAppend(new PsiString(item));
-		return array;
-	}
-
 	@Override
 	public void psiSetLength(final PsiInteger length)
 		throws PsiException

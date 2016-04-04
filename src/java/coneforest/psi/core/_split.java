@@ -9,6 +9,6 @@ public final class _split extends PsiOperator
 	{
 		final OperandStack ostack=interpreter.operandStack();
 		final PsiObject[] ops=ostack.popOperands(2);
-		ostack.push(((PsiString)ops[0]).psiSplit((PsiRegExp)ops[1]));
+		ostack.push(((PsiStringy)ops[0]).psiSplit((PsiRegExp)ops[1]));
 	}
 }
