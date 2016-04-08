@@ -21,11 +21,12 @@ Release:		0
 License:		Zlib
 Summary:		Psi programming language
 Url:			https://github.com/urbic/%{name}
-Group:			Development/Libraries/Java
+Group:			Development/Languages
 Source:			%{name}-%{version}.tar.xz
 BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	java-devel >= 1.8.0
+BuildRequires:	java-javadoc >= 1.8.0
 BuildRequires:	jline
 Requires:		java >= 1.8.0
 Requires:		jline
