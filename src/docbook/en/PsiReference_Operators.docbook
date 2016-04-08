@@ -1173,13 +1173,18 @@ flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_osarch" xrefstyle="template:%t"/></term>
+<listitem>get the architecture of an operationg system</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_osname" xrefstyle="template:%t"/></term>
 <listitem>get the name of an operationg system</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_osversion" xrefstyle="template:%t"/></term>
-<listitem>get the name of an operationg system</listitem>
+<listitem>get the version of an operationg system</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1548,6 +1553,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_notzero;
 &PsiReference_Operators_Details_null;
 &PsiReference_Operators_Details_or;
+&PsiReference_Operators_Details_osarch;
 &PsiReference_Operators_Details_osname;
 &PsiReference_Operators_Details_osversion;
 &PsiReference_Operators_Details_pop;

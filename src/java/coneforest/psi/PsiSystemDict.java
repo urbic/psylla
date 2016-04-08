@@ -272,6 +272,7 @@ public class PsiSystemDict
 			put("minreal", PsiReal.MIN_VALUE);
 			put("nan", PsiReal.NAN);
 			put("null", PsiNull.NULL);
+			put("osarch", new PsiName(System.getProperty("os.arch")));
 			put("osname", new PsiName(System.getProperty("os.name")));
 			put("osversion", new PsiName(System.getProperty("os.version")));
 			put("product", new PsiName("Psylla"));

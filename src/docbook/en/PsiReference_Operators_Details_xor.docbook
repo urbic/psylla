@@ -11,7 +11,7 @@
 <listitem>
 <replaceable>operand<subscript>1</subscript></replaceable>,
 <replaceable>operand<subscript>2</subscript></replaceable>,
-<replaceable>result</replaceable>:
+<replaceable>exclusive_disjunction</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
