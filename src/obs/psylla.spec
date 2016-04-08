@@ -69,7 +69,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 	%{ant} build javadoc
 
 %install
-%{__install} -d %{buildroot}%{_datadir}
+%{__install} -d %{buildroot}%{_datadir}/%{name}/{%{version},site}
 %{__install} -d %{buildroot}%{_javadir}
 %{__install} -d %{buildroot}%{_bindir}
 %{__install} -d %{buildroot}%{_docdir}/%{name}{,-doc}
@@ -82,6 +82,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{__install} -m 644 target/vim/syntax/*.vim %{buildroot}%{_datadir}/vim/site/syntax
 %{__install} -m 644 target/vim/ftdetect/*.vim %{buildroot}%{_datadir}/vim/site/ftdetect
 %{__cp} -pr target/doc/javadoc/* %{buildroot}%{_javadocdir}/%{name}
+%{__ln_s} %{version} %{buildroot}%{_datadir}/%{name}/current
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -90,6 +91,10 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
+%dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/site
+%dir %{_datadir}/%{name}/%{version}
+%{_datadir}/%{name}/current
 %dir %{_datadir}/vim
 %dir %{_datadir}/vim/site
 %dir %{_datadir}/vim/site/ftdetect
