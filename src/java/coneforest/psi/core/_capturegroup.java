@@ -9,6 +9,9 @@ public final class _capturegroup extends PsiOperator
 	{
 		final OperandStack ostack=interpreter.operandStack();
 		final PsiObject[] ops=ostack.popOperands(2);
-		ostack.push(((PsiMatcher)ops[0]).psiCaptureGroup(ops[1]));
+		final PsiString oGroup=((PsiMatcher)ops[0]).psiCaptureGroup(ops[1]);
+		if(oGroup!=null)
+			ostack.push(oGroup);
+		ostack.push(PsiBoolean.valueOf(oGroup!=null));
 	}
 }

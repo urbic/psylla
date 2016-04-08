@@ -9,7 +9,7 @@ def
 
 arguments length iszero { usage } if
 arguments 0 get @^-(\d+)$@ matcher find
-{ 1 capturegroup tointeger /count exch def }
+{ 1 capturegroup { tointeger /count exch def } if }
 { usage }
 ifelse
 

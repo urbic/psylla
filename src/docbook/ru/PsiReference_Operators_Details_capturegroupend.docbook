@@ -7,6 +7,12 @@
 <replaceable>индекс</replaceable>
 <token language="psi">capturegroupend</token>
 <replaceable>позиция</replaceable>
+<constant>true</constant>
+<sbr/>
+<replaceable>матчер</replaceable>
+<replaceable>индекс</replaceable>
+<token language="psi">capturegroupend</token>
+<constant>false</constant>
 <itemizedlist>
 <listitem>
 <replaceable>матчер</replaceable>:
@@ -20,7 +26,11 @@
 <listitem>
 <replaceable>позиция</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
-| <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/>
+</listitem>
+<listitem>
+<constant>false</constant>,
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </synopsis>
@@ -31,6 +41,7 @@
 последней операции поиска для заданного <replaceable>матчера</replaceable>.
 Если поиск прошёл успешно, но указанная <replaceable>группа</replaceable> не
 захватывает никакую часть входной строки, возвращает <constant>null</constant>.
+<remark>TODO</remark>
 </para>
 
 <para>

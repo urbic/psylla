@@ -18,7 +18,7 @@ public class PsiMatcher
 		return PsiInteger.valueOf(matcher.groupCount());
 	}
 
-	public PsiObject psiCaptureGroup(final PsiObject key)
+	public PsiString psiCaptureGroup(final PsiObject key)
 		throws PsiException
 	{
 		try
@@ -30,7 +30,7 @@ public class PsiMatcher
 				group=matcher.group(((PsiStringy)key).stringValue());
 			else
 				throw new PsiTypeCheckException();
-			return group!=null? new PsiString(group): PsiNull.NULL;
+			return group!=null? new PsiString(group): null;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -46,7 +46,7 @@ public class PsiMatcher
 		}
 	}
 
-	public PsiObject psiCaptureGroupStart(final PsiObject key)
+	public PsiInteger psiCaptureGroupStart(final PsiObject key)
 		throws PsiException
 	{
 		try
@@ -58,7 +58,7 @@ public class PsiMatcher
 				start=matcher.start(((PsiStringy)key).stringValue());
 			else
 				throw new PsiTypeCheckException();
-			return start>=0? PsiInteger.valueOf(start): PsiNull.NULL;
+			return start>=0? PsiInteger.valueOf(start): null;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -74,7 +74,7 @@ public class PsiMatcher
 		}
 	}
 
-	public PsiObject psiCaptureGroupEnd(final PsiObject key)
+	public PsiInteger psiCaptureGroupEnd(final PsiObject key)
 		throws PsiException
 	{
 		try
@@ -86,7 +86,7 @@ public class PsiMatcher
 				end=matcher.start(((PsiStringy)key).stringValue());
 			else
 				throw new PsiTypeCheckException();
-			return end>=0? PsiInteger.valueOf(end): PsiNull.NULL;
+			return end>=0? PsiInteger.valueOf(end): null;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
