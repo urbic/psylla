@@ -1168,6 +1168,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_osarch" xrefstyle="template:%t"/></term>
+<listitem>архитектура операционной системы</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_osname" xrefstyle="template:%t"/></term>
 <listitem>имя операционной системы</listitem>
 </varlistentry>
@@ -1540,6 +1545,7 @@
 &PsiReference_Operators_Details_notzero;
 &PsiReference_Operators_Details_null;
 &PsiReference_Operators_Details_or;
+&PsiReference_Operators_Details_osarch;
 &PsiReference_Operators_Details_osname;
 &PsiReference_Operators_Details_osversion;
 &PsiReference_Operators_Details_pop;

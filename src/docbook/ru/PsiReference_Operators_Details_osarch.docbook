@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_osarch">
+<title><token language="psi">osarch</token></title>
+
+<synopsis>
+—
+<token language="psi">osarch</token>
+<constant>osarch</constant>
+<itemizedlist>
+<listitem>
+<constant>osarch</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Архитектура операционной системы. <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_osarch"/> не оператор, а значение типа
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в
+системном словаре.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">osarch	▶ /amd64</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_osname"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_osversion"/>.
+</formalpara>
+
+</section>

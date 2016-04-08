@@ -28,6 +28,7 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в сист�
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_osarch"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_osname"/>.
 </formalpara>
 
