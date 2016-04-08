@@ -4,7 +4,10 @@ public class FileSystem
 {
 	public static java.nio.file.Path getPath(final PsiStringy stringy)
 	{
-		return new java.io.File(stringy.stringValue()).toPath();
+		String name=stringy.stringValue();
+		if(name.startsWith("~"))
+			name=System.getProperty("user.home")+name.substring(1);
+		return new java.io.File(name).toPath();
 	}
 
 	public static void psiCreateDirectory(final PsiStringy stringy)
