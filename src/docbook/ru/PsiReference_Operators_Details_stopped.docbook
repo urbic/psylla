@@ -18,6 +18,15 @@
 </itemizedlist>
 </synopsis>
 
+<para>
+Устанавливает контекст остановки и исполняет <replaceable>объект</replaceable>
+(обычно процедуру) внутри него. Если исполнение
+<replaceable>объекта</replaceable> привело к вызову оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stop"/>,
+возвращает <constant>true</constant>, в противном случае возвращает
+<constant>false</constant>.
+</para>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.

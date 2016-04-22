@@ -454,7 +454,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stopped" xrefstyle="template:%t"/></term>
-<listitem>create the stopped context</listitem>
+<listitem>establish the stopped context</listitem>
 </varlistentry>
 
 </variablelist>

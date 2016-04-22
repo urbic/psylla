@@ -1194,6 +1194,7 @@ public class PsiSystemDict
 		put("mark", PsiMark.MARK);
 		put("mathE", PsiReal.E);
 		put("mathPI", PsiReal.PI);
+		put("mathI", PsiComplex.I);
 		put("maxinteger", PsiInteger.MAX_VALUE);
 		put("maxreal", PsiReal.MAX_VALUE);
 		put("mininteger", PsiInteger.MIN_VALUE);

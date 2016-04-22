@@ -36,6 +36,11 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 </para>
 
 <formalpara>
+&TitleExamples;
+<programlisting language="psi">'/usr/bin/java' readlink	▶ "/etc/alternatives/java"</programlisting>
+</formalpara>
+
+<formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
