@@ -1,4 +1,5 @@
 package coneforest.psi;
+import coneforest.psi.core.*;
 
 public class Time
 {
@@ -11,13 +12,13 @@ public class Time
 	{
 		final java.util.GregorianCalendar calendar=new java.util.GregorianCalendar();
 		calendar.setTimeInMillis(oTime.longValue());
-	
+
 		final PsiDict oCalendar=new PsiDict();
 		for(int i=0; i<fieldNames.length; i++)
 			oCalendar.put(fieldNames[i], PsiInteger.valueOf(calendar.get(i)));
-		
+
 		// oCalendar.put("leapyear", PsiBoolean.valueOf(calendar.isLeapYear(calendar.get(java.util.Calendar.YEAR))));
-		
+
 		return oCalendar;
 	}
 

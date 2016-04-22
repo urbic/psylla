@@ -2,12 +2,12 @@ package coneforest.cli;
 
 public class OptionCollectorLong extends OptionCollector<Long>
 {
-	public OptionCollectorLong(String names)
+	public OptionCollectorLong(final String... names)
 	{
 		super(names);
 	}
 
-	public Long parseArg(String arg)
+	public Long parseArg(final String arg)
 		throws CLIProcessingException
 	{
 		long result;
@@ -17,7 +17,7 @@ public class OptionCollectorLong extends OptionCollector<Long>
 		}
 		catch(NumberFormatException e)
 		{
-			throw new CLIProcessingException("Bad option argument format: "+arg);
+			throw new CLIProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
 		return result;
 	}

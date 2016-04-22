@@ -18,7 +18,7 @@ public class OptionFloat
 		}
 		catch(NumberFormatException e)
 		{
-			throw new CLIProcessingException("Bad option argument format: "+arg);
+			throw new CLIProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
 	}
 }

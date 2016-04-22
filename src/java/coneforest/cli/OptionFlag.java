@@ -7,7 +7,7 @@ package coneforest.cli;
 public class OptionFlag
 	extends OptionWithoutArg<Boolean>
 {
-	public OptionFlag(String... names)
+	public OptionFlag(final String... names)
 	{
 		super(names);
 	}

@@ -3,13 +3,13 @@ package coneforest.cli;
 public class OptionString
 	extends OptionHolder<String>
 {
-	public OptionString(String... names)
+	public OptionString(final String... names)
 	{
 		super(names);
 	}
 
 	@Override
-	public String parseArg(String arg)
+	public String parseArg(final String arg)
 	{
 		return arg;
 	}

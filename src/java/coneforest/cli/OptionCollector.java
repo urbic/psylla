@@ -10,7 +10,7 @@ import java.util.ArrayList;
 abstract public class OptionCollector<T>
 	extends OptionWithArg
 {
-	public OptionCollector(String names)
+	public OptionCollector(final String... names)
 	{
 		super(names);
 	}

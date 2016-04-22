@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_editline">
+<title><token language="psi">editline</token></title>
+
+<synopsis>
+—
+<token language="psi">editline</token>
+<replaceable>строка</replaceable>
+<constant>true</constant>
+<sbr/>
+—
+<token language="psi">editline</token>
+<constant>false</constant>
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+</listitem>
+<listitem>
+<constant>false</constant>,
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+<remark>TODO</remark>
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода.
+</para>
+
+<formalpara>
+&TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_readstring"/>.
+</formalpara>
+
+</section>

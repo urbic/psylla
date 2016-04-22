@@ -12,6 +12,6 @@ public class Messages
 		return String.format(getString(id), args);
 	}
 
-	private static java.util.ResourceBundle	messages
+	private static final java.util.ResourceBundle messages
 		=java.util.ResourceBundle.getBundle("coneforest.psi.Messages");
 }

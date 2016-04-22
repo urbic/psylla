@@ -67,7 +67,7 @@
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
 			<arg value="--clean"/>
-			<arg value="openSUSE_13.2"/>
+			<arg value="openSUSE_Leap_42.1"/>
 		</exec>
 	</target>
 

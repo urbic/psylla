@@ -1,4 +1,5 @@
 package coneforest.psi;
+import coneforest.psi.core.*;
 
 /**
  *	An interpreter’s operand stack.
@@ -37,6 +38,15 @@ public class OperandStack extends Stack<PsiObject>
 		for(int i=0; i<backupSize; i++)
 			push(backup[i]);
 		backupSize=0;
+	}
+
+	public int findMarkPosition()
+		throws PsiUnmatchedMarkException
+	{
+		for(int i=size()-1; i>=0; i--)
+			if(get(i)==PsiMark.MARK)
+				return i;
+		throw new PsiUnmatchedMarkException();
 	}
 
 	private PsiObject[] backup=new PsiObject[5];

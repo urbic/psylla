@@ -2,33 +2,43 @@
 <svg
 	id="svgPsyllaLogo"
 	xmlns="http://www.w3.org/2000/svg"
-	viewBox="0 0 512 512"
-	width="512"
-	height="512"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	viewBox="0 0 1024 1024"
+	width="1024"
+	height="1024"
 	>
-	<rect
-		x="0"
-		y="0"
-		width="512"
-		height="512"
-		fill="#03304C"
-		stroke-width="16"
+	<title>Psylla logo</title>
+	<defs>
+		<circle
+			id="circle"
+			cx="512"
+			cy="512"
+			r="448"
+			/>
+	</defs>
+	<use
+		xlink:href="#circle"
+		fill="tomato"
 		/>
-	<rect
-		x="16"
-		y="16"
-		width="480"
-		height="480"
-		fill="lightskyblue"
+	<g
+		stroke="black"
+		stroke-width="48"
+		clip-path="url(#clipPath)"
+		>
+		<clipPath id="clipPath">
+			<use xlink:href="#circle"/>
+		</clipPath>
+		<use
+			xlink:href="#circle"
+			transform="translate(0 -448)"
+			fill="mediumseagreen"
+			/>
+		<path d="M 512 64 v 896"/>
+	</g>
+	<use
+		xlink:href="#circle"
+		fill="none"
+		stroke="black"
+		stroke-width="48"
 		/>
-	<!-- y="435.2" -->
-	<text
-		x="256"
-		y="445"
-		text-anchor="middle"
-		font-size="512"
-		font-family="PF Beau Sans Pro"
-		font-weight="light"
-		fill="#03304C"
-		>Ψ</text>
 </svg>

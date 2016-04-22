@@ -5,6 +5,10 @@ package coneforest.psi;
 
 class Parser
 {
+	public Parser(coneforest.psi.core.PsiReader oReader)
+	{
+		this(oReader.getReader());
+	}
 }
 
 PARSER_END(Parser)

@@ -1,4 +1,5 @@
 package coneforest.psi;
+import coneforest.psi.core.*;
 
 /**
  *	An interpreter’s dictionary stack.

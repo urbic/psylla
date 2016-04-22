@@ -195,6 +195,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_clearbit" xrefstyle="template:%t"/></term>
+<listitem>clear a bit</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_complex" xrefstyle="template:%t"/></term>
 <listitem>создание комплексного числа по его вещественной и мнимой частям</listitem>
 </varlistentry>
@@ -227,6 +232,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exp" xrefstyle="template:%t"/></term>
 <listitem>the exponent of a number</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_flipbit" xrefstyle="template:%t"/></term>
+<listitem>flip a bit</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -290,6 +300,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_setbit" xrefstyle="template:%t"/></term>
+<listitem>set a bit</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_signum" xrefstyle="template:%t"/></term>
 <listitem>the signum of a number</listitem>
 </varlistentry>
@@ -322,6 +337,11 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_tanh" xrefstyle="template:%t"/></term>
 <listitem>the hyperbolic tangent of a number</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_testbit" xrefstyle="template:%t"/></term>
+<listitem>the value of a bit</listitem>
 </varlistentry>
 
 </variablelist>
@@ -1113,11 +1133,6 @@ flush output buffer</listitem>
 <variablelist>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_abort" xrefstyle="template:%t"/></term>
-<listitem>TODO</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_arguments" xrefstyle="template:%t"/></term>
 <listitem>command-line arguments</listitem>
 </varlistentry>
@@ -1412,7 +1427,6 @@ flush output buffer</listitem>
 </synopsis>
 </section>
 
-&PsiReference_Operators_Details_abort;
 &PsiReference_Operators_Details_abs;
 &PsiReference_Operators_Details_acos;
 &PsiReference_Operators_Details_add;
@@ -1441,6 +1455,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_ceiling;
 &PsiReference_Operators_Details_classpath;
 &PsiReference_Operators_Details_clear;
+&PsiReference_Operators_Details_clearbit;
 &PsiReference_Operators_Details_cleardictstack;
 &PsiReference_Operators_Details_clearstack;
 &PsiReference_Operators_Details_cleartomark;
@@ -1471,6 +1486,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_dicttomark;
 &PsiReference_Operators_Details_div;
 &PsiReference_Operators_Details_dup;
+&PsiReference_Operators_Details_editline;
 &PsiReference_Operators_Details_end;
 &PsiReference_Operators_Details_entries;
 &PsiReference_Operators_Details_environment;
@@ -1497,6 +1513,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_filewriter;
 &PsiReference_Operators_Details_find;
 &PsiReference_Operators_Details_findall;
+&PsiReference_Operators_Details_flipbit;
 &PsiReference_Operators_Details_floor;
 &PsiReference_Operators_Details_flush;
 &PsiReference_Operators_Details_for;
@@ -1587,6 +1604,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_round;
 &PsiReference_Operators_Details_say;
 &PsiReference_Operators_Details_set;
+&PsiReference_Operators_Details_setbit;
 &PsiReference_Operators_Details_setlength;
 &PsiReference_Operators_Details_setseed;
 &PsiReference_Operators_Details_settomark;
@@ -1617,6 +1635,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_systemdict;
 &PsiReference_Operators_Details_tan;
 &PsiReference_Operators_Details_tanh;
+&PsiReference_Operators_Details_testbit;
 &PsiReference_Operators_Details_time;
 &PsiReference_Operators_Details_tointeger;
 &PsiReference_Operators_Details_toname;

@@ -27,14 +27,14 @@ returns an <replaceable>instance</replaceable> of this class.
 Generates <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_invalidexternal"/>, if the class not found
 at class path, does not implement
-<classname>coneforest.psi.PsiObject</classname> interface, does not public
+<classname>coneforest.psi.core.PsiObject</classname> interface, does not public
 constructor without arguments or if the invocation of this constructor
 terminated abnormally.
 </para>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">/coneforest.psi.PsiString external	▶ ""</programlisting>
+<programlisting language="psi">/coneforest.psi.core.PsiString external	▶ ""</programlisting>
 </formalpara>
 
 <formalpara>

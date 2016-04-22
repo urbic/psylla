@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_setbit">
+<title><token language="psi">setbit</token></title>
+
+<synopsis>
+<replaceable>битовое</replaceable>
+<replaceable>индекс</replaceable>
+<token language="psi">setbit</token>
+<replaceable>результат</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>битовое</replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitwise"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+<remark>TODO</remark>
+</para>
+
+<para>
+Генерирует <xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_rangecheck"/>, если
+<replaceable>индекс</replaceable> отрицателен.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psi">5 1 setbit	▶ 7</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitshift"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_clearbit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flipbit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_testbit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

@@ -44,13 +44,13 @@ public class PsiScriptEngine
 	}
 
 	@Override
-	public coneforest.psi.PsiObject get(String key)
+	public coneforest.psi.core.PsiObject get(String key)
 	{
 		try
 		{
 			return interpreter.getSystemDict().get(key);
 		}
-		catch(coneforest.psi.PsiException e)
+		catch(coneforest.psi.core.PsiException e)
 		{
 			return null;
 		}

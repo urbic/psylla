@@ -6,7 +6,7 @@ package coneforest.cli;
  */
 public class OptionCounter extends OptionWithoutArg
 {
-	public OptionCounter(String names)
+	public OptionCounter(final String... names)
 	{
 		super(names);
 	}

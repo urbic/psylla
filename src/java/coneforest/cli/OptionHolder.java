@@ -8,7 +8,7 @@ package coneforest.cli;
 abstract public class OptionHolder<T>
 	extends OptionWithArg<T>
 {
-	public OptionHolder(String... names)
+	public OptionHolder(final String... names)
 	{
 		super(names);
 	}

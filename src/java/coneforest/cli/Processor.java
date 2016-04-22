@@ -1,6 +1,6 @@
 package coneforest.cli;
 import java.io.*;
-import java.util.Locale;
+//import java.util.Locale;
 
 /**
  * Options processor class
@@ -48,7 +48,7 @@ public class Processor
 						if(option instanceof OptionWithArg)
 							((OptionWithArg)option).handle(arg);
 						else
-							throw new CLIProcessingException("Option --"+name+" does not need argument");
+							throw new CLIProcessingException(Messages.format("optProcExcpnDoesntNeedArg", "--"+name));
 					}
 					else
 					{
@@ -59,7 +59,7 @@ public class Processor
 							if(++i<args.length)
 								((OptionWithArg)option).handle(args[i]);
 							else
-								throw new CLIProcessingException("Option --"+name+" needs argument");
+								throw new CLIProcessingException(Messages.format("optProcExcpnNeedsArg", "--"+name));
 						}
 						else
 							((OptionWithoutArg)option).handle();
@@ -77,7 +77,7 @@ public class Processor
 								if(++i<args.length)
 									((OptionWithArg)option).handle(args[i]);
 								else
-									throw new CLIProcessingException("Option -"+name+" needs argument");
+									throw new CLIProcessingException(Messages.format("optProcExcpnNeedsArg", "-"+name));
 							else
 								((OptionWithArg)option).handle(args[i].substring(j));
 							break;
@@ -107,7 +107,7 @@ public class Processor
 		for(Option option: options)
 			if(option.hasName(name))
 				return option;
-		throw new CLIProcessingException("No definition for option -"+(name.length()==1? "": "-")+name);
+		throw new CLIProcessingException(Messages.format("optProcExcpnNoDefn", (name.length()==1? "-": "--")+name));
 	}
 
 	public <T> T getValue(final String name)

@@ -1,8 +1,6 @@
 /**
- * Ψ programming language core operators.
+ * Ψ language core types.
  *
  * @author Anton Shvetz
  */
 package coneforest.psi.core;
-
-import coneforest.psi.PsiModule;

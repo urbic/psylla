@@ -1,5 +1,4 @@
-@namespace url("http://www.w3.org/1999/xhtml");
-
+@namespace url(http://www.w3.org/1999/xhtml);
 @import "highlight.scss";
 
 //$background-color-body: lightskyblue;
@@ -193,7 +192,8 @@ table.productionset
 .errorname,
 {
 	//color: #A22;
-	color: #A40;
+	//color: #A40;
+	color: #225;
 	-moz-text-decoration-color: #A22;
 	text-decoration-color: #A22;
 }
@@ -236,4 +236,3 @@ table.productionset
 		width: 33.3333%;
 	}
 }
-

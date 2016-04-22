@@ -15,9 +15,13 @@
 	xml:base="."
 	xml:lang="ru"
 	>
+<!--mediaobject>
+<imageobject>
+<imagedata width="128" fileref="psylla.svg" type="SVG"/>
+</imageobject>
+</mediaobject-->
 
 <title lang="en">Язык Ψ — полное руководство</title>
-
 
 &PsiReference_Preface;
 &PsiReference_Interpreter;

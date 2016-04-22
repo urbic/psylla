@@ -2,3 +2,4 @@ target
 tests
 gh-pages
 .sass-cache
+*.class

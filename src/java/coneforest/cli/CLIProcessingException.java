@@ -12,6 +12,6 @@ public class CLIProcessingException
 	 */
 	public CLIProcessingException(String message)
 	{
-		super("Option processing exception: "+message);
+		super(Messages.format("optProcExcpn", message));
 	}
 }

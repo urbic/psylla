@@ -1,4 +1,5 @@
 package coneforest.psi;
+import coneforest.psi.core.*;
 
 public class Psylla
 {
@@ -6,7 +7,9 @@ public class Psylla
 	{
 		try
 		{
-			String consoleEncoding=System.getProperty("consoleEncoding");
+			//String consoleEncoding=System.getProperty("consoleEncoding");
+			String consoleEncoding=java.nio.charset.Charset.defaultCharset().toString();
+			//System.err.println(consoleEncoding);
 			final coneforest.cli.Processor cli=new coneforest.cli.Processor
 				(
 					new coneforest.cli.OptionFlag("help", "h", "?"),
@@ -108,10 +111,15 @@ public class Psylla
 
 			interpreter.start();
 		}
-		//catch(coneforest.cli.CLIConfigurationException|coneforest.cli.CLIProcessingException|PsiException e)
-		catch(coneforest.cli.CLIProcessingException|PsiException e)
+		catch(PsiException e)
 		{
 			System.err.println(e.getLocalizedMessage());
+			System.exit(1);
+		}
+		catch(coneforest.cli.CLIProcessingException e)
+		{
+			System.err.println(e.getLocalizedMessage());
+			System.err.println(Messages.getString("useHelpOption"));
 			System.exit(1);
 		}
 		catch(java.io.FileNotFoundException e)

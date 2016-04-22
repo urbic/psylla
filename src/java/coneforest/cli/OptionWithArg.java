@@ -6,7 +6,7 @@ package coneforest.cli;
 abstract public class OptionWithArg<T>
 	extends Option
 {
-	public OptionWithArg(String... names)
+	public OptionWithArg(final String... names)
 	{
 		super(names);
 	}

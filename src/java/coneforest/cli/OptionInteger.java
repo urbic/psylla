@@ -2,13 +2,13 @@ package coneforest.cli;
 
 public class OptionInteger extends OptionHolder<Integer>
 {
-	public OptionInteger(String names)
+	public OptionInteger(final String... names)
 	{
 		super(names);
 	}
 
 	@Override
-	public Integer parseArg(String arg)
+	public Integer parseArg(final String arg)
 		throws CLIProcessingException
 	{
 		try
@@ -17,7 +17,7 @@ public class OptionInteger extends OptionHolder<Integer>
 		}
 		catch(NumberFormatException e)
 		{
-			throw new CLIProcessingException("Bad option argument format: "+arg);
+			throw new CLIProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
 	}
 }

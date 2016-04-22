@@ -21,12 +21,14 @@ Release:		0
 License:		Zlib
 Summary:		Psi programming language
 Url:			https://github.com/urbic/%{name}
-Group:			Development/Libraries/Java
+Group:			Development/Languages
 Source:			%{name}-%{version}.tar.xz
 BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	java-devel >= 1.8.0
+BuildRequires:	java-javadoc >= 1.8.0
 BuildRequires:	jline
+BuildRequires:	shared-mime-info
 Requires:		java >= 1.8.0
 Requires:		jline
 BuildRoot:		%{_tmppath}/%{name}-%{version}-build
@@ -42,7 +44,7 @@ Requires:		paratype-pt-sans-fonts
 BuildRequires:	ant-apache-resolver
 BuildRequires:	docbook5-xsl-stylesheets
 BuildRequires:	graphviz
-BuildRequires:	rubygem-sass
+BuildRequires:	rubygem(sass)
 BuildRequires:	saxon6
 BuildRequires:	xerces-j2-xml-apis
 BuildRequires:	xslthl
@@ -83,6 +85,14 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{__install} -m 644 target/vim/ftdetect/*.vim %{buildroot}%{_datadir}/vim/site/ftdetect
 %{__cp} -pr target/doc/javadoc/* %{buildroot}%{_javadocdir}/%{name}
 %{__ln_s} %{version} %{buildroot}%{_datadir}/%{name}/current
+%{__install} -d %{buildroot}%{_datadir}/mime/packages
+%{__install} -m 644 target/mime/%{name}.xml %{buildroot}%{_datadir}/mime/packages
+
+%post
+%mime_database_post
+
+%postun
+%mime_database_postun
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -101,6 +111,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %dir %{_datadir}/vim/site/syntax
 %{_datadir}/vim/site/ftdetect/psi.vim
 %{_datadir}/vim/site/syntax/psi.vim
+%{_datadir}/mime/packages/%{name}.xml
 %doc README LICENSE AUTHORS
 
 %files doc

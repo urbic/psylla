@@ -2,7 +2,7 @@ package coneforest.cli;
 
 public class OptionCollectorFloat extends OptionCollector<Float>
 {
-	public OptionCollectorFloat(String names)
+	public OptionCollectorFloat(String... names)
 	{
 		super(names);
 	}
@@ -17,7 +17,7 @@ public class OptionCollectorFloat extends OptionCollector<Float>
 		}
 		catch(NumberFormatException e)
 		{
-			throw new CLIProcessingException("Bad option argument format: "+arg);
+			throw new CLIProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
 		return result;
 	}

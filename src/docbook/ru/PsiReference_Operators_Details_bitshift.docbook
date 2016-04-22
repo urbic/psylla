@@ -37,8 +37,12 @@
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_and"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_neg"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_clearbit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_flipbit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_not"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_setbit"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_testbit"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_xor"/>.
 </formalpara>
 

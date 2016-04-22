@@ -752,9 +752,7 @@ negative) integer, in which case the result is a real number.
 -->
 
 <!--
-abort
 abs
-ackage-info
 add
 and
 append

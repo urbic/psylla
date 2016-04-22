@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <project name="psylla" default="jar" basedir=".">
-	
+
+	<!-- Properties -->
 	<property name="project.name" value="${ant.project.name}"/>
 	<property name="src" location="src"/>
 	<property name="src.java" location="${src}/java"/>
@@ -11,6 +12,8 @@
 	<property name="src.bin" location="${src}/bin"/>
 	<property name="src.css" location="${src}/css"/>
 	<property name="src.vim" location="${src}/vim"/>
+	<property name="src.mime" location="${src}/mime"/>
+	<property name="src.logo" location="${src}/logo"/>
 	<property name="target" location="target"/>
 	<property name="target.src.java" location="${target}/src/java"/>
 	<property name="target.doc" location="${target}/doc"/>
@@ -22,6 +25,7 @@
 	<property name="target.man"  location="${target}/man"/>
 	<property name="target.doc.html" location="${target.doc}/html"/>
 	<property name="target.vim" location="${target}/vim"/>
+	<property name="target.mime" location="${target}/mime"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<property name="home.javadoc.java" location="/usr/share/javadoc/java"/>
@@ -34,6 +38,7 @@
 		name="project.version"
 		value="${project.version.major}.${project.version.minor}.${project.version.revision}"
 		/>
+	<property file="${src.ant}/config.properties"/>
 	
 	<import file="${src.ant}/htmldocs.ant"/>
 	<import file="${src.ant}/manpages.ant"/>
@@ -72,6 +77,10 @@
 			dest="${target.classes}"
 			includes="**/*.properties"
 			ext=".properties"
+			/>
+		<echoproperties
+			destfile="${target.classes}/coneforest/psi/Config.properties"
+			prefix="config."
 			/>
 	</target>
 
@@ -162,7 +171,9 @@
 			<fileset dir="${src.docbook}" includes="navigation/**"/>
 			<fileset dir="${src.docbook}" includes="js/**"/>
 		</copy>
-		<copy todir="${target.doc.html}" file="${src}/logo/${project.name}-16.png"/>
+		<copy todir="${target.doc.html}">
+			<fileset dir="${src.logo}" includes="${project.name}.svg ${project.name}-16.png"/>
+		</copy>
 		<symlink action="delete" link="examples"/>
 	</target>
 	
@@ -245,6 +256,9 @@
 		</copy>
 		<copy todir="${target.vim}">
 			<fileset dir="${src.vim}" includes="**/*"/>
+		</copy>
+		<copy todir="${target.mime}">
+			<fileset dir="${src.mime}" includes="**/*"/>
 		</copy>
 	</target>
 

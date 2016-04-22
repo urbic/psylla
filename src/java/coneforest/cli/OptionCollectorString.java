@@ -3,7 +3,7 @@ package coneforest.cli;
 public class OptionCollectorString
 	extends OptionCollector<String>
 {
-	public OptionCollectorString(String names)
+	public OptionCollectorString(String... names)
 	{
 		super(names);
 	}

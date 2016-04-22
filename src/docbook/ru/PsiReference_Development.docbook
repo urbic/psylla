@@ -15,9 +15,9 @@
 
 <para>
 Новый оператор реализуется как подкласс класса
-<classname>coneforest.psi.PsiOperator</classname>. В классе оператора следует
+<classname>coneforest.psi.core.PsiOperator</classname>. В классе оператора следует
 переопределить метод <methodname
-xlink:href="../../javadoc/coneforest/psi/PsiObject.html#invoke(coneforest.psi.Interpreter)">invoke(coneforest.psi.Interpreter)</methodname>.
+xlink:href="../../javadoc/coneforest/psi/core/PsiObject.html#invoke(coneforest.psi.Interpreter)">invoke(coneforest.psi.Interpreter)</methodname>.
 Этот метод получает интерпретатор как параметр и выполняет требуемое действие,
 нужным образом манипулируя с интерпретатором.
 </para>
@@ -27,9 +27,9 @@ xlink:href="../../javadoc/coneforest/psi/PsiObject.html#invoke(coneforest.psi.In
 Ψ определены в классах, чьё имя начинается со знака подчёркивания, за которым
 следует имя оператора. К примеру, оператор <token language="psi">dup</token>
 определён в классе <classname
-xlink:href="../../javadoc/coneforest/psi/systemdict/_dup.html">coneforest.psi.systemdict._dup</classname>.
+xlink:href="../../javadoc/coneforest/psi/core/_dup.html">coneforest.psi.systemdict._dup</classname>.
 Метод <methodname
-xlink:href="../../javadoc/coneforest/psi/PsiOperator.html#getName()">coneforest.psi.PsiOperator.getName()</methodname>
+xlink:href="../../javadoc/coneforest/psi/core/PsiOperator.html#getName()">coneforest.psi.core.PsiOperator.getName()</methodname>
 возвращает имя класса с удалённым первым символом. Иная схема наименования
 классов потребует переопределения этого метода.
 </para>

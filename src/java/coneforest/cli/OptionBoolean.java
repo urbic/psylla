@@ -2,12 +2,12 @@ package coneforest.cli;
 
 public class OptionBoolean extends OptionHolder<Boolean>
 {
-	public OptionBoolean(String names)
+	public OptionBoolean(final String... names)
 	{
 		super(names);
 	}
 
-	public Boolean parseArg(String arg)
+	public Boolean parseArg(final String arg)
 	{
 		return Boolean.parseBoolean(arg);
 	}

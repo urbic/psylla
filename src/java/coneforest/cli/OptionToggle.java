@@ -7,7 +7,7 @@ package coneforest.cli;
 public class OptionToggle
 	extends OptionWithoutArg
 {
-	public OptionToggle(String names)
+	public OptionToggle(final String... names)
 	{
 		super(names);
 	}
