@@ -15,9 +15,9 @@ public class PsiProc
 	{
 		try
 		{
-			ExecutionStack execstack=interpreter.executionStack();
+			final ExecutionStack estack=interpreter.executionStack();
 			for(int i=length()-1; i>=0; i--)
-				execstack.push(get(i));
+				estack.push(get(i));
 		}
 		catch(PsiException e)
 		{

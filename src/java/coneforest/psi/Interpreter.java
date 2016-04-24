@@ -67,6 +67,12 @@ public class Interpreter
 		return estack;
 	}
 
+	public void handleExecutionStack()
+	{
+		while(estack.size()>0)
+			estack.pop().execute(this);
+	}
+
 	public void handleExecutionStack(final int level)
 	{
 		while(estack.size()>level)
@@ -198,7 +204,7 @@ public class Interpreter
 			{
 				case ParserConstants.COMMAND:
 					parseToken(token).execute(this);
-					handleExecutionStack(0);
+					handleExecutionStack();
 					break;
 				case ParserConstants.INTEGER:
 				case ParserConstants.INTEGER_HEXADECIMAL:

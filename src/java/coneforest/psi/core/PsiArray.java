@@ -195,26 +195,23 @@ public class PsiArray
 		return result;
 	}
 
-	public PsiInteger psiBinarySearch(PsiObject key, PsiProc comparator)
+	public PsiInteger psiBinarySearch(PsiObject o, PsiProc oComparator)
 		throws PsiException
 	{
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
 		final OperandStack opstack=interpreter.operandStack();
-		return PsiInteger.valueOf(java.util.Collections.<PsiObject>binarySearch(array, key,
-			new java.util.Comparator<PsiObject>()
-				{
-					@Override
-					public int compare(PsiObject obj1, PsiObject obj2)
-					{
-						opstack.push(obj1);
-						opstack.push(obj2);
-						final int execLevel=interpreter.getExecLevel();
-						comparator.invoke(interpreter);
-						interpreter.handleExecutionStack(execLevel);
-						// TODO: ensure stack size
-						return ((PsiInteger)opstack.pop()).intValue();
-					}
-				}));
+		return PsiInteger.valueOf(java.util.Collections.<PsiObject>binarySearch(array, o,
+			// TODO gap
+			(o1, o2)->
+			{
+				opstack.push(o1);
+				opstack.push(o2);
+				final int execLevel=interpreter.getExecLevel();
+				oComparator.invoke(interpreter);
+				interpreter.handleExecutionStack(execLevel);
+				// TODO: ensure stack size
+				return ((PsiInteger)opstack.pop()).intValue();
+			}));
 	}
 
 	private java.util.ArrayList<PsiObject> array;

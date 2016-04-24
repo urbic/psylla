@@ -119,7 +119,7 @@ public abstract class PsiOperator
 			throws ClassCastException, PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			ostack.push(handler.handle(ostack.pop()));
+			ostack.push(handler.handle(ostack.popOperands(1)[0]));
 		}
 
 		public Arity11(String name, Handler handler)
@@ -174,7 +174,7 @@ public abstract class PsiOperator
 			throws ClassCastException, PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			handler.handle(ostack.pop());
+			handler.handle(ostack.popOperands(1)[0]);
 		}
 
 		public Arity10(String name, Handler handler)

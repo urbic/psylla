@@ -1,4 +1,5 @@
 package coneforest.psi.core;
+import coneforest.psi.*;
 
 /**
 *	A representation of Ψ-{@code dictlike}, an abstraction of a dictionary.
@@ -7,7 +8,7 @@ package coneforest.psi.core;
 */
 public interface PsiDictlike<V extends PsiObject>
 	extends
-		PsiContainer<PsiObject>,
+		PsiContainer<V>,
 		PsiIndexed<PsiStringy, V>
 {
 	/**
@@ -18,6 +19,40 @@ public interface PsiDictlike<V extends PsiObject>
 	{
 		return "dictlike";
 	}
+
+	@Override
+	default public void psiForAll(final PsiObject proc)
+		throws PsiException
+	{
+		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
+		final OperandStack ostack=interpreter.operandStack();
+		final java.util.Iterator<PsiStringy> iterator=psiKeys().iterator();
+		interpreter.pushLoopLevel();
+		interpreter.executionStack().push(new PsiOperator("#forall_continue")
+			{
+				@Override
+				public void action(Interpreter interpreter1)
+					throws PsiException
+				{
+					if(interpreter1.getStopFlag()
+							|| interpreter1.getExitFlag()
+							|| !iterator.hasNext())
+					{
+						interpreter1.setExitFlag(false);
+						interpreter1.popLoopLevel();
+					}
+					else
+					{
+						final PsiStringy oKey=iterator.next();
+						ostack.push(oKey);
+						ostack.push(psiGet(oKey));
+						interpreter1.executionStack().push(this);
+						proc.invoke(interpreter1);
+					}
+				}
+			});
+	}
+
 
 	public V get(String key)
 		throws PsiException;

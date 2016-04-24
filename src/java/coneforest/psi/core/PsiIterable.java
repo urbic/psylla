@@ -24,6 +24,7 @@ public interface PsiIterable<T extends PsiObject>
 	default public void psiForAll(final PsiObject proc)
 		throws PsiException
 	{
+		/*
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
 		final OperandStack ostack=interpreter.operandStack();
 		final int loopLevel=interpreter.pushLoopLevel();
@@ -44,6 +45,32 @@ public interface PsiIterable<T extends PsiObject>
 		}
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
+		*/
+		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
+		final OperandStack ostack=interpreter.operandStack();
+		final java.util.Iterator<T> iterator=iterator();
+		interpreter.pushLoopLevel();
+		interpreter.executionStack().push(new PsiOperator("#forall_continue")
+			{
+				@Override
+				public void action(Interpreter interpreter1)
+					throws PsiException
+				{
+					if(interpreter1.getStopFlag()
+							|| interpreter1.getExitFlag()
+							|| !iterator.hasNext())
+					{
+						interpreter1.setExitFlag(false);
+						interpreter1.popLoopLevel();
+					}
+					else
+					{
+						ostack.push(iterator.next());
+						interpreter1.executionStack().push(this);
+						proc.invoke(interpreter1);
+					}
+				}
+			});
 	}
 
 	/**
@@ -75,7 +102,7 @@ public interface PsiIterable<T extends PsiObject>
 										proc.invoke(interpreter);
 										interpreter.handleExecutionStack(loopLevel);
 										ostack.ensureSize(1);
-										boolean check=((PsiBoolean)ostack.pop()).booleanValue();
+										boolean check=((PsiBoolean)ostack.pop()).booleanValue(); // TODO: pop()
 										if(interpreter.getStopFlag()
 												|| interpreter.getExitFlag())
 											break;

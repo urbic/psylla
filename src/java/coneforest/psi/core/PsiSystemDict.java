@@ -84,48 +84,6 @@ public class PsiSystemDict
 							}
 						}
 					),
-				/*
-				new PsiOperator("bind")
-					// TODO
-					{
-						@Override
-						public void action(final Interpreter interpreter)
-							throws ClassCastException, PsiException
-						{
-							final OperandStack ostack=interpreter.operandStack();
-							ostack.ensureSize(1);
-							bind((PsiProc)ostack.peek(), interpreter.dictStack());
-						}
-
-						private void bind(PsiProc proc, DictStack dictstack)
-						{
-							bindHelper(proc, new java.util.HashSet<PsiProc>(), dictstack);
-						}
-
-						private void bindHelper(PsiProc proc, java.util.HashSet<PsiProc> bound, DictStack dictstack)
-						{
-								for(int i=0; i<proc.length(); i++)
-								{
-									try
-									{
-										PsiObject obj=proc.get(i);
-										if(obj instanceof PsiProc && bound.add((PsiProc)obj))
-											bindHelper((PsiProc)obj, bound, dictstack);
-										else if(obj instanceof PsiCommand)
-										{
-											PsiObject value=dictstack.load((PsiName)obj);
-											if(value instanceof PsiOperator)
-												proc.put(i, value);
-										}
-									}
-									catch(PsiException e)
-									{
-										// NOP
-									}
-								}
-						}
-					},
-				*/
 				new PsiOperator.Arity11
 					("bind", (a)->((PsiProc)a).psiBind()),
 				new PsiOperator.Arity01
@@ -337,7 +295,6 @@ public class PsiSystemDict
 								if(line!=null)
 									ostack.push(new PsiString(line+"\n"));
 								ostack.push(PsiBoolean.valueOf(line!=null));
-								
 							}
 							catch(java.io.IOException e)
 							{
@@ -392,7 +349,7 @@ public class PsiSystemDict
 						{
 							if(interpreter.currentLoopLevel()==-1)
 								throw new PsiInvalidExitException();
-							interpreter.executionStack().setSize(interpreter.currentLoopLevel());
+							interpreter.executionStack().setSize(interpreter.currentLoopLevel()+1);
 							interpreter.setExitFlag(true);
 						}
 					),
@@ -485,69 +442,48 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStack();
+							final ExecutionStack estack=interpreter.executionStack();
 							final PsiObject[] ops=ostack.popOperands(4);
-							final PsiNumeric initial=(PsiNumeric)ops[0];
-							final PsiNumeric increment=(PsiNumeric)ops[1];
-							final PsiNumeric limit=(PsiNumeric)ops[2];
-							final PsiObject obj=ops[3];
+							final PsiNumeric oInitial=(PsiNumeric)ops[0];
+							final PsiNumeric oIncrement=(PsiNumeric)ops[1];
+							final PsiNumeric oLimit=(PsiNumeric)ops[2];
+							final PsiObject oProc=ops[3];
 
 							final int loopLevel=interpreter.pushLoopLevel();
-							final boolean forward=increment.psiGt(PsiInteger.ZERO).booleanValue();
-							for(
-									PsiNumeric counter=initial;
-									(forward && counter.psiLe(limit).booleanValue()
-											|| !forward && counter.psiGe(limit).booleanValue());
-									counter=(PsiNumeric)counter.psiAdd(increment)
-								)
-							{
-								ostack.push(counter);
-								obj.invoke(interpreter);
-								interpreter.handleExecutionStack(loopLevel);
-								if(interpreter.getStopFlag() || interpreter.getExitFlag())
-									break;
-							}
-							interpreter.popLoopLevel();
-							interpreter.setExitFlag(false);
-						}
-					),
-				new PsiOperator.Action
-					("forall",
-						(interpreter)->
-						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiIterable iterable=(PsiIterable)ops[0];
-							final PsiObject proc=ops[1];
-
-							if(iterable instanceof PsiDictlike)
-							{
-								// TODO
-								/*
-								final int loopLevel=interpreter.pushLoopLevel();
-								for(java.util.Map.Entry<String, PsiObject> entry:
-											(PsiIterable<java.util.Map.Entry<String, PsiObject>>)iterable)
+							final boolean forward=oIncrement.psiGt(PsiInteger.ZERO).booleanValue();
+							estack.push(new PsiOperator("#for_continue")
 								{
-									ostack.push(new PsiName(entry.getKey()));
-									ostack.push(entry.getValue());
-									proc.invoke(interpreter);
-									interpreter.handleExecutionStack(loopLevel);
-									if(interpreter.getStopFlag() || interpreter.getExitFlag())
-										break;
-								}
-								interpreter.popLoopLevel();
-								interpreter.setExitFlag(false);
-								*/
-							}
-							else if(iterable instanceof PsiIterable)
-								((PsiIterable<PsiObject>)iterable).psiForAll(proc);
-							else
-								throw new PsiTypeCheckException();
+									private PsiNumeric oCounter=oInitial;
+
+									@Override
+									public void action(Interpreter interpreter1)
+									{
+										if(interpreter1.getStopFlag()
+												|| interpreter1.getExitFlag())
+										{
+											interpreter1.setExitFlag(false);
+											interpreter1.popLoopLevel();
+										}
+										else
+										{
+											if(forward && oCounter.psiGt(oLimit).booleanValue()
+													|| !forward && oCounter.psiLt(oLimit).booleanValue())
+												return;
+											estack.push(this);
+											ostack.push(oCounter);
+											oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
+											oProc.invoke(interpreter1);
+										}
+									}
+								});
 						}
 					),
+				new PsiOperator.Arity20
+					("forall", (a, b)->((PsiIterable)a).psiForAll(b)),
 				new PsiOperator.Action
 					("fork",
 						(interpreter)->
-					// TODO; error handling in forked context
+						// TODO; error handling in forked context
 						{
 							final OperandStack ostack=interpreter.operandStack();
 
@@ -561,7 +497,7 @@ public class PsiSystemDict
 										public void run()
 										{
 											o.invoke(this);
-											handleExecutionStack(0);
+											handleExecutionStack();
 											if(getStopFlag())
 											{
 												PsiErrorDict.OP_HANDLEERROR.invoke(this);
@@ -705,16 +641,26 @@ public class PsiSystemDict
 						{
 							final PsiObject proc=interpreter.operandStack().popOperands(1)[0];
 
-							final int loopLevel=interpreter.pushLoopLevel();
-							while(true)
-							{
-								proc.invoke(interpreter);
-								interpreter.handleExecutionStack(loopLevel);
-								if(interpreter.getStopFlag() || interpreter.getExitFlag())
-									break;
-							}
-							interpreter.popLoopLevel();
-							interpreter.setExitFlag(false);
+							interpreter.pushLoopLevel();
+							interpreter.executionStack().push(new PsiOperator("#loop_continue")
+								{
+									@Override
+									public void action(Interpreter interpreter1)
+										throws PsiException
+									{
+										if(interpreter1.getStopFlag()
+												|| interpreter1.getExitFlag())
+										{
+											interpreter1.setExitFlag(false);
+											interpreter1.popLoopLevel();
+										}
+										else
+										{
+											interpreter1.executionStack().push(this);
+											proc.invoke(interpreter1);
+										}
+									}
+								});
 						}
 					),
 				new PsiOperator.Arity11
@@ -759,22 +705,15 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							final PsiLock lock=(PsiLock)ops[0];
-							final PsiObject obj=ops[1];
+							final PsiLock oLock=(PsiLock)ops[0];
+							final PsiObject oProc=ops[1];
 
-							if(lock.isHeldByCurrentThread())
+							if(oLock.isHeldByCurrentThread())
 								throw new PsiInvalidContextException();
-							lock.lock();
-							try
-							{
-								int execlevel=interpreter.getExecLevel();
-								obj.invoke(interpreter);
-								interpreter.handleExecutionStack(execlevel);
-							}
-							finally
-							{
-								lock.unlock();
-							}
+							oLock.lock();
+							interpreter.executionStack().push(new PsiOperator.Action
+								("#monitor_continue", (interpreter1)->oLock.unlock()));
+							oProc.invoke(interpreter);
 						}
 					),
 				new PsiOperator.Arity21
@@ -906,23 +845,39 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStack();
+							final ExecutionStack estack=interpreter.executionStack();
 							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiInteger count=(PsiInteger)ops[0];
-							final PsiObject proc=ops[1];
+							final PsiInteger oCount=(PsiInteger)ops[0];
+							final PsiObject oProc=ops[1];
+							final long count=oCount.longValue();
 
-							long countValue=count.longValue();
-							if(countValue<0)
+							if(count<0)
 								throw new PsiRangeCheckException();
-							int loopLevel=interpreter.pushLoopLevel();
-							for(int i=0; i<countValue; i++)
-							{
-								proc.invoke(interpreter);
-								interpreter.handleExecutionStack(loopLevel);
-								if(interpreter.getStopFlag() || interpreter.getExitFlag())
-									break;
-							}
-							interpreter.popLoopLevel();
-							interpreter.setExitFlag(false);
+							if(count==0)
+								return;
+
+							interpreter.pushLoopLevel();
+							interpreter.executionStack().push(new PsiOperator("#repeat_continue")
+								{
+									private long count1=count;
+
+									@Override
+									public void action(Interpreter interpreter1)
+									{
+										if(interpreter1.getStopFlag()
+												|| interpreter1.getExitFlag()
+												|| count1--==0)
+										{
+											interpreter1.setExitFlag(false);
+											interpreter1.popLoopLevel();
+										}
+										else
+										{
+											estack.push(this);
+											oProc.invoke(interpreter1);
+										}
+									}
+								});
 						}
 					),
 				new PsiOperator.Arity21
@@ -1063,14 +1018,26 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject o=ostack.popOperands(1)[0];
+							final PsiObject oProc=ostack.popOperands(1)[0];
 
 							final int stopLevel=interpreter.pushStopLevel();
-							o.invoke(interpreter);
+							oProc.invoke(interpreter);
 							interpreter.handleExecutionStack(stopLevel);
 							ostack.push(PsiBoolean.valueOf(interpreter.getStopFlag()));
 							interpreter.setStopFlag(false);
 							interpreter.popStopLevel();
+
+							/*
+							interpreter.pushStopLevel();
+							interpreter.executionStack().push(new PsiOperator.Action
+								("#stopped_continue", (interpreter1)->
+								{
+									ostack.push(PsiBoolean.valueOf(interpreter1.getStopFlag()));
+									interpreter1.setStopFlag(false);
+									interpreter1.popStopLevel();
+								}));
+							oProc.invoke(interpreter);
+							*/
 						}
 					),
 				new PsiOperator.Action
@@ -1096,14 +1063,19 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							final PsiObject obj=ops[0];
-							final PsiObject proc=ops[1];
-							synchronized(obj)
+							final PsiObject o=ops[0];
+							final PsiObject oProc=ops[1];
+							///*
+							synchronized(o)
 							{
 								final int loopLevel=interpreter.pushLoopLevel();
-								proc.invoke(interpreter);
+								oProc.invoke(interpreter);
 								interpreter.handleExecutionStack(loopLevel);
 							}
+							//*/
+							//final java.util.concurrent.locks.ReentrantLock lock
+							//	=new java.util.concurrent.locks.ReentrantLock();
+							//lock.lock();
 						}
 					),
 				new PsiOperator.Arity11
@@ -1176,6 +1148,7 @@ public class PsiSystemDict
 					("xor", (a, b)->((PsiLogical)a).psiXor((PsiLogical)b)),
 				new PsiOperator.Action
 					("yield", (interpreter)->Thread.yield())
+
 			);
 
 		put("]", get("arraytomark"));
