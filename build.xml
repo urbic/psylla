@@ -196,9 +196,9 @@
 	</target>
 
 	<target name="manpages" description="Make manual pages">
-		<copy tofile="${target}/version.ent">
+		<copy tofile="${target.doc}/version.ent">
             <string><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<!ENTITY psiVersion "${project.version}">
+<!ENTITY psiVersion "v${project.version}">
 ]]></string>
         </copy>
 		<mkdir dir="${target.doc}"/>
@@ -248,7 +248,7 @@
 		<delete dir="${target}/tmp" quiet="yes"/>
 	</target>
 	
-	<target name="build" description="Build project" depends="jar,htmldocs">
+	<target name="build" description="Build project" depends="jar,manpages,htmldocs,javadoc">
 		<copy todir="${target.bin}" file="${src.bin}/${project.name}"/>
 		<copy todir="${target.doc}">
 			<fileset dir="." includes="README LICENSE AUTHORS"/>

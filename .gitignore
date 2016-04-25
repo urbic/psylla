@@ -1,5 +1,7 @@
-target
-tests
-gh-pages
-.sass-cache
-*.class
+/target
+/tests
+/gh-pages
+/.sass-cache
+/*.class
+/*.psi
+/*.java

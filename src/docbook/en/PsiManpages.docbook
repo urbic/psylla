@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!ENTITY % entities		SYSTEM "../namespaces.ent">
-<!ENTITY % version		SYSTEM "../../../target/version.ent">
+<!ENTITY % version		SYSTEM "../../../target/doc/version.ent">
 %entities;
 %version;
 <!ENTITY rePsi			SYSTEM "rePsi.docbook">
@@ -11,7 +11,7 @@
 <!ENTITY rePsiOp		SYSTEM "rePsiOp.docbook">
 ]>
 <reference
-	xml:id="refPsiManpages"
+	xml:id="PsiManpages"
 	version="5.0"
 	xmlns="&nsDocBook;"
 	xmlns:m="&nsMathML;"
@@ -19,28 +19,186 @@
 	xml:base="."
 	xml:lang="en"
 	>
-<info>
-<title>Ψ Language — full reference</title>
-<productname>psi</productname> <productnumber>v&psiVersion;</productnumber>
+<refentry xml:id="PsiManpages_psylla">
+<refmeta>
+<refentrytitle>psylla</refentrytitle>
+<manvolnum>1</manvolnum>
+<refmiscinfo class="manual">Psylla</refmiscinfo>
+<refmiscinfo class="source">Psylla</refmiscinfo>
+<refmiscinfo class="version">&psiVersion;</refmiscinfo>
+</refmeta>
 
-<author>
+<refnamediv>
+<refname>psylla</refname>
+<refpurpose>extensible and embeddable Ψ implementation written in
+Java</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis><command>psylla</command>
+<arg rep="repeat"><replaceable>option</replaceable></arg>
+<arg><option>--</option></arg>
+<arg><replaceable>program</replaceable>
+<arg rep="repeat"><parameter><replaceable>argument</replaceable></parameter></arg></arg></cmdsynopsis>
+</refsynopsisdiv>
+
+<refsection>
+<title>Description</title>
+
+<para>
+The <command>psylla</command> invokes <application>Psylla</application>, an
+extensible and embeddable Ψ interpreter.
+</para>
+
+<para>
+Ψ (Psi) is scriptable interpretive concatenative PostScript-like programming
+language.
+</para>
+</refsection>
+
+<refsection>
+<title>Command-line Parameters</title>
+
+<variablelist>
+
+<varlistentry>
+<term><parameter><replaceable>options</replaceable></parameter>
+</term>
+<listitem>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<option>--help</option>,
+<option>--usage</option>,
+<option>-h</option>,
+<option>-?</option>
+</term>
+<listitem>
+Show options summary.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--version</option>,
+<option>-V</option>
+</term>
+<listitem>
+Show the version of the interpreter.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--eval</option>,
+<option>-e</option>
+<parameter><replaceable>expression</replaceable></parameter>
+</term>
+<listitem>
+Evaluate an <parameter><replaceable>expression</replaceable></parameter>
+consisting of Ψ commands.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--classpath</option>,
+<option>--cp</option>
+<parameter><replaceable>path</replaceable></parameter>
+</term>
+<listitem>
+Additional extensions class path including directories and jar archives.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--console-encoding</option>,
+<option>-C</option>
+<parameter><replaceable>encoding</replaceable></parameter>
+</term>
+<listitem>
+Set the <replaceable>encoding</replaceable> of the console.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--random-seed</option>,
+<option>-S</option>
+<parameter><replaceable>seed</replaceable></parameter>
+</term>
+<listitem>
+Initialize the pseudorandom numbers generator with
+<replaceable>seed</replaceable>.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>program</replaceable></parameter></term>
+<listitem>
+The name of a file containing Ψ <replaceable>program</replaceable>. The program
+is read from standard input when the hyphen is specified. If the
+<replaceable>program</replaceable> is not specified, run
+<acronym>REPL</acronym> (read—evaluate—print cycle).
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>argument</replaceable></parameter></term>
+<listitem>
+Argument passed to Ψ program.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsection>
+
+<refsection>
+<title>Files</title>
+
+<variablelist>
+
+<varlistentry>
+<term><filename>/usr/bin/psylla</filename></term>
+<listitem>
+The <application>Psylla</application> executable, which starts an interpreter.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsection>
+
+<refsection>
+<title>Author</title>
+<para>
 <person>
-<personname>
-<firstname>Anton</firstname>
-<surname>Shvetz</surname>
-</personname>
+<personname>A. N. Shvetz</personname>
+<authoremail>tz@sectorb.msk.ru</authoremail>
 </person>
-<email>tz@sectorb.msk.ru</email>
-<contrib>Author.</contrib>
-</author>
+</para>
+</refsection>
 
-</info>
+<refsection>
+<title>License</title>
+<para>
+zlib/png ⟨http://opensource.org/licenses/Zlib⟩.
+<!--link xlink:href="http://opensource.org/licenses/Zlib">zlib/png</link-->
+</para>
+</refsection>
 
-&rePsi;
-&rePsiIntro;
-&rePsiRun;
-&rePsiSyn;
-&rePsiOp;
+</refentry>
+
 </reference>
 <!--
 vim:indentexpr=

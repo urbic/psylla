@@ -68,7 +68,7 @@ This package contains the API documentation for %{name}.
 %build
 LANG=ru_RU.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} build javadoc
+	%{ant} build
 
 %install
 %{__install} -d %{buildroot}%{_datadir}/%{name}/{%{version},site}
@@ -87,6 +87,8 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{__ln_s} %{version} %{buildroot}%{_datadir}/%{name}/current
 %{__install} -d %{buildroot}%{_datadir}/mime/packages
 %{__install} -m 644 target/mime/%{name}.xml %{buildroot}%{_datadir}/mime/packages
+%{__install} -d %{buildroot}%{_mandir}
+%{__cp} -pr target/man/en/* %{buildroot}%{_mandir}
 
 %post
 %mime_database_post
@@ -112,6 +114,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{_datadir}/vim/site/ftdetect/psi.vim
 %{_datadir}/vim/site/syntax/psi.vim
 %{_datadir}/mime/packages/%{name}.xml
+%{_mandir}/man1/*
 %doc README LICENSE AUTHORS
 
 %files doc
