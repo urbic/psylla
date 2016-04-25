@@ -4,11 +4,6 @@
 <!ENTITY % version		SYSTEM "../../../target/doc/version.ent">
 %entities;
 %version;
-<!ENTITY rePsi			SYSTEM "rePsi.docbook">
-<!ENTITY rePsiIntro		SYSTEM "rePsiIntro.docbook">
-<!ENTITY rePsiRun		SYSTEM "rePsiRun.docbook">
-<!ENTITY rePsiSyn		SYSTEM "rePsiSyn.docbook">
-<!ENTITY rePsiOp		SYSTEM "rePsiOp.docbook">
 ]>
 <reference
 	xml:id="PsiManpages"
