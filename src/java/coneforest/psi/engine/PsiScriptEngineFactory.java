@@ -12,7 +12,7 @@ public class PsiScriptEngineFactory
 	@Override
 	public String getEngineName()
 	{
-		return "Psi";
+		return "Psylla";
 	}
 
 	/**
@@ -102,13 +102,13 @@ public class PsiScriptEngineFactory
 	}
 
 	/**
-	 * @return a list consisting of single string {@code "application/psi"}.
+	 * @return a list consisting of single string {@code "application/x-psi"}.
 	 */
 	@Override
 	public java.util.List<String> getMimeTypes()
 	{
 		if(mimeTypes==null)
-			mimeTypes=java.util.Collections.unmodifiableList(java.util.Arrays.asList("application/psi"));
+			mimeTypes=java.util.Collections.unmodifiableList(java.util.Arrays.asList("application/x-psi"));
 		return mimeTypes;
 	}
 
