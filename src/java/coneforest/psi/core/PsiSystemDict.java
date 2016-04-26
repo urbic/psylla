@@ -1045,7 +1045,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							interpreter.dictStack().store((PsiStringy)ops[0], ops[1]);
+							interpreter.dictStack().psiStore((PsiStringy)ops[0], ops[1]);
 						}
 					),
 				new PsiOperator.Arity01

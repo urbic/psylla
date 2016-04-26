@@ -5,7 +5,7 @@ import coneforest.psi.core.*;
  *	An interpreter’s dictionary stack.
  */
 public class DictStack
-	extends Stack<PsiDictlike>
+	extends Stack<PsiDictlike<PsiObject>>
 {
 	public DictStack()
 		throws PsiException
@@ -55,7 +55,7 @@ public class DictStack
 		oDict.put(key, o);
 	}
 
-	public void store(PsiStringy oKey, PsiObject o)
+	public void psiStore(PsiStringy oKey, PsiObject o)
 	{
 		store(oKey.stringValue(), o);
 	}
