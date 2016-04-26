@@ -5,7 +5,7 @@
 <para>
 <firstterm>Файл</firstterm><indexterm><primary>файл</primary></indexterm>
 представляет собой последовательность
-<firstterm>символ</firstterm><indexterm><primary>символов</primary></indexterm>,
+<firstterm>символов</firstterm><indexterm><primary>символ</primary></indexterm>,
 как правило конечную. Файлы могут располагаться в файловой системе либо
 создаваться «на лету». Операции ввода/вывода предназначены для обмена
 символьными данными между файлами и программой. Ввод/вывод служит основным
