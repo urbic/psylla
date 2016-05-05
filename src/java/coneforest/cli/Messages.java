@@ -2,12 +2,16 @@ package coneforest.cli;
 
 public class Messages
 {
-	public static String getString(String id)
+	private Messages()
+	{
+	}
+
+	public static String getString(final String id)
 	{
 		return messages.getString(id);
 	}
 
-	public static String format(String id, Object... args)
+	public static String format(final String id, final Object... args)
 	{
 		return String.format(getString(id), args);
 	}

@@ -82,7 +82,6 @@ public abstract class PsiOperator
 	public String getName()
 	{
 		return name;
-		//return name!=null? name: getClass().getSimpleName().substring(1);
 	}
 
 	public static class Arity01
@@ -95,7 +94,7 @@ public abstract class PsiOperator
 			interpreter.operandStack().push(handler.handle());
 		}
 
-		public Arity01(String name, Handler handler)
+		public Arity01(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -122,7 +121,7 @@ public abstract class PsiOperator
 			ostack.push(handler.handle(ostack.popOperands(1)[0]));
 		}
 
-		public Arity11(String name, Handler handler)
+		public Arity11(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -133,7 +132,7 @@ public abstract class PsiOperator
 		@FunctionalInterface
 		public static interface Handler
 		{
-			public PsiObject handle(PsiObject o)
+			public PsiObject handle(final PsiObject o)
 				throws PsiException;
 		}
 	}
@@ -150,7 +149,7 @@ public abstract class PsiOperator
 			ostack.push(handler.handle(ops[0], ops[1]));
 		}
 
-		public Arity21(String name, Handler handler)
+		public Arity21(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -161,7 +160,7 @@ public abstract class PsiOperator
 		@FunctionalInterface
 		public static interface Handler
 		{
-			public PsiObject handle(PsiObject o1, PsiObject o2)
+			public PsiObject handle(final PsiObject o1, final PsiObject o2)
 				throws PsiException;
 		}
 	}
@@ -177,7 +176,7 @@ public abstract class PsiOperator
 			handler.handle(ostack.popOperands(1)[0]);
 		}
 
-		public Arity10(String name, Handler handler)
+		public Arity10(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -188,7 +187,7 @@ public abstract class PsiOperator
 		@FunctionalInterface
 		public interface Handler
 		{
-			public void handle(PsiObject o)
+			public void handle(final PsiObject o)
 				throws PsiException;
 		}
 	}
@@ -205,7 +204,7 @@ public abstract class PsiOperator
 			handler.handle(ops[0], ops[1]);
 		}
 
-		public Arity20(String name, Handler handler)
+		public Arity20(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -216,7 +215,7 @@ public abstract class PsiOperator
 		@FunctionalInterface
 		public static interface Handler
 		{
-			public void handle(PsiObject o1, PsiObject o2)
+			public void handle(final PsiObject o1, final PsiObject o2)
 				throws PsiException;
 		}
 	}
@@ -233,7 +232,7 @@ public abstract class PsiOperator
 			handler.handle(ops[0], ops[1], ops[2]);
 		}
 
-		public Arity30(String name, Handler handler)
+		public Arity30(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -243,7 +242,7 @@ public abstract class PsiOperator
 
 		public static interface Handler
 		{
-			public void handle(PsiObject o1, PsiObject o2, PsiObject o3)
+			public void handle(final PsiObject o1, final PsiObject o2, final PsiObject o3)
 				throws PsiException;
 		}
 	}
@@ -260,7 +259,7 @@ public abstract class PsiOperator
 			ostack.push(handler.handle(ops[0], ops[1], ops[2]));
 		}
 
-		public Arity31(String name, Handler handler)
+		public Arity31(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -270,7 +269,7 @@ public abstract class PsiOperator
 
 		public static interface Handler
 		{
-			public PsiObject handle(PsiObject o1, PsiObject o2, PsiObject o3)
+			public PsiObject handle(final PsiObject o1, final PsiObject o2, final PsiObject o3)
 				throws PsiException;
 		}
 	}
@@ -285,7 +284,7 @@ public abstract class PsiOperator
 			handler.handle(interpreter);
 		}
 
-		public Action(String name, Handler handler)
+		public Action(final String name, final Handler handler)
 		{
 			super(name);
 			this.handler=handler;
@@ -295,7 +294,7 @@ public abstract class PsiOperator
 
 		public static interface Handler
 		{
-			public void handle(Interpreter interpreter)
+			public void handle(final Interpreter interpreter)
 				throws PsiException;
 		}
 	}

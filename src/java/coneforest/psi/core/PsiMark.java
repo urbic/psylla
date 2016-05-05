@@ -19,10 +19,13 @@ public final class PsiMark
 	}
 
 	@Override
-	public PsiBoolean psiEq(final PsiObject obj)
+	public PsiBoolean psiEq(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(obj==MARK);
+		return PsiBoolean.valueOf(o==MARK);
 	}
 
+	/**
+	 *	A sole Ψ-{@code mark} object.
+	 */
 	public static final PsiMark MARK=new PsiMark();
 }

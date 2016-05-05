@@ -15,7 +15,10 @@ public final class PsiNull
 	*	@return a string {@code "null"}.
 	*/
 	@Override
-	public String getTypeName() { return "null"; }
+	public String getTypeName()
+	{
+		return "null";
+	}
 
 	/**
 	*	@return a string {@code "null"}.
@@ -34,13 +37,13 @@ public final class PsiNull
 	 *	@return a result.
 	 */
 	@Override
-	public PsiBoolean psiEq(final PsiObject obj)
+	public PsiBoolean psiEq(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(obj==NULL);
+		return PsiBoolean.valueOf(o==NULL);
 	}
 
 	/**
-	 *	A single Ψ-{@code null} object.
+	 *	A sole Ψ-{@code null} object.
 	 */
 	public static final PsiNull NULL=new PsiNull();
 }

@@ -10,15 +10,13 @@ public class OptionCollectorFloat extends OptionCollector<Float>
 	public Float parseArg(String arg)
 		throws CLIProcessingException
 	{
-		float result;
 		try
 		{
-			result=Float.parseFloat(arg);
+			return Float.parseFloat(arg);
 		}
 		catch(NumberFormatException e)
 		{
 			throw new CLIProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
-		return result;
 	}
 }

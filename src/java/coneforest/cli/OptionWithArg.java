@@ -17,6 +17,6 @@ abstract public class OptionWithArg<T>
 	 * @param arg argument
 	 * @throws CLIProcessingException
 	 */
-	abstract public void handle(String arg)
+	abstract public void handle(final String arg)
 		throws CLIProcessingException;
 }

@@ -3,13 +3,11 @@ import coneforest.psi.core.*;
 
 public class Psylla
 {
-	public static void main(String args[])
+	public static void main(final String args[])
 	{
 		try
 		{
-			//String consoleEncoding=System.getProperty("consoleEncoding");
 			String consoleEncoding=java.nio.charset.Charset.defaultCharset().toString();
-			//System.err.println(consoleEncoding);
 			final coneforest.cli.Processor cli=new coneforest.cli.Processor
 				(
 					new coneforest.cli.OptionFlag("help", "h", "?"),
@@ -23,7 +21,7 @@ public class Psylla
 			final int processed=cli.parse(args, 0);
 
 			if(cli.getValue("console-encoding")!=null)
-				consoleEncoding=((String)cli.getValue("console-encoding"));
+				consoleEncoding=cli.getValue("console-encoding");
 			if(consoleEncoding!=null)
 				try
 				{
@@ -36,7 +34,7 @@ public class Psylla
 					System.exit(1);
 				}
 			if(cli.getValue("locale")!=null)
-				java.util.Locale.setDefault(java.util.Locale.forLanguageTag((String)cli.getValue("locale")));
+				java.util.Locale.setDefault(java.util.Locale.forLanguageTag(cli.getValue("locale")));
 			if(cli.getValue("help"))
 				help();
 			if(cli.getValue("version"))
@@ -51,7 +49,7 @@ public class Psylla
 			{
 				scriptName="--eval";
 				shellArguments=java.util.Arrays.copyOfRange(args, processed, args.length);
-				scriptReader=new java.io.StringReader(cli.<String>getValue("eval"));
+				scriptReader=new java.io.StringReader(cli.getValue("eval"));
 			}
 			else if(processed<args.length)
 			{
@@ -101,7 +99,7 @@ public class Psylla
 			interpreter.acceptScriptName(scriptName);
 			interpreter.acceptShellArguments(shellArguments);
 			if(cli.getValue("classpath")!=null)
-				interpreter.acceptClassPath(cli.<String[]>getValue("classpath"));
+				interpreter.acceptClassPath(cli.getValue("classpath"));
 
 			if(cli.getValue("random-seed")!=null)
 			{

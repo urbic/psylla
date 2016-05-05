@@ -44,7 +44,7 @@ public class PsiBitSet
 	@Override
 	public String toSyntaxString()
 	{
-		StringBuilder sb=new StringBuilder("-bitset:");
+		final StringBuilder sb=new StringBuilder("-bitset:");
 		int j=-1;
 		for(int i=bitset.nextSetBit(0); i>=0; i=bitset.nextSetBit(i+1))
 		{
@@ -63,12 +63,12 @@ public class PsiBitSet
 	}
 
 	@Override
-	public void psiAppend(PsiInteger index)
+	public void psiAppend(final PsiInteger oIndex)
 		throws PsiException
 	{
 		try
 		{
-			bitset.set(index.intValue(), true);
+			bitset.set(oIndex.intValue(), true);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -77,21 +77,21 @@ public class PsiBitSet
 	}
 
 	@Override
-	public void psiAppendAll(PsiIterable<? extends PsiInteger> iterable)
+	public void psiAppendAll(final PsiIterable<? extends PsiInteger> oIterable)
 		throws PsiException
 	{
-		if(iterable instanceof PsiBitSet)
-			bitset.or(((PsiBitSet)iterable).bitset);
+		if(oIterable instanceof PsiBitSet)
+			bitset.or(((PsiBitSet)oIterable).bitset);
 		else
-			PsiSetlike.super.psiAppendAll(iterable);
+			PsiSetlike.super.psiAppendAll(oIterable);
 	}
 
 	@Override
-	public void psiRemove(PsiInteger integer)
+	public void psiRemove(final PsiInteger oIndex)
 	{
 		try
 		{
-			bitset.set(integer.intValue(), false);
+			bitset.set(oIndex.intValue(), false);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -99,23 +99,26 @@ public class PsiBitSet
 	}
 
 	@Override
-	public void psiRemoveAll(PsiIterable<? extends PsiInteger> iterable)
+	public void psiRemoveAll(PsiIterable<? extends PsiInteger> oIterable)
 	{
-		if(iterable instanceof PsiBitSet)
-			bitset.andNot(((PsiBitSet)iterable).bitset);
+		if(oIterable instanceof PsiBitSet)
+			bitset.andNot(((PsiBitSet)oIterable).bitset);
 		else
-			PsiSetlike.super.psiRemoveAll(iterable);
+			PsiSetlike.super.psiRemoveAll(oIterable);
 	}
 
+	@Override
 	public java.util.Iterator<PsiInteger> iterator()
 	{
 		return new java.util.Iterator<PsiInteger>()
 			{
+				@Override
 				public boolean hasNext()
 				{
 					return index>=0;
 				}
 
+				@Override
 				public PsiInteger next()
 				{
 					//if(hasNext())
@@ -145,25 +148,25 @@ public class PsiBitSet
 	}
 
 	@Override
-	public PsiBoolean psiContains(PsiInteger oElement)
+	public PsiBoolean psiContains(final PsiInteger oElement)
 	{
 		return PsiBoolean.valueOf(bitset.get(oElement.intValue()));
 	}
 
 	@Override
-	public PsiBoolean psiIntersects(PsiSetlike setlike)
+	public PsiBoolean psiIntersects(final PsiSetlike oSet)
 	{
-		if(setlike instanceof PsiBitSet)
-			return PsiBoolean.valueOf(bitset.intersects(((PsiBitSet)setlike).bitset));
+		if(oSet instanceof PsiBitSet)
+			return PsiBoolean.valueOf(bitset.intersects(((PsiBitSet)oSet).bitset));
 		else
-			return PsiSetlike.super.psiIntersects(setlike);
+			return PsiSetlike.super.psiIntersects(oSet);
 	}
 
 	@Override
-	public PsiBoolean psiEq(final PsiObject obj)
+	public PsiBoolean psiEq(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(obj instanceof PsiBitSet
-				&& bitset.equals(((PsiBitSet)obj).bitset));
+		return PsiBoolean.valueOf(o instanceof PsiBitSet
+				&& bitset.equals(((PsiBitSet)o).bitset));
 	}
 
 	private final java.util.BitSet bitset;

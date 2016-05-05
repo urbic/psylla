@@ -1,16 +1,15 @@
 package coneforest.cli;
 import java.io.*;
-//import java.util.Locale;
 
 /**
- * Options processor class
+ *	Options processor.
  */
 public class Processor
 {
 	/**
-	 * Constructor
+	 *	Constructor.
 	 *
-	 * @param options a list of option descriptions
+	 *	@param options a list of option descriptions.
 	 */
 	public Processor(final Option... options)
 	{
@@ -113,7 +112,7 @@ public class Processor
 	public <T> T getValue(final String name)
 		throws CLIProcessingException
 	{
-		return findOption(name).getValue();
+		return findOption(name).<T>getValue();
 	}
 
 	public String[] getFreeArgs()

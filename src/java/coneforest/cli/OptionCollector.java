@@ -1,11 +1,9 @@
 package coneforest.cli;
 
-import java.util.ArrayList;
-
 /**
- * Base class representing an abstract option holding an object list.
+ *	Base class representing an abstract option holding an object list.
  *
- * @param <T> a type of containing object
+ *	@param <T> a type of containing object
  */
 abstract public class OptionCollector<T>
 	extends OptionWithArg
@@ -16,9 +14,9 @@ abstract public class OptionCollector<T>
 	}
 
 	/**
-	 * Returns array containing collected objects.
+	 *	Returns array containing collected objects.
 	 *
-	 * @return array
+	 *	@return an array.
 	 */
 	@Override
 	public T[] getValue()
@@ -27,11 +25,11 @@ abstract public class OptionCollector<T>
 	}
 
 	/**
-	 * Add parsed argument to list. Argument is parsed
-	 * by {@link #parseArg(String)}.
+	 *	Add parsed argument to list. Argument is parsed by {@link
+	 *	#parseArg(String)}.
 	 *
-	 * @param arg argument
-	 * @throws CLIProcessingException when parse error occured
+	 *	@param arg an argument.
+	 *	@throws CLIProcessingException when parse error occurs.
 	 */
 	@Override
 	public void handle(final String arg)
@@ -41,14 +39,15 @@ abstract public class OptionCollector<T>
 	}
 
 	/**
-	 * Parses an argument and returns an object.
+	 *	Parses an argument and returns an object.
 	 *
-	 * @param arg argument
-	 * @return object
-	 * @throws CLIProcessingException when parse error occured
+	 *	@param arg an argument.
+	 *	@return an object.
+	 *	@throws CLIProcessingException when parse error occurs.
 	 */
 	abstract public T parseArg(final String arg)
 		throws CLIProcessingException;
 
-	private ArrayList<T> argList=new ArrayList<T>();
+	private final java.util.ArrayList<T> argList
+		=new java.util.ArrayList<T>();
 }

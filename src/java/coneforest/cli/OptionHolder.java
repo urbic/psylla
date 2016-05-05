@@ -16,7 +16,7 @@ abstract public class OptionHolder<T>
 	/**
 	 *	Returns containing object.
 	 *
-	 *	@return an object
+	 *	@return an object.
 	 */
 	@Override
 	public T getValue()
@@ -29,7 +29,7 @@ abstract public class OptionHolder<T>
 	 *	by {@link #parseArg(String)}.
 	 *
 	 *	@param arg an argument,
-	 *	@throws CLIProcessingException when parse error occured.
+	 *	@throws CLIProcessingException when parse error occurs.
 	 */
 	@Override
 	public void handle(final String arg)
@@ -43,7 +43,7 @@ abstract public class OptionHolder<T>
 	 *
 	 *	@param arg an argument.
 	 *	@return an object.
-	 *	@throws CLIProcessingException when parse error occured.
+	 *	@throws CLIProcessingException when parse error occurs.
 	 */
 	abstract public T parseArg(final String arg)
 		throws CLIProcessingException;

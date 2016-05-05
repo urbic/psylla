@@ -1,8 +1,8 @@
 package coneforest.cli;
 
 /**
- * Class representing a toggle. Boolean option value toggles every time when
- * option is processed.
+ * Class representing a toggle. Boolean option value, initially false, toggles
+ * every time when option is processed.
  */
 public class OptionToggle
 	extends OptionWithoutArg
@@ -15,7 +15,7 @@ public class OptionToggle
 	/**
 	 * Returns current option value.
 	 *
-	 * @return value
+	 * @return a value.
 	 */
 	@Override
 	public Boolean getValue()

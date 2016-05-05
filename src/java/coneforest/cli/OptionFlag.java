@@ -1,8 +1,8 @@
 package coneforest.cli;
 
 /**
- * Class representing a flag. Boolean option value, initially false, set to
- * true every time when option is processed.
+ *	Class representing a flag. Boolean option value, initially false, set to
+ *	true every time when option is processed.
  */
 public class OptionFlag
 	extends OptionWithoutArg<Boolean>
@@ -13,9 +13,9 @@ public class OptionFlag
 	}
 
 	/**
-	 * Returns current option value.
+	 *	Returns current option value.
 	 *
-	 * @return value
+	 *	@return a value.
 	 */
 	@Override
 	public Boolean getValue()
@@ -24,7 +24,7 @@ public class OptionFlag
 	}
 
 	/**
-	 * Sets option value to true.
+	 *	Sets option value to true.
 	 */
 	@Override
 	public void handle()
