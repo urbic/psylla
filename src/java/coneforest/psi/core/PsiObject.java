@@ -19,9 +19,9 @@ public interface PsiObject
 		return "object";
 	}
 
-	default public PsiType<PsiObject> psiType()
+	default public PsiName psiType()
 	{
-		return new PsiType<PsiObject>((Class<PsiObject>)getClass());
+		return new PsiName(getTypeName());
 	}
 
 	/**
@@ -110,7 +110,8 @@ public interface PsiObject
 		return PsiInteger.valueOf(hashCode());
 	}
 
-	default public PsiObject psiConvert(PsiType type)
+	/*
+	default public PsiObject psiConvert(PsiName oTypeName)
 		throws PsiException
 	{
 		if(getClass().equals(type.getTypeClass()))
@@ -134,4 +135,5 @@ public interface PsiObject
 			throw new PsiUnregisteredException();
 		}
 	}
+	*/
 }

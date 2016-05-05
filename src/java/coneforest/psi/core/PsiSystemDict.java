@@ -174,8 +174,8 @@ public class PsiSystemDict
 					("conjugate", (a)->((PsiComplexNumeric)a).psiConjugate()),
 				new PsiOperator.Arity21
 					("contains", (a, b)->((PsiSetlike)a).psiContains(b)),
-				new PsiOperator.Arity21
-					("convert", (a, b)->a.psiConvert((PsiType)b)),
+				//new PsiOperator.Arity21
+				//	("convert", (a, b)->a.psiConvert((PsiType)b)),
 				new PsiOperator.Action
 					("copy",
 						(interpreter)->
@@ -591,8 +591,17 @@ public class PsiSystemDict
 					("isfile", (a)->FileSystem.psiIsFile((PsiStringy)a)),
 				new PsiOperator.Arity11
 					("isfull", (a)->((PsiBounded)a).psiIsFull()),
-				new PsiOperator.Arity21
-					("isinstance", (a, b)->((PsiType)a).psiIsInstance(b)),
+				//new PsiOperator.Arity21
+				//	("isinstance", (a, b)->((PsiType)a).psiIsInstance(b)),
+				new PsiOperator.Action
+					("isinstance",
+						(interpreter)->
+						{
+							final OperandStack ostack=interpreter.operandStack();
+							final PsiObject[] ops=ostack.popOperands(2);
+							ostack.push(PsiBoolean.valueOf(
+									interpreter.resolveType(((PsiStringy)ops[0]).stringValue()).isInstance(ops[1])));
+						}),
 				new PsiOperator.Arity21
 					("issamefile", (a, b)->FileSystem.psiIsSameFile((PsiStringy)a, (PsiStringy)b)),
 				new PsiOperator.Arity11

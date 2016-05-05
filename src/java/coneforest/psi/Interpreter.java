@@ -397,8 +397,7 @@ public class Interpreter
 
 	public void acceptScriptName(final String scriptName)
 	{
-		PsiString script=new PsiString(scriptName);
-		getSystemDict().put("script", script);
+		getSystemDict().put("script", new PsiName(scriptName));
 	}
 
 	public void acceptShellArguments(final String[] args)
@@ -528,6 +527,17 @@ public class Interpreter
 			quit();
 	}
 
+	public void registerType(final String typeName, final Class<? extends PsiObject> typeClass)
+	{
+		System.out.println("REGISTER: "+typeName+" "+typeClass);
+		typeResolver.put(typeName, typeClass);
+	}
+
+	public Class<? extends PsiObject> resolveType(final String typeName)
+	{
+		return typeResolver.get(typeName);
+	}
+
 	private final OperandStack ostack;
 	private final DictStack dstack;
 	private final ExecutionStack estack;
@@ -537,4 +547,6 @@ public class Interpreter
 		stopstack=new Stack<Integer>();
 	private boolean exitFlag=false, stopFlag=false;
 	private boolean running=true;
+	private final java.util.HashMap<String, Class<? extends PsiObject>> typeResolver
+		=new java.util.HashMap<String, Class<? extends PsiObject>>();
 }
