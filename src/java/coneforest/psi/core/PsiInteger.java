@@ -116,7 +116,7 @@ public class PsiInteger
 		long bit=oBit.value;
 		if(bit<0)
 			throw new PsiRangeCheckException();
-		return PsiBoolean.valueOf((value&(1<<bit))!=0);
+		return PsiBoolean.valueOf((value&(1L<<bit))!=0);
 	}
 
 	@Override
@@ -126,7 +126,7 @@ public class PsiInteger
 		long bit=oBit.value;
 		if(bit<0)
 			throw new PsiRangeCheckException();
-		return PsiInteger.valueOf(value&~(1<<bit));
+		return PsiInteger.valueOf(value&~(1L<<bit));
 	}
 
 	@Override
@@ -136,7 +136,7 @@ public class PsiInteger
 		long bit=oBit.value;
 		if(bit<0)
 			throw new PsiRangeCheckException();
-		return PsiInteger.valueOf(value|(1<<bit));
+		return PsiInteger.valueOf(value|(1L<<bit));
 	}
 
 	@Override
@@ -146,7 +146,7 @@ public class PsiInteger
 		long bit=oBit.value;
 		if(bit<0)
 			throw new PsiRangeCheckException();
-		return PsiInteger.valueOf(value^(1<<bit));
+		return PsiInteger.valueOf(value^(1L<<bit));
 	}
 
 	@Override
