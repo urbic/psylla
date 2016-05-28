@@ -4,13 +4,13 @@ import coneforest.psi.*;
 public class PsiCommand
 	extends PsiName
 {
-	public PsiCommand(String nameString)
+	public PsiCommand(final String name)
 	{
-		super(nameString);
+		super(name);
 	}
 
 	@Override
-	public void execute(Interpreter interpreter)
+	public void execute(final Interpreter interpreter)
 	{
 		try
 		{

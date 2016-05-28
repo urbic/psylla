@@ -1,7 +1,7 @@
 package coneforest.psi.core;
 
 /**
-*	A representation of Ψ-{@code evaluable}, a type of objects that can be
+*	A representation of Ψ-{@code resettable}, a type of objects that can be
 *	reset in some sense.
 */
 public interface PsiResettable

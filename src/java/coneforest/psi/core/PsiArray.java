@@ -17,9 +17,9 @@ public class PsiArray
 		array=list;
 	}
 
-	public PsiArray(final PsiArray array)
+	public PsiArray(final PsiArray oArray)
 	{
-		this.array=(java.util.ArrayList<PsiObject>)array.array.clone();
+		this.array=(java.util.ArrayList<PsiObject>)oArray.array.clone();
 	}
 
 	/**
@@ -50,12 +50,12 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiObject get(final int indexValue)
+	public PsiObject get(final int index)
 		throws PsiException
 	{
 		try
 		{
-			return array.get(indexValue);
+			return array.get(index);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -64,13 +64,13 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiArray psiGetInterval(final PsiInteger start, final PsiInteger count)
+	public PsiArray psiGetInterval(final PsiInteger start, final PsiInteger oCount)
 		throws PsiException
 	{
 		try
 		{
 			return new PsiArray(new java.util.ArrayList<PsiObject>(array.subList(start.intValue(),
-					start.intValue()+count.intValue())));
+					start.intValue()+oCount.intValue())));
 		}
 		catch(IndexOutOfBoundsException|IllegalArgumentException e)
 		{
@@ -144,22 +144,22 @@ public class PsiArray
 	}
 
 	@Override
-	public PsiArray psiExtractInterval(final PsiInteger start, final PsiInteger count)
+	public PsiArray psiExtractInterval(final PsiInteger oStart, final PsiInteger oCount)
 		throws PsiException
 	{
-		PsiArray result=psiGetInterval(start, count);
-		array.subList(start.intValue(), start.intValue()+count.intValue()).clear();
-		return result;
+		final PsiArray oResult=psiGetInterval(oStart, oCount);
+		array.subList(oStart.intValue(), oStart.intValue()+oCount.intValue()).clear();
+		return oResult;
 	}
 
 	@Override
-	public PsiArray psiSlice(final PsiIterable<PsiInteger> indices)
+	public PsiArray psiSlice(final PsiIterable<PsiInteger> oIndices)
 		throws PsiException
 	{
-		PsiArray values=new PsiArray();
-		for(PsiInteger index: indices)
-			values.psiAppend(psiGet(index));
-		return values;
+		final PsiArray oValues=new PsiArray();
+		for(PsiInteger oIndex: oIndices)
+			oValues.psiAppend(psiGet(oIndex));
+		return oValues;
 	}
 
 	@Override
@@ -169,33 +169,33 @@ public class PsiArray
 	}
 
 	@Override
-	public void psiSetLength(final PsiInteger length)
+	public void psiSetLength(final PsiInteger oLength)
 		throws PsiException
 	{
-		final long lengthValue=length.longValue();
-		if(lengthValue<0)
+		final long length=oLength.longValue();
+		if(length<0)
 			throw new PsiRangeCheckException();
-		if(lengthValue>Integer.MAX_VALUE)
+		if(length>Integer.MAX_VALUE)
 			throw new PsiLimitCheckException();
 		int i=length();
-		if(lengthValue<i)
-			array.subList((int)lengthValue, i).clear();
+		if(length<i)
+			array.subList((int)length, i).clear();
 		else
 		{
-			array.ensureCapacity((int)lengthValue);
-			while(i++<lengthValue)
+			array.ensureCapacity((int)length);
+			while(i++<length)
 				array.add(PsiNull.NULL);
 		}
 	}
 
-	public PsiArray psiSort(java.util.Comparator<? super PsiObject> comparator)
+	public PsiArray psiSort(final java.util.Comparator<? super PsiObject> comparator)
 	{
-		PsiArray result=psiClone();
+		final PsiArray result=psiClone();
 		java.util.Collections.sort(result.array, comparator);
 		return result;
 	}
 
-	public PsiInteger psiBinarySearch(PsiObject o, PsiProc oComparator)
+	public PsiInteger psiBinarySearch(final PsiObject o, final PsiProc oComparator)
 		throws PsiException
 	{
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();

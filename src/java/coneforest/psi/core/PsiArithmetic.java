@@ -22,16 +22,16 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 	/**
 	 *	Returns a result of arithmetic multiplication of given object by this object.
 	 *
-	 *	@param arithmetic given object.
+	 *	@param oArithmetic a given object.
 	 *	@return a product.
 	 */
-	public T psiMul(T arithmetic);
+	public T psiMul(final T oArithmetic);
 
 	/**
 	 *	Returns a result of arithmetic division of this object by given object.
 	 *
-	 *	@param arithmetic given object.
+	 *	@param oArithmetic a given object.
 	 *	@return a fraction.
 	 */
-	public T psiDiv(T arithmetic);
+	public T psiDiv(final T oArithmetic);
 }

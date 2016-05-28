@@ -13,7 +13,7 @@ public class PsiName
 	 *
 	 *	@param cs a name.
 	 */
-	public PsiName(CharSequence cs)
+	public PsiName(final CharSequence cs)
 	{
 		name=cs.toString();
 	}
@@ -22,11 +22,11 @@ public class PsiName
 	 *	Instantiate a new Ψ-{@code name} object with name given as Ψ-{@code
 	 *	stringy} object.
 	 *
-	 *	@param stringy a stringy.
+	 *	@param oStringy a stringy.
 	 */
-	public PsiName(PsiStringy stringy)
+	public PsiName(final PsiStringy oStringy)
 	{
-		this(stringy.stringValue());
+		this(oStringy.stringValue());
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class PsiName
 	 *	@return a result.
 	 */
 	@Override
-	public boolean equals(Object object)
+	public boolean equals(final Object object)
 	{
 		return object instanceof PsiName
 				&& psiEq((PsiName)object).booleanValue();

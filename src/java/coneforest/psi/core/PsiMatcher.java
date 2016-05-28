@@ -3,9 +3,9 @@ package coneforest.psi.core;
 public class PsiMatcher
 	implements PsiObject
 {
-	public PsiMatcher(PsiStringy stringy, PsiRegExp regexp)
+	public PsiMatcher(final PsiStringy oStringy, final PsiRegExp oRegExp)
 	{
-		matcher=regexp.getPattern().matcher(stringy.stringValue());
+		matcher=oRegExp.getPattern().matcher(oStringy.stringValue());
 	}
 
 	public PsiBoolean psiFind()
@@ -18,16 +18,16 @@ public class PsiMatcher
 		return PsiInteger.valueOf(matcher.groupCount());
 	}
 
-	public PsiString psiCaptureGroup(final PsiObject key)
+	public PsiString psiCaptureGroup(final PsiObject oKey)
 		throws PsiException
 	{
 		try
 		{
-			String group;
-			if(key instanceof PsiInteger)
-				group=matcher.group(((PsiInteger)key).intValue());
-			else if(key instanceof PsiStringy)
-				group=matcher.group(((PsiStringy)key).stringValue());
+			final String group;
+			if(oKey instanceof PsiInteger)
+				group=matcher.group(((PsiInteger)oKey).intValue());
+			else if(oKey instanceof PsiStringy)
+				group=matcher.group(((PsiStringy)oKey).stringValue());
 			else
 				throw new PsiTypeCheckException();
 			return group!=null? new PsiString(group): null;
@@ -46,16 +46,16 @@ public class PsiMatcher
 		}
 	}
 
-	public PsiInteger psiCaptureGroupStart(final PsiObject key)
+	public PsiInteger psiCaptureGroupStart(final PsiObject oKey)
 		throws PsiException
 	{
 		try
 		{
-			int start;
-			if(key instanceof PsiInteger)
-				start=matcher.start(((PsiInteger)key).intValue());
-			else if(key instanceof PsiStringy)
-				start=matcher.start(((PsiStringy)key).stringValue());
+			final int start;
+			if(oKey instanceof PsiInteger)
+				start=matcher.start(((PsiInteger)oKey).intValue());
+			else if(oKey instanceof PsiStringy)
+				start=matcher.start(((PsiStringy)oKey).stringValue());
 			else
 				throw new PsiTypeCheckException();
 			return start>=0? PsiInteger.valueOf(start): null;
@@ -74,16 +74,16 @@ public class PsiMatcher
 		}
 	}
 
-	public PsiInteger psiCaptureGroupEnd(final PsiObject key)
+	public PsiInteger psiCaptureGroupEnd(final PsiObject oKey)
 		throws PsiException
 	{
 		try
 		{
-			int end;
-			if(key instanceof PsiInteger)
-				end=matcher.start(((PsiInteger)key).intValue());
-			else if(key instanceof PsiStringy)
-				end=matcher.start(((PsiStringy)key).stringValue());
+			final int end;
+			if(oKey instanceof PsiInteger)
+				end=matcher.start(((PsiInteger)oKey).intValue());
+			else if(oKey instanceof PsiStringy)
+				end=matcher.start(((PsiStringy)oKey).stringValue());
 			else
 				throw new PsiTypeCheckException();
 			return end>=0? PsiInteger.valueOf(end): null;
@@ -108,5 +108,5 @@ public class PsiMatcher
 		return "matcher";
 	}
 
-	private java.util.regex.Matcher matcher;
+	private final java.util.regex.Matcher matcher;
 }

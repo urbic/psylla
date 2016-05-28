@@ -39,30 +39,30 @@ public interface PsiArraylike<T extends PsiObject>
 	}
 
 	@Override
-	default public PsiBoolean psiKnown(PsiInteger oIndex)
+	default public PsiBoolean psiKnown(final PsiInteger oIndex)
 	{
 		long index=oIndex.longValue();
 		return PsiBoolean.valueOf(index>=0 && index<length());
 	}
 
-	public T get(int indexValue)
+	public T get(final int index)
 		throws PsiException;
 
 	@Override
-	default public T psiGet(PsiInteger oIndex)
+	default public T psiGet(final PsiInteger oIndex)
 		throws PsiException
 	{
 		return get(oIndex.intValue());
 	}
 
-	public PsiArraylike<T> psiGetInterval(PsiInteger oIndex, PsiInteger oLength)
+	public PsiArraylike<T> psiGetInterval(final PsiInteger oIndex, final PsiInteger oLength)
 		throws PsiException;
 
-	public void put(int index, T o)
+	public void put(final int index, final T o)
 		throws PsiException;
 
 	@Override
-	default public void psiPut(PsiInteger oIndex, T o)
+	default public void psiPut(final PsiInteger oIndex, final T o)
 		throws PsiException
 	{
 		put(oIndex.intValue(), o);
@@ -76,7 +76,7 @@ public interface PsiArraylike<T extends PsiObject>
 	*	@param o a Ψ-{@code object}.
 	*	@throws PsiException when an error occurs.
 	*/
-	public void insert(int index, T o)
+	public void insert(final int index, final T o)
 		throws PsiException;
 
 	/**
@@ -87,13 +87,13 @@ public interface PsiArraylike<T extends PsiObject>
 	*	@param o a Ψ-{@code object}.
 	*	@throws PsiException when an error occurs.
 	*/
-	default public void psiInsert(PsiInteger oIndex, T o)
+	default public void psiInsert(final PsiInteger oIndex, final T o)
 		throws PsiException
 	{
 		insert(oIndex.intValue(), o);
 	}
 
-	default public void psiInsertAll(PsiInteger oIndex, PsiIterable<? extends T> oEnumeration)
+	default public void psiInsertAll(final PsiInteger oIndex, final PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
 		int index=oIndex.intValue();
@@ -108,7 +108,7 @@ public interface PsiArraylike<T extends PsiObject>
 	*	@param o a Ψ-{@code object}.
 	*	@throws PsiException when an error occurs.
 	*/
-	default public void psiPrepend(T o)
+	default public void psiPrepend(final T o)
 		throws PsiException
 	{
 		insert(0, o);
@@ -126,7 +126,7 @@ public interface PsiArraylike<T extends PsiObject>
 		return extract(length()-1);
 	}
 
-	default public void psiPrependAll(PsiIterable<? extends T> oEnumeration)
+	default public void psiPrependAll(final PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
 		psiInsertAll(PsiInteger.ZERO, oEnumeration);
@@ -147,10 +147,10 @@ public interface PsiArraylike<T extends PsiObject>
 		return oResult;
 	}
 
-	default public void psiPutInterval(PsiInteger oIndex, PsiIterable<? extends T> oEnumeration)
+	default public void psiPutInterval(final PsiInteger oIndex, final PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
-		long index=oIndex.intValue();
+		int index=oIndex.intValue();
 		if(index<0
 			||
 			oEnumeration instanceof PsiLengthy
@@ -182,26 +182,26 @@ public interface PsiArraylike<T extends PsiObject>
 	}
 
 	@Override
-	default public PsiArraylike<T> psiGetAll(PsiIterable<PsiInteger> oEnumeration)
+	default public PsiArraylike<T> psiGetAll(final PsiIterable<PsiInteger> oEnumeration)
 		throws PsiException
 	{
-		PsiArraylike<T> oResult=(PsiArraylike<T>)psiNewEmpty();
+		final PsiArraylike<T> oResult=(PsiArraylike<T>)psiNewEmpty();
 		for(PsiInteger oIndex: oEnumeration)
 			oResult.psiAppend(psiGet(oIndex));
 		return oResult;
 	}
 
-	public void psiSetLength(PsiInteger oLength)
+	public void psiSetLength(final PsiInteger oLength)
 		throws PsiException;
 
-	public T extract(int index)
+	public T extract(final int index)
 		throws PsiException;
 
-	public PsiArraylike<T> psiExtractInterval(PsiInteger oIndex, PsiInteger oCount)
+	public PsiArraylike<T> psiExtractInterval(final PsiInteger oIndex, final PsiInteger oCount)
 		throws PsiException;
 
 	@Override
-	public PsiArraylike<T> psiSlice(PsiIterable<PsiInteger> oIndices)
+	public PsiArraylike<T> psiSlice(final PsiIterable<PsiInteger> oIndices)
 		throws PsiException;
 
 	@Override
@@ -265,7 +265,7 @@ public interface PsiArraylike<T extends PsiObject>
 
 							private int index=0;
 
-							private java.util.Iterator<PsiObject> parentIterator
+							private final java.util.Iterator<PsiObject> parentIterator
 								=(java.util.Iterator<PsiObject>)PsiArraylike.this.iterator();
 
 						};
@@ -285,7 +285,7 @@ public interface PsiArraylike<T extends PsiObject>
 		return "["+toSyntaxStringHelper(this)+"]";
 	}
 
-	default public String toSyntaxStringHelper(PsiLengthy lengthy)
+	default public String toSyntaxStringHelper(final PsiLengthy oLengthy)
 	{
 		StringBuilder sb=new StringBuilder();
 		if(length()>0)
@@ -293,7 +293,7 @@ public interface PsiArraylike<T extends PsiObject>
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
+					sb.append(obj==oLengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
 				else
 					sb.append(obj.toSyntaxString());
 				sb.append(' ');

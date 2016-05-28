@@ -21,7 +21,7 @@ public interface PsiIterable<T extends PsiObject>
 		return "iterable";
 	}
 
-	default public void psiForAll(final PsiObject proc)
+	default public void psiForAll(final PsiObject oProc)
 		throws PsiException
 	{
 		/*
@@ -33,7 +33,7 @@ public interface PsiIterable<T extends PsiObject>
 			for(T o: this)
 			{
 				ostack.push(o);
-				proc.invoke(interpreter);
+				oProc.invoke(interpreter);
 				interpreter.handleExecutionStack(loopLevel);
 				if(interpreter.getStopFlag() || interpreter.getExitFlag())
 					break;
@@ -67,19 +67,20 @@ public interface PsiIterable<T extends PsiObject>
 					{
 						ostack.push(iterator.next());
 						interpreter1.executionStack().push(this);
-						proc.invoke(interpreter1);
+						oProc.invoke(interpreter1);
 					}
 				}
 			});
 	}
 
 	/**
-	 *	Returns a Ψ-iterable over elements of this object that satisfies the
-	 *	criterium calculated during Ψ-proc invocation.
-	 *	@param proc a procedure
+	 *	Returns a Ψ-{@code iterable} over elements of this object that
+	 *	satisfies the criterium calculated during Ψ-{@code proc} invocation.
+	 *
+	 *	@param oProc a procedure
 	 *	@return an iterable
 	 */
-	default public PsiIterable<T> psiGrep(final PsiProc proc)
+	default public PsiIterable<T> psiGrep(final PsiProc oProc)
 	{
 		return new PsiIterable<T>()
 			{
@@ -99,7 +100,7 @@ public interface PsiIterable<T extends PsiObject>
 										OperandStack ostack=interpreter.operandStack();
 										ostack.push((PsiObject)nextObject);
 										final int loopLevel=interpreter.pushLoopLevel();
-										proc.invoke(interpreter);
+										oProc.invoke(interpreter);
 										interpreter.handleExecutionStack(loopLevel);
 										ostack.ensureSize(1);
 										boolean check=((PsiBoolean)ostack.pop()).booleanValue(); // TODO: pop()
@@ -125,7 +126,7 @@ public interface PsiIterable<T extends PsiObject>
 
 							private T nextObject;
 
-							private Interpreter interpreter
+							private final Interpreter interpreter
 								=(Interpreter)PsiContext.psiCurrentContext();
 
 						};

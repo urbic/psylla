@@ -35,12 +35,12 @@ public interface PsiContext
 		return "-context:"+getId()+"-";
 	}
 
-	public static void psiSleep(final PsiInteger integer)
+	public static void psiSleep(final PsiInteger oDuration)
 		throws PsiException
 	{
 		try
 		{
-			Thread.sleep(integer.longValue());
+			Thread.sleep(oDuration.longValue());
 		}
 		catch(IllegalArgumentException e)
 		{

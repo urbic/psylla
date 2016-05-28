@@ -21,7 +21,7 @@ public class PsiBitSet
 	*
 	*	@param bitset a bit set.
 	*/
-	public PsiBitSet(java.util.BitSet bitset)
+	public PsiBitSet(final java.util.BitSet bitset)
 	{
 		this.bitset=bitset;
 	}

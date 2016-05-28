@@ -8,11 +8,7 @@ public class PsiOutput
 		PsiFlushable,
 		PsiWritable
 {
-	public PsiOutput()
-	{
-	}
-
-	public PsiOutput(java.io.OutputStream output)
+	public PsiOutput(final java.io.OutputStream output)
 	{
 		setOutput(output);
 	}
@@ -22,7 +18,7 @@ public class PsiOutput
 		return "output";
 	}
 
-	public void setOutput(java.io.OutputStream output)
+	public void setOutput(final java.io.OutputStream output)
 	{
 		this.output=output;
 	}
@@ -32,7 +28,7 @@ public class PsiOutput
 		return output;
 	}
 
-	public void write(int b)
+	public void write(final int b)
 		throws PsiException
 	{
 		try
@@ -45,10 +41,10 @@ public class PsiOutput
 		}
 	}
 
-	public void write(PsiInteger character)
+	public void write(final PsiInteger oCharacter)
 		throws PsiException
 	{
-		write(character.intValue());
+		write(oCharacter.intValue());
 	}
 
 	@Override

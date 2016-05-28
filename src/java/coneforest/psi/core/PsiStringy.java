@@ -38,7 +38,7 @@ public interface PsiStringy
 	}
 
 	@Override
-	default public void eval(Interpreter interpreter)
+	default public void eval(final Interpreter interpreter)
 		throws PsiException
 	{
 		(new PsiStringReader(this)).eval(interpreter);
@@ -80,49 +80,49 @@ public interface PsiStringy
 	}
 
 	@Override
-	default public PsiBoolean psiEq(final PsiObject obj)
+	default public PsiBoolean psiEq(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(obj instanceof PsiStringy
-				&& stringValue().equals(((PsiStringy)obj).stringValue()));
+		return PsiBoolean.valueOf(o instanceof PsiStringy
+				&& stringValue().equals(((PsiStringy)o).stringValue()));
 	}
 
 	@Override
-	default public PsiBoolean psiLt(final PsiStringy string)
+	default public PsiBoolean psiLt(final PsiStringy oString)
 	{
-		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())<0);
+		return PsiBoolean.valueOf(stringValue().compareTo(oString.stringValue())<0);
 	}
 
 	@Override
-	default public PsiBoolean psiLe(final PsiStringy string)
+	default public PsiBoolean psiLe(final PsiStringy oString)
 	{
-		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())<=0);
+		return PsiBoolean.valueOf(stringValue().compareTo(oString.stringValue())<=0);
 	}
 
 	@Override
-	default public PsiBoolean psiGt(final PsiStringy string)
+	default public PsiBoolean psiGt(final PsiStringy oString)
 	{
-		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())>0);
+		return PsiBoolean.valueOf(stringValue().compareTo(oString.stringValue())>0);
 	}
 
 	@Override
-	default public PsiBoolean psiGe(final PsiStringy string)
+	default public PsiBoolean psiGe(final PsiStringy oString)
 	{
-		return PsiBoolean.valueOf(stringValue().compareTo(string.stringValue())>=0);
+		return PsiBoolean.valueOf(stringValue().compareTo(oString.stringValue())>=0);
 	}
 
 	@Override
-	default public PsiInteger psiCmp(final PsiStringy stringy)
+	default public PsiInteger psiCmp(final PsiStringy oString)
 	{
-		return PsiInteger.valueOf(stringValue().compareTo(stringy.stringValue()));
+		return PsiInteger.valueOf(stringValue().compareTo(oString.stringValue()));
 	}
 
-	default public PsiArray psiSplit(PsiRegExp regexp)
+	default public PsiArray psiSplit(final PsiRegExp oRegExp)
 		throws PsiException
 	{
-		PsiArray array=new PsiArray();
-		for(String item: regexp.getPattern().split(stringValue(), -1))
-			array.psiAppend(new PsiString(item));
-		return array;
+		PsiArray oArray=new PsiArray();
+		for(String item: oRegExp.getPattern().split(stringValue(), -1))
+			oArray.psiAppend(new PsiString(item));
+		return oArray;
 	}
 
 	@Override
@@ -143,5 +143,4 @@ public interface PsiStringy
 				private int index=0;
 			};
 	}
-
 }

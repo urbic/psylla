@@ -37,11 +37,11 @@ public interface PsiReadable
 	/**
 	 *	Read a Ψ-{@code string} from this object and returns it.
 	 *
-	 *	@param count a Ψ-{@code integer} representing the length of the string.
+	 *	@param oCount a Ψ-{@code integer} representing the length of the string.
 	 *	@return a string read.
 	 *	@throws PsiException when error occurs.
 	 */
-	public PsiString psiReadString(PsiInteger count)
+	public PsiString psiReadString(final PsiInteger oCount)
 		throws PsiException;
 
 	/**
@@ -50,20 +50,20 @@ public interface PsiReadable
 	 *	@return a line read,
 	 *	@throws PsiException when error occurs.
 	 */
-	public PsiString psiReadLine(PsiStringy stringy)
+	public PsiString psiReadLine(final PsiStringy oStringy)
 		throws PsiException;
 
 	/**
 	 *	Skips characters. This method will block until some characters are
 	 *	available, an I/O error occurs, or end of input is reached.
 	 *
-	 *	@param count a Ψ-{@code integer} representing the number of characters
+	 *	@param oCount a Ψ-{@code integer} representing the number of characters
 	 *	to be skipped.
 	 *	@return a Ψ-{@code boolean} indicating whether all the characters were
 	 *	skipped successfully
 	 *	@throws PsiException when an error occurs.
 	 */
-	public PsiBoolean psiSkip(PsiInteger count)
+	public PsiBoolean psiSkip(final PsiInteger oCount)
 		throws PsiException;
 
 	public PsiBoolean psiReady()

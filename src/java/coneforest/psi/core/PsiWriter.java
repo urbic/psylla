@@ -10,7 +10,7 @@ public class PsiWriter
 	{
 	}
 
-	public PsiWriter(java.io.Writer writer)
+	public PsiWriter(final java.io.Writer writer)
 	{
 		setWriter(writer);
 	}
@@ -21,7 +21,7 @@ public class PsiWriter
 		return "writer";
 	}
 
-	public void setWriter(java.io.Writer writer)
+	public void setWriter(final java.io.Writer writer)
 	{
 		this.writer=writer;
 	}
@@ -32,12 +32,12 @@ public class PsiWriter
 	}
 
 	@Override
-	public void psiWrite(PsiInteger character)
+	public void psiWrite(final PsiInteger oCharacter)
 		throws PsiException
 	{
 		try
 		{
-			writer.write(character.intValue());
+			writer.write(oCharacter.intValue());
 		}
 		catch(java.io.IOException e)
 		{
@@ -46,12 +46,12 @@ public class PsiWriter
 	}
 
 	@Override
-	public void psiWriteString(PsiStringy string)
+	public void psiWriteString(final PsiStringy oString)
 		throws PsiException
 	{
 		try
 		{
-			writer.write(string.stringValue());
+			writer.write(oString.stringValue());
 		}
 		catch(java.io.IOException e)
 		{

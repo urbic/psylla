@@ -23,9 +23,9 @@ public class PsiComplex
 		this(re.doubleValue(), im.doubleValue());
 	}
 
-	public PsiComplex(final PsiNumeric oReal)
+	public PsiComplex(final PsiNumeric oNumeric)
 	{
-		this(oReal, PsiReal.ZERO);
+		this(oNumeric.doubleValue());
 	}
 
 	public PsiComplex(final PsiComplexNumeric oNumber)

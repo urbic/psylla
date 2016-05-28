@@ -24,7 +24,7 @@ public interface PsiAppendable<T extends PsiObject>
 	*	@param o a given Ψ-{@code object}.
 	*	@throws PsiException when an error occurs.
 	*/
-	public void psiAppend(T o)
+	public void psiAppend(final T o)
 		throws PsiException;
 
 	/**
@@ -43,6 +43,6 @@ public interface PsiAppendable<T extends PsiObject>
 			psiAppend(o);
 	}
 
-	public PsiAppendable psiReplicate(PsiInteger oCount)
+	public PsiAppendable psiReplicate(final PsiInteger oCount)
 		throws PsiException;
 }

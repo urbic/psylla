@@ -12,18 +12,18 @@ public class PsiReader
 	{
 	}
 
-	public PsiReader(java.io.Reader reader)
+	public PsiReader(final java.io.Reader reader)
 	{
 		setReader(reader);
 	}
 
-	public PsiReader(java.io.InputStream is)
+	public PsiReader(final java.io.InputStream is)
 	{
 		this(new java.io.InputStreamReader(is));
 	}
 
 	@Override
-	public void eval(Interpreter interpreter)
+	public void eval(final Interpreter interpreter)
 		throws PsiException
 	{
 		interpreter.interpret(this);
@@ -35,7 +35,7 @@ public class PsiReader
 		return "reader";
 	}
 
-	public void setReader(java.io.Reader reader)
+	public void setReader(final java.io.Reader reader)
 	{
 		this.reader=reader;
 	}
@@ -60,7 +60,7 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiString psiReadString(PsiInteger oCount)
+	public PsiString psiReadString(final PsiInteger oCount)
 		throws PsiException
 	{
 		final long count=oCount.longValue();
@@ -91,11 +91,11 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiString psiReadLine(PsiStringy eol)
+	public PsiString psiReadLine(final PsiStringy eol)
 		throws PsiException
 	{
-		String eolString=eol.stringValue();
-		StringBuilder sb=new StringBuilder();
+		final String eolString=eol.stringValue();
+		final StringBuilder sb=new StringBuilder();
 
 		try
 		{
@@ -117,10 +117,10 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiBoolean psiSkip(PsiInteger oCount)
+	public PsiBoolean psiSkip(final PsiInteger oCount)
 		throws PsiException
 	{
-		long count=oCount.longValue();
+		final long count=oCount.longValue();
 		try
 		{
 			return PsiBoolean.valueOf(count==reader.skip(count));

@@ -6,11 +6,7 @@ public class PsiInput
 		PsiReadable,
 		PsiResettable
 {
-	public PsiInput()
-	{
-	}
-
-	public PsiInput(java.io.InputStream input)
+	public PsiInput(final java.io.InputStream input)
 	{
 		setInput(input);
 	}
@@ -21,7 +17,7 @@ public class PsiInput
 		return "input";
 	}
 
-	public void setInput(java.io.InputStream input)
+	public void setInput(final java.io.InputStream input)
 	{
 		this.input=input;
 	}
@@ -46,7 +42,7 @@ public class PsiInput
 	}
 
 	@Override
-	public PsiString psiReadString(PsiInteger count)
+	public PsiString psiReadString(final PsiInteger oCount)
 		throws PsiException
 	{
 		// TODO
@@ -90,13 +86,13 @@ public class PsiInput
 	}
 
 	@Override
-	public PsiBoolean psiSkip(PsiInteger count)
+	public PsiBoolean psiSkip(final PsiInteger oCount)
 		throws PsiException
 	{
-		long countValue=count.longValue();
+		final long count=oCount.longValue();
 		try
 		{
-			return PsiBoolean.valueOf(countValue==input.skip(countValue));
+			return PsiBoolean.valueOf(count==input.skip(count));
 		}
 		catch(IllegalArgumentException e)
 		{

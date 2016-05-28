@@ -21,7 +21,7 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 
 	@Override
-	default public void psiForAll(final PsiObject proc)
+	default public void psiForAll(final PsiObject oProc)
 		throws PsiException
 	{
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
@@ -47,7 +47,7 @@ public interface PsiDictlike<V extends PsiObject>
 						ostack.push(oKey);
 						ostack.push(psiGet(oKey));
 						interpreter1.executionStack().push(this);
-						proc.invoke(interpreter1);
+						oProc.invoke(interpreter1);
 					}
 				}
 			});
@@ -58,46 +58,46 @@ public interface PsiDictlike<V extends PsiObject>
 		throws PsiException;
 
 	@Override
-	default public V psiGet(PsiStringy oKey)
+	default public V psiGet(final PsiStringy oKey)
 		throws PsiException
 	{
 		return get(oKey.stringValue());
 	}
 
 	@Override
-	default public PsiArraylike<V> psiGetAll(PsiIterable<PsiStringy> oEnumeration)
+	default public PsiArraylike<V> psiGetAll(final PsiIterable<PsiStringy> oEnumeration)
 		throws PsiException
 	{
-		PsiArraylike<V> oResult=(PsiArraylike<V>)new PsiArray();
+		final PsiArraylike<V> oResult=(PsiArraylike<V>)new PsiArray();
 		for(PsiStringy oKey: oEnumeration)
 			oResult.psiAppend(psiGet(oKey));
 		return oResult;
 	}
 
-	public void put(String key, V oValue);
+	public void put(final String key, final V oValue);
 
 	@Override
-	default public void psiPut(PsiStringy oKey, V oValue)
+	default public void psiPut(final PsiStringy oKey, final V oValue)
 	{
 		put(oKey.stringValue(), oValue);
 	}
 
-	public boolean known(String keyString);
+	public boolean known(final String key);
 
 	@Override
-	default public PsiBoolean psiKnown(PsiStringy oKey)
+	default public PsiBoolean psiKnown(final PsiStringy oKey)
 	{
 		return PsiBoolean.valueOf(known(oKey.stringValue()));
 	}
 
-	public void undef(String key);
+	public void undef(final String key);
 
 	/**
 	 *	Deletes a key and associated value from this dictionary.
 	 *
 	 *	@param oKey a Ψ-{@code stringy} key.
 	 */
-	default public void psiUndef(PsiStringy oKey)
+	default public void psiUndef(final PsiStringy oKey)
 	{
 		undef(oKey.stringValue());
 	}
@@ -134,7 +134,7 @@ public interface PsiDictlike<V extends PsiObject>
 								}
 							}
 
-							private java.util.Iterator<PsiStringy> parentIterator
+							private final java.util.Iterator<PsiStringy> parentIterator
 								=psiKeys().iterator();
 						};
 				}
@@ -189,7 +189,7 @@ public interface PsiDictlike<V extends PsiObject>
 								try
 								{
 									return (flag=!flag)?
-										(key=(PsiName)parentIterator.next()): psiGet(key);
+										(oKey=(PsiName)parentIterator.next()): psiGet(oKey);
 								}
 								catch(PsiException e)
 								{
@@ -199,7 +199,7 @@ public interface PsiDictlike<V extends PsiObject>
 
 							private boolean flag=false;
 
-							private PsiName key;
+							private PsiName oKey;
 
 							private java.util.Iterator<PsiStringy> parentIterator
 								=psiKeys().iterator();
@@ -210,7 +210,7 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 
 	//@Override
-	default public String toSyntaxStringHelper(PsiLengthy lengthy)
+	default public String toSyntaxStringHelper(final PsiLengthy oLengthy)
 	{
 		StringBuilder sb=new StringBuilder();
 		if(length()>0)
@@ -218,7 +218,7 @@ public interface PsiDictlike<V extends PsiObject>
 			for(PsiObject obj: this.psiEntries())
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
+					sb.append(obj==oLengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
 				else
 					sb.append(obj.toSyntaxString());
 				sb.append(' ');
@@ -231,7 +231,7 @@ public interface PsiDictlike<V extends PsiObject>
 	@Override
 	default public void psiClear()
 	{
-		for(PsiStringy key: this.psiKeys())
-			psiUndef(key);
+		for(PsiStringy oKey: psiKeys())
+			psiUndef(oKey);
 	}
 }

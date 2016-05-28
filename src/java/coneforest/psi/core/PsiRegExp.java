@@ -6,12 +6,12 @@ package coneforest.psi.core;
 public class PsiRegExp
 	implements PsiObject
 {
-	public PsiRegExp(CharSequence value)
+	public PsiRegExp(final CharSequence cs)
 		throws PsiException
 	{
 		try
 		{
-			pattern=java.util.regex.Pattern.compile(value.toString());
+			pattern=java.util.regex.Pattern.compile(cs.toString());
 		}
 		catch(java.util.regex.PatternSyntaxException e)
 		{
@@ -19,10 +19,10 @@ public class PsiRegExp
 		}
 	}
 
-	public PsiRegExp(PsiStringy stringy)
+	public PsiRegExp(final PsiStringy oStringy)
 		throws PsiException
 	{
-		this(stringy.stringValue());
+		this(oStringy.stringValue());
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class PsiRegExp
 		}
 		*/
 		//return "!"+sb.toString()+"!";
-		StringBuilder sb=new StringBuilder("@");
-		String patternImage=pattern.toString();
+		final StringBuilder sb=new StringBuilder("@");
+		final String patternImage=pattern.toString();
 		for(int i=0; i<patternImage.length(); i++)
 		{
 			if(patternImage.charAt(i)=='@')
@@ -113,5 +113,5 @@ public class PsiRegExp
 		return sb.toString();
 	}
 
-	private java.util.regex.Pattern pattern;
+	private final java.util.regex.Pattern pattern;
 }

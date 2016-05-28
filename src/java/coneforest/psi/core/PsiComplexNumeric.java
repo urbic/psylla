@@ -79,7 +79,7 @@ public interface PsiComplexNumeric
 	 */
 	public PsiComplexNumeric psiConjugate();
 
-	default public PsiComplexNumeric psiPow(PsiComplexNumeric cn)
+	default public PsiComplexNumeric psiPow(final PsiComplexNumeric cn)
 		throws PsiException
 	{
 		if(psiIsZero().booleanValue() && cn.psiNotZero().booleanValue())

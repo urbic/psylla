@@ -5,15 +5,15 @@ public class PsiBlockingQueue
 		PsiQueuelike<PsiObject>,
 		PsiCloseable
 {
-	public PsiBlockingQueue(PsiInteger integer)
+	public PsiBlockingQueue(final PsiInteger oCapacity)
 		throws PsiException
 	{
-		long integerValue=integer.longValue();
-		if(integerValue>=Integer.MAX_VALUE)
+		long capacity=oCapacity.longValue();
+		if(capacity>=Integer.MAX_VALUE)
 			throw new PsiLimitCheckException();
 		try
 		{
-			queue=new java.util.concurrent.ArrayBlockingQueue<PsiObject>((int)integerValue);
+			queue=new java.util.concurrent.ArrayBlockingQueue<PsiObject>((int)capacity);
 		}
 		catch(IllegalArgumentException e)
 		{
@@ -29,6 +29,7 @@ public class PsiBlockingQueue
 
 	/**
 	 *	Returns the number of elements in this queue.
+	 *
 	 *	@return the number of elements in this queue.
 	 */
 	@Override
@@ -120,6 +121,6 @@ public class PsiBlockingQueue
 		}
 	}
 
-	private java.util.concurrent.ArrayBlockingQueue<PsiObject> queue;
+	private final java.util.concurrent.ArrayBlockingQueue<PsiObject> queue;
 	private boolean closed=false;
 }

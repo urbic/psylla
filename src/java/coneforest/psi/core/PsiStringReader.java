@@ -3,14 +3,14 @@ package coneforest.psi.core;
 public class PsiStringReader
 	extends PsiReader
 {
-	public PsiStringReader(String stringValue)
+	public PsiStringReader(final String string)
 	{
-		super(new java.io.StringReader(stringValue));
+		super(new java.io.StringReader(string));
 	}
 
-	public PsiStringReader(PsiStringy stringy)
+	public PsiStringReader(final PsiStringy oStringy)
 	{
-		this(stringy.stringValue());
+		this(oStringy.stringValue());
 	}
 
 	@Override

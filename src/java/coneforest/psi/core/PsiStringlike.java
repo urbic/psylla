@@ -8,20 +8,20 @@ public interface PsiStringlike
 	@Override
 	default public String getTypeName()
 	{
-		return "string";
+		return "stringlike";
 	}
 
 	@Override
-	abstract public PsiStringlike psiClone();
+	public PsiStringlike psiClone();
 
 	@Override
 	default public String toSyntaxString()
 	{
-		StringBuilder sb=new StringBuilder();
-		String string=stringValue();
+		final StringBuilder sb=new StringBuilder();
+		final String string=stringValue();
 		for(int i=0; i<string.length(); i++)
 		{
-			char c=string.charAt(i);
+			final char c=string.charAt(i);
 			switch(c)
 			{
 				case '\u0000':

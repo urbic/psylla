@@ -66,21 +66,21 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiOr(final PsiInteger integer)
+	public PsiInteger psiOr(final PsiInteger oInteger)
 	{
-		return PsiInteger.valueOf(value | integer.value);
+		return PsiInteger.valueOf(value | oInteger.value);
 	}
 
 	@Override
-	public PsiInteger psiAnd(final PsiInteger integer)
+	public PsiInteger psiAnd(final PsiInteger oInteger)
 	{
-		return PsiInteger.valueOf(value & integer.value);
+		return PsiInteger.valueOf(value & oInteger.value);
 	}
 
 	@Override
-	public PsiInteger psiXor(final PsiInteger obj)
+	public PsiInteger psiXor(final PsiInteger oInteger)
 	{
-		return PsiInteger.valueOf(value ^ obj.value);
+		return PsiInteger.valueOf(value ^ oInteger.value);
 	}
 
 	@Override
@@ -110,7 +110,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiBoolean psiTestBit(PsiInteger oBit)
+	public PsiBoolean psiTestBit(final PsiInteger oBit)
 		throws PsiException
 	{
 		long bit=oBit.value;
@@ -120,7 +120,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiClearBit(PsiInteger oBit)
+	public PsiInteger psiClearBit(final PsiInteger oBit)
 		throws PsiException
 	{
 		long bit=oBit.value;
@@ -130,7 +130,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiSetBit(PsiInteger oBit)
+	public PsiInteger psiSetBit(final PsiInteger oBit)
 		throws PsiException
 	{
 		long bit=oBit.value;
@@ -140,7 +140,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiFlipBit(PsiInteger oBit)
+	public PsiInteger psiFlipBit(final PsiInteger oBit)
 		throws PsiException
 	{
 		long bit=oBit.value;
@@ -156,37 +156,37 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiNumeric psiAdd(final PsiNumeric numeric)
+	public PsiNumeric psiAdd(final PsiNumeric oNumeric)
 	{
-		if(numeric instanceof PsiInteger)
+		if(oNumeric instanceof PsiInteger)
 		{
-			long numericValue=((PsiInteger)numeric).value;
-			long resultValue=value+numericValue;
+			final long numeric=((PsiInteger)oNumeric).value;
+			final long result=value+numeric;
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedAdd(long, long)
-			return ((value^numericValue)<0|(value^resultValue)>=0)?
-					PsiInteger.valueOf(resultValue): new PsiReal(doubleValue()+numeric.doubleValue());
+			return ((value^numeric)<0|(value^result)>=0)?
+					PsiInteger.valueOf(result): new PsiReal(doubleValue()+oNumeric.doubleValue());
 		}
 		else
-			return new PsiReal(doubleValue()+numeric.doubleValue());
+			return new PsiReal(doubleValue()+oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsiNumeric psiSub(final PsiNumeric numeric)
+	public PsiNumeric psiSub(final PsiNumeric oNumeric)
 	{
-		if(numeric instanceof PsiInteger)
+		if(oNumeric instanceof PsiInteger)
 		{
-			long numericValue=((PsiInteger)numeric).value;
-			long resultValue=value-numericValue;
+			final long numeric=((PsiInteger)oNumeric).value;
+			final long result=value-numeric;
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedSubtract(long, long)
-			return ((value^numericValue)>=0|(value^resultValue)>=0)?
-					PsiInteger.valueOf(resultValue): new PsiReal(doubleValue()-numeric.doubleValue());
+			return ((value^numeric)>=0|(value^result)>=0)?
+					PsiInteger.valueOf(result): new PsiReal(doubleValue()-oNumeric.doubleValue());
 		}
 		else
-			return new PsiReal(doubleValue()-numeric.doubleValue());
+			return new PsiReal(doubleValue()-oNumeric.doubleValue());
 	}
 
 	@Override
@@ -196,8 +196,8 @@ public class PsiInteger
 		{
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedMultiply(long, long)
-			long numeric=((PsiInteger)oNumeric).value;
-			int leadingZeros
+			final long numeric=((PsiInteger)oNumeric).value;
+			final int leadingZeros
 				=Long.numberOfLeadingZeros(value)
 				+Long.numberOfLeadingZeros(~value)
 				+Long.numberOfLeadingZeros(numeric)
@@ -207,7 +207,7 @@ public class PsiInteger
 
 			if(leadingZeros>=Long.SIZE && value>=0 | numeric!=Long.MIN_VALUE)
 			{
-				long result=value*numeric;
+				final long result=value*numeric;
 				return (value==0 || result/value==numeric)?
 					PsiInteger.valueOf(result): new PsiReal(doubleValue()*oNumeric.doubleValue());
 			}
@@ -317,14 +317,14 @@ public class PsiInteger
 		return this;
 	}
 
-	public PsiInteger psiMod(final PsiInteger integer)
+	public PsiInteger psiMod(final PsiInteger oInteger)
 		throws PsiException
 	{
-		long integerValue=integer.value;
-		if(integerValue<=0)
+		long integer=oInteger.value;
+		if(integer<=0)
 			throw new PsiRangeCheckException();
-		long resultValue=value % integerValue;
-		return PsiInteger.valueOf((resultValue>=0)? resultValue: resultValue+integerValue);
+		long result=value % integer;
+		return PsiInteger.valueOf((result>=0)? result: result+integer);
 		/*
 		if(integer.value>0)
 			return new PsiInteger(value>=0? value%integer.value: integer.value-(-value)%integer.value);
@@ -334,12 +334,12 @@ public class PsiInteger
 		*/
 	}
 
-	public PsiInteger psiIdiv(final PsiInteger integer)
+	public PsiInteger psiIdiv(final PsiInteger oInteger)
 		throws PsiException
 	{
-		if(integer.value==0)
+		if(oInteger.value==0)
 			throw new PsiUndefinedResultException();
-		return PsiInteger.valueOf(value/integer.value);
+		return PsiInteger.valueOf(value/oInteger.value);
 	}
 
 	@Override
@@ -348,10 +348,10 @@ public class PsiInteger
 		return PsiInteger.valueOf(oShift.value>=0? value<<oShift.value: value>>(-oShift.value));
 	}
 
-	public PsiBoolean psiInUnicodeBlock(PsiStringy stringy)
+	public PsiBoolean psiInUnicodeBlock(PsiStringy oStringy)
 	{
 		return PsiBoolean.valueOf(Character.UnicodeBlock.of((int)value).equals(
-				Character.UnicodeBlock.forName(stringy.stringValue())));
+				Character.UnicodeBlock.forName(oStringy.stringValue())));
 	}
 
 	@Override
@@ -366,7 +366,7 @@ public class PsiInteger
 		else if(o instanceof PsiComplex)
 			return PsiBoolean.valueOf(
 					doubleValue()==((PsiComplex)o).psiRealPart().doubleValue()
-						&& ((PsiComplex)o).psiImagPart().doubleValue()==.0D);
+						&& ((PsiComplex)o).psiImagPart().doubleValue()==0.D);
 		return PsiBoolean.FALSE;
 	}
 
@@ -415,11 +415,11 @@ public class PsiInteger
 
 	private final long value;
 
-	public static PsiInteger valueOf(long integerValue)
+	public static PsiInteger valueOf(final long integer)
 	{
-		if(integerValue>=-128 && integerValue<128)
-			return Cache.cache[(int)integerValue+128];
-		return new PsiInteger(integerValue);
+		if(integer>=-128 && integer<128)
+			return Cache.cache[(int)integer+128];
+		return new PsiInteger(integer);
 	}
 
 	private static class Cache

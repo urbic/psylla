@@ -17,9 +17,9 @@ public class PsiDict
 		this.dictionary=new java.util.HashMap<String, PsiObject>();
 	}
 
-	public PsiDict(PsiDict dict)
+	public PsiDict(final PsiDict oDict)
 	{
-		this.dictionary=(java.util.HashMap<String, PsiObject>)dict.dictionary.clone();
+		this.dictionary=(java.util.HashMap<String, PsiObject>)oDict.dictionary.clone();
 	}
 
 	@Override
@@ -29,10 +29,10 @@ public class PsiDict
 	}
 
 	@Override
-	public PsiObject get(String key)
+	public PsiObject get(final String key)
 		throws PsiException
 	{
-		PsiObject result=dictionary.get(key);
+		final PsiObject result=dictionary.get(key);
 		if(result!=null)
 			return result;
 		else
@@ -40,21 +40,21 @@ public class PsiDict
 	}
 
 	@Override
-	public void put(String keyString, PsiObject obj)
+	public void put(final String key, final PsiObject o)
 	{
-		dictionary.put(keyString, obj);
+		dictionary.put(key, o);
 	}
 
 	@Override
-	public void undef(String keyString)
+	public void undef(final String key)
 	{
-		dictionary.remove(keyString);
+		dictionary.remove(key);
 	}
 
 	@Override
-	public boolean known(String keyString)
+	public boolean known(final String key)
 	{
-		return dictionary.containsKey(keyString);
+		return dictionary.containsKey(key);
 	}
 
 	/*
@@ -90,12 +90,12 @@ public class PsiDict
 	}
 
 	@Override
-	public PsiDict psiSlice(PsiIterable<PsiStringy> keys)
+	public PsiDict psiSlice(final PsiIterable<PsiStringy> oKeys)
 		throws PsiException
 	{
-		PsiDict values=new PsiDict();
-		for(PsiStringy key: keys)
-			values.psiPut(key, psiGet(key));
+		final PsiDict values=new PsiDict();
+		for(PsiStringy oKey: oKeys)
+			values.psiPut(oKey, psiGet(oKey));
 		return values;
 	}
 
@@ -121,12 +121,12 @@ public class PsiDict
 								return new PsiName(parentIterator.next());
 							}
 
-							private java.util.Iterator<String> parentIterator
+							private final java.util.Iterator<String> parentIterator
 								=dictionary.keySet().iterator();
 						};
 				}
 			};
 	}
 
-	private java.util.HashMap<String, PsiObject> dictionary;
+	private final java.util.HashMap<String, PsiObject> dictionary;
 }

@@ -30,7 +30,7 @@ public interface PsiObject
 	*
 	*	@param interpreter an interpreter.
 	*/
-	default public void execute(Interpreter interpreter)
+	default public void execute(final Interpreter interpreter)
 	{
 		interpreter.operandStack().push(this);
 	}
@@ -41,25 +41,25 @@ public interface PsiObject
 	*
 	*	@param interpreter an interpreter.
 	*/
-	default public void invoke(Interpreter interpreter)
+	default public void invoke(final Interpreter interpreter)
 	{
 		interpreter.operandStack().push(this);
 	}
 
-	default public PsiBoolean psiEq(final PsiObject obj)
+	default public PsiBoolean psiEq(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(this==obj);
+		return PsiBoolean.valueOf(this==o);
 	}
 
-	default public PsiBoolean psiNe(final PsiObject obj)
+	default public PsiBoolean psiNe(final PsiObject o)
 	{
-		return psiEq(obj).psiNot();
+		return psiEq(o).psiNot();
 	}
 
 	/**
 	*	Returns a clone of this object.
 	*
-	*	@return a clone.
+	*	@return a clone of this object.
 	*/
 	default public PsiObject psiClone()
 	{
@@ -67,9 +67,9 @@ public interface PsiObject
 	}
 
 	/**
-	*	Returns a Ψ string representing this object.
+	*	Returns a Ψ-{@code string} representing this object.
 	*
-	*	@return a Ψ string representing this object.
+	*	@return a Ψ-{@code string} representing this object.
 	*/
 	@Override
 	default public PsiString psiToString()
@@ -83,9 +83,9 @@ public interface PsiObject
 	}
 
 	/**
-	*	Returns a Ψ name representing this object.
+	*	Returns a Ψ-{@code name} representing this object.
 	*
-	*	@return a Ψ string representing this object.
+	*	@return a Ψ-{@code name} representing this object.
 	*/
 	@Override
 	default public PsiName psiToName()
@@ -98,6 +98,7 @@ public interface PsiObject
 		return "-"+getTypeName()+"-";
 	}
 
+	// TODO
 	default public PsiBoolean psiInstanceOf(PsiStringy stringy)
 	{
 		//Class<? extends PsiObject> clazz=TypeRegistry.get(stringy.getString());

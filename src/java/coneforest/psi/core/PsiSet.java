@@ -11,14 +11,9 @@ public class PsiSet
 		this(new java.util.HashSet<PsiObject>());
 	}
 
-	public PsiSet(java.util.HashSet<PsiObject> setValue)
+	public PsiSet(final java.util.HashSet<PsiObject> set)
 	{
-		set=setValue;
-	}
-
-	public PsiSet(PsiSet setValue)
-	{
-		this((java.util.HashSet<PsiObject>)setValue.set.clone());
+		this.set=set;
 	}
 
 	/**
@@ -33,7 +28,7 @@ public class PsiSet
 	@Override
 	public PsiSet psiClone()
 	{
-		return new PsiSet(this);
+		return new PsiSet((java.util.HashSet<PsiObject>)set.clone());
 	}
 
 	@Override
@@ -43,21 +38,21 @@ public class PsiSet
 	}
 
 	@Override
-	public void psiAppend(PsiObject obj)
+	public void psiAppend(final PsiObject o)
 	{
-		set.add(obj);
+		set.add(o);
 	}
 
 	@Override
-	public void psiRemove(PsiObject obj)
+	public void psiRemove(final PsiObject o)
 	{
-		set.remove(obj);
+		set.remove(o);
 	}
 
 	@Override
-	public PsiBoolean psiContains(PsiObject obj)
+	public PsiBoolean psiContains(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(set.contains(obj));
+		return PsiBoolean.valueOf(set.contains(o));
 	}
 
 	@Override
@@ -72,5 +67,5 @@ public class PsiSet
 		return set.iterator();
 	}
 
-	private java.util.HashSet<PsiObject> set=new java.util.HashSet<PsiObject>();
+	private final java.util.HashSet<PsiObject> set;
 }

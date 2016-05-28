@@ -69,21 +69,21 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiComplexNumeric psiAdd(final PsiNumeric numeric)
+	public PsiComplexNumeric psiAdd(final PsiNumeric oNumeric)
 	{
-		return new PsiReal(value+numeric.doubleValue());
+		return new PsiReal(value+oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsiComplexNumeric psiSub(final PsiNumeric numeric)
+	public PsiComplexNumeric psiSub(final PsiNumeric oNumeric)
 	{
-		return new PsiReal(value-numeric.doubleValue());
+		return new PsiReal(value-oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsiComplexNumeric psiMul(final PsiNumeric numeric)
+	public PsiComplexNumeric psiMul(final PsiNumeric oNumeric)
 	{
-		return new PsiReal(value*numeric.doubleValue());
+		return new PsiReal(value*oNumeric.doubleValue());
 	}
 
 	/*
@@ -119,9 +119,9 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiInteger psiCmp(final PsiNumeric numeric)
+	public PsiInteger psiCmp(final PsiNumeric oNumeric)
 	{
-		final int result=Double.compare(value, numeric.doubleValue());
+		final int result=Double.compare(value, oNumeric.doubleValue());
 		return result<0? PsiInteger.MINUS_ONE:
 			result>0? PsiInteger.ONE: PsiInteger.ZERO;
 	}
@@ -139,7 +139,7 @@ public class PsiReal
 	}
 
 	@Override
-	public boolean equals(Object object)
+	public boolean equals(final Object object)
 	{
 		return object instanceof PsiReal
 				&& psiEq((PsiReal)object).booleanValue();

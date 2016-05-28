@@ -3,12 +3,12 @@ package coneforest.psi.core;
 public class PsiFileWriter
 	extends PsiWriter
 {
-	public PsiFileWriter(String name)
+	public PsiFileWriter(final String fileName)
 		throws PsiException
 	{
 		try
 		{
-			setWriter(new java.io.FileWriter(name));
+			setWriter(new java.io.FileWriter(fileName));
 		}
 		catch(java.io.FileNotFoundException e)
 		{
@@ -20,7 +20,7 @@ public class PsiFileWriter
 		}
 	}
 
-	public PsiFileWriter(PsiStringy oFileName)
+	public PsiFileWriter(final PsiStringy oFileName)
 		throws PsiException
 	{
 		this(oFileName.stringValue());

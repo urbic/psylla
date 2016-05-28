@@ -27,7 +27,7 @@ public interface PsiSetlike<T extends PsiObject>
 	*
 	*	@param o a given Ψ-{@code object}.
 	*/
-	public void psiRemove(T o);
+	public void psiRemove(final T o);
 
 	/**
 	*	Removes all the Ψ-{@code object}s in a given Ψ-{@code iterable}
@@ -36,7 +36,7 @@ public interface PsiSetlike<T extends PsiObject>
 	*
 	*	@param oEnumeration a given Ψ-{@code iterable} enumeration.
 	*/
-	default public void psiRemoveAll(PsiIterable<? extends T> oEnumeration)
+	default public void psiRemoveAll(final PsiIterable<? extends T> oEnumeration)
 	{
 		if(this==oEnumeration)
 			psiClear();
@@ -45,7 +45,7 @@ public interface PsiSetlike<T extends PsiObject>
 				psiRemove(o);
 	}
 
-	default public void psiRetainAll(PsiIterable<? extends T> oEnumeration)
+	default public void psiRetainAll(final PsiIterable<? extends T> oEnumeration)
 		throws PsiException
 	{
 	//	for(T obj: this)
@@ -64,7 +64,7 @@ public interface PsiSetlike<T extends PsiObject>
 	*	@return {@link PsiBoolean#TRUE}, if an object belongs to this set, and
 	*	{@link PsiBoolean#FALSE} otherwise.
 	*/
-	public PsiBoolean psiContains(T o);
+	public PsiBoolean psiContains(final T o);
 
 	/**
 	*	Removes all the elements from this set.
@@ -112,10 +112,10 @@ public interface PsiSetlike<T extends PsiObject>
 	}
 
 	@Override
-	default public PsiSetlike<T> psiReplicate(PsiInteger oCount)
+	default public PsiSetlike<T> psiReplicate(final PsiInteger oCount)
 		throws PsiException
 	{
-		long count=oCount.longValue();
+		final long count=oCount.longValue();
 		if(count<0)
 			throw new PsiRangeCheckException();
 		if(count>Integer.MAX_VALUE)
@@ -131,15 +131,15 @@ public interface PsiSetlike<T extends PsiObject>
 		return "("+toSyntaxStringHelper(this)+")";
 	}
 
-	default public String toSyntaxStringHelper(PsiLengthy lengthy)
+	default public String toSyntaxStringHelper(final PsiLengthy oLengthy)
 	{
-		StringBuilder sb=new StringBuilder();
+		final StringBuilder sb=new StringBuilder();
 		if(length()>0)
 		{
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==lengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
+					sb.append(obj==oLengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
 				else
 					sb.append(obj.toSyntaxString());
 				sb.append(' ');

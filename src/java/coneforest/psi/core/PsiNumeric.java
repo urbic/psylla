@@ -80,44 +80,44 @@ public interface PsiNumeric
 	public PsiComplexNumeric psiAdd(final PsiNumeric numeric);
 
 	@Override
-	default public PsiComplexNumeric psiAdd(final PsiComplexNumeric cn)
+	default public PsiComplexNumeric psiAdd(final PsiComplexNumeric oNumber)
 	{
-		if(cn instanceof PsiNumeric)
-			return psiAdd((PsiNumeric)cn);
-		return new PsiComplex(this).psiAdd(cn);
+		if(oNumber instanceof PsiNumeric)
+			return psiAdd((PsiNumeric)oNumber);
+		return new PsiComplex(this).psiAdd(oNumber);
 	}
 
-	public PsiComplexNumeric psiSub(final PsiNumeric numeric);
+	public PsiComplexNumeric psiSub(final PsiNumeric oNumeric);
 
 	@Override
-	default public PsiComplexNumeric psiSub(final PsiComplexNumeric cn)
+	default public PsiComplexNumeric psiSub(final PsiComplexNumeric oNumber)
 	{
-		if(cn instanceof PsiNumeric)
-			return psiSub((PsiNumeric)cn);
-		return new PsiComplex(this).psiSub(cn);
+		if(oNumber instanceof PsiNumeric)
+			return psiSub((PsiNumeric)oNumber);
+		return new PsiComplex(this).psiSub(oNumber);
 	}
 
-	public PsiComplexNumeric psiMul(final PsiNumeric numeric);
+	public PsiComplexNumeric psiMul(final PsiNumeric oNumeric);
 
 	@Override
-	default public PsiComplexNumeric psiMul(final PsiComplexNumeric cn)
+	default public PsiComplexNumeric psiMul(final PsiComplexNumeric oNumber)
 	{
-		if(cn instanceof PsiNumeric)
-			return psiMul((PsiNumeric)cn);
-		return new PsiComplex(this).psiMul(cn);
+		if(oNumber instanceof PsiNumeric)
+			return psiMul((PsiNumeric)oNumber);
+		return new PsiComplex(this).psiMul(oNumber);
 	}
 
-	default public PsiReal psiDiv(final PsiNumeric numeric)
+	default public PsiReal psiDiv(final PsiNumeric oNumeric)
 	{
-		return new PsiReal(doubleValue()/numeric.doubleValue());
+		return new PsiReal(doubleValue()/oNumeric.doubleValue());
 	}
 
 	@Override
-	default public PsiComplexNumeric psiDiv(final PsiComplexNumeric cn)
+	default public PsiComplexNumeric psiDiv(final PsiComplexNumeric oNumber)
 	{
-		if(cn instanceof PsiNumeric)
-			return psiDiv((PsiNumeric)cn);
-		return new PsiComplex(this).psiDiv(cn);
+		if(oNumber instanceof PsiNumeric)
+			return psiDiv((PsiNumeric)oNumber);
+		return new PsiComplex(this).psiDiv(oNumber);
 	}
 
 	@Override
@@ -129,7 +129,7 @@ public interface PsiNumeric
 		if(doubleValue()>=0.D)
 			return new PsiReal(Math.sqrt(doubleValue()));
 		else
-			return new PsiComplex(0, Math.sqrt(-doubleValue()));
+			return new PsiComplex(0.D, Math.sqrt(-doubleValue()));
 	}
 
 	@Override
@@ -210,9 +210,9 @@ public interface PsiNumeric
 		return new PsiReal(Math.atan(doubleValue()));
 	}
 
-	default public PsiReal psiHypot(PsiNumeric numeric)
+	default public PsiReal psiHypot(PsiNumeric oNumeric)
 	{
-		return new PsiReal(Math.hypot(doubleValue(), numeric.doubleValue()));
+		return new PsiReal(Math.hypot(doubleValue(), oNumeric.doubleValue()));
 	}
 
 	public PsiNumeric psiFloor();
@@ -222,45 +222,45 @@ public interface PsiNumeric
 	public PsiNumeric psiCeiling();
 
 	@Override
-	default public PsiBoolean psiEq(final PsiObject obj)
+	default public PsiBoolean psiEq(final PsiObject o)
 	{
-		return PsiBoolean.valueOf(obj instanceof PsiNumeric
-				&& doubleValue()==((PsiNumeric)obj).doubleValue());
+		return PsiBoolean.valueOf(o instanceof PsiNumeric
+				&& doubleValue()==((PsiNumeric)o).doubleValue());
 	}
 
 	/**
 	 *	“Less” arithmetic comparison.
 	 */
 	@Override
-	default public PsiBoolean psiLt(final PsiNumeric numeric)
+	default public PsiBoolean psiLt(final PsiNumeric oNumeric)
 	{
-		return PsiBoolean.valueOf(doubleValue()<numeric.doubleValue());
+		return PsiBoolean.valueOf(doubleValue()<oNumeric.doubleValue());
 	}
 
 	/**
 	 *	“Less or equal” arithmetic comparison.
 	 */
 	@Override
-	default public PsiBoolean psiLe(final PsiNumeric numeric)
+	default public PsiBoolean psiLe(final PsiNumeric oNumeric)
 	{
-		return PsiBoolean.valueOf(doubleValue()<=numeric.doubleValue());
+		return PsiBoolean.valueOf(doubleValue()<=oNumeric.doubleValue());
 	}
 
 	/**
 	 *	“Greater” arithmetic comparison.
 	 */
 	@Override
-	default public PsiBoolean psiGt(final PsiNumeric numeric)
+	default public PsiBoolean psiGt(final PsiNumeric oNumeric)
 	{
-		return PsiBoolean.valueOf(doubleValue()>numeric.doubleValue());
+		return PsiBoolean.valueOf(doubleValue()>oNumeric.doubleValue());
 	}
 
 	/**
 	 *	“Greater or equal” arithmetic comparison.
 	 */
 	@Override
-	default public PsiBoolean psiGe(final PsiNumeric numeric)
+	default public PsiBoolean psiGe(final PsiNumeric oNumeric)
 	{
-		return PsiBoolean.valueOf(doubleValue()>=numeric.doubleValue());
+		return PsiBoolean.valueOf(doubleValue()>=oNumeric.doubleValue());
 	}
 }

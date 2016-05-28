@@ -6,11 +6,6 @@ package coneforest.psi.core;
 public class PsiRandom
 	implements PsiObject
 {
-	public PsiRandom()
-	{
-		random=new java.util.Random();
-	}
-
 	/**
 	 *	@return a string {@code "random"}.
 	 */
@@ -20,24 +15,24 @@ public class PsiRandom
 		return "random";
 	}
 
-	public void psiSetSeed(PsiInteger seed)
+	public void psiSetSeed(final PsiInteger oSeed)
 	{
-		random.setSeed(seed.longValue());
+		random.setSeed(oSeed.longValue());
 	}
 
-	public PsiNumeric psiUniformDeviate(PsiNumeric numeric)
+	public PsiNumeric psiUniformDeviate(final PsiNumeric oNumeric)
 		throws PsiException
 	{
-		if(numeric instanceof PsiReal)
-			return new PsiReal(numeric.doubleValue()*random.nextDouble());
-		else if(numeric instanceof PsiInteger)
+		if(oNumeric instanceof PsiReal)
+			return new PsiReal(oNumeric.doubleValue()*random.nextDouble());
+		else if(oNumeric instanceof PsiInteger)
 		{
-			int numericValue=numeric.intValue();
-			if(numericValue>Integer.MAX_VALUE)
+			final int numeric=oNumeric.intValue();
+			if(numeric>Integer.MAX_VALUE)
 				throw new PsiRangeCheckException();
 			try
 			{
-				return PsiInteger.valueOf(random.nextInt(numericValue));
+				return PsiInteger.valueOf(random.nextInt(numeric));
 			}
 			catch(IllegalArgumentException e)
 			{
@@ -53,10 +48,10 @@ public class PsiRandom
 		return PsiBoolean.valueOf(random.nextBoolean());
 	}
 
-	public PsiReal psiNormalDeviate(PsiNumeric numeric)
+	public PsiReal psiNormalDeviate(final PsiNumeric oNumeric)
 	{
-		return new PsiReal(numeric.doubleValue()*random.nextGaussian());
+		return new PsiReal(oNumeric.doubleValue()*random.nextGaussian());
 	}
 
-	private java.util.Random random;
+	private java.util.Random random=new java.util.Random();
 }

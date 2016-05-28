@@ -25,7 +25,7 @@ public abstract class PsiOperator
 	 *	Execute this object in the context of the interpreter.  Calls {@link
 	 *	#invoke(Interpreter)} method.
 	 */
-	public void execute(Interpreter interpreter)
+	public void execute(final Interpreter interpreter)
 	{
 		invoke(interpreter);
 	}
@@ -34,7 +34,7 @@ public abstract class PsiOperator
 	 *	Invoke this object in the context of the interpreter performing
 	 *	an action associated with it.
 	 */
-	public void invoke(Interpreter interpreter)
+	public void invoke(final Interpreter interpreter)
 	{
 		final OperandStack ostack=interpreter.operandStack();
 		ostack.clearBackup();
@@ -55,7 +55,7 @@ public abstract class PsiOperator
 		}
 	}
 
-	abstract public void action(Interpreter interpreter)
+	abstract public void action(final Interpreter interpreter)
 		throws ClassCastException, PsiException;
 
 	/**

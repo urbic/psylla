@@ -3,12 +3,12 @@ package coneforest.psi.core;
 public class PsiFileReader
 	extends PsiReader
 {
-	public PsiFileReader(String name)
+	public PsiFileReader(final String fileName)
 		throws PsiException
 	{
 		try
 		{
-			setReader(new java.io.FileReader(name));
+			setReader(new java.io.FileReader(fileName));
 		}
 		catch(java.io.FileNotFoundException e)
 		{
@@ -16,9 +16,9 @@ public class PsiFileReader
 		}
 	}
 
-	public PsiFileReader(PsiStringy name)
+	public PsiFileReader(final PsiStringy oFileName)
 		throws PsiException
 	{
-		this(name.stringValue());
+		this(oFileName.stringValue());
 	}
 }

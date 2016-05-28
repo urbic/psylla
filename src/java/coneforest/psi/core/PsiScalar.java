@@ -26,7 +26,7 @@ public interface PsiScalar<T extends PsiScalar>
 	*	@return A Ψ boolean value indicating if this object is less than given
 	*	object.
 	*/
-	public PsiBoolean psiLt(T oScalar);
+	public PsiBoolean psiLt(final T oScalar);
 
 	/**
 	*	Returns a Ψ-{@code boolean} object representing the result of “less or
@@ -36,7 +36,7 @@ public interface PsiScalar<T extends PsiScalar>
 	*	@return A Ψ boolean value indicating if this object is less than or
 	*	equal to given object.
 	*/
-	public PsiBoolean psiLe(T oScalar);
+	public PsiBoolean psiLe(final T oScalar);
 
 	/**
 	*	Returns a Ψ-{@code boolean} object representing the result of “greater”
@@ -45,7 +45,7 @@ public interface PsiScalar<T extends PsiScalar>
 	*	@param oScalar an object with which this object is compared.
 	*	@return A Ψ-{@code boolean} result of comparison.
 	*/
-	public PsiBoolean psiGt(T oScalar);
+	public PsiBoolean psiGt(final T oScalar);
 
 	/**
 	*	Returns a Ψ-{@code boolean} object representing the result of “greater
@@ -54,7 +54,7 @@ public interface PsiScalar<T extends PsiScalar>
 	*	@param oScalar An object with which this object is compared.
 	*	@return A Ψ-{@code boolean} result of comparison.
 	*/
-	public PsiBoolean psiGe(T oScalar);
+	public PsiBoolean psiGe(final T oScalar);
 
 	/**
 	*	Compares this object against given object and returns a Ψ-{@code
@@ -66,14 +66,14 @@ public interface PsiScalar<T extends PsiScalar>
 	*	@param oScalar An object with which this object is compared.
 	*	@return A result of the comparison.
 	*/
-	public PsiInteger psiCmp(T oScalar);
+	public PsiInteger psiCmp(final T oScalar);
 
-	default public PsiScalar psiMin(T oScalar)
+	default public PsiScalar psiMin(final T oScalar)
 	{
 		return psiLt(oScalar).booleanValue()? this: oScalar;
 	}
 
-	default public PsiScalar psiMax(T oScalar)
+	default public PsiScalar psiMax(final T oScalar)
 	{
 		return psiGt(oScalar).booleanValue()? this: oScalar;
 	}

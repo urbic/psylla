@@ -23,19 +23,19 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	*	Returns a Ψ-{@code boolean} value indicating whether given key or index
 	*	exists in this object.
 	*
-	*	@param key a key or an index.
+	*	@param oKey a key or an index.
 	*	@return a result.
 	*/
-	public PsiBoolean psiKnown(K key);
+	public PsiBoolean psiKnown(final K oKey);
 
 	/**
 	*	Returns the element with given key or index.
 	*
-	*	@param key a key or an index.
+	*	@param oKey a key or an index.
 	*	@return an element.
 	*	@throws PsiException when index is out of range.
 	*/
-	public V psiGet(K key)
+	public V psiGet(final K oKey)
 		throws PsiException;
 
 	/**
@@ -44,37 +44,37 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	*	containers replaces an old or creates a new element associated with
 	*	specified key.
 	*
-	*	@param key a key or an index.
-	*	@param value an element to be stored.
+	*	@param oKey a key or an index.
+	*	@param oValue an element to be stored.
 	*	@throws PsiException when key is absent or index is out of range.
 	*/
-	public void psiPut(K key, V value)
+	public void psiPut(final K oKey, final V oValue)
 		throws PsiException;
 
 	/**
 	*	Deletes a key or index and a value associated with it from this object.
 	*
-	*	@param key a key or an index.
+	*	@param oKey a key or an index.
 	*	@throws PsiException when key is absent or index is out of range.
 	*/
-	public void psiDelete(K key)
+	public void psiDelete(final K oKey)
 		throws PsiException;
 
-	public V psiExtract(K key)
+	public V psiExtract(final K oKey)
 		throws PsiException;
 
 	/**
 	*	Returns a container of the same type as this object consisting of keys
 	*	or indices from given Ψ-{@code iterable} and of associated values.
 	*
-	*	@param keys a sequence of keys.
+	*	@param oKeys an enumeration of keys.
 	*	@return a container.
 	*	@throws PsiException when key is absent or index is out of range.
 	*/
-	public PsiIndexed<K, V> psiSlice(PsiIterable<K> keys)
+	public PsiIndexed<K, V> psiSlice(final PsiIterable<K> oKeys)
 		throws PsiException;
 
-	public PsiArraylike<V> psiGetAll(PsiIterable<K> keys)
+	public PsiArraylike<V> psiGetAll(final PsiIterable<K> oKeys)
 		throws PsiException;
 
 	/**

@@ -23,7 +23,7 @@ public interface PsiWritable
 	*	to be written.
 	*	@throws PsiException when an error occurs during write.
 	*/
-	public void psiWrite(PsiInteger oCharacter)
+	public void psiWrite(final PsiInteger oCharacter)
 		throws PsiException;
 
 	/**
@@ -33,6 +33,6 @@ public interface PsiWritable
 	*	written.
 	*	@throws PsiException when an error occurs during write.
 	*/
-	public void psiWriteString(PsiStringy oString)
+	public void psiWriteString(final PsiStringy oString)
 		throws PsiException;
 }

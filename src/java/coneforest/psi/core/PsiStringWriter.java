@@ -3,15 +3,15 @@ package coneforest.psi.core;
 public class PsiStringWriter
 	extends PsiWriter
 {
-	public PsiStringWriter(PsiString string)
+	public PsiStringWriter(final PsiString oString)
 	{
-		super(new StringBufferWriter(string.getBuffer()));
+		super(new StringBufferWriter(oString.getBuffer()));
 	}
 }
 
 class StringBufferWriter extends java.io.Writer
 {
-	StringBufferWriter(StringBuilder buffer)
+	StringBufferWriter(final StringBuilder buffer)
 	{
 		this.buffer=buffer;
 	}
@@ -24,11 +24,11 @@ class StringBufferWriter extends java.io.Writer
 	{
 	}
 
-	public void write(char[] cbuf, int off, int len)
+	public void write(final char[] cbuf, final int off, final int len)
 	{
 		for(int i=off; i<off+len; i++)
 			buffer.append(cbuf[i]);
 	}
 
-	private StringBuilder buffer;
+	private final StringBuilder buffer;
 }

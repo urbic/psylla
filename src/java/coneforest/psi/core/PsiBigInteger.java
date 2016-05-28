@@ -6,17 +6,17 @@ public class PsiBigInteger
 		PsiLogical<PsiBigInteger>,
 		PsiNumeric
 {
-	public PsiBigInteger(java.math.BigInteger value)
+	public PsiBigInteger(final java.math.BigInteger value)
 	{
 		this.value=value;
 	}
 
-	public PsiBigInteger(long integer)
+	public PsiBigInteger(final long integer)
 	{
 		this.value=java.math.BigInteger.valueOf(integer);
 	}
 
-	public PsiBigInteger(PsiInteger oInteger)
+	public PsiBigInteger(final PsiInteger oInteger)
 	{
 		this(oInteger.longValue());
 	}
@@ -160,12 +160,6 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiBigInteger psiRealPart()
-	{
-		return this;
-	}
-
-	@Override
 	public PsiBigInteger psiImagPart()
 	{
 		return new PsiBigInteger(java.math.BigInteger.ZERO);
@@ -184,7 +178,7 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiInteger psiCmp(PsiNumeric oNumeric)
+	public PsiInteger psiCmp(final PsiNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiBigInteger)
 			return PsiInteger.valueOf(value.compareTo(((PsiBigInteger)oNumeric).value));
@@ -194,10 +188,10 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public boolean equals(Object object)
+	public boolean equals(final Object object)
 	{
 		return object instanceof PsiBigInteger
-				&& value.equals((PsiBigInteger)object);
+				&& value.equals(((PsiBigInteger)object).value);
 	}
 
 	@Override
@@ -206,5 +200,5 @@ public class PsiBigInteger
 		return value.hashCode();
 	}
 
-	private java.math.BigInteger value;
+	private final java.math.BigInteger value;
 }
