@@ -1,4 +1,6 @@
-# ![Psylla logo](src/logo/psylla-64.png) Psylla
+![Psylla logo](src/logo/psylla-64.png)
+
+# Psylla
 
 This is **Psylla**, extensible and embeddable Psi implementation written in Java.
 
