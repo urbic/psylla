@@ -29,7 +29,7 @@ bind def
 	'\e[2J' print
 	//width //height mul
 	{
-		//plane stdrandom uniformboolean append
+		//plane //stdrandom uniformboolean append
 	}
 	repeat
 }
@@ -99,7 +99,7 @@ bind def
 		pop
 	}
 	for
-	stdout flush
+	//stdout flush
 }
 bind def
 
