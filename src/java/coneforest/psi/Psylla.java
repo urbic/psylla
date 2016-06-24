@@ -43,7 +43,6 @@ public class Psylla
 			final java.io.Reader scriptReader;
 			final String scriptName;
 			final String[] shellArguments;
-			final Interpreter interpreter;
 
 			if(cli.getValue("eval")!=null)
 			{
@@ -67,20 +66,16 @@ public class Psylla
 				// TODO REPL
 			}
 
-			if(scriptReader!=null)
-			{
-				interpreter=new Interpreter()
+			final Interpreter interpreter=(scriptReader!=null)?
+				new Interpreter()
 					{
 						@Override
 						public void run()
 						{
 							interpret(scriptReader);
 						}
-					};
-			}
-			else
-			{
-				interpreter=new Interpreter()
+					}:
+				new Interpreter()
 					{
 						@Override
 						public void run()
@@ -94,7 +89,7 @@ public class Psylla
 							}
 						}
 					};
-			}
+
 			interpreter.acceptEnvironment(System.getenv());
 			interpreter.acceptScriptName(scriptName);
 			interpreter.acceptShellArguments(shellArguments);
