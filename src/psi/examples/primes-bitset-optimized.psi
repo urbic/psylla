@@ -37,6 +37,6 @@ bind def
 
 /n arguments 0 get tointeger def
 
-n 2 ge { n process } if
+n 2 ge { 2 process } if
 
 3 2 n //process for
