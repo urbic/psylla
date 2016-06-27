@@ -32,12 +32,12 @@ public class Stack<E> extends java.util.ArrayList<E>
 	 *
 	 *	@param element an element
 	 */
-	public void push(E element)
+	public void push(final E element)
 	{
 		add(element);
 	}
 
-	public void setSize(int size)
+	public void setSize(final int size)
 	{
 		removeRange(size, size());
 	}

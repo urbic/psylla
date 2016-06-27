@@ -31,23 +31,20 @@ public interface PsiDictlike<V extends PsiObject>
 		interpreter.executionStack().push(new PsiOperator("#forall_continue")
 			{
 				@Override
-				public void action(Interpreter interpreter1)
+				public void action(final Interpreter interpreter1)
 					throws PsiException
 				{
-					if(interpreter1.getStopFlag()
-							|| interpreter1.getExitFlag()
-							|| !iterator.hasNext())
-					{
-						interpreter1.setExitFlag(false);
-						interpreter1.popLoopLevel();
-					}
-					else
+					if(iterator.hasNext())
 					{
 						final PsiStringy oKey=iterator.next();
 						ostack.push(oKey);
 						ostack.push(psiGet(oKey));
 						interpreter1.executionStack().push(this);
 						oProc.invoke(interpreter1);
+					}
+					else
+					{
+						interpreter1.popLoopLevel();
 					}
 				}
 			});

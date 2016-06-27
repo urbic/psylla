@@ -56,18 +56,15 @@ public interface PsiIterable<T extends PsiObject>
 				public void action(Interpreter interpreter1)
 					throws PsiException
 				{
-					if(interpreter1.getStopFlag()
-							|| interpreter1.getExitFlag()
-							|| !iterator.hasNext())
-					{
-						interpreter1.setExitFlag(false);
-						interpreter1.popLoopLevel();
-					}
-					else
+					if(iterator.hasNext())
 					{
 						ostack.push(iterator.next());
 						interpreter1.executionStack().push(this);
 						oProc.invoke(interpreter1);
+					}
+					else
+					{
+						interpreter1.popLoopLevel();
 					}
 				}
 			});
@@ -105,7 +102,8 @@ public interface PsiIterable<T extends PsiObject>
 										ostack.ensureSize(1);
 										boolean check=((PsiBoolean)ostack.pop()).booleanValue(); // TODO: pop()
 										if(interpreter.getStopFlag()
-												|| interpreter.getExitFlag())
+												//|| interpreter.getExitFlag()
+												)
 											break;
 										if(check)
 											return true;

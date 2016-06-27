@@ -349,8 +349,7 @@ public class PsiSystemDict
 						{
 							if(interpreter.currentLoopLevel()==-1)
 								throw new PsiInvalidExitException();
-							interpreter.executionStack().setSize(interpreter.currentLoopLevel()+1);
-							interpreter.setExitFlag(true);
+							interpreter.executionStack().setSize(interpreter.popLoopLevel());
 						}
 					),
 				new PsiOperator.Arity11
@@ -421,14 +420,13 @@ public class PsiSystemDict
 									ostack.push(matcher);
 									obj.invoke(interpreter);
 									interpreter.handleExecutionStack(loopLevel);
-									if(interpreter.getStopFlag() || interpreter.getExitFlag())
+									if(interpreter.getStopFlag())
 										break;
 								}
 								else
 									break;
 							}
 							interpreter.popLoopLevel();
-							interpreter.setExitFlag(false);
 						}
 					),
 				new PsiOperator.Arity21
@@ -449,31 +447,25 @@ public class PsiSystemDict
 							final PsiNumeric oLimit=(PsiNumeric)ops[2];
 							final PsiObject oProc=ops[3];
 
-							final int loopLevel=interpreter.pushLoopLevel();
+							interpreter.pushLoopLevel();
 							final boolean forward=oIncrement.psiGt(PsiInteger.ZERO).booleanValue();
 							estack.push(new PsiOperator("#for_continue")
 								{
 									private PsiNumeric oCounter=oInitial;
 
 									@Override
-									public void action(Interpreter interpreter1)
+									public void action(final Interpreter interpreter1)
 									{
-										if(interpreter1.getStopFlag()
-												|| interpreter1.getExitFlag())
+										if(forward && oCounter.psiGt(oLimit).booleanValue()
+												|| !forward && oCounter.psiLt(oLimit).booleanValue())
 										{
-											interpreter1.setExitFlag(false);
 											interpreter1.popLoopLevel();
+											return;
 										}
-										else
-										{
-											if(forward && oCounter.psiGt(oLimit).booleanValue()
-													|| !forward && oCounter.psiLt(oLimit).booleanValue())
-												return;
-											estack.push(this);
-											ostack.push(oCounter);
-											oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
-											oProc.invoke(interpreter1);
-										}
+										estack.push(this);
+										ostack.push(oCounter);
+										oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
+										oProc.invoke(interpreter1);
 									}
 								});
 						}
@@ -648,26 +640,17 @@ public class PsiSystemDict
 					("loop",
 						(interpreter)->
 						{
-							final PsiObject proc=interpreter.operandStack().popOperands(1)[0];
+							final PsiObject oProc=interpreter.operandStack().popOperands(1)[0];
 
 							interpreter.pushLoopLevel();
 							interpreter.executionStack().push(new PsiOperator("#loop_continue")
 								{
 									@Override
-									public void action(Interpreter interpreter1)
+									public void action(final Interpreter interpreter1)
 										throws PsiException
 									{
-										if(interpreter1.getStopFlag()
-												|| interpreter1.getExitFlag())
-										{
-											interpreter1.setExitFlag(false);
-											interpreter1.popLoopLevel();
-										}
-										else
-										{
-											interpreter1.executionStack().push(this);
-											proc.invoke(interpreter1);
-										}
+										interpreter1.executionStack().push(this);
+										oProc.invoke(interpreter1);
 									}
 								});
 						}
@@ -693,11 +676,10 @@ public class PsiSystemDict
 								proc.invoke(interpreter);
 								interpreter.handleExecutionStack(loopLevel);
 								result.psiAppend(ostack.pop());
-								if(interpreter.getStopFlag() || interpreter.getExitFlag())
+								if(interpreter.getStopFlag())
 									break;
 							}
 							interpreter.popLoopLevel();
-							interpreter.setExitFlag(false);
 							ostack.push(result);
 						}
 					),
@@ -871,13 +853,10 @@ public class PsiSystemDict
 									private long count1=count;
 
 									@Override
-									public void action(Interpreter interpreter1)
+									public void action(final Interpreter interpreter1)
 									{
-										if(interpreter1.getStopFlag()
-												|| interpreter1.getExitFlag()
-												|| count1--==0)
+										if(count1--==0)
 										{
-											interpreter1.setExitFlag(false);
 											interpreter1.popLoopLevel();
 										}
 										else
@@ -1103,8 +1082,7 @@ public class PsiSystemDict
 					("tokens",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							interpreter.interpretBraced(new PsiStringReader((PsiStringy)ostack.popOperands(1)[0]));
+							interpreter.interpretBraced(new PsiStringReader((PsiStringy)interpreter.operandStack().popOperands(1)[0]));
 						}
 					),
 				new PsiOperator.Arity11

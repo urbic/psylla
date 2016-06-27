@@ -341,16 +341,6 @@ public class Interpreter
 		return estack.size();
 	}
 
-	public boolean getExitFlag()
-	{
-		return exitFlag;
-	}
-
-	public void setExitFlag(final boolean exitFlag)
-	{
-		this.exitFlag=exitFlag;
-	}
-
 	public boolean getStopFlag()
 	{
 		return stopFlag;
