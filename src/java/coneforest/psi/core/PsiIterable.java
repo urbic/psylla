@@ -58,14 +58,20 @@ public interface PsiIterable<T extends PsiObject>
 				{
 					if(iterator.hasNext())
 					{
-						ostack.push(iterator.next());
+						try
+						{
+							ostack.push(iterator.next());
+						}
+						catch(java.util.NoSuchElementException e)
+						{
+							// TODO more suitable exception type
+							throw new PsiUndefinedException();
+						}
 						interpreter1.executionStack().push(this);
 						oProc.invoke(interpreter1);
 					}
 					else
-					{
 						interpreter1.popLoopLevel();
-					}
 				}
 			});
 	}
@@ -78,7 +84,12 @@ public interface PsiIterable<T extends PsiObject>
 	 *	@return an iterable
 	 */
 	default public PsiIterable<T> psiGrep(final PsiProc oProc)
+		throws PsiException
 	{
+		final Interpreter interpreter
+			=(Interpreter)PsiContext.psiCurrentContext();
+		final OperandStack ostack=interpreter.operandStack();
+		final java.util.Iterator<T> parentIterator=iterator();
 		return new PsiIterable<T>()
 			{
 				@Override
@@ -94,16 +105,12 @@ public interface PsiIterable<T extends PsiObject>
 									while(parentIterator.hasNext())
 									{
 										nextObject=parentIterator.next();
-										OperandStack ostack=interpreter.operandStack();
 										ostack.push((PsiObject)nextObject);
 										final int loopLevel=interpreter.pushLoopLevel();
 										oProc.invoke(interpreter);
 										interpreter.handleExecutionStack(loopLevel);
-										ostack.ensureSize(1);
-										boolean check=((PsiBoolean)ostack.pop()).booleanValue(); // TODO: pop()
-										if(interpreter.getStopFlag()
-												//|| interpreter.getExitFlag()
-												)
+										boolean check=((PsiBoolean)ostack.popOperands(1)[0]).booleanValue();
+										if(interpreter.getStopFlag())
 											break;
 										if(check)
 											return true;
@@ -111,7 +118,8 @@ public interface PsiIterable<T extends PsiObject>
 								}
 								catch(PsiException e)
 								{
-									exceptionOccured=e;
+									this.e=e;
+									return true;
 								}
 								return false;
 							}
@@ -119,21 +127,17 @@ public interface PsiIterable<T extends PsiObject>
 							@Override
 							public T next()
 							{
+								if(e!=null)
+									throw new java.util.NoSuchElementException();
 								return nextObject;
 							}
 
+							private PsiException e;
+
 							private T nextObject;
-
-							private final Interpreter interpreter
-								=(Interpreter)PsiContext.psiCurrentContext();
-
 						};
 				}
 
-				private PsiException exceptionOccured;
-
-				private java.util.Iterator<T> parentIterator
-					=PsiIterable.this.iterator();
 			};
 	}
 
