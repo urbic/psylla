@@ -47,6 +47,13 @@ public class Interpreter
 		return ostack;
 	}
 
+	public OperandStack operandStackBacked(final int count)
+		throws PsiException
+	{
+		ostack.popOperands(count);
+		return ostack;
+	}
+
 	/**
 	 *	Returns dictionary stack.
 	 *

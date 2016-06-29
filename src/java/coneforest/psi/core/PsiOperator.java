@@ -25,6 +25,7 @@ public abstract class PsiOperator
 	 *	Execute this object in the context of the interpreter.  Calls {@link
 	 *	#invoke(Interpreter)} method.
 	 */
+	@Override
 	public void execute(final Interpreter interpreter)
 	{
 		invoke(interpreter);
@@ -34,6 +35,7 @@ public abstract class PsiOperator
 	 *	Invoke this object in the context of the interpreter performing
 	 *	an action associated with it.
 	 */
+	@Override
 	public void invoke(final Interpreter interpreter)
 	{
 		final OperandStack ostack=interpreter.operandStack();
@@ -89,7 +91,7 @@ public abstract class PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
-			throws ClassCastException, PsiException
+			throws PsiException
 		{
 			interpreter.operandStack().push(handler.handle());
 		}
@@ -115,11 +117,10 @@ public abstract class PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
-			throws ClassCastException, PsiException
+			throws PsiException
 		{
-			final OperandStack ostack=interpreter.operandStack();
-			//ostack.push(handler.handle(ostack.popOperands(1)[0]));
-			ostack.push(handler.handle(ostack.<T>tryPop()));
+			final OperandStack ostack=interpreter.operandStackBacked(1);
+			ostack.push(handler.handle(ostack.getBacked(0)));
 		}
 
 		public Arity11(final String name, final Handler<T> handler)
@@ -143,14 +144,10 @@ public abstract class PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
-			throws ClassCastException, PsiException
+			throws PsiException
 		{
-			final OperandStack ostack=interpreter.operandStack();
-			//final PsiObject[] ops=ostack.popOperands(2);
-			//ostack.push(handler.handle(ops[0], ops[1]));
-			final T2 o2=ostack.<T2>tryPop();
-			final T1 o1=ostack.<T1>tryPop();
-			ostack.push(handler.handle(o1, o2));
+			final OperandStack ostack=interpreter.operandStackBacked(2);
+			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1)));
 		}
 
 		public Arity21(final String name, final Handler<T1, T2> handler)
@@ -174,11 +171,10 @@ public abstract class PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
-			throws ClassCastException, PsiException
+			throws PsiException
 		{
-			final OperandStack ostack=interpreter.operandStack();
-			//handler.handle(ostack.popOperands(1)[0]);
-			handler.handle(ostack.<T>tryPop());
+			final OperandStack ostack=interpreter.operandStackBacked(1);
+			handler.handle(ostack.getBacked(0));
 		}
 
 		public Arity10(final String name, final Handler<T> handler)
@@ -204,10 +200,8 @@ public abstract class PsiOperator
 		public void action(final Interpreter interpreter)
 			throws PsiException
 		{
-			final OperandStack ostack=interpreter.operandStack();
-			final T2 o2=ostack.<T2>tryPop();
-			final T1 o1=ostack.<T1>tryPop();
-			handler.handle(o1, o2);
+			final OperandStack ostack=interpreter.operandStackBacked(2);
+			handler.handle(ostack.getBacked(0), ostack.getBacked(1));
 		}
 
 		public Arity20(final String name, final Handler<T1, T2> handler)
@@ -231,14 +225,10 @@ public abstract class PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
-			throws ClassCastException, PsiException
+			throws PsiException
 		{
-			final OperandStack ostack=interpreter.operandStack();
-			//final PsiObject[] ops=ostack.popOperands(3);
-			final T3 o3=ostack.<T3>tryPop();
-			final T2 o2=ostack.<T2>tryPop();
-			final T1 o1=ostack.<T1>tryPop();
-			handler.handle(o1, o2, o3);
+			final OperandStack ostack=interpreter.operandStackBacked(3);
+			handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2));
 		}
 
 		public Arity30(final String name, final Handler<T1, T2, T3> handler)
@@ -249,6 +239,7 @@ public abstract class PsiOperator
 
 		private final Handler<T1, T2, T3> handler;
 
+		@FunctionalInterface
 		public static interface Handler<O1 extends PsiObject, O2 extends PsiObject, O3 extends PsiObject>
 		{
 			public void handle(final O1 o1, final O2 o2, final O3 o3)
@@ -261,15 +252,10 @@ public abstract class PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
-			throws ClassCastException, PsiException
+			throws PsiException
 		{
-			final OperandStack ostack=interpreter.operandStack();
-			//final PsiObject[] ops=ostack.popOperands(3);
-			//ostack.push(handler.handle(ops[0], ops[1], ops[2]));
-			final T3 o3=ostack.<T3>tryPop();
-			final T2 o2=ostack.<T2>tryPop();
-			final T1 o1=ostack.<T1>tryPop();
-			ostack.push(handler.handle(o1, o2, o3));
+			final OperandStack ostack=interpreter.operandStackBacked(3);
+			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));
 		}
 
 		public Arity31(final String name, final Handler<T1, T2, T3> handler)
@@ -280,6 +266,7 @@ public abstract class PsiOperator
 
 		private final Handler<T1, T2, T3> handler;
 
+		@FunctionalInterface
 		public static interface Handler<O1 extends PsiObject, O2 extends PsiObject, O3 extends PsiObject>
 		{
 			public PsiObject handle(final O1 o1, final O2 o2, final O3 o3)
@@ -305,6 +292,7 @@ public abstract class PsiOperator
 
 		private final Handler handler;
 
+		@FunctionalInterface
 		public static interface Handler
 		{
 			public void handle(final Interpreter interpreter)
@@ -312,121 +300,5 @@ public abstract class PsiOperator
 		}
 	}
 
-	/*
-	public static PsiOperator virtualVoidOperator(final String name, final String methodName,
-		final int arity)
-	{
-		return new PsiOperator(name)
-			{
-				@Override
-				public void action(Interpreter interpreter)
-					throws PsiException
-				{
-					final OperandStack ostack=interpreter.operandStack();
-					final PsiObject[] ops=ostack.popOperands(arity);
-					final Class<?>[] ptypes=new Class<?>[arity-1];
-					for(int i=1; i<arity; i++)
-						//ptypes[i-1]=ops[i].getClass();
-						ptypes[i-1]=PsiObject.class;
-					final java.lang.invoke.MethodType methodType
-						=java.lang.invoke.MethodType.methodType(void.class, ptypes);
-					try
-					{
-						java.lang.invoke.MethodHandle methodHandle
-							=lookup.findVirtual(ops[0].getClass(), methodName, methodType);
-						System.out.println(methodHandle);
-						for(int i=0; i<arity; i++)
-							methodHandle=methodHandle.bindTo(ops[i]);
-						System.out.println(methodHandle);
-						methodHandle.invoke();
-					}
-					catch(NullPointerException e)
-					{
-						System.err.println("NULL: "+e);
-						e.printStackTrace();
-						throw new PsiTypeCheckException();
-					}
-					catch(NoSuchMethodException|IllegalAccessException e)
-					{
-						System.err.println("METHOD: "+e);
-						e.printStackTrace();
-						throw new PsiTypeCheckException();
-					}
-					catch(Throwable e)
-					{
-						System.err.println("THROWABLE: "+e);
-						e.printStackTrace();
-						throw (PsiException)e;
-					}
-				}
-
-				@Override
-				public String getName()
-				{
-					return name;
-				}
-			};
-	}
-
-	public static PsiOperator virtualReturningOperator(final String name, final String methodName,
-		final int arity, final Class<? extends PsiObject> retclass)
-	{
-		return new PsiOperator(name)
-			{
-				@Override
-				public void action(Interpreter interpreter)
-					throws PsiException
-				{
-					final OperandStack ostack=interpreter.operandStack();
-					final PsiObject[] ops=ostack.popOperands(arity);
-					final Class<?>[] ptypes=new Class<?>[arity-1];
-					for(int i=1; i<arity; i++)
-						ptypes[i-1]=ops[i].getClass();
-						//ptypes[i-1]=PsiObject.class;
-					final java.lang.invoke.MethodType methodType
-						//=java.lang.invoke.MethodType.methodType(PsiComplexNumeric.class, ptypes);
-						=java.lang.invoke.MethodType.methodType(retclass, ptypes);
-					try
-					{
-						java.lang.invoke.MethodHandle methodHandle
-							=lookup.findVirtual(ops[0].getClass(), methodName, methodType);
-						System.out.println(methodHandle);
-						for(int i=0; i<arity; i++)
-							methodHandle=methodHandle.bindTo(ops[i]);
-						System.out.println(methodHandle);
-						ostack.push((PsiObject)methodHandle.invoke());
-					}
-					catch(NullPointerException e)
-					{
-						System.err.println("NULL: "+e);
-						e.printStackTrace();
-						throw new PsiTypeCheckException();
-					}
-					catch(NoSuchMethodException|IllegalAccessException e)
-					{
-						System.err.println("METHOD: "+e);
-						e.printStackTrace();
-						throw new PsiTypeCheckException();
-					}
-					catch(Throwable e)
-					{
-						System.err.println("THROWABLE: "+e);
-						e.printStackTrace();
-						throw (PsiException)e;
-					}
-				}
-
-				@Override
-				public String getName()
-				{
-					return name;
-				}
-			};
-	}
-	*/
-
 	private final String name;
-
-	//private static java.lang.invoke.MethodHandles.Lookup lookup
-	//	=java.lang.invoke.MethodHandles.publicLookup();
 }

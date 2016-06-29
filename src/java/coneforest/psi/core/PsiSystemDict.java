@@ -45,13 +45,13 @@ public class PsiSystemDict
 						(interpreter)->
 						// TODO
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							int countValue=((PsiInteger)ostack.popOperands(1)[0]).intValue();
-							ostack.ensureSize(countValue);
-							PsiArray array=new PsiArray();
-							while(--countValue>=0)
-								((PsiArray)array).psiAppend(ostack.pop());
-							ostack.push(array);
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							int count=ostack.<PsiInteger>getBacked(0).intValue();
+							ostack.ensureSize(count);
+							final PsiArray oArray=new PsiArray();
+							while(--count>=0)
+								oArray.psiAppend(ostack.pop());
+							ostack.push(oArray);
 						}
 					),
 				new PsiOperator.Arity11<PsiComplexNumeric>
@@ -59,27 +59,30 @@ public class PsiSystemDict
 				new PsiOperator.Action
 					("begin",
 						(interpreter)->
-						interpreter.dictStack().push((PsiDictlike)interpreter.operandStack().popOperands(1)[0])),
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							interpreter.dictStack().psiBegin(ostack.getBacked(0));
+						}
+					),
 				new PsiOperator.Action
 					("binarysearch",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(3);
-							final PsiArray array=(PsiArray)ops[0];
-							final PsiObject key=ops[1];
-							final PsiProc comparator=(PsiProc)ops[2];
+							final OperandStack ostack=interpreter.operandStackBacked(3);
+							final PsiArray oArray=ostack.getBacked(0);
+							final PsiObject oKey=ostack.getBacked(1);
+							final PsiProc oComparator=ostack.getBacked(2);
 
-							final PsiInteger index=array.psiBinarySearch(key, comparator);
-							final int indexValue=index.intValue();
-							if(indexValue>=0)
+							final PsiInteger oIndex=oArray.psiBinarySearch(oKey, oComparator);
+							final int index=oIndex.intValue();
+							if(index>=0)
 							{
-								ostack.push(index);
+								ostack.push(oIndex);
 								ostack.push(PsiBoolean.TRUE);
 							}
 							else
 							{
-								ostack.push(PsiInteger.valueOf(-indexValue-1));
+								ostack.push(PsiInteger.valueOf(-index-1));
 								ostack.push(PsiBoolean.FALSE);
 							}
 						}
@@ -104,9 +107,8 @@ public class PsiSystemDict
 					("capturegroup",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiString oGroup=((PsiMatcher)ops[0]).psiCaptureGroup(ops[1]);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiString oGroup=ostack.<PsiMatcher>getBacked(0).psiCaptureGroup(ostack.getBacked(1));
 							if(oGroup!=null)
 								ostack.push(oGroup);
 							ostack.push(PsiBoolean.valueOf(oGroup!=null));
@@ -116,9 +118,8 @@ public class PsiSystemDict
 					("capturegroupend",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiInteger oGroupEnd=((PsiMatcher)ops[0]).psiCaptureGroupEnd((PsiInteger)ops[1]);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiInteger oGroupEnd=ostack.<PsiMatcher>getBacked(0).psiCaptureGroupEnd(ostack.getBacked(1));
 							if(oGroupEnd!=null)
 								ostack.push(oGroupEnd);
 							ostack.push(PsiBoolean.valueOf(oGroupEnd!=null));
@@ -128,9 +129,8 @@ public class PsiSystemDict
 					("capturegroupstart",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiInteger oGroupStart=((PsiMatcher)ops[0]).psiCaptureGroupStart((PsiInteger)ops[1]);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiInteger oGroupStart=ostack.<PsiMatcher>getBacked(0).psiCaptureGroupStart(ostack.getBacked(1));
 							if(oGroupStart!=null)
 								ostack.push(oGroupStart);
 							ostack.push(PsiBoolean.valueOf(oGroupStart!=null));
@@ -180,13 +180,13 @@ public class PsiSystemDict
 					("copy",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final int n=((PsiInteger)ostack.popOperands(1)[0]).intValue();
-							if(n<0)
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final int count=ostack.<PsiInteger>getBacked(0).intValue();
+							if(count<0)
 								throw new PsiRangeCheckException();
-							ostack.ensureSize(n);
+							ostack.ensureSize(count);
 							final int opsize=ostack.size();
-							for(int j=opsize-n; j<opsize; j++)
+							for(int j=opsize-count; j<opsize; j++)
 								ostack.push(ostack.get(j));
 						}
 					),
@@ -232,8 +232,8 @@ public class PsiSystemDict
 					("def",
 						(interpreter)->
 						{
-							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							interpreter.getCurrentDict().psiPut((PsiStringy)ops[0], ops[1]);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							interpreter.getCurrentDict().psiPut(ostack.getBacked(0), ostack.getBacked(1));
 						}
 					),
 				new PsiOperator.Arity20<PsiIndexed, PsiObject>
@@ -321,21 +321,28 @@ public class PsiSystemDict
 				new PsiOperator.Action
 					("eval",
 						(interpreter)->
-						((PsiEvaluable)interpreter.operandStack().popOperands(1)[0]).eval(interpreter)),
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							ostack.<PsiEvaluable>getBacked(0).eval(interpreter);
+						}
+					),
 				new PsiOperator.Action
 					("exch",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							ostack.push(ops[1]);
-							ostack.push(ops[0]);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							ostack.push(ostack.getBacked(1));
+							ostack.push(ostack.getBacked(0));
 						}
 					),
 				new PsiOperator.Action
 					("exec",
 						(interpreter)->
-						interpreter.operandStack().popOperands(1)[0].invoke(interpreter)),
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							ostack.getBacked(0).invoke(interpreter);
+						}
+					),
 				new PsiOperator.Action
 					("execstack",
 						(interpreter)->
@@ -358,9 +365,9 @@ public class PsiSystemDict
 					("external",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(1);
 							ostack.push(((PsiClassLoader)interpreter.getSystemDict().get("classpath"))
-									.psiExternal(((PsiStringy)ostack.popOperands(1)[0])));
+									.psiExternal(ostack.getBacked(0)));
 						}
 					),
 				new PsiOperator.Arity21<PsiIndexed, PsiObject>
@@ -387,7 +394,7 @@ public class PsiSystemDict
 					("find",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(1);
 							/*
 							final PsiObject[] ops=ostack.popOperands(2);
 							PsiMatcher matcher=new PsiMatcher((PsiStringy)ops[0], (PsiRegExp)ops[1]);
@@ -396,7 +403,7 @@ public class PsiSystemDict
 								ostack.push(matcher);
 							ostack.push(PsiBoolean.valueOf(resultValue));
 							*/
-							PsiMatcher matcher=(PsiMatcher)ostack.popOperands(1)[0];
+							final PsiMatcher matcher=ostack.getBacked(0);
 							boolean resultValue=matcher.psiFind().booleanValue();
 							if(resultValue)
 								ostack.push(matcher);
@@ -407,10 +414,9 @@ public class PsiSystemDict
 					("findall",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(3);
-							final PsiMatcher matcher=new PsiMatcher((PsiStringy)ops[0], (PsiRegExp)ops[1]);
-							final PsiObject obj=ops[2];
+							final OperandStack ostack=interpreter.operandStackBacked(3);
+							final PsiMatcher matcher=new PsiMatcher(ostack.getBacked(0), ostack.getBacked(1));
+							final PsiObject o=ostack.getBacked(2);
 
 							final int loopLevel=interpreter.pushLoopLevel();
 							while(true)
@@ -418,7 +424,7 @@ public class PsiSystemDict
 								if(matcher.psiFind().booleanValue())
 								{
 									ostack.push(matcher);
-									obj.invoke(interpreter);
+									o.invoke(interpreter);
 									interpreter.handleExecutionStack(loopLevel);
 									if(interpreter.getStopFlag())
 										break;
@@ -439,13 +445,12 @@ public class PsiSystemDict
 					("for",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(4);
 							final ExecutionStack estack=interpreter.executionStack();
-							final PsiObject[] ops=ostack.popOperands(4);
-							final PsiNumeric oInitial=(PsiNumeric)ops[0];
-							final PsiNumeric oIncrement=(PsiNumeric)ops[1];
-							final PsiNumeric oLimit=(PsiNumeric)ops[2];
-							final PsiObject oProc=ops[3];
+							final PsiNumeric oInitial=ostack.getBacked(0);
+							final PsiNumeric oIncrement=ostack.getBacked(1);
+							final PsiNumeric oLimit=ostack.getBacked(2);
+							final PsiObject oProc=ostack.getBacked(3);
 
 							interpreter.pushLoopLevel();
 							final boolean forward=oIncrement.psiGt(PsiInteger.ZERO).booleanValue();
@@ -495,10 +500,10 @@ public class PsiSystemDict
 						(interpreter)->
 						// TODO; error handling in forked context
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(1);
 
 							ostack.ensureSize(2);
-							final PsiObject o=ostack.popOperands(1)[0];
+							final PsiObject o=ostack.getBacked(0);
 
 							final Interpreter forkedInterpreter
 								=new Interpreter(interpreter.dictStack())
@@ -517,9 +522,9 @@ public class PsiSystemDict
 									};
 							final int i=ostack.findMarkPosition();
 							final int ostackSize=ostack.size();
-							final OperandStack forkedOpstack=forkedInterpreter.operandStack();
+							final OperandStack forkedOstack=forkedInterpreter.operandStack();
 							for(int j=i+1; j<ostackSize; j++)
-								forkedOpstack.push(ostack.get(j));
+								forkedOstack.push(ostack.get(j));
 							ostack.setSize(i);
 							ostack.push(forkedInterpreter);
 							forkedInterpreter.start();
@@ -542,7 +547,10 @@ public class PsiSystemDict
 				new PsiOperator.Action
 					("halt",
 						(interpreter)->
-						System.exit(((PsiInteger)interpreter.operandStack().popOperands(1)[0]).intValue())
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							System.exit(ostack.<PsiInteger>getBacked(0).intValue());
+						}
 					),
 				new PsiOperator.Arity20<PsiStringy, PsiStringy>
 					("hardlink", FileSystem::psiHardLink),
@@ -556,17 +564,18 @@ public class PsiSystemDict
 					("if",
 						(interpreter)->
 						{
-							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							if(((PsiBoolean)ops[0]).booleanValue())
-								ops[1].invoke(interpreter);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							if(ostack.<PsiBoolean>getBacked(0).booleanValue())
+								ostack.getBacked(1).invoke(interpreter);
 						}
 					),
 				new PsiOperator.Action
 					("ifelse",
 						(interpreter)->
 						{
-							final PsiObject[] ops=interpreter.operandStack().popOperands(3);
-							ops[((PsiBoolean)ops[0]).booleanValue()? 1: 2].invoke(interpreter);
+							final OperandStack ostack=interpreter.operandStackBacked(3);
+							ostack.getBacked(ostack.<PsiBoolean>getBacked(0).booleanValue()? 1: 2)
+									.invoke(interpreter);
 						}
 					),
 				new PsiOperator.Arity11<PsiComplexNumeric>
@@ -575,12 +584,12 @@ public class PsiSystemDict
 					("index",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							int nValue=((PsiInteger)ostack.popOperands(1)[0]).intValue();
-							if(nValue<0)
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							int index=ostack.<PsiInteger>getBacked(0).intValue();
+							if(index<0)
 								throw new PsiRangeCheckException();
-							ostack.ensureSize(nValue+1);
-							ostack.push(ostack.get(ostack.size()-nValue-1));
+							ostack.ensureSize(index+1);
+							ostack.push(ostack.get(ostack.size()-index-1));
 						}
 					),
 				new PsiOperator.Arity30<PsiArraylike, PsiInteger, PsiObject>
@@ -607,11 +616,12 @@ public class PsiSystemDict
 					("isinstance",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
 							ostack.push(PsiBoolean.valueOf(
-									interpreter.resolveType(((PsiStringy)ops[0]).stringValue()).isInstance(ops[1])));
-						}),
+									interpreter.resolveType(ostack.<PsiStringy>getBacked(0).stringValue())
+										.isInstance(ostack.getBacked(1))));
+						}
+					),
 				new PsiOperator.Arity21<PsiStringy, PsiStringy>
 					("issamefile", FileSystem::psiIsSameFile),
 				new PsiOperator.Arity11<PsiStringy>
@@ -622,14 +632,13 @@ public class PsiSystemDict
 					("join",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(1);
-							final PsiContext context=(PsiContext)ops[0];
-							context.psiJoin();
-							OperandStack joinedOpstack=((Interpreter)context).operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final PsiContext oContext=ostack.getBacked(0);
+							oContext.psiJoin();
+							final OperandStack joinedOstack=((Interpreter)oContext).operandStack();
 							ostack.push(PsiMark.MARK);
-							for(PsiObject obj: joinedOpstack)
-								ostack.push(obj);
+							for(PsiObject o: joinedOstack)
+								ostack.push(o);
 						}
 					),
 				new PsiOperator.Arity11<PsiIndexed>
@@ -646,8 +655,8 @@ public class PsiSystemDict
 					("load",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							ostack.push(interpreter.dictStack().load((PsiStringy)ostack.popOperands(1)[0]));
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							ostack.push(interpreter.dictStack().load(ostack.<PsiStringy>getBacked(0)));
 						}
 					),
 				new PsiOperator.Arity01
@@ -658,7 +667,8 @@ public class PsiSystemDict
 					("loop",
 						(interpreter)->
 						{
-							final PsiObject oProc=interpreter.operandStack().popOperands(1)[0];
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final PsiObject oProc=ostack.getBacked(0);
 
 							interpreter.pushLoopLevel();
 							interpreter.executionStack().push(new PsiOperator("#loop_continue")
@@ -681,24 +691,24 @@ public class PsiSystemDict
 					("map",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiContainer container=(PsiContainer)ops[0];
-							final PsiProc proc=(PsiProc)ops[1];
-							final PsiAppendable result=(PsiAppendable)container.psiNewEmpty();
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiContainer oContainer=ostack.getBacked(0);
+							final PsiProc oProc=ostack.getBacked(1);
+							final PsiAppendable oResult=(PsiAppendable)oContainer.psiNewEmpty();
 
 							final int loopLevel=interpreter.pushLoopLevel();
-							for(PsiObject element: (PsiContainer<? extends PsiObject>)container)
+							for(PsiObject o: (PsiContainer<? extends PsiObject>)oContainer)
 							{
-								ostack.push(element);
-								proc.invoke(interpreter);
+								ostack.push(o);
+								oProc.invoke(interpreter);
 								interpreter.handleExecutionStack(loopLevel);
-								result.psiAppend(ostack.pop());
+								// TODO safe pop
+								oResult.psiAppend(ostack.pop());
 								if(interpreter.getStopFlag())
 									break;
 							}
 							interpreter.popLoopLevel();
-							ostack.push(result);
+							ostack.push(oResult);
 						}
 					),
 				new PsiOperator.Arity21<PsiStringy, PsiRegExp>
@@ -713,9 +723,9 @@ public class PsiSystemDict
 					("monitor",
 						(interpreter)->
 						{
-							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							final PsiLock oLock=(PsiLock)ops[0];
-							final PsiObject oProc=ops[1];
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiLock oLock=ostack.getBacked(0);
+							final PsiObject oProc=ostack.getBacked(1);
 
 							if(oLock.isHeldByCurrentThread())
 								throw new PsiInvalidContextException();
@@ -756,19 +766,27 @@ public class PsiSystemDict
 				new PsiOperator.Action
 					("prettyprint",
 						(interpreter)->
-						System.out.println(interpreter.operandStack().popOperands(1)[0].toSyntaxString())),
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							System.out.println(ostack.getBacked(0).toSyntaxString());
+						}
+					),
 				new PsiOperator.Action
 					("print",
 						(interpreter)->
-						((PsiWriter)interpreter.dictStack().load("stdout"))
-							.psiWriteString((PsiStringy)interpreter.operandStack().popOperands(1)[0])
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							((PsiWriter)interpreter.dictStack().load("stdout"))
+									.psiWriteString(ostack.getBacked(0));
+						}
 					),
 				new PsiOperator.Action
 					("println",
 						(interpreter)->
 						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
 							final PsiWriter stdwriter=(PsiWriter)interpreter.dictStack().load("stdout");
-							stdwriter.psiWriteString((PsiStringy)interpreter.operandStack().popOperands(1)[0]);
+							stdwriter.psiWriteString(ostack.getBacked(0));
 							stdwriter.psiWriteString((PsiStringy)interpreter.dictStack().load("eol"));
 						}
 					),
@@ -805,10 +823,10 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStack();
-							PsiInteger character=((PsiReadable)ostack.popOperands(1)[0]).psiRead();
-							boolean notEOF=(character!=PsiInteger.MINUS_ONE);
+							final PsiInteger oCharacter=ostack.<PsiReadable>getBacked(0).psiRead();
+							boolean notEOF=(oCharacter!=PsiInteger.MINUS_ONE);
 							if(notEOF)
-								ostack.push(character);
+								ostack.push(oCharacter);
 							ostack.push(PsiBoolean.valueOf(notEOF));
 						}
 					),
@@ -816,12 +834,12 @@ public class PsiSystemDict
 					("readline",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							PsiStringy eol=(PsiStringy)interpreter.dictStack().load("eol");
-							PsiString string=((PsiReadable)ostack.popOperands(1)[0]).psiReadLine(eol);
-							if(string.length()>0)
-								ostack.push(string);
-							ostack.push(PsiBoolean.valueOf(string.length()>0));
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final PsiStringy oEOL=(PsiStringy)interpreter.dictStack().load("eol");
+							final PsiString oString=ostack.<PsiReadable>getBacked(0).psiReadLine(oEOL);
+							if(oString.length()>0)
+								ostack.push(oString);
+							ostack.push(PsiBoolean.valueOf(oString.length()>0));
 						}
 					),
 				new PsiOperator.Arity11<PsiStringy>
@@ -830,11 +848,11 @@ public class PsiSystemDict
 					("readstring",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							PsiString string=((PsiReadable)ops[0]).psiReadString((PsiInteger)ops[1]);
-							ostack.push(string);
-							ostack.push(string.psiLength().psiEq((PsiInteger)ops[1]));
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiInteger oCount=ostack.getBacked(1);
+							final PsiString oString=ostack.<PsiReadable>getBacked(0).psiReadString(oCount);
+							ostack.push(oString);
+							ostack.push(oString.psiLength().psiEq(oCount));
 						}
 					),
 				new PsiOperator.Arity11<PsiReadable>
@@ -853,11 +871,10 @@ public class PsiSystemDict
 					("repeat",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(2);
 							final ExecutionStack estack=interpreter.executionStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiInteger oCount=(PsiInteger)ops[0];
-							final PsiObject oProc=ops[1];
+							final PsiInteger oCount=ostack.getBacked(0);
+							final PsiObject oProc=ostack.getBacked(1);
 							final long count=oCount.longValue();
 
 							if(count<0)
@@ -898,21 +915,20 @@ public class PsiSystemDict
 					("roll",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final int nValue=((PsiInteger)ops[0]).intValue();
-							int jValue=((PsiInteger)ops[1]).intValue();
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final int n=ostack.<PsiInteger>getBacked(0).intValue();
+							int j=ostack.<PsiInteger>getBacked(1).intValue();
 							final int ostackSize=ostack.size();
-							if(nValue<0)
+							if(n<0)
 								throw new PsiRangeCheckException();
-							if(nValue==0)
+							if(n==0)
 								return;
-							ostack.ensureSize(nValue);
-							while(jValue<0)
-								jValue+=nValue;
-							jValue%=nValue;
-							for(int i=0; i<jValue; i++)
-								ostack.add(ostackSize-nValue, ostack.pop());
+							ostack.ensureSize(n);
+							while(j<0)
+								j+=n;
+							j%=n;
+							for(int i=0; i<j; i++)
+								ostack.add(ostackSize-n, ostack.pop());
 						}
 					),
 				new PsiOperator.Arity11<PsiNumeric>
@@ -921,9 +937,9 @@ public class PsiSystemDict
 					("say",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(1);
 							final PsiWriter stdwriter=(PsiWriter)interpreter.dictStack().load("stdout");
-							stdwriter.psiWriteString((PsiStringy)ostack.popOperands(1)[0]);
+							stdwriter.psiWriteString(ostack.getBacked(0));
 							stdwriter.psiWriteString((PsiStringy)interpreter.dictStack().load("eol"));
 							stdwriter.psiFlush();
 						}
@@ -953,14 +969,14 @@ public class PsiSystemDict
 					("signalerror",
 						(interpreter)->
 						{
-							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
 							interpreter.handleError(
-									new PsiException(ops[0])
+									new PsiException(ostack.getBacked(0))
 									{
 										@Override
 										public String getName()
 										{
-											return ((PsiStringy)ops[1]).stringValue();
+											return ostack.<PsiStringy>getBacked(1).stringValue();
 										}
 									}
 								);
@@ -982,20 +998,19 @@ public class PsiSystemDict
 					("sort",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject[] ops=ostack.popOperands(2);
-							final PsiArray array=(PsiArray)ops[0];
-							final PsiObject comparator=ops[1];
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiArray oArray=ostack.getBacked(0);
+							final PsiObject oComparator=ostack.getBacked(1);
 
-							ostack.push(array.psiSort(new java.util.Comparator<PsiObject>()
+							ostack.push(oArray.psiSort(new java.util.Comparator<PsiObject>()
 									{
 										@Override
-										public int compare(PsiObject o1, PsiObject o2)
+										public int compare(final PsiObject o1, final PsiObject o2)
 										{
 											ostack.push(o1);
 											ostack.push(o2);
 											final int execLevel=interpreter.getExecLevel();
-											comparator.invoke(interpreter);
+											oComparator.invoke(interpreter);
 											interpreter.handleExecutionStack(execLevel);
 											// TODO: ensure stack size
 											return ((PsiInteger)ostack.pop()).intValue();
@@ -1023,8 +1038,8 @@ public class PsiSystemDict
 					("stopped",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiObject oProc=ostack.popOperands(1)[0];
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final PsiObject oProc=ostack.getBacked(0);
 
 							final int stopLevel=interpreter.pushStopLevel();
 							oProc.invoke(interpreter);
@@ -1050,8 +1065,8 @@ public class PsiSystemDict
 					("store",
 						(interpreter)->
 						{
-							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							interpreter.dictStack().psiStore((PsiStringy)ops[0], ops[1]);
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							interpreter.dictStack().psiStore(ostack.getBacked(0), ostack.getBacked(1));
 						}
 					),
 				new PsiOperator.Arity01
@@ -1068,9 +1083,9 @@ public class PsiSystemDict
 					("synchronized",
 						(interpreter)->
 						{
-							final PsiObject[] ops=interpreter.operandStack().popOperands(2);
-							final PsiObject o=ops[0];
-							final PsiObject oProc=ops[1];
+							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final PsiObject o=ostack.getBacked(0);
+							final PsiObject oProc=ostack.getBacked(1);
 							///*
 							synchronized(o)
 							{
@@ -1101,8 +1116,8 @@ public class PsiSystemDict
 					("tokens",
 						(interpreter)->
 						{
-							interpreter.interpretBraced(new PsiStringReader(
-									(PsiStringy)interpreter.operandStack().popOperands(1)[0]));
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							interpreter.interpretBraced(new PsiStringReader(ostack.<PsiStringy>getBacked(1)));
 						}
 					),
 				new PsiOperator.Arity11<PsiObject>
@@ -1131,8 +1146,9 @@ public class PsiSystemDict
 					("warn",
 						(interpreter)->
 						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
 							final PsiWriter stderror=(PsiWriter)interpreter.dictStack().load("stderr");
-							stderror.psiWriteString((PsiStringy)interpreter.operandStack().popOperands(1)[0]);
+							stderror.psiWriteString(ostack.getBacked(0));
 							stderror.psiFlush();
 						}
 					),
@@ -1140,8 +1156,8 @@ public class PsiSystemDict
 					("where",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final PsiDictlike dict=interpreter.dictStack().where((PsiStringy)ostack.popOperands(1)[0]);
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final PsiDictlike dict=interpreter.dictStack().where(ostack.<PsiStringy>getBacked(0));
 							if(dict!=null)
 								ostack.push(dict);
 							ostack.push(PsiBoolean.valueOf(dict!=null));

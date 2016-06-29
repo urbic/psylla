@@ -109,7 +109,8 @@ public interface PsiIterable<T extends PsiObject>
 										final int loopLevel=interpreter.pushLoopLevel();
 										oProc.invoke(interpreter);
 										interpreter.handleExecutionStack(loopLevel);
-										boolean check=((PsiBoolean)ostack.popOperands(1)[0]).booleanValue();
+										ostack.popOperands(1);
+										boolean check=ostack.<PsiBoolean>getBacked(0).booleanValue();
 										if(interpreter.getStopFlag())
 											break;
 										if(check)

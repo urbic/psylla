@@ -15,7 +15,7 @@ public class DictStack
 		push((PsiDictlike)systemdict.get("userdict"));
 	}
 
-	public PsiObject load(String key)
+	public PsiObject load(final String key)
 		throws PsiException
 	{
 		PsiDictlike oDict=where(key);
@@ -25,7 +25,7 @@ public class DictStack
 			throw new PsiUndefinedException();
 	}
 
-	public PsiObject load(PsiStringy oKey)
+	public PsiObject load(final PsiStringy oKey)
 		throws PsiException
 	{
 		return load(oKey.stringValue());
@@ -55,8 +55,13 @@ public class DictStack
 		oDict.put(key, o);
 	}
 
-	public void psiStore(PsiStringy oKey, PsiObject o)
+	public void psiStore(final PsiStringy oKey, final PsiObject o)
 	{
 		store(oKey.stringValue(), o);
+	}
+
+	public void psiBegin(final PsiDictlike oDict)
+	{
+		push(oDict);
 	}
 }
