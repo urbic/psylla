@@ -6,6 +6,27 @@ import coneforest.psi.core.*;
  */
 public class OperandStack extends Stack<PsiObject>
 {
+	public <T extends PsiObject> T tryPop()
+		throws PsiTypeCheckException, PsiStackUnderflowException
+	{
+		try
+		{
+			//return (T)(backup[backupSize++]=super.pop());
+			PsiObject o=super.pop();
+			backup[backupSize++]=o;
+			return (T)o;
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			//backupSize--;
+			throw new PsiStackUnderflowException();
+		}
+		catch(ClassCastException e)
+		{
+			throw new PsiTypeCheckException();
+		}
+	}
+
 	public void clearBackup()
 	{
 		backupSize=0;

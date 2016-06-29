@@ -110,7 +110,7 @@ public abstract class PsiOperator
 		}
 	}
 
-	public static class Arity11
+	public static class Arity11<T extends PsiObject>
 		extends PsiOperator
 	{
 		@Override
@@ -118,26 +118,27 @@ public abstract class PsiOperator
 			throws ClassCastException, PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			ostack.push(handler.handle(ostack.popOperands(1)[0]));
+			//ostack.push(handler.handle(ostack.popOperands(1)[0]));
+			ostack.push(handler.handle(ostack.<T>tryPop()));
 		}
 
-		public Arity11(final String name, final Handler handler)
+		public Arity11(final String name, final Handler<T> handler)
 		{
 			super(name);
 			this.handler=handler;
 		}
 
-		private final Handler handler;
+		private final Handler<T> handler;
 
 		@FunctionalInterface
-		public static interface Handler
+		public static interface Handler<O extends PsiObject>
 		{
-			public PsiObject handle(final PsiObject o)
+			public PsiObject handle(final O o)
 				throws PsiException;
 		}
 	}
 
-	public static class Arity21
+	public static class Arity21<T1 extends PsiObject, T2 extends PsiObject>
 		extends PsiOperator
 	{
 		@Override
@@ -145,27 +146,30 @@ public abstract class PsiOperator
 			throws ClassCastException, PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			final PsiObject[] ops=ostack.popOperands(2);
-			ostack.push(handler.handle(ops[0], ops[1]));
+			//final PsiObject[] ops=ostack.popOperands(2);
+			//ostack.push(handler.handle(ops[0], ops[1]));
+			final T2 o2=ostack.<T2>tryPop();
+			final T1 o1=ostack.<T1>tryPop();
+			ostack.push(handler.handle(o1, o2));
 		}
 
-		public Arity21(final String name, final Handler handler)
+		public Arity21(final String name, final Handler<T1, T2> handler)
 		{
 			super(name);
 			this.handler=handler;
 		}
 
-		private final Handler handler;
+		private final Handler<T1, T2> handler;
 
 		@FunctionalInterface
-		public static interface Handler
+		public static interface Handler<O1 extends PsiObject, O2 extends PsiObject>
 		{
-			public PsiObject handle(final PsiObject o1, final PsiObject o2)
+			public PsiObject handle(final O1 o1, final O2 o2)
 				throws PsiException;
 		}
 	}
 
-	public static class Arity10
+	public static class Arity10<T extends PsiObject>
 		extends PsiOperator
 	{
 		@Override
@@ -173,54 +177,56 @@ public abstract class PsiOperator
 			throws ClassCastException, PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			handler.handle(ostack.popOperands(1)[0]);
+			//handler.handle(ostack.popOperands(1)[0]);
+			handler.handle(ostack.<T>tryPop());
 		}
 
-		public Arity10(final String name, final Handler handler)
+		public Arity10(final String name, final Handler<T> handler)
 		{
 			super(name);
 			this.handler=handler;
 		}
 
-		private final Handler handler;
+		private final Handler<T> handler;
 
 		@FunctionalInterface
-		public interface Handler
+		public interface Handler<O extends PsiObject>
 		{
-			public void handle(final PsiObject o)
+			public void handle(final O o)
 				throws PsiException;
 		}
 	}
 
-	public static class Arity20
+	public static class Arity20<T1 extends PsiObject, T2 extends PsiObject>
 		extends PsiOperator
 	{
 		@Override
 		public void action(final Interpreter interpreter)
-			throws ClassCastException, PsiException
+			throws PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			final PsiObject[] ops=ostack.popOperands(2);
-			handler.handle(ops[0], ops[1]);
+			final T2 o2=ostack.<T2>tryPop();
+			final T1 o1=ostack.<T1>tryPop();
+			handler.handle(o1, o2);
 		}
 
-		public Arity20(final String name, final Handler handler)
+		public Arity20(final String name, final Handler<T1, T2> handler)
 		{
 			super(name);
 			this.handler=handler;
 		}
 
-		private final Handler handler;
+		private final Handler<T1, T2> handler;
 
 		@FunctionalInterface
-		public static interface Handler
+		public static interface Handler<O1 extends PsiObject, O2 extends PsiObject>
 		{
-			public void handle(final PsiObject o1, final PsiObject o2)
+			public void handle(final O1 o1, final O2 o2)
 				throws PsiException;
 		}
 	}
 
-	public static class Arity30
+	public static class Arity30<T1 extends PsiObject, T2 extends PsiObject, T3 extends PsiObject>
 		extends PsiOperator
 	{
 		@Override
@@ -228,26 +234,29 @@ public abstract class PsiOperator
 			throws ClassCastException, PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			final PsiObject[] ops=ostack.popOperands(3);
-			handler.handle(ops[0], ops[1], ops[2]);
+			//final PsiObject[] ops=ostack.popOperands(3);
+			final T3 o3=ostack.<T3>tryPop();
+			final T2 o2=ostack.<T2>tryPop();
+			final T1 o1=ostack.<T1>tryPop();
+			handler.handle(o1, o2, o3);
 		}
 
-		public Arity30(final String name, final Handler handler)
+		public Arity30(final String name, final Handler<T1, T2, T3> handler)
 		{
 			super(name);
 			this.handler=handler;
 		}
 
-		private final Handler handler;
+		private final Handler<T1, T2, T3> handler;
 
-		public static interface Handler
+		public static interface Handler<O1 extends PsiObject, O2 extends PsiObject, O3 extends PsiObject>
 		{
-			public void handle(final PsiObject o1, final PsiObject o2, final PsiObject o3)
+			public void handle(final O1 o1, final O2 o2, final O3 o3)
 				throws PsiException;
 		}
 	}
 
-	public static class Arity31
+	public static class Arity31<T1 extends PsiObject, T2 extends PsiObject, T3 extends PsiObject>
 		extends PsiOperator
 	{
 		@Override
@@ -255,21 +264,25 @@ public abstract class PsiOperator
 			throws ClassCastException, PsiException
 		{
 			final OperandStack ostack=interpreter.operandStack();
-			final PsiObject[] ops=ostack.popOperands(3);
-			ostack.push(handler.handle(ops[0], ops[1], ops[2]));
+			//final PsiObject[] ops=ostack.popOperands(3);
+			//ostack.push(handler.handle(ops[0], ops[1], ops[2]));
+			final T3 o3=ostack.<T3>tryPop();
+			final T2 o2=ostack.<T2>tryPop();
+			final T1 o1=ostack.<T1>tryPop();
+			ostack.push(handler.handle(o1, o2, o3));
 		}
 
-		public Arity31(final String name, final Handler handler)
+		public Arity31(final String name, final Handler<T1, T2, T3> handler)
 		{
 			super(name);
 			this.handler=handler;
 		}
 
-		private final Handler handler;
+		private final Handler<T1, T2, T3> handler;
 
-		public static interface Handler
+		public static interface Handler<O1 extends PsiObject, O2 extends PsiObject, O3 extends PsiObject>
 		{
-			public PsiObject handle(final PsiObject o1, final PsiObject o2, final PsiObject o3)
+			public PsiObject handle(final O1 o1, final O2 o2, final O3 o3)
 				throws PsiException;
 		}
 	}
