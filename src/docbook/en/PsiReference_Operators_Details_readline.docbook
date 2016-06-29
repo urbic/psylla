@@ -36,7 +36,7 @@ from an <replaceable>input</replaceable>.
 Returns a <replaceable>line</replaceable> on success
 Терминатор становится частью
 прочитанной <replaceable>строки</replaceable>. Возвращает также булевское
-значение, показывающее успешность операции. 
+значение, показывающее успешность операции.
 </para>
 
 <para>

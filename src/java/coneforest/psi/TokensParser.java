@@ -106,7 +106,7 @@ public class TokensParser
 		}
 		return new PsiString(sb);
 	}
-	
+
 	private static PsiName parseNameQuotedToken(Token token)
 		throws PsiSyntaxErrorException
 	{
@@ -292,7 +292,7 @@ public class TokensParser
 			throw new PsiSyntaxErrorException();
 		}
 	}
-	
+
 	private static PsiInteger parseIntegerHexadecimalToken(Token token)
 		throws PsiSyntaxErrorException
 	{
@@ -309,7 +309,7 @@ public class TokensParser
 			throw new PsiSyntaxErrorException();
 		}
 	}
-	
+
 	private static PsiInteger parseIntegerBinaryToken(Token token)
 		throws PsiSyntaxErrorException
 	{

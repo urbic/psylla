@@ -23,7 +23,6 @@ for my $head(sort keys %h)
 {
 	my @agenda=($head);
 	my %processed;
-	
 	$baseName=basename($inputFile, '.txt');
 	open my $dot, '|-', "dot -Tsvg -o \"$outputDir/${baseName}_${head}.svg\"";
 	$dot->print(<<__DOT__);
@@ -62,7 +61,6 @@ __DOT__
 {
 	my @agenda=(sort keys %h);
 	my %processed;
-	
 	$baseName=basename($inputFile, '.txt');
 	open my $dot, '|-', "dot -Tsvg -o \"$outputDir/${baseName}.svg\"";
 	$dot->print(<<__DOT__);

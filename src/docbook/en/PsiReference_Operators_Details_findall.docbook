@@ -37,7 +37,7 @@
 Если в качестве <replaceable>объекта</replaceable> выступает процедура,
 исполнение в ней оператора
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>
-досрочно прерывает исполнение 
+досрочно прерывает исполнение
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>.
 </para>
 
