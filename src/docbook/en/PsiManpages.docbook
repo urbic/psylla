@@ -197,7 +197,7 @@ This document describes <application>Psylla</application> &psylla.version;.
 <para>
 <person>
 <personname>A. N. Shvetz</personname>
-<authoremail>tz@sectorb.msk.ru</authoremail>
+<email>tz@sectorb.msk.ru</email>
 </person>
 </para>
 </refsection>
@@ -205,8 +205,15 @@ This document describes <application>Psylla</application> &psylla.version;.
 <refsection>
 <title>License</title>
 <para>
-zlib/png ⟨http://opensource.org/licenses/Zlib⟩.
+zlib/png: <link xlink:href="http://opensource.org/licenses/Zlib"/>.
 <!--link xlink:href="http://opensource.org/licenses/Zlib">zlib/png</link-->
+</para>
+</refsection>
+
+<refsection>
+<title>See also</title>
+<para>
+Project site at GitHub: <link xlink:href="https://github.com/urbic/psylla"/>.
 </para>
 </refsection>
 
