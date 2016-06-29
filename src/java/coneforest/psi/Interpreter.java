@@ -263,7 +263,7 @@ public class Interpreter
 		}
 	}
 
-	private PsiObject parseToken(Token token)
+	private PsiObject parseToken(final Token token)
 		throws PsiException
 	{
 		return (token.kind==ParserConstants.IMMEDIATE)?

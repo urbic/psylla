@@ -63,7 +63,6 @@ public class Psylla
 				scriptName="--repl";
 				scriptReader=null;
 				shellArguments=new String[]{};
-				// TODO REPL
 			}
 
 			final Interpreter interpreter=(scriptReader!=null)?
