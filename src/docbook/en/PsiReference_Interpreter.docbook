@@ -86,6 +86,17 @@ Set the <replaceable>encoding</replaceable> of the console.
 
 <varlistentry>
 <term>
+<option>--locale</option>,
+<option>-L</option>
+<parameter><replaceable>locale</replaceable></parameter>
+</term>
+<listitem>
+Set the default <replaceable>locale</replaceable>.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
 <option>--random-seed</option>,
 <option>-S</option>
 <parameter><replaceable>seed</replaceable></parameter>

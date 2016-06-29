@@ -20,7 +20,7 @@
 <manvolnum>1</manvolnum>
 <refmiscinfo class="manual">Psylla</refmiscinfo>
 <refmiscinfo class="source">Psylla</refmiscinfo>
-<refmiscinfo class="version">&psiVersion;</refmiscinfo>
+<refmiscinfo class="version">&psylla.version;</refmiscinfo>
 </refmeta>
 
 <refnamediv>
@@ -41,8 +41,8 @@ Java</refpurpose>
 <title>Description</title>
 
 <para>
-The <command>psylla</command> invokes <application>Psylla</application>, an
-extensible and embeddable Ψ interpreter.
+The <command>psylla</command> command invokes
+<application>Psylla</application>, an extensible and embeddable Ψ interpreter.
 </para>
 
 <para>
@@ -121,6 +121,17 @@ Set the <replaceable>encoding</replaceable> of the console.
 
 <varlistentry>
 <term>
+<option>--locale</option>,
+<option>-L</option>
+<parameter><replaceable>locale</replaceable></parameter>
+</term>
+<listitem>
+Set the default <replaceable>locale</replaceable>.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
 <option>--random-seed</option>,
 <option>-S</option>
 <parameter><replaceable>seed</replaceable></parameter>
@@ -172,6 +183,13 @@ The <application>Psylla</application> executable, which starts an interpreter.
 
 </variablelist>
 
+</refsection>
+
+<refsection>
+<title>Version</title>
+<para>
+This document describes <application>Psylla</application> &psylla.version;.
+</para>
 </refsection>
 
 <refsection>

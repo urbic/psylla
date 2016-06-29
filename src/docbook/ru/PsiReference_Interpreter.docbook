@@ -87,6 +87,17 @@ jar.
 
 <varlistentry>
 <term>
+<option>--locale</option>,
+<option>-L</option>
+<parameter><replaceable>локаль</replaceable></parameter>
+</term>
+<listitem>
+Установка <replaceable>локали</replaceable> по умолчанию.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
 <option>--random-seed</option>,
 <option>-S</option>
 <parameter><replaceable>начальное</replaceable></parameter>
