@@ -449,25 +449,43 @@ public class PsiSystemDict
 
 							interpreter.pushLoopLevel();
 							final boolean forward=oIncrement.psiGt(PsiInteger.ZERO).booleanValue();
-							estack.push(new PsiOperator("#for_continue")
-								{
-									private PsiNumeric oCounter=oInitial;
-
-									@Override
-									public void action(final Interpreter interpreter1)
+							estack.push(forward?
+									new PsiOperator("#for_continue")
 									{
-										if(forward && oCounter.psiGt(oLimit).booleanValue()
-												|| !forward && oCounter.psiLt(oLimit).booleanValue())
+										private PsiNumeric oCounter=oInitial;
+
+										@Override
+										public void action(final Interpreter interpreter1)
 										{
-											interpreter1.popLoopLevel();
-											return;
+											if(oCounter.psiGt(oLimit).booleanValue())
+												interpreter1.popLoopLevel();
+											else
+											{
+												estack.push(this);
+												ostack.push(oCounter);
+												oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
+												oProc.invoke(interpreter1);
+											}
 										}
-										estack.push(this);
-										ostack.push(oCounter);
-										oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
-										oProc.invoke(interpreter1);
-									}
-								});
+									}:
+									new PsiOperator("#for_continue")
+									{
+										private PsiNumeric oCounter=oInitial;
+
+										@Override
+										public void action(final Interpreter interpreter1)
+										{
+											if(oCounter.psiLt(oLimit).booleanValue())
+												interpreter1.popLoopLevel();
+											else
+											{
+												estack.push(this);
+												ostack.push(oCounter);
+												oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
+												oProc.invoke(interpreter1);
+											}
+										}
+									});
 						}
 					),
 				new PsiOperator.Arity20
@@ -1082,7 +1100,8 @@ public class PsiSystemDict
 					("tokens",
 						(interpreter)->
 						{
-							interpreter.interpretBraced(new PsiStringReader((PsiStringy)interpreter.operandStack().popOperands(1)[0]));
+							interpreter.interpretBraced(new PsiStringReader(
+									(PsiStringy)interpreter.operandStack().popOperands(1)[0]));
 						}
 					),
 				new PsiOperator.Arity11
