@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="manpages" default="dist" basedir=".">
 
 	<presetdef name="xslt.manpages">
@@ -49,5 +49,17 @@
 			</xslt.manpages>
 		</sequential>
 	</macrodef>
+
+	<target name="manpages" description="Make manual pages">
+		<copy tofile="${target.doc}/version.ent">
+            <string><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY ${project.name}.version "v${project.version}">
+]]></string>
+        </copy>
+		<mkdir dir="${target.doc}"/>
+		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
+		<xslt.manpages.lang lang="en" base.name="PsiManpages"/>
+		<symlink action="delete" link="examples"/>
+	</target>
 
 </project>

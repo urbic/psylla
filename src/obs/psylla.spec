@@ -83,7 +83,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{__install} -m 644 target/doc/{README,LICENSE,AUTHORS} %{buildroot}%{_docdir}/%{name}
 %{__install} -m 644 target/vim/syntax/*.vim %{buildroot}%{_datadir}/vim/site/syntax
 %{__install} -m 644 target/vim/ftdetect/*.vim %{buildroot}%{_datadir}/vim/site/ftdetect
-%{__cp} -pr target/doc/javadoc/* %{buildroot}%{_javadocdir}/%{name}
+%{__cp} -pr target/doc/apidocs/* %{buildroot}%{_javadocdir}/%{name}
 %{__ln_s} %{version} %{buildroot}%{_datadir}/%{name}/current
 %{__install} -d %{buildroot}%{_datadir}/mime/packages
 %{__install} -m 644 target/mime/%{name}.xml %{buildroot}%{_datadir}/mime/packages
