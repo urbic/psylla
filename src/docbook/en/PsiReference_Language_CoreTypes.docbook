@@ -17,10 +17,25 @@ divided into
 <firstterm>simple</firstterm><indexterm><primary>type</primary><secondary>simple</secondary></indexterm>
 and
 <firstterm>complex</firstterm><indexterm><primary>type</primary><secondary>complex</secondary></indexterm>.
-The difference between simple and complex objects is explained in <xref
-linkend="PsiReference_Language_CoreTypes_AtomicAndComposite"/>. The following
-is a summary of simple and complex types composing the language core. Language
-extensions may introduce new object types.
+</para>
+
+<para>
+Objects of simple types can not be changed, they are only created as the result
+of calculations. For example, the <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_neg"/> operator does not change the
+sign of the number itself, but creates a new numeric object with different
+sign.
+</para>
+
+<para>
+The objects of complex types can change its state. For example, the <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> operator
+replaces the array element having the given index.
+</para>
+
+<para>
+The following is a summary of simple and complex types composing the Ψ language
+core. Language extensions may introduce new object types.
 </para>
 
 <informaltable frame="none" pgwide="1">
@@ -30,12 +45,13 @@ extensions may introduce new object types.
 <entry>
 <itemizedlist>
 <title>Simple Types</title>
+<listitem><xref linkend="PsiReference_Types_Details_biginteger" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_boolean" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsiReference_Types_Details_command" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_integer" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_mark" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_name" xrefstyle="template:%t"/></listitem>
-<listitem><xref linkend="PsiReference_Types_Details_command" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_null" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_operator" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_real" xrefstyle="template:%t"/></listitem>
@@ -63,50 +79,36 @@ extensions may introduce new object types.
 </tgroup>
 </informaltable>
 
-<section xml:id="PsiReference_Language_CoreTypes_AtomicAndComposite">
-<title>Simple and Complex Types</title>
-
-<para>
-Объекты простых типов не могут быть изменены, они лишь создаются в результате
-вычислений. Например, оператор <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_neg"/> не изменяет знак у самого числа,
-а создаёт новый числовой объект, отличающийся знаком от исходного числа.
-</para>
-
-<para>
-Объекты сложных типов могут изменять своё состояние. К примеру, оператор <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заменяет
-элемент массива, имеющий заданный индекс.
-</para>
-
-</section>
-
 <section xml:id="PsiReference_Language_CoreTypes_Operators">
-<title>Операторы</title>
+<title>Operators</title>
 
 <para>
-<firstterm>Оператор</firstterm><indexterm><primary>оператор</primary></indexterm>
-в языке Ψ представляет код, манипулирующий интерпретатором. Объекты-операторы
-имеют тип <xref linkend="PsiReference_Types_Details_operator"
-xrefstyle="template:%t"/>. Все операторы изначально размещены в системном
-словаре и доступны по их именам. Операторы не могут быть созданы Ψ-программой.
+The
+<firstterm>operator</firstterm><indexterm><primary>operator</primary></indexterm>
+in the Ψ language represents a code that manipulates the interpreter. The
+oparator objects have the <xref linkend="PsiReference_Types_Details_operator"
+xrefstyle="template:%t"/> type. All core operators are initially placed in the
+system dictionary and accessible by their names. Operators can not be created
+or modified by the Ψ program.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Numbers">
-<title>Числа</title>
+<title>Numbers</title>
 
 <para>
-В языке Ψ предусмотрены три числовых типа: целый (<xref
-linkend="PsiReference_Types_Details_integer" xrefstyle="template:%t"/>),
-вещественный (<xref linkend="PsiReference_Types_Details_real"
-xrefstyle="template:%t"/>) и комплексный (<xref
-linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/>).
+The Ψ language provides four numeric types: integer (<xref
+linkend="PsiReference_Types_Details_integer" xrefstyle="template:%t"/>), real
+(<xref linkend="PsiReference_Types_Details_real" xrefstyle="template:%t"/>),
+complex (<xref linkend="PsiReference_Types_Details_complex"
+xrefstyle="template:%t"/>), and big integer (<xref
+linkend="PsiReference_Types_Details_biginteger" xrefstyle="template:%t"/>).
 </para>
 
 <para>
-Объект целого типа представляет математическое целое число из диапазона от
+The integer numeric object represents a mathematical integer number in the
+range from
 
 <math xmlns="&nsMathML;">
 	<mo>−</mo>
@@ -116,7 +118,7 @@ linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/>).
 	</msup>
 </math>
 
-до
+to
 
 <math xmlns="&nsMathML;">
 	<msup>
@@ -127,57 +129,61 @@ linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/>).
 	<mn>1</mn>
 </math>
 
-включительно.
+inclusive.
 </para>
 
 <para>
-Объект вещественного типа приближает математическое вещественное число
-из существенно большего диапазона, однако с ограниченной точностью,
-реализованное как число с плавающей точкой.
+The real numeric object represents a mathematical real number in much larger
+renge, but with limited accuracy, and is implemented as a floating-point number.
 </para>
 
 <para>
-Объект комплексного типа представляет математическое комплексное число. Он
-реализован как пара вещественных чисел — вещественная и мнимая части числа.
+The complex numeric object represents a mathematical complex number. It is
+implementes as a pair of real numbers, real and imaginary parts of a number.
 </para>
 
 <para>
-Большинство математических операторов Ψ могут применяться к операндам всех трёх
-типов, производя при необходимости нужное преобразование типа.
+The big integer numeric object represents a mathematical integer number of
+arbitrary magnitude.
+</para>
+
+<para>
+Most of mathematical operators can be applied to operands of all four types,
+performing the required type conversion if necessary.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Booleans">
-<title>Булевские значения</title>
+<title>Booleans</title>
 
 <para>
-Объекты булевского типа (<xref linkend="PsiReference_Types_Details_boolean"
-xrefstyle="template:%t"/>) представляют логические значения «ложь» и «правда».
-Их главное предназначение — служить операндами в условных управляющих
-операторах <xref linkend="PsiReference_Operators_Details_if"
-xrefstyle="template:%t"/> и <xref
-linkend="PsiReference_Operators_Details_ifelse" xrefstyle="template:%t"/>. Оба
-булевских объекта присутствуют в системном словаре под именами <xref
-linkend="PsiReference_Operators_Details_false" xrefstyle="template:%t"/> и
+Boolean objects (<xref linkend="PsiReference_Types_Details_boolean"
+xrefstyle="template:%t"/>) represents logical values “false” and “true”. Their
+main purpose is to serve as operands for conditional control operators <xref
+linkend="PsiReference_Operators_Details_if" xrefstyle="template:%t"/> and <xref
+linkend="PsiReference_Operators_Details_ifelse" xrefstyle="template:%t"/>. Both
+boolean objects present in the system dictionary under the names of <xref
+linkend="PsiReference_Operators_Details_false" xrefstyle="template:%t"/> and
 <xref linkend="PsiReference_Operators_Details_true" xrefstyle="template:%t"/>.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Marks">
-<title>Метки</title>
+<title>Mark</title>
 
 <para>
-<firstterm>Метка</firstterm><indexterm><primary>метка</primary></indexterm> —
-единственный объект типа <xref linkend="PsiReference_Types_Details_mark"
-xrefstyle="template:%t"/> — служит для обозначения позиции на стеке операндов.
-Метка доступна в системном словаре по именам <xref
+The
+<firstterm>mark</firstterm><indexterm><primary>mark</primary></indexterm> is
+the sole object of type <xref linkend="PsiReference_Types_Details_mark"
+xrefstyle="template:%t"/>. It serves to indicate the position in the operand
+stack.  The mark present in the system dictionary under the names of <xref
 linkend="PsiReference_Operators_Details_mark" xrefstyle="template:%t"/> (<xref
 linkend="PsiReference_Operators_Details_[" xrefstyle="template:%t"/>, <xref
 linkend="PsiReference_Operators_Details_&lt;" xrefstyle="template:%t"/>, <xref
 linkend="PsiReference_Operators_Details_(" xrefstyle="template:%t"/>).
-В основном метки служат операндами для операторов <xref
+Basically marks serves as operands for operators <xref
 linkend="PsiReference_Operators_Details_arraytomark" xrefstyle="template:%t"/>
 (<xref linkend="PsiReference_Operators_Details_]" xrefstyle="template:%t"/>),
 <xref linkend="PsiReference_Operators_Details_dicttomark"
@@ -193,107 +199,111 @@ linkend="PsiReference_Operators_Details_cleartomark" xrefstyle="template:%t"/>.
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Nulls">
-<title>Пустой объект</title>
+<title>Null object</title>
 
 <para>
-Особый тип <xref linkend="PsiReference_Types_Details_null"
-xrefstyle="template:%t"/> содержит единственный объект. Этот объект служит
-заполнителем в контейнерах, чьи элементы ещё не инициализированы. Главным
-образом пустой объект появляется в массивах при увеличении их размера. Пустой
-объект доступен в системном словаре по имени <xref
-linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/>. Он не
-может быть операндом для большинства операторов.
+A special <xref linkend="PsiReference_Types_Details_null"
+xrefstyle="template:%t"/> type contains a sole object. This object serves as a
+placeholder in containers whose elements have not yet been initialized. Mostly
+null objects appear in arrays when their size increase. Null object present in
+the system dictionary under the name <xref
+linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/>. It can
+not be the operand for most operators.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Names">
-<title>Имена</title>
+<title>Names</title>
 
 <para>
-<firstterm>Имена</firstterm><indexterm><primary>имя</primary></indexterm>
-представляют неизменяемые строки. Имена главным образом используются как ключи
-в словарях, по которым извлекаются соответствующие значения. С каждым
-оператором языка Ψ ассоциировано имя в системном словаре.
+The <firstterm>name</firstterm><indexterm><primary>name</primary></indexterm>
+represents the immutable string. The names are mostly used as keys in the
+dictionaries associated to corresponding values. Every core operator is stored
+in the system dictionary under its own name.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Commands">
-<title>Команды</title>
+<title>Commands</title>
 
 <para>
-<firstterm>Команды</firstterm><indexterm><primary>команда</primary></indexterm>
-(<firstterm>исполняемые
-имена</firstterm><indexterm><primary>имя</primary><secondary>исполняемое</secondary></indexterm>)
-отличаются от имён семантикой исполнения. Исполнение команды заключается
-в поиске объекта, ассоциированого с именем команды, в стеке словарей, и
-последующем исполнении найденного объекта.
+The
+<firstterm>commands</firstterm><indexterm><primary>command</primary></indexterm>
+(<firstterm>executable
+names</firstterm><indexterm><primary>name</primary><secondary>executable</secondary></indexterm>)
+differ from the names in execution semantics. The execution of the command
+leads to the search of the object associated with it in the dictionary stack,
+and the subsequent invocation of the found object.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Arrays">
-<title>Массивы</title>
+<title>Arrays</title>
 
 <para>
-<firstterm>Массив</firstterm><indexterm><primary>массив</primary></indexterm> —
-это контейнер для объектов, пронумерованных целыми неотрицательными числами
-(<firstterm>индексами</firstterm><indexterm><primary>индекс</primary><secondary>массива</secondary></indexterm>).
-Массивы в языке Ψ являются
-<firstterm>неоднородными</firstterm><indexterm><primary>массив</primary><secondary>неоднородный</secondary></indexterm>,
-то есть элементы массива могут быть объектами любого типа. В частности, массивы
-могут содержать контейнеры (массивы, словари, множества), что позволяет
-конструировать многомерные структуры данных любой сложности.
+The <firstterm>array</firstterm><indexterm><primary>array</primary></indexterm>
+is a container for objects numbered with non-negative integer numbers
+(<firstterm>indices</firstterm><indexterm><primary>index</primary><secondary>array</secondary></indexterm>).
+Arrays in the Ψ language are
+<firstterm>heterogeneous</firstterm><indexterm><primary>array</primary><secondary>heterogeneous</secondary></indexterm>,
+that is, the array elements can be objects of any type. In particular, the
+arrays may contain other containers (arrays, dictionaries, sets), which allows
+the construction of multi-dimensional data structures of any complexity.
 </para>
 
 <para>
-Массивы индексируются начиная с нуля. При доступе к элементам массива
-осуществляется проверка границ индекса. В случае выхода индекса за пределы
-границ возбуждается ошибка <xref
-linkend="PsiReference_Errors_Details_rangecheck" xrefstyle="template:%t"/>.
+The array indexing is zero-based. When accessing the array elements, the index
+boundary checks are performed. In case the index runs beyond the boundaries,
+the <xref linkend="PsiReference_Errors_Details_rangecheck"
+xrefstyle="template:%t"/> error is generated.
 </para>
 
 <para>
-Длина массива может изменяться за счёт добавления или удаления элементов.
+The length of the array changes when inserting or removing elements.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Procedures">
-<title>Процедуры</title>
+<title>Procedures</title>
 
 <para>
-<firstterm>Процедура</firstterm><indexterm><primary>процедура</primary></indexterm>
-(<firstterm>исполняемые
-массивы</firstterm><indexterm><primary>массив</primary><secondary>исполняемый</secondary></indexterm>)
-отличается от массива семантикой исполнения. Исполнение процедуры заключается
-в поочерёдном исполнении всех её элементов.
+The
+<firstterm>procedures</firstterm><indexterm><primary>procedure</primary></indexterm>
+(<firstterm>executable
+arrays</firstterm><indexterm><primary>array</primary><secondary>executable</secondary></indexterm>)
+differ from the arrays in execution semantics. The execution of the procedure
+leads to sequential execution of all its elements.
 </para>
 
 </section>
 
 <section xml:id="PsiReference_Language_CoreTypes_Strings">
-<title>Строки</title>
+<title>Strings</title>
 
 <para>
-<firstterm>Строка</firstterm><indexterm><primary>строка</primary></indexterm>
-концептуально устроена как массив, элементами которого служат целые числа
-из диапазона от <math xmlns="&nsMathML;"><mn>0</mn></math> до <math
-xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
-единицы</firstterm><indexterm><primary>кодовая единица</primary></indexterm>.
+The
+<firstterm>string</firstterm><indexterm><primary>string</primary></indexterm>
+conceptually arranged as an array whose elements are integers berween <math
+xmlns="&nsMathML;"><mn>0</mn></math> and <math
+xmlns="&nsMathML;"><mn>65535</mn></math> inclusive (<firstterm>code
+units</firstterm><indexterm><primary>code unit</primary></indexterm>).
 </para>
 
 <para>
-Строки используются для хранения текста. Каждый символ текста представлен одной
-или двумя кодовыми единицами в соответствии с кодировкой
+Strings are used to store text. Each character of text is represented by one or
+two code units in accordance with the encoding
 <firstterm><acronym>UTF-16</acronym></firstterm><indexterm><primary>UTF-16</primary></indexterm>.
-Одна кодовая единица кодирует символы из <firstterm>основной многоязычной
-плоскости</firstterm><indexterm><primary>основная многоязычная
-плоскость</primary><see><acronym>BMP</acronym></see></indexterm>
+One code unit encodes a character of the <firstterm>basic multilingual
+plane</firstterm><indexterm><primary>basic multilingual
+plane</primary><see><acronym>BMP</acronym></see></indexterm>
 (<acronym>BMP</acronym><indexterm><primary><acronym>BMP</acronym></primary></indexterm>).
-Остальные символы Unicode кодируются так называемыми <firstterm>суррогатными
-парами</firstterm><indexterm><primary>суррогатная пара</primary></indexterm>.
+The remaining Unicode characters are encoded with so-called
+<firstterm>surrogate pairs</firstterm><indexterm><primary>surrogate
+pair</primary></indexterm>.
 </para>
 
 </section>
@@ -330,7 +340,7 @@ expression</primary></indexterm> represents a template for search in a string.
 <title>Regular Expression Constructs</title>
 
 <section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Characters">
-<title>Символы</title>
+<title>Characters</title>
 
 <informaltable pgwide="1">
 <tgroup cols="2">
@@ -343,39 +353,43 @@ expression</primary></indexterm> represents a template for search in a string.
 </row>
 <row>
 <entry><literal>\\</literal></entry>
-<entry>backslash character (<constant>U+5C</constant>)</entry>
+<entry>backslash character, <constant>U+5C</constant></entry>
 </row>
 <row>
 <entry><literal>\u<replaceable>HHHH</replaceable></literal></entry>
-<entry>character with hexadecimal code <replaceable>HHHH</replaceable></entry>
+<entry>character <constant>U+<replaceable>HHHH</replaceable></constant></entry>
 </row>
 <row>
 <entry><literal>\x{<replaceable>H…H</replaceable>}</literal></entry>
-<entry>character with hexadecimal code <replaceable>H…H</replaceable></entry>
+<entry>character <constant>U+<replaceable>H…H</replaceable></constant></entry>
 </row>
 <row>
 <entry><literal>\t</literal></entry>
-<entry>tab character (<constant>U+9</constant>)</entry>
+<entry>tab character, <constant>U+9</constant></entry>
 </row>
 <row>
 <entry><literal>\n</literal></entry>
-<entry>end of line character (<constant>U+A</constant>)</entry>
+<entry>end of line character, <constant>U+A</constant></entry>
 </row>
 <row>
 <entry><literal>\r</literal></entry>
-<entry>carriage-return character (<constant>U+D</constant>)</entry>
+<entry>carriage-return character, <constant>U+D</constant></entry>
 </row>
 <row>
 <entry><literal>\f</literal></entry>
-<entry>line feed character (<constant>U+C</constant>)</entry>
+<entry>line feed character, <constant>U+C</constant></entry>
 </row>
 <row>
 <entry><literal>\a</literal></entry>
-<entry>bell character (<constant>U+7</constant>)</entry>
+<entry>bell character, <constant>U+7</constant></entry>
 </row>
 <row>
 <entry><literal>\e</literal></entry>
-<entry>escape character (<constant>U+1B</constant>)</entry>
+<entry>escape character, <constant>U+1B</constant></entry>
+</row>
+<row>
+<entry><literal>\@</literal></entry>
+<entry><literal>@</literal> character, <constant>U+40</constant></entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>X</replaceable></literal></entry>
@@ -401,7 +415,7 @@ expression</primary></indexterm> represents a template for search in a string.
 </row>
 <row>
 <entry><literal>[^abc]</literal></entry>
-<entry>any character except <literal>a</literal>, <literal>b</literal> и <literal>c</literal></entry>
+<entry>any character except <literal>a</literal>, <literal>b</literal> and <literal>c</literal></entry>
 </row>
 <row>
 <entry><literal>[A-Za-z]</literal></entry>
@@ -487,11 +501,11 @@ from <literal>a</literal> to <literal>z</literal> (inclusively)</entry>
 </row>
 <row>
 <entry><literal>\A</literal></entry>
-<entry>начало входных данных</entry>
+<entry>beginning of input</entry>
 </row>
 <row>
 <entry><literal>\G</literal></entry>
-<entry>конец последнего совпадения</entry>
+<entry>end of input</entry>
 </row>
 <row>
 <entry><literal>\Z</literal></entry>

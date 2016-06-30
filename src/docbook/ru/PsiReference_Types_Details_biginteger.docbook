@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Types_Details_integer">
-<title><type>integer</type></title>
+<section xml:id="PsiReference_Types_Details_biginteger">
+<title><type>biginteger</type></title>
 
 <para>
-Целочисленный тип.
+Тип целых чисел призвольной величины.
 </para>
 
 <formalpara>
@@ -20,7 +20,7 @@
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="common/PsiTypesHierarchy_integer.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_biginteger.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

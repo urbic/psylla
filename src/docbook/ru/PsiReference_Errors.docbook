@@ -15,7 +15,7 @@
 <section xml:id="PsiReference_Errors_Details_dictstackunderflow">
 <title><errorname language="psi">dictstackunderflow</errorname></title>
 <para>
-Недополнение стека словарей. Ошибка генерируется в операторе <xref
+Недополнение стека словарей. Ошибка генерируется оператором <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>, если
 стек словарей содержит лишь постоянные словари.
 </para>
@@ -32,7 +32,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_end"/>, если
 <section xml:id="PsiReference_Errors_Details_fileaccessdenied">
 <title><errorname language="psi">fileaccessdenied</errorname></title>
 <para>
-Ошибка доступа к файлу.
+Доступа к файлу запрещён.
 </para>
 </section>
 
@@ -92,7 +92,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_regexp"/>
 <title><errorname language="psi">invalidstate</errorname></title>
 <para>
 Неправильное состояние. Генерируется, если исполнение оператора невозможно
-при имеющемся состоянии операнда.
+при текущем состоянии операнда.
 </para>
 </section>
 
@@ -166,8 +166,8 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_regexp"/>
 <para>
 Неизвестный ключ. Генерируется операторами, извлекающими ассоциированное
 с ключом значение из словаря, при отсутствии ключа в словаре. Также
-генерируется парсером при исполнении команды, с именем которой не ассоциирован
-объект в стеке словарей.
+генерируется интерпретатором при исполнении команды, с именем которой не
+ассоциирован объект в стеке словарей.
 </para>
 </section>
 
@@ -183,7 +183,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_regexp"/>
 <section xml:id="PsiReference_Errors_Details_unmatchedmark">
 <title><errorname language="psi">unmatchedmark</errorname></title>
 <para>
-Непарная метка. Генерируется операторами, принимающими список операндов
+Нет метки. Генерируется операторами, принимающими список операндов
 неопределённой длины, при отсутствии метки, ограничивающей список в стеке
 операндов.
 </para>

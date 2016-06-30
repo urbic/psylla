@@ -104,10 +104,9 @@ Real numbers, such as
 </para>
 
 <para>
-В программе могут создаваться числовые объекты целого, вещественного и
-комплексного типов. В языке предусмотрено литеральное представление только
-для целых и вещественных чисел. Целые числа могут записываться в десятичной,
-шестнадцатеричной или двоичной форме.
+The program can create numeric objects of integer, real and complex types. The
+language provides a literal representation only for integer and real numbers.
+The integers can be written in decimal, hexadecimal or binary form.
 </para>
 
 <!--section xml:id="PsiReference_Language_Syntax_Numbers_Decimal">
@@ -166,10 +165,10 @@ Real numbers, such as
 <title>Strings</title>
 
 <para>
-Строковые литералы заключаются между двойными кавычками <literal>"</literal>
-(<constant>U+22</constant>). Бэкслэш <literal>\</literal>
-(<constant>U+5C</constant>) между кавычками имеет особый смысл, определяемый
-следующим за ним символом.
+String literals are enclosed in double quotes <literal>"</literal>
+(<constant>U+22</constant>). Backslash character <literal>\</literal>
+(<constant>U+5C</constant>) between quotatian marks have special meaning
+defined by the following character.
 
 <informaltable>
 <tgroup cols="2">
@@ -223,11 +222,11 @@ Real numbers, such as
 <entry>Unicode character named <replaceable>name</replaceable> <remark>(not implemented)</remark></entry>
 </row>
 <row>
-<entry><literal>\c<replaceable>C</replaceable></literal></entry>
-<entry>для символов <replaceable>C</replaceable> от <constant>U+0</constant>
-до <constant>U+3F</constant> прибавляет к коду 64, для символов
-от <constant>U+40</constant> до <constant>U+7F</constant> вычитает 64
-из кода</entry>
+<entry><literal>\c<replaceable>C</replaceable></literal></entry> <entry>for
+<replaceable>C</replaceable> character within the
+range <constant>U+0‥3F</constant> increment character’s code by 64, for
+character within the range <constant>U+40‥7F</constant> decrements the code
+by 64</entry>
 </row>
 </tbody>
 </tgroup>
@@ -243,20 +242,19 @@ Real numbers, such as
 <title>Names</title>
 
 <para>
-<firstterm>Имена</firstterm><indexterm><primary>имя</primary></indexterm>
-состоят из букв от <literal>A</literal> до <literal>Z</literal> и
-от <literal>a</literal> до <literal>z</literal>
-(<constant>U+41</constant>‥<constant>U+5A</constant>,
-<constant>U+61</constant>‥<constant>U+7A</constant>), десятичных цифр
-(<constant>U+30</constant>‥<constant>U+39</constant>), символов
+The <firstterm>names</firstterm><indexterm><primary>name</primary></indexterm>
+consist of letters from <literal>A</literal> to <literal>Z</literal> and
+from <literal>a</literal> to <literal>z</literal>
+(<constant>U+41‥5A</constant>, <constant>U+61‥7A</constant>), decimal digits
+(<constant>U+30‥39</constant>), characters
 <literal>_</literal> (<constant>U+5F</constant>),
 <literal>.</literal> (<constant>U+2E</constant>),
 <literal>+</literal> (<constant>U+2B</constant>),
 <literal>-</literal> (<constant>U+2D</constant>),
 <literal>=</literal> (<constant>U+3D</constant>),
-<literal>$</literal> (<constant>U+24</constant>) и не начинаются с десятичной
-цифры. Имени предшествует символ
-<literal>/</literal> (<constant>U+2F</constant>).
+<literal>$</literal> (<constant>U+24</constant>) and does not begin with a
+decimal digit. A name preceded by the <literal>/</literal>
+character (<constant>U+2F</constant>).
 </para>
 
 <remark>TODO</remark>
@@ -281,31 +279,33 @@ Real numbers, such as
 <title>Procedures</title>
 
 <para>
-Символы <code language="psi">{</code> и <code language="psi">}</code>
-используются для создания
-<firstterm>процедур</firstterm><indexterm><primary>процедура</primary></indexterm>.
+The characters <literal>{</literal> (<constant>U+7B</constant>) and
+<literal>}</literal> (<constant>U+7D</constant>) are used to create
+<firstterm>procedures</firstterm><indexterm><primary>procedure</primary></indexterm>.
 </para>
 
 <para>
-Интерпретация фрагмента программы
+When the parser encounters the <code language="psi">{</code> character, it
+continues to scan and create objects, but they are not executed by the
+interpreter. When the parser encounters the corresponding <code
+language="psi">}</code> character, it puts all the objects created after the
+<code language="psi">{</code> character into a new procedure object.  So, the
+interpretation of the program fragment
 
 <programlisting language="psi">{ 1 exch div }</programlisting>
 
-приводит к созданию объекта процедуры, которая содержит целочисленный объект
-<code language="psi">1</code> и два объекта-команды <code
-language="psi">exch</code> и <code language="psi">div</code>. Когда парсер
-встречает символ <code language="psi">{</code>, он продолжает сканировать и
-создавать объекты, однако интерпретатор их не исполняет. Когда парсер встречает
-<code language="psi">}</code>, он помещает все объекты, созданные после
-обнаружения <code language="psi">{</code> в новый объект-процедуру.
+leads to the creation of a procedure object, that contains an integer numeric
+object <code language="psi">1</code> and two command objects <code
+language="psi">exch</code> and <code language="psi">div</code>.
 </para>
 
 <para>
-Интерпретатор не исполняет процедуру; вместо этого он загружает её на стек
-операндов. Процедура будет исполнена лишь при её вызове. Исполнение процедуры
-(и всех составляющих её объектов
-<firstterm>отложенное</firstterm><indexterm><primary>исполнение</primary><secondary>отложенное</secondary></indexterm>).
-Смысл отложенного исполнения объясняется в разделе <xref
+The interpreter does not execute the procedure, instead, it puts ot on the
+operand stack. The procedure will be executed only at the result of its
+invocation. The execution of the procedure (and all of its constituent objects)
+is
+<firstterm>deferred</firstterm><indexterm><primary>execution</primary><secondary>deferred</secondary></indexterm>).
+The meaning of the deferred execution is explained in <xref
 linkend="PsiReference_Language_ObjectExecution"/>.
 </para>
 

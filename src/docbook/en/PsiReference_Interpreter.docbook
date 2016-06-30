@@ -117,7 +117,7 @@ Initialize the pseudorandom numbers generator with
 <term><parameter><replaceable>program</replaceable></parameter></term>
 <listitem>
 The name of a file containing Ψ <replaceable>program</replaceable>. The program
-is read from standard input when the hyphen is specified. If the
+is read from the standard input when the hyphen is specified. If the
 <replaceable>program</replaceable> is not specified, run
 <acronym>REPL</acronym> (read—evaluate—print cycle).
 </listitem>

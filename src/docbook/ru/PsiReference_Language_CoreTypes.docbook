@@ -17,10 +17,24 @@
 на <firstterm>простые</firstterm><indexterm><primary>тип</primary><secondary>простой</secondary></indexterm>
 и
 <firstterm>сложные</firstterm><indexterm><primary>тип</primary><secondary>сложный</secondary></indexterm>.
-Разница между простыми и сложными объектами объясняется в разделе <xref
-linkend="PsiReference_Language_CoreTypes_AtomicAndComposite"/>. Ниже
-приводится сводка простых и сложных типов, входящих в ядро языка. Расширения
-языка могут вводить новые типы объектов.
+</para>
+
+<para>
+Объекты простых типов не могут быть изменены, они лишь создаются в результате
+вычислений. Например, оператор <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_neg"/> не изменяет знак у самого числа,
+а создаёт новый числовой объект, отличающийся знаком от исходного.
+</para>
+
+<para>
+Объекты сложных типов могут изменять своё состояние. К примеру, оператор <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заменяет
+элемент массива, имеющий заданный индекс.
+</para>
+
+<para>
+Ниже приводится сводка простых и сложных типов, составляющих ядро языка Ψ.
+Расширения языка могут вводить новые типы объектов.
 </para>
 
 <informaltable frame="none" pgwide="1">
@@ -30,12 +44,13 @@ linkend="PsiReference_Language_CoreTypes_AtomicAndComposite"/>. Ниже
 <entry>
 <itemizedlist>
 <title>Простые типы</title>
+<listitem><xref linkend="PsiReference_Types_Details_biginteger" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_boolean" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsiReference_Types_Details_command" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_integer" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_mark" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_name" xrefstyle="template:%t"/></listitem>
-<listitem><xref linkend="PsiReference_Types_Details_command" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_null" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_operator" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_real" xrefstyle="template:%t"/></listitem>
@@ -63,24 +78,6 @@ linkend="PsiReference_Language_CoreTypes_AtomicAndComposite"/>. Ниже
 </tgroup>
 </informaltable>
 
-<section xml:id="PsiReference_Language_CoreTypes_AtomicAndComposite">
-<title>Простые и сложные объекты</title>
-
-<para>
-Объекты простых типов не могут быть изменены, они лишь создаются в результате
-вычислений. Например, оператор <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_neg"/> не изменяет знак у самого числа,
-а создаёт новый числовой объект, отличающийся знаком от исходного числа.
-</para>
-
-<para>
-Объекты сложных типов могут изменять своё состояние. К примеру, оператор <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заменяет
-элемент массива, имеющий заданный индекс.
-</para>
-
-</section>
-
 <section xml:id="PsiReference_Language_CoreTypes_Operators">
 <title>Операторы</title>
 
@@ -88,8 +85,9 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заме�
 <firstterm>Оператор</firstterm><indexterm><primary>оператор</primary></indexterm>
 в языке Ψ представляет код, манипулирующий интерпретатором. Объекты-операторы
 имеют тип <xref linkend="PsiReference_Types_Details_operator"
-xrefstyle="template:%t"/>. Все операторы изначально размещены в системном
-словаре и доступны по их именам. Операторы не могут быть созданы Ψ-программой.
+xrefstyle="template:%t"/>. Все основные операторы изначально размещены
+в системном словаре и доступны по их именам. Операторы не могут быть созданы
+или изменены Ψ-программой.
 </para>
 
 </section>
@@ -98,11 +96,13 @@ xrefstyle="template:%t"/>. Все операторы изначально раз
 <title>Числа</title>
 
 <para>
-В языке Ψ предусмотрены три числовых типа: целый (<xref
+В языке Ψ предусмотрены четыре числовых типа: целый (<xref
 linkend="PsiReference_Types_Details_integer" xrefstyle="template:%t"/>),
 вещественный (<xref linkend="PsiReference_Types_Details_real"
-xrefstyle="template:%t"/>) и комплексный (<xref
-linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/>).
+xrefstyle="template:%t"/>), комплексный (<xref
+linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/>) и
+большой целый (<xref linkend="PsiReference_Types_Details_biginteger"
+xrefstyle="template:%t"/>).
 </para>
 
 <para>
@@ -142,8 +142,13 @@ linkend="PsiReference_Types_Details_complex" xrefstyle="template:%t"/>).
 </para>
 
 <para>
-Большинство математических операторов Ψ могут применяться к операндам всех трёх
-типов, производя при необходимости нужное преобразование типа.
+Объект большого целого типа типа представляет математическое целое число
+произвольной величины.
+</para>
+
+<para>
+Большинство математических операторов Ψ могут применяться к операндам всех
+четырёх типов, производя при необходимости нужное преобразование типа.
 </para>
 
 </section>
@@ -342,39 +347,43 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 </row>
 <row>
 <entry><literal>\\</literal></entry>
-<entry>символ бэкслэш (<constant>U+5C</constant>)</entry>
+<entry>символ бэкслэш, <constant>U+5C</constant></entry>
 </row>
 <row>
 <entry><literal>\u<replaceable>HHHH</replaceable></literal></entry>
-<entry>символ с шестнадцатеричным значением <replaceable>HHHH</replaceable></entry>
+<entry>символ <constant>U+<replaceable>HHHH</replaceable></constant></entry>
 </row>
 <row>
 <entry><literal>\x{<replaceable>H…H</replaceable>}</literal></entry>
-<entry>символ с шестнадцатеричным значением <replaceable>H…H</replaceable></entry>
+<entry>символ <constant>U+<replaceable>H…H</replaceable></constant></entry>
 </row>
 <row>
 <entry><literal>\t</literal></entry>
-<entry>символ табуляции (<constant>U+9</constant>)</entry>
+<entry>символ табуляции, <constant>U+9</constant></entry>
 </row>
 <row>
 <entry><literal>\n</literal></entry>
-<entry>символ конца строки (<constant>U+A</constant>)</entry>
+<entry>символ конца строки, <constant>U+A</constant></entry>
 </row>
 <row>
 <entry><literal>\r</literal></entry>
-<entry>символ возврата каретки (<constant>U+D</constant>)</entry>
+<entry>символ возврата каретки, <constant>U+D</constant></entry>
 </row>
 <row>
 <entry><literal>\f</literal></entry>
-<entry>символ конца страницы (<constant>U+C</constant>)</entry>
+<entry>символ конца страницы, <constant>U+C</constant></entry>
 </row>
 <row>
 <entry><literal>\a</literal></entry>
-<entry>символ гудка (<constant>U+7</constant>)</entry>
+<entry>символ гудка, <constant>U+7</constant></entry>
 </row>
 <row>
 <entry><literal>\e</literal></entry>
-<entry>символ escape (<constant>U+1B</constant>)</entry>
+<entry>символ escape, <constant>U+1B</constant></entry>
+</row>
+<row>
+<entry><literal>\@</literal></entry>
+<entry>символ <literal>@</literal>, <constant>U+40</constant></entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>X</replaceable></literal></entry>

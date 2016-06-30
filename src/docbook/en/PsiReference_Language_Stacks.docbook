@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Language_Stacks">
+<title>Stacks</title>
+
+<para>
+The Ψ interpreter supports several stacks intended to store data during the
+program execution or represent the program execution state.  Three of them are
+essential: the <firstterm>operand stack</firstterm><indexterm><primary>operand
+stack</primary></indexterm>, the <firstterm>dictionary
+stack</firstterm><indexterm><primary>dictionary stack</primary></indexterm> and
+the <firstterm>execution stack</firstterm><indexterm><primary>execution
+stack</primary></indexterm>.
+</para>
+
+<para>
+Каждый из стеков устроен по принципу <acronym>LIFO</acronym> — <foreignphrase
+xml:lang="en">Last In—First Out</foreignphrase> (последний пришёл — первый ушёл).
+</para>
+
+<section xml:id="PsiReference_Language_Stacks_OperandStack">
+<title>Operand Stack</title>
+
+<para>
+Execution of literal objects always leads to add to the operand stack If the
+operator needs the data to handle, it remove the necesser number of objects
+from the operand stack. The objects created by the operator are added to the stack.
+Так действует большинство операторов языка. Таким
+образом, свободно манипулировать стеком операндов может как интерпретатор, так
+и любой из операторов.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks_DictionaryStack">
+<title>Dictionary Stack</title>
+
+<para>
+The dictionary stack can store only dictionaries. The current stack of the
+dictionary stack serves as a context of search for objects by name. The need
+for such a search occurs every time the interpreter encounters a command. There
+are several operators to manipulate the dictionary stack.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks_ExecutionStack">
+<title>Execution Stack</title>
+
+<para>
+The execution stack reflects the execution phase of the procedure. During
+execution of the procedure its elements are loaded onto the execution stack in
+reverse order, so that the very first element is at the top of the stack. The
+interpreter then in turn removes objects from the execution stack and executes
+them until the stack level is equal to the original (that was at the beginning
+of the procedure execution).
+</para>
+
+<para>
+The execution stack may be controlled by the interpreter. Only a few operators
+directly operating the execution stack. This is control operators that
+implement cycles.
+</para>
+
+</section>
+
+<section xml:id="PsiReference_Language_Stacks_Auxiliary">
+<title>Auxiliary Stacks</title>
+
+<para>
+In addition to three main stacks, there are several auxiliary stacks built into
+the interpreter: <firstterm>exit stack</firstterm><indexterm><primary>exit
+stack</primary></indexterm> и <firstterm>stop
+stack</firstterm><indexterm><primary>stop stack</primary></indexterm>. Only a
+few control operators operate on auxiliary stacks.
+</para>
+
+</section>
+
+</section>
