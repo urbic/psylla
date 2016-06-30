@@ -10,10 +10,10 @@ public class PsiRomanNumerals
 	{
 		registerOperators
 			(
-				new PsiOperator.Arity11
-					("toroman", (a)->psiToRoman((PsiInteger)a)),
-				new PsiOperator.Arity11
-					("toroman", (a)->psiFromRoman((PsiStringy)a))
+				new PsiOperator.Arity11<PsiInteger>
+					("toroman", PsiRomanNumerals::psiToRoman),
+				new PsiOperator.Arity11<PsiStringy>
+					("fromroman", PsiRomanNumerals::psiFromRoman)
 			);
 	}
 
