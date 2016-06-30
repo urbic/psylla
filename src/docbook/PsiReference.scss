@@ -2,13 +2,13 @@
 @import "highlight.scss";
 
 //$background-color-body: lightskyblue;
-$background-color-body: #EEE;
+$background-color-body: linen;
 $font-family-body: "PT Sans", sans-serif;
-$color-title: darken($background-color-body, 60%);
-$background-color-html: $color-title;
+$color-title: darken(cornflowerblue, 40%); //darken($background-color-body, 60%);
+$background-color-html: $background-color-body;//$color-title;
 //$color-link: darken(darkgreen, 5%);
-$color-link: #757;
-$color-visited: darken($color-link, 7.5%);
+$color-link: darkslategray;
+$color-visited: $color-link;//darken($color-link, 7.5%);
 $color-filename: black;
 $background-color-programlisting: lighten($background-color-body, 5%);
 
@@ -21,18 +21,24 @@ body
 {
 	font-size: 17px;
 	max-width: 960px;
-	margin: 0pc auto 0pc auto;
+	width: 50%;
+	margin: 0pc auto 0pc 0pc;
 	//position: fixed;
 	//left: auto;
 	//right: auto;
 	//top: 0px;
 	//bottom: 0px;
-	padding: 1pc 2pc 1pc 2pc;
 	background-color: $background-color-body;
 	font-family: $font-family-body;
 	tab-size: 4;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
+	border-right: 4px dotted $color-title;
+}
+
+body > *
+{
+	margin: 1pc 2pc 1pc 2pc;
 }
 
 p
@@ -235,4 +241,23 @@ table.productionset
 	{
 		width: 33.3333%;
 	}
+}
+
+div.toc
+{
+	position: fixed;
+	overflow: auto;
+	width: 20%;
+	//height: 90%;
+	background-color: $background-color-body;
+	top: 0px;
+	left: 50%;
+	bottom: 0px;
+	font-size: smaller;
+	margin-left: 1pc;
+}
+
+div.toc > *
+{
+	margin: 1pc;
 }
