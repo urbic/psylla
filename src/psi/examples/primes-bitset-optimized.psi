@@ -4,7 +4,7 @@
 
 /isprime
 {
-	true exch
+	//true exch
 	//primes
 	{
 		2 copy
