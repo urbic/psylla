@@ -54,6 +54,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заме�
 <listitem><xref linkend="PsiReference_Types_Details_null" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_operator" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_real" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsiReference_Types_Details_regexp" xrefstyle="template:%t"/></listitem>
 </itemizedlist>
 </entry>
 <entry>
@@ -62,12 +63,14 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_put"/> заме�
 <listitem><xref linkend="PsiReference_Types_Details_array" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_bitset" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_bitvector" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsiReference_Types_Details_dict" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_input" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsiReference_Types_Details_lock" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsiReference_Types_Details_matcher" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_output" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_proc" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_random" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_reader" xrefstyle="template:%t"/></listitem>
-<listitem><xref linkend="PsiReference_Types_Details_regexp" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_set" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_string" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_writer" xrefstyle="template:%t"/></listitem>

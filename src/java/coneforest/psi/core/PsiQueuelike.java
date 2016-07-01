@@ -20,9 +20,22 @@ public interface PsiQueuelike<T extends PsiObject>
 		return "queuelike";
 	}
 
+	/**
+	 *	Removes and returns the head of this queue.
+	 *	
+	 *	@return the head of this queue.
+	 *	@throws PsiException when this queue is empty.
+	 */
 	public T psiDequeue()
 		throws PsiException;
 
+	/**
+	 *	Inserts an element into this queue.
+	 *	
+	 *	@param o the element to enqueue.
+	 *	@throws PsiException when the element can not be inserted without
+	 *	violation of the capacity restrictions.
+	 */
 	public void psiEnqueue(final T o)
 		throws PsiException;
 

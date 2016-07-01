@@ -66,6 +66,14 @@ public interface PsiReadable
 	public PsiBoolean psiSkip(final PsiInteger oCount)
 		throws PsiException;
 
+	/**
+	 *	Returns a Ψ-{@code boolean} indicating whether this object is ready to
+	 *	be read.
+	 *
+	 *	@return {@code true} if this object is ready to be read, and {@code
+	 *	false} otherwise.
+	 *	@throws PsiException when I/O error occurs.
+	 */
 	public PsiBoolean psiReady()
 		throws PsiException;
 }

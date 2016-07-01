@@ -4,7 +4,7 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code indexed}, a type of the container whose
 *	elements are indexed.
 *
-*	@param <K> a type of indices.
+*	@param <K> a type of keys or indices.
 *	@param <V> a type of elements.
 */
 public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
@@ -20,7 +20,7 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	}
 
 	/**
-	*	Returns a Ψ-{@code boolean} value indicating whether given key or index
+	*	Returns a Ψ-{@code boolean} indicating whether given key or index
 	*	exists in this object.
 	*
 	*	@param oKey a key or an index.

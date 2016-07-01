@@ -21,7 +21,7 @@ public interface PsiAppendable<T extends PsiObject>
 	/**
 	*	Appends a given Ψ-{@code object} to this container.
 	*
-	*	@param o a given Ψ-{@code object}.
+	*	@param o a given Ψ-{@code object} to append.
 	*	@throws PsiException when an error occurs.
 	*/
 	public void psiAppend(final T o)
