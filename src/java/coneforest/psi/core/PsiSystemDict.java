@@ -90,9 +90,9 @@ public class PsiSystemDict
 				new PsiOperator.Arity11<PsiProc>
 					("bind", PsiProc::psiBind),
 				new PsiOperator.Arity01
-					("bitset", PsiBitSet::new),
+					("bitarray", PsiBitArray::new),
 				new PsiOperator.Arity01
-					("bitvector", PsiBitVector::new),
+					("bitset", PsiBitSet::new),
 				new PsiOperator.Arity21<PsiBitwise, PsiInteger>
 					("bitshift", PsiBitwise::psiBitShift),
 				new PsiOperator.Arity11<PsiInteger>

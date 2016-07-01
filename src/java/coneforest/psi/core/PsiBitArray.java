@@ -1,27 +1,27 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code bitvector} object.
+ *	A representation of Ψ-{@code bitarray} object.
  */
-public class PsiBitVector
+public class PsiBitArray
 	implements
 		PsiArraylike<PsiBoolean>,
-		PsiLogical<PsiBitVector>
+		PsiLogical<PsiBitArray>
 {
-	public PsiBitVector()
+	public PsiBitArray()
 	{
 		this(new java.util.BitSet());
 	}
 
-	public PsiBitVector(final java.util.BitSet bitvector)
+	public PsiBitArray(final java.util.BitSet bitarray)
 	{
-		this.bitvector=bitvector;
+		this.bitarray=bitarray;
 	}
 
 	@Override
 	public String getTypeName()
 	{
-		return "bitvector";
+		return "bitarray";
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class PsiBitVector
 			throw new PsiRangeCheckException();
 		try
 		{
-			return PsiBoolean.valueOf(bitvector.get(index));
+			return PsiBoolean.valueOf(bitarray.get(index));
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -41,19 +41,19 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBitVector psiGetInterval(final PsiInteger oIndex, final PsiInteger oCount)
+	public PsiBitArray psiGetInterval(final PsiInteger oIndex, final PsiInteger oCount)
 		throws PsiException
 	{
-		int index=oIndex.intValue();
-		int count=oCount.intValue();
+		final int index=oIndex.intValue();
+		final int count=oCount.intValue();
 		if(index+count>size)
 			throw new PsiRangeCheckException();
 		try
 		{
-			final PsiBitVector newBitvector
-				=new PsiBitVector(bitvector.get(index, index+count));
-			newBitvector.size=count;
-			return newBitvector;
+			final PsiBitArray newBitArray
+				=new PsiBitArray(bitarray.get(index, index+count));
+			newBitArray.size=count;
+			return newBitArray;
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -69,7 +69,7 @@ public class PsiBitVector
 			throw new PsiRangeCheckException();
 		try
 		{
-			bitvector.set(index, oBoolean.booleanValue());
+			bitarray.set(index, oBoolean.booleanValue());
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -89,7 +89,7 @@ public class PsiBitVector
 			throw new PsiRangeCheckException();
 		for(PsiBoolean oBoolean: oIterable)
 		{
-			bitvector.set(index++, oBoolean.booleanValue());
+			bitarray.set(index++, oBoolean.booleanValue());
 			if(index==size)
 				break;
 		}
@@ -98,7 +98,7 @@ public class PsiBitVector
 	@Override
 	public void psiAppend(final PsiBoolean oBoolean)
 	{
-		bitvector.set(size++, oBoolean.booleanValue());
+		bitarray.set(size++, oBoolean.booleanValue());
 	}
 
 	@Override
@@ -106,8 +106,8 @@ public class PsiBitVector
 	{
 		size++;
 		for(int i=size-1; i>index; i--)
-			bitvector.set(i, bitvector.get(i-1));
-		bitvector.set(index, oBoolean.booleanValue());
+			bitarray.set(i, bitarray.get(i-1));
+		bitarray.set(index, oBoolean.booleanValue());
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class PsiBitVector
 		try
 		{
 			for(int i=index; i<size; i++)
-				bitvector.set(i-1, bitvector.get(i));
+				bitarray.set(i-1, bitarray.get(i));
 			size--;
 		}
 		catch(IndexOutOfBoundsException e)
@@ -132,9 +132,9 @@ public class PsiBitVector
 	{
 		try
 		{
-			PsiBoolean result=get(indexValue);
+			final PsiBoolean result=get(indexValue);
 			for(int i=indexValue; i<size; i++)
-				bitvector.set(i-1, bitvector.get(i));
+				bitarray.set(i-1, bitarray.get(i));
 			size--;
 			return result;
 		}
@@ -145,48 +145,48 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBitVector psiExtractInterval(final PsiInteger oStart, final PsiInteger oCount)
+	public PsiBitArray psiExtractInterval(final PsiInteger oStart, final PsiInteger oCount)
 		throws PsiException
 	{
-		final PsiBitVector oResult=psiGetInterval(oStart, oCount);
+		final PsiBitArray oResult=psiGetInterval(oStart, oCount);
 		int start=oStart.intValue();
 		int count=oCount.intValue();
 		for(int i=start+count; i<size; i++)
-			bitvector.set(i-count, bitvector.get(i));
+			bitarray.set(i-count, bitarray.get(i));
 		size-=count;
 		return oResult;
 	}
 
 	@Override
-	public PsiBitVector psiNot()
+	public PsiBitArray psiNot()
 	{
-		final java.util.BitSet result=(java.util.BitSet)bitvector.clone();
+		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
 		result.flip(0, result.size());
-		return new PsiBitVector(result);
+		return new PsiBitArray(result);
 	}
 
 	@Override
-	public PsiBitVector psiOr(final PsiBitVector oBitVector)
+	public PsiBitArray psiOr(final PsiBitArray oBitArray)
 	{
-		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
-		result.or(oBitVector.bitvector);
-		return new PsiBitVector(result);
+		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
+		result.or(oBitArray.bitarray);
+		return new PsiBitArray(result);
 	}
 
 	@Override
-	public PsiBitVector psiAnd(final PsiBitVector oBitVector)
+	public PsiBitArray psiAnd(final PsiBitArray oBitArray)
 	{
-		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
-		result.and(oBitVector.bitvector);
-		return new PsiBitVector(result);
+		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
+		result.and(oBitArray.bitarray);
+		return new PsiBitArray(result);
 	}
 
 	@Override
-	public PsiBitVector psiXor(final PsiBitVector oBitVector)
+	public PsiBitArray psiXor(final PsiBitArray oBitArray)
 	{
-		java.util.BitSet result=(java.util.BitSet)bitvector.clone();
-		result.xor(oBitVector.bitvector);
-		return new PsiBitVector(result);
+		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
+		result.xor(oBitArray.bitarray);
+		return new PsiBitArray(result);
 	}
 
 	public java.util.Iterator<PsiBoolean> iterator()
@@ -201,7 +201,7 @@ public class PsiBitVector
 				public PsiBoolean next()
 				{
 					//if(hasNext())
-						return PsiBoolean.valueOf(bitvector.get(index++));
+						return PsiBoolean.valueOf(bitarray.get(index++));
 					//else
 					//	throw new java.util.NoSuchElementException();
 				}
@@ -217,10 +217,10 @@ public class PsiBitVector
 	}
 
 	@Override
-	public PsiBitVector psiSlice(final PsiIterable<PsiInteger> oIndices)
+	public PsiBitArray psiSlice(final PsiIterable<PsiInteger> oIndices)
 		throws PsiException
 	{
-		final PsiBitVector oResult=new PsiBitVector();
+		final PsiBitArray oResult=new PsiBitArray();
 		for(PsiInteger oIndex: oIndices)
 			oResult.psiAppend(psiGet(oIndex));
 		return oResult;
@@ -237,25 +237,25 @@ public class PsiBitVector
 			throw new PsiLimitCheckException();
 		final int i=length();
 		if(length<i)
-			bitvector.clear((int)length, i);
+			bitarray.clear((int)length, i);
 		else
-			bitvector.clear(i, (int)length);
+			bitarray.clear(i, (int)length);
 		size=(int)length;
 	}
 
 	@Override
-	public PsiBitVector psiClone()
+	public PsiBitArray psiClone()
 	{
-		return new PsiBitVector((java.util.BitSet)bitvector.clone());
+		return new PsiBitArray((java.util.BitSet)bitarray.clone());
 	}
 
 	@Override
 	public void psiClear()
 	{
-		bitvector.clear();
+		bitarray.clear();
 	}
 
 
-	private final java.util.BitSet bitvector;
+	private final java.util.BitSet bitarray;
 	private int size;
 }

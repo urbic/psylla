@@ -62,8 +62,8 @@ core. Language extensions may introduce new object types.
 <itemizedlist>
 <title>Complex Types</title>
 <listitem><xref linkend="PsiReference_Types_Details_array" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsiReference_Types_Details_bitarray" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_bitset" xrefstyle="template:%t"/></listitem>
-<listitem><xref linkend="PsiReference_Types_Details_bitvector" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_dict" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_input" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsiReference_Types_Details_lock" xrefstyle="template:%t"/></listitem>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_bitarray">
+<title><token language="psi">bitarray</token></title>
+
+<synopsis>
+—
+<token language="psi">bitarray</token>
+<replaceable>bitarray</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>bitarray</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitarray"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+Returns a new empty <replaceable>bitarray</replaceable>.
+</para>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitset"/>.
+</formalpara>
+
+</section>

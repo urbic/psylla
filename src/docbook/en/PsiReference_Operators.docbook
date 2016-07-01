@@ -517,13 +517,13 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_bitset" xrefstyle="template:%t"/></term>
-<listitem>create an empty bit set</listitem>
+<term><xref linkend="PsiReference_Operators_Details_bitarray" xrefstyle="template:%t"/></term>
+<listitem>create an empty bit vector</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_bitvector" xrefstyle="template:%t"/></term>
-<listitem>create an empty bit vector</listitem>
+<term><xref linkend="PsiReference_Operators_Details_bitset" xrefstyle="template:%t"/></term>
+<listitem>create an empty bit set</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1463,9 +1463,9 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_begin;
 &PsiReference_Operators_Details_binarysearch;
 &PsiReference_Operators_Details_bind;
+&PsiReference_Operators_Details_bitarray;
 &PsiReference_Operators_Details_bitset;
 &PsiReference_Operators_Details_bitshift;
-&PsiReference_Operators_Details_bitvector;
 &PsiReference_Operators_Details_blockingqueue;
 &PsiReference_Operators_Details_capturegroup;
 &PsiReference_Operators_Details_capturegroupend;

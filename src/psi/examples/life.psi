@@ -2,7 +2,7 @@
 
 /width environment /COLUMNS get tointeger def
 /height environment /LINES get tointeger def
-/plane bitvector def
+/plane bitarray def
 
 /fget
 {
@@ -105,7 +105,7 @@ bind def
 
 /step
 {
-	/newplane bitvector def
+	/newplane bitarray def
 	0 1 //height 1 sub
 	{
 		0 1 //width 1 sub

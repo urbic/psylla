@@ -27,7 +27,7 @@ For <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_boolean"/> operands, returns the logical
 conjunction. For <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_bitvector"/> operands returns the bitwise
+linkend="PsiReference_Types_Details_bitarray"/> operands returns the bitwise
 conjunction.
 </para>
 

@@ -28,7 +28,7 @@ linkend="PsiReference_Types_Details_boolean"/>
 <replaceable>operands</replaceable> returns the logical
 <replaceable>exclusive_disjunction</replaceable>. For <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> or <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitvector"/>
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitarray"/>
 <replaceable>operands</replaceable> returns the bitwise <replaceable>exclusive
 disjunction</replaceable>.
 </para>

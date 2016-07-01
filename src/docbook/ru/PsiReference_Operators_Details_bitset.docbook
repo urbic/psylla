@@ -23,7 +23,7 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitvector"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitarray"/>.
 </formalpara>
 
 </section>

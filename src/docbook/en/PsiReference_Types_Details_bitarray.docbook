@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Types_Details_bitvector">
-<title><type>bitvector</type></title>
+<section xml:id="PsiReference_Types_Details_bitarray">
+<title><type>bitarray</type></title>
 
 <para>
 Битовый массив.
@@ -20,7 +20,7 @@
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="common/PsiTypesHierarchy_bitvector.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_bitarray.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

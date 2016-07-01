@@ -3,7 +3,9 @@
 <title><token language="psi">bitset</token></title>
 
 <synopsis>
-— <token language="psi">bitset</token> <replaceable>bit_set</replaceable>
+—
+<token language="psi">bitset</token>
+<replaceable>bit_set</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>bit_set</replaceable>:
@@ -23,7 +25,7 @@ none.
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitvector"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bitarray"/>.
 </formalpara>
 
 </section>
