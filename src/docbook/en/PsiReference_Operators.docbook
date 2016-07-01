@@ -558,6 +558,11 @@ key</listitem>
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_dequeue" xrefstyle="template:%t"/></term>
+<listitem>TODO</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_dict" xrefstyle="template:%t"/></term>
 <listitem>create an empty dictionary</listitem>
 </varlistentry>
@@ -570,6 +575,11 @@ key</listitem>
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_end" xrefstyle="template:%t"/></term>
 <listitem>pop the topmost dictionary from the dictionary stack</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_enqueue" xrefstyle="template:%t"/></term>
+<listitem>TODO</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -606,6 +616,11 @@ key</listitem>
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_getinterval" xrefstyle="template:%t"/></term>
 <listitem>fetch a subarray from an array</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_give" xrefstyle="template:%t"/></term>
+<listitem>TODO</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -727,6 +742,11 @@ container</listitem>
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_string" xrefstyle="template:%t"/></term>
 <listitem>create an empty string</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_take" xrefstyle="template:%t"/></term>
+<listitem>TODO</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1481,6 +1501,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_currentdirectory;
 &PsiReference_Operators_Details_def;
 &PsiReference_Operators_Details_deletefile;
+&PsiReference_Operators_Details_dequeue;
 &PsiReference_Operators_Details_dict;
 &PsiReference_Operators_Details_dictstack;
 &PsiReference_Operators_Details_dicttomark;
@@ -1488,6 +1509,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_dup;
 &PsiReference_Operators_Details_editline;
 &PsiReference_Operators_Details_end;
+&PsiReference_Operators_Details_enqueue;
 &PsiReference_Operators_Details_entries;
 &PsiReference_Operators_Details_environment;
 &PsiReference_Operators_Details_eol;
@@ -1523,6 +1545,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_get;
 &PsiReference_Operators_Details_getall;
 &PsiReference_Operators_Details_getinterval;
+&PsiReference_Operators_Details_give;
 &PsiReference_Operators_Details_grep;
 &PsiReference_Operators_Details_gt;
 &PsiReference_Operators_Details_halt;
@@ -1633,6 +1656,7 @@ flush output buffer</listitem>
 &PsiReference_Operators_Details_symlink;
 &PsiReference_Operators_Details_synchronized;
 &PsiReference_Operators_Details_systemdict;
+&PsiReference_Operators_Details_take;
 &PsiReference_Operators_Details_tan;
 &PsiReference_Operators_Details_tanh;
 &PsiReference_Operators_Details_testbit;

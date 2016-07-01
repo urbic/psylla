@@ -3,7 +3,7 @@
 <title><type>null</type></title>
 
 <para>
-The null type. The only object of this type serves as a placeholder in
+A null. The only object of this type serves as a placeholder in
 containers.
 </para>
 

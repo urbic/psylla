@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsiReference_Operators_Details_give">
+<title><token language="psi">give</token></title>
+
+<synopsis>
+<replaceable>очередь</replaceable>
+<replaceable>элемент</replaceable>
+<token language="psi">give</token>
+—
+<itemizedlist>
+<listitem>
+<replaceable>очередь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_queuelike"/>
+</listitem>
+<listitem>
+<replaceable>элемент</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dequeue"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_enqueue"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_take"/>.
+</formalpara>
+
+</section>
