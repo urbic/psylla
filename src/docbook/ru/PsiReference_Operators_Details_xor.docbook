@@ -25,9 +25,8 @@
 Для операндов типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_boolean"/> вычисляется логическая
 исключающая дизъюнкция. Для операндов типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> или типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitarray"/>
-вычисляется побитовая исключающая дизъюнкция.
+linkend="PsiReference_Types_Details_bitwise"/> вычисляется побитовая
+исключающая дизъюнкция.
 </para>
 
 <formalpara>

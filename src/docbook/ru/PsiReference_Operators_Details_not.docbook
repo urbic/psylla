@@ -24,8 +24,7 @@
 Для <replaceable>операндов</replaceable> типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_boolean"/> вычисляется логическое
 <replaceable>дополнение</replaceable>. Для операнда типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/> или
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitarray"/>
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitwise"/>
 вычисляется побитовое <replaceable>дополнение</replaceable>.
 </para>
 

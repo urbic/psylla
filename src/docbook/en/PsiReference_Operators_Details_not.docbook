@@ -24,8 +24,7 @@ Returns the <replaceable>complement</replaceable> of a
 For <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_boolean"/> operand, returns a logical
 <replaceable>complement</replaceable>. For <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> or <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_bitarray"/> operand, returns the bitwise
+linkend="PsiReference_Types_Details_bitwise"/> operand, returns the bitwise
 <replaceable>complement</replaceable>.
 </para>
 
