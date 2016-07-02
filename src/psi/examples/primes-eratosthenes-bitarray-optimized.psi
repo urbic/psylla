@@ -15,7 +15,7 @@
 		p toname say
 		p dup mul p //n
 		{
-			//sieve exch false put
+			//sieve exch //false put
 		}
 		for
 	}

@@ -6,7 +6,7 @@
 {
 	dict begin
 		/shuffle exch def
-		/flag false def
+		/flag //false def
 		0 1 shuffle length 1 sub
 		{
 			/i exch def
@@ -14,7 +14,7 @@
 			e i lt
 			{
 				shuffle i shuffle i get 1 add put
-				/flag true def
+				/flag //true def
 				shuffle
 				exit
 			}

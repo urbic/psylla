@@ -53,9 +53,9 @@ bind def
 				/k k 1 add def
 			}
 			loop
-			p true
+			p //true
 		}
-		{ false }
+		{ //false }
 		ifelse
 
 	end

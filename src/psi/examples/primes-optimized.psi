@@ -2,7 +2,7 @@
 
 /isprime
 {
-	true exch
+	//true exch
 	2 1 2 index
 	1 sub
 	{

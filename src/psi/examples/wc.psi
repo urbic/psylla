@@ -11,20 +11,20 @@
 		/words 0 def
 		/chars 0 def
 
-		/flag false def
+		/flag //false def
 
 		{
 			f read
 			{
 				/c exch def
 				/chars chars 1 add def
-				c 10 eq { /lines lines 1 add def } if
+				c `\n eq { /lines lines 1 add def } if
 				( 9 10 12 13 32 0xA0 ) c contains
 				{
 					flag { /words words 1 add def } if
-					/flag false def
+					/flag //false def
 				}
-				{ /flag true def }
+				{ /flag //true def }
 				ifelse
 			}
 			{ exit }
