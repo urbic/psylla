@@ -348,7 +348,7 @@ public class PsiInteger
 		return PsiInteger.valueOf(oShift.value>=0? value<<oShift.value: value>>(-oShift.value));
 	}
 
-	public PsiBoolean psiInUnicodeBlock(PsiStringy oStringy)
+	public PsiBoolean psiInUnicodeBlock(final PsiStringy oStringy)
 	{
 		return PsiBoolean.valueOf(Character.UnicodeBlock.of((int)value).equals(
 				Character.UnicodeBlock.forName(oStringy.stringValue())));
