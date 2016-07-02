@@ -49,4 +49,10 @@ linkend="PsiReference_Errors_Details_undefinedresult"/> when the
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_acos"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_asin"/>.
+</formalpara>
+
 </section>

@@ -38,9 +38,9 @@ linkend="PsiReference_Errors_Details_invalidexternal"/>, если класс н�
 
 <formalpara>
 &TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexternal"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexternal"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 <formalpara>

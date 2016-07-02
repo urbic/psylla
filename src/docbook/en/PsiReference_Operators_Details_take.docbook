@@ -4,9 +4,8 @@
 
 <synopsis>
 <replaceable>queue</replaceable>
-<replaceable>element</replaceable>
 <token language="psi">take</token>
-—
+<replaceable>element</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>queue</replaceable>:

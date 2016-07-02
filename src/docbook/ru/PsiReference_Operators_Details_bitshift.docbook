@@ -10,9 +10,12 @@
 <itemizedlist>
 <listitem>
 <replaceable>битовое</replaceable>,
-<replaceable>сдвиг</replaceable>,
 <replaceable>результат</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitwise"/>
+</listitem>
+<listitem>
+<replaceable>сдвиг</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </synopsis>
