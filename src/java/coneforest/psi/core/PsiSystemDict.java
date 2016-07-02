@@ -822,7 +822,7 @@ public class PsiSystemDict
 					("read",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final OperandStack ostack=interpreter.operandStackBacked(1);
 							final PsiInteger oCharacter=ostack.<PsiReadable>getBacked(0).psiRead();
 							boolean notEOF=(oCharacter!=PsiInteger.MINUS_ONE);
 							if(notEOF)
@@ -1086,17 +1086,12 @@ public class PsiSystemDict
 							final OperandStack ostack=interpreter.operandStackBacked(2);
 							final PsiObject o=ostack.getBacked(0);
 							final PsiObject oProc=ostack.getBacked(1);
-							///*
 							synchronized(o)
 							{
 								final int loopLevel=interpreter.pushLoopLevel();
 								oProc.invoke(interpreter);
 								interpreter.handleExecutionStack(loopLevel);
 							}
-							//*/
-							//final java.util.concurrent.locks.ReentrantLock lock
-							//	=new java.util.concurrent.locks.ReentrantLock();
-							//lock.lock();
 						}
 					),
 				new PsiOperator.Arity11<PsiQueuelike>
@@ -1110,7 +1105,6 @@ public class PsiSystemDict
 				new PsiOperator.Arity01
 					("time", Time::psiTime),
 				new PsiOperator.Arity11<PsiConvertableToInteger>
-					//("tointeger", (a)->((PsiConvertableToInteger)a).psiToInteger()),
 					("tointeger", PsiConvertableToInteger::psiToInteger),
 				new PsiOperator.Action
 					("tokens",
