@@ -140,7 +140,6 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_set;
 &PsiReference_Types_Details_setlike;
 &PsiReference_Types_Details_string;
-&PsiReference_Types_Details_stringlike;
 &PsiReference_Types_Details_stringreader;
 &PsiReference_Types_Details_stringwriter;
 &PsiReference_Types_Details_stringy;

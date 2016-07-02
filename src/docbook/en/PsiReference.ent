@@ -68,7 +68,6 @@
 <!ENTITY PsiReference_Types_Details_set					SYSTEM "PsiReference_Types_Details_set.docbook">
 <!ENTITY PsiReference_Types_Details_setlike				SYSTEM "PsiReference_Types_Details_setlike.docbook">
 <!ENTITY PsiReference_Types_Details_string				SYSTEM "PsiReference_Types_Details_string.docbook">
-<!ENTITY PsiReference_Types_Details_stringlike			SYSTEM "PsiReference_Types_Details_stringlike.docbook">
 <!ENTITY PsiReference_Types_Details_stringreader		SYSTEM "PsiReference_Types_Details_stringreader.docbook">
 <!ENTITY PsiReference_Types_Details_stringwriter		SYSTEM "PsiReference_Types_Details_stringwriter.docbook">
 <!ENTITY PsiReference_Types_Details_stringy				SYSTEM "PsiReference_Types_Details_stringy.docbook">

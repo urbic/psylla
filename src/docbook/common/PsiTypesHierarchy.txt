@@ -56,9 +56,8 @@ scalar: object
 setlike: appendable container
 set: setlike
 streamlike: object
-stringlike: arraylike stringy
 stringreader: reader
-string: stringlike
+string: arraylike stringy
 stringwriter: writer
 stringy: evaluable iterable lengthy scalar
 systemdict: module
