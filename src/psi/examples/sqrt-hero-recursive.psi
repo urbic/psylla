@@ -1,6 +1,18 @@
 #!/usr/bin/psylla
 
-/x arguments 0 get toreal def
+{
+	/x arguments 0 get toreal def
+	x 0 lt { stop } if
+}
+stopped
+{
+	script warn
+	': a non-negative number required!\n' warn
+	1 halt
+}
+if
+
+x iszero { '0' say quit } if
 
 /sqrt-hero
 {
