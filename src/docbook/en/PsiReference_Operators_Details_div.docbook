@@ -25,7 +25,7 @@ Returns the <replaceable>quotient</replaceable> of the division a
 <para>
 If both <replaceable>dividend</replaceable> and
 <replaceable>divisor</replaceable> are of type <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_numeric"/>, the
+linkend="PsiReference_Types_Details_realnumeric"/>, the
 <replaceable>quotient</replaceable> type is <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_real"/>. If the
 <replaceable>dividend</replaceable> or the <replaceable>divisor</replaceable>

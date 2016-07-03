@@ -14,7 +14,7 @@
 <replaceable>initial</replaceable>,
 <replaceable>increment</replaceable>,
 <replaceable>limit</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 <listitem>
 <replaceable>object</replaceable>:

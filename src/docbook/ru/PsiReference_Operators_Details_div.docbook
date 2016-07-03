@@ -18,7 +18,7 @@
 Возвращает <replaceable>частное</replaceable> при делении
 <replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
 Если оба операнда имеют тип <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_numeric"/>, тип результата будет <xref
+linkend="PsiReference_Types_Details_realnumeric"/>, тип результата будет <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>. Если
 хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_complex"/>, таким же будет тип результата.

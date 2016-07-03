@@ -3,7 +3,9 @@
 <title><type>numeric</type></title>
 
 <para>
-Базовый тип для целых или вещественных чисел.
+Тип объектов, которые могут рассматриваться как комплексные числа. Целый,
+вещественный, комплексный и большой целый типы являются производными от этого
+типа.
 </para>
 
 <formalpara>
@@ -11,9 +13,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>

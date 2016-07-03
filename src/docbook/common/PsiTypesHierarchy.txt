@@ -4,7 +4,7 @@ arithmetic: additive
 array: arraylike
 arraylike: appendable container indexed
 atomic: object
-biginteger: bitwise logical numeric
+biginteger: bitwise logical realnumeric
 bitarray: arraylike logical
 bitset: setlike
 bitwise: object
@@ -15,8 +15,7 @@ classloader: array
 clearable: object
 closeable: object
 command: name
-complex: complexnumeric
-complexnumeric: arithmetic atomic
+complex: numeric
 condition: object
 container: clearable iterable lengthy
 context: object
@@ -30,7 +29,7 @@ filewriter: writer
 flushable: object
 indexed: object
 input: closeable readable resettable
-integer: bitwise logical numeric
+integer: bitwise logical realnumeric
 iterable: object
 lengthy: object
 lock: object
@@ -40,7 +39,7 @@ matcher: object
 module: dict
 name: atomic stringy
 null: atomic
-numeric: complexnumeric scalar
+numeric: arithmetic atomic
 operator: atomic
 output: closeable flushable writable
 proc: array
@@ -49,7 +48,8 @@ queuelike: bounded container
 random: object
 readable: object
 reader: closeable evaluable readable resettable
-real: numeric
+real: realnumeric
+realnumeric: numeric scalar
 regexp: object
 resettable: object
 scalar: object

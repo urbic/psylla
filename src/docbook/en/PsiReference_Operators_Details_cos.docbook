@@ -10,7 +10,7 @@
 <listitem>
 <replaceable>number</replaceable>,
 <replaceable>cosine</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>

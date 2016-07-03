@@ -69,7 +69,6 @@ linkend="PsiReference_Errors_Details_typecheck"/> во время исполн�
 &PsiReference_Types_Details_closeable;
 &PsiReference_Types_Details_command;
 &PsiReference_Types_Details_complex;
-&PsiReference_Types_Details_complexnumeric;
 &PsiReference_Types_Details_condition;
 &PsiReference_Types_Details_container;
 &PsiReference_Types_Details_context;
@@ -135,6 +134,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_readable;
 &PsiReference_Types_Details_reader;
 &PsiReference_Types_Details_real;
+&PsiReference_Types_Details_realnumeric;
 &PsiReference_Types_Details_regexp;
 &PsiReference_Types_Details_resettable;
 &PsiReference_Types_Details_scalar;

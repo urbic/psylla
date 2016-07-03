@@ -5,7 +5,7 @@ package coneforest.psi.core;
 */
 public class PsiComplex
 	implements
-		PsiComplexNumeric
+		PsiNumeric
 {
 	public PsiComplex(final double re, final double im)
 	{
@@ -18,17 +18,17 @@ public class PsiComplex
 		this(re, 0.D);
 	}
 
-	public PsiComplex(final PsiNumeric re, final PsiNumeric im)
+	public PsiComplex(final PsiRealNumeric oRealPart, final PsiRealNumeric oImagPart)
 	{
-		this(re.doubleValue(), im.doubleValue());
+		this(oRealPart.doubleValue(), oImagPart.doubleValue());
 	}
 
-	public PsiComplex(final PsiNumeric oNumeric)
+	public PsiComplex(final PsiRealNumeric oNumeric)
 	{
 		this(oNumeric.doubleValue());
 	}
 
-	public PsiComplex(final PsiComplexNumeric oNumber)
+	public PsiComplex(final PsiNumeric oNumber)
 	{
 		this(oNumber.psiRealPart(), oNumber.psiImagPart());
 	}
@@ -100,30 +100,30 @@ public class PsiComplex
 	}
 
 	@Override
-	public PsiComplex psiAdd(final PsiComplexNumeric cn)
+	public PsiComplex psiAdd(final PsiNumeric oNumeric)
 	{
-		return new PsiComplex(re+cn.psiRealPart().doubleValue(), im+cn.psiImagPart().doubleValue());
+		return new PsiComplex(re+oNumeric.psiRealPart().doubleValue(), im+oNumeric.psiImagPart().doubleValue());
 	}
 
 	@Override
-	public PsiComplex psiSub(final PsiComplexNumeric cn)
+	public PsiComplex psiSub(final PsiNumeric oNumeric)
 	{
-		return new PsiComplex(re-cn.psiRealPart().doubleValue(), im-cn.psiImagPart().doubleValue());
+		return new PsiComplex(re-oNumeric.psiRealPart().doubleValue(), im-oNumeric.psiImagPart().doubleValue());
 	}
 
 	@Override
-	public PsiComplex psiMul(final PsiComplexNumeric cn)
+	public PsiComplex psiMul(final PsiNumeric oNumeric)
 	{
-		final double x=cn.psiRealPart().doubleValue();
-		final double y=cn.psiImagPart().doubleValue();
+		final double x=oNumeric.psiRealPart().doubleValue();
+		final double y=oNumeric.psiImagPart().doubleValue();
 		return new PsiComplex(re*x-im*y, im*x+re*y);
 	}
 
 	@Override
-	public PsiComplex psiDiv(final PsiComplexNumeric cn)
+	public PsiComplex psiDiv(final PsiNumeric oNumeric)
 	{
-		final double x=cn.psiRealPart().doubleValue();
-		final double y=cn.psiImagPart().doubleValue();
+		final double x=oNumeric.psiRealPart().doubleValue();
+		final double y=oNumeric.psiImagPart().doubleValue();
 		if(Math.abs(x)<Math.abs(y))
 		{
 			final double q=x/y;
@@ -223,7 +223,7 @@ public class PsiComplex
 		return psiSinh().psiDiv(psiCosh());
 	}
 
-	public static PsiComplex psiFromPolar(final PsiNumeric oAbs, final PsiNumeric oArg)
+	public static PsiComplex psiFromPolar(final PsiRealNumeric oAbs, final PsiRealNumeric oArg)
 	{
 		return psiFromPolar(oAbs.doubleValue(), oArg.doubleValue());
 	}

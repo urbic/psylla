@@ -33,7 +33,7 @@ public class TokensParser
 		}
 	}
 
-	private static PsiString parseStringToken(Token token)
+	private static PsiString parseStringToken(final Token token)
 		throws PsiSyntaxErrorException
 	{
 		final StringBuilder sb=new StringBuilder();
@@ -107,7 +107,7 @@ public class TokensParser
 		return new PsiString(sb);
 	}
 
-	private static PsiName parseNameQuotedToken(Token token)
+	private static PsiName parseNameQuotedToken(final Token token)
 		throws PsiSyntaxErrorException
 	{
 		final StringBuilder sb=new StringBuilder();
@@ -181,7 +181,7 @@ public class TokensParser
 		return new PsiName(sb.toString().intern());
 	}
 
-	private static PsiRegExp parseRegExpToken(Token token)
+	private static PsiRegExp parseRegExpToken(final Token token)
 		throws PsiException
 	{
 		final StringBuilder sb=new StringBuilder();
@@ -273,7 +273,7 @@ public class TokensParser
 		return new PsiRegExp(sb);
 	}
 
-	private static PsiNumeric parseIntegerToken(Token token)
+	private static PsiRealNumeric parseIntegerToken(final Token token)
 		throws PsiSyntaxErrorException
 	{
 		try
@@ -293,7 +293,7 @@ public class TokensParser
 		}
 	}
 
-	private static PsiInteger parseIntegerHexadecimalToken(Token token)
+	private static PsiInteger parseIntegerHexadecimalToken(final Token token)
 		throws PsiSyntaxErrorException
 	{
 		try
@@ -310,7 +310,7 @@ public class TokensParser
 		}
 	}
 
-	private static PsiInteger parseIntegerBinaryToken(Token token)
+	private static PsiInteger parseIntegerBinaryToken(final Token token)
 		throws PsiSyntaxErrorException
 	{
 		try
@@ -327,7 +327,7 @@ public class TokensParser
 		}
 	}
 
-	private static PsiInteger parseCharToken(Token token)
+	private static PsiInteger parseCharToken(final Token token)
 		throws PsiSyntaxErrorException
 	{
 		switch(token.image.charAt(1))

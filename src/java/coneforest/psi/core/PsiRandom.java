@@ -25,7 +25,7 @@ public class PsiRandom
 		random.setSeed(oSeed.longValue());
 	}
 
-	public PsiNumeric psiUniformDeviate(final PsiNumeric oNumeric)
+	public PsiRealNumeric psiUniformDeviate(final PsiRealNumeric oNumeric)
 		throws PsiException
 	{
 		if(oNumeric instanceof PsiReal)
@@ -53,7 +53,7 @@ public class PsiRandom
 		return PsiBoolean.valueOf(random.nextBoolean());
 	}
 
-	public PsiReal psiNormalDeviate(final PsiNumeric oNumeric)
+	public PsiReal psiNormalDeviate(final PsiRealNumeric oNumeric)
 	{
 		return new PsiReal(oNumeric.doubleValue()*random.nextGaussian());
 	}

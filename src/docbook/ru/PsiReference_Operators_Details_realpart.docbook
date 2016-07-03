@@ -5,21 +5,21 @@
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">realpart</token>
-<replaceable>вещественная_часть</replaceable>
+<replaceable>вещественная</replaceable>
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 <listitem>
-<replaceable>вещественная_часть</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<replaceable>вещественная</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>
 
 <para>
-Возвращает <replaceable>вещественную_часть</replaceable>
+Возвращает <replaceable>вещественную</replaceable> часть
 <replaceable>числа</replaceable>.
 </para>
 

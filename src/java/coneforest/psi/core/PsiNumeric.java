@@ -1,14 +1,13 @@
 package coneforest.psi.core;
 
 /**
-*	A representation of Ψ-{@code numeric}, an abstraction of real numbers.
+*	A representation of Ψ-{@code numeric}, an abstraction of complex and real
+*	numbers.
 */
 public interface PsiNumeric
 	extends
-		PsiComplexNumeric,
-		PsiConvertableToInteger,
-		PsiConvertableToReal,
-		PsiScalar<PsiNumeric>
+		PsiAtomic,
+		PsiArithmetic<PsiNumeric>
 {
 	/**
 	 *	@return a string {@code "numeric"}.
@@ -19,248 +18,182 @@ public interface PsiNumeric
 		return "numeric";
 	}
 
-	int intValue();
-
-	long longValue();
-
-	double doubleValue();
+	/**
+	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	 *	zero value.
+	 *
+	 *	@return {@link PsiBoolean#TRUE} if this object represents a zero value,
+	 *	and {@link PsiBoolean#FALSE} otherwise.
+	 */
+	public PsiBoolean psiIsZero();
 
 	/**
-	 *	@return this object.
+	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	 *	non-zero value.
+	 *
+	 *	@return {@link PsiBoolean#TRUE} if this object represents a non-zero value,
+	 *	and {@link PsiBoolean#FALSE} otherwise.
 	 */
-	default public PsiNumeric psiRealPart()
+	default public PsiBoolean psiNotZero()
 	{
-		return this;
+		return psiIsZero().psiNot();
 	}
 
 	/**
-	 *	@return this object.
+	 *	Returns a Ψ-{@code numeric} absolute value of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} absolute value.
 	 */
-	@Override
-	default PsiNumeric psiConjugate()
-	{
-		return this;
-	}
+	public PsiRealNumeric psiAbs();
 
-	@Override
-	default public PsiInteger psiToInteger()
+	/**
+	 *	Returns a Ψ-{@code numeric} real part of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} real part.
+	 */
+	public PsiRealNumeric psiRealPart();
+
+	/**
+	 *	Returns a Ψ-{@code numeric} imaginary part of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} imaginary part.
+	 */
+	public PsiRealNumeric psiImagPart();
+
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the complex argument of this
+	 *	object. The argument belongs to the range (−π; π].
+	 *
+	 *	@return a Ψ-{@code numeric} imaginary part.
+	 *	@throws PsiUndefinedResultException when this object represents a zero
+	 *	value.
+	 */
+	public PsiRealNumeric psiArg()
+		throws PsiUndefinedResultException;
+
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the complex conjugation
+	 *	of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} conjugate of this number.
+	 */
+	public PsiNumeric psiConjugate();
+
+	default public PsiNumeric psiPow(final PsiNumeric oNumeric)
 		throws PsiException
 	{
-		if(doubleValue()>=Long.MIN_VALUE
-				&& doubleValue()<=Long.MAX_VALUE)
-		{
-			return PsiInteger.valueOf(longValue());
-		}
-		else
-			throw new PsiRangeCheckException();
+		if(psiIsZero().booleanValue() && oNumeric.psiNotZero().booleanValue())
+			return this;
+		return psiLog().psiMul(oNumeric).psiExp();
 	}
 
-	@Override
-	default public PsiReal psiToReal()
-		throws PsiException
-	{
-		return new PsiReal(doubleValue());
-	}
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the exponent of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} exponent of this number.
+	 */
+	public PsiNumeric psiExp();
 
-	@Override
-	default public PsiReal psiArg()
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the cosine of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} cosine of this number.
+	 */
+	public PsiNumeric psiCos();
+
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the sine of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} sine of this number.
+	 */
+	public PsiNumeric psiSin();
+
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the tangent of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} tangent of this number.
+	 */
+	public PsiNumeric psiTan();
+
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the natural logarithm of this
+	 *	object.
+	 *
+	 *	@return a Ψ-{@code numeric} logarithm.
+	 *	@throws PsiUndefinedResultException when this object represents a zero
+	 *	value.
+	 */
+	public PsiNumeric psiLog()
+		throws PsiUndefinedResultException;
+
+	default public PsiNumeric psiAcos()
 		throws PsiUndefinedResultException
 	{
-		if(doubleValue()>0)
-			return PsiReal.ZERO;
-		else if(doubleValue()<0)
-			return PsiReal.PI;
-		else
-			throw new PsiUndefinedResultException();
+		return psiAdd(PsiComplex.ONE.psiSub(psiMul(this)).psiSqrt().psiMul(PsiComplex.I))
+				.psiLog().psiMul(PsiComplex.MINUS_I);
 	}
 
-	@Override
-	public PsiNumeric psiNeg();
-
-	public PsiComplexNumeric psiAdd(final PsiNumeric numeric);
-
-	@Override
-	default public PsiComplexNumeric psiAdd(final PsiComplexNumeric oNumber)
-	{
-		if(oNumber instanceof PsiNumeric)
-			return psiAdd((PsiNumeric)oNumber);
-		return new PsiComplex(this).psiAdd(oNumber);
-	}
-
-	public PsiComplexNumeric psiSub(final PsiNumeric oNumeric);
-
-	@Override
-	default public PsiComplexNumeric psiSub(final PsiComplexNumeric oNumber)
-	{
-		if(oNumber instanceof PsiNumeric)
-			return psiSub((PsiNumeric)oNumber);
-		return new PsiComplex(this).psiSub(oNumber);
-	}
-
-	public PsiComplexNumeric psiMul(final PsiNumeric oNumeric);
-
-	@Override
-	default public PsiComplexNumeric psiMul(final PsiComplexNumeric oNumber)
-	{
-		if(oNumber instanceof PsiNumeric)
-			return psiMul((PsiNumeric)oNumber);
-		return new PsiComplex(this).psiMul(oNumber);
-	}
-
-	default public PsiReal psiDiv(final PsiNumeric oNumeric)
-	{
-		return new PsiReal(doubleValue()/oNumeric.doubleValue());
-	}
-
-	@Override
-	default public PsiComplexNumeric psiDiv(final PsiComplexNumeric oNumber)
-	{
-		if(oNumber instanceof PsiNumeric)
-			return psiDiv((PsiNumeric)oNumber);
-		return new PsiComplex(this).psiDiv(oNumber);
-	}
-
-	@Override
-	public PsiNumeric psiAbs();
-
-	@Override
-	default public PsiComplexNumeric psiSqrt()
-	{
-		if(doubleValue()>=0.D)
-			return new PsiReal(Math.sqrt(doubleValue()));
-		else
-			return new PsiComplex(0.D, Math.sqrt(-doubleValue()));
-	}
-
-	@Override
-	default public PsiComplexNumeric psiCbrt()
-	{
-		return new PsiReal(Math.cbrt(doubleValue()));
-	}
-
-	@Override
-	default public PsiReal psiExp()
-	{
-		return new PsiReal(Math.exp(doubleValue()));
-	}
-
-	@Override
-	default public PsiComplexNumeric psiLog()
+	default public PsiNumeric psiAsin()
 		throws PsiUndefinedResultException
 	{
-		if(doubleValue()>0.D)
-			return new PsiReal(Math.log(doubleValue()));
-		else if(doubleValue()<0.D)
-			return new PsiComplex((PsiNumeric)psiAbs().psiLog(), new PsiReal(Math.PI));
-		else
-			throw new PsiUndefinedResultException();
+		return new PsiComplex(Math.PI/2.D).psiSub(psiAcos());
 	}
 
-	@Override
-	default public PsiReal psiCos()
-	{
-		return new PsiReal(Math.cos(doubleValue()));
-	}
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the arc tangent of this
+	 *	object.
+	 *
+	 *	@return a Ψ-{@code numeric} arcc tangent.
+	 *	@throws PsiUndefinedResultException when this object represents an
+	 *	unadmissible value for arc tangent.
+	 */
+	public PsiNumeric psiAtan()
+		throws PsiUndefinedResultException;
 
-	@Override
-	default public PsiReal psiSin()
-	{
-		return new PsiReal(Math.sin(doubleValue()));
-	}
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the square root of this
+	 *	object.
+	 *
+	 *	@return a Ψ-{@code numeric} square root of this number.
+	 */
+	public PsiNumeric psiSqrt();
 
-	@Override
-	default public PsiReal psiTan()
-	{
-		return new PsiReal(Math.tan(doubleValue()));
-	}
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the cubic root of this object.
+	 *
+	 *	@return a Ψ-{@code numeric} cubic root of this number.
+	 */
+	public PsiNumeric psiCbrt();
 
-	@Override
-	default public PsiReal psiCosh()
-	{
-		return new PsiReal(Math.cosh(doubleValue()));
-	}
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the hyperbolic cosine of this
+	 *	object.
+	 *
+	 *	@return a Ψ-{@code numeric} hyperbolic cosine of this number.
+	 */
+	public PsiNumeric psiCosh();
 
-	@Override
-	default public PsiReal psiSinh()
-	{
-		return new PsiReal(Math.sinh(doubleValue()));
-	}
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the hyperbolic sine of this
+	 *	object.
+	 *
+	 *	@return a Ψ-{@code numeric} hyperbolic sine of this number.
+	 */
+	public PsiNumeric psiSinh();
 
-	@Override
-	default public PsiReal psiTanh()
-	{
-		return new PsiReal(Math.tanh(doubleValue()));
-	}
-
-	@Override
-	default public PsiReal psiAcos()
-	{
-		return new PsiReal(Math.acos(doubleValue()));
-	}
-
-	@Override
-	default public PsiReal psiAsin()
-	{
-		return new PsiReal(Math.asin(doubleValue()));
-	}
-
-	@Override
-	default public PsiReal psiAtan()
-	{
-		return new PsiReal(Math.atan(doubleValue()));
-	}
-
-	default public PsiReal psiHypot(PsiNumeric oNumeric)
-	{
-		return new PsiReal(Math.hypot(doubleValue(), oNumeric.doubleValue()));
-	}
-
-	public PsiNumeric psiFloor();
-
-	public PsiNumeric psiRound();
-
-	public PsiNumeric psiCeiling();
+	/**
+	 *	Returns a Ψ-{@code numeric} representing the hyperbolic tangent of this
+	 *	object.
+	 *
+	 *	@return a Ψ-{@code numeric} hyperbolic tangent of this number.
+	 */
+	public PsiNumeric psiTanh();
 
 	@Override
 	default public PsiBoolean psiEq(final PsiObject o)
 	{
 		return PsiBoolean.valueOf(o instanceof PsiNumeric
-				&& doubleValue()==((PsiNumeric)o).doubleValue());
-	}
-
-	/**
-	 *	“Less” arithmetic comparison.
-	 */
-	@Override
-	default public PsiBoolean psiLt(final PsiNumeric oNumeric)
-	{
-		return PsiBoolean.valueOf(doubleValue()<oNumeric.doubleValue());
-	}
-
-	/**
-	 *	“Less or equal” arithmetic comparison.
-	 */
-	@Override
-	default public PsiBoolean psiLe(final PsiNumeric oNumeric)
-	{
-		return PsiBoolean.valueOf(doubleValue()<=oNumeric.doubleValue());
-	}
-
-	/**
-	 *	“Greater” arithmetic comparison.
-	 */
-	@Override
-	default public PsiBoolean psiGt(final PsiNumeric oNumeric)
-	{
-		return PsiBoolean.valueOf(doubleValue()>oNumeric.doubleValue());
-	}
-
-	/**
-	 *	“Greater or equal” arithmetic comparison.
-	 */
-	@Override
-	default public PsiBoolean psiGe(final PsiNumeric oNumeric)
-	{
-		return PsiBoolean.valueOf(doubleValue()>=oNumeric.doubleValue());
+				&& psiRealPart().psiEq(((PsiNumeric)o).psiRealPart()).booleanValue()
+				&& psiImagPart().psiEq(((PsiNumeric)o).psiImagPart()).booleanValue());
 	}
 }

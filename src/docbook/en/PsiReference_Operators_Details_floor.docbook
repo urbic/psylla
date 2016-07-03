@@ -10,7 +10,7 @@
 <listitem>
 <replaceable>number</replaceable>,
 <replaceable>floor</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Types_Details_real">
-<title><type>real</type></title>
+<section xml:id="PsiReference_Types_Details_realnumeric">
+<title><type>realnumeric</type></title>
 
 <para>
-Вещественный тип.
+Базовый тип для целых или вещественных чисел.
 </para>
 
 <formalpara>
@@ -13,12 +13,11 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="common/PsiTypesHierarchy_real.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_realnumeric.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

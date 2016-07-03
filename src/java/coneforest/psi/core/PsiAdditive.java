@@ -28,7 +28,7 @@ public interface PsiAdditive<T extends PsiAdditive>
 	public T psiNeg();
 
 	/**
-	*	Returns a Ψ-{@code object} representing the result of arithmetic
+	*	Returns a Ψ-{@code additive} representing the result of arithmetic
 	*	addition of given object to this object.
 	*
 	*	@param oAdditive given object.
@@ -37,7 +37,7 @@ public interface PsiAdditive<T extends PsiAdditive>
 	public T psiAdd(final T oAdditive);
 
 	/**
-	*	Returns a Ψ-{@code object} representing the result of arithmetic
+	*	Returns a Ψ-{@code additive} representing the result of arithmetic
 	*	subtraction of given object from this object.
 	*
 	*	@param oAdditive given object.

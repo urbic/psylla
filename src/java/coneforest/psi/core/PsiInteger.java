@@ -7,7 +7,7 @@ public class PsiInteger
 	implements
 		PsiBitwise,
 		PsiLogical<PsiInteger>,
-		PsiNumeric
+		PsiRealNumeric
 {
 	public PsiInteger(final long value)
 	{
@@ -84,14 +84,14 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiNumeric psiNeg()
+	public PsiRealNumeric psiNeg()
 	{
 		return value!=Long.MIN_VALUE?
 			PsiInteger.valueOf(-value): new PsiReal(-(double)value);
 	}
 
 	@Override
-	public PsiInteger psiCmp(final PsiNumeric oNumeric)
+	public PsiInteger psiCmp(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiInteger)
 			return value<((PsiInteger)oNumeric).value? MINUS_ONE:
@@ -102,7 +102,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiNumeric psiAbs()
+	public PsiRealNumeric psiAbs()
 	{
 		if(value>0L)
 			return this;
@@ -156,7 +156,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiNumeric psiAdd(final PsiNumeric oNumeric)
+	public PsiRealNumeric psiAdd(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiInteger)
 		{
@@ -173,7 +173,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiNumeric psiSub(final PsiNumeric oNumeric)
+	public PsiRealNumeric psiSub(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiInteger)
 		{
@@ -190,7 +190,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiNumeric psiMul(final PsiNumeric oNumeric)
+	public PsiRealNumeric psiMul(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiInteger)
 		{
@@ -225,7 +225,7 @@ public class PsiInteger
 
 	/*
 	@Override
-	public PsiNumeric psiPow(final PsiInteger integer)
+	public PsiRealNumeric psiPow(final PsiInteger integer)
 	{
 		double resultValue=Math.pow(value, integer.doubleValue());
 		if(resultValue>=Long.MIN_VALUE && resultValue<=Long.MAX_VALUE)
@@ -236,7 +236,7 @@ public class PsiInteger
 
 	/*
 	@Override
-	public PsiNumeric psiPow(final PsiComplexNumeric cn)
+	public PsiRealNumeric psiPow(final PsiNumeric cn)
 	{
 		double resultValue=Math.pow(value, cn.doubleValue());
 		if(numeric instanceof PsiInteger
@@ -253,7 +253,7 @@ public class PsiInteger
 
 	/*
 	@Override
-	public PsiComplexNumeric psiPow(final PsiComplexNumeric cn)
+	public PsiNumeric psiPow(final PsiNumeric cn)
 		throws PsiException
 	{
 		if(cn instanceof PsiInteger)

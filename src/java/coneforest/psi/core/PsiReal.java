@@ -4,7 +4,7 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code real} object.
 */
 public class PsiReal
-	implements PsiNumeric
+	implements PsiRealNumeric
 {
 	public PsiReal(final double value)
 	{
@@ -69,19 +69,19 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiComplexNumeric psiAdd(final PsiNumeric oNumeric)
+	public PsiNumeric psiAdd(final PsiRealNumeric oNumeric)
 	{
 		return new PsiReal(value+oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsiComplexNumeric psiSub(final PsiNumeric oNumeric)
+	public PsiNumeric psiSub(final PsiRealNumeric oNumeric)
 	{
 		return new PsiReal(value-oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsiComplexNumeric psiMul(final PsiNumeric oNumeric)
+	public PsiNumeric psiMul(final PsiRealNumeric oNumeric)
 	{
 		return new PsiReal(value*oNumeric.doubleValue());
 	}
@@ -119,7 +119,7 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiInteger psiCmp(final PsiNumeric oNumeric)
+	public PsiInteger psiCmp(final PsiRealNumeric oNumeric)
 	{
 		final int result=Double.compare(value, oNumeric.doubleValue());
 		return result<0? PsiInteger.MINUS_ONE:

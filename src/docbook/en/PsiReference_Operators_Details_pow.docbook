@@ -12,7 +12,7 @@
 <replaceable>base</replaceable>,
 <replaceable>exponent</replaceable>,
 <replaceable>power</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>

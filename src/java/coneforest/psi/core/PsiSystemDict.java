@@ -9,10 +9,10 @@ public class PsiSystemDict
 	{
 		registerOperators
 			(
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("abs", PsiComplexNumeric::psiAbs),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("acos", PsiComplexNumeric::psiAcos),
+				new PsiOperator.Arity11<PsiNumeric>
+					("abs", PsiNumeric::psiAbs),
+				new PsiOperator.Arity11<PsiNumeric>
+					("acos", PsiNumeric::psiAcos),
 				new PsiOperator.Arity21<PsiAdditive, PsiAdditive>
 					("add", PsiAdditive::psiAdd),
 				new PsiOperator.Arity21<PsiLogical, PsiLogical>
@@ -21,8 +21,8 @@ public class PsiSystemDict
 					("append", PsiAppendable::psiAppend),
 				new PsiOperator.Arity20<PsiAppendable, PsiIterable>
 					("appendall", PsiAppendable::psiAppendAll),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("arg", PsiComplexNumeric::psiArg),
+				new PsiOperator.Arity11<PsiNumeric>
+					("arg", PsiNumeric::psiArg),
 				new PsiOperator.Arity01
 					("array", PsiArray::new),
 				new PsiOperator.Action
@@ -38,8 +38,8 @@ public class PsiSystemDict
 							ostack.push(oArray);
 						}
 					),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("asin", PsiComplexNumeric::psiAsin),
+				new PsiOperator.Arity11<PsiNumeric>
+					("asin", PsiNumeric::psiAsin),
 				new PsiOperator.Action
 					("astore",
 						(interpreter)->
@@ -54,8 +54,8 @@ public class PsiSystemDict
 							ostack.push(oArray);
 						}
 					),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("atan", PsiComplexNumeric::psiAtan),
+				new PsiOperator.Arity11<PsiNumeric>
+					("atan", PsiNumeric::psiAtan),
 				new PsiOperator.Action
 					("begin",
 						(interpreter)->
@@ -138,10 +138,10 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity11<PsiMatcher>
 					("capturegroupcount", PsiMatcher::psiCaptureGroupCount),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("cbrt", PsiComplexNumeric::psiCbrt),
 				new PsiOperator.Arity11<PsiNumeric>
-					("ceiling", PsiNumeric::psiCeiling),
+					("cbrt", PsiNumeric::psiCbrt),
+				new PsiOperator.Arity11<PsiRealNumeric>
+					("ceiling", PsiRealNumeric::psiCeiling),
 				new PsiOperator.Arity10<PsiClearable>
 					("clear", PsiClearable::psiClear),
 				new PsiOperator.Arity21<PsiBitwise, PsiInteger>
@@ -164,14 +164,14 @@ public class PsiSystemDict
 					("close", PsiCloseable::psiClose),
 				new PsiOperator.Arity21<PsiScalar, PsiScalar>
 					("cmp", PsiScalar::psiCmp),
-				new PsiOperator.Arity21<PsiNumeric, PsiNumeric>
+				new PsiOperator.Arity21<PsiRealNumeric, PsiRealNumeric>
 					("complex", PsiComplex::new),
-				new PsiOperator.Arity21<PsiNumeric, PsiNumeric>
+				new PsiOperator.Arity21<PsiRealNumeric, PsiRealNumeric>
 					("complexpolar", PsiComplex::psiFromPolar),
 				new PsiOperator.Arity11<PsiLock>
 					("condition", PsiLock::psiCondition),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("conjugate", PsiComplexNumeric::psiConjugate),
+				new PsiOperator.Arity11<PsiNumeric>
+					("conjugate", PsiNumeric::psiConjugate),
 				new PsiOperator.Arity21<PsiSetlike, PsiObject>
 					("contains", PsiSetlike::psiContains),
 				//new PsiOperator.Arity21
@@ -192,10 +192,10 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity20<PsiStringy, PsiStringy>
 					("copyfile", FileSystem::psiCopyFile),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("cos", PsiComplexNumeric::psiCos),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("cosh", PsiComplexNumeric::psiCosh),
+				new PsiOperator.Arity11<PsiNumeric>
+					("cos", PsiNumeric::psiCos),
+				new PsiOperator.Arity11<PsiNumeric>
+					("cosh", PsiNumeric::psiCosh),
 				new PsiOperator.Action
 					("countdictstack",
 						(interpreter)->
@@ -359,8 +359,8 @@ public class PsiSystemDict
 							interpreter.executionStack().setSize(interpreter.popLoopLevel());
 						}
 					),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("exp", PsiComplexNumeric::psiExp),
+				new PsiOperator.Arity11<PsiNumeric>
+					("exp", PsiNumeric::psiExp),
 				new PsiOperator.Action
 					("external",
 						(interpreter)->
@@ -437,8 +437,8 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity21<PsiBitwise, PsiInteger>
 					("flipbit", PsiBitwise::psiFlipBit),
-				new PsiOperator.Arity11<PsiNumeric>
-					("floor", PsiNumeric::psiFloor),
+				new PsiOperator.Arity11<PsiRealNumeric>
+					("floor", PsiRealNumeric::psiFloor),
 				new PsiOperator.Arity10<PsiFlushable>
 					("flush", PsiFlushable::psiFlush),
 				new PsiOperator.Action
@@ -447,9 +447,9 @@ public class PsiSystemDict
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(4);
 							final ExecutionStack estack=interpreter.executionStack();
-							final PsiNumeric oInitial=ostack.getBacked(0);
-							final PsiNumeric oIncrement=ostack.getBacked(1);
-							final PsiNumeric oLimit=ostack.getBacked(2);
+							final PsiRealNumeric oInitial=ostack.getBacked(0);
+							final PsiRealNumeric oIncrement=ostack.getBacked(1);
+							final PsiRealNumeric oLimit=ostack.getBacked(2);
 							final PsiObject oProc=ostack.getBacked(3);
 
 							interpreter.pushLoopLevel();
@@ -457,7 +457,7 @@ public class PsiSystemDict
 							estack.push(forward?
 									new PsiOperator("#for_continue")
 									{
-										private PsiNumeric oCounter=oInitial;
+										private PsiRealNumeric oCounter=oInitial;
 
 										@Override
 										public void action(final Interpreter interpreter1)
@@ -468,14 +468,14 @@ public class PsiSystemDict
 											{
 												estack.push(this);
 												ostack.push(oCounter);
-												oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
+												oCounter=(PsiRealNumeric)oCounter.psiAdd(oIncrement);
 												oProc.invoke(interpreter1);
 											}
 										}
 									}:
 									new PsiOperator("#for_continue")
 									{
-										private PsiNumeric oCounter=oInitial;
+										private PsiRealNumeric oCounter=oInitial;
 
 										@Override
 										public void action(final Interpreter interpreter1)
@@ -486,7 +486,7 @@ public class PsiSystemDict
 											{
 												estack.push(this);
 												ostack.push(oCounter);
-												oCounter=(PsiNumeric)oCounter.psiAdd(oIncrement);
+												oCounter=(PsiRealNumeric)oCounter.psiAdd(oIncrement);
 												oProc.invoke(interpreter1);
 											}
 										}
@@ -556,8 +556,8 @@ public class PsiSystemDict
 					("hardlink", FileSystem::psiHardLink),
 				new PsiOperator.Arity11<PsiObject>
 					("hashcode", PsiObject::psiHashCode),
-				new PsiOperator.Arity21<PsiNumeric, PsiNumeric>
-					("hypot", PsiNumeric::psiHypot),
+				new PsiOperator.Arity21<PsiRealNumeric, PsiRealNumeric>
+					("hypot", PsiRealNumeric::psiHypot),
 				new PsiOperator.Arity21<PsiInteger, PsiInteger>
 					("idiv", PsiInteger::psiIdiv),
 				new PsiOperator.Action
@@ -578,8 +578,8 @@ public class PsiSystemDict
 									.invoke(interpreter);
 						}
 					),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("imagpart", PsiComplexNumeric::psiImagPart),
+				new PsiOperator.Arity11<PsiNumeric>
+					("imagpart", PsiNumeric::psiImagPart),
 				new PsiOperator.Action
 					("index",
 						(interpreter)->
@@ -626,8 +626,8 @@ public class PsiSystemDict
 					("issamefile", FileSystem::psiIsSameFile),
 				new PsiOperator.Arity11<PsiStringy>
 					("issymlink", FileSystem::psiIsSymLink),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("iszero", PsiComplexNumeric::psiIsZero),
+				new PsiOperator.Arity11<PsiNumeric>
+					("iszero", PsiNumeric::psiIsZero),
 				new PsiOperator.Action
 					("join",
 						(interpreter)->
@@ -661,8 +661,8 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity01
 					("lock", PsiLock::new),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("log", PsiComplexNumeric::psiLog),
+				new PsiOperator.Arity11<PsiNumeric>
+					("log", PsiNumeric::psiLog),
 				new PsiOperator.Action
 					("loop",
 						(interpreter)->
@@ -741,22 +741,22 @@ public class PsiSystemDict
 					("ne", PsiObject::psiNe),
 				new PsiOperator.Arity11<PsiAdditive>
 					("neg", PsiAdditive::psiNeg),
-				new PsiOperator.Arity21<PsiRandom, PsiNumeric>
+				new PsiOperator.Arity21<PsiRandom, PsiRealNumeric>
 					("normaldeviate", PsiRandom::psiNormalDeviate),
 				new PsiOperator.Arity11<PsiLogical>
 					("not", PsiLogical::psiNot),
 				new PsiOperator.Arity10<PsiCondition>
 					("notify", PsiCondition::psiNotify),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("notzero", PsiComplexNumeric::psiNotZero),
+				new PsiOperator.Arity11<PsiNumeric>
+					("notzero", PsiNumeric::psiNotZero),
 				new PsiOperator.Arity21<PsiLogical, PsiLogical>
 					("or", PsiLogical::psiOr),
 				new PsiOperator.Arity10<PsiObject>
 					("pop", (a)->{}),
 				new PsiOperator.Arity11<PsiArraylike>
 					("postchop", PsiArraylike::psiPostChop),
-				new PsiOperator.Arity21<PsiComplexNumeric, PsiComplexNumeric>
-					("pow", PsiComplexNumeric::psiPow),
+				new PsiOperator.Arity21<PsiNumeric, PsiNumeric>
+					("pow", PsiNumeric::psiPow),
 				new PsiOperator.Arity11<PsiArraylike>
 					("prechop", PsiArraylike::psiPreChop),
 				new PsiOperator.Arity20<PsiArraylike, PsiObject>
@@ -859,8 +859,8 @@ public class PsiSystemDict
 					("ready", PsiReadable::psiReady),
 				new PsiOperator.Arity11<PsiStringy>
 					("regexp", PsiRegExp::new),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("realpart", PsiComplexNumeric::psiRealPart),
+				new PsiOperator.Arity11<PsiNumeric>
+					("realpart", PsiNumeric::psiRealPart),
 				new PsiOperator.Arity20<PsiSetlike, PsiObject>
 					("remove", PsiSetlike::psiRemove),
 				new PsiOperator.Arity20<PsiSetlike, PsiIterable>
@@ -931,8 +931,8 @@ public class PsiSystemDict
 								ostack.add(ostackSize-n, ostack.pop());
 						}
 					),
-				new PsiOperator.Arity11<PsiNumeric>
-					("round", PsiNumeric::psiRound),
+				new PsiOperator.Arity11<PsiRealNumeric>
+					("round", PsiRealNumeric::psiRound),
 				new PsiOperator.Action
 					("say",
 						(interpreter)->
@@ -982,12 +982,12 @@ public class PsiSystemDict
 								);
 						}
 					),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("signum", PsiComplexNumeric::psiSignum),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("sin", PsiComplexNumeric::psiSin),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("sinh", PsiComplexNumeric::psiSinh),
+				new PsiOperator.Arity11<PsiNumeric>
+					("signum", PsiNumeric::psiSignum),
+				new PsiOperator.Arity11<PsiNumeric>
+					("sin", PsiNumeric::psiSin),
+				new PsiOperator.Arity11<PsiNumeric>
+					("sinh", PsiNumeric::psiSinh),
 				new PsiOperator.Arity21<PsiReadable, PsiInteger>
 					("skip", PsiReadable::psiSkip),
 				new PsiOperator.Arity10<PsiInteger>
@@ -1020,8 +1020,8 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity21<PsiStringy, PsiRegExp>
 					("split", PsiStringy::psiSplit),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("sqrt", PsiComplexNumeric::psiSqrt),
+				new PsiOperator.Arity11<PsiNumeric>
+					("sqrt", PsiNumeric::psiSqrt),
 				new PsiOperator.Action
 					("stack",
 						(interpreter)->
@@ -1096,10 +1096,10 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity11<PsiQueuelike>
 					("take", PsiQueuelike::psiTake),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("tan", PsiComplexNumeric::psiTan),
-				new PsiOperator.Arity11<PsiComplexNumeric>
-					("tanh", PsiComplexNumeric::psiTanh),
+				new PsiOperator.Arity11<PsiNumeric>
+					("tan", PsiNumeric::psiTan),
+				new PsiOperator.Arity11<PsiNumeric>
+					("tanh", PsiNumeric::psiTanh),
 				new PsiOperator.Arity21<PsiBitwise, PsiInteger>
 					("testbit", PsiBitwise::psiTestBit),
 				new PsiOperator.Arity01
@@ -1126,7 +1126,7 @@ public class PsiSystemDict
 					("undef", PsiDictlike::psiUndef),
 				new PsiOperator.Arity11<PsiRandom>
 					("uniformboolean", PsiRandom::psiUniformBoolean),
-				new PsiOperator.Arity21<PsiRandom, PsiNumeric>
+				new PsiOperator.Arity21<PsiRandom, PsiRealNumeric>
 					("uniformdeviate", PsiRandom::psiUniformDeviate),
 				new PsiOperator.Arity21<PsiIterable, PsiStringy>
 					("unite", PsiIterable::psiUnite),

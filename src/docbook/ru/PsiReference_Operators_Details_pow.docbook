@@ -12,7 +12,7 @@
 <replaceable>основание</replaceable>,
 <replaceable>показатель</replaceable>,
 <replaceable>степень</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complexnumeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </synopsis>

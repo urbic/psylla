@@ -4,7 +4,7 @@ public class PsiBigInteger
 	implements
 		PsiBitwise,
 		PsiLogical<PsiBigInteger>,
-		PsiNumeric
+		PsiRealNumeric
 {
 	public PsiBigInteger(final java.math.BigInteger value)
 	{
@@ -124,7 +124,7 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiNumeric psiMul(final PsiNumeric oNumeric)
+	public PsiRealNumeric psiMul(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiBigInteger)
 			return new PsiBigInteger(value.multiply(((PsiBigInteger)oNumeric).value));
@@ -134,7 +134,7 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiNumeric psiSub(final PsiNumeric oNumeric)
+	public PsiRealNumeric psiSub(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiBigInteger)
 			return new PsiBigInteger(value.subtract(((PsiBigInteger)oNumeric).value));
@@ -144,7 +144,7 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiNumeric psiAdd(final PsiNumeric oNumeric)
+	public PsiRealNumeric psiAdd(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiBigInteger)
 			return new PsiBigInteger(value.add(((PsiBigInteger)oNumeric).value));
@@ -178,7 +178,7 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiInteger psiCmp(final PsiNumeric oNumeric)
+	public PsiInteger psiCmp(final PsiRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsiBigInteger)
 			return PsiInteger.valueOf(value.compareTo(((PsiBigInteger)oNumeric).value));

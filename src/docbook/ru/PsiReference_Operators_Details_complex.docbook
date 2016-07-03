@@ -11,7 +11,7 @@
 <listitem>
 <replaceable>вещественная</replaceable>,
 <replaceable>мнимая</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 <listitem>
 <replaceable>число</replaceable>:
