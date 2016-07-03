@@ -37,7 +37,7 @@ public class PsiComplex
 	*	@return a string {@code "complex"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "complex";
 	}

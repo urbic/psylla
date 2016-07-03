@@ -9,7 +9,7 @@ public interface PsiAtomic
 	*	@return a string {@code "atomic"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "atomic";
 	}

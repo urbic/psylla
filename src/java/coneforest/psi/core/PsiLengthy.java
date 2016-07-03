@@ -11,7 +11,7 @@ public interface PsiLengthy
 	/**
 	*	@return a string {@code "lengthy"}.
 	*/
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "lengthy";
 	}

@@ -15,7 +15,7 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 	*	@return a string {@code "arithmetic"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "arithmetic";
 	}

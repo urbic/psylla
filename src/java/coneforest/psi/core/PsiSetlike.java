@@ -16,7 +16,7 @@ public interface PsiSetlike<T extends PsiObject>
 	*	@return a string {@code "setlike"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "setlike";
 	}
@@ -139,7 +139,7 @@ public interface PsiSetlike<T extends PsiObject>
 			for(PsiObject obj: this)
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==oLengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
+					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsiLengthy)obj).toSyntaxString());
 				else
 					sb.append(obj.toSyntaxString());
 				sb.append(' ');

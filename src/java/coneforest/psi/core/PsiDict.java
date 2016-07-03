@@ -17,10 +17,10 @@ public class PsiDict
 	}
 
 	/**
-	*	@return a string {@code "lengthy"}.
+	*	@return a string {@code "dict"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "dict";
 	}

@@ -18,7 +18,7 @@ public class PsiInteger
 	*	@return a string {@code "integer"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "integer";
 	}

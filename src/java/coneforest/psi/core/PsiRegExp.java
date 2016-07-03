@@ -28,7 +28,7 @@ public class PsiRegExp
 	/**
 	*	@return a string {@code "regexp"}.
 	*/
-	public String getTypeName()
+	public String typeName()
 	{
 		return "regexp";
 	}

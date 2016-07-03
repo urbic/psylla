@@ -11,7 +11,7 @@ public interface PsiWritable
 	*	@return a string {@code "writable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "writable";
 	}

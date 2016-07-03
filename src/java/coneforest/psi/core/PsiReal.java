@@ -15,7 +15,7 @@ public class PsiReal
 	*	@return a string {@code "real"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "real";
 	}

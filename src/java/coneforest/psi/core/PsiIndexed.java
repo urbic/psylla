@@ -14,7 +14,7 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	*	@return a string {@code "indexed"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "indexed";
 	}

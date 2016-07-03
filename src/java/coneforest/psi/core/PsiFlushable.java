@@ -11,7 +11,7 @@ public interface PsiFlushable
 	*	@return a string {@code "flushable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "flushable";
 	}

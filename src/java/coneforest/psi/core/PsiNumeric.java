@@ -14,7 +14,7 @@ public interface PsiNumeric
 	 *	@return a string {@code "numeric"}.
 	 */
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "numeric";
 	}

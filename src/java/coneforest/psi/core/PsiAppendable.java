@@ -13,7 +13,7 @@ public interface PsiAppendable<T extends PsiObject>
 	*	@return a string {@code "appendable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "appendable";
 	}

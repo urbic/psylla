@@ -17,7 +17,7 @@ public class PsiBoolean
 	*	@return a string {@code "boolean"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "boolean";
 	}

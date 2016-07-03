@@ -15,7 +15,7 @@ public interface PsiDictlike<V extends PsiObject>
 	 *	@return a string {@code "dictlike"}.
 	 */
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "dictlike";
 	}
@@ -215,7 +215,7 @@ public interface PsiDictlike<V extends PsiObject>
 			for(PsiObject obj: this.psiEntries())
 			{
 				if(obj instanceof PsiLengthy)
-					sb.append(obj==oLengthy? "-"+obj.getTypeName()+"-": ((PsiLengthy)obj).toSyntaxString());
+					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsiLengthy)obj).toSyntaxString());
 				else
 					sb.append(obj.toSyntaxString());
 				sb.append(' ');

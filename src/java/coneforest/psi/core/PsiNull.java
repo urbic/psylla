@@ -15,7 +15,7 @@ public final class PsiNull
 	*	@return a string {@code "null"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "null";
 	}

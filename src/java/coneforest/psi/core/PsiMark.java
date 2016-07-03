@@ -13,7 +13,7 @@ public final class PsiMark
 	/**
 	*	@return a string {@code "mark"}.
 	*/
-	public String getTypeName()
+	public String typeName()
 	{
 		return "mark";
 	}

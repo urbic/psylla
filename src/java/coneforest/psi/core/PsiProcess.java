@@ -63,6 +63,12 @@ public class PsiProcess
 		}
 	}
 
+	@Override
+	public String typeName()
+	{
+		return "process";
+	}
+
 	public PsiReader psiProcessReader()
 	{
 		return new PsiReader(new java.io.BufferedReader(
@@ -92,12 +98,6 @@ public class PsiProcess
 		{
 			throw new PsiInvalidStateException();
 		}
-	}
-
-	@Override
-	public String getTypeName()
-	{
-		return "process";
 	}
 
 	private Process process;

@@ -13,7 +13,7 @@ public interface PsiScalar<T extends PsiScalar>
 	*	@return a string {@code "scalar"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "scalar";
 	}

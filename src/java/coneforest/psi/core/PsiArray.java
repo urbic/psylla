@@ -26,7 +26,7 @@ public class PsiArray
 	*	@return a string {@code "real"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "array";
 	}

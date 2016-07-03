@@ -22,7 +22,7 @@ public class PsiBlockingQueue
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "blockingqueue";
 	}

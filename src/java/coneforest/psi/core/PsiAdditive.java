@@ -14,7 +14,7 @@ public interface PsiAdditive<T extends PsiAdditive>
 	*	@return a string {@code "additive"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "additive";
 	}

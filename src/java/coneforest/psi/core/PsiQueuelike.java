@@ -15,7 +15,7 @@ public interface PsiQueuelike<T extends PsiObject>
 	 *	@return a string {@code "queuelike"}.
 	 */
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "queuelike";
 	}

@@ -11,7 +11,7 @@ public interface PsiReadable
 	*	@return a string {@code "readable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "readable";
 	}

@@ -14,7 +14,7 @@ public class PsiStringReader
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "stringreader";
 	}

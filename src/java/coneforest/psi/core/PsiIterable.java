@@ -16,7 +16,7 @@ public interface PsiIterable<T extends PsiObject>
 	 *	@return a string {@code "iterable"}.
 	 */
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "iterable";
 	}

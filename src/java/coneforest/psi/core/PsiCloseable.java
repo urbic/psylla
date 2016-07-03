@@ -11,7 +11,7 @@ public interface PsiCloseable
 	*	@return a string {@code "closeable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "closeable";
 	}

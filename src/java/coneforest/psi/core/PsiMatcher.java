@@ -103,7 +103,7 @@ public class PsiMatcher
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "matcher";
 	}

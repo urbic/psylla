@@ -22,7 +22,7 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "biginteger";
 	}

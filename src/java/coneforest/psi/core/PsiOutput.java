@@ -13,7 +13,7 @@ public class PsiOutput
 		setOutput(output);
 	}
 
-	public String getTypeName()
+	public String typeName()
 	{
 		return "output";
 	}

@@ -5,7 +5,7 @@ public class PsiProc
 	extends PsiArray
 {
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "proc";
 	}

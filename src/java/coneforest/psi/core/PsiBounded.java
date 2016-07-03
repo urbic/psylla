@@ -12,7 +12,7 @@ public interface PsiBounded
 	 *	@return a string {@code "bounded"}.
 	 */
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "bounded";
 	}

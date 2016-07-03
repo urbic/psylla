@@ -15,7 +15,7 @@ public interface PsiStringy
 		PsiScalar<PsiStringy>
 {
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "stringy";
 	}

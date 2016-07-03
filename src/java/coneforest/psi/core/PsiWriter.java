@@ -16,7 +16,7 @@ public class PsiWriter
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "writer";
 	}

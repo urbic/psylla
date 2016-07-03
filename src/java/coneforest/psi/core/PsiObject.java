@@ -14,14 +14,14 @@ public interface PsiObject
 	*
 	*	@return a string {@code "object"}.
 	*/
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "object";
 	}
 
 	default public PsiName psiType()
 	{
-		return new PsiName(getTypeName());
+		return new PsiName(typeName());
 	}
 
 	/**
@@ -95,7 +95,7 @@ public interface PsiObject
 
 	default public String toSyntaxString()
 	{
-		return "-"+getTypeName()+"-";
+		return "-"+typeName()+"-";
 	}
 
 	// TODO

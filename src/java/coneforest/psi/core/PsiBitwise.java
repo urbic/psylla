@@ -12,7 +12,7 @@ public interface PsiBitwise
 	*	@return a string {@code "bitwise"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "bitwise";
 	}

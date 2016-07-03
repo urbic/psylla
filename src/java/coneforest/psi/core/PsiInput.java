@@ -12,7 +12,7 @@ public class PsiInput
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "input";
 	}

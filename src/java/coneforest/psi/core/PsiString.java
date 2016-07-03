@@ -27,7 +27,7 @@ public class PsiString
 	*	@return a string {@code "string"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "string";
 	}

@@ -14,7 +14,7 @@ public interface PsiLogical<T extends PsiLogical>
 	*	@return a string {@code "logical"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "logical";
 	}

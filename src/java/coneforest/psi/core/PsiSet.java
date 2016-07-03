@@ -20,7 +20,7 @@ public class PsiSet
 	*	@return a string {@code "set"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "set";
 	}

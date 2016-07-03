@@ -7,7 +7,7 @@ public interface PsiContainer<T extends PsiObject>
 		PsiLengthy
 {
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "container";
 	}

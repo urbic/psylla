@@ -30,7 +30,7 @@ public class PsiBitSet
 	*	@return a string {@code "bitset"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "bitset";
 	}

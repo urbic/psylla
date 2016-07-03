@@ -9,7 +9,7 @@ public class PsiCondition
 	/**
 	*	@return a string {@code "condition"}.
 	*/
-	public String getTypeName()
+	public String typeName()
 	{
 		return "condition";
 	}

@@ -9,7 +9,7 @@ public class PsiLock
 	/**
 	*	@return a string {@code "lock"}.
 	*/
-	public String getTypeName()
+	public String typeName()
 	{
 		return "lock";
 	}

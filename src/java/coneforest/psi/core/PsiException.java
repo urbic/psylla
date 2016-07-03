@@ -8,20 +8,20 @@ abstract public class PsiException
 	{
 	}
 
-	public PsiException(PsiObject oEmitter)
+	public PsiException(final PsiObject oEmitter)
 	{
 		setEmitter(oEmitter);
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "exception";
 	}
 
 	abstract public String getName();
 
-	public void setEmitter(PsiObject oEmitter)
+	public void setEmitter(final PsiObject oEmitter)
 	{
 		this.emitter=oEmitter;
 	}

@@ -11,13 +11,13 @@ public interface PsiClearable
 	*	@return a string {@code "clearable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "clearable";
 	}
 
 	/**
-	 *	Clear this object.
-	 */
+	*	Clear this object.
+	*/
 	public void psiClear();
 }

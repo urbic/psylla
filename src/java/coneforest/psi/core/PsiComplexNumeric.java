@@ -13,7 +13,7 @@ public interface PsiComplexNumeric
 	 *	@return a string {@code "complexnumeric"}.
 	 */
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "complexnumeric";
 	}

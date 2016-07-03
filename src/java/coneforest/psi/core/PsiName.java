@@ -33,7 +33,7 @@ public class PsiName
 	 *	@return a {@code "name"} string.
 	 */
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "name";
 	}

@@ -10,7 +10,7 @@ public interface PsiContext
 	*	@return a string {@code "context"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "context";
 	}

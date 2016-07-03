@@ -16,7 +16,7 @@ public abstract class PsiOperator
 	*	@return a string {@code "operator"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "operator";
 	}

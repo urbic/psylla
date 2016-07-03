@@ -11,7 +11,7 @@ public interface PsiResettable
 	*	@return a string {@code "resettable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "resettable";
 	}

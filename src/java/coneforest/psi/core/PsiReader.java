@@ -30,7 +30,7 @@ public class PsiReader
 	}
 
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "reader";
 	}

@@ -12,7 +12,7 @@ public interface PsiEvaluable
 	*	@return a string {@code "evaluable"}.
 	*/
 	@Override
-	default public String getTypeName()
+	default public String typeName()
 	{
 		return "evaluable";
 	}
@@ -24,6 +24,6 @@ public interface PsiEvaluable
 	*	@throws PsiException when an error occurs durind evaluation of this
 	*	object.
 	*/
-	public void eval(Interpreter interpreter)
+	public void eval(final Interpreter interpreter)
 		throws PsiException;
 }

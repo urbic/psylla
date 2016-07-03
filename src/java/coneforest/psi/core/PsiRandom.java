@@ -10,7 +10,7 @@ public class PsiRandom
 	*	@return a string {@code "random"}.
 	*/
 	@Override
-	public String getTypeName()
+	public String typeName()
 	{
 		return "random";
 	}
