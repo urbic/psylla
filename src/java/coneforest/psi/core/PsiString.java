@@ -4,8 +4,9 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code string} object.
 */
 public class PsiString
-	implements PsiStringy,
-	PsiArraylike<PsiInteger>
+	implements
+		PsiStringy,
+		PsiArraylike<PsiInteger>
 {
 	public PsiString()
 	{
@@ -14,7 +15,7 @@ public class PsiString
 
 	public PsiString(final String string)
 	{
-		buffer=new StringBuilder(string);
+		this(new StringBuilder(string));
 	}
 
 	public PsiString(final StringBuilder buffer)
@@ -319,10 +320,9 @@ public class PsiString
 	public String toSyntaxString()
 	{
 		final StringBuilder sb=new StringBuilder();
-		final String string=stringValue();
-		for(int i=0; i<string.length(); i++)
+		for(int i=0; i<buffer.length(); i++)
 		{
-			final char c=string.charAt(i);
+			final char c=buffer.charAt(i);
 			switch(c)
 			{
 				case '\u0000':
