@@ -4,7 +4,8 @@
 	<!-- Properties -->
 	<property name="project.name" value="${ant.project.name}"/>
 	<property name="src" location="src"/>
-	<property name="src.java" location="${src}/java"/>
+	<property name="src.main" location="${src}/main"/>
+	<property name="src.main.java" location="${src.main}/java"/>
 	<property name="src.jj" location="${src}/jj"/>
 	<property name="src.psi" location="${src}/psi"/>
 	<property name="src.docbook" location="${src}/docbook"/>
@@ -15,7 +16,8 @@
 	<property name="src.mime" location="${src}/mime"/>
 	<property name="src.logo" location="${src}/logo"/>
 	<property name="target" location="target"/>
-	<property name="target.src.java" location="${target}/src/java"/>
+	<property name="target.src.main" location="${target}/src/main"/>
+	<property name="target.src.main.java" location="${target.src.main}/java"/>
 	<property name="target.doc" location="${target}/doc"/>
 	<property name="target.doc.apidocs"  location="${target.doc}/apidocs"/>
 	<property name="target.classes" location="${target}/classes"/>
@@ -33,7 +35,7 @@
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 	</path>
-	<property file="${src.java}/coneforest/psi/Version.properties" prefix="project"/>
+	<property file="${src.main.java}/coneforest/psi/Version.properties" prefix="project"/>
 	<property
 		name="project.version"
 		value="${project.version.major}.${project.version.minor}.${project.version.revision}"
@@ -45,10 +47,10 @@
 	<import file="${src.ant}/obs.ant"/>
 
 	<target name="compile.jj">
-		<mkdir dir="${target.src.java}/coneforest/psi"/>
+		<mkdir dir="${target.src.main.java}/coneforest/psi"/>
 		<javacc
 			target="${src.jj}/coneforest/psi/Parser.jj"
-			outputdirectory="${target.src.java}/coneforest/psi"
+			outputdirectory="${target.src.main.java}/coneforest/psi"
 			javacchome="/usr/share/java"
 			unicodeinput="true"
 			static="false"
@@ -59,7 +61,7 @@
 			description="compile the source">
 		<mkdir dir="${target.classes}"/>
 		<javac
-			srcdir="${src.java}:${target.src.java}"
+			srcdir="${src.main.java}:${target.src.main.java}"
 			destdir="${target.classes}"
 			source="1.8"
 			target="1.8"
@@ -72,7 +74,7 @@
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 		<native2ascii
-			src="${src.java}"
+			src="${src.main.java}"
 			encoding="UTF-8"
 			dest="${target.classes}"
 			includes="**/*.properties"
@@ -90,7 +92,7 @@
 	
 	<target name="apidocs" depends="jar">
 		<javadoc
-			sourcepath="${src.java}"
+			sourcepath="${src.main.java}"
 			destdir="${target.doc.apidocs}"
 			classpathref="project.classpath"
 			access="public"
