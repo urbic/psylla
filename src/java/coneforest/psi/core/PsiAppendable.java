@@ -2,7 +2,7 @@ package coneforest.psi.core;
 
 /**
 *	A representation of Ψ-{@code appendable}, a type of container that allow to
-*	append (usually to the end, if it makes sense) Ψ objects.
+*	append Ψ objects (usually to the end, if it makes sense).
 *
 *	@param <T> a type of Ψ-{@code object}s being appended.
 */
@@ -31,7 +31,7 @@ public interface PsiAppendable<T extends PsiObject>
 	*	Appends all the Ψ-{@code object}s from a given Ψ-{@code iterable}
 	*	enumeration to this container. When a given enumeration is the same as
 	*	this container, first clone the enumeration, and then appends all the
-	*	elements from the clone.
+	*	elements from the clone to avoid concurrent modification.
 	*
 	*	@param oEnumeration a Ψ-{@code iterable} enumeration.
 	*	@throws PsiException when an error occurs.

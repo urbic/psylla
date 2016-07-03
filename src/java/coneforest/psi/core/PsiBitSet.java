@@ -1,9 +1,9 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code bitset}, a set of nonnegative Ψ-{@code
- *	integer} objects.
- */
+*	A representation of Ψ-{@code bitset}, a set of nonnegative Ψ-{@code
+*	integer} objects.
+*/
 public class PsiBitSet
 	implements PsiSetlike<PsiInteger>
 {

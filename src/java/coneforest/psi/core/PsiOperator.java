@@ -2,8 +2,8 @@ package coneforest.psi.core;
 import coneforest.psi.*;
 
 /**
- *	A representation of Ψ-{@code operator} object.
- */
+*	A representation of Ψ-{@code operator} object.
+*/
 public abstract class PsiOperator
 	implements PsiAtomic
 {
@@ -13,8 +13,8 @@ public abstract class PsiOperator
 	}
 
 	/**
-	 *	@return a string {@code "operator"}.
-	 */
+	*	@return a string {@code "operator"}.
+	*/
 	@Override
 	public String getTypeName()
 	{
@@ -22,9 +22,9 @@ public abstract class PsiOperator
 	}
 
 	/**
-	 *	Execute this object in the context of the interpreter.  Calls {@link
-	 *	#invoke(Interpreter)} method.
-	 */
+	*	Execute this object in the context of the interpreter.  Calls {@link
+	*	#invoke(Interpreter)} method.
+	*/
 	@Override
 	public void execute(final Interpreter interpreter)
 	{
@@ -32,9 +32,9 @@ public abstract class PsiOperator
 	}
 
 	/**
-	 *	Invoke this object in the context of the interpreter performing
-	 *	an action associated with it.
-	 */
+	*	Invoke this object in the context of the interpreter performing
+	*	an action associated with it.
+	*/
 	@Override
 	public void invoke(final Interpreter interpreter)
 	{
@@ -61,13 +61,13 @@ public abstract class PsiOperator
 		throws ClassCastException, PsiException;
 
 	/**
-	 *	Returns a syntatctic string representation of this operator.
-	 *	A syntatctic representation has a form of
-	 *	<code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a
-	 *	string returned by {@link #getName()} method.
-	 *
-	 *	@return a syntatctic string representation of a name of this operator.
-	 */
+	*	Returns a syntatctic string representation of this operator.
+	*	A syntatctic representation has a form of
+	*	<code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a
+	*	string returned by {@link #getName()} method.
+	*
+	*	@return a syntatctic string representation of a name of this operator.
+	*/
 	@Override
 	public String toSyntaxString()
 	{
@@ -75,12 +75,12 @@ public abstract class PsiOperator
 	}
 
 	/**
-	 *	Returns a name of this operator. A name returned is an operator’s
-	 *	simple class name with first character (underscore) discarded. This
-	 *	method must be overriden when using another naming scheme.
-	 *
-	 *	@return a name.
-	 */
+	*	Returns a name of this operator. A name returned is an operator’s
+	*	simple class name with first character (underscore) discarded. This
+	*	method must be overriden when using another naming scheme.
+	*
+	*	@return a name.
+	*/
 	public String getName()
 	{
 		return name;

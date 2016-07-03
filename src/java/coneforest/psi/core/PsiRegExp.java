@@ -1,8 +1,8 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code regexp} object.
- */
+*	A representation of Ψ-{@code regexp} object.
+*/
 public class PsiRegExp
 	implements PsiObject
 {
@@ -26,8 +26,8 @@ public class PsiRegExp
 	}
 
 	/**
-	 *	@return a string {@code "regexp"}.
-	 */
+	*	@return a string {@code "regexp"}.
+	*/
 	public String getTypeName()
 	{
 		return "regexp";

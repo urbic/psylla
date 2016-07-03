@@ -1,8 +1,8 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code mark} object.
- */
+*	A representation of Ψ-{@code mark} object.
+*/
 public final class PsiMark
 	implements PsiAtomic
 {
@@ -11,8 +11,8 @@ public final class PsiMark
 	}
 
 	/**
-	 *	@return a string {@code "mark"}.
-	 */
+	*	@return a string {@code "mark"}.
+	*/
 	public String getTypeName()
 	{
 		return "mark";
@@ -25,7 +25,7 @@ public final class PsiMark
 	}
 
 	/**
-	 *	A sole Ψ-{@code mark} object.
-	 */
+	*	A sole Ψ-{@code mark} object.
+	*/
 	public static final PsiMark MARK=new PsiMark();
 }

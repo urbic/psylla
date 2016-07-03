@@ -1,8 +1,8 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code complex} object.
- */
+*	A representation of Ψ-{@code complex} object.
+*/
 public class PsiComplex
 	implements
 		PsiComplexNumeric
@@ -34,8 +34,8 @@ public class PsiComplex
 	}
 
 	/**
-	 *	@return a string {@code "complex"}.
-	 */
+	*	@return a string {@code "complex"}.
+	*/
 	@Override
 	public String getTypeName()
 	{

@@ -2,15 +2,15 @@ package coneforest.psi;
 import coneforest.psi.core.*;
 
 /**
- *	An interpreter class.
- */
+*	An interpreter class.
+*/
 public class Interpreter
 	extends Thread
 	implements PsiContext
 {
 	/**
-	 *	Creates new Ψ language interpreter.
-	 */
+	*	Creates new Ψ language interpreter.
+	*/
 	public Interpreter()
 	{
 		try
@@ -38,10 +38,10 @@ public class Interpreter
 	}
 
 	/**
-	 *	Returns operand stack.
-	 *
-	 *	@return an operand stack.
-	 */
+	*	Returns operand stack.
+	*
+	*	@return an operand stack.
+	*/
 	public OperandStack operandStack()
 	{
 		return ostack;
@@ -55,20 +55,20 @@ public class Interpreter
 	}
 
 	/**
-	 *	Returns dictionary stack.
-	 *
-	 *	@return a dictionary stack.
-	 */
+	*	Returns dictionary stack.
+	*
+	*	@return a dictionary stack.
+	*/
 	public DictStack dictStack()
 	{
 		return dstack;
 	}
 
 	/**
-	 *	Returns execution stack.
-	 *
-	 *	@return an execution stack.
-	 */
+	*	Returns execution stack.
+	*
+	*	@return an execution stack.
+	*/
 	public ExecutionStack executionStack()
 	{
 		return estack;
@@ -87,40 +87,40 @@ public class Interpreter
 	}
 
 	/**
-	 *	Returns current dictionary.
-	 *
-	 *	@return a current dictionary.
-	 */
+	*	Returns current dictionary.
+	*
+	*	@return a current dictionary.
+	*/
 	public PsiDictlike getCurrentDict()
 	{
 		return dstack.peek();
 	}
 
 	/**
-	 *	Returns system dictionary.
-	 *
-	 *	@return a system dictionary.
-	 */
+	*	Returns system dictionary.
+	*
+	*	@return a system dictionary.
+	*/
 	public PsiDictlike getSystemDict()
 	{
 		return dstack.get(0);
 	}
 
 	/**
-	 *	Returns global dictionary.
-	 *
-	 *	@return a global dictionary.
-	 */
+	*	Returns global dictionary.
+	*
+	*	@return a global dictionary.
+	*/
 	public PsiDictlike getGlobalDict()
 	{
 		return dstack.get(1);
 	}
 
 	/**
-	 *	Returns user dictionary.
-	 *
-	 *	@return user dictionary.
-	 */
+	*	Returns user dictionary.
+	*
+	*	@return user dictionary.
+	*/
 	public PsiDictlike getUserDict()
 	{
 		return dstack.get(2);

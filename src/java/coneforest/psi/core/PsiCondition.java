@@ -1,24 +1,24 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code condition} object.
- */
+*	A representation of Ψ-{@code condition} object.
+*/
 public class PsiCondition
 	implements PsiObject
 {
 	/**
-	 *	@return a string {@code "condition"}.
-	 */
+	*	@return a string {@code "condition"}.
+	*/
 	public String getTypeName()
 	{
 		return "condition";
 	}
 
 	/**
-	 *	Constructs a Ψ-{@code condition} object that wraps given condition.
-	 *
-	 * 	@param condition a condition.
-	 */
+	*	Constructs a Ψ-{@code condition} object that wraps given condition.
+	*
+	* 	@param condition a condition.
+	*/
 	public PsiCondition(final java.util.concurrent.locks.Condition condition)
 	{
 		this.condition=condition;
@@ -30,10 +30,10 @@ public class PsiCondition
 	}
 
 	/**
-	 *	Causes the current context to wait until it is notified or interrupted.
-	 *
-	 *	@throws PsiException when current context is interrupted.
-	 */
+	*	Causes the current context to wait until it is notified or interrupted.
+	*
+	*	@throws PsiInterruptException when current context is interrupted.
+	*/
 	public void psiWait()
 		throws PsiException
 	{

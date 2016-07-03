@@ -2,8 +2,8 @@ package coneforest.psi;
 import coneforest.psi.core.*;
 
 /**
- *	An interpreter’s dictionary stack.
- */
+*	An interpreter’s dictionary stack.
+*/
 public class DictStack
 	extends Stack<PsiDictlike<PsiObject>>
 {
@@ -31,7 +31,7 @@ public class DictStack
 		return load(oKey.stringValue());
 	}
 
-	public PsiDictlike where(String key)
+	public PsiDictlike where(final String key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
@@ -42,12 +42,12 @@ public class DictStack
 		return null;
 	}
 
-	public PsiDictlike where(PsiStringy oKey)
+	public PsiDictlike where(final PsiStringy oKey)
 	{
 		return where(oKey.stringValue());
 	}
 
-	public void store(String key, PsiObject o)
+	public void store(final String key, final PsiObject o)
 	{
 		PsiDictlike oDict=where(key);
 		if(oDict==null)

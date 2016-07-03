@@ -2,8 +2,8 @@ package coneforest.psi;
 import coneforest.psi.core.*;
 
 /**
- *	An interpreter’s operand stack.
- */
+*	An interpreter’s operand stack.
+*/
 public class OperandStack extends Stack<PsiObject>
 {
 	public <T extends PsiObject> T getBacked(final int index)

@@ -1,25 +1,28 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code dictionary} object.
- */
+*	A representation of Ψ-{@code dict}, a dictionary.
+*/
 public class PsiDict
 	implements PsiDictlike<PsiObject>
 {
-	@Override
-	public String getTypeName()
-	{
-		return "dict";
-	}
-
 	public PsiDict()
 	{
-		this.dictionary=new java.util.HashMap<String, PsiObject>();
+		this.dict=new java.util.HashMap<String, PsiObject>();
 	}
 
 	public PsiDict(final PsiDict oDict)
 	{
-		this.dictionary=(java.util.HashMap<String, PsiObject>)oDict.dictionary.clone();
+		this.dict=(java.util.HashMap<String, PsiObject>)oDict.dict.clone();
+	}
+
+	/**
+	*	@return a string {@code "lengthy"}.
+	*/
+	@Override
+	public String getTypeName()
+	{
+		return "dict";
 	}
 
 	@Override
@@ -32,7 +35,7 @@ public class PsiDict
 	public PsiObject get(final String key)
 		throws PsiException
 	{
-		final PsiObject result=dictionary.get(key);
+		final PsiObject result=dict.get(key);
 		if(result!=null)
 			return result;
 		else
@@ -42,51 +45,43 @@ public class PsiDict
 	@Override
 	public void put(final String key, final PsiObject o)
 	{
-		dictionary.put(key, o);
+		dict.put(key, o);
 	}
 
 	@Override
 	public void undef(final String key)
 	{
-		dictionary.remove(key);
+		dict.remove(key);
 	}
 
 	@Override
 	public boolean known(final String key)
 	{
-		return dictionary.containsKey(key);
+		return dict.containsKey(key);
 	}
-
-	/*
-	@Override
-	public java.util.Iterator<java.util.Map.Entry<String, PsiObject>> iterator()
-	{
-		return dictionary.entrySet().iterator();
-	}
-	*/
 
 	@Override
 	public java.util.Iterator<PsiObject> iterator()
 	{
-		return dictionary.values().iterator();
+		return dict.values().iterator();
 	}
 
 	@Override
 	public int length()
 	{
-		return dictionary.size();
+		return dict.size();
 	}
 
 	@Override
 	public boolean isEmpty()
 	{
-		return dictionary.isEmpty();
+		return dict.isEmpty();
 	}
 
 	@Override
 	public void psiClear()
 	{
-		dictionary.clear();
+		dict.clear();
 	}
 
 	@Override
@@ -122,11 +117,11 @@ public class PsiDict
 							}
 
 							private final java.util.Iterator<String> parentIterator
-								=dictionary.keySet().iterator();
+								=dict.keySet().iterator();
 						};
 				}
 			};
 	}
 
-	private final java.util.HashMap<String, PsiObject> dictionary;
+	private final java.util.HashMap<String, PsiObject> dict;
 }

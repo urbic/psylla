@@ -1,8 +1,14 @@
 package coneforest.psi.core;
 
+/**
+*	A representation of Ψ-{@code context}, an execution context.
+*/
 public interface PsiContext
 	extends PsiObject
 {
+	/**
+	*	@return a string {@code "context"}.
+	*/
 	@Override
 	default public String getTypeName()
 	{
@@ -23,7 +29,7 @@ public interface PsiContext
 		{
 			join();
 		}
-		catch(InterruptedException e)
+		catch(final InterruptedException e)
 		{
 			throw new PsiInterruptException();
 		}
@@ -35,6 +41,14 @@ public interface PsiContext
 		return "-context:"+getId()+"-";
 	}
 
+	/**
+	*	Causes the currently executing context to sleep for the specified
+	*	number of milliseconds.
+	*
+	*	@param oDuration the duration to sleep for in milliseconds.
+	*	@throws PsiRangeCheckException when the duration is negative.
+	*	@throws PsiInterruptException TODO.
+	*/
 	public static void psiSleep(final PsiInteger oDuration)
 		throws PsiException
 	{
@@ -52,6 +66,11 @@ public interface PsiContext
 		}
 	}
 
+	/**
+	*	Returns the currently executing context.
+	*
+	*	@return the currently executing context.
+	*/
 	public static PsiContext psiCurrentContext()
 	{
 		return (PsiContext)Thread.currentThread();

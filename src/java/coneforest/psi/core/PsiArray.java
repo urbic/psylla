@@ -2,8 +2,8 @@ package coneforest.psi.core;
 import coneforest.psi.*;
 
 /**
- *	A representation of Ψ-{@code array} object.
- */
+*	A representation of Ψ-{@code array} object.
+*/
 public class PsiArray
 	implements PsiArraylike<PsiObject>
 {
@@ -23,8 +23,8 @@ public class PsiArray
 	}
 
 	/**
-	 *	@return a string {@code "real"}.
-	 */
+	*	@return a string {@code "real"}.
+	*/
 	@Override
 	public String getTypeName()
 	{

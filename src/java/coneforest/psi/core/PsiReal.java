@@ -1,8 +1,8 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code real} object.
- */
+*	A representation of Ψ-{@code real} object.
+*/
 public class PsiReal
 	implements PsiNumeric
 {
@@ -12,8 +12,8 @@ public class PsiReal
 	}
 
 	/**
-	 *	@return a string {@code "real"}.
-	 */
+	*	@return a string {@code "real"}.
+	*/
 	@Override
 	public String getTypeName()
 	{

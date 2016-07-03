@@ -1,8 +1,8 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code bitarray} object.
- */
+*	A representation of Ψ-{@code bitarray} object.
+*/
 public class PsiBitArray
 	implements
 		PsiArraylike<PsiBoolean>,

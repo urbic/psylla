@@ -1,20 +1,25 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code random} object.
- */
+*	A representation of Ψ-{@code random}, a generator of pseudorandom objects.
+*/
 public class PsiRandom
 	implements PsiObject
 {
 	/**
-	 *	@return a string {@code "random"}.
-	 */
+	*	@return a string {@code "random"}.
+	*/
 	@Override
 	public String getTypeName()
 	{
 		return "random";
 	}
 
+	/**
+	*	Sets the seed of this random generator.
+	*
+	*	@param oSeed the given seed.
+	*/
 	public void psiSetSeed(final PsiInteger oSeed)
 	{
 		random.setSeed(oSeed.longValue());
@@ -53,5 +58,5 @@ public class PsiRandom
 		return new PsiReal(oNumeric.doubleValue()*random.nextGaussian());
 	}
 
-	private java.util.Random random=new java.util.Random();
+	private final java.util.Random random=new java.util.Random();
 }

@@ -1,8 +1,8 @@
 package coneforest.psi.core;
 
 /**
- *	A representation of Ψ-{@code string} object.
- */
+*	A representation of Ψ-{@code string} object.
+*/
 public class PsiString
 	implements PsiStringy,
 	PsiArraylike<PsiInteger>
@@ -22,6 +22,9 @@ public class PsiString
 		this.buffer=buffer;
 	}
 
+	/**
+	*	@return a string {@code "string"}.
+	*/
 	@Override
 	public String getTypeName()
 	{
