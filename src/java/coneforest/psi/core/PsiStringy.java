@@ -61,7 +61,7 @@ public interface PsiStringy
 
 	@Override
 	default public PsiReal psiToReal()
-		throws PsiException
+		throws PsiSyntaxErrorException
 	{
 		try
 		{
