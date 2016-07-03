@@ -431,7 +431,8 @@ public class Interpreter
 	public void quit()
 	{
 		running=false;
-		stopFlag=true;
+		//stopFlag=true;
+		stopFlag=false;
 		estack.clear();
 	}
 
