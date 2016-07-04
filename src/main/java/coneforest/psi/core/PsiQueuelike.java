@@ -12,8 +12,8 @@ public interface PsiQueuelike<T extends PsiObject>
 		PsiContainer<T>
 {
 	/**
-	 *	@return a string {@code "queuelike"}.
-	 */
+	*	@return a string {@code "queuelike"}.
+	*/
 	@Override
 	default public String typeName()
 	{
@@ -21,21 +21,21 @@ public interface PsiQueuelike<T extends PsiObject>
 	}
 
 	/**
-	 *	Removes and returns the head of this queue.
-	 *	
-	 *	@return the head of this queue.
-	 *	@throws PsiException when this queue is empty.
-	 */
+	*	Removes and returns the head of this queue.
+	*
+	*	@return the head of this queue.
+	*	@throws PsiException when this queue is empty.
+	*/
 	public T psiDequeue()
 		throws PsiException;
 
 	/**
-	 *	Inserts an element into this queue.
-	 *	
-	 *	@param o the element to enqueue.
-	 *	@throws PsiException when the element can not be inserted without
-	 *	violation of the capacity restrictions.
-	 */
+	*	Inserts an element into this queue.
+	*
+	*	@param o the element to enqueue.
+	*	@throws PsiException when the element can not be inserted without
+	*	violation of the capacity restrictions.
+	*/
 	public void psiEnqueue(final T o)
 		throws PsiException;
 
