@@ -47,6 +47,7 @@
 				<param name="root.filename" expression="@{lang}/@{base.name}.docbook"/>
 				<param name="man.output.base.dir" expression="${target.man}/@{lang}/"/>
 			</xslt.manpages>
+			<delete dir="${target.doc}/@{lang}" quiet="yes"/>
 		</sequential>
 	</macrodef>
 

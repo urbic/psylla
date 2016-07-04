@@ -768,7 +768,10 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							System.out.println(ostack.getBacked(0).toSyntaxString());
+							final PsiWriter stdwriter=(PsiWriter)interpreter.dictStack().load("stdout");
+							stdwriter.psiWriteString(new PsiName(ostack.getBacked(0).toSyntaxString()));
+							stdwriter.psiWriteString((PsiName)interpreter.dictStack().load("eol"));
+							stdwriter.psiFlush();
 						}
 					),
 				new PsiOperator.Action

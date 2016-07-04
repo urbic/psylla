@@ -29,6 +29,7 @@ BuildRequires:	java-devel >= 1.8.0
 BuildRequires:	java-javadoc >= 1.8.0
 BuildRequires:	jline
 BuildRequires:	shared-mime-info
+BuildRequires:	junit >= 4.0
 Requires:		java >= 1.8.0
 Requires:		jline
 BuildRoot:		%{_tmppath}/%{name}-%{version}-build
@@ -77,7 +78,8 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{__install} -d %{buildroot}%{_docdir}/%{name}{,-doc}
 %{__install} -d %{buildroot}%{_javadocdir}/%{name}
 %{__install} -d %{buildroot}%{_datadir}/vim/site/{ftdetect,syntax}
-%{__install} -m 644 target/lib/%{name}.jar %{buildroot}%{_javadir}
+%{__install} -m 644 target/lib/%{name}-%{version}.jar %{buildroot}%{_javadir}
+%{__cp} -P target/lib/%{name}.jar %{buildroot}%{_javadir}
 %{__install} -m 755 target/bin/* %{buildroot}%{_bindir}
 %{__cp} -pr target/doc/{html,examples} %{buildroot}%{_docdir}/%{name}-doc
 %{__install} -m 644 target/doc/{README,LICENSE,AUTHORS} %{buildroot}%{_docdir}/%{name}
@@ -89,6 +91,10 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{__install} -m 644 target/mime/%{name}.xml %{buildroot}%{_datadir}/mime/packages
 %{__install} -d %{buildroot}%{_mandir}
 %{__cp} -pr target/man/en/* %{buildroot}%{_mandir}
+%{__install} -d %{buildroot}%{_datadir}/ant/lib
+%{__ln_s} ../../java/%{name}.jar %{buildroot}%{_datadir}/ant/lib/ant-%{name}.jar
+%{__install} -d %{buildroot}%{_sysconfdir}/ant.d
+echo "%{name} ant/ant-%{name}" > %{buildroot}%{_sysconfdir}/ant.d/%{name}
 
 %post
 %mime_database_post
@@ -114,6 +120,8 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{_datadir}/vim/site/ftdetect/psi.vim
 %{_datadir}/vim/site/syntax/psi.vim
 %{_datadir}/mime/packages/%{name}.xml
+%{_datadir}/ant/lib/ant-%{name}.jar
+%{_sysconfdir}/ant.d/*
 %{_mandir}/man1/*
 %doc README LICENSE AUTHORS
 

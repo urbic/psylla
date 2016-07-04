@@ -172,6 +172,9 @@ public class Interpreter
 			}
 			if(procstack.size()>0)
 				throw new PsiSyntaxErrorException(reader);
+
+			((PsiWriter)dstack.load("stdout")).psiFlush();
+			((PsiWriter)dstack.load("stderr")).psiFlush();
 		}
 		catch(PsiException e)
 		{

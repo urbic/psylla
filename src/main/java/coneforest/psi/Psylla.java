@@ -65,7 +65,7 @@ public class Psylla
 				shellArguments=new String[]{};
 			}
 
-			final Interpreter interpreter=(scriptReader!=null)?
+			interpreter=(scriptReader!=null)?
 				new Interpreter()
 					{
 						@Override
@@ -92,6 +92,9 @@ public class Psylla
 			interpreter.acceptEnvironment(System.getenv());
 			interpreter.acceptScriptName(scriptName);
 			interpreter.acceptShellArguments(shellArguments);
+			java.io.OutputStreamWriter ow=new java.io.OutputStreamWriter(System.out);
+			interpreter.setWriter(ow);
+			interpreter.setErrorWriter(new java.io.OutputStreamWriter(System.err));
 			if(cli.getValue("classpath")!=null)
 				interpreter.acceptClassPath(cli.getValue("classpath"));
 
@@ -119,6 +122,20 @@ public class Psylla
 			System.out.println(Messages.format("scriptNotFoundText", e.getLocalizedMessage()));
 			System.exit(1);
 		}
+	}
+
+	private static Interpreter interpreter;
+
+	public static void join()
+		throws InterruptedException
+	{
+		interpreter.join();
+	}
+
+	public static void join(long millis)
+		throws InterruptedException
+	{
+		interpreter.join(millis);
 	}
 
 	private static void help()

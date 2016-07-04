@@ -10,7 +10,7 @@ public class DictStack
 	public DictStack()
 		throws PsiException
 	{
-		PsiDict systemdict=new PsiSystemDict();
+		final PsiDict systemdict=new PsiSystemDict();
 		push(systemdict);
 		push((PsiDictlike)systemdict.get("userdict"));
 	}
