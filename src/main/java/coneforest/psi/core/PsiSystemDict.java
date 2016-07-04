@@ -225,7 +225,7 @@ public class PsiSystemDict
 				new PsiOperator.Action
 					("currentcontext", (interpreter)->interpreter.operandStack().push(interpreter)),
 				new PsiOperator.Action
-					("currentdict", (interpreter)->interpreter.operandStack().push(interpreter.getCurrentDict())),
+					("currentdict", (interpreter)->interpreter.operandStack().push(interpreter.currentDict())),
 				new PsiOperator.Arity01
 					("currentdirectory", FileSystem::psiCurrentDirectory),
 				new PsiOperator.Action
@@ -233,7 +233,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(2);
-							interpreter.getCurrentDict().psiPut(ostack.getBacked(0), ostack.getBacked(1));
+							interpreter.currentDict().psiPut(ostack.getBacked(0), ostack.getBacked(1));
 						}
 					),
 				new PsiOperator.Arity20<PsiIndexed, PsiObject>
@@ -366,7 +366,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							ostack.push(((PsiClassLoader)interpreter.getSystemDict().get("classpath"))
+							ostack.push(((PsiClassLoader)interpreter.systemDict().get("classpath"))
 									.psiExternal(ostack.getBacked(0)));
 						}
 					),

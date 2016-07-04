@@ -7,6 +7,12 @@ import coneforest.psi.core.*;
 public class DictStack
 	extends Stack<PsiDictlike<PsiObject>>
 {
+	/**
+	*	Creates a new dictionary stack with two dictionaries in it (system and
+	*	user dictionaries).
+	*
+	*	@throws PsiException when the error occur.
+	*/
 	public DictStack()
 		throws PsiException
 	{

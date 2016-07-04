@@ -6,7 +6,7 @@ package coneforest.psi.engine;
 public class PsiScriptEngine
 	extends javax.script.AbstractScriptEngine
 {
-	public PsiScriptEngine(javax.script.ScriptEngineFactory factory)
+	public PsiScriptEngine(final javax.script.ScriptEngineFactory factory)
 	{
 		this.factory=factory;
 		interpreter=new coneforest.psi.Interpreter();
@@ -30,25 +30,25 @@ public class PsiScriptEngine
 	}
 
 	@Override
-	public Object eval(java.io.Reader reader, javax.script.ScriptContext context)
+	public Object eval(final java.io.Reader reader, final javax.script.ScriptContext context)
 	{
 		interpreter.interpret(reader);
 		return interpreter;
 	}
 
 	@Override
-	public Object eval(String string, javax.script.ScriptContext context)
+	public Object eval(final String string, final javax.script.ScriptContext context)
 	{
 		interpreter.interpret(string);
 		return interpreter;
 	}
 
 	@Override
-	public coneforest.psi.core.PsiObject get(String key)
+	public coneforest.psi.core.PsiObject get(final String key)
 	{
 		try
 		{
-			return interpreter.getSystemDict().get(key);
+			return interpreter.systemDict().get(key);
 		}
 		catch(coneforest.psi.core.PsiException e)
 		{

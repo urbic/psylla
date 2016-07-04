@@ -91,7 +91,7 @@ public class Interpreter
 	*
 	*	@return a current dictionary.
 	*/
-	public PsiDictlike getCurrentDict()
+	public PsiDictlike currentDict()
 	{
 		return dstack.peek();
 	}
@@ -101,19 +101,9 @@ public class Interpreter
 	*
 	*	@return a system dictionary.
 	*/
-	public PsiDictlike getSystemDict()
+	public PsiDictlike systemDict()
 	{
 		return dstack.get(0);
-	}
-
-	/**
-	*	Returns global dictionary.
-	*
-	*	@return a global dictionary.
-	*/
-	public PsiDictlike getGlobalDict()
-	{
-		return dstack.get(1);
 	}
 
 	/**
@@ -121,24 +111,24 @@ public class Interpreter
 	*
 	*	@return user dictionary.
 	*/
-	public PsiDictlike getUserDict()
+	public PsiDictlike userDict()
 	{
-		return dstack.get(2);
+		return dstack.get(1);
 	}
 
 	public void setReader(final java.io.Reader reader)
 	{
-		getSystemDict().put("stdin", new PsiReader(reader));
+		systemDict().put("stdin", new PsiReader(reader));
 	}
 
 	public void setWriter(final java.io.Writer writer)
 	{
-		getSystemDict().put("stdout", new PsiWriter(writer));
+		systemDict().put("stdout", new PsiWriter(writer));
 	}
 
 	public void setErrorWriter(final java.io.Writer writer)
 	{
-		getSystemDict().put("stderr", new PsiWriter(writer));
+		systemDict().put("stderr", new PsiWriter(writer));
 	}
 
 	public void interpret(final java.io.Reader reader)
@@ -282,11 +272,11 @@ public class Interpreter
 	}
 
 
-	public PsiDict getErrorDict()
+	public PsiDictlike errorDict()
 	{
 		try
 		{
-			return (PsiDict)getSystemDict().get("errordict");
+			return (PsiDictlike)systemDict().get("errordict");
 		}
 		catch(PsiException e)
 		{
@@ -304,11 +294,11 @@ public class Interpreter
 		errorObj.put("ostack", new PsiArray((java.util.ArrayList<PsiObject>)ostack.clone()));
 		errorObj.put("estack", new PsiArray((java.util.ArrayList<PsiObject>)estack.clone()));
 		errorObj.put("dstack", new PsiArray((java.util.ArrayList<PsiObject>)dstack.clone()));
-		getSystemDict().put("$error", errorObj);
+		systemDict().put("$error", errorObj);
 
 		try
 		{
-			final PsiDict errorDict=getErrorDict();
+			final PsiDictlike errorDict=errorDict();
 			if(errorDict.known(errorName))
 				errorDict.get(errorName).invoke(this);
 			else
@@ -397,7 +387,7 @@ public class Interpreter
 
 	public void acceptScriptName(final String scriptName)
 	{
-		getSystemDict().put("script", new PsiName(scriptName));
+		systemDict().put("script", new PsiName(scriptName));
 	}
 
 	public void acceptShellArguments(final String[] args)
@@ -406,7 +396,7 @@ public class Interpreter
 		PsiArray arguments=new PsiArray();
 		for(String arg: args)
 			arguments.psiAppend(new PsiName(arg));
-		getSystemDict().put("arguments", arguments);
+		systemDict().put("arguments", arguments);
 	}
 
 	public void acceptEnvironment(final java.util.Map<String, String> env)
@@ -414,14 +404,14 @@ public class Interpreter
 		PsiDict environment=new PsiDict();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
 			environment.put(entry.getKey(), new PsiName(entry.getValue()));
-		getSystemDict().put("environment", environment);
+		systemDict().put("environment", environment);
 	}
 
 	public void acceptClassPath(final String[] classPath)
 	{
 		try
 		{
-			final PsiClassLoader classLoader=(PsiClassLoader)getSystemDict().get("classpath");
+			final PsiClassLoader classLoader=(PsiClassLoader)systemDict().get("classpath");
 			for(String pathElement: classPath)
 				classLoader.psiAppend(new PsiString(pathElement));
 		}

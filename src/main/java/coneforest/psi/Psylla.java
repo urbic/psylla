@@ -1,8 +1,16 @@
 package coneforest.psi;
 import coneforest.psi.core.*;
 
+/**
+*	The Ψ interpreter launcher
+*/
 public class Psylla
 {
+	/**
+	*	Process comman-line options and launches the Ψ interpreter.
+	*
+	*	@param args the command-line options
+	*/
 	public static void main(final String args[])
 	{
 		try

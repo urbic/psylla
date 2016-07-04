@@ -17,7 +17,7 @@ public class PsiErrorDict
 				public void action(final Interpreter interpreter)
 					throws ClassCastException, PsiException
 				{
-					final PsiDict errorObj=(PsiDict)interpreter.getSystemDict().get("$error");
+					final PsiDictlike errorObj=(PsiDictlike)interpreter.systemDict().get("$error");
 					errorObj.put("newerror", PsiBoolean.FALSE);
 
 					System.out.println(Messages.format("handleErrorMessage",
