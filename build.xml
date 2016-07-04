@@ -9,7 +9,7 @@
 	<property name="src.examples" location="${src}/examples"/>
 	<property name="src.main.java" location="${src.main}/java"/>
 	<property name="src.test.java" location="${src.test}/java"/>
-	<property name="src.jj" location="${src}/jj"/>
+	<property name="src.main.jj" location="${src.main}/jj"/>
 	<property name="src.examples.psi" location="${src.examples}/psi"/>
 	<property name="src.docbook" location="${src}/docbook"/>
 	<property name="src.ant" location="${src}/ant"/>
@@ -58,7 +58,7 @@
 	<target name="compile.jj">
 		<mkdir dir="${target.src.main.java}/coneforest/psi"/>
 		<javacc
-			target="${src.jj}/coneforest/psi/Parser.jj"
+			target="${src.main.jj}/coneforest/psi/Parser.jj"
 			outputdirectory="${target.src.main.java}/coneforest/psi"
 			javacchome="/usr/share/java"
 			unicodeinput="true"
