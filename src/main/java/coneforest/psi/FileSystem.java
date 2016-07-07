@@ -3,20 +3,31 @@ import coneforest.psi.core.*;
 
 public class FileSystem
 {
-	public static java.nio.file.Path getPath(final PsiStringy stringy)
+	public static java.nio.file.Path getPath(String fileName)
 	{
-		String name=stringy.stringValue();
+		// TODO
+		if(fileName.startsWith("~"))
+			fileName=System.getProperty("user.home")+fileName.substring(1);
+		return new java.io.File(fileName).toPath();
+	}
+
+	public static java.nio.file.Path getPath(final PsiStringy oFileName)
+	{
+		return getPath(oFileName.stringValue());
+		/*
+		String name=oFileName.stringValue();
 		if(name.startsWith("~"))
 			name=System.getProperty("user.home")+name.substring(1);
 		return new java.io.File(name).toPath();
+		*/
 	}
 
-	public static void psiCreateDirectory(final PsiStringy stringy)
+	public static void psiCreateDirectory(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.createDirectory(getPath(stringy));
+			java.nio.file.Files.createDirectory(getPath(oFileName));
 		}
 		catch(java.nio.file.FileAlreadyExistsException e)
 		{
@@ -59,12 +70,12 @@ public class FileSystem
 	}
 	*/
 
-	public static void psiDeleteFile(final PsiStringy stringy)
+	public static void psiDeleteFile(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.delete(getPath(stringy));
+			java.nio.file.Files.delete(getPath(oFileName));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -84,12 +95,12 @@ public class FileSystem
 		}
 	}
 
-	public static void psiCopyFile(final PsiStringy stringy1, final PsiStringy stringy2)
+	public static void psiCopyFile(final PsiStringy oFileName1, final PsiStringy oFileName2)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.copy(getPath(stringy1), getPath(stringy2));
+			java.nio.file.Files.copy(getPath(oFileName1), getPath(oFileName2));
 		}
 		catch(UnsupportedOperationException e)
 		{
@@ -117,12 +128,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiString psiReadLink(final PsiStringy stringy)
+	public static PsiString psiReadLink(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return new PsiString(java.nio.file.Files.readSymbolicLink(getPath(stringy))
+			return new PsiString(java.nio.file.Files.readSymbolicLink(getPath(oFileName))
 					.toString());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -143,13 +154,13 @@ public class FileSystem
 		}
 	}
 
-	public static void psiSymLink(final PsiStringy stringy1, final PsiStringy stringy2)
+	public static void psiSymLink(final PsiStringy oFileName1, final PsiStringy oFileName2)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.createSymbolicLink(getPath(stringy2),
-				getPath(stringy1));
+			java.nio.file.Files.createSymbolicLink(getPath(oFileName2),
+				getPath(oFileName1));
 		}
 		catch(UnsupportedOperationException e)
 		{
@@ -169,14 +180,14 @@ public class FileSystem
 		}
 	}
 
-	public static void psiHardLink(final PsiStringy stringy1,
-			final PsiStringy stringy2)
+	public static void psiHardLink(final PsiStringy oFileName1,
+			final PsiStringy oFileName2)
 		throws PsiException
 	{
 		try
 		{
-			java.nio.file.Files.createLink(getPath(stringy2),
-				getPath(stringy1));
+			java.nio.file.Files.createLink(getPath(oFileName2),
+				getPath(oFileName1));
 		}
 		catch(UnsupportedOperationException e)
 		{
@@ -200,16 +211,14 @@ public class FileSystem
 		}
 	}
 
-	public static void psiRenameFile(final PsiStringy stringy1,
-			final PsiStringy stringy2)
+	public static void psiRenameFile(final PsiStringy oFileName1,
+			final PsiStringy oFileName2)
 		throws PsiException
 	{
-		String fileName1=stringy1.stringValue();
-		String fileName2=stringy2.stringValue();
 		try
 		{
-			java.nio.file.Files.move(getPath(stringy1),
-					getPath(stringy2));
+			java.nio.file.Files.move(getPath(oFileName1),
+					getPath(oFileName2));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -233,12 +242,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiFileExists(final PsiStringy stringy)
+	public static PsiBoolean psiFileExists(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.exists(getPath(stringy)));
+			return PsiBoolean.valueOf(java.nio.file.Files.exists(getPath(oFileName)));
 		}
 		catch(java.lang.SecurityException e)
 		{
@@ -246,12 +255,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsFile(final PsiStringy stringy)
+	public static PsiBoolean psiIsFile(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class,
 					java.nio.file.LinkOption.NOFOLLOW_LINKS).isRegularFile());
 		}
@@ -269,12 +278,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsDirectory(final PsiStringy stringy)
+	public static PsiBoolean psiIsDirectory(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class,
 					java.nio.file.LinkOption.NOFOLLOW_LINKS).isDirectory());
 		}
@@ -292,12 +301,13 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsSameFile(final PsiStringy name1, final PsiStringy name2)
+	public static PsiBoolean psiIsSameFile(final PsiStringy oFileName1, final PsiStringy oFileName2)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.isSameFile(getPath(name1), getPath(name2)));
+			return PsiBoolean.valueOf(java.nio.file.Files.isSameFile(
+					getPath(oFileName1), getPath(oFileName2)));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -313,12 +323,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiBoolean psiIsSymLink(final PsiStringy stringy)
+	public static PsiBoolean psiIsSymLink(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
+			return PsiBoolean.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class,
 					java.nio.file.LinkOption.NOFOLLOW_LINKS).isSymbolicLink());
 		}
@@ -336,12 +346,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileSize(final PsiStringy stringy)
+	public static PsiInteger psiFileSize(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.size(getPath(stringy)));
+			return PsiInteger.valueOf(java.nio.file.Files.size(getPath(oFileName)));
 		}
 		catch(java.nio.file.NoSuchFileException e)
 		{
@@ -357,12 +367,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileAccessTime(final PsiStringy stringy)
+	public static PsiInteger psiFileAccessTime(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class).lastAccessTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -379,12 +389,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileCreationTime(final PsiStringy stringy)
+	public static PsiInteger psiFileCreationTime(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class).creationTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -401,12 +411,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiInteger psiFileModifiedTime(final PsiStringy stringy)
+	public static PsiInteger psiFileModifiedTime(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(stringy),
+			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class).lastModifiedTime().toMillis());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -423,14 +433,14 @@ public class FileSystem
 		}
 	}
 
-	public static PsiArray psiListDirectory(final PsiStringy stringy)
+	public static PsiArray psiListDirectory(final PsiStringy oFileName)
 		throws PsiException
 	{
 		PsiArray array=new PsiArray();
 		try
 		{
 			java.nio.file.DirectoryStream<java.nio.file.Path> dirStream
-				=java.nio.file.Files.newDirectoryStream(getPath(stringy));
+				=java.nio.file.Files.newDirectoryStream(getPath(oFileName));
 			for(java.nio.file.Path item: dirStream)
 				array.psiAppend(new PsiString(item.toString()));
 			return array;
@@ -452,7 +462,7 @@ public class FileSystem
 		return new PsiString(java.nio.file.Paths.get("").toAbsolutePath().toString());
 	}
 
-	public static PsiIterable<PsiName> psiFiles(final PsiStringy stringy)
+	public static PsiIterable<PsiName> psiFiles(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
@@ -489,9 +499,9 @@ public class FileSystem
 							};
 					}
 
-					private java.nio.file.DirectoryStream directoryStream
-						=java.nio.file.Files.newDirectoryStream(getPath(stringy));
-					private java.util.Iterator<java.nio.file.Path> directoryIterator
+					private final java.nio.file.DirectoryStream directoryStream
+						=java.nio.file.Files.newDirectoryStream(getPath(oFileName));
+					private final java.util.Iterator<java.nio.file.Path> directoryIterator
 						=directoryStream.iterator();
 				};
 		}
