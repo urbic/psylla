@@ -2,9 +2,9 @@
 @import "highlight.scss";
 
 //$background-color-body: lightskyblue;
-$background-color-body: snow;
+$background-color-body: #F5F5F5;
 $font-family-body: "PT Sans", sans-serif;
-$color-title: darken(cornflowerblue, 40%); //darken($background-color-body, 60%);
+$color-title: #A52A2A; //darken(cornflowerblue, 40%); //darken($background-color-body, 60%);
 $background-color-html: $background-color-body;//$color-title;
 //$color-link: darken(darkgreen, 5%);
 $color-link: darkslategray;
@@ -15,14 +15,20 @@ $background-color-programlisting: lighten($background-color-body, 5%);
 html
 {
 	background-color: $background-color-html;
+	height: 100%
 }
 
 body
 {
+	position: static;
+	overflow: auto;
 	font-size: 17px;
 	max-width: 960px;
 	width: 50%;
+	min-height: 100%;
 	margin: 0pc auto 0pc 0pc;
+	top: 0px;
+	bottom: 0px;
 	//position: fixed;
 	//left: auto;
 	//right: auto;
@@ -251,8 +257,8 @@ div.toc
 	//height: 90%;
 	background-color: $background-color-body;
 	top: 0px;
-	left: 50%;
 	bottom: 0px;
+	left: 50%;
 	font-size: smaller;
 	margin-left: 1pc;
 }
