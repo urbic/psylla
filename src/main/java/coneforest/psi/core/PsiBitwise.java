@@ -5,8 +5,8 @@ package coneforest.psi.core;
 *	of bitwise operation. This interface declares methods for setting,
 *	clearing, testing of certain bits and bitwise shift.
 */
-public interface PsiBitwise
-	extends PsiObject
+public interface PsiBitwise<T extends PsiBitwise>
+	extends PsiLogical<T>
 {
 	/**
 	*	@return a string {@code "bitwise"}.

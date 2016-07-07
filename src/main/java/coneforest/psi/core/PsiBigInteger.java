@@ -2,8 +2,7 @@ package coneforest.psi.core;
 
 public class PsiBigInteger
 	implements
-		PsiBitwise,
-		PsiLogical<PsiBigInteger>,
+		PsiBitwise<PsiBigInteger>,
 		PsiRealNumeric
 {
 	public PsiBigInteger(final java.math.BigInteger value)

@@ -5,8 +5,7 @@ package coneforest.psi.core;
 */
 public class PsiInteger
 	implements
-		PsiBitwise,
-		PsiLogical<PsiInteger>,
+		PsiBitwise<PsiInteger>,
 		PsiRealNumeric
 {
 	public PsiInteger(final long value)

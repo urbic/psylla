@@ -4,10 +4,10 @@ arithmetic: additive
 array: arraylike
 arraylike: appendable container indexed
 atomic: object
-biginteger: bitwise logical realnumeric
+biginteger: bitwise realnumeric
 bitarray: arraylike logical
 bitset: setlike
-bitwise: object
+bitwise: logical
 blockingqueue: closeable queuelike
 boolean: atomic logical scalar
 bounded: lengthy
@@ -29,7 +29,7 @@ filewriter: writer
 flushable: object
 indexed: object
 input: closeable readable resettable
-integer: bitwise logical realnumeric
+integer: bitwise realnumeric
 iterable: object
 lengthy: object
 lock: object
