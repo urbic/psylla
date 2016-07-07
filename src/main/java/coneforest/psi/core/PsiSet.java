@@ -6,11 +6,19 @@ package coneforest.psi.core;
 public class PsiSet
 	implements PsiSetlike<PsiObject>
 {
+	/**
+	*	Creates a new empty Ψ-{@code set}.
+	*/
 	public PsiSet()
 	{
 		this(new java.util.HashSet<PsiObject>());
 	}
 
+	/**
+	*	Creates a new Ψ-{@code set} wrapped around the given hash set.
+	*
+	*	@param set a given hash set.
+	*/
 	public PsiSet(final java.util.HashSet<PsiObject> set)
 	{
 		this.set=set;

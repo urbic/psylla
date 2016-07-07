@@ -7,19 +7,22 @@ import coneforest.psi.*;
 public class PsiArray
 	implements PsiArraylike<PsiObject>
 {
+	/**
+	*	Creates a new empty Ψ-{@code array}.
+	*/
 	public PsiArray()
 	{
 		this(new java.util.ArrayList<PsiObject>());
 	}
 
-	public PsiArray(final java.util.ArrayList<PsiObject> list)
+	/**
+	*	Creates a new Ψ-{@code array} wrapped around the given array list.
+	*
+	*	@param array a given arary list.
+	*/
+	public PsiArray(final java.util.ArrayList<PsiObject> array)
 	{
-		array=list;
-	}
-
-	public PsiArray(final PsiArray oArray)
-	{
-		this.array=(java.util.ArrayList<PsiObject>)oArray.array.clone();
+		this.array=array;
 	}
 
 	/**
@@ -46,12 +49,12 @@ public class PsiArray
 	@Override
 	public PsiArray psiClone()
 	{
-		return new PsiArray(this);
+		return new PsiArray((java.util.ArrayList<PsiObject>)array.clone());
 	}
 
 	@Override
 	public PsiObject get(final int index)
-		throws PsiException
+		throws PsiRangeCheckException
 	{
 		try
 		{
@@ -65,7 +68,7 @@ public class PsiArray
 
 	@Override
 	public PsiArray psiGetInterval(final PsiInteger start, final PsiInteger oCount)
-		throws PsiException
+		throws PsiRangeCheckException
 	{
 		try
 		{
@@ -79,21 +82,21 @@ public class PsiArray
 	}
 
 	@Override
-	public void psiAppend(final PsiObject obj)
-		throws PsiException
+	public void psiAppend(final PsiObject o)
+		throws PsiLimitCheckException
 	{
 		if(length()==Integer.MAX_VALUE)
 			throw new PsiLimitCheckException();
-		array.add(obj);
+		array.add(o);
 	}
 
 	@Override
-	public void insert(final int indexValue, final PsiObject obj)
-		throws PsiException
+	public void insert(final int indexValue, final PsiObject o)
+		throws PsiRangeCheckException
 	{
 		try
 		{
-			array.add(indexValue, obj);
+			array.add(indexValue, o);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -102,12 +105,12 @@ public class PsiArray
 	}
 
 	@Override
-	public void put(final int indexValue, final PsiObject obj)
-		throws PsiException
+	public void put(final int indexValue, final PsiObject o)
+		throws PsiRangeCheckException
 	{
 		try
 		{
-			array.set(indexValue, obj);
+			array.set(indexValue, o);
 		}
 		catch(IndexOutOfBoundsException e)
 		{
@@ -117,7 +120,7 @@ public class PsiArray
 
 	@Override
 	public void delete(int indexValue)
-		throws PsiException
+		throws PsiRangeCheckException
 	{
 		try
 		{
@@ -131,7 +134,7 @@ public class PsiArray
 
 	@Override
 	public PsiObject extract(final int indexValue)
-		throws PsiException
+		throws PsiRangeCheckException
 	{
 		try
 		{
@@ -145,7 +148,7 @@ public class PsiArray
 
 	@Override
 	public PsiArray psiExtractInterval(final PsiInteger oStart, final PsiInteger oCount)
-		throws PsiException
+		throws PsiRangeCheckException
 	{
 		final PsiArray oResult=psiGetInterval(oStart, oCount);
 		array.subList(oStart.intValue(), oStart.intValue()+oCount.intValue()).clear();
@@ -170,7 +173,7 @@ public class PsiArray
 
 	@Override
 	public void psiSetLength(final PsiInteger oLength)
-		throws PsiException
+		throws PsiRangeCheckException, PsiLimitCheckException
 	{
 		final long length=oLength.longValue();
 		if(length<0)
@@ -196,7 +199,6 @@ public class PsiArray
 	}
 
 	public PsiInteger psiBinarySearch(final PsiObject o, final PsiProc oComparator)
-		throws PsiException
 	{
 		final Interpreter interpreter=(Interpreter)PsiContext.psiCurrentContext();
 		final OperandStack opstack=interpreter.operandStack();
@@ -214,5 +216,5 @@ public class PsiArray
 			}));
 	}
 
-	private java.util.ArrayList<PsiObject> array;
+	private final java.util.ArrayList<PsiObject> array;
 }

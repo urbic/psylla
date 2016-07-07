@@ -6,14 +6,22 @@ package coneforest.psi.core;
 public class PsiDict
 	implements PsiDictlike<PsiObject>
 {
+	/**
+	*	Creates a new empty Ψ-{@code dict}.
+	*/
 	public PsiDict()
 	{
-		this.dict=new java.util.HashMap<String, PsiObject>();
+		this(new java.util.HashMap<String, PsiObject>());
 	}
 
-	public PsiDict(final PsiDict oDict)
+	/**
+	*	Creates a new Ψ-{@code dict} wrapped around the given hash map.
+	*
+	*	@param dict a given hash map.
+	*/
+	public PsiDict(final java.util.HashMap<String, PsiObject> dict)
 	{
-		this.dict=(java.util.HashMap<String, PsiObject>)oDict.dict.clone();
+		this.dict=dict;
 	}
 
 	/**
@@ -28,7 +36,7 @@ public class PsiDict
 	@Override
 	public PsiDict psiClone()
 	{
-		return new PsiDict(this);
+		return new PsiDict((java.util.HashMap<String, PsiObject>)dict.clone());
 	}
 
 	@Override
