@@ -10,12 +10,13 @@ public class PsiBitArray
 {
 	public PsiBitArray()
 	{
-		this(new java.util.BitSet());
+		this(new java.util.BitSet(), 0);
 	}
 
-	public PsiBitArray(final java.util.BitSet bitarray)
+	public PsiBitArray(final java.util.BitSet bitarray, final int size)
 	{
 		this.bitarray=bitarray;
+		this.size=size;
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class PsiBitArray
 		try
 		{
 			final PsiBitArray newBitArray
-				=new PsiBitArray(bitarray.get(index, index+count));
+				=new PsiBitArray(bitarray.get(index, index+count), count);
 			newBitArray.size=count;
 			return newBitArray;
 		}
@@ -161,8 +162,8 @@ public class PsiBitArray
 	public PsiBitArray psiNot()
 	{
 		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
-		result.flip(0, result.size());
-		return new PsiBitArray(result);
+		result.flip(0, size);
+		return new PsiBitArray(result, size);
 	}
 
 	@Override
@@ -170,7 +171,7 @@ public class PsiBitArray
 	{
 		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
 		result.or(oBitArray.bitarray);
-		return new PsiBitArray(result);
+		return new PsiBitArray(result, size>oBitArray.size? size: oBitArray.size);
 	}
 
 	@Override
@@ -178,7 +179,7 @@ public class PsiBitArray
 	{
 		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
 		result.and(oBitArray.bitarray);
-		return new PsiBitArray(result);
+		return new PsiBitArray(result, size>oBitArray.size? size: oBitArray.size);
 	}
 
 	@Override
@@ -186,7 +187,7 @@ public class PsiBitArray
 	{
 		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
 		result.xor(oBitArray.bitarray);
-		return new PsiBitArray(result);
+		return new PsiBitArray(result, size>oBitArray.size? size: oBitArray.size);
 	}
 
 	public java.util.Iterator<PsiBoolean> iterator()
@@ -246,7 +247,7 @@ public class PsiBitArray
 	@Override
 	public PsiBitArray psiClone()
 	{
-		return new PsiBitArray((java.util.BitSet)bitarray.clone());
+		return new PsiBitArray((java.util.BitSet)bitarray.clone(), size);
 	}
 
 	@Override

@@ -287,7 +287,7 @@ public interface PsiArraylike<T extends PsiObject>
 
 	default public String toSyntaxStringHelper(final PsiLengthy oLengthy)
 	{
-		StringBuilder sb=new StringBuilder();
+		final StringBuilder sb=new StringBuilder();
 		if(length()>0)
 		{
 			for(PsiObject obj: this)
