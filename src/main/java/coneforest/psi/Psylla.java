@@ -22,6 +22,7 @@ public class Psylla
 					new coneforest.cli.OptionFlag("version", "V"),
 					new coneforest.cli.OptionString("console-encoding", "C"),
 					new coneforest.cli.OptionPath("classpath", "cp"),
+					new coneforest.cli.OptionPath("librarypath", "lp", "I"),
 					new coneforest.cli.OptionString("eval", "e"),
 					new coneforest.cli.OptionString("locale", "L"),
 					new coneforest.cli.OptionLong("random-seed", "S")
@@ -105,11 +106,13 @@ public class Psylla
 			interpreter.setErrorWriter(new java.io.OutputStreamWriter(System.err));
 			if(cli.getValue("classpath")!=null)
 				interpreter.acceptClassPath(cli.getValue("classpath"));
+			if(cli.getValue("librarypath")!=null)
+				interpreter.acceptLibraryPath(cli.getValue("librarypath"));
 
 			if(cli.getValue("random-seed")!=null)
 			{
-				long seed=cli.getValue("random-seed");
-				((PsiRandom)interpreter.dictStack().load("stdrandom")).psiSetSeed(PsiInteger.valueOf(seed));
+				interpreter.dictStack().<PsiRandom>load("stdrandom")
+					.psiSetSeed(PsiInteger.valueOf(cli.getValue("random-seed")));
 			}
 
 			interpreter.start();

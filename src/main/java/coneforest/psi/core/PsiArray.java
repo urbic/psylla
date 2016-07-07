@@ -206,7 +206,7 @@ public class PsiArray
 			{
 				opstack.push(o1);
 				opstack.push(o2);
-				final int execLevel=interpreter.getExecLevel();
+				final int execLevel=interpreter.execLevel();
 				oComparator.invoke(interpreter);
 				interpreter.handleExecutionStack(execLevel);
 				// TODO: ensure stack size

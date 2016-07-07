@@ -768,9 +768,9 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final PsiWriter stdwriter=(PsiWriter)interpreter.dictStack().load("stdout");
-							stdwriter.psiWriteString(new PsiName(ostack.getBacked(0).toSyntaxString()));
-							stdwriter.psiWriteString((PsiName)interpreter.dictStack().load("eol"));
+							final PsiWriter stdwriter=interpreter.dictStack().load("stdout");
+							stdwriter.psiWriteString(ostack.getBacked(0).psiSyntax());
+							stdwriter.psiWriteString(interpreter.dictStack().load("eol"));
 							stdwriter.psiFlush();
 						}
 					),
@@ -779,8 +779,8 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							((PsiWriter)interpreter.dictStack().load("stdout"))
-									.psiWriteString(ostack.getBacked(0));
+							interpreter.dictStack().<PsiWriter>load("stdout")
+								.psiWriteString(ostack.getBacked(0));
 						}
 					),
 				new PsiOperator.Action
@@ -788,9 +788,9 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final PsiWriter stdwriter=(PsiWriter)interpreter.dictStack().load("stdout");
+							final PsiWriter stdwriter=interpreter.dictStack().load("stdout");
 							stdwriter.psiWriteString(ostack.getBacked(0));
-							stdwriter.psiWriteString((PsiStringy)interpreter.dictStack().load("eol"));
+							stdwriter.psiWriteString(interpreter.dictStack().load("eol"));
 						}
 					),
 				new PsiOperator.Arity11<PsiDictlike>
@@ -838,7 +838,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final PsiStringy oEOL=(PsiStringy)interpreter.dictStack().load("eol");
+							final PsiStringy oEOL=interpreter.dictStack().load("eol");
 							final PsiString oString=ostack.<PsiReadable>getBacked(0).psiReadLine(oEOL);
 							if(oString.length()>0)
 								ostack.push(oString);
@@ -941,9 +941,9 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final PsiWriter stdwriter=(PsiWriter)interpreter.dictStack().load("stdout");
+							final PsiWriter stdwriter=interpreter.dictStack().load("stdout");
 							stdwriter.psiWriteString(ostack.getBacked(0));
-							stdwriter.psiWriteString((PsiStringy)interpreter.dictStack().load("eol"));
+							stdwriter.psiWriteString(interpreter.dictStack().load("eol"));
 							stdwriter.psiFlush();
 						}
 					),
@@ -1012,7 +1012,7 @@ public class PsiSystemDict
 										{
 											ostack.push(o1);
 											ostack.push(o2);
-											final int execLevel=interpreter.getExecLevel();
+											final int execLevel=interpreter.execLevel();
 											oComparator.invoke(interpreter);
 											interpreter.handleExecutionStack(execLevel);
 											// TODO: ensure stack size
@@ -1144,7 +1144,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final PsiWriter stderror=(PsiWriter)interpreter.dictStack().load("stderr");
+							final PsiWriter stderror=interpreter.dictStack().load("stderr");
 							stderror.psiWriteString(ostack.getBacked(0));
 							stderror.psiFlush();
 						}
@@ -1179,11 +1179,13 @@ public class PsiSystemDict
 		put("(", PsiMark.MARK);
 		put("<", PsiMark.MARK);
 		put("[", PsiMark.MARK);
-		put("classpath", new PsiClassLoader());
+		put("arguments", new PsiArray());
+		put("classloader", new PsiClassLoader());
 		put("configdict", new PsiConfigDict());
 		put("eol", new PsiName(System.getProperty("line.separator")));
 		put("errordict", new PsiErrorDict());
 		put("false", PsiBoolean.FALSE);
+		put("libraryloader", new PsiLibraryLoader());
 		put("mark", PsiMark.MARK);
 		put("mathE", PsiReal.E);
 		put("mathPI", PsiReal.PI);

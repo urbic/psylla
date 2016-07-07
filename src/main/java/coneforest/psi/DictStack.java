@@ -21,17 +21,17 @@ public class DictStack
 		push((PsiDictlike)systemdict.get("userdict"));
 	}
 
-	public PsiObject load(final String key)
+	public <T extends PsiObject> T load(final String key)
 		throws PsiException
 	{
 		PsiDictlike oDict=where(key);
 		if(oDict!=null)
-			return oDict.get(key);
+			return (T)oDict.get(key);
 		else
 			throw new PsiUndefinedException();
 	}
 
-	public PsiObject load(final PsiStringy oKey)
+	public <T extends PsiObject> T load(final PsiStringy oKey)
 		throws PsiException
 	{
 		return load(oKey.stringValue());

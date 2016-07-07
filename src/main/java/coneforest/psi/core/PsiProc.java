@@ -56,7 +56,7 @@ public class PsiProc
 						agenda.add((PsiProc)o);
 					else if(o instanceof PsiCommand)
 					{
-						final PsiObject oNew=dstack.load((PsiName)o);
+						final PsiObject oNew=dstack.load((PsiCommand)o);
 						if(oNew instanceof PsiOperator)
 							oProc.put(i, oNew);
 					}

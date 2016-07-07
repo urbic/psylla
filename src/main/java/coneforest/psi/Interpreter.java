@@ -163,8 +163,8 @@ public class Interpreter
 			if(procstack.size()>0)
 				throw new PsiSyntaxErrorException(reader);
 
-			((PsiWriter)dstack.load("stdout")).psiFlush();
-			((PsiWriter)dstack.load("stderr")).psiFlush();
+			dstack.<PsiWriter>load("stdout").psiFlush();
+			dstack.<PsiWriter>load("stderr").psiFlush();
 		}
 		catch(PsiException e)
 		{
@@ -273,15 +273,9 @@ public class Interpreter
 
 
 	public PsiDictlike errorDict()
+		throws PsiException
 	{
-		try
-		{
-			return (PsiDictlike)systemDict().get("errordict");
-		}
-		catch(PsiException e)
-		{
-			throw new AssertionError();
-		}
+		return (PsiDictlike)systemDict().get("errordict");
 	}
 
 	public void handleError(final PsiException oException)
@@ -336,7 +330,7 @@ public class Interpreter
 		System.out.println();
 	}
 
-	public int getExecLevel()
+	public int execLevel()
 	{
 		return estack.size();
 	}
@@ -393,32 +387,34 @@ public class Interpreter
 	public void acceptShellArguments(final String[] args)
 		throws PsiException
 	{
-		PsiArray arguments=new PsiArray();
+		final PsiArray oArguments
+			=(PsiArray)systemDict().get("arguments");
 		for(String arg: args)
-			arguments.psiAppend(new PsiName(arg));
-		systemDict().put("arguments", arguments);
+			oArguments.psiAppend(new PsiName(arg));
 	}
 
 	public void acceptEnvironment(final java.util.Map<String, String> env)
 	{
-		PsiDict environment=new PsiDict();
+		final PsiDict environment=new PsiDict();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
 			environment.put(entry.getKey(), new PsiName(entry.getValue()));
 		systemDict().put("environment", environment);
 	}
 
 	public void acceptClassPath(final String[] classPath)
+		throws PsiException
 	{
-		try
-		{
-			final PsiClassLoader classLoader=(PsiClassLoader)systemDict().get("classpath");
-			for(String pathElement: classPath)
-				classLoader.psiAppend(new PsiString(pathElement));
-		}
-		catch(PsiException e)
-		{
-			// NOP
-		}
+		final PsiClassLoader classLoader=(PsiClassLoader)systemDict().get("classloader");
+		for(String pathItem: classPath)
+			classLoader.psiAppend(new PsiName(pathItem));
+	}
+
+	public void acceptLibraryPath(final String[] libraryPath)
+		throws PsiException
+	{
+		final PsiLibraryLoader libraryLoader=(PsiLibraryLoader)systemDict().get("libraryloader");
+		for(String pathItem: libraryPath)
+			libraryLoader.psiAppend(new PsiName(pathItem));
 	}
 
 	public void quit()
@@ -527,6 +523,21 @@ public class Interpreter
 	public Class<? extends PsiObject> resolveType(final String typeName)
 	{
 		return typeResolver.get(typeName);
+	}
+
+	public PsiReadable loadLibraryResource(final PsiStringy oResourceName)
+		throws PsiException
+	{
+		final PsiArraylike<PsiStringy> oLibraryPath
+			=dstack.load("librarypath");
+		String resourceName=oResourceName.stringValue().replace(',', '/');
+		for(PsiStringy oPathItem: oLibraryPath)
+		{
+			final String fullResourceName=oPathItem.stringValue()+resourceName+".psi";
+			if(FileSystem.psiIsFile(new PsiName(fullResourceName)).booleanValue())
+				return new PsiFileReader(fullResourceName);
+		}
+		throw new PsiUndefinedException(); // TODO
 	}
 
 	private final OperandStack ostack;
