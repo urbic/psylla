@@ -36,9 +36,9 @@ public class PsiScriptEngineFactory
 	}
 
 	@Override
-	public String getProgram(String... statements)
+	public String getProgram(final String... statements)
 	{
-		StringBuilder sb=new StringBuilder();
+		final StringBuilder sb=new StringBuilder();
 		for(String statement: statements)
 		{
 			sb.append(statement);
@@ -48,20 +48,20 @@ public class PsiScriptEngineFactory
 	}
 
 	@Override
-	public String getOutputStatement(String toDisplay)
+	public String getOutputStatement(final String toDisplay)
 		throws UnsupportedOperationException
 	{
 		throw new UnsupportedOperationException(getClass().getName()+".getOutputStatement not supported");
 	}
 
 	@Override
-	public String getMethodCallSyntax(String obj, String m, String... args)
+	public String getMethodCallSyntax(final String obj, final String m, final String... args)
 	{
 		throw new UnsupportedOperationException(getClass().getName()+".getMethodCalSyntax not supported");
 	}
 
 	@Override
-	public String getParameter(String key)
+	public String getParameter(final String key)
 	{
 		if(key.equals(javax.script.ScriptEngine.ENGINE))
 			return getEngineName();

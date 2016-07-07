@@ -29,10 +29,11 @@ public interface PsiWritable
 	/**
 	*	Writes a Ψ-{@code stringy} string of characters to this object.
 	*
-	*	@param oString a Ψ-{@code stringy} object representing a string to be
+	*	@param oStringy a Ψ-{@code stringy} object representing a string to be
 	*	written.
 	*	@throws PsiException when an error occurs during write.
 	*/
-	public void psiWriteString(final PsiStringy oString)
+	public void psiWriteString(final PsiStringy oStringy)
 		throws PsiException;
+
 }

@@ -3,14 +3,13 @@ package coneforest.psi.core;
 public class PsiClassLoader
 	extends PsiArray
 {
-
-	public PsiObject psiExternal(PsiStringy stringy)
+	public PsiObject psiExternal(final PsiStringy stringy)
 		throws PsiException
 	{
 		return external(stringy.stringValue());
 	}
 
-	public PsiObject external(Class<? extends PsiObject> objectClass)
+	public PsiObject external(final Class<? extends PsiObject> objectClass)
 		throws PsiException
 	{
 		try
@@ -23,7 +22,7 @@ public class PsiClassLoader
 		}
 	}
 
-	public PsiObject external(String objectClassName)
+	public PsiObject external(final String objectClassName)
 		throws PsiException
 	{
 		try
@@ -43,7 +42,7 @@ public class PsiClassLoader
 	private ClassLoader classLoader=new ClassLoader(PsiClassLoader.class.getClassLoader())
 		{
 			@Override
-			public Class loadClass(String className)
+			public Class loadClass(final String className)
 				throws ClassNotFoundException
 			{
 				try
@@ -63,9 +62,9 @@ public class PsiClassLoader
 				throw new ClassNotFoundException();
 			}
 
-			public Class findClassAtPathElement(String className, java.io.File file)
+			public Class findClassAtPathElement(final String className, final java.io.File file)
 			{
-				byte classByte[];
+				final byte classByte[];
 				Class result=null;
 
 				result=(Class)classes.get(className);
@@ -77,8 +76,8 @@ public class PsiClassLoader
 					java.io.InputStream is=null;
 					if(file.isFile())
 					{
-						java.util.jar.JarFile jar=new java.util.jar.JarFile(file);
-						java.util.jar.JarEntry entry
+						final java.util.jar.JarFile jar=new java.util.jar.JarFile(file);
+						final java.util.jar.JarEntry entry
 							=jar.getJarEntry(className.replace('.', '/')+".class");
 						if(entry==null)
 							return null;
@@ -91,7 +90,7 @@ public class PsiClassLoader
 					else
 						return null;
 
-					java.io.ByteArrayOutputStream byteStream=new java.io.ByteArrayOutputStream();
+					final java.io.ByteArrayOutputStream byteStream=new java.io.ByteArrayOutputStream();
 					int nextValue=is.read();
 					while(nextValue!=-1)
 					{
@@ -112,7 +111,7 @@ public class PsiClassLoader
 
 			private PsiIterable<PsiStringy> path;
 
-			private java.util.Hashtable<String, Class> classes
+			private final java.util.Hashtable<String, Class> classes
 				=new java.util.Hashtable<String, Class>();
 		};
 }

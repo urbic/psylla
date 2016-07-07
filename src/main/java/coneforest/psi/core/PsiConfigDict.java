@@ -11,9 +11,7 @@ public class PsiConfigDict
 			final java.util.Properties config=new java.util.Properties();
 			config.load(Psylla.class.getResourceAsStream("Config.properties"));
 			for(String name: config.stringPropertyNames())
-				//if(name.startsWith("config."))
-				//	put(name.substring(7), new PsiName(config.getProperty(name)));
-					put(name, new PsiName(config.getProperty(name)));
+				put(name, new PsiName(config.getProperty(name)));
 
 			final java.util.Properties system=System.getProperties();
 			for(String name: system.stringPropertyNames())

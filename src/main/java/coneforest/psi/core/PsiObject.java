@@ -66,6 +66,11 @@ public interface PsiObject
 		return this;
 	}
 
+	default public PsiName psiSyntax()
+	{
+		return new PsiName(toSyntaxString());
+	}
+
 	/**
 	*	Returns a Ψ-{@code string} representing this object.
 	*
