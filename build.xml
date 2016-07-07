@@ -9,6 +9,7 @@
 	<property name="src.examples" location="${src}/examples"/>
 	<property name="src.main.java" location="${src.main}/java"/>
 	<property name="src.test.java" location="${src.test}/java"/>
+	<property name="src.test.psi" location="${src.test}/psi"/>
 	<property name="src.main.jj" location="${src.main}/jj"/>
 	<property name="src.examples.psi" location="${src.examples}/psi"/>
 	<property name="src.docbook" location="${src}/docbook"/>
@@ -38,6 +39,7 @@
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 		<pathelement path="/usr/share/java/ant.jar"/>
+		<pathelement path="/usr/share/java/ant/ant-junit.jar"/>
 	</path>
 	<path id="classpath.test">
 		<pathelement path="${target.classes}"/>
@@ -155,19 +157,30 @@
 	</target>
 
 	<target name="test" depends="compile">
-		<junit>
+		<!--junit>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
-			<!--test name="coneforest.psi.test.TestArith"/>
-			<test name="coneforest.psi.test.TestControl"/-->
-			<batchtest>
-				<fileset dir="${src.test.java}" includes="**/Test*.java" />
-			</batchtest>
-		</junit>
+			<test name="coneforest.psi.tools.PsyllaTest"/>
+		</junit-->
+		<taskdef name="psyllaunit"
+			classname="coneforest.psi.tools.ant.PsyllaUnit"
+			classpathref="classpath.main"
+			/>
+		<psyllaunit>
+			<classpath refid="classpath.test"/>
+			<formatter type="plain" usefile="false"/>
+			<!--test dir="${src.test.psi}"/-->
+			<test name="src/test/psi/operators/exit"/>
+		</psyllaunit>
 	</target>
 
+
 	<target name="test.anttask" depends="jar">
-		<taskdef name="psylla" classname="coneforest.psi.tools.ant.Psylla" classpathref="classpath.main"/>
+		<taskdef
+			name="psylla"
+			classname="coneforest.psi.tools.ant.Psylla"
+			classpathref="classpath.main"
+			/>
 		<psylla eval="0 1 1 99 { ? } for"/>
 		<psylla eval="1 atan 4 mul ?"/>
 	</target>
