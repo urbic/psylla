@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_renamefile">
 <title><token language="psi">renamefile</token></title>
 
+<para>
+Changes an <replaceable>old</replaceable> file name to a
+<replaceable>new</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>old</replaceable>
 <replaceable>new</replaceable>
 <token language="psi">renamefile</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>old</replaceable>,
@@ -14,12 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Changes an <replaceable>old</replaceable> file name to a
-<replaceable>new</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

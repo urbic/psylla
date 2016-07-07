@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_undef">
 <title><token language="psi">undef</token></title>
 
+<para>
+Удаляет <replaceable>ключ</replaceable> и связанное с ним значение
+из <replaceable>словаря</replaceable>. Отсутствие ключа
+в <replaceable>словаре</replaceable> ошибки не вызывает.
+</para>
+
 <synopsis>
 <replaceable>ключ</replaceable>
 <replaceable>словарь</replaceable>
 <token language="psi">undef</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>ключ</replaceable>:
@@ -17,13 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Удаляет <replaceable>ключ</replaceable> и связанное с ним значение
-из <replaceable>словаря</replaceable>. Отсутствие ключа
-в <replaceable>словаре</replaceable> ошибки не вызывает.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

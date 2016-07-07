@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_contains">
 <title><token language="psi">contains</token></title>
 
+<para>
+Возвращает булевский <replaceable>результат</replaceable> показывающий,
+принадлежит ли <replaceable>объект</replaceable>
+<replaceable>множеству</replaceable>. Объект считается принадлежащим множеству,
+если он равен некоторому элементу множества.
+</para>
+
 <synopsis>
 <replaceable>множество</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">contains</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>множество</replaceable>:
@@ -21,14 +32,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает булевский <replaceable>результат</replaceable> показывающий,
-принадлежит ли <replaceable>объект</replaceable>
-<replaceable>множеству</replaceable>. Объект считается принадлежащим множеству,
-если он равен некоторому элементу множества.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

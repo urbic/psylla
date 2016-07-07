@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_append">
 <title><token language="psi">append</token></title>
 
+<para>
+Appends the <replaceable>object</replaceable>
+to the <replaceable>container</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">append</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
@@ -17,11 +26,9 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Appends the <replaceable>object</replaceable>
-to the <replaceable>container</replaceable>.
 Для <replaceable>контейнеров</replaceable> типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_arraylike"/> добавление происходит в конец
 массива.

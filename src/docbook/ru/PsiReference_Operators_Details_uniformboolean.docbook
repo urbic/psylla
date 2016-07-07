@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_uniformboolean">
 <title><token language="psi">uniformboolean</token></title>
+
+<para>
+Возвращает очередное псевдослучайное равновероятное булевское значение.
+</para>
+
 <synopsis>
 <replaceable>генератор</replaceable>
 <token language="psi">uniformboolean</token>
 <replaceable>случайное</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
@@ -15,13 +24,12 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-<para>
-Возвращает очередное псевдослучайное равновероятное булевское значение.
-</para>
+</formalpara>
+
 <formalpara>
 &TitleErrors;
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
+
 </section>

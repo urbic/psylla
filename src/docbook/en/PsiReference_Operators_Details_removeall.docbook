@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_removeall">
 <title><token language="psi">removeall</token></title>
 
+<para>
+Removes all the objects from the <replaceable>enumeration</replaceable> from
+the <replaceable>set</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>enumeration</replaceable>
 <token language="psi">removeall</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>set</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Removes all the objects from the <replaceable>enumeration</replaceable> from
-the <replaceable>set</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -8,6 +8,10 @@
 <replaceable>элемент</replaceable>
 <token language="psi">put</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -19,7 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

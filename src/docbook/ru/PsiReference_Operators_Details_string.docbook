@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_string">
 <title><token language="psi">string</token></title>
 
+<para>
+Возвращает новую пустую <replaceable>строку</replaceable>.
+</para>
+
 <synopsis>
 —
 <token language="psi">string</token>
 <replaceable>строка</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новую пустую <replaceable>строку</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

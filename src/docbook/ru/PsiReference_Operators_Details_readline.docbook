@@ -2,6 +2,14 @@
 <section xml:id="PsiReference_Operators_Details_readline">
 <title><token language="psi">readline</token></title>
 
+<para>
+Пытается прочитать из <replaceable>источника</replaceable>
+<replaceable>строку</replaceable>, ограниченную терминатором строк, принятым
+на данной платформе, или концом источника. Терминатор становится частью
+прочитанной <replaceable>строки</replaceable>. Возвращает также булевское
+значение, показывающее успешность операции.
+</para>
+
 <synopsis>
 <replaceable>источник</replaceable>
 <token language="psi">readline</token>
@@ -11,6 +19,10 @@
 <replaceable>источник</replaceable>
 <token language="psi">readline</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>источник</replaceable>:
@@ -26,15 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Пытается прочитать из <replaceable>источника</replaceable>
-<replaceable>строку</replaceable>, ограниченную терминатором строк, принятым
-на данной платформе, или концом источника. Терминатор становится частью
-прочитанной <replaceable>строки</replaceable>. Возвращает также булевское
-значение, показывающее успешность операции.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

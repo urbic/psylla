@@ -2,10 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_stopped">
 <title><token language="psi">stopped</token></title>
 
+<para>
+Устанавливает контекст остановки и исполняет <replaceable>объект</replaceable>
+(обычно процедуру) внутри него. Если исполнение
+<replaceable>объекта</replaceable> привело к вызову оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stop"/>,
+возвращает <constant>true</constant>, в противном случае возвращает
+<constant>false</constant>.
+</para>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">stopped</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
@@ -16,16 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Устанавливает контекст остановки и исполняет <replaceable>объект</replaceable>
-(обычно процедуру) внутри него. Если исполнение
-<replaceable>объекта</replaceable> привело к вызову оператора <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stop"/>,
-возвращает <constant>true</constant>, в противном случае возвращает
-<constant>false</constant>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

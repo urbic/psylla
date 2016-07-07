@@ -2,16 +2,16 @@
 <section xml:id="PsiReference_Operators_Details_yield">
 <title><token language="psi">yield</token></title>
 
+<para>
+Приостанавливает исполнение текущего контекста с тем, чтобы остальные контексты
+получили возможность исполняться.
+</para>
+
 <synopsis>
 —
 <token language="psi">yield</token>
 —
 </synopsis>
-
-<para>
-Приостанавливает исполнение текущего контекста с тем, чтобы остальные контексты
-получили возможность исполняться.
-</para>
 
 <formalpara>
 &TitleErrors;

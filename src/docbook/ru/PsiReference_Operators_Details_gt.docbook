@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_gt">
 <title><token language="psi">gt</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если
+<replaceable>скаляр<subscript>1</subscript></replaceable> больше
+<replaceable>скаляра<subscript>2</subscript></replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
 <synopsis>
 <replaceable>скаляр<subscript>1</subscript></replaceable>
 <replaceable>скаляр<subscript>2</subscript></replaceable>
 <token language="psi">gt</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
@@ -18,14 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если
-<replaceable>скаляр<subscript>1</subscript></replaceable> больше
-<replaceable>скаляра<subscript>2</subscript></replaceable>, и
-<constant>false</constant> в противном случае.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

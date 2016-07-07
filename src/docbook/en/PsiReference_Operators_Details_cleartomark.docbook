@@ -2,6 +2,11 @@
 <section xml:id="PsiReference_Operators_Details_cleartomark">
 <title><token language="psi">cleartomark</token></title>
 
+<para>
+Removes all the objects situated above the highest <constant>mark</constant> on
+the operand stack.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -9,6 +14,10 @@
 <replaceable>object<subscript>n</subscript></replaceable>
 <token language="psi">cleartomark</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>object<subscript>1</subscript></replaceable>,
@@ -21,12 +30,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Removes all the objects situated above the highest <constant>mark</constant> on
-the operand stack.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

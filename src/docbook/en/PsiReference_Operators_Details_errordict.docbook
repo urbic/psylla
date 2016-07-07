@@ -2,19 +2,27 @@
 <section xml:id="PsiReference_Operators_Details_errordict">
 <title><token language="psi">errordict</token></title>
 
+<para>
+The error dictionary.
+</para>
+
 <synopsis>
 — <token language="psi">errordict</token>
 <constant>errordict</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>errordict</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-The error dictionary. <xref xrefstyle="template:%t"
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_errordict"/> is not an operator, but a
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/> value
 in the system dictionary.

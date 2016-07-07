@@ -2,20 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_version">
 <title><token language="psi">version</token></title>
 
+<para>
+The version of the Ψ interpreter.
+</para>
+
 <synopsis>
 —
 <token language="psi">version</token>
 <constant>version</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>version</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-The version of the Ψ interpreter. <xref xrefstyle="template:%t"
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_version"/> is not an operator, but a
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> value
 in the system dictionary.

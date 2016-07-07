@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_dup">
 <title><token language="psi">dup</token></title>
 
+<para>
+Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
+</para>
+
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psi">dup</token>
 <replaceable>object</replaceable>
 <replaceable>object</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
-</para>
+</formalpara>
 
 <para>
 Копируется только объект, но не его значение. При копировании композитных

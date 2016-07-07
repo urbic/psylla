@@ -2,12 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_readstring">
 <title><token language="psi">readstring</token></title>
 
+<para>
+Attempts to read a <replaceable>string</replaceable> of specified
+<replaceable>length</replaceable> from the <replaceable>input</replaceable>.
+Returns the read <replaceable>string</replaceable>. Also returns a boolean
+<replaceable>result</replaceable> indicating whether the
+<replaceable>input</replaceable> is exhausted during the operation.
+</para>
+
 <synopsis>
 <replaceable>input</replaceable>
 <replaceable>length</replaceable>
 <token language="psi">readstring</token>
 <replaceable>string</replaceable>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>input</replaceable>:
@@ -26,15 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Attempts to read a <replaceable>string</replaceable> of specified
-<replaceable>length</replaceable> from the <replaceable>input</replaceable>.
-Returns the read <replaceable>string</replaceable>. Also returns a boolean
-<replaceable>result</replaceable> indicating whether the
-<replaceable>input</replaceable> is exhausted during the operation.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

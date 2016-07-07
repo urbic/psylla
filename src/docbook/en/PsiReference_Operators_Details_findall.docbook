@@ -2,12 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_findall">
 <title><token language="psi">findall</token></title>
 
+<para>
+Ищет последовательно все соответствия <replaceable>шаблону</replaceable>
+в <replaceable>строковом</replaceable>, вызывая
+<replaceable>объект</replaceable> для каждого найденного соответствия.
+Перед каждым исполнением <replaceable>объекта</replaceable> на стек операндов
+добавляется матчер, ассоциированный со <replaceable>строковым</replaceable> и
+<replaceable>шаблоном</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>строковое</replaceable>
 <replaceable>шаблон</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">findall</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строковое</replaceable>:
@@ -22,16 +35,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Ищет последовательно все соответствия <replaceable>шаблону</replaceable>
-в <replaceable>строковом</replaceable>, вызывая
-<replaceable>объект</replaceable> для каждого найденного соответствия.
-Перед каждым исполнением <replaceable>объекта</replaceable> на стек операндов
-добавляется матчер, ассоциированный со <replaceable>строковым</replaceable> и
-<replaceable>шаблоном</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Если в качестве <replaceable>объекта</replaceable> выступает процедура,

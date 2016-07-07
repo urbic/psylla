@@ -2,25 +2,33 @@
 <section xml:id="PsiReference_Operators_Details_environment">
 <title><token language="psi">environment</token></title>
 
+<para>
+The dictionary containing the current environment. The values of environment
+variables are presented as <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/> objects.
+</para>
+
 <synopsis>
 —
 <token language="psi">environment</token>
 <constant>environment</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>environment</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-The dictionary containing the current environment. The values of environment
-variables are presented as <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_name"/> objects.  <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_environment"/>
-is not an operator, but a <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_dict"/> value in the system dictionary.
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_environment"/> is not an operator, but
+a <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
+value in the system dictionary.
 </para>
 
 <formalpara>

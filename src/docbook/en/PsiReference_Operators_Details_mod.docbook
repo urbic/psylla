@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_mod">
 <title><token language="psi">mod</token></title>
 
+<para>
+Returns the <replaceable>remainder</replaceable> of dividing the
+<replaceable>dividend</replaceable> by the <replaceable>divisor</replaceable>.
+The <replaceable>remainder</replaceable> has the same sign as the
+<replaceable>divisor</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>dividend</replaceable>
 <replaceable>divisor</replaceable>
 <token language="psi">mod</token>
 <replaceable>remainder</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>dividend</replaceable>,
@@ -15,14 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>remainder</replaceable> of dividing the
-<replaceable>dividend</replaceable> by the <replaceable>divisor</replaceable>.
-The <replaceable>remainder</replaceable> has the same sign as the
-<replaceable>divisor</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

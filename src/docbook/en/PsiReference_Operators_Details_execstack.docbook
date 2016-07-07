@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_execstack">
 <title><token language="psi">execstack</token></title>
 
+<para>
+Returns the contents of the execution stack in an
+<replaceable>array</replaceable>.
+</para>
+
 <synopsis>
 —
 <token language="psi">execstack</token>
 <replaceable>arary</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the contents of the execution stack in an
-<replaceable>array</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

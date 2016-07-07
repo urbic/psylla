@@ -2,12 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_ifelse">
 <title><token language="psi">ifelse</token></title>
 
+<para>
+Вызывает <replaceable>объект<subscript>1</subscript></replaceable> либо
+<replaceable>объект<subscript>2</subscript></replaceable> в зависимости
+от истинности <replaceable>условия</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>условие</replaceable>
 <replaceable>объект<subscript>1</subscript></replaceable>
 <replaceable>объект<subscript>2</subscript></replaceable>
 <token language="psi">ifelse</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>условие</replaceable>:
@@ -19,13 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Вызывает <replaceable>объект<subscript>1</subscript></replaceable> либо
-<replaceable>объект<subscript>2</subscript></replaceable> в зависимости
-от истинности <replaceable>условия</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

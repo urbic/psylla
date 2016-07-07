@@ -2,6 +2,10 @@
 <section xml:id="PsiReference_Operators_Details_clearstack">
 <title><token language="psi">clearstack</token></title>
 
+<para>
+Удаляет все объекты из стека операндов.
+</para>
+
 <synopsis>
 ⊢
 <replaceable>объект<subscript>1</subscript></replaceable>
@@ -9,6 +13,10 @@
 <replaceable>объект<subscript>n</subscript></replaceable>
 <token language="psi">clearstack</token>
 ⊢
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
@@ -17,11 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Удаляет все объекты из стека операндов.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

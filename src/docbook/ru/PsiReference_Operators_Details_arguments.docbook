@@ -6,18 +6,26 @@
 —
 <token language="psi">arguments</token>
 <constant>аргументы</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>аргументы</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 Массив аргументов командной строки, предназначенных для программы. Аргументы
 представлены как объекты типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_name"/>.  <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/>.
+</para>
+
+<para>
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_arguments"/> не оператор, а значение
 типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 в системном словаре.

@@ -6,13 +6,17 @@
 —
 <token language="psi">bitarray</token>
 <replaceable>битовый_массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>битовый_массив</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitarray"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 Возвращает новый пустой <replaceable>битовый_массив</replaceable>.

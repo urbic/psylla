@@ -2,20 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_dict">
 <title><token language="psi">dict</token></title>
 
+<para>
+Returns a new empty <replaceable>dictionary</replaceable>.
+</para>
+
 <synopsis>
-— <token language="psi">dict</token>
+—
+<token language="psi">dict</token>
 <replaceable>dictionary</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>dictionary</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new empty <replaceable>dictionary</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

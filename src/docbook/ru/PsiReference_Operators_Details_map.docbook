@@ -2,11 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_map">
 <title><token language="psi">map</token></title>
 
+<para>
+Вызывает <replaceable>процедуру</replaceable> для каждого элемента
+<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
+операндов. После каждого вызова процедуры со стека операндов снимается один
+объект и добавляется в новый контейнер того же типа, что и
+<replaceable>контейнер</replaceable>. Возвращает новый контейнер как
+<replaceable>результат</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>процедура</replaceable>
 <token language="psi">map</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>,
@@ -20,16 +33,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Вызывает <replaceable>процедуру</replaceable> для каждого элемента
-<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
-операндов. После каждого вызова процедуры со стека операндов снимается один
-объект и добавляется в новый контейнер того же типа, что и
-<replaceable>контейнер</replaceable>. Возвращает новый контейнер как
-<replaceable>результат</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Предполагается, что <replaceable>процедура</replaceable> не меняет длину стека

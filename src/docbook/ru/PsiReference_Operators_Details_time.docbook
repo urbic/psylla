@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_time">
 <title><token language="psi">time</token></title>
 
+<para>
+Возвращает текущее <replaceable>время</replaceable> (в миллисекундах
+с 1970.01.01 00:00:00 GMT).
+</para>
+
 <synopsis>
 —
 <token language="psi">time</token>
 <replaceable>время</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>время</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает текущее <replaceable>время</replaceable> (в миллисекундах
-с 1970.01.01 00:00:00 GMT).
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

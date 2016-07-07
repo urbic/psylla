@@ -6,6 +6,10 @@
 <replaceable>вместимость</replaceable>
 <token language="psi">blockingqueue</token>
 <replaceable>очередь</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>вместимость</replaceable>:
@@ -16,7 +20,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_blockingqueue"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 Возвращает новую блокирующую <replaceable>очередь</replaceable>

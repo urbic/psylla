@@ -2,19 +2,6 @@
 <section xml:id="PsiReference_Operators_Details_log">
 <title><token language="psi">log</token></title>
 
-<synopsis>
-<replaceable>число</replaceable>
-<token language="psi">log</token>
-<replaceable>логарифм</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>число</replaceable>,
-<replaceable>логарифм</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-
 <para>
 Возвращает натуральный <replaceable>логарифм</replaceable>
 <replaceable>числа</replaceable>. Для положительных операндов целого и
@@ -22,9 +9,25 @@
 комплексных операндов возвращается комплексное число.
 </para>
 
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psi">log</token>
+<replaceable>логарифм</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>логарифм</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
 <para>
-Генерирует
-<xref xrefstyle="template:%t"
+Генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого значения
 операнда.
 </para>

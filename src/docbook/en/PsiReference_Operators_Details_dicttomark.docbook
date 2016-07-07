@@ -2,6 +2,12 @@
 <section xml:id="PsiReference_Operators_Details_dicttomark">
 <title><token language="psi">dicttomark</token></title>
 
+<para>
+Returns a new <replaceable>dictionary</replaceable> containing key-value pairs
+located above the topmost mark on the operand stack. Removes the mark and the
+objects above it from the operand stack.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>key<subscript>1</subscript></replaceable>
@@ -11,6 +17,10 @@
 <replaceable>value<subscript>n</subscript></replaceable>
 <token language="psi">dicttomark</token>
 <replaceable>dictionary</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
@@ -33,13 +43,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new <replaceable>dictionary</replaceable> containing key-value pairs
-located above the topmost mark on the operand stack. Removes the mark and the
-objects above it from the operand stack.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

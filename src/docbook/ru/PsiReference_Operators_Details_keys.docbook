@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_keys">
 <title><token language="psi">keys</token></title>
 
+<para>
+Возвращает <replaceable>перечисление</replaceable> ключей
+из <replaceable>индексированного</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>индексированное</replaceable>
 <token language="psi">keys</token>
 <replaceable>перечисление</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>индексированное</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>перечисление</replaceable> ключей
-из <replaceable>индексированного</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_cbrt">
 <title><token language="psi">cbrt</token></title>
+
+<para>
+Returns the <replaceable>cubic_root</replaceable> of
+the <replaceable>number</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">cbrt</token>
 <replaceable>root</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
-<replaceable>root</replaceable>:
+<replaceable>cubic_root</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the cubic <replaceable>root</replaceable> of
-the <replaceable>number</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

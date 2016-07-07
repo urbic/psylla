@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_hashcode">
 <title><token language="psi">hashcode</token></title>
 
+<para>
+Возвращает <replaceable>хэш-код</replaceable>
+<replaceable>объекта</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">hashcode</token>
 <replaceable>хэш-код</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>хэш-код</replaceable>
-<replaceable>объекта</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

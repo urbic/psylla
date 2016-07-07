@@ -2,11 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_clearbit">
 <title><token language="psi">clearbit</token></title>
 
+<para>
+<remark>TODO</remark>
+</para>
+
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>index</replaceable>
 <token language="psi">clearbit</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>bitwise</replaceable>,
@@ -18,11 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-<remark>TODO</remark>
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

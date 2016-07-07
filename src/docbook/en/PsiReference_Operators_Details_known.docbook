@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_known">
 <title><token language="psi">known</token></title>
 
+<para>
+Returns <constant>true</constant>, if the <replaceable>key</replaceable>
+contains in the <replaceable>indexed</replaceable> container, and
+<constant>false</constant> otherwise.
+</para>
+
 <synopsis>
 <replaceable>indexed</replaceable>
 <replaceable>key</replaceable>
 <token language="psi">known</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>indexed</replaceable>:
@@ -21,13 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns <constant>true</constant>, if the <replaceable>key</replaceable>
-contains in the <replaceable>indexed</replaceable> container, and
-<constant>false</constant> otherwise.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

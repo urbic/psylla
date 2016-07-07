@@ -2,6 +2,11 @@
 <section xml:id="PsiReference_Operators_Details_counttomark">
 <title><token language="psi">counttomark</token></title>
 
+<para>
+Возвращает количество объектов в стеке операндов, расположенных выше самой
+верхней метки вплоть до вершины стека.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>объект<subscript>1</subscript></replaceable>
@@ -13,6 +18,10 @@
 …
 <replaceable>объект<subscript>n</subscript></replaceable>
 <replaceable>n</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
@@ -29,12 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает количество объектов в стеке операндов, расположенных выше самой
-верхней метки вплоть до вершины стека.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

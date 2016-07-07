@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_le">
 <title><token language="psi">le</token></title>
 
+<para>
+Returns <constant>true</constant>, if
+<replaceable>scalar<subscript>1</subscript></replaceable> is less than or equal
+to <replaceable>scalar<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
+</para>
+
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psi">le</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>scalar<subscript>1</subscript></replaceable>,
@@ -18,14 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns <constant>true</constant>, if
-<replaceable>scalar<subscript>1</subscript></replaceable> is less than or equal
-to <replaceable>scalar<subscript>2</subscript></replaceable>, and
-<constant>false</constant> otherwise.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

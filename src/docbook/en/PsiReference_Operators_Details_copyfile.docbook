@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_copyfile">
 <title><token language="psi">copyfile</token></title>
 
+<para>
+Copies an <replaceable>existing</replaceable> file with a
+<replaceable>new</replaceable> name.
+</para>
+
 <synopsis>
 <replaceable>existing</replaceable>
 <replaceable>new</replaceable>
 <token language="psi">copyfile</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>existing</replaceable>,
@@ -14,12 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Copies an <replaceable>existing</replaceable> file with a
-<replaceable>new</replaceable> name.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

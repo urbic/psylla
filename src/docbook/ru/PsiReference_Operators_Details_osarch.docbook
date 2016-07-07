@@ -2,6 +2,10 @@
 <section xml:id="PsiReference_Operators_Details_osarch">
 <title><token language="psi">osarch</token></title>
 
+<para>
+Архитектура операционной системы.
+</para>
+
 <synopsis>
 —
 <token language="psi">osarch</token>
@@ -15,7 +19,7 @@
 </synopsis>
 
 <para>
-Архитектура операционной системы. <xref xrefstyle="template:%t"
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_osarch"/> не оператор, а значение типа
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в
 системном словаре.

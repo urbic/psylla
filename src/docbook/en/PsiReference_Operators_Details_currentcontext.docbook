@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_currentcontext">
 <title><token language="psi">currentcontext</token></title>
 
+<para>
+Returns the current execution <replaceable>context</replaceable>.
+</para>
+
 <synopsis>
 —
 <token language="psi">currentcontext</token>
 <replaceable>context</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>context</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_context"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the current execution <replaceable>context</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

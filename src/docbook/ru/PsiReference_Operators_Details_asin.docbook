@@ -2,10 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_asin">
 <title><token language="psi">asin</token></title>
 
+<para>
+Возвращает <replaceable>арксинус</replaceable>
+<replaceable>числа</replaceable>. Для операндов целого и вещественного типа
+возвращается вещественное число, для операндов комплексного типа возвращается
+комплексное число.
+</para>
+
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">asin</token>
 <replaceable>арксинус</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
@@ -13,14 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>арксинус</replaceable>
-<replaceable>числа</replaceable>. Для операндов целого и вещественного типа
-возвращается вещественное число, для операндов комплексного типа возвращается
-комплексное число.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

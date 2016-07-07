@@ -2,20 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_osversion">
 <title><token language="psi">osversion</token></title>
 
+<para>
+The version of an operating system.
+</para>
+
 <synopsis>
 —
 <token language="psi">osversion</token>
 <constant>osversion</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>osversion</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-The version of an operating system. <xref xrefstyle="template:%t"
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_osversion"/> is not an operator, but a
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> value
 in the system dictionary.

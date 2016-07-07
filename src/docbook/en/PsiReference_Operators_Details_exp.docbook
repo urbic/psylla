@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_exp">
 <title><token language="psi">exp</token></title>
 
+<para>
+Returns the <replaceable>exponent</replaceable> of a
+<replaceable>number</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">exp</token>
 <replaceable>exponent</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
@@ -13,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>exponent</replaceable> of a
-<replaceable>number</replaceable>.
-</para>
+</formalpara>
 
 <para>
 For <xref xrefstyle="template:%t"

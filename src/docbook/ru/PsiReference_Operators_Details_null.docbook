@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_null">
 <title><token language="psi">null</token></title>
 
+<para>
+Возвращает <constant>null</constant>.
+</para>
+
 <synopsis>
 —
 <token language="psi">null</token>
 <constant>null</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>null</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_null"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>null</constant>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

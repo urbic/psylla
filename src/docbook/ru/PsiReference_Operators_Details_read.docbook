@@ -2,6 +2,14 @@
 <section xml:id="PsiReference_Operators_Details_read">
 <title><token language="psi">read</token></title>
 
+<para>
+Пытается прочитать <replaceable>символ</replaceable>
+из <replaceable>источника</replaceable>. Возвращает прочитанный
+<replaceable>символ</replaceable> в случае успеха (если
+<replaceable>источник</replaceable> не исчерпан). Возвращает также булевское
+значение, показывающее успешность операции.
+</para>
+
 <synopsis>
 <replaceable>источник</replaceable>
 <token language="psi">read</token>
@@ -11,6 +19,10 @@
 <replaceable>источник</replaceable>
 <token language="psi">read</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>источник</replaceable>:
@@ -26,15 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Пытается прочитать <replaceable>символ</replaceable>
-из <replaceable>источника</replaceable>. Возвращает прочитанный
-<replaceable>символ</replaceable> в случае успеха (если
-<replaceable>источник</replaceable> не исчерпан). Возвращает также булевское
-значение, показывающее успешность операции.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

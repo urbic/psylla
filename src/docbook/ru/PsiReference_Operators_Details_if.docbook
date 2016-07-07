@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_if">
 <title><token language="psi">if</token></title>
 
+<para>
+Вызывает <replaceable>объект</replaceable> (обычно процедуру), если истинно
+<replaceable>условие</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>условие</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">if</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>условие</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Вызывает <replaceable>объект</replaceable> (обычно процедуру), если истинно
-<replaceable>условие</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

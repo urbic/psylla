@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_ready">
 <title><token language="psi">ready</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если <replaceable>читатель</replaceable>
+готов для чтения, и <constant>false</constant> в противном случае.
+</para>
+
 <synopsis>
 <replaceable>читатель</replaceable>
 <token language="psi">ready</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>читатель</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если <replaceable>читатель</replaceable>
-готов для чтения, и <constant>false</constant> в противном случае.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

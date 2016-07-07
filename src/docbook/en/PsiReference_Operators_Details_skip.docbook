@@ -2,11 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_skip">
 <title><token language="psi">skip</token></title>
 
+<para>
+Attemps to skip the specified <replaceable>count</replaceable> of characters
+from the <replaceable>input</replaceable>. Returns <constant>true</constant>,
+if the given <replaceable>count</replaceable> of characters are skipped, and
+<constant>false</constant>, if the <replaceable>input</replaceable> is
+exhausted before end of the operation.
+</para>
+
 <synopsis>
 <replaceable>input</replaceable>
 <replaceable>count</replaceable>
 <token language="psi">skip</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>input</replaceable>:
@@ -21,15 +33,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Attemps to skip the specified <replaceable>count</replaceable> of characters
-from the <replaceable>input</replaceable>. Returns <constant>true</constant>,
-if the given <replaceable>count</replaceable> of characters are skipped, and
-<constant>false</constant>, if the <replaceable>input</replaceable> is
-exhausted before end of the operation.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

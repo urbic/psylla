@@ -2,6 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_join">
 <title><token language="psi">join</token></title>
 
+<para>
+Waits for the <replaceable>context</replaceable> to finish executing its
+top-level procedure (the last operand of <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/>). It then pushes a mark
+followed by the entire contents of that <replaceable>context</replaceable>’s
+operand stack onto the current context’s operand stack. Finally, it causes the
+other context to terminate.
+</para>
+
 <synopsis>
 <replaceable>context</replaceable>
 <token language="psi">join</token>
@@ -9,6 +18,10 @@
 <replaceable>object<subscript>1</subscript></replaceable>
 …
 <replaceable>object<subscript>n</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>context</replaceable>:
@@ -25,16 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Waits for the <replaceable>context</replaceable> to finish executing its
-top-level procedure (the last operand of <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_fork"/>). It then pushes a mark
-followed by the entire contents of that <replaceable>context</replaceable>’s
-operand stack onto the current context’s operand stack. Finally, it causes the
-other context to terminate.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

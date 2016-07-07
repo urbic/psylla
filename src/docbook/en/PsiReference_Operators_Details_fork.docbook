@@ -2,6 +2,14 @@
 <section xml:id="PsiReference_Operators_Details_fork">
 <title><token language="psi">fork</token></title>
 
+<para>
+Returns a new execution <replaceable>context</replaceable>, whose dictionary
+stack is copied from the current context, and then copies
+<replaceable>objects</replaceable> to its operand stack. The
+<replaceable>procedure</replaceable> is asynchronously executed within newly
+created <replaceable>context</replaceable>.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -10,6 +18,10 @@
 <replaceable>procedure</replaceable>
 <token language="psi">fork</token>
 <replaceable>context</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
@@ -30,15 +42,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_context"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new execution <replaceable>context</replaceable>, whose dictionary
-stack is copied from the current context, and then copies
-<replaceable>objects</replaceable> to its operand stack. The
-<replaceable>procedure</replaceable> is asynchronously executed within newly
-created <replaceable>context</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

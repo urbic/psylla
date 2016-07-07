@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_load">
 <title><token language="psi">load</token></title>
 
+<para>
+Looks for the <replaceable>key</replaceable> in the dictionary stack and
+returns an associated <replaceable>object</replaceable>. The search is
+performed from the top to the bottom of the stack.
+</para>
+
 <synopsis>
 <replaceable>key</replaceable>
 <token language="psi">load</token>
 <replaceable>object</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>key</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Looks for the <replaceable>key</replaceable> in the dictionary stack and
-returns an associated <replaceable>object</replaceable>. The search is
-performed from the top to the bottom of the stack.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

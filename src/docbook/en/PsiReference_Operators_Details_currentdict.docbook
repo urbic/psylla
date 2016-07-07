@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_currentdict">
 <title><token language="psi">currentdict</token></title>
 
+<para>
+Returns the current dictionary (the topmost in the dictionary stack). The
+dictionary stack remains untouch.
+</para>
+
 <synopsis>
 —
 <token language="psi">currentdict</token>
 <replaceable>dictionary</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>dictionary</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the current dictionary (the topmost in the dictionary stack). The
-dictionary stack remains untouch.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

@@ -2,15 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_pstack">
 <title><token language="psi">pstack</token></title>
 
+<para>
+Выводит на стандартный вывод содержимое стека операндов.
+</para>
+
 <synopsis>
 —
 <token language="psi">pstack</token>
 —
 </synopsis>
-
-<para>
-Выводит на стандартный вывод содержимое стека операндов.
-</para>
 
 <formalpara>
 &TitleErrors;

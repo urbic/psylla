@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_abs">
 <title><token language="psi">abs</token></title>
 
+<para>
+Returns the <replaceable>absolute_value</replaceable> of the
+<replaceable>number</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">abs</token>
 <replaceable>absolute_value</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
@@ -13,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>absolute_value</replaceable> of the
-<replaceable>number</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Если <replaceable>операнд</replaceable> имеет тип <xref xrefstyle="template:%t"

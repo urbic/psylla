@@ -2,12 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_getinterval">
 <title><token language="psi">getinterval</token></title>
 
+<para>
+Returns a <replaceable>subarray</replaceable> of an
+<replaceable>array</replaceable>. The <replaceable>subarray</replaceable>
+consists of <replaceable>length</replaceable> elements starting at the
+<replaceable>index</replaceable> in the <replaceable>array</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
 <replaceable>length</replaceable>
 <token language="psi">getinterval</token>
 <replaceable>subarray</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>,
@@ -20,14 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a <replaceable>subarray</replaceable> of an
-<replaceable>array</replaceable>. The <replaceable>subarray</replaceable>
-consists of <replaceable>length</replaceable> elements starting at the
-<replaceable>index</replaceable> in the <replaceable>array</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

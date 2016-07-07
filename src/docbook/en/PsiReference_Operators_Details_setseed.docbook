@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_setseed">
 <title><token language="psi">setseed</token></title>
 
+<para>
+Sets the <replaceable>seed</replaceable> for pseudorandom
+<replaceable>generator</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>generator</replaceable>
 <replaceable>seed</replaceable>
 <token language="psi">setseed</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>generator</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Sets the <replaceable>seed</replaceable> for pseudorandom
-<replaceable>generator</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

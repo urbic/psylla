@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_bitset">
 <title><token language="psi">bitset</token></title>
 
+<para>
+Returns a new empty <replaceable>bit_set</replaceable>.
+</para>
+
 <synopsis>
 —
 <token language="psi">bitset</token>
 <replaceable>bit_set</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>bit_set</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitset"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new empty <replaceable>bit_set</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

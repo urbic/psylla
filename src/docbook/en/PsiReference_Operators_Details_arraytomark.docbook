@@ -2,6 +2,12 @@
 <section xml:id="PsiReference_Operators_Details_arraytomark">
 <title><token language="psi">arraytomark</token></title>
 
+<para>
+Returns a new <replaceable>array</replaceable> filled with
+<replaceable>objects</replaceable> located above the topmost mark on the
+operand stack. Removes the mark and the objects from the operand stack.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>object<subscript>0</subscript></replaceable>
@@ -9,6 +15,10 @@
 <replaceable>object<subscript>n−1</subscript></replaceable>
 <token language="psi">arraytomark</token>
 <replaceable>array</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
@@ -25,13 +35,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new <replaceable>array</replaceable> filled with
-<replaceable>objects</replaceable> located above the topmost mark on the
-operand stack. Removes the mark and the objects from the operand stack.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

@@ -2,15 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_quit">
 <title><token language="psi">quit</token></title>
 
+<para>
+Terminates the current execution context.
+</para>
+
 <synopsis>
 —
 <token language="psi">quit</token>
 —
 </synopsis>
-
-<para>
-Terminates the current execution context.
-</para>
 
 <formalpara>
 &TitleErrors;

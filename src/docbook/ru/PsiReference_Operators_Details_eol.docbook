@@ -2,23 +2,30 @@
 <section xml:id="PsiReference_Operators_Details_eol">
 <title><token language="psi">eol</token></title>
 
+<para>
+Терминатор строк.
+</para>
+
 <synopsis>
 —
 <token language="psi">eol</token>
 <constant>eol</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>eol</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Терминатор строк. <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_eol"/> не оператор, а значение типа <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в системном
-словаре.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/> не
+оператор, а значение типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/> в системном словаре.
 </para>
 
 <formalpara>

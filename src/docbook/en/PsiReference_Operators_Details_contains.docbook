@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_contains">
 <title><token language="psi">contains</token></title>
 
+<para>
+Returns a boolean <replaceable>result</replaceable> indicating whether the
+<replaceable>object</replaceable> belongs to <replaceable>set</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">contains</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>set</replaceable>:
@@ -21,11 +30,9 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Returns a boolean <replaceable>result</replaceable> indicating whether the
-<replaceable>object</replaceable> belongs to <replaceable>set</replaceable>.
 Объект считается принадлежащим множеству, если он равен некоторому элементу
 множества.
 </para>

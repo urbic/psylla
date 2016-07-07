@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_repeat">
 <title><token language="psi">repeat</token></title>
 
+<para>
+Вызывает <replaceable>объект</replaceable> заданное
+<replaceable>количество</replaceable> раз.
+</para>
+
 <synopsis>
 <replaceable>количество</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">repeat</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>количество</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Вызывает <replaceable>объект</replaceable> заданное
-<replaceable>количество</replaceable> раз.
-</para>
+</formalpara>
 
 <para>
 Исполнение в <replaceable>процедуре</replaceable> оператора <xref

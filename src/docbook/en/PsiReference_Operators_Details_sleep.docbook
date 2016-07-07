@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_sleep">
 <title><token language="psi">sleep</token></title>
 
+<para>
+Suspends execution of the current context for given
+<replaceable>duration</replaceable> (in milliseconds).
+</para>
+
 <synopsis>
 <replaceable>duration</replaceable>
 <token language="psi">sleep</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>duration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Suspends execution of the current context for given
-<replaceable>duration</replaceable> (in milliseconds).
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

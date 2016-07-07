@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_retainall">
 <title><token language="psi">retainall</token></title>
 
+<para>
+Retains only the elements in the <replaceable>set</replaceable> that are
+contained in the <replaceable>enumeration</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>enumeration</replaceable>
 <token language="psi">retainall</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>set</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Retains only the elements in the <replaceable>set</replaceable> that are
-contained in the <replaceable>enumeration</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

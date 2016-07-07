@@ -2,10 +2,18 @@
 <section xml:id="PsiReference_Operators_Details_clone">
 <title><token language="psi">clone</token></title>
 
+<para>
+TODO
+</para>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">clone</token>
 <replaceable>копия</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>,
@@ -13,11 +21,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-TODO
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

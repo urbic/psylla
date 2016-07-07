@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_currentdirectory">
 <title><token language="psi">currentdirectory</token></title>
 
+<para>
+Returns the <replaceable>name</replaceable> of the current directory.
+</para>
+
 <synopsis>
 —
 <token language="psi">currentdirectory</token>
 <replaceable>name</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>name</replaceable> of the current directory.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

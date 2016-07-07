@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_isfile">
 <title><token language="psi">isfile</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
+является именем обычного файла, и <constant>false</constant> в противном
+случае.
+</para>
+
 <synopsis>
 <replaceable>имя</replaceable>
 <token language="psi">isfile</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>имя</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
-является именем обычного файла, и <constant>false</constant> в противном
-случае.
-</para>
+</formalpara>
 
 <para>
 Если файл или директория с заданным <replaceable>именем</replaceable> не

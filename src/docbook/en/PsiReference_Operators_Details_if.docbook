@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_if">
 <title><token language="psi">if</token></title>
 
+<para>
+Invokes an <replaceable>object</replaceable> (typically a procedure), if a
+<replaceable>condition</replaceable> is true.
+</para>
+
 <synopsis>
 <replaceable>condition</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">if</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>condition</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Invokes an <replaceable>object</replaceable> (typically a procedure), if a
-<replaceable>condition</replaceable> is true.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

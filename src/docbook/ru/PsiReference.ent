@@ -314,3 +314,4 @@
 <!ENTITY TitleErrors	"<title>Ошибки:</title>">
 <!ENTITY TitleSeeAlso	"<title>Смотри также:</title>">
 <!ENTITY TitleInherits	"<title>Наследует:</title>">
+<!ENTITY TitleOperands	"<title>Операнды:</title>">

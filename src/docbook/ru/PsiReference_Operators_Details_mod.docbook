@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_mod">
 <title><token language="psi">mod</token></title>
 
+<para>
+Возвращает <replaceable>остаток</replaceable> от деления
+<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
+Знак <replaceable>остатка</replaceable> совпадает со знаком
+<replaceable>делителя</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>делимое</replaceable>
 <replaceable>делитель</replaceable>
 <token language="psi">mod</token>
 <replaceable>остаток</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>делимое</replaceable>,
@@ -15,14 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>остаток</replaceable> от деления
-<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
-Знак <replaceable>остатка</replaceable> совпадает со знаком
-<replaceable>делителя</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

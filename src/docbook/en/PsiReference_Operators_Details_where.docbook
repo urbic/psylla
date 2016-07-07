@@ -2,6 +2,14 @@
 <section xml:id="PsiReference_Operators_Details_where">
 <title><token language="psi">where</token></title>
 
+<para>
+Searches for a <replaceable>key</replaceable> in each dictionary on the
+dictionary stack, starting with the topmost dictionary. If the
+<replaceable>key</replaceable> is found in some dictionary, returns that
+dictionary and <constant>true</constant>, otherwise returns
+<constant>false</constant>.
+</para>
+
 <synopsis>
 <replaceable>key</replaceable>
 <token language="psi">where</token>
@@ -11,6 +19,10 @@
 <replaceable>key</replaceable>
 <token language="psi">where</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>key</replaceable>:
@@ -26,15 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Searches for a <replaceable>key</replaceable> in each dictionary on the
-dictionary stack, starting with the topmost dictionary. If the
-<replaceable>key</replaceable> is found in some dictionary, returns that
-dictionary and <constant>true</constant>, otherwise returns
-<constant>false</constant>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_cbrt">
 <title><token language="psi">cbrt</token></title>
+
+<para>
+Возвращает кубический <replaceable>корень</replaceable>
+из <replaceable>числа</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">cbrt</token>
 <replaceable>корень</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
@@ -12,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает кубический <replaceable>корень</replaceable>
-из <replaceable>числа</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_and">
 <title><token language="psi">and</token></title>
 
+<para>
+Возвращает <replaceable>конъюнкцию</replaceable> двух
+<replaceable>операндов</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>операнд<subscript>1</subscript></replaceable>
 <replaceable>операнд<subscript>2</subscript></replaceable>
 <token language="psi">and</token>
 <replaceable>конъюнкция</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>операнд<subscript>1</subscript></replaceable>,
@@ -15,12 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>конъюнкцию</replaceable> двух
-<replaceable>операндов</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Для операндов типа <xref xrefstyle="template:%t"

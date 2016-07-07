@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_matcher">
 <title><token language="psi">matcher</token></title>
 
+<para>
+Returns a new <replaceable>matcher</replaceable> used for a search in the
+<replaceable>string</replaceable> against
+the <replaceable>pattern</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>string</replaceable>
 <replaceable>pattern</replaceable>
 <token language="psi">matcher</token>
 <replaceable>matcher</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
@@ -21,13 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_matcher"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new <replaceable>matcher</replaceable> used for a search in the
-<replaceable>string</replaceable> against
-the <replaceable>pattern</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

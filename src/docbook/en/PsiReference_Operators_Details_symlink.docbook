@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_symlink">
 <title><token language="psi">symlink</token></title>
 
+<para>
+Creates a symbolic link named <replaceable>link</replaceable> to a file named
+<replaceable>target</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>target</replaceable>
 <replaceable>link</replaceable>
 <token language="psi">symlink</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>target</replaceable>,
@@ -14,12 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Creates a symbolic link named <replaceable>link</replaceable> to a file named
-<replaceable>target</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

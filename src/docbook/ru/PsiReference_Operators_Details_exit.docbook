@@ -2,6 +2,10 @@
 <section xml:id="PsiReference_Operators_Details_exit">
 <title><token language="psi">exit</token></title>
 
+<para>
+Прерывает выполнение самого внутреннего циклического контекста.
+</para>
+
 <synopsis>
 —
 <token language="psi">exit</token>
@@ -9,7 +13,6 @@
 </synopsis>
 
 <para>
-Прерывает выполнение самого внутреннего циклического контекста.
 <firstterm>Циклический контекст</firstterm><indexterm><primary>циклический
 контекст</primary></indexterm> — это процедура, многократно выполняющаяся одним
 из циклических операторов

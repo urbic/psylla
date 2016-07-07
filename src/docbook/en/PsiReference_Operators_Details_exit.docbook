@@ -2,12 +2,6 @@
 <section xml:id="PsiReference_Operators_Details_exit">
 <title><token language="psi">exit</token></title>
 
-<synopsis>
-—
-<token language="psi">exit</token>
-—
-</synopsis>
-
 <para>
 Terminates the most inner enclosing cycle context.
 <firstterm>Циклический контекст</firstterm><indexterm><primary>циклический
@@ -23,6 +17,12 @@ Terminates the most inner enclosing cycle context.
 Выполнение программы продолжается с объекта, следующего за циклическим
 оператором.
 </para>
+
+<synopsis>
+—
+<token language="psi">exit</token>
+—
+</synopsis>
 
 <para>
 Generates <xref xrefstyle="template:%t"

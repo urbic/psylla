@@ -3,14 +3,20 @@
 <title><token language="psi">bitset</token></title>
 
 <synopsis>
-— <token language="psi">bitset</token> <replaceable>битовое_множество</replaceable>
+—
+<token language="psi">bitset</token>
+<replaceable>битовое_множество</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>битовое_множество</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitset"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 Возвращает новое пустое <replaceable>битовое_множество</replaceable>.

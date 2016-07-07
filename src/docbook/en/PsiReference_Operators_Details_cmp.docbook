@@ -2,24 +2,6 @@
 <section xml:id="PsiReference_Operators_Details_cmp">
 <title><token language="psi">cmp</token></title>
 
-<synopsis>
-<replaceable>scalar<subscript>1</subscript></replaceable>
-<replaceable>scalar<subscript>2</subscript></replaceable>
-<token language="psi">cmp</token>
-<replaceable>result</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>scalar<subscript>1</subscript></replaceable>,
-<replaceable>scalar<subscript>2</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
-</listitem>
-<listitem>
-<replaceable>result</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-
 <para>
 Returns the <replaceable>result</replaceable> of the comparison of two
 <replaceable>scalars</replaceable>. The <replaceable>result</replaceable>
@@ -33,6 +15,28 @@ equals to <constant>-1</constant> when
 <replaceable>scalar<subscript>1</subscript></replaceable> is greater than
 <replaceable>scalar<subscript>2</subscript></replaceable>.
 </para>
+
+<synopsis>
+<replaceable>scalar<subscript>1</subscript></replaceable>
+<replaceable>scalar<subscript>2</subscript></replaceable>
+<token language="psi">cmp</token>
+<replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>scalar<subscript>1</subscript></replaceable>,
+<replaceable>scalar<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
+</listitem>
+<listitem>
+<replaceable>result</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

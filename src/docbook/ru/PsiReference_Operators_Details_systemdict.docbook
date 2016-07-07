@@ -2,20 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_systemdict">
 <title><token language="psi">systemdict</token></title>
 
+<para>
+Системный словарь. Не оператор, а значение в системном словаре.
+</para>
+
 <synopsis>
-— <token language="psi">systemdict</token>
+—
+<token language="psi">systemdict</token>
 <constant>systemdict</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>systemdict</constant>;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Системный словарь. Не оператор, а значение в системном словаре.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleSeeAlso;

@@ -2,13 +2,13 @@
 <section xml:id="PsiReference_Operators_Details_end">
 <title><token language="psi">end</token></title>
 
-<synopsis>
-— <token language="psi">end</token> —
-</synopsis>
-
 <para>
 Removes the topmost dictionary from the dictionary stack.
 </para>
+
+<synopsis>
+— <token language="psi">end</token> —
+</synopsis>
 
 <para>
 Generates <xref xrefstyle="template:%t"

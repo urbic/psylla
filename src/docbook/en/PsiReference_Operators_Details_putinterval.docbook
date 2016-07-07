@@ -8,6 +8,10 @@
 <replaceable>enumeration</replaceable>
 <token language="psi">putinterval</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>:
@@ -22,7 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

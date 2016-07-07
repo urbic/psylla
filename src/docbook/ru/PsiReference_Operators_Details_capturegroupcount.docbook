@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_capturegroupcount">
 <title><token language="psi">capturegroupcount</token></title>
 
+<para>
+Возвращает <replaceable>количество</replaceable> групп захвата для заданного
+<replaceable>матчера</replaceable>. Группа <constant>0</constant> соответствует
+всему шаблону; она не учитывается при подсчёте.
+</para>
+
 <synopsis>
 <replaceable>матчер</replaceable>
 <token language="psi">capturegroupcount</token>
 <replaceable>количество</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>матчер</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>количество</replaceable> групп захвата для заданного
-<replaceable>матчера</replaceable>. Группа <constant>0</constant> соответствует
-всему шаблону; она не учитывается при подсчёте.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

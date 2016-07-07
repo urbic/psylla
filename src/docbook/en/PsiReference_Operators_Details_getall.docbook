@@ -2,11 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_getall">
 <title><token language="psi">getall</token></title>
 
+<para>
+TODO
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>перечисление</replaceable>
 <token language="psi">getall</token>
 <replaceable>массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -21,11 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-TODO
-</para>
+</formalpara>
 
 <para>
 Тип ключей должен соответствовать типу контейнера (для контейнеров типа <xref

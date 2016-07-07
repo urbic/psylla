@@ -7,6 +7,10 @@
 <replaceable>сдвиг</replaceable>
 <token language="psi">bitshift</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>битовое</replaceable>,
@@ -18,7 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 </para>

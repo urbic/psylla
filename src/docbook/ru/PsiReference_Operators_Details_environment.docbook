@@ -2,22 +2,30 @@
 <section xml:id="PsiReference_Operators_Details_environment">
 <title><token language="psi">environment</token></title>
 
+<para>
+Словарь, содержащий текущее окружение. Значения переменных окружения
+представлены как объекты типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/>.
+</para>
+
 <synopsis>
 —
 <token language="psi">environment</token>
 <constant>environment</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>environment</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Словарь, содержащий текущее окружение. Значения переменных окружения
-представлены как объекты типа <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_name"/>. <xref xrefstyle="template:%t"
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_environment"/> не оператор, а значение
 типа <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 в системном словаре.

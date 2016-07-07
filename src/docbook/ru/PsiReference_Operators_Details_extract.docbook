@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_extract">
 <title><token language="psi">extract</token></title>
 
+<para>
+Удаляет <replaceable>элемент</replaceable> с заданным
+<replaceable>ключом</replaceable> из <replaceable>контейнера</replaceable>, и
+возвращает удалённый элемент.
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>ключ</replaceable>
 <token language="psi">extract</token>
 <replaceable>элемент</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -18,13 +28,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Удаляет <replaceable>элемент</replaceable> с заданным
-<replaceable>ключом</replaceable> из <replaceable>контейнера</replaceable>, и
-возвращает удалённый элемент.
-</para>
+</formalpara>
 
 <para>
 При отсутствии ключа в контейнере генерируется <xref xrefstyle="template:%t"

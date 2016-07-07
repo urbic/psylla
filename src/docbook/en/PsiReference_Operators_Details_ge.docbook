@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_ge">
 <title><token language="psi">ge</token></title>
+
+<para>
+Returns <constant>true</constant>, if
+<replaceable>scalar<subscript>1</subscript></replaceable> is greater or equals
+to <replaceable>scalar<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
+</para>
+
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psi">ge</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>scalar<subscript>1</subscript></replaceable>,
@@ -17,14 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns <constant>true</constant>, if
-<replaceable>scalar<subscript>1</subscript></replaceable> is greater or equals
-to <replaceable>scalar<subscript>2</subscript></replaceable>, and
-<constant>false</constant> otherwise.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

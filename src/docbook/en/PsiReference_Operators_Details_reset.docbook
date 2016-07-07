@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_reset">
 <title><token language="psi">reset</token></title>
 
+<para>
+Resets an <replaceable>input</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>input</replaceable>
 <token language="psi">reset</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>input</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_resettable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Resets an <replaceable>input</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

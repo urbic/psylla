@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_fileexists">
 <title><token language="psi">fileexists</token></title>
 
+<para>
+Returns <constant>true</constant> if a file or a directory with the given
+<replaceable>name</replaceable> exists, and <constant>false</constant>
+otherwise.
+</para>
+
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psi">fileexists</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns <constant>true</constant> if a file or a directory with the given
-<replaceable>name</replaceable> exists, and <constant>false</constant>
-otherwise.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

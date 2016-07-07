@@ -2,6 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_files">
 <title><token language="psi">files</token></title>
 
+<para>
+Возвращает <replaceable>перечисление</replaceable> имён файлов, содержащихся
+в директории с заданным <replaceable>именем</replaceable>. Имена перечисляются
+как объекты <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/>.
+</para>
+
+<formalpara>
+&TitleOperands;
 <synopsis>
 <replaceable>имя</replaceable>
 <token language="psi">files</token>
@@ -17,13 +26,7 @@
 </listitem>
 </itemizedlist>
 </synopsis>
-
-<para>
-Возвращает <replaceable>перечисление</replaceable> имён файлов, содержащихся
-в директории с заданным <replaceable>именем</replaceable>. Имена перечисляются
-как объекты <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_name"/>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

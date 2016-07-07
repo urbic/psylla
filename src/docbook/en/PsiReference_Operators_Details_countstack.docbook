@@ -2,6 +2,10 @@
 <section xml:id="PsiReference_Operators_Details_countstack">
 <title><token language="psi">countstack</token></title>
 
+<para>
+Returns the number of objects on the operand stack.
+</para>
+
 <synopsis>
 ⊢
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -13,6 +17,10 @@
 …
 <replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>n</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -25,11 +33,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the number of objects on the operand stack.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

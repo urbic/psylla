@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_currentdict">
 <title><token language="psi">currentdict</token></title>
 
+<para>
+Возвращает текущий словарь (верхний в стеке словарей). Стек словарей остаётся
+нетронутым.
+</para>
+
 <synopsis>
 —
 <token language="psi">currentdict</token>
 <replaceable>словарь</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает текущий словарь (верхний в стеке словарей). Стек словарей остаётся
-нетронутым.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

@@ -2,12 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_put">
 <title><token language="psi">put</token></title>
 
+<para>
+Stores an <replaceable>object</replaceable> into the indexed
+<replaceable>container</replaceable> with the given
+<replaceable>key</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>key</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">put</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
@@ -19,12 +29,10 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Stores an <replaceable>object</replaceable> into the indexed
-<replaceable>container</replaceable> with the given
-<replaceable>key</replaceable>. For <xref xrefstyle="template:%t"
+For <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_arraylike"/> containers,
 <replaceable>key</replaceable> is an <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/> non-negative index. For <xref

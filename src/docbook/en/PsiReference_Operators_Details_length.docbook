@@ -2,10 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_length">
 <title><token language="psi">length</token></title>
 
+<para>
+Returns the <replaceable>length</replaceable> of the
+<replaceable>container</replaceable>, i. e. the number of elements contained in
+it. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_dict"/> containers, returns the number of
+contained keys.
+</para>
+
 <synopsis>
 <replaceable>container</replaceable>
 <token language="psi">length</token>
 <replaceable>length</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
@@ -16,15 +28,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>length</replaceable> of the
-<replaceable>container</replaceable>, i. e. the number of elements contained in
-it. For <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_dict"/> containers, returns the number of
-contained keys.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

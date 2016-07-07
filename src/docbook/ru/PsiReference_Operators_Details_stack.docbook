@@ -2,6 +2,11 @@
 <section xml:id="PsiReference_Operators_Details_stack">
 <title><token language="psi">stack</token></title>
 
+<para>
+Возвращает <replaceable>массив</replaceable>, содержащий все элементы стека
+операндов.
+</para>
+
 <synopsis>
 ⊢
 <replaceable>объект<subscript>1</subscript></replaceable>
@@ -13,6 +18,10 @@
 …
 <replaceable>объект<subscript>n</subscript></replaceable>
 <replaceable>массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
@@ -25,12 +34,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>массив</replaceable>, содержащий все элементы стека
-операндов.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

@@ -6,13 +6,17 @@
 <replaceable>строка</replaceable>
 <token language="psi">say</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

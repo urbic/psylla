@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_div">
 <title><token language="psi">div</token></title>
 
+<para>
+Returns the <replaceable>quotient</replaceable> of the division a
+<replaceable>dividend</replaceable> by a <replaceable>divisor</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>dividend</replaceable>
 <replaceable>divisor</replaceable>
 <token language="psi">div</token>
 <replaceable>quotient</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>dividend</replaceable>,
@@ -15,12 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>quotient</replaceable> of the division a
-<replaceable>dividend</replaceable> by a <replaceable>divisor</replaceable>.
-</para>
+</formalpara>
 
 <para>
 If both <replaceable>dividend</replaceable> and

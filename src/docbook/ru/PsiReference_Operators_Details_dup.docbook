@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_dup">
 <title><token language="psi">dup</token></title>
 
+<para>
+Копирует верхний <replaceable>объект</replaceable> в стеке операндов.
+</para>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">dup</token>
 <replaceable>объект</replaceable>
 <replaceable>объект</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Копирует верхний <replaceable>объект</replaceable> в стеке операндов.
-</para>
+</formalpara>
 
 <para>
 Копируется только объект, но не его значение. При копировании композитных

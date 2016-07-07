@@ -6,12 +6,16 @@
 <replaceable>объект</replaceable>
 <token language="psi">prettyprint</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 </section>

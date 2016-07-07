@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_eval">
 <title><token language="psi">eval</token></title>
 
+<para>
+Интерпретирует <replaceable>вычисляемое</replaceable> как программу на языке Ψ.
+</para>
+
 <synopsis>
 <replaceable>вычисляемое</replaceable>
 <token language="psi">eval</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>вычисляемое</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_evaluable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Интерпретирует <replaceable>вычисляемое</replaceable> как программу на языке Ψ.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

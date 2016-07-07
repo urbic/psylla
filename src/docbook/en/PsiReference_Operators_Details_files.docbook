@@ -2,10 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_files">
 <title><token language="psi">files</token></title>
 
+<para>
+Returns a new <replaceable>enumeration</replaceable> of file names containing
+in the directory with the given <replaceable>name</replaceable>. Names are
+enumerated as <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_name"/> objects.
+</para>
+
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psi">files</token>
 <replaceable>enumeration</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
@@ -16,14 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new <replaceable>enumeration</replaceable> of file names containing
-in the directory with the given <replaceable>name</replaceable>. Names are
-enumerated as <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_name"/> objects.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_repeat">
 <title><token language="psi">repeat</token></title>
 
+<para>
+Invokes an <replaceable>object</replaceable>, typically a procedure, specified
+<replaceable>number</replaceable> of times.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">repeat</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Invokes an <replaceable>object</replaceable>, typically a procedure, specified
-<replaceable>number</replaceable> of times.
-</para>
+</formalpara>
 
 <para>
 If the procedure executes the <xref xrefstyle="template:%t"

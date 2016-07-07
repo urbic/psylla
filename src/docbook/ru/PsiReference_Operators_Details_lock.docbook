@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_lock">
 <title><token language="psi">lock</token></title>
 
+<para>
+Возвращает новый <replaceable>замок</replaceable>.
+</para>
+
 <synopsis>
 —
 <token language="psi">lock</token>
 <replaceable>замок</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>замок</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_lock"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новый <replaceable>замок</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

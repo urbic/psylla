@@ -2,23 +2,27 @@
 <section xml:id="PsiReference_Operators_Details_sqrt">
 <title><token language="psi">sqrt</token></title>
 
+<para>
+Returns the square <replaceable>square_root</replaceable> of the
+<replaceable>number</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">sqrt</token>
-<replaceable>root</replaceable>
+<replaceable>square_root</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
-<replaceable>root</replaceable>:
+<replaceable>square_root</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the square <replaceable>root</replaceable> of the
-<replaceable>number</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

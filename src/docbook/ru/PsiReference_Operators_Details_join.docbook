@@ -2,6 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_join">
 <title><token language="psi">join</token></title>
 
+<para>
+Ожидает завершения исполнения процедуры самого верхнего уровня в
+<replaceable>контекста</replaceable> (это последний операнд оператора <xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>). Затем
+добавляет метку и все объекты со стека операндов
+<replaceable>контекста</replaceable> в стек операндов текущего контекста.
+<!-- Finally, it causes the other context to terminate. -->
+</para>
+
 <synopsis>
 <replaceable>контекст</replaceable>
 <token language="psi">join</token>
@@ -9,6 +18,10 @@
 <replaceable>объект<subscript>1</subscript></replaceable>
 …
 <replaceable>объект<subscript>n</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контекст</replaceable>:
@@ -25,16 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Ожидает завершения исполнения процедуры самого верхнего уровня в
-<replaceable>контекста</replaceable> (это последний операнд оператора <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>). Затем
-добавляет метку и все объекты со стека операндов
-<replaceable>контекста</replaceable> в стек операндов текущего контекста.
-<!-- Finally, it causes the other context to terminate. -->
-</para>
+</formalpara>
 
 <remark>TODO</remark>
 

@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_warn">
 <title><token language="psi">warn</token></title>
 
+<para>
+Writes the <replaceable>string</replaceable> to the standard error writer.
+</para>
+
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psi">warn</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Writes the <replaceable>string</replaceable> to the standard error writer.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

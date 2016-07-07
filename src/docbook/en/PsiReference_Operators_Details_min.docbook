@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_min">
 <title><token language="psi">min</token></title>
 
+<para>
+Returns the <replaceable>minimum</replaceable> of two
+<replaceable>scalars</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psi">min</token>
 <replaceable>minimum</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>scalar<subscript>1</subscript></replaceable>,
@@ -15,12 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>minimum</replaceable> of two
-<replaceable>scalars</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

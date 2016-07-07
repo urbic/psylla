@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_unite">
 <title><token language="psi">unite</token></title>
 
+<para>
+Возвращает строку, полученную конкатенацией элементов
+<replaceable>перечисления</replaceable>, разделённых
+строкой-<replaceable>сепаратором</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>перечисление</replaceable>
 <replaceable>сепаратор</replaceable>
 <token language="psi">unite</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>перечисление</replaceable>:
@@ -21,13 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает строку, полученную конкатенацией элементов
-<replaceable>перечисления</replaceable>, разделённых
-строкой-<replaceable>сепаратором</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

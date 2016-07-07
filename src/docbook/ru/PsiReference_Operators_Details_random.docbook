@@ -2,15 +2,18 @@
 <section xml:id="PsiReference_Operators_Details_random">
 <title><token language="psi">random</token></title>
 
+<para>
+Возвращает новый <replaceable>генератор</replaceable> случайных величин.
+</para>
+
+<formalpara>
+&TitleOperands;
 <synopsis>
 —
 <token language="psi">random</token>
 <replaceable>генератор</replaceable>
 </synopsis>
-
-<para>
-Возвращает новый <replaceable>генератор</replaceable> случайных величин.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

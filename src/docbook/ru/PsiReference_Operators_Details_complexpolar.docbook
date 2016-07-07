@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_complexpolar">
 <title><token language="psi">complexpolar</token></title>
 
+<para>
+Возвращает комплексное <replaceable>число</replaceable> с данными
+<replaceable>модулем</replaceable> и <replaceable>аргументом</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>модуль</replaceable>
 <replaceable>аргумент</replaceable>
 <token language="psi">complexpolar</token>
 <replaceable>число</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>модуль</replaceable>,
@@ -18,12 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает комплексное <replaceable>число</replaceable> с данными
-<replaceable>модулем</replaceable> и <replaceable>аргументом</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

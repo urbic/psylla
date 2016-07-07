@@ -2,6 +2,12 @@
 <section xml:id="PsiReference_Operators_Details_where">
 <title><token language="psi">where</token></title>
 
+<para>
+Ищет словарь, содержащий заданный <replaceable>ключ</replaceable>, в стеке
+словарей, начиная от вершины стека. Если словарь найден, он возвращается. Кроме
+того, возвращается булевское значение, показывающее успешность поиска.
+</para>
+
 <synopsis>
 <replaceable>ключ</replaceable>
 <token language="psi">where</token>
@@ -11,6 +17,10 @@
 <replaceable>ключ</replaceable>
 <token language="psi">where</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>ключ</replaceable>:
@@ -26,13 +36,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Ищет словарь, содержащий заданный <replaceable>ключ</replaceable>, в стеке
-словарей, начиная от вершины стека. Если словарь найден, он возвращается. Кроме
-того, возвращается булевское значение, показывающее успешность поиска.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

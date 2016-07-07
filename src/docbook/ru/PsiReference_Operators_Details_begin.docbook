@@ -3,14 +3,20 @@
 <title><token language="psi">begin</token></title>
 
 <synopsis>
-<replaceable>словарь</replaceable> <token language="psi">begin</token> —
+<replaceable>словарь</replaceable>
+<token language="psi">begin</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>словарь</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 Добавляет <replaceable>словарь</replaceable> в стек словарей.

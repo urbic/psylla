@@ -2,6 +2,10 @@
 <section xml:id="PsiReference_Operators_Details_editline">
 <title><token language="psi">editline</token></title>
 
+<para>
+<remark>TODO</remark>
+</para>
+
 <synopsis>
 —
 <token language="psi">editline</token>
@@ -11,6 +15,10 @@
 —
 <token language="psi">editline</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
@@ -22,11 +30,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-<remark>TODO</remark>
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

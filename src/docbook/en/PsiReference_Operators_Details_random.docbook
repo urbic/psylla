@@ -2,15 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_random">
 <title><token language="psi">random</token></title>
 
+<para>
+Returns a new <replaceable>random</replaceable> objects generator.
+</para>
+
 <synopsis>
 —
 <token language="psi">random</token>
 <replaceable>random</replaceable>
 </synopsis>
-
-<para>
-Returns a new <replaceable>random</replaceable> objects generator.
-</para>
 
 <formalpara>
 &TitleErrors;

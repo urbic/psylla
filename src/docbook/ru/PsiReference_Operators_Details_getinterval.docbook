@@ -2,12 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_getinterval">
 <title><token language="psi">getinterval</token></title>
 
+<para>
+Возвращает <replaceable>подмассив</replaceable> данного
+<replaceable>массива</replaceable> с заданной
+<replaceable>длиной</replaceable>, и начинающийся
+с <replaceable>индекса</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <replaceable>индекс</replaceable>
 <replaceable>длина</replaceable>
 <token language="psi">getinterval</token>
 <replaceable>подмассив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>,
@@ -20,14 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>подмассив</replaceable> данного
-<replaceable>массива</replaceable> с заданной
-<replaceable>длиной</replaceable>, и начинающийся
-с <replaceable>индекса</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

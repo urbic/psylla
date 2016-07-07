@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_halt">
 <title><token language="psi">halt</token></title>
 
+<para>
+Завершает исполнение программы с заданным <replaceable>статусом</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>статус</replaceable>
 <token language="psi">halt</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>статус</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Завершает исполнение программы с заданным <replaceable>статусом</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

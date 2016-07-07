@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_setseed">
 <title><token language="psi">setseed</token></title>
 
+<para>
+Устанавливает начальное <replaceable>значение</replaceable>
+<replaceable>генератора</replaceable> псевдослучайных чисел.
+</para>
+
 <synopsis>
 <replaceable>генератор</replaceable>
 <replaceable>значение</replaceable>
 <token language="psi">setseed</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Устанавливает начальное <replaceable>значение</replaceable>
-<replaceable>генератора</replaceable> псевдослучайных чисел.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

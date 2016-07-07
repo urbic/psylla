@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_prepend">
 <title><token language="psi">prepend</token></title>
 
+<para>
+Inserts the <replaceable>object</replaceable> at the beginning of the
+<replaceable>container</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">prepend</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Inserts the <replaceable>object</replaceable> at the beginning of the
-<replaceable>container</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

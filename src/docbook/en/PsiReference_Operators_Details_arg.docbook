@@ -2,6 +2,13 @@
 <section xml:id="PsiReference_Operators_Details_arg">
 <title><token language="psi">arg</token></title>
 
+<para>
+Returns the <replaceable>argument</replaceable> of a
+<replaceable>number</replaceable>.
+</para>
+
+<formalpara>
+&TitleOperands;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">arg</token>
@@ -17,11 +24,7 @@
 </listitem>
 </itemizedlist>
 </synopsis>
-
-<para>
-Returns the <replaceable>argument</replaceable> of a
-<replaceable>number</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

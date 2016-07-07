@@ -2,11 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_testbit">
 <title><token language="psi">testbit</token></title>
 
+<para>
+<remark>TODO</remark>
+</para>
+
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>index</replaceable>
 <token language="psi">testbit</token>
 <replaceable>bit</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>bitwise</replaceable>:
@@ -21,11 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-<remark>TODO</remark>
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

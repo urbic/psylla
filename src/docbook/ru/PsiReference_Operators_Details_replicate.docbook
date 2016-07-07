@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_replicate">
 <title><token language="psi">replicate</token></title>
 
+<para>
+Возвращает в качестве <replaceable>результата</replaceable> новый контейнер,
+полученный из <replaceable>контейнера</replaceable> многократным повторением
+списка его элементов.
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>количество</replaceable>
 <token language="psi">replicate</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>количество</replaceable>:
@@ -18,13 +28,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает в качестве <replaceable>результата</replaceable> новый контейнер,
-полученный из <replaceable>контейнера</replaceable> многократным повторением
-списка его элементов.
-</para>
+</formalpara>
 
 <para>
 Если <replaceable>количество</replaceable> отрицательно, генерирует <xref

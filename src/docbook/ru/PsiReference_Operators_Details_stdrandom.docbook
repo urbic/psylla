@@ -2,21 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_stdrandom">
 <title><token language="psi">stdrandom</token></title>
 
+<para>
+Стандартный генератор случайных величин.
+</para>
+
 <synopsis>
 —
 <token language="psi">stdrandom</token>
 <constant>stdrandom</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>stdrandom</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_random"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Стандартный генератор случайных величин. Не оператор, а значение в системном
-словаре.
+Не оператор, а значение в системном словаре.
 </para>
 
 <formalpara>

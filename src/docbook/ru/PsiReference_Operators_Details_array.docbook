@@ -2,19 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_array">
 <title><token language="psi">array</token></title>
 
+<para>
+Возвращает новый пустой <replaceable>массив</replaceable>.
+</para>
+
 <synopsis>
-— <token language="psi">array</token> <replaceable>массив</replaceable>
+—
+<token language="psi">array</token>
+<replaceable>массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новый пустой <replaceable>массив</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

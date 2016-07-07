@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_remove">
 <title><token language="psi">remove</token></title>
 
+<para>
+Removes an <replaceable>element</replaceable> from the
+<replaceable>set</replaceable> if it is there.
+</para>
+
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>element</replaceable>
 <token language="psi">remove</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>set</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Removes an <replaceable>element</replaceable> from the
-<replaceable>set</replaceable> if it is there.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

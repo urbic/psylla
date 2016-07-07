@@ -2,11 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_setlength">
 <title><token language="psi">setlength</token></title>
 
+<para>
+Устанавливает размер <replaceable>массива</replaceable> равным
+<replaceable>длине</replaceable>, удаляя нужное количество последних элементов,
+либо дополняя <replaceable>массив</replaceable> до заданной
+<replaceable>длины</replaceable> заполнителями, соответствующими типу
+<replaceable>массива</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <replaceable>длина</replaceable>
 <token language="psi">setlength</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
@@ -17,15 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Устанавливает размер <replaceable>массива</replaceable> равным
-<replaceable>длине</replaceable>, удаляя нужное количество последних элементов,
-либо дополняя <replaceable>массив</replaceable> до заданной
-<replaceable>длины</replaceable> заполнителями, соответствующими типу
-<replaceable>массива</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

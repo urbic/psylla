@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_add">
 <title><token language="psi">add</token></title>
 
+<para>
+Returns the <replaceable>sum</replaceable> of two
+<replaceable>summands</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>summand<subscript>1</subscript></replaceable>
 <replaceable>summand<subscript>2</subscript></replaceable>
 <token language="psi">add</token>
 <replaceable>sum</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>summand<subscript>1</subscript></replaceable>,
@@ -15,12 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>sum</replaceable> of two
-<replaceable>summands</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Если оба операнда имеют тип <xref xrefstyle="template:%t"

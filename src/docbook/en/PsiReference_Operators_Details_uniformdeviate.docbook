@@ -2,11 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_uniformdeviate">
 <title><token language="psi">uniformdeviate</token></title>
 
+<para>
+Возвращает очередное равномерно распределённое
+<replaceable>случайное</replaceable> число для заданного
+<replaceable>генератора</replaceable> псевдослучайных чисел. Результат
+ограничен нулём (включительно) и <replaceable>границей</replaceable> (не
+включительно). Тип <replaceable>случайного</replaceable> совпадает с типом
+<replaceable>границы</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>генератор</replaceable>
 <replaceable>граница</replaceable>
 <token language="psi">uniformdeviate</token>
 <replaceable>случайное</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
@@ -18,16 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает очередное равномерно распределённое
-<replaceable>случайное</replaceable> число для заданного
-<replaceable>генератора</replaceable> псевдослучайных чисел. Результат
-ограничен нулём (включительно) и <replaceable>границей</replaceable> (не
-включительно). Тип <replaceable>случайного</replaceable> совпадает с типом
-<replaceable>границы</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

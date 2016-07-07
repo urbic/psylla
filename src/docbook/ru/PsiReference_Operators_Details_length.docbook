@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_length">
 <title><token language="psi">length</token></title>
 
+<para>
+Возвращает <replaceable>длину</replaceable>
+<replaceable>контейнера</replaceable>, то есть количество содержащихся в нём
+элементов. Для словарей возвращается количество определённых в нём ключей.
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <token language="psi">length</token>
 <replaceable>длина</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>длину</replaceable>
-<replaceable>контейнера</replaceable>, то есть количество содержащихся в нём
-элементов. Для словарей возвращается количество определённых в нём ключей.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,6 +2,13 @@
 <section xml:id="PsiReference_Operators_Details_appendall">
 <title><token language="psi">appendall</token></title>
 
+<para>
+Appends all the objects from the <replaceable>enumeration</replaceable> to
+the <replaceable>container</replaceable>.
+</para>
+
+<formalpara>
+&TitleOperands;
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>enumeration</replaceable>
@@ -18,11 +25,7 @@
 </listitem>
 </itemizedlist>
 </synopsis>
-
-<para>
-Appends all the objects from the <replaceable>enumeration</replaceable> to
-the <replaceable>container</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

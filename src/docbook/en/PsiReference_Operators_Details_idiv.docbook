@@ -2,11 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_idiv">
 <title><token language="psi">idiv</token></title>
 
+<para>
+Returns the <replaceable>quotient</replaceable> of the integer division of the
+<replaceable>dividend</replaceable> by the nonzero
+<replaceable>divisor</replaceable>. The sign of the
+<replaceable>quotient</replaceable> coincides with the product of the operands
+signs.
+</para>
+
 <synopsis>
 <replaceable>dividend</replaceable>
 <replaceable>divisor</replaceable>
 <token language="psi">idiv</token>
 <replaceable>quotient</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>dividend</replaceable>,
@@ -15,15 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>quotient</replaceable> of the integer division of the
-<replaceable>dividend</replaceable> by the nonzero
-<replaceable>divisor</replaceable>. The sign of the
-<replaceable>quotient</replaceable> coincides with the product of the operands
-signs.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

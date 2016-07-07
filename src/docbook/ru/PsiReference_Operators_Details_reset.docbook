@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_reset">
 <title><token language="psi">reset</token></title>
 
+<para>
+Переустанавливает <replaceable>читатель</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>читатель</replaceable>
 <token language="psi">reset</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>читатель</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_resettable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Переустанавливает <replaceable>читатель</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

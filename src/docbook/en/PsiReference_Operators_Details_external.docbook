@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_external">
 <title><token language="psi">external</token></title>
 
+<para>
+Loads an external Java class by its <replaceable>class_name</replaceable> and
+returns an <replaceable>instance</replaceable> of this class.
+</para>
+
 <synopsis>
 <replaceable>class_name</replaceable>
 <token language="psi">external</token>
 <replaceable>instance</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>class_name</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Loads an external Java class by its <replaceable>class_name</replaceable> and
-returns an <replaceable>instance</replaceable> of this class.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

@@ -2,23 +2,30 @@
 <section xml:id="PsiReference_Operators_Details_stdin">
 <title><token language="psi">stdin</token></title>
 
+<para>
+The standard input.
+</para>
+
 <synopsis>
 —
 <token language="psi">stdin</token>
 <constant>stdin</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>stdin</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_reader"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-The standard input. <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_stdin"/> is not an operator, but a
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_reader"/>
-value in the system dictionary.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_stdin"/>
+is not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_reader"/> value in the system dictionary.
 </para>
 
 <formalpara>

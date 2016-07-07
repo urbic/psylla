@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_blockingqueue">
 <title><token language="psi">blockingqueue</token></title>
 
+<para>
+Returns a new blocking <replaceable>queue</replaceable> with a given
+<replaceable>capacity</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>capacity</replaceable>
 <token language="psi">blockingqueue</token>
 <replaceable>queue</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>capacity</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_blockingqueue"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new blocking <replaceable>queue</replaceable> with a given
-<replaceable>capacity</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

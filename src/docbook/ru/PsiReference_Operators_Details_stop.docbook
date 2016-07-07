@@ -2,14 +2,14 @@
 <section xml:id="PsiReference_Operators_Details_stop">
 <title><token language="psi">stop</token></title>
 
+<para>
+</para>
+
 <synopsis>
 —
 <token language="psi">stop</token>
 —
 </synopsis>
-
-<para>
-</para>
 
 <formalpara>
 &TitleErrors;

@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_stringreader">
 <title><token language="psi">stringreader</token></title>
 
+<para>
+Возвращает новый строковый <replaceable>читатель</replaceable> для заданной
+<replaceable>строки</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>строка</replaceable>
 <token language="psi">stringreader</token>
 <replaceable>читатель</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringreader"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новый строковый <replaceable>читатель</replaceable> для заданной
-<replaceable>строки</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

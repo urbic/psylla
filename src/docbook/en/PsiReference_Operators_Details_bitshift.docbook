@@ -2,11 +2,18 @@
 <section xml:id="PsiReference_Operators_Details_bitshift">
 <title><token language="psi">bitshift</token></title>
 
+<para>
+</para>
+
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>shift</replaceable>
 <token language="psi">bitshift</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>bitwise</replaceable>,
@@ -18,10 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

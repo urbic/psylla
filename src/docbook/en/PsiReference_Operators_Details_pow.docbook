@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_pow">
 <title><token language="psi">pow</token></title>
 
+<para>
+Raises the <replaceable>base</replaceable> to the
+<replaceable>exponent</replaceable> power and returns the
+<replaceable>power</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>base</replaceable>
 <replaceable>exponent</replaceable>
 <token language="psi">pow</token>
 <replaceable>power</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>base</replaceable>,
@@ -15,13 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Raises the <replaceable>base</replaceable> to the
-<replaceable>exponent</replaceable> power and returns the
-<replaceable>power</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

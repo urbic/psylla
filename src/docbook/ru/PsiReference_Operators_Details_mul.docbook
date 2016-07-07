@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_mul">
 <title><token language="psi">mul</token></title>
 
+<para>
+Возвращает <replaceable>произведение</replaceable> двух
+<replaceable>множителей</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>множитель<subscript>1</subscript></replaceable>
 <replaceable>множитель<subscript>2</subscript></replaceable>
 <token language="psi">mul</token>
 <replaceable>произведение</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>множитель<subscript>1</subscript></replaceable>,
@@ -15,11 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>произведение</replaceable> двух <replaceable>множителей</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Если оба операнда имеют тип <xref xrefstyle="template:%t"

@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_idiv">
 <title><token language="psi">idiv</token></title>
 
+<para>
+Возвращает результат целочисленного деления <replaceable>делимого</replaceable>
+на ненулевой <replaceable>делитель</replaceable>. Знак
+<replaceable>частного</replaceable> совпадает с произведением знаков операндов.
+</para>
+
 <synopsis>
 <replaceable>делимое</replaceable>
 <replaceable>делитель</replaceable>
 <token language="psi">idiv</token>
 <replaceable>частное</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>делимое</replaceable>,
@@ -15,13 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает результат целочисленного деления <replaceable>делимого</replaceable>
-на ненулевой <replaceable>делитель</replaceable>. Знак
-<replaceable>частного</replaceable> совпадает с произведением знаков операндов.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

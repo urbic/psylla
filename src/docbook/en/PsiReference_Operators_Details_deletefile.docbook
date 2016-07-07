@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_deletefile">
 <title><token language="psi">deletefile</token></title>
 
+<para>
+Deletes a file or nonempty directory with a given <replaceable>name</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psi">deletefile</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Deletes a file or nonempty directory with a given <replaceable>name</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

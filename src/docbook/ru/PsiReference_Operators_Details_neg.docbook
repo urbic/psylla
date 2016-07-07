@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_neg">
 <title><token language="psi">neg</token></title>
 
+<para>
+Возвращает <replaceable>результат</replaceable> арифметического отрицания
+<replaceable>числа</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">neg</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
@@ -13,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>результат</replaceable> арифметического отрицания
-<replaceable>числа</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Для операнда типа <xref xrefstyle="template:%t"

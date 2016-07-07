@@ -2,23 +2,30 @@
 <section xml:id="PsiReference_Operators_Details_false">
 <title><token language="psi">false</token></title>
 
+<para>
+The <constant>false</constant> value.
+</para>
+
 <synopsis>
 —
 <token language="psi">false</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>false</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-The <constant>false</constant> value. <xref xrefstyle="template:%t"
-linkend="PsiReference_Operators_Details_false"/> is not an operator, but a
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
-value in the system dictionary.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_false"/>
+is not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_boolean"/> value in the system dictionary.
 </para>
 
 <formalpara>

@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_forall">
 <title><token language="psi">forall</token></title>
 
+<para>
+Invokes a <replaceable>procedure</replaceable> for each element in the
+<replaceable>enumeration</replaceable>, previously adding an element to the
+operand stack.
+</para>
+
 <synopsis>
 <replaceable>enumeration</replaceable>
 <replaceable>procedure</replaceable>
 <token language="psi">forall</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>enumeration</replaceable>:
@@ -17,13 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Invokes a <replaceable>procedure</replaceable> for each element in the
-<replaceable>enumeration</replaceable>, previously adding an element to the
-operand stack.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

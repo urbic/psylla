@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_set">
 <title><token language="psi">set</token></title>
 
+<para>
+Возвращает новое пустое <replaceable>множество</replaceable>.
+</para>
+
 <synopsis>
 —
 <token language="psi">set</token>
 <replaceable>множество</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>множество</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новое пустое <replaceable>множество</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

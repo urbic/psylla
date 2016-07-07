@@ -2,6 +2,13 @@
 <section xml:id="PsiReference_Operators_Details_fork">
 <title><token language="psi">fork</token></title>
 
+<para>
+Возвращает новый <replaceable>контекст</replaceable>, копируя в него стек
+словарей из текущего контекста, и копируя <replaceable>объекты</replaceable>
+в его стек операндов. Асинхронно исполняет <replaceable>процедуру</replaceable>
+во вновь созданном <replaceable>контексте</replaceable>.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>объект<subscript>1</subscript></replaceable>
@@ -10,6 +17,10 @@
 <replaceable>процедура</replaceable>
 <token language="psi">fork</token>
 <replaceable>контекст</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
@@ -30,14 +41,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_context"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новый <replaceable>контекст</replaceable>, копируя в него стек
-словарей из текущего контекста, и копируя <replaceable>объекты</replaceable>
-в его стек операндов. Асинхронно исполняет <replaceable>процедуру</replaceable>
-во вновь созданном <replaceable>контексте</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

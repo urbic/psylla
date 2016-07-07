@@ -2,6 +2,12 @@
 <section xml:id="PsiReference_Operators_Details_roll">
 <title><token language="psi">roll</token></title>
 
+<para>
+Выполняет циклический сдвиг <replaceable>n</replaceable> самых верхних
+элементов на стеке операндов на <replaceable>k mod n</replaceable> позиций
+вверх по стеку.
+</para>
+
 <synopsis>
 <replaceable>объект<subscript>n−1</subscript></replaceable>
 …
@@ -15,6 +21,10 @@
 <replaceable>объект<subscript>n−1</subscript></replaceable>
 …
 <replaceable>объект<subscript>k mod n</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>
@@ -28,13 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Выполняет циклический сдвиг <replaceable>n</replaceable> самых верхних
-элементов на стеке операндов на <replaceable>k mod n</replaceable> позиций
-вверх по стеку.
-</para>
+</formalpara>
 
 <para>
 Если <replaceable>n</replaceable> отрицательно, генерирует <xref

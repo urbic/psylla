@@ -2,20 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_stdout">
 <title><token language="psi">stdout</token></title>
 
+<para>
+Стандартный вывод.
+</para>
+
 <synopsis>
 —
 <token language="psi">stdout</token>
 <replaceable>stdout</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>stdout</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Стандартный вывод. Не оператор, а значение в системном словаре.
+Не оператор, а значение в системном словаре.
 </para>
 
 <formalpara>

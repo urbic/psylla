@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_floor">
 <title><token language="psi">floor</token></title>
 
+<para>
+Returns the <replaceable>floor</replaceable> of the
+<replaceable>number</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">floor</token>
 <replaceable>floor</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
@@ -13,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>floor</replaceable> of the
-<replaceable>number</replaceable>.
-</para>
+</formalpara>
 
 <para>
 For <xref xrefstyle="template:%t"

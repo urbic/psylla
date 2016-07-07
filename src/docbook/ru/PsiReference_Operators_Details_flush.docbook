@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_flush">
 <title><token language="psi">flush</token></title>
 
+<para>
+Сбрасывает буфер для объекта ввода/вывода
+<replaceable>сбрасываемое</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>сбрасываемое</replaceable>
 <token language="psi">flush</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>сбрасываемое</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_flushable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Сбрасывает буфер для объекта ввода/вывода
-<replaceable>сбрасываемое</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

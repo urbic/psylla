@@ -2,24 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_mark">
 <title><token language="psi">mark</token></title>
 
-<synopsis>
-—
-<token language="psi">mark</token>
-<constant>mark</constant>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-
 <para>
 Appends a <constant>mark</constant> to the operand stack. <xref
 xrefstyle="template:%t" linkend="PsiReference_Operators_Details_mark"/> is not
 an operator, but a <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_mark"/> value in the system dictionary.
 </para>
+
+<synopsis>
+—
+<token language="psi">mark</token>
+<constant>mark</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+</itemizedlist>
+</formalpara>
 
 <para>
 Marks are used to indicate the position in the operand stack, after which

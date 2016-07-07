@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_stringwriter">
 <title><token language="psi">stringwriter</token></title>
 
+<para>
+Returns a new string <replaceable>writer</replaceable> for the given
+<replaceable>string</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psi">stringwriter</token>
 <replaceable>writer</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringwriter"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new string <replaceable>writer</replaceable> for the given
-<replaceable>string</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

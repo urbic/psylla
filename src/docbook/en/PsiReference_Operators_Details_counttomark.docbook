@@ -2,6 +2,11 @@
 <section xml:id="PsiReference_Operators_Details_counttomark">
 <title><token language="psi">counttomark</token></title>
 
+<para>
+Returns the number of objects situated above the highest
+<constant>mark</constant> on the operand stack.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -13,6 +18,10 @@
 …
 <replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>n</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
@@ -29,12 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the number of objects situated above the highest
-<constant>mark</constant> on the operand stack.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

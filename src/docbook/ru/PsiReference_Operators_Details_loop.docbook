@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_loop">
 <title><token language="psi">loop</token></title>
 
+<para>
+Вызывает <replaceable>объект</replaceable> в беконечном цикле.
+</para>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">loop</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Вызывает <replaceable>объект</replaceable> в беконечном цикле.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

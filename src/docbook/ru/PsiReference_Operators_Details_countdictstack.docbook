@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_countdictstack">
 <title><token language="psi">countdictstack</token></title>
 
+<para>
+Возвращает <replaceable>количество</replaceable> объектов в стеке словарей.
+</para>
+
 <synopsis>
 —
 <token language="psi">countdictstack</token>
 <replaceable>количество</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>количество</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает количество объектов в стеке словарей.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

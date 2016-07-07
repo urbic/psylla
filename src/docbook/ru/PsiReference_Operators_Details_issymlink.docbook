@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_issymlink">
 <title><token language="psi">issymlink</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
+принадлежит символической ссылке, и <constant>false</constant> в противном
+случае.
+</para>
+
 <synopsis>
 <replaceable>имя</replaceable>
 <token language="psi">issymlink</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>имя</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если <replaceable>имя</replaceable>
-принадлежит символической ссылке, и <constant>false</constant> в противном
-случае.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

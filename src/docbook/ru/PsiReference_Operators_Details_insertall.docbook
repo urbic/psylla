@@ -2,12 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_insertall">
 <title><token language="psi">insertall</token></title>
 
+<para>
+Вставляет все объекты из <replaceable>перечисления</replaceable>
+в <replaceable>массив</replaceable> перед элементом с заданным
+<replaceable>индексом</replaceable> или в конец
+<replaceable>массива</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <replaceable>индекс</replaceable>
 <replaceable>перечисление</replaceable>
 <token language="psi">insertall</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
@@ -22,14 +33,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Вставляет все объекты из <replaceable>перечисления</replaceable>
-в <replaceable>массив</replaceable> перед элементом с заданным
-<replaceable>индексом</replaceable> или в конец
-<replaceable>массива</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

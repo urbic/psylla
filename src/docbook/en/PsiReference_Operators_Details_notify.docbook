@@ -2,20 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_notify">
 <title><token language="psi">notify</token></title>
 
+<para>
+</para>
+
 <synopsis>
 <replaceable>condition</replaceable>
 <token language="psi">notify</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>condition</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_condition"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

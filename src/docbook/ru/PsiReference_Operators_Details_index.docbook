@@ -2,6 +2,12 @@
 <section xml:id="PsiReference_Operators_Details_index">
 <title><token language="psi">index</token></title>
 
+<para>
+Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
+копирует в стек операндов <replaceable>n</replaceable>-й объект, считая
+от вершины стека (нумерация начинается с нуля).
+</para>
+
 <synopsis>
 <replaceable>объект<subscript>n</subscript></replaceable>
 …
@@ -12,6 +18,10 @@
 …
 <replaceable>объект<subscript>0</subscript></replaceable>
 <replaceable>объект<subscript>n</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>0</subscript></replaceable>,
@@ -24,13 +34,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
-копирует в стек операндов <replaceable>n</replaceable>-й объект, считая
-от вершины стека (нумерация начинается с нуля).
-</para>
+</formalpara>
 
 <para>
 Копируются только объекты, но не их значения. При копировании композитных

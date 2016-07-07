@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_condition">
 <title><token language="psi">condition</token></title>
 
+<para>
+Returns a new <replaceable>condition</replaceable> associated with a
+<replaceable>lock</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>lock</replaceable>
 <token language="psi">condition</token>
 <replaceable>condition</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>lock</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_condition"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new <replaceable>condition</replaceable> associated with a
-<replaceable>lock</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

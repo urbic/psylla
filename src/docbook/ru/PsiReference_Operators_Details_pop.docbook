@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_pop">
 <title><token language="psi">pop</token></title>
 
+<para>
+Удаляет верхний <replaceable>объект</replaceable> из стека операндов.
+</para>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">pop</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Удаляет верхний <replaceable>объект</replaceable> из стека операндов.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

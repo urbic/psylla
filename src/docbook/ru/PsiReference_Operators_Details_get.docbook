@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_get">
 <title><token language="psi">get</token></title>
 
+<para>
+Возвращает <replaceable>элемент</replaceable> индексированного
+<replaceable>контейнера</replaceable>, ассоциированный с заданным
+<replaceable>ключом</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>ключ</replaceable>
 <token language="psi">get</token>
 <replaceable>элемент</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -18,13 +28,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>элемент</replaceable> индексированного
-<replaceable>контейнера</replaceable>, ассоциированный с заданным
-<replaceable>ключом</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Тип ключа должен соответствовать типу контейнера (для контейнеров типа <xref

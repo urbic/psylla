@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_normaldeviate">
 <title><token language="psi">normaldeviate</token></title>
 
+<para>
+Returns the normally distributed pseudorandom <replaceable>number</replaceable>
+with the given standard <replaceable>deviation</replaceable> and zero mean
+taken from the given pseudorandom <replaceable>generator</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>generator</replaceable>
 <replaceable>deviation</replaceable>
 <token language="psi">normaldeviate</token>
 <replaceable>number</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>generator</replaceable>:
@@ -21,13 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the normally distributed pseudorandom <replaceable>number</replaceable>
-with the given standard <replaceable>deviation</replaceable> and zero mean
-taken from the given pseudorandom <replaceable>generator</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,20 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_stdin">
 <title><token language="psi">stdin</token></title>
 
+<para>
+Стандартный ввод.
+</para>
+
 <synopsis>
 —
 <token language="psi">stdin</token>
 <constant>stdin</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>stdin</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_reader"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Стандартный ввод. Не оператор, а значение в системном словаре.
+Не оператор, а значение в системном словаре.
 </para>
 
 <formalpara>

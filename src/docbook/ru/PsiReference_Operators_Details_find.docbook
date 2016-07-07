@@ -11,6 +11,10 @@
 <replaceable>матчер</replaceable>
 <token language="psi">find</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>матчер</replaceable>:
@@ -22,7 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

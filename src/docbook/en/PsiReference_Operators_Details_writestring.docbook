@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_writestring">
 <title><token language="psi">writestring</token></title>
 
+<para>
+Writes the <replaceable>string</replaceable> to
+the <replaceable>output</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>output</replaceable>
 <replaceable>string</replaceable>
 <token language="psi">writestring</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>output</replaceable>:
@@ -17,11 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Writes the <replaceable>string</replaceable> to the <replaceable>output</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

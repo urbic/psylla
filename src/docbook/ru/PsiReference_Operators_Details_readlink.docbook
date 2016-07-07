@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_readlink">
 <title><token language="psi">readlink</token></title>
 
+<para>
+Возвращает <replaceable>цель</replaceable> символической ссылки с заданным
+<replaceable>именем</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>имя</replaceable>
 <token language="psi">readlink</token>
 <replaceable>цель</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>имя</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>цель</replaceable> символической ссылки с заданным
-<replaceable>именем</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

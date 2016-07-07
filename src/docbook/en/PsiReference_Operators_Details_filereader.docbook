@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_filereader">
 <title><token language="psi">filereader</token></title>
 
+<para>
+Returns a new file <replaceable>reader</replaceable> for a file with the given
+<replaceable>name</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psi">filereader</token>
 <replaceable>reader</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filereader"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new file <replaceable>reader</replaceable> for a file with the given
-<replaceable>name</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

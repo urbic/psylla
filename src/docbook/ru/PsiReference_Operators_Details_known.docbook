@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_known">
 <title><token language="psi">known</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если <replaceable>ключ</replaceable>
+содержится в <replaceable>индексированном</replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
 <synopsis>
 <replaceable>индексированное</replaceable>
 <replaceable>ключ</replaceable>
 <token language="psi">known</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>индексированное</replaceable>:
@@ -21,13 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если <replaceable>ключ</replaceable>
-содержится в <replaceable>индексированном</replaceable>, и
-<constant>false</constant> в противном случае.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

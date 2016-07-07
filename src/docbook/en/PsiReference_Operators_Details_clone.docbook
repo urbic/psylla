@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_clone">
 <title><token language="psi">clone</token></title>
 
+<para>
+Returns a <replaceable>copy</replaceable> of an
+<replaceable>object</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psi">clone</token>
 <replaceable>copy</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>object</replaceable>,
@@ -13,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a <replaceable>copy</replaceable> of an
-<replaceable>object</replaceable>.
-</para>
+</formalpara>
 
 <para>
 For <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_atomic"/>

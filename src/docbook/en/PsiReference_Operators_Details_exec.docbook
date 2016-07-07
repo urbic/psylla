@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_exec">
 <title><token language="psi">exec</token></title>
 
+<para>
+Invokes an <replaceable>object</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psi">exec</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Invokes an <replaceable>object</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

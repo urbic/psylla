@@ -2,22 +2,26 @@
 <section xml:id="PsiReference_Operators_Details_true">
 <title><token language="psi">true</token></title>
 
+<para>
+Булевское значение <constant>true</constant>. Не оператор, а значение
+в системном словаре.
+</para>
+
 <synopsis>
 —
 <token language="psi">true</token>
 <constant>true</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>true</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Булевское значение <constant>true</constant>. Не оператор, а значение
-в системном словаре.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleSeeAlso;

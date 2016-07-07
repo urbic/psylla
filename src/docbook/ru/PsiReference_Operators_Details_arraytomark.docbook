@@ -2,6 +2,12 @@
 <section xml:id="PsiReference_Operators_Details_arraytomark">
 <title><token language="psi">arraytomark</token></title>
 
+<para>
+Возвращает новый <replaceable>массив</replaceable>, заполненный объектами,
+расположенными над самой верхней меткой в стеке операндов. Объекты и метка
+удаляются из стека.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>объект<subscript>0</subscript></replaceable>
@@ -9,6 +15,10 @@
 <replaceable>объект<subscript>n−1</subscript></replaceable>
 <token language="psi">arraytomark</token>
 <replaceable>массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>mark</constant>:
@@ -25,13 +35,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новый <replaceable>массив</replaceable>, заполненный объектами,
-расположенными над самой верхней меткой в стеке операндов. Объекты и метка
-удаляются из стека.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

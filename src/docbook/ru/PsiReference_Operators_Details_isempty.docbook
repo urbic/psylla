@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_isempty">
 <title><token language="psi">isempty</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если <replaceable>контейнер</replaceable>
+пуст, и <constant>false</constant> в противном случае.
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <token language="psi">isempty</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если <replaceable>контейнер</replaceable>
-пуст, и <constant>false</constant> в противном случае.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

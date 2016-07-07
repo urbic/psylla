@@ -2,12 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_insert">
 <title><token language="psi">insert</token></title>
 
+<para>
+Inserts the <replaceable>object</replaceable> into the
+<replaceable>array</replaceable> before the element with the given
+<replaceable>index</replaceable> or at the end of the
+<replaceable>array</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">insert</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>:
@@ -22,14 +33,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Inserts the <replaceable>object</replaceable> into the
-<replaceable>array</replaceable> before the element with the given
-<replaceable>index</replaceable> or at the end of the
-<replaceable>array</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

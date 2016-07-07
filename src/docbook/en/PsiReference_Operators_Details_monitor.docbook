@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_monitor">
 <title><token language="psi">monitor</token></title>
 
+<para>
+Acquires <replaceable>lock</replaceable>, first waiting for it to become free,
+then invokes <replaceable>procedure</replaceable>, and finally releases
+<replaceable>lock</replaceable> again.
+</para>
+
 <synopsis>
 <replaceable>lock</replaceable>
 <replaceable>procedure</replaceable>
 <token language="psi">monitor</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>lock</replaceable>:
@@ -17,13 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Acquires <replaceable>lock</replaceable>, first waiting for it to become free,
-then invokes <replaceable>procedure</replaceable>, and finally releases
-<replaceable>lock</replaceable> again.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

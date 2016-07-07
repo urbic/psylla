@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_reverse">
 <title><token language="psi">reverse</token></title>
 
+<para>
+Возвращает в качестве <replaceable>результата</replaceable> новый массив,
+отличающийся от <replaceable>массива</replaceable> противоположным порядком
+следования элементов.
+</para>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <token language="psi">reverse</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>,
@@ -13,13 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает в качестве <replaceable>результата</replaceable> новый массив,
-отличающийся от <replaceable>массива</replaceable> противоположным порядком
-следования элементов.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

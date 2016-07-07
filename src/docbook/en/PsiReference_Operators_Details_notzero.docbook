@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_notzero">
 <title><token language="psi">notzero</token></title>
 
+<para>
+Returns <constant>true</constant>, if the <replaceable>number</replaceable> not
+equals to zero, and <constant>false</constant> otherwise.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">notzero</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns <constant>true</constant>, if the <replaceable>number</replaceable> not
-equals to zero, and <constant>false</constant> otherwise.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

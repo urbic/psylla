@@ -2,11 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_min">
 <title><token language="psi">min</token></title>
 
+<para>
+Возвращает наименьший из двух <replaceable>скаляров</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>скаляр<subscript>1</subscript></replaceable>
 <replaceable>скаляр<subscript>2</subscript></replaceable>
 <token language="psi">min</token>
 <replaceable>минимум</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
@@ -15,11 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_scalar"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает наименьший из двух <replaceable>скаляров</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

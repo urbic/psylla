@@ -2,20 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_wait">
 <title><token language="psi">wait</token></title>
 
+<para>
+</para>
+
 <synopsis>
 <replaceable>условие</replaceable>
 <token language="psi">wait</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>условие</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_condition"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

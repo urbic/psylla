@@ -6,6 +6,10 @@
 <replaceable>объект</replaceable>
 <token language="psi">toreal</token>
 <replaceable>вещественное</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
@@ -16,6 +20,6 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 </section>

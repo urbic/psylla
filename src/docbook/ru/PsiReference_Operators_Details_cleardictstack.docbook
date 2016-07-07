@@ -2,15 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_cleardictstack">
 <title><token language="psi">cleardictstack</token></title>
 
+<para>
+Удаляет все непостоянные словари из стека словарей.
+</para>
+
 <synopsis>
 —
 <token language="psi">cleardictstack</token>
 —
 </synopsis>
-
-<para>
-Удаляет все непостоянные словари из стека словарей.
-</para>
 
 <formalpara>
 &TitleErrors;

@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_sub">
 <title><token language="psi">sub</token></title>
 
+<para>
+Возвращает <replaceable>разность</replaceable>
+<replaceable>уменьшаемого</replaceable> и
+<replaceable>вычитаемого</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>уменьшаемое</replaceable>
 <replaceable>вычитаемое</replaceable>
 <token language="psi">sub</token>
 <replaceable>разность</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>уменьшаемое</replaceable>,
@@ -15,13 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>разность</replaceable>
-<replaceable>уменьшаемого</replaceable> и
-<replaceable>вычитаемого</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Если оба операнда имеют тип <xref xrefstyle="template:%t"

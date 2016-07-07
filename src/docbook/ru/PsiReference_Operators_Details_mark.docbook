@@ -2,24 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_mark">
 <title><token language="psi">mark</token></title>
 
-<synopsis>
-—
-<token language="psi">mark</token>
-<constant>mark</constant>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
-
 <para>
 Добавляет метку в стек операндов. <xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_mark"/> не является оператором, это
 значение типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_mark"/> в системном словаре.
 </para>
+
+<synopsis>
+—
+<token language="psi">mark</token>
+<constant>mark</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
+</listitem>
+</itemizedlist>
+</formalpara>
 
 <para>
 Метки используются для обозначения позиции в стеке операндов, с которой

@@ -2,19 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_array">
 <title><token language="psi">array</token></title>
 
+<para>
+Returns a new empty <replaceable>array</replaceable>.
+</para>
+
 <synopsis>
-— <token language="psi">array</token> <replaceable>array</replaceable>
+—
+<token language="psi">array</token>
+<replaceable>array</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new empty <replaceable>array</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,12 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_exch">
 <title><token language="psi">exch</token></title>
 
+<para>
+Меняет местами два верхних операнда в стеке операндов.
+</para>
+
 <synopsis>
 <replaceable>объект<subscript>1</subscript></replaceable>
 <replaceable>объект<subscript>2</subscript></replaceable>
 <token language="psi">exch</token>
 <replaceable>объект<subscript>2</subscript></replaceable>
 <replaceable>объект<subscript>1</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
@@ -15,11 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Меняет местами два верхних операнда в стеке операндов.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

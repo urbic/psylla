@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_sub">
 <title><token language="psi">sub</token></title>
 
+<para>
+Returns the <replaceable>difference</replaceable> of the
+<replaceable>minuend</replaceable> and <replaceable>subtrahend</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>minuend</replaceable>
 <replaceable>subtrahend</replaceable>
 <token language="psi">sub</token>
 <replaceable>difference</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>minuend</replaceable>,
@@ -15,12 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_additive"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>difference</replaceable> of the
-<replaceable>minuend</replaceable> and <replaceable>subtrahend</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Если оба операнда имеют тип <xref xrefstyle="template:%t"

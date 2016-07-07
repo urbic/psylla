@@ -2,12 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_readstring">
 <title><token language="psi">readstring</token></title>
 
+<para>
+Пытается прочитать <replaceable>строку</replaceable> заданной
+<replaceable>длины</replaceable> из источника. Возвращает прочитанную
+<replaceable>строку</replaceable>. Возвращает также булевский
+<replaceable>результат</replaceable>, показывающий, исчерпан ли
+<replaceable>источник</replaceable> в результате операции.
+</para>
+
 <synopsis>
 <replaceable>источник</replaceable>
 <replaceable>длина</replaceable>
 <token language="psi">readstring</token>
 <replaceable>строка</replaceable>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>источник</replaceable>:
@@ -26,15 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Пытается прочитать <replaceable>строку</replaceable> заданной
-<replaceable>длины</replaceable> из источника. Возвращает прочитанную
-<replaceable>строку</replaceable>. Возвращает также булевский
-<replaceable>результат</replaceable>, показывающий, исчерпан ли
-<replaceable>источник</replaceable> в результате операции.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

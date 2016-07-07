@@ -2,23 +2,31 @@
 <section xml:id="PsiReference_Operators_Details_version">
 <title><token language="psi">version</token></title>
 
+<para>
+Версия интерпретатора Ψ.
+</para>
+
 <synopsis>
 —
 <token language="psi">version</token>
 <constant>version</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>version</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Версия интерпретатора Ψ. <xref xrefstyle="template:%t"
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_version"/> не оператор, а значение типа
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/> в
-системном словаре.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
+в системном словаре.
 </para>
 
 <formalpara>

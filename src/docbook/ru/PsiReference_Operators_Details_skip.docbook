@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_skip">
 <title><token language="psi">skip</token></title>
 
+<para>
+Пытается пропустить заданное <replaceable>количество</replaceable> символов
+из <replaceable>источника</replaceable>. Возвращает <constant>true</constant>,
+если пропущено заданное <replaceable>количество</replaceable> символов, и
+<constant>false</constant>, если источник исчерпан до завершения операции.
+</para>
+
 <synopsis>
 <replaceable>источник</replaceable>
 <replaceable>количество</replaceable>
 <token language="psi">skip</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>источник</replaceable>:
@@ -21,14 +32,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Пытается пропустить заданное <replaceable>количество</replaceable> символов
-из <replaceable>источника</replaceable>. Возвращает <constant>true</constant>,
-если пропущено заданное <replaceable>количество</replaceable> символов, и
-<constant>false</constant>, если источник исчерпан до завершения операции.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

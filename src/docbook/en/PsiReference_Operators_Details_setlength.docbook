@@ -2,11 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_setlength">
 <title><token language="psi">setlength</token></title>
 
+<para>
+Set the size of the <replaceable>array</replaceable> to the
+<replaceable>length</replaceable> by removing the necessary number of last
+elements, or adding the <replaceable>array</replaceable> to the specified
+<replaceable>length</replaceable> placeholders corresponding to the type of
+the <replaceable>array</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>length</replaceable>
 <token language="psi">setlength</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>:
@@ -17,15 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Set the size of the <replaceable>array</replaceable> to the
-<replaceable>length</replaceable> by removing the necessary number of last
-elements, or adding the <replaceable>array</replaceable> to the specified
-<replaceable>length</replaceable> placeholders corresponding to the type of
-the <replaceable>array</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

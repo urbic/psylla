@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_retainall">
 <title><token language="psi">retainall</token></title>
 
+<para>
+Удаляет из <replaceable>множества</replaceable> все элементы, отсутствующие
+в <replaceable>перечислении</replaceable>. <replaceable>Элемент</replaceable>
+считается присутствующим во <replaceable>множестве</replaceable>, если оно
+содержит равный ему элемент.
+</para>
+
 <synopsis>
 <replaceable>множество</replaceable>
 <replaceable>перечисление</replaceable>
 <token language="psi">retainall</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>множество</replaceable>:
@@ -17,14 +28,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Удаляет из <replaceable>множества</replaceable> все элементы, отсутствующие
-в <replaceable>перечислении</replaceable>. <replaceable>Элемент</replaceable>
-считается присутствующим во <replaceable>множестве</replaceable>, если оно
-содержит равный ему элемент.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_createdirectory">
 <title><token language="psi">createdirectory</token></title>
 
+<para>
+Creates a new directory with the given <replaceable>name</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psi">createdirectory</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Creates a new directory with the given <replaceable>name</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

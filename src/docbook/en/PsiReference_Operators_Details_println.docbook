@@ -2,23 +2,27 @@
 <section xml:id="PsiReference_Operators_Details_println">
 <title><token language="psi">println</token></title>
 
+<para>
+Writes the <replaceable>string</replaceable> and the line terminator (<xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>) to the
+standard output.
+</para>
+
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psi">println</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Writes the <replaceable>string</replaceable> and the line terminator (<xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>) to the
-standard output.
-</para>
+</formalpara>
 
 <para>
 The operator is equvalent to the program

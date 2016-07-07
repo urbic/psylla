@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_prepend">
 <title><token language="psi">prepend</token></title>
 
+<para>
+Добавляет <replaceable>объект</replaceable> в начало
+<replaceable>контейнера</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">prepend</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>контейнер</replaceable>:
@@ -17,12 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Добавляет <replaceable>объект</replaceable> в начало
-<replaceable>контейнера</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

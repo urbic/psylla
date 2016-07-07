@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_intersects">
 <title><token language="psi">intersects</token></title>
+
+<para>
+Returns <constant>true</constant>, if the
+<replaceable>set<subscript>1</subscript></replaceable> intersects with the
+<replaceable>set<subscript>2</subscript></replaceable>, and
+<constant>false</constant> otherwise.
+</para>
+
 <synopsis>
 <replaceable>set<subscript>1</subscript></replaceable>
 <replaceable>set<subscript>2</subscript></replaceable>
 <token language="psi">intersects</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>set<subscript>1</subscript></replaceable>,
@@ -17,14 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns <constant>true</constant>, if the
-<replaceable>set<subscript>1</subscript></replaceable> intersects with the
-<replaceable>set<subscript>2</subscript></replaceable>, and
-<constant>false</constant> otherwise.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

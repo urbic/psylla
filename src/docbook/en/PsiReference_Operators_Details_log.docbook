@@ -2,10 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_log">
 <title><token language="psi">log</token></title>
 
+<para>
+Returns the natural <replaceable>logarithm</replaceable> of a
+<replaceable>number</replaceable>. Для положительных операндов целого и
+вещественного типа возвращается вещественное число, для отрицательных и
+комплексных операндов возвращается комплексное число.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">log</token>
 <replaceable>logarithm</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
@@ -13,14 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the natural <replaceable>logarithm</replaceable> of a
-<replaceable>number</replaceable>. Для положительных операндов целого и
-вещественного типа возвращается вещественное число, для отрицательных и
-комплексных операндов возвращается комплексное число.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

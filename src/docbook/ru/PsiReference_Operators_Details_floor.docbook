@@ -2,10 +2,18 @@
 <section xml:id="PsiReference_Operators_Details_floor">
 <title><token language="psi">floor</token></title>
 
+<para>
+Возвращает <replaceable>пол</replaceable> <replaceable>числа</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">floor</token>
 <replaceable>пол</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
@@ -13,11 +21,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>пол</replaceable> <replaceable>числа</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Если операнд типа <xref xrefstyle="template:%t"

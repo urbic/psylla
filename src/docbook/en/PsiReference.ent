@@ -314,3 +314,4 @@
 <!ENTITY TitleErrors	"<title>Errors:</title>">
 <!ENTITY TitleSeeAlso	"<title>See Also:</title>">
 <!ENTITY TitleInherits	"<title>Inherits:</title>">
+<!ENTITY TitleOperands	"<title>Operands:</title>">

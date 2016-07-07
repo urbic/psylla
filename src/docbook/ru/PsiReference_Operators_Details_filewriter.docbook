@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_filewriter">
 <title><token language="psi">filewriter</token></title>
 
+<para>
+Возвращает новый файловый <replaceable>писатель</replaceable> для файла
+с заданным <replaceable>именем</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>имя</replaceable>
 <token language="psi">filewriter</token>
 <replaceable>писатель</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>имя</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_filewriter"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новый файловый <replaceable>писатель</replaceable> для файла
-с заданным <replaceable>именем</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

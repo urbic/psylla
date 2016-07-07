@@ -2,6 +2,14 @@
 <section xml:id="PsiReference_Operators_Details_read">
 <title><token language="psi">read</token></title>
 
+<para>
+Attempts to read a <replaceable>character</replaceable> from
+an <replaceable>input</replaceable>. Returns a
+<replaceable>character</replaceable> read on success (if an
+<replaceable>input</replaceable> is not exhausted). Also returns a boolean
+value indicating the success of the operation.
+</para>
+
 <synopsis>
 <replaceable>input</replaceable>
 <token language="psi">read</token>
@@ -11,6 +19,10 @@
 <replaceable>input</replaceable>
 <token language="psi">read</token>
 <constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>input</replaceable>:
@@ -26,15 +38,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Attempts to read a <replaceable>character</replaceable> from
-an <replaceable>input</replaceable>. Returns a
-<replaceable>character</replaceable> read on success (if an
-<replaceable>input</replaceable> is not exhausted). Also returns a boolean
-value indicating the success of the operation.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

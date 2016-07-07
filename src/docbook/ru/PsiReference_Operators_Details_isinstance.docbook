@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_isinstance">
 <title><token language="psi">isinstance</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если <replaceable>объект</replaceable>
+принадлежит данному <replaceable>типу</replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
 <synopsis>
 <replaceable>тип</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">isinstance</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>тип</replaceable>:
@@ -21,13 +31,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если <replaceable>объект</replaceable>
-принадлежит данному <replaceable>типу</replaceable>, и
-<constant>false</constant> в противном случае.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

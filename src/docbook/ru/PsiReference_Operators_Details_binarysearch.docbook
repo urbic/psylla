@@ -9,6 +9,10 @@
 <token language="psi">binarysearch</token>
 <replaceable>индекс</replaceable>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
@@ -31,7 +35,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 Ищет заданный <replaceable>ключ</replaceable>

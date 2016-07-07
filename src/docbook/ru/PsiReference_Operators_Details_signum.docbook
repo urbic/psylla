@@ -2,10 +2,18 @@
 <section xml:id="PsiReference_Operators_Details_signum">
 <title><token language="psi">signum</token></title>
 
+<para>
+Возвращает <replaceable>сигнум</replaceable> <replaceable>числа</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">signum</token>
 <replaceable>сигнум</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
@@ -13,11 +21,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>сигнум</replaceable> <replaceable>числа</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

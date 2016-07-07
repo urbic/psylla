@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_filesize">
 <title><token language="psi">filesize</token></title>
 
+<para>
+Returns the <replaceable>size</replaceable> (in bytes) for the file or
+directory with the given <replaceable>name</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psi">filesize</token>
 <replaceable>size</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>size</replaceable> (in bytes) for the file or
-directory with the given <replaceable>name</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

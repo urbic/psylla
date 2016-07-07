@@ -2,12 +2,23 @@
 <section xml:id="PsiReference_Operators_Details_insertall">
 <title><token language="psi">insertall</token></title>
 
+<para>
+Inserts all the objects from the <replaceable>enumeration</replaceable> into
+the <replaceable>array</replaceable> before the element with the given
+<replaceable>index</replaceable> or at the end of the
+<replaceable>array</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
 <replaceable>enumeration</replaceable>
 <token language="psi">insertall</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>:
@@ -22,14 +33,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Inserts all the objects from the <replaceable>enumeration</replaceable> into
-the <replaceable>array</replaceable> before the element with the given
-<replaceable>index</replaceable> or at the end of the
-<replaceable>array</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

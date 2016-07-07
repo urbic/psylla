@@ -2,20 +2,28 @@
 <section xml:id="PsiReference_Operators_Details_classpath">
 <title><token language="psi">classpath</token></title>
 
+<para>
+The array containing the additional class path.
+</para>
+
 <synopsis>
 —
 <token language="psi">classpath</token>
 <constant>classpath</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>classpath</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-The array containing the additional class path. <xref xrefstyle="template:%t"
+<xref xrefstyle="template:%t"
 linkend="PsiReference_Operators_Details_classpath"/> is not an operator, but an
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 value in the system dictionary.

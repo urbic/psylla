@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsiReference_Operators_Details_tostring">
 <title><token language="psi">tostring</token></title>
+
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psi">tostring</token>
 <replaceable>строка</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект</replaceable>:
@@ -15,5 +20,6 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
+
 </section>

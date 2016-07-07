@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_clear">
 <title><token language="psi">clear</token></title>
 
+<para>
+Removes all elements from the <replaceable>container</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>container</replaceable>
 <token language="psi">clear</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Removes all elements from the <replaceable>container</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

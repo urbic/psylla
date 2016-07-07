@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_xor">
 <title><token language="psi">xor</token></title>
 
+<para>
+Returns the <replaceable>exclusive_disjunction</replaceable> of two
+<replaceable>operands</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>operand<subscript>1</subscript></replaceable>
 <replaceable>operand<subscript>2</subscript></replaceable>
 <token language="psi">xor</token>
 <replaceable>exclusive_disjunction</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>operand<subscript>1</subscript></replaceable>,
@@ -15,12 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>exclusive_disjunction</replaceable> of two
-<replaceable>operands</replaceable>.
-</para>
+</formalpara>
 
 <para>
 For <xref xrefstyle="template:%t"

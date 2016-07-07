@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_cmp">
 <title><token language="psi">cmp</token></title>
 
+<para>
+Возвращает <replaceable>результат</replaceable> сравнения двух
+<replaceable>скаляров</replaceable>: <constant>-1</constant>, если первый
+операнд меньше второго, <constant>0</constant>, если операнды равны и
+<constant>1</constant>, если первый операнд больше второго.
+</para>
+
 <synopsis>
 <replaceable>скаляр<subscript>1</subscript></replaceable>
 <replaceable>скаляр<subscript>2</subscript></replaceable>
 <token language="psi">cmp</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>скаляр<subscript>1</subscript></replaceable>,
@@ -18,14 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>результат</replaceable> сравнения двух
-<replaceable>скаляров</replaceable>: <constant>-1</constant>, если первый
-операнд меньше второго, <constant>0</constant>, если операнды равны и
-<constant>1</constant>, если первый операнд больше второго.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

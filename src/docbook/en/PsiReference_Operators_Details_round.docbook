@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_round">
 <title><token language="psi">round</token></title>
 
+<para>
+Returns the <replaceable>number</replaceable> rounded to the nearest
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
+<replaceable>result</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">round</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>number</replaceable> rounded to the nearest
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
-<replaceable>result</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

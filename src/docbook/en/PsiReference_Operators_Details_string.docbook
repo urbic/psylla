@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_string">
 <title><token language="psi">string</token></title>
 
+<para>
+Returns a new empty <replaceable>string</replaceable>.
+</para>
+
 <synopsis>
 —
 <token language="psi">string</token>
 <replaceable>string</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new empty <replaceable>string</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

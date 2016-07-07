@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_values">
 <title><token language="psi">values</token></title>
 
+<para>
+Returns the <replaceable>enumeration</replaceable> of values containing in
+the <replaceable>indexed</replaceable> container.
+</para>
+
 <synopsis>
 <replaceable>indexed</replaceable>
 <token language="psi">values</token>
 <replaceable>enumeration</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>indexed</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>enumeration</replaceable> of values containing in
-the <replaceable>indexed</replaceable> container.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_ne">
 <title><token language="psi">ne</token></title>
 
+<para>
+Возвращает <constant>true</constant>, если
+<replaceable>объект<subscript>1</subscript></replaceable> не равен
+<replaceable>объекту<subscript>2</subscript></replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
 <synopsis>
 <replaceable>объект<subscript>1</subscript></replaceable>
 <replaceable>объект<subscript>2</subscript></replaceable>
 <token language="psi">ne</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
@@ -18,14 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <constant>true</constant>, если
-<replaceable>объект<subscript>1</subscript></replaceable> не равен
-<replaceable>объекту<subscript>2</subscript></replaceable>, и
-<constant>false</constant> в противном случае.
-</para>
+</formalpara>
 
 <para>
 Какие объекты считаются равными, объясняется в описании оператора <xref

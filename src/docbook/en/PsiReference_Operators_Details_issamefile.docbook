@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_issamefile">
 <title><token language="psi">issamefile</token></title>
 
+<para>
+Returns <constant>true</constant>, if the
+<replaceable>name<subscript>1</subscript></replaceable> and the
+<replaceable>name<subscript>2</subscript></replaceable> are the names of the
+same file or directory, and <constant>false</constant> otherwise.
+</para>
+
 <synopsis>
 <replaceable>name<subscript>1</subscript></replaceable>
 <replaceable>name<subscript>2</subscript></replaceable>
 <token language="psi">issamefile</token>
 <replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>name<subscript>1</subscript></replaceable>,
@@ -18,14 +29,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns <constant>true</constant>, if the
-<replaceable>name<subscript>1</subscript></replaceable> and the
-<replaceable>name<subscript>2</subscript></replaceable> are the names of the
-same file or directory, and <constant>false</constant> otherwise.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

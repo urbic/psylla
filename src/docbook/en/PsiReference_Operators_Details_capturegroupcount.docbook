@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_capturegroupcount">
 <title><token language="psi">capturegroupcount</token></title>
 
+<para>
+Returns a <replaceable>count</replaceable> of capture groups for the given
+<replaceable>matcher</replaceable>. The group numbered <constant>0</constant>
+corresponds to the whole pattern; it does not counted.
+</para>
+
 <synopsis>
 <replaceable>matcher</replaceable>
 <token language="psi">capturegroupcount</token>
 <replaceable>count</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>matcher</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a <replaceable>count</replaceable> of capture groups for the given
-<replaceable>matcher</replaceable>. The group numbered <constant>0</constant> corresponds
-to the whole pattern; it does not counted.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

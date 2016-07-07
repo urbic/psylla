@@ -2,20 +2,29 @@
 <section xml:id="PsiReference_Operators_Details_errordict">
 <title><token language="psi">errordict</token></title>
 
+<para>
+Словарь ошибок.
+</para>
+
 <synopsis>
 — <token language="psi">errordict</token>
 <constant>errordict</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <constant>errordict</constant>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Словарь ошибок. Не оператор, а значение в системном словаре.
+Не оператор, а значение в системном словаре.
 </para>
+
 
 <formalpara>
 &TitleSeeAlso;

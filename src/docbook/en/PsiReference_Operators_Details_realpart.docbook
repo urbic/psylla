@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_realpart">
 <title><token language="psi">realpart</token></title>
 
+<para>
+Returns the <replaceable>real_part</replaceable> of the
+<replaceable>number</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">realpart</token>
 <replaceable>real_part</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns the <replaceable>real_part</replaceable> of the
-<replaceable>number</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

@@ -2,11 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_writestring">
 <title><token language="psi">writestring</token></title>
 
+<para>
+Записывает <replaceable>строку</replaceable> в <replaceable>вывод</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>вывод</replaceable>
 <replaceable>строка</replaceable>
 <token language="psi">writestring</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>вывод</replaceable>:
@@ -17,11 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Записывает <replaceable>строку</replaceable> в <replaceable>вывод</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

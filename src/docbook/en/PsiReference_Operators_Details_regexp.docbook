@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_regexp">
 <title><token language="psi">regexp</token></title>
 
+<para>
+Returns a new <replaceable>pattern</replaceable> for a regular expression
+containing in the <replaceable>string</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psi">regexp</token>
 <replaceable>pattern</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Returns a new <replaceable>pattern</replaceable> for a regular expression
-containing in the <replaceable>string</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

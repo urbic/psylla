@@ -2,11 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_xor">
 <title><token language="psi">xor</token></title>
 
+<para>
+Возвращает исключающую дизъюнкцию двух <replaceable>операндов</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>операнд<subscript>1</subscript></replaceable>
 <replaceable>операнд<subscript>2</subscript></replaceable>
 <token language="psi">xor</token>
 <replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>операнд<subscript>1</subscript></replaceable>,
@@ -15,11 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает исключающую дизъюнкцию двух операндов.
-</para>
+</formalpara>
 
 <para>
 Для операндов типа <xref xrefstyle="template:%t"

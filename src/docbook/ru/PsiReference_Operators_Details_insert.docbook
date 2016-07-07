@@ -2,12 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_insert">
 <title><token language="psi">insert</token></title>
 
+<para>
+Вставляет <replaceable>объект</replaceable> в <replaceable>массив</replaceable>
+перед элементом с заданным <replaceable>индексом</replaceable> или в конец
+<replaceable>массива</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <replaceable>индекс</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">insert</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
@@ -22,13 +32,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Вставляет <replaceable>объект</replaceable> в <replaceable>массив</replaceable>
-перед элементом с заданным <replaceable>индексом</replaceable> или в конец
-<replaceable>массива</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

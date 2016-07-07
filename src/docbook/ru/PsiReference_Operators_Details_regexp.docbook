@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_regexp">
 <title><token language="psi">regexp</token></title>
 
+<para>
+Создаёт <replaceable>шаблон</replaceable> регулярного выражения, записанного
+в <replaceable>строке</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>строка</replaceable>
 <token language="psi">regexp</token>
 <replaceable>шаблон</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Создаёт <replaceable>шаблон</replaceable> регулярного выражения, записанного
-в <replaceable>строке</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

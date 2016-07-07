@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_sqrt">
 <title><token language="psi">sqrt</token></title>
 
+<para>
+Возвращает квадратный <replaceable>корень</replaceable>
+из <replaceable>числа</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">sqrt</token>
 <replaceable>корень</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>,
@@ -13,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает квадратный <replaceable>корень</replaceable>
-из <replaceable>числа</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_complex">
 <title><token language="psi">complex</token></title>
 
+<para>
+Возвращает новое комплексное <replaceable>число</replaceable> с заданными
+<replaceable>вещественной</replaceable> и <replaceable>мнимой</replaceable>
+частями.
+</para>
+
 <synopsis>
 <replaceable>вещественная</replaceable>
 <replaceable>мнимая</replaceable>
 <token language="psi">complex</token>
 <replaceable>число</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>вещественная</replaceable>,
@@ -18,13 +28,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новое комплексное <replaceable>число</replaceable> с заданными
-<replaceable>вещественной</replaceable> и <replaceable>мнимой</replaceable>
-частями.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

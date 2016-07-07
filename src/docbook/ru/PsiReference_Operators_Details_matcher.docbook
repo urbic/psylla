@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_matcher">
 <title><token language="psi">matcher</token></title>
 
+<para>
+Возвращает новый <replaceable>матчер</replaceable> для поиска
+в <replaceable>строке</replaceable> по <replaceable>шаблону</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>строка</replaceable>
 <replaceable>шаблон</replaceable>
 <token language="psi">matcher</token>
 <replaceable>матчер</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
@@ -21,21 +30,11 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_matcher"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новый <replaceable>матчер</replaceable> для поиска
-в <replaceable>строке</replaceable> по <replaceable>шаблону</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;
 none.
-</formalpara>
-
-<formalpara>
-&TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>.
 </formalpara>
 
 <formalpara>

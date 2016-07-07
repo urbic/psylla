@@ -2,12 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_extractinterval">
 <title><token language="psi">extractinterval</token></title>
 
+<para>
+Удаляет из <replaceable>массива</replaceable> непрерывный фрагмент с заданными
+начальным <replaceable>индексом</replaceable> и
+<replaceable>длиной</replaceable>. Удалённый фрагмент возвращается
+в <replaceable>подмассиве</replaceable> того же типа, что и
+<replaceable>массив</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <replaceable>индекс</replaceable>
 <replaceable>длина</replaceable>
 <token language="psi">extractinterval</token>
 <replaceable>подмассив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>,
@@ -20,15 +32,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Удаляет из <replaceable>массива</replaceable> непрерывный фрагмент с заданными
-начальным <replaceable>индексом</replaceable> и
-<replaceable>длиной</replaceable>. Удалённый фрагмент возвращается
-в <replaceable>подмассиве</replaceable> того же типа, что и
-<replaceable>массив</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерируется <xref xrefstyle="template:%t"

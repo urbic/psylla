@@ -2,10 +2,18 @@
 <section xml:id="PsiReference_Operators_Details_take">
 <title><token language="psi">take</token></title>
 
+<para>
+TODO
+</para>
+
 <synopsis>
 <replaceable>очередь</replaceable>
 <token language="psi">take</token>
 <replaceable>элемент</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>очередь</replaceable>:
@@ -16,11 +24,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-TODO
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

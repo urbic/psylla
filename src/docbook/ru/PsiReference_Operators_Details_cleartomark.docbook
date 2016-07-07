@@ -2,6 +2,11 @@
 <section xml:id="PsiReference_Operators_Details_cleartomark">
 <title><token language="psi">cleartomark</token></title>
 
+<para>
+Удаляет объекты в стеке операндов, расположенные начиная с самой верхней метки
+вплоть до вершины стека.
+</para>
+
 <synopsis>
 <constant>mark</constant>
 <replaceable>объект<subscript>1</subscript></replaceable>
@@ -9,6 +14,10 @@
 <replaceable>объект<subscript>n</subscript></replaceable>
 <token language="psi">cleartomark</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>объект<subscript>1</subscript></replaceable>,
@@ -21,14 +30,12 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Удаляет объекты в стеке операндов, расположенные начиная с самой верхней метки
-вплоть до вершины стека. Если стек операндов не содержит меток, генерируется
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/>, а сам стек остаётся
-нетронутым.
+Если стек операндов не содержит меток, генерируется <xref
+xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>,
+а сам стек остаётся нетронутым.
 </para>
 
 <formalpara>

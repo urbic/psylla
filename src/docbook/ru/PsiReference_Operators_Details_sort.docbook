@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_sort">
 <title><token language="psi">sort</token></title>
 
+<para>
+Возвращает отсортированную копию <replaceable>массива</replaceable>. Сортировка
+производится при помощи процедуры-<replaceable>компаратора</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>массив</replaceable>
 <replaceable>компаратор</replaceable>
 <token language="psi">sort</token>
 <replaceable>сортированный_массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>,
@@ -18,12 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает отсортированную копию <replaceable>массива</replaceable>. Сортировка
-производится при помощи процедуры-<replaceable>компаратора</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

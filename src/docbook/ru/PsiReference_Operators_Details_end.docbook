@@ -2,13 +2,15 @@
 <section xml:id="PsiReference_Operators_Details_end">
 <title><token language="psi">end</token></title>
 
-<synopsis>
-— <token language="psi">end</token> —
-</synopsis>
-
 <para>
 Удаляет верхний словарь со стека словарей.
 </para>
+
+<synopsis>
+—
+<token language="psi">end</token>
+—
+</synopsis>
 
 <para>
 При попытке удалить постоянный словарь генерирует <xref xrefstyle="template:%t"

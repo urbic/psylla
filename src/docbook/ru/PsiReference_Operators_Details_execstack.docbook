@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_execstack">
 <title><token language="psi">execstack</token></title>
 
+<para>
+Возвращает в <replaceable>массиве</replaceable> содержимое стека исполнения.
+</para>
+
 <synopsis>
 —
 <token language="psi">execstack</token>
 <replaceable>массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>массив</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает в <replaceable>массиве</replaceable> содержимое стека исполнения.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

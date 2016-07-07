@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_close">
 <title><token language="psi">close</token></title>
 
+<para>
+Closes the <replaceable>closeable</replaceable> input/output object.
+</para>
+
 <synopsis>
 <replaceable>cleseable</replaceable>
 <token language="psi">close</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>cleseable</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Closes the <replaceable>closeable</replaceable> input/output object.
-</para>
+</formalpara>
 
 <para>
 Generates <xref xrefstyle="template:%t"

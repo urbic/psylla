@@ -2,8 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_div">
 <title><token language="psi">div</token></title>
 
+<para>
+Возвращает <replaceable>частное</replaceable> при делении
+<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
+</para>
+
 <synopsis>
-<replaceable>делимое</replaceable> <replaceable>делитель</replaceable> <token language="psi">div</token> <replaceable>частное</replaceable>
+<replaceable>делимое</replaceable>
+<replaceable>делитель</replaceable>
+<token language="psi">div</token>
+<replaceable>частное</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>делимое</replaceable>,
@@ -12,11 +24,9 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
-Возвращает <replaceable>частное</replaceable> при делении
-<replaceable>делимого</replaceable> на <replaceable>делитель</replaceable>.
 Если оба операнда имеют тип <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_realnumeric"/>, тип результата будет <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>. Если

@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_not">
 <title><token language="psi">not</token></title>
 
+<para>
+Возвращает <replaceable>дополнение</replaceable>
+<replaceable>операнда</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>операнд</replaceable>
 <token language="psi">not</token>
 <replaceable>дополнение</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>операнд</replaceable>,
@@ -13,12 +22,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_logical"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>дополнение</replaceable>
-<replaceable>операнда</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Для <replaceable>операндов</replaceable> типа <xref xrefstyle="template:%t"

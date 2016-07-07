@@ -2,10 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_filecreationtime">
 <title><token language="psi">filecreationtime</token></title>
 
+<para>
+Возвращает <replaceable>время</replaceable> создания (в миллисекундах
+с 1970.01.01 00:00:00 GMT) для файла с заданным
+<replaceable>именем</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>имя</replaceable>
 <token language="psi">filecreationtime</token>
 <replaceable>время</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>имя</replaceable>:
@@ -16,13 +26,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает <replaceable>время</replaceable> создания (в миллисекундах
-с 1970.01.01 00:00:00 GMT) для файла с заданным
-<replaceable>именем</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

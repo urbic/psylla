@@ -2,11 +2,21 @@
 <section xml:id="PsiReference_Operators_Details_def">
 <title><token language="psi">def</token></title>
 
+<para>
+Associates an <replaceable>object</replaceable> with the
+<replaceable>key</replaceable> at the current dictionary (the topmost in the
+dictionary stack).
+</para>
+
 <synopsis>
 <replaceable>key</replaceable>
 <replaceable>object</replaceable>
 <token language="psi">def</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>key</replaceable>:
@@ -17,13 +27,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Associates an <replaceable>object</replaceable> with the
-<replaceable>key</replaceable> at the current dictionary (the topmost in the
-dictionary stack).
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,21 +2,25 @@
 <section xml:id="PsiReference_Operators_Details_pop">
 <title><token language="psi">pop</token></title>
 
+<para>
+Removes the topmost <replaceable>object</replaceable> from the operand stack.
+</para>
+
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psi">pop</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Removes the topmost <replaceable>object</replaceable> from the operand stack.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

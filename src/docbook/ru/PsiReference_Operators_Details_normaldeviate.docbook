@@ -2,11 +2,22 @@
 <section xml:id="PsiReference_Operators_Details_normaldeviate">
 <title><token language="psi">normaldeviate</token></title>
 
+<para>
+Возвращает нормально распределённое <replaceable>случайное</replaceable> число
+с заданным среднеквадратичным <replaceable>уклонением</replaceable> и нулевым
+средним, взятое из заданного <replaceable>генератора</replaceable>
+псевдослучайных чисел.
+</para>
+
 <synopsis>
 <replaceable>генератор</replaceable>
 <replaceable>уклонение</replaceable>
 <token language="psi">normaldeviate</token>
 <replaceable>случайное</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>генератор</replaceable>:
@@ -21,14 +32,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает нормально распределённое <replaceable>случайное</replaceable> число
-с заданным среднеквадратичным <replaceable>уклонением</replaceable> и нулевым
-средним, взятое из заданного <replaceable>генератора</replaceable>
-псевдослучайных чисел.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

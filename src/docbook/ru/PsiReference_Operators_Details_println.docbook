@@ -2,23 +2,27 @@
 <section xml:id="PsiReference_Operators_Details_println">
 <title><token language="psi">println</token></title>
 
+<para>
+Записывает <replaceable>строку</replaceable> и терминатор строк (<xref
+xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>)
+в стандартный вывод.
+</para>
+
 <synopsis>
 <replaceable>строка</replaceable>
 <token language="psi">println</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>строка</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Записывает <replaceable>строку</replaceable> и терминатор строк (<xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>)
-в стандартный вывод.
-</para>
+</formalpara>
 
 <para>
 Оператор эквивалентен программе

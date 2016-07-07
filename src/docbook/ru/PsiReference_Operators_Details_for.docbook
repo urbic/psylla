@@ -9,6 +9,10 @@
 <replaceable>объект</replaceable>
 <token language="psi">for</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>начальное</replaceable>,
@@ -21,7 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

@@ -2,11 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_hardlink">
 <title><token language="psi">hardlink</token></title>
 
+<para>
+Создаёт ссылку с именем <replaceable>ссылка</replaceable> на файл
+с именем <replaceable>цель</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>цель</replaceable>
 <replaceable>ссылка</replaceable>
 <token language="psi">hardlink</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>цель</replaceable>,
@@ -14,12 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Создаёт ссылку с именем <replaceable>ссылка</replaceable> на файл
-с именем <replaceable>цель</replaceable>.
-</para>
+</formalpara>
 
 <para>
 Генерирует <xref xrefstyle="template:%t"

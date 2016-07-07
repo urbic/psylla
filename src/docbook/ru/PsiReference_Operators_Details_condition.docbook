@@ -2,10 +2,19 @@
 <section xml:id="PsiReference_Operators_Details_condition">
 <title><token language="psi">condition</token></title>
 
+<para>
+Возвращает новое <replaceable>условие</replaceable>, связанное
+с <replaceable>замком</replaceable>.
+</para>
+
 <synopsis>
 <replaceable>замок</replaceable>
 <token language="psi">condition</token>
 <replaceable>условие</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>замок</replaceable>:
@@ -16,12 +25,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_condition"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Возвращает новое <replaceable>условие</replaceable>, связанное
-с <replaceable>замком</replaceable>.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

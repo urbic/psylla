@@ -2,6 +2,12 @@
 <section xml:id="PsiReference_Operators_Details_dictstack">
 <title><token language="psi">dictstack</token></title>
 
+<para>
+Возвращает в <replaceable>массиве</replaceable> содержимое стека словарей.
+</para>
+
+<formalpara>
+&TitleOperands;
 <synopsis>
 —
 <token language="psi">dictstack</token>
@@ -13,10 +19,7 @@
 </listitem>
 </itemizedlist>
 </synopsis>
-
-<para>
-Возвращает в <replaceable>массиве</replaceable> содержимое стека словарей.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

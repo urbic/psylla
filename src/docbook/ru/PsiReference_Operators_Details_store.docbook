@@ -2,11 +2,24 @@
 <section xml:id="PsiReference_Operators_Details_store">
 <title><token language="psi">store</token></title>
 
+<para>
+Ищет словарь в стеке словарей (от вершины к основанию), в котором присутствует
+<replaceable>ключ</replaceable>, и cвязывает <replaceable>объект</replaceable>
+с <replaceable>ключом</replaceable> в найденном словаре. Если словарь не
+найден, связывает <replaceable>объект</replaceable>
+с <replaceable>ключом</replaceable> в текущем словаре (верхнем в стеке
+словарей).
+</para>
+
 <synopsis>
 <replaceable>ключ</replaceable>
 <replaceable>объект</replaceable>
 <token language="psi">store</token>
 —
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>ключ</replaceable>:
@@ -17,16 +30,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Ищет словарь в стеке словарей (от вершины к основанию), в котором присутствует
-<replaceable>ключ</replaceable>, и cвязывает <replaceable>объект</replaceable>
-с <replaceable>ключом</replaceable> в найденном словаре. Если словарь не
-найден, связывает <replaceable>объект</replaceable>
-с <replaceable>ключом</replaceable> в текущем словаре (верхнем в стеке
-словарей).
-</para>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

@@ -2,12 +2,20 @@
 <section xml:id="PsiReference_Operators_Details_exch">
 <title><token language="psi">exch</token></title>
 
+<para>
+Exchanges two topmost operands in the operand stack.
+</para>
+
 <synopsis>
 <replaceable>object<subscript>1</subscript></replaceable>
 <replaceable>object<subscript>2</subscript></replaceable>
 <token language="psi">exch</token>
 <replaceable>object<subscript>2</subscript></replaceable>
 <replaceable>object<subscript>1</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>object<subscript>1</subscript></replaceable>,
@@ -15,11 +23,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
-</synopsis>
-
-<para>
-Exchanges two topmost operands in the operand stack.
-</para>
+</formalpara>
 
 <formalpara>
 &TitleExamples;
