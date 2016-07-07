@@ -27,4 +27,9 @@ Returns the <replaceable>number</replaceable> of objects in execution stack.
 none.
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_execstack"/>.
+</formalpara>
+
 </section>

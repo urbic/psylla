@@ -28,4 +28,9 @@ stack.
 none.
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_dictstack"/>.
+</formalpara>
+
 </section>
