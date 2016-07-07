@@ -6,13 +6,10 @@ public class PsiWriter
 		PsiFlushable,
 		PsiWritable
 {
-	public PsiWriter()
-	{
-	}
 
 	public PsiWriter(final java.io.Writer writer)
 	{
-		setWriter(writer);
+		this.writer=writer;
 	}
 
 	@Override
@@ -21,12 +18,7 @@ public class PsiWriter
 		return "writer";
 	}
 
-	public void setWriter(final java.io.Writer writer)
-	{
-		this.writer=writer;
-	}
-
-	public java.io.Writer getWriter()
+	public java.io.Writer writer()
 	{
 		return writer;
 	}

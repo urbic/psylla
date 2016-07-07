@@ -8,13 +8,9 @@ public class PsiReader
 		PsiReadable,
 		PsiResettable
 {
-	public PsiReader()
-	{
-	}
-
 	public PsiReader(final java.io.Reader reader)
 	{
-		setReader(reader);
+		this.reader=reader;
 	}
 
 	public PsiReader(final java.io.InputStream is)
@@ -35,12 +31,7 @@ public class PsiReader
 		return "reader";
 	}
 
-	public void setReader(final java.io.Reader reader)
-	{
-		this.reader=reader;
-	}
-
-	public java.io.Reader getReader()
+	public java.io.Reader reader()
 	{
 		return reader;
 	}
@@ -76,7 +67,7 @@ public class PsiReader
 			buffer.flip();
 			return new PsiString(buffer.toString());
 			*/
-			char[] buffer=new char[(int)count];
+			final char[] buffer=new char[(int)count];
 			reader.read(buffer);
 			return new PsiString(new String(buffer));
 		}
@@ -177,5 +168,5 @@ public class PsiReader
 		}
 	}
 
-	private java.io.Reader reader;
+	protected java.io.Reader reader;
 }

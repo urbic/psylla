@@ -5,9 +5,9 @@ package coneforest.psi;
 
 class Parser
 {
-	public Parser(coneforest.psi.core.PsiReader oReader)
+	public Parser(final coneforest.psi.core.PsiReader oReader)
 	{
-		this(oReader.getReader());
+		this(oReader.reader());
 	}
 }
 

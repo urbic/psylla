@@ -6,9 +6,12 @@ public class PsiFileWriter
 	public PsiFileWriter(final String fileName)
 		throws PsiException
 	{
+		super(newFileWriter(fileName));
+		/*
 		try
 		{
-			setWriter(new java.io.FileWriter(fileName));
+			setWriter(new java.io.FileWriter(
+					coneforest.psi.FileSystem.getPath(fileName).toString()));
 		}
 		catch(java.io.FileNotFoundException e)
 		{
@@ -18,11 +21,30 @@ public class PsiFileWriter
 		{
 			throw new PsiIOErrorException();
 		}
+		*/
 	}
 
 	public PsiFileWriter(final PsiStringy oFileName)
 		throws PsiException
 	{
 		this(oFileName.stringValue());
+	}
+
+	private static java.io.FileWriter newFileWriter(final String fileName)
+		throws PsiException
+	{
+		try
+		{
+			return new java.io.FileWriter(
+					coneforest.psi.FileSystem.getPath(fileName).toString());
+		}
+		catch(java.io.FileNotFoundException e)
+		{
+			throw new PsiFileNotFoundException();
+		}
+		catch(java.io.IOException e)
+		{
+			throw new PsiIOErrorException();
+		}
 	}
 }

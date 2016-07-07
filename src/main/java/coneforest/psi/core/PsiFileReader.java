@@ -6,19 +6,26 @@ public class PsiFileReader
 	public PsiFileReader(final String fileName)
 		throws PsiException
 	{
-		try
-		{
-			setReader(new java.io.FileReader(fileName));
-		}
-		catch(java.io.FileNotFoundException e)
-		{
-			throw new PsiFileNotFoundException();
-		}
+		super(newFileReader(fileName));
 	}
 
 	public PsiFileReader(final PsiStringy oFileName)
 		throws PsiException
 	{
 		this(oFileName.stringValue());
+	}
+
+	private static java.io.FileReader newFileReader(final String fileName)
+		throws PsiException
+	{
+		try
+		{
+			return new java.io.FileReader(
+					coneforest.psi.FileSystem.getPath(fileName).toString());
+		}
+		catch(java.io.FileNotFoundException e)
+		{
+			throw new PsiFileNotFoundException();
+		}
 	}
 }
