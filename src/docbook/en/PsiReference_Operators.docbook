@@ -102,7 +102,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_eq" xrefstyle="template:%t"/></term>
-<listitem>test equal</listitem>
+<listitem>test equality</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -127,17 +127,17 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_max" xrefstyle="template:%t"/></term>
-<listitem>максимум двух объектов</listitem>
+<listitem>the maximum of two objects</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_min" xrefstyle="template:%t"/></term>
-<listitem>минимум двух объектов</listitem>
+<listitem>the minimum of two objects</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ne" xrefstyle="template:%t"/></term>
-<listitem>test not equal</listitem>
+<listitem>test not-equality</listitem>
 </varlistentry>
 
 </variablelist>
@@ -151,7 +151,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_abs" xrefstyle="template:%t"/></term>
-<listitem>absolute value of a number</listitem>
+<listitem>the absolute value of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -201,12 +201,12 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_complex" xrefstyle="template:%t"/></term>
-<listitem>создание комплексного числа по его вещественной и мнимой частям</listitem>
+<listitem>create a complex number from its real and imaginary parts</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_complexpolar" xrefstyle="template:%t"/></term>
-<listitem>создание комплексного числа по его модулю и аргументу</listitem>
+<listitem>create a complex number from its absolute value and argument</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -226,7 +226,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_div" xrefstyle="template:%t"/></term>
-<listitem>отношение двух чисел</listitem>
+<listitem>quotient by dividing two numbers</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -236,7 +236,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_flipbit" xrefstyle="template:%t"/></term>
-<listitem>flip a bit</listitem>
+<listitem>flip a certain bit</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -291,7 +291,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_pow" xrefstyle="template:%t"/></term>
-<listitem>возведение числа в степень другого числа</listitem>
+<listitem>raise a number to a power</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -301,7 +301,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_setbit" xrefstyle="template:%t"/></term>
-<listitem>set a bit</listitem>
+<listitem>set a certain bit</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -341,7 +341,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_testbit" xrefstyle="template:%t"/></term>
-<listitem>the value of a bit</listitem>
+<listitem>the value of a certain bit</listitem>
 </varlistentry>
 
 </variablelist>
@@ -553,8 +553,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_def" xrefstyle="template:%t"/></term>
-<listitem>store an object in the current dictionary with a given
-key</listitem>
+<listitem>store an object in the current dictionary with a given key</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1037,7 +1036,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_readlink" xrefstyle="template:%t"/></term>
-<listitem>get a target of a symbolic link</listitem>
+<listitem>the target of a symbolic link</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1061,7 +1060,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_capturegroup" xrefstyle="template:%t"/></term>
-<listitem>get a capture group by its number or name</listitem>
+<listitem>the capture group with the given number or name</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1071,7 +1070,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_capturegroupcount" xrefstyle="template:%t"/></term>
-<listitem>get a number of capture groups</listitem>
+<listitem>the number of capture groups</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1164,12 +1163,12 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
-<listitem>get a size of the dictionary stack</listitem>
+<listitem>the size of the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countexecstack" xrefstyle="template:%t"/></term>
-<listitem>get a size of the execution stack</listitem>
+<listitem>the size of the execution stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1199,7 +1198,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_load" xrefstyle="template:%t"/></term>
-<listitem>поиск значения по ключу в глубину в стеке словарей</listitem>
+<listitem>search a value by the key in the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1209,17 +1208,17 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_osarch" xrefstyle="template:%t"/></term>
-<listitem>get the architecture of an operationg system</listitem>
+<listitem>the architecture of an operating system</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_osname" xrefstyle="template:%t"/></term>
-<listitem>get the name of an operationg system</listitem>
+<listitem>the name of an operating system</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_osversion" xrefstyle="template:%t"/></term>
-<listitem>get the version of an operationg system</listitem>
+<listitem>the version of an operating system</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1258,7 +1257,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_currentcontext" xrefstyle="template:%t"/></term>
-<listitem>get the current context</listitem>
+<listitem>the current context</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1307,144 +1306,73 @@ flush output buffer</listitem>
 
 <section xml:id="PsiReference_Operators_Details_(">
 <title><token language="psi">(</token></title>
-<synopsis>
-— <token language="psi">(</token>
-<constant>mark</constant>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+The same as the <xref linkend="PsiReference_Operators_Details_mark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_)">
 <title><token language="psi">)</token></title>
-<synopsis>
-<constant>mark</constant>
-<replaceable>object<subscript>0</subscript></replaceable>
-…
-<replaceable>object<subscript>n−1</subscript></replaceable>
-<token language="psi">)</token>
-<replaceable>set</replaceable>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-<listitem>
-<replaceable>object<subscript>0</subscript></replaceable>,
-…,
-<replaceable>object<subscript>n−1</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>set</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+The same as the <xref linkend="PsiReference_Operators_Details_settomark"
+xrefstyle="template:%t"/>.
+
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_&lt;">
 <title><token language="psi">&lt;</token></title>
-<synopsis>
-— <token language="psi">&lt;</token>
-<constant>mark</constant>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+The same as the <xref linkend="PsiReference_Operators_Details_mark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_&gt;">
 <title><token language="psi">&gt;</token></title>
-<synopsis>
-<constant>mark</constant>
-<replaceable>object<subscript>0</subscript></replaceable>
-…
-<replaceable>object<subscript>n−1</subscript></replaceable>
-<token language="psi">&gt;</token>
-<replaceable>dictionary</replaceable>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-<listitem>
-<replaceable>object<subscript>0</subscript></replaceable>,
-…,
-<replaceable>object<subscript>n−1</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>dictionary</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+The same as the <xref linkend="PsiReference_Operators_Details_dicttomark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_?">
 <title><token language="psi">?</token></title>
-<synopsis>
-<replaceable>object</replaceable>
-<token language="psi">?</token>
-—
-<itemizedlist>
-<listitem>
-<replaceable>object</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+The same as the <xref linkend="PsiReference_Operators_Details_prettyprint"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_[">
 <title><token language="psi">[</token></title>
-<synopsis>
-—
-<token language="psi">[</token>
-<constant>mark</constant>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+The same as the <xref linkend="PsiReference_Operators_Details_mark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_]">
 <title><token language="psi">]</token></title>
-<synopsis>
-<constant>mark</constant>
-<replaceable>object<subscript>0</subscript></replaceable>
-…
-<replaceable>object<subscript>n−1</subscript></replaceable>
-<token language="psi">]</token>
-<replaceable>array</replaceable>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-<listitem>
-<replaceable>object<subscript>0</subscript></replaceable>,
-…,
-<replaceable>object<subscript>n−1</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>array</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+The same as the <xref linkend="PsiReference_Operators_Details_arraytomark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 &PsiReference_Operators_Details_abs;

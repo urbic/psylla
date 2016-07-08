@@ -3,29 +3,29 @@
 <title><token language="psi">abs</token></title>
 
 <para>
-Возвращает в качестве <replaceable>результата</replaceable>
-абсолютную величину <replaceable>операнда</replaceable>.
+Возвращает <replaceable>модуль</replaceable> (абсолютную величину)
+<replaceable>числа</replaceable>.
 </para>
 
 <synopsis>
-<replaceable>операнд</replaceable>
+<replaceable>число</replaceable>
 <token language="psi">abs</token>
-<replaceable>результат</replaceable>
+<replaceable>модуль</replaceable>
 </synopsis>
 
 <formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>операнд</replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>число</replaceable>,
+<replaceable>модуль</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arithmetic"/>
 </listitem>
 </itemizedlist>
 </formalpara>
 
 <para>
-Если <replaceable>операнд</replaceable> имеет тип <xref xrefstyle="template:%t"
+Если <replaceable>число</replaceable> имеет тип <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/>, и результат принадлежит
 диапазону <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/>, таким же будет и тип

@@ -508,7 +508,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_binarysearch" xrefstyle="template:%t"/></term>
-<listitem>двоичный поиск элемента в массиве с компаратором</listitem>
+<listitem>двоичный поиск элемента в массиве с компаратором</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -908,7 +908,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_stderr" xrefstyle="template:%t"/></term>
-<listitem>стандартный вывод сообщений об ошибках</listitem>
+<listitem>стандартный вывод сообщений об ошибках</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1086,7 +1086,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_matcher" xrefstyle="template:%t"/></term>
-<listitem>создание матчера для поиска в строке по шаблону</listitem>
+<listitem>создание матчера для поиска в строке по шаблону</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1194,7 +1194,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_load" xrefstyle="template:%t"/></term>
-<listitem>поиск значения по ключу в глубину в стеке словарей</listitem>
+<listitem>поиск значения по ключу в стеке словарей</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1234,7 +1234,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_where" xrefstyle="template:%t"/></term>
-<listitem>поиск словаря в глубину в стеке словарей по содержащемуся в нём ключу</listitem>
+<listitem>поиск словаря в стеке словарей по содержащемуся в нём ключу</listitem>
 </varlistentry>
 
 </variablelist>
@@ -1302,141 +1302,72 @@
 
 <section xml:id="PsiReference_Operators_Details_(">
 <title><token language="psi">(</token></title>
-<synopsis>
-— <token language="psi">(</token>
-<constant>mark</constant>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+То же, что и <xref linkend="PsiReference_Operators_Details_mark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_)">
 <title><token language="psi">)</token></title>
-<synopsis>
-<constant>mark</constant>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>
-<token language="psi">)</token>
-<replaceable>множество</replaceable>
-<itemizedlist>
-<listitem>
-<constant>mark</constant>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-<listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>множество</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_set"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+То же, что и <xref linkend="PsiReference_Operators_Details_settomark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_&lt;">
 <title><token language="psi">&lt;</token></title>
-<synopsis>
-— <token language="psi">&lt;</token>
-<replaceable>метка</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>метка</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+То же, что и <xref linkend="PsiReference_Operators_Details_mark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_&gt;">
 <title><token language="psi">&gt;</token></title>
-<synopsis>
-<replaceable>метка</replaceable>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>
-<token language="psi">&gt;</token>
-<replaceable>словарь</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>метка</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-<listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>словарь</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dict"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+То же, что и <xref linkend="PsiReference_Operators_Details_dicttomark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_?">
 <title><token language="psi">?</token></title>
-<synopsis>
-<replaceable>объект</replaceable> <token language="psi">?</token> —
-<itemizedlist>
-<listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+То же, что и <xref linkend="PsiReference_Operators_Details_prettyprint"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_[">
 <title><token language="psi">[</token></title>
-<synopsis>
-— <token language="psi">[</token>
-<replaceable>mark</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>метка</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+То же, что и <xref linkend="PsiReference_Operators_Details_mark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 <section xml:id="PsiReference_Operators_Details_]">
 <title><token language="psi">]</token></title>
-<synopsis>
-<replaceable>метка</replaceable>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>
-<token language="psi">]</token>
-<replaceable>массив</replaceable>
-<itemizedlist>
-<listitem>
-<replaceable>метка</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_mark"/>
-</listitem>
-<listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
-<replaceable>объект<subscript>n−1</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
-</listitem>
-<listitem>
-<replaceable>массив</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_array"/>
-</listitem>
-</itemizedlist>
-</synopsis>
+
+<para>
+То же, что и <xref linkend="PsiReference_Operators_Details_arraytomark"
+xrefstyle="template:%t"/>.
+</para>
+
 </section>
 
 &PsiReference_Operators_Details_abs;

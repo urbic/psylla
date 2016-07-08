@@ -29,11 +29,6 @@ body
 	margin: 0pc auto 0pc 0pc;
 	top: 0px;
 	bottom: 0px;
-	//position: fixed;
-	//left: auto;
-	//right: auto;
-	//top: 0px;
-	//bottom: 0px;
 	background-color: $background-color-body;
 	font-family: $font-family-body;
 	tab-size: 4;
@@ -59,7 +54,6 @@ p
 h1, h2, h3, h4, h5, h6
 {
 	color: $color-title;
-	//border-top: solid 1px;
 }
 
 :link
@@ -143,7 +137,6 @@ hr
 .figure-title,
 {
 	font-weight: bold;
-	//font-size: small;
 }
 
 .application
@@ -224,9 +217,6 @@ table.productionset
 	//background-color: lighten($background-color-body, 3%);
 	background-color: $background-color-programlisting;
 	border-radius: .5em;
-	//border-left: 1px solid;
-	//border-color: $color-title;
-	//border-color: darken($background-color-body, 5%);
 }
 
 .literallayout p,
