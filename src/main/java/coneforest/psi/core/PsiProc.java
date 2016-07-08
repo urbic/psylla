@@ -57,7 +57,9 @@ public class PsiProc
 					else if(o instanceof PsiCommand)
 					{
 						final PsiObject oNew=dstack.load((PsiCommand)o);
-						if(oNew instanceof PsiOperator)
+						if(oNew instanceof PsiOperator
+								|| oNew instanceof PsiMark
+								|| oNew instanceof PsiNull)
 							oProc.put(i, oNew);
 					}
 				}
