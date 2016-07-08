@@ -25,22 +25,19 @@ public interface PsiRealNumeric
 
 	double doubleValue();
 
-	/**
-	 *	@return this object.
-	 */
-	default public PsiRealNumeric psiRealPart()
+	@Override
+	default double realValue()
 	{
-		return this;
+		return doubleValue();
 	}
 
-	/**
-	 *	@return this object.
-	 */
 	@Override
-	default PsiRealNumeric psiConjugate()
+	default double imagValue()
 	{
-		return this;
+		return 0.D;
 	}
+
+	public PsiRealNumeric psiSignum();
 
 	@Override
 	default public PsiInteger psiToInteger()
@@ -60,18 +57,6 @@ public interface PsiRealNumeric
 		throws PsiException
 	{
 		return new PsiReal(doubleValue());
-	}
-
-	@Override
-	default public PsiReal psiArg()
-		throws PsiUndefinedResultException
-	{
-		if(doubleValue()>0)
-			return PsiReal.ZERO;
-		else if(doubleValue()<0)
-			return PsiReal.PI;
-		else
-			throw new PsiUndefinedResultException();
 	}
 
 	@Override

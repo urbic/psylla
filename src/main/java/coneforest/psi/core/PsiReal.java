@@ -45,12 +45,6 @@ public class PsiReal
 	}
 
 	@Override
-	public PsiReal psiImagPart()
-	{
-		return new PsiReal(0.D);
-	}
-
-	@Override
 	public PsiReal psiNeg()
 	{
 		return new PsiReal(-value);

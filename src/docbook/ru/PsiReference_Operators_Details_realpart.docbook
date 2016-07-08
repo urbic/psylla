@@ -3,7 +3,7 @@
 <title><token language="psi">realpart</token></title>
 
 <para>
-Возвращает <replaceable>вещественную</replaceable> часть
+Возвращает <replaceable>вещественную</replaceable> часть комплексного
 <replaceable>числа</replaceable>.
 </para>
 
@@ -18,11 +18,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 <listitem>
 <replaceable>вещественная</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </formalpara>

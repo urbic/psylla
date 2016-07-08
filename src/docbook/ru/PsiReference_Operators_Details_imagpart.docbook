@@ -3,14 +3,14 @@
 <title><token language="psi">imagpart</token></title>
 
 <para>
-Возвращает <replaceable>мнимую_часть</replaceable>
+Возвращает <replaceable>мнимую</replaceable> часть комплексного
 <replaceable>числа</replaceable>.
 </para>
 
 <synopsis>
 <replaceable>число</replaceable>
 <token language="psi">imagpart</token>
-<replaceable>мнимая_часть</replaceable>
+<replaceable>мнимая</replaceable>
 </synopsis>
 
 <formalpara>
@@ -18,11 +18,11 @@
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 <listitem>
-<replaceable>мнимая_часть</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
+<replaceable>мнимая</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </formalpara>

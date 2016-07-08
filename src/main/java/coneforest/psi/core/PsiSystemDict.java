@@ -21,8 +21,8 @@ public class PsiSystemDict
 					("append", PsiAppendable::psiAppend),
 				new PsiOperator.Arity20<PsiAppendable, PsiIterable>
 					("appendall", PsiAppendable::psiAppendAll),
-				new PsiOperator.Arity11<PsiNumeric>
-					("arg", PsiNumeric::psiArg),
+				new PsiOperator.Arity11<PsiComplex>
+					("arg", PsiComplex::psiArg),
 				new PsiOperator.Arity01
 					("array", PsiArray::new),
 				new PsiOperator.Action
@@ -170,8 +170,8 @@ public class PsiSystemDict
 					("complexpolar", PsiComplex::psiFromPolar),
 				new PsiOperator.Arity11<PsiLock>
 					("condition", PsiLock::psiCondition),
-				new PsiOperator.Arity11<PsiNumeric>
-					("conjugate", PsiNumeric::psiConjugate),
+				new PsiOperator.Arity11<PsiComplex>
+					("conjugate", PsiComplex::psiConjugate),
 				new PsiOperator.Arity21<PsiSetlike, PsiObject>
 					("contains", PsiSetlike::psiContains),
 				//new PsiOperator.Arity21
@@ -578,8 +578,8 @@ public class PsiSystemDict
 									.invoke(interpreter);
 						}
 					),
-				new PsiOperator.Arity11<PsiNumeric>
-					("imagpart", PsiNumeric::psiImagPart),
+				new PsiOperator.Arity11<PsiComplex>
+					("imagpart", PsiComplex::psiImagPart),
 				new PsiOperator.Action
 					("index",
 						(interpreter)->
@@ -862,8 +862,8 @@ public class PsiSystemDict
 					("ready", PsiReadable::psiReady),
 				new PsiOperator.Arity11<PsiStringy>
 					("regexp", PsiRegExp::new),
-				new PsiOperator.Arity11<PsiNumeric>
-					("realpart", PsiNumeric::psiRealPart),
+				new PsiOperator.Arity11<PsiComplex>
+					("realpart", PsiComplex::psiRealPart),
 				new PsiOperator.Arity20<PsiSetlike, PsiObject>
 					("remove", PsiSetlike::psiRemove),
 				new PsiOperator.Arity20<PsiSetlike, PsiIterable>
@@ -985,8 +985,8 @@ public class PsiSystemDict
 								);
 						}
 					),
-				new PsiOperator.Arity11<PsiNumeric>
-					("signum", PsiNumeric::psiSignum),
+				new PsiOperator.Arity11<PsiRealNumeric>
+					("signum", PsiRealNumeric::psiSignum),
 				new PsiOperator.Arity11<PsiNumeric>
 					("sin", PsiNumeric::psiSin),
 				new PsiOperator.Arity11<PsiNumeric>

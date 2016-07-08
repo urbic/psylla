@@ -18,26 +18,9 @@ public interface PsiNumeric
 		return "numeric";
 	}
 
-	/**
-	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
-	 *	zero value.
-	 *
-	 *	@return {@link PsiBoolean#TRUE} if this object represents a zero value,
-	 *	and {@link PsiBoolean#FALSE} otherwise.
-	 */
-	public PsiBoolean psiIsZero();
+	public double realValue();
 
-	/**
-	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
-	 *	non-zero value.
-	 *
-	 *	@return {@link PsiBoolean#TRUE} if this object represents a non-zero value,
-	 *	and {@link PsiBoolean#FALSE} otherwise.
-	 */
-	default public PsiBoolean psiNotZero()
-	{
-		return psiIsZero().psiNot();
-	}
+	public double imagValue();
 
 	/**
 	 *	Returns a Ψ-{@code numeric} absolute value of this object.
@@ -45,39 +28,6 @@ public interface PsiNumeric
 	 *	@return a Ψ-{@code numeric} absolute value.
 	 */
 	public PsiRealNumeric psiAbs();
-
-	/**
-	 *	Returns a Ψ-{@code numeric} real part of this object.
-	 *
-	 *	@return a Ψ-{@code numeric} real part.
-	 */
-	public PsiRealNumeric psiRealPart();
-
-	/**
-	 *	Returns a Ψ-{@code numeric} imaginary part of this object.
-	 *
-	 *	@return a Ψ-{@code numeric} imaginary part.
-	 */
-	public PsiRealNumeric psiImagPart();
-
-	/**
-	 *	Returns a Ψ-{@code numeric} representing the complex argument of this
-	 *	object. The argument belongs to the range (−π; π].
-	 *
-	 *	@return a Ψ-{@code numeric} imaginary part.
-	 *	@throws PsiUndefinedResultException when this object represents a zero
-	 *	value.
-	 */
-	public PsiRealNumeric psiArg()
-		throws PsiUndefinedResultException;
-
-	/**
-	 *	Returns a Ψ-{@code numeric} representing the complex conjugation
-	 *	of this object.
-	 *
-	 *	@return a Ψ-{@code numeric} conjugate of this number.
-	 */
-	public PsiNumeric psiConjugate();
 
 	default public PsiNumeric psiPow(final PsiNumeric oNumeric)
 		throws PsiException
@@ -126,18 +76,11 @@ public interface PsiNumeric
 	public PsiNumeric psiLog()
 		throws PsiUndefinedResultException;
 
-	default public PsiNumeric psiAcos()
-		throws PsiUndefinedResultException
-	{
-		return psiAdd(PsiComplex.ONE.psiSub(psiMul(this)).psiSqrt().psiMul(PsiComplex.I))
-				.psiLog().psiMul(PsiComplex.MINUS_I);
-	}
+	public PsiNumeric psiAcos()
+		throws PsiUndefinedResultException;
 
-	default public PsiNumeric psiAsin()
-		throws PsiUndefinedResultException
-	{
-		return new PsiComplex(Math.PI/2.D).psiSub(psiAcos());
-	}
+	public PsiNumeric psiAsin()
+		throws PsiUndefinedResultException;
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the arc tangent of this
@@ -188,12 +131,4 @@ public interface PsiNumeric
 	 *	@return a Ψ-{@code numeric} hyperbolic tangent of this number.
 	 */
 	public PsiNumeric psiTanh();
-
-	@Override
-	default public PsiBoolean psiEq(final PsiObject o)
-	{
-		return PsiBoolean.valueOf(o instanceof PsiNumeric
-				&& psiRealPart().psiEq(((PsiNumeric)o).psiRealPart()).booleanValue()
-				&& psiImagPart().psiEq(((PsiNumeric)o).psiImagPart()).booleanValue());
-	}
 }

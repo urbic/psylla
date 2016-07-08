@@ -3,14 +3,14 @@
 <title><token language="psi">imagpart</token></title>
 
 <para>
-Returns the <replaceable>imaginary_part</replaceable> of the
+Returns the <replaceable>imaginary</replaceable> part of the complex
 <replaceable>number</replaceable>.
 </para>
 
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psi">imagpart</token>
-<replaceable>imaginary_part</replaceable>
+<replaceable>imaginary</replaceable>
 </synopsis>
 
 <formalpara>
@@ -18,11 +18,11 @@ Returns the <replaceable>imaginary_part</replaceable> of the
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 <listitem>
-<replaceable>imaginary_part</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
+<replaceable>imaginary</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </formalpara>

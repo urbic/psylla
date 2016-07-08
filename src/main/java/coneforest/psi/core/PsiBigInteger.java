@@ -159,12 +159,6 @@ public class PsiBigInteger
 	}
 
 	@Override
-	public PsiBigInteger psiImagPart()
-	{
-		return new PsiBigInteger(java.math.BigInteger.ZERO);
-	}
-
-	@Override
 	public PsiBoolean psiIsZero()
 	{
 		return PsiBoolean.valueOf(value.equals(java.math.BigInteger.ZERO));

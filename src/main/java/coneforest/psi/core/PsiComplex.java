@@ -28,11 +28,6 @@ public class PsiComplex
 		this(oNumeric.doubleValue());
 	}
 
-	public PsiComplex(final PsiNumeric oNumber)
-	{
-		this(oNumber.psiRealPart(), oNumber.psiImagPart());
-	}
-
 	/**
 	*	@return a string {@code "complex"}.
 	*/
@@ -40,6 +35,18 @@ public class PsiComplex
 	public String typeName()
 	{
 		return "complex";
+	}
+
+	@Override
+	public double realValue()
+	{
+		return re;
+	}
+
+	@Override
+	public double imagValue()
+	{
+		return im;
 	}
 
 	@Override
@@ -55,30 +62,40 @@ public class PsiComplex
 	}
 
 	@Override
-	public PsiComplex psiSignum()
-	{
-		return (re==0.D && im==0.D)? ZERO: psiDiv(psiAbs());
-	}
-
-	@Override
 	public String toSyntaxString()
 	{
 		return "-complex:"+re+","+im+"-";
 	}
 
-	@Override
+	/**
+	 *	Returns a Ψ-{@code real} real part of this object.
+	 *
+	 *	@return a Ψ-{@code real} real part.
+	 */
 	public PsiReal psiRealPart()
 	{
 		return new PsiReal(re);
 	}
 
-	@Override
+	/**
+	 *	Returns a Ψ-{@code real} imaginary part of this object.
+	 *
+	 *	@return a Ψ-{@code real} imaginary part.
+	 */
+
 	public PsiReal psiImagPart()
 	{
 		return new PsiReal(im);
 	}
 
-	@Override
+	/**
+	 *	Returns a Ψ-{@code real} representing the complex argument of this
+	 *	object. The argument belongs to the range (−π; π].
+	 *
+	 *	@return a Ψ-{@code real} argument.
+	 *	@throws PsiUndefinedResultException when this object represents a zero
+	 *	number.
+	 */
 	public PsiReal psiArg()
 		throws PsiUndefinedResultException
 	{
@@ -87,7 +104,12 @@ public class PsiComplex
 		return new PsiReal(Math.atan2(im, re));
 	}
 
-	@Override
+	/**
+	 *	Returns a Ψ-{@code complex} representing the complex conjugate of this
+	 *	object.
+	 *
+	 *	@return a Ψ-{@code complex} conjugate of this number.
+	 */
 	public PsiComplex psiConjugate()
 	{
 		return new PsiComplex(re, -im);
@@ -102,28 +124,28 @@ public class PsiComplex
 	@Override
 	public PsiComplex psiAdd(final PsiNumeric oNumeric)
 	{
-		return new PsiComplex(re+oNumeric.psiRealPart().doubleValue(), im+oNumeric.psiImagPart().doubleValue());
+		return new PsiComplex(re+oNumeric.realValue(), im+oNumeric.imagValue());
 	}
 
 	@Override
 	public PsiComplex psiSub(final PsiNumeric oNumeric)
 	{
-		return new PsiComplex(re-oNumeric.psiRealPart().doubleValue(), im-oNumeric.psiImagPart().doubleValue());
+		return new PsiComplex(re-oNumeric.realValue(), im-oNumeric.imagValue());
 	}
 
 	@Override
 	public PsiComplex psiMul(final PsiNumeric oNumeric)
 	{
-		final double x=oNumeric.psiRealPart().doubleValue();
-		final double y=oNumeric.psiImagPart().doubleValue();
+		final double x=oNumeric.realValue();
+		final double y=oNumeric.imagValue();
 		return new PsiComplex(re*x-im*y, im*x+re*y);
 	}
 
 	@Override
 	public PsiComplex psiDiv(final PsiNumeric oNumeric)
 	{
-		final double x=oNumeric.psiRealPart().doubleValue();
-		final double y=oNumeric.psiImagPart().doubleValue();
+		final double x=oNumeric.realValue();
+		final double y=oNumeric.imagValue();
 		if(Math.abs(x)<Math.abs(y))
 		{
 			final double q=x/y;

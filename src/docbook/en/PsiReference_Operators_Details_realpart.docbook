@@ -3,7 +3,7 @@
 <title><token language="psi">realpart</token></title>
 
 <para>
-Returns the <replaceable>real_part</replaceable> of the
+Returns the <replaceable>real_part</replaceable> of the complex
 <replaceable>number</replaceable>.
 </para>
 
@@ -18,11 +18,11 @@ Returns the <replaceable>real_part</replaceable> of the
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 <listitem>
 <replaceable>real_part</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
 </formalpara>

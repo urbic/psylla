@@ -3,7 +3,7 @@
 <title><token language="psi">conjugate</token></title>
 
 <para>
-Rturns the complex <replaceable>conjugation</replaceable> of the
+Rturns the <replaceable>conjugation</replaceable> of a complex
 <replaceable>number</replaceable>.
 </para>
 
@@ -19,15 +19,14 @@ Rturns the complex <replaceable>conjugation</replaceable> of the
 <listitem>
 <replaceable>number</replaceable>,
 <replaceable>conjugation</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 </itemizedlist>
 </formalpara>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">1 conjugate				▶ 1
-0 1 complex conjugate	▶ -complex:0.0,-1.0-</programlisting>
+<programlisting language="psi">0 1 complex conjugate	▶ -complex:0.0,-1.0-</programlisting>
 </formalpara>
 
 <formalpara>

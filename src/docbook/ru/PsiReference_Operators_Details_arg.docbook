@@ -3,7 +3,7 @@
 <title><token language="psi">arg</token></title>
 
 <para>
-Возвращает комплексный <replaceable>аргумент</replaceable>
+Возвращает <replaceable>аргумент</replaceable> комплексного
 <replaceable>числа</replaceable>.
 </para>
 
@@ -18,7 +18,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>число</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_complex"/>
 </listitem>
 <listitem>
 <replaceable>аргумент</replaceable>:
@@ -30,14 +30,12 @@
 <para>
 Генерирует <xref xrefstyle="template:%t"
 linkend="PsiReference_Errors_Details_undefinedresult"/> в случае нулевого
-целого, вещественного или комплексного <replaceable>числа</replaceable>.
+<replaceable>числа</replaceable>.
 </para>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">1 arg				▶ 0.0
--1. arg				▶ 3.141592653589793
-0 -1 complex arg	▶ -1.5707963267948966</programlisting>
+<programlisting language="psi">0 -1 complex arg	▶ -1.5707963267948966</programlisting>
 </formalpara>
 
 <formalpara>

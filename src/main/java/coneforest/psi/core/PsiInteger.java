@@ -47,12 +47,6 @@ public class PsiInteger
 	}
 
 	@Override
-	public PsiInteger psiImagPart()
-	{
-		return ZERO;
-	}
-
-	@Override
 	public String toSyntaxString()
 	{
 		return String.valueOf(value);

@@ -20,8 +20,6 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 		return "arithmetic";
 	}
 
-	public T psiSignum();
-
 	/**
 	*	Returns a result of arithmetic multiplication of given object by this object.
 	*
@@ -37,4 +35,25 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 	*	@return a fraction.
 	*/
 	public T psiDiv(final T oArithmetic);
+
+	/**
+	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	 *	zero value.
+	 *
+	 *	@return {@link PsiBoolean#TRUE} if this object represents a zero value,
+	 *	and {@link PsiBoolean#FALSE} otherwise.
+	 */
+	public PsiBoolean psiIsZero();
+
+	/**
+	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	 *	non-zero value.
+	 *
+	 *	@return {@link PsiBoolean#TRUE} if this object represents a non-zero value,
+	 *	and {@link PsiBoolean#FALSE} otherwise.
+	 */
+	default public PsiBoolean psiNotZero()
+	{
+		return psiIsZero().psiNot();
+	}
 }

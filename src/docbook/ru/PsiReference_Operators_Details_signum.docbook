@@ -18,7 +18,7 @@
 <listitem>
 <replaceable>число</replaceable>,
 <replaceable>сигнум</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -32,7 +32,6 @@
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_neg"/>.
 </formalpara>
 

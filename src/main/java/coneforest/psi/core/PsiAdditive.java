@@ -34,7 +34,8 @@ public interface PsiAdditive<T extends PsiAdditive>
 	*	@param oAdditive given object.
 	*	@return a sum.
 	*/
-	public T psiAdd(final T oAdditive);
+	//public T psiAdd(final T oAdditive);
+	public <U extends T> T psiAdd(final U oAdditive);
 
 	/**
 	*	Returns a Ψ-{@code additive} representing the result of arithmetic

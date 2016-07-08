@@ -18,7 +18,7 @@ Returns the <replaceable>signum</replaceable> of a <replaceable>number</replacea
 <listitem>
 <replaceable>number</replaceable>,
 <replaceable>signum</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_numeric"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -32,7 +32,6 @@ Returns the <replaceable>signum</replaceable> of a <replaceable>number</replacea
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_abs"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_arg"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_neg"/>.
 </formalpara>
 
