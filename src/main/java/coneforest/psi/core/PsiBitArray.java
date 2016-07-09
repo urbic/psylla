@@ -6,7 +6,8 @@ package coneforest.psi.core;
 public class PsiBitArray
 	implements
 		PsiArraylike<PsiBoolean>,
-		PsiLogical<PsiBitArray>
+		//PsiLogical<PsiBitArray>
+		PsiBitwise<PsiBitArray>
 {
 	public PsiBitArray()
 	{
@@ -188,6 +189,70 @@ public class PsiBitArray
 		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
 		result.xor(oBitArray.bitarray);
 		return new PsiBitArray(result, size>oBitArray.size? size: oBitArray.size);
+	}
+
+	@Override
+	public PsiBitArray psiBitShift(final PsiInteger oShift)
+	{
+		final int shift=oShift.intValue();
+		final java.util.BitSet result=new java.util.BitSet();
+		if(shift>=0)
+		{
+			for(int i=size-1; i>=0; i--)
+				result.set(i+shift, bitarray.get(i));
+		}
+		else
+		{
+			for(int i=0+size; i<size; i++)
+				result.set(i+shift, bitarray.get(i));
+		}
+		return new PsiBitArray(result, size+shift);
+	}
+
+	@Override
+	public PsiBoolean psiTestBit(final PsiInteger oBit)
+		throws PsiRangeCheckException
+	{
+		final int bit=oBit.intValue();
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		return PsiBoolean.valueOf(bitarray.get(bit));
+	}
+
+	@Override
+	public PsiBitArray psiSetBit(final PsiInteger oBit)
+		throws PsiRangeCheckException
+	{
+		final int bit=oBit.intValue();
+		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		result.set(bit, true);
+		return new PsiBitArray(result, bit<size? size: bit+1);
+	}
+
+	@Override
+	public PsiBitArray psiFlipBit(final PsiInteger oBit)
+		throws PsiRangeCheckException
+	{
+		final int bit=oBit.intValue();
+		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		result.set(bit, !result.get(bit));
+		return new PsiBitArray(result, size);
+	}
+
+	@Override
+	public PsiBitArray psiClearBit(final PsiInteger oBit)
+		throws PsiRangeCheckException
+	{
+		final int bit=oBit.intValue();
+		final java.util.BitSet result=(java.util.BitSet)bitarray.clone();
+		if(bit<0)
+			throw new PsiRangeCheckException();
+		result.set(bit, false);
+		return new PsiBitArray(result, size);
 	}
 
 	public java.util.Iterator<PsiBoolean> iterator()

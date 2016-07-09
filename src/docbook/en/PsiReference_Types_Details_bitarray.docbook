@@ -3,13 +3,14 @@
 <title><type>bitarray</type></title>
 
 <para>
-Битовый массив.
+Bit array.
 </para>
 
 <formalpara>
 &TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitwise"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_clearable"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_container"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>,

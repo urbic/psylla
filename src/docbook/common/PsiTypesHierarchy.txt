@@ -5,7 +5,7 @@ array: arraylike
 arraylike: appendable container indexed
 atomic: object
 biginteger: bitwise realnumeric
-bitarray: arraylike logical
+bitarray: arraylike bitwise
 bitset: setlike
 bitwise: logical
 blockingqueue: closeable queuelike
