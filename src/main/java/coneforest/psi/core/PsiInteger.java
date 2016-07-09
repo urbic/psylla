@@ -107,7 +107,7 @@ public class PsiInteger
 		throws PsiException
 	{
 		long bit=oBit.value;
-		if(bit<0)
+		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsiRangeCheckException();
 		return PsiBoolean.valueOf((value&(1L<<bit))!=0);
 	}
@@ -117,7 +117,7 @@ public class PsiInteger
 		throws PsiException
 	{
 		long bit=oBit.value;
-		if(bit<0)
+		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsiRangeCheckException();
 		return PsiInteger.valueOf(value&~(1L<<bit));
 	}
@@ -127,7 +127,7 @@ public class PsiInteger
 		throws PsiException
 	{
 		long bit=oBit.value;
-		if(bit<0)
+		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsiRangeCheckException();
 		return PsiInteger.valueOf(value|(1L<<bit));
 	}
@@ -137,7 +137,7 @@ public class PsiInteger
 		throws PsiException
 	{
 		long bit=oBit.value;
-		if(bit<0)
+		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsiRangeCheckException();
 		return PsiInteger.valueOf(value^(1L<<bit));
 	}
@@ -370,7 +370,7 @@ public class PsiInteger
 	}
 
 	@Override
-	public boolean equals(Object object)
+	public boolean equals(final Object object)
 	{
 		return object instanceof PsiInteger
 				&& value==((PsiInteger)object).value;
