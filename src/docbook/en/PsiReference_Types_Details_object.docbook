@@ -3,7 +3,7 @@
 <title><type>object</type></title>
 
 <para>
-Базовый тип объекта в языке Ψ.
+An object, a basic type for all types in the Ψ langiage.
 </para>
 
 <formalpara>

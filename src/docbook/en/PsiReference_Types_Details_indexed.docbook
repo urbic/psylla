@@ -3,7 +3,7 @@
 <title><type>indexed</type></title>
 
 <para>
-Тип контейнеров, элементы которых проиндексированы.
+A container whose elements are accessed by key or index.
 </para>
 
 <formalpara>

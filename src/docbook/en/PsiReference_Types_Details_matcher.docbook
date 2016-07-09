@@ -3,7 +3,7 @@
 <title><type>matcher</type></title>
 
 <para>
-Матчер.
+A matcher, an engine that performs match operations on a string.
 </para>
 
 <formalpara>
@@ -16,6 +16,11 @@
 </imageobject>
 </mediaobject>
 </informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>.
 </formalpara>
 
 </section>

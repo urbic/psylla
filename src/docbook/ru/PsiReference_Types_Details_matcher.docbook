@@ -3,7 +3,8 @@
 <title><type>matcher</type></title>
 
 <para>
-Матчер.
+Матчер — машина, осуществляющая операции сопоставления строки с регулярным
+выражением.
 </para>
 
 <formalpara>
@@ -16,6 +17,11 @@
 </imageobject>
 </mediaobject>
 </informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_regexp"/>.
 </formalpara>
 
 </section>

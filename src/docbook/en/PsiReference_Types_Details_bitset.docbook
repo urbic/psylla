@@ -3,7 +3,9 @@
 <title><type>bitset</type></title>
 
 <para>
-Тип битового множества.
+A bit set, a compact implementation of a set consisting of non-negative numbers
+of type <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>.
 </para>
 
 <formalpara>

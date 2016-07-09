@@ -3,7 +3,7 @@
 <title><type>realnumeric</type></title>
 
 <para>
-Базовый тип для целых или вещественных чисел.
+A base type for integer, real and big integer numbers.
 </para>
 
 <formalpara>
@@ -21,6 +21,13 @@
 </imageobject>
 </mediaobject>
 </informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_biginteger"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>.
 </formalpara>
 
 </section>

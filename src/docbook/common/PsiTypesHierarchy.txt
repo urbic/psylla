@@ -50,7 +50,7 @@ readable: object
 reader: closeable evaluable readable resettable
 real: realnumeric
 realnumeric: numeric scalar
-regexp: object
+regexp: atomic
 resettable: object
 scalar: object
 setlike: appendable container

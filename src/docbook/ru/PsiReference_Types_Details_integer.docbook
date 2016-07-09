@@ -3,7 +3,7 @@
 <title><type>integer</type></title>
 
 <para>
-Целочисленный тип.
+Целое число.
 </para>
 
 <formalpara>
@@ -24,6 +24,11 @@
 </imageobject>
 </mediaobject>
 </informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_biginteger"/>.
 </formalpara>
 
 </section>

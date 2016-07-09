@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Types_Details_filewriter">
-<title><type>filewriter</type></title>
+<section xml:id="PsiReference_Types_Details_output">
+<title><type>output</type></title>
 
 <para>
-A file writer.
+XXX
 </para>
 
 <formalpara>
@@ -11,12 +11,11 @@ A file writer.
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_flushable"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writable"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writer"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_writable"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="common/PsiTypesHierarchy_filewriter.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_output.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

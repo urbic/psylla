@@ -3,7 +3,7 @@
 <title><type>name</type></title>
 
 <para>
-A name.
+A name, an immutable string.
 </para>
 
 <formalpara>
@@ -22,6 +22,11 @@ A name.
 </imageobject>
 </mediaobject>
 </informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>.
 </formalpara>
 
 </section>

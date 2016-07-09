@@ -26,4 +26,9 @@ An integer number.
 </informalfigure>
 </formalpara>
 
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_biginteger"/>.
+</formalpara>
+
 </section>

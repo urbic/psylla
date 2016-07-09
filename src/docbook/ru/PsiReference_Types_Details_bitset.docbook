@@ -3,7 +3,9 @@
 <title><type>bitset</type></title>
 
 <para>
-Тип битового множества.
+Битовое множество — компактная реализация множества неотрицательных целых чисел
+типа <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/>.
 </para>
 
 <formalpara>

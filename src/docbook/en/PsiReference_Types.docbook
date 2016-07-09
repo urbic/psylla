@@ -115,6 +115,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_filewriter;
 &PsiReference_Types_Details_flushable;
 &PsiReference_Types_Details_indexed;
+&PsiReference_Types_Details_input;
 &PsiReference_Types_Details_integer;
 &PsiReference_Types_Details_iterable;
 &PsiReference_Types_Details_lengthy;
@@ -127,6 +128,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_numeric;
 &PsiReference_Types_Details_object;
 &PsiReference_Types_Details_operator;
+&PsiReference_Types_Details_output;
 &PsiReference_Types_Details_proc;
 &PsiReference_Types_Details_queuelike;
 &PsiReference_Types_Details_random;

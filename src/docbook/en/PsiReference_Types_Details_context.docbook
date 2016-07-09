@@ -3,7 +3,7 @@
 <title><type>context</type></title>
 
 <para>
-Контекст исполнения.
+An execution context.
 </para>
 
 <formalpara>

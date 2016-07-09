@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Types_Details_stringreader">
-<title><type>stringreader</type></title>
+<section xml:id="PsiReference_Types_Details_input">
+<title><type>input</type></title>
 
 <para>
-A string reader.
+XXX
 </para>
 
 <formalpara>
 &TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_closeable"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_evaluable"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_readable"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_reader"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_resettable"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="common/PsiTypesHierarchy_stringreader.svg" format="SVG"/>
+<imagedata fileref="common/PsiTypesHierarchy_input.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

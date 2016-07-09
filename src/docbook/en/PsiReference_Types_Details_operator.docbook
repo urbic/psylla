@@ -3,7 +3,7 @@
 <title><type>operator</type></title>
 
 <para>
-An operator.
+An operator, a piece of native code that manipulates the interpreter.
 </para>
 
 <formalpara>

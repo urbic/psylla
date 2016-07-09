@@ -3,7 +3,7 @@
 <title><type>readable</type></title>
 
 <para>
-XXX
+Поток символов, которые могут быть прочитаны из объекта этого типа.
 </para>
 
 <formalpara>
