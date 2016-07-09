@@ -773,7 +773,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clone" xrefstyle="template:%t"/></term>
-<listitem>создание копии объекта</listitem>
+<listitem>клонирование объекта</listitem>
 </varlistentry>
 
 <varlistentry>

@@ -774,7 +774,7 @@ container</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_clone" xrefstyle="template:%t"/></term>
-<listitem>copy an object</listitem>
+<listitem>clone an object</listitem>
 </varlistentry>
 
 <varlistentry>
