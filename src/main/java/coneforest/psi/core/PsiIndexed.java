@@ -100,4 +100,71 @@ public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	*	@return an enumeration of entries.
 	*/
 	public PsiIterable<PsiObject> psiEntries();
+	/*
+	default public PsiIterable<PsiObject> psiEntries()
+	{
+
+		return new PsiIterable<PsiObject>()
+			{
+				@Override
+				public void psiForAll(final PsiObject oProc)
+					throws PsiException
+				{
+					final coneforest.psi.Interpreter interpreter
+						=(coneforest.psi.Interpreter)PsiContext.psiCurrentContext();
+					final coneforest.psi.OperandStack ostack=interpreter.operandStack();
+					final java.util.Iterator<K> iterator=psiKeys().iterator();
+					interpreter.pushLoopLevel();
+					interpreter.executionStack().push(new PsiOperator("#forall_continue")
+						{
+							@Override
+							public void action(final coneforest.psi.Interpreter interpreter1)
+								throws PsiException
+							{
+								if(iterator.hasNext())
+								{
+									final K oKey=iterator.next();
+									ostack.push(oKey);
+									ostack.push(psiGet(oKey));
+									interpreter1.executionStack().push(this);
+									oProc.invoke(interpreter1);
+								}
+								else
+								{
+									interpreter1.popLoopLevel();
+								}
+							}
+						});
+				}
+
+				@Override
+				public java.util.Iterator<PsiObject> iterator()
+				{
+					return new java.util.Iterator<PsiObject>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsiObject next()
+							{
+								return (flag=!flag)?
+									PsiInteger.valueOf(index++): parentIterator.next();
+							}
+
+							private boolean flag=false;
+
+							private int index=0;
+
+							private final java.util.Iterator<PsiObject> parentIterator
+								=(java.util.Iterator<PsiObject>)PsiIndexed.this.iterator();
+
+						};
+				}
+			};
+	}
+	*/
 }

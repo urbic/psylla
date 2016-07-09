@@ -244,6 +244,37 @@ public interface PsiArraylike<T extends PsiObject>
 		return new PsiIterable<PsiObject>()
 			{
 				@Override
+				public void psiForAll(final PsiObject oProc)
+					throws PsiException
+				{
+					final coneforest.psi.Interpreter interpreter
+						=(coneforest.psi.Interpreter)PsiContext.psiCurrentContext();
+					final coneforest.psi.OperandStack ostack=interpreter.operandStack();
+					final java.util.Iterator<PsiInteger> iterator=psiKeys().iterator();
+					interpreter.pushLoopLevel();
+					interpreter.executionStack().push(new PsiOperator("#forall_continue")
+						{
+							@Override
+							public void action(final coneforest.psi.Interpreter interpreter1)
+								throws PsiException
+							{
+								if(iterator.hasNext())
+								{
+									final PsiInteger oIndex=iterator.next();
+									ostack.push(oIndex);
+									ostack.push(psiGet(oIndex));
+									interpreter1.executionStack().push(this);
+									oProc.invoke(interpreter1);
+								}
+								else
+								{
+									interpreter1.popLoopLevel();
+								}
+							}
+						});
+				}
+
+				@Override
 				public java.util.Iterator<PsiObject> iterator()
 				{
 					return new java.util.Iterator<PsiObject>()

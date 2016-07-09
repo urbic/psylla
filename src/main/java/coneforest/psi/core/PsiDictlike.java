@@ -20,6 +20,7 @@ public interface PsiDictlike<V extends PsiObject>
 		return "dictlike";
 	}
 
+	/*
 	@Override
 	default public void psiForAll(final PsiObject oProc)
 		throws PsiException
@@ -49,7 +50,7 @@ public interface PsiDictlike<V extends PsiObject>
 				}
 			});
 	}
-
+	*/
 
 	public V get(String key)
 		throws PsiException;
