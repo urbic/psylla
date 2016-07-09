@@ -1,0 +1,4 @@
+Error: /rangecheck in --setbit--
+Operand stack:
+	 0 -1
+Execution  stack: (empty)

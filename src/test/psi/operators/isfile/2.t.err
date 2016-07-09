@@ -1,0 +1,4 @@
+Error: /filenotfound in --isfile--
+Operand stack:
+	 'src/test/psi/operators/isfile/NOTEXIST'
+Execution  stack: (empty)

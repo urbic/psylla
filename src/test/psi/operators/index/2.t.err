@@ -1,0 +1,4 @@
+Error: /stackunderflow in --index--
+Operand stack:
+	 /a /b /c 3
+Execution  stack: (empty)

@@ -20,33 +20,33 @@ public class PsiErrorDict
 					final PsiDictlike errorObj=(PsiDictlike)interpreter.systemDict().get("$error");
 					errorObj.put("newerror", PsiBoolean.FALSE);
 
-					System.out.println(Messages.format("handleErrorMessage",
+					System.err.println(Messages.format("handleErrorMessage",
 							errorObj.get("errorname").toSyntaxString(),
 							errorObj.get("emitter").toSyntaxString()));
 
-					System.out.print(Messages.getString("handleErrorMessageOStack"));
+					System.err.print(Messages.getString("handleErrorMessageOStack"));
 					final PsiArray ostack=(PsiArray)errorObj.get("ostack");
 					if(ostack.length()!=0)
 					{
-						System.out.print("\n\t");
+						System.err.print("\n\t");
 						for(PsiObject obj: ostack)
-							System.out.print(" "+obj.toSyntaxString());
-						System.out.println();
+							System.err.print(" "+obj.toSyntaxString());
+						System.err.println();
 					}
 					else
-						System.out.println(" "+Messages.getString("handleErrorMessageEmpty"));
+						System.err.println(" "+Messages.getString("handleErrorMessageEmpty"));
 
-					System.out.print(Messages.getString("handleErrorMessageEStack"));
+					System.err.print(Messages.getString("handleErrorMessageEStack"));
 					final PsiArray estack=(PsiArray)errorObj.get("estack");
 					if(estack.length()!=0)
 					{
-						System.out.print("\n\t");
+						System.err.print("\n\t");
 						for(PsiObject obj: estack)
-							System.out.print(" "+obj.toSyntaxString());
-						System.out.println();
+							System.err.print(" "+obj.toSyntaxString());
+						System.err.println();
 					}
 					else
-						System.out.println(" "+Messages.getString("handleErrorMessageEmpty"));
+						System.err.println(" "+Messages.getString("handleErrorMessageEmpty"));
 
 					interpreter.setStopFlag(false);
 				}
