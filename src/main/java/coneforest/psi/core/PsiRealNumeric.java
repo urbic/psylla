@@ -109,12 +109,13 @@ public interface PsiRealNumeric
 	public PsiRealNumeric psiAbs();
 
 	@Override
-	default public PsiNumeric psiSqrt()
+	default public PsiRealNumeric psiSqrt()
+		throws PsiRangeCheckException
 	{
 		if(doubleValue()>=0.D)
 			return new PsiReal(Math.sqrt(doubleValue()));
 		else
-			return new PsiComplex(0.D, Math.sqrt(-doubleValue()));
+			throw new PsiRangeCheckException();
 	}
 
 	@Override

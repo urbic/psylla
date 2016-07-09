@@ -99,7 +99,8 @@ public interface PsiNumeric
 	 *
 	 *	@return a Ψ-{@code numeric} square root of this number.
 	 */
-	public PsiNumeric psiSqrt();
+	public PsiNumeric psiSqrt()
+		throws PsiException;
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the cubic root of this object.
