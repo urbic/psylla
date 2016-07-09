@@ -4,7 +4,7 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code regexp} object.
 */
 public class PsiRegExp
-	implements PsiObject
+	implements PsiAtomic
 {
 	public PsiRegExp(final CharSequence cs)
 		throws PsiException
