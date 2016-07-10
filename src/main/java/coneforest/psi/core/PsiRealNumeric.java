@@ -131,13 +131,14 @@ public interface PsiRealNumeric
 	}
 
 	@Override
-	default public PsiNumeric psiLog()
-		throws PsiUndefinedResultException
+	default public PsiRealNumeric psiLog()
+		throws PsiUndefinedResultException, PsiRangeCheckException
 	{
 		if(doubleValue()>0.D)
 			return new PsiReal(Math.log(doubleValue()));
 		else if(doubleValue()<0.D)
-			return new PsiComplex((PsiRealNumeric)psiAbs().psiLog(), new PsiReal(Math.PI));
+			//return new PsiComplex((PsiRealNumeric)psiAbs().psiLog(), new PsiReal(Math.PI));
+			throw new PsiRangeCheckException();
 		else
 			throw new PsiUndefinedResultException();
 	}

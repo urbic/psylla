@@ -74,7 +74,7 @@ public interface PsiNumeric
 	 *	value.
 	 */
 	public PsiNumeric psiLog()
-		throws PsiUndefinedResultException;
+		throws PsiUndefinedResultException, PsiRangeCheckException;
 
 	public PsiNumeric psiAcos()
 		throws PsiUndefinedResultException;
