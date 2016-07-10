@@ -286,7 +286,7 @@
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_notzero" xrefstyle="template:%t"/></term>
-<listitem>a numbers is non-zero?</listitem>
+<listitem>a number is non-zero?</listitem>
 </varlistentry>
 
 <varlistentry>

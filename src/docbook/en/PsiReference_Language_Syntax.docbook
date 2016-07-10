@@ -6,17 +6,18 @@
 <title>Comments</title>
 
 <para>
-<firstterm>Comments</firstterm> are parts of the program text which are ignored
-by the parser. There are two types of comments in the Ψ language: oneline and
-multiline.
+A
+<firstterm>comment</firstterm><indexterm><primary>comment</primary></indexterm> is
+the part of the program text which is ignored by the parser. There are two
+forms of comments in the Ψ language: oneline and multiline.
 </para>
 
 <section xml:id="PsiReference_Language_Syntax_Comments_OneLine">
 <title>Oneline Comments</title>
 
 <para>
-The character <literal>#</literal> outside a string or regular expression
-introduces a <firstterm>oneline
+The hash character (<literal>#</literal>, <constant>U+23</constant>) outside a
+string or regular expression introduces a <firstterm>oneline
 comment</firstterm><indexterm><primary>comment</primary><secondary>oneline</secondary></indexterm>.
 It composed of the characters following the <literal>#</literal> character
 until the end of line character.
@@ -47,7 +48,7 @@ and placed into an executable file, will be executed by the interpreter
 Characters <literal>/#</literal> outside a string or regular expression
 introduce a <firstterm>multiline
 comment</firstterm><indexterm><primary>comment</primary><secondary>multiline</secondary></indexterm>,
-continuing to the next <literal>#/</literal> characters. Embedding multiline
+continuing to the next <literal>#/</literal> characters. Nesting multiline
 comments into each other is not allowed.
 
 <programlisting language="psi">/#
@@ -181,6 +182,8 @@ defined by the following character.
 
 <informaltable>
 <tgroup cols="2">
+<colspec colwidth="1*"/>
+<colspec colwidth="3*"/>
 <tbody>
 <row>
 <entry><literal>\0</literal></entry>
@@ -251,19 +254,34 @@ by 64</entry>
 <title>Names</title>
 
 <para>
-The <firstterm>names</firstterm><indexterm><primary>name</primary></indexterm>
-consist of letters from <literal>A</literal> to <literal>Z</literal> and
+There are two syntatctic form of names:
+<firstterm>quoted</firstterm><indexterm><primary>name</primary><secondary>quoted</secondary></indexterm>
+and
+<firstterm>unquoted</firstterm><indexterm><primary>name</primary><secondary>unquoted</secondary></indexterm>.
+</para>
+
+<para>
+A quoted name is surrounded by single quotation characters
+(<literal>'</literal>, <constant>U+27</constant>). Any occurence of the
+quotation character itself must be prefixed by the backslash character
+(<literal>\</literal>, <constant>U+5C</constant>).
+</para>
+
+<para>
+An unquoted
+<firstterm>name</firstterm><indexterm><primary>name</primary></indexterm>
+consists of letters from <literal>A</literal> to <literal>Z</literal> and
 from <literal>a</literal> to <literal>z</literal>
 (<constant>U+41‥5A</constant>, <constant>U+61‥7A</constant>), decimal digits
-(<constant>U+30‥39</constant>), characters
-<literal>_</literal> (<constant>U+5F</constant>),
-<literal>.</literal> (<constant>U+2E</constant>),
-<literal>+</literal> (<constant>U+2B</constant>),
-<literal>-</literal> (<constant>U+2D</constant>),
-<literal>=</literal> (<constant>U+3D</constant>),
-<literal>$</literal> (<constant>U+24</constant>) and does not begin with a
-decimal digit. A name preceded by the <literal>/</literal>
-character (<constant>U+2F</constant>).
+(<constant>U+30‥39</constant>), underscore
+(<literal>_</literal>, <constant>U+5F</constant>), period
+(<literal>.</literal>, <constant>U+2E</constant>), plus (<literal>+</literal>,
+<constant>U+2B</constant>), hyphen-minus (<literal>-</literal>,
+<constant>U+2D</constant>), equals sign (<literal>=</literal>,
+<constant>U+3D</constant>), dollar sign (<literal>$</literal>,
+<constant>U+24</constant>) and does not begin with a decimal digit. A name
+preceded by the slash character (<literal>/</literal>,
+<constant>U+2F</constant>).
 </para>
 
 <remark>TODO</remark>
@@ -288,8 +306,8 @@ character (<constant>U+2F</constant>).
 <title>Procedures</title>
 
 <para>
-The characters <literal>{</literal> (<constant>U+7B</constant>) and
-<literal>}</literal> (<constant>U+7D</constant>) are used to create
+The curly bracket characters (<literal>{</literal>, <constant>U+7B</constant>
+and <literal>}</literal> <constant>U+7D</constant>) are used to create
 <firstterm>procedures</firstterm><indexterm><primary>procedure</primary></indexterm>.
 </para>
 

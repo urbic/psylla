@@ -239,6 +239,18 @@ table.productionset
 	}
 }
 
+.informaltable table,
+.informaltable table tr,
+.informaltable table tr td
+{
+	border-color: darken($background-color-body, 25%) !important;
+}
+
+.informaltable table tr td
+{
+	padding: .5ex;
+}
+
 div.toc
 {
 	position: fixed;

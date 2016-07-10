@@ -138,6 +138,8 @@
 
 <informaltable>
 <tgroup cols="2">
+<colspec colwidth="1*"/>
+<colspec colwidth="3*"/>
 <tbody>
 <row>
 <entry><literal>\0</literal></entry>
@@ -177,15 +179,15 @@
 </row>
 <row>
 <entry><literal>\u<replaceable>XXXX</replaceable></literal></entry>
-<entry>Unicode code unit <constant>U+<replaceable>XXXX</replaceable></constant></entry>
+<entry>кодовая единица Unicode <constant>U+<replaceable>XXXX</replaceable></constant></entry>
 </row>
 <row>
 <entry><literal>\x{<replaceable>XXXXXXXX</replaceable>}</literal></entry>
-<entry>Unicode code point <constant>U+<replaceable>XXXXXXXX</replaceable></constant></entry>
+<entry>кодовая точка Unicode <constant>U+<replaceable>XXXXXXXX</replaceable></constant></entry>
 </row>
 <row>
 <entry><literal>\N{<replaceable>name</replaceable>}</literal></entry>
-<entry>Unicode character named <replaceable>name</replaceable> <remark>(not implemented)</remark></entry>
+<entry>символ Unicode с именем <replaceable>name</replaceable> <remark>(не реализовано)</remark></entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>C</replaceable></literal></entry>

@@ -220,10 +220,11 @@ not be the operand for most operators.
 <title>Names</title>
 
 <para>
-The <firstterm>name</firstterm><indexterm><primary>name</primary></indexterm>
-represents the immutable string. The names are mostly used as keys in the
-dictionaries associated to corresponding values. Every core operator is stored
-in the system dictionary under its own name.
+A <firstterm>name</firstterm><indexterm><primary>name</primary></indexterm>
+object (<xref linkend="PsiReference_Types_Details_name"
+xrefstyle="template:%t"/>) represents an immutable string. The names are
+mostly used as keys in the dictionaries associated to corresponding values.
+Every core operator is stored in the system dictionary under its own name.
 </para>
 
 </section>
@@ -391,7 +392,7 @@ expression</primary></indexterm> represents a template for search in a string.
 </row>
 <row>
 <entry><literal>\@</literal></entry>
-<entry><literal>@</literal> character, <constant>U+40</constant></entry>
+<entry>commercial at character, <constant>U+40</constant></entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>X</replaceable></literal></entry>
@@ -413,16 +414,30 @@ expression</primary></indexterm> represents a template for search in a string.
 <tbody>
 <row>
 <entry><literal>[abc]</literal></entry>
-<entry><literal>a</literal>, <literal>b</literal> or <literal>c</literal></entry>
+<entry><literal>a</literal>, <literal>b</literal> or <literal>c</literal> (simple class)</entry>
 </row>
 <row>
 <entry><literal>[^abc]</literal></entry>
-<entry>any character except <literal>a</literal>, <literal>b</literal> and <literal>c</literal></entry>
+<entry>any character except <literal>a</literal>, <literal>b</literal> and <literal>c</literal> (negation)</entry>
 </row>
 <row>
 <entry><literal>[A-Za-z]</literal></entry>
-<entry>characters from <literal>A</literal> to <literal>Z</literal> or
-from <literal>a</literal> to <literal>z</literal> (inclusively)</entry>
+<entry><literal>A</literal> through <literal>Z</literal> or
+<literal>a</literal> through <literal>z</literal>, inclusive (range)</entry>
+</row>
+<row>
+<entry><literal>[A-Z[0-9]]</literal></entry>
+<entry><literal>A</literal> through <literal>Z</literal> or
+<literal>a</literal> through <literal>z</literal> (union)</entry>
+</row>
+<row>
+<entry><literal>[A-P&amp;&amp;[M-Z]]</literal></entry>
+<entry><literal>P</literal> through <literal>M</literal> (intersection)</entry>
+</row>
+<row>
+<entry><literal>[A-Z&amp;&amp;[^M-P]]</literal></entry>
+<entry><literal>A</literal> through <literal>L</literal> or
+<literal>Q</literal> through <literal>Z</literal> (subtraction)</entry>
 </row>
 </tbody>
 </tgroup>
