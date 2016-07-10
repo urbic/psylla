@@ -908,6 +908,14 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity21<PsiAppendable, PsiInteger>
 					("replicate", PsiAppendable::psiReplicate),
+				new PsiOperator.Action
+					("require",
+						(interpreter)->
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							interpreter.psiRequire(ostack.getBacked(0));
+						}
+					),
 				new PsiOperator.Arity10<PsiResettable>
 					("reset", PsiResettable::psiReset),
 				new PsiOperator.Arity20<PsiSetlike, PsiIterable>
@@ -1185,7 +1193,7 @@ public class PsiSystemDict
 		put("eol", new PsiName(System.getProperty("line.separator")));
 		put("errordict", new PsiErrorDict());
 		put("false", PsiBoolean.FALSE);
-		put("libraryloader", new PsiLibraryLoader());
+		put("librarypath", new PsiArray());
 		put("mark", PsiMark.MARK);
 		put("mathE", PsiReal.E);
 		put("mathPI", PsiReal.PI);

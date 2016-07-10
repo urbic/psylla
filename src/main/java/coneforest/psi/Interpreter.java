@@ -9,7 +9,7 @@ public class Interpreter
 	implements PsiContext
 {
 	/**
-	*	Creates new Ψ language interpreter.
+	*	Creates a new Ψ language interpreter.
 	*/
 	public Interpreter()
 	{
@@ -38,9 +38,9 @@ public class Interpreter
 	}
 
 	/**
-	*	Returns operand stack.
+	*	Returns the operand stack.
 	*
-	*	@return an operand stack.
+	*	@return the operand stack.
 	*/
 	public OperandStack operandStack()
 	{
@@ -55,9 +55,9 @@ public class Interpreter
 	}
 
 	/**
-	*	Returns dictionary stack.
+	*	Returns the dictionary stack.
 	*
-	*	@return a dictionary stack.
+	*	@return the dictionary stack.
 	*/
 	public DictStack dictStack()
 	{
@@ -65,9 +65,9 @@ public class Interpreter
 	}
 
 	/**
-	*	Returns execution stack.
+	*	Returns the execution stack.
 	*
-	*	@return an execution stack.
+	*	@return the execution stack.
 	*/
 	public ExecutionStack executionStack()
 	{
@@ -87,9 +87,9 @@ public class Interpreter
 	}
 
 	/**
-	*	Returns current dictionary.
+	*	Returns the current dictionary.
 	*
-	*	@return a current dictionary.
+	*	@return the current dictionary.
 	*/
 	public PsiDictlike currentDict()
 	{
@@ -99,7 +99,7 @@ public class Interpreter
 	/**
 	*	Returns system dictionary.
 	*
-	*	@return a system dictionary.
+	*	@return the system dictionary.
 	*/
 	public PsiDictlike systemDict()
 	{
@@ -107,9 +107,9 @@ public class Interpreter
 	}
 
 	/**
-	*	Returns user dictionary.
+	*	Returns the user dictionary.
 	*
-	*	@return user dictionary.
+	*	@return the user dictionary.
 	*/
 	public PsiDictlike userDict()
 	{
@@ -141,9 +141,9 @@ public class Interpreter
 		interpret(new PsiStringReader(string));
 	}
 
-	public void interpret(final PsiReader reader)
+	public void interpret(final PsiReader oReader)
 	{
-		final Parser parser=new Parser(reader);
+		final Parser parser=new Parser(oReader);
 		try
 		{
 			while(running)
@@ -161,33 +161,33 @@ public class Interpreter
 				}
 			}
 			if(procstack.size()>0)
-				throw new PsiSyntaxErrorException(reader);
+				throw new PsiSyntaxErrorException(oReader);
 
 			dstack.<PsiWriter>load("stdout").psiFlush();
 			dstack.<PsiWriter>load("stderr").psiFlush();
 		}
 		catch(PsiException e)
 		{
-			e.setEmitter(reader); // IMPORTANT
+			e.setEmitter(oReader); // IMPORTANT
 			handleError(e);
 			if(getStopFlag())
 				PsiErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 		catch(TokenMgrError e)
 		{
-			handleError(new PsiSyntaxErrorException(reader));
+			handleError(new PsiSyntaxErrorException(oReader));
 			if(getStopFlag())
 				PsiErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 	}
 
-	public void interpretBraced(final PsiReader reader)
+	public void interpretBraced(final PsiReader oReader)
 		throws PsiException
 	{
 		procstack.push(new PsiProc());
-		interpret(reader);
+		interpret(oReader);
 		if(procstack.size()==0)
-			handleError(new PsiSyntaxErrorException(reader));
+			handleError(new PsiSyntaxErrorException(oReader));
 		PsiProc proc=procstack.pop();
 		if(procstack.size()>0)
 			procstack.peek().psiAppend(proc);
@@ -412,9 +412,9 @@ public class Interpreter
 	public void acceptLibraryPath(final String[] libraryPath)
 		throws PsiException
 	{
-		final PsiLibraryLoader libraryLoader=(PsiLibraryLoader)systemDict().get("libraryloader");
+		final PsiArraylike oLibraryPath=(PsiArraylike)systemDict().get("librarypath");
 		for(String pathItem: libraryPath)
-			libraryLoader.psiAppend(new PsiName(pathItem));
+			oLibraryPath.psiAppend(new PsiName(pathItem));
 	}
 
 	public void quit()
@@ -491,7 +491,7 @@ public class Interpreter
 
 	public String prompt()
 	{
-		StringBuilder sb=new StringBuilder("PSYLLA");
+		final StringBuilder sb=new StringBuilder("PSYLLA");
 		for(int i=procstack.size(); i>0; i--)
 			sb.append('{');
 		if(ostack.size()>0)
@@ -525,19 +525,26 @@ public class Interpreter
 		return typeResolver.get(typeName);
 	}
 
-	public PsiReadable loadLibraryResource(final PsiStringy oResourceName)
+	public PsiEvaluable loadLibraryResource(final PsiStringy oResourceName)
 		throws PsiException
 	{
 		final PsiArraylike<PsiStringy> oLibraryPath
 			=dstack.load("librarypath");
-		String resourceName=oResourceName.stringValue().replace(',', '/');
+		String resourceName=oResourceName.stringValue().replace('.', '/');
 		for(PsiStringy oPathItem: oLibraryPath)
 		{
-			final String fullResourceName=oPathItem.stringValue()+resourceName+".psi";
+			final String fullResourceName=oPathItem.stringValue()
+				+'/'+resourceName+".psi";
 			if(FileSystem.psiIsFile(new PsiName(fullResourceName)).booleanValue())
 				return new PsiFileReader(fullResourceName);
 		}
 		throw new PsiUndefinedException(); // TODO
+	}
+
+	public void psiRequire(final PsiStringy oResourceName)
+		throws PsiException
+	{
+		loadLibraryResource(oResourceName).eval(this);
 	}
 
 	private final OperandStack ostack;

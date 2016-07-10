@@ -30,6 +30,8 @@ BuildRequires:	java-javadoc >= 1.8.0
 BuildRequires:	jline
 BuildRequires:	shared-mime-info
 BuildRequires:	junit >= 4.0
+BuildRequires:	ant-junit
+Provides:		config(ant-%{name})
 Requires:		java >= 1.8.0
 Requires:		jline
 BuildRoot:		%{_tmppath}/%{name}-%{version}-build
@@ -58,6 +60,7 @@ Psi is scriptable interpretive PostScript-like programming language.
 %package javadoc
 Summary:		Javadocs for %{name}
 Group:			Documentation
+BuildRequires:	junit-javadoc
 Requires:		jpackage-utils
 
 %description javadoc
@@ -71,6 +74,11 @@ LANG=ru_RU.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 	%{ant} build
 
+%check
+LANG=ru_RU.UTF-8 \
+CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
+	%{ant} test
+
 %install
 %{__install} -d %{buildroot}%{_datadir}/%{name}/{%{version},site}
 %{__install} -d %{buildroot}%{_javadir}
@@ -81,6 +89,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %{__install} -m 644 target/lib/%{name}-%{version}.jar %{buildroot}%{_javadir}
 %{__cp} -P target/lib/%{name}.jar %{buildroot}%{_javadir}
 %{__install} -m 755 target/bin/* %{buildroot}%{_bindir}
+%{__cp} -pr src/main/psi/* %{buildroot}%{_datadir}/%{name}/%{version}
 %{__cp} -pr target/doc/{html,examples} %{buildroot}%{_docdir}/%{name}-doc
 %{__install} -m 644 target/doc/{README,LICENSE,AUTHORS} %{buildroot}%{_docdir}/%{name}
 %{__install} -m 644 target/vim/syntax/*.vim %{buildroot}%{_datadir}/vim/site/syntax
@@ -112,6 +121,7 @@ echo "%{name} ant/ant-%{name}" > %{buildroot}%{_sysconfdir}/ant.d/%{name}
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/site
 %dir %{_datadir}/%{name}/%{version}
+%{_datadir}/%{name}/%{version}/*
 %{_datadir}/%{name}/current
 %dir %{_datadir}/vim
 %dir %{_datadir}/vim/site

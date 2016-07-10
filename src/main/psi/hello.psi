@@ -1,0 +1,8 @@
+'Hello! This is ' print
+product print
+' ' print
+/v print
+version say
+'Project site: ‹' print
+configdict /config.vendor.url get print
+'›' say

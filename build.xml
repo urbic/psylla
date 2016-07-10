@@ -34,7 +34,8 @@
 	<property name="target.mime" location="${target}/mime"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
-	<property name="home.javadoc.java" location="/usr/share/javadoc/java"/>
+	<property name="home.javadoc" location="/usr/share/javadoc"/>
+	<property name="home.javadoc.java" location="${home.javadoc}/java"/>
 	<path id="classpath.main">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
@@ -106,14 +107,16 @@
 		<javadoc
 			sourcepath="${src.main.java}"
 			destdir="${target.doc.apidocs}"
-			classpathref="classpath.main"
 			access="public"
 			encoding="UTF-8"
 			charset="UTF-8"
 			windowtitle="Psylla ${project.version}"
 			>
+			<classpath refid="classpath.main"/>
+			<classpath refid="classpath.test"/>
 			<arg value="-Xdoclint:missing,reference"/>
 			<link href="${home.javadoc.java}"/>
+			<link href="${home.javadoc}/junit"/>
 			<link href="http://jline.sourceforge.net/apidocs/"/>
 		</javadoc>
 		<!--
