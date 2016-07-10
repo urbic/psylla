@@ -3,6 +3,7 @@
 <title><type>writable</type></title>
 
 <para>
+A writable object, a sink of characters that can be written to it.
 </para>
 
 <formalpara>

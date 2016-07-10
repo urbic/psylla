@@ -20,13 +20,16 @@ introduces a <firstterm>oneline
 comment</firstterm><indexterm><primary>comment</primary><secondary>oneline</secondary></indexterm>.
 It composed of the characters following the <literal>#</literal> character
 until the end of line character.
+
+<programlisting language="psi"># This is oneline comment</programlisting>
+
 </para>
 
 <para>
 The oneline comment starting with <literal>#!</literal> in the first line of
 code in Unix-like operating systems play the role of the
 <firstterm>shebang</firstterm><indexterm><primary>shebang</primary></indexterm>.
-For example, the program, starting with the line
+For example, the program starting with the line
 
 <programlisting language="psi">#!/usr/bin/psylla</programlisting>
 
@@ -46,6 +49,12 @@ introduce a <firstterm>multiline
 comment</firstterm><indexterm><primary>comment</primary><secondary>multiline</secondary></indexterm>,
 continuing to the next <literal>#/</literal> characters. Embedding multiline
 comments into each other is not allowed.
+
+<programlisting language="psi">/#
+This is
+a multiline comment
+#/</programlisting>
+
 </para>
 
 </section>

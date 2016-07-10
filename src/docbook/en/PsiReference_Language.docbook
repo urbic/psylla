@@ -37,7 +37,7 @@
 <title>Early Name Binding</title>
 
 <section xml:id="PsiReference_Language_EarlyNameBinding_BindOperator">
-<title><xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bind"/> operator</title>
+<title>The <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_bind"/> operator</title>
 
 </section>
 

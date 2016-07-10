@@ -20,6 +20,9 @@
 комментарий</firstterm><indexterm><primary>комментарий</primary><secondary>однострочный</secondary></indexterm>.
 Он состоит из символов, следующих после <literal>#</literal> вплоть до символа
 конца строки.
+
+<programlisting language="psi"># Это однострочный комментарий</programlisting>
+
 </para>
 
 <para>
@@ -46,6 +49,12 @@
 комментария</firstterm><indexterm><primary>комментарий</primary><secondary>многострочный</secondary></indexterm>,
 продолжающегося до ближайших символов <literal>#/</literal>. Вложение
 многострочных комментариев друг в друга не допускается.
+
+<programlisting language="psi">/#
+Это многострочный
+комментарий
+#/</programlisting>
+
 </para>
 
 </section>

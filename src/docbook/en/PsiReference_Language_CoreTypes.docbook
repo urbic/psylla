@@ -142,7 +142,7 @@ renge, but with limited accuracy, and is implemented as a floating-point number.
 
 <para>
 The complex numeric object represents a mathematical complex number. It is
-implementes as a pair of real numbers, real and imaginary parts of a number.
+implemented as a pair of real numbers, real and imaginary parts of a number.
 </para>
 
 <para>
@@ -274,11 +274,11 @@ The length of the array changes when inserting or removing elements.
 <title>Procedures</title>
 
 <para>
-The
-<firstterm>procedures</firstterm><indexterm><primary>procedure</primary></indexterm>
+A
+<firstterm>procedure</firstterm><indexterm><primary>procedure</primary></indexterm>
 (<firstterm>executable
-arrays</firstterm><indexterm><primary>array</primary><secondary>executable</secondary></indexterm>)
-differ from the arrays in execution semantics. The execution of the procedure
+array</firstterm><indexterm><primary>array</primary><secondary>executable</secondary></indexterm>)
+differ from the array in execution semantics. The execution of the procedure
 leads to sequential execution of all its elements.
 </para>
 
@@ -288,8 +288,7 @@ leads to sequential execution of all its elements.
 <title>Strings</title>
 
 <para>
-The
-<firstterm>string</firstterm><indexterm><primary>string</primary></indexterm>
+A <firstterm>string</firstterm><indexterm><primary>string</primary></indexterm>
 conceptually arranged as an array whose elements are integers berween <math
 xmlns="&nsMathML;"><mn>0</mn></math> and <math
 xmlns="&nsMathML;"><mn>65535</mn></math> inclusive (<firstterm>code

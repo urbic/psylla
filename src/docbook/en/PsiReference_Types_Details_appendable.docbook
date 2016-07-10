@@ -3,7 +3,7 @@
 <title><type>appendable</type></title>
 
 <para>
-Тип контейнеров, для которых предусмотрено добавление объектов в конец.
+A container in which new elements can be appended.
 </para>
 
 <formalpara>

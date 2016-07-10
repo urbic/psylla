@@ -3,7 +3,7 @@
 <title><type>scalar</type></title>
 
 <para>
-Базовый тип для упорядоченных типов, для которых определены операторы сравнения.
+A base type for totally ordered types.
 </para>
 
 <formalpara>
