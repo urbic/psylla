@@ -181,28 +181,28 @@ public class PsiComplex
 
 	@Override
 	public PsiComplex psiLog()
-		throws PsiUndefinedResultException
+		throws PsiException
 	{
 		return new PsiComplex((PsiReal)psiAbs().psiLog(), psiArg());
 	}
 
 	@Override
 	public PsiComplex psiAcos()
-		throws PsiUndefinedResultException
+		throws PsiException
 	{
 		return psiAdd(ONE.psiSub(psiMul(this)).psiSqrt().psiMul(I)).psiLog().psiMul(MINUS_I);
 	}
 
 	@Override
 	public PsiComplex psiAsin()
-		throws PsiUndefinedResultException
+		throws PsiException
 	{
 		return new PsiComplex(Math.PI/2.D).psiSub(psiAcos());
 	}
 
 	@Override
 	public PsiComplex psiAtan()
-		throws PsiUndefinedResultException
+		throws PsiException
 	{
 		return (I.psiAdd(this).psiDiv(I.psiSub(this))).psiLog().psiMul(I).psiDiv(TWO);
 	}

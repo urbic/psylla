@@ -74,13 +74,13 @@ public interface PsiNumeric
 	 *	value.
 	 */
 	public PsiNumeric psiLog()
-		throws PsiUndefinedResultException, PsiRangeCheckException;
+		throws PsiException;
 
 	public PsiNumeric psiAcos()
-		throws PsiUndefinedResultException;
+		throws PsiException;
 
 	public PsiNumeric psiAsin()
-		throws PsiUndefinedResultException;
+		throws PsiException;
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the arc tangent of this
@@ -91,7 +91,7 @@ public interface PsiNumeric
 	 *	unadmissible value for arc tangent.
 	 */
 	public PsiNumeric psiAtan()
-		throws PsiUndefinedResultException;
+		throws PsiException;
 
 	/**
 	 *	Returns a Ψ-{@code numeric} representing the square root of this
