@@ -8,6 +8,11 @@
 
 	<highlighter type="oneline-comment">#</highlighter>
 
+	<highlighter type="multiline-comment">
+		<start>/#</start>
+		<end>#/</end>
+	</highlighter>
+
 	<highlighter type="string">
 		<string>'</string>
 	</highlighter>
