@@ -41,12 +41,11 @@ public class PsiRegExp
 	@Override
 	public String toSyntaxString()
 	{
-		/*
-		StringBuilder sb=new StringBuilder();
-		String string=pattern.toString();
-		for(int i=0; i<string.length(); i++)
+		final StringBuilder sb=new StringBuilder("@");
+		final String patternImage=pattern.toString();
+		for(int i=0; i<patternImage.length(); i++)
 		{
-			char c=string.charAt(i);
+			char c=patternImage.charAt(i);
 			switch(c)
 			{
 				case '\u0000':
@@ -55,59 +54,28 @@ public class PsiRegExp
 				case '\u0007':
 					sb.append("\\a");
 					break;
+				case '\u0009':
+					sb.append("\\t");
+					break;
 				case '\n':
 					sb.append("\\n");
-					break;
-				case '\r':
-					sb.append("\\r");
-					break;
-				case '\t':
-					sb.append("\\t");
 					break;
 				case '\f':
 					sb.append("\\f");
 					break;
+				case '\r':
+					sb.append("\\r");
+					break;
 				case '\u001B':
 					sb.append("\\e");
 					break;
-				case '\"':
-					sb.append("\\\"");
-					break;
-				case '!':
-					sb.append("\\!");
-					break;
-				case '\\':
-					{
-						char ch=string.charAt(++i);
-						switch(ch)
-						{
-							case '\\':
-							case 'd':
-							case 'D':
-							case 's':
-							case 'S':
-							case 'w':
-							case 'W':
-								sb.append("\\");
-								sb.append(ch);
-								break;
-						}
-					}
-					//sb.append("\\\\");
+				case '@':
+					sb.append("\\@");
 					break;
 				default:
 					sb.append(c);
+					break;
 			}
-		}
-		*/
-		//return "!"+sb.toString()+"!";
-		final StringBuilder sb=new StringBuilder("@");
-		final String patternImage=pattern.toString();
-		for(int i=0; i<patternImage.length(); i++)
-		{
-			if(patternImage.charAt(i)=='@')
-				sb.append('\\');
-			sb.append(patternImage.charAt(i));
 		}
 		sb.append('@');
 		return sb.toString();
