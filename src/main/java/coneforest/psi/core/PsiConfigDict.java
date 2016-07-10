@@ -6,20 +6,11 @@ public class PsiConfigDict
 {
 	public PsiConfigDict()
 	{
-		try
-		{
-			final java.util.Properties config=new java.util.Properties();
-			config.load(Psylla.class.getResourceAsStream("Config.properties"));
-			for(String name: config.stringPropertyNames())
-				put(name, new PsiName(config.getProperty(name)));
+		for(String name: Config.stringPropertyNames())
+			put(name, new PsiName(Config.getProperty(name)));
 
-			final java.util.Properties system=System.getProperties();
-			for(String name: system.stringPropertyNames())
-				put(name, new PsiName(system.getProperty(name)));
-		}
-		catch(java.io.IOException e)
-		{
-			throw new AssertionError();
-		}
+		final java.util.Properties system=System.getProperties();
+		for(String name: system.stringPropertyNames())
+			put(name, new PsiName(system.getProperty(name)));
 	}
 }

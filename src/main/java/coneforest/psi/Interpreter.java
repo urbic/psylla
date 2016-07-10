@@ -533,10 +533,11 @@ public class Interpreter
 		String resourceName=oResourceName.stringValue().replace('.', '/');
 		for(PsiStringy oPathItem: oLibraryPath)
 		{
-			final String fullResourceName=oPathItem.stringValue()
-				+'/'+resourceName+".psi";
-			if(FileSystem.psiIsFile(new PsiName(fullResourceName)).booleanValue())
-				return new PsiFileReader(fullResourceName);
+			final PsiName oFullResourceName
+				=new PsiName(oPathItem.stringValue()+'/'+resourceName+".psi");
+			if(FileSystem.psiFileExists(oFullResourceName).booleanValue()
+					&& FileSystem.psiIsFile(oFullResourceName).booleanValue())
+				return new PsiFileReader(oFullResourceName);
 		}
 		throw new PsiUndefinedException(); // TODO
 	}

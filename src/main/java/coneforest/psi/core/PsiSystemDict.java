@@ -1179,6 +1179,11 @@ public class PsiSystemDict
 
 			);
 
+		final PsiArray oLibraryPath=new PsiArray();
+		for(String pathItem:
+				Config.getProperty("config.library.path").split(java.io.File.pathSeparator))
+			oLibraryPath.psiAppend(new PsiName(pathItem));
+
 		put("]", get("arraytomark"));
 		put(">", get("dicttomark"));
 		put(")", get("settomark"));
@@ -1193,7 +1198,7 @@ public class PsiSystemDict
 		put("eol", new PsiName(System.getProperty("line.separator")));
 		put("errordict", new PsiErrorDict());
 		put("false", PsiBoolean.FALSE);
-		put("librarypath", new PsiArray());
+		put("librarypath", oLibraryPath);
 		put("mark", PsiMark.MARK);
 		put("mathE", PsiReal.E);
 		put("mathPI", PsiReal.PI);
