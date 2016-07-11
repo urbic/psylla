@@ -24,7 +24,7 @@ public class DictStack
 	public <T extends PsiObject> T load(final String key)
 		throws PsiException
 	{
-		PsiDictlike oDict=where(key);
+		final PsiDictlike oDict=where(key);
 		if(oDict!=null)
 			return (T)oDict.get(key);
 		else
@@ -41,7 +41,7 @@ public class DictStack
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			PsiDictlike oDict=get(i);
+			final PsiDictlike oDict=get(i);
 			if(oDict.known(key))
 				return oDict;
 		}
