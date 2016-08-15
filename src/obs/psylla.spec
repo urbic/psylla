@@ -52,7 +52,7 @@ BuildRequires:	saxon6
 BuildRequires:	xerces-j2-xml-apis
 BuildRequires:	xslthl
 
-%if ?%{?fedora}
+%if 0%{?fedora}
 BuildRequires:	ghostscript-core
 %endif
 
