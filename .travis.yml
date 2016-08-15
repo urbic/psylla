@@ -4,3 +4,9 @@ jdk:
     - oraclejdk8
 
 install: ant compile
+
+addons:
+  apt:
+    packages:
+      - javacc
+
