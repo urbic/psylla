@@ -22,4 +22,4 @@ Java 8 (OpenJDK), JavaCC, Apache Ant
 
 ### Documentation:
 
-Apache Ant, Docbook 5 XSL, Saxon 6, XSLTHL, SASS
+Apache Ant, Docbook 5 XSL, Saxon 6, XSLTHL, SASS, graphviz, perl
