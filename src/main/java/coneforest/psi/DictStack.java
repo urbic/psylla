@@ -16,9 +16,9 @@ public class DictStack
 	public DictStack()
 		throws PsiException
 	{
-		final PsiDict systemdict=new PsiSystemDict();
-		push(systemdict);
-		push((PsiDictlike)systemdict.get("userdict"));
+		final PsiDict oSystemDict=new PsiSystemDict();
+		push(oSystemDict);
+		push((PsiDictlike)oSystemDict.get("userdict"));
 	}
 
 	public <T extends PsiObject> T load(final String key)
