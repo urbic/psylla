@@ -18,7 +18,7 @@ language.
 
 ### Jar:
 
-Java 8 (OpenJDK), JavaCC, Apache Ant
+Java 8 (OpenJDK), JavaCC, Apache Ant, JUnit, JLine
 
 ### Documentation:
 

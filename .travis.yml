@@ -11,4 +11,6 @@ addons:
   apt:
     packages:
       - javacc
+      - junit
+      - libjline-java
 
