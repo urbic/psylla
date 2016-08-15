@@ -347,7 +347,7 @@ public class Interpreter
 
 	public int pushLoopLevel()
 	{
-		int level=estack.size();
+		final int level=estack.size();
 		loopstack.push(level);
 		return level;
 	}
@@ -364,7 +364,7 @@ public class Interpreter
 
 	public int pushStopLevel()
 	{
-		int level=estack.size();
+		final int level=estack.size();
 		stopstack.push(level);
 		return level;
 	}
@@ -401,6 +401,7 @@ public class Interpreter
 		systemDict().put("environment", environment);
 	}
 
+	/*
 	public void acceptClassPath(final String[] classPath)
 		throws PsiException
 	{
@@ -408,7 +409,9 @@ public class Interpreter
 		for(String pathItem: classPath)
 			classLoader.psiAppend(new PsiName(pathItem));
 	}
+	*/
 
+	/*
 	public void acceptLibraryPath(final String[] libraryPath)
 		throws PsiException
 	{
@@ -416,6 +419,7 @@ public class Interpreter
 		for(String pathItem: libraryPath)
 			oLibraryPath.psiAppend(new PsiName(pathItem));
 	}
+	*/
 
 	public void quit()
 	{
@@ -530,7 +534,7 @@ public class Interpreter
 	{
 		final PsiArraylike<PsiStringy> oLibraryPath
 			=dstack.load("librarypath");
-		String resourceName=oResourceName.stringValue().replace('.', '/');
+		final String resourceName=oResourceName.stringValue().replace('.', '/');
 		for(PsiStringy oPathItem: oLibraryPath)
 		{
 			final PsiName oFullResourceName
@@ -539,7 +543,7 @@ public class Interpreter
 					&& FileSystem.psiIsFile(oFullResourceName).booleanValue())
 				return new PsiFileReader(oFullResourceName);
 		}
-		throw new PsiUndefinedException(); // TODO
+		throw new PsiUndefinedException(); // TODO: more appropriate exception
 	}
 
 	public void psiRequire(final PsiStringy oResourceName)
@@ -555,8 +559,25 @@ public class Interpreter
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
-	private boolean exitFlag=false, stopFlag=false;
+	private boolean stopFlag=false;
 	private boolean running=true;
 	private final java.util.HashMap<String, Class<? extends PsiObject>> typeResolver
 		=new java.util.HashMap<String, Class<? extends PsiObject>>();
+
+	private final coneforest.psi.ClassLoader classLoader
+		=new coneforest.psi.ClassLoader()
+			{
+				@Override
+				protected PsiIterable<PsiStringy> getPsiClassPath()
+				{
+					try
+					{
+						return Interpreter.this.dstack.load("classpath");
+					}
+					catch(PsiException e)
+					{
+						return null;
+					}
+				}
+			};
 }

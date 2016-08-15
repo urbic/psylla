@@ -54,7 +54,7 @@ public class PsiClassLoader
 				}
 				for(PsiObject file: PsiClassLoader.this)
 				{
-					Class cl=findClassAtPathElement(className,
+					final Class cl=findClassAtPathElement(className,
 							new java.io.File(((PsiStringy)file).stringValue()));
 					if(cl!=null)
 						return cl;
@@ -62,12 +62,10 @@ public class PsiClassLoader
 				throw new ClassNotFoundException();
 			}
 
-			public Class findClassAtPathElement(final String className, final java.io.File file)
+			private Class findClassAtPathElement(final String className, final java.io.File file)
 			{
 				final byte classByte[];
-				Class result=null;
-
-				result=(Class)classes.get(className);
+				Class result=(Class)classes.get(className);
 				if(result!=null)
 					return result;
 
@@ -108,8 +106,6 @@ public class PsiClassLoader
 					return null;
 				}
 			}
-
-			private PsiIterable<PsiStringy> path;
 
 			private final java.util.Hashtable<String, Class> classes
 				=new java.util.Hashtable<String, Class>();
