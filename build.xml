@@ -174,7 +174,7 @@
 		</junit-->
 		<taskdef name="psyllaunit"
 			classname="coneforest.psi.tools.ant.PsyllaUnit"
-			classpathref="classpath.main"
+			classpathref="classpath.test"
 			/>
 		<psyllaunit>
 			<classpath refid="classpath.test"/>
