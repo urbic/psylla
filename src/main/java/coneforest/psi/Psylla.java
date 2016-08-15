@@ -98,22 +98,40 @@ public class Psylla
 						}
 					};
 
+			// Configure standard writer and error writer
+			interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
+			interpreter.setErrorWriter(new java.io.OutputStreamWriter(System.err));
+
 			interpreter.acceptEnvironment(System.getenv());
 			interpreter.acceptScriptName(scriptName);
 			interpreter.acceptShellArguments(shellArguments);
-			java.io.OutputStreamWriter ow=new java.io.OutputStreamWriter(System.out);
-			interpreter.setWriter(ow);
-			interpreter.setErrorWriter(new java.io.OutputStreamWriter(System.err));
-			if(cli.getValue("classpath")!=null)
-				interpreter.acceptClassPath(cli.getValue("classpath"));
-			if(cli.getValue("librarypath")!=null)
-				interpreter.acceptLibraryPath(cli.getValue("librarypath"));
 
+			// Configure class path
+			final PsiArraylike<PsiStringy> oClassPath
+				=(PsiArraylike<PsiStringy>)interpreter.systemDict().get("classpath");
+			final String envClassPath=System.getenv("PSYLLA_CLASSPATH");
+			if(envClassPath!=null)
+				for(String pathItem: envClassPath.split(java.io.File.pathSeparator))
+					oClassPath.psiAppend(new PsiName(pathItem));
+			if(cli.getValue("classpath")!=null)
+				for(String pathItem: cli.<String[]>getValue("classpath"))
+					oClassPath.psiAppend(new PsiName(pathItem));
+
+			// Configure library path
+			final PsiArraylike<PsiStringy> oLibraryPath
+				=(PsiArraylike<PsiStringy>)interpreter.systemDict().get("librarypath");
+			final String envLibraryPath=System.getenv("PSYLLA_LIB");
+			if(envLibraryPath!=null)
+				for(String pathItem: envLibraryPath.split(java.io.File.pathSeparator))
+					oLibraryPath.psiAppend(new PsiName(pathItem));
+			if(cli.getValue("librarypath")!=null)
+				for(String pathItem: cli.<String[]>getValue("librarypath"))
+					oLibraryPath.psiAppend(new PsiName(pathItem));
+
+			// Set random seed
 			if(cli.getValue("random-seed")!=null)
-			{
 				interpreter.dictStack().<PsiRandom>load("stdrandom")
 					.psiSetSeed(PsiInteger.valueOf(cli.getValue("random-seed")));
-			}
 
 			interpreter.start();
 		}
