@@ -5,13 +5,13 @@ sudo: required
 jdk:
     - oraclejdk8
 
-install: ant
+install: ant test
 
 addons:
   apt:
     packages:
       - javacc
-      - junit
+      - junit4
       - libjline-java
       - ant-optional
 
