@@ -13,4 +13,5 @@ addons:
       - javacc
       - junit
       - libjline-java
+      - ant-optional
 
