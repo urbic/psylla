@@ -44,7 +44,8 @@
 		<pathelement path="/usr/share/ant/lib/ant-junit.jar"/>
 	</path>
 	<path id="classpath.test">
-		<pathelement path="${target.classes}"/>
+		<!--pathelement path="${target.classes}"/-->
+		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 		<pathelement path="/usr/share/java/junit4.jar"/>
 	</path>

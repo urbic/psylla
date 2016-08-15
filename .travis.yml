@@ -7,7 +7,7 @@ sudo: required
 jdk:
     - oraclejdk8
 
-install: ant test
+install: ant -v test
 
 addons:
   apt:
