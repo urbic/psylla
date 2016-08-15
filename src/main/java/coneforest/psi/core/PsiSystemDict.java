@@ -502,7 +502,7 @@ public class PsiSystemDict
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
 
-							ostack.ensureSize(2);
+							//ostack.ensureSize(2);
 							final PsiObject o=ostack.getBacked(0);
 
 							final Interpreter forkedInterpreter
@@ -1170,8 +1170,8 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity20<PsiWritable, PsiInteger>
 					("write", PsiWritable::psiWrite),
-				new PsiOperator.Arity20
-					("writestring", (a, b)->((PsiWritable)a).psiWriteString((PsiStringy)b)),
+				new PsiOperator.Arity20<PsiWritable, PsiStringy>
+					("writestring", PsiWritable::psiWriteString),
 				new PsiOperator.Arity21<PsiLogical, PsiLogical>
 					("xor", PsiLogical::psiXor),
 				new PsiOperator.Action
@@ -1193,7 +1193,7 @@ public class PsiSystemDict
 		put("<", PsiMark.MARK);
 		put("[", PsiMark.MARK);
 		put("arguments", new PsiArray());
-		put("classloader", new PsiClassLoader());
+		put("classpath", new PsiArray());
 		put("configdict", new PsiConfigDict());
 		put("eol", new PsiName(System.getProperty("line.separator")));
 		put("errordict", new PsiErrorDict());
