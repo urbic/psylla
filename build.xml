@@ -40,11 +40,9 @@
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 		<pathelement path="/usr/share/java/ant.jar"/>
-		<!--pathelement path="/usr/share/java/ant/ant-junit.jar"/-->
 		<pathelement path="/usr/share/ant/lib/ant-junit.jar"/>
 	</path>
 	<path id="classpath.test">
-		<!--pathelement path="${target.classes}"/-->
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="/usr/share/java/jline.jar"/>
 		<pathelement path="/usr/share/java/junit4.jar"/>
@@ -56,11 +54,14 @@
 		/>
 	<property file="${src.ant}/config.properties"/>
 
+	<!-- Import supplementary Ant projects -->
 	<import file="${src.ant}/htmldocs.ant" as="htmldocs"/>
 	<import file="${src.ant}/manpages.ant" as="manpages"/>
 	<import file="${src.ant}/obs.ant"/>
 
-	<target name="compile.jj">
+	<target name="compile.jj"
+		description="Compile JJ sources"
+		>
 		<mkdir dir="${target.src.main.java}/coneforest/psi"/>
 		<javacc
 			target="${src.main.jj}/coneforest/psi/Parser.jj"
@@ -71,8 +72,10 @@
 			/>
 	</target>
 
-	<target name="compile.java" depends="compile.jj"
-			description="compile the source">
+	<target name="compile.java"
+			description="Compile Java sources"
+			depends="compile.jj"
+			>
 		<mkdir dir="${target.classes}"/>
 		<javac
 			srcdir="${src.main.java}:${target.src.main.java}:${src.test.java}"
@@ -101,19 +104,28 @@
 			/>
 	</target>
 
-	<target name="compile" depends="compile.jj,compile.java"/>
+	<target name="compile"
+		description="Compile sources"
+		depends="compile.jj,compile.java"
+		/>
 
-	<target name="docs" depends="manpages,apidocs,htmldocs"/>
+	<target name="docs"
+		description="Build documentation"
+		depends="manpages,apidocs,htmldocs"
+		/>
 
-	<target name="apidocs" depends="jar">
+	<target name="apidocs"
+		description="Build API documentation"
+		depends="jar"
+		>
 		<javadoc
-			sourcepath="${src.main.java}"
-			destdir="${target.doc.apidocs}"
-			access="public"
-			encoding="UTF-8"
-			charset="UTF-8"
-			windowtitle="Psylla ${project.version}"
-			>
+				sourcepath="${src.main.java}"
+				destdir="${target.doc.apidocs}"
+				access="public"
+				encoding="UTF-8"
+				charset="UTF-8"
+				windowtitle="Psylla ${project.version}"
+				>
 			<classpath refid="classpath.main"/>
 			<classpath refid="classpath.test"/>
 			<arg value="-Xdoclint:missing,reference"/>
@@ -137,7 +149,9 @@
 		-->
 	</target>
 
-	<target name="jar" depends="compile">
+	<target name="jar"
+		description="Build Jar"
+		depends="compile">
 		<jar
 			jarfile="${target.lib}/${project.name}-${project.version}.jar"
 			basedir="${target.classes}"
@@ -161,7 +175,10 @@
 		<delete dir="${target}"/>
 	</target>
 
-	<target name="test" depends="jar">
+	<target name="test"
+		description="Perform unit tests"
+		depends="jar"
+		>
 		<!--junit>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
@@ -197,9 +214,15 @@
 		<psylla eval="1 atan 4 mul ?"/>
 	</target>
 
-	<target name="htmldocs" depends="htmldocs.htmldocs"/>
+	<target name="htmldocs"
+		description="Build XHTML documentation"
+		depends="htmldocs.htmldocs"
+		/>
 
-	<target name="manpages" depends="manpages.manpages"/>
+	<target name="manpages"
+		description="Build manpages"
+		depends="manpages.manpages"
+		/>
 
 	<target name="dist.zip" description="Make Zip distribution">
 		<mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
@@ -242,7 +265,10 @@
 		<delete dir="${target}/tmp" quiet="yes"/>
 	</target>
 
-	<target name="build" description="Build project" depends="jar,docs">
+	<target name="build"
+		description="Build project"
+		depends="jar,docs"
+		>
 		<copy todir="${target.bin}" file="${src.bin}/${project.name}"/>
 		<copy todir="${target.doc}">
 			<fileset dir="." includes="README LICENSE AUTHORS"/>
