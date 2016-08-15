@@ -282,4 +282,27 @@
 		</copy>
 	</target>
 
+	<target name="help"
+		description="Display help information"
+		>
+		<echo><![CDATA[Build targets:
+
+	apidocs:	build API documentation
+	build:		build project
+	clean:		clean build directory
+	compile.java:	compile Java sources
+	compile.jj:	compile JJ sources
+	compile:	compile sources
+	dist.tar:	make Tar distribution
+	dist.zip:	make Zip distribution
+	docs:		build documentation
+	help:		display help information
+	htmldocs:	build XHTML documentation
+	jar:		build Jar
+	manpages:	build manpages
+	test:		perform unit tests
+
+Default target is jar.]]></echo>
+	</target>
+
 </project>
