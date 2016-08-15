@@ -52,6 +52,10 @@ BuildRequires:	saxon6
 BuildRequires:	xerces-j2-xml-apis
 BuildRequires:	xslthl
 
+%if ?%{?fedora}
+BuildRequires:	ghostscript-core
+%endif
+
 %description doc
 This package contains documentation for Psylla.
 Psylla is extensible and embeddable Psi implementation written in Java.

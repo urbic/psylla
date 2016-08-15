@@ -63,11 +63,27 @@
 	</target>
 
 	<target name="obs.build" depends="obs.add.spec">
-		<mkdir dir="${target.obs}"/>
+		<!--mkdir dir="${target.obs}"/-->
+		<!--exec executable="osc" dir="${target.obs}">
+			<arg value="build"/>
+			<arg value="- -clean"/>
+			<arg value="Debian_8.0"/>
+			<arg value="x86_64"/>
+			<arg value="${obs.package.name}.dsc"/>
+		</exec-->
+		<!--exec executable="osc" dir="${target.obs}">
+			<arg value="build"/>
+			<arg value="- -clean"/>
+			<arg value="Fedora_24"/>
+			<arg value="x86_64"/>
+			<arg value="${obs.package.name}.spec"/>
+		</exec-->
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
 			<arg value="--clean"/>
 			<arg value="openSUSE_Leap_42.1"/>
+			<arg value="x86_64"/>
+			<arg value="${obs.package.name}.spec"/>
 		</exec>
 	</target>
 
