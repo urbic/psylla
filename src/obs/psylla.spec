@@ -141,7 +141,6 @@ echo "%{name} ant/ant-%{name}" > %{buildroot}%{_sysconfdir}/ant.d/%{name}
 
 %files doc
 %defattr(-,root,root)
-#%%doc target/doc/{examples,html}
 %{_docdir}/%{name}-doc
 
 %files javadoc

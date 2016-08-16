@@ -1,0 +1,120 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This is the debhelper compatibility version to use.
+export DH_COMPAT=9
+
+CFLAGS = -g
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+CFLAGS += -O0
+else
+CFLAGS += -O2
+endif
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+
+	# Add here commands to compile the package.
+	#LANG=ru_RU.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar:/usr/share/java/xmlParserAPIs.jar:/usr/share/java/xml-apis.jar ant build
+	#LANG=ru_RU.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar:/usr/share/java/xmlParserAPIs.jar ant build
+	LANG=ru_RU.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant build
+	# --- end custom part for compiling
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	ant test
+endif
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+
+	# Add here commands to clean up after the build process.
+	ant clean
+	# --- end custom part for cleaning up
+
+	dh_clean
+
+DESTDIR = /usr/src/packages/BUILD/debian/psylla
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	# Add here commands to install the package
+	# The DESTDIR Has To Be Exactly  /usr/src/packages/BUILD/debian/<nameOfPackage>
+	install -d $(DESTDIR)/usr/share/@obs.package.name@/@obs.package.version@
+	install -d $(DESTDIR)/usr/share/@obs.package.name@/site
+	install -d $(DESTDIR)/usr/share/java
+	install -d $(DESTDIR)/usr/bin
+	install -d $(DESTDIR)/usr/share/doc/@obs.package.name@
+	install -d $(DESTDIR)/usr/share/doc/@obs.package.name@-doc
+	install -d $(DESTDIR)/usr/share/javadoc/@obs.package.name@
+	install -d $(DESTDIR)/usr/share/vim/site/ftdetect
+	install -d $(DESTDIR)/usr/share/vim/site/syntax
+	install -m 644 target/lib/@obs.package.name@-@obs.package.version@.jar $(DESTDIR)/usr/share/java
+	cp -P target/lib/@obs.package.name@.jar $(DESTDIR)/usr/share/java
+	install -m 755 target/bin/* $(DESTDIR)/usr/bin
+	cp -pr src/main/psi/* $(DESTDIR)/usr/share/@obs.package.name@/@obs.package.version@
+	cp -pr target/doc/html target/doc/examples $(DESTDIR)/usr/share/doc/@obs.package.name@-doc
+	install -m 644 target/doc/README $(DESTDIR)/usr/share/doc/@obs.package.name@
+	install -m 644 target/doc/LICENSE $(DESTDIR)/usr/share/doc/@obs.package.name@
+	install -m 644 target/doc/AUTHORS $(DESTDIR)/usr/share/doc/@obs.package.name@
+	install -m 644 target/vim/syntax/*.vim $(DESTDIR)/usr/share/vim/site/syntax
+	install -m 644 target/vim/ftdetect/*.vim $(DESTDIR)/usr/share/vim/site/ftdetect
+	cp -pr target/doc/apidocs/* $(DESTDIR)/usr/share/javadoc/@obs.package.name@
+	ln -s @obs.package.version@ $(DESTDIR)/usr/share/@obs.package.name@/current
+	install -d $(DESTDIR)/usr/share/mime/packages
+	install -m 644 target/mime/@obs.package.name@.xml $(DESTDIR)/usr/share/mime/packages
+	install -d $(DESTDIR)/usr/share/man
+	cp -pr target/man/en/* $(DESTDIR)/usr/share/man
+	install -d $(DESTDIR)/usr/share/ant/lib
+	ln -s ../../java/@obs.package.name@.jar $(DESTDIR)/usr/share/ant/lib/ant-@obs.package.name@.jar
+	install -d $(DESTDIR)/etc/ant.d
+	echo "@obs.package.name@ ant/ant-@obs.package.name@" > $(DESTDIR)/etc/ant.d/@obs.package.name@
+	# --- end custom part for installing
+
+# Build architecture-independent files here.
+binary-indep: build install
+	# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+#	dh_installdebconf
+	dh_installdocs
+	dh_installexamples
+	dh_installmenu
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+#	dh_installinit
+	dh_installcron
+	dh_installman
+	dh_installinfo
+#	dh_undocumented
+	dh_installchangelogs
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+#	dh_makeshlibs
+	dh_installdeb
+#	dh_perl
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install
