@@ -15,33 +15,27 @@
 				</catalogpath>
 			</xmlcatalog>
 			<classpath>
-				<pathelement location="/usr/share/java/saxon6.jar"/>
-				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
-				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
-				<pathelement location="/usr/share/java/xslthl.jar"/>
-				<pathelement location="/usr/share/java/batik-all.jar"/>
-				<pathelement location="/usr/share/java/xerces-j2-xml-apis.jar"/>
+				<pathelement location="${datadir.java}/saxon6.jar"/>
+				<!--pathelement location="${datadir.java}/xml-commons-resolver.jar"/-->
+				<pathelement location="${datadir.xml}/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+				<pathelement location="${datadir.java}/xslthl.jar"/>
+				<pathelement location="${datadir.java}/xerces-j2-xml-apis.jar"/>
+
+				<!-- for Debian -->
+				<pathelement location="${datadir.java}/saxon-6.5.5.jar"/>
+				<!--pathelement location="${datadir.java}/xml-resolver.jar"/-->
+				<pathelement location="${datadir.java}/docbook-xsl-saxon.jar"/>
+				<pathelement location="${datadir.java}/xercesImpl.jar"/>
 			</classpath>
-			<param name="highlight.source" expression="1"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
 			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
 			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
-			<param name="generate.manifest" expression="0"/>
-			<param name="bibliography.numbered" expression="1"/>
 			<param name="shortcut.icon" expression="../${project.name}-16.png"/>
 			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
 			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
-			<param name="bibliography.style" expression="iso960"/>
 			<param name="draft.mode" expression="maybe"/>
 			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
 			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
-			<param name="navig.graphics.path" expression="../navigation/"/>
-			<param name="navig.graphics.extension" expression=".svg"/>
-			<param name="html.ext" expression=".xhtml"/>
-			<param name="chunk.sections" expression="0"/>
-			<param name="chunk.section.depth" expression="0"/>
-			<param name="ebnf.table.bgcolor" expression="none"/>
-			<param name="ebnf.table.border" expression="0"/>
 		</xslt>
 	</presetdef>
 
@@ -52,6 +46,7 @@
 			<xslt.html
 				includes="@{lang}/@{base.name}.docbook"
 				destdir="${target.doc.html}"
+				filedirparameter="@{lang}/@{base.name}.docbook"
 				>
 				<param name="html.stylesheet" expression="../@{base.name}.css"/>
 				<param name="root.filename" expression="@{base.name}"/>
@@ -84,7 +79,6 @@
 	<target name="htmldocs" description="Make documentation" depends="css">
 		<mkdir dir="${target.doc.html}"/>
 		<mkdir dir="${target.doc.html}/common"/>
-		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
 		<apply dest="${target.doc.html}/common" dir="${src.docbook}" executable="perl">
 			<arg value="make-types-hierarchy.pl"/>
 			<arg value="-O"/>
@@ -105,7 +99,6 @@
 		<copy todir="${target.doc.html}">
 			<fileset dir="${src.logo}" includes="${project.name}.svg ${project.name}-16.png"/>
 		</copy>
-		<symlink action="delete" link="examples"/>
 	</target>
 
 </project>

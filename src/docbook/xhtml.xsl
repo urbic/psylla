@@ -14,44 +14,52 @@
 	<xsl:import href="highlight.xsl"/>
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml-1_1/autoidx-kosek.xsl"/>
 
-	<xsl:param name="html.extra.head.links" select="1"/>
-	<xsl:param name="header.rule" select="0"/>
-	<xsl:param name="footer.rule" select="0"/>
+	<xsl:param name="admon.graphics" select="1"/>
+	<xsl:param name="admon.graphics.extension">.svg</xsl:param>
+	<xsl:param name="admon.graphics.path">admonitions/</xsl:param>
+	<xsl:param name="admon.style"/>
+	<xsl:param name="arg.rep.repeat.str">…</xsl:param>
+	<xsl:param name="bibliography.numbered" select="1"/>
+	<xsl:param name="bibliography.style">iso960</xsl:param>
 	<xsl:param name="blurb.on.titlepage.enabled" select="1"/>
 	<xsl:param name="callout.graphics" select="0"/>
 	<xsl:param name="callout.unicode" select="1"/>
-	<xsl:param name="admon.graphics" select="1"/>
-	<xsl:param name="admon.graphics.path">admonitions/</xsl:param>
-	<xsl:param name="admon.graphics.extension">.svg</xsl:param>
-	<xsl:param name="admon.style"/>
-	<xsl:param name="textinsert.extension" select="1"/>
-	<xsl:param name="use.id.as.filename" select="1"/>
-	<xsl:param name="index.method">kosek</xsl:param>
-	<xsl:param name="use.svg" select="1"/>
-	<xsl:param name="variablelist.term.break.after" select="1"/>
-	<xsl:param name="index.on.type" select="1"/>
-	<xsl:param name="use.extensions" select="1"/>
-	<xsl:param name="make.graphic.viewport" select="1"/>
-	<xsl:param name="highlight.source" select="1"/>
-	<xsl:param name="variablelist.term.separator"/>
+	<xsl:param name="callout.unicode.font">STIX General</xsl:param>
+	<xsl:param name="chunk.section.depth" select="0"/>
+	<xsl:param name="chunk.sections" select="0"/>
 	<xsl:param name="css.decoration">1</xsl:param>
+	<xsl:param name="docbook.css.source"/>
+	<xsl:param name="ebnf.table.bgcolor">none</xsl:param>
+	<xsl:param name="ebnf.table.border" select="0"/>
+	<xsl:param name="footer.rule" select="0"/>
+	<xsl:param name="generate.manifest" select="0"/>
 	<xsl:param name="graphicsize.extension" select="0"/>
 	<xsl:param name="graphicsize.use.img.src.path" select="1"/>
+	<xsl:param name="header.rule" select="0"/>
+	<xsl:param name="highlight.source" select="1"/>
+	<xsl:param name="html.ext">.xhtml</xsl:param>
+	<xsl:param name="html.extra.head.links" select="1"/>
+	<xsl:param name="index.method">kosek</xsl:param>
+	<xsl:param name="index.on.type" select="1"/>
+	<xsl:param name="keep.relative.image.uris" select="1"/>
+	<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
+	<xsl:param name="make.clean.html" select="1"/>
+	<xsl:param name="make.graphic.viewport" select="1"/>
 	<xsl:param name="make.year.ranges" select="1"/>
 	<xsl:param name="navig.graphics" select="1"/>
-	<xsl:param name="navig.graphics.path">navigation/</xsl:param>
 	<xsl:param name="navig.graphics.extension">.svg</xsl:param>
-	<xsl:param name="shortcut.icon"/>
-	<xsl:param name="keep.relative.image.uris" select="1"/>
-	<xsl:param name="make.clean.html" select="1"/>
-	<xsl:param name="docbook.css.source"/>
-	<xsl:param name="table.borders.with.css" select="0"/>
-	<xsl:param name="callout.unicode.font" select="'STIX General'"/>
-	<xsl:param name="section.autolabel" select="1"/>
-	<xsl:param name="arg.rep.repeat.str">…</xsl:param>
-	<xsl:param name="section.label.includes.component.label" select="1"/>
-	<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
+	<xsl:param name="navig.graphics.path">../navigation/</xsl:param>
 	<xsl:param name="profile.lang"/>
+	<xsl:param name="section.autolabel" select="1"/>
+	<xsl:param name="section.label.includes.component.label" select="1"/>
+	<xsl:param name="shortcut.icon"/>
+	<xsl:param name="table.borders.with.css" select="0"/>
+	<xsl:param name="textinsert.extension" select="1"/>
+	<xsl:param name="use.extensions" select="1"/>
+	<xsl:param name="use.id.as.filename" select="1"/>
+	<xsl:param name="use.svg" select="1"/>
+	<xsl:param name="variablelist.term.break.after" select="1"/>
+	<xsl:param name="variablelist.term.separator"/>
 
 	<xsl:output method="xml" omit-xml-declaration="yes"/>
 

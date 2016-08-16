@@ -15,10 +15,16 @@
 				</catalogpath>
 			</xmlcatalog>
 			<classpath>
-				<pathelement location="/usr/share/java/saxon6.jar"/>
-				<pathelement location="/usr/share/java/xml-commons-resolver.jar"/>
-				<pathelement location="/usr/share/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
-				<pathelement location="/usr/share/java/xslthl.jar"/>
+				<pathelement location="${datadir.java}/saxon6.jar"/>
+				<pathelement location="${datadir.java}/xml-commons-resolver.jar"/>
+				<pathelement location="${datadir.xml}/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+				<pathelement location="${datadir.java}/xslthl.jar"/>
+
+				<!-- for Debian -->
+				<pathelement location="${datadir.java}/saxon-6.5.5.jar"/>
+				<pathelement location="${datadir.java}/docbook-xsl-saxon.jar"/>
+				<pathelement location="${datadir.java}/xercesImpl.jar"/>
+				<pathelement location="${datadir.java}/xmlParserAPIs.jar"/>
 			</classpath>
 			<param name="highlight.source" expression="1"/>
 			<param name="profile.status" expression="${xslt.profile.status}"/>
