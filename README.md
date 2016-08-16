@@ -25,4 +25,4 @@ Java 8 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, JUnit, JLine
 
 ### Documentation:
 
-Apache Ant, Docbook 5 XSL, Saxon 6, XSLTHL, SASS, graphviz, perl
+Apache Ant, Docbook 5 XSL, Saxon 6, XSLTHL, SASS, Graphviz, Perl
