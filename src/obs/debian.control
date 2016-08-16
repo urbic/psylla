@@ -1,0 +1,35 @@
+Source: @obs.package.name@
+Section: contrib/graphics
+Priority: optional
+Maintainer: Anton Shvetz <tz@sectorb.msk.ru>
+Build-Depends: debhelper (>= 9),
+	perl-base (>= 5.18.2),
+	openjdk-8-jdk-headless,
+	openjdk-8-doc,
+	javacc, junit4 (>=4.11),
+	ant,
+	ant-optional,
+	libjline-java,
+	libjline-java-doc,
+	docbook-xsl-ns (>=1.79),
+	docbook-mathml,
+	docbook-xsl-saxon,
+	libxslthl-java,
+	ruby-sass,
+	libxerces2-java,
+	graphviz
+Vcs-Git: https://github.com/urbic/@obs.package.name@.git
+Vcs-Browser: https://github.com/urbic/@obs.package.name@
+Homepage: https://github.com/urbic/@obs.package.name@
+
+Package: @obs.package.name@
+Architecture: all
+Depends: debhelper (>= 9),
+	openjdk-8-jre-headless,
+	javacc,
+	junit4 (>=4.11),
+	ant-optional,
+	libjline-java
+Description: Psi programming language
+	Psylla is extensible and embeddable Psi implementation written in Java.
+	Psi is scriptable interpretive PostScript-like programming language.

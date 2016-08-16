@@ -100,7 +100,7 @@ language="psi">toroman</token> преобразует целое число к �
 </para>
 
 <programlisting language="java"><textobject><textdata
-fileref="../../main/java/coneforest/psi/extensions/romannumerals/PsiRomanNumerals.java"/></textobject></programlisting>
+fileref="src/main/java/coneforest/psi/extensions/romannumerals/PsiRomanNumerals.java"/></textobject></programlisting>
 
 </section>
 

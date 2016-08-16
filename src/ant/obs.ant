@@ -64,13 +64,13 @@
 
 	<target name="obs.build" depends="obs.add.spec">
 		<!--mkdir dir="${target.obs}"/-->
-		<!--exec executable="osc" dir="${target.obs}">
+		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
-			<arg value="- -clean"/>
-			<arg value="Debian_8.0"/>
+			<!--arg value="- -clean"/-->
+			<arg value="Ubuntu_16.04"/>
 			<arg value="x86_64"/>
 			<arg value="${obs.package.name}.dsc"/>
-		</exec-->
+		</exec>
 		<!--exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
 			<arg value="- -clean"/>

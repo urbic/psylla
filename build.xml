@@ -34,18 +34,22 @@
 	<property name="target.mime" location="${target}/mime"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
-	<property name="home.javadoc" location="/usr/share/javadoc"/>
-	<property name="home.javadoc.java" location="${home.javadoc}/java"/>
+	<property name="datadir" location="/usr/share"/>
+	<property name="datadir.java" location="${datadir}/java"/>
+	<property name="datadir.ant" location="${datadir}/ant"/>
+	<property name="datadir.xml" location="${datadir}/xml"/>
+	<property name="datadir.javadoc" location="${datadir}/javadoc"/>
+	<property name="datadir.javadoc.java" location="${datadir.javadoc}/java"/>
 	<path id="classpath.main">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="/usr/share/java/jline.jar"/>
-		<pathelement path="/usr/share/java/ant.jar"/>
-		<pathelement path="/usr/share/ant/lib/ant-junit.jar"/>
+		<pathelement path="${datadir.java}/jline.jar"/>
+		<pathelement path="${datadir.java}/ant.jar"/>
+		<pathelement path="${datadir.ant}/lib/ant-junit.jar"/>
 	</path>
 	<path id="classpath.test">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="/usr/share/java/jline.jar"/>
-		<pathelement path="/usr/share/java/junit4.jar"/>
+		<pathelement path="${datadir.java}/jline.jar"/>
+		<pathelement path="${datadir.java}/junit4.jar"/>
 	</path>
 	<property file="${src.main.java}/coneforest/psi/Version.properties" prefix="project"/>
 	<property
@@ -66,7 +70,7 @@
 		<javacc
 			target="${src.main.jj}/coneforest/psi/Parser.jj"
 			outputdirectory="${target.src.main.java}/coneforest/psi"
-			javacchome="/usr/share/java"
+			javacchome="${datadir.java}"
 			unicodeinput="true"
 			static="false"
 			/>
@@ -129,12 +133,13 @@
 			<classpath refid="classpath.main"/>
 			<classpath refid="classpath.test"/>
 			<arg value="-Xdoclint:missing,reference"/>
-			<link href="${home.javadoc.java}"/>
-			<link href="${home.javadoc}/junit"/>
+			<link href="${datadir.javadoc.java}"/>
+			<link href="${datadir.javadoc}/junit"/>
 			<link href="http://jline.sourceforge.net/apidocs/"/>
+			<link href="${datadir}/doc/openjdk-8-jre-headless/api"/><!-- For Debian -->
+			<link href="${datadir}/doc/libjline-java/api"/><!-- For Debian -->
 		</javadoc>
-		<!--
-		<move file="${target.doc.javadoc}/stylesheet.css" tofile="${target.doc.javadoc}/default.scss"/>
+		<!--move file="${target.doc.javadoc}/stylesheet.css" tofile="${target.doc.javadoc}/default.scss"/>
 		<apply executable="sass" dest="${target.doc.javadoc}" parallel="false">
 			<arg value="- -load-path"/>
 			<arg value="${target.doc.javadoc}"/>
@@ -145,8 +150,7 @@
 			<fileset dir="${src.css}" includes="javadoc.scss"/>
 			<mapper type="glob" from="javadoc.scss" to="stylesheet.css"/>
 		</apply>
-		<delete file="${target.doc.javadoc}/default.scss"/>
-		-->
+		<delete file="${target.doc.javadoc}/default.scss"/-->
 	</target>
 
 	<target name="jar"
@@ -245,7 +249,7 @@
 	</target>
 
 	<target name="dist.tar" description="Make Tar distribution">
-		<mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
+		<!--mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
 		<copy todir="${target}/tmp/${project.name}-${project.version}">
 			<fileset
 				dir="."
@@ -262,7 +266,29 @@
 				includes="${project.name}-${project.version}/*"
 				/>
 		</tar>
-		<delete dir="${target}/tmp" quiet="yes"/>
+		<delete dir="${target}/tmp" quiet="yes"/-->
+		<exec outputproperty="git.stashname" executable="git">
+			<arg value="stash"/>
+			<arg value="create"/>
+		</exec>
+		<exec executable="git">
+			<arg value="archive"/>
+			<arg value="--prefix"/>
+			<arg value="${project.name}-${project.version}/"/>
+			<arg value="--output"/>
+			<arg value="${target}/${project.name}-${project.version}.tar.gz"/>
+			<arg value="${git.stashname}"/>
+			<arg value="build.xml"/>
+			<arg value="src"/>
+			<arg value="README"/>
+			<arg value="LICENSE"/>
+			<arg value="AUTHORS"/>
+		</exec>
+		<exec executable="git">
+			<arg value="stash"/>
+			<arg value="apply"/>
+			<arg value="${git.stashname}"/>
+		</exec>
 	</target>
 
 	<target name="build"
