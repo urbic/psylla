@@ -1,6 +1,6 @@
 #!/usr/bin/psylla
 
-arguments 0 get @/@ split
+arguments 0 get ~/~ split
 { tointeger } forall
 tointeger /q exch def
 tointeger /p exch def

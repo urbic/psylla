@@ -26,10 +26,10 @@ syn region psiComment		start="/#" end="#/" contains=psiTodo
 
 syn match psiCharacter		"`\([^\\]\|\\[afenrt\\]\)"
 
-syn match psiNameExecutable	"\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
+syn match psiNameExecutable	"\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
 syn match psiOperator       "[\[\]{}<>()?]"
-syn match psiNameLiteral	"/\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
-syn match psiNameImmediate	"//\([A-Za-z_\.=$@]\)\+\([A-Za-z_\.+-=\d$@]\)*"
+syn match psiNameLiteral	"/\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
+syn match psiNameImmediate	"//\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
 syn region psiNameQuoted	start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=psiStringSpecial
 
 syn region psiString		start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psiStringSpecial
@@ -38,12 +38,12 @@ syn match psiStringSpecial	contained "\\u[[:xdigit:]]\{4}"
 syn match psiStringSpecial	contained "\\x{[[:xdigit:]]\+}"
 syn match psiStringSpecial	contained "\\c."
 
-syn region psiRegExp		start=+@+ end=+@+ skip=+\\\\\|\\@+ contains=psiStringSpecial,psiRegExpSpecial
+syn region psiRegExp		start=+\~+ end=+\~+ skip=+\\\\\|\\\~+ contains=psiStringSpecial,psiRegExpSpecial
 syn match psiRegExpSpecial	contained "(?\([idmsuxU\-]\+:\|[:=!>]\|<[=!]\|<[[:alpha:]]\+>\)\?"
 syn match psiRegExpSpecial	contained "(?[idmsuxU\-]\+"
 syn match psiRegExpSpecial	contained "[|)*+?.]"
 syn match psiRegExpSpecial	contained "{\d\+\(,\d*\)\?}"
-syn match psiRegExpSpecial	contained "\\[dDsSwWbBAGzZQE@]"
+syn match psiRegExpSpecial	contained "\\[dDsSwWbBAGzZQE~]"
 syn match psiRegExpSpecial	contained "\\\d\+"
 syn match psiRegExpSpecial	contained "\[[^\]]\+\]"
 syn match psiRegExpSpecial	contained "\\[pP]{[[:alpha:]]\+}"

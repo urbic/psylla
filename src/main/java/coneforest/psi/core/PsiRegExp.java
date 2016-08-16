@@ -41,7 +41,7 @@ public class PsiRegExp
 	@Override
 	public String toSyntaxString()
 	{
-		final StringBuilder sb=new StringBuilder("@");
+		final StringBuilder sb=new StringBuilder("~");
 		final String patternImage=pattern.toString();
 		for(int i=0; i<patternImage.length(); i++)
 		{
@@ -69,15 +69,15 @@ public class PsiRegExp
 				case '\u001B':
 					sb.append("\\e");
 					break;
-				case '@':
-					sb.append("\\@");
+				case '~':
+					sb.append("\\~");
 					break;
 				default:
 					sb.append(c);
 					break;
 			}
 		}
-		sb.append('@');
+		sb.append('~');
 		return sb.toString();
 	}
 

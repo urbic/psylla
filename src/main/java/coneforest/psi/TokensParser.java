@@ -257,8 +257,8 @@ public class TokensParser
 						case '4': case '5': case '6':
 						case '7': case '8': case '9':
 						*/
-						case '@':
-							sb.append('@');
+						case '~':
+							sb.append('~');
 							break;
 						default:
 							sb.append("\\"+token.image.charAt(i));

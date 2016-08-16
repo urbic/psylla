@@ -141,15 +141,15 @@ TOKEN:
 TOKEN:
 {
 	<REGEXP:
-		"@"
+		"~"
 		(
 			<STRING_SPECIAL>
 			|
 			<REGEXP_SPECIAL>
 			|
-			~["@", "\\"]
+			~["~", "\\"]
 		)*
-		"@"
+		"~"
 	>
 }
 
