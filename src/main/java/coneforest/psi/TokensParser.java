@@ -373,5 +373,4 @@ public class TokensParser
 				return PsiInteger.valueOf(token.image.charAt(1));
 		}
 	}
-
 }

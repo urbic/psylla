@@ -124,6 +124,11 @@ TOKEN:
 
 TOKEN:
 {
+	<NAMESPACE: "@" <COMMAND>>
+}
+
+TOKEN:
+{
 	<#STRING_SPECIAL:
 		"\\"
 		(
@@ -155,18 +160,7 @@ TOKEN:
 
 TOKEN:
 {
-	<#REGEXP_SPECIAL:
-		"\\"
-		(
-			//["d", "D", "s", "S", "w", "W", "b", "B", "A", "G", "z", "Z", "p", "k", "Q", "E", "!"]
-				//["!"]
-			//"!"
-			//"!"
-			~[]
-			//|
-			//(<DIGIT>)+
-		)
-	>
+	<#REGEXP_SPECIAL: "\\" ~[]>
 }
 
 TOKEN:

@@ -214,6 +214,7 @@ public class Interpreter
 				case ParserConstants.NAME_SLASHED:
 				case ParserConstants.NAME_QUOTED:
 				case ParserConstants.IMMEDIATE:
+				case ParserConstants.NAMESPACE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.CHAR:
 					ostack.push(parseToken(token));
@@ -253,6 +254,7 @@ public class Interpreter
 				case ParserConstants.NAME_QUOTED:
 				case ParserConstants.COMMAND:
 				case ParserConstants.IMMEDIATE:
+				case ParserConstants.NAMESPACE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.CHAR:
 					procstack.peek().psiAppend(parseToken(token));
@@ -266,11 +268,17 @@ public class Interpreter
 	private PsiObject parseToken(final Token token)
 		throws PsiException
 	{
-		return (token.kind==ParserConstants.IMMEDIATE)?
-			dstack.load(token.image.substring(2)):
-			TokensParser.parseToken(token);
+		// TODO: make TokensParser inner class of Interpreter
+		switch(token.kind)
+		{
+			case ParserConstants.IMMEDIATE:
+				return dstack.load(token.image.substring(2));
+			case ParserConstants.NAMESPACE:
+				return nspool.forPrefix(token.image.substring(1).intern());
+			default:
+				return TokensParser.parseToken(token);
+		}
 	}
-
 
 	public PsiDictlike errorDict()
 		throws PsiException
@@ -559,6 +567,7 @@ public class Interpreter
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
+	private final NameSpacePool nspool=new NameSpacePool();
 	private boolean stopFlag=false;
 	private boolean running=true;
 	private final java.util.HashMap<String, Class<? extends PsiObject>> typeResolver
