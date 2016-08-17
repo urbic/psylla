@@ -78,6 +78,9 @@
 			<arg value="x86_64"/>
 			<arg value="${obs.package.name}.spec"/>
 		</exec-->
+		<copy todir="${target.obs}" overwrite="yes">
+			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.gz"/>
+		</copy>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
 			<arg value="--clean"/>

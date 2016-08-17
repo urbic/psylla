@@ -20,9 +20,7 @@ build-stamp:
 	dh_testdir
 
 	# Add here commands to compile the package.
-	#LANG=ru_RU.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar:/usr/share/java/xmlParserAPIs.jar:/usr/share/java/xml-apis.jar ant build
-	#LANG=ru_RU.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar:/usr/share/java/xmlParserAPIs.jar ant build
-	LANG=ru_RU.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant build
+	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant build
 	# --- end custom part for compiling
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	ant test

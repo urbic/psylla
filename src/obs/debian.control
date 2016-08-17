@@ -1,5 +1,5 @@
 Source: @obs.package.name@
-Section: contrib/graphics
+Section: contrib/interpreters
 Priority: optional
 Maintainer: Anton Shvetz <tz@sectorb.msk.ru>
 Build-Depends: debhelper (>= 9),
