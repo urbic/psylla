@@ -18,7 +18,7 @@ public class Psylla
 			String consoleEncoding=java.nio.charset.Charset.defaultCharset().toString();
 			final coneforest.cli.Processor cli=new coneforest.cli.Processor
 				(
-					new coneforest.cli.OptionFlag("help", "h", "?"),
+					new coneforest.cli.OptionFlag("help", "usage", "h", "?"),
 					new coneforest.cli.OptionFlag("version", "V"),
 					new coneforest.cli.OptionString("console-encoding", "C"),
 					new coneforest.cli.OptionPath("classpath", "cp"),
