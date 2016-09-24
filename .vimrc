@@ -3,3 +3,7 @@ command PrepsEOL :.,$/\<\(в\|во\|на\|с\|по\|над\|под\|со\|для
 
 source src/vim/ftdetect/psi.vim
 au Syntax psi source src/vim/syntax/psi.vim
+
+if has("autocmd")
+	autocmd FileType {xml,xslt} setlocal iskeyword=@,-,\:,48-57,_,128-167,224-235
+endif
