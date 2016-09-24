@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.psi            set filetype=psi
+au BufRead,BufNewFile *.psi set filetype=psi
