@@ -3,14 +3,46 @@
 <title>Multiple Context Execution</title>
 
 <para>
-В языке Ψ имеется поддержка асинхронных <firstterm>контекстов
-исполнения</firstterm><indexterm><primary>контекст</primary>
-<secondary>исполнения</secondary></indexterm>. Контекст исполнения представляет
-собой отдельный интерпретатор.
+The Ψ language has support for asynchronous <firstterm>execution
+contexts</firstterm><indexterm><primary>execution
+context</primary></indexterm>. The execution context is a separate interpreter
+instance.
+</para>
+
+<para>
+Each context creates an environment for executing program, consisting of
+stacks. Different contexts share the common dictionary stack. The rest of the
+stacks (operand stack, execution stack, auxiliary stacks) are private and can
+not be seen outside their context.
+</para>
+
+<para>
+The main context is created for the execution of the program. The program can
+create additional contexts, executing the <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/> operator.
 </para>
 
 <section xml:id="PsiReference_Language_MultipleContextExecution_Creation">
 <title>Creating Contexts</title>
+
+<para>
+The <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/> operator returns a new context.
+One of the <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/> operands is a procedure that is
+executed in the new context, and the remaining operands are used to initialize
+the operand stack in a new context.
+</para>
+
+<para>
+The <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_join"/> operator waits for the
+completion of the procedure being executed in the context previously created by
+the <xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_fork"/> operator, and then copies the
+contents of the operand stack to the operand stack of the context that invoked
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_join"/>.
+</para>
 
 </section>
 
@@ -23,6 +55,5 @@
 <title>Context Synchronization</title>
 
 </section>
-
 
 </section>

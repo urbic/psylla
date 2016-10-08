@@ -181,12 +181,12 @@
 <production xml:id="PsiReference_Language_Grammar_RegExp">
 <lhs>REGEXP</lhs>
 <rhs>
-<constant>"@"</constant>
+<constant>"~"</constant>
 (<nonterminal def="#PsiReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>
 | <nonterminal def="#PsiReference_Language_Grammar_RegExpSpecial">REGEXP_SPECIAL</nonterminal>
-| ~[<constant>"@"</constant>,
+| ~[<constant>"~"</constant>,
 <constant>"\\"</constant>])*
-<constant>"@"</constant>
+<constant>"~"</constant>
 </rhs>
 </production>
 

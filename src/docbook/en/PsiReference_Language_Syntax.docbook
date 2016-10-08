@@ -236,9 +236,10 @@ defined by the following character.
 <row>
 <entry><literal>\c<replaceable>C</replaceable></literal></entry> <entry>for
 <replaceable>C</replaceable> character within the
-range <constant>U+0‥3F</constant> increment character’s code by 64, for
-character within the range <constant>U+40‥7F</constant> decrements the code
-by 64</entry>
+range <constant>U+0‥3F</constant>, increment character’s code by 64, for
+character within the range <constant>U+40‥7F</constant>, decrement the code
+by 64
+</entry>
 </row>
 </tbody>
 </tgroup>
@@ -307,7 +308,7 @@ preceded by the slash character (<literal>/</literal>,
 
 <para>
 The curly bracket characters (<literal>{</literal>, <constant>U+7B</constant>
-and <literal>}</literal> <constant>U+7D</constant>) are used to create
+and <literal>}</literal>, <constant>U+7D</constant>) are used to create
 <firstterm>procedures</firstterm><indexterm><primary>procedure</primary></indexterm>.
 </para>
 
@@ -321,7 +322,7 @@ interpretation of the program fragment
 
 <programlisting language="psi">{ 1 exch div }</programlisting>
 
-leads to the creation of a procedure object, that contains an integer numeric
+leads to the creation of a procedure object that contains an integer numeric
 object <code language="psi">1</code> and two command objects <code
 language="psi">exch</code> and <code language="psi">div</code>.
 </para>
@@ -340,6 +341,11 @@ linkend="PsiReference_Language_ObjectExecution"/>.
 
 <section xml:id="PsiReference_Language_Syntax_Dictionaries">
 <title>Dictionaries</title>
+
+<para>
+A dictionary also known as associative array is the container that holds
+arbitrary objects associated with keys represented by names.
+</para>
 
 <remark>TODO</remark>
 

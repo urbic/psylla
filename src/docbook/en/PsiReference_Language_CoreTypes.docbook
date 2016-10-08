@@ -290,7 +290,7 @@ leads to sequential execution of all its elements.
 
 <para>
 A <firstterm>string</firstterm><indexterm><primary>string</primary></indexterm>
-conceptually arranged as an array whose elements are integers berween <math
+conceptually arranged as an array whose elements are integers between <math
 xmlns="&nsMathML;"><mn>0</mn></math> and <math
 xmlns="&nsMathML;"><mn>65535</mn></math> inclusive (<firstterm>code
 units</firstterm><indexterm><primary>code unit</primary></indexterm>).

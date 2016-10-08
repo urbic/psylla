@@ -6,4 +6,3 @@
 <!ENTITY nsSVG		"http://www.w3.org/2000/svg">
 <!ENTITY nsXI		"http://www.w3.org/2001/XInclude">
 <!ENTITY nsHL		"http://xslthl.sf.net">
-<!ENTITY nsSSI		"urn:coneforest:xsl:xhtml:ssi">

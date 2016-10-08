@@ -21,7 +21,7 @@ xml:lang="en">Last In—First Out</foreignphrase> (последний пришё
 <title>Operand Stack</title>
 
 <para>
-Execution of literal objects always leads to add to the operand stack If the
+Execution of literal objects always leads to add to the operand stack. If the
 operator needs the data to handle, it remove the necesser number of objects
 from the operand stack. The objects created by the operator are added to the stack.
 Так действует большинство операторов языка. Таким
