@@ -7,6 +7,8 @@ public class PsiSystemDict
 	public PsiSystemDict()
 		throws PsiException
 	{
+		super("system");
+
 		registerOperators
 			(
 				new PsiOperator.Arity11<PsiNumeric>
@@ -229,6 +231,14 @@ public class PsiSystemDict
 				new PsiOperator.Arity01
 					("currentdirectory", FileSystem::psiCurrentDirectory),
 				new PsiOperator.Action
+					("currentnamespace",
+						(interpreter)->
+						{
+							final OperandStack ostack=interpreter.operandStack();
+							ostack.push(interpreter.currentNamespace());
+						}
+					),
+				new PsiOperator.Action
 					("def",
 						(interpreter)->
 						{
@@ -306,10 +316,7 @@ public class PsiSystemDict
 					("end",
 						(interpreter)->
 						{
-							DictStack dictstack=interpreter.dictStack();
-							if(dictstack.size()<=2)
-								throw new PsiDictStackUnderflowException();
-							dictstack.pop();
+							interpreter.dictStack().psiEnd();
 						}
 					),
 				new PsiOperator.Arity20<PsiQueuelike, PsiObject>
@@ -322,8 +329,8 @@ public class PsiSystemDict
 					("eval",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
-							ostack.<PsiEvaluable>getBacked(0).eval(interpreter);
+							interpreter.operandStackBacked(1)
+								.<PsiEvaluable>getBacked(0).eval(interpreter);
 						}
 					),
 				new PsiOperator.Action
@@ -339,8 +346,8 @@ public class PsiSystemDict
 					("exec",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
-							ostack.getBacked(0).invoke(interpreter);
+							interpreter.operandStackBacked(1)
+								.getBacked(0).invoke(interpreter);
 						}
 					),
 				new PsiOperator.Action
@@ -737,6 +744,8 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity21<PsiArithmetic, PsiArithmetic>
 					("mul", PsiArithmetic::psiMul),
+				new PsiOperator.Arity11<PsiStringy>
+					("namespace", PsiNamespace::new),
 				new PsiOperator.Arity21<PsiObject, PsiObject>
 					("ne", PsiObject::psiNe),
 				new PsiOperator.Arity11<PsiAdditive>

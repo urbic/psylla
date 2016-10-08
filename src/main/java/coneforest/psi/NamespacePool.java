@@ -1,33 +1,23 @@
 package coneforest.psi;
 import coneforest.psi.core.*;
 
-public class NameSpacePool
+public class NamespacePool
 {
-	/*
-	public String currentPrefix()
+	public NamespacePool()
 	{
-		return currentPrefix;
+		// Store default namespace
+		pool.put("", new PsiNamespace(""));
 	}
 
-	public void setCurrent(final String prefix)
-	{
-		currentPrefix=prefix;
-		if(!(prefix.equals("") || pool.containsKey(prefix)))
-			pool.put(currentPrefix, new PsiNameSpace(prefix));
-	}
-
-	private String currentPrefix="";
-	*/
-
-	public PsiNameSpace forPrefix(final String prefix)
+	public PsiNamespace forPrefix(final String prefix)
 	{
 		if(pool.containsKey(prefix))
 			return pool.get(prefix);
-		final PsiNameSpace oNameSpace=new PsiNameSpace(prefix.intern());
-		pool.put(prefix, oNameSpace);
-		return oNameSpace;
+		final PsiNamespace oNamespace=new PsiNamespace(prefix.intern());
+		pool.put(prefix, oNamespace);
+		return oNamespace;
 	}
 
-	private final java.util.HashMap<String, PsiNameSpace> pool
-		=new java.util.HashMap<String, PsiNameSpace>();
+	private final java.util.HashMap<String, PsiNamespace> pool
+		=new java.util.HashMap<String, PsiNamespace>();
 }
