@@ -8,6 +8,8 @@ public class PsiRomanNumerals
 	public PsiRomanNumerals()
 		throws PsiException
 	{
+		super("text.roman");
+
 		registerOperators
 			(
 				new PsiOperator.Arity11<PsiInteger>

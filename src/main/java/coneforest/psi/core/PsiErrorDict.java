@@ -7,6 +7,7 @@ public class PsiErrorDict
 	public PsiErrorDict()
 		throws PsiException
 	{
+		super("error");
 		registerOperators(OP_HANDLEERROR);
 	}
 
