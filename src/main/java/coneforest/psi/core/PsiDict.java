@@ -43,9 +43,9 @@ public class PsiDict
 	public PsiObject get(final String key)
 		throws PsiException
 	{
-		final PsiObject result=dict.get(key);
-		if(result!=null)
-			return result;
+		final PsiObject oValue=dict.get(key);
+		if(oValue!=null)
+			return oValue;
 		else
 			throw new PsiUndefinedException();
 	}

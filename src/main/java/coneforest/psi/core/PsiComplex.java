@@ -64,7 +64,7 @@ public class PsiComplex
 	@Override
 	public String toSyntaxString()
 	{
-		return "-complex:"+re+","+im+"-";
+		return "|complex="+re+","+im+"|";
 	}
 
 	/**

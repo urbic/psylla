@@ -82,7 +82,8 @@ public interface PsiObject
 		return new PsiString(toSyntaxString());
 	}
 
-	default public PsiString convert(Class<PsiString> clazz)
+	// TODO
+	default public PsiString convert(final Class<PsiString> clazz)
 	{
 		return new PsiString(toSyntaxString());
 	}
@@ -100,14 +101,16 @@ public interface PsiObject
 
 	default public String toSyntaxString()
 	{
-		return "-"+typeName()+"-";
+		return '|'+typeName()+'|';
 	}
 
 	// TODO
-	default public PsiBoolean psiInstanceOf(PsiStringy stringy)
+	default public PsiBoolean psiInstanceOf(final PsiStringy oTypeName)
 	{
 		//Class<? extends PsiObject> clazz=TypeRegistry.get(stringy.getString());
 		//return PsiBoolean.valueOf(clazz!=null && clazz.isInstance(this));
+
+		final Interpreter interpreter=Interpreter.currentInterpreter();
 		return PsiBoolean.TRUE;
 	}
 

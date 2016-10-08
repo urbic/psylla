@@ -38,7 +38,7 @@ public interface PsiContext
 	@Override
 	default public String toSyntaxString()
 	{
-		return "-context:"+getId()+"-";
+		return "|context="+getId()+"|";
 	}
 
 	/**

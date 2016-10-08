@@ -44,7 +44,7 @@ public class PsiBitSet
 	@Override
 	public String toSyntaxString()
 	{
-		final StringBuilder sb=new StringBuilder("-bitset:");
+		final StringBuilder sb=new StringBuilder("|bitset=");
 		int j=-1;
 		for(int i=bitset.nextSetBit(0); i>=0; i=bitset.nextSetBit(i+1))
 		{
@@ -53,7 +53,7 @@ public class PsiBitSet
 			sb.append('1');
 			j=i;
 		}
-		sb.append('-');
+		sb.append('|');
 		return sb.toString();
 	}
 
