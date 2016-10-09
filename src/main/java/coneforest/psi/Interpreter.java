@@ -74,6 +74,11 @@ public class Interpreter
 		return estack;
 	}
 
+	public NamespacePool namespacePool()
+	{
+		return nspool;
+	}
+
 	public void handleExecutionStack()
 	{
 		while(estack.size()>0)
@@ -114,6 +119,11 @@ public class Interpreter
 	public PsiDictlike userDict()
 	{
 		return dstack.get(1);
+	}
+
+	public PsiNamespace currentNamespace()
+	{
+		return dstack.currentNamespace();
 	}
 
 	public void setReader(final java.io.Reader reader)
@@ -567,7 +577,7 @@ public class Interpreter
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
-	private final NameSpacePool nspool=new NameSpacePool();
+	private final NamespacePool nspool=new NamespacePool();
 	private boolean stopFlag=false;
 	private boolean running=true;
 	private final java.util.HashMap<String, Class<? extends PsiObject>> typeResolver
