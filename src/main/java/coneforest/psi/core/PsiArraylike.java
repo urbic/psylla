@@ -182,11 +182,11 @@ public interface PsiArraylike<T extends PsiObject>
 	}
 
 	@Override
-	default public PsiArraylike<T> psiGetAll(final PsiIterable<PsiInteger> oEnumeration)
+	default public PsiArraylike<T> psiGetAll(final PsiIterable<PsiInteger> oIndices)
 		throws PsiException
 	{
 		final PsiArraylike<T> oResult=(PsiArraylike<T>)psiNewEmpty();
-		for(PsiInteger oIndex: oEnumeration)
+		for(PsiInteger oIndex: oIndices)
 			oResult.psiAppend(psiGet(oIndex));
 		return oResult;
 	}
