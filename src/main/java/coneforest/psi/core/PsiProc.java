@@ -4,6 +4,16 @@ import coneforest.psi.*;
 public class PsiProc
 	extends PsiArray
 {
+	public PsiProc()
+	{
+		super();
+	}
+
+	public PsiProc(final java.util.ArrayList<PsiObject> array)
+	{
+		super(array);
+	}
+
 	@Override
 	public String typeName()
 	{
@@ -23,6 +33,12 @@ public class PsiProc
 		{
 			// TODO?
 		}
+	}
+
+	@Override
+	public PsiProc psiClone()
+	{
+		return new PsiProc((java.util.ArrayList<PsiObject>)array.clone());
 	}
 
 	@Override

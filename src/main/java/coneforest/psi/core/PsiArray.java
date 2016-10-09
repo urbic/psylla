@@ -216,5 +216,5 @@ public class PsiArray
 			}));
 	}
 
-	private final java.util.ArrayList<PsiObject> array;
+	protected final java.util.ArrayList<PsiObject> array;
 }
