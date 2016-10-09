@@ -3,7 +3,7 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code additive}, a type of object that is an operand
 *	of arithmetic operation. This interface declares methods for addition,
-*	subtraction and negation,
+*	subtraction and negation.
 *
 *	@param <T> a type of the second operand at binary operation.
 */
@@ -16,7 +16,8 @@ public interface PsiAdditive<T extends PsiAdditive>
 	@Override
 	default public String typeName()
 	{
-		return "additive";
+		//return "additive";
+		return TYPE.name();
 	}
 
 	/**
@@ -34,8 +35,8 @@ public interface PsiAdditive<T extends PsiAdditive>
 	*	@param oAdditive given object.
 	*	@return a sum.
 	*/
-	//public T psiAdd(final T oAdditive);
-	public <U extends T> T psiAdd(final U oAdditive);
+	public T psiAdd(final T oAdditive);
+	//public <U extends T> T psiAdd(final U oAdditive);
 
 	/**
 	*	Returns a Ψ-{@code additive} representing the result of arithmetic
@@ -45,4 +46,7 @@ public interface PsiAdditive<T extends PsiAdditive>
 	*	@return a difference.
 	*/
 	public T psiSub(final T oAdditive);
+
+	public static final PsiType<PsiAdditive> TYPE
+		=new PsiType<PsiAdditive>("additive");
 }
