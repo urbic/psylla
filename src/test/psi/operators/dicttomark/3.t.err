@@ -1,4 +1,4 @@
 Error: /typecheck in --dicttomark--
 Operand stack:
-	 -mark- /a 0 1 1 /c 2
+	 |mark| /a 0 1 1 /c 2
 Execution  stack: (empty)
