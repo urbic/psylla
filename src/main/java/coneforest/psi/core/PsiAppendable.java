@@ -25,7 +25,7 @@ public interface PsiAppendable<T extends PsiObject>
 	*	@throws PsiException when an error occurs.
 	*/
 	public void psiAppend(final T o)
-		throws PsiException;
+		throws PsiLimitCheckException, PsiRangeCheckException;
 
 	/**
 	*	Appends all the Ψ-{@code object}s from a given Ψ-{@code iterable}

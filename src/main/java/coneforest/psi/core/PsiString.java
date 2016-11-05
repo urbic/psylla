@@ -119,7 +119,7 @@ public class PsiString
 
 	@Override
 	public void psiAppend(final PsiInteger oCharacter)
-		throws PsiException
+		throws PsiLimitCheckException
 	{
 		if(length()==Integer.MAX_VALUE)
 			throw new PsiLimitCheckException();

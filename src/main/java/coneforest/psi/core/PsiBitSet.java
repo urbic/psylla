@@ -64,8 +64,10 @@ public class PsiBitSet
 
 	@Override
 	public void psiAppend(final PsiInteger oIndex)
-		throws PsiException
+		throws PsiLimitCheckException, PsiRangeCheckException
 	{
+		if(length()==Integer.MAX_VALUE)
+			throw new PsiLimitCheckException();
 		try
 		{
 			bitset.set(oIndex.intValue(), true);
