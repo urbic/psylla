@@ -1,6 +1,6 @@
 /**
 * Ψ language core types.
 *
-* @author Anton Shvetz &lt;tz@sectorb.msk.ru&gt;
+* @author Anton Shvetz ‹tz@sectorb.msk.ru›
 */
 package coneforest.psi.core;
