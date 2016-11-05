@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="psylla" default="jar" basedir=".">
+<project name="psylla" default="jar" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 	<!-- Properties -->
 	<property name="project.name" value="${ant.project.name}"/>
@@ -271,6 +271,8 @@
 			<arg value="stash"/>
 			<arg value="create"/>
 		</exec>
+		<property name="git.stashname" value="HEAD" if:blank="${git.stashname}"/>
+		<echo>${git.stashname}</echo>
 		<exec executable="git">
 			<arg value="archive"/>
 			<arg value="--prefix"/>
@@ -285,7 +287,7 @@
 			<arg value="LICENSE"/>
 			<arg value="AUTHORS"/>
 		</exec>
-		<exec executable="git">
+		<exec executable="git" if:blank="${git.stashname}">
 			<arg value="stash"/>
 			<arg value="apply"/>
 			<arg value="${git.stashname}"/>
