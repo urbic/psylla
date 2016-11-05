@@ -82,10 +82,10 @@ public class PsiReader
 	}
 
 	@Override
-	public PsiString psiReadLine(final PsiStringy eol)
+	public PsiString psiReadLine()
 		throws PsiException
 	{
-		final String eolString=eol.stringValue();
+		final String eolString=System.getProperty("line.separator");
 		final StringBuilder sb=new StringBuilder();
 
 		try

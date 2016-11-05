@@ -50,7 +50,7 @@ public interface PsiReadable
 	 *	@return a line read,
 	 *	@throws PsiException when error occurs.
 	 */
-	public PsiString psiReadLine(final PsiStringy oStringy)
+	public PsiString psiReadLine()
 		throws PsiException;
 
 	/**

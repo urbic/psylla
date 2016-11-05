@@ -847,8 +847,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final PsiStringy oEOL=interpreter.dictStack().load("eol");
-							final PsiString oString=ostack.<PsiReadable>getBacked(0).psiReadLine(oEOL);
+							final PsiString oString=ostack.<PsiReadable>getBacked(0).psiReadLine();
 							if(oString.length()>0)
 								ostack.push(oString);
 							ostack.push(PsiBoolean.valueOf(oString.length()>0));

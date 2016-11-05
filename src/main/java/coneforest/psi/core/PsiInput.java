@@ -50,7 +50,7 @@ public class PsiInput
 	}
 
 	@Override
-	public PsiString psiReadLine(PsiStringy eol)
+	public PsiString psiReadLine()
 		throws PsiException
 	{
 		// TODO
