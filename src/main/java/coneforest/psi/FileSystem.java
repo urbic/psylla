@@ -1,8 +1,15 @@
 package coneforest.psi;
 import coneforest.psi.core.*;
 
+/**
+*	An utility class providing filesystem-related methods.
+*/
 public class FileSystem
 {
+	private FileSystem()
+	{
+	}
+
 	public static java.nio.file.Path getPath(String fileName)
 	{
 		// TODO
@@ -22,8 +29,24 @@ public class FileSystem
 		*/
 	}
 
+	/**
+	*	Creates a new directory with the given name.
+	*
+	*	@param oFileName a Ψ-{@code stringy} representing the name of the
+	*	directory being created.
+	*
+	*	@throws PsiFileExistsException when the directory already exists.
+	*	@throws PsiFileAccessDeniedException when the operation is prohibited
+	*	due to a file permission or other access check.
+	*	@throws PsiSecurityErrorException when security policy is violated.
+	*	@throws PsiIOErrorException when an input/output error occurs.
+	*/
 	public static void psiCreateDirectory(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileExistsException,
+			PsiFileAccessDeniedException,
+			PsiSecurityErrorException,
+			PsiIOErrorException
 	{
 		try
 		{
@@ -70,8 +93,26 @@ public class FileSystem
 	}
 	*/
 
+	/**
+	*	Deletes a file or nonempty directory with a given name.
+	*
+	*	@param oFileName a Ψ-{@code stringy} representing the name of a file or
+	*	directory.
+	*
+	*	@throws PsiDirectoryNotEmptyException when the directory is not empty.
+	*	@throws PsiFileNotFoundException when the file or directory does not exist.
+	*	@throws PsiFileAccessDeniedException when the operation is prohibited
+	*	due to a file permission or other access check.
+	*	@throws PsiSecurityErrorException when security policy is violated.
+	*	@throws PsiIOErrorException when an input/output error occurs.
+	*/
 	public static void psiDeleteFile(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileNotFoundException,
+			PsiFileAccessDeniedException,
+			PsiDirectoryNotEmptyException,
+			PsiSecurityErrorException,
+			PsiIOErrorException
 	{
 		try
 		{
@@ -80,6 +121,10 @@ public class FileSystem
 		catch(java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
+		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
 		}
 		catch(java.nio.file.DirectoryNotEmptyException e)
 		{
@@ -128,12 +173,12 @@ public class FileSystem
 		}
 	}
 
-	public static PsiString psiReadLink(final PsiStringy oFileName)
+	public static PsiName psiReadLink(final PsiStringy oFileName)
 		throws PsiException
 	{
 		try
 		{
-			return new PsiString(java.nio.file.Files.readSymbolicLink(getPath(oFileName))
+			return new PsiName(java.nio.file.Files.readSymbolicLink(getPath(oFileName))
 					.toString());
 		}
 		catch(java.nio.file.NoSuchFileException e)
@@ -173,6 +218,10 @@ public class FileSystem
 		catch(java.lang.SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
+		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
 		}
 		catch(java.io.IOException e)
 		{
@@ -346,6 +395,13 @@ public class FileSystem
 		}
 	}
 
+	/**
+	*	Returns the size (in bytes) for the file or directory with the given name.
+	*
+	*	@param oFileName a Ψ-{@code stringy} representing the file name.
+	*	@return a Ψ-{@code integer} representing the size (in bytes) of the
+	*	file or directory.
+	*/
 	public static PsiInteger psiFileSize(final PsiStringy oFileName)
 		throws PsiException
 	{
@@ -356,6 +412,10 @@ public class FileSystem
 		catch(java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
+		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
 		}
 		catch(java.io.IOException e)
 		{
@@ -379,6 +439,10 @@ public class FileSystem
 		{
 			throw new PsiFileNotFoundException();
 		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
+		}
 		catch(java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
@@ -401,6 +465,10 @@ public class FileSystem
 		{
 			throw new PsiFileNotFoundException();
 		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
+		}
 		catch(java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
@@ -422,6 +490,10 @@ public class FileSystem
 		catch(java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
+		}
+		catch(java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
 		}
 		catch(java.io.IOException e)
 		{
@@ -456,10 +528,17 @@ public class FileSystem
 		}
 	}
 
-	public static PsiString psiCurrentDirectory()
-		throws PsiException
+	/**
+	*	Returns a Ψ-{@code name} representing the name of the current
+	*	directory.
+	*
+	*	@return a Ψ-{@code name} representing the name of the current
+	*	directory.
+	*/
+	public static PsiName psiCurrentDirectory()
+	//	throws PsiException
 	{
-		return new PsiString(java.nio.file.Paths.get("").toAbsolutePath().toString());
+		return new PsiName(java.nio.file.Paths.get("").toAbsolutePath().toString());
 	}
 
 	public static PsiIterable<PsiName> psiFiles(final PsiStringy oFileName)
