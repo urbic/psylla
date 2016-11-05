@@ -12,14 +12,14 @@
 —
 </synopsis>
 
-<para>
-При попытке удалить постоянный словарь генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
-</para>
-
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_dictstackunderflow"/> —
+при попытке удаления постоянного словаря
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

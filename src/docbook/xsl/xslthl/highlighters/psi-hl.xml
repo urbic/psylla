@@ -22,7 +22,7 @@
 	</highlighter>
 
 	<highlighter type="string">
-		<string>@</string>
+		<string>~</string>
 	</highlighter>
 
 	<highlighter type="regex">

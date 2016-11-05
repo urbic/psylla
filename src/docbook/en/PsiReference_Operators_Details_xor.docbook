@@ -3,7 +3,7 @@
 <title><token language="psi">xor</token></title>
 
 <para>
-Returns the <replaceable>exclusive_disjunction</replaceable> of two
+Returns the <replaceable>exclusive disjunction</replaceable> of two
 <replaceable>operands</replaceable>.
 </para>
 
@@ -32,7 +32,7 @@ linkend="PsiReference_Types_Details_boolean"/>
 <replaceable>operands</replaceable> returns the logical
 <replaceable>exclusive_disjunction</replaceable>. For <xref
 xrefstyle="template:%t" linkend="PsiReference_Types_Details_bitwise"/>
-<replaceable>operands</replaceable> returns the bitwise <replaceable>exclusive
+<replaceable>operands</replaceable>, returns the bitwise <replaceable>exclusive
 disjunction</replaceable>.
 </para>
 
@@ -48,8 +48,14 @@ true true xor	▶ false
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

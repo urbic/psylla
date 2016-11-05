@@ -45,17 +45,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/>, если стек операндов не
-содержит метку; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если количество объектов
-выше самой верхней метки на стеке операндов нечётно; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>, если
-хотя бы один из <replaceable>ключей</replaceable> не принадлежит типу <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 3 /two 2 &gt;</programlisting>
@@ -63,9 +52,21 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+если количество объектов выше самой верхней метки на стеке операндов нечётно
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/> —
+если хотя бы один из <replaceable>ключей</replaceable> не принадлежит типу
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/> —
+если стек операндов не содержит метки
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

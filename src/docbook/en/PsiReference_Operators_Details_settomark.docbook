@@ -37,12 +37,6 @@ operand stack. Removes the mark and the objects from the stack.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
-does not contain mark.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">mark 1 2 3 2 /x settomark	▶ ( 1 3 /x 2 )</programlisting>
@@ -50,7 +44,12 @@ does not contain mark.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/> —
+when the operand stack does not contain mark
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

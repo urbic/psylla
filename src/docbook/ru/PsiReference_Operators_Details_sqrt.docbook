@@ -27,14 +27,20 @@
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">2 sqrt				▶ 1.4142135623730951
--1 sqrt	 			▶ -complex:0.0,1.0-
-0 1 complex sqrt	▶ -complex:0.7071067811865476,0.7071067811865475-</programlisting>
+-1 sqrt	 			▶ NaN
+0 1 complex sqrt	▶ |complex=0.7071067811865476,0.7071067811865475|</programlisting>
 </formalpara>
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

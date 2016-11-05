@@ -99,9 +99,9 @@
 начинаются с необязательного знака <literal>+</literal> или
 <literal>-</literal>, символов <literal>0X</literal> или <literal>0x</literal>
 и завершаются произвольным количеством шестнадцатеричных цифр
-<literal>0</literal>—<literal>9</literal> и
-<literal>A</literal>—<literal>F</literal> или
-<literal>a</literal>—<literal>f</literal>.
+<literal>0</literal>‥<literal>9</literal> и
+<literal>A</literal>‥<literal>F</literal> или
+<literal>a</literal>‥<literal>f</literal>.
 </para>
 
 </section>

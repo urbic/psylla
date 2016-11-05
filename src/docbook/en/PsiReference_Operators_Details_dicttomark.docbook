@@ -45,17 +45,6 @@ objects above it from the operand stack.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
-does not contain mark; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/> if there is an odd number of
-objects above the topmost mark on the operand stack; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/> if at
-least one of <replaceable>keys</replaceable> does not belong to <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/> type.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 3 /two 2 &gt;</programlisting>
@@ -63,9 +52,22 @@ xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/> type.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+when there is an odd number of objects above the topmost mark on the operand
+stack
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/> —
+when at least one of <replaceable>keys</replaceable> does not belong to <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/> type
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/> —
+when the operand stack does not contain mark
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

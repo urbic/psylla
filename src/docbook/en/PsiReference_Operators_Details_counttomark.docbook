@@ -40,15 +40,14 @@ Returns the number of objects situated above the highest
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unmatchedmark"/> when the operand stack
-does not contain any mark.
-</para>
-
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/> —
+when the operand stack does not contain mark
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

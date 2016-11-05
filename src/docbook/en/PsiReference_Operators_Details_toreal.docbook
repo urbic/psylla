@@ -3,20 +3,20 @@
 <title><token language="psi">toreal</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psi">toreal</token>
-<replaceable>вещественное</replaceable>
+<replaceable>real</replaceable>
 </synopsis>
 
 <formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_convertabletoreal"/>
 </listitem>
 <listitem>
-<replaceable>вещественное</replaceable>:
+<replaceable>real</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>

@@ -22,7 +22,7 @@ Returns the <replaceable>target</replaceable> of a symbolic link with a given
 </listitem>
 <listitem>
 <replaceable>target</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -41,7 +41,7 @@ is violated.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">'/usr/bin/java' readlink	▶ "/etc/alternatives/java"</programlisting>
+<programlisting language="psi">'/usr/bin/java' readlink	▶ '/etc/alternatives/java'</programlisting>
 </formalpara>
 
 <formalpara>

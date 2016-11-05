@@ -3,7 +3,7 @@
 <title><token language="psi">abs</token></title>
 
 <para>
-Returns the <replaceable>absolute_value</replaceable> of the
+Returns the <replaceable>absolute value</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 

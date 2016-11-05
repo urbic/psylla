@@ -385,8 +385,8 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <entry>символ escape, <constant>U+1B</constant></entry>
 </row>
 <row>
-<entry><literal>\@</literal></entry>
-<entry>символ <literal>@</literal>, <constant>U+40</constant></entry>
+<entry><literal>\~</literal></entry>
+<entry>символ тильды <literal>~</literal>, <constant>U+7E</constant></entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>X</replaceable></literal></entry>

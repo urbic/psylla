@@ -17,7 +17,7 @@ Returns the <replaceable>name</replaceable> of the current directory.
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_string"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_name"/>
 </listitem>
 </itemizedlist>
 </formalpara>

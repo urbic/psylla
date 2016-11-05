@@ -41,6 +41,7 @@ linkend="PsiReference_Types_Details_arraylike"/> добавление проис
 
 <formalpara>
 &TitleErrors;
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.

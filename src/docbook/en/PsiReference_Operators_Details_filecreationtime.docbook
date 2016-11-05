@@ -28,16 +28,6 @@ since 1970.01.01 00:00:00 GMT) for a file with the given
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
-does not exist; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/ouput error occurs;
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
-is violated.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">'/etc/passwd' filecreationtime	▶ 1412313609000</programlisting>
@@ -45,11 +35,30 @@ is violated.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/> —
+when the operation is prohibited due to a file permission or other access check
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
+when the file or directory does not exist
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
+when an input/ouput error occurs
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
+when the security policy is violated
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

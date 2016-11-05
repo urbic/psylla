@@ -35,7 +35,7 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">"Мама мыла раму" @ +@ split	▶ ["Мама" "мыла" "раму"]</programlisting>
+<programlisting language="psi">"Мама мыла раму" ~ +~ split	▶ ["Мама" "мыла" "раму"]</programlisting>
 </formalpara>
 
 <formalpara>

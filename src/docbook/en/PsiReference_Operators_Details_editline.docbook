@@ -32,14 +32,14 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when input/output error occurs.
-</para>
-
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
+when an input/output error occurs
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

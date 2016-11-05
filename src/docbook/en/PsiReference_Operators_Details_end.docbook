@@ -10,15 +10,14 @@ Removes the topmost dictionary from the dictionary stack.
 — <token language="psi">end</token> —
 </synopsis>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_dictstackunderflow"/> when try to remove a
-permanent dictionary.
-</para>
-
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_dictstackunderflow"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_dictstackunderflow"/> —
+when try to remove a permanent dictionary
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

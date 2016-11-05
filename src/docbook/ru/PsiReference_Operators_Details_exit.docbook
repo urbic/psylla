@@ -27,16 +27,14 @@
 оператором.
 </para>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_invalidexit"/>, если оператор <xref
-xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>
-выполняется вне циклического контекста.
-</para>
-
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexit"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexit"/> —
+если оператор выполняется вне циклического контекста
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

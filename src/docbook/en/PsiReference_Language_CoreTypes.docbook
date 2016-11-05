@@ -391,8 +391,8 @@ expression</primary></indexterm> represents a template for search in a string.
 <entry>escape character, <constant>U+1B</constant></entry>
 </row>
 <row>
-<entry><literal>\@</literal></entry>
-<entry>commercial at character, <constant>U+40</constant></entry>
+<entry><literal>\~</literal></entry>
+<entry>tilde character <literal>~</literal>, <constant>U+7E</constant></entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>X</replaceable></literal></entry>
