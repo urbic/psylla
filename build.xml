@@ -278,6 +278,7 @@
 			<arg value="--output"/>
 			<arg value="${target}/${project.name}-${project.version}.tar.gz"/>
 			<arg value="${git.stashname}"/>
+			<arg value="--"/>
 			<arg value="build.xml"/>
 			<arg value="src"/>
 			<arg value="README"/>
