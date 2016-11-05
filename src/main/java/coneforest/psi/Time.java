@@ -1,8 +1,22 @@
 package coneforest.psi;
 import coneforest.psi.core.*;
 
+/**
+*	An utility class providing time-related methods.
+*/
 public class Time
 {
+	private Time()
+	{
+	}
+
+	/**
+	*	Returns a Ψ-{@code integer} representing the current time (in
+	*	milliseconds since 1970.01.01 00:00:00 GMT).
+	*
+	*	@return a Ψ-{@code integer} representing the current time (in
+	*	milliseconds since 1970.01.01 00:00:00 GMT).
+	*/
 	public static PsiInteger psiTime()
 	{
 		return new PsiInteger(System.currentTimeMillis());

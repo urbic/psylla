@@ -1,12 +1,20 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
+/**
+*	A representation of Ψ-{@code command} object.
+*/
 public class PsiCommand
 	extends PsiName
 {
-	public PsiCommand(final String name)
+	/**
+	*	Creates a new Ψ-{@code command} object with the given name.
+	*
+	*	@param cs a name
+	*/
+	public PsiCommand(final CharSequence cs)
 	{
-		super(name);
+		super(cs);
 	}
 
 	@Override

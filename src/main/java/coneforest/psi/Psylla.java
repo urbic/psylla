@@ -2,7 +2,7 @@ package coneforest.psi;
 import coneforest.psi.core.*;
 
 /**
-*	The Ψ interpreter launcher
+*	The Ψ interpreter launcher.
 */
 public class Psylla
 {
