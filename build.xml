@@ -267,19 +267,21 @@
 				/>
 		</tar>
 		<delete dir="${target}/tmp" quiet="yes"/-->
-		<exec outputproperty="git.stashname" executable="git">
+		
+		<!--exec outputproperty="git.stashname" executable="git">
 			<arg value="stash"/>
 			<arg value="create"/>
 		</exec>
-		<property name="git.stashname" value="HEAD" if:blank="${git.stashname}"/>
-		<echo>${git.stashname}</echo>
+		<echo>${git.stashname}</echo-->
 		<exec executable="git">
 			<arg value="archive"/>
 			<arg value="--prefix"/>
 			<arg value="${project.name}-${project.version}/"/>
 			<arg value="--output"/>
 			<arg value="${target}/${project.name}-${project.version}.tar.gz"/>
-			<arg value="${git.stashname}"/>
+			<!--arg value="${git.stashname}" if:set="${git.stashname}"/-->
+			<!--arg value="HEAD" if:blank="${git.stashname}"/-->
+			<arg value="HEAD"/>
 			<arg value="--"/>
 			<arg value="build.xml"/>
 			<arg value="src"/>
@@ -287,11 +289,11 @@
 			<arg value="LICENSE"/>
 			<arg value="AUTHORS"/>
 		</exec>
-		<exec executable="git" if:blank="${git.stashname}">
+		<!--exec executable="git" if:set="${git.stashname}">
 			<arg value="stash"/>
 			<arg value="apply"/>
 			<arg value="${git.stashname}"/>
-		</exec>
+		</exec-->
 	</target>
 
 	<target name="build"
