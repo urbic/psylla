@@ -2,7 +2,7 @@ package coneforest.psi;
 import coneforest.psi.core.*;
 
 /**
-*	An interpreter class.
+*	An interpreter.
 */
 public class Interpreter
 	extends Thread
@@ -74,6 +74,11 @@ public class Interpreter
 		return estack;
 	}
 
+	/**
+	*	Returns the namespace pool.
+	*
+	*	@return the namespace pool.
+	*/
 	public NamespacePool namespacePool()
 	{
 		return nspool;
@@ -121,6 +126,11 @@ public class Interpreter
 		return dstack.get(1);
 	}
 
+	/**
+	*	Returns the current namespace.
+	*
+	*	@return the current namespace.
+	*/
 	public PsiNamespace currentNamespace()
 	{
 		return dstack.currentNamespace();
