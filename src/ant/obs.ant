@@ -83,7 +83,7 @@
 		</copy>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
-			<arg value="--clean"/>
+			<!--arg value="- -clean"/-->
 			<arg value="openSUSE_Leap_42.1"/>
 			<arg value="x86_64"/>
 			<arg value="${obs.package.name}.spec"/>

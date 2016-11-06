@@ -21,6 +21,7 @@ Build-Depends: debhelper (>= 9),
 	ruby-sass,
 	libxerces2-java,
 	graphviz
+Debtransform-Tar: @obs.package.name@-@obs.package.version@.tar.xz
 Files:
 	00000000000000000000000000000000 0 @obs.package.name@_@obs.package.version@.orig.tar.xz
 	00000000000000000000000000000000 0 @obs.package.name@_@obs.package.version@-0.diff.tar.xz
