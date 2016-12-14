@@ -35,12 +35,6 @@ operands, returns a <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_complex"/> result.
 </para>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/> when the
-<replaceable>number</replaceable> has the impermissible value.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">1 atan	▶ 0.7853981633974483</programlisting>
@@ -48,9 +42,19 @@ linkend="PsiReference_Errors_Details_undefinedresult"/> when the
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_undefinedresult"/> — when the
+<replaceable>number</replaceable> has the impermissible value
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

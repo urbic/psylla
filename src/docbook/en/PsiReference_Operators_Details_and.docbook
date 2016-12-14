@@ -28,10 +28,12 @@ Returns the <replaceable>conjunction</replaceable> of two
 
 <para>
 For <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_boolean"/> operands, returns the logical
-conjunction. For <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_bitwise"/> operands, returns the bitwise
-conjunction.
+linkend="PsiReference_Types_Details_boolean"/>
+<replaceable>operands</replaceable>, returns the logical
+<replaceable>conjunction</replaceable>. For <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_bitwise"/>
+<replaceable>operands</replaceable>, returns the bitwise
+<replaceable>conjunction</replaceable>.
 </para>
 
 <formalpara>

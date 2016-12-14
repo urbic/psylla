@@ -40,14 +40,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, if
-<replaceable>n</replaceable> is negative; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_stackunderflow"/>, if the operand stack
-contains less than <replaceable>n</replaceable> elements.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">/x /y /z 3 -1 roll	▶ /y /z /x
@@ -57,9 +49,19 @@ contains less than <replaceable>n</replaceable> elements.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+when <replaceable>n</replaceable> is negative
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/> —
+when the operand stack contains less than <replaceable>n</replaceable> elements TODO
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

@@ -31,14 +31,6 @@ the <replaceable>array</replaceable>.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, if the
-<replaceable>length</replaceable> is negative; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_limitcheck"/>, if
-the <replaceable>length</replaceable> exceeds the limit.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">[ 0 1 2 3 ] dup 6 setlength	▶ [ 0 1 2 3 null null ]
@@ -49,10 +41,22 @@ the <replaceable>length</replaceable> exceeds the limit.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/> —
+when the <replaceable>length</replaceable> exceeds the limit
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+when the <replaceable>length</replaceable> is negative
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

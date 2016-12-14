@@ -29,15 +29,25 @@ operand stack.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_concurrentmodification"/> when the
-concurrent modification occured.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">0 [ 0 1 2 3 4 5 6 7 8 9 ] { add } forall	▶ 45</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_concurrentmodification"/> —
+when the concurrent modification occured
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>
@@ -48,13 +58,6 @@ concurrent modification occured.
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_loop"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_map"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_repeat"/>.
-</formalpara>
-
-<formalpara>
-&TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_concurrentmodification"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
 </formalpara>
 
 </section>

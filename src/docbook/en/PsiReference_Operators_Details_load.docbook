@@ -28,12 +28,6 @@ performed from the top to the bottom of the stack.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefined"/>, if the
-<replaceable>key</replaceable> is not found.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">/add load	▶ --add--</programlisting>
@@ -41,9 +35,18 @@ linkend="PsiReference_Errors_Details_undefined"/>, if the
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/> —
+when the <replaceable>key</replaceable> is not found
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

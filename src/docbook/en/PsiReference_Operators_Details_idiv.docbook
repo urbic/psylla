@@ -29,12 +29,6 @@ signs.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/>, if the
-<replaceable>divisor</replaceable> is zero.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">17 3 idiv	▶ 5
@@ -45,9 +39,18 @@ linkend="PsiReference_Errors_Details_undefinedresult"/>, if the
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/> —
+when the <replaceable>divisor</replaceable> is zero
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

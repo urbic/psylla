@@ -33,7 +33,11 @@ copy fully dissociated from an <replaceable>object</replaceable>.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

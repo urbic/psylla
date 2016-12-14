@@ -27,14 +27,6 @@ Returns a new blocking <replaceable>queue</replaceable> with a given
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_limitcheck"/>, if the
-<replaceable>capacity</replaceable> exceeds the limit; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>, if
-the <replaceable>capacity</replaceable> is less than one.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">1 blockingqueue	▶ -blockingqueue-</programlisting>
@@ -42,10 +34,23 @@ the <replaceable>capacity</replaceable> is less than one.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_limitcheck"/> — when the
+<replaceable>capacity</replaceable> exceeds the limit
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+when the <replaceable>capacity</replaceable> is less than one
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

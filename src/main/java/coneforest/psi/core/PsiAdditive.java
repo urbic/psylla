@@ -21,7 +21,7 @@ public interface PsiAdditive<T extends PsiAdditive>
 	}
 
 	/**
-	*	Returns a Ψ-{@code object} representing the result of arithmetic
+	*	Returns a Ψ-{@code additive} representing the result of arithmetic
 	*	negation of this object.
 	*
 	*	@return a negation.

@@ -28,14 +28,6 @@ The <replaceable>remainder</replaceable> has the same sign as the
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/>, if the
-<replaceable>divisor</replaceable> is zero; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, if the
-<replaceable>divisor</replaceable> is negative.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">7 5 mod		▶ 2
@@ -45,10 +37,22 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, if the
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+when the <replaceable>divisor</replaceable> is negative
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/> —
+when the <replaceable>divisor</replaceable> is zero
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

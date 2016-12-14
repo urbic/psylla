@@ -25,29 +25,37 @@ Creates a hard link named <replaceable>link</replaceable> to a file named
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_fileexists"/>, if the file or directory
-named <replaceable>link</replaceable> exists; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
-named <replaceable>target</replaceable> does not exist; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> when an
-input/output error occurs; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
-is violated; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_unsupported"/>, if the creation of hard
-links is not supported by the platform.
-</para>
-
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unsupported"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/> —
+when the file or directory named <replaceable>link</replaceable> already exists
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
+when  the file or directory named <replaceable>target</replaceable> does not
+exist
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
+when an input/output error occurs
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
+when the security policy is violated
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unsupported"/> —
+when the creation of hard links is not supported by the platform
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

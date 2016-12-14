@@ -27,23 +27,28 @@ belongs to a symbolic link, and <constant>false</constant> otherwise.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, if the file or directory
-does not exist; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> when an input/output error
-occurs; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> when the security policy
-is violated.
-</para>
-
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
+when the file or directory does not exist
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
+when an input/output error occurs
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
+when the security policy is violated
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

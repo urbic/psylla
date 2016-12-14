@@ -35,13 +35,6 @@ Inserts the <replaceable>object</replaceable> into the
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, if the
-<replaceable>index</replaceable> is negative or is greater than the length of
-the <replaceable>array</replaceable>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">[ 0 1 2 ] dup 2 3 insert	▶ [ 0 1 3 2 ]
@@ -51,9 +44,19 @@ the <replaceable>array</replaceable>.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+when the <replaceable>index</replaceable> is negative or is greater than the
+length of the <replaceable>array</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

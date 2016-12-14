@@ -29,21 +29,6 @@ linkend="PsiReference_Types_Details_name"/> objects.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_fileaccessdenied"/>, if the operation is
-prohibited due to a file permission or other access check; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-if the directory does not exist; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_notdirectory"/>, if the file named
-<replaceable>name</replaceable> is not directory; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-when an input/output error occurs; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> when security policy
-is violated.
-</para>
-
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">'/' files {} forall	▶ '/boot' '/opt' '/srv' '/tmp' '/usr' '/var' '/etc' '/home' …</programlisting>
@@ -51,13 +36,34 @@ is violated.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notdirectory"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/> —
+when the operation is prohibited due to a file permission or other access check
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
+when the directory does not exist
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
+when an input/output error occurs
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notdirectory"/> —
+when the file named <replaceable>name</replaceable> is not a directory
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
+when security policy is violated
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

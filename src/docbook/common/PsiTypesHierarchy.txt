@@ -38,6 +38,7 @@ mark: atomic
 matcher: object
 module: dict
 name: atomic stringy
+namespace: dict
 null: atomic
 numeric: arithmetic atomic
 operator: atomic

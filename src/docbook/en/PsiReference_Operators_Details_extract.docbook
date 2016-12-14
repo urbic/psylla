@@ -30,20 +30,6 @@ the <replaceable>container</replaceable>.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefined"/> when the
-<replaceable>key</replaceable> is not in the <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_dictlike"/> container or <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> when
-the <replaceable>key</replaceable> is not a valid index in the <xref
-xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
-container. Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_typecheck"/> when the type of the
-<replaceable>key</replaceable> does not correspond to the type of
-<replaceable>container</replaceable>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">[ 0 1 2 3 4 ] dup 2 extract			▶ [ 0 1 3 4 ] 2
@@ -52,10 +38,28 @@ linkend="PsiReference_Errors_Details_typecheck"/> when the type of the
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
+when the <replaceable>key</replaceable> is not a valid index in the <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+container
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/> —
+when the type of the <replaceable>key</replaceable> does not correspond to the
+type of <replaceable>container</replaceable> TODO
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/> —
+when the <replaceable>key</replaceable> is not in the <xref
+xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+container
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

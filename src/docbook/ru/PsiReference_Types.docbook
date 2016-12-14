@@ -125,6 +125,7 @@ linkend="PsiReference_Types_Details_real"/>.
 &PsiReference_Types_Details_mark;
 &PsiReference_Types_Details_matcher;
 &PsiReference_Types_Details_name;
+&PsiReference_Types_Details_namespace;
 &PsiReference_Types_Details_null;
 &PsiReference_Types_Details_numeric;
 &PsiReference_Types_Details_object;

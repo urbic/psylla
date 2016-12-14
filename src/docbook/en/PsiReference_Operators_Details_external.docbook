@@ -27,15 +27,6 @@ returns an <replaceable>instance</replaceable> of this class.
 </itemizedlist>
 </formalpara>
 
-<para>
-Generates <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_invalidexternal"/>, if the class not found
-at class path, does not implement
-<classname>coneforest.psi.core.PsiObject</classname> interface, does not public
-constructor without arguments or if the invocation of this constructor
-terminated abnormally.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">/coneforest.psi.core.PsiString external	▶ ""</programlisting>
@@ -43,9 +34,21 @@ terminated abnormally.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexternal"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexternal"/> —
+when the class not found at class path, does not implement
+<classname>coneforest.psi.core.PsiObject</classname> interface, does not public
+constructor without arguments or if the invocation of this constructor
+terminated abnormally.
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

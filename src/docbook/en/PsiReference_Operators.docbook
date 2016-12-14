@@ -443,6 +443,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_signalerror" xrefstyle="template:%t"/></term>
+<listitem>вызов обработчика ошибки</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_sleep" xrefstyle="template:%t"/></term>
 <listitem>suspend the current execution context</listitem>
 </varlistentry>
@@ -1146,20 +1151,10 @@ flush output buffer</listitem>
 
 </section>
 
-<section xml:id="PsiReference_Operators_ByCategory_Miscellaneous">
-<title>Miscellaneous Operators</title>
+<section xml:id="PsiReference_Operators_ByCategory_Introspection">
+<title>Operators Related to Introspection</title>
 
 <variablelist>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_arguments" xrefstyle="template:%t"/></term>
-<listitem>command-line arguments</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_classpath" xrefstyle="template:%t"/></term>
-<listitem>the additional class path</listitem>
-</varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
@@ -1177,13 +1172,37 @@ flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_environment" xrefstyle="template:%t"/></term>
-<listitem>the current environment</listitem>
+<term><xref linkend="PsiReference_Operators_Details_execstack" xrefstyle="template:%t"/></term>
+<listitem>the snapshot of the execution stack</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_execstack" xrefstyle="template:%t"/></term>
-<listitem>the snapshot of the execution stack</listitem>
+<term><xref linkend="PsiReference_Operators_Details_namespace" xrefstyle="template:%t"/></term>
+<listitem>obtain a namespace</listitem>
+</varlistentry>
+
+</variablelist>
+
+</section>
+
+<section xml:id="PsiReference_Operators_ByCategory_Miscellaneous">
+<title>Miscellaneous Operators</title>
+
+<variablelist>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_arguments" xrefstyle="template:%t"/></term>
+<listitem>command-line arguments</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_classpath" xrefstyle="template:%t"/></term>
+<listitem>the additional class path</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_environment" xrefstyle="template:%t"/></term>
+<listitem>the current environment</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1219,11 +1238,6 @@ flush output buffer</listitem>
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_osversion" xrefstyle="template:%t"/></term>
 <listitem>the version of an operating system</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_signalerror" xrefstyle="template:%t"/></term>
-<listitem>вызов обработчика ошибки</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1513,6 +1527,7 @@ xrefstyle="template:%t"/>.
 &PsiReference_Operators_Details_mod;
 &PsiReference_Operators_Details_monitor;
 &PsiReference_Operators_Details_mul;
+&PsiReference_Operators_Details_namespace;
 &PsiReference_Operators_Details_ne;
 &PsiReference_Operators_Details_neg;
 &PsiReference_Operators_Details_normaldeviate;

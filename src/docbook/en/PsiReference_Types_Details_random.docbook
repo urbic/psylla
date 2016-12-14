@@ -3,7 +3,7 @@
 <title><type>random</type></title>
 
 <para>
-A generator of pseudorandom objects.
+A generator of pseudorandom data.
 </para>
 
 <formalpara>
