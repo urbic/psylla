@@ -23,7 +23,7 @@ build-stamp:
 	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant build
 	# --- end custom part for compiling
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	ant test
+	LC_ALL=C.UTF-8 ant test
 endif
 
 	touch build-stamp
