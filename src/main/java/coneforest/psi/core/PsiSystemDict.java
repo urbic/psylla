@@ -744,8 +744,14 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity21<PsiArithmetic, PsiArithmetic>
 					("mul", PsiArithmetic::psiMul),
-				new PsiOperator.Arity11<PsiStringy>
-					("namespace", PsiNamespace::new),
+				new PsiOperator.Action
+					("namespace",
+						(interpreter)->
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							ostack.push(interpreter.psiNamespace(ostack.getBacked(0)));
+						}
+					),
 				new PsiOperator.Arity21<PsiObject, PsiObject>
 					("ne", PsiObject::psiNe),
 				new PsiOperator.Arity11<PsiAdditive>

@@ -84,6 +84,11 @@ public class Interpreter
 		return nspool;
 	}
 
+	public PsiNamespace psiNamespace(final PsiStringy oPrefix)
+	{
+		return nspool.forPrefix(oPrefix.stringValue());
+	}
+
 	public void handleExecutionStack()
 	{
 		while(estack.size()>0)
