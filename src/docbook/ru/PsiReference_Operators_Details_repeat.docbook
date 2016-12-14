@@ -35,12 +35,6 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_exit"/>
 linkend="PsiReference_Operators_Details_repeat"/>.
 </para>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если
-<replaceable>количество</replaceable> отрицательно.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">1 10 { 2 mul } repeat	▶ 1024</programlisting>
@@ -48,9 +42,18 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+при отрицательном <replaceable>количестве</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

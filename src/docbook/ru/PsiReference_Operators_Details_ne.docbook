@@ -38,7 +38,11 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eq"/>.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

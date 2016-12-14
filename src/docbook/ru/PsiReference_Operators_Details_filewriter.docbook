@@ -27,18 +27,24 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, если файл
-<replaceable>имя</replaceable> отсутствует или является директорией.
-</para>
-
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если файл <replaceable>имя</replaceable> отсутствует или является директорией
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

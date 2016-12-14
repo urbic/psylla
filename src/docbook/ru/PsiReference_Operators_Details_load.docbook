@@ -28,12 +28,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefined"/>, если
-<replaceable>ключ</replaceable> не найден.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">/add load	▶ --add--</programlisting>
@@ -41,9 +35,18 @@ linkend="PsiReference_Errors_Details_undefined"/>, если
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>,
+если <replaceable>ключ</replaceable> не найден в стеке словарей
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

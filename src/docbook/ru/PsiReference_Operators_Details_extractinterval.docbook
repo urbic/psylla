@@ -34,12 +34,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если фрагмент не содержится
-в границах <replaceable>массива</replaceable>.
-</para>
-
 <formalpara>
 &TitleExamples;
 
@@ -50,9 +44,18 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если фрагмент н
 
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если фрагмент не содержится в границах <replaceable>массива</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

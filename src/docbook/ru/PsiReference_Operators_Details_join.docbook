@@ -42,17 +42,20 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>). Зат
 
 <remark>TODO</remark>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_invalidcontext"/>, если
-<replaceable>контекст</replaceable> является текущим.
-</para>
-
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidcontext"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если <replaceable>контекст</replaceable> является текущим
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

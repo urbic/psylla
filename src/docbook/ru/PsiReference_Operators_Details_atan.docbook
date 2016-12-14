@@ -26,12 +26,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>
-при недопустимых значениях операнда.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">1 atan	▶ 0.7853981633974483</programlisting>
@@ -39,9 +33,18 @@
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>
+при недопустимых значениях операнда
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

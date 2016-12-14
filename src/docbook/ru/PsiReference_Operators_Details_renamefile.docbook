@@ -25,30 +25,38 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
-с заданным <replaceable>старым</replaceable> именем не существует; <xref
-xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_directorynotempty"/>, если директория
-с заданным <replaceable>старым</replaceable> именем не пуста; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
-если файл или директория с заданным <replaceable>новым</replaceable> именем
-существует; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_ioerror"/> при ошибке ввода/вывода; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
-при нарушении политики безопасности.
-</para>
-
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_directorynotempty"/>,
+если директория с заданным <replaceable>старым</replaceable> именем не пуста
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
+если файл или директория с заданным <replaceable>новым</replaceable> именем уже
+существует
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если файл или директория с заданным <replaceable>старым</replaceable> именем не
+существует
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
+при нарушении политики безопасности
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

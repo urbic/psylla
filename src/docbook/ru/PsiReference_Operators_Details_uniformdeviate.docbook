@@ -37,13 +37,6 @@
 <replaceable>границы</replaceable>.
 </para>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если
-<replaceable>граница</replaceable> имеет тип <xref xrefstyle="template:%t"
-linkend="PsiReference_Types_Details_integer"/> и неположительна.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">stdrandom 1. uniformdeviate	▶ 0.6520579058825042
@@ -52,9 +45,19 @@ stdrandom 5 uniformdeviate	▶ 4</programlisting>
 
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если <replaceable>граница</replaceable> имеет тип <xref xrefstyle="template:%t"
+linkend="PsiReference_Types_Details_integer"/> и неположительна
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

@@ -40,14 +40,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Если <replaceable>n</replaceable> отрицательно, генерирует <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
-Если в стеке операндов менее <replaceable>n</replaceable> элементов, генерирует
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_stackunderflow"/> TODO.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">/x /y /z 3 -1 roll	▶ /y /z /x
@@ -57,9 +49,19 @@ linkend="PsiReference_Errors_Details_stackunderflow"/> TODO.
 
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+если <replaceable>n</replaceable> отрицательно
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если в стеке операндов менее <replaceable>n</replaceable> элементов TODO
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

@@ -27,18 +27,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_filenotfound"/>, если файл или директория
-с заданным <replaceable>именем</replaceable> не существует; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notlink"/>, если
-<replaceable>имя</replaceable> не является именем символической ссылки; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода; <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_securityerror"/> при нарушении политики
-безопасности.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">'/usr/bin/java' readlink	▶ '/etc/alternatives/java'</programlisting>
@@ -46,12 +34,31 @@ linkend="PsiReference_Errors_Details_securityerror"/> при нарушении
 
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>,
+если файл или директория с заданным <replaceable>именем</replaceable> не
+существует
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
+при ошибке ввода/вывода
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_notlink"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если <replaceable>имя</replaceable> не принадлежит символической ссылке
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
+при нарушении политики безопасности
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

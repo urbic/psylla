@@ -28,14 +28,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/>, если
-<replaceable>делитель</replaceable> нулевой, <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если
-<replaceable>делитель</replaceable> отрицательный.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">7 5 mod		▶ 2
@@ -45,10 +37,22 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+при отрицательном <replaceable>делителе</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>
+при нулевом <replaceable>делителе</replaceable>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

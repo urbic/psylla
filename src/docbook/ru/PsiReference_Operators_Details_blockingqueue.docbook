@@ -27,14 +27,6 @@
 с заданной <replaceable>вместимостью</replaceable>.
 </para>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_limitcheck"/>, если
-<replaceable>вместимость</replaceable> превышает допустимый предел; <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-если <replaceable>вместимость</replaceable> меньше единицы.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">1 blockingqueue	▶ -blockingqueue-</programlisting>
@@ -42,10 +34,22 @@ xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
 
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если <replaceable>вместимость</replaceable> превышает допустимый предел
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+если <replaceable>вместимость</replaceable> меньше единицы
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

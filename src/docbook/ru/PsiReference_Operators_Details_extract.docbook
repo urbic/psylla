@@ -30,15 +30,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-При отсутствии ключа в контейнере генерируется <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefined"/> (для словарей) или <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
-(для массивов). При несоответствии типа ключа типу контейнера генерируется
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_typecheck"/>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">[ 0 1 2 3 4 ] dup 2 extract			▶ [ 0 1 3 4 ] 2
@@ -47,10 +38,25 @@ linkend="PsiReference_Errors_Details_typecheck"/>.
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+при отсутствии ключа в контейнере типа
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+при несоответствии типа ключа типу контейнера
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>
+при отсутствии ключа в контейнере типа
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_dictlike"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

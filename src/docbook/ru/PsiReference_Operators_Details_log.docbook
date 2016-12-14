@@ -26,12 +26,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого значения
-операнда.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">1 log			▶ 0.0
@@ -41,9 +35,18 @@ linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>
+при нулевом значении операнда
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

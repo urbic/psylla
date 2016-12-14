@@ -29,12 +29,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_concurrentmodification"/>, если
-обнаружена конкурентная модификация.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">0 [ 0 1 2 3 4 5 6 7 8 9 ] { add } forall	▶ 45</programlisting>
@@ -42,9 +36,18 @@ linkend="PsiReference_Errors_Details_concurrentmodification"/>, если
 
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_concurrentmodification"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если обнаружена конкурентная модификация
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

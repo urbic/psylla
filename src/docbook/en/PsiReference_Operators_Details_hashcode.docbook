@@ -35,11 +35,11 @@ Returns the <replaceable>object</replaceable>’s
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+</itemizedlist>
 </formalpara>
-
-<!--formalpara>
-&TitleSeeAlso;
-</formalpara-->
 
 </section>

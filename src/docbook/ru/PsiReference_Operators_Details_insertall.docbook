@@ -35,13 +35,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>, если
-<replaceable>индекс</replaceable> отрицателен или больше длины
-<replaceable>массива</replaceable>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">[ 0 1 2 ] dup 2 [ 3 4 ] insertall	▶ [ 0 1 3 4 2 ]
@@ -51,9 +44,19 @@ linkend="PsiReference_Errors_Details_rangecheck"/>, если
 
 <formalpara>
 &TitleErrors;
+<itemizedlist>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+если <replaceable>индекс</replaceable> отрицателен или больше длины
+<replaceable>массива</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

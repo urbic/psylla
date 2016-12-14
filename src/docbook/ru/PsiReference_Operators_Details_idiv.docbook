@@ -27,12 +27,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого
-<replaceable>делителя</replaceable>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">17 3 idiv	▶ 5
@@ -43,9 +37,18 @@ linkend="PsiReference_Errors_Details_undefinedresult"/> для нулевого
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>
+при нулевом <replaceable>делителе</replaceable>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>
