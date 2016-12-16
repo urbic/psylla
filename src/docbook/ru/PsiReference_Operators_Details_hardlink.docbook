@@ -29,20 +29,24 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/> —
 если файл или директория с именем <replaceable>ссылка</replaceable> существует
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
 если файл или директория с именем <replaceable>цель</replaceable> не существует
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/>
-при ошибке ввода/вывода
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/>
-при нарушении политики безопасности
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
+&ErrorReason_securityerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
@@ -51,8 +55,8 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unsupported"/>,
-если создание жёстких ссылок не поддерживается платформой
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unsupported"/> —
+&ErrorReason_unsupported;
 </listitem>
 </itemizedlist>
 </formalpara>

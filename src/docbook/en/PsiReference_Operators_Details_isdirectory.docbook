@@ -31,17 +31,21 @@ belongs to a directory, and <constant>false</constant> otherwise.
 &TitleErrors;
 <itemizedlist>
 <listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
 when the file or a directory with a given <replaceable>name</replaceable> does
 not exist
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
-when input/output error occurs
+&ErrorReason_ioerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
-when the security policy is violated
+&ErrorReason_securityerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>

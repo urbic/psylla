@@ -42,11 +42,6 @@ possible to define the procedures with such behaviour.
 </para>
 
 <formalpara>
-&TitleErrors;
-none.
-</formalpara>
-
-<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_("/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_)"/>,

@@ -29,6 +29,10 @@ Creates a hard link named <replaceable>link</replaceable> to a file named
 &TitleErrors;
 <itemizedlist>
 <listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/> —
 when the file or directory named <replaceable>link</replaceable> already exists
 </listitem>
@@ -39,11 +43,11 @@ exist
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
-when an input/output error occurs
+&ErrorReason_ioerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
-when the security policy is violated
+&ErrorReason_securityerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
@@ -53,7 +57,7 @@ when the security policy is violated
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unsupported"/> —
-when the creation of hard links is not supported by the platform
+&ErrorReason_unsupported;
 </listitem>
 </itemizedlist>
 </formalpara>

@@ -36,7 +36,7 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidregexp"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidregexp"/> —
 в случае синтаксической ошибки в <replaceable>шаблоне</replaceable>
 </listitem>
 <listitem>

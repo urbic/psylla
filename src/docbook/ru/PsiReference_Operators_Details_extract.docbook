@@ -40,7 +40,7 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 при отсутствии ключа в контейнере типа
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_arraylike"/>
 </listitem>
@@ -48,7 +48,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/> —
 при несоответствии типа ключа типу контейнера
 </listitem>
 <listitem>

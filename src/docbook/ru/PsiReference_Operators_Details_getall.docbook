@@ -57,7 +57,7 @@ linkend="PsiReference_Types_Details_arraylike"/>
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 при выходе индекса за допустимые границы
 в <replaceable>контейнере</replaceable> типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_arraylike"/>
@@ -66,11 +66,11 @@ linkend="PsiReference_Types_Details_arraylike"/>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/> —
 при несоответствии типа ключей типу <replaceable>контейнера</replaceable>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/> —
 при отсутствии <replaceable>ключа</replaceable>
 в <replaceable>контейнере</replaceable> типа <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_dictlike"/>

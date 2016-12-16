@@ -32,6 +32,10 @@ Copies an <replaceable>existing</replaceable> file with a
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_directorynotempty"/>
 </listitem>
 <listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileexists"/> —
 when the file or directory named <replaceable>new</replaceable> already exists
 </listitem>
@@ -41,11 +45,11 @@ when the <replaceable>existing</replaceable> file does not exist TODO
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
-when an input/output error occurs
+&ErrorReason_ioerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
-when the security policy is violated
+&ErrorReason_securityerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
@@ -55,7 +59,7 @@ when the security policy is violated
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unsupported"/> —
-when the operation is not supported by the platform
+&ErrorReason_unsupported;
 </listitem>
 </itemizedlist>
 </formalpara>

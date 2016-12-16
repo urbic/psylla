@@ -319,3 +319,16 @@
 <!ENTITY TitleSeeAlso	"<title>See Also:</title>">
 <!ENTITY TitleInherits	"<title>Inherits:</title>">
 <!ENTITY TitleOperands	"<title>Operands:</title>">
+
+<!ENTITY ErrorReason_fileaccessdenied
+	"when the operation is prohibited due to a file permission or other access check">
+<!ENTITY ErrorReason_ioerror
+	"when an input/output error occurs">
+<!ENTITY ErrorReason_securityerror
+	"when the security policy is violated">
+<!ENTITY ErrorReason_stackunderflow
+	"when the operand stack does not contain all of the operands required">
+<!ENTITY ErrorReason_unmatchedmark
+	"when the operand stack does not contain mark">
+<!ENTITY ErrorReason_unsupported
+	"when the operation is not supported by the platform">

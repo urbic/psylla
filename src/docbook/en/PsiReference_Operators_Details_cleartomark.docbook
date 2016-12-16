@@ -37,7 +37,7 @@ the operand stack.
 <itemizedlist>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/> —
-when the operand stack does not contain any mark
+&ErrorReason_unmatchedmark;
 </listitem>
 </itemizedlist>
 </formalpara>

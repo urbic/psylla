@@ -38,7 +38,7 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_concurrentmodification"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_concurrentmodification"/> —
 если обнаружена конкурентная модификация
 </listitem>
 <listitem>

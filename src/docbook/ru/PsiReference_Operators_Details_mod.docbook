@@ -39,7 +39,7 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 при отрицательном <replaceable>делителе</replaceable>
 </listitem>
 <listitem>
@@ -49,7 +49,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/> —
 при нулевом <replaceable>делителе</replaceable>
 </listitem>
 </itemizedlist>

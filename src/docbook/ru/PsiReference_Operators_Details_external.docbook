@@ -27,14 +27,6 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_invalidexternal"/>, если класс не найден
-на пути поиска классов, не реализует интерфейс
-<classname>coneforest.psi.PsiObject</classname>, не имеет общего конструктора
-без аргументов или если вызов такого конструктора завершился ненормально.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psi">/coneforest.psi.PsiString external	▶ ""</programlisting>
@@ -42,9 +34,20 @@ linkend="PsiReference_Errors_Details_invalidexternal"/>, если класс н�
 
 <formalpara>
 &TitleErrors;
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexternal"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>.
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidexternal"/> —
+если класс не найден на пути поиска классов, не реализует интерфейс
+<classname>coneforest.psi.PsiObject</classname>, не имеет общего конструктора
+без аргументов или если вызов такого конструктора завершился ненормально
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
 </formalpara>
 
 <formalpara>

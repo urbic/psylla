@@ -36,8 +36,8 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/>,
-если стек операндов не содержит меток
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_unmatchedmark"/> —
+&ErrorReason_unmatchedmark;
 </listitem>
 </itemizedlist>
 </formalpara>

@@ -46,7 +46,7 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 если фрагмент не содержится в границах <replaceable>массива</replaceable>
 </listitem>
 <listitem>

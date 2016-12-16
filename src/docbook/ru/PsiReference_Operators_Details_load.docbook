@@ -43,7 +43,7 @@
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/> —
 если <replaceable>ключ</replaceable> не найден в стеке словарей
 </listitem>
 </itemizedlist>

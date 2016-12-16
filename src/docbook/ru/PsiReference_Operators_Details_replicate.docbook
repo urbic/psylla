@@ -40,13 +40,13 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/> —
 если длина <replaceable>контейнера</replaceable>, умноженная
 на <replaceable>количество</replaceable>, превышает максимально возможную длину
 <replaceable>контейнера</replaceable>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 если <replaceable>количество</replaceable> отрицательно
 </listitem>
 <listitem>

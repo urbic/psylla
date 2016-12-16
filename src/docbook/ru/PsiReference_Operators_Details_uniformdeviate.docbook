@@ -47,7 +47,7 @@ stdrandom 5 uniformdeviate	▶ 4</programlisting>
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 если <replaceable>граница</replaceable> имеет тип <xref xrefstyle="template:%t"
 linkend="PsiReference_Types_Details_integer"/> и неположительна
 </listitem>

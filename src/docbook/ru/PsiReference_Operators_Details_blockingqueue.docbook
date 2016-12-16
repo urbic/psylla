@@ -36,11 +36,11 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/> —
 если <replaceable>вместимость</replaceable> превышает допустимый предел
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 если <replaceable>вместимость</replaceable> меньше единицы
 </listitem>
 <listitem>

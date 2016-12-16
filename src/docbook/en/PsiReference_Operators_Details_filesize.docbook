@@ -38,7 +38,7 @@ directory with the given <replaceable>name</replaceable>.
 <itemizedlist>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_fileaccessdenied"/> —
-when the operation is prohibited due to a file permission or other access check
+&ErrorReason_fileaccessdenied;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
@@ -46,11 +46,11 @@ when the file or directory does not exist
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
-when an input/ouput error occurs
+&ErrorReason_ioerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_securityerror"/> —
-when the security policy is violated
+&ErrorReason_securityerror;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>

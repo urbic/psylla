@@ -46,7 +46,7 @@ xrefstyle="template:%t" linkend="PsiReference_Operators_Details_fork"/>). Зат
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidcontext"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidcontext"/> —
 если <replaceable>контекст</replaceable> является текущим
 </listitem>
 <listitem>

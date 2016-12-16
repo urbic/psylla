@@ -68,12 +68,12 @@ linkend="PsiReference_Types_Details_stringy"/> возвращается имен
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/> —
 если для заданного <replaceable>матчера</replaceable> ещё не выполнялась
 операция поиска или последний поиск не принёс результатов
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> —
 если <replaceable>индекс</replaceable> отрицателен или превышает количество
 групп
 </listitem>
