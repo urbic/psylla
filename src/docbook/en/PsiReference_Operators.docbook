@@ -180,11 +180,6 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_bitshift" xrefstyle="template:%t"/></term>
-<listitem>the bitwise shift of an integer</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cbrt" xrefstyle="template:%t"/></term>
 <listitem>the cubic root of a number</listitem>
 </varlistentry>
@@ -192,11 +187,6 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ceiling" xrefstyle="template:%t"/></term>
 <listitem>the ceiling of a number</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_clearbit" xrefstyle="template:%t"/></term>
-<listitem>clear a bit</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -232,11 +222,6 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exp" xrefstyle="template:%t"/></term>
 <listitem>the exponent of a number</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_flipbit" xrefstyle="template:%t"/></term>
-<listitem>flip a certain bit</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -300,11 +285,6 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_setbit" xrefstyle="template:%t"/></term>
-<listitem>set a certain bit</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_signum" xrefstyle="template:%t"/></term>
 <listitem>the signum of a number</listitem>
 </varlistentry>
@@ -339,17 +319,12 @@
 <listitem>the hyperbolic tangent of a number</listitem>
 </varlistentry>
 
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_testbit" xrefstyle="template:%t"/></term>
-<listitem>the value of a certain bit</listitem>
-</varlistentry>
-
 </variablelist>
 
 </section>
 
-<section xml:id="PsiReference_Operators_ByCategory_Logical">
-<title>Logical Operators</title>
+<section xml:id="PsiReference_Operators_ByCategory_LogicalBitwise">
+<title>Logical and Bitwise Operators</title>
 
 <variablelist>
 
@@ -359,8 +334,23 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_bitshift" xrefstyle="template:%t"/></term>
+<listitem>the bitwise shift of an integer</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_clearbit" xrefstyle="template:%t"/></term>
+<listitem>clear a bit</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_false" xrefstyle="template:%t"/></term>
 <listitem>the boolean false</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_flipbit" xrefstyle="template:%t"/></term>
+<listitem>flip a certain bit</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -371,6 +361,16 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_or" xrefstyle="template:%t"/></term>
 <listitem>the logical or bitwise disjunction of two operands</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_setbit" xrefstyle="template:%t"/></term>
+<listitem>set a certain bit</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_testbit" xrefstyle="template:%t"/></term>
+<listitem>the value of a certain bit</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1099,6 +1099,11 @@ flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_matches" xrefstyle="template:%t"/></term>
+<listitem>does the mather matches?</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_regexp" xrefstyle="template:%t"/></term>
 <listitem>create a regular expression</listitem>
 </varlistentry>
@@ -1522,6 +1527,7 @@ xrefstyle="template:%t"/>.
 &PsiReference_Operators_Details_map;
 &PsiReference_Operators_Details_mark;
 &PsiReference_Operators_Details_matcher;
+&PsiReference_Operators_Details_matches;
 &PsiReference_Operators_Details_max;
 &PsiReference_Operators_Details_min;
 &PsiReference_Operators_Details_mod;

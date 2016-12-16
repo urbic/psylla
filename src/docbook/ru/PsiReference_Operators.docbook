@@ -180,11 +180,6 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_bitshift" xrefstyle="template:%t"/></term>
-<listitem>побитовый сдвиг целого числа</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_cbrt" xrefstyle="template:%t"/></term>
 <listitem>кубический корень из числа</listitem>
 </varlistentry>
@@ -192,11 +187,6 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_ceiling" xrefstyle="template:%t"/></term>
 <listitem>потолок числа</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_clearbit" xrefstyle="template:%t"/></term>
-<listitem>очистка бита</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -232,11 +222,6 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_exp" xrefstyle="template:%t"/></term>
 <listitem>экспонента числа</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_flipbit" xrefstyle="template:%t"/></term>
-<listitem>измениение бита</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -300,11 +285,6 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_setbit" xrefstyle="template:%t"/></term>
-<listitem>установка бита</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_signum" xrefstyle="template:%t"/></term>
 <listitem>знак числа</listitem>
 </varlistentry>
@@ -339,17 +319,12 @@
 <listitem>гиперболический тангенс числа</listitem>
 </varlistentry>
 
-<varlistentry>
-<term><xref linkend="PsiReference_Operators_Details_testbit" xrefstyle="template:%t"/></term>
-<listitem>значение бита</listitem>
-</varlistentry>
-
 </variablelist>
 
 </section>
 
-<section xml:id="PsiReference_Operators_ByCategory_Logical">
-<title>Логические операторы</title>
+<section xml:id="PsiReference_Operators_ByCategory_LogicalBitwise">
+<title>Логические и побитовые операторы</title>
 
 <variablelist>
 
@@ -359,8 +334,23 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_bitshift" xrefstyle="template:%t"/></term>
+<listitem>побитовый сдвиг целого числа</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_clearbit" xrefstyle="template:%t"/></term>
+<listitem>очистка бита</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_false" xrefstyle="template:%t"/></term>
 <listitem>логическое значение «ложь»</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_flipbit" xrefstyle="template:%t"/></term>
+<listitem>измениение бита</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -371,6 +361,16 @@
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_or" xrefstyle="template:%t"/></term>
 <listitem>логическая или побитовая дизъюнкция</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_setbit" xrefstyle="template:%t"/></term>
+<listitem>установка бита</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_testbit" xrefstyle="template:%t"/></term>
+<listitem>значение бита</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1095,6 +1095,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_matches" xrefstyle="template:%t"/></term>
+<listitem>does the mather matches?</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_regexp" xrefstyle="template:%t"/></term>
 <listitem>создание регулярного выражения</listitem>
 </varlistentry>
@@ -1517,6 +1522,7 @@ xrefstyle="template:%t"/>.
 &PsiReference_Operators_Details_map;
 &PsiReference_Operators_Details_mark;
 &PsiReference_Operators_Details_matcher;
+&PsiReference_Operators_Details_matches;
 &PsiReference_Operators_Details_max;
 &PsiReference_Operators_Details_min;
 &PsiReference_Operators_Details_mod;

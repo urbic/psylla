@@ -402,14 +402,6 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							/*
-							final PsiObject[] ops=ostack.popOperands(2);
-							PsiMatcher matcher=new PsiMatcher((PsiStringy)ops[0], (PsiRegExp)ops[1]);
-							boolean resultValue=matcher.psiFind().booleanValue();
-							if(resultValue)
-								ostack.push(matcher);
-							ostack.push(PsiBoolean.valueOf(resultValue));
-							*/
 							final PsiMatcher matcher=ostack.getBacked(0);
 							boolean resultValue=matcher.psiFind().booleanValue();
 							if(resultValue)
@@ -422,15 +414,15 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(3);
-							final PsiMatcher matcher=new PsiMatcher(ostack.getBacked(0), ostack.getBacked(1));
+							final PsiMatcher oMatcher=new PsiMatcher(ostack.getBacked(0), ostack.getBacked(1));
 							final PsiObject o=ostack.getBacked(2);
 
 							final int loopLevel=interpreter.pushLoopLevel();
 							while(true)
 							{
-								if(matcher.psiFind().booleanValue())
+								if(oMatcher.psiFind().booleanValue())
 								{
-									ostack.push(matcher);
+									ostack.push(oMatcher);
 									o.invoke(interpreter);
 									interpreter.handleExecutionStack(loopLevel);
 									if(interpreter.getStopFlag())
@@ -720,6 +712,52 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity21<PsiStringy, PsiRegExp>
 					("matcher", PsiMatcher::new),
+				new PsiOperator.Action
+					("matches",
+						(interpreter)->
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final PsiMatcher matcher=ostack.getBacked(0);
+							boolean resultValue=matcher.psiMatches().booleanValue();
+							if(resultValue)
+								ostack.push(matcher);
+							ostack.push(PsiBoolean.valueOf(resultValue));
+						}
+					),
+				new PsiOperator.Action
+					("matchesforall",
+						(interpreter)->
+						{
+							final OperandStack ostack=interpreter.operandStackBacked(4);
+							final ExecutionStack estack=interpreter.executionStack();
+							final PsiMatcher oMatcher=new PsiMatcher(ostack.getBacked(0), ostack.getBacked(1));
+							final PsiObject oProc1=ostack.getBacked(2);
+							final PsiObject oProc2=ostack.getBacked(3);
+
+							interpreter.pushLoopLevel();
+							estack.push(new PsiOperator("#matchesforall_continue")
+								{
+									@Override
+									public void action(final Interpreter interpreter1)
+										throws PsiException
+									{
+										boolean result=oMatcher.psiFind().booleanValue();
+										ostack.push(oMatcher);
+										if(result)
+										{
+											// HANDLE
+											estack.push(this);
+
+										}
+										else
+										{
+											interpreter1.popLoopLevel();
+										}
+										(result? oProc1: oProc2).invoke(interpreter1);
+									}
+								});
+						}
+					),
 				new PsiOperator.Arity21<PsiScalar, PsiScalar>
 					("max", PsiScalar::psiMax),
 				new PsiOperator.Arity21<PsiScalar, PsiScalar>
@@ -920,6 +958,8 @@ public class PsiSystemDict
 								});
 						}
 					),
+				new PsiOperator.Arity21<PsiMatcher, PsiStringy>
+					("replaceall", PsiMatcher::psiReplaceAll),
 				new PsiOperator.Arity21<PsiAppendable, PsiInteger>
 					("replicate", PsiAppendable::psiReplicate),
 				new PsiOperator.Action

@@ -1,16 +1,31 @@
 package coneforest.psi.core;
 
 public class PsiMatcher
-	implements PsiObject
+	implements PsiResettable
 {
 	public PsiMatcher(final PsiStringy oStringy, final PsiRegExp oRegExp)
 	{
 		matcher=oRegExp.getPattern().matcher(oStringy.stringValue());
 	}
 
+	public void psiReset()
+	{
+		matcher.reset();
+	}
+
+	public PsiBoolean psiMatches()
+	{
+		return PsiBoolean.valueOf(matcher.matches());
+	}
+
 	public PsiBoolean psiFind()
 	{
 		return PsiBoolean.valueOf(matcher.find());
+	}
+
+	public PsiName psiReplaceAll(final PsiStringy oReplacement)
+	{
+		return new PsiName(matcher.replaceAll(oReplacement.stringValue()));
 	}
 
 	public PsiInteger psiCaptureGroupCount()

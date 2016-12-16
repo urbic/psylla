@@ -35,7 +35,7 @@ lengthy: object
 lock: object
 logical: object
 mark: atomic
-matcher: object
+matcher: resettable
 module: dict
 name: atomic stringy
 namespace: dict

@@ -8,7 +8,8 @@ A matcher, an engine that performs match operations on a string.
 
 <formalpara>
 &TitleInherits;
-<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_resettable"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
