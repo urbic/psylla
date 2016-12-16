@@ -1254,11 +1254,11 @@ public class PsiSystemDict
 		put("false", PsiBoolean.FALSE);
 		put("librarypath", oLibraryPath);
 		put("mark", PsiMark.MARK);
-		put("mathE", PsiReal.E);
-		put("mathPI", PsiReal.PI);
-		put("mathI", PsiComplex.I);
-		put("maxinteger", PsiInteger.MAX_VALUE);
-		put("maxreal", PsiReal.MAX_VALUE);
+		put("math.e", PsiReal.E);
+		put("math.pi", PsiReal.PI);
+		put("math.i", PsiComplex.I);
+		put("integer.maxvalue", PsiInteger.MAX_VALUE);
+		put("real.maxvalue", PsiReal.MAX_VALUE);
 		put("mininteger", PsiInteger.MIN_VALUE);
 		put("minreal", PsiReal.MIN_VALUE);
 		put("nan", PsiReal.NAN);

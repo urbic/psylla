@@ -10,7 +10,7 @@ public class PsiCommand
 	/**
 	*	Creates a new Ψ-{@code command} object with the given name.
 	*
-	*	@param cs a name
+	*	@param cs a name.
 	*/
 	public PsiCommand(final CharSequence cs)
 	{
@@ -22,7 +22,15 @@ public class PsiCommand
 	{
 		try
 		{
-			interpreter.dictStack().load(this).invoke(interpreter);
+			final int i=name.lastIndexOf('.');
+			(
+				i==-1?
+				interpreter.dictStack().load(this):
+				interpreter.namespacePool()
+						.forPrefix(name.substring(0, i))
+						.get(name.substring(i+1))
+			)
+					.invoke(interpreter);
 		}
 		catch(PsiException e)
 		{

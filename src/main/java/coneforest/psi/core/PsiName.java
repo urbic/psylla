@@ -160,5 +160,5 @@ public class PsiName
 		return stringValue().hashCode();
 	}
 
-	private final String name;
+	protected final String name;
 }

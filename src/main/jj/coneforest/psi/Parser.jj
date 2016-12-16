@@ -111,11 +111,6 @@ TOKEN:
 
 TOKEN:
 {
-	<COMMAND_QUALIFIED: <COMMAND> ":" <COMMAND>>
-}
-
-TOKEN:
-{
 	<#STRING_SPECIAL:
 		"\\"
 		(
