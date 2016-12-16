@@ -1,4 +1,3 @@
-
 PARSER_BEGIN(Parser)
 
 package coneforest.psi;
@@ -80,18 +79,6 @@ TOKEN:
 	<REAL: (<SIGN>)? <REAL_UNSIGNED>>
 }
 
-/*
-TOKEN:
-{
-	<COMPLEX:
-		"%C%"
-		(<INTEGER>|<REAL>)
-		":"
-		(<INTEGER>|<REAL>)
-	>
-}
-*/
-
 TOKEN:
 {
 	<#EXPONENT: ["E", "e"] <INTEGER>>
@@ -124,7 +111,7 @@ TOKEN:
 
 TOKEN:
 {
-	<NAMESPACE: "@" <COMMAND>>
+	<COMMAND_QUALIFIED: <COMMAND> ":" <COMMAND>>
 }
 
 TOKEN:

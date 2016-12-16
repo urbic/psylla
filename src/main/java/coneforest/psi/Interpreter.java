@@ -239,7 +239,6 @@ public class Interpreter
 				case ParserConstants.NAME_SLASHED:
 				case ParserConstants.NAME_QUOTED:
 				case ParserConstants.IMMEDIATE:
-				case ParserConstants.NAMESPACE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.CHAR:
 					ostack.push(parseToken(token));
@@ -279,7 +278,6 @@ public class Interpreter
 				case ParserConstants.NAME_QUOTED:
 				case ParserConstants.COMMAND:
 				case ParserConstants.IMMEDIATE:
-				case ParserConstants.NAMESPACE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.CHAR:
 					procstack.peek().psiAppend(parseToken(token));
@@ -298,8 +296,6 @@ public class Interpreter
 		{
 			case ParserConstants.IMMEDIATE:
 				return dstack.load(token.image.substring(2));
-			case ParserConstants.NAMESPACE:
-				return nspool.forPrefix(token.image.substring(1).intern());
 			default:
 				return TokensParser.parseToken(token);
 		}
