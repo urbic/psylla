@@ -3,9 +3,12 @@
 <title><token language="psi">roll</token></title>
 
 <para>
-Выполняет циклический сдвиг <replaceable>n</replaceable> самых верхних
-элементов на стеке операндов на <replaceable>k mod n</replaceable> позиций
-вверх по стеку.
+Выполняет циклический сдвиг операндов от
+<replaceable>object<subscript>n−1</subscript></replaceable> до
+<replaceable>object<subscript>0</subscript></replaceable> на <replaceable>k mod
+n</replaceable> позиций на стеке операндов (неотрицательное
+<replaceable>k</replaceable> означает сдвиг по направлению к вершине стека,
+отрицательное — к основанию).
 </para>
 
 <synopsis>
@@ -27,8 +30,8 @@
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>объект<subscript>0</subscript></replaceable>
-…
+<replaceable>объект<subscript>0</subscript></replaceable>,
+…,
 <replaceable>объект<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>

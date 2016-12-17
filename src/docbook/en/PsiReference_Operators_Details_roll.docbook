@@ -3,9 +3,12 @@
 <title><token language="psi">roll</token></title>
 
 <para>
-Выполняет циклический сдвиг <replaceable>n</replaceable> самых верхних
-элементов на стеке операндов на <replaceable>k mod n</replaceable> позиций
-вверх по стеку.
+Performs a cyclic shift of the operands
+<replaceable>object<subscript>n−1</subscript></replaceable> through
+<replaceable>object<subscript>0</subscript></replaceable> in <replaceable>k mod
+n</replaceable> steps on the operand stack (non-negative
+<replaceable>k</replaceable> denotes the shift in upward direction, negative
+<replaceable>k</replaceable> denotes the shift in downward direction).
 </para>
 
 <synopsis>
@@ -27,8 +30,8 @@
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>object<subscript>0</subscript></replaceable>
-…
+<replaceable>object<subscript>0</subscript></replaceable>,
+…,
 <replaceable>object<subscript>n−1</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_object"/>
 </listitem>

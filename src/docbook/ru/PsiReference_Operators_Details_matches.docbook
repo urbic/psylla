@@ -42,12 +42,12 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroup"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupcount"/>,
 <xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupend"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_capturegroupstart"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_matcher"/>.
 </formalpara>
 
 </section>

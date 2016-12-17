@@ -60,17 +60,14 @@ linkend="PsiReference_Types_Details_stringy"/> возвращается имен
 xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefined"/>.
 </para>
 
-<para>
-Если для заданного <replaceable>матчера</replaceable> ещё не выполнялась
-операция поиска или последний поиск не принёс результатов, генерируется <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>.
-</para>
-
 <formalpara>
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_invalidstate"/> —
+if no match has yet been attempted for the given
+<replaceable>matcher</replaceable>, or if the previous match operation
+failed
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>

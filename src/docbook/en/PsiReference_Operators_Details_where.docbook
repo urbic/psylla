@@ -4,10 +4,10 @@
 
 <para>
 Searches for a <replaceable>key</replaceable> in each dictionary on the
-dictionary stack, starting with the topmost dictionary. If the
+dictionary stack, starting with the topmost one. If the
 <replaceable>key</replaceable> is found in some dictionary, returns that
-dictionary and <constant>true</constant>, otherwise returns
-<constant>false</constant>.
+<replaceable>dictionary</replaceable> and <constant>true</constant>, otherwise
+returns <constant>false</constant>.
 </para>
 
 <synopsis>

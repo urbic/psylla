@@ -3,7 +3,8 @@
 <title><token language="psi">loop</token></title>
 
 <para>
-Вызывает <replaceable>объект</replaceable> в беконечном цикле.
+Вызывает <replaceable>объект</replaceable> (обычно процедуру) в беконечном
+цикле.
 </para>
 
 <synopsis>

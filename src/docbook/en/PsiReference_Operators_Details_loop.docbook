@@ -3,7 +3,8 @@
 <title><token language="psi">loop</token></title>
 
 <para>
-Invokes an <replaceable>object</replaceable> in an infinite cycle.
+Invokes an <replaceable>object</replaceable> (typically a procedure) in an
+infinite cycle.
 </para>
 
 <synopsis>

@@ -3,28 +3,28 @@
 <title><token language="psi">hypot</token></title>
 
 <para>
-Возвращает пифагорову сумму операндов (квадратный корень из суммы квадратов), то
-есть <replaceable>гипотенузу</replaceable>, вычисленную по
-<replaceable>катетам</replaceable>.
+Returns the Pythagorean sum of the operands (the square root of the sum of
+their squares), i. e. the <replaceable>hypotenuse</replaceable> calculated by
+<replaceable>catheti</replaceable>.
 </para>
 
 <synopsis>
-<replaceable>катет<subscript>1</subscript></replaceable>
-<replaceable>катет<subscript>2</subscript></replaceable>
+<replaceable>cathetus<subscript>1</subscript></replaceable>
+<replaceable>cathetus<subscript>2</subscript></replaceable>
 <token language="psi">hypot</token>
-<replaceable>гипотенуза</replaceable>
+<replaceable>hypotenuse</replaceable>
 </synopsis>
 
 <formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>катет<subscript>1</subscript></replaceable>,
-<replaceable>катет<subscript>2</subscript></replaceable>:
+<replaceable>cathetus<subscript>1</subscript></replaceable>,
+<replaceable>cathetus<subscript>2</subscript></replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_realnumeric"/>
 </listitem>
 <listitem>
-<replaceable>гипотенуза<subscript>2</subscript></replaceable>:
+<replaceable>hypotenuse</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>

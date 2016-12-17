@@ -3,16 +3,16 @@
 <title><token language="psi">bind</token></title>
 
 <synopsis>
-<replaceable>процедура</replaceable>
+<replaceable>procedure</replaceable>
 <token language="psi">bind</token>
-<replaceable>процедура</replaceable>
+<replaceable>procedure</replaceable>
 </synopsis>
 
 <formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>процедура</replaceable>:
+<replaceable>procedure</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>

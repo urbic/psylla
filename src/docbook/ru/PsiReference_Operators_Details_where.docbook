@@ -3,9 +3,10 @@
 <title><token language="psi">where</token></title>
 
 <para>
-Ищет словарь, содержащий заданный <replaceable>ключ</replaceable>, в стеке
-словарей, начиная от вершины стека. Если словарь найден, он возвращается. Кроме
-того, возвращается булевское значение, показывающее успешность поиска.
+Ищет заданный <replaceable>ключ</replaceable> в каждом словаре в стеке
+словарей, начиная от вершины. Если <replaceable>ключ</replaceable> найден в
+некотором словаре, возвращает этот <replaceable>словарь</replaceable> и
+<constant>true</constant>, иначе возвращает <constant>false</constant>.
 </para>
 
 <synopsis>
