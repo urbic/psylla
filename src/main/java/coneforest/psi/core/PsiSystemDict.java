@@ -655,7 +655,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							ostack.push(interpreter.dictStack().load(ostack.<PsiStringy>getBacked(0)));
+							ostack.push(interpreter.psiLoad(ostack.getBacked(0)));
 						}
 					),
 				new PsiOperator.Arity01
@@ -1216,7 +1216,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final PsiDictlike dict=interpreter.dictStack().where(ostack.<PsiStringy>getBacked(0));
+							final PsiDictlike dict=interpreter.psiWhere(ostack.<PsiStringy>getBacked(0));
 							if(dict!=null)
 								ostack.push(dict);
 							ostack.push(PsiBoolean.valueOf(dict!=null));

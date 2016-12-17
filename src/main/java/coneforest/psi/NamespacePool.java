@@ -9,13 +9,18 @@ public class NamespacePool
 		pool.put("", new PsiNamespace(""));
 	}
 
-	public PsiNamespace forPrefix(final String prefix)
+	public PsiNamespace allocate(final String prefix)
 	{
 		if(pool.containsKey(prefix))
 			return pool.get(prefix);
 		final PsiNamespace oNamespace=new PsiNamespace(prefix.intern());
 		pool.put(prefix, oNamespace);
 		return oNamespace;
+	}
+
+	public PsiNamespace get(final String prefix)
+	{
+		return pool.get(prefix);
 	}
 
 	private final java.util.HashMap<String, PsiNamespace> pool

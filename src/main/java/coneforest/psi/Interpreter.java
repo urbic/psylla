@@ -86,7 +86,49 @@ public class Interpreter
 
 	public PsiNamespace psiNamespace(final PsiStringy oPrefix)
 	{
-		return nspool.forPrefix(oPrefix.stringValue());
+		return nspool.allocate(oPrefix.stringValue());
+	}
+
+	public PsiDictlike where(final String name)
+	{
+		final int i=name.lastIndexOf('.');
+		if(i==-1)
+			return dstack.where(name);
+		else
+		{
+			final String prefix=name.substring(0, i);
+			final String key=name.substring(i+1);
+			final PsiNamespace oNamespace=nspool.get(prefix);
+			if(oNamespace==null || !oNamespace.known(key))
+				return null;
+			return oNamespace;
+		}
+	}
+
+	public PsiDictlike psiWhere(final PsiStringy oKey)
+	{
+		return where(oKey.stringValue());
+	}
+
+	public <T extends PsiObject> T load(final String name)
+		throws PsiException
+	{
+		/*
+		final int i=name.lastIndexOf('.');
+		return i==-1?
+			dstack.<T>load(key):
+			(T)nspool.forPrefix(key.substring(0, i)).get(key.substring(i+1));
+		*/
+		final PsiDictlike oDict=where(name);
+		if(oDict==null)
+			throw new PsiUndefinedException();
+		return (T)oDict.get(name.substring(name.lastIndexOf('.')+1));
+	}
+
+	public <T extends PsiObject> T psiLoad(final PsiStringy oKey)
+		throws PsiException
+	{
+		return this.<T>load(oKey.stringValue());
 	}
 
 	public void handleExecutionStack()

@@ -34,7 +34,7 @@ public class DictStack
 	public <T extends PsiObject> T load(final PsiStringy oKey)
 		throws PsiException
 	{
-		return load(oKey.stringValue());
+		return this.<T>load(oKey.stringValue());
 	}
 
 	public PsiDictlike where(final String key)
