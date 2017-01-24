@@ -170,6 +170,29 @@ Argument passed to Ψ program.
 </refsection>
 
 <refsection>
+<title>Environment</title>
+
+<variablelist>
+
+<!--varlistentry>
+<term><envar>PSYLLA_CLASSPATH</envar></term>
+<listitem>
+TODO
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><envar>PSYLLA_LIBRARYPATH</envar></term>
+<listitem>
+TODO
+</listitem>
+</varlistentry-->
+
+</variablelist>
+
+</refsection>
+
+<refsection>
 <title>Files</title>
 
 <variablelist>
