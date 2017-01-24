@@ -8,7 +8,7 @@ public class PsiRomanNumerals
 	public PsiRomanNumerals()
 		throws PsiException
 	{
-		super("text.roman");
+		//super("text.roman");
 
 		registerOperators
 			(

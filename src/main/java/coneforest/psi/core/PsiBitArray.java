@@ -9,6 +9,9 @@ public class PsiBitArray
 		//PsiLogical<PsiBitArray>
 		PsiBitwise<PsiBitArray>
 {
+	/**
+	*	Creates a new empty Ψ-{@code bitarray}.
+	*/
 	public PsiBitArray()
 	{
 		this(new java.util.BitSet(), 0);
@@ -151,8 +154,8 @@ public class PsiBitArray
 		throws PsiException
 	{
 		final PsiBitArray oResult=psiGetInterval(oStart, oCount);
-		int start=oStart.intValue();
-		int count=oCount.intValue();
+		final int start=oStart.intValue();
+		final int count=oCount.intValue();
 		for(int i=start+count; i<size; i++)
 			bitarray.set(i-count, bitarray.get(i));
 		size-=count;
@@ -320,7 +323,6 @@ public class PsiBitArray
 	{
 		bitarray.clear();
 	}
-
 
 	private final java.util.BitSet bitarray;
 	private int size;

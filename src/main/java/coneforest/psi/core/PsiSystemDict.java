@@ -7,7 +7,7 @@ public class PsiSystemDict
 	public PsiSystemDict()
 		throws PsiException
 	{
-		super("system");
+		//super("system");
 
 		registerOperators
 			(

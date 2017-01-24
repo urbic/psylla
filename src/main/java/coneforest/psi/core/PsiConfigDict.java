@@ -6,7 +6,7 @@ public class PsiConfigDict
 {
 	public PsiConfigDict()
 	{
-		super("config");
+		//super("config");
 
 		for(String name: Config.stringPropertyNames())
 			put(name, new PsiName(Config.getProperty(name)));

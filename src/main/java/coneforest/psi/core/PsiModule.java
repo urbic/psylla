@@ -1,12 +1,13 @@
 package coneforest.psi.core;
 
 public class PsiModule
-	extends PsiNamespace
+	extends PsiDict
 {
-	public PsiModule(final String name)
+	/*public PsiModule(final String name)
 	{
 		super(name);
 	}
+	*/
 
 	protected void registerOperators(final PsiOperator... operators)
 	{

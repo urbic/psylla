@@ -28,7 +28,7 @@ public class Interpreter
 		}
 	}
 
-	public Interpreter(DictStack dstack)
+	public Interpreter(final DictStack dstack)
 	{
 		ostack=new OperandStack();
 		estack=new ExecutionStack();
@@ -86,7 +86,7 @@ public class Interpreter
 
 	public PsiNamespace psiNamespace(final PsiStringy oPrefix)
 	{
-		return nspool.allocate(oPrefix.stringValue());
+		return nspool.obtain(oPrefix.stringValue());
 	}
 
 	public PsiDictlike where(final String name)
