@@ -11,8 +11,8 @@ public interface PsiRealNumeric
 		PsiScalar<PsiRealNumeric>
 {
 	/**
-	 *	@return a string {@code "numeric"}.
-	 */
+	*	@return a string {@code "numeric"}.
+	*/
 	@Override
 	default public String typeName()
 	{
@@ -212,8 +212,8 @@ public interface PsiRealNumeric
 	}
 
 	/**
-	 *	“Less” arithmetic comparison.
-	 */
+	*	“Less” arithmetic comparison.
+	*/
 	@Override
 	default public PsiBoolean psiLt(final PsiRealNumeric oNumeric)
 	{
@@ -221,8 +221,8 @@ public interface PsiRealNumeric
 	}
 
 	/**
-	 *	“Less or equal” arithmetic comparison.
-	 */
+	*	“Less or equal” arithmetic comparison.
+	*/
 	@Override
 	default public PsiBoolean psiLe(final PsiRealNumeric oNumeric)
 	{
@@ -230,8 +230,8 @@ public interface PsiRealNumeric
 	}
 
 	/**
-	 *	“Greater” arithmetic comparison.
-	 */
+	*	“Greater” arithmetic comparison.
+	*/
 	@Override
 	default public PsiBoolean psiGt(final PsiRealNumeric oNumeric)
 	{
@@ -239,8 +239,8 @@ public interface PsiRealNumeric
 	}
 
 	/**
-	 *	“Greater or equal” arithmetic comparison.
-	 */
+	*	“Greater or equal” arithmetic comparison.
+	*/
 	@Override
 	default public PsiBoolean psiGe(final PsiRealNumeric oNumeric)
 	{

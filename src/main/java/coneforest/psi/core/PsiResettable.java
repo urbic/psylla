@@ -17,10 +17,10 @@ public interface PsiResettable
 	}
 
 	/**
-	 *	Reset this object.
-	 *
-	 *	@throws PsiException when error occured during reset.
-	 */
+	*	Reset this object.
+	*
+	*	@throws PsiException when error occured during reset.
+	*/
 	public void psiReset()
 		throws PsiException;
 }

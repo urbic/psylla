@@ -30,12 +30,12 @@ public final class PsiNull
 	}
 
 	/**
-	 *	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
-	 *	“equal to” this one. Return value is {@code true} if and only if other
-	 *	object has {@code name} type.
-	 *
-	 *	@return a result.
-	 */
+	*	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
+	*	“equal to” this one. Return value is {@code true} if and only if other
+	*	object has {@code name} type.
+	*
+	*	@return a result.
+	*/
 	@Override
 	public PsiBoolean psiEq(final PsiObject o)
 	{
@@ -43,7 +43,7 @@ public final class PsiNull
 	}
 
 	/**
-	 *	A sole Ψ-{@code null} object.
-	 */
+	*	A sole Ψ-{@code null} object.
+	*/
 	public static final PsiNull NULL=new PsiNull();
 }

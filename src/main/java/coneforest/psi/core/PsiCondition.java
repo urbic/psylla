@@ -17,7 +17,7 @@ public class PsiCondition
 	/**
 	*	Constructs a Ψ-{@code condition} object that wraps given condition.
 	*
-	* 	@param condition a condition.
+	*	@param condition a condition.
 	*/
 	public PsiCondition(final java.util.concurrent.locks.Condition condition)
 	{

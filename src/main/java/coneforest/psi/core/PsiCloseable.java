@@ -17,10 +17,10 @@ public interface PsiCloseable
 	}
 
 	/**
-	 *	Close this object.
-	 *
-	 *	@throws PsiException when error occured during closing.
-	 */
+	*	Close this object.
+	*
+	*	@throws PsiException when error occured during closing.
+	*/
 	public void psiClose()
 		throws PsiException;
 }

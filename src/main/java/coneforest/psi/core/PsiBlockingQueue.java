@@ -28,10 +28,10 @@ public class PsiBlockingQueue
 	}
 
 	/**
-	 *	Returns the number of elements in this queue.
-	 *
-	 *	@return the number of elements in this queue.
-	 */
+	*	Returns the number of elements in this queue.
+	*
+	*	@return the number of elements in this queue.
+	*/
 	@Override
 	public int length()
 	{

@@ -68,20 +68,20 @@ public class PsiComplex
 	}
 
 	/**
-	 *	Returns a Ψ-{@code real} real part of this object.
-	 *
-	 *	@return a Ψ-{@code real} real part.
-	 */
+	*	Returns a Ψ-{@code real} real part of this object.
+	*
+	*	@return a Ψ-{@code real} real part.
+	*/
 	public PsiReal psiRealPart()
 	{
 		return new PsiReal(re);
 	}
 
 	/**
-	 *	Returns a Ψ-{@code real} imaginary part of this object.
-	 *
-	 *	@return a Ψ-{@code real} imaginary part.
-	 */
+	*	Returns a Ψ-{@code real} imaginary part of this object.
+	*
+	*	@return a Ψ-{@code real} imaginary part.
+	*/
 
 	public PsiReal psiImagPart()
 	{
@@ -89,13 +89,13 @@ public class PsiComplex
 	}
 
 	/**
-	 *	Returns a Ψ-{@code real} representing the complex argument of this
-	 *	object. The argument belongs to the range (−π; π].
-	 *
-	 *	@return a Ψ-{@code real} argument.
-	 *	@throws PsiUndefinedResultException when this object represents a zero
-	 *	number.
-	 */
+	*	Returns a Ψ-{@code real} representing the complex argument of this
+	*	object. The argument belongs to the range (−π; π].
+	*
+	*	@return a Ψ-{@code real} argument.
+	*	@throws PsiUndefinedResultException when this object represents a zero
+	*	number.
+	*/
 	public PsiReal psiArg()
 		throws PsiUndefinedResultException
 	{
@@ -105,11 +105,11 @@ public class PsiComplex
 	}
 
 	/**
-	 *	Returns a Ψ-{@code complex} representing the complex conjugate of this
-	 *	object.
-	 *
-	 *	@return a Ψ-{@code complex} conjugate of this number.
-	 */
+	*	Returns a Ψ-{@code complex} representing the complex conjugate of this
+	*	object.
+	*
+	*	@return a Ψ-{@code complex} conjugate of this number.
+	*/
 	public PsiComplex psiConjugate()
 	{
 		return new PsiComplex(re, -im);

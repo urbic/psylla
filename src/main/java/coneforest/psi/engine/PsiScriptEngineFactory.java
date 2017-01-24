@@ -1,13 +1,13 @@
 package coneforest.psi.engine;
 
 /**
-* A Ψ programming language scripting engine.
+*	A Ψ programming language scripting engine.
 */
 public class PsiScriptEngineFactory
 	implements javax.script.ScriptEngineFactory
 {
 	/**
-	* @return a string {@code "Psi"}.
+	*	@return a string {@code "Psi"}.
 	*/
 	@Override
 	public String getEngineName()
@@ -16,9 +16,9 @@ public class PsiScriptEngineFactory
 	}
 
 	/**
-	* Returns an engine.
+	*	Returns an engine.
 	*
-	* @return an engine.
+	*	@return an engine.
 	*/
 	@Override
 	public javax.script.ScriptEngine getScriptEngine()
@@ -27,7 +27,7 @@ public class PsiScriptEngineFactory
 	}
 
 	/**
-	* @return a list consisting of single string {@code "psi"}.
+	*	@return a list consisting of single string {@code "psi"}.
 	*/
 	@Override
 	public java.util.List<String> getNames()
@@ -91,10 +91,10 @@ public class PsiScriptEngineFactory
 	}
 
 	/**
-	 * Returns a name of a language.
-	 *
-	 * @return a name of a language.
-	 */
+	*	Returns a name of a language.
+	*
+	*	@return a name of a language.
+	*/
 	@Override
 	public String getLanguageName()
 	{
@@ -102,8 +102,8 @@ public class PsiScriptEngineFactory
 	}
 
 	/**
-	 * @return a list consisting of single string {@code "application/x-psi"}.
-	 */
+	*	@return a list consisting of single string {@code "application/x-psi"}.
+	*/
 	@Override
 	public java.util.List<String> getMimeTypes()
 	{
@@ -113,8 +113,8 @@ public class PsiScriptEngineFactory
 	}
 
 	/**
-	 * @return a list consisting of single string {@code "psi"}.
-	 */
+	*	@return a list consisting of single string {@code "psi"}.
+	*/
 	@Override
 	public java.util.List<String> getExtensions()
 	{

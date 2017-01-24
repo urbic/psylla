@@ -12,8 +12,8 @@ public interface PsiDictlike<V extends PsiObject>
 		PsiIndexed<PsiStringy, V>
 {
 	/**
-	 *	@return a string {@code "dictlike"}.
-	 */
+	*	@return a string {@code "dictlike"}.
+	*/
 	@Override
 	default public String typeName()
 	{
@@ -52,7 +52,7 @@ public interface PsiDictlike<V extends PsiObject>
 	}
 	*/
 
-	public V get(String key)
+	public V get(final String key)
 		throws PsiException;
 
 	@Override
@@ -91,10 +91,10 @@ public interface PsiDictlike<V extends PsiObject>
 	public void undef(final String key);
 
 	/**
-	 *	Deletes a key and associated value from this dictionary.
-	 *
-	 *	@param oKey a Ψ-{@code stringy} key.
-	 */
+	*	Deletes a key and associated value from this dictionary.
+	*
+	*	@param oKey a Ψ-{@code stringy} key.
+	*/
 	default public void psiUndef(final PsiStringy oKey)
 	{
 		undef(oKey.stringValue());

@@ -35,45 +35,45 @@ public interface PsiReadable
 	}
 
 	/**
-	 *	Read a Ψ-{@code string} from this object and returns it.
-	 *
-	 *	@param oCount a Ψ-{@code integer} representing the length of the string.
-	 *	@return a string read.
-	 *	@throws PsiException when error occurs.
-	 */
+	*	Read a Ψ-{@code string} from this object and returns it.
+	*
+	*	@param oCount a Ψ-{@code integer} representing the length of the string.
+	*	@return a string read.
+	*	@throws PsiException when error occurs.
+	*/
 	public PsiString psiReadString(final PsiInteger oCount)
 		throws PsiException;
 
 	/**
-	 *	Read a line (Ψ-{@code string}) from this object and returns it.
-	 *
-	 *	@return a line read,
-	 *	@throws PsiException when error occurs.
-	 */
+	*	Read a line (Ψ-{@code string}) from this object and returns it.
+	*
+	*	@return a line read,
+	*	@throws PsiException when error occurs.
+	*/
 	public PsiString psiReadLine()
 		throws PsiException;
 
 	/**
-	 *	Skips characters. This method will block until some characters are
-	 *	available, an I/O error occurs, or end of input is reached.
-	 *
-	 *	@param oCount a Ψ-{@code integer} representing the number of characters
-	 *	to be skipped.
-	 *	@return a Ψ-{@code boolean} indicating whether all the characters were
-	 *	skipped successfully
-	 *	@throws PsiException when an error occurs.
-	 */
+	*	Skips characters. This method will block until some characters are
+	*	available, an I/O error occurs, or end of input is reached.
+	*
+	*	@param oCount a Ψ-{@code integer} representing the number of characters
+	*	to be skipped.
+	*	@return a Ψ-{@code boolean} indicating whether all the characters were
+	*	skipped successfully
+	*	@throws PsiException when an error occurs.
+	*/
 	public PsiBoolean psiSkip(final PsiInteger oCount)
 		throws PsiException;
 
 	/**
-	 *	Returns a Ψ-{@code boolean} indicating whether this object is ready to
-	 *	be read.
-	 *
-	 *	@return {@code true} if this object is ready to be read, and {@code
-	 *	false} otherwise.
-	 *	@throws PsiException when I/O error occurs.
-	 */
+	*	Returns a Ψ-{@code boolean} indicating whether this object is ready to
+	*	be read.
+	*
+	*	@return {@code true} if this object is ready to be read, and {@code
+	*	false} otherwise.
+	*	@throws PsiException when I/O error occurs.
+	*/
 	public PsiBoolean psiReady()
 		throws PsiException;
 }

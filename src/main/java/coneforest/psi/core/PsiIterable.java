@@ -13,8 +13,8 @@ public interface PsiIterable<T extends PsiObject>
 		Iterable<T>
 {
 	/**
-	 *	@return a string {@code "iterable"}.
-	 */
+	*	@return a string {@code "iterable"}.
+	*/
 	@Override
 	default public String typeName()
 	{
@@ -77,12 +77,12 @@ public interface PsiIterable<T extends PsiObject>
 	}
 
 	/**
-	 *	Returns a Ψ-{@code iterable} over elements of this object that
-	 *	satisfies the criterium calculated during Ψ-{@code proc} invocation.
-	 *
-	 *	@param oProc a procedure
-	 *	@return an iterable
-	 */
+	*	Returns a Ψ-{@code iterable} over elements of this object that
+	*	satisfies the criterium calculated during Ψ-{@code proc} invocation.
+	*
+	*	@param oProc a procedure
+	*	@return an iterable
+	*/
 	default public PsiIterable<T> psiGrep(final PsiProc oProc)
 		throws PsiException
 	{

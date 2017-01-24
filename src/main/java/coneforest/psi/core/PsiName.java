@@ -9,39 +9,39 @@ public class PsiName
 		PsiStringy
 {
 	/**
-	 *	Instantiate a new Ψ-{@code name} object with given name.
-	 *
-	 *	@param cs a name.
-	 */
+	*	Instantiate a new Ψ-{@code name} object with given name.
+	*
+	*	@param cs a name.
+	*/
 	public PsiName(final CharSequence cs)
 	{
 		name=cs.toString();
 	}
 
 	/**
-	 *	Instantiate a new Ψ-{@code name} object with name given as Ψ-{@code
-	 *	stringy} object.
-	 *
-	 *	@param oStringy a stringy.
-	 */
+	*	Instantiate a new Ψ-{@code name} object with name given as Ψ-{@code
+	*	stringy} object.
+	*
+	*	@param oStringy a stringy.
+	*/
 	public PsiName(final PsiStringy oStringy)
 	{
 		this(oStringy.stringValue());
 	}
 
 	/**
-	 *	@return a {@code "name"} string.
-	 */
+	*	@return a {@code "name"} string.
+	*/
 	@Override
 	public String typeName()
 	{
 		return "name";
 	}
 	/**
-	 *	Returns a string value of this object’s value.
-	 *
-	 *	@return a string value of this object.
-	 */
+	*	Returns a string value of this object’s value.
+	*
+	*	@return a string value of this object.
+	*/
 
 	@Override
 	public String stringValue()
@@ -56,8 +56,8 @@ public class PsiName
 	}
 
 	/**
-	 *	@return a Ψ-{@code integer} length (in characters) of this name.
-	 */
+	*	@return a Ψ-{@code integer} length (in characters) of this name.
+	*/
 	@Override
 	public PsiInteger psiLength()
 	{
@@ -65,12 +65,12 @@ public class PsiName
 	}
 
 	/**
-	 *	Converts all of the characters in this object to upper case according
-	 *	to default locale and returns a new Ψ-{@code name} object representing
-	 *	the result of the conversion.
-	 *
-	 *	@return a Ψ-{@code name} result of upper-casing.
-	 */
+	*	Converts all of the characters in this object to upper case according
+	*	to default locale and returns a new Ψ-{@code name} object representing
+	*	the result of the conversion.
+	*
+	*	@return a Ψ-{@code name} result of upper-casing.
+	*/
 	@Override
 	public PsiName psiUpperCase()
 	{
@@ -78,12 +78,12 @@ public class PsiName
 	}
 
 	/**
-	 *	Converts all of the characters in this object to lower case according
-	 *	to default locale and returns a new Ψ-{@code name} object representing
-	 *	the result of the conversion.
-	 *
-	 *	@return a Ψ-{@code name} result of lower-casing.
-	 */
+	*	Converts all of the characters in this object to lower case according
+	*	to default locale and returns a new Ψ-{@code name} object representing
+	*	the result of the conversion.
+	*
+	*	@return a Ψ-{@code name} result of lower-casing.
+	*/
 	@Override
 	public PsiName psiLowerCase()
 	{
@@ -91,11 +91,11 @@ public class PsiName
 	}
 
 	/**
-	 *	Returns a syntactic representation of this object’s value. Returns a
-	 *	value string prepended with {@code /}.
-	 *
-	 *	@return a syntactic representation of this object’s value.
-	 */
+	*	Returns a syntactic representation of this object’s value. Returns a
+	*	value string prepended with {@code /}.
+	*
+	*	@return a syntactic representation of this object’s value.
+	*/
 	@Override
 	public String toSyntaxString()
 	{
@@ -141,12 +141,12 @@ public class PsiName
 	}
 
 	/**
-	 *	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
-	 *	“equal to” this one. Return value is {@code true} if and only if other
-	 *	object has Ψ-{@code name} type and its value is equal to this one’s.
-	 *
-	 *	@return a result.
-	 */
+	*	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
+	*	“equal to” this one. Return value is {@code true} if and only if other
+	*	object has Ψ-{@code name} type and its value is equal to this one’s.
+	*
+	*	@return a result.
+	*/
 	@Override
 	public boolean equals(final Object object)
 	{

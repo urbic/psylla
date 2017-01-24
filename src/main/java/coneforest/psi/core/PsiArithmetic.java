@@ -37,21 +37,21 @@ public interface PsiArithmetic<T extends PsiArithmetic>
 	public T psiDiv(final T oArithmetic);
 
 	/**
-	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
-	 *	zero value.
-	 *
-	 *	@return {@link PsiBoolean#TRUE} if this object represents a zero value,
-	 *	and {@link PsiBoolean#FALSE} otherwise.
-	 */
+	*	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	*	zero value.
+	*
+	*	@return {@link PsiBoolean#TRUE} if this object represents a zero value,
+	*	and {@link PsiBoolean#FALSE} otherwise.
+	*/
 	public PsiBoolean psiIsZero();
 
 	/**
-	 *	Returns a Ψ-{@code boolean} indicating whether this object represents a
-	 *	non-zero value.
-	 *
-	 *	@return {@link PsiBoolean#TRUE} if this object represents a non-zero value,
-	 *	and {@link PsiBoolean#FALSE} otherwise.
-	 */
+	*	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	*	non-zero value.
+	*
+	*	@return {@link PsiBoolean#TRUE} if this object represents a non-zero value,
+	*	and {@link PsiBoolean#FALSE} otherwise.
+	*/
 	default public PsiBoolean psiNotZero()
 	{
 		return psiIsZero().psiNot();

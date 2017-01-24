@@ -13,8 +13,8 @@ public interface PsiArraylike<T extends PsiObject>
 		PsiIndexed<PsiInteger, T>
 {
 	/**
-	 *	@return a string {@code "arraylike"}.
-	 */
+	*	@return a string {@code "arraylike"}.
+	*/
 	@Override
 	default public String typeName()
 	{
