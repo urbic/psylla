@@ -10,23 +10,14 @@ public class FileSystem
 	{
 	}
 
-	public static java.nio.file.Path getPath(String fileName)
+	public static java.nio.file.Path getPath(final String fileName)
 	{
-		// TODO
-		if(fileName.startsWith("~"))
-			fileName=System.getProperty("user.home")+fileName.substring(1);
 		return new java.io.File(fileName).toPath();
 	}
 
 	public static java.nio.file.Path getPath(final PsiStringy oFileName)
 	{
 		return getPath(oFileName.stringValue());
-		/*
-		String name=oFileName.stringValue();
-		if(name.startsWith("~"))
-			name=System.getProperty("user.home")+name.substring(1);
-		return new java.io.File(name).toPath();
-		*/
 	}
 
 	/**
