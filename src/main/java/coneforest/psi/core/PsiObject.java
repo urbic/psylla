@@ -114,6 +114,11 @@ public interface PsiObject
 		return PsiBoolean.TRUE;
 	}
 
+	/**
+	*	Returns a Ψ-{@code integer} hash code for this object.
+	*
+	*	@return a Ψ-{@code integer} hash code for this object.
+	*/
 	default public PsiInteger psiHashCode()
 	{
 		return PsiInteger.valueOf(hashCode());
