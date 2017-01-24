@@ -3,14 +3,14 @@ package coneforest.cli;
 public class OptionDouble
 	extends OptionHolder<Double>
 {
-	public OptionDouble(final String... names)
+	public OptionDouble(final String names)
 	{
 		super(names);
 	}
 
 	@Override
 	public Double parseArg(final String arg)
-		throws CLIProcessingException
+		throws ProcessingException
 	{
 		try
 		{
@@ -18,7 +18,7 @@ public class OptionDouble
 		}
 		catch(NumberFormatException e)
 		{
-			throw new CLIProcessingException(Messages.format("optProcExcpnBadArg", arg));
+			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
 	}
 }

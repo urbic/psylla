@@ -2,28 +2,28 @@ package coneforest.cli;
 import java.io.*;
 
 /**
- *	Options processor.
- */
+*	Options processor.
+*/
 public class Processor
 {
 	/**
-	 *	Constructor.
-	 *
-	 *	@param options a list of option descriptions.
-	 */
+	*	Constructor.
+	*
+	*	@param options a list of option descriptions.
+	*/
 	public Processor(final Option... options)
 	{
 		this.options=options;
 	}
 
 	public int parse(final String[] args)
-		throws CLIProcessingException
+		throws ProcessingException
 	{
 		return parse(args, Integer.MAX_VALUE);
 	}
 
 	public int parse(final String[] args, final int freeArgsCount)
-		throws CLIProcessingException
+		throws ProcessingException
 	{
 		boolean optionsProcessing=true;
 
@@ -47,7 +47,7 @@ public class Processor
 						if(option instanceof OptionWithArg)
 							((OptionWithArg)option).handle(arg);
 						else
-							throw new CLIProcessingException(Messages.format("optProcExcpnDoesntNeedArg", "--"+name));
+							throw new ProcessingException(Messages.format("optProcExcpnDoesntNeedArg", "--"+name));
 					}
 					else
 					{
@@ -58,7 +58,7 @@ public class Processor
 							if(++i<args.length)
 								((OptionWithArg)option).handle(args[i]);
 							else
-								throw new CLIProcessingException(Messages.format("optProcExcpnNeedsArg", "--"+name));
+								throw new ProcessingException(Messages.format("optProcExcpnNeedsArg", "--"+name));
 						}
 						else
 							((OptionWithoutArg)option).handle();
@@ -76,7 +76,7 @@ public class Processor
 								if(++i<args.length)
 									((OptionWithArg)option).handle(args[i]);
 								else
-									throw new CLIProcessingException(Messages.format("optProcExcpnNeedsArg", "-"+name));
+									throw new ProcessingException(Messages.format("optProcExcpnNeedsArg", "-"+name));
 							else
 								((OptionWithArg)option).handle(args[i].substring(j));
 							break;
@@ -101,16 +101,16 @@ public class Processor
 	}
 
 	private Option findOption(final String name)
-		throws CLIProcessingException
+		throws ProcessingException
 	{
 		for(Option option: options)
 			if(option.hasName(name))
 				return option;
-		throw new CLIProcessingException(Messages.format("optProcExcpnNoDefn", (name.length()==1? "-": "--")+name));
+		throw new ProcessingException(Messages.format("optProcExcpnNoDefn", (name.length()==1? "-": "--")+name));
 	}
 
 	public <T> T getValue(final String name)
-		throws CLIProcessingException
+		throws ProcessingException
 	{
 		return findOption(name).<T>getValue();
 	}

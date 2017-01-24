@@ -3,14 +3,14 @@ package coneforest.cli;
 public class OptionFloat
 	extends OptionHolder<Float>
 {
-	public OptionFloat(String names)
+	public OptionFloat(final String names)
 	{
 		super(names);
 	}
 
 	@Override
-	public Float parseArg(String arg)
-		throws CLIProcessingException
+	public Float parseArg(final String arg)
+		throws ProcessingException
 	{
 		try
 		{
@@ -18,7 +18,7 @@ public class OptionFloat
 		}
 		catch(NumberFormatException e)
 		{
-			throw new CLIProcessingException(Messages.format("optProcExcpnBadArg", arg));
+			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
 	}
 }

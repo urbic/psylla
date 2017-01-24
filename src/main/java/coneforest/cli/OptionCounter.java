@@ -1,21 +1,21 @@
 package coneforest.cli;
 
 /**
- *	Class representing a counter. Integer option value, initially zero,
- *	increments every time when option is processed.
- */
+*	Class representing a counter. Integer option value, initially zero,
+*	increments every time when option is processed.
+*/
 public class OptionCounter extends OptionWithoutArg
 {
-	public OptionCounter(final String... names)
+	public OptionCounter(final String names)
 	{
 		super(names);
 	}
 
 	/**
-	 *	Returns current option value.
-	 *
-	 *	@return a value.
-	 */
+	*	Returns current option value.
+	*
+	*	@return a value.
+	*/
 	@Override
 	public Integer getValue()
 	{
@@ -23,8 +23,8 @@ public class OptionCounter extends OptionWithoutArg
 	}
 
 	/**
-	 *	Increments option value by one.
-	 */
+	*	Increments option value by one.
+	*/
 	@Override
 	public void handle()
 	{
