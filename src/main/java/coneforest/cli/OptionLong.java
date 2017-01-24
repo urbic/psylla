@@ -14,7 +14,7 @@ public class OptionLong extends OptionHolder<Long>
 		{
 			return Long.parseLong(arg);
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}

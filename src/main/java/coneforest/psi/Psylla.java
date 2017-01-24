@@ -17,18 +17,18 @@ public class Psylla
 		{
 			launch(args);
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
 		}
-		catch(coneforest.cli.ProcessingException e)
+		catch(final coneforest.cli.ProcessingException e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			System.err.println(Messages.getString("useHelpOption"));
 			System.exit(1);
 		}
-		catch(java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException e)
 		{
 			System.out.println(Messages.format("scriptNotFoundText", e.getLocalizedMessage()));
 			System.exit(1);
@@ -129,7 +129,7 @@ public class Psylla
 			System.setOut(new java.io.PrintStream(System.out, true, ce));
 			System.setErr(new java.io.PrintStream(System.err, true, ce));
 		}
-		catch(java.io.UnsupportedEncodingException e)
+		catch(final java.io.UnsupportedEncodingException e)
 		{
 			System.err.println(Messages.format("unsupportedEncodingText", consoleEncoding));
 			System.exit(1);
@@ -163,7 +163,7 @@ public class Psylla
 						{
 							repl();
 						}
-						catch(PsiException e)
+						catch(final PsiException e)
 						{
 						}
 					}

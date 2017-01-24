@@ -13,7 +13,7 @@ public class PsiRegExp
 		{
 			pattern=java.util.regex.Pattern.compile(cs.toString());
 		}
-		catch(java.util.regex.PatternSyntaxException e)
+		catch(final java.util.regex.PatternSyntaxException e)
 		{
 			throw new PsiInvalidRegExpException();
 		}

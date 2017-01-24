@@ -63,7 +63,7 @@ public class PsiString
 		{
 			return PsiInteger.valueOf(buffer.charAt(index));
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -79,7 +79,7 @@ public class PsiString
 		{
 			return new PsiString(buffer.substring(index, index+count));
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -93,7 +93,7 @@ public class PsiString
 		{
 			buffer.setCharAt(index, (char)oCharacter.intValue());
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -134,7 +134,7 @@ public class PsiString
 		{
 			buffer.insert(index, (char)oCharacter.intValue());
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -148,7 +148,7 @@ public class PsiString
 		{
 			buffer.insert(index, oString.buffer);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -169,7 +169,7 @@ public class PsiString
 			for(PsiInteger oCharacter: oIterable)
 				buffer.insert(index++, (char)oCharacter.intValue());
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -183,7 +183,7 @@ public class PsiString
 		{
 			buffer.deleteCharAt(index);
 		}
-		catch(StringIndexOutOfBoundsException e)
+		catch(final StringIndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -199,7 +199,7 @@ public class PsiString
 			buffer.deleteCharAt(index);
 			return oResult;
 		}
-		catch(StringIndexOutOfBoundsException e)
+		catch(final StringIndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -267,7 +267,7 @@ public class PsiString
 		{
 			buffer.setLength((int)length);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}

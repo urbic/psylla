@@ -92,7 +92,7 @@ public class TokensParser
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
-							catch(IllegalArgumentException e)
+							catch(final IllegalArgumentException e)
 							{
 								throw new PsiSyntaxErrorException();
 							}
@@ -166,7 +166,7 @@ public class TokensParser
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
-							catch(IllegalArgumentException e)
+							catch(final IllegalArgumentException e)
 							{
 								throw new PsiSyntaxErrorException();
 							}
@@ -235,7 +235,7 @@ public class TokensParser
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
-							catch(IllegalArgumentException e)
+							catch(final IllegalArgumentException e)
 							{
 								throw new PsiSyntaxErrorException();
 							}
@@ -282,12 +282,12 @@ public class TokensParser
 			{
 				return PsiInteger.valueOf(Long.parseLong(token.image));
 			}
-			catch(NumberFormatException e)
+			catch(final NumberFormatException e)
 			{
 				return new PsiReal(Double.parseDouble(token.image));
 			}
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new PsiSyntaxErrorException();
 		}
@@ -304,7 +304,7 @@ public class TokensParser
 			else
 				return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 16));
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new PsiSyntaxErrorException();
 		}
@@ -321,7 +321,7 @@ public class TokensParser
 			else
 				return PsiInteger.valueOf(Long.parseLong(token.image.substring(2), 2));
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new PsiSyntaxErrorException();
 		}
@@ -364,7 +364,7 @@ public class TokensParser
 							return PsiInteger.valueOf(Integer.valueOf(
 									token.image.substring(4, token.image.length()-1), 16));
 						}
-						catch(IllegalArgumentException e)
+						catch(final IllegalArgumentException e)
 						{
 							throw new PsiSyntaxErrorException();
 						}

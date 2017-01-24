@@ -39,7 +39,7 @@ public class PsiBitArray
 		{
 			return PsiBoolean.valueOf(bitarray.get(index));
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -60,7 +60,7 @@ public class PsiBitArray
 			newBitArray.size=count;
 			return newBitArray;
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -76,7 +76,7 @@ public class PsiBitArray
 		{
 			bitarray.set(index, oBoolean.booleanValue());
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -125,7 +125,7 @@ public class PsiBitArray
 				bitarray.set(i-1, bitarray.get(i));
 			size--;
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -143,7 +143,7 @@ public class PsiBitArray
 			size--;
 			return result;
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}

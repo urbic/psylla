@@ -23,7 +23,7 @@ public class PsiFileReader
 			return new java.io.FileReader(
 					coneforest.psi.FileSystem.getPath(fileName).toString());
 		}
-		catch(java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException e)
 		{
 			throw new PsiFileNotFoundException();
 		}

@@ -44,12 +44,12 @@ public abstract class PsiOperator
 		{
 			action(interpreter);
 		}
-		catch(ClassCastException e)
+		catch(final ClassCastException e)
 		{
 			ostack.restore();
 			interpreter.handleError(new PsiTypeCheckException(this));
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			ostack.restore();
 			e.setEmitter(this);

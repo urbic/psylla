@@ -50,7 +50,7 @@ public class PsiScriptEngine
 		{
 			return interpreter.systemDict().get(key);
 		}
-		catch(coneforest.psi.core.PsiException e)
+		catch(final coneforest.psi.core.PsiException e)
 		{
 			return null;
 		}

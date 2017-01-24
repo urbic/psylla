@@ -14,7 +14,7 @@ public class OptionCollectorDouble extends OptionCollector<Double>
 		{
 			return Double.parseDouble(arg);
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}

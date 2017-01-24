@@ -36,19 +36,19 @@ public class Psylla
 		{
 			coneforest.psi.Psylla.launch(args).join();
 		}
-		catch(coneforest.psi.core.PsiException e)
+		catch(final coneforest.psi.core.PsiException e)
 		{
 			// TODO
 		}
-		catch(coneforest.cli.ProcessingException e)
+		catch(final coneforest.cli.ProcessingException e)
 		{
 			// TODO
 		}
-		catch(java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException e)
 		{
 			// TODO
 		}
-		catch(InterruptedException e)
+		catch(final InterruptedException e)
 		{
 		}
 	}

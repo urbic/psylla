@@ -24,7 +24,7 @@ public class Config
 		{
 			config.load(Psylla.class.getResourceAsStream("Config.properties"));
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			System.out.println(e.getMessage());
 			System.exit(1);

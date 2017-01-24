@@ -19,7 +19,7 @@ public interface PsiContainer<T extends PsiObject>
 		{
 			return getClass().newInstance();
 		}
-		catch(InstantiationException|IllegalAccessException e)
+		catch(final InstantiationException|IllegalAccessException e)
 		{
 			throw new PsiUnsupportedException();
 		}

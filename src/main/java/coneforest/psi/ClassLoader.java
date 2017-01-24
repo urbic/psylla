@@ -17,7 +17,7 @@ abstract public class ClassLoader
 		{
 			return findSystemClass(className);
 		}
-		catch(Exception e)
+		catch(final Exception e)
 		{
 		}
 		for(PsiObject file: getPsiClassPath())
@@ -71,7 +71,7 @@ abstract public class ClassLoader
 			classes.put(className, result);
 			return result;
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			return null;
 		}

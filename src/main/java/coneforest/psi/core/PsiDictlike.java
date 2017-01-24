@@ -126,7 +126,7 @@ public interface PsiDictlike<V extends PsiObject>
 								{
 									return psiGet(parentIterator.next());
 								}
-								catch(PsiException e)
+								catch(final PsiException e)
 								{
 									throw new AssertionError(e);
 								}
@@ -189,7 +189,7 @@ public interface PsiDictlike<V extends PsiObject>
 									return (flag=!flag)?
 										(oKey=(PsiName)parentIterator.next()): psiGet(oKey);
 								}
-								catch(PsiException e)
+								catch(final PsiException e)
 								{
 									throw new AssertionError(e);
 								}

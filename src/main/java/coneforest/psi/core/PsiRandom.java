@@ -39,7 +39,7 @@ public class PsiRandom
 			{
 				return PsiInteger.valueOf(random.nextInt(numeric));
 			}
-			catch(IllegalArgumentException e)
+			catch(final IllegalArgumentException e)
 			{
 				throw new PsiRangeCheckException();
 			}

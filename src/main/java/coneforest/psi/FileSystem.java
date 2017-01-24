@@ -43,19 +43,19 @@ public class FileSystem
 		{
 			java.nio.file.Files.createDirectory(getPath(oFileName));
 		}
-		catch(java.nio.file.FileAlreadyExistsException e)
+		catch(final java.nio.file.FileAlreadyExistsException e)
 		{
 			throw new PsiFileExistsException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -73,11 +73,11 @@ public class FileSystem
 			//		oSuffix.stringValue(), new java.io.File(oDirectory.stringValue()));
 			//return new PsiName(file.getPath());
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -109,23 +109,23 @@ public class FileSystem
 		{
 			java.nio.file.Files.delete(getPath(oFileName));
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.nio.file.DirectoryNotEmptyException e)
+		catch(final java.nio.file.DirectoryNotEmptyException e)
 		{
 			throw new PsiDirectoryNotEmptyException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -138,31 +138,31 @@ public class FileSystem
 		{
 			java.nio.file.Files.copy(getPath(oFileName1), getPath(oFileName2));
 		}
-		catch(UnsupportedOperationException e)
+		catch(final UnsupportedOperationException e)
 		{
 			throw new PsiUnsupportedException();
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.nio.file.DirectoryNotEmptyException e)
+		catch(final java.nio.file.DirectoryNotEmptyException e)
 		{
 			throw new PsiDirectoryNotEmptyException();
 		}
-		catch(java.nio.file.FileAlreadyExistsException e)
+		catch(final java.nio.file.FileAlreadyExistsException e)
 		{
 			throw new PsiFileExistsException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -176,23 +176,23 @@ public class FileSystem
 			return new PsiName(java.nio.file.Files.readSymbolicLink(getPath(oFileName))
 					.toString());
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.nio.file.NotLinkException e)
+		catch(final java.nio.file.NotLinkException e)
 		{
 			throw new PsiNotLinkException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -206,23 +206,23 @@ public class FileSystem
 			java.nio.file.Files.createSymbolicLink(getPath(oFileName2),
 				getPath(oFileName1));
 		}
-		catch(UnsupportedOperationException e)
+		catch(final UnsupportedOperationException e)
 		{
 			throw new PsiUnsupportedException();
 		}
-		catch(java.nio.file.FileAlreadyExistsException e)
+		catch(final java.nio.file.FileAlreadyExistsException e)
 		{
 			throw new PsiFileExistsException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -237,27 +237,27 @@ public class FileSystem
 			java.nio.file.Files.createLink(getPath(oFileName2),
 				getPath(oFileName1));
 		}
-		catch(UnsupportedOperationException e)
+		catch(final UnsupportedOperationException e)
 		{
 			throw new PsiUnsupportedException();
 		}
-		catch(java.nio.file.FileAlreadyExistsException e)
+		catch(final java.nio.file.FileAlreadyExistsException e)
 		{
 			throw new PsiFileExistsException();
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -272,27 +272,27 @@ public class FileSystem
 			java.nio.file.Files.move(getPath(oFileName1),
 					getPath(oFileName2));
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.nio.file.FileAlreadyExistsException e)
+		catch(final java.nio.file.FileAlreadyExistsException e)
 		{
 			throw new PsiFileExistsException();
 		}
-		catch(java.nio.file.DirectoryNotEmptyException e)
+		catch(final java.nio.file.DirectoryNotEmptyException e)
 		{
 			throw new PsiDirectoryNotEmptyException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -305,7 +305,7 @@ public class FileSystem
 		{
 			return PsiBoolean.valueOf(java.nio.file.Files.exists(getPath(oFileName)));
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
@@ -320,19 +320,19 @@ public class FileSystem
 					java.nio.file.attribute.BasicFileAttributes.class,
 					java.nio.file.LinkOption.NOFOLLOW_LINKS).isRegularFile());
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -347,19 +347,19 @@ public class FileSystem
 					java.nio.file.attribute.BasicFileAttributes.class,
 					java.nio.file.LinkOption.NOFOLLOW_LINKS).isDirectory());
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -373,19 +373,19 @@ public class FileSystem
 			return PsiBoolean.valueOf(java.nio.file.Files.isSameFile(
 					getPath(oFileName1), getPath(oFileName2)));
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -400,19 +400,19 @@ public class FileSystem
 					java.nio.file.attribute.BasicFileAttributes.class,
 					java.nio.file.LinkOption.NOFOLLOW_LINKS).isSymbolicLink());
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -441,19 +441,19 @@ public class FileSystem
 		{
 			return PsiInteger.valueOf(java.nio.file.Files.size(getPath(oFileName)));
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -467,19 +467,19 @@ public class FileSystem
 			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class).lastAccessTime().toMillis());
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -493,19 +493,19 @@ public class FileSystem
 			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class).creationTime().toMillis());
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -519,19 +519,19 @@ public class FileSystem
 			return PsiInteger.valueOf(java.nio.file.Files.readAttributes(getPath(oFileName),
 					java.nio.file.attribute.BasicFileAttributes.class).lastModifiedTime().toMillis());
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.lang.SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -549,16 +549,16 @@ public class FileSystem
 				array.psiAppend(new PsiString(item.toString()));
 			return array;
 		}
-		//catch(java.nio.file.DirectoryIteratorException e)
-		catch(java.nio.file.AccessDeniedException e)
+		//catch(final java.nio.file.DirectoryIteratorException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
-		catch(SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
@@ -600,7 +600,7 @@ public class FileSystem
 											directoryStream.close();
 											return false;
 										}
-										catch(java.io.IOException e)
+										catch(final java.io.IOException e)
 										{
 											return false;
 										}
@@ -620,23 +620,23 @@ public class FileSystem
 						=directoryStream.iterator();
 				};
 		}
-		catch(java.nio.file.NoSuchFileException e)
+		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.nio.file.NotDirectoryException e)
+		catch(final java.nio.file.NotDirectoryException e)
 		{
 			throw new PsiNotDirectoryException();
 		}
-		catch(java.nio.file.AccessDeniedException e)
+		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
-		catch(SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}

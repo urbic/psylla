@@ -47,15 +47,15 @@ public class PsiMatcher
 				throw new PsiTypeCheckException();
 			return group!=null? new PsiString(group): null;
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
-		catch(IllegalArgumentException e)
+		catch(final IllegalArgumentException e)
 		{
 			throw new PsiUndefinedException();
 		}
-		catch(IllegalStateException e)
+		catch(final IllegalStateException e)
 		{
 			throw new PsiInvalidStateException();
 		}
@@ -75,15 +75,15 @@ public class PsiMatcher
 				throw new PsiTypeCheckException();
 			return start>=0? PsiInteger.valueOf(start): null;
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
-		catch(IllegalArgumentException e)
+		catch(final IllegalArgumentException e)
 		{
 			throw new PsiUndefinedException();
 		}
-		catch(IllegalStateException e)
+		catch(final IllegalStateException e)
 		{
 			throw new PsiInvalidStateException();
 		}
@@ -103,15 +103,15 @@ public class PsiMatcher
 				throw new PsiTypeCheckException();
 			return end>=0? PsiInteger.valueOf(end): null;
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
-		catch(IllegalArgumentException e)
+		catch(final IllegalArgumentException e)
 		{
 			throw new PsiUndefinedException();
 		}
-		catch(IllegalStateException e)
+		catch(final IllegalStateException e)
 		{
 			throw new PsiInvalidStateException();
 		}

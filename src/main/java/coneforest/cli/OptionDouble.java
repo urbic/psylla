@@ -16,7 +16,7 @@ public class OptionDouble
 		{
 			return Double.parseDouble(arg);
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}

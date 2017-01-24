@@ -15,7 +15,7 @@ public class PsiBlockingQueue
 		{
 			queue=new java.util.concurrent.ArrayBlockingQueue<PsiObject>((int)capacity);
 		}
-		catch(IllegalArgumentException e)
+		catch(final IllegalArgumentException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -46,7 +46,7 @@ public class PsiBlockingQueue
 		{
 			queue.put(o);
 		}
-		catch(InterruptedException e)
+		catch(final InterruptedException e)
 		{
 			throw new PsiInterruptException();
 		}
@@ -60,7 +60,7 @@ public class PsiBlockingQueue
 		{
 			queue.add(o);
 		}
-		catch(IllegalStateException e)
+		catch(final IllegalStateException e)
 		{
 			throw new PsiInvalidStateException();
 		}
@@ -74,7 +74,7 @@ public class PsiBlockingQueue
 		{
 			return queue.remove();
 		}
-		catch(IllegalStateException e)
+		catch(final IllegalStateException e)
 		{
 			throw new PsiInvalidStateException();
 		}
@@ -88,7 +88,7 @@ public class PsiBlockingQueue
 		{
 			return queue.take();
 		}
-		catch(InterruptedException e)
+		catch(final InterruptedException e)
 		{
 			throw new PsiInterruptException();
 		}

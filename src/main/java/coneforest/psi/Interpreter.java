@@ -21,7 +21,7 @@ public class Interpreter
 			dstack=new DictStack();
 			pushStopLevel();
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			//e.printStackTrace();
 			throw new AssertionError();
@@ -233,14 +233,14 @@ public class Interpreter
 			dstack.<PsiWriter>load("stdout").psiFlush();
 			dstack.<PsiWriter>load("stderr").psiFlush();
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			e.setEmitter(oReader); // IMPORTANT
 			handleError(e);
 			if(getStopFlag())
 				PsiErrorDict.OP_HANDLEERROR.invoke(this);
 		}
-		catch(TokenMgrError e)
+		catch(final TokenMgrError e)
 		{
 			handleError(new PsiSyntaxErrorException(oReader));
 			if(getStopFlag())
@@ -369,7 +369,7 @@ public class Interpreter
 			else
 				psiStop();
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			throw new AssertionError();
 		}
@@ -538,14 +538,14 @@ public class Interpreter
 						}
 					}
 				}
-				catch(PsiException e)
+				catch(final PsiException e)
 				{
 					e.setEmitter(PsiNull.NULL);
 					handleError(e);
 					if(getStopFlag())
 						PsiErrorDict.OP_HANDLEERROR.invoke(this);
 				}
-				catch(TokenMgrError e)
+				catch(final TokenMgrError e)
 				{
 					handleError(new PsiSyntaxErrorException(PsiNull.NULL));
 					if(getStopFlag())
@@ -553,7 +553,7 @@ public class Interpreter
 				}
 			}
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -646,7 +646,7 @@ public class Interpreter
 					{
 						return Interpreter.this.dstack.load("classpath");
 					}
-					catch(PsiException e)
+					catch(final PsiException e)
 					{
 						return null;
 					}

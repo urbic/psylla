@@ -39,7 +39,7 @@ public interface PsiIterable<T extends PsiObject>
 					break;
 			}
 		}
-		catch(java.util.ConcurrentModificationException e)
+		catch(final java.util.ConcurrentModificationException e)
 		{
 			throw new PsiConcurrentModificationException();
 		}
@@ -62,7 +62,7 @@ public interface PsiIterable<T extends PsiObject>
 						{
 							ostack.push(iterator.next());
 						}
-						catch(java.util.NoSuchElementException e)
+						catch(final java.util.NoSuchElementException e)
 						{
 							// TODO more suitable exception type
 							throw new PsiUndefinedException();
@@ -117,7 +117,7 @@ public interface PsiIterable<T extends PsiObject>
 											return true;
 									}
 								}
-								catch(PsiException e)
+								catch(final PsiException e)
 								{
 									this.e=e;
 									return true;
@@ -174,7 +174,7 @@ public interface PsiIterable<T extends PsiObject>
 					sb.append(separator);
 			}
 		}
-		catch(ClassCastException e)
+		catch(final ClassCastException e)
 		{
 			throw new PsiTypeCheckException();
 		}

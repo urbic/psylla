@@ -16,7 +16,7 @@ public class PsiClassLoader
 		{
 			return objectClass.newInstance();
 		}
-		catch(InstantiationException|IllegalAccessException e)
+		catch(final InstantiationException|IllegalAccessException e)
 		{
 			throw new PsiInvalidExternalException();
 		}
@@ -29,11 +29,11 @@ public class PsiClassLoader
 		{
 			return external((Class<? extends PsiObject>)Class.forName(objectClassName, true, classLoader));
 		}
-		catch(ClassCastException e)
+		catch(final ClassCastException e)
 		{
 			throw new PsiTypeCheckException();
 		}
-		catch(ClassNotFoundException e)
+		catch(final ClassNotFoundException e)
 		{
 			throw new PsiInvalidExternalException();
 		}
@@ -49,7 +49,7 @@ public class PsiClassLoader
 				{
 					return findSystemClass(className);
 				}
-				catch(Exception e)
+				catch(final Exception e)
 				{
 				}
 				for(PsiObject file: PsiClassLoader.this)
@@ -101,7 +101,7 @@ public class PsiClassLoader
 					classes.put(className, result);
 					return result;
 				}
-				catch(java.io.IOException e)
+				catch(final java.io.IOException e)
 				{
 					return null;
 				}

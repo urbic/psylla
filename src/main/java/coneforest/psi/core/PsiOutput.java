@@ -35,7 +35,7 @@ public class PsiOutput
 		{
 			output.write(b);
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -55,7 +55,7 @@ public class PsiOutput
 		{
 			output.flush();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -69,7 +69,7 @@ public class PsiOutput
 		{
 			output.close();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}

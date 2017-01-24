@@ -29,7 +29,7 @@ public class PsiProc
 			for(int i=length()-1; i>=0; i--)
 				estack.push(get(i));
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			// TODO?
 		}
@@ -79,7 +79,7 @@ public class PsiProc
 							oProc.put(i, oNew);
 					}
 				}
-				catch(PsiException e)
+				catch(final PsiException e)
 				{
 					// NOP
 				}

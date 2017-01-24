@@ -72,7 +72,7 @@ public class PsiBitSet
 		{
 			bitset.set(oIndex.intValue(), true);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -95,7 +95,7 @@ public class PsiBitSet
 		{
 			bitset.set(oIndex.intValue(), false);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 		}
 	}

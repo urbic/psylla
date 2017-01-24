@@ -139,11 +139,11 @@ public interface PsiObject
 						java.lang.invoke.MethodType.methodType(type.getTypeClass(), type.getTypeClass().getClass()));
 			return (PsiObject)handle.invoke(this, type.getTypeClass());
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			throw e;
 		}
-		catch(Throwable e)
+		catch(final Throwable e)
 		{
 			System.out.println(e);
 			throw new PsiUnregisteredException();

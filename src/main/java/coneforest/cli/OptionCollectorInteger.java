@@ -15,7 +15,7 @@ public class OptionCollectorInteger extends OptionCollector<Integer>
 		{
 			result=Integer.parseInt(arg);
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}

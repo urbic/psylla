@@ -31,7 +31,7 @@ public class PsiWriter
 		{
 			writer.write(oCharacter.intValue());
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -45,7 +45,7 @@ public class PsiWriter
 		{
 			writer.write(oString.stringValue());
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -59,7 +59,7 @@ public class PsiWriter
 		{
 			writer.flush();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -73,7 +73,7 @@ public class PsiWriter
 		{
 			writer.close();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}

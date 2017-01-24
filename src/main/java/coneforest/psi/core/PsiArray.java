@@ -60,7 +60,7 @@ public class PsiArray
 		{
 			return array.get(index);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -75,7 +75,7 @@ public class PsiArray
 			return new PsiArray(new java.util.ArrayList<PsiObject>(array.subList(start.intValue(),
 					start.intValue()+oCount.intValue())));
 		}
-		catch(IndexOutOfBoundsException|IllegalArgumentException e)
+		catch(final IndexOutOfBoundsException|IllegalArgumentException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -98,7 +98,7 @@ public class PsiArray
 		{
 			array.add(indexValue, o);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -112,7 +112,7 @@ public class PsiArray
 		{
 			array.set(indexValue, o);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -126,7 +126,7 @@ public class PsiArray
 		{
 			array.remove(indexValue);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}
@@ -140,7 +140,7 @@ public class PsiArray
 		{
 			return array.remove(indexValue);
 		}
-		catch(IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsiRangeCheckException();
 		}

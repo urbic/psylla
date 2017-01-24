@@ -16,7 +16,7 @@ public class OptionFloat
 		{
 			return Float.parseFloat(arg);
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}

@@ -49,15 +49,15 @@ public class PsiProcess
 			process=pb.start();
 
 		}
-		catch(ClassCastException e)
+		catch(final ClassCastException e)
 		{
 			throw new PsiTypeCheckException();
 		}
-		catch(SecurityException e)
+		catch(final SecurityException e)
 		{
 			throw new PsiSecurityErrorException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -94,7 +94,7 @@ public class PsiProcess
 		{
 			return PsiInteger.valueOf(process.exitValue());
 		}
-		catch(IllegalThreadStateException e)
+		catch(final IllegalThreadStateException e)
 		{
 			throw new PsiInvalidStateException();
 		}

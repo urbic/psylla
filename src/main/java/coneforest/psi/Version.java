@@ -67,7 +67,7 @@ public class Version
 			minor=Integer.parseInt(versionProperties.getProperty("version.minor"));
 			revision=Integer.parseInt(versionProperties.getProperty("version.revision"));
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			System.out.println(e.getMessage());
 			System.exit(1);

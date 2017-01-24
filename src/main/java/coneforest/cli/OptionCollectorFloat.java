@@ -14,7 +14,7 @@ public class OptionCollectorFloat extends OptionCollector<Float>
 		{
 			return Float.parseFloat(arg);
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}

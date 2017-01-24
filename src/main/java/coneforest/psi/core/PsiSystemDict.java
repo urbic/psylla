@@ -306,7 +306,7 @@ public class PsiSystemDict
 									ostack.push(new PsiString(line+"\n"));
 								ostack.push(PsiBoolean.valueOf(line!=null));
 							}
-							catch(java.io.IOException e)
+							catch(final java.io.IOException e)
 							{
 								throw new PsiIOErrorException();
 							}

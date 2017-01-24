@@ -53,7 +53,7 @@ public interface PsiStringy
 			// TODO fractional
 			return PsiInteger.valueOf(Long.parseLong(stringValue()));
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new PsiSyntaxErrorException();
 		}
@@ -67,7 +67,7 @@ public interface PsiStringy
 		{
 			return new PsiReal(Double.parseDouble(stringValue()));
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new PsiSyntaxErrorException();
 		}

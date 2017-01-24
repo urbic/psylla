@@ -13,11 +13,11 @@ public class PsiFileWriter
 			setWriter(new java.io.FileWriter(
 					coneforest.psi.FileSystem.getPath(fileName).toString()));
 		}
-		catch(java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -38,11 +38,11 @@ public class PsiFileWriter
 			return new java.io.FileWriter(
 					coneforest.psi.FileSystem.getPath(fileName).toString());
 		}
-		catch(java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}

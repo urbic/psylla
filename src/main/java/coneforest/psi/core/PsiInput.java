@@ -35,7 +35,7 @@ public class PsiInput
 		{
 			return input.read();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -65,7 +65,7 @@ public class PsiInput
 		{
 			input.close();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -79,7 +79,7 @@ public class PsiInput
 		{
 			return PsiBoolean.valueOf(input.available()>0);
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -94,11 +94,11 @@ public class PsiInput
 		{
 			return PsiBoolean.valueOf(count==input.skip(count));
 		}
-		catch(IllegalArgumentException e)
+		catch(final IllegalArgumentException e)
 		{
 			throw new PsiRangeCheckException();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -112,7 +112,7 @@ public class PsiInput
 		{
 			input.reset();
 		}
-		catch(java.io.IOException e)
+		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
 		}

@@ -41,7 +41,7 @@ public class PsiCondition
 		{
 			condition.await();
 		}
-		catch(InterruptedException e)
+		catch(final InterruptedException e)
 		{
 			throw new PsiInterruptException();
 		}

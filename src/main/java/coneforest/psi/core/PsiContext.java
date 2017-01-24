@@ -56,11 +56,11 @@ public interface PsiContext
 		{
 			Thread.sleep(oDuration.longValue());
 		}
-		catch(IllegalArgumentException e)
+		catch(final IllegalArgumentException e)
 		{
 			throw new PsiRangeCheckException();
 		}
-		catch(InterruptedException e)
+		catch(final InterruptedException e)
 		{
 			throw new PsiInterruptException();
 		}

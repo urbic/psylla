@@ -15,7 +15,7 @@ public class OptionInteger extends OptionHolder<Integer>
 		{
 			return Integer.parseInt(arg);
 		}
-		catch(NumberFormatException e)
+		catch(final NumberFormatException e)
 		{
 			throw new ProcessingException(Messages.format("optProcExcpnBadArg", arg));
 		}
