@@ -24,11 +24,17 @@ public class PsiCommand
 		{
 			interpreter.psiLoad(this).invoke(interpreter);
 		}
-		catch(PsiException e)
+		catch(final PsiException e)
 		{
 			e.setEmitter(this);
 			interpreter.handleError(e);
 		}
+	}
+
+	@Override
+	public void invoke(final Interpreter interpreter)
+	{
+		execute(interpreter);
 	}
 
 	@Override
