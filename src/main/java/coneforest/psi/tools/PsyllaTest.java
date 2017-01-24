@@ -67,8 +67,19 @@ public class PsyllaTest
 
 		try
 		{
-			coneforest.psi.Psylla.main(cmdLine);
-			coneforest.psi.Psylla.join();
+			coneforest.psi.Psylla.launch(cmdLine).join();
+		}
+		catch(coneforest.psi.core.PsiException e)
+		{
+			// TODO
+		}
+		catch(coneforest.cli.ProcessingException e)
+		{
+			// TODO
+		}
+		catch(java.io.FileNotFoundException e)
+		{
+			// TODO
 		}
 		catch(InterruptedException e)
 		{

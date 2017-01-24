@@ -450,12 +450,12 @@ public class Interpreter
 		return stopstack.size()>0? stopstack.peek(): -1;
 	}
 
-	public void acceptScriptName(final String scriptName)
+	public void setScriptName(final String scriptName)
 	{
 		systemDict().put("script", new PsiName(scriptName));
 	}
 
-	public void acceptShellArguments(final String[] args)
+	public void setShellArguments(final String[] args)
 		throws PsiException
 	{
 		final PsiArray oArguments
@@ -464,7 +464,7 @@ public class Interpreter
 			oArguments.psiAppend(new PsiName(arg));
 	}
 
-	public void acceptEnvironment(final java.util.Map<String, String> env)
+	public void setEnvironment(final java.util.Map<String, String> env)
 	{
 		final PsiDict environment=new PsiDict();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())

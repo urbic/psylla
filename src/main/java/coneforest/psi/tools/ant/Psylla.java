@@ -10,29 +10,15 @@ public class Psylla
 		final java.util.ArrayList<String> psyllaArgs
 			=new java.util.ArrayList<String>();
 		if(consoleEncoding!=null)
-		{
-			psyllaArgs.add("--console-encoding");
-			psyllaArgs.add(consoleEncoding);
-		}
+			psyllaArgs.add("--console-encoding="+consoleEncoding);
 		if(classPath!=null)
-		{
-			psyllaArgs.add("--classpath");
-			psyllaArgs.add(classPath);
-		}
+			psyllaArgs.add("--classpath="+classPath);
 		if(locale!=null)
-		{
-			psyllaArgs.add("--locale");
-			psyllaArgs.add(locale);
-		}
+			psyllaArgs.add("--locale="+locale);
 		if(eval!=null)
-		{
-			psyllaArgs.add("--eval");
-			psyllaArgs.add(eval);
-		}
+			psyllaArgs.add("--eval="+eval);
 		if(script!=null)
-		{
 			psyllaArgs.add(script);
-		}
 
 		final String[] args=new String[psyllaArgs.size()+argList.size()];
 		int i=0;
@@ -46,10 +32,21 @@ public class Psylla
 			args[i++]=arg;
 		};
 
-		coneforest.psi.Psylla.main(args);
 		try
 		{
-			coneforest.psi.Psylla.join();
+			coneforest.psi.Psylla.launch(args).join();
+		}
+		catch(coneforest.psi.core.PsiException e)
+		{
+			// TODO
+		}
+		catch(coneforest.cli.ProcessingException e)
+		{
+			// TODO
+		}
+		catch(java.io.FileNotFoundException e)
+		{
+			// TODO
 		}
 		catch(InterruptedException e)
 		{
