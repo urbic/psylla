@@ -4,10 +4,7 @@
 {
 	<
 		/n 1
-		/next
-		{
-			/n n 1 add def n
-		}
+		/next { /n n 1 add def n }
 	>
 }
 bind def
