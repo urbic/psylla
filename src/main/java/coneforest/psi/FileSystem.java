@@ -424,9 +424,18 @@ public class FileSystem
 	*	@param oFileName a Ψ-{@code stringy} representing the file name.
 	*	@return a Ψ-{@code integer} representing the size (in bytes) of the
 	*	file or directory.
+	*	@throws PsiFileAccessDeniedException when the operation is prohibited
+	*	due to a file permission or other access check.
+	*	@throws PsiFileNotFoundException when the file or directory does not exist.
+	*	@throws PsiSecurityErrorException when security policy is violated.
+	*	@throws PsiIOErrorException when an input/output error occurs.
 	*/
 	public static PsiInteger psiFileSize(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
