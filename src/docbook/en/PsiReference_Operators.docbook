@@ -965,6 +965,11 @@ flush output buffer</listitem>
 <variablelist>
 
 <varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_changefilepermissions" xrefstyle="template:%t"/></term>
+<listitem>change the permissions of a file</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_copyfile" xrefstyle="template:%t"/></term>
 <listitem>create a copy of a file</listitem>
 </varlistentry>
@@ -986,7 +991,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_fileaccesstime" xrefstyle="template:%t"/></term>
-<listitem>last access time of the file</listitem>
+<listitem>last access time of a file</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1001,7 +1006,12 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsiReference_Operators_Details_filemodifiedtime" xrefstyle="template:%t"/></term>
-<listitem>last modification time of the file</listitem>
+<listitem>last modification time of a file</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsiReference_Operators_Details_filepermissions" xrefstyle="template:%t"/></term>
+<listitem>the permissions of a file</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1420,6 +1430,7 @@ xrefstyle="template:%t"/>.
 &PsiReference_Operators_Details_capturegroupstart;
 &PsiReference_Operators_Details_cbrt;
 &PsiReference_Operators_Details_ceiling;
+&PsiReference_Operators_Details_changefilepermissions;
 &PsiReference_Operators_Details_classpath;
 &PsiReference_Operators_Details_clear;
 &PsiReference_Operators_Details_clearbit;
@@ -1476,6 +1487,7 @@ xrefstyle="template:%t"/>.
 &PsiReference_Operators_Details_filecreationtime;
 &PsiReference_Operators_Details_fileexists;
 &PsiReference_Operators_Details_filemodifiedtime;
+&PsiReference_Operators_Details_filepermissions;
 &PsiReference_Operators_Details_filereader;
 &PsiReference_Operators_Details_files;
 &PsiReference_Operators_Details_filesize;

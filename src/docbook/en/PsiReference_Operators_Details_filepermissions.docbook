@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsiReference_Operators_Details_fileaccesstime">
-<title><token language="psi">fileaccesstime</token></title>
+<section xml:id="PsiReference_Operators_Details_filepermissions">
+<title><token language="psi">filepermissions</token></title>
 
 <para>
-Возвращает <replaceable>время</replaceable> последнего доступа (в миллисекундах
-с 1970.01.01 00:00:00 GMT) для файла или директории с заданным
-<replaceable>именем</replaceable>.
+Returns the <replaceable>permissions</replaceable> for the file or directory
+with the given <replaceable>name</replaceable>.
 </para>
 
 <synopsis>
-<replaceable>имя</replaceable>
-<token language="psi">fileaccesstime</token>
-<replaceable>время</replaceable>
+<replaceable>name</replaceable>
+<token language="psi">filepermissions</token>
+<replaceable>permissions</replaceable>
 </synopsis>
 
 <formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>имя</replaceable>:
+<replaceable>name</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>время</replaceable>:
+<replaceable>permissions</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
@@ -30,7 +29,8 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">'/etc/passwd' fileaccesstime	▶ 1435355038000</programlisting>
+<programlisting language="psi">'/root' filepermissions			▶ 448	# rwx------
+'/etc/shadow' filepermissions	▶ 416	# rw-r-----</programlisting>
 </formalpara>
 
 <formalpara>
@@ -42,7 +42,7 @@
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_filenotfound"/> —
-если файл или директория не существует
+&ErrorReason_filenotfound;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_ioerror"/> —
@@ -63,9 +63,7 @@
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filecreationtime"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filemodifiedtime"/>,
-<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_filesize"/>.
+<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_changefilepermissions"/>.
 </formalpara>
 
 </section>

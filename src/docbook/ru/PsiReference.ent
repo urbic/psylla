@@ -104,6 +104,7 @@
 <!ENTITY PsiReference_Operators_Details_capturegroupstart	SYSTEM "PsiReference_Operators_Details_capturegroupstart.docbook">
 <!ENTITY PsiReference_Operators_Details_cbrt			SYSTEM "PsiReference_Operators_Details_cbrt.docbook">
 <!ENTITY PsiReference_Operators_Details_ceiling			SYSTEM "PsiReference_Operators_Details_ceiling.docbook">
+<!ENTITY PsiReference_Operators_Details_changefilepermissions	SYSTEM "PsiReference_Operators_Details_changefilepermissions.docbook">
 <!ENTITY PsiReference_Operators_Details_classpath		SYSTEM "PsiReference_Operators_Details_classpath.docbook">
 <!ENTITY PsiReference_Operators_Details_clear			SYSTEM "PsiReference_Operators_Details_clear.docbook">
 <!ENTITY PsiReference_Operators_Details_clearbit		SYSTEM "PsiReference_Operators_Details_clearbit.docbook">
@@ -160,6 +161,7 @@
 <!ENTITY PsiReference_Operators_Details_filecreationtime	SYSTEM "PsiReference_Operators_Details_filecreationtime.docbook">
 <!ENTITY PsiReference_Operators_Details_fileexists		SYSTEM "PsiReference_Operators_Details_fileexists.docbook">
 <!ENTITY PsiReference_Operators_Details_filemodifiedtime	SYSTEM "PsiReference_Operators_Details_filemodifiedtime.docbook">
+<!ENTITY PsiReference_Operators_Details_filepermissions	SYSTEM "PsiReference_Operators_Details_filepermissions.docbook">
 <!ENTITY PsiReference_Operators_Details_filereader		SYSTEM "PsiReference_Operators_Details_filereader.docbook">
 <!ENTITY PsiReference_Operators_Details_files			SYSTEM "PsiReference_Operators_Details_files.docbook">
 <!ENTITY PsiReference_Operators_Details_filesize		SYSTEM "PsiReference_Operators_Details_filesize.docbook">
@@ -323,6 +325,8 @@
 
 <!ENTITY ErrorReason_fileaccessdenied
 	"если операция запрещена в результате проверки файловых или иных разрешений">
+<!ENTITY ErrorReason_filenotfound
+	"если файл или директория не существует">
 <!ENTITY ErrorReason_ioerror
 	"при ошибке ввода/вывода">
 <!ENTITY ErrorReason_securityerror
