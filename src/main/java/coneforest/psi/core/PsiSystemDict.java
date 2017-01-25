@@ -144,6 +144,8 @@ public class PsiSystemDict
 					("cbrt", PsiNumeric::psiCbrt),
 				new PsiOperator.Arity11<PsiRealNumeric>
 					("ceiling", PsiRealNumeric::psiCeiling),
+				new PsiOperator.Arity20<PsiStringy, PsiInteger>
+					("changefilepermissions", FileSystem::psiChangeFilePermissions),
 				new PsiOperator.Arity10<PsiClearable>
 					("clear", PsiClearable::psiClear),
 				new PsiOperator.Arity21<PsiBitwise, PsiInteger>
@@ -390,13 +392,15 @@ public class PsiSystemDict
 				new PsiOperator.Arity11<PsiStringy>
 					("filemodifiedtime", FileSystem::psiFileModifiedTime),
 				new PsiOperator.Arity11<PsiStringy>
-					("filereader", PsiFileReader::new),
+					("filepermissions", FileSystem::psiFilePermissions),
 				new PsiOperator.Arity11<PsiStringy>
-					("filewriter", PsiFileWriter::new),
+					("filereader", PsiFileReader::new),
 				new PsiOperator.Arity11<PsiStringy>
 					("files", FileSystem::psiFiles),
 				new PsiOperator.Arity11<PsiStringy>
 					("filesize", FileSystem::psiFileSize),
+				new PsiOperator.Arity11<PsiStringy>
+					("filewriter", PsiFileWriter::new),
 				new PsiOperator.Action
 					("find",
 						(interpreter)->

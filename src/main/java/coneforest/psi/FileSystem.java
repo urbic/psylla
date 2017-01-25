@@ -419,7 +419,8 @@ public class FileSystem
 	}
 
 	/**
-	*	Returns the size (in bytes) for the file or directory with the given name.
+	*	Returns the Ψ-{@code integer} representing the size (in bytes) for the
+	*	file or directory with the given name.
 	*
 	*	@param oFileName a Ψ-{@code stringy} representing the file name.
 	*	@return a Ψ-{@code integer} representing the size (in bytes) of the
@@ -575,6 +576,79 @@ public class FileSystem
 	//	throws PsiException
 	{
 		return new PsiName(java.nio.file.Paths.get("").toAbsolutePath().toString());
+	}
+
+	public static PsiInteger psiFilePermissions(final PsiStringy oFileName)
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
+	{
+		try
+		{
+			final java.util.Set<java.nio.file.attribute.PosixFilePermission> permSet
+				=java.nio.file.Files.getPosixFilePermissions(getPath(oFileName));
+			long permissions=0L;
+			for(java.nio.file.attribute.PosixFilePermission p: permSet)
+				permissions|=(256L>>p.ordinal());
+
+			return PsiInteger.valueOf(permissions);
+		}
+		catch(final java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiFileNotFoundException();
+		}
+		catch(final java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
+		}
+		catch(final java.io.IOException e)
+		{
+			throw new PsiIOErrorException();
+		}
+		catch(final SecurityException e)
+		{
+			throw new PsiSecurityErrorException();
+		}
+	}
+
+	public static void psiChangeFilePermissions(final PsiStringy oFileName, final PsiInteger oPermissions)
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
+	{
+		try
+		{
+			final long permissions=oPermissions.longValue();
+			final java.util.HashSet<java.nio.file.attribute.PosixFilePermission> permSet
+				=new java.util.HashSet<java.nio.file.attribute.PosixFilePermission>();
+			final java.nio.file.attribute.PosixFilePermission[] permValues
+				=java.nio.file.attribute.PosixFilePermission.values();
+			for(int i=0; i<=8; i++)
+				if((permissions&(256L>>i))!=0L)
+					permSet.add(permValues[i]);
+			java.nio.file.Files.setPosixFilePermissions(getPath(oFileName), permSet);
+
+		}
+		catch(final java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiFileNotFoundException();
+		}
+		catch(final java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
+		}
+		catch(final java.io.IOException e)
+		{
+			throw new PsiIOErrorException();
+		}
+		catch(final SecurityException e)
+		{
+			throw new PsiSecurityErrorException();
+		}
 	}
 
 	public static PsiIterable<PsiName> psiFiles(final PsiStringy oFileName)
