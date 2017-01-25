@@ -267,7 +267,7 @@
 				/>
 		</tar>
 		<delete dir="${target}/tmp" quiet="yes"/-->
-		
+
 		<!--exec outputproperty="git.stashname" executable="git">
 			<arg value="stash"/>
 			<arg value="create"/>
