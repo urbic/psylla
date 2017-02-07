@@ -132,7 +132,14 @@ public class FileSystem
 	}
 
 	public static void psiCopyFile(final PsiStringy oFileName1, final PsiStringy oFileName2)
-		throws PsiException
+		throws
+			PsiDirectoryNotEmptyException,
+			PsiFileAccessDeniedException,
+			PsiFileExistsException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException,
+			PsiUnsupportedException
 	{
 		try
 		{
@@ -169,7 +176,12 @@ public class FileSystem
 	}
 
 	public static PsiName psiReadLink(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiNotLinkException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -199,7 +211,12 @@ public class FileSystem
 	}
 
 	public static void psiSymLink(final PsiStringy oFileName1, final PsiStringy oFileName2)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileExistsException,
+			PsiIOErrorException,
+			PsiSecurityErrorException,
+			PsiUnsupportedException
 	{
 		try
 		{
@@ -230,7 +247,13 @@ public class FileSystem
 
 	public static void psiHardLink(final PsiStringy oFileName1,
 			final PsiStringy oFileName2)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileExistsException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException,
+			PsiUnsupportedException
 	{
 		try
 		{
@@ -265,7 +288,13 @@ public class FileSystem
 
 	public static void psiRenameFile(final PsiStringy oFileName1,
 			final PsiStringy oFileName2)
-		throws PsiException
+		throws
+			PsiDirectoryNotEmptyException,
+			PsiFileAccessDeniedException,
+			PsiFileExistsException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -299,7 +328,7 @@ public class FileSystem
 	}
 
 	public static PsiBoolean psiFileExists(final PsiStringy oFileName)
-		throws PsiException
+		throws PsiSecurityErrorException
 	{
 		try
 		{
@@ -312,7 +341,11 @@ public class FileSystem
 	}
 
 	public static PsiBoolean psiIsFile(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -339,7 +372,11 @@ public class FileSystem
 	}
 
 	public static PsiBoolean psiIsDirectory(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -366,7 +403,11 @@ public class FileSystem
 	}
 
 	public static PsiBoolean psiIsSameFile(final PsiStringy oFileName1, final PsiStringy oFileName2)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -392,7 +433,11 @@ public class FileSystem
 	}
 
 	public static PsiBoolean psiIsSymLink(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -461,7 +506,11 @@ public class FileSystem
 	}
 
 	public static PsiInteger psiFileAccessTime(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -487,7 +536,11 @@ public class FileSystem
 	}
 
 	public static PsiInteger psiFileCreationTime(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -513,7 +566,11 @@ public class FileSystem
 	}
 
 	public static PsiInteger psiFileModifiedTime(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -538,8 +595,14 @@ public class FileSystem
 		}
 	}
 
+	/*
 	public static PsiArray psiListDirectory(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiLimitCheckException,
+			PsiSecurityErrorException
 	{
 		PsiArray array=new PsiArray();
 		try
@@ -555,6 +618,10 @@ public class FileSystem
 		{
 			throw new PsiFileAccessDeniedException();
 		}
+		catch(final java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiFileNotFoundException();
+		}
 		catch(final java.io.IOException e)
 		{
 			throw new PsiIOErrorException();
@@ -564,6 +631,7 @@ public class FileSystem
 			throw new PsiSecurityErrorException();
 		}
 	}
+	*/
 
 	/**
 	*	Returns a Ψ-{@code name} representing the name of the current
@@ -573,7 +641,6 @@ public class FileSystem
 	*	directory.
 	*/
 	public static PsiName psiCurrentDirectory()
-	//	throws PsiException
 	{
 		return new PsiName(java.nio.file.Paths.get("").toAbsolutePath().toString());
 	}
@@ -633,13 +700,104 @@ public class FileSystem
 			java.nio.file.Files.setPosixFilePermissions(getPath(oFileName), permSet);
 
 		}
+		catch(final java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
+		}
 		catch(final java.nio.file.NoSuchFileException e)
 		{
 			throw new PsiFileNotFoundException();
 		}
+		catch(final java.io.IOException e)
+		{
+			throw new PsiIOErrorException();
+		}
+		catch(final SecurityException e)
+		{
+			throw new PsiSecurityErrorException();
+		}
+	}
+
+	public static PsiObject psiFileAttribute(final PsiStringy oFileName, final PsiStringy oAttribute)
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException,
+			PsiTypeCheckException,
+			PsiUndefinedException,
+			PsiUnsupportedException
+	{
+		try
+		{
+			return toPsiObject(java.nio.file.Files.getAttribute(getPath(oFileName),
+					oAttribute.stringValue(), java.nio.file.LinkOption.NOFOLLOW_LINKS));
+		}
+		catch(final ClassCastException e)
+		{
+			throw new PsiTypeCheckException();
+		}
+		catch(final UnsupportedOperationException e)
+		{
+			throw new PsiUnsupportedException();
+		}
+		catch(final IllegalArgumentException e)
+		{
+			throw new PsiUndefinedException();
+		}
 		catch(final java.nio.file.AccessDeniedException e)
 		{
 			throw new PsiFileAccessDeniedException();
+		}
+		catch(final java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiFileNotFoundException();
+		}
+		catch(final java.io.IOException e)
+		{
+			throw new PsiIOErrorException();
+		}
+		catch(final SecurityException e)
+		{
+			throw new PsiSecurityErrorException();
+		}
+	}
+
+	public static void psiChangeFileAttribute(final PsiStringy oFileName, final PsiStringy oAttribute, final PsiObject oValue)
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiSecurityErrorException,
+			PsiTypeCheckException,
+			PsiUndefinedException,
+			PsiUnsupportedException
+	{
+		try
+		{
+			java.nio.file.Files.setAttribute(getPath(oFileName),
+					oAttribute.stringValue(), fromPsiObject(oValue),
+					java.nio.file.LinkOption.NOFOLLOW_LINKS);
+		}
+		catch(final ClassCastException e)
+		{
+			throw new PsiTypeCheckException();
+		}
+		catch(final UnsupportedOperationException e)
+		{
+			throw new PsiUnsupportedException();
+		}
+		catch(final IllegalArgumentException e)
+		{
+			throw new PsiUndefinedException();
+		}
+		catch(final java.nio.file.AccessDeniedException e)
+		{
+			throw new PsiFileAccessDeniedException();
+		}
+		catch(final java.nio.file.NoSuchFileException e)
+		{
+			throw new PsiFileNotFoundException();
 		}
 		catch(final java.io.IOException e)
 		{
@@ -652,7 +810,12 @@ public class FileSystem
 	}
 
 	public static PsiIterable<PsiName> psiFiles(final PsiStringy oFileName)
-		throws PsiException
+		throws
+			PsiFileAccessDeniedException,
+			PsiFileNotFoundException,
+			PsiIOErrorException,
+			PsiNotDirectoryException,
+			PsiSecurityErrorException
 	{
 		try
 		{
@@ -714,5 +877,33 @@ public class FileSystem
 		{
 			throw new PsiSecurityErrorException();
 		}
+	}
+
+	private static PsiObject toPsiObject(final Object obj)
+	{
+		//System.out.println(obj.getClass());
+		if(obj instanceof String)
+			return new PsiName((String)obj);
+		else if(obj instanceof Integer)
+			return PsiInteger.valueOf(((Integer)obj).longValue());
+		else if(obj instanceof Long)
+			return PsiInteger.valueOf(((Long)obj).longValue());
+		else if(obj instanceof Boolean)
+			return PsiBoolean.valueOf((Boolean)obj);
+		else
+			throw new ClassCastException();
+	}
+
+	private static Object fromPsiObject(final PsiObject o)
+	{
+		//System.out.println(obj.getClass());
+		if(o instanceof PsiStringy)
+			return ((PsiStringy)o).stringValue();
+		else if(o instanceof PsiInteger)
+			return ((PsiInteger)o).longValue();
+		else if(o instanceof PsiBoolean)
+			return ((PsiBoolean)o).booleanValue();
+		else
+			throw new ClassCastException();
 	}
 }
