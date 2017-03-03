@@ -385,6 +385,8 @@ public class PsiSystemDict
 					("extractinterval", PsiArraylike::psiExtractInterval),
 				new PsiOperator.Arity11<PsiStringy>
 					("fileaccesstime", FileSystem::psiFileAccessTime),
+				new PsiOperator.Arity21<PsiStringy, PsiStringy>
+					("fileattribute", FileSystem::psiFileAttribute),
 				new PsiOperator.Arity11<PsiStringy>
 					("filecreationtime", FileSystem::psiFileCreationTime),
 				new PsiOperator.Arity11<PsiStringy>
@@ -652,8 +654,8 @@ public class PsiSystemDict
 					("le", PsiScalar::psiLe),
 				new PsiOperator.Arity11<PsiLengthy>
 					("length", PsiLengthy::psiLength),
-				new PsiOperator.Arity11<PsiStringy>
-					("listdirectory", FileSystem::psiListDirectory),
+				//new PsiOperator.Arity11<PsiStringy>
+				//	("listdirectory", FileSystem::psiListDirectory),
 				new PsiOperator.Action
 					("load",
 						(interpreter)->
@@ -1258,11 +1260,11 @@ public class PsiSystemDict
 		put("false", PsiBoolean.FALSE);
 		put("librarypath", oLibraryPath);
 		put("mark", PsiMark.MARK);
-		put("math.e", PsiReal.E);
-		put("math.pi", PsiReal.PI);
-		put("math.i", PsiComplex.I);
-		put("integer.maxvalue", PsiInteger.MAX_VALUE);
-		put("real.maxvalue", PsiReal.MAX_VALUE);
+		put("mathE", PsiReal.E);
+		put("mathPI", PsiReal.PI);
+		put("mathI", PsiComplex.I);
+		put("maxinteger", PsiInteger.MAX_VALUE);
+		put("maxreal", PsiReal.MAX_VALUE);
 		put("mininteger", PsiInteger.MIN_VALUE);
 		put("minreal", PsiReal.MIN_VALUE);
 		put("nan", PsiReal.NAN);

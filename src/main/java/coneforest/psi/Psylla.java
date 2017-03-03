@@ -6,11 +6,6 @@ import coneforest.psi.core.*;
 */
 public class Psylla
 {
-	/**
-	*	Process comman-line options and launches the Ψ interpreter.
-	*
-	*	@param args the command-line options
-	*/
 	public static void main(final String args[])
 	{
 		try
@@ -35,6 +30,11 @@ public class Psylla
 		}
 	}
 
+	/**
+	*	Process command-line options and launches the Ψ interpreter.
+	*
+	*	@param args the command-line options
+	*/
 	public static Psylla launch(final String args[])
 		throws
 			PsiException,
@@ -121,9 +121,11 @@ public class Psylla
 
 	public static void setConsoleEncoding(final String consoleEncoding)
 	{
-		String ce=java.nio.charset.Charset.defaultCharset().toString();
+		String ce;
 		if(consoleEncoding!=null)
 			ce=consoleEncoding;
+		else
+			ce=java.nio.charset.Charset.defaultCharset().toString();
 		try
 		{
 			System.setOut(new java.io.PrintStream(System.out, true, ce));

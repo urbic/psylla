@@ -80,20 +80,6 @@ public class PsiReal
 		return new PsiReal(value*oNumeric.doubleValue());
 	}
 
-	/*
-	@Override
-	public PsiReal psiPow(final PsiInteger integer)
-	{
-		return new PsiReal(Math.pow(value, integer.doubleValue()));
-	}
-
-	@Override
-	public PsiReal psiPow(final PsiReal real)
-	{
-		return new PsiReal(Math.pow(value, real.doubleValue()));
-	}
-	*/
-
 	@Override
 	public PsiInteger psiRound()
 	{

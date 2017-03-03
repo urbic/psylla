@@ -18,8 +18,18 @@ public interface PsiNumeric
 		return "numeric";
 	}
 
+	/**
+	*	Returns the real part of this object.
+	*
+	*	@return the real part.
+	*/
 	public double realValue();
 
+	/**
+	*	Returns the real part of this object.
+	*
+	*	@return the imaginary part.
+	*/
 	public double imagValue();
 
 	/**
@@ -29,39 +39,34 @@ public interface PsiNumeric
 	*/
 	public PsiRealNumeric psiAbs();
 
-	default public PsiNumeric psiPow(final PsiNumeric oNumeric)
-		throws PsiException
-	{
-		if(psiIsZero().booleanValue() && oNumeric.psiNotZero().booleanValue())
-			return this;
-		return psiLog().psiMul(oNumeric).psiExp();
-	}
+	public PsiNumeric psiPow(final PsiNumeric oNumeric)
+		throws PsiException;
 
 	/**
 	*	Returns a Ψ-{@code numeric} representing the exponent of this object.
 	*
-	*	@return a Ψ-{@code numeric} exponent of this number.
+	*	@return a Ψ-{@code numeric} exponent.
 	*/
 	public PsiNumeric psiExp();
 
 	/**
 	*	Returns a Ψ-{@code numeric} representing the cosine of this object.
 	*
-	*	@return a Ψ-{@code numeric} cosine of this number.
+	*	@return a Ψ-{@code numeric} cosine.
 	*/
 	public PsiNumeric psiCos();
 
 	/**
 	*	Returns a Ψ-{@code numeric} representing the sine of this object.
 	*
-	*	@return a Ψ-{@code numeric} sine of this number.
+	*	@return a Ψ-{@code numeric} sine.
 	*/
 	public PsiNumeric psiSin();
 
 	/**
 	*	Returns a Ψ-{@code numeric} representing the tangent of this object.
 	*
-	*	@return a Ψ-{@code numeric} tangent of this number.
+	*	@return a Ψ-{@code numeric} tangent.
 	*/
 	public PsiNumeric psiTan();
 
@@ -70,17 +75,23 @@ public interface PsiNumeric
 	*	object.
 	*
 	*	@return a Ψ-{@code numeric} logarithm.
-	*	@throws PsiUndefinedResultException when this object represents a zero
 	*	value.
 	*/
-	public PsiNumeric psiLog()
-		throws PsiException;
+	public PsiNumeric psiLog();
 
-	public PsiNumeric psiAcos()
-		throws PsiException;
+	/**
+	*	Returns a Ψ-{@code numeric} representing the arc cosine of this object.
+	*
+	*	@return a Ψ-{@code numeric} arc cosine.
+	*/
+	public PsiNumeric psiAcos();
 
-	public PsiNumeric psiAsin()
-		throws PsiException;
+	/**
+	*	Returns a Ψ-{@code numeric} representing the arc sine of this object.
+	*
+	*	@return a Ψ-{@code numeric} arc sine.
+	*/
+	public PsiNumeric psiAsin();
 
 	/**
 	*	Returns a Ψ-{@code numeric} representing the arc tangent of this
@@ -90,8 +101,7 @@ public interface PsiNumeric
 	*	@throws PsiUndefinedResultException when this object represents an
 	*	unadmissible value for arc tangent.
 	*/
-	public PsiNumeric psiAtan()
-		throws PsiException;
+	public PsiNumeric psiAtan();
 
 	/**
 	*	Returns a Ψ-{@code numeric} representing the square root of this

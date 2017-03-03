@@ -97,10 +97,7 @@ public class PsiComplex
 	*	number.
 	*/
 	public PsiReal psiArg()
-		throws PsiUndefinedResultException
 	{
-		if(re==0.D && im==0.D)
-			throw new PsiUndefinedResultException();
 		return new PsiReal(Math.atan2(im, re));
 	}
 
@@ -161,6 +158,15 @@ public class PsiComplex
 	}
 
 	@Override
+	public PsiNumeric psiPow(final PsiNumeric oNumeric)
+		throws PsiException
+	{
+		if(psiIsZero().booleanValue() && oNumeric.psiNotZero().booleanValue())
+			return this;
+		return psiLog().psiMul(oNumeric).psiExp();
+	}
+
+	@Override
 	public PsiComplex psiExp()
 	{
 		final double reExp=Math.exp(re);
@@ -181,28 +187,24 @@ public class PsiComplex
 
 	@Override
 	public PsiComplex psiLog()
-		throws PsiException
 	{
 		return new PsiComplex((PsiReal)psiAbs().psiLog(), psiArg());
 	}
 
 	@Override
 	public PsiComplex psiAcos()
-		throws PsiException
 	{
 		return psiAdd(ONE.psiSub(psiMul(this)).psiSqrt().psiMul(I)).psiLog().psiMul(MINUS_I);
 	}
 
 	@Override
 	public PsiComplex psiAsin()
-		throws PsiException
 	{
 		return new PsiComplex(Math.PI/2.D).psiSub(psiAcos());
 	}
 
 	@Override
 	public PsiComplex psiAtan()
-		throws PsiException
 	{
 		return (I.psiAdd(this).psiDiv(I.psiSub(this))).psiLog().psiMul(I).psiDiv(TWO);
 	}

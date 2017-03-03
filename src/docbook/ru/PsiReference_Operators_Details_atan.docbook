@@ -40,10 +40,6 @@
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
 </listitem>
-<listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_undefinedresult"/> —
-при недопустимых значениях операнда
-</listitem>
 </itemizedlist>
 </formalpara>
 

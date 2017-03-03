@@ -145,7 +145,7 @@ public class PsiInteger
 	@Override
 	public PsiInteger psiSignum()
 	{
-		return value>0? ONE: value<0? MINUS_ONE: ZERO;
+		return PsiInteger.valueOf(Long.signum(value));
 	}
 
 	@Override

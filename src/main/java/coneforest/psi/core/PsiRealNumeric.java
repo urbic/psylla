@@ -37,6 +37,11 @@ public interface PsiRealNumeric
 		return 0.D;
 	}
 
+	/**
+	*	Returns the signum of this object.
+	*
+	*	@return the Ψ-{@code realnumeric} signum of this object.
+	*/
 	public PsiRealNumeric psiSignum();
 
 	@Override
@@ -45,9 +50,7 @@ public interface PsiRealNumeric
 	{
 		if(doubleValue()>=Long.MIN_VALUE
 				&& doubleValue()<=Long.MAX_VALUE)
-		{
 			return PsiInteger.valueOf(longValue());
-		}
 		else
 			throw new PsiRangeCheckException();
 	}
@@ -62,7 +65,7 @@ public interface PsiRealNumeric
 	@Override
 	public PsiRealNumeric psiNeg();
 
-	public PsiNumeric psiAdd(final PsiRealNumeric numeric);
+	public PsiNumeric psiAdd(final PsiRealNumeric oNumber);
 
 	@Override
 	default public PsiNumeric psiAdd(final PsiNumeric oNumber)
@@ -72,7 +75,7 @@ public interface PsiRealNumeric
 		return new PsiComplex(this).psiAdd(oNumber);
 	}
 
-	public PsiNumeric psiSub(final PsiRealNumeric oNumeric);
+	public PsiNumeric psiSub(final PsiRealNumeric oNumber);
 
 	@Override
 	default public PsiNumeric psiSub(final PsiNumeric oNumber)
@@ -82,7 +85,7 @@ public interface PsiRealNumeric
 		return new PsiComplex(this).psiSub(oNumber);
 	}
 
-	public PsiNumeric psiMul(final PsiRealNumeric oNumeric);
+	public PsiNumeric psiMul(final PsiRealNumeric oNumber);
 
 	@Override
 	default public PsiNumeric psiMul(final PsiNumeric oNumber)
@@ -92,9 +95,9 @@ public interface PsiRealNumeric
 		return new PsiComplex(this).psiMul(oNumber);
 	}
 
-	default public PsiReal psiDiv(final PsiRealNumeric oNumeric)
+	default public PsiReal psiDiv(final PsiRealNumeric oNumber)
 	{
-		return new PsiReal(doubleValue()/oNumeric.doubleValue());
+		return new PsiReal(doubleValue()/oNumber.doubleValue());
 	}
 
 	@Override
@@ -103,6 +106,20 @@ public interface PsiRealNumeric
 		if(oNumber instanceof PsiRealNumeric)
 			return psiDiv((PsiRealNumeric)oNumber);
 		return new PsiComplex(this).psiDiv(oNumber);
+	}
+
+	default public PsiReal psiPow(final PsiRealNumeric oNumber)
+	{
+		return new PsiReal(Math.pow(doubleValue(), oNumber.doubleValue()));
+	}
+
+	@Override
+	default public PsiNumeric psiPow(final PsiNumeric oNumber)
+		throws PsiException
+	{
+		if(oNumber instanceof PsiRealNumeric)
+			return psiPow((PsiRealNumeric)oNumber);
+		return new PsiComplex(this).psiPow(oNumber);
 	}
 
 	@Override
@@ -128,15 +145,8 @@ public interface PsiRealNumeric
 
 	@Override
 	default public PsiRealNumeric psiLog()
-		throws PsiUndefinedResultException, PsiRangeCheckException
 	{
-		if(doubleValue()>0.D)
-			return new PsiReal(Math.log(doubleValue()));
-		else if(doubleValue()<0.D)
-			//return new PsiComplex((PsiRealNumeric)psiAbs().psiLog(), new PsiReal(Math.PI));
-			throw new PsiRangeCheckException();
-		else
-			throw new PsiUndefinedResultException();
+		return new PsiReal(Math.log(doubleValue()));
 	}
 
 	@Override

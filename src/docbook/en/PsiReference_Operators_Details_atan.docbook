@@ -49,11 +49,6 @@ linkend="PsiReference_Types_Details_complex"/> result.
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_typecheck"/>
 </listitem>
-<listitem>
-<xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_undefinedresult"/> — when the
-<replaceable>number</replaceable> has the impermissible value
-</listitem>
 </itemizedlist>
 </formalpara>
 
