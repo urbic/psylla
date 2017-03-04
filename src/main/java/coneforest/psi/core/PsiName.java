@@ -3,6 +3,7 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code name}, a type of immutable string.
 */
+@coneforest.psi.Type("name")
 public class PsiName
 	implements
 		PsiAtomic,
@@ -30,19 +31,10 @@ public class PsiName
 	}
 
 	/**
-	*	@return a {@code "name"} string.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "name";
-	}
-	/**
 	*	Returns a string value of this object’s value.
 	*
 	*	@return a string value of this object.
 	*/
-
 	@Override
 	public String stringValue()
 	{

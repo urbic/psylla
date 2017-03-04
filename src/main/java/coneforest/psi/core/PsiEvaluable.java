@@ -5,17 +5,10 @@ import coneforest.psi.*;
 *	A representation of Ψ-{@code evaluable}, a type of objects that can be
 *	interpreted as the program.
 */
+@coneforest.psi.Type("evaluable")
 public interface PsiEvaluable
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "evaluable"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "evaluable";
-	}
 
 	/**
 	*	Evaluate this object in the context of given interpreter.

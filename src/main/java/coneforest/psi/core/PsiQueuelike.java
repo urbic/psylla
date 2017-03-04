@@ -6,19 +6,12 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of contained objects.
 */
+@coneforest.psi.Type("queuelike")
 public interface PsiQueuelike<T extends PsiObject>
 	extends
 		PsiBounded,
 		PsiContainer<T>
 {
-	/**
-	*	@return a string {@code "queuelike"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "queuelike";
-	}
 
 	/**
 	*	Removes and returns the head of this queue.

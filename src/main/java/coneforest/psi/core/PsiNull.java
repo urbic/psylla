@@ -4,20 +4,12 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code null}, a type of a void placeholder. There is
 *	the only instance of this class, {@link #NULL}.
 */
+@coneforest.psi.Type("null")
 public final class PsiNull
 	implements PsiAtomic
 {
 	private PsiNull()
 	{
-	}
-
-	/**
-	*	@return a string {@code "null"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "null";
 	}
 
 	/**

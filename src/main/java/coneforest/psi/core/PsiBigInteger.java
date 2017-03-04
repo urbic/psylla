@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("biginteger")
 public class PsiBigInteger
 	implements
 		PsiBitwise<PsiBigInteger>,
@@ -18,12 +19,6 @@ public class PsiBigInteger
 	public PsiBigInteger(final PsiInteger oInteger)
 	{
 		this(oInteger.longValue());
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "biginteger";
 	}
 
 	@Override

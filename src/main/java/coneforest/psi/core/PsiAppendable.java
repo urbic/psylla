@@ -6,17 +6,10 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of Ψ-{@code object}s being appended.
 */
+@coneforest.psi.Type("appendable")
 public interface PsiAppendable<T extends PsiObject>
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "appendable"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "appendable";
-	}
 
 	/**
 	*	Appends a given Ψ-{@code object} to this container.

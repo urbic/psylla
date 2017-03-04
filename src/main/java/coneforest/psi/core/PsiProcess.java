@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("process")
 public class PsiProcess
 	implements PsiObject
 {
@@ -61,12 +62,6 @@ public class PsiProcess
 		{
 			throw new PsiIOErrorException();
 		}
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "process";
 	}
 
 	public PsiReader psiProcessReader()

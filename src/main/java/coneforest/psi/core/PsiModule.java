@@ -1,13 +1,10 @@
 package coneforest.psi.core;
+import coneforest.psi.*;
 
+@Type("module")
 public class PsiModule
 	extends PsiDict
 {
-	/*public PsiModule(final String name)
-	{
-		super(name);
-	}
-	*/
 
 	protected void registerOperators(final PsiOperator... operators)
 	{

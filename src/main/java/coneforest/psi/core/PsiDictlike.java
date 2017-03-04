@@ -6,19 +6,12 @@ import coneforest.psi.*;
 *
 *	@param <V> a type of contained values.
 */
+@Type("dictlike")
 public interface PsiDictlike<V extends PsiObject>
 	extends
 		PsiContainer<V>,
 		PsiIndexed<PsiStringy, V>
 {
-	/**
-	*	@return a string {@code "dictlike"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "dictlike";
-	}
 
 	/*
 	@Override

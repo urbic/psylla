@@ -3,6 +3,7 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code boolean} object.
 */
+@coneforest.psi.Type("boolean")
 public class PsiBoolean
 	implements
 		PsiAtomic,
@@ -11,15 +12,6 @@ public class PsiBoolean
 {
 	private PsiBoolean()
 	{
-	}
-
-	/**
-	*	@return a string {@code "boolean"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "boolean";
 	}
 
 	/**

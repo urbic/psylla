@@ -4,17 +4,10 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code readable}, a type of objects that can be
 *	treated as source of characters.
 */
+@coneforest.psi.Type("readable")
 public interface PsiReadable
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "readable"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "readable";
-	}
 
 	public int read()
 		throws PsiException;

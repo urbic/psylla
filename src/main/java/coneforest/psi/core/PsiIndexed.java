@@ -7,17 +7,10 @@ package coneforest.psi.core;
 *	@param <K> a type of keys or indices.
 *	@param <V> a type of elements.
 */
+@coneforest.psi.Type("indexed")
 public interface PsiIndexed<K extends PsiObject, V extends PsiObject>
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "indexed"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "indexed";
-	}
 
 	/**
 	*	Returns a Ψ-{@code boolean} indicating whether given key or index

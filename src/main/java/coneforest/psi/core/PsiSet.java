@@ -3,6 +3,7 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code set} object.
 */
+@coneforest.psi.Type("set")
 public class PsiSet
 	implements PsiSetlike<PsiObject>
 {
@@ -22,15 +23,6 @@ public class PsiSet
 	public PsiSet(final java.util.HashSet<PsiObject> set)
 	{
 		this.set=set;
-	}
-
-	/**
-	*	@return a string {@code "set"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "set";
 	}
 
 	@Override

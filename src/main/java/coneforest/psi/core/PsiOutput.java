@@ -1,8 +1,8 @@
 package coneforest.psi.core;
 
 // TODO
-abstract
-public class PsiOutput
+@coneforest.psi.Type("output")
+abstract public class PsiOutput
 	implements
 		PsiCloseable,
 		PsiFlushable,
@@ -11,11 +11,6 @@ public class PsiOutput
 	public PsiOutput(final java.io.OutputStream output)
 	{
 		setOutput(output);
-	}
-
-	public String typeName()
-	{
-		return "output";
 	}
 
 	public void setOutput(final java.io.OutputStream output)

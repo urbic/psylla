@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("matcher")
 public class PsiMatcher
 	implements PsiResettable
 {
@@ -115,12 +116,6 @@ public class PsiMatcher
 		{
 			throw new PsiInvalidStateException();
 		}
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "matcher";
 	}
 
 	private final java.util.regex.Matcher matcher;

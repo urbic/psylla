@@ -4,21 +4,13 @@ import coneforest.psi.*;
 /**
 *	A representation of Ψ-{@code operator} object.
 */
+@coneforest.psi.Type("operator")
 public abstract class PsiOperator
 	implements PsiAtomic
 {
 	public PsiOperator(final String name)
 	{
 		this.name=name;
-	}
-
-	/**
-	*	@return a string {@code "operator"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "operator";
 	}
 
 	/**

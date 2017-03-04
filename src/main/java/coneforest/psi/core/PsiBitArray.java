@@ -3,10 +3,10 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code bitarray} object.
 */
+@coneforest.psi.Type("bitarray")
 public class PsiBitArray
 	implements
 		PsiArraylike<PsiBoolean>,
-		//PsiLogical<PsiBitArray>
 		PsiBitwise<PsiBitArray>
 {
 	/**
@@ -21,12 +21,6 @@ public class PsiBitArray
 	{
 		this.bitarray=bitarray;
 		this.size=size;
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "bitarray";
 	}
 
 	@Override

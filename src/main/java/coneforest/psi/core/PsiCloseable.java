@@ -4,17 +4,10 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code closeable}, a type of objects that can be
 *	closed in some sense.
 */
+@coneforest.psi.Type("closeable")
 public interface PsiCloseable
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "closeable"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "closeable";
-	}
 
 	/**
 	*	Close this object.

@@ -5,17 +5,10 @@ package coneforest.psi.core;
 *	of bitwise operation. This interface declares methods for setting,
 *	clearing, testing of certain bits and bitwise shift.
 */
+@coneforest.psi.Type("bitwise")
 public interface PsiBitwise<T extends PsiBitwise>
 	extends PsiLogical<T>
 {
-	/**
-	*	@return a string {@code "bitwise"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "bitwise";
-	}
 
 	public PsiBitwise psiClearBit(final PsiInteger oBit)
 		throws PsiException;

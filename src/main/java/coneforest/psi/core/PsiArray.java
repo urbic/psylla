@@ -4,6 +4,7 @@ import coneforest.psi.*;
 /**
 *	A representation of Ψ-{@code array} object.
 */
+@coneforest.psi.Type("array")
 public class PsiArray
 	implements PsiArraylike<PsiObject>
 {
@@ -23,15 +24,6 @@ public class PsiArray
 	public PsiArray(final java.util.ArrayList<PsiObject> array)
 	{
 		this.array=array;
-	}
-
-	/**
-	*	@return a string {@code "real"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "array";
 	}
 
 	@Override

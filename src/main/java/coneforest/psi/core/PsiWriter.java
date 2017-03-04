@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("writer")
 public class PsiWriter
 	implements
 		PsiCloseable,
@@ -10,12 +11,6 @@ public class PsiWriter
 	public PsiWriter(final java.io.Writer writer)
 	{
 		this.writer=writer;
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "writer";
 	}
 
 	public java.io.Writer writer()

@@ -3,19 +3,12 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code mark} object.
 */
+@coneforest.psi.Type("mark")
 public final class PsiMark
 	implements PsiAtomic
 {
 	private PsiMark()
 	{
-	}
-
-	/**
-	*	@return a string {@code "mark"}.
-	*/
-	public String typeName()
-	{
-		return "mark";
 	}
 
 	@Override

@@ -1,8 +1,10 @@
 package coneforest.psi.core;
+import coneforest.psi.*;
 
 /**
 *	A representation of Ψ-{@code dict}, a dictionary.
 */
+@Type("dict")
 public class PsiDict
 	implements PsiDictlike<PsiObject>
 {
@@ -22,15 +24,6 @@ public class PsiDict
 	public PsiDict(final java.util.HashMap<String, PsiObject> dict)
 	{
 		this.dict=dict;
-	}
-
-	/**
-	*	@return a string {@code "dict"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "dict";
 	}
 
 	@Override

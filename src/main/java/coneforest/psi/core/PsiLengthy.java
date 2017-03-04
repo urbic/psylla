@@ -5,16 +5,10 @@ package coneforest.psi.core;
 *	in some sense. Ususally the length is the number of elements in the
 *	container.
 */
+@coneforest.psi.Type("lengthy")
 public interface PsiLengthy
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "lengthy"}.
-	*/
-	default public String typeName()
-	{
-		return "lengthy";
-	}
 
 	/**
 	*	Returns a length of this object.

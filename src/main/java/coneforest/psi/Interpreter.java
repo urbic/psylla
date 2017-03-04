@@ -91,18 +91,7 @@ public class Interpreter
 
 	public PsiDictlike where(final String name)
 	{
-		final int i=name.lastIndexOf('.');
-		if(i==-1)
-			return dstack.where(name);
-		else
-		{
-			final String prefix=name.substring(0, i);
-			final String key=name.substring(i+1);
-			final PsiNamespace oNamespace=nspool.get(prefix);
-			if(oNamespace==null || !oNamespace.known(key))
-				return null;
-			return oNamespace;
-		}
+		return dstack.where(name);
 	}
 
 	public PsiDictlike psiWhere(final PsiStringy oKey)
@@ -113,16 +102,7 @@ public class Interpreter
 	public <T extends PsiObject> T load(final String name)
 		throws PsiException
 	{
-		/*
-		final int i=name.lastIndexOf('.');
-		return i==-1?
-			dstack.<T>load(key):
-			(T)nspool.forPrefix(key.substring(0, i)).get(key.substring(i+1));
-		*/
-		final PsiDictlike oDict=where(name);
-		if(oDict==null)
-			throw new PsiUndefinedException();
-		return (T)oDict.get(name.substring(name.lastIndexOf('.')+1));
+		return dstack.load(name);
 	}
 
 	public <T extends PsiObject> T psiLoad(final PsiStringy oKey)
@@ -210,6 +190,7 @@ public class Interpreter
 
 	public void interpret(final PsiReader oReader)
 	{
+		final int initProcLevel=procstack.size();
 		final Parser parser=new Parser(oReader);
 		try
 		{
@@ -227,7 +208,7 @@ public class Interpreter
 					return;
 				}
 			}
-			if(procstack.size()>0)
+			if(procstack.size()>initProcLevel)
 				throw new PsiSyntaxErrorException(oReader);
 
 			dstack.<PsiWriter>load("stdout").psiFlush();
@@ -255,7 +236,7 @@ public class Interpreter
 		interpret(oReader);
 		if(procstack.size()==0)
 			handleError(new PsiSyntaxErrorException(oReader));
-		PsiProc proc=procstack.pop();
+		final PsiProc proc=procstack.pop();
 		if(procstack.size()>0)
 			procstack.peek().psiAppend(proc);
 		else
@@ -593,6 +574,7 @@ public class Interpreter
 	{
 		System.out.println("REGISTER: "+typeName+" "+typeClass);
 		typeResolver.put(typeName, typeClass);
+		nspool.obtain(typeName);
 	}
 
 	public Class<? extends PsiObject> resolveType(final String typeName)

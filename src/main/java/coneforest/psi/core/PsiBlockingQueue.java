@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("blockingqueue")
 public class PsiBlockingQueue
 	implements
 		PsiQueuelike<PsiObject>,
@@ -19,12 +20,6 @@ public class PsiBlockingQueue
 		{
 			throw new PsiRangeCheckException();
 		}
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "blockingqueue";
 	}
 
 	/**

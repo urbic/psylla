@@ -7,18 +7,10 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of the second operand at binary operation.
 */
+@coneforest.psi.Type("additive")
 public interface PsiAdditive<T extends PsiAdditive>
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "additive"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		//return "additive";
-		return TYPE.name();
-	}
 
 	/**
 	*	Returns a Ψ-{@code additive} representing the result of arithmetic

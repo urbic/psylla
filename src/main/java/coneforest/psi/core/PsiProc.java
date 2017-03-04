@@ -1,6 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
+@coneforest.psi.Type("proc")
 public class PsiProc
 	extends PsiArray
 {
@@ -12,12 +13,6 @@ public class PsiProc
 	public PsiProc(final java.util.ArrayList<PsiObject> array)
 	{
 		super(array);
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "proc";
 	}
 
 	@Override

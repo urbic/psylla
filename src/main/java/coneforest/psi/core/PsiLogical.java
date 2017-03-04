@@ -7,17 +7,10 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of the second operand at binary operation.
 */
+@coneforest.psi.Type("logical")
 public interface PsiLogical<T extends PsiLogical>
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "logical"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "logical";
-	}
 
 	/**
 	*	Returns a result of logical negation of this object.

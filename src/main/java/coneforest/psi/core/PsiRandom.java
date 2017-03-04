@@ -3,17 +3,10 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code random}, a generator of pseudorandom objects.
 */
+@coneforest.psi.Type("random")
 public class PsiRandom
 	implements PsiObject
 {
-	/**
-	*	@return a string {@code "random"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "random";
-	}
 
 	/**
 	*	Sets the seed of this random generator.

@@ -4,17 +4,10 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code flushable}, a type of objects that can be
 *	flushed in some sense.
 */
+@coneforest.psi.Type("flushable")
 public interface PsiFlushable
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "flushable"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "flushable";
-	}
 
 	/**
 	*	Flush this object.

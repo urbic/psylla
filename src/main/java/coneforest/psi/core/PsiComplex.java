@@ -3,6 +3,7 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code complex} object.
 */
+@coneforest.psi.Type("complex")
 public class PsiComplex
 	implements
 		PsiNumeric
@@ -26,15 +27,6 @@ public class PsiComplex
 	public PsiComplex(final PsiRealNumeric oNumeric)
 	{
 		this(oNumeric.doubleValue());
-	}
-
-	/**
-	*	@return a string {@code "complex"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "complex";
 	}
 
 	@Override

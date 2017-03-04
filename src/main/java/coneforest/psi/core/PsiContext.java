@@ -3,17 +3,10 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code context}, an execution context.
 */
+@coneforest.psi.Type("context")
 public interface PsiContext
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "context"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "context";
-	}
 
 	public long getId();
 

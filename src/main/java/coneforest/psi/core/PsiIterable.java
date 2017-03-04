@@ -7,19 +7,12 @@ import coneforest.psi.*;
 *
 *	@param <T> a type of elements returned by the iterator.
 */
+@coneforest.psi.Type("iterable")
 public interface PsiIterable<T extends PsiObject>
 	extends
 		PsiObject,
 		Iterable<T>
 {
-	/**
-	*	@return a string {@code "iterable"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "iterable";
-	}
 
 	default public void psiForAll(final PsiObject oProc)
 		throws PsiException

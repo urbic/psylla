@@ -4,17 +4,10 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code writable}, a type of objects that can be
 *	treated as sink for characters.
 */
+@coneforest.psi.Type("writable")
 public interface PsiWritable
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "writable"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "writable";
-	}
 
 	/**
 	*	Writes a Ψ-{@code integer} character to this object.

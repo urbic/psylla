@@ -6,17 +6,10 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of the second operand at binary comparison operation.
 */
+@coneforest.psi.Type("scalar")
 public interface PsiScalar<T extends PsiScalar>
 	extends PsiObject
 {
-	/**
-	*	@return a string {@code "scalar"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "scalar";
-	}
 
 	/**
 	*	Returns a Ψ-{@code boolean} object representing the result of “less”

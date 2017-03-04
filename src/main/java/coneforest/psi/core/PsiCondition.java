@@ -3,16 +3,10 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code condition} object.
 */
+@coneforest.psi.Type("condition")
 public class PsiCondition
 	implements PsiObject
 {
-	/**
-	*	@return a string {@code "condition"}.
-	*/
-	public String typeName()
-	{
-		return "condition";
-	}
 
 	/**
 	*	Constructs a Ψ-{@code condition} object that wraps given condition.

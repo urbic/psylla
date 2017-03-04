@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("exception")
 abstract public class PsiException
 	extends	Exception
 	implements PsiObject
@@ -11,12 +12,6 @@ abstract public class PsiException
 	public PsiException(final PsiObject oEmitter)
 	{
 		setEmitter(oEmitter);
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "exception";
 	}
 
 	abstract public String getName();

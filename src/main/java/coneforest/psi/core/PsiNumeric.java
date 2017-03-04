@@ -4,20 +4,12 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code numeric}, an abstraction of complex and real
 *	numbers.
 */
+@coneforest.psi.Type("numeric")
 public interface PsiNumeric
 	extends
 		PsiAtomic,
 		PsiArithmetic<PsiNumeric>
 {
-	/**
-	*	@return a string {@code "numeric"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "numeric";
-	}
-
 	/**
 	*	Returns the real part of this object.
 	*

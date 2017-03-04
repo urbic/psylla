@@ -1,6 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
+@coneforest.psi.Type("reader")
 public class PsiReader
 	implements
 		PsiCloseable,
@@ -23,12 +24,6 @@ public class PsiReader
 		throws PsiException
 	{
 		interpreter.interpret(this);
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "reader";
 	}
 
 	public java.io.Reader reader()

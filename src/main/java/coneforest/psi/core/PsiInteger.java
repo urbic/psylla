@@ -1,8 +1,10 @@
 package coneforest.psi.core;
+import coneforest.psi.*;
 
 /**
 *	A representation of Ψ-{@code integer} object.
 */
+@Type("integer")
 public class PsiInteger
 	implements
 		PsiBitwise<PsiInteger>,
@@ -11,15 +13,6 @@ public class PsiInteger
 	public PsiInteger(final long value)
 	{
 		this.value=value;
-	}
-
-	/**
-	*	@return a string {@code "integer"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "integer";
 	}
 
 	@Override
@@ -426,5 +419,18 @@ public class PsiInteger
 			for(int i=0; i<cache.length; i++)
 				cache[i]=new PsiInteger(i-128);
 		}
+	}
+
+	public static void register(final Interpreter interpreter)
+	{
+		/*return java.lang.invoke.MethodHandles.lookup().lookupClass()
+			.getAnnotation(Type.class).value();
+		*/
+		
+		final String prefix=PsiInteger.class.getAnnotation(Type.class).value();
+		interpreter.namespacePool().obtain(prefix);
+		System.out.println("Registered: "+prefix);
+		
+		//System.out.println(getClass().getAnnotation(Type.class).value());
 	}
 }

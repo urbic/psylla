@@ -6,20 +6,13 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of contained objects.
 */
+@coneforest.psi.Type("arraylike")
 public interface PsiArraylike<T extends PsiObject>
 	extends
 		PsiAppendable<T>,
 		PsiContainer<T>,
 		PsiIndexed<PsiInteger, T>
 {
-	/**
-	*	@return a string {@code "arraylike"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "arraylike";
-	}
 
 	@Override
 	public PsiArraylike<T> psiClone();

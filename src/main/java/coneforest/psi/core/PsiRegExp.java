@@ -3,6 +3,7 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code regexp} object.
 */
+@coneforest.psi.Type("regexp")
 public class PsiRegExp
 	implements PsiAtomic
 {
@@ -23,14 +24,6 @@ public class PsiRegExp
 		throws PsiException
 	{
 		this(oStringy.stringValue());
-	}
-
-	/**
-	*	@return a string {@code "regexp"}.
-	*/
-	public String typeName()
-	{
-		return "regexp";
 	}
 
 	public java.util.regex.Pattern getPattern()

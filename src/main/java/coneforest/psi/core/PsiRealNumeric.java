@@ -3,6 +3,7 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code realnumeric}, an abstraction of real numbers.
 */
+@coneforest.psi.Type("realnumeric")
 public interface PsiRealNumeric
 	extends
 		PsiNumeric,
@@ -10,14 +11,6 @@ public interface PsiRealNumeric
 		PsiConvertableToReal,
 		PsiScalar<PsiRealNumeric>
 {
-	/**
-	*	@return a string {@code "numeric"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "numeric";
-	}
 
 	int intValue();
 

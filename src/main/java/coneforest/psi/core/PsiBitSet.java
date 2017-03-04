@@ -4,6 +4,7 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code bitset}, a set of nonnegative Ψ-{@code
 *	integer} objects.
 */
+@coneforest.psi.Type("bitset")
 public class PsiBitSet
 	implements PsiSetlike<PsiInteger>
 {
@@ -24,15 +25,6 @@ public class PsiBitSet
 	public PsiBitSet(final java.util.BitSet bitset)
 	{
 		this.bitset=bitset;
-	}
-
-	/**
-	*	@return a string {@code "bitset"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "bitset";
 	}
 
 	@Override

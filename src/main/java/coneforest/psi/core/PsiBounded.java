@@ -4,18 +4,11 @@ package coneforest.psi.core;
 *	A representation of Ψ-{@code bounded}, a type of a container with bounded
 *	capacity.
 */
+@coneforest.psi.Type("bounded")
 public interface PsiBounded
 	extends
 		PsiLengthy
 {
-	/**
-	*	@return a string {@code "bounded"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "bounded";
-	}
 
 	/**
 	*	Returns the capacity of this container.

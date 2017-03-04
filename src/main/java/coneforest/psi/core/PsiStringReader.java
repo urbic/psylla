@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("stringreader")
 public class PsiStringReader
 	extends PsiReader
 {
@@ -11,11 +12,5 @@ public class PsiStringReader
 	public PsiStringReader(final PsiStringy oStringy)
 	{
 		this(oStringy.stringValue());
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "stringreader";
 	}
 }

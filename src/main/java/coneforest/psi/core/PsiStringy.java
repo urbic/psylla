@@ -5,6 +5,7 @@ import coneforest.psi.*;
 *	A representation of Ψ-{@code stringy}, a basic type of mutable and
 *	immutable strings.
 */
+@Type("stringy")
 public interface PsiStringy
 	extends
 		PsiEvaluable,
@@ -14,11 +15,6 @@ public interface PsiStringy
 		PsiLengthy,
 		PsiScalar<PsiStringy>
 {
-	@Override
-	default public String typeName()
-	{
-		return "stringy";
-	}
 
 	/**
 	*	Returns a string value of this object.

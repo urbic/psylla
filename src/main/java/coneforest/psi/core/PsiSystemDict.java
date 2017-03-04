@@ -7,7 +7,7 @@ public class PsiSystemDict
 	public PsiSystemDict()
 		throws PsiException
 	{
-		//super("system");
+		//PsiInteger.register((Interpreter)PsiContext.psiCurrentContext());
 
 		registerOperators
 			(
@@ -1182,7 +1182,7 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							interpreter.interpretBraced(new PsiStringReader(ostack.<PsiStringy>getBacked(1)));
+							interpreter.interpretBraced(new PsiStringReader(ostack.<PsiStringy>getBacked(0)));
 						}
 					),
 				new PsiOperator.Arity11<PsiObject>

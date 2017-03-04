@@ -1,23 +1,16 @@
 package coneforest.psi.core;
+import coneforest.psi.*;
 
 /**
 *	A representation of Ψ-{@code real} object.
 */
+@Type("real")
 public class PsiReal
 	implements PsiRealNumeric
 {
 	public PsiReal(final double value)
 	{
 		this.value=value;
-	}
-
-	/**
-	*	@return a string {@code "real"}.
-	*/
-	@Override
-	public String typeName()
-	{
-		return "real";
 	}
 
 	@Override

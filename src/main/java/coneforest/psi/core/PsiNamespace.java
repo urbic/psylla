@@ -1,6 +1,7 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
+@coneforest.psi.Type("namespace")
 public class PsiNamespace
 	extends PsiDict
 {
@@ -12,12 +13,6 @@ public class PsiNamespace
 	public PsiNamespace(final PsiStringy oPrefix)
 	{
 		this(oPrefix.stringValue());
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "namespace";
 	}
 
 	public String prefix()

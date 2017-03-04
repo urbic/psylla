@@ -7,18 +7,11 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of the second operand at binary operation.
 */
+@coneforest.psi.Type("arithmetic")
 public interface PsiArithmetic<T extends PsiArithmetic>
 	extends
 		PsiAdditive<T>
 {
-	/**
-	*	@return a string {@code "arithmetic"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "arithmetic";
-	}
 
 	/**
 	*	Returns a result of arithmetic multiplication of given object by this object.

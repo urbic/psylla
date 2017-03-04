@@ -1,5 +1,6 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("input")
 public class PsiInput
 	implements
 		PsiCloseable,
@@ -9,12 +10,6 @@ public class PsiInput
 	public PsiInput(final java.io.InputStream input)
 	{
 		setInput(input);
-	}
-
-	@Override
-	public String typeName()
-	{
-		return "input";
 	}
 
 	public void setInput(final java.io.InputStream input)

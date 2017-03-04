@@ -1,16 +1,12 @@
 package coneforest.psi.core;
 
+@coneforest.psi.Type("container")
 public interface PsiContainer<T extends PsiObject>
 	extends
 		PsiClearable,
 		PsiIterable<T>,
 		PsiLengthy
 {
-	@Override
-	default public String typeName()
-	{
-		return "container";
-	}
 
 	default public PsiContainer<T> psiNewEmpty()
 		throws PsiException

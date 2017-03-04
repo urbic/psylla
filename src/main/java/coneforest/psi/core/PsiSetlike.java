@@ -7,19 +7,12 @@ package coneforest.psi.core;
 *
 *	@param <T> a type of the elements.
 */
+@coneforest.psi.Type("setlike")
 public interface PsiSetlike<T extends PsiObject>
 	extends
 		PsiAppendable<T>,
 		PsiContainer<T>
 {
-	/**
-	*	@return a string {@code "setlike"}.
-	*/
-	@Override
-	default public String typeName()
-	{
-		return "setlike";
-	}
 
 	/**
 	*	Removes a Ψ-{@code object} from this set. If a given object is not

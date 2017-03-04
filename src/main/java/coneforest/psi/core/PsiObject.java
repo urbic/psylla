@@ -4,6 +4,7 @@ import coneforest.psi.*;
 /**
 *	A representation of Ψ-{@code object}, a basic type of Ψ objects.
 */
+@Type("object")
 public interface PsiObject
 	extends
 		PsiConvertableToName,
@@ -16,7 +17,8 @@ public interface PsiObject
 	*/
 	default public String typeName()
 	{
-		return "object";
+		//return "object";
+		return getClass().getAnnotation(Type.class).value();
 	}
 
 	default public PsiName psiType()
@@ -122,6 +124,20 @@ public interface PsiObject
 	default public PsiInteger psiHashCode()
 	{
 		return PsiInteger.valueOf(hashCode());
+	}
+
+	public static void register(final Interpreter interpreter)
+	{
+		/*return java.lang.invoke.MethodHandles.lookup().lookupClass()
+			.getAnnotation(Type.class).value();
+		*/
+		
+		final String prefix=PsiObject.class//java.lang.invoke.MethodHandles.lookup().lookupClass()
+			.getAnnotation(Type.class).value();
+		Interpreter.currentInterpreter().namespacePool().obtain(prefix);
+		System.out.println("Registered: "+prefix);
+		
+		//System.out.println(getClass().getAnnotation(Type.class).value());
 	}
 
 	/*

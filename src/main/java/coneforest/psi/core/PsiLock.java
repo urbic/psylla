@@ -3,16 +3,10 @@ package coneforest.psi.core;
 /**
 *	A representation of Ψ-{@code lock} object.
 */
+@coneforest.psi.Type("lock")
 public class PsiLock
 	implements PsiObject
 {
-	/**
-	*	@return a string {@code "lock"}.
-	*/
-	public String typeName()
-	{
-		return "lock";
-	}
 
 	/**
 	*	Acquires the lock.
