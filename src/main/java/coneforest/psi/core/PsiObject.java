@@ -134,7 +134,7 @@ public interface PsiObject
 		
 		final String prefix=PsiObject.class//java.lang.invoke.MethodHandles.lookup().lookupClass()
 			.getAnnotation(Type.class).value();
-		Interpreter.currentInterpreter().namespacePool().obtain(prefix);
+		//Interpreter.currentInterpreter().namespacePool().obtain(prefix);
 		System.out.println("Registered: "+prefix);
 		
 		//System.out.println(getClass().getAnnotation(Type.class).value());

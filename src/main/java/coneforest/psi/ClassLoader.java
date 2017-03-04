@@ -9,6 +9,19 @@ abstract public class ClassLoader
 		super(ClassLoader.class.getClassLoader());
 	}
 
+	public void psiExternal(final PsiStringy oClassName)
+		throws PsiException
+	{
+		try
+		{
+			loadClass(oClassName.stringValue());
+		}
+		catch(final ClassNotFoundException e)
+		{
+			throw new PsiInvalidExternalException();
+		}
+	}
+
 	@Override
 	public Class loadClass(final String className)
 		throws ClassNotFoundException

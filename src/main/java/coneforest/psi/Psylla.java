@@ -30,6 +30,42 @@ public class Psylla
 		}
 	}
 
+	public Psylla(final PsyllaConfig psyllaConfig)
+		throws PsiException
+	{
+		interpreter=(psyllaConfig.scriptReader!=null)?
+			new Interpreter()
+				{
+					@Override
+					public void run()
+					{
+						interpret(psyllaConfig.scriptReader);
+					}
+				}:
+			new Interpreter()
+				{
+					@Override
+					public void run()
+					{
+						try
+						{
+							repl();
+						}
+						catch(final PsiException e)
+						{
+						}
+					}
+				};
+		interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
+		interpreter.setErrorWriter(new java.io.OutputStreamWriter(System.err));
+		interpreter.setEnvironment(System.getenv());
+		interpreter.setShellArguments(psyllaConfig.shellArguments);
+		interpreter.setScriptName(psyllaConfig.scriptName);
+		interpreter.setRandomSeed(psyllaConfig.randomSeed);
+		interpreter.setClassPath(psyllaConfig.classPath);
+		interpreter.setLibraryPath(psyllaConfig.libraryPath);
+	}
+
 	/**
 	*	Process command-line options and launches the Ψ interpreter.
 	*
@@ -41,7 +77,6 @@ public class Psylla
 			coneforest.cli.ProcessingException,
 			java.io.FileNotFoundException
 	{
-		final Psylla psylla=new Psylla();
 
 		final coneforest.cli.Processor cli=new coneforest.cli.Processor
 			(
@@ -88,33 +123,15 @@ public class Psylla
 			shellArguments=new String[]{};
 		}
 
-		psylla.setScript(scriptReader, scriptName, shellArguments);
+		final PsyllaConfig psyllaConfig=new PsyllaConfig();
+		psyllaConfig.setScriptName(scriptName);
+		psyllaConfig.setScriptReader(scriptReader);
+		psyllaConfig.setShellArguments(shellArguments);
+		psyllaConfig.setRandomSeed(cli.getValue("random-seed"));
+		psyllaConfig.setClassPath(cli.<String[]>getValue("classpath"));
+		psyllaConfig.setLibraryPath(cli.<String[]>getValue("librarypath"));
 
-		/*
-		// Configure class path
-		final PsiArraylike<PsiStringy> oClassPath
-			=(PsiArraylike<PsiStringy>)interpreter.systemDict().get("classpath");
-		final String envClassPath=System.getenv("PSYLLA_CLASSPATH");
-		if(envClassPath!=null)
-			for(String pathItem: envClassPath.split(java.io.File.pathSeparator))
-				oClassPath.psiAppend(new PsiName(pathItem));
-		if(cli.getValue("classpath")!=null)
-			for(String pathItem: cli.<String[]>getValue("classpath"))
-				oClassPath.psiAppend(new PsiName(pathItem));
-
-		// Configure library path
-		final PsiArraylike<PsiStringy> oLibraryPath
-			=(PsiArraylike<PsiStringy>)interpreter.systemDict().get("librarypath");
-		final String envLibraryPath=System.getenv("PSYLLA_LIB");
-		if(envLibraryPath!=null)
-			for(String pathItem: envLibraryPath.split(java.io.File.pathSeparator))
-				oLibraryPath.psiAppend(new PsiName(pathItem));
-		if(cli.getValue("librarypath")!=null)
-			for(String pathItem: cli.<String[]>getValue("librarypath"))
-				oLibraryPath.psiAppend(new PsiName(pathItem));
-		*/
-
-		psylla.setRandomSeed(cli.getValue("random-seed"));
+		final Psylla psylla=new Psylla(psyllaConfig);
 		psylla.start();
 		return psylla;
 	}
@@ -144,53 +161,12 @@ public class Psylla
 			java.util.Locale.setDefault(java.util.Locale.forLanguageTag(locale));
 	}
 
-	public void setScript(final java.io.Reader scriptReader, final String scriptName, final String[] shellArguments)
-		throws PsiException
-	{
-		interpreter=(scriptReader!=null)?
-			new Interpreter()
-				{
-					@Override
-					public void run()
-					{
-						interpret(scriptReader);
-					}
-				}:
-			new Interpreter()
-				{
-					@Override
-					public void run()
-					{
-						try
-						{
-							repl();
-						}
-						catch(final PsiException e)
-						{
-						}
-					}
-				};
-		interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
-		interpreter.setErrorWriter(new java.io.OutputStreamWriter(System.err));
-		interpreter.setEnvironment(System.getenv());
-		interpreter.setShellArguments(shellArguments);
-		interpreter.setScriptName(scriptName);
-	}
-
-	public void setRandomSeed(final Long randomSeed)
-		throws PsiException
-	{
-		if(randomSeed!=null)
-			((PsiRandom)interpreter.systemDict().get("stdrandom"))
-				.psiSetSeed(PsiInteger.valueOf(randomSeed));
-	}
-
 	public void start()
 	{
 		interpreter.start();
 	}
 
-	private Interpreter interpreter;
+	private final Interpreter interpreter;
 
 	public void join()
 		throws InterruptedException
@@ -214,5 +190,44 @@ public class Psylla
 	{
 		System.out.print(Messages.format("versionText", Version.getVersion()));
 		System.exit(0);
+	}
+
+	private static class PsyllaConfig
+	{
+		private void setScriptReader(final java.io.Reader scriptReader)
+		{
+			this.scriptReader=scriptReader;
+		}
+
+		private void setScriptName(final String scriptName)
+		{
+			this.scriptName=scriptName;
+		}
+
+		private void setShellArguments(final String[] shellArguments)
+		{
+			this.shellArguments=shellArguments;
+		}
+
+		private void setRandomSeed(final Long randomSeed)
+		{
+			this.randomSeed=randomSeed;
+		}
+
+		private void setClassPath(final String[] classPath)
+		{
+			this.classPath=classPath;
+		}
+
+		private void setLibraryPath(final String[] libraryPath)
+		{
+			this.libraryPath=libraryPath;
+		}
+
+		private java.io.Reader scriptReader;
+		private String scriptName;
+		private String[] shellArguments;
+		private Long randomSeed;
+		private String[] classPath, libraryPath;
 	}
 }

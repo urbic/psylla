@@ -375,8 +375,9 @@ public class PsiSystemDict
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							ostack.push(((PsiClassLoader)interpreter.systemDict().get("classpath"))
-									.psiExternal(ostack.getBacked(0)));
+							//ostack.push(((PsiClassLoader)interpreter.systemDict().get("classpath"))
+							//		.psiExternal((PsiStringy)ostack.getBacked(0)));
+							interpreter.classLoader().psiExternal(ostack.getBacked(0));
 						}
 					),
 				new PsiOperator.Arity21<PsiIndexed, PsiObject>
@@ -788,6 +789,9 @@ public class PsiSystemDict
 					),
 				new PsiOperator.Arity21<PsiArithmetic, PsiArithmetic>
 					("mul", PsiArithmetic::psiMul),
+				new PsiOperator.Arity11<PsiStringy>
+					("namespace", PsiNamespace::psiNamespace),
+				/*
 				new PsiOperator.Action
 					("namespace",
 						(interpreter)->
@@ -796,6 +800,7 @@ public class PsiSystemDict
 							ostack.push(interpreter.psiNamespace(ostack.getBacked(0)));
 						}
 					),
+				*/
 				new PsiOperator.Arity21<PsiObject, PsiObject>
 					("ne", PsiObject::psiNe),
 				new PsiOperator.Arity11<PsiAdditive>

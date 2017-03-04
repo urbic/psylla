@@ -39,6 +39,6 @@ public interface PsiAdditive<T extends PsiAdditive>
 	*/
 	public T psiSub(final T oAdditive);
 
-	public static final PsiType<PsiAdditive> TYPE
-		=new PsiType<PsiAdditive>("additive");
+	//public static final PsiType<PsiAdditive> TYPE
+	//	=new PsiType<PsiAdditive>("additive");
 }

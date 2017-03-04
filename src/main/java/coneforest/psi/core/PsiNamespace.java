@@ -1,20 +1,44 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
+/**
+*	A representation of Ψ-{@code namespace}, a named dictionary.
+*/
 @coneforest.psi.Type("namespace")
 public class PsiNamespace
 	extends PsiDict
 {
-	public PsiNamespace(final String prefix)
+
+	private PsiNamespace(final String prefix)
 	{
 		this.prefix=prefix;
 	}
 
-	public PsiNamespace(final PsiStringy oPrefix)
+	/**
+	*	Returns a Ψ-{@code namespace} with the given Ψ-{@code stringy} prefix.
+	*
+	*	@param oPrefix the given prefix.
+	*	@return a namespace.
+	*/
+	public static PsiNamespace psiNamespace(final PsiStringy oPrefix)
 	{
-		this(oPrefix.stringValue());
+		return forName(oPrefix.stringValue());
 	}
 
+	public static PsiNamespace forName(final String prefix)
+	{
+		if(pool.containsKey(prefix))
+			return pool.get(prefix);
+		final PsiNamespace oNamespace=new PsiNamespace(prefix);
+		pool.put(prefix, oNamespace);
+		return oNamespace;
+	}
+
+	/**
+	*	Returns the namespace prefix.
+	*
+	*	@param oPrefix the given prefix.
+	*/
 	public String prefix()
 	{
 		return prefix;
@@ -60,8 +84,19 @@ public class PsiNamespace
 		return "|namespace="+prefix+"|";
 	}
 
+	public static PsiNamespace getNamespace(final String prefix)
+		throws PsiException
+	{
+		if(pool.containsKey(prefix))
+			return pool.get(prefix);
+		throw new PsiUndefinedException();	// TODO
+	}
+
 	private final String prefix;
 
 	private java.util.ArrayList<PsiNamespace> parents
 		=new java.util.ArrayList<PsiNamespace>();
+
+	private static final java.util.HashMap<String, PsiNamespace> pool
+			=new java.util.HashMap<String, PsiNamespace>();
 }

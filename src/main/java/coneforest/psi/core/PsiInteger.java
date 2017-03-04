@@ -421,6 +421,8 @@ public class PsiInteger
 		}
 	}
 
+	private static final PsiNamespace NAMESPACE=PsiNamespace.forName("integer");
+
 	public static void register(final Interpreter interpreter)
 	{
 		/*return java.lang.invoke.MethodHandles.lookup().lookupClass()
@@ -428,7 +430,7 @@ public class PsiInteger
 		*/
 		
 		final String prefix=PsiInteger.class.getAnnotation(Type.class).value();
-		interpreter.namespacePool().obtain(prefix);
+		//interpreter.namespacePool().obtain(prefix);
 		System.out.println("Registered: "+prefix);
 		
 		//System.out.println(getClass().getAnnotation(Type.class).value());

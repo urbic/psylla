@@ -157,12 +157,17 @@ TOKEN:
 
 TOKEN:
 {
-	<COMMAND:
+	<#COMMAND_UNQUALIFIED:
 		(<LETTER> | <NAME_SPECIAL_CHAR>)
 		(<LETTER> | <NAME_SPECIAL_CHAR> | <DIGIT>)*
 		|
 		["[", "]", "(", ")", "<", ">", "=", "?"]
 	>
+}
+
+TOKEN:
+{
+	<COMMAND: <COMMAND_UNQUALIFIED> ("@" <COMMAND_UNQUALIFIED>)?>
 }
 
 TOKEN:

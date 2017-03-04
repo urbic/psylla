@@ -74,19 +74,9 @@ public class Interpreter
 		return estack;
 	}
 
-	/**
-	*	Returns the namespace pool.
-	*
-	*	@return the namespace pool.
-	*/
-	public NamespacePool namespacePool()
+	public coneforest.psi.ClassLoader classLoader()
 	{
-		return nspool;
-	}
-
-	public PsiNamespace psiNamespace(final PsiStringy oPrefix)
-	{
-		return nspool.obtain(oPrefix.stringValue());
+		return classLoader;
 	}
 
 	public PsiDictlike where(final String name)
@@ -102,7 +92,11 @@ public class Interpreter
 	public <T extends PsiObject> T load(final String name)
 		throws PsiException
 	{
-		return dstack.load(name);
+		final int prefixOffset=name.indexOf('@');
+		if(prefixOffset==-1)
+			return dstack.load(name);
+		final String prefix=name.substring(prefixOffset+1);
+		return (T)PsiNamespace.getNamespace(prefix).get(name.substring(0, prefixOffset));
 	}
 
 	public <T extends PsiObject> T psiLoad(final PsiStringy oKey)
@@ -176,6 +170,43 @@ public class Interpreter
 	public void setErrorWriter(final java.io.Writer writer)
 	{
 		systemDict().put("stderr", new PsiWriter(writer));
+	}
+
+	public void setRandomSeed(final Long randomSeed)
+		throws PsiException
+	{
+		if(randomSeed!=null)
+			((PsiRandom)systemDict().get("stdrandom"))
+				.psiSetSeed(PsiInteger.valueOf(randomSeed));
+	}
+
+	public void setClassPath(final String[] classPath)
+		throws PsiException
+	{
+		final PsiArraylike<PsiStringy> oClassPath
+			=(PsiArraylike<PsiStringy>)systemDict().get("classpath");
+		final String envClassPath=System.getenv("PSYLLA_CLASSPATH");
+		if(envClassPath!=null)
+			for(String pathItem: envClassPath.split(java.io.File.pathSeparator))
+				oClassPath.psiAppend(new PsiName(pathItem));
+		if(classPath!=null)
+			for(String pathItem: classPath)
+				oClassPath.psiAppend(new PsiName(pathItem));
+	}
+
+	public void setLibraryPath(final String[] libraryPath)
+		throws PsiException
+	{
+		// Configure library path
+		final PsiArraylike<PsiStringy> oLibraryPath
+			=(PsiArraylike<PsiStringy>)systemDict().get("librarypath");
+		final String envLibraryPath=System.getenv("PSYLLA_LIB");
+		if(envLibraryPath!=null)
+			for(String pathItem: envLibraryPath.split(java.io.File.pathSeparator))
+				oLibraryPath.psiAppend(new PsiName(pathItem));
+		if(libraryPath!=null)
+			for(String pathItem: libraryPath)
+				oLibraryPath.psiAppend(new PsiName(pathItem));
 	}
 
 	public void interpret(final java.io.Reader reader)
@@ -453,26 +484,6 @@ public class Interpreter
 		systemDict().put("environment", environment);
 	}
 
-	/*
-	public void acceptClassPath(final String[] classPath)
-		throws PsiException
-	{
-		final PsiClassLoader classLoader=(PsiClassLoader)systemDict().get("classloader");
-		for(String pathItem: classPath)
-			classLoader.psiAppend(new PsiName(pathItem));
-	}
-	*/
-
-	/*
-	public void acceptLibraryPath(final String[] libraryPath)
-		throws PsiException
-	{
-		final PsiArraylike oLibraryPath=(PsiArraylike)systemDict().get("librarypath");
-		for(String pathItem: libraryPath)
-			oLibraryPath.psiAppend(new PsiName(pathItem));
-	}
-	*/
-
 	public void quit()
 	{
 		running=false;
@@ -574,7 +585,6 @@ public class Interpreter
 	{
 		System.out.println("REGISTER: "+typeName+" "+typeClass);
 		typeResolver.put(typeName, typeClass);
-		nspool.obtain(typeName);
 	}
 
 	public Class<? extends PsiObject> resolveType(final String typeName)
@@ -612,7 +622,6 @@ public class Interpreter
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
-	private final NamespacePool nspool=new NamespacePool();
 	private boolean stopFlag=false;
 	private boolean running=true;
 	private final java.util.HashMap<String, Class<? extends PsiObject>> typeResolver
