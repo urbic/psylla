@@ -4,12 +4,12 @@
 
 <para>
 Attempts to read a <replaceable>line</replaceable> of characters terminated by
-a line terminator (<xref xrefstyle="template:%t" linkend="PsiReference_Operators_Details_eol"/>)
-from an <replaceable>input</replaceable>.
-Returns a <replaceable>line</replaceable> on success
-Терминатор становится частью
-прочитанной <replaceable>строки</replaceable>. Возвращает также булевское
-значение, показывающее успешность операции.
+a line terminator (<xref xrefstyle="template:%t"
+linkend="PsiReference_Operators_Details_eol"/>) from an
+<replaceable>input</replaceable>.  Returns a <replaceable>line</replaceable> on
+success.  The terminator becomes part of the read
+<replaceable>line</replaceable>. Returns also a boolean value indicating the
+success of the operation.
 </para>
 
 <synopsis>

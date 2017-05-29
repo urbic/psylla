@@ -9,35 +9,26 @@
 </para>
 
 <synopsis>
-<replaceable>контейнер</replaceable>
-<replaceable>количество</replaceable>
+<replaceable>container</replaceable>
+<replaceable>number</replaceable>
 <token language="psi">replicate</token>
-<replaceable>результат</replaceable>
+<replaceable>result</replaceable>
 </synopsis>
 
 <formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>количество</replaceable>:
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_integer"/>
 </listitem>
 <listitem>
-<replaceable>контейнер</replaceable>,
-<replaceable>результат</replaceable>:
+<replaceable>container</replaceable>,
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_appendable"/>
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-Если <replaceable>количество</replaceable> отрицательно, генерирует <xref
-xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>.
-Если длина <replaceable>контейнера</replaceable>, умноженная
-на <replaceable>количество</replaceable>, превышает максимально возможную длину
-контейнера, генерирует <xref xrefstyle="template:%t"
-linkend="PsiReference_Errors_Details_rangecheck"/>.
-</para>
 
 <formalpara>
 &TitleExamples;
@@ -49,10 +40,14 @@ linkend="PsiReference_Errors_Details_rangecheck"/>.
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_limitcheck"/>
+<xref xrefstyle="template:%t"
+linkend="PsiReference_Errors_Details_limitcheck"/> — when the length of the
+<replaceable>container</replaceable> multiplied by
+<replaceable>number</replaceable> exceeds the maximum possible length of a
+container
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_rangecheck"/> — when <replaceable>number</replaceable> is negative
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsiReference_Errors_Details_stackunderflow"/>

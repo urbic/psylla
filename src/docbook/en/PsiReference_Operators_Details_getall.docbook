@@ -7,8 +7,8 @@ TODO
 </para>
 
 <synopsis>
-<replaceable>контейнер</replaceable>
-<replaceable>перечисление</replaceable>
+<replaceable>container</replaceable>
+<replaceable>enumeration</replaceable>
 <token language="psi">getall</token>
 <replaceable>массив</replaceable>
 </synopsis>
@@ -17,11 +17,11 @@ TODO
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>контейнер</replaceable>:
+<replaceable>container</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_indexed"/>
 </listitem>
 <listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsiReference_Types_Details_iterable"/>
 </listitem>
 <listitem>

@@ -4,9 +4,7 @@
 
 <para>
 Returns the natural <replaceable>logarithm</replaceable> of a
-<replaceable>number</replaceable>. Для положительных операндов целого и
-вещественного типа возвращается вещественное число, для отрицательных и
-комплексных операндов возвращается комплексное число.
+<replaceable>number</replaceable>.
 </para>
 
 <synopsis>
@@ -28,9 +26,7 @@ Returns the natural <replaceable>logarithm</replaceable> of a
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psi">1 log			▶ 0.0
--1 log			▶ -complex:0.0,3.141592653589793-
-0 1 complex log	▶ -complex:0.0,1.5707963267948966-</programlisting>
+<programlisting language="psi">1 log			▶ 0.0</programlisting>
 </formalpara>
 
 <formalpara>
