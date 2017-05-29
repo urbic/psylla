@@ -28,7 +28,7 @@ Prints the _n_!. The non-negative integer _n_ is passed in the command line.
 Prints the first _n_ Fibonacci numbers. The non-negative integer _n_ is passed
 in the command line.
  
-* [__`fibonacci-binet.psi`__](fibonacci-binet.psi) — calculation using Binet’s formula _(inexact when_ _n_ > 70*)*
+* [__`fibonacci-binet.psi`__](fibonacci-binet.psi) — calculation using Binet’s formula _(inexact when_ _n_ > 70​_)_
 * [__`fibonacci-iterative.psi`__](fibonacci-iterative.psi) — iterative implementation
 * [__`fibonacci-recursive-1.psi`__](fibonacci-recursive-1.psi) — recursive implementation № 1
 * [__`fibonacci-recursive-2.psi`__](fibonacci-recursive-2.psi) — recursive implementation № 2
@@ -60,11 +60,12 @@ Prints the GCD calculated using Euclid’s algorithm.
 * [__`head.psi`__](head.psi)
 * [__`tail.psi`__](tail.psi)
 
-## Conway’s game of life
+## Conway’s Game of Life
 
 Shows the evolution of the cellular automata controlled by the rules of
-Conway’s game of life. Runs in ANSI terminal. Cursor positioning and color
-selection are made by issuing escape sequences.
+[Conway’s game of life](https://en.wikipedia.org/wiki/Game_of_Life). Runs in
+ANSI terminal. Cursor positioning and color selection are made by issuing
+escape sequences.
 
 * [__`life.psi`__](life.psi`)
 
@@ -115,7 +116,7 @@ Prints the first prime numbers that do not exceed a given _n_. Non-negative inte
 * [__`primes.psi`__](primes.psi)
 * [__`primes-regexp.psi`__](primes-regexp.psi)
 * [__`primes-sundaram.psi`__](primes-sundaram.psi) — [the sieve of Sundaram](https://en.wikipedia.org/wiki/Sieve_of_Sundaram) algorithm
-* [__`primes-wheel.psi`__](primes-wheel.psi) — the wheel algorithm
+* [__`primes-wheel.psi`__](primes-wheel.psi) — implemented based on [the wheel factorization algorithm](https://en.wikipedia.org/wiki/Wheel_factorization)
 
 ## Russian multiplication
 
@@ -136,9 +137,9 @@ Prints the shuffled list of command-line parameters.
 
 Prints the lines from the given file sorted according certain criterion.
 
-* [__`sort-inverse.psi`__](sort-inverse.psi) — sort in inverse lexicograpgical order
+* [__`sort-inverse.psi`__](sort-inverse.psi) — sort in inverse lexicographical order
 * [__`sort-length.psi`__](sort-length.psi) — sort by lengths
-* [__`sort.psi`__](sort.psi) — sort in lexicograpgical order
+* [__`sort.psi`__](sort.psi) — sort in lexicographical order
 
 ## Square root
 
