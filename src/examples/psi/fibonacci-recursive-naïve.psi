@@ -1,0 +1,23 @@
+#!/usr/bin/psylla
+
+/fibonacci
+{
+	dict begin
+		/n exch def
+		n 1 le
+		n
+		{
+			n 1 sub fibonacci
+			n 2 sub fibonacci
+			add
+		}
+		ifelse
+	end
+}
+bind def
+
+0 1 arguments 0 get tointeger
+{
+	fibonacci toname say
+}
+bind for

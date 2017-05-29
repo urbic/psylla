@@ -1,0 +1,59 @@
+
+/power
+{
+	dict begin
+		/matrix exch def
+		/n exch def
+
+		{
+			n iszero { [ 1 0 0 1 ] exit } if
+
+			n 1 eq { matrix exit } if
+
+			n 2 mod 1 eq
+			{
+				/x
+				n 2 idiv
+				[
+					matrix 0 get dup mul matrix 1 get matrix 2 get mul add
+					matrix 1 get matrix 0 get matrix 3 get add mul
+					matrix 2 get matrix 0 get matrix 3 get add mul
+					matrix 2 get matrix 1 get mul matrix 3 get dup mul add
+				]
+				power
+				def
+				[
+					x 0 get matrix 0 get mul x 1 get matrix 2 get mul add
+					x 0 get matrix 1 get mul x 2 get matrix 3 get mul add
+					x 2 get matrix 0 get mul x 3 get matrix 2 get mul add
+					x 2 get matrix 1 get mul x 3 get matrix 3 get mul add
+				]
+			}
+			{
+				n 2 idiv
+				[
+					matrix 0 get dup mul matrix 1 get matrix 2 get mul add
+					matrix 1 get matrix 0 get matrix 3 get add mul
+					matrix 2 get matrix 0 get matrix 3 get add mul
+					matrix 1 get matrix 2 get mul matrix 3 get dup mul add
+				]
+				power
+			}
+			ifelse
+			exit
+		}
+		loop
+	end
+}
+bind def
+
+/fibonacci
+{
+	[ 0 1 1 1 ]
+	power
+	1 get
+}
+bind def
+
+arguments 0 get tointeger
+fibonacci toname say
