@@ -20,6 +20,7 @@ public class Interpreter
 			procstack=new ProcStack();
 			dstack=new DictStack();
 			pushStopLevel();
+			PsiSystemDict.register(this);
 		}
 		catch(final PsiException e)
 		{

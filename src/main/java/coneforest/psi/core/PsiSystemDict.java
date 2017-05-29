@@ -919,6 +919,7 @@ public class PsiSystemDict
 							final PsiString oString=ostack.<PsiReadable>getBacked(0).psiReadString(oCount);
 							ostack.push(oString);
 							ostack.push(oString.psiLength().psiEq(oCount));
+							//ostack.push(oString.psiLength().psiEq(PsiInteger.ZERO));
 						}
 					),
 				new PsiOperator.Arity11<PsiReadable>
@@ -1287,7 +1288,12 @@ public class PsiSystemDict
 		put("true", PsiBoolean.TRUE);
 		put("userdict", new PsiDict());
 		put("username", new PsiName(System.getProperty("user.name")));
-		put("version", new PsiName(""+Version.getVersion()));
+		put("version", new PsiName(Version.getVersion()));
 
+	}
+
+	public static void register(final Interpreter interpreter)
+	{
+		PsiObject.register(interpreter);
 	}
 }

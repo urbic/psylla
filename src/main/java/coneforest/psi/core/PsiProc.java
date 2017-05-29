@@ -1,6 +1,9 @@
 package coneforest.psi.core;
 import coneforest.psi.*;
 
+/**
+*	A representation of Ψ-{@code proc}, a procedure.
+*/
 @coneforest.psi.Type("proc")
 public class PsiProc
 	extends PsiArray

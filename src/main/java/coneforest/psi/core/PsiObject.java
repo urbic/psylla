@@ -128,17 +128,24 @@ public interface PsiObject
 
 	public static void register(final Interpreter interpreter)
 	{
-		/*return java.lang.invoke.MethodHandles.lookup().lookupClass()
-			.getAnnotation(Type.class).value();
-		*/
-		
-		final String prefix=PsiObject.class//java.lang.invoke.MethodHandles.lookup().lookupClass()
-			.getAnnotation(Type.class).value();
-		//Interpreter.currentInterpreter().namespacePool().obtain(prefix);
-		System.out.println("Registered: "+prefix);
-		
-		//System.out.println(getClass().getAnnotation(Type.class).value());
+		final PsiNamespace namespace=PsiNamespace.forName("object");
+		namespace.registerOperators
+			(
+				new PsiOperator.Arity11<PsiObject>
+					("clone", PsiObject::psiClone),
+				new PsiOperator.Arity21<PsiObject, PsiObject>
+					("eq", PsiObject::psiEq),
+				new PsiOperator.Arity11<PsiObject>
+					("hashcode", PsiObject::psiHashCode),
+				new PsiOperator.Arity21<PsiObject, PsiObject>
+					("ne", PsiObject::psiNe),
+				new PsiOperator.Arity11<PsiObject>
+					("syntax", PsiObject::psiSyntax),
+				new PsiOperator.Arity11<PsiObject>
+					("type", PsiObject::psiType)
+			);
 	}
+
 
 	/*
 	default public PsiObject psiConvert(PsiName oTypeName)

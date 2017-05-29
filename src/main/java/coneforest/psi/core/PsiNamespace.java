@@ -34,6 +34,12 @@ public class PsiNamespace
 		return oNamespace;
 	}
 
+	protected void registerOperators(final PsiOperator... operators)
+	{
+		for(final PsiOperator oOperator: operators)
+			put(oOperator.getName(), oOperator);
+	}
+
 	/**
 	*	Returns the namespace prefix.
 	*
