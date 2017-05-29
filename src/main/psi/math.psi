@@ -1,0 +1,7 @@
+/math namespace begin
+
+/PI 3.14159265358979323846 def
+
+/E 2.7182818284590452354 def
+
+end
