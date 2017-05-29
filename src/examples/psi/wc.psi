@@ -33,7 +33,7 @@
 		loop
 
 		f close
-		filename print ':\t' print
+		filename print '\t' print
 		lines toname print '\t' print
 		words toname print '\t' print
 		chars toname print '\n' print

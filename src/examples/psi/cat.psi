@@ -1,10 +1,4 @@
 #!/usr/bin/psylla
-/##
-cat.psi — print files to standard output
-
-Synopsis:
-	cat.psi [FILE]…
-##/
 
 arguments isempty { arguments '-' append } if
 
@@ -16,10 +10,11 @@ arguments
 	{
 		in 4096 readstring
 		exch print
+		stdout flush
 		not { exit } if
 	}
 	loop
 	stdout flush
+	in close
 }
 bind forall
-
