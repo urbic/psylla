@@ -28,7 +28,7 @@ Prints the _n_!. The non-negative integer _n_ is passed in the command line.
 Prints the first _n_ Fibonacci numbers. The non-negative integer _n_ is passed
 in the command line.
  
-* [__`fibonacci-binet.psi`__](fibonacci-binet.psi) — calculation using Binet’s formula _(inexact when_ _n_ > 70​_)_
+* [__`fibonacci-binet.psi`__](fibonacci-binet.psi) — calculation using Binet’s formula _(inexact when_ _n_ > 70_\)_
 * [__`fibonacci-iterative.psi`__](fibonacci-iterative.psi) — iterative implementation
 * [__`fibonacci-recursive-1.psi`__](fibonacci-recursive-1.psi) — recursive implementation № 1
 * [__`fibonacci-recursive-2.psi`__](fibonacci-recursive-2.psi) — recursive implementation № 2
