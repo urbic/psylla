@@ -33,7 +33,6 @@
 	<property name="target.vim" location="${target}/vim"/>
 	<property name="target.mime" location="${target}/mime"/>
 	<property name="test.file"  location="test.psi"/>
-	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 	<property name="datadir" location="/usr/share"/>
 	<property name="datadir.java" location="${datadir}/java"/>
 	<property name="datadir.ant" location="${datadir}/ant"/>

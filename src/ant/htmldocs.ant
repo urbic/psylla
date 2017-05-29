@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<project name="htmldocs" default="dist" basedir=".">
+<project name="htmldocs" basedir=".">
+
+	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
 
 	<presetdef name="xslt.html">
 		<xslt
