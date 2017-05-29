@@ -13,7 +13,7 @@ abstract public class Option
 	public Option(final String names)
 	{
 		for(String name: names.split(" "))
-			if(!name.equals(""))
+			if(!name.isEmpty())
 				this.names.add(name);
 	}
 

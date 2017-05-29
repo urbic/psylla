@@ -222,7 +222,7 @@ public class PsiString
 		throws PsiException
 	{
 		if(arraylike.isEmpty())
-			return new PsiString("");
+			return new PsiString();
 		PsiString result=((PsiString)arraylike.get(0)).psiClone();
 		for(int i=1; i<arraylike.length(); i++)
 		{
