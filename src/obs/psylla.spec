@@ -21,7 +21,7 @@ Release:		0
 License:		Zlib
 Summary:		Psi programming language
 Url:			https://github.com/urbic/%{name}
-Group:			Development/Languages
+Group:			Development/Languages/Other
 Source:			%{name}-%{version}.tar.xz
 BuildRequires:	ant
 BuildRequires:	javacc
