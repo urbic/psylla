@@ -56,15 +56,16 @@ public class PsiReader
 			throw new PsiLimitCheckException();
 		try
 		{
-			/*
-			java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate((int)countValue);
+			///*
+			final java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate((int)count);
 			reader.read(buffer);
 			buffer.flip();
 			return new PsiString(buffer.toString());
-			*/
-			final char[] buffer=new char[(int)count];
+			//*/
+			/*final char[] buffer=new char[(int)count];
 			reader.read(buffer);
 			return new PsiString(new String(buffer));
+			*/
 		}
 		catch(final OutOfMemoryError e)
 		{
@@ -80,7 +81,6 @@ public class PsiReader
 	public PsiString psiReadLine()
 		throws PsiException
 	{
-		final String eolString=System.getProperty("line.separator");
 		final StringBuilder sb=new StringBuilder();
 
 		try
@@ -91,7 +91,7 @@ public class PsiReader
 				if(c==-1)
 					return new PsiString(sb);
 				sb.append((char)c);
-				if(sb.substring(sb.length()-eolString.length()).equals(eolString))
+				if(sb.substring(sb.length()-LINE_SEPARATOR.length()).equals(LINE_SEPARATOR))
 					return new PsiString(sb);
 			}
 			while(true);
@@ -162,6 +162,8 @@ public class PsiReader
 			throw new PsiIOErrorException();
 		}
 	}
+
+	public static final String LINE_SEPARATOR=System.getProperty("line.separator");
 
 	protected java.io.Reader reader;
 }
