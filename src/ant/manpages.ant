@@ -6,26 +6,10 @@
 			style="${src.docbook}/manpages.xsl"
 			basedir="${src.docbook}"
 			filedirparameter="${src.docbook}"
-			force="true"
+			classpathref="classpath.xslt"
 			>
 			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
-			<xmlcatalog>
-				<catalogpath>
-					<pathelement location="${src.docbook}/xmlcatalog"/>
-				</catalogpath>
-			</xmlcatalog>
-			<classpath>
-				<pathelement location="${datadir.java}/saxon6.jar"/>
-				<pathelement location="${datadir.java}/xml-commons-resolver.jar"/>
-				<pathelement location="${datadir.xml}/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
-				<pathelement location="${datadir.java}/xslthl.jar"/>
-
-				<!-- for Debian -->
-				<pathelement location="${datadir.java}/saxon-6.5.5.jar"/>
-				<pathelement location="${datadir.java}/docbook-xsl-saxon.jar"/>
-				<pathelement location="${datadir.java}/xercesImpl.jar"/>
-				<pathelement location="${datadir.java}/xmlParserAPIs.jar"/>
-			</classpath>
+			<xmlcatalog refid="xmlcatalog.xslt"/>
 			<param name="highlight.source" expression="1"/>
 			<param name="profile.status" expression="${xslt.profile.status}"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
@@ -46,13 +30,24 @@
 		<attribute name="base.name"/>
 		<attribute name="lang"/>
 		<sequential>
+			<dependset>
+				<srcfileset
+					dir="${src.docbook}/@{lang}"
+					includes="@{base.name}*.docbook *.ent"
+					/>
+				<targetfileset
+					dir="${target.man}/@{lang}"
+					includes="man1/*.1"
+					/>
+			</dependset>
 			<xslt.manpages
 				includes="@{lang}/@{base.name}.docbook"
-				destdir="${target.doc}"
+				destdir="${target.man}"
 				>
 				<param name="root.filename" expression="@{lang}/@{base.name}.docbook"/>
 				<param name="man.output.base.dir" expression="${target.man}/@{lang}/"/>
 			</xslt.manpages>
+			<delete file="${target.man}/@{lang}/@{base.name}.html" quiet="yes"/>
 			<delete dir="${target.doc}/@{lang}" quiet="yes"/>
 		</sequential>
 	</macrodef>

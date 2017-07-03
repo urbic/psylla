@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="obs" basedir=".">
 
-	<property name="obs.project.name" value="home:concyclic"/>
 	<property name="obs.package.name" value="${project.name}"/>
 	<property name="obs.package.version" value="${project.version}"/>
+	<property name="obs.build.distro" value="openSUSE_Leap_42.2"/>
+	<property name="obs.build.arch" value="x86_64"/>
+	<property name="obs.build.project" value="home:concyclic"/>
 	<property name="src.obs" location="${src}/obs"/>
+	<condition property="obs.build.desc" value="${obs.package.name}.dsc" else="${obs.package.name}.spec">
+		<or>
+			<contains string="${obs.build.distro}" substring="Debian"/>
+			<contains string="${obs.build.distro}" substring="Ubuntu"/>
+		</or>
+	</condition>
 
 	<available
 		property="obs.dir.available"
@@ -17,12 +25,16 @@
 			<arg value="checkout"/>
 			<arg value="-o"/>
 			<arg value="${target.obs}"/>
-			<arg value="${obs.project.name}"/>
+			<arg value="${obs.build.project}"/>
 			<arg value="${obs.package.name}"/>
 		</exec>
 	</target>
 
-	<target name="obs.copy.spec" depends="obs.checkout,dist.tar">
+	<target name="obs.copy.spec"
+		description="Copy sources and specs to OBS working directory"
+		depends="dist.tar"
+		>
+		<mkdir dir="${target.obs}"/>
 		<copy todir="${target.obs}" filtering="true" overwrite="yes">
 			<fileset dir="${src.obs}"/>
 			<filterset>
@@ -33,16 +45,21 @@
 			</filterset>
 		</copy>
 		<copy todir="${target.obs}" overwrite="yes">
-			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.gz"/>
+			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
 		</copy>
 	</target>
 
-	<target name="obs.add.spec" depends="obs.copy.spec">
+	<target name="obs.add.spec"
+		description=""
+		depends="obs.checkout,obs.copy.spec"
+		>
 		<mkdir dir="${target.obs}"/>
+		<delete>
+			<fileset dir="${target.obs}" includes="**/*"/>
+		</delete>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="addremove"/>
-			<arg value="${project.name}-${project.version}.tar.gz"/>
-			<arg value="_service"/>
+			<arg value="${project.name}-${project.version}.tar.xz"/>
 			<arg value="${obs.package.name}.spec"/>
 		</exec>
 	</target>
@@ -62,14 +79,16 @@
 		</exec>
 	</target>
 
-	<target name="obs.build" depends="obs.add.spec">
+	<target name="obs.build" depends="obs.copy.spec">
 		<!--mkdir dir="${target.obs}"/-->
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
-			<!--arg value="- -clean"/-->
-			<arg value="Ubuntu_16.04"/>
-			<arg value="x86_64"/>
-			<arg value="${obs.package.name}.dsc"/>
+			<arg value="--no-verify"/>
+			<arg value="--alternative-project"/>
+			<arg value="${obs.build.project}"/>
+			<arg value="${obs.build.distro}"/>
+			<arg value="${obs.build.arch}"/>
+			<arg value="${obs.build.desc}"/>
 		</exec>
 		<!--exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
@@ -78,16 +97,15 @@
 			<arg value="x86_64"/>
 			<arg value="${obs.package.name}.spec"/>
 		</exec-->
-		<copy todir="${target.obs}" overwrite="yes">
+		<!--copy todir="${target.obs}" overwrite="yes">
 			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.gz"/>
 		</copy>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
-			<!--arg value="- -clean"/-->
 			<arg value="openSUSE_Leap_42.1"/>
 			<arg value="x86_64"/>
 			<arg value="${obs.package.name}.spec"/>
-		</exec>
+		</exec-->
 	</target>
 
 </project>

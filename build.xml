@@ -8,6 +8,7 @@
 	<property name="src.test" location="${src}/test"/>
 	<property name="src.examples" location="${src}/examples"/>
 	<property name="src.main.java" location="${src.main}/java"/>
+	<property name="src.main.psi" location="${src.main}/psi"/>
 	<property name="src.test.java" location="${src.test}/java"/>
 	<property name="src.test.psi" location="${src.test}/psi"/>
 	<property name="src.main.jj" location="${src.main}/jj"/>
@@ -39,6 +40,8 @@
 	<property name="datadir.xml" location="${datadir}/xml"/>
 	<property name="datadir.javadoc" location="${datadir}/javadoc"/>
 	<property name="datadir.javadoc.java" location="${datadir.javadoc}/java"/>
+	<property name="sysconfdir" location="/etc"/>
+	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
 	<path id="classpath.main">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="${datadir.java}/jline.jar"/>
@@ -49,6 +52,27 @@
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="${datadir.java}/jline.jar"/>
 		<pathelement path="${datadir.java}/junit4.jar"/>
+		<pathelement path="${datadir.java}/junit.jar"/><!-- For mageia -->
+	</path>
+	<xmlcatalog id="xmlcatalog.xslt">
+		<catalogpath>
+			<!--pathelement location="${src.docbook}/xmlcatalog"/-->
+			<pathelement location="${sysconfdir.xml}/catalog"/>
+			<pathelement location="${sysconfdir.xml}/docbook5-xsl-stylesheets.xml"/>
+			<pathelement location="${sysconfdir.xml}/docbook-xsl-ns.xml"/>
+			<pathelement location="${sysconfdir.xml}/w3-dtd--mathml.xml"/>
+		</catalogpath>
+	</xmlcatalog>
+	<path id="classpath.xslt">
+		<pathelement location="${datadir.java}/saxon6.jar"/>
+		<pathelement location="${datadir.xml}/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+		<pathelement location="${datadir.java}/xslthl.jar"/>
+		<!--pathelement location="${datadir.java}/xerces-j2-xml-apis.jar"/-->
+
+		<!-- for Debian -->
+		<pathelement location="${datadir.java}/saxon-6.5.5.jar"/>
+		<pathelement location="${datadir.java}/docbook-xsl-saxon.jar"/>
+		<pathelement location="${datadir.java}/xercesImpl.jar"/>
 	</path>
 	<property file="${src.main.java}/coneforest/psi/Version.properties" prefix="project"/>
 	<property
@@ -60,6 +84,7 @@
 	<!-- Import supplementary Ant projects -->
 	<import file="${src.ant}/htmldocs.ant" as="htmldocs"/>
 	<import file="${src.ant}/manpages.ant" as="manpages"/>
+	<import file="${src.ant}/install.ant" as="install"/>
 	<import file="${src.ant}/obs.ant"/>
 
 	<target name="compile.jj"
@@ -247,40 +272,25 @@
 		<delete dir="${target}/tmp" quiet="yes"/>
 	</target>
 
-	<target name="dist.tar" description="Make Tar distribution">
-		<!--mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
-		<copy todir="${target}/tmp/${project.name}-${project.version}">
-			<fileset
-				dir="."
-				includes="src/** build.xml README LICENSE AUTHORS"
-				/>
-		</copy>
-		<tar
-			destfile="${target}/${project.name}-${project.version}.tar.gz"
-			compression="gzip"
-			basedir="${target}/tmp"
-			>
-			<fileset
-				dir="${target}/tmp"
-				includes="${project.name}-${project.version}/*"
-				/>
-		</tar>
-		<delete dir="${target}/tmp" quiet="yes"/-->
-
-		<!--exec outputproperty="git.stashname" executable="git">
+	<target name="dist.tar"
+		description="Make Tar distribution"
+		>
+		<mkdir dir="${target}"/>
+		<exec outputproperty="git.stashname" executable="git">
 			<arg value="stash"/>
 			<arg value="create"/>
 		</exec>
-		<echo>${git.stashname}</echo-->
+		<condition property="git.object" value="HEAD" else="${git.stashname}">
+			<length string="${git.stashname}" when="eq" length="0"/>
+		</condition>
+		<echo message="${git.object}"/>
 		<exec executable="git">
 			<arg value="archive"/>
 			<arg value="--prefix"/>
 			<arg value="${project.name}-${project.version}/"/>
 			<arg value="--output"/>
-			<arg value="${target}/${project.name}-${project.version}.tar.gz"/>
-			<!--arg value="${git.stashname}" if:set="${git.stashname}"/-->
-			<!--arg value="HEAD" if:blank="${git.stashname}"/-->
-			<arg value="HEAD"/>
+			<arg value="${target}/${project.name}-${project.version}.tar.xz"/>
+			<arg value="${git.object}"/>
 			<arg value="--"/>
 			<arg value="build.xml"/>
 			<arg value="src"/>
@@ -288,11 +298,6 @@
 			<arg value="LICENSE"/>
 			<arg value="AUTHORS"/>
 		</exec>
-		<!--exec executable="git" if:set="${git.stashname}">
-			<arg value="stash"/>
-			<arg value="apply"/>
-			<arg value="${git.stashname}"/>
-		</exec-->
 	</target>
 
 	<target name="build"

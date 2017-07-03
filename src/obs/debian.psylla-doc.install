@@ -1,0 +1,3 @@
+usr/share/doc/@obs.package.name@-doc/html/*
+usr/share/doc/@obs.package.name@-doc/examples/*
+usr/share/doc/@obs.package.name@-doc/api/*

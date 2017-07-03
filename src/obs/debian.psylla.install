@@ -1,0 +1,8 @@
+usr/share/java/*.jar
+usr/bin/*
+usr/share/@obs.package.name@/*
+usr/share/vim/*
+usr/share/mime/*
+usr/share/ant/lib/*
+etc/ant.d/*
+usr/share/man/man1/*

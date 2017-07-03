@@ -8,27 +8,11 @@
 			style="${src.docbook}/xhtml.xsl"
 			basedir="${src.docbook}"
 			filedirparameter="${src.docbook}"
-			force="true"
+			extension=".xhtml"
+			classpathref="classpath.xslt"
 			>
 			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
-			<xmlcatalog>
-				<catalogpath>
-					<pathelement location="${src.docbook}/xmlcatalog"/>
-				</catalogpath>
-			</xmlcatalog>
-			<classpath>
-				<pathelement location="${datadir.java}/saxon6.jar"/>
-				<!--pathelement location="${datadir.java}/xml-commons-resolver.jar"/-->
-				<pathelement location="${datadir.xml}/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
-				<pathelement location="${datadir.java}/xslthl.jar"/>
-				<pathelement location="${datadir.java}/xerces-j2-xml-apis.jar"/>
-
-				<!-- for Debian -->
-				<pathelement location="${datadir.java}/saxon-6.5.5.jar"/>
-				<!--pathelement location="${datadir.java}/xml-resolver.jar"/-->
-				<pathelement location="${datadir.java}/docbook-xsl-saxon.jar"/>
-				<pathelement location="${datadir.java}/xercesImpl.jar"/>
-			</classpath>
+			<xmlcatalog refid="xmlcatalog.xslt"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
 			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
 			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
@@ -45,28 +29,41 @@
 		<attribute name="base.name"/>
 		<attribute name="lang"/>
 		<sequential>
+			<dependset>
+				<srcfileset
+					dir="${src.docbook}/@{lang}"
+					includes="*.docbook *.ent"
+					/>
+				<targetfileset
+					dir="${target.doc.html}/@{lang}"
+					includes="@{base.name}.xhtml"
+					/>
+			</dependset>
 			<xslt.html
 				includes="@{lang}/@{base.name}.docbook"
 				destdir="${target.doc.html}"
 				filedirparameter="@{lang}/@{base.name}.docbook"
 				>
-				<param name="html.stylesheet" expression="../@{base.name}.css"/>
+				<param name="html.stylesheet" expression="../common/@{base.name}.css"/>
 				<param name="root.filename" expression="@{base.name}"/>
 				<param name="base.dir" expression="${target.doc.html}/@{lang}"/>
 				<param name="l10n.gentext.language" expression="@{lang}"/>
 			</xslt.html>
-			<delete file="${target.doc.html}/@{lang}/@{base.name}.html" quiet="yes"/>
-			<symlink resource="../common" link="${target.doc.html}/@{lang}/common" overwrite="true"/>
+			<symlink
+				link="${target.doc.html}/@{lang}/common"
+				resource="../common"
+				overwrite="true"
+				/>
 		</sequential>
 	</macrodef>
 
 	<target name="css" description="Make CSS">
-		<mkdir dir="${target.doc.html}"/>
+		<mkdir dir="${target.doc.html}/common"/>
 		<dependset>
 			<srcfilelist dir="${src.docbook}" files="*.scss"/>
-			<targetfileset dir="${target.doc.html}" includes="${project.name}.css"/>
+			<targetfileset dir="${target.doc.html}/common" includes="${project.name}.css"/>
 		</dependset>
-		<apply executable="sass" dest="${target.doc.html}" parallel="false">
+		<apply executable="sass" dest="${target.doc.html}/common" parallel="false">
 			<arg value="--style"/>
 			<arg value="compact"/>
 			<!--arg value="-+-load-path"/>
@@ -79,7 +76,6 @@
 	</target>
 
 	<target name="htmldocs" description="Make documentation" depends="css">
-		<mkdir dir="${target.doc.html}"/>
 		<mkdir dir="${target.doc.html}/common"/>
 		<apply dest="${target.doc.html}/common" dir="${src.docbook}" executable="perl">
 			<arg value="make-types-hierarchy.pl"/>

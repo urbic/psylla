@@ -39,7 +39,7 @@ clean:
 
 	dh_clean
 
-DESTDIR = /usr/src/packages/BUILD/debian/psylla
+DESTDIR = /usr/src/packages/BUILD/debian/tmp
 
 install: build
 	dh_testdir
@@ -49,35 +49,11 @@ install: build
 
 	# Add here commands to install the package
 	# The DESTDIR Has To Be Exactly  /usr/src/packages/BUILD/debian/<nameOfPackage>
-	install -d $(DESTDIR)/usr/share/@obs.package.name@/@obs.package.version@
-	install -d $(DESTDIR)/usr/share/@obs.package.name@/site
-	install -d $(DESTDIR)/usr/share/java
-	install -d $(DESTDIR)/usr/bin
-	install -d $(DESTDIR)/usr/share/doc/@obs.package.name@
-	install -d $(DESTDIR)/usr/share/doc/@obs.package.name@-doc
-	install -d $(DESTDIR)/usr/share/javadoc/@obs.package.name@
-	install -d $(DESTDIR)/usr/share/vim/site/ftdetect
-	install -d $(DESTDIR)/usr/share/vim/site/syntax
-	install -m 644 target/lib/@obs.package.name@-@obs.package.version@.jar $(DESTDIR)/usr/share/java
-	cp -P target/lib/@obs.package.name@.jar $(DESTDIR)/usr/share/java
-	install -m 755 target/bin/* $(DESTDIR)/usr/bin
-	cp -pr src/main/psi/* $(DESTDIR)/usr/share/@obs.package.name@/@obs.package.version@
-	cp -pr target/doc/html target/doc/examples $(DESTDIR)/usr/share/doc/@obs.package.name@-doc
-	install -m 644 target/doc/README $(DESTDIR)/usr/share/doc/@obs.package.name@
-	install -m 644 target/doc/LICENSE $(DESTDIR)/usr/share/doc/@obs.package.name@
-	install -m 644 target/doc/AUTHORS $(DESTDIR)/usr/share/doc/@obs.package.name@
-	install -m 644 target/vim/syntax/*.vim $(DESTDIR)/usr/share/vim/site/syntax
-	install -m 644 target/vim/ftdetect/*.vim $(DESTDIR)/usr/share/vim/site/ftdetect
-	cp -pr target/doc/apidocs/* $(DESTDIR)/usr/share/javadoc/@obs.package.name@
-	ln -s @obs.package.version@ $(DESTDIR)/usr/share/@obs.package.name@/current
-	install -d $(DESTDIR)/usr/share/mime/packages
-	install -m 644 target/mime/@obs.package.name@.xml $(DESTDIR)/usr/share/mime/packages
-	install -d $(DESTDIR)/usr/share/man
-	cp -pr target/man/en/* $(DESTDIR)/usr/share/man
-	install -d $(DESTDIR)/usr/share/ant/lib
-	ln -s ../../java/@obs.package.name@.jar $(DESTDIR)/usr/share/ant/lib/ant-@obs.package.name@.jar
-	install -d $(DESTDIR)/etc/ant.d
-	echo "@obs.package.name@ ant/ant-@obs.package.name@" > $(DESTDIR)/etc/ant.d/@obs.package.name@
+	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant install \
+		-Ddestdir=$(DESTDIR) \
+		-Dinstall.docdir=/usr/share/doc/@obs.package.name@-doc/ \
+		-Dinstall.javadocdir=/usr/share/doc/@obs.package.name@-doc/api/
+	dh_install
 	# --- end custom part for installing
 
 # Build architecture-independent files here.

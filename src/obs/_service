@@ -1,6 +1,0 @@
-<services>
-	<service name="recompress">
-		<param name="file">*.tar.gz</param>
-		<param name="compression">xz</param>
-	</service>
-</services>

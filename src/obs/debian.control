@@ -11,7 +11,7 @@ Build-Depends: debhelper (>= 9),
 	ant-optional,
 	libjline-java,
 	libjline-java-doc,
-	docbook-xsl-ns (>=1.79),
+	docbook-xsl-ns (>=1.78),
 	docbook-mathml,
 	docbook-xsl-saxon,
 	libxslthl-java,
@@ -30,6 +30,18 @@ Depends: debhelper (>= 9),
 	junit4 (>=4.11),
 	ant-optional,
 	libjline-java
+Suggests: @obs.package.name@-doc
 Description: Psi programming language
 	Psylla is extensible and embeddable Psi implementation written in Java.
 	Psi is scriptable interpretive PostScript-like programming language.
+
+Package: @obs.package.name@-doc
+Architecture: all
+Section: doc
+Depends: debhelper (>= 9),
+Recommends: 
+	openjdk-8-doc,
+	ant-doc,
+	ant-optional,
+Description: Psi programming language (documentation)
+	This package contains documentation for @obs.package.name@.

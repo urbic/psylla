@@ -16,6 +16,7 @@ language.
 * Complex numbers
 * Multicontext execution (multithreading), synchronization primitives, blocking queues
 * Regular expressions _— under construction_
+* REPL
 * Support for Java scripting API
 
 ## Dependencies

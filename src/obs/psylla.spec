@@ -27,7 +27,11 @@ BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	java-devel >= 1.8.0
 BuildRequires:	java-javadoc >= 1.8.0
+%if 0%{?mageia}
+BuildRequires:	jline2
+%else
 BuildRequires:	jline
+%endif
 BuildRequires:	shared-mime-info
 BuildRequires:	junit >= 4.0
 BuildRequires:	ant-junit
@@ -45,11 +49,20 @@ Psi is scriptable interpretive PostScript-like programming language.
 Summary: Documentation for Psylla
 Requires:		paratype-pt-sans-fonts
 BuildRequires:	ant-apache-resolver
+%if 0%{?mageia}
+BuildRequires:	docbook-style-xsl
+BuildRequires:	java-1.8.0-openjdk-javadoc
+%else
 BuildRequires:	docbook5-xsl-stylesheets
+%endif
 BuildRequires:	graphviz
 BuildRequires:	rubygem(sass)
 BuildRequires:	saxon6
+%if 0%{?fedora}||0%{?mageia}
+BuildRequires:	xerces-j2
+%else
 BuildRequires:	xerces-j2-xml-apis
+%endif
 BuildRequires:	xslthl
 
 %if 0%{?fedora}
@@ -84,30 +97,9 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 	%{ant} test
 
 %install
-%{__install} -d %{buildroot}%{_datadir}/%{name}/{%{version},site}
-%{__install} -d %{buildroot}%{_javadir}
-%{__install} -d %{buildroot}%{_bindir}
-%{__install} -d %{buildroot}%{_docdir}/%{name}{,-doc}
-%{__install} -d %{buildroot}%{_javadocdir}/%{name}
-%{__install} -d %{buildroot}%{_datadir}/vim/site/{ftdetect,syntax}
-%{__install} -m 644 target/lib/%{name}-%{version}.jar %{buildroot}%{_javadir}
-%{__cp} -P target/lib/%{name}.jar %{buildroot}%{_javadir}
-%{__install} -m 755 target/bin/* %{buildroot}%{_bindir}
-%{__cp} -pr src/main/psi/* %{buildroot}%{_datadir}/%{name}/%{version}
-%{__cp} -pr target/doc/{html,examples} %{buildroot}%{_docdir}/%{name}-doc
-%{__install} -m 644 target/doc/{README,LICENSE,AUTHORS} %{buildroot}%{_docdir}/%{name}
-%{__install} -m 644 target/vim/syntax/*.vim %{buildroot}%{_datadir}/vim/site/syntax
-%{__install} -m 644 target/vim/ftdetect/*.vim %{buildroot}%{_datadir}/vim/site/ftdetect
-%{__cp} -pr target/doc/apidocs/* %{buildroot}%{_javadocdir}/%{name}
-%{__ln_s} %{version} %{buildroot}%{_datadir}/%{name}/current
-%{__install} -d %{buildroot}%{_datadir}/mime/packages
-%{__install} -m 644 target/mime/%{name}.xml %{buildroot}%{_datadir}/mime/packages
-%{__install} -d %{buildroot}%{_mandir}
-%{__cp} -pr target/man/en/* %{buildroot}%{_mandir}
-%{__install} -d %{buildroot}%{_datadir}/ant/lib
-%{__ln_s} ../../java/%{name}.jar %{buildroot}%{_datadir}/ant/lib/ant-%{name}.jar
-%{__install} -d %{buildroot}%{_sysconfdir}/ant.d
-echo "%{name} ant/ant-%{name}" > %{buildroot}%{_sysconfdir}/ant.d/%{name}
+LANG=ru_RU.UTF-8 \
+CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
+	%{ant} install -Ddestdir=%{buildroot} -Dinstall.docdir=%{_docdir}/%{name}
 
 %post
 %mime_database_post
@@ -135,7 +127,7 @@ echo "%{name} ant/ant-%{name}" > %{buildroot}%{_sysconfdir}/ant.d/%{name}
 %{_datadir}/vim/site/syntax/psi.vim
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/ant/lib/ant-%{name}.jar
-%{_sysconfdir}/ant.d/*
+%config %{_sysconfdir}/ant.d/*
 %{_mandir}/man1/*
 %doc README LICENSE AUTHORS
 
