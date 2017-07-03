@@ -85,8 +85,6 @@ public class PsiComplex
 	*	object. The argument belongs to the range (−π; π].
 	*
 	*	@return a Ψ-{@code real} argument.
-	*	@throws PsiUndefinedResultException when this object represents a zero
-	*	number.
 	*/
 	public PsiReal psiArg()
 	{

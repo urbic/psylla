@@ -3,7 +3,7 @@
 <title><type>boolean</type></title>
 
 <para>
-The object of this type serve as operands to Boolean operations such as
+The objects of this type serve as operands to Boolean operations such as
 disjunction, conjunction, negation and exclusive disjunction. There are two
 objects of this type: <constant>false</constant> and <constant>true</constant>.
 </para>

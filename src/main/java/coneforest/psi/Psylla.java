@@ -70,6 +70,10 @@ public class Psylla
 	*	Process command-line options and launches the Ψ interpreter.
 	*
 	*	@param args the command-line options
+	*	@return the {@link Psylla} instance launched.
+	*	@throws PsiException
+	*	@throws coneforest.cli.ProcessingException
+	*	@throws java.io.FileNotFoundException
 	*/
 	public static Psylla launch(final String args[])
 		throws

@@ -3,8 +3,8 @@
 <title><type>logical</type></title>
 
 <para>
-Тип операндов логических операций: дизъюнкции, конъюнкции, отрицания,
-исключающей дизъюнкции.
+The object of this type serve as operands to logical operations such as
+disjunction, conjunction, negation and exclusive disjunction.
 </para>
 
 <formalpara>

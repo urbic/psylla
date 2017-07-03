@@ -90,8 +90,6 @@ public interface PsiNumeric
 	*	object.
 	*
 	*	@return a Ψ-{@code numeric} arcc tangent.
-	*	@throws PsiUndefinedResultException when this object represents an
-	*	unadmissible value for arc tangent.
 	*/
 	public PsiNumeric psiAtan();
 

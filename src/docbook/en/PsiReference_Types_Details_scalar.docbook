@@ -3,7 +3,8 @@
 <title><type>scalar</type></title>
 
 <para>
-A base type for totally ordered types.
+A base type for totally ordered types. The objects of this type serve as
+operands to comparison operators.
 </para>
 
 <formalpara>

@@ -3,8 +3,8 @@
 <title><type>null</type></title>
 
 <para>
-A null. The only object of this type serves as a placeholder in
-containers.
+A null. The <constant>null</constant>, the only object of this type serves as a
+placeholder in containers.
 </para>
 
 <formalpara>

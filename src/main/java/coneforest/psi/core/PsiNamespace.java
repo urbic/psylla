@@ -43,7 +43,7 @@ public class PsiNamespace
 	/**
 	*	Returns the namespace prefix.
 	*
-	*	@param oPrefix the given prefix.
+	*	@return the prefix.
 	*/
 	public String prefix()
 	{
