@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><title>Глава 6. Разработка</title><link rel="stylesheet" type="text/css" href="../common/PsiReference.css"/><link rev="made" href="${xslt.link.mailto.url}"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="PsiReference.xhtml" title="Язык Ψ — полное руководство"/><link rel="up" href="PsiReference.xhtml" title="Язык Ψ — полное руководство"/><link rel="prev" href="PsiReference_Errors.xhtml" title="Глава 5. Ошибки"/><link rel="next" href="PsiReference_Index.xhtml" title="Предметный указатель"/><link rel="preface" href="PsiReference_Introduction.xhtml" title="Введение"/><link rel="chapter" href="PsiReference_Interpreter.xhtml" title="Глава 1. Интерпретатор"/><link rel="chapter" href="PsiReference_Language.xhtml" title="Глава 2. Язык"/><link rel="chapter" href="PsiReference_Types.xhtml" title="Глава 3. Типы"/><link rel="chapter" href="PsiReference_Operators.xhtml" title="Глава 4. Операторы"/><link rel="chapter" href="PsiReference_Errors.xhtml" title="Глава 5. Ошибки"/><link rel="chapter" href="PsiReference_Development.xhtml" title="Глава 6. Разработка"/><link rel="index" href="PsiReference_Index.xhtml" title="Предметный указатель"/><link rel="section" href="PsiReference_Development.xhtml#PsiReference_Development_Extension" title="6.1. Расширение"/><link rel="section" href="PsiReference_Development.xhtml#PsiReference_Development_Embedding" title="6.2. Встраивание"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="shortcut icon" href="../psylla-16.png" type="image/png"/><link rel="author" href="https://plus.google.com/113215332542811715537?rel=author"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Глава 6. Разработка</th></tr><tr><td align="left"><a accesskey="p" href="PsiReference_Errors.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><th width="60%" align="center"> </th><td align="right"> <a accesskey="n" href="PsiReference_Index.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr></table></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="PsiReference_Development"/>Глава 6. Разработка</h1></div></div></div><div class="toc"><div class="toc-title">Содержание</div><dl class="toc"><dt><span class="section"><a href="PsiReference_Development.xhtml#PsiReference_Development_Extension">6.1. Расширение</a></span></dt><dd><dl><dt><span class="section"><a href="PsiReference_Development.xhtml#PsiReference_Development_Extension_NewOperators">6.1.1. Добавление новых операторов</a></span></dt><dt><span class="section"><a href="PsiReference_Development.xhtml#PsiReference_Development_Extension_External">6.1.2. Загрузка объектов расширения</a></span></dt><dt><span class="section"><a href="PsiReference_Development.xhtml#PsiReference_Development_Extension_LibraryModules">6.1.3. Библиотечные модули</a></span></dt><dt><span class="section"><a href="PsiReference_Development.xhtml#PsiReference_Development_Extension_ExampleRomanNumerals">6.1.4. Пример: римская числовая нотация</a></span></dt></dl></dd><dt><span class="section"><a href="PsiReference_Development.xhtml#PsiReference_Development_Embedding">6.2. Встраивание</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Development_Extension"/>6.1. Расширение</h2></div></div></div><p>
+Расширения языка производится посредством добавления новых операторов и
+создания новых типов.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Development_Extension_NewOperators"/>6.1.1. Добавление новых операторов</h3></div></div></div><p>
+Новый оператор реализуется как подкласс класса
+<code class="classname">coneforest.psi.core.PsiOperator</code>. В классе оператора следует
+переопределить метод <code class="methodname"><a class="methodname" href="../../javadoc/coneforest/psi/core/PsiObject.html#invoke(coneforest.psi.Interpreter)">invoke(coneforest.psi.Interpreter)</a></code>.
+Этот метод получает интерпретатор как параметр и выполняет требуемое действие,
+нужным образом манипулируя с интерпретатором.
+</p><p>
+По умолчанию имя оператора выводится из имени его класса. Встроенные операторы
+Ψ определены в классах, чьё имя начинается со знака подчёркивания, за которым
+следует имя оператора. К примеру, оператор <code class="token"><span class="hl-keyword">dup</span></code>
+определён в классе <code class="classname"><a class="classname" href="../../javadoc/coneforest/psi/core/_dup.html">coneforest.psi.systemdict._dup</a></code>.
+Метод <code class="methodname"><a class="methodname" href="../../javadoc/coneforest/psi/core/PsiOperator.html#getName()">coneforest.psi.core.PsiOperator.getName()</a></code>
+возвращает имя класса с удалённым первым символом. Иная схема наименования
+классов потребует переопределения этого метода.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Development_Extension_External"/>6.1.2. Загрузка объектов расширения</h3></div></div></div><p>
+Объект, определённый во внешнем классе, может быть загружен на стек операндов
+оператором <code class="token"><span class="hl-keyword">external</span></code>. Операндом этого оператора
+должно быть двоичное имя класса, представленное как строка или имя.
+</p><p>
+В разделе <a class="xref" href="PsiReference_Development.xhtml#PsiReference_Development_Extension_ExampleRomanNumerals" title="6.1.4. Пример: римская числовая нотация">6.1.4. «Пример: римская числовая нотация»</a> создаются
+новые операторы для преобразования чисел в римскую запись и наоборот. Оператор
+<code class="token"><span class="hl-keyword">toroman</span></code> определяется в классе<br/>
+<code class="classname">coneforest.psi.extensions.romannumerals.PsiRomanNumerals._toroman</code>.
+Для вызова этого оператора потребуется код
+
+</p><pre class="programlisting"><span class="hl-number">1987</span>
+<span class="hl-string">/coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_toroman</span> <span class="hl-keyword">external</span>
+<span class="hl-keyword">exec</span>	<span class="hl-comment"># ⇒ "MCMLXXXVII"</span></pre><p>
+
+</p><p>
+Для многократного использования внешних операторов нужно дать им имена:
+
+</p><pre class="programlisting"><span class="hl-string">/toroman</span> <span class="hl-string">/coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_toroman</span> <span class="hl-keyword">external</span> <span class="hl-keyword">def</span>
+<span class="hl-string">/fromroman</span> <span class="hl-string">/coneforest.psi.extensions.romannumerals.PsiRomanNumerals$_fromroman</span> <span class="hl-keyword">external</span> <span class="hl-keyword">def</span>
+
+<span class="hl-number">1987</span> <span class="hl-keyword">toroman</span> <span class="hl-structure">?</span>		<span class="hl-comment"># ⇒ "MCMLXXXVII"</span>
+<span class="hl-string">/LIV</span> <span class="hl-keyword">fromroman</span> <span class="hl-structure">?</span>	<span class="hl-comment"># ⇒ 54</span></pre><p>
+
+</p><p>
+Оператор <code class="token"><span class="hl-keyword">external</span></code> использует загрузчик классов
+<code class="token"><span class="hl-keyword">classpath</span></code>, реализованный как массив строковых
+объектов. Элементы массива интерпретируются как элементы пути поиска классов.
+Элементы могут добавляться или удаляться во время исполнения программы.
+Загрузчик выполняет поиск классов сначала с помощью системного загрузчика Java,
+а затем ищет класс, принимая во внимание пути, заданные в массиве.
+Массив-загрузчик <code class="token"><span class="hl-keyword">classpath</span></code> изначально заполнен
+элементами, заданными как параметр <code class="option">--classpath</code> в командной
+строке. Если параметр не задан, массив пуст.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Development_Extension_LibraryModules"/>6.1.3. Библиотечные модули</h3></div></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsiReference_Development_Extension_ExampleRomanNumerals"/>6.1.4. Пример: римская числовая нотация</h3></div></div></div><p>
+В данном примере мы создаём словарь с двумя новыми операторами. Оператор <code class="token"><span class="hl-keyword">toroman</span></code> преобразует целое число к строке, содержащей
+римскую запись. Оператор <code class="token"><span class="hl-keyword">fromroman</span></code>, наоборот,
+преобразует строку с римской записью в числовую форму.
+</p><pre class="programlisting"><span class="hl-keyword">package</span> coneforest.psi.extensions.romannumerals;
+<span class="hl-keyword">import</span> coneforest.psi.*;
+<span class="hl-keyword">import</span> coneforest.psi.core.*;
+
+<span class="hl-keyword">public</span> <span class="hl-keyword">class</span> PsiRomanNumerals
+	<span class="hl-keyword">extends</span> PsiModule
+{
+	<span class="hl-keyword">public</span> PsiRomanNumerals()
+		<span class="hl-keyword">throws</span> PsiException
+	{
+		<span class="hl-comment">//super("text.roman");</span>
+
+		registerOperators
+			(
+				<span class="hl-keyword">new</span> PsiOperator.Arity11&lt;PsiInteger&gt;
+					(<span class="hl-string">"toroman"</span>, PsiRomanNumerals::psiToRoman),
+				<span class="hl-keyword">new</span> PsiOperator.Arity11&lt;PsiStringy&gt;
+					(<span class="hl-string">"fromroman"</span>, PsiRomanNumerals::psiFromRoman)
+			);
+	}
+
+	<span class="hl-keyword">private</span> <span class="hl-keyword">static</span> PsiName psiToRoman(<span class="hl-keyword">final</span> PsiInteger oInteger)
+		<span class="hl-keyword">throws</span> PsiException
+	{
+		<span class="hl-keyword">long</span> n=oInteger.longValue();
+		<span class="hl-keyword">if</span>(n&lt;<span class="hl-number">0</span> || n&gt;=<span class="hl-number">4000</span>)
+			<span class="hl-keyword">throw</span> <span class="hl-keyword">new</span> PsiRangeCheckException();
+		<span class="hl-keyword">final</span> StringBuilder sb=<span class="hl-keyword">new</span> StringBuilder();
+		<span class="hl-keyword">for</span>(<span class="hl-keyword">int</span> d=<span class="hl-number">0</span>; n&gt;<span class="hl-number">0</span>; n/=<span class="hl-number">10</span>, d++)
+			sb.insert(<span class="hl-number">0</span>, conversionTable[d][(<span class="hl-keyword">int</span>)n % <span class="hl-number">10</span>]);
+		<span class="hl-keyword">return</span> <span class="hl-keyword">new</span> PsiName(sb);
+	}
+
+	<span class="hl-keyword">private</span> <span class="hl-keyword">static</span> PsiInteger psiFromRoman(<span class="hl-keyword">final</span> PsiStringy oStringy)
+		<span class="hl-keyword">throws</span> PsiException
+	{
+		<span class="hl-keyword">final</span> java.util.regex.Matcher romanMatcher
+			=romanPattern.matcher(oStringy.stringValue());
+		<span class="hl-keyword">if</span>(!romanMatcher.matches())
+			<span class="hl-keyword">throw</span> <span class="hl-keyword">new</span> PsiUndefinedResultException();
+		<span class="hl-keyword">int</span> result=<span class="hl-number">0</span>;
+		<span class="hl-keyword">for</span>(<span class="hl-keyword">int</span> d=<span class="hl-number">3</span>; d&gt;=<span class="hl-number">0</span>; d--)
+			<span class="hl-keyword">for</span>(<span class="hl-keyword">int</span> n=<span class="hl-number">0</span>; n&lt;conversionTable[d].length; n++)
+				<span class="hl-keyword">if</span>(romanMatcher.group(<span class="hl-number">4</span>-d).equals(conversionTable[d][n]))
+				{
+					result=<span class="hl-number">10</span>*result+n;
+					<span class="hl-keyword">break</span>;
+				}
+		<span class="hl-keyword">return</span> PsiInteger.valueOf(result);
+	}
+
+	<span class="hl-keyword">private</span> <span class="hl-keyword">static</span> <span class="hl-keyword">final</span> java.util.regex.Pattern romanPattern
+		=java.util.regex.Pattern.compile(<span class="hl-string">"^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$"</span>);
+
+	<span class="hl-keyword">private</span> <span class="hl-keyword">static</span> <span class="hl-keyword">final</span> String[][] conversionTable=<span class="hl-keyword">new</span> String[][]
+		{
+			{<span class="hl-string">""</span>, <span class="hl-string">"I"</span>, <span class="hl-string">"II"</span>, <span class="hl-string">"III"</span>, <span class="hl-string">"IV"</span>, <span class="hl-string">"V"</span>, <span class="hl-string">"VI"</span>, <span class="hl-string">"VII"</span>, <span class="hl-string">"VIII"</span>, <span class="hl-string">"IX"</span>},
+			{<span class="hl-string">""</span>, <span class="hl-string">"X"</span>, <span class="hl-string">"XX"</span>, <span class="hl-string">"XXX"</span>, <span class="hl-string">"XL"</span>, <span class="hl-string">"L"</span>, <span class="hl-string">"LX"</span>, <span class="hl-string">"LXX"</span>, <span class="hl-string">"LXXX"</span>, <span class="hl-string">"XC"</span>},
+			{<span class="hl-string">""</span>, <span class="hl-string">"C"</span>, <span class="hl-string">"CC"</span>, <span class="hl-string">"CCC"</span>, <span class="hl-string">"CD"</span>, <span class="hl-string">"D"</span>, <span class="hl-string">"DC"</span>, <span class="hl-string">"DCC"</span>, <span class="hl-string">"DCCC"</span>, <span class="hl-string">"CM"</span>},
+			{<span class="hl-string">""</span>, <span class="hl-string">"M"</span>, <span class="hl-string">"MM"</span>, <span class="hl-string">"MMM"</span>}
+		};
+}</pre></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsiReference_Development_Embedding"/>6.2. Встраивание</h2></div></div></div></div></div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td align="left"><a accesskey="p" href="PsiReference_Errors.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><td align="center"> </td><td align="right"> <a accesskey="n" href="PsiReference_Index.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr><tr><td align="left" valign="top">Глава 5. Ошибки </td><td align="center"><a accesskey="h" href="PsiReference.xhtml"><img src="../navigation/home.svg" alt="Начало"/></a></td><td align="right" valign="top"> Предметный указатель</td></tr></table></div></body></html>
