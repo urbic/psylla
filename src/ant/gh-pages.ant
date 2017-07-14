@@ -5,13 +5,13 @@
 		depends="docs"
 		>
 		<delete dir="${target.gh-pages}"/>
-		<!--exec executable="git">
+		<exec executable="git">
 			<arg value="worktree"/>
 			<arg value="add"/>
 			<arg value="-Bgh-pages"/>
 			<arg value="${target.gh-pages}"/>
 			<arg value="origin/gh-pages"/>
-		</exec-->
+		</exec>
 		<!-- -->
 		<copy todir="${target.gh-pages}">
 			<fileset dir="${target.doc}/html" followsymlinks="false" includes="**/*"/>
