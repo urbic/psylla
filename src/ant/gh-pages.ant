@@ -13,6 +13,15 @@
 			<arg value="origin/gh-pages"/>
 		</exec>
 		<!-- -->
+		<exec executable="git">
+			<arg value="clone"/>
+			<arg value="git@github.com:urbic/psylla.git"/>
+			<arg value="--branch"/>
+			<arg value="gh-pages"/>
+			<arg value="${target.gh-pages}"/>
+		</exec>
+
+
 		<copy todir="${target.gh-pages}">
 			<fileset dir="${target.doc}/html" followsymlinks="false" includes="**/*"/>
 		</copy>
