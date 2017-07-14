@@ -2,6 +2,8 @@
 <chapter xml:id="PsiReference_Interpreter">
 <title>Interpreter</title>
 
+&PsiReference_Interpreter_Installation;
+
 <section xml:id="PsiReference_Interpreter_CLI">
 <title>Command Line Interface</title>
 
@@ -70,6 +72,18 @@ consisting of Ψ commands.
 </term>
 <listitem>
 Additional extensions class path including directories and jar archives.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--librarypath</option>,
+<option>--lp</option>,
+<option>-I</option>
+<parameter><replaceable>path</replaceable></parameter>
+</term>
+<listitem>
+TODO
 </listitem>
 </varlistentry>
 

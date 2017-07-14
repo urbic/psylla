@@ -1270,7 +1270,7 @@
 
 </section>
 
-<section xml:id="PsiReference_Operators_ByCategory_Multicontext">
++<section xml:id="PsiReference_Operators_ByCategory_MultipleContext">
 <title>Операторы, связанные с многоконтекстным исполнением</title>
 
 <variablelist>

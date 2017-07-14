@@ -220,6 +220,7 @@ linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/>. Он н
 
 <para>
 <firstterm>Имена</firstterm><indexterm><primary>имя</primary></indexterm>
+(<xref linkend="PsiReference_Types_Details_name" xrefstyle="template:%t"/>)
 представляют неизменяемые строки. Имена главным образом используются как ключи
 в словарях, по которым извлекаются соответствующие значения. С каждым
 оператором языка Ψ ассоциировано имя в системном словаре.
@@ -231,9 +232,10 @@ linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/>. Он н
 <title>Команды</title>
 
 <para>
-<firstterm>Команды</firstterm><indexterm><primary>команда</primary></indexterm>
-(<firstterm>исполняемые
-имена</firstterm><indexterm><primary>имя</primary><secondary>исполняемое</secondary></indexterm>)
+<firstterm>Команды</firstterm><indexterm><primary>команда</primary></indexterm>,
+или <firstterm>исполняемые
+имена</firstterm><indexterm><primary>имя</primary><secondary>исполняемое</secondary></indexterm>
+(<xref linkend="PsiReference_Types_Details_command" xrefstyle="template:%t"/>)
 отличаются от имён семантикой исполнения. Исполнение команды заключается
 в поиске объекта, ассоциированого с именем команды, в стеке словарей, и
 последующем исполнении найденного объекта.
@@ -245,7 +247,8 @@ linkend="PsiReference_Operators_Details_null" xrefstyle="template:%t"/>. Он н
 <title>Массивы</title>
 
 <para>
-<firstterm>Массив</firstterm><indexterm><primary>массив</primary></indexterm> —
+<firstterm>Массив</firstterm><indexterm><primary>массив</primary></indexterm>
+(<xref linkend="PsiReference_Types_Details_array" xrefstyle="template:%t"/>) —
 это контейнер для объектов, пронумерованных целыми неотрицательными числами
 (<firstterm>индексами</firstterm><indexterm><primary>индекс</primary><secondary>массива</secondary></indexterm>).
 Массивы в языке Ψ являются
@@ -272,9 +275,10 @@ linkend="PsiReference_Errors_Details_rangecheck" xrefstyle="template:%t"/>.
 <title>Процедуры</title>
 
 <para>
-<firstterm>Процедура</firstterm><indexterm><primary>процедура</primary></indexterm>
-(<firstterm>исполняемые
-массивы</firstterm><indexterm><primary>массив</primary><secondary>исполняемый</secondary></indexterm>)
+<firstterm>Процедура</firstterm><indexterm><primary>процедура</primary></indexterm>,
+или <firstterm>исполняемый
+массив</firstterm><indexterm><primary>массив</primary><secondary>исполняемый</secondary></indexterm>
+(<xref linkend="PsiReference_Types_Details_proc" xrefstyle="template:%t"/>)
 отличается от массива семантикой исполнения. Исполнение процедуры заключается
 в поочерёдном исполнении всех её элементов.
 </para>
@@ -286,6 +290,7 @@ linkend="PsiReference_Errors_Details_rangecheck" xrefstyle="template:%t"/>.
 
 <para>
 <firstterm>Строка</firstterm><indexterm><primary>строка</primary></indexterm>
+(<xref linkend="PsiReference_Types_Details_string" xrefstyle="template:%t"/>)
 концептуально устроена как массив, элементами которого служат целые числа
 из диапазона от <math xmlns="&nsMathML;"><mn>0</mn></math> до <math
 xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
@@ -298,9 +303,10 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <firstterm><acronym>UTF-16</acronym></firstterm><indexterm><primary>UTF-16</primary></indexterm>.
 Одна кодовая единица кодирует символы из <firstterm>основной многоязычной
 плоскости</firstterm><indexterm><primary>основная многоязычная
-плоскость</primary><see><acronym>BMP</acronym></see></indexterm>
-(<acronym>BMP</acronym><indexterm><primary><acronym>BMP</acronym></primary></indexterm>).
-Остальные символы Unicode кодируются так называемыми <firstterm>суррогатными
+плоскость</primary></indexterm>
+(<acronym>BMP</acronym><indexterm><primary><acronym>BMP</acronym></primary><see>основная
+многоязычная плоскость</see></indexterm>).  Остальные символы Unicode
+кодируются так называемыми <firstterm>суррогатными
 парами</firstterm><indexterm><primary>суррогатная пара</primary></indexterm>.
 </para>
 
@@ -310,9 +316,11 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <title>Словари</title>
 
 <para>
-<firstterm>Словарь</firstterm><indexterm><primary>словарь</primary></indexterm> представляет
-собой контейнер для объектов, проиндексированных именами. Такие структуры
-называют также <firstterm>ассоциативными
+<firstterm>Словарь</firstterm><indexterm><primary>словарь</primary></indexterm>
+(<xref linkend="PsiReference_Types_Details_dict"
+xrefstyle="template:%t"/>) представляет собой контейнер для объектов,
+проиндексированных именами. Такие структуры называют также
+<firstterm>ассоциативными
 массивами</firstterm><indexterm><primary>массив</primary><secondary>ассоциативный</secondary></indexterm>.
 </para>
 
@@ -333,10 +341,7 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 выражение</primary></indexterm> представляет шаблон поиска в строке.
 </para>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs">
-<title>Конструкции в регулярных выражениях</title>
-
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Characters">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Characters">
 <title>Символы</title>
 
 <informaltable pgwide="1">
@@ -347,6 +352,10 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 <row>
 <entry><literal><replaceable>X</replaceable></literal></entry>
 <entry>символ <replaceable>X</replaceable></entry>
+</row>
+<row>
+<entry><literal>\0</literal></entry>
+<entry>нулевой символ, <constant>U+0</constant></entry>
 </row>
 <row>
 <entry><literal>\\</literal></entry>
@@ -398,7 +407,7 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_CharacterClasses">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_CharacterClasses">
 <title>Символьные классы</title>
 
 <informaltable pgwide="1">
@@ -425,7 +434,7 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_PredefinedCharacterClasses">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_PredefinedCharacterClasses">
 <title>Предопределённые символьные классы</title>
 
 <informaltable pgwide="1">
@@ -467,12 +476,12 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_POSIXCharacterClasses">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_POSIXCharacterClasses">
 <title>Символьные классы <acronym>POSIX</acronym></title>
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_BoundaryAnchors">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_BoundaryAnchors">
 <title>Граничные привязки</title>
 
 <informaltable pgwide="1">
@@ -521,6 +530,3 @@ xmlns="&nsMathML;"><mn>65535</mn></math> — <firstterm>кодовые
 </section>
 
 </section>
-
-</section>
-

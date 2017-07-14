@@ -2,6 +2,13 @@
 <section xml:id="PsiReference_Language_Syntax">
 <title>Синтаксис</title>
 
+<para>
+В этом разделе описаны доступные в языке Ψ типы литералов: комментарии, числа,
+строки, имена, команды, процедуры и регулярные выражения. Лишь немногие типы
+языка имеют литеральное представление. Объекты большинства типов могут быть
+созданы лишь операторами либо доступны под именами в системном словаре.
+</para>
+
 <section xml:id="PsiReference_Language_Syntax_Comments">
 <title>Комментарии</title>
 
@@ -65,10 +72,51 @@
 <title>Числа</title>
 
 <para>
-В программе могут создаваться числовые объекты целого, вещественного и
-комплексного типов. В языке предусмотрено литеральное представление только
-для целых и вещественных чисел. Целые числа могут записываться в десятичной,
-шестнадцатеричной или двоичной форме.
+В языке Ψ имеются несколько типов числовых литералов:
+
+<itemizedlist>
+<listitem>
+<para>
+Целые десятичные числа, как
+<programlisting language="psi">720
+-13
+0
++504</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Шестнадцатеричные целые числа, как
+<programlisting language="psi">0x13AF
+-0X31123e4</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Двоичные целые числа, как
+<programlisting language="psi">0b101110101
+-0B111010</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Целые числа представленные символами, как
+<programlisting language="psi">`X
+`\n</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Вещественные числа, как
+<programlisting language="psi">-.5
+1.
+-1.0
+1e5
+7.673E-3</programlisting>
+</para>
+</listitem>
+</itemizedlist>
+
 </para>
 
 <section xml:id="PsiReference_Language_Syntax_Numbers_Decimal">
@@ -122,18 +170,13 @@
 
 </section>
 
-<section xml:id="PsiReference_Language_Syntax_Booleans">
-<title>Булевские значения</title>
-
-</section>
-
 <section xml:id="PsiReference_Language_Syntax_Strings">
 <title>Строки</title>
 
 <para>
-Строковые литералы заключаются в двойные кавычки <literal>"</literal>
-(<constant>U+22</constant>). Бэкслэш <literal>\</literal>
-(<constant>U+5C</constant>) между кавычками имеет особый смысл, определяемый
+Строковые литералы заключаются в двойные кавычки (<literal>"</literal>,
+<constant>U+22</constant>). Бэкслэш (<literal>\</literal>,
+<constant>U+5C</constant>) между кавычками имеет особый смысл, определяемый
 следующим за ним символом.
 
 <informaltable>
@@ -234,28 +277,21 @@
 
 </section>
 
-<section xml:id="PsiReference_Language_Syntax_Arrays">
-<title>Массивы</title>
-
-<remark>TODO</remark>
-
-</section>
-
 <section xml:id="PsiReference_Language_Syntax_Procedures">
 <title>Процедуры</title>
 
 <para>
-Символы <code language="psi">{</code> и <code language="psi">}</code>
-используются для создания
+Символы фигурных скобок (<literal>{</literal>, <constant>U+7B</constant> и
+<literal>}</literal>, <constant>U+7D</constant>) используются для создания
 <firstterm>процедур</firstterm><indexterm><primary>процедура</primary></indexterm>.
 </para>
 
 <para>
-Когда парсер встречает символ <code language="psi">{</code>, он продолжает
-сканировать и создавать объекты, однако интерпретатор их не исполняет. Когда
-парсер встречает <code language="psi">}</code>, он помещает все объекты,
-созданные после обнаружения <code language="psi">{</code>, в новый
-объект-процедуру. Таким образом, интерпретация фрагмента программы
+Когда парсер встречает символ <literal>{</literal>, он продолжает сканировать и
+создавать объекты, однако интерпретатор их не исполняет. Когда парсер встречает
+<literal>}</literal>, он помещает все объекты, созданные после обнаружения
+<literal>{</literal>, в новый объект-процедуру. Таким образом, интерпретация
+фрагмента программы
 
 <programlisting language="psi">{ 1 exch div }</programlisting>
 
@@ -275,24 +311,30 @@ linkend="PsiReference_Language_ObjectExecution"/>.
 
 </section>
 
-<section xml:id="PsiReference_Language_Syntax_Dictionaries">
-<title>Словари</title>
-
-<remark>TODO</remark>
-
-</section>
-
-<section xml:id="PsiReference_Language_Syntax_Sets">
-<title>Множества</title>
-
-<remark>TODO</remark>
-
-</section>
-
 <section xml:id="PsiReference_Language_Syntax_RegExps">
 <title>Регулярные выражения</title>
 
-<remark>TODO</remark>
+<para>
+Литералы <firstterm>регулярных
+выражений</firstterm><indexterm><primary>регулярное
+выражение</primary></indexterm> заключаются между символами тильды
+(<literal>~</literal>, <constant>U+7E</constant>). Бэкслэш
+(<literal>\</literal>, <constant>U+5C</constant>) между ограничивающими
+тильдами имеет особый смысл, определяемый следующим за ним символом.
+</para>
+
+<para>
+Сами регулярные выражения должны подчиняться определённым правилам.
+</para>
+
+<para>
+Несколько примеров:
+ 
+<programlisting language="psi">~([aeiou])\1~
+~[\+\-]?\d+~
+</programlisting>
+ 
+</para>
 
 </section>
 

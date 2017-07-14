@@ -296,13 +296,6 @@ preceded by the slash character (<literal>/</literal>,
 
 </section>
 
-<section xml:id="PsiReference_Language_Syntax_Arrays">
-<title>Arrays</title>
-
-<remark>TODO</remark>
-
-</section>
-
 <section xml:id="PsiReference_Language_Syntax_Procedures">
 <title>Procedures</title>
 
@@ -313,12 +306,11 @@ and <literal>}</literal>, <constant>U+7D</constant>) are used to create
 </para>
 
 <para>
-When the parser encounters the <code language="psi">{</code> character, it
-continues to scan and create objects, but they are not executed by the
-interpreter. When the parser encounters the corresponding <code
-language="psi">}</code> character, it puts all the objects created after the
-<code language="psi">{</code> character into a new procedure object.  So, the
-interpretation of the program fragment
+When the parser encounters the <literal>{</literal> character, it continues to
+scan and create objects, but they are not executed by the interpreter. When the
+parser encounters the corresponding <literal>}</literal> character, it puts all
+the objects created after the <literal>{</literal> character into a new
+procedure object. So, the interpretation of the program fragment
 
 <programlisting language="psi">{ 1 exch div }</programlisting>
 
@@ -336,25 +328,6 @@ is
 The meaning of the deferred execution is explained in <xref
 linkend="PsiReference_Language_ObjectExecution"/>.
 </para>
-
-</section>
-
-<section xml:id="PsiReference_Language_Syntax_Dictionaries">
-<title>Dictionaries</title>
-
-<para>
-A dictionary also known as associative array is the container that holds
-arbitrary objects associated with keys represented by names.
-</para>
-
-<remark>TODO</remark>
-
-</section>
-
-<section xml:id="PsiReference_Language_Syntax_Sets">
-<title>Sets</title>
-
-<remark>TODO</remark>
 
 </section>
 

@@ -110,6 +110,18 @@ Additional extensions class path including directories and jar archives.
 
 <varlistentry>
 <term>
+<option>--librarypath</option>,
+<option>--lp</option>,
+<option>-I</option>
+<parameter><replaceable>path</replaceable></parameter>
+</term>
+<listitem>
+TODO
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
 <option>--console-encoding</option>,
 <option>-C</option>
 <parameter><replaceable>encoding</replaceable></parameter>

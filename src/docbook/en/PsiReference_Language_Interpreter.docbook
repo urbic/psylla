@@ -24,8 +24,8 @@ text, called
 <firstterm>parser</firstterm><indexterm><primary>parser</primary></indexterm>.
 In most cases, the token read is converted to object that is executed
 immediately. The result of the execution is completely determined by its
-type<firstterm>type</firstterm><indexterm><primary>type</primary><secondary>of
-an object</secondary></indexterm> and its
+<firstterm>type</firstterm><indexterm><primary>type</primary><secondary>of an
+object</secondary></indexterm> and its
 <firstterm>value</firstterm><indexterm><primary>value</primary><secondary>of an
 object</secondary></indexterm>. A
 <firstterm>comment</firstterm><indexterm><primary>comment</primary></indexterm>,

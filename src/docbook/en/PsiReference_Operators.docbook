@@ -1274,8 +1274,8 @@ flush output buffer</listitem>
 
 </section>
 
-<section xml:id="PsiReference_Operators_ByCategory_Multicontext">
-<title>Multicontext Execution Operators</title>
+<section xml:id="PsiReference_Operators_ByCategory_MultipleContext">
+<title>Multiple Execution Context Operators</title>
 
 <variablelist>
 

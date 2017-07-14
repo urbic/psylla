@@ -7,7 +7,7 @@ public class PsiScriptEngineFactory
 	implements javax.script.ScriptEngineFactory
 {
 	/**
-	*	@return a string {@code "Psi"}.
+	*	@return a string {@code "Psylla"}.
 	*/
 	@Override
 	public String getEngineName()

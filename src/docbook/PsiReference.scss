@@ -3,12 +3,13 @@
 
 //$background-color-body: lightskyblue;
 $background-color-body: white; //#FAFAFA;
-$font-family-body: "Segoe UI", "PT Sans", sans-serif;
+$font-family-body: "PT Sans", sans-serif;
 //$color-title: #A52A2A; //darken(cornflowerblue, 40%); //darken($background-color-body, 60%);
-$color-title: darken(cornflowerblue, 40%); //darken($background-color-body, 60%);
+//$color-title: darken(cornflowerblue, 40%); //darken($background-color-body, 60%);
+$color-title: darkslategray; //darken($background-color-body, 60%);
 $background-color-html: $background-color-body;//$color-title;
 //$color-link: darken(darkgreen, 5%);
-$color-link: darkslategray;
+$color-link: royalblue;
 $color-visited: $color-link;//darken($color-link, 7.5%);
 $color-filename: black;
 $background-color-programlisting: darken($background-color-body, 5%);
@@ -99,6 +100,7 @@ hr
 }
 
 .programlisting,
+.screen,
 .literallayout,
 .sgmltag-element,
 .sgmltag-attribute,
@@ -131,11 +133,6 @@ hr
 {
 	color: $color-filename;
 	font-weight: bolder;
-}
-
-.programlisting
-{
-	font-size: smaller;
 }
 
 .toc-title,
@@ -215,6 +212,7 @@ table.productionset
 }
 
 .programlisting,
+.screen,
 .synopsis,
 .cmdsynopsis,
 .literallayout

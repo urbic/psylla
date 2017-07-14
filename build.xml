@@ -33,6 +33,7 @@
 	<property name="target.doc.html" location="${target.doc}/html"/>
 	<property name="target.vim" location="${target}/vim"/>
 	<property name="target.mime" location="${target}/mime"/>
+	<property name="target.gh-pages" location="${target}/gh-pages"/>
 	<property name="test.file"  location="test.psi"/>
 	<property name="datadir" location="/usr/share"/>
 	<property name="datadir.java" location="${datadir}/java"/>
@@ -86,6 +87,7 @@
 	<import file="${src.ant}/manpages.ant" as="manpages"/>
 	<import file="${src.ant}/install.ant" as="install"/>
 	<import file="${src.ant}/obs.ant"/>
+	<import file="${src.ant}/gh-pages.ant"/>
 
 	<target name="compile.jj"
 		description="Compile JJ sources"

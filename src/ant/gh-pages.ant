@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<project name="gh-pages" basedir=".">
+
+	<target name="gh-pages"
+		depends="docs"
+		>
+		<delete dir="${target.gh-pages}"/>
+		<!--exec executable="git">
+			<arg value="worktree"/>
+			<arg value="add"/>
+			<arg value="-Bgh-pages"/>
+			<arg value="${target.gh-pages}"/>
+			<arg value="origin/gh-pages"/>
+		</exec-->
+		<!-- -->
+		<copy todir="${target.gh-pages}">
+			<fileset dir="${target.doc}/html" followsymlinks="false" includes="**/*"/>
+		</copy>
+		<symlink
+			link="${target.gh-pages}/en/common"
+			resource="../common"
+			overwrite="true"
+			/>
+		<symlink
+			link="${target.gh-pages}/ru/common"
+			resource="../common"
+			overwrite="true"
+			/>
+		<copy todir="${target.gh-pages}/apidocs">
+			<fileset dir="${target.doc.apidocs}" includes="**/*"/>
+		</copy>
+
+		<exec executable="git" dir="${target.gh-pages}">
+			<arg value="add"/>
+			<arg value="--all"/>
+			<arg value="--"/>
+			<arg value="."/>
+		</exec>
+		<exec executable="git" dir="${target.gh-pages}">
+			<arg value="commit"/>
+			<arg value="-m"/>
+			<arg value="Update gh-pages (ant gh-pages)"/>
+		</exec>
+		<!--exec executable="git">
+			<arg value="push"/>
+			<arg value="origin"/>
+			<arg value="gh-pages"/>
+		</exec-->
+	</target>
+
+</project>

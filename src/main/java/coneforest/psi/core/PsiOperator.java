@@ -178,7 +178,7 @@ public abstract class PsiOperator
 		private final Handler<T> handler;
 
 		@FunctionalInterface
-		public interface Handler<O extends PsiObject>
+		public static interface Handler<O extends PsiObject>
 		{
 			public void handle(final O o)
 				throws PsiException;
@@ -291,6 +291,20 @@ public abstract class PsiOperator
 				throws PsiException;
 		}
 	}
+
+	/*
+	@FunctionalInterface
+	public static interface Handler21<T1 extends PsiObject, T2 extends PsiObject>
+	{
+		public PsiObject handle(final T1 o1, final T2 o2)
+			throws PsiException;
+	}
+
+	public <T1 extends PsiObject, T2 extends PsiObject> PsiOperator(final String name, final Handler21<T1, T2> handler)
+	{
+		this(name);
+	}
+	*/
 
 	private final String name;
 }

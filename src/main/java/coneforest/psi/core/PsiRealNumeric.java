@@ -125,7 +125,7 @@ public interface PsiRealNumeric
 	}
 
 	@Override
-	default public PsiNumeric psiCbrt()
+	default public PsiReal psiCbrt()
 	{
 		return new PsiReal(Math.cbrt(doubleValue()));
 	}
@@ -137,7 +137,7 @@ public interface PsiRealNumeric
 	}
 
 	@Override
-	default public PsiRealNumeric psiLog()
+	default public PsiReal psiLog()
 	{
 		return new PsiReal(Math.log(doubleValue()));
 	}

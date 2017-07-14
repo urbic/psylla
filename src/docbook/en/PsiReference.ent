@@ -2,6 +2,7 @@
 
 <!ENTITY PsiReference_Preface							SYSTEM "PsiReference_Preface.docbook">
 <!ENTITY PsiReference_Interpreter						SYSTEM "PsiReference_Interpreter.docbook">
+<!ENTITY PsiReference_Interpreter_Installation			SYSTEM "PsiReference_Interpreter_Installation.docbook">
 <!ENTITY PsiReference_Language							SYSTEM "PsiReference_Language.docbook">
 <!ENTITY PsiReference_Language_Interpreter				SYSTEM "PsiReference_Language_Interpreter.docbook">
 <!ENTITY PsiReference_Language_Syntax					SYSTEM "PsiReference_Language_Syntax.docbook">

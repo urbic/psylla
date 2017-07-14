@@ -302,11 +302,11 @@ two code units in accordance with the encoding
 <firstterm><acronym>UTF-16</acronym></firstterm><indexterm><primary>UTF-16</primary></indexterm>.
 One code unit encodes a character of the <firstterm>basic multilingual
 plane</firstterm><indexterm><primary>basic multilingual
-plane</primary><see><acronym>BMP</acronym></see></indexterm>
-(<acronym>BMP</acronym><indexterm><primary><acronym>BMP</acronym></primary></indexterm>).
-The remaining Unicode characters are encoded with so-called
-<firstterm>surrogate pairs</firstterm><indexterm><primary>surrogate
-pair</primary></indexterm>.
+plane</primary></indexterm>
+(<acronym>BMP</acronym><indexterm><primary><acronym>BMP</acronym></primary><see><acronym>basic
+multilingual plane</acronym></see></indexterm>).  The remaining Unicode
+characters are encoded with so-called <firstterm>surrogate
+pairs</firstterm><indexterm><primary>surrogate pair</primary></indexterm>.
 </para>
 
 </section>
@@ -339,10 +339,7 @@ the name of the command, and then executes the found object.
 expression</primary></indexterm> represents a template for search in a string.
 </para>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs">
-<title>Regular Expression Constructs</title>
-
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_Characters">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_Characters">
 <title>Characters</title>
 
 <informaltable pgwide="1">
@@ -404,7 +401,7 @@ expression</primary></indexterm> represents a template for search in a string.
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_CharacterClasses">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_CharacterClasses">
 <title>Character Classes</title>
 
 <informaltable pgwide="1">
@@ -445,7 +442,7 @@ expression</primary></indexterm> represents a template for search in a string.
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_PredefinedCharacterClasses">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_PredefinedCharacterClasses">
 <title>Predefined Character Classes</title>
 
 <informaltable pgwide="1">
@@ -487,12 +484,12 @@ expression</primary></indexterm> represents a template for search in a string.
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_POSIXCharacterClasses">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_POSIXCharacterClasses">
 <title><acronym>POSIX</acronym> Character Classes</title>
 
 </section>
 
-<section xml:id="PsiReference_Language_CoreTypes_RegExps_Constructs_BoundaryAnchors">
+<section xml:id="PsiReference_Language_CoreTypes_RegExps_BoundaryAnchors">
 <title>Boundary Anchors</title>
 
 <informaltable pgwide="1">
@@ -541,6 +538,3 @@ expression</primary></indexterm> represents a template for search in a string.
 </section>
 
 </section>
-
-</section>
-
