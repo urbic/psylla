@@ -1,5 +1,6 @@
 *
 !/src
+!/src/*
 !/.gitattributes
 !/.gitignore
 !/.travis.yml

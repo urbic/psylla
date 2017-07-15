@@ -43,6 +43,7 @@
 
 		<!-- Install script -->
 		<copy todir="${destdir}/${install.bindir}" file="${target.bin}/${project.name}"/>
+		<chmod file="${destdir}/${install.bindir}/${project.name}" perm="ugo+rx"/>
 
 		<!-- Install library Ψ files -->
 		<copy todir="${destdir}/${install.datadir}/${project.name}/${project.version}">

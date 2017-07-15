@@ -307,6 +307,7 @@
 		depends="jar,docs"
 		>
 		<copy todir="${target.bin}" file="${src.bin}/${project.name}"/>
+		<chmod file="${target.bin}/${project.name}" perm="ugo+rx"/>
 		<copy todir="${target.doc}">
 			<fileset dir="." includes="README LICENSE AUTHORS"/>
 			<fileset dir="${src}" includes="examples/**/*"/>

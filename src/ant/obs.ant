@@ -54,13 +54,13 @@
 		depends="obs.checkout,obs.copy.spec"
 		>
 		<mkdir dir="${target.obs}"/>
-		<delete>
+		<!--delete>
 			<fileset dir="${target.obs}" includes="**/*"/>
-		</delete>
+		</delete-->
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="addremove"/>
 			<arg value="${project.name}-${project.version}.tar.xz"/>
-			<arg value="${obs.package.name}.spec"/>
+			<arg value="${obs.build.desc}"/>
 		</exec>
 	</target>
 
