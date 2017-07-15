@@ -5,13 +5,6 @@
 		depends="docs"
 		>
 		<delete dir="${target.gh-pages}"/>
-		<exec executable="git">
-			<arg value="worktree"/>
-			<arg value="add"/>
-			<arg value="-Bgh-pages"/>
-			<arg value="${target.gh-pages}"/>
-			<arg value="origin/gh-pages"/>
-		</exec>
 		<!-- -->
 		<exec executable="git">
 			<arg value="clone"/>
@@ -20,7 +13,6 @@
 			<arg value="gh-pages"/>
 			<arg value="${target.gh-pages}"/>
 		</exec>
-
 
 		<copy todir="${target.gh-pages}">
 			<fileset dir="${target.doc}/html" followsymlinks="false" includes="**/*"/>
@@ -50,11 +42,11 @@
 			<arg value="-m"/>
 			<arg value="Update gh-pages (ant gh-pages)"/>
 		</exec>
-		<!--exec executable="git">
+		<exec executable="git" dir="${target.gh-pages}">
 			<arg value="push"/>
 			<arg value="origin"/>
 			<arg value="gh-pages"/>
-		</exec-->
+		</exec>
 	</target>
 
 </project>
