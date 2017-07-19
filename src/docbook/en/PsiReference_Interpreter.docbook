@@ -83,7 +83,7 @@ Additional extensions class path including directories and jar archives.
 <parameter><replaceable>path</replaceable></parameter>
 </term>
 <listitem>
-TODO
+Additional modules search path.
 </listitem>
 </varlistentry>
 

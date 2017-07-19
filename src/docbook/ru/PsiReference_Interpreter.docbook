@@ -82,7 +82,7 @@ jar.
 <parameter><replaceable>path</replaceable></parameter>
 </term>
 <listitem>
-TODO
+Дополнительный путь поиска модулей.
 </listitem>
 </varlistentry>
 

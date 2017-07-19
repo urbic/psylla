@@ -2,8 +2,8 @@
 " Language:     Psi
 " Maintainer:   Anton Shvetz <tz@sectorb.msk.ru>
 " Filenames:    *.psi
-" Last Change:  20140728
-" URL:          http://TODO
+" Last Change:  20170719
+" URL:          https://github.com/urbic/psylla
 "
 " Options Flags:
 "
