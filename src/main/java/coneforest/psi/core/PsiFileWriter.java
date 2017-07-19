@@ -35,8 +35,7 @@ public class PsiFileWriter
 	{
 		try
 		{
-			return new java.io.FileWriter(
-					coneforest.psi.FileSystem.getPath(fileName).toString());
+			return new java.io.FileWriter(java.nio.file.Paths.get(fileName).toString());
 		}
 		catch(final java.io.FileNotFoundException e)
 		{
