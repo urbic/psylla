@@ -2,7 +2,7 @@ package coneforest.psi.core;
 import coneforest.psi.*;
 
 /**
-*	A representation of Ψ-{@code proc}, a procedure.
+*	An implementation of Ψ-{@code proc}, a procedure.
 */
 @coneforest.psi.Type("proc")
 public class PsiProc
@@ -27,9 +27,9 @@ public class PsiProc
 			for(int i=length()-1; i>=0; i--)
 				estack.push(get(i));
 		}
-		catch(final PsiException e)
+		catch(final PsiRangeCheckException e)
 		{
-			// TODO?
+			// NOP
 		}
 	}
 

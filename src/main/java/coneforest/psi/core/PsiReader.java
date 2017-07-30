@@ -1,5 +1,8 @@
 package coneforest.psi.core;
+
 import coneforest.psi.*;
+import java.io.IOException;
+import java.nio.CharBuffer;
 
 @coneforest.psi.Type("reader")
 public class PsiReader
@@ -39,7 +42,7 @@ public class PsiReader
 		{
 			return reader.read();
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -57,12 +60,13 @@ public class PsiReader
 		try
 		{
 			///*
-			final java.nio.CharBuffer buffer=java.nio.CharBuffer.allocate((int)count);
+			final CharBuffer buffer=CharBuffer.allocate((int)count);
 			reader.read(buffer);
 			buffer.flip();
 			return new PsiString(buffer.toString());
 			//*/
-			/*final char[] buffer=new char[(int)count];
+			/*
+			final char[] buffer=new char[(int)count];
 			reader.read(buffer);
 			return new PsiString(new String(buffer));
 			*/
@@ -71,7 +75,7 @@ public class PsiReader
 		{
 			throw new PsiLimitCheckException();
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -96,7 +100,7 @@ public class PsiReader
 			}
 			while(true);
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -106,16 +110,16 @@ public class PsiReader
 	public PsiBoolean psiSkip(final PsiInteger oCount)
 		throws PsiException
 	{
-		final long count=oCount.longValue();
 		try
 		{
+			final long count=oCount.longValue();
 			return PsiBoolean.valueOf(count==reader.skip(count));
 		}
 		catch(final IllegalArgumentException e)
 		{
 			throw new PsiRangeCheckException();
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -129,7 +133,7 @@ public class PsiReader
 		{
 			return PsiBoolean.valueOf(reader.ready());
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -143,7 +147,7 @@ public class PsiReader
 		{
 			reader.close();
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
 		{
 			throw new PsiIOErrorException();
 		}
@@ -157,7 +161,7 @@ public class PsiReader
 		{
 			reader.reset();
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
 		{
 			throw new PsiIOErrorException();
 		}

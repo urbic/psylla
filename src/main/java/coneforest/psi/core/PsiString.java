@@ -1,28 +1,50 @@
 package coneforest.psi.core;
-import coneforest.psi.*;
 
 /**
-*	A representation of Ψ-{@code string} object.
+*	An implementation of Ψ-{@code string} object.
 */
-@Type("string")
+@coneforest.psi.Type("string")
 public class PsiString
 	implements
 		PsiStringy,
 		PsiArraylike<PsiInteger>
 {
+	/**
+	*	Creates a new empty Ψ-{@code string}.
+	*/
 	public PsiString()
 	{
 		this("");
 	}
 
+	/**
+	*	Creates a new Ψ-{@code string} whose buffer is initialized from string.
+	*
+	*	@param string a string.
+	*/
 	public PsiString(final String string)
 	{
 		this(new StringBuilder(string));
 	}
 
+	/**
+	*	Creates a new Ψ-{@code string} with the supplied buffer.
+	*
+	*	@param buffer a buffer.
+	*/
 	public PsiString(final StringBuilder buffer)
 	{
 		this.buffer=buffer;
+	}
+
+	/**
+	*	Returns the buffer.
+	*
+	*	@return a buffer.
+	*/
+	public StringBuilder getBuffer()
+	{
+		return buffer;
 	}
 
 	@Override
@@ -35,11 +57,6 @@ public class PsiString
 	public String stringValue()
 	{
 		return buffer.toString();
-	}
-
-	public StringBuilder getBuffer()
-	{
-		return buffer;
 	}
 
 	@Override
@@ -133,32 +150,20 @@ public class PsiString
 		}
 	}
 
-	public void psiInsertAll(final PsiInteger oIndex, final PsiString oString)
-		throws PsiException
-	{
-		int index=oIndex.intValue();
-		try
-		{
-			buffer.insert(index, oString.buffer);
-		}
-		catch(final IndexOutOfBoundsException e)
-		{
-			throw new PsiRangeCheckException();
-		}
-	}
-
 	@Override
 	public void psiInsertAll(final PsiInteger oIndex, PsiIterable<? extends PsiInteger> oIterable)
 		throws PsiException
 	{
-		if(oIterable instanceof PsiString)
-		{
-			psiInsertAll(oIndex, (PsiString)oIterable);
-			return;
-		}
 		int index=oIndex.intValue();
 		try
 		{
+			if(oIterable instanceof PsiString)
+			{
+				// Take care when attempting to insert this object into itself
+				buffer.insert(index, this==oIterable? buffer.toString(): ((PsiString)oIterable).buffer);
+				return;
+			}
+
 			for(PsiInteger oCharacter: oIterable)
 				buffer.insert(index++, (char)oCharacter.intValue());
 		}
