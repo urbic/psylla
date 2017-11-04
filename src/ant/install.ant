@@ -1,34 +1,30 @@
 <?xml version="1.0"?>
 <project name="install" basedir=".">
 
-	<property name="install.sysconfdir" location="/etc"/>
-	<property name="install.prefix" location="/usr"/>
-	<property name="install.bindir" location="${install.prefix}/bin"/>
-	<property name="install.datadir" location="${install.prefix}/share"/>
-	<property name="install.javadir" location="${install.datadir}/java"/>
-	<property name="install.docdir" location="${install.datadir}/doc/packages/${project.name}"/>
-	<property name="install.javadocdir" location="${install.datadir}/javadoc/${project.name}"/>
-	<property name="install.mandir" location="${install.datadir}/man"/>
+	<property name="install.sysconfdir" location="${config.sysconfdir}"/>
+	<property name="install.javadir" location="${config.data}/java"/>
+	<property name="install.docdir" location="${config.data}/doc/packages/${project.name}"/>
+	<property name="install.javadocdir" location="${config.javadoc}/${project.name}"/>
 
 	<target name="install"
 		description="Install"
 		depends="build"
 		>
 		<!-- Make directories -->
-		<mkdir dir="${destdir}/${install.datadir}/${project.name}/${project.version}"/>
-		<mkdir dir="${destdir}/${install.datadir}/${project.name}/site"/>
+		<mkdir dir="${destdir}/${config.vendor.lib}"/>
+		<mkdir dir="${destdir}/${config.site.lib}"/>
 		<mkdir dir="${destdir}/${install.javadir}"/>
-		<mkdir dir="${destdir}/${install.bindir}"/>
+		<mkdir dir="${config.site.bin}"/>
 		<mkdir dir="${destdir}/${install.docdir}"/>
-		<mkdir dir="${destdir}/${install.docdir}-doc"/>
+		<!--mkdir dir="${destdir}/${install.docdir}-doc"/-->
 		<mkdir dir="${destdir}/${install.javadocdir}"/>
-		<mkdir dir="${destdir}/${install.datadir}/ant/lib"/>
-		<mkdir dir="${destdir}/${install.datadir}/vim/site"/>
-		<mkdir dir="${destdir}/${install.datadir}/mime/packages"/>
-		<mkdir dir="${destdir}/${install.mandir}"/>
+		<mkdir dir="${destdir}/${config.data}/ant/lib"/>
+		<mkdir dir="${destdir}/${config.data}/vim/site"/>
+		<mkdir dir="${destdir}/${config.data}/mime/packages"/>
+		<mkdir dir="${destdir}/${config.man}"/>
 		<mkdir dir="${destdir}/${install.sysconfdir}/ant.d"/>
 		<symlink
-			link="${destdir}/${install.datadir}/${project.name}/current"
+			link="${destdir}/${config.data}/${project.name}/current"
 			resource="${project.version}"
 			overwrite="true"
 			/>
@@ -42,17 +38,21 @@
 			/>
 
 		<!-- Install script -->
-		<copy todir="${destdir}/${install.bindir}" file="${target.bin}/${project.name}"/>
-		<chmod file="${destdir}/${install.bindir}/${project.name}" perm="ugo+rx"/>
+		<copy todir="${destdir}/${config.site.bin}" file="${target.bin}/${project.name}"/>
+		<chmod file="${destdir}/${config.site.bin}/${project.name}" perm="ugo+rx"/>
 
 		<!-- Install library Ψ files -->
-		<copy todir="${destdir}/${install.datadir}/${project.name}/${project.version}">
-			<fileset dir="${src.main.psi}" includes="**/*"/>
+		<copy todir="${destdir}/${config.vendor.lib}">
+			<fileset dir="${src.main.psylla}" includes="**/*"/>
 		</copy>
 
 		<!-- Install XHTML documentation and examples -->
 		<copy todir="${destdir}/${install.docdir}">
-			<fileset dir="${target.doc}" followsymlinks="false" includes="html/**/* examples/**/*"/>
+			<fileset
+				dir="${target.doc}"
+				followsymlinks="false"
+				includes="html/**/* examples/**/*"
+				excludes="html/**/*.css.map"/>
 		</copy>
 		<symlink
 			link="${destdir}/${install.docdir}/html/en/common"
@@ -71,7 +71,7 @@
 		</copy>
 
 		<!-- Install Vim support files -->
-		<copy todir="${destdir}/${install.datadir}/vim/site">
+		<copy todir="${destdir}/${config.data}/vim/site">
 			<fileset dir="${target}/vim" includes="syntax/**/*.vim ftdetect/**/*.vim"/>
 		</copy>
 
@@ -81,16 +81,16 @@
 		</copy>
 
 		<!-- Install MIME description file -->
-		<copy todir="${destdir}/${install.datadir}/mime/packages" file="${target.mime}/${project.name}.xml"/>
+		<copy todir="${destdir}/${config.data}/mime/packages" file="${target.mime}/${project.name}.xml"/>
 
 		<!-- Install manpages -->
-		<copy todir="${destdir}/${install.mandir}">
+		<copy todir="${destdir}/${config.man}">
 			<fileset dir="${target.man}/en" includes="**/*"/>
 		</copy>
 
 		<!-- Install Ant task -->
 		<symlink
-			link="${destdir}/${install.datadir}/ant/lib/ant-${project.name}.jar"
+			link="${destdir}/${config.data}/ant/lib/ant-${project.name}.jar"
 			resource="../../java/${project.name}.jar"
 			overwrite="true"
 			/>

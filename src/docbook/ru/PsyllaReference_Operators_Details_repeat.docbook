@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_repeat">
+<title><token language="psylla">repeat</token></title>
+
+<para>
+Вызывает <replaceable>объект</replaceable> заданное
+<replaceable>количество</replaceable> раз.
+</para>
+
+<synopsis>
+<replaceable>количество</replaceable>
+<replaceable>объект</replaceable>
+<token language="psylla">repeat</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>количество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Исполнение в <replaceable>процедуре</replaceable> оператора <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exit"/>
+досрочно прерывает исполнение <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_repeat"/>.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">1 10 { 2 mul } repeat	▶ 1024</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+при отрицательном <replaceable>количестве</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exit"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_for"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_grep"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_map"/>.
+</formalpara>
+
+</section>

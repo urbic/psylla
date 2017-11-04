@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_countstack">
+<title><token language="psylla">countstack</token></title>
+
+<para>
+Возвращает <replaceable>количество</replaceable> объектов в стеке операндов.
+</para>
+
+<synopsis>
+⊢
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<token language="psylla">countstack</token>
+⊢
+<replaceable>объект<subscript>1</subscript></replaceable>
+…
+<replaceable>объект<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+…,
+<replaceable>объект<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+нет.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_counttomark"/>.
+</formalpara>
+
+</section>

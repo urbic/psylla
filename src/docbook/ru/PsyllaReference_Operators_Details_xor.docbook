@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_xor">
+<title><token language="psylla">xor</token></title>
+
+<para>
+Возвращает исключающую дизъюнкцию двух <replaceable>операндов</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>операнд<subscript>1</subscript></replaceable>
+<replaceable>операнд<subscript>2</subscript></replaceable>
+<token language="psylla">xor</token>
+<replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>операнд<subscript>1</subscript></replaceable>,
+<replaceable>операнд<subscript>2</subscript></replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/> вычисляется логическая
+исключающая дизъюнкция. Для операндов типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_bitwise"/> вычисляется побитовая
+исключающая дизъюнкция.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">false false xor	▶ false
+true false xor	▶ true
+false true xor	▶ true
+true true xor	▶ false
+
+12 6 xor		▶ 10</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_bitshift"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/>.
+</formalpara>
+
+</section>

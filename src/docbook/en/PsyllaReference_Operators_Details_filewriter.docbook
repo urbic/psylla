@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_filewriter">
+<title><token language="psylla">filewriter</token></title>
+
+<para>
+Returns a new file <replaceable>writer</replaceable> for a file with the given
+<replaceable>name</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>name</replaceable>
+<token language="psylla">filewriter</token>
+<replaceable>writer</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>name</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>writer</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_filewriter"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_filenotfound"/> — when
+the file does not exist or is a directory
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_close"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_flush"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_write"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_writestring"/>.
+</formalpara>
+
+</section>

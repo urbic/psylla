@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_issamefile">
+<title><token language="psylla">issamefile</token></title>
+
+<para>
+Returns <constant>true</constant>, if the
+<replaceable>name<subscript>1</subscript></replaceable> and the
+<replaceable>name<subscript>2</subscript></replaceable> are the names of the
+same file or directory, and <constant>false</constant> otherwise.
+</para>
+
+<synopsis>
+<replaceable>name<subscript>1</subscript></replaceable>
+<replaceable>name<subscript>2</subscript></replaceable>
+<token language="psylla">issamefile</token>
+<replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>name<subscript>1</subscript></replaceable>,
+<replaceable>name<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>result</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_filenotfound"/> —
+when the file or directory does not exist
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_securityerror"/> —
+&ErrorReason_securityerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+</section>

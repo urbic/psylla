@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_log">
+<title><token language="psylla">log</token></title>
+
+<para>
+Returns the natural <replaceable>logarithm</replaceable> of a
+<replaceable>number</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>number</replaceable>
+<token language="psylla">log</token>
+<replaceable>logarithm</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>number</replaceable>,
+<replaceable>logarithm</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">1 log			▶ 0.0</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exp"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_pow"/>.
+</formalpara>
+
+</section>

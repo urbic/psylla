@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Language_Interpreter">
+<title>Interpreter</title>
+
+<para>
+The
+<firstterm>interpreter</firstterm><indexterm><primary>interpreter</primary></indexterm>
+deals with
+<firstterm>objects</firstterm><indexterm><primary>object</primary></indexterm>.
+Some of them represent data, such as numbers, Boolean values, names or
+containers. Other objects are considered as the executable instructions:
+commands, procedures, operators. However, in the language no fundamental
+differences between the data and instructions: any object may be treated,
+depending on situation, as data or instruction.
+</para>
+
+<para>
+The interpreter reads a program text and extracts
+<firstterm>lexemes</firstterm><indexterm><primary>lexeme</primary></indexterm>,
+also known as
+<firstterm>tokens</firstterm><indexterm><primary>token</primary></indexterm>.
+Part of the interpreter, which succesively extracts token from the program
+text, called
+<firstterm>parser</firstterm><indexterm><primary>parser</primary></indexterm>.
+In most cases, the token read is converted to object that is executed
+immediately. The result of the execution is completely determined by its
+<firstterm>type</firstterm><indexterm><primary>type</primary><secondary>of an
+object</secondary></indexterm> and its
+<firstterm>value</firstterm><indexterm><primary>value</primary><secondary>of an
+object</secondary></indexterm>. A
+<firstterm>comment</firstterm><indexterm><primary>comment</primary></indexterm>,
+a special kind of tokens, is ignored by the interpreter. Objects of some types
+can not be created out of tokens, but they can occur as a result of the
+execution of operators.
+</para>
+
+<para>
+To store the data during the program execution the interpreter has several
+<firstterm>stacks</firstterm><indexterm><primary>stack</primary></indexterm>,
+to which the section <xref linkend="PsyllaReference_Language_Stacks"/> is
+dedicated.
+</para>
+
+</section>

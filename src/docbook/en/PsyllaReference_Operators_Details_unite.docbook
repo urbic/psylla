@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_unite">
+<title><token language="psylla">unite</token></title>
+
+<para>
+Возвращает строку, полученную конкатенацией элементов
+<replaceable>перечисления</replaceable>, разделённых
+строкой-<replaceable>сепаратором</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>перечисление</replaceable>
+<replaceable>сепаратор</replaceable>
+<token language="psylla">unite</token>
+<replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+</listitem>
+<listitem>
+<replaceable>сепаратор</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ "hello" "world" ] " " unite	▶ "hello world"</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_split"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_setlength">
+<title><token language="psylla">setlength</token></title>
+
+<para>
+Set the size of the <replaceable>array</replaceable> to the
+<replaceable>length</replaceable> by removing the necessary number of last
+elements, or adding the <replaceable>array</replaceable> to the specified
+<replaceable>length</replaceable> placeholders corresponding to the type of
+the <replaceable>array</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>array</replaceable>
+<replaceable>length</replaceable>
+<token language="psylla">setlength</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>array</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>length</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 2 3 ] dup 6 setlength	▶ [ 0 1 2 3 null null ]
+[ 0 1 2 3 ] dup 3 setlength	▶ [ 0 1 2 ]
+"abcd" dup 6 setlength		▶ "abcd\0\0"
+"abcd" dup 3 setlength		▶ "abc"</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_limitcheck"/> —
+when the <replaceable>length</replaceable> exceeds the limit
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when the <replaceable>length</replaceable> is negative
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_length"/>.
+</formalpara>
+
+</section>

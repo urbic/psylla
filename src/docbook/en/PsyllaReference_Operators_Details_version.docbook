@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_version">
+<title><token language="psylla">version</token></title>
+
+<para>
+The version of the Psylla interpreter.
+</para>
+
+<synopsis>
+—
+<token language="psylla">version</token>
+<constant>version</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>version</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_version"/> is not an operator, but a
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/> value
+in the system dictionary.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">version	▶ '0.1.1'</programlisting>
+</formalpara>
+
+</section>

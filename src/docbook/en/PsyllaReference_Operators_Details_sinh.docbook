@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_sinh">
+<title><token language="psylla">sinh</token></title>
+
+<para>
+Returns the <replaceable>hyperbolic_sine</replaceable> of a
+<replaceable>number</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>number</replaceable>
+<token language="psylla">sinh</token>
+<replaceable>hyperbolic_sine</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>number</replaceable>,
+<replaceable>hyperbolic_sine</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/> and <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/> operands,
+returns a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_real"/> result. For <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
+operands, returns a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_complex"/> result.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">1 sinh	▶ 1.1752011936438014</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_cosh"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_tanh"/>.
+</formalpara>
+
+</section>

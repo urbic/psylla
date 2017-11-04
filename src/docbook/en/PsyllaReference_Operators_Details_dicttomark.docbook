@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_dicttomark">
+<title><token language="psylla">dicttomark</token></title>
+
+<para>
+Returns a new <replaceable>dictionary</replaceable> containing key-value pairs
+located above the topmost mark on the operand stack. Removes the mark and the
+objects above it from the operand stack.
+</para>
+
+<synopsis>
+<constant>mark</constant>
+<replaceable>key<subscript>1</subscript></replaceable>
+<replaceable>value<subscript>1</subscript></replaceable>
+…
+<replaceable>key<subscript>n</subscript></replaceable>
+<replaceable>value<subscript>n</subscript></replaceable>
+<token language="psylla">dicttomark</token>
+<replaceable>dictionary</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>key<subscript>1</subscript></replaceable>,
+…,
+<replaceable>key<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>value<subscript>1</subscript></replaceable>,
+…,
+<replaceable>value<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>dictionary</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 3 /two 2 &gt;</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when there is an odd number of objects above the topmost mark on the operand
+stack
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+when at least one of <replaceable>keys</replaceable> does not belong to <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/> type
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_unmatchedmark"/> —
+&ErrorReason_unmatchedmark;
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_&lt;"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_&gt;"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_dict"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mark"/>.
+</formalpara>
+
+</section>

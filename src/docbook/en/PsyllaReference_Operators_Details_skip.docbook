@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_skip">
+<title><token language="psylla">skip</token></title>
+
+<para>
+Attemps to skip the specified <replaceable>count</replaceable> of characters
+from the <replaceable>input</replaceable>. Returns <constant>true</constant>,
+if the given <replaceable>count</replaceable> of characters are skipped, and
+<constant>false</constant>, if the <replaceable>input</replaceable> is
+exhausted before end of the operation.
+</para>
+
+<synopsis>
+<replaceable>input</replaceable>
+<replaceable>count</replaceable>
+<token language="psylla">skip</token>
+<replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>input</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_readable"/>
+</listitem>
+<listitem>
+<replaceable>count</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>result</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when the <replaceable>count</replaceable> is negative
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_read"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readline"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readstring"/>.
+</formalpara>
+
+</section>

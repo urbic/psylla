@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_errordict">
+<title><token language="psylla">errordict</token></title>
+
+<para>
+Словарь ошибок.
+</para>
+
+<synopsis>
+— <token language="psylla">errordict</token>
+<constant>errordict</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>errordict</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Не оператор, а значение в системном словаре.
+</para>
+
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_$error"/>.
+</formalpara>
+
+</section>

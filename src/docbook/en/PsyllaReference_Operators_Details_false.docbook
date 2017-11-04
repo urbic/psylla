@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_false">
+<title><token language="psylla">false</token></title>
+
+<para>
+The <constant>false</constant> value.
+</para>
+
+<synopsis>
+—
+<token language="psylla">false</token>
+<constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>false</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_false"/>
+is not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/> value in the system dictionary.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_true"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

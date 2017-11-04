@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_pop">
+<title><token language="psylla">pop</token></title>
+
+<para>
+Removes the topmost <replaceable>object</replaceable> from the operand stack.
+</para>
+
+<synopsis>
+<replaceable>object</replaceable>
+<token language="psylla">pop</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_clearstack"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_cleartomark"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_dup"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exch"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_index"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_roll"/>.
+</formalpara>
+
+</section>

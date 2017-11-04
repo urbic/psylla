@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_object">
+<title><type>object</type></title>
+
+<para>
+An object, a basic type for all types in the Psylla language.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_convertabletostring"/>.
+</formalpara>
+
+</section>

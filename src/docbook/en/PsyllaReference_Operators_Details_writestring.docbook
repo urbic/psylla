@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_writestring">
+<title><token language="psylla">writestring</token></title>
+
+<para>
+Writes the <replaceable>string</replaceable> to
+the <replaceable>output</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>output</replaceable>
+<replaceable>string</replaceable>
+<token language="psylla">writestring</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>output</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_writable"/>
+</listitem>
+<listitem>
+<replaceable>string</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_flush"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_print"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_println"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_say"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_write"/>.
+</formalpara>
+
+</section>

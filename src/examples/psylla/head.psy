@@ -1,0 +1,36 @@
+#!/usr/bin/psylla
+
+/usage
+{
+	'Usage: head.psy -LINES [FILE]\n' warn
+	1 halt
+}
+def
+
+arguments length iszero { usage } if
+arguments 0 get ~^-(\d+)$~ matcher find
+{ 1 capturegroup { tointeger /count exch def } if }
+{ usage }
+ifelse
+
+/file
+arguments length 1 gt
+{
+	arguments 1 get filereader
+}
+stdin
+ifelse
+def
+
+{
+	count iszero { exit } if
+	file readline
+	{
+		print
+		/count count 1 sub def
+	}
+	{ exit } ifelse
+}
+bind loop
+
+stdout flush

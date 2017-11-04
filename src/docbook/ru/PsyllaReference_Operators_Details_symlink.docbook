@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_symlink">
+<title><token language="psylla">symlink</token></title>
+
+<para>
+Создаёт символьную ссылку с именем <replaceable>ссылка</replaceable> на файл
+с именем <replaceable>цель</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>цель</replaceable>
+<replaceable>ссылка</replaceable>
+<token language="psylla">symlink</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>ссылка</replaceable>,
+<replaceable>цель</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_fileexists"/> —
+если файл или директория с именем <replaceable>ссылка</replaceable> существует
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_securityerror"/> —
+&ErrorReason_securityerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_unsupported"/> —
+&ErrorReason_unsupported;
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_copyfile"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_hardlink"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readlink"/>.
+</formalpara>
+
+</section>

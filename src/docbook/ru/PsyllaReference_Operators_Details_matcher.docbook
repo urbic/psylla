@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_matcher">
+<title><token language="psylla">matcher</token></title>
+
+<para>
+Возвращает новый <replaceable>матчер</replaceable> для поиска
+в <replaceable>строке</replaceable> по <replaceable>шаблону</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>строка</replaceable>
+<replaceable>шаблон</replaceable>
+<token language="psylla">matcher</token>
+<replaceable>матчер</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>шаблон</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_regexp"/>
+</listitem>
+<listitem>
+<replaceable>матчер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_matcher"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+нет.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroup"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupcount"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupend"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupstart"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_find"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_regexp"/>.
+</formalpara>
+
+</section>

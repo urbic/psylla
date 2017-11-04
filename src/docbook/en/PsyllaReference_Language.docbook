@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsyllaReference_Language">
+<title>Language</title>
+
+&PsyllaReference_Language_Interpreter;
+&PsyllaReference_Language_Syntax;
+&PsyllaReference_Language_CoreTypes;
+&PsyllaReference_Language_Stacks;
+
+<section xml:id="PsyllaReference_Language_ObjectExecution">
+<title>Execution of Objects</title>
+
+<para>
+Смысл исполнения объекта зависит от его типа, а также от того, получен этот
+объект парсером или же другим способом. Здесь нужно отметить, что существует
+лишь два типа исполненяемых объектов, получаемых непосредственно парсером — это
+процедуры и команды.
+
+<itemizedlist>
+
+<listitem>
+Исполняемый оператор вызывается, то есть выполняется запрограммированное в нём
+действие.
+</listitem>
+
+<listitem>
+Объекты всех прочих типов загружаются на стек операндов.
+</listitem>
+
+</itemizedlist>
+
+</para>
+
+</section>
+
+<section xml:id="PsyllaReference_Language_EarlyNameBinding">
+<title>Early Name Binding</title>
+
+<section xml:id="PsyllaReference_Language_EarlyNameBinding_BindOperator">
+<title>The <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_bind"/> operator</title>
+
+</section>
+
+<section xml:id="PsyllaReference_Language_EarlyNameBinding_Immediate">
+<title>Immediate Names</title>
+
+</section>
+
+</section>
+
+&PsyllaReference_Language_IO;
+&PsyllaReference_Language_MultipleContextExecution;
+&PsyllaReference_Language_Errors;
+&PsyllaReference_Language_Grammar;
+
+</chapter>

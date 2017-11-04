@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_not">
+<title><token language="psylla">not</token></title>
+
+<para>
+Returns the <replaceable>complement</replaceable> of a
+<replaceable>logical</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>logical</replaceable>
+<token language="psylla">not</token>
+<replaceable>complement</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>logical</replaceable>,
+<replaceable>complement</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/> operand, returns a logical
+<replaceable>complement</replaceable>. For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_bitwise"/> operand, returns the bitwise
+<replaceable>complement</replaceable>.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">false not	▶ true
+true not	▶ false
+
+13 not		▶ -14</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_bitshift"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

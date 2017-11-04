@@ -39,7 +39,7 @@ digraph $head
 		style="filled",
 		fillcolor="linen",
 		fontname="monospace",
-		href="../PsiReference_Types.xhtml#PsiReference_Types_Details_\\N",
+		href="../PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_\\N",
 		target="_parent"
 	]
 __DOT__
@@ -64,7 +64,7 @@ __DOT__
 	$baseName=basename($inputFile, '.txt');
 	open my $dot, '|-', "dot -Tsvg -o \"$outputDir/${baseName}.svg\"";
 	$dot->print(<<__DOT__);
-digraph "Psi Types Hierarchy"
+digraph "Psylla Types Hierarchy"
 {
 	graph
 	[

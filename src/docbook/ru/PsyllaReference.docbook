@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!ENTITY % namespaces SYSTEM "../namespaces.ent">
+<!ENTITY % entities SYSTEM "PsyllaReference.ent">
+<!ENTITY % version		SYSTEM "../../../target/doc/version.ent">
+%namespaces;
+%entities;
+%version;
+]>
+<book
+	xml:id="PsyllaReference"
+	version="5.0"
+	xmlns="&nsDocBook;"
+	xmlns:m="&nsMathML;"
+	xmlns:xlink="&nsXLink;"
+	xml:base="."
+	xml:lang="ru"
+	>
+<!--mediaobject>
+<imageobject>
+<imagedata width="128" fileref="psylla.svg" type="SVG"/>
+</imageobject>
+</mediaobject-->
+
+<title lang="en">Язык Psylla — полное руководство</title>
+<author>
+<person>
+<personname>
+<firstname>Антон</firstname>
+<othername>Николаевич</othername>
+<surname>Швец</surname>
+</personname>
+<email>tz@sectorb.msk.ru</email>
+</person>
+</author>
+
+
+&PsyllaReference_Preface;
+&PsyllaReference_Interpreter;
+&PsyllaReference_Language;
+&PsyllaReference_Types;
+&PsyllaReference_Operators;
+&PsyllaReference_Errors;
+&PsyllaReference_Development;
+
+<index xml:id="PsyllaReference_Index"/>
+
+</book>
+<!--
+vim:indentexpr=
+vim:filetype=docbkxml
+-->

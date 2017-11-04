@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_prettyprint">
+<title><token language="psylla">prettyprint</token></title>
+
+<synopsis>
+<replaceable>объект</replaceable>
+<token language="psylla">prettyprint</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+</section>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_writer">
+<title><type>writer</type></title>
+
+<para>
+A writer.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_closeable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_flushable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_writable"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsyllaTypesHierarchy_writer.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

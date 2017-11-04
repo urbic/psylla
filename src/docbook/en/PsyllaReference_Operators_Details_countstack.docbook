@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_countstack">
+<title><token language="psylla">countstack</token></title>
+
+<para>
+Returns the number of objects on the operand stack.
+</para>
+
+<synopsis>
+⊢
+<replaceable>object<subscript>1</subscript></replaceable>
+…
+<replaceable>object<subscript>n</subscript></replaceable>
+<token language="psylla">countstack</token>
+⊢
+<replaceable>object<subscript>1</subscript></replaceable>
+…
+<replaceable>object<subscript>n</subscript></replaceable>
+<replaceable>n</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>object<subscript>1</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_counttomark"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_userdict">
+<title><token language="psylla">userdict</token></title>
+
+<para>
+The user dictionary.
+</para>
+
+<synopsis>
+—
+<token language="psylla">userdict</token>
+<constant>userdict</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>userdict</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_userdict"/> is not an operator, but a
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/> value
+in the system dictionary.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_systemdict"/>.
+</formalpara>
+
+</section>

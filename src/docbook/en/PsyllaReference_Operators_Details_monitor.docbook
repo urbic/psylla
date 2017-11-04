@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_monitor">
+<title><token language="psylla">monitor</token></title>
+
+<para>
+Acquires <replaceable>lock</replaceable>, first waiting for it to become free,
+then invokes <replaceable>procedure</replaceable>, and finally releases
+<replaceable>lock</replaceable> again.
+</para>
+
+<synopsis>
+<replaceable>lock</replaceable>
+<replaceable>procedure</replaceable>
+<token language="psylla">monitor</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>lock</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lock"/>
+</listitem>
+<listitem>
+<replaceable>procedure</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidcontext"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_condition"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_lock"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_notify"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_synchronized"/>.
+</formalpara>
+
+</section>

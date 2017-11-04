@@ -1,0 +1,95 @@
+package coneforest.psylla;
+import coneforest.psylla.core.*;
+
+abstract public class ClassLoader
+	extends java.lang.ClassLoader
+{
+	public ClassLoader()
+	{
+		super(ClassLoader.class.getClassLoader());
+	}
+
+	public void psyExternal(final PsyStringy oClassName)
+		throws PsyException
+	{
+		try
+		{
+			loadClass(oClassName.stringValue());
+		}
+		catch(final ClassNotFoundException e)
+		{
+			throw new PsyInvalidExternalException();
+		}
+	}
+
+	@Override
+	public Class loadClass(final String className)
+		throws ClassNotFoundException
+	{
+		try
+		{
+			return findSystemClass(className);
+		}
+		catch(final Exception e)
+		{
+		}
+		for(PsyObject file: getPsyllaClassPath())
+		{
+			final Class cl=findClassAtPathElement(className,
+					new java.io.File(((PsyStringy)file).stringValue()));
+			if(cl!=null)
+				return cl;
+		}
+		throw new ClassNotFoundException();
+	}
+
+	abstract protected PsyIterable<PsyStringy> getPsyllaClassPath();
+
+	private Class findClassAtPathElement(final String className, final java.io.File file)
+	{
+		final byte classByte[];
+		Class result=(Class)classes.get(className);
+		if(result!=null)
+			return result;
+
+		try
+		{
+			java.io.InputStream is=null;
+			if(file.isFile())
+			{
+				final java.util.jar.JarFile jar=new java.util.jar.JarFile(file);
+				final java.util.jar.JarEntry entry
+					=jar.getJarEntry(className.replace('.', '/')+".class");
+				if(entry==null)
+					return null;
+				is=jar.getInputStream(entry);
+			}
+			else if(file.isDirectory())
+				is=new java.io.FileInputStream(file.getPath()
+						+java.io.File.separator
+						+className.replace('.', java.io.File.separatorChar)+".class");
+			else
+				return null;
+
+			final java.io.ByteArrayOutputStream byteStream=new java.io.ByteArrayOutputStream();
+			int nextValue=is.read();
+			while(nextValue!=-1)
+			{
+				byteStream.write(nextValue);
+				nextValue=is.read();
+			}
+
+			classByte=byteStream.toByteArray();
+			result=defineClass(className, classByte, 0, classByte.length, null);
+			classes.put(className, result);
+			return result;
+		}
+		catch(final java.io.IOException e)
+		{
+			return null;
+		}
+	}
+
+	private final java.util.Hashtable<String, Class> classes
+		=new java.util.Hashtable<String, Class>();
+}

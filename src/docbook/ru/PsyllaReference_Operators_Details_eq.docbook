@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_eq">
+<title><token language="psylla">eq</token></title>
+
+<para>
+Возвращает <constant>true</constant>, если
+<replaceable>объект<subscript>1</subscript></replaceable> равен
+<replaceable>объекту<subscript>2</subscript></replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<token language="psylla">eq</token>
+<replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>объект<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Понятие равенства объектов зависит от их типов. Объекты одного и того же
+простого типа считаются равными, если совпадают их значения. Объекты числовых
+типов считаются равными, если представляют одно и то же математическое число.
+Объекты типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_stringy"/> считаются равными, если их
+строковые значения совпадают. Объекты прочих сложных типов равны, только если
+они идентичны.
+</para>
+
+<para>
+Следует принимать во внимание, что при математических вычислениях возможна
+потеря точности из-за округления, так что ожидаемое равенство может быть
+нарушено.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">3. 3 eq					▶ true	# Равные вещественное и целое числа
+1 0 complex 1. eq		▶ true	# Равные комплексное и вещественное числа
+"xyz" "xyz" eq			▶ true	# Строки с одинаковыми значениями равны
+/xyz "xyz" eq			▶ true	# Имя и строка с одинаковыми значениями равны
+[ 0 1 2 ] dup eq		▶ true	# Два экземпляра одного и того же массива равны
+[ 0 1 2 ] [ 0 1 2 ] eq	▶ false	# Отдельные экземпляры массивов не равны
+1 77777777 div 77777777 mul 1 eq	▶ false	# Равенство нарушено из-за потери точности</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_ne"/>.
+</formalpara>
+
+</section>

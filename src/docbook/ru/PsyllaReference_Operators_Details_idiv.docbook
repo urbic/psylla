@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_idiv">
+<title><token language="psylla">idiv</token></title>
+
+<para>
+Возвращает результат целочисленного деления <replaceable>делимого</replaceable>
+на ненулевой <replaceable>делитель</replaceable>. Знак
+<replaceable>частного</replaceable> совпадает с произведением знаков операндов.
+</para>
+
+<synopsis>
+<replaceable>делимое</replaceable>
+<replaceable>делитель</replaceable>
+<token language="psylla">idiv</token>
+<replaceable>частное</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>делимое</replaceable>,
+<replaceable>делитель</replaceable>,
+<replaceable>частное</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">17 3 idiv	▶ 5
+-17 3 idiv	▶ -5
+17 -3 idiv	▶ -5
+-17 -3 idiv	▶ 5</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/> —
+при нулевом <replaceable>делителе</replaceable>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mod"/>.
+</formalpara>
+
+</section>

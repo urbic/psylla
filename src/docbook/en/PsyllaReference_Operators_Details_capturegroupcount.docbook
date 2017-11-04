@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_capturegroupcount">
+<title><token language="psylla">capturegroupcount</token></title>
+
+<para>
+Returns a <replaceable>count</replaceable> of capture groups for the given
+<replaceable>matcher</replaceable>. The group numbered <constant>0</constant>
+corresponds to the whole pattern; it does not counted.
+</para>
+
+<synopsis>
+<replaceable>matcher</replaceable>
+<token language="psylla">capturegroupcount</token>
+<replaceable>count</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>matcher</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_matcher"/>
+</listitem>
+<listitem>
+<replaceable>count</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_find"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroup"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupend"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupstart"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_matcher"/>.
+</formalpara>
+
+</section>

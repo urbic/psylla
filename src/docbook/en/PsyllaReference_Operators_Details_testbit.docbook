@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_testbit">
+<title><token language="psylla">testbit</token></title>
+
+<para>
+<remark>TODO</remark>
+</para>
+
+<synopsis>
+<replaceable>bitwise</replaceable>
+<replaceable>index</replaceable>
+<token language="psylla">testbit</token>
+<replaceable>bit</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>bitwise</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>
+</listitem>
+<listitem>
+<replaceable>index</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>bit</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">5 0 testbit	▶ true
+5 1 testbit	▶ false</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when the <replaceable>index</replaceable> lies outside the allowed range
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_bitshift"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_clearbit"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_flipbit"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_setbit"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

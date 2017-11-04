@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_lengthy">
+<title><type>lengthy</type></title>
+
+<para>
+Тип контейнеров, для которых можно определить длину — количество содержащихся
+в контейнере объектов.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsyllaTypesHierarchy_lengthy.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

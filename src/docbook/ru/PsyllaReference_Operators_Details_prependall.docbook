@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_prependall">
+<title><token language="psylla">prependall</token></title>
+
+<para>
+Добавляет все объекты из <replaceable>перечисления</replaceable>
+в начало <replaceable>контейнера</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>перечисление</replaceable>
+<token language="psylla">prependall</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>контейнер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>перечисление</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ /x /y ] dup [ 1 2 3 ] prependall	▶ [ 1 2 3 /x /y ]
+"abc" dup "xyz" prependall			▶ "xyzabc"</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_append"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_appendall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_insert"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_insertall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_prepend"/>.
+</formalpara>
+
+</section>

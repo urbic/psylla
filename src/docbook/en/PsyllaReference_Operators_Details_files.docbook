@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_files">
+<title><token language="psylla">files</token></title>
+
+<para>
+Returns a new <replaceable>enumeration</replaceable> of file names containing
+in the directory with the given <replaceable>name</replaceable>. Names are
+enumerated as <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_name"/> objects.
+</para>
+
+<synopsis>
+<replaceable>name</replaceable>
+<token language="psylla">files</token>
+<replaceable>enumeration</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>name</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>enumeration</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">'/' files {} forall	▶ '/boot' '/opt' '/srv' '/tmp' '/usr' '/var' '/etc' '/home' …</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_filenotfound"/> —
+when the directory does not exist
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_notdirectory"/> —
+when the file named <replaceable>name</replaceable> is not a directory
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_securityerror"/> —
+&ErrorReason_securityerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>.
+</formalpara>
+
+</section>

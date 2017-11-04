@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_execstack">
+<title><token language="psylla">execstack</token></title>
+
+<para>
+Returns the contents of the execution stack in an
+<replaceable>array</replaceable>.
+</para>
+
+<synopsis>
+—
+<token language="psylla">execstack</token>
+<replaceable>arary</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>array</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">{ 1 2 add execstack exch pop } exec	▶ [ pop exch ]</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_countexecstack"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_type">
+<title><token language="psylla">type</token></title>
+
+<para>
+Returns a <replaceable>type</replaceable> of the <replaceable>object</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>object</replaceable>
+<token language="psylla">type</token>
+<replaceable>type</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>type</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_type"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_isinstance"/>.
+</formalpara>
+
+</section>

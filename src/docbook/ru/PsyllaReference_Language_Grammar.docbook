@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Language_Grammar">
+<title>Грамматика</title>
+
+<productionset>
+<title>Грамматические правила для токенов</title>
+
+<production xml:id="PsyllaReference_Language_Grammar_Token">
+<lhs>TOKEN</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_Integer">INTEGER</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_IntegerHexadecimal">INTEGER_HEXADECIMAL</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_IntegerBinary">INTEGER_BINARY</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_Char">CHAR</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_Real">REAL</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_String">STRING</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_RegExp">REGEXP</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_Command">COMMAND</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_Name">NAME</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_Immediate">IMMEDIATE</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_OpenBrace">OPEN_BRACE</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_CloseBrace">CLOSE_BRACE</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_Comment">COMMENT</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Sign">
+<lhs>SIGN</lhs>
+<rhs>[<constant>"+"</constant>, <constant>"-"</constant>]</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Digit">
+<lhs>DIGIT</lhs>
+<rhs>[<constant>"0"</constant> - <constant>"9"</constant>]</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_IntegerUnsigned">
+<lhs>INTEGER_UNSIGNED</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_Digit">DIGIT</nonterminal>+
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Integer">
+<lhs>INTEGER</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_Sign">SIGN</nonterminal>?
+<nonterminal def="#PsyllaReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_HexDigit">
+<lhs>HEXDIGIT</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_Digit">DIGIT</nonterminal>
+| [<constant>"A"</constant> - <constant>"F"</constant>,
+<constant>"a"</constant> - <constant>"f"</constant>]
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_IntegerHexadecimal">
+<lhs>INTEGER_HEXADECIMAL</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_Sign">SIGN</nonterminal>?
+<constant>"0"</constant>
+[<constant>"X"</constant>,
+<constant>"x"</constant>]
+<nonterminal def="PsyllaReference_Language_Grammar_HexDigit">HEXDIGIT</nonterminal>+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_IntegerBinary">
+<lhs>INTEGER_BINARY</lhs>
+<rhs>
+<nonterminal def="PsyllaReference_Language_Grammar_Sign">SIGN</nonterminal>?
+<constant>"0"</constant>
+[<constant>"B"</constant>, <constant>"b"</constant>]
+[<constant>"0"</constant>, <constant>"1"</constant>]+
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Char">
+<lhs>CHAR</lhs>
+<rhs>
+<constant>"`"</constant>
+(~[<constant>"\\"</constant>]
+| <nonterminal def="PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>)
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_RealUnsigned">
+<lhs>REAL_UNSIGNED</lhs>
+<rhs>
+(<nonterminal def="PsyllaReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</nonterminal>
+(<constant>"."</constant>
+<nonterminal>DIGIT</nonterminal>*)?
+| <constant>"."</constant>
+<nonterminal def="PsyllaReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</nonterminal>)
+<nonterminal def="PsyllaReference_Language_Grammar_Exponent">EXPONENT</nonterminal>?
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Real">
+<lhs>REAL</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_Sign">SIGN</nonterminal>?
+<nonterminal def="#PsyllaReference_Language_Grammar_RealUnsigned">REAL_UNSIGNED</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Exponent">
+<lhs>EXPONENT</lhs>
+<rhs>
+[<constant>"E"</constant>, <constant>"e"</constant>]
+<nonterminal def="#PsyllaReference_Language_Grammar_Integer">INTEGER</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Comment">
+<lhs>COMMENT</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_CommentOneLine">COMMENT_ONELINE</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_CommentMultiline">COMMENT_MULTILINE</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_CommentOneLine">
+<lhs>COMMENT_ONELINE</lhs>
+<rhs>
+<constant>"#"</constant>
+(~[<constant>"\n"</constant>])*
+<constant>"\n"</constant>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_CommentMultiline">
+<lhs>COMMENT_MULTILINE</lhs>
+<rhs>
+<constant>"/#"</constant>
+(~[<constant>"/"</constant>]
+| (<constant>"/"</constant> ~[<constant>"#"</constant>]))*
+<constant>"#/"</constant>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_String">
+<lhs>STRING</lhs>
+<rhs>
+<constant>"\""</constant>
+(<nonterminal def="#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>
+| ~[ <constant>"\""</constant>,
+<constant>"\\"</constant>])*
+<constant>"\""</constant>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_StringSpecial">
+<lhs>STRING_SPECIAL</lhs>
+<rhs>
+<constant>"\\"</constant>
+([<constant>"0"</constant>,
+<constant>"a"</constant>,
+<constant>"n"</constant>,
+<constant>"t"</constant>,
+<constant>"f"</constant>,
+<constant>"\""</constant>,
+<constant>"\\"</constant>,
+<constant>"e"</constant>,
+<constant>"r"</constant>,
+<constant>"\n"</constant>]
+<sbr/>
+| <constant>"u"</constant>
+<nonterminal def="PsyllaReference_Language_Grammar_HexDigit">HEXDIGIT</nonterminal>{4}
+| <constant>"x{"</constant>
+<nonterminal def="PsyllaReference_Language_Grammar_HexDigit">HEXDIGIT</nonterminal>+
+<constant>"}"</constant>
+| <constant>"c"</constant>
+[<constant>"\u0000" - "\u00FF"</constant>])
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_RegExp">
+<lhs>REGEXP</lhs>
+<rhs>
+<constant>"~"</constant>
+(<nonterminal def="#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_RegExpSpecial">REGEXP_SPECIAL</nonterminal>
+| ~[<constant>"~"</constant>,
+<constant>"\\"</constant>])*
+<constant>"~"</constant>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_RegExpSpecial">
+<lhs>REGEXP_SPECIAL</lhs>
+<rhs>
+<constant>"\\"</constant>
+(~[])
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Name">
+<lhs>NAME</lhs>
+<rhs>
+<constant>"/"</constant>
+<nonterminal def="#PsyllaReference_Language_Grammar_Command">COMMAND</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Immediate">
+<lhs>IMMEDIATE</lhs>
+<rhs>
+<constant>"/"</constant>
+<nonterminal def="#PsyllaReference_Language_Grammar_Name">NAME</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Command">
+<lhs>COMMAND</lhs>
+<rhs>
+(<nonterminal def="#PsyllaReference_Language_Grammar_Letter">LETTER</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</nonterminal>)
+(<nonterminal def="#PsyllaReference_Language_Grammar_Letter">LETTER</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_Digit">DIGIT</nonterminal>)*<sbr/>
+| [<constant>"["</constant>,
+<constant>"]"</constant>,
+<constant>"("</constant>,
+<constant>")"</constant>,
+<constant>"&lt;"</constant>,
+<constant>"&gt;"</constant>,
+<constant>"="</constant>,
+<constant>"?"</constant>]
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_OpenBrace">
+<lhs>OPEN_BRACE</lhs>
+<rhs><constant>"{"</constant></rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_CloseBrace">
+<lhs>CLOSE_BRACE</lhs>
+<rhs><constant>"}"</constant></rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Letter">
+<lhs>LETTER</lhs>
+<rhs>
+[<constant>"A"</constant> - <constant>"Z"</constant>,
+<constant>"a"</constant> - <constant>"z"</constant>]
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_NameSpecialChar">
+<lhs>NAME_SPECIAL_CHAR</lhs>
+<rhs>
+[<constant>"_"</constant>,
+<constant>"."</constant>,
+<constant>"+"</constant>,
+<constant>"-"</constant>,
+<constant>"="</constant>,
+<constant>"$"</constant>]
+</rhs>
+</production>
+
+</productionset>
+
+</section>

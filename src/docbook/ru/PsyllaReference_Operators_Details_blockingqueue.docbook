@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_blockingqueue">
+<title><token language="psylla">blockingqueue</token></title>
+
+<synopsis>
+<replaceable>вместимость</replaceable>
+<token language="psylla">blockingqueue</token>
+<replaceable>очередь</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>вместимость</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>очередь</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_blockingqueue"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Возвращает новую блокирующую <replaceable>очередь</replaceable>
+с заданной <replaceable>вместимостью</replaceable>.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">1 blockingqueue	▶ -blockingqueue-</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_limitcheck"/> —
+если <replaceable>вместимость</replaceable> превышает допустимый предел
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+если <replaceable>вместимость</replaceable> меньше единицы
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_give"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_take"/>.
+</formalpara>
+
+</section>

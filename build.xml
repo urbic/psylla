@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <project name="psylla" default="jar" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
 
+	<description>${project.description}</description>
+
 	<!-- Properties -->
 	<property name="project.name" value="${ant.project.name}"/>
 	<property name="src" location="src"/>
@@ -8,11 +10,11 @@
 	<property name="src.test" location="${src}/test"/>
 	<property name="src.examples" location="${src}/examples"/>
 	<property name="src.main.java" location="${src.main}/java"/>
-	<property name="src.main.psi" location="${src.main}/psi"/>
+	<property name="src.main.psylla" location="${src.main}/psylla"/>
 	<property name="src.test.java" location="${src.test}/java"/>
-	<property name="src.test.psi" location="${src.test}/psi"/>
+	<property name="src.test.psylla" location="${src.test}/psylla"/>
 	<property name="src.main.jj" location="${src.main}/jj"/>
-	<property name="src.examples.psi" location="${src.examples}/psi"/>
+	<property name="src.examples.psylla" location="${src.examples}/psylla"/>
 	<property name="src.docbook" location="${src}/docbook"/>
 	<property name="src.ant" location="${src}/ant"/>
 	<property name="src.bin" location="${src}/bin"/>
@@ -34,27 +36,25 @@
 	<property name="target.vim" location="${target}/vim"/>
 	<property name="target.mime" location="${target}/mime"/>
 	<property name="target.gh-pages" location="${target}/gh-pages"/>
-	<property name="test.file"  location="test.psi"/>
 	<property name="datadir" location="/usr/share"/>
-	<property name="datadir.java" location="${datadir}/java"/>
-	<property name="datadir.ant" location="${datadir}/ant"/>
-	<property name="datadir.xml" location="${datadir}/xml"/>
-	<property name="datadir.javadoc" location="${datadir}/javadoc"/>
-	<property name="datadir.javadoc.java" location="${datadir.javadoc}/java"/>
 	<property name="sysconfdir" location="/etc"/>
 	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
+	<property file="${src.ant}/config.properties"/>
+
 	<path id="classpath.main">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="${datadir.java}/jline.jar"/>
-		<pathelement path="${datadir.java}/ant.jar"/>
-		<pathelement path="${datadir.ant}/lib/ant-junit.jar"/>
+		<pathelement path="${config.data}/java/jline.jar"/>
+		<pathelement path="${ant.core.lib}"/>
+		<pathelement path="${config.data}/ant/lib/ant-junit.jar"/>
 	</path>
+
 	<path id="classpath.test">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="${datadir.java}/jline.jar"/>
-		<pathelement path="${datadir.java}/junit4.jar"/>
-		<pathelement path="${datadir.java}/junit.jar"/><!-- For mageia -->
+		<pathelement path="${config.data}/java/jline.jar"/>
+		<pathelement path="${config.data}/java/junit4.jar"/>
+		<pathelement path="${config.data}/java/junit.jar"/><!-- For Mageia -->
 	</path>
+
 	<xmlcatalog id="xmlcatalog.xslt">
 		<catalogpath>
 			<!--pathelement location="${src.docbook}/xmlcatalog"/-->
@@ -64,23 +64,17 @@
 			<pathelement location="${sysconfdir.xml}/w3-dtd--mathml.xml"/>
 		</catalogpath>
 	</xmlcatalog>
+
 	<path id="classpath.xslt">
-		<pathelement location="${datadir.java}/saxon6.jar"/>
-		<pathelement location="${datadir.xml}/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
-		<pathelement location="${datadir.java}/xslthl.jar"/>
-		<!--pathelement location="${datadir.java}/xerces-j2-xml-apis.jar"/-->
+		<pathelement location="${config.data}/java/saxon6.jar"/>
+		<pathelement location="${config.data}/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+		<pathelement location="${config.data}/java/xslthl.jar"/>
 
 		<!-- for Debian -->
-		<pathelement location="${datadir.java}/saxon-6.5.5.jar"/>
-		<pathelement location="${datadir.java}/docbook-xsl-saxon.jar"/>
-		<pathelement location="${datadir.java}/xercesImpl.jar"/>
+		<pathelement location="${config.data}/java/saxon-6.5.5.jar"/>
+		<pathelement location="${config.data}/java/docbook-xsl-saxon.jar"/>
+		<pathelement location="${config.data}/java/xercesImpl.jar"/>
 	</path>
-	<property file="${src.main.java}/coneforest/psi/Version.properties" prefix="project"/>
-	<property
-		name="project.version"
-		value="${project.version.major}.${project.version.minor}.${project.version.revision}"
-		/>
-	<property file="${src.ant}/config.properties"/>
 
 	<!-- Import supplementary Ant projects -->
 	<import file="${src.ant}/htmldocs.ant" as="htmldocs"/>
@@ -92,11 +86,11 @@
 	<target name="compile.jj"
 		description="Compile JJ sources"
 		>
-		<mkdir dir="${target.src.main.java}/coneforest/psi"/>
+		<mkdir dir="${target.src.main.java}/coneforest/psylla"/>
 		<javacc
-			target="${src.main.jj}/coneforest/psi/Parser.jj"
-			outputdirectory="${target.src.main.java}/coneforest/psi"
-			javacchome="${datadir.java}"
+			target="${src.main.jj}/coneforest/psylla/Parser.jj"
+			outputdirectory="${target.src.main.java}/coneforest/psylla"
+			javacchome="${config.data}/java"
 			unicodeinput="true"
 			static="false"
 			/>
@@ -128,10 +122,12 @@
 			includes="**/*.properties"
 			ext=".properties"
 			/>
-		<echoproperties
-			destfile="${target.classes}/coneforest/psi/Config.properties"
-			prefix="config."
-			/>
+		<echoproperties destfile="${target.classes}/coneforest/psylla/Config.properties">
+			<propertyset>
+				<propertyref prefix="config."/>
+				<propertyref prefix="project."/>
+			</propertyset>
+		</echoproperties>
 	</target>
 
 	<target name="compile"
@@ -159,24 +155,12 @@
 			<classpath refid="classpath.main"/>
 			<classpath refid="classpath.test"/>
 			<arg value="-Xdoclint:missing,reference"/>
-			<link href="${datadir.javadoc.java}"/>
-			<link href="${datadir.javadoc}/junit"/>
+			<link href="${config.javadoc}/java"/>
+			<link href="${config.javadoc}/junit"/>
 			<link href="http://jline.sourceforge.net/apidocs/"/>
 			<link href="${datadir}/doc/openjdk-8-jre-headless/api"/><!-- For Debian -->
 			<link href="${datadir}/doc/libjline-java/api"/><!-- For Debian -->
 		</javadoc>
-		<!--move file="${target.doc.javadoc}/stylesheet.css" tofile="${target.doc.javadoc}/default.scss"/>
-		<apply executable="sass" dest="${target.doc.javadoc}" parallel="false">
-			<arg value="- -load-path"/>
-			<arg value="${target.doc.javadoc}"/>
-			<arg value="- -style"/>
-			<arg value="compact"/>
-			<srcfile/>
-			<targetfile/>
-			<fileset dir="${src.css}" includes="javadoc.scss"/>
-			<mapper type="glob" from="javadoc.scss" to="stylesheet.css"/>
-		</apply>
-		<delete file="${target.doc.javadoc}/default.scss"/-->
 	</target>
 
 	<target name="jar"
@@ -187,11 +171,11 @@
 			basedir="${target.classes}"
 			>
 			<manifest>
-				<attribute name="Main-Class" value="coneforest.psi.Psylla"/>
+				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
 			</manifest>
 			<service
 				type="javax.script.ScriptEngineFactory"
-				provider="coneforest.psi.engine.PsiScriptEngineFactory"
+				provider="coneforest.psylla.engine.PsiScriptEngineFactory"
 				/>
 		</jar>
 		<symlink
@@ -212,24 +196,24 @@
 		<!--junit>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
-			<test name="coneforest.psi.tools.PsyllaTest"/>
+			<test name="coneforest.psylla.tools.PsyllaTest"/>
 		</junit-->
 		<!--junit>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
-			<test name="coneforest.psi.tools.MyTest"/>
+			<test name="coneforest.psylla.tools.MyTest"/>
 		</junit-->
 		<taskdef name="psyllaunit"
-			classname="coneforest.psi.tools.ant.PsyllaUnit"
+			classname="coneforest.psylla.tools.ant.PsyllaUnit"
 			classpathref="classpath.test"
 			/>
 		<psyllaunit>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
-			<!--test dir="${src.test.psi}"/-->
-			<test name="src/test/psi"/>
-			<!--test name="src/test/psi/operators/loop/0_exit_inside.t"/>
-			<test name="src/test/psi/operators/loop/1_nested_in_loop.t"/-->
+			<!--test dir="${src.test.psylla}"/-->
+			<test name="src/test/psylla"/>
+			<!--test name="src/test/psylla/operators/loop/0_exit_inside.t"/>
+			<test name="src/test/psylla/operators/loop/1_nested_in_loop.t"/-->
 		</psyllaunit>
 	</target>
 
@@ -237,7 +221,7 @@
 	<target name="test.anttask" depends="jar">
 		<taskdef
 			name="psylla"
-			classname="coneforest.psi.tools.ant.Psylla"
+			classname="coneforest.psylla.tools.ant.Psylla"
 			classpathref="classpath.main"
 			/>
 		<psylla eval="0 1 1 99 { ? } for"/>
@@ -288,10 +272,8 @@
 		<echo message="${git.object}"/>
 		<exec executable="git">
 			<arg value="archive"/>
-			<arg value="--prefix"/>
-			<arg value="${project.name}-${project.version}/"/>
-			<arg value="--output"/>
-			<arg value="${target}/${project.name}-${project.version}.tar.xz"/>
+			<arg value="--prefix=${project.name}-${project.version}/"/>
+			<arg value="--output=${target}/${project.name}-${project.version}.tar.xz"/>
 			<arg value="${git.object}"/>
 			<arg value="--"/>
 			<arg value="build.xml"/>
@@ -320,27 +302,12 @@
 		</copy>
 	</target>
 
-	<target name="help"
-		description="Display help information"
-		>
-		<echo><![CDATA[Build targets:
-
-	apidocs:	build API documentation
-	build:		build project
-	clean:		clean build directory
-	compile.java:	compile Java sources
-	compile.jj:	compile JJ sources
-	compile:	compile sources
-	dist.tar:	make Tar distribution
-	dist.zip:	make Zip distribution
-	docs:		build documentation
-	help:		display help information
-	htmldocs:	build XHTML documentation
-	jar:		build Jar
-	manpages:	build manpages
-	test:		perform unit tests
-
-Default target is jar.]]></echo>
+	<target name="version">
+		<copy tofile="${target.doc}/version.ent">
+            <string><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY ${project.name}.version "v${project.version}">
+]]></string>
+		</copy>
 	</target>
 
 </project>

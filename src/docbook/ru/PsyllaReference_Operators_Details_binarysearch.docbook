@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_binarysearch">
+<title><token language="psylla">binarysearch</token></title>
+
+<synopsis>
+<replaceable>массив</replaceable>
+<replaceable>ключ</replaceable>
+<replaceable>компаратор</replaceable>
+<token language="psylla">binarysearch</token>
+<replaceable>индекс</replaceable>
+<replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
+</listitem>
+<listitem>
+<replaceable>ключ</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>компаратор</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_proc"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Ищет заданный <replaceable>ключ</replaceable>
+в <replaceable>массиве</replaceable>, используя алгоритм двоичного поиска.
+Элементы <replaceable>массива</replaceable> должны быть упорядочены
+по неубыванию в соответствии с <replaceable>компаратором</replaceable>,
+в противном случае результат поиска непредсказуем. Возвращает
+<replaceable>индекс</replaceable> найденного ключа или места для его вставки, а
+также <replaceable>результат</replaceable>, показывающий успешность поиска.
+Если <replaceable>массив</replaceable> содержит несколько элементов, равных
+(в соответствии с <replaceable>компаратором</replaceable>) заданному
+<replaceable>ключу</replaceable>, <replaceable>индекс</replaceable> может
+принадлежать любому из них.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 10 20 30 ] 15 { cmp } binarysearch	▶ 2 false
+[ 0 10 20 30 ] 100 { cmp } binarysearch	▶ 4 false
+[ 0 10 20 30 ] 10 { cmp } binarysearch	▶ 1 true</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_cmp"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sort"/>.
+</formalpara>
+
+</section>

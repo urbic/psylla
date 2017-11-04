@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_idiv">
+<title><token language="psylla">idiv</token></title>
+
+<para>
+Returns the <replaceable>quotient</replaceable> of the integer division of the
+<replaceable>dividend</replaceable> by the nonzero
+<replaceable>divisor</replaceable>. The sign of the
+<replaceable>quotient</replaceable> coincides with the product of the operands
+signs.
+</para>
+
+<synopsis>
+<replaceable>dividend</replaceable>
+<replaceable>divisor</replaceable>
+<token language="psylla">idiv</token>
+<replaceable>quotient</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>dividend</replaceable>,
+<replaceable>divisor</replaceable>,
+<replaceable>quotient</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">17 3 idiv	▶ 5
+-17 3 idiv	▶ -5
+17 -3 idiv	▶ -5
+-17 -3 idiv	▶ 5</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/> —
+when the <replaceable>divisor</replaceable> is zero
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mod"/>.
+</formalpara>
+
+</section>

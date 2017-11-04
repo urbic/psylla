@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_stdin">
+<title><token language="psylla">stdin</token></title>
+
+<para>
+The standard input.
+</para>
+
+<synopsis>
+—
+<token language="psylla">stdin</token>
+<constant>stdin</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>stdin</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_reader"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stdin"/>
+is not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_reader"/> value in the system dictionary.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stderr"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stdout"/>.
+</formalpara>
+
+</section>

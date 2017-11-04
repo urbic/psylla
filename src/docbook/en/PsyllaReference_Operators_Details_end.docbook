@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_end">
+<title><token language="psylla">end</token></title>
+
+<para>
+Removes the topmost dictionary from the dictionary stack.
+</para>
+
+<synopsis>
+— <token language="psylla">end</token> —
+</synopsis>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_dictstackunderflow"/> —
+when try to remove a permanent dictionary
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_cleardictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_countdictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_dictstack"/>.
+</formalpara>
+
+</section>

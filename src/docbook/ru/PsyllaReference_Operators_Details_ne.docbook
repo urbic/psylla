@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_ne">
+<title><token language="psylla">ne</token></title>
+
+<para>
+Возвращает <constant>true</constant>, если
+<replaceable>объект<subscript>1</subscript></replaceable> не равен
+<replaceable>объекту<subscript>2</subscript></replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
+<synopsis>
+<replaceable>объект<subscript>1</subscript></replaceable>
+<replaceable>объект<subscript>2</subscript></replaceable>
+<token language="psylla">ne</token>
+<replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>объект<subscript>1</subscript></replaceable>,
+<replaceable>объект<subscript>2</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Какие объекты считаются равными, объясняется в описании оператора <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eq"/>.
+</para>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eq"/>.
+</formalpara>
+
+</section>

@@ -52,15 +52,10 @@
 		</sequential>
 	</macrodef>
 
-	<target name="manpages" description="Make manual pages">
-		<copy tofile="${target.doc}/version.ent">
-            <string><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<!ENTITY ${project.name}.version "v${project.version}">
-]]></string>
-        </copy>
+	<target name="manpages" description="Make manual pages" depends="version">
 		<mkdir dir="${target.doc}"/>
 		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
-		<xslt.manpages.lang lang="en" base.name="PsiManpages"/>
+		<xslt.manpages.lang lang="en" base.name="PsyllaManpages"/>
 		<symlink action="delete" link="examples"/>
 	</target>
 

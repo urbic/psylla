@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_roll">
+<title><token language="psylla">roll</token></title>
+
+<para>
+Performs a cyclic shift of the operands
+<replaceable>object<subscript>n−1</subscript></replaceable> through
+<replaceable>object<subscript>0</subscript></replaceable> in <replaceable>k mod
+n</replaceable> steps on the operand stack (non-negative
+<replaceable>k</replaceable> denotes the shift in upward direction, negative
+<replaceable>k</replaceable> denotes the shift in downward direction).
+</para>
+
+<synopsis>
+<replaceable>object<subscript>n−1</subscript></replaceable>
+…
+<replaceable>object<subscript>0</subscript></replaceable>
+<replaceable>n</replaceable>
+<replaceable>k</replaceable>
+<token language="psylla">roll</token>
+<replaceable>object<subscript>(k−1) mod n</subscript></replaceable>
+…
+<replaceable>object<subscript>0</subscript></replaceable>
+<replaceable>object<subscript>n−1</subscript></replaceable>
+…
+<replaceable>object<subscript>k mod n</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>object<subscript>0</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n−1</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>,
+<replaceable>k</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">/x /y /z 3 -1 roll	▶ /y /z /x
+/x /y /z 3 1 roll	▶ /z /x /y
+/x /y /z 3 0 roll	▶ /x /y /z</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when <replaceable>n</replaceable> is negative
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+when the operand stack contains less than <replaceable>n</replaceable> elements TODO
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exch"/>.
+</formalpara>
+
+</section>

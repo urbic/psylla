@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_replicate">
+<title><token language="psylla">replicate</token></title>
+
+<para>
+Возвращает в качестве <replaceable>результата</replaceable> новый контейнер,
+полученный из <replaceable>контейнера</replaceable> многократным повторением
+списка его элементов.
+</para>
+
+<synopsis>
+<replaceable>контейнер</replaceable>
+<replaceable>количество</replaceable>
+<token language="psylla">replicate</token>
+<replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>количество</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>контейнер</replaceable>,
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_appendable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 2 ] 4 replicate	▶ [ 0 1 2 0 1 2 0 1 2 0 1 2 ]
+"xyz" 4 replicate		▶ "xyzxyzxyzxyz"</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_limitcheck"/> —
+если длина <replaceable>контейнера</replaceable>, умноженная
+на <replaceable>количество</replaceable>, превышает максимально возможную длину
+<replaceable>контейнера</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+если <replaceable>количество</replaceable> отрицательно
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+</section>

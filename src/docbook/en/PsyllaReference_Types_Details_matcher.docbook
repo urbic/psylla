@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_matcher">
+<title><type>matcher</type></title>
+
+<para>
+A matcher, an engine that performs match operations on a string.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_resettable"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsyllaTypesHierarchy_matcher.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_regexp"/>.
+</formalpara>
+
+</section>

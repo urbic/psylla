@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_min">
+<title><token language="psylla">min</token></title>
+
+<para>
+Возвращает наименьший из двух <replaceable>скаляров</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>скаляр<subscript>1</subscript></replaceable>
+<replaceable>скаляр<subscript>2</subscript></replaceable>
+<token language="psylla">min</token>
+<replaceable>минимум</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>скаляр<subscript>1</subscript></replaceable>,
+<replaceable>скаляр<subscript>2</subscript></replaceable>,
+<replaceable>минимум</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">1 2 min	▶ 1
+/ab /aa min	▶ /aa</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_cmp"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_ge"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_gt"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_le"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_lt"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_max"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_isinstance">
+<title><token language="psylla">isinstance</token></title>
+
+<para>
+Возвращает <constant>true</constant>, если <replaceable>объект</replaceable>
+принадлежит данному <replaceable>типу</replaceable>, и
+<constant>false</constant> в противном случае.
+</para>
+
+<synopsis>
+<replaceable>тип</replaceable>
+<replaceable>объект</replaceable>
+<token language="psylla">isinstance</token>
+<replaceable>результат</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>тип</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_type"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>результат</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_type"/>.
+</formalpara>
+
+</section>

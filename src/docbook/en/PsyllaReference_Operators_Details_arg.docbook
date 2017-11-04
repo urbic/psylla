@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_arg">
+<title><token language="psylla">arg</token></title>
+
+<para>
+Returns the <replaceable>argument</replaceable> of a complex
+<replaceable>number</replaceable>.
+</para>
+
+<formalpara>
+&TitleOperands;
+<synopsis>
+<replaceable>number</replaceable>
+<token language="psylla">arg</token>
+<replaceable>argument</replaceable>
+<itemizedlist>
+<listitem>
+<replaceable>number</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
+</listitem>
+<listitem>
+<replaceable>argument</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>
+</listitem>
+</itemizedlist>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">0 -1 complex arg	▶ -1.5707963267948966</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/> —
+when the <replaceable>number</replaceable> is zero
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_signum"/>.
+</formalpara>
+
+</section>

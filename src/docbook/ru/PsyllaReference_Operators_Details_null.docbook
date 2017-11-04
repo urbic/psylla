@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_null">
+<title><token language="psylla">null</token></title>
+
+<para>
+Возвращает <constant>null</constant>.
+</para>
+
+<synopsis>
+—
+<token language="psylla">null</token>
+<constant>null</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>null</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_null"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+нет.
+</formalpara>
+
+</section>

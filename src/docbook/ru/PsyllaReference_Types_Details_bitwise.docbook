@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_bitwise">
+<title><type>bitwise</type></title>
+
+<para>
+Тип операндов для побитовых операций: установки, очистки и проверки отдельных
+битов и побитового сдвига.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsyllaTypesHierarchy_bitwise.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

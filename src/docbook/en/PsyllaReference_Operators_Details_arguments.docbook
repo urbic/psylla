@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_arguments">
+<title><token language="psylla">arguments</token></title>
+
+<para>
+The array of command-line arguments intended for the program. The arguments are
+presented as <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_name"/> objects.
+</para>
+
+<synopsis>
+—
+<token language="psylla">arguments</token>
+<constant>arguments</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>arguments</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_arguments"/> is not an operator, but an
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
+value in the system dictionary.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_environment"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_isempty">
+<title><token language="psylla">isempty</token></title>
+
+<para>
+Returns <constant>true</constant>, if the <replaceable>container</replaceable>
+is empty, and <constant>false</constant> otherwise.
+</para>
+
+<synopsis>
+<replaceable>container</replaceable>
+<token language="psylla">isempty</token>
+<replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>container</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>
+</listitem>
+<listitem>
+<replaceable>result</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_length"/>.
+</formalpara>
+
+</section>

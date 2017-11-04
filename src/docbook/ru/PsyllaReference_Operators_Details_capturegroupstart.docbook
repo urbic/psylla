@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_capturegroupstart">
+<title><token language="psylla">capturegroupstart</token></title>
+
+<para>
+Возвращает <replaceable>позицию</replaceable> первого символа, захваченного
+в группу с заданным <replaceable>индексом</replaceable> во время последней
+операции поиска для заданного <replaceable>матчера</replaceable>. Если поиск
+прошёл успешно, но указанная <replaceable>группа</replaceable> не захватывает
+никакую часть входной строки, возвращает <constant>null</constant>.
+<remark>TODO</remark>
+</para>
+
+<synopsis>
+<replaceable>матчер</replaceable>
+<replaceable>индекс</replaceable>|<replaceable>имя</replaceable>
+<token language="psylla">capturegroupstart</token>
+<replaceable>позиция</replaceable>
+<constant>true</constant>
+<sbr/>
+<replaceable>матчер</replaceable>
+<replaceable>индекс</replaceable>|<replaceable>имя</replaceable>
+<token language="psylla">capturegroupstart</token>
+<constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>матчер</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_matcher"/>
+</listitem>
+<listitem>
+<replaceable>индекс</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<replaceable>имя</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>позиция</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+<listitem>
+<constant>false</constant>,
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/> группа выбирается по её номеру.
+Группы захвата в шаблоне пронумерованы начиная с <constant>1</constant>. Группа
+с номером <constant>0</constant> соответствует всему шаблону.
+</para>
+
+<para>
+Для <replaceable>индексов</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_stringy"/> возвращается именованная группа
+по её имени.
+</para>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidstate"/> —
+если для заданного <replaceable>матчера</replaceable> ещё не выполнялась
+операция поиска или последний поиск не принёс результатов
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+если <replaceable>индекс</replaceable> отрицателен или превышает количество
+групп
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/> —
+при отсутствии группы с заданным <replaceable>именем</replaceable>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_find"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroup"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupcount"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupend"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_matcher"/>.
+</formalpara>
+
+</section>

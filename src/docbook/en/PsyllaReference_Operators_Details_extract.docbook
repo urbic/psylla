@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_extract">
+<title><token language="psylla">extract</token></title>
+
+<para>
+Removes and returns an <replaceable>element</replaceable> associated with the
+given <replaceable>key</replaceable> from
+the <replaceable>container</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>container</replaceable>
+<replaceable>key</replaceable>
+<token language="psylla">extract</token>
+<replaceable>element</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>container</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>key</replaceable>,
+<replaceable>element</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 2 3 4 ] dup 2 extract			▶ [ 0 1 3 4 ] 2
+&lt; /a 0 /b 1 /c 2 &gt; dup /b extract	▶ &lt; /c 2 /a 0 &gt; 1</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when the <replaceable>key</replaceable> is not a valid index in the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+container
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+when the type of the <replaceable>key</replaceable> does not correspond to the
+type of <replaceable>container</replaceable> TODO
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/> —
+when the <replaceable>key</replaceable> is not in the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dictlike"/>
+container
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_extractinterval"/>.
+</formalpara>
+
+</section>

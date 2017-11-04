@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_get">
+<title><token language="psylla">get</token></title>
+
+<para>
+Returns the <replaceable>element</replaceable> associated with a given
+<replaceable>key</replaceable> from an indexed
+<replaceable>container</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>container</replaceable>
+<replaceable>key</replaceable>
+<token language="psylla">get</token>
+<replaceable>element</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>container</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>key</replaceable>,
+<replaceable>element</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Тип ключа должен соответствовать типу контейнера (для контейнеров типа <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/> —
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>,
+для <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_dictlike"/> — <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_stringy"/>), в противном случае
+генерируется <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_typecheck"/>.
+</para>
+
+<para>
+Для <replaceable>контейнера</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_arraylike"/>
+<replaceable>ключ</replaceable> служит индексом в массиве. При выходе индекса
+за допустимые границы генерируется <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_rangecheck"/>.
+</para>
+
+<para>
+Для <replaceable>контейнера</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_dictlike"/>
+при отсутствии <replaceable>ключа</replaceable> в словаре генерируется <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ /a /b /c /d ] 2 get		▶ /c
+"abcd" 2 get				▶ 99
+&lt; /x 0 /y 1 /z 2 &gt; /y get	▶ 1</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_getall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_getinterval"/>.
+</formalpara>
+
+</section>

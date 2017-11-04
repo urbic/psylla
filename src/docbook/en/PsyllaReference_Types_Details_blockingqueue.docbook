@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_blockingqueue">
+<title><type>blockingqueue</type></title>
+
+<para>
+Блокирующая очередь.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bounded"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_closeable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_container"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_queuelike"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsyllaTypesHierarchy_blockingqueue.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

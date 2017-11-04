@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_eval">
+<title><token language="psylla">eval</token></title>
+
+<para>
+Интерпретирует <replaceable>вычисляемое</replaceable> как программу
+на языке Psylla.
+</para>
+
+<synopsis>
+<replaceable>вычисляемое</replaceable>
+<token language="psylla">eval</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>вычисляемое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_evaluable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">'1 2 add' eval	▶ 3</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+</section>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_countdictstack">
+<title><token language="psylla">countdictstack</token></title>
+
+<para>
+Returns the <replaceable>number</replaceable> of objects in the dictionary
+stack.
+</para>
+
+<synopsis>
+—
+<token language="psylla">countdictstack</token>
+<replaceable>number</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>number</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_dictstack"/>.
+</formalpara>
+
+</section>

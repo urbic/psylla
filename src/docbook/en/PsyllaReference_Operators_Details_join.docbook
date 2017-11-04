@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_join">
+<title><token language="psylla">join</token></title>
+
+<para>
+Waits for the <replaceable>context</replaceable> to finish executing its
+top-level procedure (the last operand of <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_fork"/>). It then pushes a mark
+followed by the entire contents of that <replaceable>context</replaceable>’s
+operand stack onto the current context’s operand stack. Finally, it causes the
+other context to terminate.
+</para>
+
+<synopsis>
+<replaceable>context</replaceable>
+<token language="psylla">join</token>
+<constant>mark</constant>
+<replaceable>object<subscript>1</subscript></replaceable>
+…
+<replaceable>object<subscript>n</subscript></replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>context</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_context"/>
+</listitem>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>object<subscript>1</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidcontext"/> —
+when the <replaceable>context</replaceable> is the current context
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_fork"/>.
+</formalpara>
+
+</section>

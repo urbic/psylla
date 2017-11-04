@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-	<mime-type type="application/x-psi">
-		<comment xml:lang="en">Ψ script</comment>
-		<comment xml:lang="ru">сценарий Ψ</comment>
+	<mime-type type="application/x-psylla">
+		<comment xml:lang="en">Psylla script</comment>
+		<comment xml:lang="ru">сценарий Psylla</comment>
 		<sub-class-of type="application/x-executable"/>
 		<sub-class-of type="text/plain"/>
 		<generic-icon name="text-x-script"/>
-		<glob pattern="*.psi"/>
+		<glob pattern="*.psy"/>
 	</mime-type>
 </mime-info>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_append">
+<title><token language="psylla">append</token></title>
+
+<para>
+Appends the <replaceable>object</replaceable>
+to the <replaceable>container</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>container</replaceable>
+<replaceable>object</replaceable>
+<token language="psylla">append</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>container</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_appendable"/>
+</listitem>
+<listitem>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Для <replaceable>контейнеров</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_arraylike"/> добавление происходит в конец
+массива.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 2 ] dup 3 append		▶ [ 0 1 2 3 ]
+"abc" dup `d append			▶ "abcd"
+( /x /y ) dup /z append		▶ ( /z /y /x )
+( /x /y /z ) dup /z append	▶ ( /z /y /x )</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_limitcheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when the <replaceable>object’s</replaceable> value lies outside the range
+corresponding to the type of the <replaceable>container</replaceable>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_appendall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_insert"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_insertall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_prepend"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_prependall"/>.
+</formalpara>
+
+</section>

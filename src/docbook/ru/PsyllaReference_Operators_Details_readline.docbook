@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_readline">
+<title><token language="psylla">readline</token></title>
+
+<para>
+Пытается прочитать из <replaceable>источника</replaceable>
+<replaceable>строку</replaceable>, ограниченную терминатором строк, принятым
+на данной платформе, или концом источника. Терминатор становится частью
+прочитанной <replaceable>строки</replaceable>. Возвращает также булевское
+значение, показывающее успешность операции.
+</para>
+
+<synopsis>
+<replaceable>источник</replaceable>
+<token language="psylla">readline</token>
+<replaceable>строка</replaceable>
+<constant>true</constant>
+<sbr/>
+<replaceable>источник</replaceable>
+<token language="psylla">readline</token>
+<constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>источник</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_readable"/>
+</listitem>
+<listitem>
+<replaceable>строка</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
+</listitem>
+<listitem>
+<constant>false</constant>,
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_read"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readstring"/>.
+</formalpara>
+
+</section>

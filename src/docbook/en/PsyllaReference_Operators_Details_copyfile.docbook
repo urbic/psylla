@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_copyfile">
+<title><token language="psylla">copyfile</token></title>
+
+<para>
+Copies an <replaceable>existing</replaceable> file with a
+<replaceable>new</replaceable> name.
+</para>
+
+<synopsis>
+<replaceable>existing</replaceable>
+<replaceable>new</replaceable>
+<token language="psylla">copyfile</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>existing</replaceable>,
+<replaceable>new</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_directorynotempty"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_fileaccessdenied"/> —
+&ErrorReason_fileaccessdenied;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_fileexists"/> —
+when the file or directory named <replaceable>new</replaceable> already exists
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_filenotfound"/> —
+when the <replaceable>existing</replaceable> file does not exist TODO
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
+&ErrorReason_ioerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_securityerror"/> —
+&ErrorReason_securityerror;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_unsupported"/> —
+&ErrorReason_unsupported;
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_hardlink"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_symlink"/>.
+</formalpara>
+
+</section>

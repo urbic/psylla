@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_eol">
+<title><token language="psylla">eol</token></title>
+
+<para>
+Line terminator.
+</para>
+
+<synopsis>
+—
+<token language="psylla">eol</token>
+<constant>eol</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>eol</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eol"/> is
+not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_name"/> value in the system dictionary.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_println"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readline"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_say"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_environment">
+<title><token language="psylla">environment</token></title>
+
+<para>
+Словарь, содержащий текущее окружение. Значения переменных окружения
+представлены как объекты типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_name"/>.
+</para>
+
+<synopsis>
+—
+<token language="psylla">environment</token>
+<constant>environment</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>environment</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_environment"/> не оператор, а значение
+типа <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/>
+в системном словаре.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_arguments"/>.
+</formalpara>
+
+</section>

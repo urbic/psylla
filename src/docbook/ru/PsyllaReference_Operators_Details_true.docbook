@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_true">
+<title><token language="psylla">true</token></title>
+
+<para>
+Булевское значение <constant>true</constant>. Не оператор, а значение
+в системном словаре.
+</para>
+
+<synopsis>
+—
+<token language="psylla">true</token>
+<constant>true</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_false"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_not"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_fork">
+<title><token language="psylla">fork</token></title>
+
+<para>
+Returns a new execution <replaceable>context</replaceable>, whose dictionary
+stack is copied from the current context, and then copies
+<replaceable>objects</replaceable> to its operand stack. The
+<replaceable>procedure</replaceable> is asynchronously executed within newly
+created <replaceable>context</replaceable>.
+</para>
+
+<synopsis>
+<constant>mark</constant>
+<replaceable>object<subscript>1</subscript></replaceable>
+…
+<replaceable>object<subscript>n</subscript></replaceable>
+<replaceable>procedure</replaceable>
+<token language="psylla">fork</token>
+<replaceable>context</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>mark</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_mark"/>
+</listitem>
+<listitem>
+<replaceable>object<subscript>1</subscript></replaceable>,
+…,
+<replaceable>object<subscript>n</subscript></replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>procedure</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_proc"/>
+</listitem>
+<listitem>
+<replaceable>context</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_context"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_unmatchedmark"/> —
+&ErrorReason_unmatchedmark;
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_currentcontext"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_join"/>.
+</formalpara>
+
+</section>

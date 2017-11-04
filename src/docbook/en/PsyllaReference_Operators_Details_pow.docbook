@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_pow">
+<title><token language="psylla">pow</token></title>
+
+<para>
+Raises the <replaceable>base</replaceable> to the
+<replaceable>exponent</replaceable> power and returns the
+<replaceable>power</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>base</replaceable>
+<replaceable>exponent</replaceable>
+<token language="psylla">pow</token>
+<replaceable>power</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>base</replaceable>,
+<replaceable>exponent</replaceable>,
+<replaceable>power</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_cbrt"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exp"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_log"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sqrt"/>.
+</formalpara>
+
+</section>

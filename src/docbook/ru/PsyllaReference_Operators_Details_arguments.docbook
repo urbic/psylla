@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_arguments">
+<title><token language="psylla">arguments</token></title>
+
+<synopsis>
+—
+<token language="psylla">arguments</token>
+<constant>аргументы</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<constant>аргументы</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Массив аргументов командной строки, предназначенных для программы. Аргументы
+представлены как объекты типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_name"/>.
+</para>
+
+<para>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_arguments"/> не оператор, а значение
+типа <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
+в системном словаре.
+</para>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_environment"/>.
+</formalpara>
+
+</section>

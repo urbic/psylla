@@ -70,23 +70,23 @@
 			<arg value="${share.dir}/css"-->
 			<srcfile/>
 			<targetfile/>
-			<fileset dir="${src.docbook}" includes="PsiReference.scss"/>
+			<fileset dir="${src.docbook}" includes="PsyllaReference.scss"/>
 			<mapper type="glob" from="*.scss" to="*.css"/>
 		</apply>
 	</target>
 
-	<target name="htmldocs" description="Make documentation" depends="css">
+	<target name="htmldocs" description="Build XHTML documentation" depends="css,version">
 		<mkdir dir="${target.doc.html}/common"/>
 		<apply dest="${target.doc.html}/common" dir="${src.docbook}" executable="perl">
 			<arg value="make-types-hierarchy.pl"/>
 			<arg value="-O"/>
 			<arg value="${target.doc.html}/common"/>
 			<srcfile/>
-			<fileset dir="${src.docbook}/common" includes="PsiTypesHierarchy.txt"/>
+			<fileset dir="${src.docbook}/common" includes="PsyllaTypesHierarchy.txt"/>
 			<mapper type="glob" from="*.txt" to="*.svg"/>
 		</apply>
-		<xslt.html.lang lang="ru" base.name="PsiReference"/>
-		<xslt.html.lang lang="en" base.name="PsiReference"/>
+		<xslt.html.lang lang="ru" base.name="PsyllaReference"/>
+		<xslt.html.lang lang="en" base.name="PsyllaReference"/>
 		<copy todir="${target.doc.html}">
 			<fileset dir="${src.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
 			<fileset dir="${src.docbook}" includes="examples/**" excludes="**/.htaccess"/>

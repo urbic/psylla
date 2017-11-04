@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsyllaReference_Types">
+<title>Types</title>
+
+<para>
+The Psylla language has a flexible and extendable type system. The types
+implemented as Java classes or interfaces. Each Ψ object is represented as an
+object of some class implementing the <classname>PsyObject</classname>
+interface.
+</para>
+
+<para>
+Extensibility of the type system is based on the Java programming new classes
+from <classname>PsyObject</classname>. The creation of new types by means of
+the Psylla language is impossible.
+</para>
+
+<para>
+Majority of Psylla operators expect operands of certain type. So, the addition
+operator <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_add"/> can be applied to the
+numbers, but not to strings.
+</para>
+
+<para>
+Some operators are polymorphic, that is able to change its meaning in
+accordance with the type of its operands. For example, the same operator <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_add"/> for
+integer operands returns integer (except in the case where the sum is beyond
+the boundaries of integer type; then the result is real). If one of the
+operands is an integer, and the other is a real, or both are real, the result
+will also have a real type. If at least one of the operands has the complex
+type, the result will have the same type. Another example: the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/> operator
+returns the disjunction of its operands. If both operands are of boolean type,
+the result will be boolean, and if both operands are integer, bitwise
+disjunction is calculated, and the result will be integer.
+</para>
+
+<section xml:id="PsyllaReference_Types_Details">
+<title>Types in Detail</title>
+
+&PsyllaReference_Types_Details_additive;
+&PsyllaReference_Types_Details_appendable;
+&PsyllaReference_Types_Details_arithmetic;
+&PsyllaReference_Types_Details_array;
+&PsyllaReference_Types_Details_arraylike;
+&PsyllaReference_Types_Details_atomic;
+&PsyllaReference_Types_Details_biginteger;
+&PsyllaReference_Types_Details_bitarray;
+&PsyllaReference_Types_Details_bitset;
+&PsyllaReference_Types_Details_bitwise;
+&PsyllaReference_Types_Details_blockingqueue;
+&PsyllaReference_Types_Details_boolean;
+&PsyllaReference_Types_Details_bounded;
+&PsyllaReference_Types_Details_clearable;
+&PsyllaReference_Types_Details_closeable;
+&PsyllaReference_Types_Details_command;
+&PsyllaReference_Types_Details_complex;
+&PsyllaReference_Types_Details_condition;
+&PsyllaReference_Types_Details_container;
+&PsyllaReference_Types_Details_context;
+
+<section xml:id="PsyllaReference_Types_Details_convertabletointeger">
+<title><type>convertabletointeger</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/>.
+</para>
+</section>
+
+<section xml:id="PsyllaReference_Types_Details_convertabletoname">
+<title><type>convertabletoname</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_name"/>.
+</para>
+</section>
+
+<section xml:id="PsyllaReference_Types_Details_convertabletostring">
+<title><type>convertabletostring</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_string"/>.
+</para>
+</section>
+
+<section xml:id="PsyllaReference_Types_Details_convertabletoreal">
+<title><type>convertabletoreal</type></title>
+<para>
+Тип объектов, которые могут быть преобразованы к типу <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_real"/>.
+</para>
+</section>
+
+&PsyllaReference_Types_Details_dict;
+&PsyllaReference_Types_Details_dictlike;
+&PsyllaReference_Types_Details_evaluable;
+&PsyllaReference_Types_Details_filereader;
+&PsyllaReference_Types_Details_filewriter;
+&PsyllaReference_Types_Details_flushable;
+&PsyllaReference_Types_Details_indexed;
+&PsyllaReference_Types_Details_input;
+&PsyllaReference_Types_Details_integer;
+&PsyllaReference_Types_Details_iterable;
+&PsyllaReference_Types_Details_lengthy;
+&PsyllaReference_Types_Details_lock;
+&PsyllaReference_Types_Details_logical;
+&PsyllaReference_Types_Details_mark;
+&PsyllaReference_Types_Details_matcher;
+&PsyllaReference_Types_Details_name;
+&PsyllaReference_Types_Details_namespace;
+&PsyllaReference_Types_Details_null;
+&PsyllaReference_Types_Details_numeric;
+&PsyllaReference_Types_Details_object;
+&PsyllaReference_Types_Details_operator;
+&PsyllaReference_Types_Details_output;
+&PsyllaReference_Types_Details_proc;
+&PsyllaReference_Types_Details_queuelike;
+&PsyllaReference_Types_Details_random;
+&PsyllaReference_Types_Details_readable;
+&PsyllaReference_Types_Details_reader;
+&PsyllaReference_Types_Details_real;
+&PsyllaReference_Types_Details_realnumeric;
+&PsyllaReference_Types_Details_regexp;
+&PsyllaReference_Types_Details_resettable;
+&PsyllaReference_Types_Details_scalar;
+&PsyllaReference_Types_Details_set;
+&PsyllaReference_Types_Details_setlike;
+&PsyllaReference_Types_Details_string;
+&PsyllaReference_Types_Details_stringreader;
+&PsyllaReference_Types_Details_stringwriter;
+&PsyllaReference_Types_Details_stringy;
+&PsyllaReference_Types_Details_type;
+&PsyllaReference_Types_Details_writable;
+&PsyllaReference_Types_Details_writer;
+
+</section>
+
+</chapter>

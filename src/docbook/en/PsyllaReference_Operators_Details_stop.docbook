@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_stop">
+<title><token language="psylla">stop</token></title>
+
+<para>
+</para>
+
+<synopsis>
+—
+<token language="psylla">stop</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stopped"/>.
+</formalpara>
+
+</section>

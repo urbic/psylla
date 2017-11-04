@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_retainall">
+<title><token language="psylla">retainall</token></title>
+
+<para>
+Retains only the elements in the <replaceable>set</replaceable> that are
+contained in the <replaceable>enumeration</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>set</replaceable>
+<replaceable>enumeration</replaceable>
+<token language="psylla">retainall</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>set</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_setlike"/>
+</listitem>
+<listitem>
+<replaceable>enumeration</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">( 0 1 2 3 4 ) dup [ 2 3 7 ] retainall	▶ ( 2 3 )</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_remove"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_removeall"/>.
+</formalpara>
+
+</section>

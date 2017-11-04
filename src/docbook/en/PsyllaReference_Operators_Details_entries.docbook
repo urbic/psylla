@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_entries">
+<title><token language="psylla">entries</token></title>
+
+<para>
+Returns an <replaceable>enumeration</replaceable> of keys and values from
+the <replaceable>indexed</replaceable> container.
+</para>
+
+<synopsis>
+<replaceable>indexed</replaceable>
+<token language="psylla">entries</token>
+<replaceable>enumeration</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>indexed</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>enumeration</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">&lt; /a 1 /b 2 &gt; entries {} forall	▶ /a 1 /b 2
+[ /a /b /c ] entries {} forall	▶ 0 /a 1 /b 2 /c</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_keys"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_values"/>.
+</formalpara>
+
+</section>

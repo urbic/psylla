@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_complex">
+<title><token language="psylla">complex</token></title>
+
+<para>
+Возвращает новое комплексное <replaceable>число</replaceable> с заданными
+<replaceable>вещественной</replaceable> и <replaceable>мнимой</replaceable>
+частями.
+</para>
+
+<synopsis>
+<replaceable>вещественная</replaceable>
+<replaceable>мнимая</replaceable>
+<token language="psylla">complex</token>
+<replaceable>число</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>вещественная</replaceable>,
+<replaceable>мнимая</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_realnumeric"/>
+</listitem>
+<listitem>
+<replaceable>число</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">0 1 complex	▶ -complex:0.0,1.0-</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_complexpolar"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_conjugate"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_imagpart"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_realpart"/>.
+</formalpara>
+
+</section>

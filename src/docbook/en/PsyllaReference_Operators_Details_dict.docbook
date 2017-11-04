@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_dict">
+<title><token language="psylla">dict</token></title>
+
+<para>
+Returns a new empty <replaceable>dictionary</replaceable>.
+</para>
+
+<synopsis>
+—
+<token language="psylla">dict</token>
+<replaceable>dictionary</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>dictionary</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">dict	▶ &lt;&gt;</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_&lt;"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_&gt;"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_dicttomark"/>.
+</formalpara>
+
+</section>

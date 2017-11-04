@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_div">
+<title><token language="psylla">div</token></title>
+
+<para>
+Returns the <replaceable>quotient</replaceable> of the division a
+<replaceable>dividend</replaceable> by a <replaceable>divisor</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>dividend</replaceable>
+<replaceable>divisor</replaceable>
+<token language="psylla">div</token>
+<replaceable>quotient</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>dividend</replaceable>,
+<replaceable>divisor</replaceable>,
+<replaceable>quotient</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arithmetic"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+If both <replaceable>dividend</replaceable> and
+<replaceable>divisor</replaceable> are of type <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_realnumeric"/>, the
+<replaceable>quotient</replaceable> type is <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_real"/>. If the
+<replaceable>dividend</replaceable> or the <replaceable>divisor</replaceable>
+is of type <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_complex"/>, the
+<replaceable>quotient</replaceable> type is also <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_complex"/>.
+</para>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_add"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_idiv"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mul"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sub"/>.
+</formalpara>
+
+</section>

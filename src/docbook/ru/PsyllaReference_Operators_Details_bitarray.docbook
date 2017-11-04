@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_bitarray">
+<title><token language="psylla">bitarray</token></title>
+
+<synopsis>
+—
+<token language="psylla">bitarray</token>
+<replaceable>битовый_массив</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>битовый_массив</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitarray"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Возвращает новый пустой <replaceable>битовый_массив</replaceable>.
+</para>
+
+<formalpara>
+&TitleErrors;
+нет.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_bitset"/>.
+</formalpara>
+
+</section>

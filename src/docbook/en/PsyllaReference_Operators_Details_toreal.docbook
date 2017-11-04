@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_toreal">
+<title><token language="psylla">toreal</token></title>
+
+<synopsis>
+<replaceable>object</replaceable>
+<token language="psylla">toreal</token>
+<replaceable>real</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_convertabletoreal"/>
+</listitem>
+<listitem>
+<replaceable>real</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+</section>

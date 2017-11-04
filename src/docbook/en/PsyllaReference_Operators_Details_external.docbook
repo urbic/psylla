@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_external">
+<title><token language="psylla">external</token></title>
+
+<para>
+Loads an external Java class by its <replaceable>class_name</replaceable> and
+returns an <replaceable>instance</replaceable> of this class.
+</para>
+
+<synopsis>
+<replaceable>class_name</replaceable>
+<token language="psylla">external</token>
+<replaceable>instance</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>class_name</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>instance</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">/coneforest.psylla.core.PsyString external	▶ ""</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidexternal"/> —
+when the class not found at class path, does not implement
+<classname>coneforest.psylla.core.PsyObject</classname> interface, does not public
+constructor without arguments or if the invocation of this constructor
+terminated abnormally.
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_classpath"/>.
+</formalpara>
+
+</section>

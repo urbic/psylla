@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Language_Interpreter">
+<title>Интерпретатор</title>
+
+<para>
+Интерпретатор работает с так называемыми
+<firstterm>объектами</firstterm><indexterm><primary>объект</primary></indexterm>
+языка Ψ. Некоторые из них представляют данные, такие как числа, булевские
+значения, строки или контейнеры. Другие объекты рассматриваются как инструкции
+и подлежат исполнению — команды, процедуры, операторы. Однако в языке нет
+принципиальных различий между данными и инструкциями — любой объект может,
+в зависимости от ситуации, рассматриваться или как данные, или как инструкция.
+</para>
+
+<para>
+Интерпретатор читает текст программы, извлекая из него
+<firstterm>лексемы</firstterm><indexterm><primary>лексема</primary></indexterm>,
+также называемые
+<firstterm>токенами</firstterm><indexterm><primary>токен</primary></indexterm>.
+Часть интерпретатора, которая последовательно извлекает токены из текста
+программы, называется
+<firstterm>парсером</firstterm><indexterm><primary>парсер</primary></indexterm>.
+В большинстве случаев прочитанный токен преобразуется в объект, который
+немедленно исполняется. Результат исполнения объекта полностью определяется его
+<firstterm>типом</firstterm><indexterm><primary>тип</primary><secondary>объекта</secondary></indexterm>
+и его
+<firstterm>значением</firstterm><indexterm><primary>значение</primary><secondary>объекта</secondary></indexterm>.
+Особый вид токенов,
+<firstterm>комментарий</firstterm><indexterm><primary>комментарий</primary></indexterm>,
+игнорируется интерпретатором. Объекты некоторых типов не могут быть созданы
+из токенов, но они могут возникать как результат исполнения операторов.
+</para>
+
+<para>
+Для хранения данных во время исполнения программы интерпретатор имеет несколько
+<firstterm>стеков</firstterm>, которым посвящён раздел <xref
+linkend="PsyllaReference_Language_Stacks"/>.
+</para>
+
+</section>

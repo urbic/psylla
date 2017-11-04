@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_for">
+<title><token language="psylla">for</token></title>
+
+<synopsis>
+<replaceable>начальное</replaceable>
+<replaceable>инкремент</replaceable>
+<replaceable>предел</replaceable>
+<replaceable>объект</replaceable>
+<token language="psylla">for</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>начальное</replaceable>,
+<replaceable>инкремент</replaceable>,
+<replaceable>предел</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_realnumeric"/>
+</listitem>
+<listitem>
+<replaceable>объект</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">0 1 1 100 { add } for	▶ 5050</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exit"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_grep"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_loop"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_map"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_repeat"/>.
+</formalpara>
+
+
+</section>

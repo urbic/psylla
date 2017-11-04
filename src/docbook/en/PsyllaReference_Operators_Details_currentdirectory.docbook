@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_currentdirectory">
+<title><token language="psylla">currentdirectory</token></title>
+
+<para>
+Returns the <replaceable>name</replaceable> of the current directory.
+</para>
+
+<synopsis>
+—
+<token language="psylla">currentdirectory</token>
+<replaceable>name</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>name</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_files"/>.
+</formalpara>
+
+</section>

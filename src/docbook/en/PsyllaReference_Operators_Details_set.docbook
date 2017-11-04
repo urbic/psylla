@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_set">
+<title><token language="psylla">set</token></title>
+
+<para>
+Returns a new empty <replaceable>set</replaceable>.
+</para>
+
+<synopsis>
+—
+<token language="psylla">set</token>
+<replaceable>set</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>set</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_set"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">set	▶ ()</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_("/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_)"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_settomark"/>.
+</formalpara>
+
+</section>

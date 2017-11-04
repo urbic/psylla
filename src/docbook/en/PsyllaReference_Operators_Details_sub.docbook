@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_sub">
+<title><token language="psylla">sub</token></title>
+
+<para>
+Returns the <replaceable>difference</replaceable> of the
+<replaceable>minuend</replaceable> and <replaceable>subtrahend</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>minuend</replaceable>
+<replaceable>subtrahend</replaceable>
+<token language="psylla">sub</token>
+<replaceable>difference</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>minuend</replaceable>,
+<replaceable>subtrahend</replaceable>,
+<replaceable>difference</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_additive"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Если оба операнда имеют тип <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/>, и результат принадлежит
+диапазону <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/>, тип результата будет <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>. Если
+хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_real"/>, таким же будет тип результата.
+Если хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_complex"/>, таким же будет тип результата.
+</para>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_add"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mul"/>.
+</formalpara>
+
+</section>

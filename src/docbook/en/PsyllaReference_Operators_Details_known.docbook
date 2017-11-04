@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_known">
+<title><token language="psylla">known</token></title>
+
+<para>
+Returns <constant>true</constant>, if the <replaceable>key</replaceable>
+contains in the <replaceable>indexed</replaceable> container, and
+<constant>false</constant> otherwise.
+</para>
+
+<synopsis>
+<replaceable>indexed</replaceable>
+<replaceable>key</replaceable>
+<token language="psylla">known</token>
+<replaceable>result</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>indexed</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>key</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>result</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">&lt; /a 1 /b 2 /c 3 &gt;	/b known ▶ true
+&lt; /a 1 /b 2 /c 3 &gt; /x known ▶ false
+[ /x /y /z ] 1 known	▶ true
+[ /x /y /z ] 3 known	▶ false</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_load"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_where"/>.
+</formalpara>
+
+</section>

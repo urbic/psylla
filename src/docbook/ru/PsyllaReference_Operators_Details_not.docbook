@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_not">
+<title><token language="psylla">not</token></title>
+
+<para>
+Возвращает <replaceable>дополнение</replaceable>
+<replaceable>операнда</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>операнд</replaceable>
+<token language="psylla">not</token>
+<replaceable>дополнение</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>операнд</replaceable>,
+<replaceable>дополнение</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Для <replaceable>операндов</replaceable> типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/> вычисляется логическое
+<replaceable>дополнение</replaceable>. Для операнда типа <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>
+вычисляется побитовое <replaceable>дополнение</replaceable>.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">false not	▶ true
+true not	▶ false
+13 not		▶ -14</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_and"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_bitshift"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_xor"/>.
+</formalpara>
+
+</section>

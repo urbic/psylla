@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_prepend">
+<title><token language="psylla">prepend</token></title>
+
+<para>
+Inserts the <replaceable>object</replaceable> at the beginning of the
+<replaceable>container</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>container</replaceable>
+<replaceable>object</replaceable>
+<token language="psylla">prepend</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>container</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+</listitem>
+<listitem>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 2 ] dup 3 prepend	▶ [ 3 0 1 2 ]
+"abc" dup `d prepend	▶ "dabc"</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_append"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_appendall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_insert"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_insertall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_prependall"/>.
+</formalpara>
+
+</section>

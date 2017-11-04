@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_where">
+<title><token language="psylla">where</token></title>
+
+<para>
+Searches for a <replaceable>key</replaceable> in each dictionary on the
+dictionary stack, starting with the topmost one. If the
+<replaceable>key</replaceable> is found in some dictionary, returns that
+<replaceable>dictionary</replaceable> and <constant>true</constant>, otherwise
+returns <constant>false</constant>.
+</para>
+
+<synopsis>
+<replaceable>key</replaceable>
+<token language="psylla">where</token>
+<replaceable>dictionary</replaceable>
+<constant>true</constant>
+<sbr/>
+<replaceable>key</replaceable>
+<token language="psylla">where</token>
+<constant>false</constant>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>key</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>dictionary</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dictlike"/>
+</listitem>
+<listitem>
+<constant>false</constant>,
+<constant>true</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_currentdict"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_def"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_get"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_known"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_load"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_put"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_undef"/>.
+</formalpara>
+
+</section>

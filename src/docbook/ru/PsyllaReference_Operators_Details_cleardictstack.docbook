@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_cleardictstack">
+<title><token language="psylla">cleardictstack</token></title>
+
+<para>
+Удаляет все непостоянные словари из стека словарей.
+</para>
+
+<synopsis>
+—
+<token language="psylla">cleardictstack</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleErrors;
+нет.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_begin"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_countdictstack"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_end"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_where"/>.
+</formalpara>
+
+</section>

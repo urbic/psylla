@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_conjugate">
+<title><token language="psylla">conjugate</token></title>
+
+<para>
+Возвращает комплексно-<replaceable>сопряжённое</replaceable> для заданного
+комплексного <replaceable>числа</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>число</replaceable>
+<token language="psylla">conjugate</token>
+<replaceable>сопряжённое</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>число</replaceable>,
+<replaceable>сопряжённое</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">0 1 complex conjugate	▶ -complex:0.0,-1.0-</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_abs"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_arg"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_imagpart"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_realpart"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_signum"/>.
+</formalpara>
+
+</section>

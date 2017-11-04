@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_load">
+<title><token language="psylla">load</token></title>
+
+<para>
+Looks for the <replaceable>key</replaceable> in the dictionary stack and
+returns an associated <replaceable>object</replaceable>. The search is
+performed from the top to the bottom of the stack.
+</para>
+
+<synopsis>
+<replaceable>key</replaceable>
+<token language="psylla">load</token>
+<replaceable>object</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>key</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+</listitem>
+<listitem>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">/add load	▶ --add--</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/> —
+when the <replaceable>key</replaceable> is not found
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_currentdict"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_def"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_get"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_known"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_put"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_store"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_undef"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_where"/>.
+</formalpara>
+
+</section>

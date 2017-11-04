@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_pstack">
+<title><token language="psylla">pstack</token></title>
+
+<para>
+Выводит на стандартный вывод содержимое стека операндов.
+</para>
+
+<synopsis>
+—
+<token language="psylla">pstack</token>
+—
+</synopsis>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+</section>

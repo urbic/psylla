@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Language_MultipleContextExecution">
+<title>Многоконтекстное исполнение</title>
+
+<para>
+В языке Psylla имеется поддержка асинхронных <firstterm>контекстов
+исполнения</firstterm><indexterm><primary>контекст</primary>
+<secondary>исполнения</secondary></indexterm>. Контекст исполнения представляет
+собой отдельный интерпретатор.
+</para>
+
+<para>
+Каждый контекст создаёт для исполняющейся программы окружение, состоящее
+из стеков. Различные контексты делят между собой общий стек словарей. Остальные
+стеки (операндов, исполнения, служебные) являются частными и не видны
+за пределами своего контекста.
+</para>
+
+<para>
+Для исполнения программы создаётся главный контекст. Программа может создавать
+дополнительные контексты, исполняя оператор <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_fork"/>.
+</para>
+
+<section xml:id="PsyllaReference_Language_MultipleContextExecution_Operators">
+<title>Операторы для работы с контекстами</title>
+
+<para>
+Оператор <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_fork"/> возвращает новый контекст. Один
+из операндов <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_fork"/> — это процедура, вызываемая
+в новом контексте, а остальные инициализируют стек операндов нового контекста.
+</para>
+
+<para>
+Оператор <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_join"/> ожидает завершения процедуры
+в контексте, ранее созданом оператором <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_fork"/>, а затем копирует содержимое
+стека операндов этого контекста в стек операндов контекста, вызвавшего <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_join"/>.
+</para>
+
+<para>
+Контекст
+<firstterm>приостанавливается</firstterm><indexterm><primary>контекст</primary><secondary>приостановка</secondary></indexterm>
+по завершении исполняющейся в нём процедуры, ожидая оператора <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_join"/>. Кроме
+того, приостановка контекста происходит в результате исполнения в нём
+операторов <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_wait"/>, <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_monitor"/>, <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_yield"/> и
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sleep"/>.
+</para>
+
+<para>
+Оператор <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_currentcontext"/> возвращает текущий
+контекст исполнения.
+</para>
+
+<para>
+Контекст
+<firstterm>завершается</firstterm><indexterm><primary>контекст</primary><secondary>завершение</secondary></indexterm>
+при исполнении в нём оператора <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_quit"/>.
+</para>
+
+</section>
+
+<section xml:id="PsyllaReference_Language_MultipleContextExecution_Synchronization">
+<title>Синхронизация контекстов</title>
+
+<para>
+Поскольку контексты исполнения разделяют общие данные в стеке словарей, они
+нуждаются в механизме синхронизации. В языке имеется два типа объектов
+синхронизации и несколько операторов для работы с ними.
+</para>
+
+<para>
+<firstterm>Замок</firstterm><indexterm><primary>замок</primary></indexterm>
+представляет собой семафор для взаимного исключения. Контексты могут
+использовать замки для предотвращения конкурентного доступа к общим для них
+данным. Перед доступом к данным контекст запрашивает блокировку, которую
+впоследствии освобождает. Всё время, пока действует блокировка, другие
+контексты не могут запросить блокировку, и в результате не получают доступа
+к данным, находящимся, возможно, в непоследовательном состоянии.
+</para>
+
+</section>
+
+</section>

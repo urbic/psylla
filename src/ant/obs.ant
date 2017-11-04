@@ -3,6 +3,8 @@
 
 	<property name="obs.package.name" value="${project.name}"/>
 	<property name="obs.package.version" value="${project.version}"/>
+	<property name="obs.package.summary" value="${project.summary}"/>
+	<property name="obs.package.description" value="${project.description}"/>
 	<property name="obs.build.distro" value="openSUSE_Leap_42.2"/>
 	<property name="obs.build.arch" value="x86_64"/>
 	<property name="obs.build.project" value="home:concyclic"/>
@@ -35,17 +37,42 @@
 		depends="dist.tar"
 		>
 		<mkdir dir="${target.obs}"/>
-		<copy todir="${target.obs}" filtering="true" overwrite="yes">
+		<!--copy todir="${target.obs}" filtering="true" overwrite="yes">
 			<fileset dir="${src.obs}"/>
 			<filterset>
 				<propertyset>
 					<propertyref name="obs.package.name"/>
 					<propertyref name="obs.package.version"/>
+					<propertyref name="obs.package.summary"/>
+					<propertyref name="obs.package.description"/>
+				</propertyset>
+			</filterset>
+		</copy-->
+		<copy todir="${target.obs}" overwrite="yes">
+			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
+		</copy>
+		<copy todir="${target.obs}" filtering="true" overwrite="yes">
+			<fileset dir="${src.obs}" includes="${project.name}.*"/>
+			<filterset>
+				<propertyset>
+					<propertyref name="obs.package.name"/>
+					<propertyref name="obs.package.version"/>
+					<propertyref name="obs.package.summary"/>
+					<propertyref name="obs.package.description"/>
 				</propertyset>
 			</filterset>
 		</copy>
-		<copy todir="${target.obs}" overwrite="yes">
-			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
+		<copy todir="${target.obs}" filtering="true" overwrite="yes">
+			<fileset dir="${src.obs}/debian" includes="*"/>
+			<mapper type="glob" from="*" to="debian.*"/>
+			<filterset>
+				<propertyset>
+					<propertyref name="obs.package.name"/>
+					<propertyref name="obs.package.version"/>
+					<propertyref name="obs.package.summary"/>
+					<propertyref name="obs.package.description"/>
+				</propertyset>
+			</filterset>
 		</copy>
 	</target>
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_boolean">
+<title><type>boolean</type></title>
+
+<para>
+Объекты этого типа служат операндами для булевских операций, таких как
+дизъюнкция, конъюнкция, отрицание и исключающая дизъюнкция. Имеется дишь два
+объекта данного типа: <constant>false</constant> и <constant>true</constant>.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="common/PsyllaTypesHierarchy_boolean.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

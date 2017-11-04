@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsyllaReference_Development">
+<title>Разработка</title>
+
+<section xml:id="PsyllaReference_Development_Extension">
+<title>Расширение</title>
+
+<para>
+Расширения языка производится посредством добавления новых операторов и
+создания новых типов.
+</para>
+
+<section xml:id="PsyllaReference_Development_Extension_NewOperators">
+<title>Добавление новых операторов</title>
+
+<para>
+Новый оператор реализуется как подкласс класса
+<classname>coneforest.psylla.core.PsyOperator</classname>. В классе оператора следует
+переопределить метод <methodname
+xlink:href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(coneforest.psylla.Interpreter)">invoke(coneforest.psylla.Interpreter)</methodname>.
+Этот метод получает интерпретатор как параметр и выполняет требуемое действие,
+нужным образом манипулируя с интерпретатором.
+</para>
+
+<para>
+По умолчанию имя оператора выводится из имени его класса. Встроенные операторы
+Ψ определены в классах, чьё имя начинается со знака подчёркивания, за которым
+следует имя оператора. К примеру, оператор <token language="psylla">dup</token>
+определён в классе <classname
+xlink:href="../../javadoc/coneforest/psylla/core/_dup.html">coneforest.psylla.systemdict._dup</classname>.
+Метод <methodname
+xlink:href="../../javadoc/coneforest/psylla/core/PsyOperator.html#getName()">coneforest.psylla.core.PsyOperator.getName()</methodname>
+возвращает имя класса с удалённым первым символом. Иная схема наименования
+классов потребует переопределения этого метода.
+</para>
+
+</section>
+
+<section xml:id="PsyllaReference_Development_Extension_External">
+<title>Загрузка объектов расширения</title>
+
+<para>
+Объект, определённый во внешнем классе, может быть загружен на стек операндов
+оператором <token language="psylla">external</token>. Операндом этого оператора
+должно быть двоичное имя класса, представленное как строка или имя.
+</para>
+
+<para>
+В разделе <xref
+linkend="PsyllaReference_Development_Extension_ExampleRomanNumerals"/> создаются
+новые операторы для преобразования чисел в римскую запись и наоборот. Оператор
+<token language="psylla">toroman</token> определяется в классе<sbr/>
+<classname>coneforest.psylla.extensions.romannumerals.PsyRomanNumerals._toroman</classname>.
+Для вызова этого оператора потребуется код
+
+<programlisting language="psylla">1987
+/coneforest.psylla.extensions.romannumerals.PsyRomanNumerals$_toroman external
+exec	# ⇒ "MCMLXXXVII"</programlisting>
+
+</para>
+
+<para>
+Для многократного использования внешних операторов нужно дать им имена:
+
+<programlisting language="psylla">/toroman /coneforest.psylla.extensions.romannumerals.PsyRomanNumerals$_toroman external def
+/fromroman /coneforest.psylla.extensions.romannumerals.PsyRomanNumerals$_fromroman external def
+
+1987 toroman ?		# ⇒ "MCMLXXXVII"
+/LIV fromroman ?	# ⇒ 54</programlisting>
+
+</para>
+
+<para>
+Оператор <token language="psylla">external</token> использует загрузчик классов
+<token language="psylla">classpath</token>, реализованный как массив строковых
+объектов. Элементы массива интерпретируются как элементы пути поиска классов.
+Элементы могут добавляться или удаляться во время исполнения программы.
+Загрузчик выполняет поиск классов сначала с помощью системного загрузчика Java,
+а затем ищет класс, принимая во внимание пути, заданные в массиве.
+Массив-загрузчик <token language="psylla">classpath</token> изначально заполнен
+элементами, заданными как параметр <option>--classpath</option> в командной
+строке. Если параметр не задан, массив пуст.
+</para>
+
+</section>
+
+<section xml:id="PsyllaReference_Development_Extension_LibraryModules">
+<title>Библиотечные модули</title>
+
+</section>
+
+<section xml:id="PsyllaReference_Development_Extension_ExampleRomanNumerals">
+<title>Пример: римская числовая нотация</title>
+
+<para>
+В данном примере мы создаём словарь с двумя новыми операторами. Оператор <token
+language="psylla">toroman</token> преобразует целое число к строке, содержащей
+римскую запись. Оператор <token language="psylla">fromroman</token>, наоборот,
+преобразует строку с римской записью в числовую форму.
+</para>
+
+<programlisting language="java"><textobject><textdata
+fileref="src/main/java/coneforest/psylla/extensions/romannumerals/PsyRomanNumerals.java"/></textobject></programlisting>
+
+</section>
+
+</section>
+
+<section xml:id="PsyllaReference_Development_Embedding">
+<title>Встраивание</title>
+
+</section>
+
+
+</chapter>
