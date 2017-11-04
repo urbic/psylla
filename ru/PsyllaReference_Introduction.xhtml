@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><title>Введение</title><link rel="stylesheet" type="text/css" href="../common/PsyllaReference.css"/><link rev="made" href="${xslt.link.mailto.url}"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="PsyllaReference.xhtml" title="Язык Psylla — полное руководство"/><link rel="up" href="PsyllaReference.xhtml" title="Язык Psylla — полное руководство"/><link rel="prev" href="PsyllaReference.xhtml" title="Язык Psylla — полное руководство"/><link rel="next" href="PsyllaReference_Interpreter.xhtml" title="Глава 1. Интерпретатор"/><link rel="preface" href="PsyllaReference_Introduction.xhtml" title="Введение"/><link rel="chapter" href="PsyllaReference_Interpreter.xhtml" title="Глава 1. Интерпретатор"/><link rel="chapter" href="PsyllaReference_Language.xhtml" title="Глава 2. Язык"/><link rel="chapter" href="PsyllaReference_Types.xhtml" title="Глава 3. Типы"/><link rel="chapter" href="PsyllaReference_Operators.xhtml" title="Глава 4. Операторы"/><link rel="chapter" href="PsyllaReference_Errors.xhtml" title="Глава 5. Ошибки"/><link rel="chapter" href="PsyllaReference_Development.xhtml" title="Глава 6. Разработка"/><link rel="index" href="PsyllaReference_Index.xhtml" title="Предметный указатель"/><link rel="section" href="PsyllaReference_Introduction.xhtml#PsyllaReference_Introduction_CopyrightAndLicense" title="1. Копирайт и лицензия"/><link rel="section" href="PsyllaReference_Introduction.xhtml#PsyllaReference_Introduction_AboutThisReference" title="2. Об этом руководстве"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="shortcut icon" href="../psylla-16.png" type="image/png"/><link rel="author" href="https://plus.google.com/113215332542811715537?rel=author"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Введение</th></tr><tr><td align="left"><a accesskey="p" href="PsyllaReference.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><th width="60%" align="center"> </th><td align="right"> <a accesskey="n" href="PsyllaReference_Interpreter.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr></table></div><div class="preface"><div class="titlepage"><div><div><h1 class="title"><a id="PsyllaReference_Introduction"/>Введение</h1></div></div></div><div class="toc"><div class="toc-title">Содержание</div><dl class="toc"><dt><span class="section"><a href="PsyllaReference_Introduction.xhtml#PsyllaReference_Introduction_CopyrightAndLicense">1. Копирайт и лицензия</a></span></dt><dt><span class="section"><a href="PsyllaReference_Introduction.xhtml#PsyllaReference_Introduction_AboutThisReference">2. Об этом руководстве</a></span></dt></dl></div><p>
+Psylla — это интерпретируемый скриптовый алгоритмический язык, синтаксис которого
+похож на PostScript®.
+</p><p>
+Интерпретатор Psylla запрограммирован на Java. Предусмотрена возможность
+расширения языка как новыми операторами, так и новыми типами, а также
+встраивания интерпретатора в приложения Java.
+</p><p>
+Это руководство описывает Psylla v0.10.0.
+</p><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Introduction_CopyrightAndLicense"/>1. Копирайт и лицензия</h2></div></div></div><p>
+Программное обеспечение Psylla и настоящая документация выпускаются под
+лицензией <a class="link" href="http://opensource.org/licenses/Zlib">zlib/libpng</a>, текст
+которой приводится ниже:
+
+</p><div class="literallayout"><p>zlib License<br/>
+<br/>
+© 2014 Anton Shvetz<br/>
+<br/>
+This software is provided ‘as-is’, without any express or implied warranty.<br/>
+In no event will the authors be held liable for any damages arising from<br/>
+the use of this software.<br/>
+<br/>
+Permission is granted to anyone to use this software for any purpose, including<br/>
+commercial applications, and to alter it and redistribute it freely, subject<br/>
+to the following restrictions:<br/>
+<br/>
+1.	The origin of this software must not be misrepresented; you must not claim<br/>
+	that you wrote the original software. If you use this software in a product,<br/>
+	an acknowledgment in the product documentation would be appreciated<br/>
+	but is not required.<br/>
+<br/>
+2.	Altered source versions must be plainly marked as such, and must not be<br/>
+	misrepresented as being the original software.<br/>
+<br/>
+3.	This notice may not be removed or altered from any source distribution.</p></div><p>
+
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Introduction_AboutThisReference"/>2. Об этом руководстве</h2></div></div></div><p>
+Это руководство также доступно на <a class="link" href="../en/PsyllaReference.xhtml">английском</a> языке.
+</p><p>
+Это руководство основано на книгах <a class="link" href="https://www.adobe.com/products/postscript/pdfs/PLRM.pdf">PostScript®
+Language Reference (third edition)</a> и <a class="link" href="http://partners.adobe.com/public/developer/en/ps/psrefman.pdf">PostScript
+Language Reference Manual (second edition)</a>. Структура руководства,
+описание языка, операторов во многом позаимствовано из этих источников. Мы
+выражаем благодарность писателям из Adobe Systems Incorporated за прекрасные
+книги.
+</p></div></div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td align="left"><a accesskey="p" href="PsyllaReference.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><td align="center"> </td><td align="right"> <a accesskey="n" href="PsyllaReference_Interpreter.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr><tr><td align="left" valign="top">Язык Psylla — полное руководство </td><td align="center"><a accesskey="h" href="PsyllaReference.xhtml"><img src="../navigation/home.svg" alt="Начало"/></a></td><td align="right" valign="top"> Глава 1. Интерпретатор</td></tr></table></div></body></html>

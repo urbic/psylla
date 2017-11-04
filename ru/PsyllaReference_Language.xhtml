@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru"><head><title>Глава 2. Язык</title><link rel="stylesheet" type="text/css" href="../common/PsyllaReference.css"/><link rev="made" href="${xslt.link.mailto.url}"/><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"/><link rel="home" href="PsyllaReference.xhtml" title="Язык Psylla — полное руководство"/><link rel="up" href="PsyllaReference.xhtml" title="Язык Psylla — полное руководство"/><link rel="prev" href="PsyllaReference_Interpreter.xhtml" title="Глава 1. Интерпретатор"/><link rel="next" href="PsyllaReference_Types.xhtml" title="Глава 3. Типы"/><link rel="preface" href="PsyllaReference_Introduction.xhtml" title="Введение"/><link rel="chapter" href="PsyllaReference_Interpreter.xhtml" title="Глава 1. Интерпретатор"/><link rel="chapter" href="PsyllaReference_Language.xhtml" title="Глава 2. Язык"/><link rel="chapter" href="PsyllaReference_Types.xhtml" title="Глава 3. Типы"/><link rel="chapter" href="PsyllaReference_Operators.xhtml" title="Глава 4. Операторы"/><link rel="chapter" href="PsyllaReference_Errors.xhtml" title="Глава 5. Ошибки"/><link rel="chapter" href="PsyllaReference_Development.xhtml" title="Глава 6. Разработка"/><link rel="index" href="PsyllaReference_Index.xhtml" title="Предметный указатель"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Interpreter" title="2.1. Интерпретатор"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax" title="2.2. Синтаксис"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes" title="2.3. Основные типы"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Stacks" title="2.4. Стеки"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_ObjectExecution" title="2.5. Исполнение объектов"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_EarlyNameBinding" title="2.6. Раннее связывание имён"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_IO" title="2.7. Ввод/вывод"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_MultipleContextExecution" title="2.8. Многоконтекстное исполнение"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Errors" title="2.9. Ошибки"/><link rel="section" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar" title="2.10. Грамматика"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="shortcut icon" href="../psylla-16.png" type="image/png"/><link rel="author" href="https://plus.google.com/113215332542811715537?rel=author"/></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Глава 2. Язык</th></tr><tr><td align="left"><a accesskey="p" href="PsyllaReference_Interpreter.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><th width="60%" align="center"> </th><td align="right"> <a accesskey="n" href="PsyllaReference_Types.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr></table></div><div class="chapter"><div class="titlepage"><div><div><h1 class="title"><a id="PsyllaReference_Language"/>Глава 2. Язык</h1></div></div></div><div class="toc"><div class="toc-title">Содержание</div><dl class="toc"><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Interpreter">2.1. Интерпретатор</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax">2.2. Синтаксис</a></span></dt><dd><dl><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax_Comments">2.2.1. Комментарии</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax_Numbers">2.2.2. Числа</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax_Strings">2.2.3. Строки</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax_Names">2.2.4. Имена</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax_Commands">2.2.5. Команды</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax_Procedures">2.2.6. Процедуры</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Syntax_RegExps">2.2.7. Регулярные выражения</a></span></dt></dl></dd><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes">2.3. Основные типы</a></span></dt><dd><dl><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Operators">2.3.1. Операторы</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Numbers">2.3.2. Числа</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Booleans">2.3.3. Булевские значения</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Marks">2.3.4. Метки</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Nulls">2.3.5. Пустой объект</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Names">2.3.6. Имена</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Commands">2.3.7. Команды</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Arrays">2.3.8. Массивы</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Procedures">2.3.9. Процедуры</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Strings">2.3.10. Строки</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_Dictionaries">2.3.11. Словари</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_CoreTypes_RegExps">2.3.12. Регулярные выражения</a></span></dt></dl></dd><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Stacks">2.4. Стеки</a></span></dt><dd><dl><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Stacks_OperandStack">2.4.1. Стек операндов</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Stacks_DictionaryStack">2.4.2. Стек словарей</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Stacks_ExecutionStack">2.4.3. Стек исполнения</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Stacks_Auxiliary">2.4.4. Служебные стеки</a></span></dt></dl></dd><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_ObjectExecution">2.5. Исполнение объектов</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_EarlyNameBinding">2.6. Раннее связывание имён</a></span></dt><dd><dl><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_EarlyNameBinding_BindOperator">2.6.1. Оператор <code class="token"><span class="hl-keyword">bind</span></code></a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_EarlyNameBinding_Immediate">2.6.2. Немедленные имена</a></span></dt></dl></dd><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_IO">2.7. Ввод/вывод</a></span></dt><dd><dl><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_IO_BasicOperators">2.7.1. Основные операторы ввода/вывода</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_IO_Standard">2.7.2. Стандартные ввод и вывод</a></span></dt></dl></dd><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_MultipleContextExecution">2.8. Многоконтекстное исполнение</a></span></dt><dd><dl><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_MultipleContextExecution_Operators">2.8.1. Операторы для работы с контекстами</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_MultipleContextExecution_Synchronization">2.8.2. Синхронизация контекстов</a></span></dt></dl></dd><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Errors">2.9. Ошибки</a></span></dt><dt><span class="section"><a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar">2.10. Грамматика</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_Interpreter"/>2.1. Интерпретатор</h2></div></div></div><p>
+Интерпретатор работает с так называемыми
+<em class="firstterm">объектами</em><a id="d0e262" class="indexterm"/>
+языка Ψ. Некоторые из них представляют данные, такие как числа, булевские
+значения, строки или контейнеры. Другие объекты рассматриваются как инструкции
+и подлежат исполнению — команды, процедуры, операторы. Однако в языке нет
+принципиальных различий между данными и инструкциями — любой объект может,
+в зависимости от ситуации, рассматриваться или как данные, или как инструкция.
+</p><p>
+Интерпретатор читает текст программы, извлекая из него
+<em class="firstterm">лексемы</em><a id="d0e270" class="indexterm"/>,
+также называемые
+<em class="firstterm">токенами</em><a id="d0e276" class="indexterm"/>.
+Часть интерпретатора, которая последовательно извлекает токены из текста
+программы, называется
+<em class="firstterm">парсером</em><a id="d0e282" class="indexterm"/>.
+В большинстве случаев прочитанный токен преобразуется в объект, который
+немедленно исполняется. Результат исполнения объекта полностью определяется его
+<em class="firstterm">типом</em><a id="d0e288" class="indexterm"/>
+и его
+<em class="firstterm">значением</em><a id="d0e296" class="indexterm"/>.
+Особый вид токенов,
+<em class="firstterm">комментарий</em><a id="d0e304" class="indexterm"/>,
+игнорируется интерпретатором. Объекты некоторых типов не могут быть созданы
+из токенов, но они могут возникать как результат исполнения операторов.
+</p><p>
+Для хранения данных во время исполнения программы интерпретатор имеет несколько
+<em class="firstterm">стеков</em>, которым посвящён раздел <a class="xref" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Stacks" title="2.4. Стеки">2.4. «Стеки»</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_Syntax"/>2.2. Синтаксис</h2></div></div></div><p>
+В этом разделе описаны доступные в языке Psylla типы литералов: комментарии,
+числа, строки, имена, команды, процедуры и регулярные выражения. Лишь немногие
+типы языка имеют литеральное представление. Объекты большинства типов могут
+быть созданы лишь операторами либо доступны под именами в системном словаре.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Syntax_Comments"/>2.2.1. Комментарии</h3></div></div></div><p>
+<em class="firstterm">Комментарии</em> — часть текста программы, игнорируемой
+парсером. В языке Psylla предусмотрено два типа комментариев — однострочные и
+многострочные.
+</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_Syntax_Comments_OneLine"/>2.2.1.1. Однострочные комментарии</h4></div></div></div><p>
+Символ <code class="literal">#</code> вне строкового литерала или регулярного выражения
+начинает <em class="firstterm">однострочный
+комментарий</em><a id="d0e338" class="indexterm"/>.
+Он состоит из символов, следующих после <code class="literal">#</code> вплоть до символа
+конца строки.
+
+</p><pre class="programlisting"><span class="hl-comment"># Это однострочный комментарий</span></pre><p>
+
+</p><p>
+Однострочный комментарий, начинающийся с символов <code class="literal">#!</code> в первой строке программы
+в юниксоподобных операционных системах играет роль
+<em class="firstterm">шебанга</em><a id="d0e357" class="indexterm"/>.
+К примеру, программа, начинающаяся со строки
+
+</p><pre class="programlisting"><span class="hl-sharpBang">#!/usr/bin/psylla</span></pre><p>
+
+и помещённая в исполняемый файл, будет исполняться интерпретатором
+<span class="command"><strong>/usr/bin/psylla</strong></span>.
+
+</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_Syntax_Comments_MultiLine"/>2.2.1.2. Многострочные комментарии</h4></div></div></div><p>
+Символы <code class="literal">/#</code> вне строкового литерала или регулярного выражения
+служат началом <em class="firstterm">многострочного
+комментария</em><a id="d0e377" class="indexterm"/>,
+продолжающегося до ближайших символов <code class="literal">#/</code>. Вложение
+многострочных комментариев друг в друга не допускается.
+
+</p><pre class="programlisting"><span class="hl-comment">/#
+Это многострочный
+комментарий
+#/</span></pre><p>
+
+</p></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Syntax_Numbers"/>2.2.2. Числа</h3></div></div></div><p>
+В языке Psylla имеются несколько типов числовых литералов:
+
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+Целые десятичные числа, как
+</p><pre class="programlisting"><span class="hl-number">720</span>
+<span class="hl-number">-13</span>
+<span class="hl-number">0</span>
+<span class="hl-number">+504</span></pre><p>
+</p></li><li class="listitem"><p>
+Шестнадцатеричные целые числа, как
+</p><pre class="programlisting"><span class="hl-number">0x13AF</span>
+<span class="hl-number">-0X31123e4</span></pre><p>
+</p></li><li class="listitem"><p>
+Двоичные целые числа, как
+</p><pre class="programlisting"><span class="hl-number">0b101110101</span>
+<span class="hl-number">-0B111010</span></pre><p>
+</p></li><li class="listitem"><p>
+Целые числа представленные символами, как
+</p><pre class="programlisting"><span class="hl-number">`X</span>
+<span class="hl-number">`\n</span></pre><p>
+</p></li><li class="listitem"><p>
+Вещественные числа, как
+</p><pre class="programlisting"><span class="hl-number">-.5</span>
+<span class="hl-number">1.</span>
+<span class="hl-number">-1.0</span>
+<span class="hl-number">1e5</span>
+<span class="hl-number">7.673E-3</span></pre><p>
+</p></li></ul></div><p>
+
+</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_Syntax_Numbers_Decimal"/>2.2.2.1. Десятичные литералы</h4></div></div></div><p>
+<em class="firstterm">Десятичные
+литералы</em><a id="d0e433" class="indexterm"/>
+состоят из десятичных цифр. Кроме того, они могут содержать единственную
+десятичную точку <code class="literal">.</code> и начинаться с необязательного знака
+<code class="literal">+</code> или <code class="literal">-</code>.
+</p><p>
+Литералы, не содержащие десятичной точки, обычно приводят к созданию
+целочисленного объекта. В случае, если обозначаемое число выходит за границы
+допустимых значений целых чисел, создаётся вещественный объект.
+</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_Syntax_Numbers_Hexadecimal"/>2.2.2.2. Шестнадцатеричные литералы</h4></div></div></div><p>
+<em class="firstterm">Шестнадцатеричные
+литералы</em><a id="d0e457" class="indexterm"/>
+начинаются с необязательного знака <code class="literal">+</code> или
+<code class="literal">-</code>, символов <code class="literal">0X</code> или <code class="literal">0x</code>
+и завершаются произвольным количеством шестнадцатеричных цифр
+<code class="literal">0</code>‥<code class="literal">9</code> и
+<code class="literal">A</code>‥<code class="literal">F</code> или
+<code class="literal">a</code>‥<code class="literal">f</code>.
+</p></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_Syntax_Numbers_Binary"/>2.2.2.3. Двоичные литералы</h4></div></div></div><p>
+<em class="firstterm">Двоичные
+литералы</em><a id="d0e500" class="indexterm"/>
+начинаются с необязательного знака <code class="literal">+</code> или
+<code class="literal">-</code>, символов <code class="literal">0B</code> или <code class="literal">0b</code>
+и завершаются произвольным количеством двоичных цифр <code class="literal">0</code> или
+<code class="literal">1</code>.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Syntax_Strings"/>2.2.3. Строки</h3></div></div></div><p>
+Строковые литералы заключаются в двойные кавычки (<code class="literal">"</code>,
+<code class="constant">U+22</code>). Бэкслэш (<code class="literal">\</code>,
+<code class="constant">U+5C</code>) между кавычками имеет особый смысл, определяемый
+следующим за ним символом.
+
+</p><div class="informaltable"><table style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\0</code></td><td style="border-bottom: 0.5pt solid ; ">нулевой символ, <code class="constant">U+0</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\a</code></td><td style="border-bottom: 0.5pt solid ; ">символ гудка, <code class="constant">U+7</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\t</code></td><td style="border-bottom: 0.5pt solid ; ">символ табуляции, <code class="constant">U+9</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\n</code></td><td style="border-bottom: 0.5pt solid ; ">символ конца строки, <code class="constant">U+A</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\f</code></td><td style="border-bottom: 0.5pt solid ; ">символ конца страницы, <code class="constant">U+C</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\r</code></td><td style="border-bottom: 0.5pt solid ; ">символ возврата каретки, <code class="constant">U+D</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\e</code></td><td style="border-bottom: 0.5pt solid ; ">символ escape, <code class="constant">U+1B</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\"</code></td><td style="border-bottom: 0.5pt solid ; ">символ двойной кавычки <code class="literal">"</code>, <code class="constant">U+22</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\\</code></td><td style="border-bottom: 0.5pt solid ; ">символ бэкслэш <code class="literal">\</code>, <code class="constant">U+5C</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\u<em class="replaceable"><code>XXXX</code></em></code></td><td style="border-bottom: 0.5pt solid ; ">кодовая единица Unicode <code class="constant">U+<em class="replaceable"><code>XXXX</code></em></code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\x{<em class="replaceable"><code>XXXXXXXX</code></em>}</code></td><td style="border-bottom: 0.5pt solid ; ">кодовая точка Unicode <code class="constant">U+<em class="replaceable"><code>XXXXXXXX</code></em></code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\N{<em class="replaceable"><code>name</code></em>}</code></td><td style="border-bottom: 0.5pt solid ; ">символ Unicode с именем <em class="replaceable"><code>name</code></em> <em><span class="remark">(не реализовано)</span></em></td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\c<em class="replaceable"><code>C</code></em></code></td><td style="">для символов <em class="replaceable"><code>C</code></em> из
+диапазона <code class="constant">U+0‥3F</code> прибавляет к коду 64, для символов
+<code class="constant">U+40‥7F</code> вычитает 64 из кода</td></tr></tbody></table></div><p>
+
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Syntax_Names"/>2.2.4. Имена</h3></div></div></div><p>
+<em class="firstterm">Имена</em><a id="d0e690" class="indexterm"/>
+состоят из букв от <code class="literal">A</code> до <code class="literal">Z</code> и
+от <code class="literal">a</code> до <code class="literal">z</code> (<code class="constant">U+41‥5A</code>,
+<code class="constant">U+61‥7A</code>), десятичных цифр (<code class="constant">U+30‥39</code>),
+символов <code class="literal">_</code> (<code class="constant">U+5F</code>),
+<code class="literal">.</code> (<code class="constant">U+2E</code>),
+<code class="literal">+</code> (<code class="constant">U+2B</code>),
+<code class="literal">-</code> (<code class="constant">U+2D</code>),
+<code class="literal">=</code> (<code class="constant">U+3D</code>),
+<code class="literal">$</code> (<code class="constant">U+24</code>) и не начинаются с десятичной
+цифры. Имени предшествует символ
+<code class="literal">/</code> (<code class="constant">U+2F</code>).
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Syntax_Commands"/>2.2.5. Команды</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Syntax_Procedures"/>2.2.6. Процедуры</h3></div></div></div><p>
+Символы фигурных скобок (<code class="literal">{</code>, <code class="constant">U+7B</code> и
+<code class="literal">}</code>, <code class="constant">U+7D</code>) используются для создания
+<em class="firstterm">процедур</em><a id="d0e783" class="indexterm"/>.
+</p><p>
+Когда парсер встречает символ <code class="literal">{</code>, он продолжает сканировать и
+создавать объекты, однако интерпретатор их не исполняет. Когда парсер встречает
+<code class="literal">}</code>, он помещает все объекты, созданные после обнаружения
+<code class="literal">{</code>, в новый объект-процедуру. Таким образом, интерпретация
+фрагмента программы
+
+</p><pre class="programlisting">{ <span class="hl-number">1</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">div</span> }</pre><p>
+
+приводит к созданию объекта процедуры, которая содержит целочисленный объект
+<code class="code"><span class="hl-number">1</span></code> и два объекта-команды <code class="code"><span class="hl-keyword">exch</span></code> и <code class="code"><span class="hl-keyword">div</span></code>.
+</p><p>
+Интерпретатор не исполняет процедуру; вместо этого он загружает её на стек
+операндов. Процедура будет исполнена лишь при её вызове. Исполнение процедуры
+(и всех составляющих её объектов)
+<em class="firstterm">отложенное</em><a id="d0e814" class="indexterm"/>.
+Смысл отложенного исполнения объясняется в разделе <a class="xref" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_ObjectExecution" title="2.5. Исполнение объектов">2.5. «Исполнение объектов»</a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Syntax_RegExps"/>2.2.7. Регулярные выражения</h3></div></div></div><p>
+Литералы <em class="firstterm">регулярных
+выражений</em><a id="d0e829" class="indexterm"/> заключаются между символами тильды
+(<code class="literal">~</code>, <code class="constant">U+7E</code>). Бэкслэш
+(<code class="literal">\</code>, <code class="constant">U+5C</code>) между ограничивающими
+тильдами имеет особый смысл, определяемый следующим за ним символом.
+</p><p>
+Сами регулярные выражения должны подчиняться определённым правилам.
+</p><p>
+Несколько примеров:
+
+</p><pre class="programlisting"><span class="hl-string">~([aeiou])\1~</span>
+<span class="hl-string">~[\+\-]?\d+~</span>
+</pre><p>
+
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_CoreTypes"/>2.3. Основные типы</h2></div></div></div><p>
+Все данные в языке Psylla существуют в форме
+<em class="firstterm">объектов</em><a id="d0e859" class="indexterm"/>.
+Большинство объектов создаётся и обрабатывается операторами Psylla. Некоторые
+типы объектов также создаются парсером и исполняются интерпретатором.
+</p><p>
+Каждый объект принадлежит некоторому
+<em class="firstterm">типу</em><a id="d0e867" class="indexterm"/>. Тип
+объекта влияет на то, как тот будет обрабатываться операторами. Типы
+подразделяются
+на <em class="firstterm">простые</em><a id="d0e873" class="indexterm"/>
+и
+<em class="firstterm">сложные</em><a id="d0e881" class="indexterm"/>.
+</p><p>
+Объекты простых типов не могут быть изменены, они лишь создаются в результате
+вычислений. Например, оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_neg" title="4.2.151. neg"><code class="token"><span class="hl-keyword">neg</span></code></a> не изменяет знак у самого числа,
+а создаёт новый числовой объект, отличающийся знаком от исходного.
+</p><p>
+Объекты сложных типов могут изменять своё состояние. К примеру, оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_put" title="4.2.169. put"><code class="token"><span class="hl-keyword">put</span></code></a> заменяет
+элемент массива, имеющий заданный индекс.
+</p><p>
+Ниже приводится сводка простых и сложных типов, составляющих ядро языка Psylla.
+Расширения языка могут вводить новые типы объектов.
+</p><div class="informaltable"><table width="100%" style="border: none;"><colgroup><col width="50%"/><col width="50%"/></colgroup><tbody valign="top"><tr><td style="" valign="top">
+<div class="itemizedlist"><div class="itemizedlist-title">Простые типы</div><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_biginteger" title="3.1.7. biginteger"><span class="type">biginteger</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_boolean" title="3.1.12. boolean"><span class="type">boolean</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_command" title="3.1.16. command"><span class="type">command</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_complex" title="3.1.17. complex"><span class="type">complex</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_integer" title="3.1.33. integer"><span class="type">integer</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_mark" title="3.1.38. mark"><span class="type">mark</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_name" title="3.1.40. name"><span class="type">name</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_null" title="3.1.42. null"><span class="type">null</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_operator" title="3.1.45. operator"><span class="type">operator</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_real" title="3.1.52. real"><span class="type">real</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_regexp" title="3.1.54. regexp"><span class="type">regexp</span></a></li></ul></div>
+</td><td style="" valign="top">
+<div class="itemizedlist"><div class="itemizedlist-title">Сложные типы</div><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_array" title="3.1.4. array"><span class="type">array</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_bitarray" title="3.1.8. bitarray"><span class="type">bitarray</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_bitset" title="3.1.9. bitset"><span class="type">bitset</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_dict" title="3.1.25. dict"><span class="type">dict</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_input" title="3.1.32. input"><span class="type">input</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_lock" title="3.1.36. lock"><span class="type">lock</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_matcher" title="3.1.39. matcher"><span class="type">matcher</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_output" title="3.1.46. output"><span class="type">output</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_proc" title="3.1.47. proc"><span class="type">proc</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_random" title="3.1.49. random"><span class="type">random</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_reader" title="3.1.51. reader"><span class="type">reader</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_set" title="3.1.57. set"><span class="type">set</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_string" title="3.1.59. string"><span class="type">string</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_writer" title="3.1.65. writer"><span class="type">writer</span></a></li></ul></div>
+</td></tr></tbody></table></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Operators"/>2.3.1. Операторы</h3></div></div></div><p>
+<em class="firstterm">Оператор</em><a id="d0e970" class="indexterm"/>
+в языке Psylla представляет код, манипулирующий интерпретатором.
+Объекты-операторы имеют тип <a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_operator" title="3.1.45. operator"><span class="type">operator</span></a>. Все
+основные операторы изначально размещены в системном словаре и доступны по их
+именам. Операторы не могут быть созданы или изменены программой на Psylla.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Numbers"/>2.3.2. Числа</h3></div></div></div><p>
+В языке Psylla предусмотрены четыре числовых типа: целый (<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_integer" title="3.1.33. integer"><span class="type">integer</span></a>),
+вещественный (<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_real" title="3.1.52. real"><span class="type">real</span></a>), комплексный (<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_complex" title="3.1.17. complex"><span class="type">complex</span></a>) и
+большой целый (<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_biginteger" title="3.1.7. biginteger"><span class="type">biginteger</span></a>).
+</p><p>
+Объект целого типа представляет математическое целое число из диапазона от
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<mo>−</mo>
+	<msup>
+		<mn>2</mn>
+		<mn>63</mn>
+	</msup>
+</math>
+
+до
+
+<math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<msup>
+		<mn>2</mn>
+		<mn>63</mn>
+	</msup>
+	<mo>−</mo>
+	<mn>1</mn>
+</math>
+
+включительно.
+</p><p>
+Объект вещественного типа приближает математическое вещественное число
+из существенно большего диапазона, однако с ограниченной точностью,
+реализованное как число с плавающей точкой.
+</p><p>
+Объект комплексного типа представляет математическое комплексное число. Он
+реализован как пара вещественных чисел — вещественная и мнимая части числа.
+</p><p>
+Объект большого целого типа типа представляет математическое целое число
+произвольной величины.
+</p><p>
+Большинство математических операторов Psylla могут применяться к операндам всех
+четырёх типов, производя при необходимости нужное преобразование типа.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Booleans"/>2.3.3. Булевские значения</h3></div></div></div><p>
+Объекты булевского типа (<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_boolean" title="3.1.12. boolean"><span class="type">boolean</span></a>) представляют логические значения «ложь» и «правда».
+Их главное предназначение — служить операндами в условных управляющих
+операторах <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_if" title="4.2.116. if"><code class="token"><span class="hl-keyword">if</span></code></a> и <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_ifelse" title="4.2.117. ifelse"><code class="token"><span class="hl-keyword">ifelse</span></code></a>. Оба
+булевских объекта присутствуют в системном словаре под именами <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_false" title="4.2.86. false"><code class="token"><span class="hl-keyword">false</span></code></a> и
+<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_true" title="4.2.230. true"><code class="token"><span class="hl-keyword">true</span></code></a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Marks"/>2.3.4. Метки</h3></div></div></div><p>
+<em class="firstterm">Метка</em><a id="d0e1054" class="indexterm"/> —
+единственный объект типа <a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_mark" title="3.1.38. mark"><span class="type">mark</span></a> — служит для обозначения позиции на стеке операндов.
+Метка доступна в системном словаре по именам <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_mark" title="4.2.141. mark"><code class="token"><span class="hl-keyword">mark</span></code></a> (<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_[" title="4.2.6. ["><code class="token"><span class="hl-structure">[</span></code></a>, <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_&lt;" title="4.2.3. &lt;"><code class="token"><span class="hl-structure">&lt;</span></code></a>, <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_(" title="4.2.1. ("><code class="token"><span class="hl-structure">(</span></code></a>).
+В основном метки служат операндами для операторов <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_arraytomark" title="4.2.17. arraytomark"><code class="token"><span class="hl-keyword">arraytomark</span></code></a>
+(<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_]" title="4.2.7. ]"><code class="token"><span class="hl-structure">]</span></code></a>),
+<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_dicttomark" title="4.2.66. dicttomark"><code class="token"><span class="hl-keyword">dicttomark</span></code></a> (<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_&gt;" title="4.2.4. &gt;"><code class="token"><span class="hl-structure">&gt;</span></code></a>), <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_settomark" title="4.2.195. settomark"><code class="token"><span class="hl-keyword">settomark</span></code></a>
+(<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_)" title="4.2.2. )"><code class="token"><span class="hl-structure">)</span></code></a>),
+<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_counttomark" title="4.2.56. counttomark"><code class="token"><span class="hl-keyword">counttomark</span></code></a>, <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_cleartomark" title="4.2.40. cleartomark"><code class="token"><span class="hl-keyword">cleartomark</span></code></a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Nulls"/>2.3.5. Пустой объект</h3></div></div></div><p>
+Особый тип <a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_null" title="3.1.42. null"><span class="type">null</span></a> содержит единственный объект. Этот объект служит
+заполнителем в контейнерах, чьи элементы ещё не инициализированы. Главным
+образом пустой объект появляется в массивах при увеличении их размера. Пустой
+объект доступен в системном словаре по имени <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_null" title="4.2.156. null"><code class="token"><span class="hl-keyword">null</span></code></a>. Он не
+может быть операндом для большинства операторов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Names"/>2.3.6. Имена</h3></div></div></div><p>
+<em class="firstterm">Имена</em><a id="d0e1100" class="indexterm"/>
+(<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_name" title="3.1.40. name"><span class="type">name</span></a>)
+представляют неизменяемые строки. Имена главным образом используются как ключи
+в словарях, по которым извлекаются соответствующие значения. С каждым
+оператором языка Psylla ассоциировано имя в системном словаре.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Commands"/>2.3.7. Команды</h3></div></div></div><p>
+<em class="firstterm">Команды</em><a id="d0e1113" class="indexterm"/>,
+или <em class="firstterm">исполняемые
+имена</em><a id="d0e1119" class="indexterm"/>
+(<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_command" title="3.1.16. command"><span class="type">command</span></a>)
+отличаются от имён семантикой исполнения. Исполнение команды заключается
+в поиске объекта, ассоциированого с именем команды, в стеке словарей, и
+последующем исполнении найденного объекта.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Arrays"/>2.3.8. Массивы</h3></div></div></div><p>
+<em class="firstterm">Массив</em><a id="d0e1134" class="indexterm"/>
+(<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_array" title="3.1.4. array"><span class="type">array</span></a>) —
+это контейнер для объектов, пронумерованных целыми неотрицательными числами
+(<em class="firstterm">индексами</em><a id="d0e1142" class="indexterm"/>).
+Массивы в языке Psylla являются
+<em class="firstterm">неоднородными</em><a id="d0e1150" class="indexterm"/>,
+то есть элементы массива могут быть объектами любого типа. В частности, массивы
+могут содержать контейнеры (массивы, словари, множества), что позволяет
+конструировать многомерные структуры данных любой сложности.
+</p><p>
+Массивы индексируются начиная с нуля. При доступе к элементам массива
+осуществляется проверка границ индекса. В случае выхода индекса за пределы
+границ возбуждается ошибка <a class="xref" href="PsyllaReference_Errors.xhtml#PsyllaReference_Errors_Details_rangecheck" title="5.1.16. rangecheck"><span class="errorname">rangecheck</span></a>.
+</p><p>
+Длина массива может изменяться за счёт добавления или удаления элементов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Procedures"/>2.3.9. Процедуры</h3></div></div></div><p>
+<em class="firstterm">Процедура</em><a id="d0e1169" class="indexterm"/>,
+или <em class="firstterm">исполняемый
+массив</em><a id="d0e1175" class="indexterm"/>
+(<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_proc" title="3.1.47. proc"><span class="type">proc</span></a>)
+отличается от массива семантикой исполнения. Исполнение процедуры заключается
+в поочерёдном исполнении всех её элементов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Strings"/>2.3.10. Строки</h3></div></div></div><p>
+<em class="firstterm">Строка</em><a id="d0e1190" class="indexterm"/>
+(<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_string" title="3.1.59. string"><span class="type">string</span></a>)
+концептуально устроена как массив, элементами которого служат целые числа
+из диапазона от <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"><mn>0</mn></math> до <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink"><mn>65535</mn></math> — <em class="firstterm">кодовые
+единицы</em><a id="d0e1206" class="indexterm"/>.
+</p><p>
+Строки используются для хранения текста. Каждый символ текста представлен одной
+или двумя кодовыми единицами в соответствии с кодировкой
+<em class="firstterm"><acronym class="acronym">UTF-16</acronym></em><a id="d0e1215" class="indexterm"/>.
+Одна кодовая единица кодирует символы из <em class="firstterm">основной многоязычной
+плоскости</em><a id="d0e1221" class="indexterm"/>
+(<acronym class="acronym">BMP</acronym><a id="d0e1227" class="indexterm"/>).  Остальные символы Unicode
+кодируются так называемыми <em class="firstterm">суррогатными
+парами</em><a id="d0e1236" class="indexterm"/>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_Dictionaries"/>2.3.11. Словари</h3></div></div></div><p>
+<em class="firstterm">Словарь</em><a id="d0e1247" class="indexterm"/>
+(<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_dict" title="3.1.25. dict"><span class="type">dict</span></a>) представляет собой контейнер для объектов,
+проиндексированных именами. Такие структуры называют также
+<em class="firstterm">ассоциативными
+массивами</em><a id="d0e1255" class="indexterm"/>.
+</p><p>
+Словари интенсивно используются интерпретатором для ассоциации объектов
+(по большей части операторов и процедур) с именами. Каждый раз, когда парсер
+обнаруживает команду, интерпретатор осуществляет поиск объекта по имени команды
+в стеке словарей, после чего исполняет найденный объект.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_CoreTypes_RegExps"/>2.3.12. Регулярные выражения</h3></div></div></div><p>
+<em class="firstterm">Регулярное выражение</em><a id="d0e1270" class="indexterm"/> представляет шаблон поиска в строке.
+</p><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_CoreTypes_RegExps_Characters"/>2.3.12.1. Символы</h4></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal"><em class="replaceable"><code>X</code></em></code></td><td style="border-bottom: 0.5pt solid ; ">символ <em class="replaceable"><code>X</code></em></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\0</code></td><td style="border-bottom: 0.5pt solid ; ">нулевой символ, <code class="constant">U+0</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\\</code></td><td style="border-bottom: 0.5pt solid ; ">символ бэкслэш, <code class="constant">U+5C</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\u<em class="replaceable"><code>HHHH</code></em></code></td><td style="border-bottom: 0.5pt solid ; ">символ <code class="constant">U+<em class="replaceable"><code>HHHH</code></em></code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\x{<em class="replaceable"><code>H…H</code></em>}</code></td><td style="border-bottom: 0.5pt solid ; ">символ <code class="constant">U+<em class="replaceable"><code>H…H</code></em></code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\t</code></td><td style="border-bottom: 0.5pt solid ; ">символ табуляции, <code class="constant">U+9</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\n</code></td><td style="border-bottom: 0.5pt solid ; ">символ конца строки, <code class="constant">U+A</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\r</code></td><td style="border-bottom: 0.5pt solid ; ">символ возврата каретки, <code class="constant">U+D</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\f</code></td><td style="border-bottom: 0.5pt solid ; ">символ конца страницы, <code class="constant">U+C</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\a</code></td><td style="border-bottom: 0.5pt solid ; ">символ гудка, <code class="constant">U+7</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\e</code></td><td style="border-bottom: 0.5pt solid ; ">символ escape, <code class="constant">U+1B</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\~</code></td><td style="border-bottom: 0.5pt solid ; ">символ тильды <code class="literal">~</code>, <code class="constant">U+7E</code></td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\c<em class="replaceable"><code>X</code></em></code></td><td style="">управляющий символ, соответствующий <em class="replaceable"><code>X</code></em></td></tr></tbody></table></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_CoreTypes_RegExps_CharacterClasses"/>2.3.12.2. Символьные классы</h4></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">[abc]</code></td><td style="border-bottom: 0.5pt solid ; "><code class="literal">a</code>, <code class="literal">b</code> или <code class="literal">c</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">[^abc]</code></td><td style="border-bottom: 0.5pt solid ; ">любой символ, кроме <code class="literal">a</code>, <code class="literal">b</code> и <code class="literal">c</code></td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">[A-Za-z]</code></td><td style="">символы от <code class="literal">A</code> до <code class="literal">Z</code> или
+от <code class="literal">a</code> до <code class="literal">z</code> (включительно)</td></tr></tbody></table></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_CoreTypes_RegExps_PredefinedCharacterClasses"/>2.3.12.3. Предопределённые символьные классы</h4></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">.</code></td><td style="border-bottom: 0.5pt solid ; ">любой символ</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\d</code></td><td style="border-bottom: 0.5pt solid ; ">десятичная цифра, <code class="literal">[0-9]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\D</code></td><td style="border-bottom: 0.5pt solid ; ">не десятичная цифра, <code class="literal">[^0-9]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\s</code></td><td style="border-bottom: 0.5pt solid ; ">пробельный символ, <code class="literal">[ \t\n\r\f\x{0B}]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\S</code></td><td style="border-bottom: 0.5pt solid ; ">непробельный символ, <code class="literal">[^ \t\n\r\f\x{0B}]</code></td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\w</code></td><td style="border-bottom: 0.5pt solid ; ">словный символ, <code class="literal">[A-Za-z_\d]</code></td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\W</code></td><td style="">не словный символ, <code class="literal">[^A-Za-z_\d]</code></td></tr></tbody></table></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_CoreTypes_RegExps_POSIXCharacterClasses"/>2.3.12.4. Символьные классы <acronym class="acronym">POSIX</acronym></h4></div></div></div></div><div class="section"><div class="titlepage"><div><div><h4 class="title"><a id="PsyllaReference_Language_CoreTypes_RegExps_BoundaryAnchors"/>2.3.12.5. Граничные привязки</h4></div></div></div><div class="informaltable"><table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ; "><colgroup><col width="25%"/><col width="75%"/></colgroup><tbody><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">^</code></td><td style="border-bottom: 0.5pt solid ; ">начало строки</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">$</code></td><td style="border-bottom: 0.5pt solid ; ">конец строки</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\b</code></td><td style="border-bottom: 0.5pt solid ; ">граница слова</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\B</code></td><td style="border-bottom: 0.5pt solid ; ">не граница слова</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\A</code></td><td style="border-bottom: 0.5pt solid ; ">начало входных данных</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\G</code></td><td style="border-bottom: 0.5pt solid ; ">конец последнего совпадения</td></tr><tr><td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ; "><code class="literal">\Z</code></td><td style="border-bottom: 0.5pt solid ; ">TODO</td></tr><tr><td style="border-right: 0.5pt solid ; "><code class="literal">\z</code></td><td style="">TODO</td></tr></tbody></table></div></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_Stacks"/>2.4. Стеки</h2></div></div></div><p>
+Интерпретатор Psylla поддерживает несколько стеков, предназначенных
+для хранения данных во время исполнения программы или для представления
+состояния её исполнения. Три из них являются ключевыми — <em class="firstterm">стек
+операндов</em><a id="d0e1584" class="indexterm"/>,
+<em class="firstterm">стек
+словарей</em><a id="d0e1592" class="indexterm"/>
+и <em class="firstterm">стек
+исполнения</em><a id="d0e1600" class="indexterm"/>.
+</p><p>
+Каждый из стеков устроен по принципу <acronym class="acronym">LIFO</acronym> — <span xml:lang="en" class="foreignphrase"><em xml:lang="en" class="foreignphrase">Last In—First Out</em></span> (последний пришёл — первый ушёл).
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Stacks_OperandStack"/>2.4.1. Стек операндов</h3></div></div></div><p>
+Исполнение литеральных объектов всегда приводит к их добавлению в стек
+операндов. Если оператор нуждается в данных для обработки, он снимает
+необходимое количество объектов со стека операндов. Объекты, созданные
+в результате работы оператора, добавлются в этот стек. Так действует
+большинство операторов языка. Таким образом, свободно манипулировать стеком
+операндов может как интерпретатор, так и любой из операторов.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Stacks_DictionaryStack"/>2.4.2. Стек словарей</h3></div></div></div><p>
+Стек словарей способен хранить только словари. Текущее состояние стека словарей
+служит контекстом для поиска объектов по именам. Необходимость в таком поиске
+возникает каждый раз, когда интерпретатор встречает команду. Имеется
+несколько операторов, предназначенных для управления стеком словарей.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Stacks_ExecutionStack"/>2.4.3. Стек исполнения</h3></div></div></div><p>
+Стек исполнения отражает фазу исполнения процедуры. При исполнении процедуры её
+элементы загружаются на стек исполнения в обратном порядке, так что самый
+первый элемент оказывается на вершине стека. Затем интерпретатор по очереди
+снимает объекты из стека исполнения и исполняет их до тех пор, пока уровень
+стека не сравняется с первоначальным (тем, что был к началу исполнения
+процедуры).
+</p><p>
+Стеком исполнения может управлять интерпретатор. В языке есть лишь несколько
+операторов, управляющих напрямую стеком исполнения. Это управляющие операторы,
+реализующие циклы.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_Stacks_Auxiliary"/>2.4.4. Служебные стеки</h3></div></div></div><p>
+Помимо трёх основных стеков, в интерпретатор встроены и другие, служебные. Это
+<em class="firstterm">стек контекстов
+выхода</em><a id="d0e1638" class="indexterm"/> и <em class="firstterm">стек контекстов
+остановки</em><a id="d0e1646" class="indexterm"/>. Используют служебные стеки лишь несколько
+управляющих операторов.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_ObjectExecution"/>2.5. Исполнение объектов</h2></div></div></div><p>
+Смысл исполнения объекта зависит от его типа, а также от того, получен этот
+объект парсером или же другим способом. Здесь нужно отметить, что существует
+лишь два типа исполненяемых объектов, получаемых непосредственно парсером — это
+процедуры и команды.
+
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Исполняемый оператор вызывается, то есть выполняется запрограммированное в нём
+действие.
+</li><li class="listitem">
+Объекты всех прочих типов загружаются на стек операндов.
+</li></ul></div><p>
+
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_EarlyNameBinding"/>2.6. Раннее связывание имён</h2></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_EarlyNameBinding_BindOperator"/>2.6.1. Оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_bind" title="4.2.23. bind"><code class="token"><span class="hl-keyword">bind</span></code></a></h3></div></div></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_EarlyNameBinding_Immediate"/>2.6.2. Немедленные имена</h3></div></div></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_IO"/>2.7. Ввод/вывод</h2></div></div></div><p>
+<em class="firstterm">Файл</em><a id="d0e1680" class="indexterm"/>
+представляет собой последовательность
+<em class="firstterm">символов</em><a id="d0e1686" class="indexterm"/>,
+как правило конечную. Файлы могут располагаться в файловой системе либо
+создаваться «на лету». Операции ввода/вывода предназначены для обмена
+символьными данными между файлами и программой. Ввод/вывод служит основным
+средством взаимодействия программы с её окружением.
+</p><p>
+Символы отождествляются с целыми числами из диапазона от <code class="constant">0</code>
+до <code class="constant">8589934591</code> в соответствии с универсальной таблицей
+символов <acronym class="acronym">UCS-4</acronym>. На физическом уровне данные в файле
+представляются как последовательности байтов (октетов). При вводе или выводе
+могут применяться преобразования, превращающие последовательность октетов
+в последовательность символов (кодирование) или наоборот (декодирование).
+</p><p>
+При вводе символьных данных файл рассматривается как источник символов,
+при выводе — как потребитель. Возможен ввод или вывод как отдельных символов,
+так и строк.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_IO_BasicOperators"/>2.7.1. Основные операторы ввода/вывода</h3></div></div></div><p>
+Операторы <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_read" title="4.2.173. read"><code class="token"><span class="hl-keyword">read</span></code></a> и <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_write" title="4.2.242. write"><code class="token"><span class="hl-keyword">write</span></code></a> соответственно считывают
+из файла или записывают в файл один символ.
+</p><p>
+Операторы <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_readstring" title="4.2.176. readstring"><code class="token"><span class="hl-keyword">readstring</span></code></a> и <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_writestring" title="4.2.243. writestring"><code class="token"><span class="hl-keyword">writestring</span></code></a>
+соответственно считывают из файла или записывают в файл строку символов.
+Оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_readline" title="4.2.174. readline"><code class="token"><span class="hl-keyword">readline</span></code></a> считывает из файла строку
+символов, завершённую терминатором строки, принятым на данной платформе. Сам
+терминатор доступен в системном словаре под именем <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_eol" title="4.2.74. eol"><code class="token"><span class="hl-keyword">eol</span></code></a>.
+</p><p>
+При выполнении операций вывода выводимые символы могут буферизоваться
+для повышения эффективности, вместо того чтобы немедленно отправляться
+на физический носитель. Оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_flush" title="4.2.100. flush"><code class="token"><span class="hl-keyword">flush</span></code></a> немедленно перемещает
+буферизованные данные на носитель.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_IO_Standard"/>2.7.2. Стандартные ввод и вывод</h3></div></div></div><p>
+Программа располагает стандартными файлами файлами, предназначенными для ввода
+и вывода. Данные, записываемые в <em class="firstterm">стандартный
+вывод</em><a id="d0e1733" class="indexterm"/>
+или <em class="firstterm">стандартный вывод сообщений
+об ошибках</em><a id="d0e1741" class="indexterm"/>,
+отправляются на экран терминала. Данные, вводимые пользователем, программа
+может считать со <em class="firstterm">стандартного ввода</em>.
+</p><p>
+Файлы, представляющие стандартный ввод, вывод и вывод сообщений об ошибках,
+доступны в системном словаре сооответственно под именами <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_stdin" title="4.2.208. stdin"><code class="token"><span class="hl-keyword">stdin</span></code></a>, <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_stdout" title="4.2.209. stdout"><code class="token"><span class="hl-keyword">stdout</span></code></a> и
+<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_stderr" title="4.2.207. stderr"><code class="token"><span class="hl-keyword">stderr</span></code></a>.
+</p><p>
+Операторы <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_print" title="4.2.166. print"><code class="token"><span class="hl-keyword">print</span></code></a> и <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_warn" title="4.2.240. warn"><code class="token"><span class="hl-keyword">warn</span></code></a> выводят
+заданную строку сооответственно в стандартный вывод и в стандартный вывод
+сообщений об ошибках.
+</p><p>
+Возможна
+<em class="firstterm">переадресация</em><a id="d0e1768" class="indexterm"/>
+стандартного ввода и вывода средствами операционной системы.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_MultipleContextExecution"/>2.8. Многоконтекстное исполнение</h2></div></div></div><p>
+В языке Psylla имеется поддержка асинхронных <em class="firstterm">контекстов
+исполнения</em><a id="d0e1781" class="indexterm"/>. Контекст исполнения представляет
+собой отдельный интерпретатор.
+</p><p>
+Каждый контекст создаёт для исполняющейся программы окружение, состоящее
+из стеков. Различные контексты делят между собой общий стек словарей. Остальные
+стеки (операндов, исполнения, служебные) являются частными и не видны
+за пределами своего контекста.
+</p><p>
+Для исполнения программы создаётся главный контекст. Программа может создавать
+дополнительные контексты, исполняя оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_fork" title="4.2.103. fork"><code class="token"><span class="hl-keyword">fork</span></code></a>.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_MultipleContextExecution_Operators"/>2.8.1. Операторы для работы с контекстами</h3></div></div></div><p>
+Оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_fork" title="4.2.103. fork"><code class="token"><span class="hl-keyword">fork</span></code></a> возвращает новый контекст. Один
+из операндов <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_fork" title="4.2.103. fork"><code class="token"><span class="hl-keyword">fork</span></code></a> — это процедура, вызываемая
+в новом контексте, а остальные инициализируют стек операндов нового контекста.
+</p><p>
+Оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_join" title="4.2.130. join"><code class="token"><span class="hl-keyword">join</span></code></a> ожидает завершения процедуры
+в контексте, ранее созданом оператором <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_fork" title="4.2.103. fork"><code class="token"><span class="hl-keyword">fork</span></code></a>, а затем копирует содержимое
+стека операндов этого контекста в стек операндов контекста, вызвавшего <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_join" title="4.2.130. join"><code class="token"><span class="hl-keyword">join</span></code></a>.
+</p><p>
+Контекст
+<em class="firstterm">приостанавливается</em><a id="d0e1814" class="indexterm"/>
+по завершении исполняющейся в нём процедуры, ожидая оператора <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_join" title="4.2.130. join"><code class="token"><span class="hl-keyword">join</span></code></a>. Кроме
+того, приостановка контекста происходит в результате исполнения в нём
+операторов <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_wait" title="4.2.239. wait"><code class="token"><span class="hl-keyword">wait</span></code></a>, <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_monitor" title="4.2.147. monitor"><code class="token"><span class="hl-keyword">monitor</span></code></a>, <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_yield" title="4.2.245. yield"><code class="token"><span class="hl-keyword">yield</span></code></a> и
+<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_sleep" title="4.2.201. sleep"><code class="token"><span class="hl-keyword">sleep</span></code></a>.
+</p><p>
+Оператор <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_currentcontext" title="4.2.58. currentcontext"><code class="token"><span class="hl-keyword">currentcontext</span></code></a> возвращает текущий
+контекст исполнения.
+</p><p>
+Контекст
+<em class="firstterm">завершается</em><a id="d0e1838" class="indexterm"/>
+при исполнении в нём оператора <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_quit" title="4.2.171. quit"><code class="token"><span class="hl-keyword">quit</span></code></a>.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="PsyllaReference_Language_MultipleContextExecution_Synchronization"/>2.8.2. Синхронизация контекстов</h3></div></div></div><p>
+Поскольку контексты исполнения разделяют общие данные в стеке словарей, они
+нуждаются в механизме синхронизации. В языке имеется два типа объектов
+синхронизации и несколько операторов для работы с ними.
+</p><p>
+<em class="firstterm">Замок</em><a id="d0e1855" class="indexterm"/>
+представляет собой семафор для взаимного исключения. Контексты могут
+использовать замки для предотвращения конкурентного доступа к общим для них
+данным. Перед доступом к данным контекст запрашивает блокировку, которую
+впоследствии освобождает. Всё время, пока действует блокировка, другие
+контексты не могут запросить блокировку, и в результате не получают доступа
+к данным, находящимся, возможно, в непоследовательном состоянии.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_Errors"/>2.9. Ошибки</h2></div></div></div><p>
+Во время исполнения программы возможны различные ошибки. Некоторые из них
+генерируются интерпретатором. Другие возникают при исполнении операторов,
+например, ошибки несоответствия типа операндов или недополнения стека
+операндов.
+</p><p>
+Ошибки отнесены к нескольким типам. Каждому типу соответствует имя, например,
+<a class="xref" href="PsyllaReference_Errors.xhtml#PsyllaReference_Errors_Details_typecheck" title="5.1.20. typecheck"><span class="errorname">typecheck</span></a>
+или <a class="xref" href="PsyllaReference_Errors.xhtml#PsyllaReference_Errors_Details_stackunderflow" title="5.1.18. stackunderflow"><span class="errorname">stackunderflow</span></a>. Подробное описание
+разных типов ошибок имеется в главе <a class="xref" href="PsyllaReference_Errors.xhtml" title="Глава 5. Ошибки">5. «<em>Ошибки</em>»</a>.
+</p><p>
+Обработка всех ошибок проводится единообразно.
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="PsyllaReference_Language_Grammar"/>2.10. Грамматика</h2></div></div></div><table width="100%" cellpadding="5" style="background-color: none" class="productionset" summary="EBNF for Грамматические правила для токенов"><tr><th align="left" valign="top" class="productionset">Грамматические правила для токенов</th></tr><tr><td><table border="0" width="99%" cellpadding="0" style="background-color: none" class="productionset" summary="EBNF productions"><tr><td align="left" valign="top">[1]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Token"/>TOKEN</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Integer">INTEGER</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_IntegerHexadecimal">INTEGER_HEXADECIMAL</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_IntegerBinary">INTEGER_BINARY</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Char">CHAR</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Real">REAL</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_String">STRING</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_RegExp">REGEXP</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Command">COMMAND</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Name">NAME</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Immediate">IMMEDIATE</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_OpenBrace">OPEN_BRACE</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_CloseBrace">CLOSE_BRACE</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Comment">COMMENT</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[2]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Sign"/>SIGN</td><td valign="top" align="center"><code>::=</code></td><td valign="top">[<code class="constant">"+"</code>, <code class="constant">"-"</code>]</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[3]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Digit"/>DIGIT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">[<code class="constant">"0"</code> - <code class="constant">"9"</code>]</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[4]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_IntegerUnsigned"/>INTEGER_UNSIGNED</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Digit">DIGIT</a>+
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[5]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Integer"/>INTEGER</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Sign">SIGN</a>?
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[6]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_HexDigit"/>HEXDIGIT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Digit">DIGIT</a>
+| [<code class="constant">"A"</code> - <code class="constant">"F"</code>,
+<code class="constant">"a"</code> - <code class="constant">"f"</code>]
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[7]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_IntegerHexadecimal"/>INTEGER_HEXADECIMAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Sign">SIGN</a>?
+<code class="constant">"0"</code>
+[<code class="constant">"X"</code>,
+<code class="constant">"x"</code>]
+<a href="PsyllaReference_Language_Grammar_HexDigit">HEXDIGIT</a>+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[8]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_IntegerBinary"/>INTEGER_BINARY</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language_Grammar_Sign">SIGN</a>?
+<code class="constant">"0"</code>
+[<code class="constant">"B"</code>, <code class="constant">"b"</code>]
+[<code class="constant">"0"</code>, <code class="constant">"1"</code>]+
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[9]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Char"/>CHAR</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"`"</code>
+(~[<code class="constant">"\\"</code>]
+| <a href="PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>)
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[10]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_RealUnsigned"/>REAL_UNSIGNED</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+(<a href="PsyllaReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</a>
+(<code class="constant">"."</code>
+<a href="">DIGIT</a>*)?
+| <code class="constant">"."</code>
+<a href="PsyllaReference_Language_Grammar_IntegerUnsigned">INTEGER_UNSIGNED</a>)
+<a href="PsyllaReference_Language_Grammar_Exponent">EXPONENT</a>?
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[11]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Real"/>REAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Sign">SIGN</a>?
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_RealUnsigned">REAL_UNSIGNED</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[12]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Exponent"/>EXPONENT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+[<code class="constant">"E"</code>, <code class="constant">"e"</code>]
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Integer">INTEGER</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[13]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Comment"/>COMMENT</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_CommentOneLine">COMMENT_ONELINE</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_CommentMultiline">COMMENT_MULTILINE</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[14]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_CommentOneLine"/>COMMENT_ONELINE</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"#"</code>
+(~[<code class="constant">"\n"</code>])*
+<code class="constant">"\n"</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[15]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_CommentMultiline"/>COMMENT_MULTILINE</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"/#"</code>
+(~[<code class="constant">"/"</code>]
+| (<code class="constant">"/"</code> ~[<code class="constant">"#"</code>]))*
+<code class="constant">"#/"</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[16]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_String"/>STRING</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"\""</code>
+(<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>
+| ~[ <code class="constant">"\""</code>,
+<code class="constant">"\\"</code>])*
+<code class="constant">"\""</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[17]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_StringSpecial"/>STRING_SPECIAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"\\"</code>
+([<code class="constant">"0"</code>,
+<code class="constant">"a"</code>,
+<code class="constant">"n"</code>,
+<code class="constant">"t"</code>,
+<code class="constant">"f"</code>,
+<code class="constant">"\""</code>,
+<code class="constant">"\\"</code>,
+<code class="constant">"e"</code>,
+<code class="constant">"r"</code>,
+<code class="constant">"\n"</code>]
+<br/>
+| <code class="constant">"u"</code>
+<a href="PsyllaReference_Language_Grammar_HexDigit">HEXDIGIT</a>{4}
+| <code class="constant">"x{"</code>
+<a href="PsyllaReference_Language_Grammar_HexDigit">HEXDIGIT</a>+
+<code class="constant">"}"</code>
+| <code class="constant">"c"</code>
+[<code class="constant">"\u0000" - "\u00FF"</code>])
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[18]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_RegExp"/>REGEXP</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"~"</code>
+(<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_RegExpSpecial">REGEXP_SPECIAL</a>
+| ~[<code class="constant">"~"</code>,
+<code class="constant">"\\"</code>])*
+<code class="constant">"~"</code>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[19]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_RegExpSpecial"/>REGEXP_SPECIAL</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"\\"</code>
+(~[])
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[20]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Name"/>NAME</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"/"</code>
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Command">COMMAND</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[21]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Immediate"/>IMMEDIATE</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+<code class="constant">"/"</code>
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Name">NAME</a>
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[22]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Command"/>COMMAND</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+(<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Letter">LETTER</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</a>)
+(<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Letter">LETTER</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Digit">DIGIT</a>)*<br/>
+| [<code class="constant">"["</code>,
+<code class="constant">"]"</code>,
+<code class="constant">"("</code>,
+<code class="constant">")"</code>,
+<code class="constant">"&lt;"</code>,
+<code class="constant">"&gt;"</code>,
+<code class="constant">"="</code>,
+<code class="constant">"?"</code>]
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[23]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_OpenBrace"/>OPEN_BRACE</td><td valign="top" align="center"><code>::=</code></td><td valign="top"><code class="constant">"{"</code></td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[24]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_CloseBrace"/>CLOSE_BRACE</td><td valign="top" align="center"><code>::=</code></td><td valign="top"><code class="constant">"}"</code></td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[25]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_Letter"/>LETTER</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+[<code class="constant">"A"</code> - <code class="constant">"Z"</code>,
+<code class="constant">"a"</code> - <code class="constant">"z"</code>]
+</td><td align="left" valign="top"> </td></tr><tr><td align="left" valign="top">[26]</td><td align="right" valign="top"><a id="PsyllaReference_Language_Grammar_NameSpecialChar"/>NAME_SPECIAL_CHAR</td><td valign="top" align="center"><code>::=</code></td><td valign="top">
+[<code class="constant">"_"</code>,
+<code class="constant">"."</code>,
+<code class="constant">"+"</code>,
+<code class="constant">"-"</code>,
+<code class="constant">"="</code>,
+<code class="constant">"$"</code>]
+</td><td align="left" valign="top"> </td></tr></table></td></tr></table></div></div><div class="navfooter"><table width="100%" summary="Navigation footer"><tr><td align="left"><a accesskey="p" href="PsyllaReference_Interpreter.xhtml"><img src="../navigation/prev.svg" alt="Пред."/></a> </td><td align="center"> </td><td align="right"> <a accesskey="n" href="PsyllaReference_Types.xhtml"><img src="../navigation/next.svg" alt="След."/></a></td></tr><tr><td align="left" valign="top">Глава 1. Интерпретатор </td><td align="center"><a accesskey="h" href="PsyllaReference.xhtml"><img src="../navigation/home.svg" alt="Начало"/></a></td><td align="right" valign="top"> Глава 3. Типы</td></tr></table></div></body></html>
