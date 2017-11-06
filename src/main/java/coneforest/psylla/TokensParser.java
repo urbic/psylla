@@ -61,6 +61,9 @@ public class TokensParser
 						case 't':
 							sb.append('\t');
 							break;
+						case 'v':
+							sb.append('\u000B');
+							break;
 						case 'f':
 							sb.append('\f');
 							break;
@@ -135,6 +138,9 @@ public class TokensParser
 						case 't':
 							sb.append('\t');
 							break;
+						case 'v':
+							sb.append('\u000B');
+							break;
 						case 'f':
 							sb.append('\f');
 							break;
@@ -208,6 +214,9 @@ public class TokensParser
 							break;
 						case 't':
 							sb.append('\t');
+							break;
+						case 'v':
+							sb.append('\u000B');
 							break;
 						case 'f':
 							sb.append('\f');
@@ -345,6 +354,8 @@ public class TokensParser
 						return PsyInteger.valueOf('\r');
 					case 't':
 						return PsyInteger.valueOf('\t');
+					case 'v':
+						return PsyInteger.valueOf('\u000B');
 					case 'f':
 						return PsyInteger.valueOf('\f');
 					case 'e':

@@ -339,6 +339,9 @@ public class PsyString
 				case '\t':
 					sb.append("\\t");
 					break;
+				case '\u000B':
+					sb.append("\\v");
+					break;
 				case '\f':
 					sb.append("\\f");
 					break;

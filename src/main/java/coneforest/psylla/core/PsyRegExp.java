@@ -47,8 +47,11 @@ public class PsyRegExp
 				case '\u0007':
 					sb.append("\\a");
 					break;
-				case '\u0009':
+				case '\t':
 					sb.append("\\t");
+					break;
+				case '\u000B':
+					sb.append("\\v");
 					break;
 				case '\n':
 					sb.append("\\n");
