@@ -4,34 +4,14 @@ import coneforest.psylla.*;
 /**
 *	A representation of Ψ-{@code namespace}, a named dictionary.
 */
-@coneforest.psylla.Type("namespace")
+@Type("namespace")
 public class PsyNamespace
 	extends PsyDict
 {
 
-	private PsyNamespace(final String prefix)
+	public PsyNamespace(final String prefix)
 	{
 		this.prefix=prefix;
-	}
-
-	/**
-	*	Returns a Ψ-{@code namespace} with the given Ψ-{@code stringy} prefix.
-	*
-	*	@param oPrefix the given prefix.
-	*	@return a namespace.
-	*/
-	public static PsyNamespace psyNamespace(final PsyStringy oPrefix)
-	{
-		return forName(oPrefix.stringValue());
-	}
-
-	public static PsyNamespace forName(final String prefix)
-	{
-		if(pool.containsKey(prefix))
-			return pool.get(prefix);
-		final PsyNamespace oNamespace=new PsyNamespace(prefix);
-		pool.put(prefix, oNamespace);
-		return oNamespace;
 	}
 
 	protected void registerOperators(final PsyOperator... operators)
@@ -90,19 +70,9 @@ public class PsyNamespace
 		return "|namespace="+prefix+"|";
 	}
 
-	public static PsyNamespace getNamespace(final String prefix)
-		throws PsyException
-	{
-		if(pool.containsKey(prefix))
-			return pool.get(prefix);
-		throw new PsyUndefinedException();	// TODO
-	}
-
 	private final String prefix;
 
 	private java.util.ArrayList<PsyNamespace> parents
 		=new java.util.ArrayList<PsyNamespace>();
 
-	private static final java.util.HashMap<String, PsyNamespace> pool
-			=new java.util.HashMap<String, PsyNamespace>();
 }

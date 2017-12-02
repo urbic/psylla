@@ -14,4 +14,11 @@ public class PsyType<T extends PsyObject>
 		return prefix();
 	}
 	*/
+	/*static
+	{
+		PsyType<PsyInteger> t=new PsyType<PsyInteger>();
+		System.out.println(t.getTypeParameters());
+	}
+	*/
+
 }

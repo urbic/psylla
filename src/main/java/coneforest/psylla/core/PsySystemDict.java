@@ -789,18 +789,16 @@ public class PsySystemDict
 					),
 				new PsyOperator.Arity21<PsyArithmetic, PsyArithmetic>
 					("mul", PsyArithmetic::psyMul),
-				new PsyOperator.Arity11<PsyStringy>
-					("namespace", PsyNamespace::psyNamespace),
-				/*
+				//new PsyOperator.Arity11<PsyStringy>
+				//	("namespace", PsyNamespace::psyNamespace),
 				new PsyOperator.Action
 					("namespace",
 						(interpreter)->
 						{
 							final OperandStack ostack=interpreter.operandStackBacked(1);
-							ostack.push(interpreter.psyNamespace(ostack.getBacked(0)));
+							ostack.push(interpreter.namespacePool().psyNamespace(ostack.getBacked(0)));
 						}
 					),
-				*/
 				new PsyOperator.Arity21<PsyObject, PsyObject>
 					("ne", PsyObject::psyNe),
 				new PsyOperator.Arity11<PsyAdditive>

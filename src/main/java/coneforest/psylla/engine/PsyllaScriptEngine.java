@@ -58,7 +58,7 @@ public class PsyllaScriptEngine
 
 	public static final String ARGV="arguments";
 
-	private javax.script.ScriptEngineFactory factory;
+	private final javax.script.ScriptEngineFactory factory;
 
-	private coneforest.psylla.Interpreter interpreter;
+	private final coneforest.psylla.Interpreter interpreter;
 }

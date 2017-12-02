@@ -75,6 +75,11 @@ public class Interpreter
 		return estack;
 	}
 
+	public NamespacePool namespacePool()
+	{
+		return nspool;
+	}
+
 	public coneforest.psylla.ClassLoader classLoader()
 	{
 		return classLoader;
@@ -97,7 +102,8 @@ public class Interpreter
 		if(prefixOffset==-1)
 			return dstack.load(name);
 		final String prefix=name.substring(prefixOffset+1);
-		return (T)PsyNamespace.getNamespace(prefix).get(name.substring(0, prefixOffset));
+		//return (T)PsyNamespace.getNamespace(prefix).get(name.substring(0, prefixOffset));
+		return (T)nspool.namespace(prefix).get(name.substring(0, prefixOffset));
 	}
 
 	public <T extends PsyObject> T psyLoad(final PsyStringy oKey)
@@ -554,7 +560,7 @@ public class Interpreter
 
 	public String banner()
 	{
-		return String.format(Messages.getString("bannerText"), Version.getVersion());
+		return String.format(Messages.getString("banner"), Version.getVersion());
 	}
 
 	public String prompt()
@@ -620,6 +626,7 @@ public class Interpreter
 	private final DictStack dstack;
 	private final ExecutionStack estack;
 	private final ProcStack procstack;
+	private final NamespacePool nspool=new NamespacePool();
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();

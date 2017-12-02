@@ -207,7 +207,7 @@ linkend="PsyllaReference_Operators_Details_cleartomark" xrefstyle="template:%t"/
 
 <para>
 A special <xref linkend="PsyllaReference_Types_Details_null"
-xrefstyle="template:%t"/> type contains a sole object. This object serves as a
+xrefstyle="template:%t"/> type contains the sole object. This object serves as a
 placeholder in containers whose elements have not yet been initialized. Mostly
 null objects appear in arrays when their size increase. Null object present in
 the system dictionary under the name <xref

@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 
 /**
 *	A representation of Ψ-{@code readable}, a type of objects that can be
-*	treated as source of characters.
+*	treated as a source of characters.
 */
 @coneforest.psylla.Type("readable")
 public interface PsyReadable
@@ -69,4 +69,5 @@ public interface PsyReadable
 	*/
 	public PsyBoolean psyReady()
 		throws PsyException;
+
 }

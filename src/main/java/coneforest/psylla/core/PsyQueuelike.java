@@ -16,7 +16,7 @@ public interface PsyQueuelike<T extends PsyObject>
 	/**
 	*	Removes and returns the head of this queue.
 	*
-	*	@return the head of this queue.
+	*	@return a head of this queue.
 	*	@throws PsyException when this queue is empty.
 	*/
 	public T psyDequeue()

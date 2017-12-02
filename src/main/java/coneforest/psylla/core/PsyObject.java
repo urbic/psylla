@@ -84,12 +84,6 @@ public interface PsyObject
 		return new PsyString(toSyntaxString());
 	}
 
-	// TODO
-	default public PsyString convert(final Class<PsyString> clazz)
-	{
-		return new PsyString(toSyntaxString());
-	}
-
 	/**
 	*	Returns a Ψ-{@code name} representing this object.
 	*
@@ -104,6 +98,12 @@ public interface PsyObject
 	default public String toSyntaxString()
 	{
 		return '|'+typeName()+'|';
+	}
+
+	// TODO
+	default public PsyString convert(final Class<PsyString> clazz)
+	{
+		return new PsyString(toSyntaxString());
 	}
 
 	// TODO
@@ -128,8 +128,9 @@ public interface PsyObject
 
 	public static void register(final Interpreter interpreter)
 	{
-		final PsyNamespace namespace=PsyNamespace.forName("object");
-		namespace.registerOperators
+		//final PsyNamespace namespace=PsyNamespace.forName("object");
+		final PsyNamespace oNamespace=interpreter.namespacePool().namespace("object");
+		oNamespace.registerOperators
 			(
 				new PsyOperator.Arity11<PsyObject>
 					("clone", PsyObject::psyClone),
@@ -145,7 +146,6 @@ public interface PsyObject
 					("type", PsyObject::psyType)
 			);
 	}
-
 
 	/*
 	default public PsyObject psyConvert(PsyName oTypeName)

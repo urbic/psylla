@@ -5,7 +5,7 @@
 	<property name="obs.package.version" value="${project.version}"/>
 	<property name="obs.package.summary" value="${project.summary}"/>
 	<property name="obs.package.description" value="${project.description}"/>
-	<property name="obs.build.distro" value="openSUSE_Leap_42.2"/>
+	<property name="obs.build.distro" value="openSUSE_Leap_42.3"/>
 	<property name="obs.build.arch" value="x86_64"/>
 	<property name="obs.build.project" value="home:concyclic"/>
 	<property name="src.obs" location="${src}/obs"/>

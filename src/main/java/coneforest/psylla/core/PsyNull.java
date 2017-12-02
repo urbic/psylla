@@ -35,7 +35,7 @@ public final class PsyNull
 	}
 
 	/**
-	*	A sole Ψ-{@code null} object.
+	*	The sole Ψ-{@code null} object.
 	*/
 	public static final PsyNull NULL=new PsyNull();
 }

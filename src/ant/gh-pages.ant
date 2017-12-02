@@ -2,6 +2,7 @@
 <project name="gh-pages" basedir=".">
 
 	<target name="gh-pages"
+		description="Deploy GitHub pages"
 		depends="docs"
 		>
 		<delete dir="${target.gh-pages}"/>

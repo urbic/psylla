@@ -199,14 +199,11 @@ public class PsyInteger
 			}
 			else
 				return new PsyReal(doubleValue()*oNumeric.doubleValue());
-
 		}
 		else if(oNumeric instanceof PsyBigInteger)
-		{
 			return new PsyBigInteger(this).psyMul((PsyBigInteger)oNumeric);
-		}
-		return new PsyReal(doubleValue()*oNumeric.doubleValue());
 
+		return new PsyReal(doubleValue()*oNumeric.doubleValue());
 	}
 
 	/*
@@ -421,7 +418,7 @@ public class PsyInteger
 		}
 	}
 
-	private static final PsyNamespace NAMESPACE=PsyNamespace.forName("integer");
+	//private static final PsyNamespace NAMESPACE=PsyNamespace.forName("integer");
 
 	public static void register(final Interpreter interpreter)
 	{
