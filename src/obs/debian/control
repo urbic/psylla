@@ -32,8 +32,8 @@ Depends: debhelper (>= 9),
 	libjline-java
 Suggests: @obs.package.name@-doc
 Description: @obs.package.summary@
-	Psylla is extensible and embeddable Psi implementation written in Java.
-	Psi is scriptable interpretive PostScript-like programming language.
+	Psylla is scriptable interpretive concatenative homoiconic PostScript-like programming language.
+	This package contains extensible and embeddable Psylla implementation written in Java.
 
 Package: @obs.package.name@-doc
 Architecture: all

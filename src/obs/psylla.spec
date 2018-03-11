@@ -74,9 +74,8 @@ BuildRequires:	ghostscript-core
 %endif
 
 %description doc
+@obs.package.description@
 This package contains documentation for %{name}.
-Psylla is extensible and embeddable Psi implementation written in Java.
-Psi is scriptable interpretive PostScript-like programming language.
 
 %package javadoc
 Summary:		Javadocs for %{name}
