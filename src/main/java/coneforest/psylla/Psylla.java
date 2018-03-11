@@ -25,7 +25,7 @@ public class Psylla
 		}
 		catch(final java.io.FileNotFoundException e)
 		{
-			System.out.println(Messages.format("scriptNotFoundText", e.getLocalizedMessage()));
+			System.out.println(Messages.format("scriptNotFound", e.getLocalizedMessage()));
 			System.exit(1);
 		}
 	}
@@ -91,16 +91,19 @@ public class Psylla
 				new coneforest.cli.OptionPath("librarypath lp I"),
 				new coneforest.cli.OptionString("eval e"),
 				new coneforest.cli.OptionString("locale L"),
-				new coneforest.cli.OptionLong("random-seed S")
+				new coneforest.cli.OptionLong("random-seed S"),
+				new coneforest.cli.OptionCollectorString("config cfg")
 			);
 		final int processed=cli.parse(args, 0);
 
 		Psylla.setConsoleEncoding(cli.getValue("console-encoding"));
 		Psylla.setLocale(cli.getValue("locale"));
 		if(cli.getValue("help"))
-			help();
+			showHelp();
 		if(cli.getValue("version"))
-			version();
+			showVersion();
+		if(!cli.<java.util.List<String>>getValue("config").isEmpty())
+			showConfig(cli.getValue("config"));
 
 		final java.io.Reader scriptReader;
 		final String scriptName;
@@ -154,7 +157,7 @@ public class Psylla
 		}
 		catch(final java.io.UnsupportedEncodingException e)
 		{
-			System.err.println(Messages.format("unsupportedEncodingText", consoleEncoding));
+			System.err.println(Messages.format("unsupportedEncoding", consoleEncoding));
 			System.exit(1);
 		}
 	}
@@ -184,15 +187,30 @@ public class Psylla
 		interpreter.join(millis);
 	}
 
-	private static void help()
+	private static void showHelp()
 	{
-		System.out.println(Messages.getString("helpText"));
+		System.out.println(Messages.getString("help"));
 		System.exit(0);
 	}
 
-	private static void version()
+	private static void showVersion()
 	{
-		System.out.print(Messages.format("versionText", Version.getVersion()));
+		System.out.print(Messages.format("version", Version.getVersion()));
+		System.exit(0);
+	}
+
+	private static void showConfig(final java.util.List<String> patterns)
+	{
+		final java.util.Set<String> propertyNames=Config.stringPropertyNames();
+
+		for(String pattern: patterns)
+		{
+			propertyNames.stream()
+					.sorted()
+					.filter((name)->Globs.matches(pattern, name))
+					//.forEach(System.out::println);
+					.forEach((name)->{ System.out.println(name+"=\'"+Config.getProperty(name)+"\'"); });
+		}
 		System.exit(0);
 	}
 

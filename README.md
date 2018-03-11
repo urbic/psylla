@@ -2,7 +2,7 @@
 
 # Psylla
 
-**Psylla** is a scriptable interpretive concatenative PostScript-like programming language.
+**Psylla** is a scriptable interpretive concatenative homoiconic PostScript-like programming language.
 
 Psylla is implemented as a library written in Java.
 

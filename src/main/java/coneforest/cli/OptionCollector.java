@@ -1,7 +1,7 @@
 package coneforest.cli;
 
 /**
-*	Base class representing an abstract option holding an object list.
+*	Base class representing an abstract option holding a list of objects.
 *
 *	@param <T> a type of containing object
 */
@@ -14,14 +14,14 @@ abstract public class OptionCollector<T>
 	}
 
 	/**
-	*	Returns array containing collected objects.
+	*	Returns a list containing collected objects.
 	*
-	*	@return an array.
+	*	@return a list.
 	*/
 	@Override
-	public T[] getValue()
+	public java.util.List<T> getValue()
 	{
-		return (T[])argList.toArray();
+		return argList;
 	}
 
 	/**
@@ -45,7 +45,7 @@ abstract public class OptionCollector<T>
 	*	@return an object.
 	*	@throws ProcessingException when parse error occurs.
 	*/
-	abstract public T parseArg(final String arg)
+	abstract protected T parseArg(final String arg)
 		throws ProcessingException;
 
 	private final java.util.ArrayList<T> argList

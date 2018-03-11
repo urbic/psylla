@@ -15,6 +15,7 @@
 	<property name="src.test.psylla" location="${src.test}/psylla"/>
 	<property name="src.main.jj" location="${src.main}/jj"/>
 	<property name="src.examples.psylla" location="${src.examples}/psylla"/>
+	<property name="src.examples.java" location="${src.examples}/java"/>
 	<property name="src.docbook" location="${src}/docbook"/>
 	<property name="src.ant" location="${src}/ant"/>
 	<property name="src.bin" location="${src}/bin"/>
@@ -68,6 +69,7 @@
 	<path id="classpath.xslt">
 		<pathelement location="${config.data}/java/saxon6.jar"/>
 		<pathelement location="${config.data}/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+		<pathelement location="${target.lib}/saxon65.jar"/>
 		<pathelement location="${config.data}/java/xslthl.jar"/>
 
 		<!-- for Debian -->

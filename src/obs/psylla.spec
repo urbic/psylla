@@ -23,6 +23,9 @@ Summary:		@obs.package.summary@
 Url:			https://github.com/urbic/%{name}
 Group:			Development/Languages/Other
 Source:			%{name}-%{version}.tar.xz
+%if 0%{?suse_version}>1315
+Source1:		https://cdn.docbook.org/release/xsl-nons/1.79.2/extensions/saxon65.jar
+%endif
 BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	java-devel >= 1.8.0
@@ -87,6 +90,10 @@ This package contains the API documentation for %{name}.
 
 %prep
 %setup -q
+%if 0%{?suse_version}>1315
+mkdir -p target/lib
+cp %{SOURCE1} target/lib
+%endif
 
 %build
 LANG=ru_RU.UTF-8 \
