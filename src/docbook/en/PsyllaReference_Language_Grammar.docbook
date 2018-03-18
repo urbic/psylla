@@ -198,11 +198,29 @@
 </rhs>
 </production>
 
-<production xml:id="PsyllaReference_Language_Grammar_Name">
-<lhs>NAME</lhs>
+<production xml:id="PsyllaReference_Language_Grammar_NameSlashed">
+<lhs>NAME_SLASHED</lhs>
 <rhs>
 <constant>"/"</constant>
 <nonterminal def="#PsyllaReference_Language_Grammar_Command">COMMAND</nonterminal>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_NameQuoted">
+<lhs>NAME_QUOTED</lhs>
+<rhs>
+<constant>"'"</constant>
+(<nonterminal def="#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>
+| <constant>"\\'"</constant>
+| ~[<constant>"'"</constant>, <constant>"\\"</constant>])* <constant>"'"</constant>
+</rhs>
+</production>
+
+<production xml:id="PsyllaReference_Language_Grammar_Name">
+<lhs>NAME</lhs>
+<rhs>
+<nonterminal def="#PsyllaReference_Language_Grammar_NameSlashed">NAME_SLASHED</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_NameQuoted">NAME_QUOTED</nonterminal>
 </rhs>
 </production>
 
@@ -210,7 +228,7 @@
 <lhs>IMMEDIATE</lhs>
 <rhs>
 <constant>"/"</constant>
-<nonterminal def="#PsyllaReference_Language_Grammar_Name">NAME</nonterminal>
+<nonterminal def="#PsyllaReference_Language_Grammar_NameSlashed">NAME_SLASHED</nonterminal>
 </rhs>
 </production>
 

@@ -4,8 +4,8 @@
 
 <para>
 The Psylla language has a flexible and extendable type system. The types
-implemented as Java classes or interfaces. Each Ψ object is represented as an
-object of some class implementing the <classname>PsyObject</classname>
+implemented as Java classes or interfaces. Each Psylla object is represented as
+an object of some class implementing the <classname>PsyObject</classname>
 interface.
 </para>
 

@@ -6,33 +6,7 @@
 &PsyllaReference_Language_Syntax;
 &PsyllaReference_Language_CoreTypes;
 &PsyllaReference_Language_Stacks;
-
-<section xml:id="PsyllaReference_Language_ObjectExecution">
-<title>Execution of Objects</title>
-
-<para>
-Смысл исполнения объекта зависит от его типа, а также от того, получен этот
-объект парсером или же другим способом. Здесь нужно отметить, что существует
-лишь два типа исполненяемых объектов, получаемых непосредственно парсером — это
-процедуры и команды.
-
-<itemizedlist>
-
-<listitem>
-Исполняемый оператор вызывается, то есть выполняется запрограммированное в нём
-действие.
-</listitem>
-
-<listitem>
-Объекты всех прочих типов загружаются на стек операндов.
-</listitem>
-
-</itemizedlist>
-
-</para>
-
-</section>
-
+&PsyllaReference_Language_Execution;
 <section xml:id="PsyllaReference_Language_EarlyNameBinding">
 <title>Early Name Binding</title>
 

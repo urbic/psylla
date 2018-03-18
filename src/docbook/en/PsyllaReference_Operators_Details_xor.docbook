@@ -3,7 +3,7 @@
 <title><token language="psylla">xor</token></title>
 
 <para>
-Returns the <replaceable>exclusive disjunction</replaceable> of two
+Returns the <replaceable>exclusive_disjunction</replaceable> of two
 <replaceable>operands</replaceable>.
 </para>
 

@@ -133,7 +133,7 @@ Initialize the pseudorandom numbers generator with
 The name of a file containing Psylla <replaceable>program</replaceable>. The
 program is read from the standard input when the hyphen is specified. If the
 <replaceable>program</replaceable> is not specified, run
-<acronym>REPL</acronym> (read—evaluate—print cycle).
+<acronym>REPL</acronym> (read—evaluate—print loop).
 </listitem>
 </varlistentry>
 

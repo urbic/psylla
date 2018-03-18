@@ -58,6 +58,7 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eol"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_read"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readstring"/>.
 </formalpara>

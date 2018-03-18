@@ -3,7 +3,7 @@
 <title><type>atomic</type></title>
 
 <para>
-Базовый тип атомарных объектов.
+A base type for atomic objects.
 </para>
 
 <formalpara>

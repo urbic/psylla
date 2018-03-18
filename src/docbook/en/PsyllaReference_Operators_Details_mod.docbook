@@ -5,8 +5,6 @@
 <para>
 Returns the <replaceable>remainder</replaceable> of dividing the
 <replaceable>dividend</replaceable> by the <replaceable>divisor</replaceable>.
-The <replaceable>remainder</replaceable> has the same sign as the
-<replaceable>divisor</replaceable>.
 </para>
 
 <synopsis>

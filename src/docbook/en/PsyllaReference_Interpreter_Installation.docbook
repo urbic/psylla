@@ -40,6 +40,15 @@ After cloning the project repository, a new subdirectory named
 
 </para>
 
+<para>
+The Psylla build process uses <link xlink:href="http://ant.apache.org">Apache
+Ant</link> as a build tool. Run
+
+<screen><prompt>% </prompt><userinput>ant build</userinput></screen>
+
+After a successfull build,
+</para>
+
 </section>
 
 </section>

@@ -35,7 +35,7 @@ execution of operators.
 </para>
 
 <para>
-To store the data during the program execution the interpreter has several
+To store data during the program execution the interpreter has several
 <firstterm>stacks</firstterm><indexterm><primary>stack</primary></indexterm>,
 to which the section <xref linkend="PsyllaReference_Language_Stacks"/> is
 dedicated.

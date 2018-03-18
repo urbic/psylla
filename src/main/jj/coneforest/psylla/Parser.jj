@@ -19,6 +19,11 @@ SKIP:
 
 TOKEN:
 {
+	<#SIGN: ["-", "+"]>
+}
+
+TOKEN:
+{
 	<#DIGIT: ["0"-"9"]>
 }
 
@@ -30,11 +35,6 @@ TOKEN:
 TOKEN:
 {
 	<#LETTER: ["A"-"Z", "a"-"z"]>
-}
-
-TOKEN:
-{
-	<#SIGN: ["-", "+"]>
 }
 
 TOKEN:

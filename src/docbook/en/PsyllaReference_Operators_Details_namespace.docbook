@@ -30,7 +30,7 @@ namespace pool does not contain such a namespace, previously allocates it.
 
 <formalpara>
 &TitleErrors;
-нет.
+none.
 </formalpara>
 
 </section>

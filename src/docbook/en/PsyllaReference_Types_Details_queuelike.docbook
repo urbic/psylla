@@ -3,7 +3,7 @@
 <title><type>queuelike</type></title>
 
 <para>
-Тип очереди.
+A base type for queues.
 </para>
 
 <formalpara>

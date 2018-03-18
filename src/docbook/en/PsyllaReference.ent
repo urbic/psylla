@@ -8,6 +8,7 @@
 <!ENTITY PsyllaReference_Language_Syntax					SYSTEM "PsyllaReference_Language_Syntax.docbook">
 <!ENTITY PsyllaReference_Language_CoreTypes					SYSTEM "PsyllaReference_Language_CoreTypes.docbook">
 <!ENTITY PsyllaReference_Language_Stacks					SYSTEM "PsyllaReference_Language_Stacks.docbook">
+<!ENTITY PsyllaReference_Language_Execution					SYSTEM "PsyllaReference_Language_Execution.docbook">
 <!ENTITY PsyllaReference_Language_IO						SYSTEM "PsyllaReference_Language_IO.docbook">
 <!ENTITY PsyllaReference_Language_MultipleContextExecution	SYSTEM "PsyllaReference_Language_MultipleContextExecution.docbook">
 <!ENTITY PsyllaReference_Language_Errors					SYSTEM "PsyllaReference_Language_Errors.docbook">

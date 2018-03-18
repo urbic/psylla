@@ -32,14 +32,15 @@ BuildRequires:	java-devel >= 1.8.0
 BuildRequires:	java-javadoc >= 1.8.0
 %if 0%{?mageia}
 BuildRequires:	jline2
+Requires:		jline2
 %else
 BuildRequires:	jline
+Requires:		jline
 %endif
 BuildRequires:	junit >= 4.0
 BuildRequires:	ant-junit
 Provides:		config(ant-%{name})
 Requires:		java-headless >= 1.8.0
-Requires:		jline
 Requires(post):	shared-mime-info
 Requires(postun):	shared-mime-info
 BuildRoot:		%{_tmppath}/%{name}-%{version}-build

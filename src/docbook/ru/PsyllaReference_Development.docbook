@@ -24,7 +24,7 @@ xlink:href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(conefores
 
 <para>
 По умолчанию имя оператора выводится из имени его класса. Встроенные операторы
-Ψ определены в классах, чьё имя начинается со знака подчёркивания, за которым
+Psylla определены в классах, чьё имя начинается со знака подчёркивания, за которым
 следует имя оператора. К примеру, оператор <token language="psylla">dup</token>
 определён в классе <classname
 xlink:href="../../javadoc/coneforest/psylla/core/_dup.html">coneforest.psylla.systemdict._dup</classname>.

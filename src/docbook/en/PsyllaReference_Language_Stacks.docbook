@@ -13,8 +13,8 @@ stack</firstterm><indexterm><primary>execution stack</primary></indexterm>.
 </para>
 
 <para>
-Каждый из стеков устроен по принципу <acronym>LIFO</acronym> — <foreignphrase
-xml:lang="en">Last In—First Out</foreignphrase> (последний пришёл — первый ушёл).
+Each of the stacks is arranged according to the <acronym>LIFO</acronym>
+principle: Last In-First Out.
 </para>
 
 <section xml:id="PsyllaReference_Language_Stacks_OperandStack">
@@ -24,9 +24,8 @@ xml:lang="en">Last In—First Out</foreignphrase> (последний пришё
 Execution of literal objects always leads to add to the operand stack. If the
 operator needs the data to handle, it remove the necesser number of objects
 from the operand stack. The objects created by the operator are added to the stack.
-Так действует большинство операторов языка. Таким
-образом, свободно манипулировать стеком операндов может как интерпретатор, так
-и любой из операторов.
+This is how most language operators work. Thus, both the interpreter and any of
+the operators can freely manipulate the operand stack.
 </para>
 
 </section>
@@ -69,7 +68,7 @@ implement cycles.
 <para>
 In addition to three main stacks, there are several auxiliary stacks built into
 the interpreter: <firstterm>exit stack</firstterm><indexterm><primary>exit
-stack</primary></indexterm> и <firstterm>stop
+stack</primary></indexterm> and <firstterm>stop
 stack</firstterm><indexterm><primary>stop stack</primary></indexterm>. Only a
 few control operators operate on auxiliary stacks.
 </para>

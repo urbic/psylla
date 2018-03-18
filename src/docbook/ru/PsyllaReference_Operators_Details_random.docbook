@@ -16,6 +16,16 @@
 </formalpara>
 
 <formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>генератор</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_random"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
 &TitleErrors;
 нет.
 </formalpara>

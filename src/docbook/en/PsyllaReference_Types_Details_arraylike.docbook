@@ -3,7 +3,7 @@
 <title><type>arraylike</type></title>
 
 <para>
-Тип последовательностей, проиндексированных целыми числами.
+A base type for arrays.
 </para>
 
 <formalpara>

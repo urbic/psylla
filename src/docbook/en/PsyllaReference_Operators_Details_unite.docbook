@@ -3,31 +3,31 @@
 <title><token language="psylla">unite</token></title>
 
 <para>
-Возвращает строку, полученную конкатенацией элементов
-<replaceable>перечисления</replaceable>, разделённых
-строкой-<replaceable>сепаратором</replaceable>.
+Returns a <replaceable>string</replaceable> obtained by concatenating
+<replaceable>enumeration</replaceable> elements, separated by a
+<replaceable>separator</replaceable> string.
 </para>
 
 <synopsis>
-<replaceable>перечисление</replaceable>
-<replaceable>сепаратор</replaceable>
+<replaceable>enumeration</replaceable>
+<replaceable>separator</replaceable>
 <token language="psylla">unite</token>
-<replaceable>результат</replaceable>
+<replaceable>string</replaceable>
 </synopsis>
 
 <formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>перечисление</replaceable>:
+<replaceable>enumeration</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
 </listitem>
 <listitem>
-<replaceable>сепаратор</replaceable>:
+<replaceable>separator</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
 </listitem>
 <listitem>
-<replaceable>результат</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>

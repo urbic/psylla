@@ -12,8 +12,8 @@ also created by the parser and executed by the interpreter.
 <para>
 Each object belongs to a certain
 <firstterm>type</firstterm><indexterm><primary>type</primary></indexterm>.
-Object type affects the way that will be handled by operators. Types are
-divided into
+Object type affects the way that the object will be handled by operators. Types
+are divided into
 <firstterm>simple</firstterm><indexterm><primary>type</primary><secondary>simple</secondary></indexterm>
 and
 <firstterm>complex</firstterm><indexterm><primary>type</primary><secondary>complex</secondary></indexterm>.
@@ -23,7 +23,7 @@ and
 Objects of simple types can not be changed, they are only created as the result
 of calculations. For example, the <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Operators_Details_neg"/> operator does not change the
-sign of the number itself, but creates a new numeric object with different
+sign of the number itself, but creates a new numeric object with opposite
 sign.
 </para>
 
@@ -86,7 +86,7 @@ language core. Language extensions may introduce new object types.
 <title>Operators</title>
 
 <para>
-The
+An
 <firstterm>operator</firstterm><indexterm><primary>operator</primary></indexterm>
 in the Psylla language represents a code that manipulates the interpreter. The
 oparator objects have the <xref
@@ -138,7 +138,7 @@ inclusive.
 
 <para>
 The real numeric object represents a mathematical real number in much larger
-renge, but with limited accuracy, and is implemented as a floating-point number.
+range, but with limited accuracy, and is implemented as a floating-point number.
 </para>
 
 <para>
@@ -402,8 +402,8 @@ expression</primary></indexterm> represents a template for search in a string.
 
 </section>
 
-<section xml:id="PsyllaReference_Language_CoreTypes_RegExps_CharacterClasses">
-<title>Character Classes</title>
+<section xml:id="PsyllaReference_Language_CoreTypes_RegExps_ExplicitCharacterClasses">
+<title>Explicit Character Classes</title>
 
 <informaltable pgwide="1">
 <tgroup cols="2">

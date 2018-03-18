@@ -1,13 +1,2 @@
-*
-!/src/**
-!/.gitattributes
-!/.gitignore
-!/.travis.yml
-!/.vimrc
-!/AUTHORS
-!/LICENSE
-!/README
-!/README.md
-!/build.xml
-!/psylla.sh
-!/target/gh-pages
+/target/
+/.sass-cache

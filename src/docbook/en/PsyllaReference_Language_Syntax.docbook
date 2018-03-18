@@ -9,7 +9,7 @@
 A
 <firstterm>comment</firstterm><indexterm><primary>comment</primary></indexterm> is
 the part of the program text which is ignored by the parser. There are two
-forms of comments in the Ψ language: oneline and multiline.
+forms of comments in the Psylla language: oneline and multiline.
 </para>
 
 <section xml:id="PsyllaReference_Language_Syntax_Comments_OneLine">
@@ -66,7 +66,7 @@ a multiline comment
 <title>Numbers</title>
 
 <para>
-There are several kinds of number literals in the Ψ language:
+There are several kinds of number literals in the Psylla language:
 
 <itemizedlist>
 <listitem>
@@ -256,7 +256,7 @@ by 64
 
 <para>
 There are two syntatctic form of names:
-<firstterm>quoted</firstterm><indexterm><primary>name</primary><secondary>quoted</secondary></indexterm>
+<firstterm>quoted</firstterm><indexterm><primary>name</primary><secondary>quoted</secondary></indexterm>,
 and
 <firstterm>unquoted</firstterm><indexterm><primary>name</primary><secondary>unquoted</secondary></indexterm>.
 </para>

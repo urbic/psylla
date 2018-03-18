@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Language_Execution">
+<title>Execution of Objects</title>
+
+<para>
+Execution semantics depends on the object’s type, as well as whether the object
+was received by the parser or in another way. Execution can be either
+<firstterm>immediate</firstterm><indexterm><primary>execution</primary><secondary>immediate</secondary></indexterm>,
+which performed as soon as the object is created by the parser, or
+<firstterm>deferred</firstterm><indexterm><primary>execution</primary><secondary>deferred</secondary></indexterm>.
+</para>
+
+<section xml:id="PsyllaReference_Language_Execution_Immediate">
+<title>Immediate execution</title>
+
+<para>
+
+</para>
+
+</section>
+
+<section xml:id="PsyllaReference_Language_Execution_Deferred">
+<title>Deferred execution</title>
+
+<para>
+
+</para>
+
+</section>
+
+</section>

@@ -48,6 +48,9 @@
 &ErrorReason_ioerror;
 </listitem>
 <listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/>
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
 </listitem>
 <listitem>

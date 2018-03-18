@@ -3,7 +3,7 @@
 <title><token language="psylla">prettyprint</token></title>
 
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psylla">prettyprint</token>
 —
 </synopsis>
@@ -12,7 +12,7 @@
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
