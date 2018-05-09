@@ -10,7 +10,7 @@ public class PsyReader
 		PsyCloseable,
 		PsyEvaluable,
 		PsyReadable,
-		PsyResettable
+		PsyResetable
 {
 	public PsyReader(final java.io.Reader reader)
 	{

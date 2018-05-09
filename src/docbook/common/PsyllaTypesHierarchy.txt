@@ -28,14 +28,14 @@ filereader: reader
 filewriter: writer
 flushable: object
 indexed: object
-input: closeable readable resettable
+input: closeable readable resetable
 integer: bitwise realnumeric
 iterable: object
 lengthy: object
 lock: object
 logical: object
 mark: atomic
-matcher: resettable
+matcher: resetable
 module: dict
 name: atomic stringy
 namespace: dict
@@ -48,11 +48,11 @@ process: object
 queuelike: bounded container
 random: object
 readable: object
-reader: closeable evaluable readable resettable
+reader: closeable evaluable readable resetable
 real: realnumeric
 realnumeric: numeric scalar
 regexp: atomic
-resettable: object
+resetable: object
 scalar: object
 setlike: appendable container
 set: setlike

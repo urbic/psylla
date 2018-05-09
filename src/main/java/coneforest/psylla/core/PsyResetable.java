@@ -1,11 +1,11 @@
 package coneforest.psylla.core;
 
 /**
-*	A representation of Ψ-{@code resettable}, a type of objects that can be
+*	A representation of Ψ-{@code resetable}, a type of objects that can be
 *	reset in some sense.
 */
-@coneforest.psylla.Type("resettable")
-public interface PsyResettable
+@coneforest.psylla.Type("resetable")
+public interface PsyResetable
 	extends PsyObject
 {
 

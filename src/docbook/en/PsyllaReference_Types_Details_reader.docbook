@@ -12,7 +12,7 @@ A reader.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_evaluable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_readable"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_resettable"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_resetable"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>

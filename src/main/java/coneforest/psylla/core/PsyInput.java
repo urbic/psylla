@@ -5,7 +5,7 @@ public class PsyInput
 	implements
 		PsyCloseable,
 		PsyReadable,
-		PsyResettable
+		PsyResetable
 {
 	public PsyInput(final java.io.InputStream input)
 	{

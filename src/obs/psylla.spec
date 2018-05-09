@@ -40,6 +40,7 @@ Requires:		jline
 BuildRequires:	junit >= 4.0
 BuildRequires:	ant-junit
 Provides:		config(ant-%{name})
+Provides:		mimehandler(application/x-%{name})
 Requires:		java-headless >= 1.8.0
 Requires(post):	shared-mime-info
 Requires(postun):	shared-mime-info

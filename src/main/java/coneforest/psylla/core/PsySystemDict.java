@@ -980,8 +980,8 @@ public class PsySystemDict
 							interpreter.psyRequire(ostack.getBacked(0));
 						}
 					),
-				new PsyOperator.Arity10<PsyResettable>
-					("reset", PsyResettable::psyReset),
+				new PsyOperator.Arity10<PsyResetable>
+					("reset", PsyResetable::psyReset),
 				new PsyOperator.Arity20<PsySetlike, PsyIterable>
 					("retainall", PsySetlike::psyRetainAll),
 				new PsyOperator.Arity11<PsyArraylike>

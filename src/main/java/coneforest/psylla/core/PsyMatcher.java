@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 
 @coneforest.psylla.Type("matcher")
 public class PsyMatcher
-	implements PsyResettable
+	implements PsyResetable
 {
 	public PsyMatcher(final PsyStringy oStringy, final PsyRegExp oRegExp)
 	{

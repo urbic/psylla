@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_resettable">
-<title><type>resettable</type></title>
+<section xml:id="PsyllaReference_Types_Details_resetable">
+<title><type>resetable</type></title>
 
 <para>
 A type of objects that can be reset in some manner.
@@ -12,7 +12,7 @@ A type of objects that can be reset in some manner.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="common/PsyllaTypesHierarchy_resettable.svg" format="SVG"/>
+<imagedata fileref="common/PsyllaTypesHierarchy_resetable.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

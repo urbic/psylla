@@ -17,7 +17,7 @@ Resets an <replaceable>input</replaceable>.
 <itemizedlist>
 <listitem>
 <replaceable>input</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_resettable"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_resetable"/>
 </listitem>
 </itemizedlist>
 </formalpara>

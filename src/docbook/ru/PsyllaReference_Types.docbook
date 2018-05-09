@@ -127,7 +127,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_real;
 &PsyllaReference_Types_Details_realnumeric;
 &PsyllaReference_Types_Details_regexp;
-&PsyllaReference_Types_Details_resettable;
+&PsyllaReference_Types_Details_resetable;
 &PsyllaReference_Types_Details_scalar;
 &PsyllaReference_Types_Details_set;
 &PsyllaReference_Types_Details_setlike;
