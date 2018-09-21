@@ -81,7 +81,7 @@ This package contains documentation for %{name}.
 
 %package javadoc
 Summary:		Javadocs for %{name}
-Group:			Development/Languages/Java
+Group:			Development/Languages/Other
 BuildRequires:	junit-javadoc
 BuildRequires:	fdupes
 Requires:		jpackage-utils
@@ -109,7 +109,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %install
 LANG=ru_RU.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} install -Ddestdir=%{buildroot} -Dinstall.docdir=%{_docdir}/%{name}
+	%{ant} install -Ddestdir=%{buildroot} -Dinstall.docdir=%{_docdir}/%{name} -Dinstall.licensedir=%{_defaultlicensedir}/%{name}
 %fdupes %{buildroot}%{_javadocdir}/%{name}/jquery
 
 %post
@@ -141,9 +141,10 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %config %{_sysconfdir}/ant.d/*
 %{_mandir}/man1/*
 %dir %{_docdir}/%{name}
-%{_docdir}/%{name}/README
-%{_docdir}/%{name}/LICENSE
-%{_docdir}/%{name}/AUTHORS
+%doc %{_docdir}/%{name}/README
+%doc %{_docdir}/%{name}/AUTHORS
+%dir %{_defaultlicensedir}/%{name}
+%license %{_defaultlicensedir}/%{name}/LICENSE
 
 %files doc
 %defattr(-,root,root)

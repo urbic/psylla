@@ -3,6 +3,7 @@
 
 $background-color-body: white; //#FAFAFA;
 $font-family-body: "PT Sans", sans-serif;
+$font-family-code: "PT Mono", monospace;
 $color-title: darkslategray; //darken($background-color-body, 60%);
 $color-title: #245; //darken($background-color-body, 60%);
 $background-color-html: $background-color-body;//$color-title;
@@ -21,7 +22,7 @@ body
 {
 	position: static;
 	overflow: auto;
-	font-size: 20px;
+	font-size: 18px;
 	max-width: 960px;
 	//width: 75%;
 	min-height: 100%;
@@ -108,7 +109,7 @@ hr
 .filename,
 .command
 {
-	font-family: "Consolas", "Liberation Mono", monospace;
+	font-family: $font-family-code;
 }
 
 .sgmltag-element

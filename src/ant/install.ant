@@ -4,6 +4,7 @@
 	<property name="install.sysconfdir" location="${config.sysconfdir}"/>
 	<property name="install.javadir" location="${config.data}/java"/>
 	<property name="install.docdir" location="${config.data}/doc/packages/${project.name}"/>
+	<property name="install.licensedir" location="${config.data}/licenses/${project.name}"/>
 	<property name="install.javadocdir" location="${config.javadoc}/${project.name}"/>
 
 	<target name="install"
@@ -16,7 +17,7 @@
 		<mkdir dir="${destdir}/${install.javadir}"/>
 		<mkdir dir="${config.site.bin}"/>
 		<mkdir dir="${destdir}/${install.docdir}"/>
-		<!--mkdir dir="${destdir}/${install.docdir}-doc"/-->
+		<mkdir dir="${destdir}/${install.licensedir}"/>
 		<mkdir dir="${destdir}/${install.javadocdir}"/>
 		<mkdir dir="${destdir}/${config.data}/ant/lib"/>
 		<mkdir dir="${destdir}/${config.data}/vim/site"/>
@@ -65,9 +66,12 @@
 			overwrite="true"
 			/>
 
+		<!-- Install LICENSE -->
+		<copy todir="${destdir}/${install.licensedir}" file="LICENSE"/>
+
 		<!-- Install README etc -->
 		<copy todir="${destdir}/${install.docdir}">
-			<fileset dir="${target.doc}" includes="README LICENSE AUTHORS"/>
+			<fileset dir="${target.doc}" includes="README AUTHORS"/>
 		</copy>
 
 		<!-- Install Vim support files -->
