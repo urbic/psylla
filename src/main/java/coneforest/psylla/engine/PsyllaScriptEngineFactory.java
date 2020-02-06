@@ -1,7 +1,7 @@
 package coneforest.psylla.engine;
 
 /**
-*	A Ψ programming language scripting engine.
+*	The Psylla language scripting engine factory.
 */
 public class PsyllaScriptEngineFactory
 	implements javax.script.ScriptEngineFactory
@@ -93,7 +93,7 @@ public class PsyllaScriptEngineFactory
 	/**
 	*	Returns a name of a language.
 	*
-	*	@return a name of a language.
+	*	@return the string {@code "Psylla"}.
 	*/
 	@Override
 	public String getLanguageName()
@@ -126,4 +126,3 @@ public class PsyllaScriptEngineFactory
 	private java.util.List<String> mimeTypes;
 	private java.util.List<String> extensions;
 }
-
