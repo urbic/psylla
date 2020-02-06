@@ -124,5 +124,5 @@ public class PsyDict
 			};
 	}
 
-	private final java.util.HashMap<String, PsyObject> dict;
+	protected final java.util.HashMap<String, PsyObject> dict;
 }

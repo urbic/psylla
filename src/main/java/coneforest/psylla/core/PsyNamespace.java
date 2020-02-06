@@ -32,7 +32,6 @@ public class PsyNamespace
 
 	// TODO known()
 
-	/*
 	@Override
 	public PsyObject get(final String key)
 		throws PsyException
@@ -43,15 +42,23 @@ public class PsyNamespace
 		while(agenda.size()>0)
 		{
 			final PsyNamespace oNamespace=agenda.pop();
-			if(((PsyDict)oNamespace).known(key))
-				return ((PsyDict)oNamespace).get(key);
-			for(int i=oNamespace.parents.size()-1; i>=0; i--)
-				agenda.push(oNamespace.parents.get(i));
+			PsyObject o=oNamespace.dict.get(key);
+			if(o!=null)
+				return o;
+
+			//for(int i=oNamespace.imports.size()-1; i>=0; i--)
+			//	agenda.push(oNamespace.imports.get(i));
+			imports.forEach(agenda::add);
 		}
 		throw new PsyUndefinedException();
 	}
-	*/
 
+	public void psyImport(final PsyNamespace oNamespace)
+	{
+		imports.add(0, oNamespace);
+	}
+
+	/*
 	@Override
 	public PsyObject get(final String key)
 		throws PsyException
@@ -63,6 +70,7 @@ public class PsyNamespace
 				return oNameSpace.get(key);
 		throw new PsyUndefinedException();
 	}
+	*/
 
 	@Override
 	public String toSyntaxString()
@@ -72,7 +80,7 @@ public class PsyNamespace
 
 	private final String prefix;
 
-	private java.util.ArrayList<PsyNamespace> parents
+	private java.util.ArrayList<PsyNamespace> imports
 		=new java.util.ArrayList<PsyNamespace>();
 
 }

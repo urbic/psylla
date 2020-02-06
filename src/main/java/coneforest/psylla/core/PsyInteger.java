@@ -420,16 +420,16 @@ public class PsyInteger
 
 	//private static final PsyNamespace NAMESPACE=PsyNamespace.forName("integer");
 
-	public static void register(final Interpreter interpreter)
-	{
+	//public static void register(final Interpreter interpreter)
+	//{
 		/*return java.lang.invoke.MethodHandles.lookup().lookupClass()
 			.getAnnotation(Type.class).value();
 		*/
 
-		final String prefix=PsyInteger.class.getAnnotation(Type.class).value();
+		//final String prefix=PsyInteger.class.getAnnotation(Type.class).value();
 		//interpreter.namespacePool().obtain(prefix);
-		System.out.println("Registered: "+prefix);
+		//System.out.println("Registered: "+prefix);
 
 		//System.out.println(getClass().getAnnotation(Type.class).value());
-	}
+	//}
 }

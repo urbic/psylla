@@ -19,6 +19,8 @@ public interface PsyObject
 	{
 		//return "object";
 		return getClass().getAnnotation(Type.class).value();
+		//return java.lang.invoke.MethodHandles.lookup().lookupClass()
+		//	.getAnnotation(Type.class).value();
 	}
 
 	default public PsyName psyType()
@@ -145,6 +147,19 @@ public interface PsyObject
 				new PsyOperator.Arity11<PsyObject>
 					("type", PsyObject::psyType)
 			);
+		System.out.println(PsyObject.class.getAnnotation(Type.class).value()+" REGISTERED");
+	}
+
+	public static String classTypeName()
+	{
+		return java.lang.invoke.MethodHandles.lookup().lookupClass()
+			.getAnnotation(Type.class).value();
+
+		//final String prefix=PsyInteger.class.getAnnotation(Type.class).value();
+		//interpreter.namespacePool().obtain(prefix);
+		//System.out.println("Registered: "+prefix);
+
+		//System.out.println(getClass().getAnnotation(Type.class).value());
 	}
 
 	/*

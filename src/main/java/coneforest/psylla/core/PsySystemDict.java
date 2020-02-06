@@ -1292,6 +1292,15 @@ public class PsySystemDict
 
 	public static void register(final Interpreter interpreter)
 	{
-		PsyObject.register(interpreter);
+		//PsyObject.register(interpreter);
+		//PsyInteger.register(interpreter);
+		//System.out.println(PsyObject.classTypeName());
+		//System.out.println(PsyInteger.classTypeName());
+		//interpreter.registerType(PsyObject.class);
+		//interpreter.registerType(PsyInteger.class);
+		//interpreter.registerType(PsySystemDict.class);
+		//System.out.println(interpreter.resolveType("object"));
+		//System.out.println(interpreter.resolveType("integer"));
+		//System.out.println(interpreter.resolveType("module"));
 	}
 }
