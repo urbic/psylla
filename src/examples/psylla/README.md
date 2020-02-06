@@ -1,4 +1,4 @@
-# Example Ψ scripts
+# Example Psylla scripts
 
 ## Asterisks
 

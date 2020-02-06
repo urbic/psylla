@@ -9,9 +9,8 @@
 		<!-- -->
 		<exec executable="git">
 			<arg value="clone"/>
-			<arg value="git@github.com:urbic/psylla.git"/>
-			<arg value="--branch"/>
-			<arg value="gh-pages"/>
+			<arg value="git@github.com:urbic/${project.name}.git"/>
+			<arg value="--branch=gh-pages"/>
 			<arg value="${target.gh-pages}"/>
 		</exec>
 

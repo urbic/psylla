@@ -2,7 +2,7 @@ package coneforest.psylla;
 import coneforest.psylla.core.*;
 
 /**
-*	The Ψ interpreter launcher.
+*	The Psylla interpreter launcher.
 */
 public class Psylla
 {
@@ -67,7 +67,7 @@ public class Psylla
 	}
 
 	/**
-	*	Process command-line options and launches the Ψ interpreter.
+	*	Process command-line options and launches the Psylla interpreter.
 	*
 	*	@param args the command-line options
 	*	@return the {@link Psylla} instance launched.

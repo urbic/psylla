@@ -24,7 +24,7 @@ BASE_OPTIONS=""
 BASE_JARS=psylla
 
 # Optional jars
-CLASSPATH="$CLASSPATH:"$(build-classpath jline 2>/dev/null) || :
+CLASSPATH="$CLASSPATH:"$(build-classpath jline1 2>/dev/null) || :
 
 # Set parameters
 set_jvm

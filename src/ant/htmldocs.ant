@@ -63,7 +63,7 @@
 			<srcfilelist dir="${src.docbook}" files="*.scss"/>
 			<targetfileset dir="${target.doc.html}/common" includes="${project.name}.css"/>
 		</dependset>
-		<apply executable="sass" dest="${target.doc.html}/common" parallel="false">
+		<apply executable="sassc" dest="${target.doc.html}/common" parallel="false">
 			<arg value="--style"/>
 			<arg value="compact"/>
 			<!--arg value="-+-load-path"/>

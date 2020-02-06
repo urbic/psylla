@@ -23,16 +23,15 @@ Summary:		@obs.package.summary@
 Url:			https://github.com/urbic/%{name}
 Group:			Development/Languages/Other
 Source:			%{name}-%{version}.tar.xz
-%if 0%{?suse_version}>1315
-Source1:		https://cdn.docbook.org/release/xsl-nons/1.79.2/extensions/saxon65.jar
-%endif
+Source1:        https://cdn.docbook.org/release/xsl-nons/1.79.2/extensions/saxon65.jar
 BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	java-devel >= 1.8.0
 BuildRequires:	java-javadoc >= 1.8.0
 %if 0%{?mageia}
-BuildRequires:	jline2
-Requires:		jline2
+BuildRequires:	locales-ru
+BuildRequires:	jline1
+Requires:		jline1
 %else
 BuildRequires:	jline
 Requires:		jline
@@ -56,13 +55,13 @@ Group:			Documentation/HTML
 Requires:		paratype-pt-sans-fonts
 BuildRequires:	ant-apache-resolver
 %if 0%{?mageia}
-BuildRequires:	docbook-style-xsl
+BuildRequires:	docbook5-style-xsl
 BuildRequires:	java-1.8.0-openjdk-javadoc
 %else
 BuildRequires:	docbook5-xsl-stylesheets
 %endif
 BuildRequires:	graphviz
-BuildRequires:	rubygem(sass)
+BuildRequires:	sassc
 BuildRequires:	saxon6
 %if 0%{?fedora}||0%{?mageia}
 BuildRequires:	xerces-j2
@@ -91,10 +90,8 @@ This package contains the API documentation for %{name}.
 
 %prep
 %setup -q
-%if 0%{?suse_version}>1315
-mkdir -p target/lib
-cp %{SOURCE1} target/lib
-%endif
+%{__mkdir} -p target/lib
+%{__cp} %{S:1} target/lib
 
 %build
 LANG=ru_RU.UTF-8 \
@@ -109,14 +106,16 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %install
 LANG=ru_RU.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} install -Ddestdir=%{buildroot} -Dinstall.docdir=%{_docdir}/%{name} -Dinstall.licensedir=%{_defaultlicensedir}/%{name}
+	%{ant} install -Ddestdir=%{buildroot} -Dconfig.docdir=%{_docdir} -Dconfig.licensedir=%{_defaultlicensedir}
 %fdupes %{buildroot}%{_javadocdir}/%{name}/jquery
 
 %post
 %mime_database_post
+:
 
 %postun
 %mime_database_postun
+:
 
 %clean
 %{__rm} -rf %{buildroot}

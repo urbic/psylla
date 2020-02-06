@@ -1,7 +1,7 @@
 package coneforest.psylla.engine;
 
 /**
-*	A Ψ language scripting engine.
+*	The Psylla language scripting engine.
 */
 public class PsyllaScriptEngine
 	extends javax.script.AbstractScriptEngine

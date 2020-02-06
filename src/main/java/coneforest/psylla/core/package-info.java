@@ -1,5 +1,5 @@
 /**
-*	Ψ language core types.
+*	The Psylla language core types.
 *
 *	@author Anton Shvetz ‹tz@sectorb.msk.ru›
 */

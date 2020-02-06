@@ -5,9 +5,9 @@
 	<property name="obs.package.version" value="${project.version}"/>
 	<property name="obs.package.summary" value="${project.summary}"/>
 	<property name="obs.package.description" value="${project.description}"/>
-	<property name="obs.build.distro" value="openSUSE_Leap_15.0"/>
+	<property name="obs.build.distro" value="openSUSE_Leap_15.1"/>
 	<property name="obs.build.arch" value="x86_64"/>
-	<property name="obs.build.project" value="home:concyclic"/>
+	<property name="obs.build.project" value="home:concyclic:java"/>
 	<property name="src.obs" location="${src}/obs"/>
 	<condition property="obs.build.desc" value="${obs.package.name}.dsc" else="${obs.package.name}.spec">
 		<or>
@@ -21,7 +21,10 @@
 		file="${target.obs}/.osc"
 		/>
 
-	<target name="obs.checkout" unless="obs.dir.available">
+	<target name="obs.checkout"
+		description="Checkout OBS package"
+		unless="obs.dir.available"
+		>
 		<mkdir dir="${target.obs}"/>
 		<exec executable="osc">
 			<arg value="checkout"/>
@@ -37,17 +40,6 @@
 		depends="dist.tar"
 		>
 		<mkdir dir="${target.obs}"/>
-		<!--copy todir="${target.obs}" filtering="true" overwrite="yes">
-			<fileset dir="${src.obs}"/>
-			<filterset>
-				<propertyset>
-					<propertyref name="obs.package.name"/>
-					<propertyref name="obs.package.version"/>
-					<propertyref name="obs.package.summary"/>
-					<propertyref name="obs.package.description"/>
-				</propertyset>
-			</filterset>
-		</copy-->
 		<copy todir="${target.obs}" overwrite="yes">
 			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
 			<fileset dir="${src.obs}" includes="_service"/>
@@ -78,10 +70,9 @@
 	</target>
 
 	<target name="obs.add.spec"
-		description=""
+		description="Adds sources to OBS package"
 		depends="obs.checkout,obs.copy.spec"
 		>
-		<mkdir dir="${target.obs}"/>
 		<!--delete>
 			<fileset dir="${target.obs}" includes="**/*"/>
 		</delete-->
@@ -92,7 +83,10 @@
 		</exec>
 	</target>
 
-	<target name="obs.checkin" depends="obs.add.spec">
+	<target name="obs.commit"
+		description="Commit changes to OBS package"
+		depends="obs.add.spec"
+		>
 		<mkdir dir="${target.obs}"/>
 		<exec outputproperty="git.last.message" executable="git">
 			<arg value="log"/>
@@ -107,33 +101,20 @@
 		</exec>
 	</target>
 
-	<target name="obs.build" depends="obs.copy.spec">
-		<!--mkdir dir="${target.obs}"/-->
+	<target name="obs.build"
+		description="Build package locally"
+		depends="obs.copy.spec"
+		>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
 			<arg value="--no-verify"/>
+			<arg value="--trust-all-projects"/>
 			<arg value="--alternative-project"/>
 			<arg value="${obs.build.project}"/>
 			<arg value="${obs.build.distro}"/>
 			<arg value="${obs.build.arch}"/>
 			<arg value="${obs.build.desc}"/>
 		</exec>
-		<!--exec executable="osc" dir="${target.obs}">
-			<arg value="build"/>
-			<arg value="- -clean"/>
-			<arg value="Fedora_24"/>
-			<arg value="x86_64"/>
-			<arg value="${obs.package.name}.spec"/>
-		</exec-->
-		<!--copy todir="${target.obs}" overwrite="yes">
-			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.gz"/>
-		</copy>
-		<exec executable="osc" dir="${target.obs}">
-			<arg value="build"/>
-			<arg value="openSUSE_Leap_42.1"/>
-			<arg value="x86_64"/>
-			<arg value="${obs.package.name}.spec"/>
-		</exec-->
 	</target>
 
 </project>

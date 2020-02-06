@@ -588,8 +588,15 @@ public class Interpreter
 			quit();
 	}
 
-	public void registerType(final String typeName, final Class<? extends PsyObject> typeClass)
+	/*public void registerType(final String typeName, final Class<? extends PsyObject> typeClass)
 	{
+		System.out.println("REGISTER: "+typeName+" "+typeClass);
+		typeResolver.put(typeName, typeClass);
+	}*/
+
+	public void registerType(final Class<? extends PsyObject> typeClass)
+	{
+		final String typeName=typeClass.getAnnotation(Type.class).value();
 		System.out.println("REGISTER: "+typeName+" "+typeClass);
 		typeResolver.put(typeName, typeClass);
 	}
