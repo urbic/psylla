@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 
 /**
 *	A representation of a Ψ-{@code scalar}, a type bringing total ordering to
-*	implementing Ψ type. This interface declares methods for comparison.
+*	implementing Psylla type. This interface declares methods for comparison.
 *
 *	@param <T> a type of the second operand at binary comparison operation.
 */

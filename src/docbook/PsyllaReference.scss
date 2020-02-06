@@ -1,4 +1,4 @@
-@namespace url(http://www.w3.org/1999/xhtml);
+@namespace url("http://www.w3.org/1999/xhtml");
 @import "highlight.scss";
 
 $background-color-body: white; //#FAFAFA;
@@ -26,7 +26,7 @@ body
 	max-width: 960px;
 	//width: 75%;
 	min-height: 100%;
-	margin: 0pc auto 0pc auto;
+	margin: 0pc auto 0pc 25%;
 	top: 0px;
 	bottom: 0px;
 	//background-color: $background-color-body;
@@ -40,7 +40,7 @@ body
 
 body > *
 {
-	margin: 1pc 2pc 1pc 2pc;
+	margin: 1pc 2pc 1pc 4pc;
 }
 
 p
