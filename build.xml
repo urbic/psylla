@@ -177,7 +177,7 @@
 			</manifest>
 			<service
 				type="javax.script.ScriptEngineFactory"
-				provider="coneforest.psylla.engine.PsiScriptEngineFactory"
+				provider="coneforest.psylla.engine.PsyllaScriptEngineFactory"
 				/>
 		</jar>
 		<symlink
