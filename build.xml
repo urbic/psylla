@@ -40,20 +40,22 @@
 	<property name="datadir" location="/usr/share"/>
 	<property name="sysconfdir" location="/etc"/>
 	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
+	<property name="file.encoding" location="UTF-8"/>
 	<property file="${src.ant}/config.properties"/>
 
 	<path id="classpath.main">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="${config.data}/java/jline.jar"/>
+		<pathelement path="${config.datadir}/java/jline1/jline.jar"/>
+		<pathelement path="${config.lib64dir}/java/jline1/jline-1.0.jar"/>
 		<pathelement path="${ant.core.lib}"/>
-		<pathelement path="${config.data}/ant/lib/ant-junit.jar"/>
+		<pathelement path="${config.datadir}/ant/lib/ant-junit.jar"/>
 	</path>
 
 	<path id="classpath.test">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="${config.data}/java/jline.jar"/>
-		<pathelement path="${config.data}/java/junit4.jar"/>
-		<pathelement path="${config.data}/java/junit.jar"/><!-- For Mageia -->
+		<pathelement path="${config.datadir}/java/jline.jar"/>
+		<pathelement path="${config.datadir}/java/junit4.jar"/>
+		<pathelement path="${config.datadir}/java/junit.jar"/><!-- For Mageia -->
 	</path>
 
 	<xmlcatalog id="xmlcatalog.xslt">
@@ -67,15 +69,15 @@
 	</xmlcatalog>
 
 	<path id="classpath.xslt">
-		<pathelement location="${config.data}/java/saxon6.jar"/>
-		<pathelement location="${config.data}/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+		<pathelement location="${config.datadir}/java/saxon6.jar"/>
+		<pathelement location="${config.datadir}/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
 		<pathelement location="${target.lib}/saxon65.jar"/>
-		<pathelement location="${config.data}/java/xslthl.jar"/>
+		<pathelement location="${config.datadir}/java/xslthl.jar"/>
 
 		<!-- for Debian -->
-		<pathelement location="${config.data}/java/saxon-6.5.5.jar"/>
-		<pathelement location="${config.data}/java/docbook-xsl-saxon.jar"/>
-		<pathelement location="${config.data}/java/xercesImpl.jar"/>
+		<pathelement location="${config.datadir}/java/saxon-6.5.5.jar"/>
+		<pathelement location="${config.datadir}/java/docbook-xsl-saxon.jar"/>
+		<pathelement location="${config.datadir}/java/xercesImpl.jar"/>
 	</path>
 
 	<!-- Import supplementary Ant projects -->
@@ -92,7 +94,7 @@
 		<javacc
 			target="${src.main.jj}/coneforest/psylla/Parser.jj"
 			outputdirectory="${target.src.main.java}/coneforest/psylla"
-			javacchome="${config.data}/java"
+			javacchome="${config.datadir}/java"
 			unicodeinput="true"
 			static="false"
 			/>
@@ -157,11 +159,11 @@
 			<classpath refid="classpath.main"/>
 			<classpath refid="classpath.test"/>
 			<arg value="-Xdoclint:missing,reference"/>
-			<link href="${config.javadoc}/java"/>
-			<link href="${config.javadoc}/junit"/>
+			<link href="file://${config.javadocdir}/java"/>
+			<link href="file://${config.javadocdir}/junit"/>
 			<link href="http://jline.sourceforge.net/apidocs/"/>
-			<link href="${datadir}/doc/openjdk-8-jre-headless/api"/><!-- For Debian -->
-			<link href="${datadir}/doc/libjline-java/api"/><!-- For Debian -->
+			<link href="file://${config.docdir}/openjdk-8-jre-headless/api"/><!-- For Debian -->
+			<link href="file://${config.docdir}/libjline-java/api"/><!-- For Debian -->
 		</javadoc>
 	</target>
 
@@ -177,7 +179,7 @@
 			</manifest>
 			<service
 				type="javax.script.ScriptEngineFactory"
-				provider="coneforest.psylla.engine.PsiScriptEngineFactory"
+				provider="coneforest.psylla.engine.PsyllaScriptEngineFactory"
 				/>
 		</jar>
 		<symlink
