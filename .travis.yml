@@ -1,6 +1,6 @@
 language: java
 
-dist: trusty
+dist: bionic
 
 sudo: required
 
@@ -8,6 +8,7 @@ group: edge
 
 jdk:
     - oraclejdk8
+    - openjdk11
 
 #install: ant -v test
 
