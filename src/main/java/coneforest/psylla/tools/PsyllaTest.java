@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 public class PsyllaTest
 	extends junit.framework.TestCase
 {
+
 	public static junit.framework.Test suite()
 	{
 		return new junit.framework.JUnit4TestAdapter(PsyllaTest.class);
@@ -22,7 +23,7 @@ public class PsyllaTest
 	public void test()
 		throws java.io.IOException
 	{
-		runTest(testName, new String[0], new String[] { "-LC" });
+		runTest(testName, new String[0], new String[] { "-LC", "-Isrc/main/psylla"});
 	}
 
 	@org.junit.runners.Parameterized.Parameters(name="{0}")
@@ -116,5 +117,4 @@ public class PsyllaTest
 	{
 		runTest(testName, new String[0]);
 	}
-
 }

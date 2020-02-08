@@ -12,7 +12,7 @@ public class PsyllaUnit
 	@Override
 	public void execute()
 	{
-		for(Test t: testList)
+		for(Test t: tests)
 		{
 			final org.apache.tools.ant.taskdefs.optional.junit.JUnitTest test
 				=new org.apache.tools.ant.taskdefs.optional.junit.JUnitTest(coneforest.psylla.tools.PsyllaTest.class.getName());
@@ -24,12 +24,22 @@ public class PsyllaUnit
 	public Test createTest()
 	{
 		final Test test=new Test();
-		testList.add(test);
+		tests.add(test);
 		return test;
 	}
 
-	private final java.util.ArrayList<Test> testList
+	public Arg createArg()
+	{
+		final Arg arg=new Arg();
+		args.add(arg);
+		return new Arg();
+	}
+
+	private final java.util.ArrayList<Test> tests
 		=new java.util.ArrayList<Test>();
+
+	private final java.util.ArrayList<Arg> args
+		=new java.util.ArrayList<Arg>();
 
 	public class Test
 	{
@@ -48,5 +58,24 @@ public class PsyllaUnit
 		}
 
 		private String name;
+	}
+
+	public class Arg
+	{
+		public Arg()
+		{
+		}
+
+		public void setValue(final String value)
+		{
+			this.value=value;
+		}
+
+		public String getValue()
+		{
+			return value;
+		}
+
+		private String value;
 	}
 }

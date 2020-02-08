@@ -212,6 +212,7 @@
 			classpathref="classpath.test"
 			/>
 		<psyllaunit>
+			<arg value="VALUE"/>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
 			<!--test dir="${src.test.psylla}"/-->

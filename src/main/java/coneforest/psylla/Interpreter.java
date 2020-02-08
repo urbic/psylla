@@ -9,7 +9,7 @@ public class Interpreter
 	implements PsyContext
 {
 	/**
-	*	Creates a new Ψ language interpreter.
+	*	Creates a new Psylla language interpreter.
 	*/
 	public Interpreter()
 	{
@@ -24,7 +24,6 @@ public class Interpreter
 		}
 		catch(final PsyException e)
 		{
-			//e.printStackTrace();
 			throw new AssertionError();
 		}
 	}
@@ -101,9 +100,10 @@ public class Interpreter
 		final int prefixOffset=name.indexOf('@');
 		if(prefixOffset==-1)
 			return dstack.load(name);
-		final String prefix=name.substring(prefixOffset+1);
-		//return (T)PsyNamespace.getNamespace(prefix).get(name.substring(0, prefixOffset));
-		return (T)nspool.namespace(prefix).get(name.substring(0, prefixOffset));
+		//final String prefix=name.substring(prefixOffset+1);
+		//return (T)nspool.namespace(prefix).get(name.substring(0, prefixOffset));
+		return (T)nspool.namespace(name.substring(0, prefixOffset))
+				.get(name.substring(prefixOffset+1));
 	}
 
 	public <T extends PsyObject> T psyLoad(final PsyStringy oKey)
