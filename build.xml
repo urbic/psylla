@@ -212,7 +212,8 @@
 			classpathref="classpath.test"
 			/>
 		<psyllaunit>
-			<arg value="VALUE"/>
+			<arg value="-LC"/>
+			<arg value="-I${src.main.psylla}"/>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
 			<!--test dir="${src.test.psylla}"/-->

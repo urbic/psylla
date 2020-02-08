@@ -12,11 +12,19 @@ public class PsyllaUnit
 	@Override
 	public void execute()
 	{
+		final String[] args=new String[this.args.size()];
+		int i=0;
+		for(Arg a: this.args)
+		{
+			args[i++]=a.getValue();
+		}
+		final String argsEncoded=coneforest.psylla.tools.ant.Base64Codec.encode(args);
 		for(Test t: tests)
 		{
 			final org.apache.tools.ant.taskdefs.optional.junit.JUnitTest test
 				=new org.apache.tools.ant.taskdefs.optional.junit.JUnitTest(coneforest.psylla.tools.PsyllaTest.class.getName());
 			System.setProperty(PsyllaUnit.class.getName()+".testName", t.getName());
+			System.setProperty(PsyllaUnit.class.getName()+".psyllaArgs", argsEncoded);
 			super.execute(test);
 		}
 	}
@@ -32,21 +40,17 @@ public class PsyllaUnit
 	{
 		final Arg arg=new Arg();
 		args.add(arg);
-		return new Arg();
+		return arg;
 	}
 
-	private final java.util.ArrayList<Test> tests
+	private final static java.util.ArrayList<Test> tests
 		=new java.util.ArrayList<Test>();
 
-	private final java.util.ArrayList<Arg> args
+	private final static java.util.ArrayList<Arg> args
 		=new java.util.ArrayList<Arg>();
 
 	public class Test
 	{
-		public Test()
-		{
-		}
-
 		public void setName(final String name)
 		{
 			this.name=name;
@@ -62,10 +66,6 @@ public class PsyllaUnit
 
 	public class Arg
 	{
-		public Arg()
-		{
-		}
-
 		public void setValue(final String value)
 		{
 			this.value=value;

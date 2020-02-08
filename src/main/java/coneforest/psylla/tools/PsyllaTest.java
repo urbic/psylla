@@ -23,7 +23,9 @@ public class PsyllaTest
 	public void test()
 		throws java.io.IOException
 	{
-		runTest(testName, new String[0], new String[] { "-LC", "-Isrc/main/psylla"});
+		final String[] args=(String [])coneforest.psylla.tools.ant.Base64Codec.decode(
+				System.getProperty(coneforest.psylla.tools.ant.PsyllaUnit.class.getName()+".psyllaArgs"));
+		runTest(testName, new String[0], args);
 	}
 
 	@org.junit.runners.Parameterized.Parameters(name="{0}")
