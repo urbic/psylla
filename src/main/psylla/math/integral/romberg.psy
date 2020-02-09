@@ -1,0 +1,77 @@
+/math.integral.romberg namespace begin
+
+	# Implemented algorithm at
+	# https://en.wikipedia.org/wiki/Romberg%27s_method
+	/romberg
+	{
+		dict begin
+			/accuracy exch def
+			/steps exch def
+			/b exch def
+			/a exch def
+			/f exch def
+
+			/prev array def
+			/curr array def
+			prev steps setlength
+			curr steps setlength
+			/h b a sub def
+
+			prev 0
+			a f b f add h mul 2 div
+			put
+
+			/exitflag false def
+
+			1 1 steps 1 sub
+			{
+				/i exch def
+				/h h 2 div def
+				/c 0 def
+
+				1 1
+				1 i 1 sub bitshift
+				{
+					/j exch def
+					/c c 2 j mul 1 sub h mul a add f add def
+				}
+				for
+
+				curr 0
+				h c mul prev 0 get 2 div add
+				put
+
+				1 1 i
+				{
+					/j exch def
+					/nk 4 j pow def
+					curr j
+					nk curr j 1 sub get mul
+					prev j 1 sub get
+					sub
+					nk 1 sub
+					div
+					put
+				}
+				for
+
+				i 1 gt
+				prev i 1 sub get curr i get sub abs accuracy lt
+				and
+				{
+					/exitflag true def
+					curr i 1 sub get
+					exit
+				}
+				if
+
+				prev curr /prev exch def /curr exch def
+			}
+			for
+
+			exitflag not { prev steps 1 sub get } if
+		end
+	}
+	bind def
+
+end
