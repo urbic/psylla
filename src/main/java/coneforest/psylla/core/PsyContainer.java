@@ -13,9 +13,10 @@ public interface PsyContainer<T extends PsyObject>
 	{
 		try
 		{
-			return getClass().newInstance();
+			return getClass().getConstructor().newInstance();
 		}
-		catch(final InstantiationException|IllegalAccessException e)
+		catch(final InstantiationException|IllegalAccessException
+				|NoSuchMethodException|java.lang.reflect.InvocationTargetException e)
 		{
 			throw new PsyUnsupportedException();
 		}

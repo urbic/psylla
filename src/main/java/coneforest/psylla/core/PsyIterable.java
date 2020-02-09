@@ -46,7 +46,7 @@ public interface PsyIterable<T extends PsyObject>
 		interpreter.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
-				public void action(Interpreter interpreter1)
+				public void action(final Interpreter interpreter1)
 					throws PsyException
 				{
 					if(iterator.hasNext())

@@ -115,6 +115,7 @@
 			>
 			<!--compilerarg value="-Xlint"/-->
 			<!--compilerarg value="-Xdoclint"/-->
+			<compilerarg value="-Xlint:deprecation"/>
 			<classpath refid="classpath.main"/>
 			<classpath refid="classpath.test"/>
 			<compilerarg value="-Xdiags:verbose"/>
