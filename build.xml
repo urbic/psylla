@@ -45,15 +45,14 @@
 
 	<path id="classpath.main">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="${config.datadir}/java/jline1/jline.jar"/>
-		<pathelement path="${config.lib64dir}/java/jline1/jline-1.0.jar"/>
+		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
 		<pathelement path="${ant.core.lib}"/>
 		<pathelement path="${config.datadir}/ant/lib/ant-junit.jar"/>
 	</path>
 
 	<path id="classpath.test">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
-		<pathelement path="${config.datadir}/java/jline.jar"/>
+		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
 		<pathelement path="${config.datadir}/java/junit4.jar"/>
 		<pathelement path="${config.datadir}/java/junit.jar"/><!-- For Mageia -->
 	</path>
@@ -162,8 +161,8 @@
 			<arg value="-Xdoclint:missing,reference"/>
 			<link href="file://${config.javadocdir}/java"/>
 			<link href="file://${config.javadocdir}/junit"/>
-			<link href="http://jline.sourceforge.net/apidocs/"/>
-			<link href="file://${config.docdir}/openjdk-8-jre-headless/api"/><!-- For Debian -->
+			<link href="file://${config.javadocdir}/jline1"/>
+			<link href="file://${config.docdir}/openjdk-11-jre-headless/api"/><!-- For Debian -->
 			<link href="file://${config.docdir}/libjline-java/api"/><!-- For Debian -->
 		</javadoc>
 	</target>

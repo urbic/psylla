@@ -71,7 +71,7 @@
 
 	<xsl:template name="user.head.content">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<link rel="shortcut icon" href="{$shortcut.icon}" type="image/png"/>
+		<link rel="shortcut icon" href="{$shortcut.icon}" type="image/svg+xml"/>
 		<link rel="author" href="https://plus.google.com/113215332542811715537?rel=author"/>
 		<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="application/ecmascript"><xsl:comment/></script-->
 		<!--meta name="google-site-verification" content=""/-->

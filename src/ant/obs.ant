@@ -5,7 +5,7 @@
 	<property name="obs.package.version" value="${project.version}"/>
 	<property name="obs.package.summary" value="${project.summary}"/>
 	<property name="obs.package.description" value="${project.description}"/>
-	<property name="obs.build.distro" value="openSUSE_Leap_15.1"/>
+	<property name="obs.build.distro" value="openSUSE_Leap_15.2"/>
 	<property name="obs.build.arch" value="x86_64"/>
 	<property name="obs.build.project" value="home:concyclic:java"/>
 	<property name="src.obs" location="${src}/obs"/>
@@ -15,25 +15,6 @@
 			<contains string="${obs.build.distro}" substring="Ubuntu"/>
 		</or>
 	</condition>
-
-	<available
-		property="obs.dir.available"
-		file="${target.obs}/.osc"
-		/>
-
-	<target name="obs.checkout"
-		description="Checkout OBS package"
-		unless="obs.dir.available"
-		>
-		<mkdir dir="${target.obs}"/>
-		<exec executable="osc">
-			<arg value="checkout"/>
-			<arg value="-o"/>
-			<arg value="${target.obs}"/>
-			<arg value="${obs.build.project}"/>
-			<arg value="${obs.package.name}"/>
-		</exec>
-	</target>
 
 	<target name="obs.copy.spec"
 		description="Copy sources and specs to OBS working directory"
@@ -69,44 +50,13 @@
 		</copy>
 	</target>
 
-	<target name="obs.add.spec"
-		description="Adds sources to OBS package"
-		depends="obs.checkout,obs.copy.spec"
-		>
-		<!--delete>
-			<fileset dir="${target.obs}" includes="**/*"/>
-		</delete-->
-		<exec executable="osc" dir="${target.obs}">
-			<arg value="addremove"/>
-			<arg value="${project.name}-${project.version}.tar.xz"/>
-			<arg value="${obs.build.desc}"/>
-		</exec>
-	</target>
-
-	<target name="obs.commit"
-		description="Commit changes to OBS package"
-		depends="obs.add.spec"
-		>
-		<mkdir dir="${target.obs}"/>
-		<exec outputproperty="git.last.message" executable="git">
-			<arg value="log"/>
-			<arg value="--pretty=%s"/>
-			<arg value="-1"/>
-		</exec>
-		<exec executable="osc" dir="${target.obs}">
-			<arg value="checkin"/>
-			<arg value="-v"/>
-			<arg value="-m"/>
-			<arg value="${git.last.message}"/>
-		</exec>
-	</target>
-
 	<target name="obs.build"
 		description="Build package locally"
 		depends="obs.copy.spec"
 		>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="build"/>
+			<arg value="--no-service"/>
 			<arg value="--no-verify"/>
 			<arg value="--trust-all-projects"/>
 			<arg value="--alternative-project"/>

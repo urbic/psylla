@@ -1,3 +1,6 @@
-usr/share/doc/@obs.package.name@-doc/html/*
-usr/share/doc/@obs.package.name@-doc/examples/*
-usr/share/doc/@obs.package.name@-doc/api/*
+usr/share/doc/@obs.package.name@/html/*
+usr/share/doc/@obs.package.name@/examples/*
+usr/share/doc/@obs.package.name@/api/*
+usr/share/doc/@obs.package.name@/copyright
+usr/share/doc/@obs.package.name@/LICENSE
+usr/share/doc/@obs.package.name@/README

@@ -2,20 +2,21 @@ Source: @obs.package.name@
 Section: contrib/interpreters
 Priority: optional
 Maintainer: Anton Shvetz <tz@sectorb.msk.ru>
-Build-Depends: debhelper (>= 9),
-	perl-base (>= 5.18.2),
-	openjdk-8-jdk-headless,
-	openjdk-8-doc,
-	javacc, junit4 (>=4.11),
+Build-Depends: debhelper (>=9),
+	perl-base (>=5.18.2),
+	openjdk-11-jdk-headless,
+	openjdk-11-doc,
+	javacc,
+	junit4 (>=4.11),
 	ant,
 	ant-optional,
 	libjline-java,
 	libjline-java-doc,
-	docbook-xsl-ns (>=1.78),
+	docbook-xsl-ns (>=1.79),
 	docbook-mathml,
 	docbook-xsl-saxon,
 	libxslthl-java,
-	ruby-sass,
+	sassc,
 	libxerces2-java,
 	graphviz
 Vcs-Git: https://github.com/urbic/@obs.package.name@.git
@@ -24,8 +25,8 @@ Homepage: https://github.com/urbic/@obs.package.name@
 
 Package: @obs.package.name@
 Architecture: all
-Depends: debhelper (>= 9),
-	openjdk-8-jre-headless,
+Depends: debhelper (>=9),
+	openjdk-11-jre-headless,
 	javacc,
 	junit4 (>=4.11),
 	ant-optional,
@@ -38,9 +39,9 @@ Description: @obs.package.summary@
 Package: @obs.package.name@-doc
 Architecture: all
 Section: doc
-Depends: debhelper (>= 9),
+Depends: debhelper (>=9),
 Recommends:
-	openjdk-8-doc,
+	openjdk-11-doc,
 	ant-doc,
 	ant-optional,
 Description: Psylla programming language (documentation)

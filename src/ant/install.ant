@@ -9,10 +9,10 @@
 		<mkdir dir="${destdir}/${config.vendor.libdir}"/>
 		<mkdir dir="${destdir}/${config.site.libdir}"/>
 		<mkdir dir="${destdir}/${config.javadir}"/>
-		<mkdir dir="${destdir}/${config.site.bindir}"/>
-		<mkdir dir="${destdir}/${config.docdir}/${project.name}"/>
-		<mkdir dir="${destdir}/${config.licensedir}/${project.name}"/>
-		<mkdir dir="${destdir}/${config.javadocdir}/${project.name}"/>
+		<mkdir dir="${destdir}/${config.bindir}"/>
+		<mkdir dir="${destdir}/${config.vendor.docdir}"/>
+		<mkdir dir="${destdir}/${config.vendor.licensedir}"/>
+		<mkdir dir="${destdir}/${config.vendor.javadocdir}"/>
 		<mkdir dir="${destdir}/${config.datadir}/ant/lib"/>
 		<mkdir dir="${destdir}/${config.datadir}/vim/site"/>
 		<mkdir dir="${destdir}/${config.datadir}/mime/packages"/>
@@ -33,8 +33,8 @@
 			/>
 
 		<!-- Install script -->
-		<copy todir="${destdir}/${config.site.bindir}" file="${target.bin}/${project.name}"/>
-		<chmod file="${destdir}/${config.site.bindir}/${project.name}" perm="ugo+rx"/>
+		<copy todir="${destdir}/${config.bindir}" file="${target.bin}/${project.name}"/>
+		<chmod file="${destdir}/${config.bindir}/${project.name}" perm="ugo+rx"/>
 
 		<!-- Install library Psylla files -->
 		<copy todir="${destdir}/${config.vendor.libdir}">
@@ -42,7 +42,7 @@
 		</copy>
 
 		<!-- Install XHTML documentation and examples -->
-		<copy todir="${destdir}/${config.docdir}/${project.name}">
+		<copy todir="${destdir}/${config.vendor.docdir}">
 			<fileset
 				dir="${target.doc}"
 				followsymlinks="false"
@@ -50,21 +50,21 @@
 				excludes="html/**/*.css.map"/>
 		</copy>
 		<symlink
-			link="${destdir}/${config.docdir}/${project.name}/html/en/common"
+			link="${destdir}/${config.vendor.docdir}/html/en/common"
 			resource="../common"
 			overwrite="true"
 			/>
 		<symlink
-			link="${destdir}/${config.docdir}/${project.name}/html/ru/common"
+			link="${destdir}/${config.vendor.docdir}/html/ru/common"
 			resource="../common"
 			overwrite="true"
 			/>
 
 		<!-- Install LICENSE -->
-		<copy todir="${destdir}/${config.licensedir}/${project.name}" file="LICENSE"/>
+		<copy todir="${destdir}/${config.vendor.licensedir}" file="LICENSE"/>
 
 		<!-- Install README etc -->
-		<copy todir="${destdir}/${config.docdir}/${project.name}">
+		<copy todir="${destdir}/${config.vendor.docdir}">
 			<fileset dir="${target.doc}" includes="README AUTHORS"/>
 		</copy>
 
@@ -74,7 +74,7 @@
 		</copy>
 
 		<!-- Install API documentation -->
-		<copy todir="${destdir}/${config.javadocdir}/${project.name}">
+		<copy todir="${destdir}/${config.vendor.javadocdir}">
 			<fileset dir="${target.doc.apidocs}" includes="**/*"/>
 		</copy>
 

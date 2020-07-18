@@ -23,19 +23,23 @@ Summary:		@obs.package.summary@
 Url:			https://github.com/urbic/%{name}
 Group:			Development/Languages/Other
 Source:			%{name}-%{version}.tar.xz
-Source1:        https://cdn.docbook.org/release/xsl-nons/1.79.2/extensions/saxon65.jar
+#Source1:        https://cdn.docbook.org/release/xsl-nons/1.79.2/extensions/saxon65.jar
 BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	java-devel >= 1.8.0
 BuildRequires:	java-javadoc >= 1.8.0
 %if 0%{?mageia}
 BuildRequires:	locales-ru
-BuildRequires:	jline1
-Requires:		jline1
-%else
-BuildRequires:	jline
-Requires:		jline
 %endif
+%if 0%{?mageia} || 0%{?sle_version} >= 150200 || 0%{?suse_version} >= 1550
+%global jline1 jline1
+%global jline1_jar %{_prefix}/lib/java/jline1/jline-1.0.jar
+%else
+%global jline1 jline1
+%global jline1_jar %{_libdir}/java/jline1/jline-1.0.jar
+%endif
+BuildRequires:	%{jline1} <= 2
+Requires:		%{jline1} <= 2
 BuildRequires:	junit >= 4.0
 BuildRequires:	ant-junit
 Provides:		config(ant-%{name})
@@ -63,7 +67,7 @@ BuildRequires:	docbook5-xsl-stylesheets
 BuildRequires:	graphviz
 BuildRequires:	sassc
 BuildRequires:	saxon6
-%if 0%{?fedora}||0%{?mageia}
+%if 0%{?fedora} || 0%{?mageia}
 BuildRequires:	xerces-j2
 %else
 #BuildRequires:	xerces-j2-xml-apis
@@ -91,17 +95,19 @@ This package contains the API documentation for %{name}.
 %prep
 %setup -q
 %{__mkdir} -p target/lib
-%{__cp} %{S:1} target/lib
+#%%{__cp} %%{S:1} target/lib
 
 %build
 LANG=ru_RU.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} build
+	%{ant} build \
+	-Djline1.jar=%{jline1_jar}
 
 %check
 LANG=ru_RU.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} test
+	%{ant} test \
+	-Djline1.jar=%{jline1_jar}
 
 %install
 LANG=ru_RU.UTF-8 \

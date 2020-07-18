@@ -1,7 +1,7 @@
 /math.integral.romberg namespace begin
 
 	# Implemented algorithm at
-	# https://en.wikipedia.org/wiki/Romberg%27s_method
+	# https://en.wikipedia.org/w/index.php?&oldid=937968098
 	/romberg
 	{
 		dict begin

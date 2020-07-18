@@ -16,7 +16,7 @@
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
 			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
 			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
-			<param name="shortcut.icon" expression="../${project.name}-16.png"/>
+			<param name="shortcut.icon" expression="../${project.name}.svg"/>
 			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
 			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
 			<param name="draft.mode" expression="maybe"/>
@@ -95,7 +95,7 @@
 			<fileset dir="${src.docbook}" includes="js/**"/>
 		</copy>
 		<copy todir="${target.doc.html}">
-			<fileset dir="${src.logo}" includes="${project.name}.svg ${project.name}-16.png"/>
+			<fileset dir="${src.logo}" includes="${project.name}.svg"/>
 		</copy>
 	</target>
 

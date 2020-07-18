@@ -97,7 +97,7 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_cmp" xrefstyle="template:%t"/></term>
-<listitem>comparison of two objects</listitem>
+<listitem>compare two objects</listitem>
 </varlistentry>
 
 <varlistentry>
