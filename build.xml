@@ -11,6 +11,7 @@
 	<property name="src.examples" location="${src}/examples"/>
 	<property name="src.main.java" location="${src.main}/java"/>
 	<property name="src.main.psylla" location="${src.main}/psylla"/>
+	<property name="src.main.resources" location="${src.main}/resources"/>
 	<property name="src.test.java" location="${src.test}/java"/>
 	<property name="src.test.psylla" location="${src.test}/psylla"/>
 	<property name="src.main.jj" location="${src.main}/jj"/>
@@ -167,9 +168,18 @@
 		</javadoc>
 	</target>
 
+	<target name="copy.resources"
+		description="Copy resources"
+		>
+		<copy todir="${target.classes}">
+			<fileset dir="${src.main.resources}" includes="**"/>
+		</copy>
+	</target>
+
 	<target name="jar"
 		description="Build Jar"
-		depends="compile">
+		depends="compile,copy.resources"
+		>
 		<jar
 			jarfile="${target.lib}/${project.name}-${project.version}.jar"
 			basedir="${target.classes}"
