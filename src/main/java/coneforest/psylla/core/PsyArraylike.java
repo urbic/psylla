@@ -311,10 +311,10 @@ public interface PsyArraylike<T extends PsyObject>
 
 	default public String toSyntaxStringHelper(final PsyLengthy oLengthy)
 	{
-		final StringBuilder sb=new StringBuilder();
+		final var sb=new StringBuilder();
 		if(length()>0)
 		{
-			for(PsyObject obj: this)
+			for(var obj: this)
 			{
 				if(obj instanceof PsyLengthy)
 					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsyLengthy)obj).toSyntaxString());

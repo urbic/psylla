@@ -36,10 +36,10 @@ public class TokensParser
 	private static PsyString parseStringToken(final Token token)
 		throws PsySyntaxErrorException
 	{
-		final StringBuilder sb=new StringBuilder();
+		final var sb=new StringBuilder();
 		for(int i=1; i<token.image.length()-1; i++)
 		{
-			final char c=token.image.charAt(i);
+			final var c=token.image.charAt(i);
 			switch(c)
 			{
 				case '\\':
@@ -84,14 +84,14 @@ public class TokensParser
 							break;
 						case 'c':
 							{
-								final int ch=token.image.charAt(++i);
+								final var ch=token.image.charAt(++i);
 								sb.append(Character.toChars(ch+(ch<64? 64: -64)));
 							}
 							break;
 						case 'x':
 							try
 							{
-								final int j=token.image.indexOf('}', i+2);
+								final var j=token.image.indexOf('}', i+2);
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
@@ -113,10 +113,10 @@ public class TokensParser
 	private static PsyName parseNameQuotedToken(final Token token)
 		throws PsySyntaxErrorException
 	{
-		final StringBuilder sb=new StringBuilder();
+		final var sb=new StringBuilder();
 		for(int i=1; i<token.image.length()-1; i++)
 		{
-			final char c=token.image.charAt(i);
+			final var c=token.image.charAt(i);
 			switch(c)
 			{
 				case '\\':
@@ -161,14 +161,14 @@ public class TokensParser
 							break;
 						case 'c':
 							{
-								final int ch=token.image.charAt(++i);
+								final var ch=token.image.charAt(++i);
 								sb.append(Character.toChars(ch+(ch<64? 64: -64)));
 							}
 							break;
 						case 'x':
 							try
 							{
-								final int j=token.image.indexOf('}', i+2);
+								final var j=token.image.indexOf('}', i+2);
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
@@ -190,10 +190,10 @@ public class TokensParser
 	private static PsyRegExp parseRegExpToken(final Token token)
 		throws PsyException
 	{
-		final StringBuilder sb=new StringBuilder();
+		final var sb=new StringBuilder();
 		for(int i=1; i<token.image.length()-1; i++)
 		{
-			final char c=token.image.charAt(i);
+			final var c=token.image.charAt(i);
 			switch(c)
 			{
 				case '\\':
@@ -232,7 +232,7 @@ public class TokensParser
 							break;
 						case 'c':
 							{
-								final int ch=token.image.charAt(++i);
+								final var ch=token.image.charAt(++i);
 								sb.append(Character.toChars(ch+(ch<64? 64: -64)));
 							}
 							break;
@@ -240,7 +240,7 @@ public class TokensParser
 							try
 							{
 								// TODO: if not found
-								final int j=token.image.indexOf('}', i+2);
+								final var j=token.image.indexOf('}', i+2);
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
@@ -366,7 +366,7 @@ public class TokensParser
 						return PsyInteger.valueOf(Integer.valueOf(token.image.substring(3, 7), 16));
 					case 'c':
 						{
-							final int ch=token.image.charAt(3);
+							final var ch=token.image.charAt(3);
 							return PsyInteger.valueOf(ch+(ch<64? 64: -64));
 						}
 					case 'x':

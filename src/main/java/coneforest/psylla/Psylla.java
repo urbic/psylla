@@ -130,7 +130,7 @@ public class Psylla
 			shellArguments=new String[]{};
 		}
 
-		final PsyllaConfig psyllaConfig=new PsyllaConfig();
+		final var psyllaConfig=new PsyllaConfig();
 		psyllaConfig.setScriptName(scriptName);
 		psyllaConfig.setScriptReader(scriptReader);
 		psyllaConfig.setShellArguments(shellArguments);
@@ -138,7 +138,7 @@ public class Psylla
 		psyllaConfig.setClassPath(cli.<String[]>getValue("classpath"));
 		psyllaConfig.setLibraryPath(cli.<String[]>getValue("librarypath"));
 
-		final Psylla psylla=new Psylla(psyllaConfig);
+		final var psylla=new Psylla(psyllaConfig);
 		psylla.start();
 		return psylla;
 	}

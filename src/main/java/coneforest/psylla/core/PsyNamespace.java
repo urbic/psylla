@@ -36,13 +36,13 @@ public class PsyNamespace
 	public PsyObject get(final String key)
 		throws PsyException
 	{
-		final Stack<PsyNamespace> agenda=new Stack<PsyNamespace>();
+		final var agenda=new Stack<PsyNamespace>();
 		agenda.push(this);
 
 		while(agenda.size()>0)
 		{
-			final PsyNamespace oNamespace=agenda.pop();
-			PsyObject o=oNamespace.dict.get(key);
+			final var oNamespace=agenda.pop();
+			final var o=oNamespace.dict.get(key);
 			if(o!=null)
 				return o;
 

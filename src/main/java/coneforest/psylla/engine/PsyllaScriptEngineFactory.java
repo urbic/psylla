@@ -38,8 +38,8 @@ public class PsyllaScriptEngineFactory
 	@Override
 	public String getProgram(final String... statements)
 	{
-		final StringBuilder sb=new StringBuilder();
-		for(String statement: statements)
+		final var sb=new StringBuilder();
+		for(var statement: statements)
 		{
 			sb.append(statement);
 			sb.append('\n');

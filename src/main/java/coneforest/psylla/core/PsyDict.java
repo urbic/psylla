@@ -36,7 +36,7 @@ public class PsyDict
 	public PsyObject get(final String key)
 		throws PsyException
 	{
-		final PsyObject oValue=dict.get(key);
+		final var oValue=dict.get(key);
 		if(oValue!=null)
 			return oValue;
 		else
@@ -89,7 +89,7 @@ public class PsyDict
 	public PsyDict psySlice(final PsyIterable<PsyStringy> oKeys)
 		throws PsyException
 	{
-		final PsyDict values=new PsyDict();
+		final var values=new PsyDict();
 		for(PsyStringy oKey: oKeys)
 			values.psyPut(oKey, psyGet(oKey));
 		return values;

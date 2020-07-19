@@ -34,8 +34,8 @@ public class PsyRegExp
 	@Override
 	public String toSyntaxString()
 	{
-		final StringBuilder sb=new StringBuilder("~");
-		final String patternImage=pattern.toString();
+		final var sb=new StringBuilder("~");
+		final var patternImage=pattern.toString();
 		for(int i=0; i<patternImage.length(); i++)
 		{
 			char c=patternImage.charAt(i);

@@ -25,7 +25,7 @@ public class PsyRomanNumerals
 		long n=oInteger.longValue();
 		if(n<0 || n>=4000)
 			throw new PsyRangeCheckException();
-		final StringBuilder sb=new StringBuilder();
+		final var sb=new StringBuilder();
 		for(int d=0; n>0; n/=10, d++)
 			sb.insert(0, conversionTable[d][(int)n % 10]);
 		return new PsyName(sb);
@@ -34,8 +34,7 @@ public class PsyRomanNumerals
 	private static PsyInteger psyFromRoman(final PsyStringy oStringy)
 		throws PsyException
 	{
-		final java.util.regex.Matcher romanMatcher
-			=romanPattern.matcher(oStringy.stringValue());
+		final var romanMatcher=romanPattern.matcher(oStringy.stringValue());
 		if(!romanMatcher.matches())
 			throw new PsyUndefinedResultException();
 		int result=0;

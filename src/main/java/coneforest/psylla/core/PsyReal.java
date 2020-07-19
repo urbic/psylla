@@ -94,7 +94,7 @@ public class PsyReal
 	@Override
 	public PsyInteger psyCmp(final PsyRealNumeric oNumeric)
 	{
-		final int result=Double.compare(value, oNumeric.doubleValue());
+		final var result=Double.compare(value, oNumeric.doubleValue());
 		return result<0? PsyInteger.MINUS_ONE:
 			result>0? PsyInteger.ONE: PsyInteger.ZERO;
 	}

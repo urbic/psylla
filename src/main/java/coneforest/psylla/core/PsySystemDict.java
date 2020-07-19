@@ -31,9 +31,9 @@ public class PsySystemDict
 					("arraytomark",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final int i=ostack.findMarkPosition();
-							final PsyArray oArray=new PsyArray();
+							final var ostack=interpreter.operandStack();
+							final var i=ostack.findMarkPosition();
+							final var oArray=new PsyArray();
 							for(int j=i+1; j<ostack.size(); j++)
 								oArray.psyAppend(ostack.get(j));
 							ostack.setSize(i);
@@ -47,10 +47,10 @@ public class PsySystemDict
 						(interpreter)->
 						// TODO
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							int count=ostack.<PsyInteger>getBacked(0).intValue();
 							ostack.ensureSize(count);
-							final PsyArray oArray=new PsyArray();
+							final var oArray=new PsyArray();
 							while(--count>=0)
 								oArray.psyAppend(ostack.pop());
 							ostack.push(oArray);
@@ -62,7 +62,7 @@ public class PsySystemDict
 					("begin",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							interpreter.dictStack().psyBegin(ostack.getBacked(0));
 						}
 					),
@@ -70,13 +70,13 @@ public class PsySystemDict
 					("binarysearch",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(3);
+							final var ostack=interpreter.operandStackBacked(3);
 							final PsyArray oArray=ostack.getBacked(0);
 							final PsyObject oKey=ostack.getBacked(1);
 							final PsyProc oComparator=ostack.getBacked(2);
 
 							final PsyInteger oIndex=oArray.psyBinarySearch(oKey, oComparator);
-							final int index=oIndex.intValue();
+							final var index=oIndex.intValue();
 							if(index>=0)
 							{
 								ostack.push(oIndex);
@@ -109,8 +109,8 @@ public class PsySystemDict
 					("capturegroup",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
-							final PsyString oGroup=ostack.<PsyMatcher>getBacked(0).psyCaptureGroup(ostack.getBacked(1));
+							final var ostack=interpreter.operandStackBacked(2);
+							final var oGroup=ostack.<PsyMatcher>getBacked(0).psyCaptureGroup(ostack.getBacked(1));
 							if(oGroup!=null)
 								ostack.push(oGroup);
 							ostack.push(PsyBoolean.valueOf(oGroup!=null));
@@ -120,8 +120,8 @@ public class PsySystemDict
 					("capturegroupend",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
-							final PsyInteger oGroupEnd=ostack.<PsyMatcher>getBacked(0).psyCaptureGroupEnd(ostack.getBacked(1));
+							final var ostack=interpreter.operandStackBacked(2);
+							final var oGroupEnd=ostack.<PsyMatcher>getBacked(0).psyCaptureGroupEnd(ostack.getBacked(1));
 							if(oGroupEnd!=null)
 								ostack.push(oGroupEnd);
 							ostack.push(PsyBoolean.valueOf(oGroupEnd!=null));
@@ -131,8 +131,8 @@ public class PsySystemDict
 					("capturegroupstart",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
-							final PsyInteger oGroupStart=ostack.<PsyMatcher>getBacked(0).psyCaptureGroupStart(ostack.getBacked(1));
+							final var ostack=interpreter.operandStackBacked(2);
+							final var oGroupStart=ostack.<PsyMatcher>getBacked(0).psyCaptureGroupStart(ostack.getBacked(1));
 							if(oGroupStart!=null)
 								ostack.push(oGroupStart);
 							ostack.push(PsyBoolean.valueOf(oGroupStart!=null));
@@ -158,7 +158,7 @@ public class PsySystemDict
 					("cleartomark",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							ostack.setSize(ostack.findMarkPosition());
 						}
 					),
@@ -184,12 +184,12 @@ public class PsySystemDict
 					("copy",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
-							final int count=ostack.<PsyInteger>getBacked(0).intValue();
+							final var ostack=interpreter.operandStackBacked(1);
+							final var count=ostack.<PsyInteger>getBacked(0).intValue();
 							if(count<0)
 								throw new PsyRangeCheckException();
 							ostack.ensureSize(count);
-							final int opsize=ostack.size();
+							final var opsize=ostack.size();
 							for(int j=opsize-count; j<opsize; j++)
 								ostack.push(ostack.get(j));
 						}
@@ -212,7 +212,7 @@ public class PsySystemDict
 					("countstack",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							ostack.push(PsyInteger.valueOf(ostack.size()));
 						}
 					),
@@ -220,7 +220,7 @@ public class PsySystemDict
 					("counttomark",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							ostack.push(PsyInteger.valueOf(-ostack.findMarkPosition()-1+ostack.size()));
 						}
 					),
@@ -236,7 +236,7 @@ public class PsySystemDict
 					("currentnamespace",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							ostack.push(interpreter.currentNamespace());
 						}
 					),
@@ -244,7 +244,7 @@ public class PsySystemDict
 					("def",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							interpreter.currentDict().psyPut(ostack.getBacked(0), ostack.getBacked(1));
 						}
 					),
@@ -266,17 +266,17 @@ public class PsySystemDict
 					("dicttomark",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
-							final int i=ostack.findMarkPosition();
-							final int ostackSize=ostack.size();
+							final var ostack=interpreter.operandStack();
+							final var i=ostack.findMarkPosition();
+							final var ostackSize=ostack.size();
 							if((ostackSize-i) % 2==0)
 								throw new PsyRangeCheckException();
 
-							final PsyDict oDict=new PsyDict();
+							final var oDict=new PsyDict();
 							for(int j=i+1; j<ostackSize; j++)
 							{
-								final PsyStringy oKey=(PsyStringy)ostack.get(j++);
-								final PsyObject o=ostack.get(j);
+								final var oKey=(PsyStringy)ostack.get(j++);
+								final var o=ostack.get(j);
 								oDict.psyPut(oKey, o);
 							}
 							ostack.setSize(i);
@@ -289,7 +289,7 @@ public class PsySystemDict
 					("dup",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							ostack.ensureSize(1);
 							ostack.push(ostack.peek());
 						}
@@ -300,10 +300,10 @@ public class PsySystemDict
 						{
 							try
 							{
-								final OperandStack ostack=interpreter.operandStack();
+								final var ostack=interpreter.operandStack();
 								final jline.ConsoleReader consoleReader
 									=new jline.ConsoleReader();
-								final String line=consoleReader.readLine();
+								final var line=consoleReader.readLine();
 								if(line!=null)
 									ostack.push(new PsyString(line+"\n"));
 								ostack.push(PsyBoolean.valueOf(line!=null));
@@ -339,7 +339,7 @@ public class PsySystemDict
 					("exch",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							ostack.push(ostack.getBacked(1));
 							ostack.push(ostack.getBacked(0));
 						}
@@ -374,7 +374,7 @@ public class PsySystemDict
 					("external",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							//ostack.push(((PsyClassLoader)interpreter.systemDict().get("classpath"))
 							//		.psyExternal((PsyStringy)ostack.getBacked(0)));
 							interpreter.classLoader().psyExternal(ostack.getBacked(0));
@@ -408,7 +408,7 @@ public class PsySystemDict
 					("find",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyMatcher matcher=ostack.getBacked(0);
 							boolean resultValue=matcher.psyFind().booleanValue();
 							if(resultValue)
@@ -420,11 +420,11 @@ public class PsySystemDict
 					("findall",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(3);
-							final PsyMatcher oMatcher=new PsyMatcher(ostack.getBacked(0), ostack.getBacked(1));
-							final PsyObject o=ostack.getBacked(2);
+							final var ostack=interpreter.operandStackBacked(3);
+							final var oMatcher=new PsyMatcher(ostack.getBacked(0), ostack.getBacked(1));
+							final var o=ostack.getBacked(2);
 
-							final int loopLevel=interpreter.pushLoopLevel();
+							final var loopLevel=interpreter.pushLoopLevel();
 							while(true)
 							{
 								if(oMatcher.psyFind().booleanValue())
@@ -451,8 +451,8 @@ public class PsySystemDict
 					("for",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(4);
-							final ExecutionStack estack=interpreter.executionStack();
+							final var ostack=interpreter.operandStackBacked(4);
+							final var estack=interpreter.executionStack();
 							final PsyRealNumeric oInitial=ostack.getBacked(0);
 							final PsyRealNumeric oIncrement=ostack.getBacked(1);
 							final PsyRealNumeric oLimit=ostack.getBacked(2);
@@ -506,7 +506,7 @@ public class PsySystemDict
 						(interpreter)->
 						// TODO; error handling in forked context
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 
 							//ostack.ensureSize(2);
 							final PsyObject o=ostack.getBacked(0);
@@ -528,7 +528,7 @@ public class PsySystemDict
 									};
 							final int i=ostack.findMarkPosition();
 							final int ostackSize=ostack.size();
-							final OperandStack forkedOstack=forkedInterpreter.operandStack();
+							final var forkedOstack=forkedInterpreter.operandStack();
 							for(int j=i+1; j<ostackSize; j++)
 								forkedOstack.push(ostack.get(j));
 							ostack.setSize(i);
@@ -554,7 +554,7 @@ public class PsySystemDict
 					("halt",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							System.exit(ostack.<PsyInteger>getBacked(0).intValue());
 						}
 					),
@@ -570,7 +570,7 @@ public class PsySystemDict
 					("if",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							if(ostack.<PsyBoolean>getBacked(0).booleanValue())
 								ostack.getBacked(1).invoke(interpreter);
 						}
@@ -579,7 +579,7 @@ public class PsySystemDict
 					("ifelse",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(3);
+							final var ostack=interpreter.operandStackBacked(3);
 							ostack.getBacked(ostack.<PsyBoolean>getBacked(0).booleanValue()? 1: 2)
 									.invoke(interpreter);
 						}
@@ -590,7 +590,7 @@ public class PsySystemDict
 					("index",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							int index=ostack.<PsyInteger>getBacked(0).intValue();
 							if(index<0)
 								throw new PsyRangeCheckException();
@@ -622,7 +622,7 @@ public class PsySystemDict
 					("isinstance",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							ostack.push(PsyBoolean.valueOf(
 									interpreter.resolveType(ostack.<PsyStringy>getBacked(0).stringValue())
 										.isInstance(ostack.getBacked(1))));
@@ -638,10 +638,10 @@ public class PsySystemDict
 					("join",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyContext oContext=ostack.getBacked(0);
 							oContext.psyJoin();
-							final OperandStack joinedOstack=((Interpreter)oContext).operandStack();
+							final var joinedOstack=((Interpreter)oContext).operandStack();
 							ostack.push(PsyMark.MARK);
 							for(PsyObject o: joinedOstack)
 								ostack.push(o);
@@ -661,7 +661,7 @@ public class PsySystemDict
 					("load",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							ostack.push(interpreter.psyLoad(ostack.getBacked(0)));
 						}
 					),
@@ -673,7 +673,7 @@ public class PsySystemDict
 					("loop",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyObject oProc=ostack.getBacked(0);
 
 							interpreter.pushLoopLevel();
@@ -697,7 +697,7 @@ public class PsySystemDict
 					("map",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							final PsyContainer oContainer=ostack.getBacked(0);
 							final PsyProc oProc=ostack.getBacked(1);
 							final PsyAppendable oResult=(PsyAppendable)oContainer.psyNewEmpty();
@@ -723,7 +723,7 @@ public class PsySystemDict
 					("matches",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyMatcher matcher=ostack.getBacked(0);
 							boolean resultValue=matcher.psyMatches().booleanValue();
 							if(resultValue)
@@ -735,8 +735,8 @@ public class PsySystemDict
 					("matchesforall",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(4);
-							final ExecutionStack estack=interpreter.executionStack();
+							final var ostack=interpreter.operandStackBacked(4);
+							final var estack=interpreter.executionStack();
 							final PsyMatcher oMatcher=new PsyMatcher(ostack.getBacked(0), ostack.getBacked(1));
 							final PsyObject oProc1=ostack.getBacked(2);
 							final PsyObject oProc2=ostack.getBacked(3);
@@ -775,7 +775,7 @@ public class PsySystemDict
 					("monitor",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							final PsyLock oLock=ostack.getBacked(0);
 							final PsyObject oProc=ostack.getBacked(1);
 
@@ -795,7 +795,7 @@ public class PsySystemDict
 					("namespace",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							ostack.push(interpreter.namespacePool().psyNamespace(ostack.getBacked(0)));
 						}
 					),
@@ -829,7 +829,7 @@ public class PsySystemDict
 					("prettyprint",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyWriter stdwriter=interpreter.dictStack().load("stdout");
 							stdwriter.psyWriteString(ostack.getBacked(0).psySyntax());
 							stdwriter.psyWriteString(interpreter.dictStack().load("eol"));
@@ -840,7 +840,7 @@ public class PsySystemDict
 					("print",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							interpreter.dictStack().<PsyWriter>load("stdout")
 								.psyWriteString(ostack.getBacked(0));
 						}
@@ -849,7 +849,7 @@ public class PsySystemDict
 					("println",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyWriter stdwriter=interpreter.dictStack().load("stdout");
 							stdwriter.psyWriteString(ostack.getBacked(0));
 							stdwriter.psyWriteString(interpreter.dictStack().load("eol"));
@@ -867,7 +867,7 @@ public class PsySystemDict
 					("pstack",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							// TODO reverse order
 							System.out.print("OPSTACK> ");
 							for(PsyObject o: ostack)
@@ -887,7 +887,7 @@ public class PsySystemDict
 					("read",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyInteger oCharacter=ostack.<PsyReadable>getBacked(0).psyRead();
 							boolean notEOF=(oCharacter!=PsyInteger.MINUS_ONE);
 							if(notEOF)
@@ -899,7 +899,7 @@ public class PsySystemDict
 					("readline",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyString oString=ostack.<PsyReadable>getBacked(0).psyReadLine();
 							if(oString.length()>0)
 								ostack.push(oString);
@@ -912,7 +912,7 @@ public class PsySystemDict
 					("readstring",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							final PsyInteger oCount=ostack.getBacked(1);
 							final PsyString oString=ostack.<PsyReadable>getBacked(0).psyReadString(oCount);
 							ostack.push(oString);
@@ -936,8 +936,8 @@ public class PsySystemDict
 					("repeat",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
-							final ExecutionStack estack=interpreter.executionStack();
+							final var ostack=interpreter.operandStackBacked(2);
+							final var estack=interpreter.executionStack();
 							final PsyInteger oCount=ostack.getBacked(0);
 							final PsyObject oProc=ostack.getBacked(1);
 							final long count=oCount.longValue();
@@ -976,7 +976,7 @@ public class PsySystemDict
 					("require",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							interpreter.psyRequire(ostack.getBacked(0));
 						}
 					),
@@ -990,7 +990,7 @@ public class PsySystemDict
 					("roll",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							final int n=ostack.<PsyInteger>getBacked(0).intValue();
 							int j=ostack.<PsyInteger>getBacked(1).intValue();
 							final int ostackSize=ostack.size();
@@ -1012,7 +1012,7 @@ public class PsySystemDict
 					("say",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyWriter stdwriter=interpreter.dictStack().load("stdout");
 							stdwriter.psyWriteString(ostack.getBacked(0));
 							stdwriter.psyWriteString(interpreter.dictStack().load("eol"));
@@ -1031,7 +1031,7 @@ public class PsySystemDict
 					("settomark",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							final int i=ostack.findMarkPosition();
 							final PsySet oSet=new PsySet();
 							for(int j=ostack.size()-1; j>=i+1; j--)
@@ -1044,7 +1044,7 @@ public class PsySystemDict
 					("signalerror",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							interpreter.handleError(
 									new PsyException(ostack.getBacked(0))
 									{
@@ -1073,7 +1073,7 @@ public class PsySystemDict
 					("sort",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							final PsyArray oArray=ostack.getBacked(0);
 							final PsyObject oComparator=ostack.getBacked(1);
 
@@ -1101,7 +1101,7 @@ public class PsySystemDict
 					("stack",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStack();
+							final var ostack=interpreter.operandStack();
 							ostack.push(new PsyArray((java.util.ArrayList<PsyObject>)ostack.clone()));
 						}
 					),
@@ -1113,7 +1113,7 @@ public class PsySystemDict
 					("stopped",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyObject oProc=ostack.getBacked(0);
 
 							final int stopLevel=interpreter.pushStopLevel();
@@ -1140,7 +1140,7 @@ public class PsySystemDict
 					("store",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							interpreter.dictStack().psyStore(ostack.getBacked(0), ostack.getBacked(1));
 						}
 					),
@@ -1158,7 +1158,7 @@ public class PsySystemDict
 					("synchronized",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(2);
+							final var ostack=interpreter.operandStackBacked(2);
 							final PsyObject o=ostack.getBacked(0);
 							final PsyObject oProc=ostack.getBacked(1);
 							synchronized(o)
@@ -1185,7 +1185,7 @@ public class PsySystemDict
 					("tokens",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							interpreter.interpretBraced(new PsyStringReader(ostack.<PsyStringy>getBacked(0)));
 						}
 					),
@@ -1215,7 +1215,7 @@ public class PsySystemDict
 					("warn",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyWriter stderror=interpreter.dictStack().load("stderr");
 							stderror.psyWriteString(ostack.getBacked(0));
 							stderror.psyFlush();
@@ -1225,7 +1225,7 @@ public class PsySystemDict
 					("where",
 						(interpreter)->
 						{
-							final OperandStack ostack=interpreter.operandStackBacked(1);
+							final var ostack=interpreter.operandStackBacked(1);
 							final PsyDictlike dict=interpreter.psyWhere(ostack.<PsyStringy>getBacked(0));
 							if(dict!=null)
 								ostack.push(dict);
@@ -1244,7 +1244,7 @@ public class PsySystemDict
 			);
 
 		final PsyArray oLibraryPath=new PsyArray();
-		for(String pathItem:
+		for(var pathItem:
 				Config.getProperty("config.library.path").split(java.io.File.pathSeparator))
 			oLibraryPath.psyAppend(new PsyName(pathItem));
 

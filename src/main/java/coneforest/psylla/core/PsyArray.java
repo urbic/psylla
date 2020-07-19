@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 /**
 *	A representation of Ψ-{@code array} object.
 */
-@coneforest.psylla.Type("array")
+@Type("array")
 public class PsyArray
 	implements PsyArraylike<PsyObject>
 {
@@ -59,13 +59,13 @@ public class PsyArray
 	}
 
 	@Override
-	public PsyArray psyGetInterval(final PsyInteger start, final PsyInteger oCount)
+	public PsyArray psyGetInterval(final PsyInteger oStart, final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
 		try
 		{
-			return new PsyArray(new java.util.ArrayList<PsyObject>(array.subList(start.intValue(),
-					start.intValue()+oCount.intValue())));
+			return new PsyArray(new java.util.ArrayList<PsyObject>(array.subList(oStart.intValue(),
+					oStart.intValue()+oCount.intValue())));
 		}
 		catch(final IndexOutOfBoundsException|IllegalArgumentException e)
 		{
@@ -142,7 +142,7 @@ public class PsyArray
 	public PsyArray psyExtractInterval(final PsyInteger oStart, final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
-		final PsyArray oResult=psyGetInterval(oStart, oCount);
+		final var oResult=psyGetInterval(oStart, oCount);
 		array.subList(oStart.intValue(), oStart.intValue()+oCount.intValue()).clear();
 		return oResult;
 	}
@@ -151,7 +151,7 @@ public class PsyArray
 	public PsyArray psySlice(final PsyIterable<PsyInteger> oIndices)
 		throws PsyException
 	{
-		final PsyArray oValues=new PsyArray();
+		final var oValues=new PsyArray();
 		for(PsyInteger oIndex: oIndices)
 			oValues.psyAppend(psyGet(oIndex));
 		return oValues;
@@ -167,7 +167,7 @@ public class PsyArray
 	public void psySetLength(final PsyInteger oLength)
 		throws PsyRangeCheckException, PsyLimitCheckException
 	{
-		final long length=oLength.longValue();
+		final var length=oLength.longValue();
 		if(length<0)
 			throw new PsyRangeCheckException();
 		if(length>Integer.MAX_VALUE)
@@ -185,22 +185,22 @@ public class PsyArray
 
 	public PsyArray psySort(final java.util.Comparator<? super PsyObject> comparator)
 	{
-		final PsyArray result=psyClone();
+		final var result=psyClone();
 		java.util.Collections.sort(result.array, comparator);
 		return result;
 	}
 
 	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator)
 	{
-		final Interpreter interpreter=(Interpreter)PsyContext.psyCurrentContext();
-		final OperandStack opstack=interpreter.operandStack();
+		final var interpreter=(Interpreter)PsyContext.psyCurrentContext();
+		final var opstack=interpreter.operandStack();
 		return PsyInteger.valueOf(java.util.Collections.<PsyObject>binarySearch(array, o,
 			// TODO gap
 			(o1, o2)->
 			{
 				opstack.push(o1);
 				opstack.push(o2);
-				final int execLevel=interpreter.execLevel();
+				final var execLevel=interpreter.execLevel();
 				oComparator.invoke(interpreter);
 				interpreter.handleExecutionStack(execLevel);
 				// TODO: ensure stack size

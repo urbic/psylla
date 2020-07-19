@@ -111,7 +111,7 @@ public abstract class PsyOperator
 		public void action(final Interpreter interpreter)
 			throws PsyException
 		{
-			final OperandStack ostack=interpreter.operandStackBacked(1);
+			final var ostack=interpreter.operandStackBacked(1);
 			ostack.push(handler.handle(ostack.getBacked(0)));
 		}
 
@@ -138,7 +138,7 @@ public abstract class PsyOperator
 		public void action(final Interpreter interpreter)
 			throws PsyException
 		{
-			final OperandStack ostack=interpreter.operandStackBacked(2);
+			final var ostack=interpreter.operandStackBacked(2);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1)));
 		}
 
@@ -165,7 +165,7 @@ public abstract class PsyOperator
 		public void action(final Interpreter interpreter)
 			throws PsyException
 		{
-			final OperandStack ostack=interpreter.operandStackBacked(1);
+			final var ostack=interpreter.operandStackBacked(1);
 			handler.handle(ostack.getBacked(0));
 		}
 
@@ -192,7 +192,7 @@ public abstract class PsyOperator
 		public void action(final Interpreter interpreter)
 			throws PsyException
 		{
-			final OperandStack ostack=interpreter.operandStackBacked(2);
+			final var ostack=interpreter.operandStackBacked(2);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1));
 		}
 
@@ -219,7 +219,7 @@ public abstract class PsyOperator
 		public void action(final Interpreter interpreter)
 			throws PsyException
 		{
-			final OperandStack ostack=interpreter.operandStackBacked(3);
+			final var ostack=interpreter.operandStackBacked(3);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2));
 		}
 
@@ -246,7 +246,7 @@ public abstract class PsyOperator
 		public void action(final Interpreter interpreter)
 			throws PsyException
 		{
-			final OperandStack ostack=interpreter.operandStackBacked(3);
+			final var ostack=interpreter.operandStackBacked(3);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));
 		}
 

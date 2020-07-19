@@ -22,7 +22,7 @@ Psylla is implemented as a library written in Java.
 
 ### Jar:
 
-Java 8 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, JUnit, JLine
+Java 11 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, JUnit 4, JLine 1
 
 ### Documentation:
 

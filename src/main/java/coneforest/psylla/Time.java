@@ -24,10 +24,10 @@ public class Time
 
 	public static PsyDict psyCalendar(final PsyInteger oTime)
 	{
-		final java.util.GregorianCalendar calendar=new java.util.GregorianCalendar();
+		final var calendar=new java.util.GregorianCalendar();
 		calendar.setTimeInMillis(oTime.longValue());
 
-		final PsyDict oCalendar=new PsyDict();
+		final var oCalendar=new PsyDict();
 		for(int i=0; i<fieldNames.length; i++)
 			oCalendar.put(fieldNames[i], PsyInteger.valueOf(calendar.get(i)));
 
@@ -39,7 +39,7 @@ public class Time
 	public static PsyInteger psyCalendarTime(final PsyDictlike oCalendar)
 		throws PsyException
 	{
-		final java.util.GregorianCalendar calendar=new java.util.GregorianCalendar();
+		final var calendar=new java.util.GregorianCalendar();
 		for(int i=0; i<fieldNames.length; i++)
 			if(oCalendar.known(fieldNames[i]))
 				calendar.set(i, ((PsyInteger)oCalendar.get(fieldNames[i])).intValue());

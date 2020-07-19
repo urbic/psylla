@@ -4,7 +4,7 @@ package coneforest.psylla.core;
 public class PsyProcess
 	implements PsyObject
 {
-	public PsyProcess(PsyDictlike dictlike)
+	public PsyProcess(final PsyDictlike oDictlike)
 		throws PsyException
 	{
 		try
@@ -12,9 +12,9 @@ public class PsyProcess
 			ProcessBuilder pb=null;
 
 			// TODO: empty command name
-			if(dictlike.known("command"))
+			if(oDictlike.known("command"))
 			{
-				PsyObject command=dictlike.get("command");
+				final var command=oDictlike.get("command");
 				if(command instanceof PsyStringy)
 					pb=new ProcessBuilder(((PsyStringy)command).stringValue());
 				else if(command instanceof PsyArraylike)
@@ -29,22 +29,22 @@ public class PsyProcess
 					throw new PsyTypeCheckException();
 			}
 
-			if(dictlike.known("directory"))
-				pb.directory(new java.io.File(((PsyStringy)dictlike.get("dictlike")).stringValue()));
+			if(oDictlike.known("directory"))
+				pb.directory(new java.io.File(((PsyStringy)oDictlike.get("directory")).stringValue()));
 
-			if(dictlike.known("environment"))
+			if(oDictlike.known("environment"))
 			{
 				// TODO
 				//bp.environment();
 			}
-			//PsyDictlike environment=(PsyDictlike)dictlike.get("environment");
+			//PsyDictlike environment=(PsyDictlike)oDictlike.get("environment");
 
-			if(dictlike.known("inheritinput")
-					&& ((PsyBoolean)dictlike.get("inheritinput")).booleanValue())
+			if(oDictlike.known("inheritinput")
+					&& ((PsyBoolean)oDictlike.get("inheritinput")).booleanValue())
 				pb.redirectInput(ProcessBuilder.Redirect.INHERIT);
 
-			if(dictlike.known("inheritoutput")
-					&& ((PsyBoolean)dictlike.get("inheritoutput")).booleanValue())
+			if(oDictlike.known("inheritoutput")
+					&& ((PsyBoolean)oDictlike.get("inheritoutput")).booleanValue())
 				pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
 			process=pb.start();

@@ -9,7 +9,7 @@ public class PsyBlockingQueue
 	public PsyBlockingQueue(final PsyInteger oCapacity)
 		throws PsyException
 	{
-		long capacity=oCapacity.longValue();
+		final var capacity=oCapacity.longValue();
 		if(capacity>=Integer.MAX_VALUE)
 			throw new PsyLimitCheckException();
 		try

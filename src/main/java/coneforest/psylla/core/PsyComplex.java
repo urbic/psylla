@@ -123,26 +123,26 @@ public class PsyComplex
 	@Override
 	public PsyComplex psyMul(final PsyNumeric oNumeric)
 	{
-		final double x=oNumeric.realValue();
-		final double y=oNumeric.imagValue();
+		final var x=oNumeric.realValue();
+		final var y=oNumeric.imagValue();
 		return new PsyComplex(re*x-im*y, im*x+re*y);
 	}
 
 	@Override
 	public PsyComplex psyDiv(final PsyNumeric oNumeric)
 	{
-		final double x=oNumeric.realValue();
-		final double y=oNumeric.imagValue();
+		final var x=oNumeric.realValue();
+		final var y=oNumeric.imagValue();
 		if(Math.abs(x)<Math.abs(y))
 		{
-			final double q=x/y;
-			final double d=x*q+y;
+			final var q=x/y;
+			final var d=x*q+y;
 			return new PsyComplex((re*q+im)/d, (im*q-re)/d);
 		}
 		else
 		{
-			final double q=y/x;
-			final double d=y*q+x;
+			final var q=y/x;
+			final var d=y*q+x;
 			return new PsyComplex((im*q+re)/d, (im-re*q)/d);
 		}
 	}
@@ -159,7 +159,7 @@ public class PsyComplex
 	@Override
 	public PsyComplex psyExp()
 	{
-		final double reExp=Math.exp(re);
+		final var reExp=Math.exp(re);
 		return new PsyComplex(reExp*Math.cos(im), reExp*Math.sin(im));
 	}
 
@@ -214,7 +214,7 @@ public class PsyComplex
 	@Override
 	public PsyComplex psyCosh()
 	{
-		final PsyComplex tmpExp=psyExp();
+		final var tmpExp=psyExp();
 		return tmpExp.psyAdd(ONE.psyDiv(tmpExp)).psyDiv(TWO);
 	}
 
@@ -227,7 +227,7 @@ public class PsyComplex
 	@Override
 	public PsyComplex psySinh()
 	{
-		final PsyComplex oExp=psyExp();
+		final var oExp=psyExp();
 		return oExp.psySub(ONE.psyDiv(oExp)).psyDiv(TWO);
 	}
 

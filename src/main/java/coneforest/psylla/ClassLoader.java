@@ -1,12 +1,18 @@
 package coneforest.psylla;
 import coneforest.psylla.core.*;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Files;
+import java.util.jar.JarFile;
+import java.util.jar.JarEntry;
+import java.net.URL;
 
 abstract public class ClassLoader
 	extends java.lang.ClassLoader
 {
 	public ClassLoader()
 	{
-		super(ClassLoader.class.getClassLoader());
+		super();
 	}
 
 	public void psyExternal(final PsyStringy oClassName)
@@ -23,71 +29,81 @@ abstract public class ClassLoader
 	}
 
 	@Override
-	public Class loadClass(final String className)
+	public Class findClass(final String className)
 		throws ClassNotFoundException
 	{
 		try
 		{
 			return findSystemClass(className);
 		}
-		catch(final Exception e)
+		catch(final ClassNotFoundException e)
 		{
+			// NOP
 		}
-		for(PsyObject file: getPsyllaClassPath())
-		{
-			final Class cl=findClassAtPathElement(className,
-					new java.io.File(((PsyStringy)file).stringValue()));
-			if(cl!=null)
-				return cl;
-		}
-		throw new ClassNotFoundException();
-	}
-
-	abstract protected PsyIterable<PsyStringy> getPsyllaClassPath();
-
-	private Class findClassAtPathElement(final String className, final java.io.File file)
-	{
-		final byte classByte[];
 		Class result=(Class)classes.get(className);
 		if(result!=null)
 			return result;
 
 		try
 		{
-			java.io.InputStream is=null;
-			if(file.isFile())
-			{
-				final java.util.jar.JarFile jar=new java.util.jar.JarFile(file);
-				final java.util.jar.JarEntry entry
-					=jar.getJarEntry(className.replace('.', '/')+".class");
-				if(entry==null)
-					return null;
-				is=jar.getInputStream(entry);
-			}
-			else if(file.isDirectory())
-				is=new java.io.FileInputStream(file.getPath()
-						+java.io.File.separator
-						+className.replace('.', java.io.File.separatorChar)+".class");
-			else
-				return null;
+			final var url=findResource(className.replace('.', '/')+".class");
+			if(url==null)
+				throw new ClassNotFoundException();
 
-			final java.io.ByteArrayOutputStream byteStream=new java.io.ByteArrayOutputStream();
-			int nextValue=is.read();
-			while(nextValue!=-1)
-			{
-				byteStream.write(nextValue);
-				nextValue=is.read();
-			}
-
-			classByte=byteStream.toByteArray();
-			result=defineClass(className, classByte, 0, classByte.length, null);
+			final var classBytes=url.openStream().readAllBytes();
+			result=defineClass(className, classBytes, 0, classBytes.length, null);
 			classes.put(className, result);
 			return result;
 		}
-		catch(final java.io.IOException e)
+		catch(final IOException e)
+		{
+			throw new ClassNotFoundException();
+		}
+	}
+
+	//abstract protected PsyIterable<PsyStringy> getPsyllaClassPath();
+
+	abstract protected Iterable<String> getClassPath()
+		throws Exception;
+
+	@Override
+	protected java.net.URL findResource(final String name)
+	{
+		//for(PsyStringy oItem: getPsyllaClassPath())
+		try
+		{
+			final var cp=getClassPath();
+			for(String item: cp)
+			{
+				//final String item=oItem.stringValue();
+				final var itemPath=Path.of(item);
+				try
+				{
+					if(Files.isRegularFile(itemPath))
+					{
+						final var jar=new JarFile(itemPath.toFile());
+						final var entry=jar.getJarEntry(name);
+						if(entry==null)
+							return null;
+						return new java.net.URL("jar:"+itemPath.toUri().toURL()+"!/"+entry);
+					}
+					else if(Files.isDirectory(itemPath))
+					{
+						// TODO: if directory does not exist
+						return Path.of(itemPath.toString(), name).toUri().toURL();
+					}
+				}
+				catch(final IOException e)
+				{
+					return null;
+				}
+			}
+		}
+		catch(Exception e)
 		{
 			return null;
 		}
+		return null;
 	}
 
 	private final java.util.Hashtable<String, Class> classes

@@ -99,7 +99,7 @@ public class PsyInteger
 	public PsyBoolean psyTestBit(final PsyInteger oBit)
 		throws PsyException
 	{
-		long bit=oBit.value;
+		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsyRangeCheckException();
 		return PsyBoolean.valueOf((value&(1L<<bit))!=0);
@@ -109,7 +109,7 @@ public class PsyInteger
 	public PsyInteger psyClearBit(final PsyInteger oBit)
 		throws PsyException
 	{
-		long bit=oBit.value;
+		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsyRangeCheckException();
 		return PsyInteger.valueOf(value&~(1L<<bit));
@@ -119,7 +119,7 @@ public class PsyInteger
 	public PsyInteger psySetBit(final PsyInteger oBit)
 		throws PsyException
 	{
-		long bit=oBit.value;
+		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsyRangeCheckException();
 		return PsyInteger.valueOf(value|(1L<<bit));
@@ -129,7 +129,7 @@ public class PsyInteger
 	public PsyInteger psyFlipBit(final PsyInteger oBit)
 		throws PsyException
 	{
-		long bit=oBit.value;
+		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
 			throw new PsyRangeCheckException();
 		return PsyInteger.valueOf(value^(1L<<bit));
@@ -146,8 +146,8 @@ public class PsyInteger
 	{
 		if(oNumeric instanceof PsyInteger)
 		{
-			final long numeric=((PsyInteger)oNumeric).value;
-			final long result=value+numeric;
+			final var numeric=((PsyInteger)oNumeric).value;
+			final var result=value+numeric;
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedAdd(long, long)
@@ -163,8 +163,8 @@ public class PsyInteger
 	{
 		if(oNumeric instanceof PsyInteger)
 		{
-			final long numeric=((PsyInteger)oNumeric).value;
-			final long result=value-numeric;
+			final var numeric=((PsyInteger)oNumeric).value;
+			final var result=value-numeric;
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedSubtract(long, long)
@@ -182,8 +182,8 @@ public class PsyInteger
 		{
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedMultiply(long, long)
-			final long numeric=((PsyInteger)oNumeric).value;
-			final int leadingZeros
+			final var numeric=((PsyInteger)oNumeric).value;
+			final var leadingZeros
 				=Long.numberOfLeadingZeros(value)
 				+Long.numberOfLeadingZeros(~value)
 				+Long.numberOfLeadingZeros(numeric)
@@ -193,7 +193,7 @@ public class PsyInteger
 
 			if(leadingZeros>=Long.SIZE && value>=0 | numeric!=Long.MIN_VALUE)
 			{
-				final long result=value*numeric;
+				final var result=value*numeric;
 				return (value==0 || result/value==numeric)?
 					PsyInteger.valueOf(result): new PsyReal(doubleValue()*oNumeric.doubleValue());
 			}
@@ -303,10 +303,10 @@ public class PsyInteger
 	public PsyInteger psyMod(final PsyInteger oInteger)
 		throws PsyException
 	{
-		long integer=oInteger.value;
+		final var integer=oInteger.value;
 		if(integer<=0)
 			throw new PsyRangeCheckException();
-		long result=value % integer;
+		final var result=value % integer;
 		return PsyInteger.valueOf((result>=0)? result: result+integer);
 		/*
 		if(integer.value>0)

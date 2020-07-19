@@ -85,7 +85,7 @@ public class PsyReader
 	public PsyString psyReadLine()
 		throws PsyException
 	{
-		final StringBuilder sb=new StringBuilder();
+		final var sb=new StringBuilder();
 
 		try
 		{

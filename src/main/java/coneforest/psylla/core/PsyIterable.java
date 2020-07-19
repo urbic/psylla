@@ -155,8 +155,8 @@ public interface PsyIterable<T extends PsyObject>
 	default public PsyString psyUnite(final PsyStringy oSeparator)
 		throws PsyException
 	{
-		final String separator=oSeparator.stringValue();
-		final StringBuilder sb=new StringBuilder();
+		final var separator=oSeparator.stringValue();
+		final var sb=new StringBuilder();
 		final java.util.Iterator<T> iterator=iterator();
 		try
 		{

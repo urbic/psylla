@@ -7,7 +7,7 @@ public class NamespacePool
 	{
 		if(pool.containsKey(prefix))
 			return pool.get(prefix);
-		final PsyNamespace oNamespace=new PsyNamespace(prefix);
+		final var oNamespace=new PsyNamespace(prefix);
 		pool.put(prefix, oNamespace);
 		return oNamespace;
 	}

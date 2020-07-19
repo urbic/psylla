@@ -16,7 +16,7 @@ public class DictStack
 	public DictStack()
 		throws PsyException
 	{
-		final PsyDict oSystemDict=new PsySystemDict();
+		final var oSystemDict=new PsySystemDict();
 		push(oSystemDict);
 		push((PsyDictlike)oSystemDict.get("userdict"));
 	}
@@ -24,7 +24,7 @@ public class DictStack
 	public <T extends PsyObject> T load(final String key)
 		throws PsyException
 	{
-		final PsyDictlike oDict=where(key);
+		final var oDict=where(key);
 		if(oDict!=null)
 			return (T)oDict.get(key);
 		else
@@ -41,7 +41,7 @@ public class DictStack
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			final PsyDictlike oDict=get(i);
+			final var oDict=get(i);
 			if(oDict.known(key))
 				return oDict;
 		}
@@ -57,7 +57,7 @@ public class DictStack
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
-			final PsyDictlike oDict=get(i);
+			final var oDict=get(i);
 			if(oDict instanceof PsyNamespace)
 				return (PsyNamespace)oDict;
 		}
@@ -66,7 +66,7 @@ public class DictStack
 
 	public void store(final String key, final PsyObject oValue)
 	{
-		PsyDictlike oDict=where(key);
+		var oDict=where(key);
 		if(oDict==null)
 			oDict=peek();
 		oDict.put(key, oValue);

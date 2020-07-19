@@ -23,7 +23,7 @@ public class PsyProc
 	{
 		try
 		{
-			final ExecutionStack estack=interpreter.executionStack();
+			final var estack=interpreter.executionStack();
 			for(int i=length()-1; i>=0; i--)
 				estack.push(get(i));
 		}
@@ -47,30 +47,28 @@ public class PsyProc
 
 	public PsyProc psyBind()
 	{
-		final DictStack dstack=((Interpreter)PsyContext.psyCurrentContext()).dictStack();
+		final var dstack=((Interpreter)PsyContext.psyCurrentContext()).dictStack();
 
-		final java.util.ArrayList<PsyProc> agenda
-			=new java.util.ArrayList<PsyProc>();
-		final java.util.HashSet<PsyProc> bound
-			=new java.util.HashSet<PsyProc>();
+		final var agenda=new java.util.ArrayList<PsyProc>();
+		final var bound=new java.util.HashSet<PsyProc>();
 
 		agenda.add(this);
 
 		while(!agenda.isEmpty())
 		{
-			final PsyProc oProc=agenda.remove(0);
+			final var oProc=agenda.remove(0);
 			if(!bound.add(oProc))
 				break;
 			for(int i=0; i<oProc.length(); i++)
 			{
 				try
 				{
-					final PsyObject o=oProc.get(i);
+					final var o=oProc.get(i);
 					if(o instanceof PsyProc)
 						agenda.add((PsyProc)o);
 					else if(o instanceof PsyCommand)
 					{
-						final PsyObject oNew=dstack.load((PsyCommand)o);
+						final var oNew=dstack.load((PsyCommand)o);
 						if(oNew instanceof PsyOperator
 								|| oNew instanceof PsyMark
 								|| oNew instanceof PsyNull)

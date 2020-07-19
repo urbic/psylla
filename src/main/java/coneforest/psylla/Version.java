@@ -12,7 +12,7 @@ public class Version
 	*/
 	public static String getVersion()
 	{
-		final String type=getReleaseType();
+		final var type=getReleaseType();
 		return
 			getMajor()+"."+getMinor()+"."+getRevision()
 				+((type==null || type.length()==0)? "": "-"+type);

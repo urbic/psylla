@@ -114,7 +114,7 @@ public interface PsyObject
 		//Class<? extends PsyObject> clazz=TypeRegistry.get(stringy.getString());
 		//return PsyBoolean.valueOf(clazz!=null && clazz.isInstance(this));
 
-		final Interpreter interpreter=Interpreter.currentInterpreter();
+		final var interpreter=Interpreter.currentInterpreter();
 		return PsyBoolean.TRUE;
 	}
 
@@ -130,8 +130,8 @@ public interface PsyObject
 
 	public static void register(final Interpreter interpreter)
 	{
-		//final PsyNamespace namespace=PsyNamespace.forName("object");
-		final PsyNamespace oNamespace=interpreter.namespacePool().namespace("object");
+		//final var namespace=PsyNamespace.forName("object");
+		final var oNamespace=interpreter.namespacePool().namespace("object");
 		oNamespace.registerOperators
 			(
 				new PsyOperator.Arity11<PsyObject>
@@ -155,7 +155,7 @@ public interface PsyObject
 		return java.lang.invoke.MethodHandles.lookup().lookupClass()
 			.getAnnotation(Type.class).value();
 
-		//final String prefix=PsyInteger.class.getAnnotation(Type.class).value();
+		//final var prefix=PsyInteger.class.getAnnotation(Type.class).value();
 		//interpreter.namespacePool().obtain(prefix);
 		//System.out.println("Registered: "+prefix);
 

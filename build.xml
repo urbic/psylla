@@ -45,7 +45,8 @@
 	<property file="${src.ant}/config.properties"/>
 
 	<path id="classpath.main">
-		<pathelement path="${target.lib}/${project.name}.jar"/>
+		<pathelement path="${target.classes}"/>
+		<!--pathelement path="${target.lib}/${project.name}.jar"/-->
 		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
 		<pathelement path="${ant.core.lib}"/>
 		<pathelement path="${config.datadir}/ant/lib/ant-junit.jar"/>
@@ -102,20 +103,38 @@
 
 	<target name="compile.java"
 			description="Compile Java sources"
-			depends="compile.jj"
+			depends="copy.resources,compile.jj"
 			>
 		<mkdir dir="${target.classes}"/>
 		<javac
+			srcdir="${src.main.java}"
+			destdir="${target.classes}"
+			source="11"
+			target="11"
+			includeantruntime="false"
+			encoding="UTF-8"
+			>
+			<include name="coneforest/psylla/tools/processors/*.java"/>
+			<compilerarg value="-Xlint:deprecation"/>
+			<compilerarg value="-proc:none"/>
+			<classpath refid="classpath.main"/>
+			<classpath refid="classpath.test"/>
+			<compilerarg value="-Xdiags:verbose"/>
+		</javac>
+		<javac
 			srcdir="${src.main.java}:${target.src.main.java}:${src.test.java}"
 			destdir="${target.classes}"
-			source="1.8"
-			target="1.8"
+			source="11"
+			target="11"
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
 			<!--compilerarg value="-Xlint"/-->
 			<!--compilerarg value="-Xdoclint"/-->
+			<!--compilerarg value="-XprintRounds"/-->
+			<compilerarg value="-implicit:class"/>
 			<compilerarg value="-Xlint:deprecation"/>
+			<compilerarg value="-Atypemap.dir=${target.classes}/META-INF/${project.name}-typemap/"/>
 			<classpath refid="classpath.main"/>
 			<classpath refid="classpath.test"/>
 			<compilerarg value="-Xdiags:verbose"/>
@@ -178,7 +197,7 @@
 
 	<target name="jar"
 		description="Build Jar"
-		depends="compile,copy.resources"
+		depends="compile"
 		>
 		<jar
 			jarfile="${target.lib}/${project.name}-${project.version}.jar"
@@ -187,10 +206,6 @@
 			<manifest>
 				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
 			</manifest>
-			<service
-				type="javax.script.ScriptEngineFactory"
-				provider="coneforest.psylla.engine.PsyllaScriptEngineFactory"
-				/>
 		</jar>
 		<symlink
 			resource="${project.name}-${project.version}.jar"

@@ -318,7 +318,7 @@ public class PsyString
 	@Override
 	public String toSyntaxString()
 	{
-		final StringBuilder sb=new StringBuilder();
+		final var sb=new StringBuilder();
 		for(int i=0; i<buffer.length(); i++)
 		{
 			final char c=buffer.charAt(i);

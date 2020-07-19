@@ -25,7 +25,7 @@ public class PsyRandom
 			return new PsyReal(oNumeric.doubleValue()*random.nextDouble());
 		else if(oNumeric instanceof PsyInteger)
 		{
-			final int numeric=oNumeric.intValue();
+			final var numeric=oNumeric.intValue();
 			if(numeric>Integer.MAX_VALUE)
 				throw new PsyRangeCheckException();
 			try

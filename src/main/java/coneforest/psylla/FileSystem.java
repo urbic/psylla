@@ -651,6 +651,26 @@ public class FileSystem
 		return new PsyName(Paths.get("").toAbsolutePath().toString());
 	}
 
+	/**
+	*	Returns a Ψ-{@code name} representing the absolute path to given file.
+	*
+	*	@return a Ψ-{@code name} representing the absolute path.
+	*	directory.
+	*/
+	public static PsyName psyFileAbsolutePath(final PsyStringy oFileName)
+		throws
+			PsyIOErrorException
+	{
+		try
+		{
+			return new PsyName(Paths.get(oFileName.stringValue()).toAbsolutePath().toString());
+		}
+		catch(final java.io.IOError e)
+		{
+			throw new PsyIOErrorException();
+		}
+	}
+
 	public static PsyInteger psyFilePermissions(final PsyStringy oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -663,7 +683,7 @@ public class FileSystem
 			final java.util.Set<PosixFilePermission> permSet
 				=Files.getPosixFilePermissions(getPath(oFileName));
 			long permissions=0L;
-			for(PosixFilePermission p: permSet)
+			for(var p: permSet)
 				permissions|=(256L>>p.ordinal());
 
 			return PsyInteger.valueOf(permissions);
@@ -695,11 +715,9 @@ public class FileSystem
 	{
 		try
 		{
-			final long permissions=oPermissions.longValue();
-			final java.util.HashSet<PosixFilePermission> permSet
-				=new java.util.HashSet<PosixFilePermission>();
-			final PosixFilePermission[] permValues
-				=PosixFilePermission.values();
+			final var permissions=oPermissions.longValue();
+			final var permSet=new java.util.HashSet<PosixFilePermission>();
+			final var permValues=PosixFilePermission.values();
 			for(int i=0; i<=8; i++)
 				if((permissions&(256L>>i))!=0L)
 					permSet.add(permValues[i]);
