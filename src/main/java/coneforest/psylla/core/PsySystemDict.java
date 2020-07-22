@@ -547,7 +547,7 @@ public class PsySystemDict
 				new PsyOperator.Arity20<PsyQueuelike, PsyObject>
 					("give", PsyQueuelike::psyGive),
 				new PsyOperator.Arity21<PsyIterable, PsyProc>
-					("grep", PsyIterable::psyGrep),
+					("filter", PsyIterable::psyFilter),
 				new PsyOperator.Arity21<PsyScalar, PsyScalar>
 					("gt", PsyScalar::psyGt),
 				new PsyOperator.Action

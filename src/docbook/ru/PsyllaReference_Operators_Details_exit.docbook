@@ -16,10 +16,10 @@
 <firstterm>Циклический контекст</firstterm><indexterm><primary>циклический
 контекст</primary></indexterm> — это процедура, многократно выполняющаяся одним
 из циклических операторов
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filter"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_grep"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_loop"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_map"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_repeat"/>.
@@ -39,10 +39,10 @@
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filter"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_grep"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_loop"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_map"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_repeat"/>,

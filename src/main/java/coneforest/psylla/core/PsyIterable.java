@@ -76,7 +76,7 @@ public interface PsyIterable<T extends PsyObject>
 	*	@param oProc a procedure
 	*	@return an iterable
 	*/
-	default public PsyIterable<T> psyGrep(final PsyProc oProc)
+	default public PsyIterable<T> psyFilter(final PsyProc oProc)
 		throws PsyException
 	{
 		final Interpreter interpreter

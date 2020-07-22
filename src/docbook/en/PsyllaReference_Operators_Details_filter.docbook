@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Operators_Details_grep">
-<title><token language="psylla">grep</token></title>
+<section xml:id="PsyllaReference_Operators_Details_filter">
+<title><token language="psylla">filter</token></title>
 
 <para>
 Вызывает <replaceable>процедуру</replaceable> для каждого элемента
@@ -16,7 +16,7 @@ linkend="PsyllaReference_Types_Details_boolean"/>, и если его значе
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>процедура</replaceable>
-<token language="psylla">grep</token>
+<token language="psylla">filter</token>
 <replaceable>результат</replaceable>
 </synopsis>
 
@@ -42,12 +42,12 @@ linkend="PsyllaReference_Types_Details_boolean"/>, и если его значе
 операндов и после её вызова на вершине стека находится объект типа <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>,
 в противном случае результат исполнения <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_grep"/> непредсказуем.
+linkend="PsyllaReference_Operators_Details_filter"/> непредсказуем.
 </para>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 3 4 5 6 7 8 9 ] { 2 mod 0 eq } grep	▶ [ 0 2 4 6 8 ]</programlisting>
+<programlisting language="psylla">[ 0 1 2 3 4 5 6 7 8 9 ] { 2 mod 0 eq } filter	▶ [ 0 2 4 6 8 ]</programlisting>
 </formalpara>
 
 <formalpara>

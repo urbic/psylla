@@ -602,6 +602,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_filter" xrefstyle="template:%t"/></term>
+<listitem>отбор элементов контейнера, удовлетворяющих условию</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_forall" xrefstyle="template:%t"/></term>
 <listitem>цикл перебора для перечисления</listitem>
 </varlistentry>
@@ -625,11 +630,6 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_give" xrefstyle="template:%t"/></term>
 <listitem>TODO</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_grep" xrefstyle="template:%t"/></term>
-<listitem>отбор элементов контейнера, удовлетворяющих условию</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1487,6 +1487,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_files;
 &PsyllaReference_Operators_Details_filesize;
 &PsyllaReference_Operators_Details_filewriter;
+&PsyllaReference_Operators_Details_filter;
 &PsyllaReference_Operators_Details_find;
 &PsyllaReference_Operators_Details_findall;
 &PsyllaReference_Operators_Details_flipbit;
@@ -1500,7 +1501,6 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_getall;
 &PsyllaReference_Operators_Details_getinterval;
 &PsyllaReference_Operators_Details_give;
-&PsyllaReference_Operators_Details_grep;
 &PsyllaReference_Operators_Details_gt;
 &PsyllaReference_Operators_Details_halt;
 &PsyllaReference_Operators_Details_hardlink;
