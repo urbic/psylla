@@ -163,5 +163,11 @@ public class PsyBitSet
 				&& bitset.equals(((PsyBitSet)o).bitset));
 	}
 
+	@Override
+	public PsyStream psyStream()
+	{
+		return new PsyStream(bitset.stream().<PsyInteger>mapToObj(PsyInteger::valueOf));
+	}
+
 	private final java.util.BitSet bitset;
 }

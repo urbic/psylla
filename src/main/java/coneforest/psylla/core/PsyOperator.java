@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 /**
 *	A representation of Ψ-{@code operator} object.
 */
-@coneforest.psylla.Type("operator")
+@Type("operator")
 public abstract class PsyOperator
 	implements PsyAtomic
 {

@@ -251,6 +251,7 @@ public class PsyBitArray
 		return new PsyBitArray(result, size);
 	}
 
+	@Override
 	public java.util.Iterator<PsyBoolean> iterator()
 	{
 		return new java.util.Iterator<PsyBoolean>()
@@ -316,6 +317,12 @@ public class PsyBitArray
 	{
 		bitarray.clear();
 	}
+
+	/*@Override
+	public PsyStream psyStream()
+	{
+		return new PsyStream(java.util.stream.StreamSupport.<PsyBoolean>stream(spliterator(), false));
+	}*/
 
 	private final java.util.BitSet bitarray;
 	private int size;

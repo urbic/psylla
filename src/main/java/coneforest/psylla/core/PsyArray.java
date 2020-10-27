@@ -208,5 +208,11 @@ public class PsyArray
 			}));
 	}
 
+	@Override
+	public PsyStream psyStream()
+	{
+		return new PsyStream(array.stream());
+	}
+
 	protected final java.util.ArrayList<PsyObject> array;
 }

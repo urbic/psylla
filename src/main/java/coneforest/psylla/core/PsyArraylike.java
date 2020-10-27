@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code arraylike}, an abstraction of an array
@@ -6,7 +7,7 @@ package coneforest.psylla.core;
 *
 *	@param <T> a type of contained objects.
 */
-@coneforest.psylla.Type("arraylike")
+@Type("arraylike")
 public interface PsyArraylike<T extends PsyObject>
 	extends
 		PsyAppendable<T>,

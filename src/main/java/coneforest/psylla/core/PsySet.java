@@ -67,5 +67,11 @@ public class PsySet
 		return set.iterator();
 	}
 
+	@Override
+	public PsyStream psyStream()
+	{
+		return new PsyStream(set.stream());
+	}
+
 	private final java.util.HashSet<PsyObject> set;
 }

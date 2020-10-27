@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
-@coneforest.psylla.Type("container")
+@Type("container")
 public interface PsyContainer<T extends PsyObject>
 	extends
 		PsyClearable,
@@ -15,8 +16,10 @@ public interface PsyContainer<T extends PsyObject>
 		{
 			return getClass().getConstructor().newInstance();
 		}
-		catch(final InstantiationException|IllegalAccessException
-				|NoSuchMethodException|java.lang.reflect.InvocationTargetException e)
+		catch(final InstantiationException
+				|IllegalAccessException
+				|NoSuchMethodException
+				|java.lang.reflect.InvocationTargetException e)
 		{
 			throw new PsyUnsupportedException();
 		}

@@ -499,8 +499,10 @@ public class PsySystemDict
 									});
 						}
 					),
-				new PsyOperator.Arity20<PsyIterable, PsyObject>
-					("forall", PsyIterable::psyForAll),
+				//new PsyOperator.Arity20<PsyIterable, PsyObject>
+				//	("forall", PsyIterable::psyForAll),
+				new PsyOperator.Arity20<PsyStreamlike, PsyObject>
+					("forall", PsyStreamlike::psyForAll),
 				new PsyOperator.Action
 					("fork",
 						(interpreter)->
@@ -634,6 +636,8 @@ public class PsySystemDict
 					("issymlink", FileSystem::psyIsSymLink),
 				new PsyOperator.Arity11<PsyNumeric>
 					("iszero", PsyNumeric::psyIsZero),
+				new PsyOperator.Arity21<PsyObject, PsyProc>
+					("iterate", PsyStream::psyIterate),
 				new PsyOperator.Action
 					("join",
 						(interpreter)->
@@ -693,30 +697,8 @@ public class PsySystemDict
 					("lowercase", PsyStringy::psyLowerCase),
 				new PsyOperator.Arity21<PsyScalar, PsyScalar>
 					("lt", PsyScalar::psyLt),
-				new PsyOperator.Action
-					("map",
-						(interpreter)->
-						{
-							final var ostack=interpreter.operandStackBacked(2);
-							final PsyContainer oContainer=ostack.getBacked(0);
-							final PsyProc oProc=ostack.getBacked(1);
-							final PsyAppendable oResult=(PsyAppendable)oContainer.psyNewEmpty();
-
-							final int loopLevel=interpreter.pushLoopLevel();
-							for(PsyObject o: (PsyContainer<? extends PsyObject>)oContainer)
-							{
-								ostack.push(o);
-								oProc.invoke(interpreter);
-								interpreter.handleExecutionStack(loopLevel);
-								// TODO safe pop
-								oResult.psyAppend(ostack.pop());
-								if(interpreter.getStopFlag())
-									break;
-							}
-							interpreter.popLoopLevel();
-							ostack.push(oResult);
-						}
-					),
+				new PsyOperator.Arity21<PsyIterable, PsyProc>
+					("map", PsyIterable::psyMap),
 				new PsyOperator.Arity21<PsyStringy, PsyRegExp>
 					("matcher", PsyMatcher::new),
 				new PsyOperator.Action

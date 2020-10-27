@@ -74,6 +74,11 @@ public class Interpreter
 		return estack;
 	}
 
+	/**
+	*	Returns the namespace pool.
+	*
+	*	@return the namespace pool.
+	*/
 	public NamespacePool namespacePool()
 	{
 		return nspool;
@@ -97,10 +102,10 @@ public class Interpreter
 	public <T extends PsyObject> T load(final String name)
 		throws PsyException
 	{
-		final int prefixOffset=name.indexOf('@');
+		final var prefixOffset=name.indexOf('@');
 		if(prefixOffset==-1)
 			return dstack.load(name);
-		//final String prefix=name.substring(prefixOffset+1);
+		//final var prefix=name.substring(prefixOffset+1);
 		//return (T)nspool.namespace(prefix).get(name.substring(0, prefixOffset));
 		return (T)nspool.namespace(name.substring(0, prefixOffset))
 				.get(name.substring(prefixOffset+1));
@@ -190,14 +195,14 @@ public class Interpreter
 	public void setClassPath(final String[] classPath)
 		throws PsyException
 	{
-		final PsyArraylike<PsyStringy> oClassPath
+		final var oClassPath
 			=(PsyArraylike<PsyStringy>)systemDict().get("classpath");
-		final String envClassPath=System.getenv("PSYLLA_CLASSPATH");
+		final var envClassPath=System.getenv("PSYLLA_CLASSPATH");
 		if(envClassPath!=null)
-			for(String pathItem: envClassPath.split(java.io.File.pathSeparator))
+			for(var pathItem: envClassPath.split(java.io.File.pathSeparator))
 				oClassPath.psyAppend(new PsyName(pathItem));
 		if(classPath!=null)
-			for(String pathItem: classPath)
+			for(var pathItem: classPath)
 				oClassPath.psyAppend(new PsyName(pathItem));
 	}
 
@@ -205,14 +210,14 @@ public class Interpreter
 		throws PsyException
 	{
 		// Configure library path
-		final PsyArraylike<PsyStringy> oLibraryPath
+		final var oLibraryPath
 			=(PsyArraylike<PsyStringy>)systemDict().get("librarypath");
-		final String envLibraryPath=System.getenv("PSYLLA_LIB");
+		final var envLibraryPath=System.getenv("PSYLLA_LIB");
 		if(envLibraryPath!=null)
-			for(String pathItem: envLibraryPath.split(java.io.File.pathSeparator))
+			for(var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
 				oLibraryPath.psyAppend(new PsyName(pathItem));
 		if(libraryPath!=null)
-			for(String pathItem: libraryPath)
+			for(var pathItem: libraryPath)
 				oLibraryPath.psyAppend(new PsyName(pathItem));
 	}
 
@@ -228,13 +233,13 @@ public class Interpreter
 
 	public void interpret(final PsyReader oReader)
 	{
-		final int initProcLevel=procstack.size();
-		final Parser parser=new Parser(oReader);
+		final var initProcLevel=procstack.size();
+		final var parser=new Parser(oReader);
 		try
 		{
 			while(running)
 			{
-				final Token token=parser.getNextToken();
+				final var token=parser.getNextToken();
 				if(token.kind==ParserConstants.EOF)
 					break;
 				processToken(token);
@@ -274,7 +279,7 @@ public class Interpreter
 		interpret(oReader);
 		if(procstack.size()==0)
 			handleError(new PsySyntaxErrorException(oReader));
-		final PsyProc proc=procstack.pop();
+		final var proc=procstack.pop();
 		if(procstack.size()>0)
 			procstack.peek().psyAppend(proc);
 		else
@@ -323,7 +328,7 @@ public class Interpreter
 					break;
 				case ParserConstants.CLOSE_BRACE:
 					{
-						final PsyProc proc=procstack.pop();
+						final var proc=procstack.pop();
 						if(procstack.size()>0)
 							procstack.peek().psyAppend(proc);
 						else
@@ -370,8 +375,8 @@ public class Interpreter
 
 	public void handleError(final PsyException oException)
 	{
-		final String errorName=oException.getName();
-		final PsyDict errorObj=new PsyDict();
+		final var errorName=oException.getName();
+		final var errorObj=new PsyDict();
 		errorObj.put("newerror", PsyBoolean.TRUE);
 		errorObj.put("errorname", new PsyName(errorName));
 		errorObj.put("emitter", oException.getEmitter());
@@ -382,7 +387,7 @@ public class Interpreter
 
 		try
 		{
-			final PsyDictlike errorDict=errorDict();
+			final var errorDict=errorDict();
 			if(errorDict.known(errorName))
 				errorDict.get(errorName).invoke(this);
 			else
@@ -397,12 +402,12 @@ public class Interpreter
 	public void showStacks()
 	{
 		System.out.print("Operand stack:\n\t");
-		for(PsyObject obj: ostack)
+		for(var obj: ostack)
 			System.out.print(" "+obj);
 		System.out.println();
 
 		System.out.print("Execution stack:\n\t");
-		for(PsyObject obj: estack)
+		for(var obj: estack)
 			System.out.print(" "+obj);
 		System.out.println();
 
@@ -415,7 +420,7 @@ public class Interpreter
 		*/
 
 		System.out.print("Loop level stack:\n\t");
-		for(int item: loopstack)
+		for(var item: loopstack)
 			System.out.print(" "+item);
 		System.out.println();
 	}
@@ -437,7 +442,7 @@ public class Interpreter
 
 	public int pushLoopLevel()
 	{
-		final int level=estack.size();
+		final var level=estack.size();
 		loopstack.push(level);
 		return level;
 	}
@@ -454,7 +459,7 @@ public class Interpreter
 
 	public int pushStopLevel()
 	{
-		final int level=estack.size();
+		final var level=estack.size();
 		stopstack.push(level);
 		return level;
 	}
@@ -477,15 +482,15 @@ public class Interpreter
 	public void setShellArguments(final String[] args)
 		throws PsyException
 	{
-		final PsyArray oArguments
+		final var oArguments
 			=(PsyArray)systemDict().get("arguments");
-		for(String arg: args)
+		for(var arg: args)
 			oArguments.psyAppend(new PsyName(arg));
 	}
 
 	public void setEnvironment(final java.util.Map<String, String> env)
 	{
-		final PsyDict environment=new PsyDict();
+		final var environment=new PsyDict();
 		for(java.util.Map.Entry<String, String> entry: env.entrySet())
 			environment.put(entry.getKey(), new PsyName(entry.getValue()));
 		systemDict().put("environment", environment);
@@ -504,12 +509,12 @@ public class Interpreter
 	{
 		try
 		{
-			final jline.ConsoleReader cr=new jline.ConsoleReader();
+			final var cr=new jline.ConsoleReader();
 			cr.printString(banner());
 			while(running)
 			{
 				cr.setDefaultPrompt(prompt());
-				final String line=cr.readLine();
+				final var line=cr.readLine();
 				if(line==null)
 				{
 					cr.printNewline();
@@ -519,12 +524,12 @@ public class Interpreter
 				// TODO: wrap StringReader into PsyReader and set PsyReader as
 				// emitter
 				//interpret(line);
-				final Parser parser=new Parser(new java.io.StringReader(line));
+				final var parser=new Parser(new java.io.StringReader(line));
 				try
 				{
 					while(running)
 					{
-						final Token token=parser.getNextToken();
+						final var token=parser.getNextToken();
 						if(token.kind==ParserConstants.EOF)
 							break;
 						processToken(token);
@@ -565,7 +570,7 @@ public class Interpreter
 
 	public String prompt()
 	{
-		final StringBuilder sb=new StringBuilder("PSYLLA");
+		final var sb=new StringBuilder("PSYLLA");
 		for(int i=procstack.size(); i>0; i--)
 			sb.append('{');
 		if(ostack.size()>0)
@@ -596,7 +601,7 @@ public class Interpreter
 
 	public void registerType(final Class<? extends PsyObject> typeClass)
 	{
-		final String typeName=typeClass.getAnnotation(Type.class).value();
+		final var typeName=typeClass.getAnnotation(Type.class).value();
 		System.out.println("REGISTER: "+typeName+" "+typeClass);
 		typeResolver.put(typeName, typeClass);
 	}
@@ -606,19 +611,30 @@ public class Interpreter
 		return typeResolver.get(typeName);
 	}
 
-	public PsyEvaluable loadLibraryResource(final PsyStringy oResourceName)
+	public void loadLibraryResource(final PsyStringy oResourceName)
 		throws PsyException
 	{
 		final PsyArraylike<PsyStringy> oLibraryPath
 			=dstack.load("librarypath");
-		final String resourceName=oResourceName.stringValue().replace('.', '/');
-		for(PsyStringy oPathItem: oLibraryPath)
+		final var resourceName=oResourceName.stringValue().replace('.', '/');
+		for(var oPathItem: oLibraryPath)
 		{
-			final PsyName oFullResourceName
+			final var oFullResourceName
 				=new PsyName(oPathItem.stringValue()+'/'+resourceName+".psy");
 			if(FileSystem.psyFileExists(oFullResourceName).booleanValue()
 					&& FileSystem.psyIsFile(oFullResourceName).booleanValue())
-				return new PsyFileReader(oFullResourceName);
+			{
+				//System.out.println(FileSystem.psyFileAbsolutePath(oFullResourceName).stringValue());
+				final var resourceID="file:"+FileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();
+				if(resourceRegistry.containsKey(oResourceName.stringValue()))
+					System.out.println("Already loaded: "+resourceID);
+				else
+				{
+					resourceRegistry.put(oResourceName.stringValue(), resourceID);
+					new PsyFileReader(oFullResourceName).eval(this);
+				}
+				return;
+			}
 		}
 		throw new PsyUndefinedException(); // TODO: more appropriate exception
 	}
@@ -626,7 +642,18 @@ public class Interpreter
 	public void psyRequire(final PsyStringy oResourceName)
 		throws PsyException
 	{
-		loadLibraryResource(oResourceName).eval(this);
+		//classLoader.findResource("jline/History.class");
+		/*try
+		{
+			//System.out.println(classLoader.loadClass("org.tukaani.xz.ArrayCache"));
+			System.out.println(classLoader.loadClass("jline.History"));
+		}
+		catch(ClassNotFoundException e)
+		{
+			System.out.println("CLASS NOT FOUND");
+		}*/
+
+		loadLibraryResource(oResourceName);
 	}
 
 	private final OperandStack ostack;
@@ -641,21 +668,39 @@ public class Interpreter
 	private boolean running=true;
 	private final java.util.HashMap<String, Class<? extends PsyObject>> typeResolver
 		=new java.util.HashMap<String, Class<? extends PsyObject>>();
+	private final java.util.HashMap<String, String> resourceRegistry
+		=new java.util.HashMap<String, String>();
 
 	private final coneforest.psylla.ClassLoader classLoader
 		=new coneforest.psylla.ClassLoader()
 			{
 				@Override
-				protected PsyIterable<PsyStringy> getPsyllaClassPath()
+				protected Iterable<String> getClassPath()
+					throws PsyException
 				{
-					try
-					{
-						return Interpreter.this.dstack.load("classpath");
-					}
-					catch(final PsyException e)
-					{
-						return null;
-					}
+					final var parentIterator
+						=((PsyArraylike<PsyStringy>)systemDict().get("classpath")).iterator();
+					return new Iterable<String>()
+						{
+							@Override
+							public java.util.Iterator<String> iterator()
+							{
+								return new java.util.Iterator<String>()
+									{
+										@Override
+										public String next()
+										{
+											return parentIterator.next().stringValue();
+										}
+
+										@Override
+										public boolean hasNext()
+										{
+											return parentIterator.hasNext();
+										}
+									};
+							}
+						};
 				}
 			};
 }

@@ -84,4 +84,61 @@ public class PsyProc
 
 		return this;
 	}
+
+	public <T extends PsyObject> java.util.function.Predicate<T>
+		asPredicate(final Interpreter interpreter)
+	{
+		final var ostack=interpreter.operandStack();
+		return new java.util.function.Predicate<T>()
+			{
+				@Override
+				public boolean test(final T o)
+				{
+					ostack.push(o);
+					final var loopLevel=interpreter.pushLoopLevel();
+					invoke(interpreter);
+					interpreter.handleExecutionStack(loopLevel);
+					return ((PsyBoolean)ostack.pop()).booleanValue();
+					// TODO: stop
+				}
+			};
+	}
+
+	public <T extends PsyObject, R extends PsyObject> java.util.function.Function<T, R>
+		asFunction(final Interpreter interpreter)
+	{
+		final var ostack=interpreter.operandStack();
+		return new java.util.function.Function<T, R>()
+			{
+				@Override
+				public R apply(final T o)
+				{
+					ostack.push(o);
+					final var loopLevel=interpreter.pushLoopLevel();
+					invoke(interpreter);
+					interpreter.handleExecutionStack(loopLevel);
+					return (R)ostack.pop();
+					// TODO: stop
+				}
+			};
+	}
+
+	public <T extends PsyObject> java.util.function.UnaryOperator<T>
+		asUnaryOperator(final Interpreter interpreter)
+	{
+		final var ostack=interpreter.operandStack();
+		return new java.util.function.UnaryOperator<T>()
+			{
+				@Override
+				public T apply(final T o)
+				{
+					ostack.push(o);
+					final var loopLevel=interpreter.pushLoopLevel();
+					invoke(interpreter);
+					interpreter.handleExecutionStack(loopLevel);
+					return (T)ostack.pop();
+					// TODO: stop
+				}
+			};
+	}
 }

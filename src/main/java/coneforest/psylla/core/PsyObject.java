@@ -132,7 +132,7 @@ public interface PsyObject
 	{
 		//final var namespace=PsyNamespace.forName("object");
 		final var oNamespace=interpreter.namespacePool().namespace("object");
-		oNamespace.registerOperators
+		/*oNamespace.registerOperators
 			(
 				new PsyOperator.Arity11<PsyObject>
 					("clone", PsyObject::psyClone),
@@ -146,7 +146,7 @@ public interface PsyObject
 					("syntax", PsyObject::psySyntax),
 				new PsyOperator.Arity11<PsyObject>
 					("type", PsyObject::psyType)
-			);
+			);*/
 		System.out.println(PsyObject.class.getAnnotation(Type.class).value()+" REGISTERED");
 	}
 

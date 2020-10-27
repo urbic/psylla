@@ -7,66 +7,17 @@ import coneforest.psylla.*;
 *
 *	@param <T> a type of elements returned by the iterator.
 */
-@coneforest.psylla.Type("iterable")
+@Type("iterable")
 public interface PsyIterable<T extends PsyObject>
 	extends
-		PsyObject,
+		PsyStreamlike<T>,
 		Iterable<T>
 {
 
 	default public void psyForAll(final PsyObject oProc)
 		throws PsyException
 	{
-		/*
-		final Interpreter interpreter=(Interpreter)PsyContext.psyCurrentContext();
-		final OperandStack ostack=interpreter.operandStack();
-		final int loopLevel=interpreter.pushLoopLevel();
-		try
-		{
-			for(T o: this)
-			{
-				ostack.push(o);
-				oProc.invoke(interpreter);
-				interpreter.handleExecutionStack(loopLevel);
-				if(interpreter.getStopFlag() || interpreter.getExitFlag())
-					break;
-			}
-		}
-		catch(final java.util.ConcurrentModificationException e)
-		{
-			throw new PsyConcurrentModificationException();
-		}
-		interpreter.popLoopLevel();
-		interpreter.setExitFlag(false);
-		*/
-		final Interpreter interpreter=(Interpreter)PsyContext.psyCurrentContext();
-		final OperandStack ostack=interpreter.operandStack();
-		final java.util.Iterator<T> iterator=iterator();
-		interpreter.pushLoopLevel();
-		interpreter.executionStack().push(new PsyOperator("#forall_continue")
-			{
-				@Override
-				public void action(final Interpreter interpreter1)
-					throws PsyException
-				{
-					if(iterator.hasNext())
-					{
-						try
-						{
-							ostack.push(iterator.next());
-						}
-						catch(final java.util.NoSuchElementException e)
-						{
-							// TODO more suitable exception type
-							throw new PsyUndefinedException();
-						}
-						interpreter1.executionStack().push(this);
-						oProc.invoke(interpreter1);
-					}
-					else
-						interpreter1.popLoopLevel();
-				}
-			});
+		psyStream().psyForAll(oProc);
 	}
 
 	/**
@@ -79,10 +30,9 @@ public interface PsyIterable<T extends PsyObject>
 	default public PsyIterable<T> psyFilter(final PsyProc oProc)
 		throws PsyException
 	{
-		final Interpreter interpreter
-			=(Interpreter)PsyContext.psyCurrentContext();
-		final OperandStack ostack=interpreter.operandStack();
-		final java.util.Iterator<T> parentIterator=iterator();
+		final var interpreter=(Interpreter)PsyContext.psyCurrentContext();
+		final var ostack=interpreter.operandStack();
+		final var parentIterator=iterator();
 		return new PsyIterable<T>()
 			{
 				@Override
@@ -93,28 +43,31 @@ public interface PsyIterable<T extends PsyObject>
 							@Override
 							public boolean hasNext()
 							{
-								try
-								{
+								// TODO: move code to naxt()
+								//try
+								//{
 									while(parentIterator.hasNext())
 									{
 										nextObject=parentIterator.next();
-										ostack.push((PsyObject)nextObject);
+										//return (oProc.<T, PsyObject>asFunction(interpreter)).apply(parentIterator.next());
+										/*ostack.push((PsyObject)nextObject);
 										final int loopLevel=interpreter.pushLoopLevel();
 										oProc.invoke(interpreter);
 										interpreter.handleExecutionStack(loopLevel);
 										ostack.popOperands(1);
-										boolean check=ostack.<PsyBoolean>getBacked(0).booleanValue();
+										boolean check=ostack.<PsyBoolean>getBacked(0).booleanValue();*/
+										boolean check=(oProc.<T>asPredicate(interpreter)).test(nextObject);
 										if(interpreter.getStopFlag())
 											break;
 										if(check)
 											return true;
 									}
-								}
-								catch(final PsyException e)
-								{
-									this.e=e;
-									return true;
-								}
+								//}
+								//catch(final PsyException e)
+								//{
+								//	this.e=e;
+								//	return true;
+								//}
 								return false;
 							}
 
@@ -135,10 +88,40 @@ public interface PsyIterable<T extends PsyObject>
 			};
 	}
 
+	default public PsyIterable<PsyObject> psyMap(final PsyProc oProc)
+		throws PsyException
+	{
+		final var interpreter=(Interpreter)PsyContext.psyCurrentContext();
+		final var ostack=interpreter.operandStack();
+		final var parentIterator=iterator();
+		return new PsyIterable<PsyObject>()
+			{
+				@Override
+				public java.util.Iterator<PsyObject> iterator()
+				{
+					return new java.util.Iterator<PsyObject>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsyObject next()
+							{
+								return (oProc.<T, PsyObject>asFunction(interpreter)).apply(parentIterator.next());
+							}
+						};
+				}
+
+			};
+	}
+
 	default public PsyArray psyToArray()
 		throws PsyException
 	{
-		final PsyArray oArray=new PsyArray();
+		final var oArray=new PsyArray();
 		for(T o: this)
 			oArray.psyAppend(o);
 		return oArray;
@@ -150,6 +133,11 @@ public interface PsyIterable<T extends PsyObject>
 		for(T o: this)
 			count++;
 		return PsyInteger.valueOf(count);
+	}
+
+	default public PsyStream psyStream()
+	{
+		return new PsyStream(java.util.stream.StreamSupport.<T>stream(spliterator(), false));
 	}
 
 	default public PsyString psyUnite(final PsyStringy oSeparator)

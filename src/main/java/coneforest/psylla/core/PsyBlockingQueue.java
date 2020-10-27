@@ -116,6 +116,12 @@ public class PsyBlockingQueue
 		}
 	}
 
+	@Override
+	public PsyStream psyStream()
+	{
+		return new PsyStream(queue.stream());
+	}
+
 	private final java.util.concurrent.ArrayBlockingQueue<PsyObject> queue;
 	private boolean closed=false;
 }

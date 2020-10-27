@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code additive}, a type of object that is an operand
@@ -7,7 +8,7 @@ package coneforest.psylla.core;
 *
 *	@param <T> a type of the second operand at binary operation.
 */
-@coneforest.psylla.Type("additive")
+@Type("additive")
 public interface PsyAdditive<T extends PsyAdditive>
 	extends PsyObject
 {
@@ -27,6 +28,8 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*	@param oAdditive given object.
 	*	@return a sum.
 	*/
+	@Operator(name="add", type=PsyOperator.Arity21.class)
+	//@Operator(name="add", type=Operator.ARITY_21)
 	public T psyAdd(final T oAdditive);
 	//public <U extends T> T psyAdd(final U oAdditive);
 

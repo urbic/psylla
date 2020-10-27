@@ -36,10 +36,10 @@ BuildRequires:	locales-ru
 %global jline1_jar %{_prefix}/lib/java/jline1/jline-1.0.jar
 %else
 %global jline1 jline1
-%global jline1_jar %{_libdir}/java/jline1/jline-1.0.jar
+%global jline1_jar %{_jnidir}/jline1/jline-1.0.jar
 %endif
-BuildRequires:	%{jline1} <= 2
-Requires:		%{jline1} <= 2
+BuildRequires:	mvn(jline:jline:1)
+Requires:		mvn(jline:jline:1)
 BuildRequires:	junit >= 4.0
 BuildRequires:	ant-junit
 Provides:		config(ant-%{name})

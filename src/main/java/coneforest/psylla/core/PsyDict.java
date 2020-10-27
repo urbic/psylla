@@ -124,5 +124,11 @@ public class PsyDict
 			};
 	}
 
+	@Override
+	public PsyStream psyStream()
+	{
+		return new PsyStream(java.util.stream.StreamSupport.<PsyObject>stream(spliterator(), false));
+	}
+
 	protected final java.util.HashMap<String, PsyObject> dict;
 }

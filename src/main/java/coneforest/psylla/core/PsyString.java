@@ -361,5 +361,11 @@ public class PsyString
 		return "\""+sb.toString()+"\"";
 	}
 
+	@Override
+	public PsyStream psyStream()
+	{
+		return new PsyStream(java.util.stream.StreamSupport.<PsyInteger>stream(spliterator(), false));
+	}
+
 	private final StringBuilder buffer;
 }
