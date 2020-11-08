@@ -105,7 +105,7 @@
 			description="Compile Java sources"
 			depends="copy.resources,compile.jj"
 			>
-		<mkdir dir="${target.classes}"/>
+		<mkdir dir="${target.classes}/META-INF/${project.name}-typemap"/>
 		<javac
 			srcdir="${src.main.java}"
 			destdir="${target.classes}"
