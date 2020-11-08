@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_reader">
+<title><type>reader</type></title>
+
+<para>
+A reader.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_closeable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_evaluable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_readable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_resetable"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsyllaTypesHierarchy_reader.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <project name="htmldocs" basedir=".">
 
-	<property name="xslt.highlight.xslthl.config" location="${src.docbook}/xsl/xslthl/highlighters/xslthl-config.xml"/>
+	<property name="xslt.highlight.xslthl.config" location="${src.doc.xsl}/xslthl/highlighters/xslthl-config.xml"/>
 
 	<presetdef name="xslt.html">
 		<xslt
-			style="${src.docbook}/xhtml.xsl"
-			basedir="${src.docbook}"
-			filedirparameter="${src.docbook}"
+			style="${src.doc.xsl}/xhtml.xsl"
+			basedir="${src.doc.docbook}"
+			filedirparameter="${src.doc.docbook}"
 			extension=".xhtml"
 			classpathref="classpath.xslt"
 			>
 			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
 			<xmlcatalog refid="xmlcatalog.xslt"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
-			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
+				<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
 			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
 			<param name="shortcut.icon" expression="../${project.name}.svg"/>
 			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
@@ -25,74 +25,67 @@
 		</xslt>
 	</presetdef>
 
-	<macrodef name="xslt.html.lang">
-		<attribute name="base.name"/>
-		<attribute name="lang"/>
-		<sequential>
-			<dependset>
-				<srcfileset
-					dir="${src.docbook}/@{lang}"
-					includes="*.docbook *.ent"
-					/>
-				<targetfileset
-					dir="${target.doc.html}/@{lang}"
-					includes="@{base.name}.xhtml"
-					/>
-			</dependset>
-			<xslt.html
-				includes="@{lang}/@{base.name}.docbook"
-				destdir="${target.doc.html}"
-				filedirparameter="@{lang}/@{base.name}.docbook"
-				>
-				<param name="html.stylesheet" expression="../common/@{base.name}.css"/>
-				<param name="root.filename" expression="@{base.name}"/>
-				<param name="base.dir" expression="${target.doc.html}/@{lang}"/>
-				<param name="l10n.gentext.language" expression="@{lang}"/>
-			</xslt.html>
-			<symlink
-				link="${target.doc.html}/@{lang}/common"
-				resource="../common"
-				overwrite="true"
-				/>
-		</sequential>
-	</macrodef>
-
 	<target name="css" description="Make CSS">
-		<mkdir dir="${target.doc.html}/common"/>
+		<mkdir dir="${target.doc.html}"/>
 		<dependset>
-			<srcfilelist dir="${src.docbook}" files="*.scss"/>
-			<targetfileset dir="${target.doc.html}/common" includes="${project.name}.css"/>
+			<srcfilelist dir="${src.doc.scss}" files="*.scss"/>
+			<targetfileset dir="${target.doc.html}" includes="${project.name}.css"/>
 		</dependset>
-		<apply executable="sassc" dest="${target.doc.html}/common" parallel="false">
+		<apply executable="sassc" dest="${target.doc.html}" parallel="false">
 			<arg value="--style"/>
 			<arg value="compact"/>
 			<!--arg value="-+-load-path"/>
 			<arg value="${share.dir}/css"-->
 			<srcfile/>
 			<targetfile/>
-			<fileset dir="${src.docbook}" includes="PsyllaReference.scss"/>
+			<fileset dir="${src.doc.scss}" includes="PsyllaReference.scss"/>
 			<mapper type="glob" from="*.scss" to="*.css"/>
 		</apply>
 	</target>
 
 	<target name="htmldocs" description="Build XHTML documentation" depends="css,version">
-		<mkdir dir="${target.doc.html}/common"/>
-		<apply dest="${target.doc.html}/common" dir="${src.docbook}" executable="perl">
+		<mkdir dir="${target.doc.html}"/>
+		<apply dest="${target.doc.html}" dir="${src.doc.docbook}" executable="perl">
 			<arg value="make-types-hierarchy.pl"/>
 			<arg value="-O"/>
-			<arg value="${target.doc.html}/common"/>
+			<arg value="${target.doc.html}"/>
 			<srcfile/>
-			<fileset dir="${src.docbook}/common" includes="PsyllaTypesHierarchy.txt"/>
+			<fileset dir="${src.doc.docbook}" includes="PsyllaTypesHierarchy.txt"/>
 			<mapper type="glob" from="*.txt" to="*.svg"/>
 		</apply>
-		<xslt.html.lang lang="ru" base.name="PsyllaReference"/>
-		<xslt.html.lang lang="en" base.name="PsyllaReference"/>
+		<sequential>
+			<dependset>
+				<srcfileset
+					dir="${src.doc.docbook}"
+					includes="*.docbook *.ent"
+					/>
+				<targetfileset
+					dir="${target.doc.html}"
+					includes="PsyllaReference.xhtml"
+					/>
+			</dependset>
+			<xslt.html
+				includes="PsyllaReference.docbook"
+				destdir="${target.doc.html}"
+				filedirparameter="PsyllaReference.docbook"
+				>
+				<param name="html.stylesheet" expression="PsyllaReference.css"/>
+				<param name="root.filename" expression="PsyllaReference"/>
+				<param name="base.dir" expression="${target.doc.html}/"/>
+				<param name="l10n.gentext.language" expression="en"/>
+			</xslt.html>
+			<!--symlink
+				link="${target.doc.html}/en/common"
+				resource="../common"
+				overwrite="true"
+				/-->
+		</sequential>
 		<copy todir="${target.doc.html}">
-			<fileset dir="${src.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
-			<fileset dir="${src.docbook}" includes="examples/**" excludes="**/.htaccess"/>
-			<fileset dir="${src.docbook}" includes="files/**" excludes="**/.htaccess"/>
-			<fileset dir="${src.docbook}" includes="navigation/**"/>
-			<fileset dir="${src.docbook}" includes="js/**"/>
+			<fileset dir="${src.doc.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
+			<fileset dir="${src.doc.docbook}" includes="examples/**" excludes="**/.htaccess"/>
+			<fileset dir="${src.doc.docbook}" includes="files/**" excludes="**/.htaccess"/>
+			<fileset dir="${src.doc.docbook}" includes="navigation/**"/>
+			<fileset dir="${src.doc.docbook}" includes="js/**"/>
 		</copy>
 		<copy todir="${target.doc.html}">
 			<fileset dir="${src.logo}" includes="${project.name}.svg"/>

@@ -49,7 +49,7 @@
 				includes="html/**/* examples/**/*"
 				excludes="html/**/*.css.map"/>
 		</copy>
-		<symlink
+		<!--symlink
 			link="${destdir}/${config.vendor.docdir}/html/en/common"
 			resource="../common"
 			overwrite="true"
@@ -58,7 +58,7 @@
 			link="${destdir}/${config.vendor.docdir}/html/ru/common"
 			resource="../common"
 			overwrite="true"
-			/>
+			/-->
 
 		<!-- Install LICENSE -->
 		<copy todir="${destdir}/${config.vendor.licensedir}" file="LICENSE"/>
@@ -83,7 +83,7 @@
 
 		<!-- Install manpages -->
 		<copy todir="${destdir}/${config.mandir}">
-			<fileset dir="${target.man}/en" includes="**/*"/>
+			<fileset dir="${target.man}" includes="**/*"/>
 		</copy>
 
 		<!-- Install Ant task -->

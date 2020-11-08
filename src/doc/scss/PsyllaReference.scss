@@ -1,0 +1,272 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+@import "highlight.scss";
+
+$background-color-body: white; //#FAFAFA;
+$font-family-body: "PT Sans", sans-serif;
+$font-family-code: "Consolas", monospace;
+$color-title: darkslategray; //darken($background-color-body, 60%);
+$color-title: #245; //darken($background-color-body, 60%);
+$background-color-html: $background-color-body;//$color-title;
+$color-link: royalblue;
+$color-visited: $color-link;//darken($color-link, 7.5%);
+$color-filename: black;
+$background-color-programlisting: darken($background-color-body, 2%);
+
+html
+{
+	background-color: $background-color-html;
+	height: 100%
+}
+
+body
+{
+	position: static;
+	overflow: auto;
+	font-size: 18px;
+	max-width: 960px;
+	//width: 75%;
+	min-height: 100%;
+	margin: 0pc auto 0pc 25%;
+	top: 0px;
+	bottom: 0px;
+	//background-color: $background-color-body;
+	font-family: $font-family-body;
+	tab-size: 4;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	//border-right: 4px dotted $color-title;
+	//border-left: 4px dotted $color-title;
+}
+
+body > *
+{
+	margin: 1pc 2pc 1pc 4pc;
+}
+
+p
+{
+	text-align: justify;
+	hyphens: auto;
+	-moz-hyphens: auto;
+	-o-hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	color: $color-title;
+	//text-shadow: 0 0 1.5px $background-color-body, 0 1px 1.5px lighten($color-title, 25%);
+}
+
+:link
+{
+	color: $color-link;
+	text-decoration: none;
+}
+
+:visited
+{
+	color: $color-visited;
+}
+
+:link:hover
+{
+	text-decoration: underline;
+}
+
+hr
+{
+	border: solid $color-title 1px;
+}
+
+.navfooter,
+.navheader
+{
+	font-size: smaller;
+}
+
+.toc dl
+{
+	margin:
+	{
+		top: 0px;
+		bottom: 0px;
+	}
+}
+
+.literal
+{
+	font-weight: bold;
+}
+
+.programlisting,
+.screen,
+.literallayout,
+.sgmltag-element,
+.sgmltag-attribute,
+.sgmltag-attvalue,
+.code,
+.filename,
+.command
+{
+	font-family: $font-family-code;
+}
+
+.sgmltag-element
+{
+	color: $color-hl-tag;
+	font-weight: bolder;
+}
+
+.sgmltag-attribute
+{
+	color: $color-hl-attribute;
+}
+
+.sgmltag-attvalue
+{
+	color: $color-hl-constant;
+}
+
+.filename
+{
+	color: $color-filename;
+	font-weight: bolder;
+}
+
+.toc-title,
+.example-title,
+.figure-title,
+{
+	font-weight: bold;
+}
+
+.application
+{
+	font-weight: bold;
+}
+
+.synopsis .emphasis em
+{
+	font-weight: bold;
+	font-style: normal;
+}
+
+.type
+{
+	font-family: $font-family-code;
+	color: darkolivegreen;
+}
+
+.constant
+{
+	color: $color-hl-constant;
+}
+
+.itemizedlist-title
+{
+	font-weight: bold;
+}
+
+.listitem
+{
+	list-style-type: square;
+}
+
+.token,
+.errorname
+{
+	font-family: $font-family-code;
+}
+
+.command
+{
+	font-weight: bold;
+}
+
+table.productionset
+{
+	font-family: $font-family-code;
+}
+
+:link:hover .errorname,
+.errorname,
+{
+	//color: #A22;
+	//color: #A40;
+	color: #225;
+	-moz-text-decoration-color: #A22;
+	text-decoration-color: #A22;
+}
+
+.formalpara-title
+{
+	font-weight: bold;
+}
+
+.programlisting,
+.screen,
+.synopsis,
+.cmdsynopsis,
+.literallayout,
+{
+	padding: 1em;
+	background-color: $background-color-programlisting;
+	border-radius: .5em;
+	font-size: 16px;
+}
+
+.literallayout p,
+.cmdsynopsis p,
+{
+	margin: 0em;
+}
+
+.synopsis
+{
+	white-space: normal;
+}
+
+.synopsis .itemizedlist
+{
+	margin-bottom: 0em;
+}
+
+.navfooter table tr td
+{
+	&[align="left"],
+	&[align="right"]
+	{
+		width: 33.3333%;
+	}
+}
+
+.informaltable table,
+.informaltable table tr,
+.informaltable table tr td
+{
+	border-color: darken($background-color-body, 25%) !important;
+}
+
+.informaltable table tr td
+{
+	padding: .5ex;
+}
+
+div.toc
+{
+	position: fixed;
+	overflow: auto;
+	width: 25%;
+	//background-color: darken($background-color-body, 2.5%);
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 25%;
+	font-size: smaller;
+}
+
+div.toc > *
+{
+	margin: 1pc;
+}

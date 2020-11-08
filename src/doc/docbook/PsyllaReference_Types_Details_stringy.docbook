@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_stringy">
+<title><type>stringy</type></title>
+
+<para>
+Тип строкоподобных величин, объединяющий строки и имена.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_evaluable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsyllaTypesHierarchy_stringy.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

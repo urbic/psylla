@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_random">
+<title><type>random</type></title>
+
+<para>
+A generator of pseudorandom data.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsyllaTypesHierarchy_random.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

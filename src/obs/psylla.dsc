@@ -2,7 +2,7 @@ Format: 1.0
 Version: @obs.package.version@-0
 Source: @obs.package.name@
 Binary: @obs.package.name@
-Maintainer: Anton Shvetz <tz@sectorb.msk.ru>
+Maintainer: Anton Shvetz <shvetz.anton@gmail.com>
 Architecture: all
 Build-Depends: debhelper (>=9),
 	perl-base (>=5.18.2),

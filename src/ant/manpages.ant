@@ -3,9 +3,9 @@
 
 	<presetdef name="xslt.manpages">
 		<xslt
-			style="${src.docbook}/manpages.xsl"
-			basedir="${src.docbook}"
-			filedirparameter="${src.docbook}"
+			style="${src.doc.docbook}/manpages.xsl"
+			basedir="${src.doc.docbook}"
+			filedirparameter="${src.doc.docbook}"
 			classpathref="classpath.xslt"
 			>
 			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
@@ -26,36 +26,29 @@
 		</xslt>
 	</presetdef>
 
-	<macrodef name="xslt.manpages.lang">
-		<attribute name="base.name"/>
-		<attribute name="lang"/>
+	<target name="manpages" description="Make manual pages" depends="version">
+		<mkdir dir="${target.doc}"/>
+		<symlink resource="${src.doc.docbook}/examples" link="examples" overwrite="true"/>
 		<sequential>
 			<dependset>
 				<srcfileset
-					dir="${src.docbook}/@{lang}"
-					includes="@{base.name}*.docbook *.ent"
+					dir="${src.doc.docbook}"
+					includes="PsyllaManpages.docbook *.ent"
 					/>
 				<targetfileset
-					dir="${target.man}/@{lang}"
+					dir="${target.man}"
 					includes="man1/*.1"
 					/>
 			</dependset>
 			<xslt.manpages
-				includes="@{lang}/@{base.name}.docbook"
+				includes="PsyllaManpages.docbook"
 				destdir="${target.man}"
 				>
-				<param name="root.filename" expression="@{lang}/@{base.name}.docbook"/>
-				<param name="man.output.base.dir" expression="${target.man}/@{lang}/"/>
+				<param name="root.filename" expression="PsyllaManpages.docbook"/>
+				<param name="man.output.base.dir" expression="${target.man}/"/>
 			</xslt.manpages>
-			<delete file="${target.man}/@{lang}/@{base.name}.html" quiet="yes"/>
-			<delete dir="${target.doc}/@{lang}" quiet="yes"/>
+			<delete file="${target.man}/PsyllaManpages.html" quiet="yes"/>
 		</sequential>
-	</macrodef>
-
-	<target name="manpages" description="Make manual pages" depends="version">
-		<mkdir dir="${target.doc}"/>
-		<symlink resource="${src.docbook}/examples" link="examples" overwrite="true"/>
-		<xslt.manpages.lang lang="en" base.name="PsyllaManpages"/>
 		<symlink action="delete" link="examples"/>
 	</target>
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_bitarray">
+<title><type>bitarray</type></title>
+
+<para>
+A bit array.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_appendable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_container"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsyllaTypesHierarchy_bitarray.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

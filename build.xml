@@ -17,7 +17,10 @@
 	<property name="src.main.jj" location="${src.main}/jj"/>
 	<property name="src.examples.psylla" location="${src.examples}/psylla"/>
 	<property name="src.examples.java" location="${src.examples}/java"/>
-	<property name="src.docbook" location="${src}/docbook"/>
+	<property name="src.doc" location="${src}/doc"/>
+	<property name="src.doc.xsl" location="${src.doc}/xsl"/>
+	<property name="src.doc.docbook" location="${src.doc}/docbook"/>
+	<property name="src.doc.scss" location="${src.doc}/scss"/>
 	<property name="src.ant" location="${src}/ant"/>
 	<property name="src.bin" location="${src}/bin"/>
 	<property name="src.css" location="${src}/css"/>
@@ -48,6 +51,7 @@
 		<pathelement path="${target.classes}"/>
 		<!--pathelement path="${target.lib}/${project.name}.jar"/-->
 		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
+		<pathelement path="${config.datadir}/java/jline.jar"/><!-- For Debian -->
 		<pathelement path="${ant.core.lib}"/>
 		<pathelement path="${config.datadir}/ant/lib/ant-junit.jar"/>
 	</path>
@@ -55,6 +59,7 @@
 	<path id="classpath.test">
 		<pathelement path="${target.lib}/${project.name}.jar"/>
 		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
+		<pathelement path="${config.datadir}/java/jline.jar"/><!-- For Debian -->
 		<pathelement path="${config.datadir}/java/junit4.jar"/>
 		<pathelement path="${config.datadir}/java/junit.jar"/><!-- For Mageia -->
 	</path>

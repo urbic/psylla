@@ -1,7 +1,7 @@
 Source: @obs.package.name@
 Section: contrib/interpreters
 Priority: optional
-Maintainer: Anton Shvetz <tz@sectorb.msk.ru>
+Maintainer: Anton Shvetz <shvetz.anton@gmail.com>
 Build-Depends: debhelper (>=9),
 	perl-base (>=5.18.2),
 	openjdk-11-jdk-headless,

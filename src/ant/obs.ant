@@ -16,11 +16,24 @@
 		</or>
 	</condition>
 
+	<target name="obs.checkout"
+		description="Checkout OBS package"
+		>
+		<exec dir="${target}" executable="osc">
+			<arg value="checkout"/>
+			<arg value="${obs.build.project}"/>
+			<arg value="${obs.package.name}"/>
+			<arg value="-o${target.obs}"/>
+		</exec>
+	</target>
+
 	<target name="obs.copy.spec"
 		description="Copy sources and specs to OBS working directory"
-		depends="dist.tar"
+		depends="dist.tar,obs.checkout"
 		>
-		<mkdir dir="${target.obs}"/>
+		<delete dir="${target.obs}" includes="*"/>
+
+		<!--mkdir dir="${target.obs}"/-->
 		<copy todir="${target.obs}" overwrite="yes">
 			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
 			<fileset dir="${src.obs}" includes="_service"/>
@@ -48,6 +61,9 @@
 				</propertyset>
 			</filterset>
 		</copy>
+		<exec dir="${target.obs}" executable="osc">
+			<arg value="addremove"/>
+		</exec>
 	</target>
 
 	<target name="obs.build"
@@ -64,6 +80,16 @@
 			<arg value="${obs.build.distro}"/>
 			<arg value="${obs.build.arch}"/>
 			<arg value="${obs.build.desc}"/>
+		</exec>
+	</target>
+
+	<target name="obs.commit"
+		description="Commit package to OBS"
+		depends="obs.copy.spec"
+		>
+		<exec dir="${target.obs}" executable="osc">
+			<arg value="commit"/>
+			<arg value="-n"/>
 		</exec>
 	</target>
 
