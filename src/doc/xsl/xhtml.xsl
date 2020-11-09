@@ -9,10 +9,10 @@
 	exclude-result-prefixes="xlink lxslt d xslthl #default"
 	version="1.1"
 	>
-	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml-1_1/profile-chunk.xsl"/>
+	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml5/profile-chunk.xsl"/>
 
 	<xsl:import href="highlight.xsl"/>
-	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml-1_1/autoidx-kosek.xsl"/>
+	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml/autoidx-kosek.xsl"/>
 
 	<xsl:param name="admon.graphics" select="1"/>
 	<xsl:param name="admon.graphics.extension">.svg</xsl:param>

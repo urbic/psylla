@@ -233,7 +233,7 @@ This document describes <application>Psylla</application> &psylla.version;.
 <para>
 <person>
 <personname>Anton Shvetz</personname>
-<email>tz@sectorb.msk.ru</email>
+<email>shvetz.anton@gmail.com</email>
 </person>
 </para>
 </refsection>
@@ -242,7 +242,6 @@ This document describes <application>Psylla</application> &psylla.version;.
 <title>License</title>
 <para>
 zlib/png: <link xlink:href="http://opensource.org/licenses/Zlib"/>.
-<!--link xlink:href="http://opensource.org/licenses/Zlib">zlib/png</link-->
 </para>
 </refsection>
 

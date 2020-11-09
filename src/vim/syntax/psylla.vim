@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language:     Psylla
-" Maintainer:   Anton Shvetz <tz@sectorb.msk.ru>
+" Maintainer:   Anton Shvetz <shvetz.antot@gmail.com>
 " Filenames:    *.psy
 " Last Change:  20170730
 " URL:          https://github.com/urbic/psylla

@@ -27,7 +27,6 @@
 	</presetdef>
 
 	<target name="manpages" description="Make manual pages" depends="version">
-		<mkdir dir="${target.doc}"/>
 		<symlink resource="${src.doc.docbook}/examples" link="examples" overwrite="true"/>
 		<sequential>
 			<dependset>

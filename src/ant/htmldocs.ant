@@ -15,13 +15,14 @@
 			<xmlcatalog refid="xmlcatalog.xslt"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
 				<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
-			<param name="link.mailto.url" expression="${xslt.link.mailto.url}"/>
-			<param name="shortcut.icon" expression="../${project.name}.svg"/>
+			<param name="link.mailto.url" expression="mailto:${config.vendor.email}?subject=${project.name}"/>
+			<param name="shortcut.icon" expression="${project.name}.svg"/>
 			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
 			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
 			<param name="draft.mode" expression="maybe"/>
 			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
 			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
+			<param name="chunk.tocs.and.lots" expression="1"/>
 		</xslt>
 	</presetdef>
 
@@ -69,16 +70,11 @@
 				destdir="${target.doc.html}"
 				filedirparameter="PsyllaReference.docbook"
 				>
-				<param name="html.stylesheet" expression="PsyllaReference.css"/>
+				<param name="html.stylesheet" expression="PsyllaReference.css++"/>
 				<param name="root.filename" expression="PsyllaReference"/>
-				<param name="base.dir" expression="${target.doc.html}/"/>
+				<param name="base.dir" expression="${target.doc.html}"/>
 				<param name="l10n.gentext.language" expression="en"/>
 			</xslt.html>
-			<!--symlink
-				link="${target.doc.html}/en/common"
-				resource="../common"
-				overwrite="true"
-				/-->
 		</sequential>
 		<copy todir="${target.doc.html}">
 			<fileset dir="${src.doc.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>

@@ -1,6 +1,6 @@
 /**
 *	The Psylla language core types.
 *
-*	@author Anton Shvetz ‹tz@sectorb.msk.ru›
+*	@author Anton Shvetz ‹shvetz.anton@gmail.com›
 */
 package coneforest.psylla.core;

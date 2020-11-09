@@ -26,8 +26,8 @@ Source:			%{name}-%{version}.tar.xz
 #Source1:        https://cdn.docbook.org/release/xsl-nons/1.79.2/extensions/saxon65.jar
 BuildRequires:	ant
 BuildRequires:	javacc
-BuildRequires:	java-devel >= 1.8.0
-BuildRequires:	java-javadoc >= 1.8.0
+BuildRequires:	java-devel >= 11
+BuildRequires:	java-javadoc >= 11
 %if 0%{?mageia}
 BuildRequires:	locales-ru
 %endif
@@ -44,7 +44,7 @@ BuildRequires:	junit >= 4.0
 BuildRequires:	ant-junit
 Provides:		config(ant-%{name})
 Provides:		mimehandler(application/x-%{name})
-Requires:		java-headless >= 1.8.0
+Requires:		java-headless >= 11
 Requires(post):	shared-mime-info
 Requires(postun):	shared-mime-info
 BuildRoot:		%{_tmppath}/%{name}-%{version}-build
@@ -60,7 +60,7 @@ Requires:		paratype-pt-sans-fonts
 BuildRequires:	ant-apache-resolver
 %if 0%{?mageia}
 BuildRequires:	docbook5-style-xsl
-BuildRequires:	java-1.8.0-openjdk-javadoc
+BuildRequires:	java-javadoc >= 11
 %else
 BuildRequires:	docbook5-xsl-stylesheets
 %endif
