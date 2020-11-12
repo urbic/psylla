@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsyllaReference_Installation">
+<title>Installation</title>
+
+<section xml:id="PsyllaReference_Installation_Obtaining">
+<title>Obtaining Psylla</title>
+
+<para>
+Pre-built binary packages for <systemitem class="osname">openSUSE</systemitem>,
+<systemitem class="osname">Debian</systemitem> and <systemitem
+class="osname">Ubuntu</systemitem> are available at <link
+xlink:href="https://software.opensuse.org/download.html?project=home%3Aconcyclic%3Ajava&amp;package=psylla">openSUSE
+Build Service</link>.
+</para>
+
+</section>
+
+<section xml:id="PsyllaReference_Installation_BuildingFromSources">
+<title>Building from Sources</title>
+
+<section xml:id="PsyllaReference_Installation_BuildingFromSources_Prerequisites">
+<title>Prerequisites</title>
+
+<itemizedlist>
+
+<listitem><application>Java 11</application> (<application
+xlink:href="https://openjdk.java.net/">OpenJDK</application> or <application
+xlink:href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle
+JDK</application>)</listitem>
+
+<listitem><application xlink:href="http://javacc.org">JavaCC
+7.0.4</application></listitem>
+
+<listitem><application xlink:href="https://ant.apache.org/">Apache
+Ant 1.10.9</application></listitem>
+
+<listitem><application xlink:href="https://ant.apache.org/">Ant Apache
+Resolver Task 1.10.9</application></listitem>
+
+<listitem><application xlink:href="https://ant.apache.org/">Ant Junit Task
+1.10.9</application></listitem>
+
+<listitem><application xlink:href="https://www.junit.org/">JUnit
+4</application></listitem>
+
+<listitem><application xlink:href="https://jline.github.io/">JLine
+1</application></listitem>
+
+<listitem><application xlink:href="http://saxon.sourceforge.net/">Saxon HE
+6</application></listitem>
+
+<listitem><application
+xlink:href="https://github.com/docbook/xslt10-stylesheets">Docbook 5 XSLT
+Stylesheets 1.79.2</application></listitem>
+
+<listitem><application
+xlink:href="https://github.com/sass/sassc/">SassC 3.5.0</application></listitem>
+
+</itemizedlist>
+
+</section>
+
+<section xml:id="PsyllaReference_Installation_BuildingFromSources_BuildProcess">
+<title>Build Process</title>
+
+<para>
+The sources are available in the <link
+xlink:href="https://github.com/urbic/psylla">project repository</link> hosted
+on GitHub.
+</para>
+
+<para>
+To build a project, you first need to clone the repository. To do this, run the
+command
+
+<screen><prompt>% </prompt><userinput>git clone --depth=1 https://github.com/urbic/psylla.git</userinput></screen>
+
+</para>
+
+<para>
+After cloning the project repository, a new subdirectory named
+<filename>psylla</filename> is created in the current directory. Change to it:
+
+<screen><prompt>% </prompt><userinput>cd psylla</userinput></screen>
+
+</para>
+
+<para>
+The Psylla build process uses <link xlink:href="http://ant.apache.org">Apache
+Ant</link> as a build tool. Run
+
+<screen><prompt>% </prompt><userinput>ant build</userinput></screen>
+
+After a successfull build, you can run the program:
+
+<screen><prompt>% </prompt><userinput>./psylla.sh -e '1 1 1 7 { mul } for ?'</userinput>
+<computeroutput>5040</computeroutput></screen>
+
+(that program calculates the factorial of the seven).
+
+</para>
+
+</section>
+
+</section>
+
+</chapter>

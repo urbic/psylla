@@ -2,8 +2,6 @@
 <chapter xml:id="PsyllaReference_Interpreter">
 <title>Interpreter</title>
 
-&PsyllaReference_Interpreter_Installation;
-
 <section xml:id="PsyllaReference_Interpreter_CLI">
 <title>Command Line Interface</title>
 

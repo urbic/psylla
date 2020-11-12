@@ -31,14 +31,13 @@ digraph $head
 	graph
 	[
 		bgcolor="none",
-		resolution="60",
 	]
 	node
 	[
 		shape="note",
 		style="filled",
 		fillcolor="linen",
-		fontname="monospace",
+		fontname="Consolas, monospace",
 		href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_\\N",
 		target="_parent"
 	]
@@ -53,6 +52,7 @@ __DOT__
 		my $lhs=join ', ', @{$h{$rhs}};
 		$dot->print("\t$lhs -> $rhs;\n");
 	}
+	#$dot->print("\t$head [fillcolor=\"wheat\"]\n");
 	$dot->print("\t$head [fillcolor=\"wheat\"]\n");
 	$dot->print("}\n\n");
 	$dot->close;
@@ -69,13 +69,14 @@ digraph "Psylla Types Hierarchy"
 	graph
 	[
 		bgcolor="none"
+		stylesheet="PsyllaTypesHierarchy.css"
 	]
 	node
 	[
 		shape="note",
 		style="filled",
 		fillcolor="linen",
-		fontname="monospace"
+		fontname="Consolas, monospace"
 	]
 __DOT__
 	while(@agenda)

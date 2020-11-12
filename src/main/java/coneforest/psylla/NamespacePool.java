@@ -11,6 +11,7 @@ public class NamespacePool
 		pool.put(prefix, oNamespace);
 		return oNamespace;
 	}
+
 	public PsyNamespace psyNamespace(final PsyStringy oPrefix)
 	{
 		return namespace(oPrefix.stringValue());

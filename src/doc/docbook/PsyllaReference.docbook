@@ -30,6 +30,7 @@
 </author>
 
 &PsyllaReference_Preface;
+&PsyllaReference_Installation;
 &PsyllaReference_Interpreter;
 &PsyllaReference_Language;
 &PsyllaReference_Types;

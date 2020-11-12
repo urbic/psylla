@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!ENTITY PsyllaReference_Preface							SYSTEM "PsyllaReference_Preface.docbook">
+<!ENTITY PsyllaReference_Installation						SYSTEM "PsyllaReference_Installation.docbook">
 <!ENTITY PsyllaReference_Interpreter						SYSTEM "PsyllaReference_Interpreter.docbook">
-<!ENTITY PsyllaReference_Interpreter_Installation			SYSTEM "PsyllaReference_Interpreter_Installation.docbook">
 <!ENTITY PsyllaReference_Language							SYSTEM "PsyllaReference_Language.docbook">
 <!ENTITY PsyllaReference_Language_Interpreter				SYSTEM "PsyllaReference_Language_Interpreter.docbook">
 <!ENTITY PsyllaReference_Language_Syntax					SYSTEM "PsyllaReference_Language_Syntax.docbook">

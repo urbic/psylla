@@ -1,9 +1,9 @@
 " Vim syntax file
-" Language:     Psylla
-" Maintainer:   Anton Shvetz <shvetz.antot@gmail.com>
-" Filenames:    *.psy
-" Last Change:  20170730
-" URL:          https://github.com/urbic/psylla
+" Language:		Psylla
+" Maintainer:	Anton Shvetz <shvetz.anton@gmail.com>
+" Filenames:	*.psy
+" Last Change:	20170730
+" URL:			https://github.com/urbic/psylla
 "
 " Options Flags:
 "
@@ -27,7 +27,7 @@ syn region psyllaComment		start="/#" end="#/" contains=psyllaTodo
 syn match psyllaCharacter		"`\([^\\]\|\\[afenrt\\]\)"
 
 syn match psyllaNameExecutable	"\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
-syn match psyllaOperator   	  	"[\[\]{}<>()?]"
+syn match psyllaOperator		"[\[\]{}<>()?]"
 syn match psyllaNameLiteral		"/\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
 syn match psyllaNameImmediate	"//\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
 syn region psyllaNameQuoted		start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=psyllaStringSpecial

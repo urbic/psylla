@@ -19,7 +19,6 @@
 			<param name="l10n.gentext.default.language" expression="'ru'"/>
 			<param name="bibliography.style" expression="'iso960'"/>
 			<param name="draft.mode" expression="'maybe'"/>
-			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
 			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
 			<param name="man.output.in.separate.dir" expression="1"/>
 			<param name="base.dir" expression="${target.doc}"/>

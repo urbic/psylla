@@ -18,6 +18,7 @@
 	<property name="src.examples.psylla" location="${src.examples}/psylla"/>
 	<property name="src.examples.java" location="${src.examples}/java"/>
 	<property name="src.doc" location="${src}/doc"/>
+	<property name="src.doc.xhtml" location="${src.doc}/xhtml"/>
 	<property name="src.doc.xsl" location="${src.doc}/xsl"/>
 	<property name="src.doc.docbook" location="${src.doc}/docbook"/>
 	<property name="src.doc.scss" location="${src.doc}/scss"/>
@@ -35,7 +36,7 @@
 	<property name="target.classes" location="${target}/classes"/>
 	<property name="target.lib"  location="${target}/lib"/>
 	<property name="target.bin"  location="${target}/bin"/>
-	<property name="target.obs" value="${target}/obs"/>
+	<property name="target.obs" location="${target}/obs"/>
 	<property name="target.man"  location="${target}/man"/>
 	<property name="target.doc.html" location="${target.doc}/html"/>
 	<property name="target.vim" location="${target}/vim"/>
@@ -45,11 +46,12 @@
 	<property name="sysconfdir" location="/etc"/>
 	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
 	<property name="file.encoding" location="UTF-8"/>
+	<property name="build.sysclasspath" value="last"/>
+
 	<property file="${src.ant}/config.properties"/>
 
 	<path id="classpath.main">
 		<pathelement path="${target.classes}"/>
-		<!--pathelement path="${target.lib}/${project.name}.jar"/-->
 		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
 		<pathelement path="${config.datadir}/java/jline.jar"/><!-- For Debian -->
 		<pathelement path="${ant.core.lib}"/>
@@ -57,7 +59,8 @@
 	</path>
 
 	<path id="classpath.test">
-		<pathelement path="${target.lib}/${project.name}.jar"/>
+		<!--pathelement path="${target.lib}/${project.name}.jar"/-->
+		<pathelement path="${target.classes}"/>
 		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
 		<pathelement path="${config.datadir}/java/jline.jar"/><!-- For Debian -->
 		<pathelement path="${config.datadir}/java/junit4.jar"/>
@@ -110,7 +113,7 @@
 			description="Compile Java sources"
 			depends="copy.resources,compile.jj"
 			>
-		<mkdir dir="${target.classes}/META-INF/${project.name}-typemap"/>
+		<mkdir dir="${target.classes}/META-INF/${project.name}/types"/>
 		<javac
 			srcdir="${src.main.java}"
 			destdir="${target.classes}"
@@ -119,11 +122,11 @@
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
+			<classpath refid="classpath.main"/>
+			<classpath refid="classpath.test"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
-			<classpath refid="classpath.main"/>
-			<classpath refid="classpath.test"/>
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 		<javac
@@ -134,14 +137,15 @@
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
-			<!--compilerarg value="-Xlint"/-->
-			<!--compilerarg value="-Xdoclint"/-->
-			<!--compilerarg value="-XprintRounds"/-->
-			<compilerarg value="-implicit:class"/>
-			<compilerarg value="-Xlint:deprecation"/>
-			<compilerarg value="-Atypemap.dir=${target.classes}/META-INF/${project.name}-typemap/"/>
 			<classpath refid="classpath.main"/>
 			<classpath refid="classpath.test"/>
+			<!--compilerarg value="-XprintRounds"/-->
+			<compilerarg value="-XprintProcessorInfo"/>
+			<compilerarg value="-Xprefer:source"/>
+			<compilerarg value="-implicit:class"/>
+			<compilerarg value="-Xlint:deprecation"/>
+			<compilerarg value="-Atypemap.dir=${target.classes}/META-INF/${project.name}/types/"/>
+			<compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 		<native2ascii

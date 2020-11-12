@@ -2,10 +2,12 @@
 @import "highlight.scss";
 
 $background-color-body: white; //#FAFAFA;
+$background-color-nav: #73C6B6;
 $font-family-body: "PT Sans", sans-serif;
+$font-size-body: 22px;
 $font-family-code: "Consolas", monospace;
-$color-title: darkslategray; //darken($background-color-body, 60%);
-$color-title: #245; //darken($background-color-body, 60%);
+//$color-title: darkslategray; //darken($background-color-body, 60%);
+$color-title: darken($background-color-nav, 33%);
 $background-color-html: $background-color-body;//$color-title;
 $color-link: royalblue;
 $color-visited: $color-link;//darken($color-link, 7.5%);
@@ -22,8 +24,8 @@ body
 {
 	position: static;
 	overflow: auto;
-	font-size: 18px;
-	max-width: 960px;
+	font-size: $font-size-body;
+	max-width: auto;//960px;
 	//width: 75%;
 	min-height: 100%;
 	margin: 0pc auto 0pc 25%;
@@ -34,13 +36,11 @@ body
 	tab-size: 4;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
-	//border-right: 4px dotted $color-title;
-	//border-left: 4px dotted $color-title;
 }
 
 body > *
 {
-	margin: 1pc 2pc 1pc 4pc;
+	margin: 0 4pc 0 4pc;
 }
 
 p
@@ -83,6 +83,17 @@ hr
 .navheader
 {
 	font-size: smaller;
+	background-color:  $background-color-nav;
+}
+
+.navheader
+{
+	border-radius: 0 0 15px 15px;
+}
+
+.navfooter
+{
+	border-radius: 15px 15px 0 0;
 }
 
 .toc dl
@@ -143,7 +154,7 @@ hr
 
 .application
 {
-	font-weight: bold;
+	font-style: italic;
 }
 
 .synopsis .emphasis em
@@ -187,6 +198,7 @@ hr
 table.productionset
 {
 	font-family: $font-family-code;
+	background-color: $background-color-programlisting;
 }
 
 :link:hover .errorname,
@@ -194,7 +206,7 @@ table.productionset
 {
 	//color: #A22;
 	//color: #A40;
-	color: #225;
+	color: darken(darkorange, 15%); //#225;
 	-moz-text-decoration-color: #A22;
 	text-decoration-color: #A22;
 }
@@ -212,8 +224,8 @@ table.productionset
 {
 	padding: 1em;
 	background-color: $background-color-programlisting;
-	border-radius: .5em;
-	font-size: 16px;
+	//border-radius: .5em;
+	font-size: $font-size-body;
 }
 
 .literallayout p,
@@ -258,7 +270,7 @@ div.toc
 	position: fixed;
 	overflow: auto;
 	width: 25%;
-	//background-color: darken($background-color-body, 2.5%);
+	background-color: lighten($background-color-nav, 33%);
 	top: 0px;
 	bottom: 0px;
 	left: 0px;

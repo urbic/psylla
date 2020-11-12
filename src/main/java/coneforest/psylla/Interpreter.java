@@ -20,7 +20,6 @@ public class Interpreter
 			procstack=new ProcStack();
 			dstack=new DictStack();
 			pushStopLevel();
-			PsySystemDict.register(this);
 		}
 		catch(final PsyException e)
 		{
@@ -301,12 +300,14 @@ public class Interpreter
 				case ParserConstants.INTEGER_HEXADECIMAL:
 				case ParserConstants.INTEGER_BINARY:
 				case ParserConstants.REAL:
+				case ParserConstants.COMPLEX:
 				case ParserConstants.STRING:
 				case ParserConstants.NAME_SLASHED:
 				case ParserConstants.NAME_QUOTED:
 				case ParserConstants.IMMEDIATE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.CHAR:
+				case ParserConstants.LITERAL:
 					ostack.push(parseToken(token));
 					break;
 				case ParserConstants.OPEN_BRACE:
@@ -339,6 +340,7 @@ public class Interpreter
 				case ParserConstants.INTEGER_HEXADECIMAL:
 				case ParserConstants.INTEGER_BINARY:
 				case ParserConstants.REAL:
+				case ParserConstants.COMPLEX:
 				case ParserConstants.STRING:
 				case ParserConstants.NAME_SLASHED:
 				case ParserConstants.NAME_QUOTED:
@@ -346,6 +348,7 @@ public class Interpreter
 				case ParserConstants.IMMEDIATE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.CHAR:
+				case ParserConstants.LITERAL:
 					procstack.peek().psyAppend(parseToken(token));
 					break;
 				case ParserConstants.EOF:
@@ -593,24 +596,6 @@ public class Interpreter
 			quit();
 	}
 
-	/*public void registerType(final String typeName, final Class<? extends PsyObject> typeClass)
-	{
-		System.out.println("REGISTER: "+typeName+" "+typeClass);
-		typeResolver.put(typeName, typeClass);
-	}*/
-
-	public void registerType(final Class<? extends PsyObject> typeClass)
-	{
-		final var typeName=typeClass.getAnnotation(Type.class).value();
-		System.out.println("REGISTER: "+typeName+" "+typeClass);
-		typeResolver.put(typeName, typeClass);
-	}
-
-	public Class<? extends PsyObject> resolveType(final String typeName)
-	{
-		return typeResolver.get(typeName);
-	}
-
 	public void loadLibraryResource(final PsyStringy oResourceName)
 		throws PsyException
 	{
@@ -666,8 +651,6 @@ public class Interpreter
 		stopstack=new Stack<Integer>();
 	private boolean stopFlag=false;
 	private boolean running=true;
-	private final java.util.HashMap<String, Class<? extends PsyObject>> typeResolver
-		=new java.util.HashMap<String, Class<? extends PsyObject>>();
 	private final java.util.HashMap<String, String> resourceRegistry
 		=new java.util.HashMap<String, String>();
 

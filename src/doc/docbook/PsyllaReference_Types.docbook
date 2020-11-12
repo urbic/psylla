@@ -3,7 +3,7 @@
 <title>Types</title>
 
 <para>
-The Psylla language has a flexible and extendable type system. The types
+The Psylla language has a flexible and extendable type system. The types are
 implemented as Java classes or interfaces. Each Psylla object is represented as
 an object of some class implementing the <classname>PsyObject</classname>
 interface.

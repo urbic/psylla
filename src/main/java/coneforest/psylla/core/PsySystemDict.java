@@ -7,8 +7,6 @@ public class PsySystemDict
 	public PsySystemDict()
 		throws PsyException
 	{
-		//PsyInteger.register((Interpreter)PsyContext.psyCurrentContext());
-
 		registerOperators
 			(
 				new PsyOperator.Arity11<PsyNumeric>
@@ -624,9 +622,10 @@ public class PsySystemDict
 					("isinstance",
 						(interpreter)->
 						{
+							// TODO: interpreter not used
 							final var ostack=interpreter.operandStackBacked(2);
 							ostack.push(PsyBoolean.valueOf(
-									interpreter.resolveType(ostack.<PsyStringy>getBacked(0).stringValue())
+									TypeResolver.resolve(ostack.<PsyStringy>getBacked(0).stringValue())
 										.isInstance(ostack.getBacked(1))));
 						}
 					),
@@ -1270,19 +1269,5 @@ public class PsySystemDict
 		put("username", new PsyName(System.getProperty("user.name")));
 		put("version", new PsyName(Version.getVersion()));
 
-	}
-
-	public static void register(final Interpreter interpreter)
-	{
-		//PsyObject.register(interpreter);
-		//PsyInteger.register(interpreter);
-		//System.out.println(PsyObject.classTypeName());
-		//System.out.println(PsyInteger.classTypeName());
-		//interpreter.registerType(PsyObject.class);
-		//interpreter.registerType(PsyInteger.class);
-		//interpreter.registerType(PsySystemDict.class);
-		//System.out.println(interpreter.resolveType("object"));
-		//System.out.println(interpreter.resolveType("integer"));
-		//System.out.println(interpreter.resolveType("module"));
 	}
 }
