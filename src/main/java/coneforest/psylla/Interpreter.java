@@ -182,8 +182,9 @@ public class Interpreter
 	public void setClassPath(final String[] classPath)
 		throws PsyException
 	{
-		final var oClassPath
-			=(PsyArraylike<PsyStringy>)systemDict().get("classpath");
+		//final var oClassPath
+		//	=(PsyArraylike<PsyStringy>)systemDict().get("classpath");
+		final var oClassPath=new PsyArray();
 		final var envClassPath=System.getenv("PSYLLA_CLASSPATH");
 		if(envClassPath!=null)
 			for(final var pathItem: envClassPath.split(java.io.File.pathSeparator))
@@ -197,8 +198,9 @@ public class Interpreter
 		throws PsyException
 	{
 		// Configure library path
-		final var oLibraryPath
-			=(PsyArraylike<PsyStringy>)systemDict().get("librarypath");
+		//final var oLibraryPath
+		//	=(PsyArraylike<PsyStringy>)systemDict().get("librarypath");
+		final var oLibraryPath=new PsyArray();
 		final var envLibraryPath=System.getenv("PSYLLA_LIB");
 		if(envLibraryPath!=null)
 			for(final var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
@@ -359,7 +361,8 @@ public class Interpreter
 	public PsyDictlike errorDict()
 		throws PsyException
 	{
-		return (PsyDictlike)systemDict().get("errordict");
+		// MODULARITY: return (PsyDictlike)systemDict().get("errordict");
+		return PsyNamespace.namespace("errordict");
 	}
 
 	public void handleError(final PsyException oException)
@@ -384,7 +387,7 @@ public class Interpreter
 		}
 		catch(final PsyException e)
 		{
-			throw new AssertionError();
+			throw new AssertionError(e);
 		}
 	}
 
@@ -471,8 +474,9 @@ public class Interpreter
 	public void setShellArguments(final String[] args)
 		throws PsyException
 	{
-		final var oArguments
-			=(PsyArray)systemDict().get("arguments");
+		//final var oArguments
+		//	=(PsyArray)systemDict().get("arguments");
+		final var oArguments=new PsyArray();
 		for(final var arg: args)
 			oArguments.psyAppend(new PsyName(arg));
 	}
