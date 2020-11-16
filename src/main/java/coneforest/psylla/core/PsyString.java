@@ -119,7 +119,7 @@ public class PsyString
 				oIterable instanceof PsyLengthy
 				&& index+((PsyLengthy)oIterable).length()>=length())
 			throw new PsyRangeCheckException();
-		for(PsyInteger oCharacter: oIterable)
+		for(final var oCharacter: oIterable)
 		{
 			buffer.setCharAt(index++, (char)oCharacter.intValue());
 			if(index==length())
@@ -164,7 +164,7 @@ public class PsyString
 				return;
 			}
 
-			for(PsyInteger oCharacter: oIterable)
+			for(final var oCharacter: oIterable)
 				buffer.insert(index++, (char)oCharacter.intValue());
 		}
 		catch(final IndexOutOfBoundsException e)
@@ -217,7 +217,7 @@ public class PsyString
 		throws PsyException
 	{
 		final PsyString oValues=new PsyString();
-		for(PsyInteger oIndex: oIndices)
+		for(final var oIndex: oIndices)
 			oValues.psyAppend(psyGet(oIndex));
 		return oValues;
 	}

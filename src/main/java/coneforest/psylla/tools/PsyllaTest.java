@@ -39,7 +39,7 @@ public class PsyllaTest
 		{
 			final java.io.File current=files.remove(0);
 			if(current.isDirectory())
-				for(java.io.File item: current.listFiles())
+				for(final var item: current.listFiles())
 					files.add(item);
 			else if(current.isFile())
 				if(current.toString().endsWith(".t"))

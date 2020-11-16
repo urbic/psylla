@@ -30,7 +30,8 @@ Depends: debhelper (>=9),
 	javacc,
 	junit4 (>=4.11),
 	ant-optional,
-	libjline-java
+	libjline-java,
+	java-wrappers
 Suggests: @obs.package.name@-doc
 Description: @obs.package.summary@
 	Psylla is scriptable interpretive concatenative homoiconic PostScript-like programming language.

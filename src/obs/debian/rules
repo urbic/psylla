@@ -20,15 +20,19 @@ build-stamp:
 	dh_testdir
 
 	# Add here commands to compile the package.
-	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant build \
+	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant \
 		-Ddestdir=$(DESTDIR) \
 		-Dconfig.docdir=/usr/share/doc \
 		-Dconfig.vendor.docdir=/usr/share/doc/psylla \
 		-Dconfig.vendor.javadocdir=/usr/share/doc/psylla/api \
-		-Dconfig.vendor.licensedir=/usr/share/doc/psylla
+		-Dconfig.vendor.licensedir=/usr/share/doc/psylla \
+		-Dlinux.idlike=debian \
+		build
 	# --- end custom part for compiling
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	LC_ALL=C.UTF-8 ant test
+	LC_ALL=C.UTF-8 ant \
+		-Dlinux.idlike=debian \
+		test
 endif
 
 	touch build-stamp
@@ -54,12 +58,14 @@ install: build
 
 	# Add here commands to install the package
 	# The DESTDIR Has To Be Exactly  /usr/src/packages/BUILD/debian/<nameOfPackage>
-	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant install \
+	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant \
 		-Ddestdir=$(DESTDIR) \
 		-Dconfig.docdir=/usr/share/doc \
 		-Dconfig.vendor.docdir=/usr/share/doc/psylla \
 		-Dconfig.vendor.javadocdir=/usr/share/doc/psylla/api \
-		-Dconfig.vendor.licensedir=/usr/share/doc/psylla
+		-Dconfig.vendor.licensedir=/usr/share/doc/psylla \
+		-Dlinux.idlike=debian \
+		install
 	ln -s LICENSE $(DESTDIR)/usr/share/doc/psylla/copyright
 	dh_install
 	# --- end custom part for installing

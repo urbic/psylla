@@ -39,7 +39,7 @@ public class PsyllaScriptEngineFactory
 	public String getProgram(final String... statements)
 	{
 		final var sb=new StringBuilder();
-		for(var statement: statements)
+		for(final var statement: statements)
 		{
 			sb.append(statement);
 			sb.append('\n');

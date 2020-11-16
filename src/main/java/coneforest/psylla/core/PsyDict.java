@@ -90,7 +90,7 @@ public class PsyDict
 		throws PsyException
 	{
 		final var values=new PsyDict();
-		for(PsyStringy oKey: oKeys)
+		for(final var oKey: oKeys)
 			values.psyPut(oKey, psyGet(oKey));
 		return values;
 	}

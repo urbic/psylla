@@ -203,7 +203,7 @@ public class Psylla
 	{
 		final java.util.Set<String> propertyNames=Config.stringPropertyNames();
 
-		for(String pattern: patterns)
+		for(final String pattern: patterns)
 		{
 			propertyNames.stream()
 					.sorted()

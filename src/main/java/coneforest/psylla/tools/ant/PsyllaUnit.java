@@ -14,12 +14,10 @@ public class PsyllaUnit
 	{
 		final String[] args=new String[this.args.size()];
 		int i=0;
-		for(Arg a: this.args)
-		{
+		for(final Arg a: this.args)
 			args[i++]=a.getValue();
-		}
 		final String argsEncoded=coneforest.psylla.tools.ant.Base64Codec.encode(args);
-		for(Test t: tests)
+		for(final Test t: tests)
 		{
 			final org.apache.tools.ant.taskdefs.optional.junit.JUnitTest test
 				=new org.apache.tools.ant.taskdefs.optional.junit.JUnitTest(coneforest.psylla.tools.PsyllaTest.class.getName());

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Include the wrappers utility script
+. /usr/lib/java-wrappers/java-wrappers.sh
+
+# We need sun runtime.
+find_java_runtime openjdk
+
+find_jars jline
+
+run_java coneforest.psylla.Psylla "$@"

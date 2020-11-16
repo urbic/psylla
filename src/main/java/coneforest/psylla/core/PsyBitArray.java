@@ -85,7 +85,7 @@ public class PsyBitArray
 				oIterable instanceof PsyLengthy
 				&& index+((PsyLengthy)oIterable).length()>=size)
 			throw new PsyRangeCheckException();
-		for(PsyBoolean oBoolean: oIterable)
+		for(final var oBoolean: oIterable)
 		{
 			bitarray.set(index++, oBoolean.booleanValue());
 			if(index==size)
@@ -284,7 +284,7 @@ public class PsyBitArray
 		throws PsyException
 	{
 		final var oResult=new PsyBitArray();
-		for(var oIndex: oIndices)
+		for(final var oIndex: oIndices)
 			oResult.psyAppend(psyGet(oIndex));
 		return oResult;
 	}

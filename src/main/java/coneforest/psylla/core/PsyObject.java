@@ -17,8 +17,14 @@ public interface PsyObject
 	*/
 	default public String typeName()
 	{
-		//return "object";
-		return getClass().getAnnotation(Type.class).value();
+		if(getClass().isAnnotationPresent(Type.class))
+			return (getClass().getAnnotation(Type.class)).value();
+		if(getClass().getSuperclass().isAnnotationPresent(Type.class))
+			return (getClass().getSuperclass().getAnnotation(Type.class)).value();
+		for(final var iface: getClass().getInterfaces())
+			if(iface.isAnnotationPresent(Type.class))
+				return (iface.getAnnotation(Type.class)).value();
+		return null;
 		//return java.lang.invoke.MethodHandles.lookup().lookupClass()
 		//	.getAnnotation(Type.class).value();
 	}
@@ -99,7 +105,7 @@ public interface PsyObject
 
 	default public String toSyntaxString()
 	{
-		return '|'+typeName()+'|';
+		return '%'+typeName()+'%';
 	}
 
 	// TODO
@@ -123,15 +129,16 @@ public interface PsyObject
 	*
 	*	@return a Ψ-{@code integer} hash code for this object.
 	*/
+	@Operator("hashcode")
 	default public PsyInteger psyHashCode()
 	{
 		return PsyInteger.valueOf(hashCode());
 	}
 
-	public static void register(final Interpreter interpreter)
+	public static void register()
+	//static
 	{
-		//final var namespace=PsyNamespace.forName("object");
-		final var oNamespace=interpreter.namespacePool().namespace("object");
+		final var oNamespace=PsyNamespace.namespace(PsyObject.class);
 		/*oNamespace.registerOperators
 			(
 				new PsyOperator.Arity11<PsyObject>
@@ -147,21 +154,10 @@ public interface PsyObject
 				new PsyOperator.Arity11<PsyObject>
 					("type", PsyObject::psyType)
 			);*/
-		System.out.println(PsyObject.class.getAnnotation(Type.class).value()+" REGISTERED");
+		//System.out.println(java.lang.invoke.MethodHandles.lookup().lookupClass().getAnnotation(Type.class).value()+" REGISTERED");
 	}
 
-	public static String classTypeName()
-	{
-		return java.lang.invoke.MethodHandles.lookup().lookupClass()
-			.getAnnotation(Type.class).value();
-
-		//final var prefix=PsyInteger.class.getAnnotation(Type.class).value();
-		//interpreter.namespacePool().obtain(prefix);
-		//System.out.println("Registered: "+prefix);
-
-		//System.out.println(getClass().getAnnotation(Type.class).value());
-	}
-
+	static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyObject.class);
 	/*
 	default public PsyObject psyConvert(PsyName oTypeName)
 		throws PsyException

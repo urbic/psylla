@@ -30,8 +30,8 @@ public class PsyErrorDict
 					if(ostack.length()!=0)
 					{
 						System.err.print("\n\t");
-						for(PsyObject obj: ostack)
-							System.err.print(" "+obj.toSyntaxString());
+						for(final var o: ostack)
+							System.err.print(" "+o.toSyntaxString());
 						System.err.println();
 					}
 					else
@@ -42,8 +42,8 @@ public class PsyErrorDict
 					if(estack.length()!=0)
 					{
 						System.err.print("\n\t");
-						for(PsyObject obj: estack)
-							System.err.print(" "+obj.toSyntaxString());
+						for(final var o: estack)
+							System.err.print(" "+o.toSyntaxString());
 						System.err.println();
 					}
 					else

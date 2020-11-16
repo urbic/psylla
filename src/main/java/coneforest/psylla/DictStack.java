@@ -16,9 +16,11 @@ public class DictStack
 	public DictStack()
 		throws PsyException
 	{
+		//final var oSystemDict=PsyNamespace.namespace("system"); //new PsySystemDict();
 		final var oSystemDict=new PsySystemDict();
 		push(oSystemDict);
 		push((PsyDictlike)oSystemDict.get("userdict"));
+		//push(PsyNamespace.namespace("user"));
 	}
 
 	public <T extends PsyObject> T load(final String key)

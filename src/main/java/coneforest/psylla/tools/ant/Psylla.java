@@ -22,9 +22,9 @@ public class Psylla
 
 		final String[] args=new String[psyllaArgs.size()+argList.size()];
 		int i=0;
-		for(String arg: psyllaArgs)
+		for(final String arg: psyllaArgs)
 			args[i++]=arg;
-		for(Arg argObject: argList)
+		for(final Arg argObject: argList)
 		{
 			final String arg=argObject.getValue();
 			if(arg==null)

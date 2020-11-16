@@ -26,7 +26,7 @@ public class TypeAnnotationProcessor extends AbstractProcessor
 
 		final var td=options.get("typemap.dir");
 
-		for(var element: annotatedElements)
+		for(final var element: annotatedElements)
 		{
 			try
 			{

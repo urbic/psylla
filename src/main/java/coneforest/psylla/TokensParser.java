@@ -24,8 +24,6 @@ public class TokensParser
 				return TokensParser.parseCharToken(token);
 			case ParserConstants.REAL:
 				return new PsyReal(Double.parseDouble(token.image));
-			case ParserConstants.COMPLEX:
-				return TokensParser.parseComplexToken(token);
 			case ParserConstants.NAME_SLASHED:
 				return new PsyName(token.image.substring(1).intern());
 			case ParserConstants.COMMAND:
@@ -387,17 +385,6 @@ public class TokensParser
 			default:
 				return PsyInteger.valueOf(token.image.charAt(1));
 		}
-	}
-
-	private static PsyComplex parseComplexToken(final Token token)
-	{
-		int i=token.image.lastIndexOf(';');
-		if(i==-1)
-			return new PsyComplex(0.0, Double.parseDouble(token.image.substring(0, token.image.length()-2)));
-		else
-			return new PsyComplex(
-				Double.parseDouble(token.image.substring(0, i)),
-				Double.parseDouble(token.image.substring(i+1, token.image.length()-2)));
 	}
 
 	private static PsyObject parseLiteralToken(final Token token)

@@ -6,13 +6,11 @@ public class PsyConfigDict
 {
 	public PsyConfigDict()
 	{
-		//super("config");
-
-		for(String name: Config.stringPropertyNames())
+		for(final var name: Config.stringPropertyNames())
 			put(name, new PsyName(Config.getProperty(name)));
 
 		final java.util.Properties systemProperties=System.getProperties();
-		for(String name: systemProperties.stringPropertyNames())
+		for(final var name: systemProperties.stringPropertyNames())
 			put(name, new PsyName(systemProperties.getProperty(name)));
 	}
 }

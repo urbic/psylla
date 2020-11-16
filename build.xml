@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
-<project name="psylla" default="jar" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
+<project name="psylla"
+	default="jar"
+	basedir="."
+	xmlns:if="ant:if"
+	xmlns:unless="ant:unless"
+	xmlns:ivy="antlib:org.apache.ivy.ant"
+	>
 
 	<description>${project.description}</description>
 
@@ -47,6 +53,7 @@
 	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
 	<property name="file.encoding" location="UTF-8"/>
 	<property name="build.sysclasspath" value="last"/>
+	<property name="linux.idlike" value="redhat"/>
 
 	<property file="${src.ant}/config.properties"/>
 
@@ -95,6 +102,13 @@
 	<import file="${src.ant}/install.ant" as="install"/>
 	<import file="${src.ant}/obs.ant"/>
 	<import file="${src.ant}/gh-pages.ant"/>
+
+	<target name="prepare">
+		<echo>${os.name}</echo>
+		<echo>${os.version}</echo>
+		<ivy:retrieve pattern="${target.lib}/[conf]/[artifact]-[revision].[ext]" conf="compile"/>
+		<!--ivy:resolve/-->
+	</target>
 
 	<target name="compile.jj"
 		description="Compile JJ sources"
@@ -145,7 +159,7 @@
 			<compilerarg value="-implicit:class"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-Atypemap.dir=${target.classes}/META-INF/${project.name}/types/"/>
-			<compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/>
+			<!--compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/-->
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 		<native2ascii
@@ -328,7 +342,7 @@
 		description="Build project"
 		depends="jar,docs"
 		>
-		<copy todir="${target.bin}" file="${src.bin}/${project.name}"/>
+		<copy tofile="${target.bin}/${project.name}" file="${src.bin}/${project.name}-${linux.idlike}"/>
 		<chmod file="${target.bin}/${project.name}" perm="ugo+rx"/>
 		<copy todir="${target.doc}">
 			<fileset dir="." includes="README LICENSE AUTHORS"/>

@@ -115,8 +115,9 @@ public interface PsyStringy
 	default public PsyArray psySplit(final PsyRegExp oRegExp)
 		throws PsyException
 	{
-		PsyArray oArray=new PsyArray();
-		for(String item: oRegExp.getPattern().split(stringValue(), -1))
+		final var oArray=new PsyArray();
+		for(final var item: oRegExp.getPattern().split(stringValue(), -1))
+			// TODO PsyString
 			oArray.psyAppend(new PsyString(item));
 		return oArray;
 	}

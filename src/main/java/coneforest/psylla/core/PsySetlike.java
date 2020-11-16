@@ -34,15 +34,15 @@ public interface PsySetlike<T extends PsyObject>
 		if(this==oEnumeration)
 			psyClear();
 		else
-			for(T o: oEnumeration)
+			for(final T o: oEnumeration)
 				psyRemove(o);
 	}
 
 	default public void psyRetainAll(final PsyIterable<? extends T> oEnumeration)
 		throws PsyException
 	{
-	//	for(T obj: this)
-	//		for(T otherObj: iterable)
+	//	for(final T obj: this)
+	//		for(final T otherObj: iterable)
 	//			if(!psyContains(obj).getValue())
 	//				psyRemove(obj);
 		System.out.println("NOP RETAINALL ITERABLE");
@@ -65,8 +65,8 @@ public interface PsySetlike<T extends PsyObject>
 	@Override
 	default public void psyClear()
 	{
-		for(T obj: this)
-			psyRemove(obj);
+		for(final T o: this)
+			psyRemove(o);
 	}
 
 	/**
@@ -84,7 +84,7 @@ public interface PsySetlike<T extends PsyObject>
 	{
 		if(this==oEnumeration)
 			return;
-		for(T o: oEnumeration)
+		for(final T o: oEnumeration)
 			psyAppend(o);
 	}
 
@@ -98,7 +98,7 @@ public interface PsySetlike<T extends PsyObject>
 	*/
 	default public PsyBoolean psyIntersects(final PsySetlike<? extends T> oSet)
 	{
-		for(T o: oSet)
+		for(final T o: oSet)
 			if(psyContains(o).booleanValue())
 				return PsyBoolean.TRUE;
 		return PsyBoolean.FALSE;
@@ -129,12 +129,12 @@ public interface PsySetlike<T extends PsyObject>
 		final var sb=new StringBuilder();
 		if(length()>0)
 		{
-			for(PsyObject obj: this)
+			for(final PsyObject o: this)
 			{
-				if(obj instanceof PsyLengthy)
-					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsyLengthy)obj).toSyntaxString());
+				if(o instanceof PsyLengthy)
+					sb.append(o==oLengthy? "-"+o.typeName()+"-": ((PsyLengthy)o).toSyntaxString());
 				else
-					sb.append(obj.toSyntaxString());
+					sb.append(o.toSyntaxString());
 				sb.append(' ');
 			}
 			sb.deleteCharAt(sb.length()-1);

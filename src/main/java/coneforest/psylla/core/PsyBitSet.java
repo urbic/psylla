@@ -36,7 +36,7 @@ public class PsyBitSet
 	@Override
 	public String toSyntaxString()
 	{
-		final var sb=new StringBuilder("|bitset=");
+		final var sb=new StringBuilder("%bitset=");
 		int j=-1;
 		for(int i=bitset.nextSetBit(0); i>=0; i=bitset.nextSetBit(i+1))
 		{
@@ -45,7 +45,7 @@ public class PsyBitSet
 			sb.append('1');
 			j=i;
 		}
-		sb.append('|');
+		sb.append('%');
 		return sb.toString();
 	}
 

@@ -91,7 +91,7 @@ public interface PsyArraylike<T extends PsyObject>
 		throws PsyException
 	{
 		int index=oIndex.intValue();
-		for(T o: (this!=oEnumeration? oEnumeration: (PsyIterable<? extends T>)psyClone()))
+		for(final T o: (this!=oEnumeration? oEnumeration: (PsyIterable<? extends T>)psyClone()))
 			insert(index++, o);
 	}
 
@@ -150,7 +150,7 @@ public interface PsyArraylike<T extends PsyObject>
 			oEnumeration instanceof PsyLengthy
 			&& index+((PsyLengthy)oEnumeration).length()>=length())
 			throw new PsyRangeCheckException();
-		for(T o: oEnumeration)
+		for(final T o: oEnumeration)
 		{
 			put((int)index++, o);
 			if(index==length())
@@ -180,7 +180,7 @@ public interface PsyArraylike<T extends PsyObject>
 		throws PsyException
 	{
 		final PsyArraylike<T> oResult=(PsyArraylike<T>)psyNewEmpty();
-		for(PsyInteger oIndex: oIndices)
+		for(final PsyInteger oIndex: oIndices)
 			oResult.psyAppend(psyGet(oIndex));
 		return oResult;
 	}
@@ -315,7 +315,7 @@ public interface PsyArraylike<T extends PsyObject>
 		final var sb=new StringBuilder();
 		if(length()>0)
 		{
-			for(var obj: this)
+			for(final var obj: this)
 			{
 				if(obj instanceof PsyLengthy)
 					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsyLengthy)obj).toSyntaxString());

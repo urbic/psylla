@@ -122,7 +122,7 @@ public interface PsyIterable<T extends PsyObject>
 		throws PsyException
 	{
 		final var oArray=new PsyArray();
-		for(T o: this)
+		for(final T o: this)
 			oArray.psyAppend(o);
 		return oArray;
 	}
@@ -130,7 +130,7 @@ public interface PsyIterable<T extends PsyObject>
 	default public PsyInteger psyCount()
 	{
 		long count=0L;
-		for(T o: this)
+		for(final T o: this)
 			count++;
 		return PsyInteger.valueOf(count);
 	}

@@ -130,4 +130,6 @@ public class PsyReal
 		NAN=new PsyReal(Double.NaN);
 
 	private final double value;
+
+	private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyReal.class);
 }

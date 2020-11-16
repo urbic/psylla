@@ -368,16 +368,16 @@ public class PsySystemDict
 					),
 				new PsyOperator.Arity11<PsyNumeric>
 					("exp", PsyNumeric::psyExp),
-				new PsyOperator.Action
-					("external",
-						(interpreter)->
-						{
-							final var ostack=interpreter.operandStackBacked(1);
-							//ostack.push(((PsyClassLoader)interpreter.systemDict().get("classpath"))
-							//		.psyExternal((PsyStringy)ostack.getBacked(0)));
-							interpreter.classLoader().psyExternal(ostack.getBacked(0));
-						}
-					),
+				//new PsyOperator.Action
+				//	("external",
+				//		(interpreter)->
+				//		{
+				//			final var ostack=interpreter.operandStackBacked(1);
+				//			//ostack.push(((PsyClassLoader)interpreter.systemDict().get("classpath"))
+				//			//		.psyExternal((PsyStringy)ostack.getBacked(0)));
+				//			interpreter.classLoader().psyExternal(ostack.getBacked(0));
+				//		}
+				//	),
 				new PsyOperator.Arity21<PsyIndexed, PsyObject>
 					("extract", PsyIndexed::psyExtract),
 				new PsyOperator.Arity31<PsyArraylike, PsyInteger, PsyInteger>
@@ -646,7 +646,7 @@ public class PsySystemDict
 							oContext.psyJoin();
 							final var joinedOstack=((Interpreter)oContext).operandStack();
 							ostack.push(PsyMark.MARK);
-							for(PsyObject o: joinedOstack)
+							for(final PsyObject o: joinedOstack)
 								ostack.push(o);
 						}
 					),
@@ -777,7 +777,9 @@ public class PsySystemDict
 						(interpreter)->
 						{
 							final var ostack=interpreter.operandStackBacked(1);
-							ostack.push(interpreter.namespacePool().psyNamespace(ostack.getBacked(0)));
+							//ostack.push(interpreter.namespacePool().psyNamespace(ostack.getBacked(0)));
+							// TODO: interpreter not used
+							ostack.push(PsyNamespace.psyNamespace(ostack.getBacked(0)));
 						}
 					),
 				new PsyOperator.Arity21<PsyObject, PsyObject>
@@ -851,7 +853,7 @@ public class PsySystemDict
 							final var ostack=interpreter.operandStack();
 							// TODO reverse order
 							System.out.print("OPSTACK> ");
-							for(PsyObject o: ostack)
+							for(final PsyObject o: ostack)
 								System.out.print(o.toSyntaxString()+" ");
 							System.out.println();
 						}
@@ -864,6 +866,8 @@ public class PsySystemDict
 					("quit", (interpreter)->interpreter.quit()),
 				new PsyOperator.Arity01
 					("random", PsyRandom::new),
+				new PsyOperator.Arity31<PsyRealNumeric, PsyRealNumeric, PsyRealNumeric>
+					("range", PsyRange::new),
 				new PsyOperator.Action
 					("read",
 						(interpreter)->
@@ -1224,8 +1228,8 @@ public class PsySystemDict
 
 			);
 
-		final PsyArray oLibraryPath=new PsyArray();
-		for(var pathItem:
+		final var oLibraryPath=new PsyArray();
+		for(final var pathItem:
 				Config.getProperty("config.library.path").split(java.io.File.pathSeparator))
 			oLibraryPath.psyAppend(new PsyName(pathItem));
 
@@ -1268,6 +1272,8 @@ public class PsySystemDict
 		put("userdict", new PsyDict());
 		put("username", new PsyName(System.getProperty("user.name")));
 		put("version", new PsyName(Version.getVersion()));
+
+		//PsyInteger.register();
 
 	}
 }

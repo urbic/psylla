@@ -9,7 +9,7 @@ public class PsyNamespace
 	extends PsyDict
 {
 
-	public PsyNamespace(final String prefix)
+	protected PsyNamespace(final String prefix)
 	{
 		this.prefix=prefix;
 	}
@@ -46,9 +46,8 @@ public class PsyNamespace
 			if(o!=null)
 				return o;
 
-			//for(int i=oNamespace.imports.size()-1; i>=0; i--)
-			//	agenda.push(oNamespace.imports.get(i));
-			imports.forEach(agenda::add);
+			for(int i=oNamespace.imports.size()-1; i>=0; i--)
+				agenda.push(oNamespace.imports.get(i));
 		}
 		throw new PsyUndefinedException();
 	}
@@ -58,24 +57,10 @@ public class PsyNamespace
 		imports.add(0, oNamespace);
 	}
 
-	/*
-	@Override
-	public PsyObject get(final String key)
-		throws PsyException
-	{
-		if(super.known(key))
-			return super.get(key);
-		for(PsyNamespace oNameSpace: parents)
-			if(oNameSpace.known(key))
-				return oNameSpace.get(key);
-		throw new PsyUndefinedException();
-	}
-	*/
-
 	@Override
 	public String toSyntaxString()
 	{
-		return "|namespace="+prefix+"|";
+		return "%namespace="+prefix+"%";
 	}
 
 	private final String prefix;
@@ -83,4 +68,34 @@ public class PsyNamespace
 	private java.util.ArrayList<PsyNamespace> imports
 		=new java.util.ArrayList<PsyNamespace>();
 
+	public static PsyNamespace namespace(final String prefix)
+	{
+		if(pool.containsKey(prefix))
+			return pool.get(prefix);
+		final var oNamespace=new PsyNamespace(prefix);
+		pool.put(prefix, oNamespace);
+		return oNamespace;
+	}
+
+	public static PsyNamespace namespace(final Class<? extends PsyObject> clazz)
+	{
+		final var oNamespace=namespace(clazz.getAnnotation(Type.class).value());
+		for(final var method: clazz.getDeclaredMethods())
+		{
+			if(method.isAnnotationPresent(Operator.class))
+			{
+				final var operatorName=method.getDeclaredAnnotation(Operator.class).value();
+				oNamespace.put(operatorName, PsyOperator.valueOf(method));
+			}
+		}
+		return oNamespace;
+	}
+
+	public static PsyNamespace psyNamespace(final PsyStringy oPrefix)
+	{
+		return namespace(oPrefix.stringValue());
+	}
+
+	private static java.util.HashMap<String, PsyNamespace> pool
+		=new java.util.HashMap<String, PsyNamespace>();
 }

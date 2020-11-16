@@ -60,7 +60,7 @@ public interface PsyDictlike<V extends PsyObject>
 		throws PsyException
 	{
 		final PsyArraylike<V> oResult=(PsyArraylike<V>)new PsyArray();
-		for(PsyStringy oKey: oEnumeration)
+		for(final var oKey: oEnumeration)
 			oResult.psyAppend(psyGet(oKey));
 		return oResult;
 	}
@@ -206,7 +206,7 @@ public interface PsyDictlike<V extends PsyObject>
 		StringBuilder sb=new StringBuilder();
 		if(length()>0)
 		{
-			for(PsyObject obj: this.psyEntries())
+			for(final var obj: this.psyEntries())
 			{
 				if(obj instanceof PsyLengthy)
 					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsyLengthy)obj).toSyntaxString());
@@ -222,7 +222,7 @@ public interface PsyDictlike<V extends PsyObject>
 	@Override
 	default public void psyClear()
 	{
-		for(PsyStringy oKey: psyKeys())
+		for(final var oKey: psyKeys())
 			psyUndef(oKey);
 	}
 }

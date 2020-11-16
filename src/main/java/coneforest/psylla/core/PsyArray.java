@@ -152,7 +152,7 @@ public class PsyArray
 		throws PsyException
 	{
 		final var oValues=new PsyArray();
-		for(PsyInteger oIndex: oIndices)
+		for(final var oIndex: oIndices)
 			oValues.psyAppend(psyGet(oIndex));
 		return oValues;
 	}

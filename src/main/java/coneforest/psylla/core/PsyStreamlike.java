@@ -88,7 +88,7 @@ public interface PsyStreamlike<T extends PsyObject>
 		final int loopLevel=interpreter.pushLoopLevel();
 		try
 		{
-			for(T o: this)
+			for(final T o: this)
 			{
 				ostack.push(o);
 				oProc.invoke(interpreter);

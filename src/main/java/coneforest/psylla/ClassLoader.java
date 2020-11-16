@@ -61,19 +61,16 @@ abstract public class ClassLoader
 		}
 	}
 
-	//abstract protected PsyIterable<PsyStringy> getPsyllaClassPath();
-
 	abstract protected Iterable<String> getClassPath()
 		throws Exception;
 
 	@Override
 	protected java.net.URL findResource(final String name)
 	{
-		//for(PsyStringy oItem: getPsyllaClassPath())
 		try
 		{
 			final var cp=getClassPath();
-			for(String item: cp)
+			for(final String item: cp)
 			{
 				//final String item=oItem.stringValue();
 				final var itemPath=Path.of(item);

@@ -103,7 +103,7 @@ public class Processor
 	private Option findOption(final String name)
 		throws ProcessingException
 	{
-		for(Option option: options)
+		for(final var option: options)
 			if(option.hasName(name))
 				return option;
 		throw new ProcessingException(Messages.format("optProcExcpnNoDefn", (name.length()==1? "-": "--")+name));

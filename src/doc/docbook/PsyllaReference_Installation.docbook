@@ -50,8 +50,14 @@ Resolver Task 1.10.9</application></listitem>
 6</application></listitem>
 
 <listitem><application
-xlink:href="https://github.com/docbook/xslt10-stylesheets">Docbook 5 XSLT
+xlink:href="https://github.com/docbook/xslt10-stylesheets/">Docbook 5 XSLT
 Stylesheets 1.79.2</application></listitem>
+
+<listitem><application
+xlink:href="http://www.graphviz.org/">Graphviz 2.40.1</application></listitem>
+
+<listitem><application
+xlink:href="http://www.perl.org/">Perl 5.26.1</application></listitem>
 
 <listitem><application
 xlink:href="https://github.com/sass/sassc/">SassC 3.5.0</application></listitem>
@@ -91,13 +97,58 @@ Ant</link> as a build tool. Run
 
 <screen><prompt>% </prompt><userinput>ant build</userinput></screen>
 
-After a successfull build, you can run the program:
+After a successfull build, you can run the Psylla one-liner program directly
+from the command line:
 
 <screen><prompt>% </prompt><userinput>./psylla.sh -e '1 1 1 7 { mul } for ?'</userinput>
 <computeroutput>5040</computeroutput></screen>
 
-(that program calculates the factorial of the seven).
+(this program calculates the factorial of the seven).
+</para>
 
+<para>
+Alternatively, you can run one of example programs
+
+<screen><prompt>% </prompt><userinput>./psylla.sh src/examples/psylla/primes-eratosthenes-bitarray-optimized.psy 100</userinput>
+<computeroutput>2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97</computeroutput></screen>
+
+(this program calculates all primes up to a given number).
+</para>
+
+<para>
+You also can run into interactive session
+
+<screen><prompt>% </prompt><userinput>./psylla.sh</userinput>
+<computeroutput>Psylla v0.10.0
+Copyright © 2014—2020, Anton Shvetz
+
+</computeroutput><prompt>PSYLLA> </prompt><userinput>2 sqrt ?</userinput>
+<computeroutput>1.4142135623730951
+</computeroutput><prompt>PSYLLA> </prompt><userinput>quit</userinput></screen>
 </para>
 
 </section>

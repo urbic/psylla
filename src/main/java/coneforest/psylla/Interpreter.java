@@ -23,7 +23,7 @@ public class Interpreter
 		}
 		catch(final PsyException e)
 		{
-			throw new AssertionError();
+			throw new AssertionError(e);
 		}
 	}
 
@@ -73,16 +73,6 @@ public class Interpreter
 		return estack;
 	}
 
-	/**
-	*	Returns the namespace pool.
-	*
-	*	@return the namespace pool.
-	*/
-	public NamespacePool namespacePool()
-	{
-		return nspool;
-	}
-
 	public coneforest.psylla.ClassLoader classLoader()
 	{
 		return classLoader;
@@ -104,9 +94,7 @@ public class Interpreter
 		final var prefixOffset=name.indexOf('@');
 		if(prefixOffset==-1)
 			return dstack.load(name);
-		//final var prefix=name.substring(prefixOffset+1);
-		//return (T)nspool.namespace(prefix).get(name.substring(0, prefixOffset));
-		return (T)nspool.namespace(name.substring(0, prefixOffset))
+		return (T)PsyNamespace.namespace(name.substring(0, prefixOffset))
 				.get(name.substring(prefixOffset+1));
 	}
 
@@ -198,10 +186,10 @@ public class Interpreter
 			=(PsyArraylike<PsyStringy>)systemDict().get("classpath");
 		final var envClassPath=System.getenv("PSYLLA_CLASSPATH");
 		if(envClassPath!=null)
-			for(var pathItem: envClassPath.split(java.io.File.pathSeparator))
+			for(final var pathItem: envClassPath.split(java.io.File.pathSeparator))
 				oClassPath.psyAppend(new PsyName(pathItem));
 		if(classPath!=null)
-			for(var pathItem: classPath)
+			for(final var pathItem: classPath)
 				oClassPath.psyAppend(new PsyName(pathItem));
 	}
 
@@ -213,10 +201,10 @@ public class Interpreter
 			=(PsyArraylike<PsyStringy>)systemDict().get("librarypath");
 		final var envLibraryPath=System.getenv("PSYLLA_LIB");
 		if(envLibraryPath!=null)
-			for(var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
+			for(final var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
 				oLibraryPath.psyAppend(new PsyName(pathItem));
 		if(libraryPath!=null)
-			for(var pathItem: libraryPath)
+			for(final var pathItem: libraryPath)
 				oLibraryPath.psyAppend(new PsyName(pathItem));
 	}
 
@@ -300,7 +288,6 @@ public class Interpreter
 				case ParserConstants.INTEGER_HEXADECIMAL:
 				case ParserConstants.INTEGER_BINARY:
 				case ParserConstants.REAL:
-				case ParserConstants.COMPLEX:
 				case ParserConstants.STRING:
 				case ParserConstants.NAME_SLASHED:
 				case ParserConstants.NAME_QUOTED:
@@ -340,7 +327,6 @@ public class Interpreter
 				case ParserConstants.INTEGER_HEXADECIMAL:
 				case ParserConstants.INTEGER_BINARY:
 				case ParserConstants.REAL:
-				case ParserConstants.COMPLEX:
 				case ParserConstants.STRING:
 				case ParserConstants.NAME_SLASHED:
 				case ParserConstants.NAME_QUOTED:
@@ -405,26 +391,26 @@ public class Interpreter
 	public void showStacks()
 	{
 		System.out.print("Operand stack:\n\t");
-		for(var obj: ostack)
-			System.out.print(" "+obj);
+		for(final var o: ostack)
+			System.out.print(" "+o);
 		System.out.println();
 
 		System.out.print("Execution stack:\n\t");
-		for(var obj: estack)
-			System.out.print(" "+obj);
+		for(final var o: estack)
+			System.out.print(" "+o);
 		System.out.println();
 
 		/*
 		System.out.println("Dictionary stack:");
 		System.out.print("⊢\t");
-		for(PsyObject obj: dstack)
+		for(final PsyObject obj: dstack)
 			System.out.print(" "+obj);
 		System.out.println();
 		*/
 
 		System.out.print("Loop level stack:\n\t");
-		for(var item: loopstack)
-			System.out.print(" "+item);
+		for(final var o: loopstack)
+			System.out.print(" "+o);
 		System.out.println();
 	}
 
@@ -487,14 +473,14 @@ public class Interpreter
 	{
 		final var oArguments
 			=(PsyArray)systemDict().get("arguments");
-		for(var arg: args)
+		for(final var arg: args)
 			oArguments.psyAppend(new PsyName(arg));
 	}
 
 	public void setEnvironment(final java.util.Map<String, String> env)
 	{
 		final var environment=new PsyDict();
-		for(java.util.Map.Entry<String, String> entry: env.entrySet())
+		for(final var entry: env.entrySet())
 			environment.put(entry.getKey(), new PsyName(entry.getValue()));
 		systemDict().put("environment", environment);
 	}
@@ -596,37 +582,77 @@ public class Interpreter
 			quit();
 	}
 
-	public void loadLibraryResource(final PsyStringy oResourceName)
+	public boolean loadLibraryResource(final String resourceName)
 		throws PsyException
 	{
 		final PsyArraylike<PsyStringy> oLibraryPath
 			=dstack.load("librarypath");
-		final var resourceName=oResourceName.stringValue().replace('.', '/');
-		for(var oPathItem: oLibraryPath)
+		final var filePath=resourceName.replace('.', '/');
+		for(final var oPathItem: oLibraryPath)
 		{
 			final var oFullResourceName
-				=new PsyName(oPathItem.stringValue()+'/'+resourceName+".psy");
+				=new PsyName(oPathItem.stringValue()+'/'+filePath+".psy");
 			if(FileSystem.psyFileExists(oFullResourceName).booleanValue()
 					&& FileSystem.psyIsFile(oFullResourceName).booleanValue())
 			{
-				//System.out.println(FileSystem.psyFileAbsolutePath(oFullResourceName).stringValue());
 				final var resourceID="file:"+FileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();
-				if(resourceRegistry.containsKey(oResourceName.stringValue()))
+				if(resourceRegistry.containsKey(resourceName))
+				{
 					System.out.println("Already loaded: "+resourceID);
+					return true;
+				}
 				else
 				{
-					resourceRegistry.put(oResourceName.stringValue(), resourceID);
+					resourceRegistry.put(resourceName, resourceID);
 					new PsyFileReader(oFullResourceName).eval(this);
 				}
-				return;
+				return true;
 			}
 		}
-		throw new PsyUndefinedException(); // TODO: more appropriate exception
+		return false;
+	}
+
+	public boolean loadType(final String typeName)
+		throws PsyException
+	{
+		try
+		{
+			final var clazz=
+				(Class<? extends PsyObject>)Class.forName(
+						(new java.io.BufferedReader(new java.io.InputStreamReader(
+								classLoader.getResourceAsStream(
+										"META-INF/psylla/types/"+typeName)))).readLine(),
+						true,
+						classLoader);
+			final var resourceID="class:"+clazz.getName();
+			if(resourceRegistry.containsKey(typeName))
+			{
+				System.out.println("Already loaded: "+resourceID);
+				return true;
+			}
+			else
+				resourceRegistry.put(typeName, resourceID);
+			final var oNamespace=PsyNamespace.namespace(clazz.getAnnotation(Type.class).value());
+			for(final var method: clazz.getDeclaredMethods())
+			{
+				if(method.isAnnotationPresent(Operator.class))
+				{
+					final var operatorName=method.getDeclaredAnnotation(Operator.class).value();
+					oNamespace.put(operatorName, PsyOperator.valueOf(method));
+				}
+			}
+			return true;
+		}
+		catch(java.io.IOException|ClassNotFoundException|NullPointerException e)
+		{
+			return false;
+		}
 	}
 
 	public void psyRequire(final PsyStringy oResourceName)
 		throws PsyException
 	{
+		final var resourceName=oResourceName.stringValue();
 		//classLoader.findResource("jline/History.class");
 		/*try
 		{
@@ -638,14 +664,17 @@ public class Interpreter
 			System.out.println("CLASS NOT FOUND");
 		}*/
 
-		loadLibraryResource(oResourceName);
+		if(loadType(resourceName))
+			return;
+		if(loadLibraryResource(resourceName))
+			return;
+		throw new PsyUndefinedException(); // TODO: more appropriate exception
 	}
 
 	private final OperandStack ostack;
 	private final DictStack dstack;
 	private final ExecutionStack estack;
 	private final ProcStack procstack;
-	private final NamespacePool nspool=new NamespacePool();
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();

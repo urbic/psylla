@@ -172,6 +172,11 @@ TOKEN:
 
 TOKEN:
 {
+	<LITERAL: <COMMAND> "=%" ("\\%" | ~["%", "\\"])* "%">
+}
+
+TOKEN:
+{
 	<OPEN_BRACE: "{">
 }
 

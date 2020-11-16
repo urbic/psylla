@@ -7,7 +7,7 @@
 	xmlns:xslthl="http://xslthl.sf.net"
 	xmlns:lxslt="http://xml.apache.org/xslt"
 	exclude-result-prefixes="xlink lxslt d xslthl #default"
-	version="1.1"
+	version="1.0"
 	>
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml5/profile-chunk.xsl"/>
 

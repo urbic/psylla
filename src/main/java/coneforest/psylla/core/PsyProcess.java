@@ -21,8 +21,8 @@ public class PsyProcess
 				{
 					java.util.ArrayList<String> commandList
 						=new java.util.ArrayList(((PsyArraylike)command).length());
-					for(PsyObject obj: (PsyArraylike<PsyObject>)command)
-						commandList.add(((PsyStringy)obj).stringValue());
+					for(final var o: (PsyArraylike<PsyObject>)command)
+						commandList.add(((PsyStringy)o).stringValue());
 					pb=new ProcessBuilder(commandList);
 				}
 				else

@@ -13,6 +13,54 @@ public abstract class PsyOperator
 		this.name=name;
 	}
 
+	public static PsyOperator valueOf(final java.lang.reflect.Method method)
+	{
+		try
+		{
+			final String name=method.getAnnotation(Operator.class).value();
+			final var mh=java.lang.invoke.MethodHandles.lookup().unreflect(method);
+			final var mht=mh.type();
+			//System.out.println("RETURNS "+mht.returnType());
+			//for(final var parameter: mht.parameterArray())
+			//{
+			//	System.out.println("PARAM "+parameter);
+			//}
+
+			return new PsyOperator(name)
+				{
+					public void action(final Interpreter interpreter)
+						throws PsyException
+					{
+						final var ostack=interpreter.operandStackBacked(mht.parameterCount());
+						final var params=new PsyObject[mht.parameterCount()];
+						for(int i=0; i<mht.parameterCount(); i++)
+						{
+							params[i]=ostack.getBacked(i);
+							System.out.println("GET BACKED");
+						}
+						try
+						{
+							PsyObject oRet=(PsyObject)mh.invokeWithArguments((Object[])params);
+							System.out.println("CALL OP "+oRet);
+							ostack.push(oRet);
+						}
+						catch(final Throwable e)
+						{
+							// TODO: throw new PsyException(e);
+							System.out.println("THROWABLE "+e);
+						}
+					}
+				};
+		}
+		catch(final IllegalAccessException e)
+		{
+			// TODO
+		}
+		//return new PsyOperator("###"); // TODO
+		return new PsyOperator.Arity11<PsyObject>
+                    ("###hashcode###", PsyObject::psyHashCode);
+	}
+
 	/**
 	*	Execute this object in the context of the interpreter.  Calls {@link
 	*	#invoke(Interpreter)} method.

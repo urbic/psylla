@@ -18,11 +18,8 @@
 			<param name="link.mailto.url" expression="mailto:${config.vendor.email}?subject=${project.name}"/>
 			<param name="shortcut.icon" expression="${project.name}.svg"/>
 			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
-			<param name="table.borders.with.css" expression="${xslt.table.borders.with.css}"/>
 			<param name="draft.mode" expression="maybe"/>
-			<param name="use.webcounters" expression="${xslt.use.webcounters}"/>
 			<param name="highlight.xslthl.config" expression="file://${xslt.highlight.xslthl.config}"/>
-			<param name="chunk.tocs.and.lots" expression="1"/>
 		</xslt>
 	</presetdef>
 
@@ -39,7 +36,7 @@
 			<arg value="${share.dir}/css"-->
 			<srcfile/>
 			<targetfile/>
-			<fileset dir="${src.doc.scss}" includes="PsyllaReference.scss"/>
+			<fileset dir="${src.doc.scss}" includes="PsyllaReference.scss PsyllaMain.scss"/>
 			<mapper type="glob" from="*.scss" to="*.css"/>
 		</apply>
 	</target>
@@ -70,7 +67,7 @@
 				destdir="${target.doc.html}"
 				filedirparameter="PsyllaReference.docbook"
 				>
-				<param name="html.stylesheet" expression="PsyllaReference.css++"/>
+				<param name="html.stylesheet" expression="PsyllaReference.css"/>
 				<param name="root.filename" expression="PsyllaReference"/>
 				<param name="base.dir" expression="${target.doc.html}"/>
 				<param name="l10n.gentext.language" expression="en"/>
@@ -82,6 +79,7 @@
 			<fileset dir="${src.doc.docbook}" includes="files/**" excludes="**/.htaccess"/>
 			<fileset dir="${src.doc.docbook}" includes="navigation/**"/>
 			<fileset dir="${src.doc.docbook}" includes="js/**"/>
+			<fileset dir="${src.doc.xhtml}" includes="*.xhtml"/>
 		</copy>
 		<copy todir="${target.doc.html}">
 			<fileset dir="${src.logo}" includes="${project.name}.svg"/>

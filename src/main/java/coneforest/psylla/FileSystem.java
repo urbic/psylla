@@ -601,44 +601,6 @@ public class FileSystem
 		}
 	}
 
-	/*
-	public static PsyArray psyListDirectory(final PsyStringy oFileName)
-		throws
-			PsyFileAccessDeniedException,
-			PsyFileNotFoundException,
-			PsyIOErrorException,
-			PsyLimitCheckException,
-			PsySecurityErrorException
-	{
-		PsyArray array=new PsyArray();
-		try
-		{
-			DirectoryStream<Path> dirStream
-				=Files.newDirectoryStream(getPath(oFileName));
-			for(Path item: dirStream)
-				array.psyAppend(new PsyString(item.toString()));
-			return array;
-		}
-		//catch(final java.nio.file.DirectoryIteratorException e)
-		catch(final AccessDeniedException e)
-		{
-			throw new PsyFileAccessDeniedException();
-		}
-		catch(final NoSuchFileException e)
-		{
-			throw new PsyFileNotFoundException();
-		}
-		catch(final IOException e)
-		{
-			throw new PsyIOErrorException();
-		}
-		catch(final SecurityException e)
-		{
-			throw new PsySecurityErrorException();
-		}
-	}
-	*/
-
 	/**
 	*	Returns a Ψ-{@code name} representing the absolute name of the current
 	*	directory.
@@ -683,7 +645,7 @@ public class FileSystem
 			final java.util.Set<PosixFilePermission> permSet
 				=Files.getPosixFilePermissions(getPath(oFileName));
 			long permissions=0L;
-			for(var p: permSet)
+			for(final var p: permSet)
 				permissions|=(256L>>p.ordinal());
 
 			return PsyInteger.valueOf(permissions);

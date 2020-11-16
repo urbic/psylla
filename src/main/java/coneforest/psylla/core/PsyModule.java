@@ -5,10 +5,9 @@ import coneforest.psylla.*;
 public class PsyModule
 	extends PsyDict
 {
-
 	protected void registerOperators(final PsyOperator... operators)
 	{
-		for(final PsyOperator oOperator: operators)
+		for(final var oOperator: operators)
 			put(oOperator.getName(), oOperator);
 	}
 }

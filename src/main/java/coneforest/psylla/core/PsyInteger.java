@@ -418,7 +418,7 @@ public class PsyInteger
 		}
 	}
 
-	//private static final PsyNamespace NAMESPACE=PsyNamespace.forName("integer");
+	private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyInteger.class);
 
 	//public static void register(final Interpreter interpreter)
 	//{
