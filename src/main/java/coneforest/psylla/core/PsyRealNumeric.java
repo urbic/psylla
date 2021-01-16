@@ -1,9 +1,10 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code realnumeric}, an abstraction of real numbers.
 */
-@coneforest.psylla.Type("realnumeric")
+@Type("realnumeric")
 public interface PsyRealNumeric
 	extends
 		PsyNumeric,
@@ -249,4 +250,14 @@ public interface PsyRealNumeric
 	{
 		return PsyBoolean.valueOf(doubleValue()>=oNumeric.doubleValue());
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyRealNumeric>("ceiling", PsyRealNumeric::psyCeiling),
+			new PsyOperator.Arity11<PsyRealNumeric>("floor", PsyRealNumeric::psyFloor),
+			new PsyOperator.Arity21<PsyRealNumeric, PsyRealNumeric>("hypot", PsyRealNumeric::psyHypot),
+			new PsyOperator.Arity11<PsyRealNumeric>("round", PsyRealNumeric::psyRound),
+			new PsyOperator.Arity11<PsyRealNumeric>("signum", PsyRealNumeric::psySignum),
+		};
+
 }

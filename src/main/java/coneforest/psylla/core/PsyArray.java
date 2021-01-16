@@ -215,4 +215,21 @@ public class PsyArray
 	}
 
 	protected final java.util.ArrayList<PsyObject> array;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01("array", PsyArray::new),
+			new PsyOperator.Action("arraytomark",
+				(interpreter)->
+				{
+					final var ostack=interpreter.operandStack();
+					final var i=ostack.findMarkPosition();
+					final var oArray=new PsyArray();
+					for(int j=i+1; j<ostack.size(); j++)
+						oArray.psyAppend(ostack.get(j));
+					ostack.setSize(i);
+					ostack.push(oArray);
+				}),
+		};
+
 }

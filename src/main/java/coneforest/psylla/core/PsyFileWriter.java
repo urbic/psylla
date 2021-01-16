@@ -1,5 +1,7 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
+@Type("filewriter")
 public class PsyFileWriter
 	extends PsyWriter
 {
@@ -46,4 +48,10 @@ public class PsyFileWriter
 			throw new PsyIOErrorException();
 		}
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyStringy>("filewriter", PsyFileWriter::new),
+		};
+
 }

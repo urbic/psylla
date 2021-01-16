@@ -1,9 +1,10 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code regexp} object.
 */
-@coneforest.psylla.Type("regexp")
+@Type("regexp")
 public class PsyRegExp
 	implements PsyAtomic
 {
@@ -78,4 +79,10 @@ public class PsyRegExp
 	}
 
 	private final java.util.regex.Pattern pattern;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyStringy>("regexp", PsyRegExp::new),
+		};
+
 }

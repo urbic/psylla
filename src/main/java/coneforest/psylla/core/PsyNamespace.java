@@ -31,11 +31,27 @@ public class PsyNamespace
 	}
 
 	// TODO known()
+	@Override
+	public boolean known(final String key)
+	{
+		//System.out.println("namespace:known "+prefix+" "+key);
+		if(super.known(key))
+		//if(dict.containsKey(key))
+			return true;
+		for(var oNamespace: imports)
+		{
+			//System.out.println("LOOKING: "+oNamespace.prefix());
+			if(oNamespace.known(key))
+				return true;
+		}
+		return false;
+	}
 
 	@Override
 	public PsyObject get(final String key)
 		throws PsyException
 	{
+		//System.out.println("namespace:get "+key);
 		final var agenda=new Stack<PsyNamespace>();
 		agenda.push(this);
 
@@ -63,11 +79,6 @@ public class PsyNamespace
 		return "%namespace="+prefix+"%";
 	}
 
-	private final String prefix;
-
-	private java.util.ArrayList<PsyNamespace> imports
-		=new java.util.ArrayList<PsyNamespace>();
-
 	public static PsyNamespace namespace(final String prefix)
 	{
 		if(pool.containsKey(prefix))
@@ -77,7 +88,7 @@ public class PsyNamespace
 		return oNamespace;
 	}
 
-	public static PsyNamespace namespace(final Class<? extends PsyObject> clazz)
+	/*public static PsyNamespace namespace(final Class<? extends PsyObject> clazz)
 	{
 		final var oNamespace=namespace(clazz.getAnnotation(Type.class).value());
 		for(final var method: clazz.getDeclaredMethods())
@@ -88,8 +99,16 @@ public class PsyNamespace
 				oNamespace.put(operatorName, PsyOperator.valueOf(method));
 			}
 		}
+		for(final var constructor: clazz.getDeclaredConstructors())
+		{
+			if(constructor.isAnnotationPresent(Operator.class))
+			{
+				final var operatorName=constructor.getDeclaredAnnotation(Operator.class).value();
+				oNamespace.put(operatorName, PsyOperator.valueOf(constructor));
+			}
+		}
 		return oNamespace;
-	}
+	}*/
 
 	public static PsyNamespace psyNamespace(final PsyStringy oPrefix)
 	{
@@ -98,4 +117,10 @@ public class PsyNamespace
 
 	private static java.util.HashMap<String, PsyNamespace> pool
 		=new java.util.HashMap<String, PsyNamespace>();
+
+	private final String prefix;
+
+	private java.util.ArrayList<PsyNamespace> imports
+		=new java.util.ArrayList<PsyNamespace>();
+
 }

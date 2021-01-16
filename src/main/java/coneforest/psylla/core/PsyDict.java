@@ -131,4 +131,28 @@ public class PsyDict
 	}
 
 	protected final java.util.HashMap<String, PsyObject> dict;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01("dict", PsyDict::new),
+			new PsyOperator.Action("dicttomark",
+				(interpreter)->
+					{
+						final var ostack=interpreter.operandStack();
+						final var i=ostack.findMarkPosition();
+						final var ostackSize=ostack.size();
+						if((ostackSize-i) % 2==0)
+							throw new PsyRangeCheckException();
+						final var oDict=new PsyDict();
+						for(int j=i+1; j<ostackSize; j++)
+						{
+							final var oKey=(PsyStringy)ostack.get(j++);
+							final var o=ostack.get(j);
+							oDict.psyPut(oKey, o);
+						}
+						ostack.setSize(i);
+						ostack.push(oDict);
+					}),
+		};
+
 }

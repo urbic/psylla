@@ -225,4 +225,11 @@ public interface PsyDictlike<V extends PsyObject>
 		for(final var oKey: psyKeys())
 			psyUndef(oKey);
 	}
+
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity20<PsyDictlike, PsyStringy>("undef", PsyDictlike::psyUndef),
+		};
+
 }

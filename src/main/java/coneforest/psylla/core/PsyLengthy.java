@@ -1,11 +1,12 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code lengthy}, a type of an object that has length
 *	in some sense. Ususally the length is the number of elements in the
 *	container.
 */
-@coneforest.psylla.Type("lengthy")
+@Type("lengthy")
 public interface PsyLengthy
 	extends PsyObject
 {
@@ -49,4 +50,11 @@ public interface PsyLengthy
 	{
 		return PsyBoolean.valueOf(isEmpty());
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyLengthy>("isempty", PsyLengthy::psyIsEmpty),
+			new PsyOperator.Arity11<PsyLengthy>("length", PsyLengthy::psyLength),
+		};
+
 }

@@ -129,35 +129,25 @@ public interface PsyObject
 	*
 	*	@return a Ψ-{@code integer} hash code for this object.
 	*/
-	@Operator("hashcode")
 	default public PsyInteger psyHashCode()
 	{
 		return PsyInteger.valueOf(hashCode());
 	}
 
-	public static void register()
-	//static
-	{
-		final var oNamespace=PsyNamespace.namespace(PsyObject.class);
-		/*oNamespace.registerOperators
-			(
-				new PsyOperator.Arity11<PsyObject>
-					("clone", PsyObject::psyClone),
-				new PsyOperator.Arity21<PsyObject, PsyObject>
-					("eq", PsyObject::psyEq),
-				new PsyOperator.Arity11<PsyObject>
-					("hashcode", PsyObject::psyHashCode),
-				new PsyOperator.Arity21<PsyObject, PsyObject>
-					("ne", PsyObject::psyNe),
-				new PsyOperator.Arity11<PsyObject>
-					("syntax", PsyObject::psySyntax),
-				new PsyOperator.Arity11<PsyObject>
-					("type", PsyObject::psyType)
-			);*/
-		//System.out.println(java.lang.invoke.MethodHandles.lookup().lookupClass().getAnnotation(Type.class).value()+" REGISTERED");
-	}
 
-	static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyObject.class);
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyObject>("clone", PsyObject::psyClone),
+			new PsyOperator.Arity21<PsyObject, PsyObject>("eq", PsyObject::psyEq),
+			new PsyOperator.Arity11("hashcode", PsyObject::psyHashCode),
+			new PsyOperator.Arity21<PsyObject, PsyStringy>("instanceof", PsyObject::psyInstanceOf),
+			new PsyOperator.Arity21<PsyObject, PsyObject>("ne", PsyObject::psyNe),
+			new PsyOperator.Arity11<PsyObject>("toname", PsyObject::psyToName),
+			new PsyOperator.Arity11<PsyObject>("tostring", PsyObject::psyToString),
+			new PsyOperator.Arity11<PsyObject>("type", PsyObject::psyType),
+		};
+
+	//static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyObject.class);
 	/*
 	default public PsyObject psyConvert(PsyName oTypeName)
 		throws PsyException

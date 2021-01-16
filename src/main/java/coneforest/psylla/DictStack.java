@@ -17,9 +17,9 @@ public class DictStack
 		throws PsyException
 	{
 		final var oSystemDict=PsyNamespace.namespace("system"); //new PsySystemDict();
-		//final var oSystemDict=new PsySystemDict();
+		// MODULARITY final var oSystemDict=new PsySystemDict();
 		push(oSystemDict);
-		//push((PsyDictlike)oSystemDict.get("userdict"));
+		// MODULARITY push((PsyDictlike)oSystemDict.get("userdict"));
 		push(PsyNamespace.namespace("user"));
 	}
 

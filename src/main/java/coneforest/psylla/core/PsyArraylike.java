@@ -327,4 +327,20 @@ public interface PsyArraylike<T extends PsyObject>
 		}
 		return sb.toString();
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity31<PsyArraylike, PsyInteger, PsyInteger>("extractinterval", PsyArraylike::psyExtractInterval),
+			new PsyOperator.Arity31<PsyArraylike, PsyInteger, PsyInteger>("getinterval", PsyArraylike::psyGetInterval),
+			new PsyOperator.Arity30<PsyArraylike, PsyInteger, PsyObject>("insert", PsyArraylike::psyInsert),
+			new PsyOperator.Arity30<PsyArraylike, PsyInteger, PsyIterable>("insertall", PsyArraylike::psyInsertAll),
+			new PsyOperator.Arity11<PsyArraylike>("postchop", PsyArraylike::psyPostChop),
+			new PsyOperator.Arity11<PsyArraylike>("prechop", PsyArraylike::psyPreChop),
+			new PsyOperator.Arity20<PsyArraylike, PsyObject>("prepend", PsyArraylike::psyPrepend),
+			new PsyOperator.Arity20<PsyArraylike, PsyIterable>("prependall", PsyArraylike::psyPrependAll),
+			new PsyOperator.Arity30<PsyArraylike, PsyInteger, PsyIterable>("putinterval", PsyArraylike::psyPutInterval),
+			new PsyOperator.Arity11<PsyArraylike>("reverse", PsyArraylike::psyReverse),
+			new PsyOperator.Arity20<PsyArraylike, PsyInteger>("setlength", PsyArraylike::psySetLength),
+		};
+
 }

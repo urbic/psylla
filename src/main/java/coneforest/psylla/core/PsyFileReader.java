@@ -1,5 +1,7 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
+@Type("filereader")
 public class PsyFileReader
 	extends PsyReader
 {
@@ -27,4 +29,10 @@ public class PsyFileReader
 			throw new PsyFileNotFoundException();
 		}
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyStringy>("filereader", PsyFileReader::new),
+		};
+
 }

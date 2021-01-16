@@ -418,7 +418,7 @@ public class PsyInteger
 		}
 	}
 
-	private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyInteger.class);
+	//private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyInteger.class);
 
 	//public static void register(final Interpreter interpreter)
 	//{
@@ -432,4 +432,11 @@ public class PsyInteger
 
 		//System.out.println(getClass().getAnnotation(Type.class).value());
 	//}
+	
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyInteger, PsyInteger>("idiv", PsyInteger::psyIdiv),
+			new PsyOperator.Arity21<PsyInteger, PsyInteger>("mod", PsyInteger::psyMod),
+		};
+
 }

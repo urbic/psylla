@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of a Ψ-{@code setlike}, an abstraction of a finite set of
@@ -7,7 +8,7 @@ package coneforest.psylla.core;
 *
 *	@param <T> a type of the elements.
 */
-@coneforest.psylla.Type("setlike")
+@Type("setlike")
 public interface PsySetlike<T extends PsyObject>
 	extends
 		PsyAppendable<T>,
@@ -141,4 +142,14 @@ public interface PsySetlike<T extends PsyObject>
 		}
 		return sb.toString();
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsySetlike, PsyObject>("contains", PsySetlike::psyContains),
+			new PsyOperator.Arity21<PsySetlike, PsySetlike>("intersects", PsySetlike::psyIntersects),
+			new PsyOperator.Arity20<PsySetlike, PsyObject>("remove", PsySetlike::psyRemove),
+			new PsyOperator.Arity20<PsySetlike, PsyIterable>("removeall", PsySetlike::psyRemoveAll),
+			new PsyOperator.Arity20<PsySetlike, PsyIterable>("retainall", PsySetlike::psyRetainAll),
+		};
+
 }

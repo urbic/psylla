@@ -1,12 +1,12 @@
-package coneforest.psylla;
-import coneforest.psylla.core.*;
+package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	An utility class providing time-related methods.
 */
-public class Time
+public class PsyTime
 {
-	private Time()
+	private PsyTime()
 	{
 	}
 
@@ -67,4 +67,10 @@ public class Time
 			"zoneoffset",
 			"dstoffset"
 		};
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01("time", PsyTime::psyTime),
+		};
+
 }

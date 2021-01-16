@@ -1,9 +1,10 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	An implementation of Ψ-{@code string} object.
 */
-@coneforest.psylla.Type("string")
+@Type("string")
 public class PsyString
 	implements
 		PsyStringy,
@@ -368,4 +369,10 @@ public class PsyString
 	}
 
 	private final StringBuilder buffer;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01("string", PsyString::new),
+		};
+
 }

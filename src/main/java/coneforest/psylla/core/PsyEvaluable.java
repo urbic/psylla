@@ -19,4 +19,11 @@ public interface PsyEvaluable
 	*/
 	public void eval(final Interpreter interpreter)
 		throws PsyException;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Action("eval",
+				(interpreter)->
+					interpreter.operandStackBacked(1).<PsyEvaluable>getBacked(0).eval(interpreter)),
+		};
 }

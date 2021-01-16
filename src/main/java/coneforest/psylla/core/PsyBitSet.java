@@ -1,10 +1,11 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code bitset}, a set of nonnegative Ψ-{@code
 *	integer} objects.
 */
-@coneforest.psylla.Type("bitset")
+@Type("bitset")
 public class PsyBitSet
 	implements PsySetlike<PsyInteger>
 {
@@ -170,4 +171,9 @@ public class PsyBitSet
 	}
 
 	private final java.util.BitSet bitset;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01("bitset", PsyBitSet::new),
+		};
 }

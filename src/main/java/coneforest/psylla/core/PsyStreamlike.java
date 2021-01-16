@@ -135,4 +135,10 @@ public interface PsyStreamlike<T extends PsyObject>
 	}
 
 	public java.util.Iterator<T> iterator();
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity20<PsyStreamlike, PsyObject>("forall", PsyStreamlike::psyForAll),
+		};
+
 }

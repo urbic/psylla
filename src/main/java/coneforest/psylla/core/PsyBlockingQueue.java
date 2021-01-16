@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
-@coneforest.psylla.Type("blockingqueue")
+@Type("blockingqueue")
 public class PsyBlockingQueue
 	implements
 		PsyQueuelike<PsyObject>,
@@ -124,4 +125,9 @@ public class PsyBlockingQueue
 
 	private final java.util.concurrent.ArrayBlockingQueue<PsyObject> queue;
 	private boolean closed=false;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyInteger>("blockingqueue", PsyBlockingQueue::new),
+		};
 }

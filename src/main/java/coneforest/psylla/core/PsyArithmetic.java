@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code arithmetic}, a type of object that is an
@@ -7,7 +8,7 @@ package coneforest.psylla.core;
 *
 *	@param <T> a type of the second operand at binary operation.
 */
-@coneforest.psylla.Type("arithmetic")
+@Type("arithmetic")
 public interface PsyArithmetic<T extends PsyArithmetic>
 	extends
 		PsyAdditive<T>
@@ -49,4 +50,11 @@ public interface PsyArithmetic<T extends PsyArithmetic>
 	{
 		return psyIsZero().psyNot();
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyArithmetic, PsyArithmetic>("div", PsyArithmetic::psyDiv),
+			new PsyOperator.Arity21<PsyArithmetic, PsyArithmetic>("mul", PsyArithmetic::psyMul),
+		};
+
 }

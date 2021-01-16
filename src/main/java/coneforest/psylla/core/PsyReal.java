@@ -131,5 +131,5 @@ public class PsyReal
 
 	private final double value;
 
-	private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyReal.class);
+	//private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyReal.class);
 }

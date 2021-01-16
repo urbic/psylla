@@ -118,7 +118,10 @@ hr
 .sgmltag-attvalue,
 .code,
 .filename,
-.command
+.command,
+.type,
+.token,
+.errorname
 {
 	font-family: $font-family-code;
 }
@@ -148,6 +151,7 @@ hr
 .toc-title,
 .example-title,
 .figure-title,
+.itemizedlist-title
 {
 	font-weight: bold;
 }
@@ -165,7 +169,6 @@ hr
 
 .type
 {
-	font-family: $font-family-code;
 	color: darkolivegreen;
 }
 
@@ -174,20 +177,9 @@ hr
 	color: $color-hl-constant;
 }
 
-.itemizedlist-title
-{
-	font-weight: bold;
-}
-
 .listitem
 {
 	list-style-type: square;
-}
-
-.token,
-.errorname
-{
-	font-family: $font-family-code;
 }
 
 .command
@@ -204,10 +196,7 @@ table.productionset
 :link:hover .errorname,
 .errorname,
 {
-	//color: #A22;
-	//color: #A40;
 	color: darken(darkorange, 15%); //#225;
-	-moz-text-decoration-color: #A22;
 	text-decoration-color: #A22;
 }
 
@@ -224,7 +213,6 @@ table.productionset
 {
 	padding: 1em;
 	background-color: $background-color-programlisting;
-	//border-radius: .5em;
 	font-size: $font-size-body;
 }
 
@@ -276,9 +264,8 @@ div.toc
 	left: 0px;
 	right: 25%;
 	font-size: smaller;
-}
-
-div.toc > *
-{
-	margin: 1pc;
+	& > *
+	{
+		margin: 1pc;
+	}
 }

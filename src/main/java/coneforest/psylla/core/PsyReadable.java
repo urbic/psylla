@@ -1,10 +1,11 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code readable}, a type of objects that can be
 *	treated as a source of characters.
 */
-@coneforest.psylla.Type("readable")
+@Type("readable")
 public interface PsyReadable
 	extends PsyObject
 {
@@ -69,5 +70,11 @@ public interface PsyReadable
 	*/
 	public PsyBoolean psyReady()
 		throws PsyException;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyReadable>("ready", PsyReadable::psyReady),
+			new PsyOperator.Arity21<PsyReadable, PsyInteger>("skip", PsyReadable::psySkip),
+		};
 
 }

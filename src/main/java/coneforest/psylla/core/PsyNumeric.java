@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code numeric}, an abstraction of complex and real
@@ -131,4 +132,26 @@ public interface PsyNumeric
 	*	@return a Ψ-{@code numeric} hyperbolic tangent of this number.
 	*/
 	public PsyNumeric psyTanh();
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyNumeric>("abs", PsyNumeric::psyAbs),
+			new PsyOperator.Arity11<PsyNumeric>("abs", PsyNumeric::psyAcos),
+			new PsyOperator.Arity11<PsyNumeric>("asin", PsyNumeric::psyAsin),
+			new PsyOperator.Arity11<PsyNumeric>("atan", PsyNumeric::psyAtan),
+			new PsyOperator.Arity11<PsyNumeric>("cbrt", PsyNumeric::psyCbrt),
+			new PsyOperator.Arity11<PsyNumeric>("cos", PsyNumeric::psyCos),
+			new PsyOperator.Arity11<PsyNumeric>("cosh", PsyNumeric::psyCosh),
+			new PsyOperator.Arity11<PsyNumeric>("exp", PsyNumeric::psyExp),
+			new PsyOperator.Arity11<PsyNumeric>("iszero", PsyNumeric::psyIsZero),
+			new PsyOperator.Arity11<PsyNumeric>("log", PsyNumeric::psyLog),
+			new PsyOperator.Arity11<PsyNumeric>("notzero", PsyNumeric::psyNotZero),
+			new PsyOperator.Arity21<PsyNumeric, PsyNumeric>("pow", PsyNumeric::psyPow),
+			new PsyOperator.Arity11<PsyNumeric>("sin", PsyNumeric::psySin),
+			new PsyOperator.Arity11<PsyNumeric>("sinh", PsyNumeric::psySinh),
+			new PsyOperator.Arity11<PsyNumeric>("sqrt", PsyNumeric::psySqrt),
+			new PsyOperator.Arity11<PsyNumeric>("tan", PsyNumeric::psyTan),
+			new PsyOperator.Arity11<PsyNumeric>("tanh", PsyNumeric::psyTanh),
+		};
+
 }

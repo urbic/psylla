@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of a Ψ-{@code scalar}, a type bringing total ordering to
@@ -6,7 +7,7 @@ package coneforest.psylla.core;
 *
 *	@param <T> a type of the second operand at binary comparison operation.
 */
-@coneforest.psylla.Type("scalar")
+@Type("scalar")
 public interface PsyScalar<T extends PsyScalar>
 	extends PsyObject
 {
@@ -70,4 +71,16 @@ public interface PsyScalar<T extends PsyScalar>
 	{
 		return psyGt(oScalar).booleanValue()? this: oScalar;
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("cmp", PsyScalar::psyCmp),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("ge", PsyScalar::psyGe),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("gt", PsyScalar::psyGt),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("le", PsyScalar::psyLe),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("lt", PsyScalar::psyLt),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("max", PsyScalar::psyMax),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("min", PsyScalar::psyMin),
+		};
+
 }

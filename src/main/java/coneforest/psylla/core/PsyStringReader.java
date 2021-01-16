@@ -1,10 +1,11 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	An implementation of Ψ-{@code stringreader}, a character stream whose
 *	source is a Ψ-{@code stringy}.
 */
-@coneforest.psylla.Type("stringreader")
+@Type("stringreader")
 public class PsyStringReader
 	extends PsyReader
 {
@@ -27,4 +28,10 @@ public class PsyStringReader
 	{
 		this(oStringy.stringValue());
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyStringy>("stringreader", PsyStringReader::new),
+		};
+
 }

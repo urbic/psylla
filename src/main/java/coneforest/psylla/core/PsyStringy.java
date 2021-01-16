@@ -140,4 +140,12 @@ public interface PsyStringy
 				private int index=0;
 			};
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyStringy>("lowercase", PsyStringy::psyLowerCase),
+			new PsyOperator.Arity21<PsyStringy, PsyRegExp>("split", PsyStringy::psySplit),
+			new PsyOperator.Arity11<PsyStringy>("uppercase", PsyStringy::psyUpperCase),
+		};
+
 }

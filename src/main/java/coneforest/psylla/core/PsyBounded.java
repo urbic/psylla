@@ -1,10 +1,11 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code bounded}, a type of a container with bounded
 *	capacity.
 */
-@coneforest.psylla.Type("bounded")
+@Type("bounded")
 public interface PsyBounded
 	extends
 		PsyLengthy
@@ -48,4 +49,11 @@ public interface PsyBounded
 	{
 		return PsyBoolean.valueOf(isFull());
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyBounded>("capacity", PsyBounded::psyCapacity),
+			new PsyOperator.Arity11<PsyBounded>("isfull", PsyBounded::psyIsFull),
+		};
+
 }

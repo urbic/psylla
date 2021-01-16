@@ -1,5 +1,5 @@
-package coneforest.psylla;
-import coneforest.psylla.core.*;
+package coneforest.psylla.core;
+import coneforest.psylla.*;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.nio.file.DirectoryNotEmptyException;
@@ -18,9 +18,11 @@ import java.nio.file.attribute.PosixFilePermission;
 /**
 *	An utility class providing filesystem-related methods.
 */
-public class FileSystem
+
+@Type("filesystem")
+public class PsyFileSystem
 {
-	private FileSystem()
+	private PsyFileSystem()
 	{
 	}
 
@@ -892,4 +894,29 @@ public class FileSystem
 		else
 			throw new ClassCastException();
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity20<PsyStringy, PsyInteger>("changefilepermissions", PsyFileSystem::psyChangeFilePermissions),
+			new PsyOperator.Arity20<PsyStringy, PsyStringy>("copyfile", PsyFileSystem::psyCopyFile),
+			new PsyOperator.Arity10<PsyStringy>("createdirectory", PsyFileSystem::psyCreateDirectory),
+			new PsyOperator.Arity10<PsyStringy>("deletefile", PsyFileSystem::psyDeleteFile),
+			new PsyOperator.Arity11<PsyStringy>("fileaccesstime", PsyFileSystem::psyFileAccessTime),
+			new PsyOperator.Arity21<PsyStringy, PsyStringy>("fileattribute", PsyFileSystem::psyFileAttribute),
+			new PsyOperator.Arity11<PsyStringy>("filecreationtime", PsyFileSystem::psyFileCreationTime),
+			new PsyOperator.Arity11<PsyStringy>("fileexists", PsyFileSystem::psyFileExists),
+			new PsyOperator.Arity11<PsyStringy>("filemodifiedtime", PsyFileSystem::psyFileModifiedTime),
+			new PsyOperator.Arity11<PsyStringy>("filepermissions", PsyFileSystem::psyFilePermissions),
+			new PsyOperator.Arity11<PsyStringy>("files", PsyFileSystem::psyFiles),
+			new PsyOperator.Arity11<PsyStringy>("filesize", PsyFileSystem::psyFileSize),
+			new PsyOperator.Arity20<PsyStringy, PsyStringy>("hardlink", PsyFileSystem::psyHardLink),
+			new PsyOperator.Arity11<PsyStringy>("isdirectory", PsyFileSystem::psyIsDirectory),
+			new PsyOperator.Arity11<PsyStringy>("isfile", PsyFileSystem::psyIsFile),
+			new PsyOperator.Arity21<PsyStringy, PsyStringy>("issamefile", PsyFileSystem::psyIsSameFile),
+			new PsyOperator.Arity11<PsyStringy>("issymlink", PsyFileSystem::psyIsSymLink),
+			new PsyOperator.Arity11<PsyStringy>("readlink", PsyFileSystem::psyReadLink),
+			new PsyOperator.Arity20<PsyStringy, PsyStringy>("renamefile", PsyFileSystem::psyRenameFile),
+			new PsyOperator.Arity20<PsyStringy, PsyStringy>("symlink", PsyFileSystem::psySymLink),
+		};
+
 }

@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code indexed}, a type of the container whose
@@ -7,7 +8,7 @@ package coneforest.psylla.core;
 *	@param <K> a type of keys or indices.
 *	@param <V> a type of elements.
 */
-@coneforest.psylla.Type("indexed")
+@Type("indexed")
 public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	extends PsyObject
 {
@@ -160,4 +161,19 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 			};
 	}
 	*/
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity20<PsyIndexed, PsyObject>("delete", PsyIndexed::psyDelete),
+			new PsyOperator.Arity11<PsyIndexed>("entries", PsyIndexed::psyEntries),
+			new PsyOperator.Arity21<PsyIndexed, PsyObject>("extract", PsyIndexed::psyExtract),
+			new PsyOperator.Arity21<PsyIndexed, PsyObject>("get", PsyIndexed::psyGet),
+			new PsyOperator.Arity21<PsyIndexed, PsyIterable>("getall", PsyIndexed::psyGetAll),
+			new PsyOperator.Arity11<PsyIndexed>("keys", PsyIndexed::psyKeys),
+			new PsyOperator.Arity21<PsyIndexed, PsyObject>("known", PsyIndexed::psyKnown),
+			new PsyOperator.Arity30<PsyIndexed, PsyObject, PsyObject>("put", PsyIndexed::psyPut),
+			new PsyOperator.Arity21<PsyIndexed, PsyIterable>("slice", PsyIndexed::psySlice),
+			new PsyOperator.Arity11<PsyIndexed>("values", PsyIndexed::psyValues),
+		};
+
 }

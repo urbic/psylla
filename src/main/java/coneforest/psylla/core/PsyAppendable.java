@@ -1,4 +1,5 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code appendable}, a type of container that allow to
@@ -6,7 +7,7 @@ package coneforest.psylla.core;
 *
 *	@param <T> a type of Ψ-{@code object}s being appended.
 */
-@coneforest.psylla.Type("appendable")
+@Type("appendable")
 public interface PsyAppendable<T extends PsyObject>
 	extends PsyObject
 {
@@ -36,6 +37,13 @@ public interface PsyAppendable<T extends PsyObject>
 			psyAppend(o);
 	}
 
+	// TODO
 	public PsyAppendable psyReplicate(final PsyInteger oCount)
 		throws PsyException;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity20<PsyAppendable, PsyObject>("append", PsyAppendable::psyAppend),
+			new PsyOperator.Arity20<PsyAppendable, PsyIterable>("appendall", PsyAppendable::psyAppendAll),
+		};
 }

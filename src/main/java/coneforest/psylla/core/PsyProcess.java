@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
-@coneforest.psylla.Type("process")
+@Type("process")
 public class PsyProcess
 	implements PsyObject
 {
@@ -96,4 +97,14 @@ public class PsyProcess
 	}
 
 	private Process process;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyDictlike>("process", PsyProcess::new),
+			new PsyOperator.Arity11<PsyProcess>("processerror", PsyProcess::psyProcessError),
+			new PsyOperator.Arity11<PsyProcess>("processreader", PsyProcess::psyProcessReader),
+			new PsyOperator.Arity11<PsyProcess>("processwriter", PsyProcess::psyProcessWriter),
+			new PsyOperator.Arity11<PsyProcess>("status", PsyProcess::psyStatus),
+		};
+
 }

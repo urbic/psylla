@@ -19,7 +19,6 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*
 	*	@return a negation.
 	*/
-	@Operator("neg")
 	public T psyNeg();
 
 	/**
@@ -29,7 +28,6 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*	@param oAdditive given object.
 	*	@return a sum.
 	*/
-	@Operator("add")
 	public T psyAdd(final T oAdditive);
 	//public <U extends T> T psyAdd(final U oAdditive);
 
@@ -40,9 +38,14 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*	@param oAdditive given object.
 	*	@return a difference.
 	*/
-	@Operator("sub")
 	public T psySub(final T oAdditive);
 
-	//public static final PsyType<PsyAdditive> TYPE
-	//	=new PsyType<PsyAdditive>("additive");
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("add", PsyAdditive::psyAdd),
+			new PsyOperator.Arity11<PsyAdditive>("neg", PsyAdditive::psyNeg),
+			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("sub", PsyAdditive::psySub),
+		};
+
 }

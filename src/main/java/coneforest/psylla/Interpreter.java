@@ -20,6 +20,18 @@ public class Interpreter
 			procstack=new ProcStack();
 			dstack=new DictStack();
 			pushStopLevel();
+
+			//PsyNamespace.namespace(TypeResolver.resolve("system"));
+			//System.out.println((PsyAdditive::psyAdd).toString());
+			//importType("system");
+			//importType("additive");
+			//importType("arithmetic");
+			//importType("complex");
+			//importType("numeric");
+			psyRequire(new PsyName("system"));
+			psyRequire(new PsyName("object"));
+			psyRequire(new PsyName("additive"));
+			psyRequire(new PsyName("context"));
 		}
 		catch(final PsyException e)
 		{
@@ -35,6 +47,12 @@ public class Interpreter
 		this.dstack=(DictStack)dstack.clone();
 		pushStopLevel();
 	}
+
+	/*public void importType(final String typeName)
+		throws PsyException
+	{
+		PsyNamespace.namespace("system").psyImport(PsyNamespace.namespace(TypeResolver.resolve(typeName)));
+	}*/
 
 	/**
 	*	Returns the operand stack.
@@ -83,6 +101,7 @@ public class Interpreter
 		return dstack.where(name);
 	}
 
+	@Override
 	public PsyDictlike psyWhere(final PsyStringy oKey)
 	{
 		return where(oKey.stringValue());
@@ -98,6 +117,7 @@ public class Interpreter
 				.get(name.substring(prefixOffset+1));
 	}
 
+	@Override
 	public <T extends PsyObject> T psyLoad(final PsyStringy oKey)
 		throws PsyException
 	{
@@ -596,10 +616,10 @@ public class Interpreter
 		{
 			final var oFullResourceName
 				=new PsyName(oPathItem.stringValue()+'/'+filePath+".psy");
-			if(FileSystem.psyFileExists(oFullResourceName).booleanValue()
-					&& FileSystem.psyIsFile(oFullResourceName).booleanValue())
+			if(PsyFileSystem.psyFileExists(oFullResourceName).booleanValue()
+					&& PsyFileSystem.psyIsFile(oFullResourceName).booleanValue())
 			{
-				final var resourceID="file:"+FileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();
+				final var resourceID="file:"+PsyFileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();
 				if(resourceRegistry.containsKey(resourceName))
 				{
 					System.out.println("Already loaded: "+resourceID);
@@ -637,6 +657,7 @@ public class Interpreter
 			else
 				resourceRegistry.put(typeName, resourceID);
 			final var oNamespace=PsyNamespace.namespace(clazz.getAnnotation(Type.class).value());
+			/*
 			for(final var method: clazz.getDeclaredMethods())
 			{
 				if(method.isAnnotationPresent(Operator.class))
@@ -645,14 +666,33 @@ public class Interpreter
 					oNamespace.put(operatorName, PsyOperator.valueOf(method));
 				}
 			}
+			for(final var constructor: clazz.getDeclaredConstructors())
+			{
+				if(constructor.isAnnotationPresent(Operator.class))
+				{
+					final var operatorName=constructor.getDeclaredAnnotation(Operator.class).value();
+					oNamespace.put(operatorName, PsyOperator.valueOf(constructor));
+				}
+			}
+			*/
+			for(final var field: clazz.getDeclaredFields())
+			{
+				if(field.isAnnotationPresent(Operator.class))
+				{
+					System.out.println("FIELD");
+					final var operatorName=field.getDeclaredAnnotation(Operator.class).value();
+					oNamespace.put(operatorName, (PsyOperator)field.get(null));
+				}
+			}
 			return true;
 		}
-		catch(java.io.IOException|ClassNotFoundException|NullPointerException e)
+		catch(java.io.IOException|ClassNotFoundException|NullPointerException|IllegalAccessException e)
 		{
 			return false;
 		}
 	}
 
+	@Override
 	public void psyRequire(final PsyStringy oResourceName)
 		throws PsyException
 	{

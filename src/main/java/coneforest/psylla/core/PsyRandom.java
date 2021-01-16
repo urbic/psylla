@@ -1,9 +1,10 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code random}, a generator of pseudorandom objects.
 */
-@coneforest.psylla.Type("random")
+@Type("random")
 public class PsyRandom
 	implements PsyObject
 {
@@ -52,4 +53,11 @@ public class PsyRandom
 	}
 
 	private final java.util.Random random=new java.util.Random();
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01("random", PsyRandom::new),
+			new PsyOperator.Arity20<PsyRandom, PsyInteger>("setseed", PsyRandom::psySetSeed),
+		};
+
 }

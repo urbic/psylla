@@ -24,4 +24,10 @@ public class PsyStream
 	}
 
 	private final java.util.stream.Stream<? extends PsyObject> stream;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyObject, PsyProc>("iterate", PsyStream::psyIterate),
+		};
+	
 }

@@ -16,6 +16,7 @@ public class TypeResolver
 		}
 		catch(final java.io.IOException|ClassNotFoundException e)
 		{
+			// TODO more appropriate exception when IOException is thrown
 			throw new PsyUndefinedException();
 		}
 	}

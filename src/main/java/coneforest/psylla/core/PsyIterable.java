@@ -162,4 +162,10 @@ public interface PsyIterable<T extends PsyObject>
 		return new PsyString(sb);
 	}
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyIterable, PsyProc>("filter", PsyIterable::psyFilter),
+			new PsyOperator.Arity21<PsyIterable, PsyProc>("map", PsyIterable::psyMap),
+		};
+
 }
