@@ -51,10 +51,4 @@ public interface PsyLengthy
 		return PsyBoolean.valueOf(isEmpty());
 	}
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyLengthy>("isempty", PsyLengthy::psyIsEmpty),
-			new PsyOperator.Arity11<PsyLengthy>("length", PsyLengthy::psyLength),
-		};
-
 }

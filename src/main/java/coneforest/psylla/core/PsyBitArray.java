@@ -328,8 +328,4 @@ public class PsyBitArray
 	private final java.util.BitSet bitarray;
 	private int size;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity01("bitarray", PsyBitArray::new),
-		};
 }

@@ -23,10 +23,10 @@ public class PsyReader
 	}
 
 	@Override
-	public void eval(final Interpreter interpreter)
+	public void psyEval()
 		throws PsyException
 	{
-		interpreter.interpret(this);
+		PsyContext.psyCurrentContext().interpret(this);
 	}
 
 	public java.io.Reader reader()

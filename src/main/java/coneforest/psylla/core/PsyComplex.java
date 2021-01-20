@@ -258,14 +258,4 @@ public class PsyComplex
 
 	private final double re, im;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyComplex>("arg", PsyComplex::psyArg),
-			new PsyOperator.Arity21<PsyRealNumeric, PsyRealNumeric>("complex", PsyComplex::new),
-			new PsyOperator.Arity21<PsyRealNumeric, PsyRealNumeric>("complexpolar", PsyComplex::psyFromPolar),
-			new PsyOperator.Arity11<PsyComplex>("conjugate", PsyComplex::psyConjugate),
-			new PsyOperator.Arity11<PsyComplex>("imagpart", PsyComplex::psyImagPart),
-			new PsyOperator.Arity11<PsyComplex>("realpart", PsyComplex::psyRealPart),
-		};
-
 }

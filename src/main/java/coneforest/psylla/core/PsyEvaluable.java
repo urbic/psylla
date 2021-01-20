@@ -17,13 +17,7 @@ public interface PsyEvaluable
 	*	@throws PsyException when an error occurs durind evaluation of this
 	*	object.
 	*/
-	public void eval(final Interpreter interpreter)
+	public void psyEval()
 		throws PsyException;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Action("eval",
-				(interpreter)->
-					interpreter.operandStackBacked(1).<PsyEvaluable>getBacked(0).eval(interpreter)),
-		};
 }

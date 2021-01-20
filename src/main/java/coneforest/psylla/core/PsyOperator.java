@@ -13,6 +13,220 @@ public abstract class PsyOperator
 		this.name=name;
 	}
 
+	/**
+	*	Execute this object in the context of the interpreter.  Calls {@link
+	*	#invoke(Interpreter)} method.
+	*/
+	@Override
+	public void execute()
+	{
+		invoke();
+	}
+
+	/**
+	*	Invoke this object in the context of the interpreter performing
+	*	an action associated with it.
+	*/
+	@Override
+	public void invoke()
+	{
+		final var interpreter=PsyContext.psyCurrentContext();
+		final var ostack=interpreter.operandStack();
+		ostack.clearBackup();
+		try
+		{
+			action();
+		}
+		catch(final ClassCastException e)
+		{
+			ostack.restore();
+			interpreter.handleError(new PsyTypeCheckException(this));
+		}
+		catch(final PsyException e)
+		{
+			ostack.restore();
+			e.setEmitter(this);
+			interpreter.handleError(e);
+		}
+	}
+
+	abstract public void action()
+		throws ClassCastException, PsyException;
+
+	/**
+	*	Returns a syntatctic string representation of this operator.
+	*	A syntatctic representation has a form of
+	*	<code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a
+	*	string returned by {@link #getName()} method.
+	*
+	*	@return a syntatctic string representation of a name of this operator.
+	*/
+	@Override
+	public String toSyntaxString()
+	{
+		return "--"+getName()+"--";
+	}
+
+	/**
+	*	Returns a name of this operator. A name returned is an operator’s
+	*	simple class name with first character (underscore) discarded. This
+	*	method must be overriden when using another naming scheme.
+	*
+	*	@return a name.
+	*/
+	public String getName()
+	{
+		return name;
+	}
+
+	public String getPrefix()
+	{
+		final var prefixOffset=name.indexOf('@');
+		return prefixOffset<0? "core": name.substring(0, prefixOffset);
+	}
+
+	public String getSimpleName()
+	{
+		return name.substring(getPrefix().length()+1);
+	}
+
+	private final String name;
+
+	public static class Method
+		extends PsyOperator
+	{
+		private final Action.Handler handler;
+
+		public Method(final java.lang.reflect.Method method)
+			throws PsyException
+		{
+			super(method.getAnnotation(Operator.class).value());
+			try
+			{
+				final var mh=java.lang.invoke.MethodHandles.lookup().unreflect(method);
+				final var mht=mh.type();
+				if(mht.returnType().equals(void.class))
+					this.handler=()->
+						{
+							final var ostack=PsyContext.psyCurrentContext().operandStackBacked(mht.parameterCount());
+							final var params=new PsyObject[mht.parameterCount()];
+							for(int i=0; i<mht.parameterCount(); i++)
+							{
+								params[i]=ostack.getBacked(i);
+							}
+							try
+							{
+								mh.invokeWithArguments((Object[])params);
+							}
+							catch(final Throwable e)
+							{
+								// TODO: throw new PsyException(e);
+								System.out.println("THROWABLE "+e);
+							}
+						};
+				else
+					this.handler=()->
+						{
+							final var ostack=PsyContext.psyCurrentContext().operandStackBacked(mht.parameterCount());
+							final var params=new PsyObject[mht.parameterCount()];
+							for(int i=0; i<mht.parameterCount(); i++)
+							{
+								params[i]=ostack.getBacked(i);
+								//System.out.println("GET BACKED");
+							}
+							try
+							{
+								//System.out.println("CALL OP "+oRet);
+								ostack.push((PsyObject)mh.invokeWithArguments((Object[])params));
+							}
+							catch(final Throwable e)
+							{
+								// TODO: throw new PsyException(e);
+								//System.out.println("THROWABLE "+e);
+							}
+						};
+				}
+				catch(IllegalAccessException e)
+				{
+					// TODO
+					throw new PsyUndefinedException();
+				}
+		}
+
+		@Override
+		public void action()
+			throws PsyException
+		{
+			handler.handle();
+		}
+	}
+		/*
+
+		try
+		{
+			final var mh=java.lang.invoke.MethodHandles.lookup().unreflect(method);
+			final var mht=mh.type();
+			//System.out.println("RETURNS "+name+" "+mht.returnType());
+			if(mht.returnType().equals(void.class))
+				return new PsyOperator(name)
+					{
+						@Override
+						public void action(final Interpreter interpreter)
+							throws PsyException
+						{
+							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
+							final var params=new PsyObject[mht.parameterCount()];
+							for(int i=0; i<mht.parameterCount(); i++)
+							{
+								params[i]=ostack.getBacked(i);
+							}
+							try
+							{
+								mh.invokeWithArguments((Object[])params);
+							}
+							catch(final Throwable e)
+							{
+								// TODO: throw new PsyException(e);
+								System.out.println("THROWABLE "+e);
+							}
+						}
+					};
+			else
+				return new PsyOperator(name)
+					{
+						@Override
+						public void action(final Interpreter interpreter)
+							throws PsyException
+						{
+							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
+							final var params=new PsyObject[mht.parameterCount()];
+							for(int i=0; i<mht.parameterCount(); i++)
+							{
+								params[i]=ostack.getBacked(i);
+								//System.out.println("GET BACKED");
+							}
+							try
+							{
+								PsyObject oRet=(PsyObject)mh.invokeWithArguments((Object[])params);
+								//System.out.println("CALL OP "+oRet);
+								ostack.push(oRet);
+							}
+							catch(final Throwable e)
+							{
+								// TODO: throw new PsyException(e);
+								//System.out.println("THROWABLE "+e);
+							}
+						}
+					};
+		}
+		catch(final IllegalAccessException e)
+		{
+			// TODO
+		}
+		return null;
+	}
+	*/
+
 	/*
 	public static PsyOperator valueOf(final java.lang.reflect.Method method)
 	{
@@ -120,84 +334,45 @@ public abstract class PsyOperator
 		catch(final IllegalAccessException e)
 		{
 			// TODO
-		}		
+		}
 		return null;
 	}
 	*/
 
-	/**
-	*	Execute this object in the context of the interpreter.  Calls {@link
-	*	#invoke(Interpreter)} method.
-	*/
-	@Override
-	public void execute(final Interpreter interpreter)
+	public static class Arity00
+		extends PsyOperator
 	{
-		invoke(interpreter);
-	}
-
-	/**
-	*	Invoke this object in the context of the interpreter performing
-	*	an action associated with it.
-	*/
-	@Override
-	public void invoke(final Interpreter interpreter)
-	{
-		final OperandStack ostack=interpreter.operandStack();
-		ostack.clearBackup();
-		try
+		@Override
+		public void action()
+			throws PsyException
 		{
-			action(interpreter);
+			handler.handle();
 		}
-		catch(final ClassCastException e)
+
+		public Arity00(final String name, final Handler handler)
 		{
-			ostack.restore();
-			interpreter.handleError(new PsyTypeCheckException(this));
+			super(name);
+			this.handler=handler;
 		}
-		catch(final PsyException e)
+
+		private final Handler handler;
+
+		@FunctionalInterface
+		public static interface Handler
 		{
-			ostack.restore();
-			e.setEmitter(this);
-			interpreter.handleError(e);
+			public void handle()
+				throws PsyException;
 		}
-	}
-
-	abstract public void action(final Interpreter interpreter)
-		throws ClassCastException, PsyException;
-
-	/**
-	*	Returns a syntatctic string representation of this operator.
-	*	A syntatctic representation has a form of
-	*	<code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a
-	*	string returned by {@link #getName()} method.
-	*
-	*	@return a syntatctic string representation of a name of this operator.
-	*/
-	@Override
-	public String toSyntaxString()
-	{
-		return "--"+getName()+"--";
-	}
-
-	/**
-	*	Returns a name of this operator. A name returned is an operator’s
-	*	simple class name with first character (underscore) discarded. This
-	*	method must be overriden when using another naming scheme.
-	*
-	*	@return a name.
-	*/
-	public String getName()
-	{
-		return name;
 	}
 
 	public static class Arity01
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws PsyException
 		{
-			interpreter.operandStack().push(handler.handle());
+			PsyContext.psyCurrentContext().operandStack().push(handler.handle());
 		}
 
 		public Arity01(final String name, final Handler handler)
@@ -220,10 +395,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws PsyException
 		{
-			final var ostack=interpreter.operandStackBacked(1);
+			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(1);
 			ostack.push(handler.handle(ostack.getBacked(0)));
 		}
 
@@ -247,10 +422,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws PsyException
 		{
-			final var ostack=interpreter.operandStackBacked(2);
+			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(2);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1)));
 		}
 
@@ -274,10 +449,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws PsyException
 		{
-			final var ostack=interpreter.operandStackBacked(1);
+			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(1);
 			handler.handle(ostack.getBacked(0));
 		}
 
@@ -301,10 +476,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws PsyException
 		{
-			final var ostack=interpreter.operandStackBacked(2);
+			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(2);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1));
 		}
 
@@ -328,10 +503,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws PsyException
 		{
-			final var ostack=interpreter.operandStackBacked(3);
+			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(3);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2));
 		}
 
@@ -355,10 +530,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws PsyException
 		{
-			final var ostack=interpreter.operandStackBacked(3);
+			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(3);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));
 		}
 
@@ -382,10 +557,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final Interpreter interpreter)
+		public void action()
 			throws ClassCastException, PsyException
 		{
-			handler.handle(interpreter);
+			handler.handle();
 		}
 
 		public Action(final String name, final Handler handler)
@@ -399,7 +574,7 @@ public abstract class PsyOperator
 		@FunctionalInterface
 		public static interface Handler
 		{
-			public void handle(final Interpreter interpreter)
+			public void handle()
 				throws PsyException;
 		}
 	}
@@ -418,7 +593,4 @@ public abstract class PsyOperator
 	}
 	*/
 
-	
-
-	private final String name;
 }

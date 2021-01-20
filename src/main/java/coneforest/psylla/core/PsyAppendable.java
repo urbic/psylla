@@ -41,9 +41,4 @@ public interface PsyAppendable<T extends PsyObject>
 	public PsyAppendable psyReplicate(final PsyInteger oCount)
 		throws PsyException;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity20<PsyAppendable, PsyObject>("append", PsyAppendable::psyAppend),
-			new PsyOperator.Arity20<PsyAppendable, PsyIterable>("appendall", PsyAppendable::psyAppendAll),
-		};
 }

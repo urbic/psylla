@@ -15,9 +15,10 @@ public class PsyErrorDict
 		=new PsyOperator("handleerror")
 			{
 				@Override
-				public void action(final Interpreter interpreter)
+				public void action()
 					throws ClassCastException, PsyException
 				{
+					final var interpreter=PsyContext.psyCurrentContext();
 					final PsyDictlike errorObj=(PsyDictlike)interpreter.systemDict().get("$error");
 					errorObj.put("newerror", PsyBoolean.FALSE);
 

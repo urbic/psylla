@@ -50,10 +50,4 @@ public interface PsyBounded
 		return PsyBoolean.valueOf(isFull());
 	}
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyBounded>("capacity", PsyBounded::psyCapacity),
-			new PsyOperator.Arity11<PsyBounded>("isfull", PsyBounded::psyIsFull),
-		};
-
 }

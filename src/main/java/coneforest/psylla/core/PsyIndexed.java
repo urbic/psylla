@@ -162,18 +162,4 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	}
 	*/
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity20<PsyIndexed, PsyObject>("delete", PsyIndexed::psyDelete),
-			new PsyOperator.Arity11<PsyIndexed>("entries", PsyIndexed::psyEntries),
-			new PsyOperator.Arity21<PsyIndexed, PsyObject>("extract", PsyIndexed::psyExtract),
-			new PsyOperator.Arity21<PsyIndexed, PsyObject>("get", PsyIndexed::psyGet),
-			new PsyOperator.Arity21<PsyIndexed, PsyIterable>("getall", PsyIndexed::psyGetAll),
-			new PsyOperator.Arity11<PsyIndexed>("keys", PsyIndexed::psyKeys),
-			new PsyOperator.Arity21<PsyIndexed, PsyObject>("known", PsyIndexed::psyKnown),
-			new PsyOperator.Arity30<PsyIndexed, PsyObject, PsyObject>("put", PsyIndexed::psyPut),
-			new PsyOperator.Arity21<PsyIndexed, PsyIterable>("slice", PsyIndexed::psySlice),
-			new PsyOperator.Arity11<PsyIndexed>("values", PsyIndexed::psyValues),
-		};
-
 }

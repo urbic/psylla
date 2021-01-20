@@ -34,10 +34,10 @@ public interface PsyStringy
 	}
 
 	@Override
-	default public void eval(final Interpreter interpreter)
+	default public void psyEval()
 		throws PsyException
 	{
-		(new PsyStringReader(this)).eval(interpreter);
+		(new PsyStringReader(this)).psyEval();
 	}
 
 	@Override
@@ -122,6 +122,16 @@ public interface PsyStringy
 		return oArray;
 	}
 
+	default public PsyInteger psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
+	{
+		return PsyInteger.valueOf(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));
+	}
+
+	default public PsyInteger psyIndexOfSubstring(final PsyStringy oStr, final PsyInteger oFrom)
+	{
+		return PsyInteger.valueOf(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));
+	}
+
 	@Override
 	default public java.util.Iterator<PsyInteger> iterator()
 	{
@@ -140,12 +150,5 @@ public interface PsyStringy
 				private int index=0;
 			};
 	}
-
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyStringy>("lowercase", PsyStringy::psyLowerCase),
-			new PsyOperator.Arity21<PsyStringy, PsyRegExp>("split", PsyStringy::psySplit),
-			new PsyOperator.Arity11<PsyStringy>("uppercase", PsyStringy::psyUpperCase),
-		};
 
 }

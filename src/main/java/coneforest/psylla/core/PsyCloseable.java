@@ -18,9 +18,4 @@ public interface PsyCloseable
 	public void psyClose()
 		throws PsyException;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity10<PsyCloseable>("close", PsyCloseable::psyClose),
-		};
-
 }

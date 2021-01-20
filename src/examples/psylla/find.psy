@@ -33,4 +33,5 @@
 }
 bind def
 
-arguments 0 get handle
+arguments length iszero '' { arguments 0 get } ifelse
+handle

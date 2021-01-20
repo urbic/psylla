@@ -9,15 +9,9 @@ public class PsyNamespace
 	extends PsyDict
 {
 
-	protected PsyNamespace(final String prefix)
+	public PsyNamespace(final String prefix)
 	{
 		this.prefix=prefix;
-	}
-
-	protected void registerOperators(final PsyOperator... operators)
-	{
-		for(final PsyOperator oOperator: operators)
-			put(oOperator.getName(), oOperator);
 	}
 
 	/**
@@ -40,7 +34,6 @@ public class PsyNamespace
 			return true;
 		for(var oNamespace: imports)
 		{
-			//System.out.println("LOOKING: "+oNamespace.prefix());
 			if(oNamespace.known(key))
 				return true;
 		}
@@ -78,45 +71,6 @@ public class PsyNamespace
 	{
 		return "%namespace="+prefix+"%";
 	}
-
-	public static PsyNamespace namespace(final String prefix)
-	{
-		if(pool.containsKey(prefix))
-			return pool.get(prefix);
-		final var oNamespace=new PsyNamespace(prefix);
-		pool.put(prefix, oNamespace);
-		return oNamespace;
-	}
-
-	/*public static PsyNamespace namespace(final Class<? extends PsyObject> clazz)
-	{
-		final var oNamespace=namespace(clazz.getAnnotation(Type.class).value());
-		for(final var method: clazz.getDeclaredMethods())
-		{
-			if(method.isAnnotationPresent(Operator.class))
-			{
-				final var operatorName=method.getDeclaredAnnotation(Operator.class).value();
-				oNamespace.put(operatorName, PsyOperator.valueOf(method));
-			}
-		}
-		for(final var constructor: clazz.getDeclaredConstructors())
-		{
-			if(constructor.isAnnotationPresent(Operator.class))
-			{
-				final var operatorName=constructor.getDeclaredAnnotation(Operator.class).value();
-				oNamespace.put(operatorName, PsyOperator.valueOf(constructor));
-			}
-		}
-		return oNamespace;
-	}*/
-
-	public static PsyNamespace psyNamespace(final PsyStringy oPrefix)
-	{
-		return namespace(oPrefix.stringValue());
-	}
-
-	private static java.util.HashMap<String, PsyNamespace> pool
-		=new java.util.HashMap<String, PsyNamespace>();
 
 	private final String prefix;
 

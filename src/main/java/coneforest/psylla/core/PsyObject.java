@@ -40,9 +40,9 @@ public interface PsyObject
 	*
 	*	@param interpreter an interpreter.
 	*/
-	default public void execute(final Interpreter interpreter)
+	default public void execute()
 	{
-		interpreter.operandStack().push(this);
+		PsyContext.psyCurrentContext().operandStack().push(this);
 	}
 
 	/**
@@ -51,9 +51,9 @@ public interface PsyObject
 	*
 	*	@param interpreter an interpreter.
 	*/
-	default public void invoke(final Interpreter interpreter)
+	default public void invoke()
 	{
-		interpreter.operandStack().push(this);
+		PsyContext.psyCurrentContext().operandStack().push(this);
 	}
 
 	default public PsyBoolean psyEq(final PsyObject o)
@@ -120,7 +120,7 @@ public interface PsyObject
 		//Class<? extends PsyObject> clazz=TypeRegistry.get(stringy.getString());
 		//return PsyBoolean.valueOf(clazz!=null && clazz.isInstance(this));
 
-		final var interpreter=Interpreter.currentInterpreter();
+		//final var interpreter=Interpreter.currentInterpreter();
 		return PsyBoolean.TRUE;
 	}
 
@@ -134,18 +134,6 @@ public interface PsyObject
 		return PsyInteger.valueOf(hashCode());
 	}
 
-
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyObject>("clone", PsyObject::psyClone),
-			new PsyOperator.Arity21<PsyObject, PsyObject>("eq", PsyObject::psyEq),
-			new PsyOperator.Arity11("hashcode", PsyObject::psyHashCode),
-			new PsyOperator.Arity21<PsyObject, PsyStringy>("instanceof", PsyObject::psyInstanceOf),
-			new PsyOperator.Arity21<PsyObject, PsyObject>("ne", PsyObject::psyNe),
-			new PsyOperator.Arity11<PsyObject>("toname", PsyObject::psyToName),
-			new PsyOperator.Arity11<PsyObject>("tostring", PsyObject::psyToString),
-			new PsyOperator.Arity11<PsyObject>("type", PsyObject::psyType),
-		};
 
 	//static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyObject.class);
 	/*

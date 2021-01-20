@@ -241,24 +241,24 @@ public interface PsyArraylike<T extends PsyObject>
 				public void psyForAll(final PsyObject oProc)
 					throws PsyException
 				{
-					final coneforest.psylla.Interpreter interpreter
-						=(coneforest.psylla.Interpreter)PsyContext.psyCurrentContext();
+					final var interpreter=PsyContext.psyCurrentContext();
 					final coneforest.psylla.OperandStack ostack=interpreter.operandStack();
 					final java.util.Iterator<PsyInteger> iterator=psyKeys().iterator();
 					interpreter.pushLoopLevel();
 					interpreter.executionStack().push(new PsyOperator("#forall_continue")
 						{
 							@Override
-							public void action(final coneforest.psylla.Interpreter interpreter1)
+							public void action()
 								throws PsyException
 							{
+								final var interpreter1=PsyContext.psyCurrentContext();
 								if(iterator.hasNext())
 								{
 									final PsyInteger oIndex=iterator.next();
 									ostack.push(oIndex);
 									ostack.push(psyGet(oIndex));
 									interpreter1.executionStack().push(this);
-									oProc.invoke(interpreter1);
+									oProc.invoke();
 								}
 								else
 								{
@@ -327,20 +327,5 @@ public interface PsyArraylike<T extends PsyObject>
 		}
 		return sb.toString();
 	}
-
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity31<PsyArraylike, PsyInteger, PsyInteger>("extractinterval", PsyArraylike::psyExtractInterval),
-			new PsyOperator.Arity31<PsyArraylike, PsyInteger, PsyInteger>("getinterval", PsyArraylike::psyGetInterval),
-			new PsyOperator.Arity30<PsyArraylike, PsyInteger, PsyObject>("insert", PsyArraylike::psyInsert),
-			new PsyOperator.Arity30<PsyArraylike, PsyInteger, PsyIterable>("insertall", PsyArraylike::psyInsertAll),
-			new PsyOperator.Arity11<PsyArraylike>("postchop", PsyArraylike::psyPostChop),
-			new PsyOperator.Arity11<PsyArraylike>("prechop", PsyArraylike::psyPreChop),
-			new PsyOperator.Arity20<PsyArraylike, PsyObject>("prepend", PsyArraylike::psyPrepend),
-			new PsyOperator.Arity20<PsyArraylike, PsyIterable>("prependall", PsyArraylike::psyPrependAll),
-			new PsyOperator.Arity30<PsyArraylike, PsyInteger, PsyIterable>("putinterval", PsyArraylike::psyPutInterval),
-			new PsyOperator.Arity11<PsyArraylike>("reverse", PsyArraylike::psyReverse),
-			new PsyOperator.Arity20<PsyArraylike, PsyInteger>("setlength", PsyArraylike::psySetLength),
-		};
 
 }

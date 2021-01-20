@@ -143,13 +143,4 @@ public interface PsySetlike<T extends PsyObject>
 		return sb.toString();
 	}
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity21<PsySetlike, PsyObject>("contains", PsySetlike::psyContains),
-			new PsyOperator.Arity21<PsySetlike, PsySetlike>("intersects", PsySetlike::psyIntersects),
-			new PsyOperator.Arity20<PsySetlike, PsyObject>("remove", PsySetlike::psyRemove),
-			new PsyOperator.Arity20<PsySetlike, PsyIterable>("removeall", PsySetlike::psyRemoveAll),
-			new PsyOperator.Arity20<PsySetlike, PsyIterable>("retainall", PsySetlike::psyRetainAll),
-		};
-
 }

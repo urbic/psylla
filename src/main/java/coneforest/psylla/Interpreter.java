@@ -20,18 +20,6 @@ public class Interpreter
 			procstack=new ProcStack();
 			dstack=new DictStack();
 			pushStopLevel();
-
-			//PsyNamespace.namespace(TypeResolver.resolve("system"));
-			//System.out.println((PsyAdditive::psyAdd).toString());
-			//importType("system");
-			//importType("additive");
-			//importType("arithmetic");
-			//importType("complex");
-			//importType("numeric");
-			psyRequire(new PsyName("system"));
-			psyRequire(new PsyName("object"));
-			psyRequire(new PsyName("additive"));
-			psyRequire(new PsyName("context"));
 		}
 		catch(final PsyException e)
 		{
@@ -59,11 +47,13 @@ public class Interpreter
 	*
 	*	@return the operand stack.
 	*/
+	@Override
 	public OperandStack operandStack()
 	{
 		return ostack;
 	}
 
+	@Override
 	public OperandStack operandStackBacked(final int count)
 		throws PsyException
 	{
@@ -76,6 +66,7 @@ public class Interpreter
 	*
 	*	@return the dictionary stack.
 	*/
+	@Override
 	public DictStack dictStack()
 	{
 		return dstack;
@@ -86,12 +77,13 @@ public class Interpreter
 	*
 	*	@return the execution stack.
 	*/
+	@Override
 	public ExecutionStack executionStack()
 	{
 		return estack;
 	}
 
-	public coneforest.psylla.ClassLoader classLoader()
+	public java.lang.ClassLoader classLoader()
 	{
 		return classLoader;
 	}
@@ -112,8 +104,10 @@ public class Interpreter
 	{
 		final var prefixOffset=name.indexOf('@');
 		if(prefixOffset==-1)
-			return dstack.load(name);
-		return (T)PsyNamespace.namespace(name.substring(0, prefixOffset))
+			return (T)dstack.load(name);
+		//return (T)PsyNamespace.namespace(name.substring(0, prefixOffset))
+		//		.get(name.substring(prefixOffset+1));
+		return (T)nspool.get(name.substring(0, prefixOffset))
 				.get(name.substring(prefixOffset+1));
 	}
 
@@ -124,16 +118,18 @@ public class Interpreter
 		return this.<T>load(oKey.stringValue());
 	}
 
+	@Override
 	public void handleExecutionStack()
 	{
 		while(estack.size()>0)
-			estack.pop().execute(this);
+			estack.pop().execute();
 	}
 
+	@Override
 	public void handleExecutionStack(final int level)
 	{
 		while(estack.size()>level)
-			estack.pop().execute(this);
+			estack.pop().execute();
 	}
 
 	/**
@@ -141,6 +137,7 @@ public class Interpreter
 	*
 	*	@return the current dictionary.
 	*/
+	@Override
 	public PsyDictlike currentDict()
 	{
 		return dstack.peek();
@@ -151,6 +148,7 @@ public class Interpreter
 	*
 	*	@return the system dictionary.
 	*/
+	@Override
 	public PsyDictlike systemDict()
 	{
 		return dstack.get(0);
@@ -164,6 +162,11 @@ public class Interpreter
 	public PsyDictlike userDict()
 	{
 		return dstack.get(1);
+	}
+
+	public NamespacePool namespacePool()
+	{
+		return nspool;
 	}
 
 	/**
@@ -202,9 +205,8 @@ public class Interpreter
 	public void setClassPath(final String[] classPath)
 		throws PsyException
 	{
-		//final var oClassPath
-		//	=(PsyArraylike<PsyStringy>)systemDict().get("classpath");
-		final var oClassPath=new PsyArray();
+		final var oClassPath
+			=(PsyArraylike<PsyStringy>)systemDict().get("classpath");
 		final var envClassPath=System.getenv("PSYLLA_CLASSPATH");
 		if(envClassPath!=null)
 			for(final var pathItem: envClassPath.split(java.io.File.pathSeparator))
@@ -217,10 +219,8 @@ public class Interpreter
 	public void setLibraryPath(final String[] libraryPath)
 		throws PsyException
 	{
-		// Configure library path
-		//final var oLibraryPath
-		//	=(PsyArraylike<PsyStringy>)systemDict().get("librarypath");
-		final var oLibraryPath=new PsyArray();
+		final var oLibraryPath
+			=(PsyArraylike<PsyStringy>)systemDict().get("librarypath");
 		final var envLibraryPath=System.getenv("PSYLLA_LIB");
 		if(envLibraryPath!=null)
 			for(final var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
@@ -240,6 +240,7 @@ public class Interpreter
 		interpret(new PsyStringReader(string));
 	}
 
+	@Override
 	public void interpret(final PsyReader oReader)
 	{
 		final var initProcLevel=procstack.size();
@@ -256,31 +257,32 @@ public class Interpreter
 				// If "stop" is invoked outside the stopping context
 				if(getStopFlag())
 				{
-					PsyErrorDict.OP_HANDLEERROR.invoke(this);
+					PsyErrorDict.OP_HANDLEERROR.invoke();
 					return;
 				}
 			}
 			if(procstack.size()>initProcLevel)
 				throw new PsySyntaxErrorException(oReader);
 
-			dstack.<PsyWriter>load("stdout").psyFlush();
-			dstack.<PsyWriter>load("stderr").psyFlush();
+			((PsyFlushable)dstack.load("stdout")).psyFlush();
+			((PsyFlushable)dstack.load("stderr")).psyFlush();
 		}
 		catch(final PsyException e)
 		{
 			e.setEmitter(oReader); // IMPORTANT
 			handleError(e);
 			if(getStopFlag())
-				PsyErrorDict.OP_HANDLEERROR.invoke(this);
+				PsyErrorDict.OP_HANDLEERROR.invoke();
 		}
 		catch(final TokenMgrError e)
 		{
 			handleError(new PsySyntaxErrorException(oReader));
 			if(getStopFlag())
-				PsyErrorDict.OP_HANDLEERROR.invoke(this);
+				PsyErrorDict.OP_HANDLEERROR.invoke();
 		}
 	}
 
+	@Override
 	public void interpretBraced(final PsyReader oReader)
 		throws PsyException
 	{
@@ -303,7 +305,7 @@ public class Interpreter
 			switch(token.kind)
 			{
 				case ParserConstants.COMMAND:
-					parseToken(token).execute(this);
+					parseToken(token).execute();
 					handleExecutionStack();
 					break;
 				case ParserConstants.INTEGER:
@@ -381,10 +383,11 @@ public class Interpreter
 	public PsyDictlike errorDict()
 		throws PsyException
 	{
-		// MODULARITY: return (PsyDictlike)systemDict().get("errordict");
-		return PsyNamespace.namespace("errordict");
+		return (PsyDictlike)systemDict().get("errordict");
+		//return PsyNamespace.namespace("errordict");
 	}
 
+	@Override
 	public void handleError(final PsyException oException)
 	{
 		final var errorName=oException.getName();
@@ -401,9 +404,9 @@ public class Interpreter
 		{
 			final var errorDict=errorDict();
 			if(errorDict.known(errorName))
-				errorDict.get(errorName).invoke(this);
+				errorDict.get(errorName).invoke();
 			else
-				psyStop();
+				stop_();
 		}
 		catch(final PsyException e)
 		{
@@ -437,21 +440,25 @@ public class Interpreter
 		System.out.println();
 	}
 
+	@Override
 	public int execLevel()
 	{
 		return estack.size();
 	}
 
+	@Override
 	public boolean getStopFlag()
 	{
 		return stopFlag;
 	}
 
+	@Override
 	public void setStopFlag(final boolean stopFlag)
 	{
 		this.stopFlag=stopFlag;
 	}
 
+	@Override
 	public int pushLoopLevel()
 	{
 		final var level=estack.size();
@@ -459,16 +466,19 @@ public class Interpreter
 		return level;
 	}
 
+	@Override
 	public int popLoopLevel()
 	{
 		return loopstack.size()>0? loopstack.pop(): -1;
 	}
 
+	@Override
 	public int currentLoopLevel()
 	{
 		return loopstack.size()>0? loopstack.peek(): -1;
 	}
 
+	@Override
 	public int pushStopLevel()
 	{
 		final var level=estack.size();
@@ -476,11 +486,13 @@ public class Interpreter
 		return level;
 	}
 
+	@Override
 	public int popStopLevel()
 	{
 		return stopstack.size()>0? stopstack.pop(): -1;
 	}
 
+	@Override
 	public int currentStopLevel()
 	{
 		return stopstack.size()>0? stopstack.peek(): -1;
@@ -494,9 +506,8 @@ public class Interpreter
 	public void setShellArguments(final String[] args)
 		throws PsyException
 	{
-		//final var oArguments
-		//	=(PsyArray)systemDict().get("arguments");
-		final var oArguments=new PsyArray();
+		final var oArguments
+			=(PsyArray)systemDict().get("arguments");
 		for(final var arg: args)
 			oArguments.psyAppend(new PsyName(arg));
 	}
@@ -509,12 +520,19 @@ public class Interpreter
 		systemDict().put("environment", environment);
 	}
 
+	@Override
 	public void quit()
 	{
 		running=false;
-		//stopFlag=true;
 		stopFlag=false;
 		estack.clear();
+	}
+
+	@Override
+	public void psyExecutive()
+		throws PsyException
+	{
+		repl();
 	}
 
 	public void repl()
@@ -549,7 +567,7 @@ public class Interpreter
 						// If "stop" invoked outside the stopping context
 						if(getStopFlag())
 						{
-							PsyErrorDict.OP_HANDLEERROR.invoke(this);
+							PsyErrorDict.OP_HANDLEERROR.invoke();
 							setStopFlag(false);
 							break;
 						}
@@ -560,13 +578,13 @@ public class Interpreter
 					e.setEmitter(PsyNull.NULL);
 					handleError(e);
 					if(getStopFlag())
-						PsyErrorDict.OP_HANDLEERROR.invoke(this);
+						PsyErrorDict.OP_HANDLEERROR.invoke();
 				}
 				catch(final TokenMgrError e)
 				{
 					handleError(new PsySyntaxErrorException(PsyNull.NULL));
 					if(getStopFlag())
-						PsyErrorDict.OP_HANDLEERROR.invoke(this);
+						PsyErrorDict.OP_HANDLEERROR.invoke();
 				}
 			}
 		}
@@ -592,12 +610,8 @@ public class Interpreter
 		return sb.toString();
 	}
 
-	public static Interpreter currentInterpreter()
-	{
-		return (Interpreter)Thread.currentThread();
-	}
-
-	public void psyStop()
+	@Override
+	public void stop_()
 	{
 		setStopFlag(true);
 		if(currentStopLevel()!=-1)
@@ -609,8 +623,7 @@ public class Interpreter
 	public boolean loadLibraryResource(final String resourceName)
 		throws PsyException
 	{
-		final PsyArraylike<PsyStringy> oLibraryPath
-			=dstack.load("librarypath");
+		final var oLibraryPath=(PsyArraylike<PsyStringy>)dstack.load("librarypath");
 		final var filePath=resourceName.replace('.', '/');
 		for(final var oPathItem: oLibraryPath)
 		{
@@ -628,13 +641,33 @@ public class Interpreter
 				else
 				{
 					resourceRegistry.put(resourceName, resourceID);
-					new PsyFileReader(oFullResourceName).eval(this);
+					new PsyFileReader(oFullResourceName).psyEval();
 				}
 				return true;
 			}
 		}
 		return false;
 	}
+
+	/*
+	public void loadAnnotatedOperators(final Class<PsyObject> clazz)
+	{
+		for(final var method: clazz.getDeclaredMethods())
+			if(method.isAnnotationPresent(Operator.class))
+			{
+				final var oOperator=new PsyOperator.Method(method);
+				nspool.get(oOperator.getPrefix()).put(oOperator.getSimpleName(), oOperator);
+				//oNamespace.put(method.getDeclaredAnnotation(Operator.class).value(),
+				//		PsyOperator.valueOf(method));
+			}
+		//
+		for(final var constructor: clazz.getDeclaredConstructors())
+			if(constructor.isAnnotationPresent(Operator.class))
+				oNamespace.put(constructor.getDeclaredAnnotation(Operator.class).value(),
+						PsyOperator.valueOf(constructor));
+		//
+	}
+	*/
 
 	public boolean loadType(final String typeName)
 		throws PsyException
@@ -656,7 +689,7 @@ public class Interpreter
 			}
 			else
 				resourceRegistry.put(typeName, resourceID);
-			final var oNamespace=PsyNamespace.namespace(clazz.getAnnotation(Type.class).value());
+			//final var oNamespace=PsyNamespace.namespace(clazz.getAnnotation(Type.class).value());
 			/*
 			for(final var method: clazz.getDeclaredMethods())
 			{
@@ -674,7 +707,6 @@ public class Interpreter
 					oNamespace.put(operatorName, PsyOperator.valueOf(constructor));
 				}
 			}
-			*/
 			for(final var field: clazz.getDeclaredFields())
 			{
 				if(field.isAnnotationPresent(Operator.class))
@@ -684,9 +716,29 @@ public class Interpreter
 					oNamespace.put(operatorName, (PsyOperator)field.get(null));
 				}
 			}
+			*/
+			/*
+			for(final var field: clazz.getDeclaredFields())
+			{
+				if(field.isAnnotationPresent(Export.class))
+				{
+					//System.out.println("FIELD");
+					//final var operatorName=field.getDeclaredAnnotation(Operator.class).value();
+					//oNamespace.put(operatorName, (PsyOperator)field.get(null));
+					final var operators=(PsyOperator[])field.get(null);
+					for(var oOperator: operators)
+					{
+						//System.out.println(oOperator.getName());
+						systemDict().put(oOperator.getName(), oOperator);
+					}
+
+				}
+			}
+			*/
 			return true;
 		}
-		catch(java.io.IOException|ClassNotFoundException|NullPointerException|IllegalAccessException e)
+		//catch(java.io.IOException|ClassNotFoundException|NullPointerException|IllegalAccessException e)
+		catch(java.io.IOException|ClassNotFoundException|NullPointerException e)
 		{
 			return false;
 		}
@@ -722,12 +774,14 @@ public class Interpreter
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
-	private boolean stopFlag=false;
-	private boolean running=true;
 	private final java.util.HashMap<String, String> resourceRegistry
 		=new java.util.HashMap<String, String>();
+	private final NamespacePool nspool=new NamespacePool();
 
-	private final coneforest.psylla.ClassLoader classLoader
+	private boolean stopFlag=false;
+	private boolean running=true;
+
+	private final java.lang.ClassLoader classLoader
 		=new coneforest.psylla.ClassLoader()
 			{
 				@Override

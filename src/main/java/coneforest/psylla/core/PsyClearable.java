@@ -15,8 +15,4 @@ public interface PsyClearable
 	*/
 	public void psyClear();
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity10<PsyClearable>("clear", PsyClearable::psyClear),
-		};
 }

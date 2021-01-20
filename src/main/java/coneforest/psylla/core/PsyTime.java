@@ -68,9 +68,4 @@ public class PsyTime
 			"dstoffset"
 		};
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity01("time", PsyTime::psyTime),
-		};
-
 }

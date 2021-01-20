@@ -39,9 +39,4 @@ public class PsyRange
 	private PsyRealNumeric oInitial;
 	private final PsyRealNumeric oIncrement, oLimit;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity31<PsyRealNumeric, PsyRealNumeric, PsyRealNumeric>("range", PsyRange::new),
-		};
-
 }

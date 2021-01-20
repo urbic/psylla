@@ -49,9 +49,4 @@ public class PsyFileWriter
 		}
 	}
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyStringy>("filewriter", PsyFileWriter::new),
-		};
-
 }

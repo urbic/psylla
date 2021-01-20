@@ -121,10 +121,4 @@ public class PsyMatcher
 
 	private final java.util.regex.Matcher matcher;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity21<PsyStringy, PsyRegExp>("matcher", PsyMatcher::new),
-			new PsyOperator.Arity21<PsyMatcher, PsyStringy>("replaceall", PsyMatcher::psyReplaceAll),
-		};
-
 }

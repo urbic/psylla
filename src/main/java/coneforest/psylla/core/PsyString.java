@@ -370,9 +370,4 @@ public class PsyString
 
 	private final StringBuilder buffer;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity01("string", PsyString::new),
-		};
-
 }

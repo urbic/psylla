@@ -71,10 +71,4 @@ public interface PsyReadable
 	public PsyBoolean psyReady()
 		throws PsyException;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyReadable>("ready", PsyReadable::psyReady),
-			new PsyOperator.Arity21<PsyReadable, PsyInteger>("skip", PsyReadable::psySkip),
-		};
-
 }

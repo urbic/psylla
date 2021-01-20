@@ -56,7 +56,7 @@ public interface PsyIterable<T extends PsyObject>
 										interpreter.handleExecutionStack(loopLevel);
 										ostack.popOperands(1);
 										boolean check=ostack.<PsyBoolean>getBacked(0).booleanValue();*/
-										boolean check=(oProc.<T>asPredicate(interpreter)).test(nextObject);
+										boolean check=(oProc.<T>asPredicate()).test(nextObject);
 										if(interpreter.getStopFlag())
 											break;
 										if(check)
@@ -110,7 +110,7 @@ public interface PsyIterable<T extends PsyObject>
 							@Override
 							public PsyObject next()
 							{
-								return (oProc.<T, PsyObject>asFunction(interpreter)).apply(parentIterator.next());
+								return (oProc.<T, PsyObject>asFunction()).apply(parentIterator.next());
 							}
 						};
 				}
@@ -161,11 +161,5 @@ public interface PsyIterable<T extends PsyObject>
 		}
 		return new PsyString(sb);
 	}
-
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity21<PsyIterable, PsyProc>("filter", PsyIterable::psyFilter),
-			new PsyOperator.Arity21<PsyIterable, PsyProc>("map", PsyIterable::psyMap),
-		};
 
 }

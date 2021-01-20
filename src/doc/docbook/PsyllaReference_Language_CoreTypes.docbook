@@ -326,8 +326,8 @@ arrays</firstterm><indexterm><primary>array</primary><secondary>associative</sec
 <para>
 The interpreter intensively uses dictionaries to associate objects (typically
 operators and procedures) with names. Each time the parser detects a command,
-the interpreter searches the dictionary stack for an object associated withe
-the name of the command, and then executes the found object.
+the interpreter searches the dictionary stack for an object associated with the
+name of the command, and then executes the found object.
 </para>
 
 </section>

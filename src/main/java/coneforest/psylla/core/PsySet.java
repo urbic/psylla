@@ -76,20 +76,4 @@ public class PsySet
 
 	private final java.util.HashSet<PsyObject> set;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity01("set", PsySet::new),
-			new PsyOperator.Action("settomark",
-				(interpreter)->
-					{
-						final var ostack=interpreter.operandStack();
-						final int i=ostack.findMarkPosition();
-						final PsySet oSet=new PsySet();
-						for(int j=ostack.size()-1; j>=i+1; j--)
-							oSet.psyAppend(ostack.get(j));
-						ostack.setSize(i);
-						ostack.push(oSet);
-					}),
-		};
-
 }

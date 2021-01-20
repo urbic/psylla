@@ -19,11 +19,11 @@ public class PsyProc
 	}
 
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void invoke()
 	{
 		try
 		{
-			final var estack=interpreter.executionStack();
+			final var estack=PsyContext.psyCurrentContext().executionStack();
 			for(int i=length()-1; i>=0; i--)
 				estack.push(get(i));
 		}
@@ -86,8 +86,9 @@ public class PsyProc
 	}
 
 	public <T extends PsyObject> java.util.function.Predicate<T>
-		asPredicate(final Interpreter interpreter)
+		asPredicate()
 	{
+		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
 		return new java.util.function.Predicate<T>()
 			{
@@ -96,7 +97,7 @@ public class PsyProc
 				{
 					ostack.push(o);
 					final var loopLevel=interpreter.pushLoopLevel();
-					invoke(interpreter);
+					invoke();
 					interpreter.handleExecutionStack(loopLevel);
 					return ((PsyBoolean)ostack.pop()).booleanValue();
 					// TODO: stop
@@ -105,8 +106,9 @@ public class PsyProc
 	}
 
 	public <T extends PsyObject, R extends PsyObject> java.util.function.Function<T, R>
-		asFunction(final Interpreter interpreter)
+		asFunction()
 	{
+		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
 		return new java.util.function.Function<T, R>()
 			{
@@ -115,7 +117,7 @@ public class PsyProc
 				{
 					ostack.push(o);
 					final var loopLevel=interpreter.pushLoopLevel();
-					invoke(interpreter);
+					invoke();
 					interpreter.handleExecutionStack(loopLevel);
 					return (R)ostack.pop();
 					// TODO: stop
@@ -124,8 +126,9 @@ public class PsyProc
 	}
 
 	public <T extends PsyObject> java.util.function.UnaryOperator<T>
-		asUnaryOperator(final Interpreter interpreter)
+		asUnaryOperator()
 	{
+		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
 		return new java.util.function.UnaryOperator<T>()
 			{
@@ -134,7 +137,7 @@ public class PsyProc
 				{
 					ostack.push(o);
 					final var loopLevel=interpreter.pushLoopLevel();
-					invoke(interpreter);
+					invoke();
 					interpreter.handleExecutionStack(loopLevel);
 					return (T)ostack.pop();
 					// TODO: stop
@@ -142,8 +145,4 @@ public class PsyProc
 			};
 	}
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyProc>("bind", PsyProc::psyBind),
-		};
 }

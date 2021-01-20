@@ -16,11 +16,8 @@ public class DictStack
 	public DictStack()
 		throws PsyException
 	{
-		final var oSystemDict=PsyNamespace.namespace("system"); //new PsySystemDict();
-		// MODULARITY final var oSystemDict=new PsySystemDict();
-		push(oSystemDict);
-		// MODULARITY push((PsyDictlike)oSystemDict.get("userdict"));
-		push(PsyNamespace.namespace("user"));
+		push(new PsySystemDict());
+		push(new PsyDict()); // userdict
 	}
 
 	public <T extends PsyObject> T load(final String key)
@@ -79,12 +76,12 @@ public class DictStack
 		store(oKey.stringValue(), oValue);
 	}
 
-	public void psyBegin(final PsyDictlike oDict)
+	public void begin(final PsyDictlike oDict)
 	{
 		push(oDict);
 	}
 
-	public void psyEnd()
+	public void end()
 		throws PsyDictStackUnderflowException
 	{
 		if(size()<=2)

@@ -18,11 +18,12 @@ public class PsyCommand
 	}
 
 	@Override
-	public void execute(final Interpreter interpreter)
+	public void execute()
 	{
+		final var interpreter=PsyContext.psyCurrentContext();
 		try
 		{
-			interpreter.psyLoad(this).invoke(interpreter);
+			interpreter.psyLoad(this).invoke();
 		}
 		catch(final PsyException e)
 		{
@@ -32,9 +33,9 @@ public class PsyCommand
 	}
 
 	@Override
-	public void invoke(final Interpreter interpreter)
+	public void invoke()
 	{
-		execute(interpreter);
+		execute();
 	}
 
 	@Override

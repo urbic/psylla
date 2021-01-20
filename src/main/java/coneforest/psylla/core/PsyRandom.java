@@ -54,10 +54,4 @@ public class PsyRandom
 
 	private final java.util.Random random=new java.util.Random();
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity01("random", PsyRandom::new),
-			new PsyOperator.Arity20<PsyRandom, PsyInteger>("setseed", PsyRandom::psySetSeed),
-		};
-
 }

@@ -18,9 +18,4 @@ public interface PsyFlushable
 	public void psyFlush()
 		throws PsyException;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity10<PsyFlushable>("flush", PsyFlushable::psyFlush),
-		};
-
 }

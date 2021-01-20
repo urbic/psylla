@@ -104,14 +104,14 @@ public interface PsyStreamlike<T extends PsyObject>
 		interpreter.popLoopLevel();
 		interpreter.setExitFlag(false);
 		*/
-		final var interpreter=(Interpreter)PsyContext.psyCurrentContext();
+		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
 		final java.util.Iterator<T> iterator=iterator();
 		interpreter.pushLoopLevel();
 		interpreter.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
-				public void action(final Interpreter interpreter1)
+				public void action()
 					throws PsyException
 				{
 					if(iterator.hasNext())
@@ -125,20 +125,15 @@ public interface PsyStreamlike<T extends PsyObject>
 							// TODO more suitable exception type
 							throw new PsyUndefinedException();
 						}
-						interpreter1.executionStack().push(this);
-						oProc.invoke(interpreter1);
+						PsyContext.psyCurrentContext().executionStack().push(this);
+						oProc.invoke();
 					}
 					else
-						interpreter1.popLoopLevel();
+						PsyContext.psyCurrentContext().popLoopLevel();
 				}
 			});
 	}
 
 	public java.util.Iterator<T> iterator();
-
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity20<PsyStreamlike, PsyObject>("forall", PsyStreamlike::psyForAll),
-		};
 
 }

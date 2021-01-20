@@ -21,6 +21,8 @@ public class OperandStack extends Stack<PsyObject>
 	{
 		if(size()<size)
 			throw new PsyStackUnderflowException();
+		if(size<0)
+			throw new PsyRangeCheckException();
 	}
 
 	public void popOperands(final int count)

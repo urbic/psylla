@@ -172,8 +172,4 @@ public class PsyBitSet
 
 	private final java.util.BitSet bitset;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity01("bitset", PsyBitSet::new),
-		};
 }

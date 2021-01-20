@@ -30,10 +30,4 @@ public interface PsyWritable
 	public void psyWriteString(final PsyStringy oStringy)
 		throws PsyException;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity20<PsyWritable, PsyInteger>("write", PsyWritable::psyWrite),
-			new PsyOperator.Arity20<PsyWritable, PsyStringy>("writestring", PsyWritable::psyWriteString),
-		};
-
 }

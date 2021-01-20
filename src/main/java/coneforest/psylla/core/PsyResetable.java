@@ -18,9 +18,4 @@ public interface PsyResetable
 	public void psyReset()
 		throws PsyException;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity10<PsyResetable>("reset", PsyResetable::psyReset),
-		};
-
 }

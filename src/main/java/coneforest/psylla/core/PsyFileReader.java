@@ -30,9 +30,4 @@ public class PsyFileReader
 		}
 	}
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyStringy>("filereader", PsyFileReader::new),
-		};
-
 }

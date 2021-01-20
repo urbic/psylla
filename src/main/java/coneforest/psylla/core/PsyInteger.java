@@ -432,11 +432,5 @@ public class PsyInteger
 
 		//System.out.println(getClass().getAnnotation(Type.class).value());
 	//}
-	
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity21<PsyInteger, PsyInteger>("idiv", PsyInteger::psyIdiv),
-			new PsyOperator.Arity21<PsyInteger, PsyInteger>("mod", PsyInteger::psyMod),
-		};
 
 }

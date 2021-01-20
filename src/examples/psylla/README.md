@@ -23,12 +23,18 @@ Prints the _n_!. The non-negative integer _n_ is passed in the command line.
 * [__`factorial-iterative.psy`__](factorial-iterative.psy) — iterative implementation
 * [__`factorial-recursive.psy`__](factorial-recursive.psy) — recursive implementation
 
+## Fences balance
+
+Checks if the standard input contains mutually balanced fences of three kinds (`()`, `[]`, `{}`).
+
+* [__`fences-balance.psy`__](fences-balance.psy)
+
 ## Fibonacci numbers
 
 Prints the first _n_ Fibonacci numbers. The non-negative integer _n_ is passed
 in the command line.
 
-* [__`fibonacci-binet.psy`__](fibonacci-binet.psy) — calculation using Binet’s formula _(inexact when n > 70)_
+* [__`fibonacci-binet.psy`__](fibonacci-binet.psy) — calculation using [Binet’s formula](https://en.wikipedia.org/wiki/Fibonacci_number#Binet's_formula) _(inexact when n > 70)_
 * [__`fibonacci-iterative.psy`__](fibonacci-iterative.psy) — iterative implementation
 * [__`fibonacci-recursive-1.psy`__](fibonacci-recursive-1.psy) — recursive implementation № 1
 * [__`fibonacci-recursive-2.psy`__](fibonacci-recursive-2.psy) — recursive implementation № 2
@@ -38,6 +44,9 @@ in the command line.
 
 ## Find files
 
+List files in a directory hierarchy. Files or directories are specified in the
+command line. The current directory is assumed by default.
+
 * [__`find.psy`__](find.psy)
 
 ## Decimal fractions
@@ -45,7 +54,7 @@ in the command line.
 Prints the decimal periodic representation of the vulgar fraction. The fraction
 is passed in the command line in the form _p_`/`_q_.
 
-* [__`fraction-floyd.psy`__](fraction-floyd.psy) — an implementation with the cycle detection based on the Floyd’s algorithm
+* [__`fraction-floyd.psy`__](fraction-floyd.psy) — an implementation with the cycle detection based on the [Floyd’s Tortoise and Hare algorithm](https://en.wikipedia.org/wiki/Cycle_detection#Floyd.27s_Tortoise_and_Hare)
 * [__`fraction-naïve.psy`__](fraction-naïve.psy) — naïve implementation _(very slow!)_
 
 ## Greatest common divisor
@@ -67,7 +76,7 @@ Shows the evolution of the cellular automata controlled by the rules of
 ANSI terminal. Cursor positioning and color selection are made by issuing
 escape sequences.
 
-* [__`life.psy`__](life.psy`)
+* [__`life.psy`__](life.psy)
 
 ## Pascal triangle
 
@@ -120,7 +129,7 @@ Prints the first prime numbers that do not exceed a given _n_. Non-negative inte
 
 ## Russian multiplication
 
-Prints the product of _m_ and _n_ calculated using the [russian peasant
+Prints the product of _m_ and _n_ calculated using the [Russian peasant
 multiplication
 algorithm](https://en.wikipedia.org/wiki/Ancient_Egyptian_multiplication#Russian_peasant_multiplication).
 Non-negative integer _m_ and _n_ are passed in the command line.

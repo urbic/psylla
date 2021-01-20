@@ -29,9 +29,4 @@ public class PsyStringReader
 		this(oStringy.stringValue());
 	}
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity11<PsyStringy>("stringreader", PsyStringReader::new),
-		};
-
 }

@@ -25,13 +25,4 @@ public interface PsyBitwise<T extends PsyBitwise>
 
 	public PsyBitwise psyBitShift(final PsyInteger oShift);
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity21<PsyBitwise, PsyInteger>("bitshift", PsyBitwise::psyBitShift),
-			new PsyOperator.Arity21<PsyBitwise, PsyInteger>("clearbit", PsyBitwise::psyClearBit),
-			new PsyOperator.Arity21<PsyBitwise, PsyInteger>("flipbit", PsyBitwise::psyFlipBit),
-			new PsyOperator.Arity21<PsyBitwise, PsyInteger>("setbit", PsyBitwise::psySetBit),
-			new PsyOperator.Arity21<PsyBitwise, PsyInteger>("testbit", PsyBitwise::psyTestBit),
-		};
-
 }

@@ -9,7 +9,7 @@ public class PsyStream
 	{
 		this.stream=stream;
 	}
-	
+
 	@Override
 	public java.util.Iterator iterator()
 	{
@@ -20,14 +20,9 @@ public class PsyStream
 	{
 		//return java.util.stream.Stream<? extends PsyObject>.<PsyObject>iterate(o, oProc.asUnaryOperator()).
 		return new PsyStream(java.util.stream.Stream.<PsyObject>iterate(o,
-				oProc.asUnaryOperator((Interpreter)PsyContext.psyCurrentContext())));
+				oProc.asUnaryOperator()));
 	}
 
 	private final java.util.stream.Stream<? extends PsyObject> stream;
 
-	public static final PsyOperator[] OPERATORS=
-		{
-			new PsyOperator.Arity21<PsyObject, PsyProc>("iterate", PsyStream::psyIterate),
-		};
-	
 }
