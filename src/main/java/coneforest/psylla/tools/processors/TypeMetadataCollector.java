@@ -17,14 +17,14 @@ import javax.tools.Diagnostic;
 
 @SupportedAnnotationTypes({"coneforest.psylla.Type"})
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
-public class TypeAnnotationProcessor extends AbstractProcessor
+public class TypeMetadataCollector extends AbstractProcessor
 {
 	@Override
-	public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv)
+	public boolean process(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv)
 	{
 		final var annotatedElements=roundEnv.getElementsAnnotatedWith(coneforest.psylla.Type.class);
 
-		final var td=options.get("typemap.dir");
+		final var td=options.get("coneforest.psylla.tools.processors.TypeMetadataCollector.typemapDir");
 
 		for(final var element: annotatedElements)
 		{
@@ -48,7 +48,7 @@ public class TypeAnnotationProcessor extends AbstractProcessor
 	@Override
 	public Set<String> getSupportedOptions()
 	{
-		return Set.of("typemap.dir");
+		return Set.of("coneforest.psylla.tools.processors.TypeMetadataCollector.typemapDir");
 	}
 
 	@Override

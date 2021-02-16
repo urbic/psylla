@@ -75,7 +75,6 @@ public class PsyComplex
 	*
 	*	@return a Ψ-{@code real} imaginary part.
 	*/
-
 	public PsyReal psyImagPart()
 	{
 		return new PsyReal(im);

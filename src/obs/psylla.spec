@@ -39,6 +39,7 @@ BuildRequires:	locales-ru
 %global jline1_jar %{_jnidir}/jline1/jline-1.0.jar
 %endif
 BuildRequires:	mvn(jline:jline:1)
+BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)
 Requires:		mvn(jline:jline:1)
 BuildRequires:	junit >= 4.0
 BuildRequires:	ant-junit

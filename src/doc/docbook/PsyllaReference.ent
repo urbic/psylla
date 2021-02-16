@@ -72,6 +72,7 @@
 <!ENTITY PsyllaReference_Types_Details_scalar				SYSTEM "PsyllaReference_Types_Details_scalar.docbook">
 <!ENTITY PsyllaReference_Types_Details_set					SYSTEM "PsyllaReference_Types_Details_set.docbook">
 <!ENTITY PsyllaReference_Types_Details_setlike				SYSTEM "PsyllaReference_Types_Details_setlike.docbook">
+<!ENTITY PsyllaReference_Types_Details_streamlike			SYSTEM "PsyllaReference_Types_Details_streamlike.docbook">
 <!ENTITY PsyllaReference_Types_Details_string				SYSTEM "PsyllaReference_Types_Details_string.docbook">
 <!ENTITY PsyllaReference_Types_Details_stringreader			SYSTEM "PsyllaReference_Types_Details_stringreader.docbook">
 <!ENTITY PsyllaReference_Types_Details_stringwriter			SYSTEM "PsyllaReference_Types_Details_stringwriter.docbook">

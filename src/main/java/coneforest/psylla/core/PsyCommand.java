@@ -4,6 +4,7 @@ import coneforest.psylla.*;
 /**
 *	A representation of Ψ-{@code command} object.
 */
+@Type("command")
 public class PsyCommand
 	extends PsyName
 {

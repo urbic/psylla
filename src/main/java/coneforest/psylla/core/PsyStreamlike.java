@@ -10,7 +10,10 @@ public interface PsyStreamlike<T extends PsyObject>
 		long count=0;
 		final var iterator=iterator();
 		while(iterator.hasNext())
+		{
+			iterator.next();
 			count++;
+		}
 		return PsyInteger.valueOf(count);
 	}
 
@@ -43,6 +46,104 @@ public interface PsyStreamlike<T extends PsyObject>
 				}
 			};
 
+	}
+
+	default public PsyStreamlike<PsyObject> psyMap(final PsyProc oProc)
+		throws PsyException
+	{
+		//final var interpreter=PsyContext.psyCurrentContext();
+		//final var ostack=interpreter.operandStack();
+		final var parentIterator=iterator();
+		return new PsyStreamlike<PsyObject>()
+			{
+				@Override
+				public java.util.Iterator<PsyObject> iterator()
+				{
+					return new java.util.Iterator<PsyObject>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsyObject next()
+							{
+								return (oProc.<T, PsyObject>asFunction()).apply(parentIterator.next());
+							}
+						};
+				}
+
+			};
+	}
+
+	/**
+	*	Returns a Ψ-{@code streamlike} over elements of this object that
+	*	satisfies the criterium calculated during Ψ-{@code proc} invocation.
+	*
+	*	@param oProc a procedure
+	*	@return an iterable
+	*/
+	default public PsyStreamlike<T> psyFilter(final PsyProc oProc)
+		throws PsyException
+	{
+		final var interpreter=PsyContext.psyCurrentContext();
+		final var ostack=interpreter.operandStack();
+		final var parentIterator=iterator();
+		return new PsyStreamlike<T>()
+			{
+				@Override
+				public java.util.Iterator<T> iterator()
+				{
+					return new java.util.Iterator<T>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								// TODO: move code to next()
+								//try
+								//{
+									while(parentIterator.hasNext())
+									{
+										nextObject=parentIterator.next();
+										//return (oProc.<T, PsyObject>asFunction(interpreter)).apply(parentIterator.next());
+										/*ostack.push((PsyObject)nextObject);
+										final int loopLevel=interpreter.pushLoopLevel();
+										oProc.invoke(interpreter);
+										interpreter.handleExecutionStack(loopLevel);
+										ostack.popOperands(1);
+										boolean check=ostack.<PsyBoolean>getBacked(0).booleanValue();*/
+										boolean check=(oProc.<T>asPredicate()).test(nextObject);
+										if(interpreter.getStopFlag())
+											break;
+										if(check)
+											return true;
+									}
+								//}
+								//catch(final PsyException e)
+								//{
+								//	this.e=e;
+								//	return true;
+								//}
+								return false;
+							}
+
+							@Override
+							public T next()
+							{
+								if(e!=null)
+									throw new java.util.NoSuchElementException();
+								return nextObject;
+							}
+
+							private PsyException e;
+
+							private T nextObject;
+						};
+				}
+
+			};
 	}
 
 	/*
@@ -82,28 +183,6 @@ public interface PsyStreamlike<T extends PsyObject>
 	default public void psyForAll(final PsyObject oProc)
 		throws PsyException
 	{
-		/*
-		final Interpreter interpreter=(Interpreter)PsyContext.psyCurrentContext();
-		final OperandStack ostack=interpreter.operandStack();
-		final int loopLevel=interpreter.pushLoopLevel();
-		try
-		{
-			for(final T o: this)
-			{
-				ostack.push(o);
-				oProc.invoke(interpreter);
-				interpreter.handleExecutionStack(loopLevel);
-				if(interpreter.getStopFlag() || interpreter.getExitFlag())
-					break;
-			}
-		}
-		catch(final java.util.ConcurrentModificationException e)
-		{
-			throw new PsyConcurrentModificationException();
-		}
-		interpreter.popLoopLevel();
-		interpreter.setExitFlag(false);
-		*/
 		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
 		final java.util.Iterator<T> iterator=iterator();
@@ -132,6 +211,16 @@ public interface PsyStreamlike<T extends PsyObject>
 						PsyContext.psyCurrentContext().popLoopLevel();
 				}
 			});
+	}
+
+	default public T psyReduce(final T oIdentity, final PsyProc oProc)
+	{
+		T oIdent=oIdentity;
+		final var iterator=iterator();
+		final var op=oProc.<T>asBinaryOperator();
+		while(iterator.hasNext())
+			oIdent=op.apply(oIdent, iterator.next());
+		return oIdent;
 	}
 
 	public java.util.Iterator<T> iterator();

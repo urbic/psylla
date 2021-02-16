@@ -3,7 +3,7 @@
 <title><type>logical</type></title>
 
 <para>
-The object of this type serve as operands to logical operations such as
+The objects of this type serve as operands to logical operations such as
 disjunction, conjunction, negation and exclusive disjunction.
 </para>
 

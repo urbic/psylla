@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_evaluable">
-<title><type>evaluable</type></title>
+<section xml:id="PsyllaReference_Types_Details_streamlike">
+<title><type>streamlike</type></title>
 
 <para>
 TODO
@@ -12,7 +12,7 @@ TODO
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_evaluable.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_streamlike.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

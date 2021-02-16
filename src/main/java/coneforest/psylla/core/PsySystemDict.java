@@ -71,8 +71,6 @@ public class PsySystemDict
 			new PsyOperator.Arity11<PsyStringy>("uppercase", PsyStringy::psyUpperCase),
 
 			// "iterable"
-			new PsyOperator.Arity21<PsyIterable, PsyProc>("filter", PsyIterable::psyFilter),
-			new PsyOperator.Arity21<PsyIterable, PsyProc>("map", PsyIterable::psyMap),
 
 			// "random"
 			new PsyOperator.Arity01("random", PsyRandom::new),
@@ -219,7 +217,11 @@ public class PsySystemDict
 			new PsyOperator.Arity11<PsyIndexed>("values", PsyIndexed::psyValues),
 
 			// "streamlike"
+			new PsyOperator.Arity11<PsyStreamlike>("count", PsyStreamlike::psyCount),
+			new PsyOperator.Arity21<PsyStreamlike, PsyProc>("filter", PsyStreamlike::psyFilter),
 			new PsyOperator.Arity20<PsyStreamlike, PsyObject>("forall", PsyStreamlike::psyForAll),
+			new PsyOperator.Arity21<PsyStreamlike, PsyProc>("map", PsyStreamlike::psyMap),
+			new PsyOperator.Arity31<PsyStreamlike, PsyObject, PsyProc>("reduce", PsyStreamlike::psyReduce),
 
 			// "appendable"
 			new PsyOperator.Arity20<PsyAppendable, PsyObject>("append", PsyAppendable::psyAppend),

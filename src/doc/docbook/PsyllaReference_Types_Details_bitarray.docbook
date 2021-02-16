@@ -17,7 +17,8 @@ A bit array.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamlike"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -25,6 +26,11 @@ A bit array.
 </imageobject>
 </mediaobject>
 </informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitset"/>.
 </formalpara>
 
 </section>

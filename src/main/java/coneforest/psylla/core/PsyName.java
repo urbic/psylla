@@ -1,9 +1,10 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
 /**
 *	A representation of Ψ-{@code name}, a type of immutable string.
 */
-@coneforest.psylla.Type("name")
+@Type("name")
 public class PsyName
 	implements
 		PsyAtomic,

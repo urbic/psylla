@@ -131,6 +131,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_scalar;
 &PsyllaReference_Types_Details_set;
 &PsyllaReference_Types_Details_setlike;
+&PsyllaReference_Types_Details_streamlike;
 &PsyllaReference_Types_Details_string;
 &PsyllaReference_Types_Details_stringreader;
 &PsyllaReference_Types_Details_stringwriter;

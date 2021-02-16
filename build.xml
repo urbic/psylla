@@ -39,6 +39,7 @@
 	<property name="target.src.main.java" location="${target.src.main}/java"/>
 	<property name="target.doc" location="${target}/doc"/>
 	<property name="target.doc.apidocs"  location="${target.doc}/apidocs"/>
+	<property name="target.dot"  location="${target}/dot"/>
 	<property name="target.classes" location="${target}/classes"/>
 	<property name="target.lib"  location="${target}/lib"/>
 	<property name="target.bin"  location="${target}/bin"/>
@@ -60,23 +61,21 @@
 	<path id="classpath.main">
 		<pathelement path="${target.classes}"/>
 		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
-		<pathelement path="${config.datadir}/java/jline.jar"/><!-- For Debian -->
+		<pathelement path="${config.javadir}/jline.jar"/><!-- For Debian -->
 		<pathelement path="${ant.core.lib}"/>
 		<pathelement path="${config.datadir}/ant/lib/ant-junit.jar"/>
 	</path>
 
 	<path id="classpath.test">
-		<!--pathelement path="${target.lib}/${project.name}.jar"/-->
 		<pathelement path="${target.classes}"/>
 		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
-		<pathelement path="${config.datadir}/java/jline.jar"/><!-- For Debian -->
-		<pathelement path="${config.datadir}/java/junit4.jar"/>
-		<pathelement path="${config.datadir}/java/junit.jar"/><!-- For Mageia -->
+		<pathelement path="${config.javadir}/jline.jar"/><!-- For Debian -->
+		<pathelement path="${config.javadir}/junit4.jar"/>
+		<pathelement path="${config.javadir}/junit.jar"/><!-- For Mageia -->
 	</path>
 
 	<xmlcatalog id="xmlcatalog.xslt">
 		<catalogpath>
-			<!--pathelement location="${src.docbook}/xmlcatalog"/-->
 			<pathelement location="${sysconfdir.xml}/catalog"/>
 			<pathelement location="${sysconfdir.xml}/docbook5-xsl-stylesheets.xml"/>
 			<pathelement location="${sysconfdir.xml}/docbook-xsl-ns.xml"/>
@@ -85,15 +84,15 @@
 	</xmlcatalog>
 
 	<path id="classpath.xslt">
-		<pathelement location="${config.datadir}/java/saxon6.jar"/>
-		<pathelement location="${config.datadir}/xml/docbook/stylesheet/nwalsh5/current/extensions/saxon65.jar"/>
+		<pathelement location="${config.javadir}/saxon6.jar"/>
+		<pathelement location="${config.javadir}/docbook-xsl-saxon.jar"/>
 		<pathelement location="${target.lib}/saxon65.jar"/>
-		<pathelement location="${config.datadir}/java/xslthl.jar"/>
+		<pathelement location="${config.javadir}/xslthl.jar"/>
 
 		<!-- for Debian -->
-		<pathelement location="${config.datadir}/java/saxon-6.5.5.jar"/>
-		<pathelement location="${config.datadir}/java/docbook-xsl-saxon.jar"/>
-		<pathelement location="${config.datadir}/java/xercesImpl.jar"/>
+		<pathelement location="${config.javadir}/saxon-6.5.5.jar"/>
+		<pathelement location="${config.javadir}/docbook-xsl-saxon.jar"/>
+		<pathelement location="${config.javadir}/xercesImpl.jar"/>
 	</path>
 
 	<!-- Import supplementary Ant projects -->
@@ -127,7 +126,6 @@
 			description="Compile Java sources"
 			depends="copy.resources,compile.jj"
 			>
-		<mkdir dir="${target.classes}/META-INF/${project.name}/types"/>
 		<javac
 			srcdir="${src.main.java}"
 			destdir="${target.classes}"
@@ -143,6 +141,8 @@
 			<compilerarg value="-proc:none"/>
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
+		<mkdir dir="${target.classes}/META-INF/${project.name}/types"/>
+		<mkdir dir="${target.dot}"/>
 		<javac
 			srcdir="${src.main.java}:${target.src.main.java}:${src.test.java}"
 			destdir="${target.classes}"
@@ -158,7 +158,8 @@
 			<compilerarg value="-Xprefer:source"/>
 			<compilerarg value="-implicit:class"/>
 			<compilerarg value="-Xlint:deprecation"/>
-			<compilerarg value="-Atypemap.dir=${target.classes}/META-INF/${project.name}/types/"/>
+			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.typemapDir=${target.classes}/META-INF/${project.name}/types/"/>
+			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
 			<!--compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/-->
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
@@ -353,14 +354,6 @@
 		</copy>
 		<copy todir="${target.mime}">
 			<fileset dir="${src.mime}" includes="**/*"/>
-		</copy>
-	</target>
-
-	<target name="version">
-		<copy tofile="${target.doc}/version.ent">
-            <string><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<!ENTITY ${project.name}.version "v${project.version}">
-]]></string>
 		</copy>
 	</target>
 

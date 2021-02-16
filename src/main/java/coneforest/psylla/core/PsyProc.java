@@ -85,8 +85,7 @@ public class PsyProc
 		return this;
 	}
 
-	public <T extends PsyObject> java.util.function.Predicate<T>
-		asPredicate()
+	public <T extends PsyObject> java.util.function.Predicate<T> asPredicate()
 	{
 		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
@@ -105,8 +104,7 @@ public class PsyProc
 			};
 	}
 
-	public <T extends PsyObject, R extends PsyObject> java.util.function.Function<T, R>
-		asFunction()
+	public <T extends PsyObject, R extends PsyObject> java.util.function.Function<T, R> asFunction()
 	{
 		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
@@ -125,8 +123,7 @@ public class PsyProc
 			};
 	}
 
-	public <T extends PsyObject> java.util.function.UnaryOperator<T>
-		asUnaryOperator()
+	public <T extends PsyObject> java.util.function.UnaryOperator<T> asUnaryOperator()
 	{
 		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
@@ -145,4 +142,23 @@ public class PsyProc
 			};
 	}
 
+	public <T extends PsyObject> java.util.function.BinaryOperator<T> asBinaryOperator()
+	{
+		final var interpreter=PsyContext.psyCurrentContext();
+		final var ostack=interpreter.operandStack();
+		return new java.util.function.BinaryOperator<T>()
+			{
+				@Override
+				public T apply(final T o1, final T o2)
+				{
+					ostack.push(o1);
+					ostack.push(o2);
+					final var loopLevel=interpreter.pushLoopLevel();
+					invoke();
+					interpreter.handleExecutionStack(loopLevel);
+					return (T)ostack.pop();
+					// TODO: stop
+				}
+			};
+	}
 }

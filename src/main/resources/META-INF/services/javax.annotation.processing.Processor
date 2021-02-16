@@ -1,1 +1,2 @@
-coneforest.psylla.tools.processors.TypeAnnotationProcessor
+coneforest.psylla.tools.processors.TypeMetadataCollector
+coneforest.psylla.tools.processors.TypeHierarchyBuilder
