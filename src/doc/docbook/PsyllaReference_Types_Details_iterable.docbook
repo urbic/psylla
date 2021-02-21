@@ -3,12 +3,14 @@
 <title><type>iterable</type></title>
 
 <para>
-Тип контейнеров с итератором элементов.
+TODO
 </para>
 
 <formalpara>
 &TitleInherits;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>
@@ -16,6 +18,7 @@
 </imageobject>
 </mediaobject>
 </informalfigure>
+
 </formalpara>
 
 </section>

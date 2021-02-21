@@ -27,15 +27,6 @@ public class Interpreter
 		}
 	}
 
-	public Interpreter(final DictStack dstack)
-	{
-		ostack=new OperandStack();
-		estack=new ExecutionStack();
-		procstack=new ProcStack();
-		this.dstack=(DictStack)dstack.clone();
-		pushStopLevel();
-	}
-
 	/*public void importType(final String typeName)
 		throws PsyException
 	{
@@ -105,8 +96,6 @@ public class Interpreter
 		final var prefixOffset=name.indexOf('@');
 		if(prefixOffset==-1)
 			return (T)dstack.load(name);
-		//return (T)PsyNamespace.namespace(name.substring(0, prefixOffset))
-		//		.get(name.substring(prefixOffset+1));
 		return (T)nspool.get(name.substring(0, prefixOffset))
 				.get(name.substring(prefixOffset+1));
 	}
@@ -414,6 +403,7 @@ public class Interpreter
 		}
 	}
 
+	// TODO
 	public void showStacks()
 	{
 		System.out.print("Operand stack:\n\t");

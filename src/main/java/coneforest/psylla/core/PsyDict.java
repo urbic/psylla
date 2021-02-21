@@ -86,7 +86,7 @@ public class PsyDict
 	}
 
 	@Override
-	public PsyDict psySlice(final PsyIterable<PsyStringy> oKeys)
+	public PsyDict psySlice(final PsyIterable<PsyStringy> oKeys) // TODO
 		throws PsyException
 	{
 		final var values=new PsyDict();
@@ -96,37 +96,15 @@ public class PsyDict
 	}
 
 	@Override
-	public PsyIterable<PsyStringy> psyKeys()
+	public PsyStream psyKeys()
 	{
-		return new PsyIterable<PsyStringy>()
-			{
-				@Override
-				public java.util.Iterator<PsyStringy> iterator()
-				{
-					return new java.util.Iterator<PsyStringy>()
-						{
-							@Override
-							public boolean hasNext()
-							{
-								return parentIterator.hasNext();
-							}
-
-							@Override
-							public PsyStringy next()
-							{
-								return new PsyName(parentIterator.next());
-							}
-
-							private final java.util.Iterator<String> parentIterator
-								=dict.keySet().iterator();
-						};
-				}
-			};
+		return new PsyStream(dict.keySet().stream().<PsyStringy>map(PsyName::new));
 	}
 
 	@Override
 	public PsyStream psyStream()
 	{
+		//return new PsyStream(stream());
 		return new PsyStream(java.util.stream.StreamSupport.<PsyObject>stream(spliterator(), false));
 	}
 

@@ -1,0 +1,4 @@
+Error: /filenotfound in --filesize--
+Operand stack:
+	/NOSUCHFILE
+Execution stack: (empty)

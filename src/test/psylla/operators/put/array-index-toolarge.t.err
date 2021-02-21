@@ -1,0 +1,4 @@
+Error: /rangecheck in --put--
+Operand stack:
+	[/a /b /c] 3 /x
+Execution stack: (empty)

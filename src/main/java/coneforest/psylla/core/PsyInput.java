@@ -5,6 +5,7 @@ public class PsyInput
 	implements
 		PsyCloseable,
 		PsyReadable,
+		PsyReady,
 		PsyResetable
 {
 	public PsyInput(final java.io.InputStream input)
@@ -68,7 +69,7 @@ public class PsyInput
 
 	@Override
 	public PsyBoolean psyReady()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -81,13 +82,12 @@ public class PsyInput
 	}
 
 	@Override
-	public PsyBoolean psySkip(final PsyInteger oCount)
-		throws PsyException
+	public PsyInteger psySkip(final PsyInteger oCount)
+		throws PsyRangeCheckException, PsyIOErrorException
 	{
-		final long count=oCount.longValue();
 		try
 		{
-			return PsyBoolean.valueOf(count==input.skip(count));
+			return PsyInteger.valueOf(input.skip(oCount.longValue()));
 		}
 		catch(final IllegalArgumentException e)
 		{

@@ -7,7 +7,8 @@ import coneforest.psylla.*;
 */
 @Type("readable")
 public interface PsyReadable
-	extends PsyObject
+	extends
+		PsyReady
 {
 
 	public int read()
@@ -53,11 +54,11 @@ public interface PsyReadable
 	*
 	*	@param oCount a Ψ-{@code integer} representing the number of characters
 	*	to be skipped.
-	*	@return a Ψ-{@code boolean} indicating whether all the characters were
-	*	skipped successfully
+	*	@return a Ψ-{@code integer} representing the number of characters
+	*	actually skipped.
 	*	@throws PsyException when an error occurs.
 	*/
-	public PsyBoolean psySkip(final PsyInteger oCount)
+	public PsyInteger psySkip(final PsyInteger oCount)
 		throws PsyException;
 
 	/**
@@ -66,9 +67,10 @@ public interface PsyReadable
 	*
 	*	@return {@code true} if this object is ready to be read, and {@code
 	*	false} otherwise.
-	*	@throws PsyException when I/O error occurs.
+	*	@throws PsyIOErrorException when I/O error occurs.
 	*/
+	@Override
 	public PsyBoolean psyReady()
-		throws PsyException;
+		throws PsyIOErrorException;
 
 }

@@ -231,12 +231,12 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_hypot" xrefstyle="template:%t"/></term>
-<listitem>гипотенуза по двум катетам</listitem>
+<listitem>square root of the sum of squares</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_idiv" xrefstyle="template:%t"/></term>
-<listitem>целочисленное отношение двух целых чисел</listitem>
+<listitem>integer divide</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -256,7 +256,7 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_mod" xrefstyle="template:%t"/></term>
-<listitem>остаток от деления двух целых чисел</listitem>
+<listitem>modulo</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -444,7 +444,7 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_signalerror" xrefstyle="template:%t"/></term>
-<listitem>вызов обработчика ошибки</listitem>
+<listitem>TODO</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -518,7 +518,7 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_bind" xrefstyle="template:%t"/></term>
-<listitem>рекурсивная замена имён операторов на сами операторы в массиве</listitem>
+<listitem>resolve operator names in procedure</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -602,7 +602,7 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_filter" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsyllaReference_Operators_Details_filtered" xrefstyle="template:%t"/></term>
 <listitem>отбор элементов контейнера, удовлетворяющих условию</listitem>
 </varlistentry>
 
@@ -668,7 +668,7 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_map" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsyllaReference_Operators_Details_mapped" xrefstyle="template:%t"/></term>
 <listitem>поэлементное применение процедуры в контейнере</listitem>
 </varlistentry>
 
@@ -784,7 +784,7 @@ container</listitem>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_isinstance" xrefstyle="template:%t"/></term>
-<listitem>принадлежит ли объект типу</listitem>
+<listitem>object is the instance of the type?</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1492,7 +1492,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_files;
 &PsyllaReference_Operators_Details_filesize;
 &PsyllaReference_Operators_Details_filewriter;
-&PsyllaReference_Operators_Details_filter;
+&PsyllaReference_Operators_Details_filtered;
 &PsyllaReference_Operators_Details_find;
 &PsyllaReference_Operators_Details_findall;
 &PsyllaReference_Operators_Details_flipbit;
@@ -1536,7 +1536,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_log;
 &PsyllaReference_Operators_Details_loop;
 &PsyllaReference_Operators_Details_lt;
-&PsyllaReference_Operators_Details_map;
+&PsyllaReference_Operators_Details_mapped;
 &PsyllaReference_Operators_Details_mark;
 &PsyllaReference_Operators_Details_matcher;
 &PsyllaReference_Operators_Details_matches;
@@ -1646,3 +1646,7 @@ xrefstyle="template:%t"/>.
 </section>
 
 </chapter>
+<!--
+vim:indentexpr=
+vim:filetype=docbkxml
+-->

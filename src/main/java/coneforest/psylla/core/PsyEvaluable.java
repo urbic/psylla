@@ -11,9 +11,8 @@ public interface PsyEvaluable
 {
 
 	/**
-	*	Evaluate this object in the context of given interpreter.
+	*	Evaluate this object in the current context.
 	*
-	*	@param interpreter an interpreter.
 	*	@throws PsyException when an error occurs durind evaluation of this
 	*	object.
 	*/

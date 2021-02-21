@@ -32,19 +32,18 @@ Returns <constant>true</constant> if
 </formalpara>
 
 <para>
-Понятие равенства объектов зависит от их типов. Объекты одного и того же
-простого типа считаются равными, если совпадают их значения. Объекты числовых
-типов считаются равными, если представляют одно и то же математическое число.
-Объекты типа <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_stringy"/> считаются равными, если их
-строковые значения совпадают. Объекты прочих сложных типов равны, только если
-они идентичны.
+The meaning of object equality depends on their types. Objects of the same
+simple type are considered equal if their values are the same. Objects of
+numeric types are considered equal if they represent the same mathematical
+number. The objects of the <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_stringy"/> type are considered equal if
+their string values are the same. Objects of other complex types are equal only
+if they are identical.
 </para>
 
 <para>
-Следует принимать во внимание, что при математических вычислениях возможна
-потеря точности из-за округления, так что ожидаемое равенство может быть
-нарушено.
+It should be noted that in mathematical calculations, there may be loss of
+precision due to rounding, so that the expected equality may be violated.
 </para>
 
 <formalpara>

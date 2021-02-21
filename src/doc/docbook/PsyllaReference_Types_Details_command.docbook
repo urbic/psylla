@@ -15,6 +15,8 @@ A command.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>.
 <informalfigure>
 <mediaobject>

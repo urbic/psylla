@@ -1,4 +1,4 @@
 Error: /rangecheck in --index--
 Operand stack:
-	 /a /b /c -1
+	/a /b /c -1
 Execution stack: (empty)

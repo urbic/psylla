@@ -25,7 +25,7 @@ public class Psylla
 		}
 		catch(final java.io.FileNotFoundException e)
 		{
-			System.out.println(Messages.format("scriptNotFound", e.getLocalizedMessage()));
+			System.out.println(Messages.format("badScript", e.getLocalizedMessage()));
 			System.exit(1);
 		}
 	}

@@ -1,0 +1,4 @@
+Error: /rangecheck in --dicttomark--
+Operand stack:
+	%mark% /a 0 /b 1 /c
+Execution stack: (empty)

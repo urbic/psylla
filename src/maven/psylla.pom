@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>@project.maven.groupId@</groupId>
+	<artifactId>@project.maven.artifactId@</artifactId>
+	<version>@project.maven.version@</version>
+
+	<name>@project.name@</name>
+	<description>@project.description@</description>
+	<url>@project.url@</url>
+
+	<licenses>
+		<license>
+			<name>@project.license.name@</name>
+			<url>@project.license.url@</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>@project.scm.connection@</connection>
+		<developerConnection>@project.scm.developerConnection@</developerConnection>
+		<url>@project.scm.url@</url>
+	</scm>
+
+	<developers>
+		<developer>
+			<id>@project.developer.id@</id>
+			<name>@project.developer.name@</name>
+			<email>@project.developer.email@</email>
+			<url>@project.developer.url@</url>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>@project.developer.timezone@</timezone>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.java.dev.javacc</groupId>
+			<artifactId>javacc</artifactId>
+			<version>[5.0,)</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>[4.11,)</version>
+		</dependency>
+		<dependency>
+			<groupId>jline</groupId>
+			<artifactId>jline</artifactId>
+			<version>0.9.94</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant-junit</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant-apache-resolver</artifactId>
+			<version>[1.10.9,)</version>
+		</dependency>
+		<dependency>
+			<groupId>xml-resolver</groupId>
+			<artifactId>xml-resolver</artifactId>
+			<version>[1.2,)</version>
+		</dependency>
+		<dependency>
+			<groupId>saxon</groupId>
+			<artifactId>saxon</artifactId>
+			<version>(,6.5.5]</version>
+		</dependency>
+	</dependencies>
+
+</project>

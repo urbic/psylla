@@ -10,15 +10,9 @@ import coneforest.psylla.*;
 @Type("iterable")
 public interface PsyIterable<T extends PsyObject>
 	extends
-		PsyStreamlike<T>,
+		PsyStreamable<T>,
 		Iterable<T>
 {
-
-	default public void psyForAll(final PsyObject oProc)
-		throws PsyException
-	{
-		psyStream().psyForAll(oProc);
-	}
 
 	default public PsyArray psyToArray()
 		throws PsyException
@@ -29,7 +23,7 @@ public interface PsyIterable<T extends PsyObject>
 		return oArray;
 	}
 
-	default public PsyStream psyStream()
+	default public PsyStreamlike<T> psyStream()
 	{
 		return new PsyStream(java.util.stream.StreamSupport.<T>stream(spliterator(), false));
 	}

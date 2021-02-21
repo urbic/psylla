@@ -1,5 +1,7 @@
 package coneforest.psylla.engine;
 
+import coneforest.psylla.core.*;
+
 /**
 *	The Psylla language scripting engine.
 */
@@ -10,6 +12,7 @@ public class PsyllaScriptEngine
 	{
 		this.factory=factory;
 		interpreter=new coneforest.psylla.Interpreter();
+		interpreter.start();
 	}
 
 	@Override
@@ -21,11 +24,6 @@ public class PsyllaScriptEngine
 	@Override
 	public javax.script.Bindings createBindings()
 	{
-		/*
-		SimpleEnvironment env = new SimpleEnvironment();
-		Bindings bindings = new KawaScriptBindings(env);
-		return bindings;
-		*/
 		return null;
 	}
 

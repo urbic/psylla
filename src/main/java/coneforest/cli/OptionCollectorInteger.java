@@ -1,5 +1,8 @@
 package coneforest.cli;
 
+/**
+*	An option holding a list of {@link java.lang.Integer} values.
+*/
 public class OptionCollectorInteger extends OptionCollector<Integer>
 {
 	public OptionCollectorInteger(final String names)
@@ -7,6 +10,7 @@ public class OptionCollectorInteger extends OptionCollector<Integer>
 		super(names);
 	}
 
+	@Override
 	public Integer parseArg(final String arg)
 		throws ProcessingException
 	{

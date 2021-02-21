@@ -17,7 +17,7 @@
 	xml:lang="en"
 	>
 
-<title>The Psylla Language — Complete Reference</title>
+<title>The Psylla Language. Complete Reference</title>
 
 <author>
 <person>
@@ -31,7 +31,7 @@
 
 &PsyllaReference_Preface;
 &PsyllaReference_Installation;
-&PsyllaReference_Interpreter;
+&PsyllaReference_Usage;
 &PsyllaReference_Language;
 &PsyllaReference_Types;
 &PsyllaReference_Operators;

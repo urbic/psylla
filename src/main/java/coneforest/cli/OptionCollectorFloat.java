@@ -1,5 +1,8 @@
 package coneforest.cli;
 
+/**
+*	An option holding a list of {@link java.lang.Float} values.
+*/
 public class OptionCollectorFloat extends OptionCollector<Float>
 {
 	public OptionCollectorFloat(final String names)
@@ -7,6 +10,7 @@ public class OptionCollectorFloat extends OptionCollector<Float>
 		super(names);
 	}
 
+	@Override
 	public Float parseArg(String arg)
 		throws ProcessingException
 	{

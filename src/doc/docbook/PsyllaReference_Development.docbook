@@ -6,23 +6,22 @@
 <title>Extension</title>
 
 <para>
-Расширения языка производится посредством добавления новых операторов и
-создания новых типов.
+The extension of the language is done by adding new operators and types.
 </para>
 
 <section xml:id="PsyllaReference_Development_Extension_NewOperators">
-<title>Добавление новых операторов</title>
+<title>Adding new operators</title>
 
 <para>
-Новый оператор реализуется как подкласс класса
-<classname>coneforest.psylla.core.PsyOperator</classname>. В классе оператора следует
-переопределить метод <methodname
-xlink:href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(coneforest.psylla.Interpreter)">invoke(coneforest.psylla.Interpreter)</methodname>.
+The new operator is implemented as a subclass of the
+<classname>coneforest.psylla.core.PsyOperator</classname> class. In the
+operator class, you should override the method <methodname
+xlink:href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(coneforest.psylla.Interpreter)">invoke()</methodname>.
 Этот метод получает интерпретатор как параметр и выполняет требуемое действие,
 нужным образом манипулируя с интерпретатором.
 </para>
 
-<para>
+<!--para>
 По умолчанию имя оператора выводится из имени его класса. Встроенные операторы
 Psylla определены в классах, чьё имя начинается со знака подчёркивания, за
 которым следует имя оператора. К примеру, оператор <token
@@ -32,7 +31,7 @@ xlink:href="../../javadoc/coneforest/psylla/core/_dup.html">coneforest.psylla.sy
 xlink:href="../../javadoc/coneforest/psylla/core/PsyOperator.html#getName()">coneforest.psylla.core.PsyOperator.getName()</methodname>
 возвращает имя класса с удалённым первым символом. Иная схема наименования
 классов потребует переопределения этого метода.
-</para>
+</para-->
 
 </section>
 

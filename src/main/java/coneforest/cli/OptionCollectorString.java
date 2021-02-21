@@ -1,5 +1,8 @@
 package coneforest.cli;
 
+/**
+*	An option holding a list of {@link java.lang.String} values.
+*/
 public class OptionCollectorString
 	extends OptionCollector<String>
 {

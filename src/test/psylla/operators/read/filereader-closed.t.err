@@ -1,0 +1,4 @@
+Error: /ioerror in --read--
+Operand stack:
+	%filereader%
+Execution stack: (empty)

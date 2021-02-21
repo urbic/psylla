@@ -14,7 +14,7 @@ public class Version
 	{
 		final var type=getReleaseType();
 		return
-			getMajor()+"."+getMinor()+"."+getRevision()
+			getMajor()+"."+getMinor()+"."+getMicro()
 				+((type==null || type.length()==0)? "": "-"+type);
 	}
 
@@ -39,13 +39,13 @@ public class Version
 	}
 
 	/**
-	*	Get the revision version number.
+	*	Get the micro version number.
 	*
-	*	@return the revision version number.
+	*	@return the micro version number.
 	*/
-	public static int getRevision()
+	public static int getMicro()
 	{
-		return Integer.parseInt(Config.getProperty("project.version.revision"));
+		return Integer.parseInt(Config.getProperty("project.version.micro"));
 	}
 
 	/**

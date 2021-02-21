@@ -319,12 +319,6 @@ public class PsyBitArray
 		bitarray.clear();
 	}
 
-	/*@Override
-	public PsyStream psyStream()
-	{
-		return new PsyStream(java.util.stream.StreamSupport.<PsyBoolean>stream(spliterator(), false));
-	}*/
-
 	private final java.util.BitSet bitarray;
 	private int size;
 

@@ -70,7 +70,9 @@ public class PsySystemDict
 			new PsyOperator.Arity21<PsyStringy, PsyRegExp>("split", PsyStringy::psySplit),
 			new PsyOperator.Arity11<PsyStringy>("uppercase", PsyStringy::psyUpperCase),
 
-			// "iterable"
+			// "streamable"
+			new PsyOperator.Arity11<PsyStreamable>("stream", PsyStreamable::psyStream),
+			new PsyOperator.Arity20<PsyStreamable, PsyObject>("forall", PsyStreamable::psyForAll),
 
 			// "random"
 			new PsyOperator.Arity01("random", PsyRandom::new),
@@ -116,6 +118,7 @@ public class PsySystemDict
 
 			// "matcher"
 			new PsyOperator.Arity21<PsyStringy, PsyRegExp>("matcher", PsyMatcher::new),
+			new PsyOperator.Arity11<PsyMatcher>("matches", PsyMatcher::psyMatches),
 			new PsyOperator.Arity21<PsyMatcher, PsyStringy>("replaceall", PsyMatcher::psyReplaceAll),
 
 			// "process"
@@ -218,10 +221,12 @@ public class PsySystemDict
 
 			// "streamlike"
 			new PsyOperator.Arity11<PsyStreamlike>("count", PsyStreamlike::psyCount),
-			new PsyOperator.Arity21<PsyStreamlike, PsyProc>("filter", PsyStreamlike::psyFilter),
-			new PsyOperator.Arity20<PsyStreamlike, PsyObject>("forall", PsyStreamlike::psyForAll),
-			new PsyOperator.Arity21<PsyStreamlike, PsyProc>("map", PsyStreamlike::psyMap),
-			new PsyOperator.Arity31<PsyStreamlike, PsyObject, PsyProc>("reduce", PsyStreamlike::psyReduce),
+			new PsyOperator.Arity21<PsyStreamlike, PsyExecutable>("filtered", PsyStreamlike::psyFiltered),
+			new PsyOperator.Arity21<PsyStreamlike, PsyInteger>("limited", PsyStreamlike::psyLimited),
+			new PsyOperator.Arity21<PsyStreamlike, PsyExecutable>("mapped", PsyStreamlike::psyMapped),
+			new PsyOperator.Arity31<PsyStreamlike, PsyObject, PsyExecutable>("reduce", PsyStreamlike::psyReduce),
+			new PsyOperator.Arity21<PsyStreamlike, PsyInteger>("skipped", PsyStreamlike::psySkipped),
+			new PsyOperator.Arity21<PsyStreamlike, PsyExecutable>("sorted", PsyStreamlike::psySorted),
 
 			// "appendable"
 			new PsyOperator.Arity20<PsyAppendable, PsyObject>("append", PsyAppendable::psyAppend),
@@ -412,17 +417,24 @@ public class PsySystemDict
 								}
 							});
 					}),
-				/*new PsyOperator.Action("fork",
-					(interpreter)->
+				new PsyOperator.Action("fork",
+					()->
 						// TODO; error handling in forked context
 					{
+						final var interpreter=PsyContext.psyCurrentContext();
 						final var ostack=interpreter.operandStackBacked(1);
 
 						//ostack.ensureSize(2);
 						final PsyObject o=ostack.getBacked(0);
 
-						final Interpreter forkedInterpreter=new Interpreter(interpreter.dictStack())
+						final var forkedDtack=(DictStack)interpreter.dictStack().clone();
+						final Interpreter forkedInterpreter=new Interpreter()
 							{
+								private final DictStack dstack=forkedDtack;
+								//{
+								//	this.dstack=forkedDtack;
+								//}
+
 								@Override
 								public void run()
 								{
@@ -443,7 +455,7 @@ public class PsySystemDict
 						ostack.setSize(i);
 						ostack.push(forkedInterpreter);
 						forkedInterpreter.start();
-					}),*/
+					}),
 			new PsyOperator.Action("halt",
 				()->
 				{
@@ -480,10 +492,10 @@ public class PsySystemDict
 				{
 					final var interpreter=PsyContext.psyCurrentContext();
 					final var ostack=interpreter.operandStackBacked(1);
-					final var stdwriter=(PsyWriter)interpreter.dictStack().load("stdout");
-					stdwriter.psyWriteString(ostack.getBacked(0).psySyntax());
-					stdwriter.psyWriteString(interpreter.dictStack().load("eol"));
-					stdwriter.psyFlush();
+					final var oStdWriter=(PsyWriter)interpreter.dictStack().load("stdout");
+					oStdWriter.psyWriteString(ostack.getBacked(0).psySyntax());
+					oStdWriter.psyWriteString(interpreter.dictStack().load("eol"));
+					oStdWriter.psyFlush();
 				}),
 			new PsyOperator.Action("print",
 				()->

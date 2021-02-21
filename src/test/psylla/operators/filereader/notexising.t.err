@@ -1,0 +1,4 @@
+Error: /filenotfound in --filereader--
+Operand stack:
+	'src/test/data/FILE-NOTEXISTING'
+Execution stack: (empty)

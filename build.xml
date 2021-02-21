@@ -32,6 +32,7 @@
 	<property name="src.bin" location="${src}/bin"/>
 	<property name="src.css" location="${src}/css"/>
 	<property name="src.vim" location="${src}/vim"/>
+	<property name="src.maven" location="${src}/maven"/>
 	<property name="src.mime" location="${src}/mime"/>
 	<property name="src.logo" location="${src}/logo"/>
 	<property name="target" location="target"/>
@@ -86,12 +87,11 @@
 	<path id="classpath.xslt">
 		<pathelement location="${config.javadir}/saxon6.jar"/>
 		<pathelement location="${config.javadir}/docbook-xsl-saxon.jar"/>
-		<pathelement location="${target.lib}/saxon65.jar"/>
+		<!--pathelement location="${target.lib}/saxon65.jar"/-->
 		<pathelement location="${config.javadir}/xslthl.jar"/>
 
 		<!-- for Debian -->
 		<pathelement location="${config.javadir}/saxon-6.5.5.jar"/>
-		<pathelement location="${config.javadir}/docbook-xsl-saxon.jar"/>
 		<pathelement location="${config.javadir}/xercesImpl.jar"/>
 	</path>
 
@@ -123,9 +123,9 @@
 	</target>
 
 	<target name="compile.java"
-			description="Compile Java sources"
-			depends="copy.resources,compile.jj"
-			>
+		description="Compile Java sources"
+		depends="copy.resources,compile.jj"
+		>
 		<javac
 			srcdir="${src.main.java}"
 			destdir="${target.classes}"
@@ -163,19 +163,6 @@
 			<!--compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/-->
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
-		<native2ascii
-			src="${src.main.java}"
-			encoding="UTF-8"
-			dest="${target.classes}"
-			includes="**/*.properties"
-			ext=".properties"
-			/>
-		<echoproperties destfile="${target.classes}/coneforest/psylla/Config.properties">
-			<propertyset>
-				<propertyref prefix="config."/>
-				<propertyref prefix="project."/>
-			</propertyset>
-		</echoproperties>
 	</target>
 
 	<target name="compile"
@@ -217,6 +204,19 @@
 		<copy todir="${target.classes}">
 			<fileset dir="${src.main.resources}" includes="**"/>
 		</copy>
+		<echoproperties destfile="${target.classes}/coneforest/psylla/Config.properties">
+			<propertyset>
+				<propertyref prefix="config."/>
+				<propertyref prefix="project."/>
+			</propertyset>
+		</echoproperties>
+		<mkdir dir="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"/>
+		<echoproperties destfile="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties">
+			<propertyset>
+				<propertyref prefix="project.maven."/>
+				<mapper type="glob" from="project.maven.*" to="*"/>
+			</propertyset>
+		</echoproperties>
 	</target>
 
 	<target name="jar"
@@ -272,6 +272,23 @@
 		</psyllaunit>
 	</target>
 
+	<target name="pom"
+		description="Copy POM"
+		>
+		<mkdir dir="${target.lib}"/>
+		<copy
+			file="${src.maven}/${project.name}.pom"
+			tofile="${target.lib}/${project.name}-${project.version}.pom"
+			filtering="true"
+			overwrite="yes"
+			>
+			<filterset>
+				<propertyset>
+					<propertyref prefix="project."/>
+				</propertyset>
+			</filterset>
+		</copy>
+	</target>
 
 	<target name="test.anttask" depends="jar">
 		<taskdef
@@ -355,6 +372,14 @@
 		<copy todir="${target.mime}">
 			<fileset dir="${src.mime}" includes="**/*"/>
 		</copy>
+	</target>
+
+	<target name="docker.build">
+		<exec executable="docker">
+			<arg value="build"/>
+			<arg value="-t${project.developer.id}/${project.name}:${project.version}"/>
+			<arg value="."/>
+		</exec>
 	</target>
 
 </project>

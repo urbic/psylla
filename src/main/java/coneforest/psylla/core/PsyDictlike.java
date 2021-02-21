@@ -13,37 +13,36 @@ public interface PsyDictlike<V extends PsyObject>
 		PsyIndexed<PsyStringy, V>
 {
 
-	/*
 	@Override
-	default public void psyForAll(final PsyObject oProc)
+	default public void psyForAll(final PsyObject o)
 		throws PsyException
 	{
-		final Interpreter interpreter=(Interpreter)PsyContext.psyCurrentContext();
-		final OperandStack ostack=interpreter.operandStack();
-		final java.util.Iterator<PsyStringy> iterator=psyKeys().iterator();
+		final var interpreter=PsyContext.psyCurrentContext();
+		final var ostack=interpreter.operandStack();
+		final var keysIterator=psyKeys().stream().iterator();
 		interpreter.pushLoopLevel();
 		interpreter.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
-				public void action(final Interpreter interpreter1)
+				public void action()
 					throws PsyException
 				{
-					if(iterator.hasNext())
+					//final var interpreter1=PsyContext.psyCurrentContext();
+					if(keysIterator.hasNext())
 					{
-						final PsyStringy oKey=iterator.next();
+						final PsyStringy oKey=keysIterator.next();
 						ostack.push(oKey);
 						ostack.push(psyGet(oKey));
-						interpreter1.executionStack().push(this);
-						oProc.invoke(interpreter1);
+						//interpreter1.executionStack().push(this);
+						interpreter.executionStack().push(this);
+						o.invoke();
 					}
 					else
-					{
-						interpreter1.popLoopLevel();
-					}
+						//interpreter1.popLoopLevel();
+						interpreter.popLoopLevel();
 				}
 			});
 	}
-	*/
 
 	public V get(final String key)
 		throws PsyException;
@@ -94,43 +93,7 @@ public interface PsyDictlike<V extends PsyObject>
 	}
 
 	@Override
-	public PsyIterable<PsyStringy> psyKeys();
-
-	@Override
-	default public PsyIterable<V> psyValues()
-	{
-		return new PsyIterable<V>()
-			{
-				@Override
-				public java.util.Iterator<V> iterator()
-				{
-					return new java.util.Iterator<V>()
-						{
-							@Override
-							public boolean hasNext()
-							{
-								return parentIterator.hasNext();
-							}
-
-							@Override
-							public V next()
-							{
-								try
-								{
-									return psyGet(parentIterator.next());
-								}
-								catch(final PsyException e)
-								{
-									throw new AssertionError(e);
-								}
-							}
-
-							private final java.util.Iterator<PsyStringy> parentIterator
-								=psyKeys().iterator();
-						};
-				}
-			};
-	}
+	public PsyStreamlike<PsyStringy> psyKeys();
 
 	@Override
 	default public void psyDelete(final PsyStringy oKey)
@@ -153,15 +116,9 @@ public interface PsyDictlike<V extends PsyObject>
 		throws PsyException;
 
 	@Override
-	default public String toSyntaxString()
+	default public PsyStream psyEntries()
 	{
-		return "<"+toSyntaxStringHelper(this)+">";
-	}
-
-	@Override
-	default public PsyIterable<PsyObject> psyEntries()
-	{
-		return new PsyIterable<PsyObject>()
+		return new PsyStream(java.util.stream.StreamSupport.<PsyObject>stream(new PsyIterable<PsyObject>()
 			{
 				@Override
 				public java.util.Iterator<PsyObject> iterator()
@@ -193,37 +150,39 @@ public interface PsyDictlike<V extends PsyObject>
 							private PsyName oKey;
 
 							private java.util.Iterator<PsyStringy> parentIterator
-								=psyKeys().iterator();
+								=psyKeys().stream().iterator();
 
 						};
 				}
-			};
+			}.spliterator(),
+			false));
+		//*/
 	}
 
-	//@Override
-	default public String toSyntaxStringHelper(final PsyLengthy oLengthy)
+	@Override
+	default public String toSyntaxString()
 	{
-		StringBuilder sb=new StringBuilder();
-		if(length()>0)
-		{
-			for(final var obj: this.psyEntries())
-			{
-				if(obj instanceof PsyLengthy)
-					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsyLengthy)obj).toSyntaxString());
-				else
-					sb.append(obj.toSyntaxString());
-				sb.append(' ');
-			}
-			sb.deleteCharAt(sb.length()-1);
-		}
-		return sb.toString();
+		return toSyntaxStringHelper(new java.util.HashSet<PsyContainer<V>>());
 	}
+
+	@Override
+	default public String toSyntaxStringHelper(final java.util.Set<PsyContainer<V>> processed)
+	{
+		if(!processed.add((PsyContainer<V>)this))
+			return '%'+typeName()+'%';
+		final var sj=new java.util.StringJoiner(" ", "<", ">");
+		psyEntries().stream().forEach(o->
+			sj.add(o instanceof PsyContainer?
+				((PsyContainer<V>)o).toSyntaxStringHelper(processed):
+				o.toSyntaxString()));
+		return sj.toString();
+	}
+
 
 	@Override
 	default public void psyClear()
 	{
-		for(final var oKey: psyKeys())
-			psyUndef(oKey);
+		psyKeys().stream().forEach(this::psyUndef);
 	}
 
 }

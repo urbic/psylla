@@ -77,7 +77,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@return an enumeration of keys.
 	*/
-	public PsyIterable<K> psyKeys();
+	public PsyStreamlike<K> psyKeys();
 
 	/**
 	*	Returns a Ψ-{@code iterable} enumeration of all the values of this
@@ -85,7 +85,27 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@return an enumeration of values.
 	*/
-	public PsyIterable<V> psyValues();
+	default public PsyStreamlike<V> psyValues()
+	{
+		return new PsyStreamlike<V>()
+			{
+				@Override
+				public java.util.stream.Stream<V> stream()
+				{
+					return psyKeys().stream().<V>map(oKey->
+						{
+							try
+							{
+								return PsyIndexed.this.psyGet(oKey);
+							}
+							catch(final PsyException e)
+							{
+								return null;
+							}
+						});
+				}
+			};
+	}
 
 	/**
 	*	Returns a Ψ-{@code iterable} enumeration of all the keys and values of
@@ -93,7 +113,43 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@return an enumeration of entries.
 	*/
-	public PsyIterable<PsyObject> psyEntries();
+	public PsyStreamlike<PsyObject> psyEntries();
+	/*
+	default public PsyStreamlike<PsyObject> psyEntries()
+	{
+		return new PsyStream(java.util.stream.StreamSupport.<PsyObject>stream(new Iterable()
+			{
+				@Override
+				public java.util.Iterator<PsyObject> iterator()
+				{
+					return new java.util.Iterator<PsyObject>()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsyObject next()
+							{
+								return (flag=!flag)?
+									PsyInteger.valueOf(index++): parentIterator.next();
+							}
+
+							private boolean flag=false;
+
+							private int index=0;
+
+							private final java.util.Iterator<PsyObject> parentIterator
+								=(java.util.Iterator<PsyObject>)PsyIndexed.this.iterator();
+
+						};
+				}
+			}.spliterator(),
+			false));
+	}
+	*/
 	/*
 	default public PsyIterable<PsyObject> psyEntries()
 	{

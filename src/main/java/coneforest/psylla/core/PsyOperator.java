@@ -6,7 +6,9 @@ import coneforest.psylla.*;
 */
 @Type("operator")
 public abstract class PsyOperator
-	implements PsyAtomic
+	implements
+		PsyAtomic,
+		PsyExecutable
 {
 	public PsyOperator(final String name)
 	{
@@ -15,7 +17,7 @@ public abstract class PsyOperator
 
 	/**
 	*	Execute this object in the context of the interpreter.  Calls {@link
-	*	#invoke(Interpreter)} method.
+	*	#invoke()} method.
 	*/
 	@Override
 	public void execute()

@@ -12,7 +12,8 @@ public interface PsyArraylike<T extends PsyObject>
 	extends
 		PsyAppendable<T>,
 		PsyContainer<T>,
-		PsyIndexed<PsyInteger, T>
+		PsyIndexed<PsyInteger, T>,
+		PsySequential
 {
 
 	@Override
@@ -199,50 +200,29 @@ public interface PsyArraylike<T extends PsyObject>
 		throws PsyException;
 
 	@Override
-	default public PsyIterable<PsyInteger> psyKeys()
+	default public PsyStream psyKeys()
 	{
-		return new PsyIterable<PsyInteger>()
-			{
-				@Override
-				public java.util.Iterator<PsyInteger> iterator()
-				{
-					return new java.util.Iterator<PsyInteger>()
-						{
-							@Override
-							public boolean hasNext()
-							{
-								return index<length();
-							}
-
-							@Override
-							public PsyInteger next()
-							{
-								return PsyInteger.valueOf(index++);
-							}
-
-							private int index=0;
-						};
-				}
-			};
+		return new PsyStream(java.util.stream.IntStream.range(0, length()).mapToObj(PsyInteger::valueOf));
 	}
 
 	@Override
-	default public PsyIterable<T> psyValues()
+	default public PsyStreamlike<T> psyValues()
 	{
-		return this;
+		return new PsyStream(java.util.stream.StreamSupport.stream(spliterator(), false));
 	}
 
 	@Override
-	default public PsyIterable<PsyObject> psyEntries()
+	default public PsyStreamlike<PsyObject> psyEntries()
 	{
-		return new PsyIterable<PsyObject>()
+		return null; // TODO
+		/*return new PsyStreamlike<PsyObject>()
 			{
 				@Override
 				public void psyForAll(final PsyObject oProc)
 					throws PsyException
 				{
 					final var interpreter=PsyContext.psyCurrentContext();
-					final coneforest.psylla.OperandStack ostack=interpreter.operandStack();
+					final var ostack=interpreter.operandStack();
 					final java.util.Iterator<PsyInteger> iterator=psyKeys().iterator();
 					interpreter.pushLoopLevel();
 					interpreter.executionStack().push(new PsyOperator("#forall_continue")
@@ -269,63 +249,61 @@ public interface PsyArraylike<T extends PsyObject>
 				}
 
 				@Override
-				public java.util.Iterator<PsyObject> iterator()
+				public java.util.stream.Stream<PsyObject> stream()
 				{
-					return new java.util.Iterator<PsyObject>()
+					return new java.util.stream.Stream<PsyObject>()
 						{
-							@Override
-							public boolean hasNext()
-							{
-								return parentIterator.hasNext();
-							}
 
 							@Override
-							public PsyObject next()
+							public java.util.Iterator<PsyObject> iterator()
 							{
-								return (flag=!flag)?
-									PsyInteger.valueOf(index++): parentIterator.next();
+								return new java.util.Iterator<PsyObject>()
+									{
+										@Override
+										public boolean hasNext()
+										{
+											return parentIterator.hasNext();
+										}
+
+										@Override
+										public PsyObject next()
+										{
+											return (flag=!flag)?
+												PsyInteger.valueOf(index++): parentIterator.next();
+										}
+
+										private boolean flag=false;
+
+										private int index=0;
+
+										private final java.util.Iterator<PsyObject> parentIterator
+											=(java.util.Iterator<PsyObject>)PsyArraylike.this.iterator();
+
+									};
 							}
-
-							private boolean flag=false;
-
-							private int index=0;
-
-							private final java.util.Iterator<PsyObject> parentIterator
-								=(java.util.Iterator<PsyObject>)PsyArraylike.this.iterator();
-
 						};
 				}
 			};
-	}
-
-	@Override
-	default public PsyInteger psyCount()
-	{
-		return psyLength();
+		*/
 	}
 
 	@Override
 	default public String toSyntaxString()
 	{
-		return "["+toSyntaxStringHelper(this)+"]";
+		return toSyntaxStringHelper(new java.util.HashSet<PsyContainer<T>>());
 	}
 
-	default public String toSyntaxStringHelper(final PsyLengthy oLengthy)
+	@Override
+	default public String toSyntaxStringHelper(final java.util.Set<PsyContainer<T>> processed)
 	{
-		final var sb=new StringBuilder();
-		if(length()>0)
-		{
-			for(final var obj: this)
-			{
-				if(obj instanceof PsyLengthy)
-					sb.append(obj==oLengthy? "-"+obj.typeName()+"-": ((PsyLengthy)obj).toSyntaxString());
-				else
-					sb.append(obj.toSyntaxString());
-				sb.append(' ');
-			}
-			sb.deleteCharAt(sb.length()-1);
-		}
-		return sb.toString();
+		if(!processed.add((PsyContainer<T>)this))
+			return '%'+typeName()+'%';
+		final var sj=new java.util.StringJoiner(" ", "[", "]");
+		for(final var o: this)
+			sj.add(o instanceof PsyContainer?
+				((PsyContainer<T>)o).toSyntaxStringHelper(processed):
+				o.toSyntaxString());
+		return sj.toString();
 	}
 
 }

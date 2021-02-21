@@ -18,7 +18,6 @@ import java.nio.file.attribute.PosixFilePermission;
 /**
 *	An utility class providing filesystem-related methods.
 */
-
 @Type("filesystem")
 public class PsyFileSystem
 {
@@ -96,7 +95,7 @@ public class PsyFileSystem
 	*/
 
 	/**
-	*	Deletes a file or nonempty directory with a given name.
+	*	Deletes a file or empty directory with a given name.
 	*
 	*	@param oFileName a Ψ-{@code stringy} representing the name of a file or
 	*	directory.
@@ -142,7 +141,22 @@ public class PsyFileSystem
 		}
 	}
 
-	public static void psyCopyFile(final PsyStringy oFileName1, final PsyStringy oFileName2)
+	/**
+	*	Copies a file to the target file.
+	*
+	*	@param oSourceName a Ψ-{@code stringy} representing the name of the file to copy.
+	*	@param oTargetName a Ψ-{@code stringy} representing the name of the target file.
+	*
+	*	@throws PsyDirectoryNotEmptyException
+	*	@throws PsyFileExistsException
+	*	@throws PsyFileNotFoundException when the file or directory does not exist.
+	*	@throws PsyFileAccessDeniedException when the operation is prohibited
+	*	due to a file permission or other access check.
+	*	@throws PsySecurityErrorException when security policy is violated.
+	*	@throws PsyIOErrorException when an input/output error occurs.
+	*	@throws PsyUnsupportedException
+	*/
+	public static void psyCopyFile(final PsyStringy oSourceName, final PsyStringy oTargetName)
 		throws
 			PsyDirectoryNotEmptyException,
 			PsyFileAccessDeniedException,
@@ -154,7 +168,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			Files.copy(getPath(oFileName1), getPath(oFileName2));
+			Files.copy(getPath(oSourceName), getPath(oTargetName));
 		}
 		catch(final UnsupportedOperationException e)
 		{
@@ -618,8 +632,11 @@ public class PsyFileSystem
 	/**
 	*	Returns a Ψ-{@code name} representing the absolute path to given file.
 	*
+	*	@param oFileName a Ψ-{@code name} representing file name.
 	*	@return a Ψ-{@code name} representing the absolute path.
 	*	directory.
+	*
+	*	@throws PsyIOErrorException when an input/output error occurs.
 	*/
 	public static PsyName psyFileAbsolutePath(final PsyStringy oFileName)
 		throws
@@ -797,7 +814,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyIterable<PsyName> psyFiles(final PsyStringy oFileName)
+	public static PsyStreamlike<PsyName> psyFiles(final PsyStringy oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -807,43 +824,8 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return new PsyIterable<PsyName>()
-				{
-
-					public java.util.Iterator<PsyName> iterator()
-					{
-						return new java.util.Iterator<PsyName>()
-							{
-								@Override
-								public boolean hasNext()
-								{
-									if(directoryIterator.hasNext())
-										return true;
-									else
-										try
-										{
-											directoryStream.close();
-											return false;
-										}
-										catch(final IOException e)
-										{
-											return false;
-										}
-								}
-
-								@Override
-								public PsyName next()
-								{
-									return new PsyName(directoryIterator.next().toString());
-								}
-							};
-					}
-
-					private final DirectoryStream directoryStream
-						=Files.newDirectoryStream(getPath(oFileName));
-					private final java.util.Iterator<Path> directoryIterator
-						=directoryStream.iterator();
-				};
+			return new PsyStream(Files.list(getPath(oFileName)).<PsyName>map(
+				(final var path)->new PsyName(path.toString())));
 		}
 		catch(final NoSuchFileException e)
 		{

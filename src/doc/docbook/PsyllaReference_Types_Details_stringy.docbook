@@ -13,7 +13,8 @@
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamlike"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>

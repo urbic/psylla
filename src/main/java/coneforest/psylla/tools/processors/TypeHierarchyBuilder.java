@@ -59,7 +59,7 @@ public class TypeHierarchyBuilder
 
 		return false;
 	}
-		
+
 	private void generateGraphs(java.util.Map<String, ? extends java.util.List<String>> hierarchy)
 		throws java.io.IOException
 	{

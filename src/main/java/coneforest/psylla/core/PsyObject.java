@@ -35,10 +35,8 @@ public interface PsyObject
 	}
 
 	/**
-	*	Execute this object in the context of an interpreter. Pushes this
-	*	object into interpreter’s operand stack.
-	*
-	*	@param interpreter an interpreter.
+	*	Execute this object in the current context. Pushes this object into
+	*	interpreter’s operand stack.
 	*/
 	default public void execute()
 	{
@@ -46,10 +44,8 @@ public interface PsyObject
 	}
 
 	/**
-	*	Invoke this object in the context of an interpreter. Pushes this
-	*	object into interpreter’s operand stack.
-	*
-	*	@param interpreter an interpreter.
+	*	Invoke this object in the current context. Pushes this object into
+	*	interpreter’s operand stack.
 	*/
 	default public void invoke()
 	{

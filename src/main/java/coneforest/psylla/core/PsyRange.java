@@ -14,29 +14,45 @@ public class PsyRange
 		this.oLimit=oLimit;
 	}
 
+
 	@Override
-	public java.util.Iterator<PsyRealNumeric> iterator()
+	public java.util.stream.Stream<PsyRealNumeric> stream()
 	{
 		final boolean forward=oIncrement.psyGt(PsyInteger.ZERO).booleanValue();
-		return new java.util.Iterator<PsyRealNumeric>()
-			{
-				@Override
-				public boolean hasNext()
-				{
-					return (forward? oInitial.psyLe(oLimit): oInitial.psyGe(oLimit)).booleanValue();
-				}
+		return java.util.stream.StreamSupport.<PsyRealNumeric>stream(
+				java.util.Spliterators.<PsyRealNumeric>spliteratorUnknownSize(
+						new java.util.Iterator<PsyRealNumeric>()
+							{
+								@Override
+								public boolean hasNext()
+								{
+									return (forward? oNext.psyLe(oLimit): oNext.psyGe(oLimit)).booleanValue();
+								}
 
-				@Override
-				public PsyRealNumeric next()
-				{
-					final PsyRealNumeric oCurrent=oInitial;
-					oInitial=(PsyRealNumeric)oInitial.psyAdd(oIncrement);
-					return oCurrent;
-				}
-			};
+								@Override
+								public PsyRealNumeric next()
+								{
+									oCurrent=oNext;
+									oNext=(PsyRealNumeric)oCurrent.psyAdd(oIncrement);
+									return oCurrent;
+								}
+
+								private PsyRealNumeric oCurrent;
+								private PsyRealNumeric oNext=oInitial;
+							}, 0),
+							false);
 	}
 
-	private PsyRealNumeric oInitial;
-	private final PsyRealNumeric oIncrement, oLimit;
+	@Override
+	public String toSyntaxString()
+	{
+		return '%'+typeName()
+			+'='+oInitial.toSyntaxString()
+			+';'+oIncrement.toSyntaxString()
+			+';'+oLimit.toSyntaxString()
+			+'%';
+	}
+
+	private final PsyRealNumeric oInitial, oIncrement, oLimit;
 
 }

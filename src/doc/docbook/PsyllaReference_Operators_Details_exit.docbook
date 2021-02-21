@@ -3,16 +3,15 @@
 <title><token language="psylla">exit</token></title>
 
 <para>
-Terminates the most inner enclosing cycle context.
-<firstterm>Циклический контекст</firstterm><indexterm><primary>циклический
-контекст</primary></indexterm> — это процедура, многократно выполняющаяся одним
-из циклических операторов
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filter"/>,
+Terminates the most inner enclosing looping context. A <firstterm>looping
+context</firstterm><indexterm><primary>looping context</primary></indexterm> is
+a procedure, invoked repeatedly by one of the following control operators:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_loop"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_map"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_repeat"/>.
 Выполнение программы продолжается с объекта, следующего за циклическим
 оператором.
@@ -29,19 +28,19 @@ Terminates the most inner enclosing cycle context.
 <itemizedlist>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidexit"/> —
-when the operator is executed outside the cycle context
+when the operator is executed outside the looping context
 </listitem>
 </itemizedlist>
 </formalpara>
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filter"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_loop"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_map"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_repeat"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stop"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stopped"/>.

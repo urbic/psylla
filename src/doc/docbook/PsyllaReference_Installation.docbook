@@ -143,8 +143,8 @@ Alternatively, you can run one of example programs
 You also can run into interactive session
 
 <screen><prompt>% </prompt><userinput>./psylla.sh</userinput>
-<computeroutput>Psylla v0.10.0
-Copyright © 2014—2020, Anton Shvetz
+<computeroutput>Psylla v0.11.0
+Copyright © 2014—2021, Anton Shvetz
 
 </computeroutput><prompt>PSYLLA> </prompt><userinput>2 sqrt ?</userinput>
 <computeroutput>1.4142135623730951

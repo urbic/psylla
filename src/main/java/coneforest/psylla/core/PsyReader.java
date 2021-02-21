@@ -36,7 +36,7 @@ public class PsyReader
 
 	@Override
 	public int read()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -50,7 +50,10 @@ public class PsyReader
 
 	@Override
 	public PsyString psyReadString(final PsyInteger oCount)
-		throws PsyException
+		throws
+			PsyIOErrorException,
+			PsyLimitCheckException,
+			PsyRangeCheckException
 	{
 		final long count=oCount.longValue();
 		if(count<=0)
@@ -59,17 +62,10 @@ public class PsyReader
 			throw new PsyLimitCheckException();
 		try
 		{
-			///*
-			final CharBuffer buffer=CharBuffer.allocate((int)count);
+			final var buffer=CharBuffer.allocate((int)count);
 			reader.read(buffer);
 			buffer.flip();
 			return new PsyString(buffer.toString());
-			//*/
-			/*
-			final char[] buffer=new char[(int)count];
-			reader.read(buffer);
-			return new PsyString(new String(buffer));
-			*/
 		}
 		catch(final OutOfMemoryError e)
 		{
@@ -83,7 +79,7 @@ public class PsyReader
 
 	@Override
 	public PsyString psyReadLine()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		final var sb=new StringBuilder();
 
@@ -107,13 +103,16 @@ public class PsyReader
 	}
 
 	@Override
-	public PsyBoolean psySkip(final PsyInteger oCount)
-		throws PsyException
+	public PsyInteger psySkip(final PsyInteger oCount)
+		throws
+			PsyIOErrorException,
+			PsyRangeCheckException
 	{
 		try
 		{
 			final long count=oCount.longValue();
-			return PsyBoolean.valueOf(count==reader.skip(count));
+			//return PsyBoolean.valueOf(count==reader.skip(count));
+			return PsyInteger.valueOf(reader.skip(count));
 		}
 		catch(final IllegalArgumentException e)
 		{
@@ -127,7 +126,7 @@ public class PsyReader
 
 	@Override
 	public PsyBoolean psyReady()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -141,7 +140,7 @@ public class PsyReader
 
 	@Override
 	public void psyClose()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -155,7 +154,7 @@ public class PsyReader
 
 	@Override
 	public void psyReset()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -169,5 +168,5 @@ public class PsyReader
 
 	public static final String LINE_SEPARATOR=System.getProperty("line.separator");
 
-	protected java.io.Reader reader;
+	final private java.io.Reader reader;
 }

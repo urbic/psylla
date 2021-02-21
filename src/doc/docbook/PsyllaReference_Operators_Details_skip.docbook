@@ -4,10 +4,8 @@
 
 <para>
 Attemps to skip the specified <replaceable>count</replaceable> of characters
-from the <replaceable>input</replaceable>. Returns <constant>true</constant>,
-if the given <replaceable>count</replaceable> of characters are skipped, and
-<constant>false</constant>, if the <replaceable>input</replaceable> is
-exhausted before end of the operation.
+from the <replaceable>input</replaceable>. Returns the
+<constant>number</constant> of characters actually skipped.
 </para>
 
 <synopsis>
@@ -25,12 +23,9 @@ exhausted before end of the operation.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_readable"/>
 </listitem>
 <listitem>
-<replaceable>count</replaceable>:
+<replaceable>count</replaceable>,
+<replaceable>number</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
-</listitem>
-<listitem>
-<replaceable>result</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
 </formalpara>

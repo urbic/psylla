@@ -1,4 +1,0 @@
-Error: /typecheck in --put--
-Operand stack:
-	 [/a /b /c] /x 3
-Execution stack: (empty)

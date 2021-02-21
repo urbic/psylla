@@ -20,7 +20,7 @@ public class PsyWriter
 
 	@Override
 	public void psyWrite(final PsyInteger oCharacter)
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -34,7 +34,7 @@ public class PsyWriter
 
 	@Override
 	public void psyWriteString(final PsyStringy oString)
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -48,7 +48,7 @@ public class PsyWriter
 
 	@Override
 	public void psyFlush()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -62,7 +62,7 @@ public class PsyWriter
 
 	@Override
 	public void psyClose()
-		throws PsyException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -74,5 +74,5 @@ public class PsyWriter
 		}
 	}
 
-	private java.io.Writer writer;
+	final private java.io.Writer writer;
 }

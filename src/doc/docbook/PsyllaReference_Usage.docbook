@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="PsyllaReference_Usage">
+<title>Usage</title>
+
+<section xml:id="PsyllaReference_Usage_CLI">
+<title>Command Line Interface</title>
+
+<section xml:id="PsyllaReference_Usage_CLI_Synopsis">
+<title>Synopsis</title>
+
+<cmdsynopsis><command>psylla</command>
+<arg rep="repeat"><replaceable>option</replaceable></arg>
+<arg><option>--</option></arg>
+<arg><replaceable>program</replaceable>
+<arg rep="repeat"><parameter><replaceable>argument</replaceable></parameter></arg></arg></cmdsynopsis>
+
+</section>
+
+<section xml:id="PsyllaReference_Usage_CLI_Parameters">
+<title>Command Line Parameters</title>
+
+<variablelist>
+
+<varlistentry>
+<term><parameter><replaceable>options</replaceable></parameter>
+</term>
+<listitem>
+
+<variablelist>
+
+<varlistentry>
+<term>
+<option>--help</option>,
+<option>--usage</option>,
+<option>-h</option>,
+<option>-?</option>
+</term>
+<listitem>
+Show options summary.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--version</option>,
+<option>-V</option>
+</term>
+<listitem>
+Show the version of the interpreter.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--config</option>
+<parameter><replaceable>template</replaceable></parameter>,
+<option>--cfg</option>
+<parameter><replaceable>template</replaceable></parameter>
+</term>
+<listitem>
+Print to standard output the value of the named configuration properties. The
+<parameter><replaceable>template</replaceable></parameter> can contain
+shell-like metacharacters <literal>*</literal> and <literal>?</literal>.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--eval</option>,
+<option>-e</option>
+<parameter><replaceable>expression</replaceable></parameter>
+</term>
+<listitem>
+Evaluate an <parameter><replaceable>expression</replaceable></parameter>
+consisting of Psylla commands.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--classpath</option>,
+<option>--cp</option>
+<parameter><replaceable>path</replaceable></parameter>
+</term>
+<listitem>
+Additional extensions class path including directories and jar archives.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--librarypath</option>,
+<option>--lp</option>,
+<option>-I</option>
+<parameter><replaceable>path</replaceable></parameter>
+</term>
+<listitem>
+Additional modules search path.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--console-encoding</option>,
+<option>-C</option>
+<parameter><replaceable>encoding</replaceable></parameter>
+</term>
+<listitem>
+Set the <replaceable>encoding</replaceable> of the console.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--locale</option>,
+<option>-L</option>
+<parameter><replaceable>locale</replaceable></parameter>
+</term>
+<listitem>
+Set the default <replaceable>locale</replaceable>.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<option>--random-seed</option>,
+<option>-S</option>
+<parameter><replaceable>seed</replaceable></parameter>
+</term>
+<listitem>
+Initialize the pseudorandom numbers generator with
+<replaceable>seed</replaceable>.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</listitem>
+
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>program</replaceable></parameter></term>
+<listitem>
+The name of a file containing Psylla <replaceable>program</replaceable>. The
+program is read from the standard input when the hyphen is specified. If the
+<replaceable>program</replaceable> is not specified, run
+<acronym>REPL</acronym> (read—evaluate—print loop).
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter><replaceable>argument</replaceable></parameter></term>
+<listitem>
+Argument passed to Psylla program.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</section>
+
+</section>
+
+<section xml:id="PsyllaReference_Usage_JavaScriptingAPI">
+<title>Java Scripting API</title>
+
+<remark>TODO</remark>
+
+</section>
+
+</chapter>
+<!--
+vim:indentexpr=
+vim:filetype=docbkxml
+-->

@@ -32,8 +32,6 @@
 		<apply executable="sassc" dest="${target.doc.html}" parallel="false">
 			<arg value="--style"/>
 			<arg value="compact"/>
-			<!--arg value="-+-load-path"/>
-			<arg value="${share.dir}/css"-->
 			<srcfile/>
 			<targetfile/>
 			<fileset dir="${src.doc.scss}" includes="PsyllaReference.scss PsyllaMain.scss"/>
@@ -51,14 +49,6 @@
 
 	<target name="htmldocs" description="Build XHTML documentation" depends="compile,css,version">
 		<mkdir dir="${target.doc.html}"/>
-		<!--apply dest="${target.doc.html}" dir="${src.doc.docbook}" executable="perl">
-			<arg value="make-types-hierarchy.pl"/>
-			<arg value="-O"/>
-			<arg value="${target.doc.html}"/>
-			<srcfile/>
-			<fileset dir="${src.doc.docbook}" includes="PsyllaTypesHierarchy.txt"/>
-			<mapper type="glob" from="*.txt" to="*.svg"/>
-		</apply-->
 		<apply executable="dot" dest="${target.doc.html}" parallel="false">
 			<arg value="-Tsvg"/>
 			<arg value="-o"/>

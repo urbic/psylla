@@ -4,9 +4,10 @@ import coneforest.psylla.*;
 /**
 *	An implementation of Ψ-{@code proc}, a procedure.
 */
-@coneforest.psylla.Type("proc")
+@Type("proc")
 public class PsyProc
 	extends PsyArray
+	implements PsyExecutable
 {
 	public PsyProc()
 	{
@@ -21,9 +22,9 @@ public class PsyProc
 	@Override
 	public void invoke()
 	{
+		final var estack=PsyContext.psyCurrentContext().executionStack();
 		try
 		{
-			final var estack=PsyContext.psyCurrentContext().executionStack();
 			for(int i=length()-1; i>=0; i--)
 				estack.push(get(i));
 		}
@@ -39,15 +40,28 @@ public class PsyProc
 		return new PsyProc((java.util.ArrayList<PsyObject>)array.clone());
 	}
 
-	@Override
+	/*@Override
 	public String toSyntaxString()
 	{
-		return "{"+toSyntaxStringHelper(this)+"}";
+		return '{'+toSyntaxStringHelper(this)+'}';
+	}*/
+
+	@Override
+	public String toSyntaxStringHelper(final java.util.Set<PsyContainer<PsyObject>> processed)
+	{
+		if(!processed.add((PsyContainer<PsyObject>)this))
+			return '%'+typeName()+'%';
+		final var sj=new java.util.StringJoiner(" ", "{", "}");
+		for(final var o: this)
+			sj.add(o instanceof PsyContainer?
+				((PsyContainer<PsyObject>)o).toSyntaxStringHelper(processed):
+				o.toSyntaxString());
+		return sj.toString();
 	}
 
 	public PsyProc psyBind()
 	{
-		final var dstack=((Interpreter)PsyContext.psyCurrentContext()).dictStack();
+		final var dstack=PsyContext.psyCurrentContext().dictStack();
 
 		final var agenda=new java.util.ArrayList<PsyProc>();
 		final var bound=new java.util.HashSet<PsyProc>();
@@ -85,80 +99,4 @@ public class PsyProc
 		return this;
 	}
 
-	public <T extends PsyObject> java.util.function.Predicate<T> asPredicate()
-	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var ostack=interpreter.operandStack();
-		return new java.util.function.Predicate<T>()
-			{
-				@Override
-				public boolean test(final T o)
-				{
-					ostack.push(o);
-					final var loopLevel=interpreter.pushLoopLevel();
-					invoke();
-					interpreter.handleExecutionStack(loopLevel);
-					return ((PsyBoolean)ostack.pop()).booleanValue();
-					// TODO: stop
-				}
-			};
-	}
-
-	public <T extends PsyObject, R extends PsyObject> java.util.function.Function<T, R> asFunction()
-	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var ostack=interpreter.operandStack();
-		return new java.util.function.Function<T, R>()
-			{
-				@Override
-				public R apply(final T o)
-				{
-					ostack.push(o);
-					final var loopLevel=interpreter.pushLoopLevel();
-					invoke();
-					interpreter.handleExecutionStack(loopLevel);
-					return (R)ostack.pop();
-					// TODO: stop
-				}
-			};
-	}
-
-	public <T extends PsyObject> java.util.function.UnaryOperator<T> asUnaryOperator()
-	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var ostack=interpreter.operandStack();
-		return new java.util.function.UnaryOperator<T>()
-			{
-				@Override
-				public T apply(final T o)
-				{
-					ostack.push(o);
-					final var loopLevel=interpreter.pushLoopLevel();
-					invoke();
-					interpreter.handleExecutionStack(loopLevel);
-					return (T)ostack.pop();
-					// TODO: stop
-				}
-			};
-	}
-
-	public <T extends PsyObject> java.util.function.BinaryOperator<T> asBinaryOperator()
-	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var ostack=interpreter.operandStack();
-		return new java.util.function.BinaryOperator<T>()
-			{
-				@Override
-				public T apply(final T o1, final T o2)
-				{
-					ostack.push(o1);
-					ostack.push(o2);
-					final var loopLevel=interpreter.pushLoopLevel();
-					invoke();
-					interpreter.handleExecutionStack(loopLevel);
-					return (T)ostack.pop();
-					// TODO: stop
-				}
-			};
-	}
 }

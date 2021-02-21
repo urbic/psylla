@@ -1,0 +1,4 @@
+Error: /filenotfound in --isdirectory--
+Operand stack:
+	'src/test/psylla/operators/isdirectory/NOTEXIST'
+Execution stack: (empty)

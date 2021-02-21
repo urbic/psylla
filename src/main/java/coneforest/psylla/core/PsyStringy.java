@@ -151,4 +151,10 @@ public interface PsyStringy
 			};
 	}
 
+	/*@Override
+	default public java.util.stream.Stream<PsyInteger> stream()
+	{
+		return stringValue().chars().<PsyInteger>mapToObj(PsyInteger::valueOf);
+	}*/
+
 }

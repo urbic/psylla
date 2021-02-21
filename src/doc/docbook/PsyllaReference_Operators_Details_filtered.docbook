@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_filtered">
+<title><token language="psylla">filtered</token></title>
+
+<para>
+Returns a stream consisting of the elements of this
+<replaceable>stream</replaceable> that match the given
+<replaceable>predicate</replaceable>.
+TODO
+Вызывает <replaceable>predicat</replaceable> для каждого элемента
+<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
+операндов. После каждого вызова процедуры со стека операндов снимается один
+объект типа <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/>, и если его значение истинно,
+элемент добавляется в новый контейнер того же типа, что и
+<replaceable>контейнер</replaceable>. Возвращает новый контейнер как
+<replaceable>результат</replaceable>.
+</para>
+
+<synopsis>
+<replaceable>stream</replaceable>
+<replaceable>predicat</replaceable>
+<token language="psylla">filtered</token>
+<replaceable>filteredstream</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>stream</replaceable>,
+<replaceable>filteredstream</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamlike"/>
+</listitem>
+<listitem>
+<replaceable>predicat</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_executable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<para>
+Предполагается, что <replaceable>predicat</replaceable> не меняет длину стека
+операндов и после её вызова на вершине стека находится объект типа <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>,
+в противном случае результат исполнения <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_filtered"/> непредсказуем.
+</para>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 9 range { 2 mod iszero } filtered	{} forall ] ▶ [ 0 2 4 6 8 ]</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>.
+</formalpara>
+
+</section>

@@ -27,28 +27,22 @@ public class PsyErrorDict
 							errorObj.get("emitter").toSyntaxString()));
 
 					System.err.print(Messages.getString("handleErrorMessageOStack"));
-					final PsyArray ostack=(PsyArray)errorObj.get("ostack");
-					if(ostack.length()!=0)
+					final var ostack=(PsyArray)errorObj.get("ostack");
 					{
-						System.err.print("\n\t");
-						for(final var o: ostack)
-							System.err.print(" "+o.toSyntaxString());
-						System.err.println();
+						final var sj=new java.util.StringJoiner(" ", "\n\t", "");
+						sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
+						ostack.forEach(o->sj.add(o.toSyntaxString()));
+						System.err.println(sj.toString());
 					}
-					else
-						System.err.println(" "+Messages.getString("handleErrorMessageEmpty"));
 
 					System.err.print(Messages.getString("handleErrorMessageEStack"));
-					final PsyArray estack=(PsyArray)errorObj.get("estack");
-					if(estack.length()!=0)
+					final var estack=(PsyArray)errorObj.get("estack");
 					{
-						System.err.print("\n\t");
-						for(final var o: estack)
-							System.err.print(" "+o.toSyntaxString());
-						System.err.println();
+						final var sj=new java.util.StringJoiner(" ", "\n\t", "");
+						sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
+						estack.forEach(o->sj.add(o.toSyntaxString()));
+						System.err.println(sj.toString());
 					}
-					else
-						System.err.println(" "+Messages.getString("handleErrorMessageEmpty"));
 
 					interpreter.setStopFlag(false);
 				}

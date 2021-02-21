@@ -100,6 +100,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_dict;
 &PsyllaReference_Types_Details_dictlike;
 &PsyllaReference_Types_Details_evaluable;
+&PsyllaReference_Types_Details_executable;
 &PsyllaReference_Types_Details_filereader;
 &PsyllaReference_Types_Details_filewriter;
 &PsyllaReference_Types_Details_flushable;
@@ -124,13 +125,16 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_random;
 &PsyllaReference_Types_Details_readable;
 &PsyllaReference_Types_Details_reader;
+&PsyllaReference_Types_Details_ready;
 &PsyllaReference_Types_Details_real;
 &PsyllaReference_Types_Details_realnumeric;
 &PsyllaReference_Types_Details_regexp;
 &PsyllaReference_Types_Details_resetable;
 &PsyllaReference_Types_Details_scalar;
+&PsyllaReference_Types_Details_sequential;
 &PsyllaReference_Types_Details_set;
 &PsyllaReference_Types_Details_setlike;
+&PsyllaReference_Types_Details_streamable;
 &PsyllaReference_Types_Details_streamlike;
 &PsyllaReference_Types_Details_string;
 &PsyllaReference_Types_Details_stringreader;

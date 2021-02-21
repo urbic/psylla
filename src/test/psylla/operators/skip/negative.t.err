@@ -1,0 +1,4 @@
+Error: /rangecheck in --skip--
+Operand stack:
+	%filereader% -20
+Execution stack: (empty)

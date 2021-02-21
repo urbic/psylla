@@ -3,18 +3,24 @@ import coneforest.psylla.*;
 
 @Type("streamlike")
 public interface PsyStreamlike<T extends PsyObject>
-	extends PsyObject
+	extends
+		PsyStreamable<T>,
+		PsyCloseable
 {
+	@Override
+	default public PsyStreamlike<T> psyStream()
+	{
+		return this;
+	}
+
 	default public PsyInteger psyCount()
 	{
-		long count=0;
-		final var iterator=iterator();
-		while(iterator.hasNext())
-		{
-			iterator.next();
-			count++;
-		}
-		return PsyInteger.valueOf(count);
+		return PsyInteger.valueOf(stream().count());
+	}
+
+	default public void psyClose()
+	{
+		stream().close();
 	}
 
 	default public PsyStreamlike<T> psyConcat(final PsyStreamlike<T> oStreamlike)
@@ -22,127 +28,87 @@ public interface PsyStreamlike<T extends PsyObject>
 		return new PsyStreamlike<T>()
 			{
 				@Override
-				public java.util.Iterator<T> iterator()
+				public java.util.stream.Stream<T> stream()
 				{
-					final var it1=iterator();
-					final var it2=oStreamlike.iterator();
-					return it1.hasNext()? it1: it2;
-					/*
-					return new java.util.Iterator<T>()
-						{
-							@Override
-							public boolean hasNext()
-							{
-								return it1.hasNext() || it2.hasNext();
-							}
-
-							@Override
-							public T next()
-							{
-								return it1.hasNext()? it1.hext(): it2.next();
-							}
-						};
-					*/
+					return java.util.stream.Stream.concat(PsyStreamlike.this.stream(), oStreamlike.stream());
 				}
 			};
-
 	}
 
-	default public PsyStreamlike<PsyObject> psyMap(final PsyProc oProc)
+	default public PsyStreamlike<PsyObject> psyMapped(final PsyExecutable oMapper)
 		throws PsyException
 	{
-		//final var interpreter=PsyContext.psyCurrentContext();
-		//final var ostack=interpreter.operandStack();
-		final var parentIterator=iterator();
 		return new PsyStreamlike<PsyObject>()
 			{
 				@Override
-				public java.util.Iterator<PsyObject> iterator()
+				public java.util.stream.Stream<PsyObject> stream()
 				{
-					return new java.util.Iterator<PsyObject>()
-						{
-							@Override
-							public boolean hasNext()
-							{
-								return parentIterator.hasNext();
-							}
-
-							@Override
-							public PsyObject next()
-							{
-								return (oProc.<T, PsyObject>asFunction()).apply(parentIterator.next());
-							}
-						};
+					return PsyStreamlike.this.stream().map(oMapper.<T, PsyObject>asFunction());
 				}
-
 			};
 	}
 
+	default public PsyStreamlike<T> psySorted(final PsyExecutable oComparator)
+	{
+		return new PsyStreamlike<T>()
+			{
+				@Override
+				public java.util.stream.Stream<T> stream()
+				{
+					return PsyStreamlike.this.stream().sorted(oComparator.<T>asComparator());
+				}
+			};
+	}
+
+	default public PsyStreamlike<T> psySkipped(final PsyInteger oCount)
+		throws PsyRangeCheckException
+	{
+		final long count=oCount.longValue();
+		if(count<0)
+			throw new PsyRangeCheckException();
+		return new PsyStreamlike<T>()
+			{
+				@Override
+				public java.util.stream.Stream<T> stream()
+				{
+					return PsyStreamlike.this.stream().skip(count);
+				}
+			};
+	}
+
+	default public PsyStreamlike<T> psyLimited(final PsyInteger oCount)
+		throws PsyRangeCheckException
+	{
+		final long count=oCount.longValue();
+		if(count<0)
+			throw new PsyRangeCheckException();
+		return new PsyStreamlike<T>()
+			{
+				@Override
+				public java.util.stream.Stream<T> stream()
+				{
+					return PsyStreamlike.this.stream().limit(count);
+				}
+			};
+	}
 	/**
 	*	Returns a Ψ-{@code streamlike} over elements of this object that
 	*	satisfies the criterium calculated during Ψ-{@code proc} invocation.
 	*
-	*	@param oProc a procedure
+	*	@param oPredicate a procedure
 	*	@return an iterable
+	*	@throws PsyException
 	*/
-	default public PsyStreamlike<T> psyFilter(final PsyProc oProc)
+	default public PsyStreamlike<T> psyFiltered(final PsyExecutable oPredicate)
 		throws PsyException
 	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var ostack=interpreter.operandStack();
-		final var parentIterator=iterator();
 		return new PsyStreamlike<T>()
 			{
 				@Override
-				public java.util.Iterator<T> iterator()
+				public java.util.stream.Stream<T> stream()
 				{
-					return new java.util.Iterator<T>()
-						{
-							@Override
-							public boolean hasNext()
-							{
-								// TODO: move code to next()
-								//try
-								//{
-									while(parentIterator.hasNext())
-									{
-										nextObject=parentIterator.next();
-										//return (oProc.<T, PsyObject>asFunction(interpreter)).apply(parentIterator.next());
-										/*ostack.push((PsyObject)nextObject);
-										final int loopLevel=interpreter.pushLoopLevel();
-										oProc.invoke(interpreter);
-										interpreter.handleExecutionStack(loopLevel);
-										ostack.popOperands(1);
-										boolean check=ostack.<PsyBoolean>getBacked(0).booleanValue();*/
-										boolean check=(oProc.<T>asPredicate()).test(nextObject);
-										if(interpreter.getStopFlag())
-											break;
-										if(check)
-											return true;
-									}
-								//}
-								//catch(final PsyException e)
-								//{
-								//	this.e=e;
-								//	return true;
-								//}
-								return false;
-							}
-
-							@Override
-							public T next()
-							{
-								if(e!=null)
-									throw new java.util.NoSuchElementException();
-								return nextObject;
-							}
-
-							private PsyException e;
-
-							private T nextObject;
-						};
+					return PsyStreamlike.this.stream().filter(oPredicate.<T>asPredicate());
 				}
-
 			};
 	}
 
@@ -185,7 +151,7 @@ public interface PsyStreamlike<T extends PsyObject>
 	{
 		final var interpreter=PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
-		final java.util.Iterator<T> iterator=iterator();
+		final java.util.Iterator<T> iterator=stream().iterator();
 		interpreter.pushLoopLevel();
 		interpreter.executionStack().push(new PsyOperator("#forall_continue")
 			{
@@ -213,16 +179,16 @@ public interface PsyStreamlike<T extends PsyObject>
 			});
 	}
 
-	default public T psyReduce(final T oIdentity, final PsyProc oProc)
+	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator)
 	{
 		T oIdent=oIdentity;
-		final var iterator=iterator();
-		final var op=oProc.<T>asBinaryOperator();
+		final var iterator=stream().iterator();
+		final var op=oAccumulator.<T>asBinaryOperator();
 		while(iterator.hasNext())
 			oIdent=op.apply(oIdent, iterator.next());
 		return oIdent;
 	}
 
-	public java.util.Iterator<T> iterator();
+	public java.util.stream.Stream<T> stream();
 
 }

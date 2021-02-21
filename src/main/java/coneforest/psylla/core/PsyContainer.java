@@ -24,4 +24,9 @@ public interface PsyContainer<T extends PsyObject>
 			throw new PsyUnsupportedException();
 		}
 	}
+
+	default public String toSyntaxStringHelper(final java.util.Set<PsyContainer<T>> processed)
+	{
+		return toSyntaxString();
+	}
 }

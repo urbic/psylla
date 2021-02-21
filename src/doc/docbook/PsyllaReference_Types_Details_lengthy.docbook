@@ -3,13 +3,12 @@
 <title><type>lengthy</type></title>
 
 <para>
-Тип контейнеров, для которых можно определить длину — количество содержащихся
-в контейнере объектов.
+TODO
 </para>
 
 <formalpara>
 &TitleInherits;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>

@@ -326,7 +326,7 @@ invocation. The execution of the procedure (and all of its constituent objects)
 is
 <firstterm>deferred</firstterm><indexterm><primary>execution</primary><secondary>deferred</secondary></indexterm>).
 The meaning of the deferred execution is explained in <xref
-linkend="PsyllaReference_Language_ObjectExecution"/>.
+linkend="PsyllaReference_Language_Execution"/>.
 </para>
 
 </section>

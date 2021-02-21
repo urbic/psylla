@@ -1,5 +1,8 @@
 package coneforest.cli;
 
+/**
+*	An option holding a list of {@link java.lang.Double} values.
+*/
 public class OptionCollectorDouble extends OptionCollector<Double>
 {
 	public OptionCollectorDouble(final String names)
@@ -7,6 +10,7 @@ public class OptionCollectorDouble extends OptionCollector<Double>
 		super(names);
 	}
 
+	@Override
 	public Double parseArg(final String arg)
 		throws ProcessingException
 	{
