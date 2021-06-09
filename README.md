@@ -7,7 +7,7 @@
 Psylla is implemented as a library written in Java.
 
 [![License](https://img.shields.io/badge/license-zlib%2Fpng-blue.svg)](http://opensource.org/licenses/Zlib)
-[![Build Status](https://secure.travis-ci.org/urbic/psylla.png)](http://travis-ci.org/urbic/psylla)
+[![Build Status](https://api.travis-ci.com/urbic/psylla.svg)](https://travis-ci.com/github/urbic/psylla)
 
 ## Features
 
