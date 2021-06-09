@@ -15,24 +15,40 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
-@SupportedAnnotationTypes({"coneforest.psylla.Type"})
+@SupportedAnnotationTypes({"coneforest.psylla.Type", "coneforest.psylla.ExceptionType"})
 @SupportedSourceVersion(SourceVersion.RELEASE_11)
 public class TypeMetadataCollector extends AbstractProcessor
 {
 	@Override
 	public boolean process(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv)
 	{
-		final var annotatedElements=roundEnv.getElementsAnnotatedWith(coneforest.psylla.Type.class);
+		final var md=options.get("coneforest.psylla.tools.processors.TypeMetadataCollector.metadataDir");
+		final var typeElements=roundEnv.getElementsAnnotatedWith(coneforest.psylla.Type.class);
 
-		final var td=options.get("coneforest.psylla.tools.processors.TypeMetadataCollector.typemapDir");
-
-		for(final var element: annotatedElements)
+		for(final var element: typeElements)
 		{
 			try
 			{
 				final var typeName=element.getAnnotation(coneforest.psylla.Type.class).value();
 				final var className=((TypeElement)element).getQualifiedName().toString();
-				final var ps=new java.io.PrintStream(new java.io.File(td, typeName));
+				final var ps=new java.io.PrintStream(new java.io.File(md+"type/", typeName));
+				ps.println(className);
+				ps.close();
+			}
+			catch(final java.io.FileNotFoundException e)
+			{
+				messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage(), element);
+			}
+		}
+
+		final var exceptionElements=roundEnv.getElementsAnnotatedWith(coneforest.psylla.ExceptionType.class);
+		for(final var element: exceptionElements)
+		{
+			try
+			{
+				final var typeName=element.getAnnotation(coneforest.psylla.ExceptionType.class).value();
+				final var className=((TypeElement)element).getQualifiedName().toString();
+				final var ps=new java.io.PrintStream(new java.io.File(md+"exception/", typeName));
 				ps.println(className);
 				ps.close();
 			}

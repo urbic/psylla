@@ -141,7 +141,8 @@
 			<compilerarg value="-proc:none"/>
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
-		<mkdir dir="${target.classes}/META-INF/${project.name}/types"/>
+		<mkdir dir="${target.classes}/META-INF/${project.name}/type"/>
+		<mkdir dir="${target.classes}/META-INF/${project.name}/exception"/>
 		<mkdir dir="${target.dot}"/>
 		<javac
 			srcdir="${src.main.java}:${target.src.main.java}:${src.test.java}"
@@ -158,7 +159,7 @@
 			<compilerarg value="-Xprefer:source"/>
 			<compilerarg value="-implicit:class"/>
 			<compilerarg value="-Xlint:deprecation"/>
-			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.typemapDir=${target.classes}/META-INF/${project.name}/types/"/>
+			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/META-INF/${project.name}/"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
 			<!--compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/-->
 			<compilerarg value="-Xdiags:verbose"/>
