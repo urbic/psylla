@@ -10,10 +10,6 @@ public class PsySystemDict
 			// "stream"
 			//XXX new PsyOperator.Arity21<PsyObject, PsyProc>("iterate", PsyStream::psyIterate),
 
-			// "streamable"
-			new PsyOperator.Arity11<PsyStreamable>("stream", PsyStreamable::psyStream),
-			new PsyOperator.Arity20<PsyStreamable, PsyObject>("forall", PsyStreamable::psyForAll),
-
 			// "random"
 			new PsyOperator.Arity01("random", PsyRandom::new),
 			new PsyOperator.Arity20<PsyRandom, PsyInteger>("setseed", PsyRandom::psySetSeed),
@@ -152,6 +148,10 @@ public class PsySystemDict
 		for(var oOperator: PsyIntegral.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyFormalStream.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsySequential.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsyStreamable.OPERATORS)
 			registerOperator(oOperator);
 
 		for(var oOperator: OPERATORS)

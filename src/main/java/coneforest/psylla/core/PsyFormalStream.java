@@ -48,22 +48,22 @@ public interface PsyFormalStream<T extends PsyObject>
 			};
 	}
 
-	/*XXX default public PsyFormalStream<T> psySorted(final PsyExecutable oComparator)
+	default public PsyFormalStream<T> psySorted(final PsyExecutable oComparator, final PsyContext oContext)
 	{
 		return new PsyFormalStream<T>()
 			{
 				@Override
 				public java.util.stream.Stream<T> stream()
 				{
-					return PsyFormalStream.this.stream().sorted(oComparator.<T>asComparator());
+					return PsyFormalStream.this.stream().sorted(oComparator.<T>asComparator(oContext));
 				}
 			};
-	}*/
+	}
 
 	default public PsyFormalStream<T> psySkipped(final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
-		final long count=oCount.longValue();
+		final var count=oCount.longValue();
 		if(count<0)
 			throw new PsyRangeCheckException();
 		return new PsyFormalStream<T>()
@@ -79,7 +79,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	default public PsyFormalStream<T> psyLimited(final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
-		final long count=oCount.longValue();
+		final var count=oCount.longValue();
 		if(count<0)
 			throw new PsyRangeCheckException();
 		return new PsyFormalStream<T>()
@@ -96,6 +96,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	*	satisfies the criterium calculated during Ψ-{@code proc} invocation.
 	*
 	*	@param oPredicate a procedure
+	*	@param oContext
 	*	@return an iterable
 	*	@throws PsyException
 	*/
@@ -146,17 +147,16 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 	*/
 
-	default public void psyForAll(final PsyObject oProc)
+	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
 		throws PsyException
 	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var ostack=interpreter.operandStack();
+		final var ostack=oContext.operandStack();
 		final java.util.Iterator<T> iterator=stream().iterator();
-		interpreter.pushLoopLevel();
-		interpreter.executionStack().push(new PsyOperator("#forall_continue")
+		oContext.pushLoopLevel();
+		oContext.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
-				public void action(final PsyContext oContext)
+				public void action(final PsyContext oContext1)
 					throws PsyException
 				{
 					if(iterator.hasNext())
@@ -170,11 +170,11 @@ public interface PsyFormalStream<T extends PsyObject>
 							// TODO more suitable exception type
 							throw new PsyUndefinedException();
 						}
-						oContext.executionStack().push(this);
-						oProc.invoke(oContext);
+						oContext1.executionStack().push(this);
+						oProc.invoke(oContext1);
 					}
 					else
-						oContext.popLoopLevel();
+						oContext1.popLoopLevel();
 				}
 			});
 	}
@@ -215,7 +215,13 @@ public interface PsyFormalStream<T extends PsyObject>
 			//XXX new PsyOperator.Arity31<PsyFormalStream, PsyObject, PsyExecutable>("reduce", PsyFormalStream::psyReduce),
 			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
 				("skipped", PsyFormalStream::psySkipped),
-			//new PsyOperator.Arity21<PsyFormalStream, PsyExecutable>("sorted", PsyFormalStream::psySorted),
+			new PsyOperator.Action
+				("sorted",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						ostack.push(ostack.<PsyFormalStream>getBacked(0).psySorted(ostack.getBacked(1), oContext));
+					}),
 		};
 
 }

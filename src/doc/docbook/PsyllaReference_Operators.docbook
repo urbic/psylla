@@ -1600,6 +1600,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_sleep;
 &PsyllaReference_Operators_Details_slice;
 &PsyllaReference_Operators_Details_sort;
+&PsyllaReference_Operators_Details_sorted;
 &PsyllaReference_Operators_Details_split;
 &PsyllaReference_Operators_Details_sqrt;
 &PsyllaReference_Operators_Details_stack;

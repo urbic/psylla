@@ -15,14 +15,13 @@ public interface PsyFormalDict<V extends PsyObject>
 {
 
 	@Override
-	default public void psyForAll(final PsyObject o)
+	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
 		throws PsyException
 	{
-		final var interpreter=PsyContext.psyCurrentContext(); // TODO
-		final var ostack=interpreter.operandStack();
+		final var ostack=oContext.operandStack();
 		final var keysIterator=psyKeys().stream().iterator();
-		interpreter.pushLoopLevel();
-		interpreter.executionStack().push(new PsyOperator("#forall_continue")
+		oContext.pushLoopLevel();
+		oContext.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
 				public void action(final PsyContext oContext1)
@@ -34,7 +33,7 @@ public interface PsyFormalDict<V extends PsyObject>
 						ostack.push(oKey);
 						ostack.push(psyGet(oKey));
 						oContext1.executionStack().push(this);
-						o.invoke(oContext1);
+						oProc.invoke(oContext1);
 					}
 					else
 						oContext1.popLoopLevel();

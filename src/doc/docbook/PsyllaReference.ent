@@ -282,6 +282,7 @@
 <!ENTITY PsyllaReference_Operators_Details_sleep			SYSTEM "PsyllaReference_Operators_Details_sleep.docbook">
 <!ENTITY PsyllaReference_Operators_Details_slice			SYSTEM "PsyllaReference_Operators_Details_slice.docbook">
 <!ENTITY PsyllaReference_Operators_Details_sort				SYSTEM "PsyllaReference_Operators_Details_sort.docbook">
+<!ENTITY PsyllaReference_Operators_Details_sorted			SYSTEM "PsyllaReference_Operators_Details_sorted.docbook">
 <!ENTITY PsyllaReference_Operators_Details_split			SYSTEM "PsyllaReference_Operators_Details_split.docbook">
 <!ENTITY PsyllaReference_Operators_Details_sqrt				SYSTEM "PsyllaReference_Operators_Details_sqrt.docbook">
 <!ENTITY PsyllaReference_Operators_Details_stack			SYSTEM "PsyllaReference_Operators_Details_stack.docbook">

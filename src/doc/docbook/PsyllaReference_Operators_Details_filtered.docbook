@@ -49,7 +49,7 @@ linkend="PsyllaReference_Operators_Details_filtered"/> непредсказуе�
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 9 range { 2 mod iszero } filtered	{} forall ] ▶ [ 0 2 4 6 8 ]</programlisting>
+<programlisting language="psylla">[ 0 1 9 range { 2 mod iszero } filtered {} forall ]	▶ [ 0 2 4 6 8 ]</programlisting>
 </formalpara>
 
 <formalpara>

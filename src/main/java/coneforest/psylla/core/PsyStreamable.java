@@ -7,12 +7,18 @@ public interface PsyStreamable<T extends PsyObject>
 {
 
 	@Override
-	default public void psyForAll(final PsyObject oProc)
+	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
 		throws PsyException
 	{
-		psyStream().psyForAll(oProc);
+		psyStream().psyForAll(oProc, oContext);
 	}
 
 	public PsyFormalStream<T> psyStream();
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyStreamable>
+				("stream", PsyStreamable::psyStream),
+		};
 
 }

@@ -183,6 +183,7 @@ public class PsyArray
 		}
 	}
 
+	// TODO
 	public PsyArray psySort(final java.util.Comparator<? super PsyObject> comparator)
 	{
 		final var result=psyClone();
@@ -190,23 +191,22 @@ public class PsyArray
 		return result;
 	}
 
-	/*XXX public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator)
+	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator, final PsyContext oContext)
 	{
-		final var interpreter=(Interpreter)PsyContext.psyCurrentContext();
-		final var opstack=interpreter.operandStack();
+		final var opstack=oContext.operandStack();
 		return PsyInteger.valueOf(java.util.Collections.<PsyObject>binarySearch(array, o,
 			// TODO gap
 			(o1, o2)->
 			{
 				opstack.push(o1);
 				opstack.push(o2);
-				final var execLevel=interpreter.execLevel();
-				oComparator.invoke();
-				interpreter.handleExecutionStack(execLevel);
+				final var execLevel=oContext.execLevel();
+				oComparator.invoke(oContext);
+				oContext.handleExecutionStack(execLevel);
 				// TODO: ensure stack size
 				return ((PsyInteger)opstack.pop()).intValue();
 			}));
-	}*/
+	}
 
 	@Override
 	public PsyStream psyStream()
@@ -218,17 +218,38 @@ public class PsyArray
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity01("array", PsyArray::new),
-			new PsyOperator.Action("arraytomark",
-				(oContext)->
-				{
-					final var ostack=oContext.operandStack();
-					final var i=ostack.findMarkPosition();
-					final var oArray=new PsyArray();
-					for(int j=i+1; j<ostack.size(); j++)
-						oArray.psyAppend(ostack.get(j));
-					ostack.setSize(i);
-					ostack.push(oArray);
-				}),
+			new PsyOperator.Arity01
+				("array", PsyArray::new),
+			new PsyOperator.Action
+				("arraytomark",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStack();
+						final var i=ostack.findMarkPosition();
+						final var oArray=new PsyArray();
+						for(int j=i+1; j<ostack.size(); j++)
+							oArray.psyAppend(ostack.get(j));
+						ostack.setSize(i);
+						ostack.push(oArray);
+					}),
+			new PsyOperator.Action
+				("binarysearch",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(3);
+						final var oIndex=ostack.<PsyArray>getBacked(0).psyBinarySearch(
+								ostack.getBacked(1), ostack.getBacked(2), oContext);
+						final var index=oIndex.intValue();
+						if(index>=0)
+						{
+							ostack.push(oIndex);
+							ostack.push(PsyBoolean.TRUE);
+						}
+						else
+						{
+							ostack.push(PsyInteger.valueOf(-index-1));
+							ostack.push(PsyBoolean.FALSE);
+						}
+					}),
 		};
 }

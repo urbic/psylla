@@ -23,7 +23,9 @@ public abstract class PsyOperator
 
 	/**
 	*	Execute this object in the context of the interpreter.  Calls {@link
-	*	#invoke()} method.
+	*	#invoke(coneforest.psylla.core.PsyContext)} method.
+	*
+	*	@param oContext
 	*/
 	@Override
 	public void execute(final PsyContext oContext)
@@ -34,6 +36,8 @@ public abstract class PsyOperator
 	/**
 	*	Invoke this object in the context of the interpreter performing
 	*	an action associated with it.
+	*
+	*	@param oContext
 	*/
 	@Override
 	public void invoke(final PsyContext oContext)

@@ -37,6 +37,8 @@ public interface PsyObject
 	/**
 	*	Execute this object in the current context. Pushes this object into
 	*	interpreter’s operand stack.
+	*
+	*	@param oContext
 	*/
 	default public void execute(final PsyContext oContext)
 	{
@@ -46,6 +48,8 @@ public interface PsyObject
 	/**
 	*	Invoke this object in the current context. Pushes this object into
 	*	interpreter’s operand stack.
+	*
+	*	@param oContext
 	*/
 	default public void invoke(final PsyContext oContext)
 	{
