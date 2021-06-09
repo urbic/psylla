@@ -37,15 +37,6 @@ public class PsySystemDict
 			new PsyOperator.Arity11<PsyProcess>("processwriter", PsyProcess::psyProcessWriter),
 			new PsyOperator.Arity11<PsyProcess>("status", PsyProcess::psyStatus),
 
-			// "streamlike"
-			new PsyOperator.Arity11<PsyStreamlike>("count", PsyStreamlike::psyCount),
-			//XXX new PsyOperator.Arity21<PsyStreamlike, PsyExecutable>("filtered", PsyStreamlike::psyFiltered),
-			new PsyOperator.Arity21<PsyStreamlike, PsyInteger>("limited", PsyStreamlike::psyLimited),
-			//new PsyOperator.Arity21<PsyStreamlike, PsyExecutable>("mapped", PsyStreamlike::psyMapped),
-			//XXX new PsyOperator.Arity31<PsyStreamlike, PsyObject, PsyExecutable>("reduce", PsyStreamlike::psyReduce),
-			new PsyOperator.Arity21<PsyStreamlike, PsyInteger>("skipped", PsyStreamlike::psySkipped),
-			//new PsyOperator.Arity21<PsyStreamlike, PsyExecutable>("sorted", PsyStreamlike::psySorted),
-
 			// ?
 			new PsyOperator.Action("warn",
 				(oContext)->
@@ -136,7 +127,7 @@ public class PsySystemDict
 			registerOperator(oOperator);
 		for(var oOperator: PsyRange.OPERATORS)
 			registerOperator(oOperator);
-		for(var oOperator: PsyQueuelike.OPERATORS)
+		for(var oOperator: PsyFormalQueue.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyFormalDict.OPERATORS)
 			registerOperator(oOperator);
@@ -159,6 +150,8 @@ public class PsySystemDict
 		for(var oOperator: PsyAppendable.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyIntegral.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsyFormalStream.OPERATORS)
 			registerOperator(oOperator);
 
 		for(var oOperator: OPERATORS)

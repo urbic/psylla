@@ -104,7 +104,9 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_flushable;
 &PsyllaReference_Types_Details_formalarray;
 &PsyllaReference_Types_Details_formaldict;
+&PsyllaReference_Types_Details_formalqueue;
 &PsyllaReference_Types_Details_formalset;
+&PsyllaReference_Types_Details_formalstream;
 &PsyllaReference_Types_Details_indexed;
 &PsyllaReference_Types_Details_input;
 &PsyllaReference_Types_Details_integer;
@@ -122,7 +124,6 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_operator;
 &PsyllaReference_Types_Details_output;
 &PsyllaReference_Types_Details_proc;
-&PsyllaReference_Types_Details_queuelike;
 &PsyllaReference_Types_Details_random;
 &PsyllaReference_Types_Details_readable;
 &PsyllaReference_Types_Details_reader;
@@ -135,7 +136,6 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_sequential;
 &PsyllaReference_Types_Details_set;
 &PsyllaReference_Types_Details_streamable;
-&PsyllaReference_Types_Details_streamlike;
 &PsyllaReference_Types_Details_string;
 &PsyllaReference_Types_Details_stringreader;
 &PsyllaReference_Types_Details_stringwriter;

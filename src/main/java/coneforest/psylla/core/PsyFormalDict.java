@@ -91,7 +91,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	}
 
 	@Override
-	public PsyStreamlike<PsyStringy> psyKeys();
+	public PsyFormalStream<PsyStringy> psyKeys();
 
 	@Override
 	default public void psyDelete(final PsyStringy oKey)

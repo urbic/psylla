@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @Type("range")
 public class PsyRange
-	implements PsyStreamlike<PsyRealNumeric>
+	implements PsyFormalStream<PsyRealNumeric>
 {
 
 	public PsyRange(final PsyRealNumeric oInitial,

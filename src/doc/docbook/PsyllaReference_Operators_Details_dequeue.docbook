@@ -17,7 +17,7 @@ TODO
 <itemizedlist>
 <listitem>
 <replaceable>queue</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_queuelike"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalqueue"/>
 </listitem>
 <listitem>
 <replaceable>element</replaceable>:

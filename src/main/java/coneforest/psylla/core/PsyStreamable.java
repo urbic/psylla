@@ -13,6 +13,6 @@ public interface PsyStreamable<T extends PsyObject>
 		psyStream().psyForAll(oProc);
 	}
 
-	public PsyStreamlike<T> psyStream();
+	public PsyFormalStream<T> psyStream();
 
 }

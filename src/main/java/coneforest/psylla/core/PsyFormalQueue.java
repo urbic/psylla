@@ -2,13 +2,13 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code queuelike}, an abstraction of a queue of
+*	A representation of Ψ-{@code formalqueue}, an abstraction of a queue of
 *	Ψ-{@code object}s.
 *
 *	@param <T> a type of contained objects.
 */
-@Type("queuelike")
-public interface PsyQueuelike<T extends PsyObject>
+@Type("formalqueue")
+public interface PsyFormalQueue<T extends PsyObject>
 	extends
 		PsyBounded,
 		PsyContainer<T>
@@ -41,14 +41,14 @@ public interface PsyQueuelike<T extends PsyObject>
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity11<PsyQueuelike>
-				("dequeue", PsyQueuelike::psyDequeue),
-			new PsyOperator.Arity20<PsyQueuelike, PsyObject>
-				("enqueue", PsyQueuelike::psyEnqueue),
-			new PsyOperator.Arity20<PsyQueuelike, PsyObject>
-				("give", PsyQueuelike::psyGive),
-			new PsyOperator.Arity11<PsyQueuelike>
-				("take", PsyQueuelike::psyTake),
+			new PsyOperator.Arity11<PsyFormalQueue>
+				("dequeue", PsyFormalQueue::psyDequeue),
+			new PsyOperator.Arity20<PsyFormalQueue, PsyObject>
+				("enqueue", PsyFormalQueue::psyEnqueue),
+			new PsyOperator.Arity20<PsyFormalQueue, PsyObject>
+				("give", PsyFormalQueue::psyGive),
+			new PsyOperator.Arity11<PsyFormalQueue>
+				("take", PsyFormalQueue::psyTake),
 		};
 
 }

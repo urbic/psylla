@@ -206,16 +206,16 @@ public interface PsyFormalArray<T extends PsyObject>
 	}
 
 	@Override
-	default public PsyStreamlike<T> psyValues()
+	default public PsyFormalStream<T> psyValues()
 	{
 		return new PsyStream(java.util.stream.StreamSupport.stream(spliterator(), false));
 	}
 
 	@Override
-	default public PsyStreamlike<PsyObject> psyEntries()
+	default public PsyFormalStream<PsyObject> psyEntries()
 	{
 		return null; // TODO
-		/*return new PsyStreamlike<PsyObject>()
+		/*return new PsyFormalStream<PsyObject>()
 			{
 				@Override
 				public void psyForAll(final PsyObject oProc)

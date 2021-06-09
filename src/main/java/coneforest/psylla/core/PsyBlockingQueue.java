@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 @Type("blockingqueue")
 public class PsyBlockingQueue
 	implements
-		PsyQueuelike<PsyObject>,
+		PsyFormalQueue<PsyObject>,
 		PsyCloseable
 {
 	public PsyBlockingQueue(final PsyInteger oCapacity)

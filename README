@@ -1,4 +1,4 @@
-This is Psylla, extensible and embeddable Psi implementation written in Java.
+This is Psylla, a scriptable interpretive concatenative homoiconic
+PostScript-like programming language.
 
-Psi is scriptable interpretive concatenative PostScript-like programming
-language.
+Psylla is implemented as a library written in Java.

@@ -20,10 +20,9 @@ Version:		@obs.package.version@
 Release:		0
 License:		Zlib
 Summary:		@obs.package.summary@
-Url:			https://github.com/urbic/%{name}
+URL:			https://github.com/urbic/%{name}
 Group:			Development/Languages/Other
 Source:			%{name}-%{version}.tar.xz
-#Source1:        https://cdn.docbook.org/release/xsl-nons/1.79.2/extensions/saxon65.jar
 BuildRequires:	ant
 BuildRequires:	javacc
 BuildRequires:	java-devel >= 11
@@ -96,7 +95,6 @@ This package contains the API documentation for %{name}.
 %prep
 %setup -q
 %{__mkdir} -p target/lib
-#%%{__cp} %%{S:1} target/lib
 
 %build
 LANG=ru_RU.UTF-8 \

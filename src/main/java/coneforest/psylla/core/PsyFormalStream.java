@@ -1,14 +1,14 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
 
-@Type("streamlike")
-public interface PsyStreamlike<T extends PsyObject>
+@Type("formalstream")
+public interface PsyFormalStream<T extends PsyObject>
 	extends
 		PsyStreamable<T>,
 		PsyCloseable
 {
 	@Override
-	default public PsyStreamlike<T> psyStream()
+	default public PsyFormalStream<T> psyStream()
 	{
 		return this;
 	}
@@ -23,102 +23,102 @@ public interface PsyStreamlike<T extends PsyObject>
 		stream().close();
 	}
 
-	default public PsyStreamlike<T> psyConcat(final PsyStreamlike<T> oStreamlike)
+	default public PsyFormalStream<T> psyConcat(final PsyFormalStream<T> oStream)
 	{
-		return new PsyStreamlike<T>()
+		return new PsyFormalStream<T>()
 			{
 				@Override
 				public java.util.stream.Stream<T> stream()
 				{
-					return java.util.stream.Stream.concat(PsyStreamlike.this.stream(), oStreamlike.stream());
+					return java.util.stream.Stream.concat(PsyFormalStream.this.stream(), oStream.stream());
 				}
 			};
 	}
 
-	/*XXX default public PsyStreamlike<PsyObject> psyMapped(final PsyExecutable oMapper)
+	/*XXX default public PsyFormalStream<PsyObject> psyMapped(final PsyExecutable oMapper)
 		throws PsyException
 	{
-		return new PsyStreamlike<PsyObject>()
+		return new PsyFormalStream<PsyObject>()
 			{
 				@Override
 				public java.util.stream.Stream<PsyObject> stream()
 				{
-					return PsyStreamlike.this.stream().map(oMapper.<T, PsyObject>asFunction());
+					return PsyFormalStream.this.stream().map(oMapper.<T, PsyObject>asFunction());
 				}
 			};
 	}*/
 
-	/*XXX default public PsyStreamlike<T> psySorted(final PsyExecutable oComparator)
+	/*XXX default public PsyFormalStream<T> psySorted(final PsyExecutable oComparator)
 	{
-		return new PsyStreamlike<T>()
+		return new PsyFormalStream<T>()
 			{
 				@Override
 				public java.util.stream.Stream<T> stream()
 				{
-					return PsyStreamlike.this.stream().sorted(oComparator.<T>asComparator());
+					return PsyFormalStream.this.stream().sorted(oComparator.<T>asComparator());
 				}
 			};
 	}*/
 
-	default public PsyStreamlike<T> psySkipped(final PsyInteger oCount)
+	default public PsyFormalStream<T> psySkipped(final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
 		final long count=oCount.longValue();
 		if(count<0)
 			throw new PsyRangeCheckException();
-		return new PsyStreamlike<T>()
+		return new PsyFormalStream<T>()
 			{
 				@Override
 				public java.util.stream.Stream<T> stream()
 				{
-					return PsyStreamlike.this.stream().skip(count);
+					return PsyFormalStream.this.stream().skip(count);
 				}
 			};
 	}
 
-	default public PsyStreamlike<T> psyLimited(final PsyInteger oCount)
+	default public PsyFormalStream<T> psyLimited(final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
 		final long count=oCount.longValue();
 		if(count<0)
 			throw new PsyRangeCheckException();
-		return new PsyStreamlike<T>()
+		return new PsyFormalStream<T>()
 			{
 				@Override
 				public java.util.stream.Stream<T> stream()
 				{
-					return PsyStreamlike.this.stream().limit(count);
+					return PsyFormalStream.this.stream().limit(count);
 				}
 			};
 	}
 	/**
-	*	Returns a Ψ-{@code streamlike} over elements of this object that
+	*	Returns a Ψ-{@code formalstream} over elements of this object that
 	*	satisfies the criterium calculated during Ψ-{@code proc} invocation.
 	*
 	*	@param oPredicate a procedure
 	*	@return an iterable
 	*	@throws PsyException
 	*/
-	/*XXX default public PsyStreamlike<T> psyFiltered(final PsyExecutable oPredicate)
+	/*XXX default public PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate)
 		throws PsyException
 	{
-		return new PsyStreamlike<T>()
+		return new PsyFormalStream<T>()
 			{
 				@Override
 				public java.util.stream.Stream<T> stream()
 				{
-					return PsyStreamlike.this.stream().filter(oPredicate.<T>asPredicate());
+					return PsyFormalStream.this.stream().filter(oPredicate.<T>asPredicate());
 				}
 			};
 	}*/
 
 	/*
-	default public PsyStreamlike<T> psyIterate(final T oSeed, final PsyProc oProc)
+	default public PsyFormalStream<T> psyIterate(final T oSeed, final PsyProc oProc)
 	{
 		final var interpreter=(Interpreter)PsyContext.psyCurrentContext();
 		final var ostack=interpreter.operandStack();
 		final var op=oProc.<T>asUnaryOperator(interpreter);
-		return new PsyStreamlike<T>()
+		return new PsyFormalStream<T>()
 			{
 				@Override
 				public java.util.Iterator<T> iterator()
@@ -191,5 +191,19 @@ public interface PsyStreamlike<T extends PsyObject>
 	}*/
 
 	public java.util.stream.Stream<T> stream();
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyFormalStream>
+				("count", PsyFormalStream::psyCount),
+			//XXX new PsyOperator.Arity21<PsyFormalStream, PsyExecutable>("filtered", PsyFormalStream::psyFiltered),
+			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
+				("limited", PsyFormalStream::psyLimited),
+			//new PsyOperator.Arity21<PsyFormalStream, PsyExecutable>("mapped", PsyFormalStream::psyMapped),
+			//XXX new PsyOperator.Arity31<PsyFormalStream, PsyObject, PsyExecutable>("reduce", PsyFormalStream::psyReduce),
+			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
+				("skipped", PsyFormalStream::psySkipped),
+			//new PsyOperator.Arity21<PsyFormalStream, PsyExecutable>("sorted", PsyFormalStream::psySorted),
+		};
 
 }

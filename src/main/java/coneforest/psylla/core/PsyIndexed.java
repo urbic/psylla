@@ -77,7 +77,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@return an enumeration of keys.
 	*/
-	public PsyStreamlike<K> psyKeys();
+	public PsyFormalStream<K> psyKeys();
 
 	/**
 	*	Returns a Ψ-{@code iterable} enumeration of all the values of this
@@ -85,9 +85,9 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@return an enumeration of values.
 	*/
-	default public PsyStreamlike<V> psyValues()
+	default public PsyFormalStream<V> psyValues()
 	{
-		return new PsyStreamlike<V>()
+		return new PsyFormalStream<V>()
 			{
 				@Override
 				public java.util.stream.Stream<V> stream()
@@ -113,9 +113,9 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@return an enumeration of entries.
 	*/
-	public PsyStreamlike<PsyObject> psyEntries();
+	public PsyFormalStream<PsyObject> psyEntries();
 	/*
-	default public PsyStreamlike<PsyObject> psyEntries()
+	default public PsyFormalStream<PsyObject> psyEntries()
 	{
 		return new PsyStream(java.util.stream.StreamSupport.<PsyObject>stream(new Iterable()
 			{

@@ -814,7 +814,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyStreamlike<PsyName> psyFiles(final PsyStringy oFileName)
+	public static PsyFormalStream<PsyName> psyFiles(final PsyStringy oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,

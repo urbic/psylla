@@ -24,7 +24,7 @@
 <listitem>
 <replaceable>stream</replaceable>,
 <replaceable>mappedstream</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamlike"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
 </listitem>
 <listitem>
 <replaceable>executable</replaceable>:

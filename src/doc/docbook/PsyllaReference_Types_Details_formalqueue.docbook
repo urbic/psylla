@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_queuelike">
-<title><type>queuelike</type></title>
+<section xml:id="PsyllaReference_Types_Details_formalqueue">
+<title><type>formalqueue</type></title>
 
 <para>
 A base type for queues.
@@ -19,7 +19,7 @@ A base type for queues.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_queuelike.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_formalqueue.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

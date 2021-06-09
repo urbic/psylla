@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @Type("stream")
 public class PsyStream
-	implements PsyStreamlike
+	implements PsyFormalStream
 {
 	public PsyStream(java.util.stream.Stream<? extends PsyObject> stream)
 	{
