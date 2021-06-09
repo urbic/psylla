@@ -26,4 +26,4 @@ Java 11 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, JUnit 4, JLine 1
 
 ### Documentation:
 
-Apache Ant, Docbook 5 XSL, Saxon 6, XSLTHL, SASS, Graphviz, Perl
+Apache Ant, Docbook 5 XSL, Saxon 6, XSLTHL, SassC, Graphviz
