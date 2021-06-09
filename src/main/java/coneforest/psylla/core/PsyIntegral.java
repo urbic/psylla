@@ -7,6 +7,7 @@ import coneforest.psylla.*;
 @Type("integral")
 public interface PsyIntegral
 	extends
+		//PsyBitwise<PsyIntegral>, TODO
 		PsyRealNumeric
 {
 	public PsyIntegral psyIdiv(final PsyIntegral oInteger)

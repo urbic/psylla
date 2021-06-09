@@ -118,17 +118,27 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyBigInteger psyIdiv(final PsyIntegral oInteger)
+	public PsyBigInteger psyIdiv(final PsyIntegral oIntegral)
 		throws PsyException
 	{
-		throw new PsyNotImplementedException();
+		if(oIntegral instanceof PsyBigInteger)
+			return new PsyBigInteger(value.divide(((PsyBigInteger)oIntegral).value));
+		if(oIntegral instanceof PsyInteger)
+			return new PsyBigInteger(
+				value.divide(java.math.BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
+		throw new PsyTypeCheckException();
 	}
 
 	@Override
-	public PsyBigInteger psyMod(final PsyIntegral oInteger)
+	public PsyBigInteger psyMod(final PsyIntegral oIntegral)
 		throws PsyException
 	{
-		throw new PsyNotImplementedException();
+		if(oIntegral instanceof PsyBigInteger)
+			return new PsyBigInteger(value.mod(((PsyBigInteger)oIntegral).value));
+		if(oIntegral instanceof PsyInteger)
+			return new PsyBigInteger(
+				value.mod(java.math.BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
+		throw new PsyTypeCheckException();
 	}
 
 	@Override
@@ -176,7 +186,7 @@ public class PsyBigInteger
 	@Override
 	public PsyBigInteger psySignum()
 	{
-		return new PsyBigInteger(new PsyInteger(value.compareTo(java.math.BigInteger.ZERO)));
+		return new PsyBigInteger(value.signum());
 	}
 
 	@Override
