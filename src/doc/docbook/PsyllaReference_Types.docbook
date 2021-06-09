@@ -110,6 +110,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_indexed;
 &PsyllaReference_Types_Details_input;
 &PsyllaReference_Types_Details_integer;
+&PsyllaReference_Types_Details_integral;
 &PsyllaReference_Types_Details_iterable;
 &PsyllaReference_Types_Details_lengthy;
 &PsyllaReference_Types_Details_lock;

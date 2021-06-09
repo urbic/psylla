@@ -12,6 +12,7 @@ The type of integer numbers of arbitrary magnitude.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arithmetic"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
@@ -24,6 +25,11 @@ The type of integer numbers of arbitrary magnitude.
 </imageobject>
 </mediaobject>
 </informalfigure>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>.
 </formalpara>
 
 </section>

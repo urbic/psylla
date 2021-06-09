@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_integer">
-<title><type>integer</type></title>
+<section xml:id="PsyllaReference_Types_Details_integral">
+<title><type>integral</type></title>
 
 <para>
-An integer number.
+TODO
 </para>
 
 <formalpara>
@@ -11,9 +11,6 @@ An integer number.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_additive"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arithmetic"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_atomic"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_realnumeric"/>,
@@ -21,7 +18,7 @@ An integer number.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_integer.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_integral.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>
@@ -29,7 +26,8 @@ An integer number.
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_biginteger"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_biginteger"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>.
 </formalpara>
 
 </section>
