@@ -41,7 +41,7 @@ zero, and <constant>false</constant> otherwise.
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_notzero"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_nonzero"/>.
 </formalpara>
 
 </section>

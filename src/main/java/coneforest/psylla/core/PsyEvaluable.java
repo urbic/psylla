@@ -5,7 +5,7 @@ import coneforest.psylla.*;
 *	A representation of Ψ-{@code evaluable}, a type of objects that can be
 *	interpreted as the program.
 */
-@coneforest.psylla.Type("evaluable")
+@Type("evaluable")
 public interface PsyEvaluable
 	extends PsyObject
 {
@@ -18,5 +18,11 @@ public interface PsyEvaluable
 	*/
 	public void psyEval()
 		throws PsyException;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity10<PsyEvaluable>
+				("eval", PsyEvaluable::psyEval),
+		};
 
 }

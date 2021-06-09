@@ -33,8 +33,8 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 		throws PsyException;
 
 	/**
-	*	Stores an element with given key or index. In {@link PsyArraylike}
-	*	containers replaces existing element. In {@link PsyDictlike}
+	*	Stores an element with given key or index. In {@link PsyFormalArray}
+	*	containers replaces existing element. In {@link PsyFormalDict}
 	*	containers replaces an old or creates a new element associated with
 	*	specified key.
 	*
@@ -68,7 +68,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	public PsyIndexed<K, V> psySlice(final PsyIterable<K> oKeys)
 		throws PsyException;
 
-	public PsyArraylike<V> psyGetAll(final PsyIterable<K> oKeys)
+	public PsyFormalArray<V> psyGetAll(final PsyIterable<K> oKeys)
 		throws PsyException;
 
 	/**
@@ -217,5 +217,19 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 			};
 	}
 	*/
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity20<PsyIndexed, PsyObject>("delete", PsyIndexed::psyDelete),
+			new PsyOperator.Arity11<PsyIndexed>("entries", PsyIndexed::psyEntries),
+			new PsyOperator.Arity21<PsyIndexed, PsyObject>("extract", PsyIndexed::psyExtract),
+			new PsyOperator.Arity21<PsyIndexed, PsyObject>("get", PsyIndexed::psyGet),
+			new PsyOperator.Arity21<PsyIndexed, PsyIterable>("getall", PsyIndexed::psyGetAll),
+			new PsyOperator.Arity11<PsyIndexed>("keys", PsyIndexed::psyKeys),
+			new PsyOperator.Arity21<PsyIndexed, PsyObject>("known", PsyIndexed::psyKnown),
+			new PsyOperator.Arity30<PsyIndexed, PsyObject, PsyObject>("put", PsyIndexed::psyPut),
+			new PsyOperator.Arity21<PsyIndexed, PsyIterable>("slice", PsyIndexed::psySlice),
+			new PsyOperator.Arity11<PsyIndexed>("values", PsyIndexed::psyValues),
+		};
 
 }

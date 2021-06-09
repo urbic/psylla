@@ -3,7 +3,7 @@
 /n arguments 0 get tointeger def
 
 /sieve bitarray def
-0 1 //n { 2 mod notzero //sieve exch append } bind for
+0 1 //n { 2 mod nonzero //sieve exch append } bind for
 
 //n 2 ge { 2 toname say } if
 

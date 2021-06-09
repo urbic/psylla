@@ -44,4 +44,10 @@ public class PsyCondition
 
 	private final java.util.concurrent.locks.Condition condition;
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity10<PsyCondition>("notify", PsyCondition::psyNotify),
+			new PsyOperator.Arity10<PsyCondition>("wait", PsyCondition::psyWait),
+		};
+
 }

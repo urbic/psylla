@@ -16,7 +16,7 @@ The system dictionary.
 <itemizedlist>
 <listitem>
 <constant>systemdict</constant>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dictlike"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formaldict"/>
 </listitem>
 </itemizedlist>
 </formalpara>

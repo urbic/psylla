@@ -10,11 +10,11 @@ public class PsyStream
 		this.stream=stream;
 	}
 
-	public static PsyStream psyIterate(final PsyObject o, final PsyProc oProc)
+	/*XXXpublic static PsyStream psyIterate(final PsyObject o, final PsyProc oProc)
 	{
 		return new PsyStream(java.util.stream.Stream.<PsyObject>iterate(o,
 				oProc.asUnaryOperator()));
-	}
+	}*/
 
 	@Override
 	public java.util.stream.Stream<? extends PsyObject> stream()

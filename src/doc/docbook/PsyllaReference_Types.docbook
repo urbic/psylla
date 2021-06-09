@@ -44,7 +44,6 @@ disjunction is calculated, and the result will be integer.
 &PsyllaReference_Types_Details_appendable;
 &PsyllaReference_Types_Details_arithmetic;
 &PsyllaReference_Types_Details_array;
-&PsyllaReference_Types_Details_arraylike;
 &PsyllaReference_Types_Details_atomic;
 &PsyllaReference_Types_Details_biginteger;
 &PsyllaReference_Types_Details_bitarray;
@@ -98,12 +97,14 @@ linkend="PsyllaReference_Types_Details_real"/>.
 </section>
 
 &PsyllaReference_Types_Details_dict;
-&PsyllaReference_Types_Details_dictlike;
 &PsyllaReference_Types_Details_evaluable;
 &PsyllaReference_Types_Details_executable;
 &PsyllaReference_Types_Details_filereader;
 &PsyllaReference_Types_Details_filewriter;
 &PsyllaReference_Types_Details_flushable;
+&PsyllaReference_Types_Details_formalarray;
+&PsyllaReference_Types_Details_formaldict;
+&PsyllaReference_Types_Details_formalset;
 &PsyllaReference_Types_Details_indexed;
 &PsyllaReference_Types_Details_input;
 &PsyllaReference_Types_Details_integer;
@@ -133,7 +134,6 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_scalar;
 &PsyllaReference_Types_Details_sequential;
 &PsyllaReference_Types_Details_set;
-&PsyllaReference_Types_Details_setlike;
 &PsyllaReference_Types_Details_streamable;
 &PsyllaReference_Types_Details_streamlike;
 &PsyllaReference_Types_Details_string;

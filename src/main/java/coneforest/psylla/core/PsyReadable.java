@@ -73,4 +73,21 @@ public interface PsyReadable
 	public PsyBoolean psyReady()
 		throws PsyIOErrorException;
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyReadable, PsyInteger>
+				("skip", PsyReadable::psySkip),
+			new PsyOperator.Action
+				("read",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						final PsyInteger oCharacter=ostack.<PsyReadable>getBacked(0).psyRead();
+						boolean notEOF=(oCharacter!=PsyInteger.MINUS_ONE);
+						if(notEOF)
+							ostack.push(oCharacter);
+						ostack.push(PsyBoolean.valueOf(notEOF));
+					}),
+		};
+
 }

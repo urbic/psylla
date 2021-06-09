@@ -2,44 +2,42 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code dictlike}, an abstraction of a dictionary.
+*	A representation of Ψ-{@code formaldict}, an abstraction of a dictionary.
 *
 *	@param <V> a type of contained values.
 */
-@Type("dictlike")
-public interface PsyDictlike<V extends PsyObject>
+@Type("formaldict")
+public interface PsyFormalDict<V extends PsyObject>
 	extends
 		PsyContainer<V>,
-		PsyIndexed<PsyStringy, V>
+		PsyIndexed<PsyStringy, V>,
+		PsySequential<V>
 {
 
 	@Override
 	default public void psyForAll(final PsyObject o)
 		throws PsyException
 	{
-		final var interpreter=PsyContext.psyCurrentContext();
+		final var interpreter=PsyContext.psyCurrentContext(); // TODO
 		final var ostack=interpreter.operandStack();
 		final var keysIterator=psyKeys().stream().iterator();
 		interpreter.pushLoopLevel();
 		interpreter.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
-				public void action()
+				public void action(final PsyContext oContext1)
 					throws PsyException
 				{
-					//final var interpreter1=PsyContext.psyCurrentContext();
 					if(keysIterator.hasNext())
 					{
-						final PsyStringy oKey=keysIterator.next();
+						final var oKey=keysIterator.next();
 						ostack.push(oKey);
 						ostack.push(psyGet(oKey));
-						//interpreter1.executionStack().push(this);
-						interpreter.executionStack().push(this);
-						o.invoke();
+						oContext1.executionStack().push(this);
+						o.invoke(oContext1);
 					}
 					else
-						//interpreter1.popLoopLevel();
-						interpreter.popLoopLevel();
+						oContext1.popLoopLevel();
 				}
 			});
 	}
@@ -55,10 +53,10 @@ public interface PsyDictlike<V extends PsyObject>
 	}
 
 	@Override
-	default public PsyArraylike<V> psyGetAll(final PsyIterable<PsyStringy> oEnumeration)
+	default public PsyFormalArray<V> psyGetAll(final PsyIterable<PsyStringy> oEnumeration)
 		throws PsyException
 	{
-		final PsyArraylike<V> oResult=(PsyArraylike<V>)new PsyArray();
+		final PsyFormalArray<V> oResult=(PsyFormalArray<V>)new PsyArray();
 		for(final var oKey: oEnumeration)
 			oResult.psyAppend(psyGet(oKey));
 		return oResult;
@@ -112,7 +110,7 @@ public interface PsyDictlike<V extends PsyObject>
 	}
 
 	@Override
-	public PsyDictlike<V> psySlice(final PsyIterable<PsyStringy> oEnumeration)
+	public PsyFormalDict<V> psySlice(final PsyIterable<PsyStringy> oEnumeration)
 		throws PsyException;
 
 	@Override
@@ -184,5 +182,11 @@ public interface PsyDictlike<V extends PsyObject>
 	{
 		psyKeys().stream().forEach(this::psyUndef);
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity20<PsyFormalDict, PsyStringy>
+				("undef", PsyFormalDict::psyUndef),
+		};
 
 }

@@ -5,6 +5,7 @@ import coneforest.psylla.*;
 public class PsyRange
 	implements PsyStreamlike<PsyRealNumeric>
 {
+
 	public PsyRange(final PsyRealNumeric oInitial,
 			final PsyRealNumeric oIncrement,
 			final PsyRealNumeric oLimit)
@@ -13,7 +14,6 @@ public class PsyRange
 		this.oIncrement=oIncrement;
 		this.oLimit=oLimit;
 	}
-
 
 	@Override
 	public java.util.stream.Stream<PsyRealNumeric> stream()
@@ -40,7 +40,7 @@ public class PsyRange
 								private PsyRealNumeric oCurrent;
 								private PsyRealNumeric oNext=oInitial;
 							}, 0),
-							false);
+						false);
 	}
 
 	@Override
@@ -54,5 +54,11 @@ public class PsyRange
 	}
 
 	private final PsyRealNumeric oInitial, oIncrement, oLimit;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity31<PsyRealNumeric, PsyRealNumeric, PsyRealNumeric>
+				("range", PsyRange::new),
+		};
 
 }

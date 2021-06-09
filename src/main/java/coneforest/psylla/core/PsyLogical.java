@@ -47,4 +47,16 @@ public interface PsyLogical<T extends PsyLogical>
 	*/
 	public T psyXor(final T oLogical);
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyLogical, PsyLogical>
+				("and", PsyLogical::psyAnd),
+			new PsyOperator.Arity11<PsyLogical>
+				("not", PsyLogical::psyNot),
+			new PsyOperator.Arity21<PsyLogical, PsyLogical>
+				("or", PsyLogical::psyOr),
+			new PsyOperator.Arity21<PsyLogical, PsyLogical>
+				("xor", PsyLogical::psyXor),
+		};
+
 }

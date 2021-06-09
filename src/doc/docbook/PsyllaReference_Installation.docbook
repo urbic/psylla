@@ -54,10 +54,18 @@ xlink:href="https://github.com/docbook/xslt10-stylesheets/">Docbook 5 XSLT
 Stylesheets 1.79.2</application></listitem>
 
 <listitem><application
-xlink:href="http://www.graphviz.org/">Graphviz 2.40.1</application></listitem>
+xlink:href="http://sourceforge.net/projects/xslthl/">XSLTHL
+2.1.3</application></listitem>
 
 <listitem><application
-xlink:href="http://www.perl.org/">Perl 5.26.1</application></listitem>
+xlink:href="http://sourceforge.net/projects/docbook/">Docbook XSL Saxon
+1.0.0</application></listitem>
+
+<listitem><application
+xlink:href="http://www.graphviz.org/">Graphviz 2.40.1</application></listitem>
+
+<!--listitem><application
+xlink:href="http://www.perl.org/">Perl 5.26.1</application></listitem-->
 
 <listitem><application
 xlink:href="https://github.com/sass/sassc/">SassC 3.5.0</application></listitem>

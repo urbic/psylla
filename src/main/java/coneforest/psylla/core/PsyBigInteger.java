@@ -4,7 +4,7 @@ package coneforest.psylla.core;
 public class PsyBigInteger
 	implements
 		PsyBitwise<PsyBigInteger>,
-		PsyRealNumeric
+		PsyIntegral
 {
 	public PsyBigInteger(final java.math.BigInteger value)
 	{
@@ -115,6 +115,20 @@ public class PsyBigInteger
 	public PsyBigInteger psyAbs()
 	{
 		return new PsyBigInteger(value.abs());
+	}
+
+	@Override
+	public PsyBigInteger psyIdiv(final PsyIntegral oInteger)
+		throws PsyException
+	{
+		throw new PsyNotImplementedException();
+	}
+
+	@Override
+	public PsyBigInteger psyMod(final PsyIntegral oInteger)
+		throws PsyException
+	{
+		throw new PsyNotImplementedException();
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import coneforest.psylla.*;
 public class PsyInteger
 	implements
 		PsyBitwise<PsyInteger>,
-		PsyRealNumeric
+		PsyIntegral
 {
 	public PsyInteger(final long value)
 	{
@@ -300,10 +300,11 @@ public class PsyInteger
 		return this;
 	}
 
-	public PsyInteger psyMod(final PsyInteger oInteger)
+	@Override
+	public PsyInteger psyMod(final PsyIntegral oInteger)
 		throws PsyException
 	{
-		final var integer=oInteger.value;
+		final var integer=((PsyInteger)oInteger).value; // TODO
 		if(integer<=0)
 			throw new PsyRangeCheckException();
 		final var result=value % integer;
@@ -317,12 +318,13 @@ public class PsyInteger
 		*/
 	}
 
-	public PsyInteger psyIdiv(final PsyInteger oInteger)
+	@Override
+	public PsyInteger psyIdiv(final PsyIntegral oInteger)
 		throws PsyException
 	{
-		if(oInteger.value==0)
+		if(((PsyInteger)oInteger).value==0) // TODO
 			throw new PsyUndefinedResultException();
-		return PsyInteger.valueOf(value/oInteger.value);
+		return PsyInteger.valueOf(value/((PsyInteger)oInteger).value); // TODO
 	}
 
 	@Override

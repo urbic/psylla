@@ -10,4 +10,9 @@ public interface PsyReady
 {
 	public PsyBoolean psyReady()
 		throws PsyException;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyReady>("ready", PsyReady::psyReady),
+		};
 }

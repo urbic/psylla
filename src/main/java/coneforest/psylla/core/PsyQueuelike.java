@@ -39,4 +39,16 @@ public interface PsyQueuelike<T extends PsyObject>
 	public void psyGive(final T o)
 		throws PsyException;
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyQueuelike>
+				("dequeue", PsyQueuelike::psyDequeue),
+			new PsyOperator.Arity20<PsyQueuelike, PsyObject>
+				("enqueue", PsyQueuelike::psyEnqueue),
+			new PsyOperator.Arity20<PsyQueuelike, PsyObject>
+				("give", PsyQueuelike::psyGive),
+			new PsyOperator.Arity11<PsyQueuelike>
+				("take", PsyQueuelike::psyTake),
+		};
+
 }

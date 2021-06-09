@@ -126,4 +126,10 @@ public class PsyBlockingQueue
 	private final java.util.concurrent.ArrayBlockingQueue<PsyObject> queue;
 	private boolean closed=false;
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyInteger>
+				("blockingqueue", PsyBlockingQueue::new),
+		};
+
 }

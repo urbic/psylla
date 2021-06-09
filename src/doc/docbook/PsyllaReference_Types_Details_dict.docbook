@@ -10,7 +10,7 @@ A dictionary.
 &TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_clearable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_container"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dictlike"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formaldict"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,

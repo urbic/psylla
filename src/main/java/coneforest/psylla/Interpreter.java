@@ -79,13 +79,13 @@ public class Interpreter
 		return classLoader;
 	}
 
-	public PsyDictlike where(final String name)
+	public PsyFormalDict where(final String name)
 	{
 		return dstack.where(name);
 	}
 
 	@Override
-	public PsyDictlike psyWhere(final PsyStringy oKey)
+	public PsyFormalDict psyWhere(final PsyStringy oKey)
 	{
 		return where(oKey.stringValue());
 	}
@@ -111,14 +111,14 @@ public class Interpreter
 	public void handleExecutionStack()
 	{
 		while(estack.size()>0)
-			estack.pop().execute();
+			estack.pop().execute(this);
 	}
 
 	@Override
 	public void handleExecutionStack(final int level)
 	{
 		while(estack.size()>level)
-			estack.pop().execute();
+			estack.pop().execute(this);
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class Interpreter
 	*	@return the current dictionary.
 	*/
 	@Override
-	public PsyDictlike currentDict()
+	public PsyFormalDict currentDict()
 	{
 		return dstack.peek();
 	}
@@ -138,7 +138,7 @@ public class Interpreter
 	*	@return the system dictionary.
 	*/
 	@Override
-	public PsyDictlike systemDict()
+	public PsyFormalDict systemDict()
 	{
 		return dstack.get(0);
 	}
@@ -148,7 +148,7 @@ public class Interpreter
 	*
 	*	@return the user dictionary.
 	*/
-	public PsyDictlike userDict()
+	public PsyFormalDict userDict()
 	{
 		return dstack.get(1);
 	}
@@ -195,7 +195,7 @@ public class Interpreter
 		throws PsyException
 	{
 		final var oClassPath
-			=(PsyArraylike<PsyStringy>)systemDict().get("classpath");
+			=(PsyFormalArray<PsyStringy>)systemDict().get("classpath");
 		final var envClassPath=System.getenv("PSYLLA_CLASSPATH");
 		if(envClassPath!=null)
 			for(final var pathItem: envClassPath.split(java.io.File.pathSeparator))
@@ -209,7 +209,7 @@ public class Interpreter
 		throws PsyException
 	{
 		final var oLibraryPath
-			=(PsyArraylike<PsyStringy>)systemDict().get("librarypath");
+			=(PsyFormalArray<PsyStringy>)systemDict().get("librarypath");
 		final var envLibraryPath=System.getenv("PSYLLA_LIB");
 		if(envLibraryPath!=null)
 			for(final var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
@@ -246,7 +246,7 @@ public class Interpreter
 				// If "stop" is invoked outside the stopping context
 				if(getStopFlag())
 				{
-					PsyErrorDict.OP_HANDLEERROR.invoke();
+					PsyErrorDict.OP_HANDLEERROR.invoke(this);
 					return;
 				}
 			}
@@ -261,13 +261,13 @@ public class Interpreter
 			e.setEmitter(oReader); // IMPORTANT
 			handleError(e);
 			if(getStopFlag())
-				PsyErrorDict.OP_HANDLEERROR.invoke();
+				PsyErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 		catch(final TokenMgrError e)
 		{
 			handleError(new PsySyntaxErrorException(oReader));
 			if(getStopFlag())
-				PsyErrorDict.OP_HANDLEERROR.invoke();
+				PsyErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 	}
 
@@ -294,7 +294,7 @@ public class Interpreter
 			switch(token.kind)
 			{
 				case ParserConstants.COMMAND:
-					parseToken(token).execute();
+					parseToken(token).execute(this);
 					handleExecutionStack();
 					break;
 				case ParserConstants.INTEGER:
@@ -369,10 +369,10 @@ public class Interpreter
 		}
 	}
 
-	public PsyDictlike errorDict()
+	public PsyFormalDict errorDict()
 		throws PsyException
 	{
-		return (PsyDictlike)systemDict().get("errordict");
+		return (PsyFormalDict)systemDict().get("errordict");
 		//return PsyNamespace.namespace("errordict");
 	}
 
@@ -393,7 +393,7 @@ public class Interpreter
 		{
 			final var errorDict=errorDict();
 			if(errorDict.known(errorName))
-				errorDict.get(errorName).invoke();
+				errorDict.get(errorName).invoke(this);
 			else
 				stop_();
 		}
@@ -519,12 +519,6 @@ public class Interpreter
 	}
 
 	@Override
-	public void psyExecutive()
-		throws PsyException
-	{
-		repl();
-	}
-
 	public void repl()
 		throws PsyException
 	{
@@ -557,7 +551,7 @@ public class Interpreter
 						// If "stop" invoked outside the stopping context
 						if(getStopFlag())
 						{
-							PsyErrorDict.OP_HANDLEERROR.invoke();
+							PsyErrorDict.OP_HANDLEERROR.invoke(this);
 							setStopFlag(false);
 							break;
 						}
@@ -568,13 +562,13 @@ public class Interpreter
 					e.setEmitter(PsyNull.NULL);
 					handleError(e);
 					if(getStopFlag())
-						PsyErrorDict.OP_HANDLEERROR.invoke();
+						PsyErrorDict.OP_HANDLEERROR.invoke(this);
 				}
 				catch(final TokenMgrError e)
 				{
 					handleError(new PsySyntaxErrorException(PsyNull.NULL));
 					if(getStopFlag())
-						PsyErrorDict.OP_HANDLEERROR.invoke();
+						PsyErrorDict.OP_HANDLEERROR.invoke(this);
 				}
 			}
 		}
@@ -613,7 +607,7 @@ public class Interpreter
 	public boolean loadLibraryResource(final String resourceName)
 		throws PsyException
 	{
-		final var oLibraryPath=(PsyArraylike<PsyStringy>)dstack.load("librarypath");
+		final var oLibraryPath=(PsyFormalArray<PsyStringy>)dstack.load("librarypath");
 		final var filePath=resourceName.replace('.', '/');
 		for(final var oPathItem: oLibraryPath)
 		{
@@ -668,7 +662,7 @@ public class Interpreter
 				(Class<? extends PsyObject>)Class.forName(
 						(new java.io.BufferedReader(new java.io.InputStreamReader(
 								classLoader.getResourceAsStream(
-										"META-INF/psylla/types/"+typeName)))).readLine(),
+										"META-INF/psylla/type/"+typeName)))).readLine(),
 						true,
 						classLoader);
 			final var resourceID="class:"+clazz.getName();
@@ -779,7 +773,7 @@ public class Interpreter
 					throws PsyException
 				{
 					final var parentIterator
-						=((PsyArraylike<PsyStringy>)systemDict().get("classpath")).iterator();
+						=((PsyFormalArray<PsyStringy>)systemDict().get("classpath")).iterator();
 					return new Iterable<String>()
 						{
 							@Override

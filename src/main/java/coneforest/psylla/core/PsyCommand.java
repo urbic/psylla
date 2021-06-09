@@ -19,24 +19,23 @@ public class PsyCommand
 	}
 
 	@Override
-	public void execute()
+	public void execute(final PsyContext oContext)
 	{
-		final var interpreter=PsyContext.psyCurrentContext();
 		try
 		{
-			interpreter.psyLoad(this).invoke();
+			oContext.psyLoad(this).invoke(oContext);
 		}
 		catch(final PsyException e)
 		{
 			e.setEmitter(this);
-			interpreter.handleError(e);
+			oContext.handleError(e);
 		}
 	}
 
 	@Override
-	public void invoke()
+	public void invoke(final PsyContext oContext)
 	{
-		execute();
+		execute(oContext);
 	}
 
 	@Override

@@ -14,50 +14,10 @@ public interface PsyContext
 	public void join()
 		throws InterruptedException;
 
-	default public void psyJoin()
-		throws PsyException
-	{
-		if(this==psyCurrentContext())
-			throw new PsyInvalidContextException();
-		try
-		{
-			join();
-		}
-		catch(final InterruptedException e)
-		{
-			throw new PsyInterruptException();
-		}
-	}
-
 	@Override
 	default public String toSyntaxString()
 	{
 		return "%context="+getId()+"%";
-	}
-
-	/**
-	*	Causes the currently executing context to sleep for the specified
-	*	number of milliseconds.
-	*
-	*	@param oDuration the duration to sleep for in milliseconds.
-	*	@throws PsyRangeCheckException when the duration is negative.
-	*	@throws PsyInterruptException TODO.
-	*/
-	public static void psySleep(final PsyInteger oDuration)
-		throws PsyException
-	{
-		try
-		{
-			Thread.sleep(oDuration.longValue());
-		}
-		catch(final IllegalArgumentException e)
-		{
-			throw new PsyRangeCheckException();
-		}
-		catch(final InterruptedException e)
-		{
-			throw new PsyInterruptException();
-		}
 	}
 
 	/**
@@ -70,209 +30,9 @@ public interface PsyContext
 		return (PsyContext)Thread.currentThread();
 	}
 
-	public static PsyDictlike psyCurrentDict()
-	{
-		return psyCurrentContext().currentDict();
-	}
-
 	public void quit();
 
-	public static void psyQuit()
-	{
-		psyCurrentContext().quit();
-	}
-
 	public void stop_();
-
-	public static void psyStop()
-	{
-		psyCurrentContext().stop_();
-	}
-
-	// TODO: move to PsyObject?
-	public static void psyExec(final PsyObject o)
-	{
-		o.invoke();
-	}
-
-	public static void psyRepeat(final PsyInteger oCount, final PsyObject oProc)
-		throws PsyException
-	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var estack=interpreter.executionStack();
-		final long count=oCount.longValue();
-
-		if(count<0)
-			throw new PsyRangeCheckException();
-		if(count==0)
-			return;
-
-		interpreter.pushLoopLevel();
-		interpreter.executionStack().push(new PsyOperator("#repeat_continue")
-			{
-				private long count1=count;
-
-				@Override
-				public void action()
-				{
-					if(count1--==0)
-						PsyContext.psyCurrentContext().popLoopLevel();
-					else
-					{
-						estack.push(this);
-						oProc.invoke();
-					}
-				}
-			});
-	}
-
-	public static void psyLoop(final PsyProc oProc)
-	{
-		final var interpreter=PsyContext.psyCurrentContext();
-
-		interpreter.pushLoopLevel();
-		interpreter.executionStack().push(new PsyOperator("#loop_continue")
-			{
-				@Override
-				public void action()
-					throws PsyException
-				{
-					PsyContext.psyCurrentContext().executionStack().push(this);
-					oProc.invoke();
-				}
-			});
-	}
-
-	public static void psyBegin(final PsyDictlike oDictlike)
-	{
-		psyCurrentContext().dictStack().begin(oDictlike);
-	}
-
-	public static void psyEnd()
-		throws PsyException
-	{
-		psyCurrentContext().dictStack().end();
-	}
-
-	public static void psyExch()
-		throws PsyException
-	{
-		final var ostack=psyCurrentContext().operandStackBacked(2);
-		ostack.push(ostack.getBacked(1));
-		ostack.push(ostack.getBacked(0));
-	}
-
-	public static void psyExit()
-		throws PsyException
-	{
-		final var interpreter=psyCurrentContext();
-		if(interpreter.currentLoopLevel()==-1)
-			throw new PsyInvalidExitException();
-		interpreter.executionStack().setSize(interpreter.popLoopLevel());
-	}
-
-	public static void psyDup()
-		throws PsyException
-	{
-		final var ostack=psyCurrentContext().operandStack();
-		ostack.ensureSize(1);
-		ostack.push(ostack.peek());
-	}
-
-	public static void psyRoll(final PsyInteger oN, final PsyInteger oJ)
-		throws PsyException
-	{
-		//final var ostack=psyCurrentContext().operandStackBacked(2);
-		final var ostack=psyCurrentContext().operandStack();
-		//final int n=ostack.<PsyInteger>getBacked(0).intValue();
-		final var n=oN.intValue();
-		//int j=ostack.<PsyInteger>getBacked(1).intValue();
-		var j=oJ.intValue();
-		// TODO ensureSize
-		final int ostackSize=ostack.size();
-		if(n<0)
-			throw new PsyRangeCheckException();
-		if(n==0)
-			return;
-		ostack.ensureSize(n);
-		while(j<0)
-			j+=n;
-		j%=n;
-		for(int i=0; i<j; i++)
-			ostack.add(ostackSize-n, ostack.pop());
-	}
-
-	public static PsyObject psyIndex(PsyInteger oIndex)
-		throws PsyException
-	{
-		int index=oIndex.intValue();
-		if(index<0)
-			throw new PsyRangeCheckException();
-		final var ostack=psyCurrentContext().operandStack();
-		ostack.ensureSize(index+1);
-		return ostack.get(ostack.size()-index-1);
-	}
-
-	public static void psyCopy()
-		throws PsyException
-	{
-		final var ostack=PsyContext.psyCurrentContext().operandStackBacked(1);
-		final var count=ostack.<PsyInteger>getBacked(0).intValue();
-		ostack.ensureSize(count);
-		final var opsize=ostack.size();
-		for(int j=opsize-count; j<opsize; j++)
-			ostack.push(ostack.get(j));
-	}
-
-	public static void psyClearToMark()
-		throws PsyException
-	{
-		final var ostack=PsyContext.psyCurrentContext().operandStack();
-		ostack.setSize(ostack.findMarkPosition());
-	}
-
-	public static PsyInteger psyCountDictStack()
-	{
-		return PsyInteger.valueOf(psyCurrentContext().dictStack().size());
-	}
-
-	public static PsyInteger psyCountExecStack()
-	{
-		return PsyInteger.valueOf(psyCurrentContext().executionStack().size());
-	}
-
-	public static PsyInteger psyCountStack()
-	{
-		return PsyInteger.valueOf(psyCurrentContext().operandStack().size());
-	}
-
-	public static PsyInteger psyCountToMark()
-		throws PsyException
-	{
-		final var ostack=psyCurrentContext().operandStack();
-		return PsyInteger.valueOf(ostack.size()-ostack.findMarkPosition()-1);
-	}
-
-	public static void psyIf(final PsyBoolean oBoolean, final PsyObject o)
-	{
-		if(oBoolean.booleanValue())
-			o.invoke();
-	}
-
-	public static void psyIfElse(final PsyBoolean oBoolean, final PsyObject o1, final PsyObject o2)
-	{
-		(oBoolean.booleanValue()? o1: o2).invoke();
-	}
-
-	public static void psyDef(final PsyStringy oKey, final PsyObject oValue)
-	{
-		PsyContext.psyCurrentContext().currentDict().psyPut(oKey, oValue);
-	}
-
-	public static PsyNamespace psyNamespace(final PsyStringy oPrefix)
-	{
-		return PsyContext.psyCurrentContext().namespacePool().get(oPrefix.stringValue());
-	}
 
 	public OperandStack operandStack();
 
@@ -280,9 +40,9 @@ public interface PsyContext
 
 	public ExecutionStack executionStack();
 
-	public PsyDictlike systemDict();
+	public PsyFormalDict systemDict();
 
-	public PsyDictlike currentDict();
+	public PsyFormalDict currentDict();
 
 	public NamespacePool namespacePool();
 
@@ -302,6 +62,9 @@ public interface PsyContext
 
 	public boolean getStopFlag();
 
+	public void repl()
+		throws PsyException;
+
 	public void setStopFlag(final boolean stopFlag);
 
 	public void handleExecutionStack();
@@ -319,15 +82,466 @@ public interface PsyContext
 	public OperandStack operandStackBacked(final int count)
 		throws PsyException;
 
-	public PsyDictlike psyWhere(final PsyStringy oKey);
+	public PsyFormalDict psyWhere(final PsyStringy oKey);
 
 	public <T extends PsyObject> T psyLoad(final PsyStringy oKey)
-		throws PsyException;
-
-	public void psyExecutive()
 		throws PsyException;
 
 	public void psyRequire(final PsyStringy o)
 		throws PsyException;
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Action
+				("begin",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						oContext.dictStack().begin(ostack.getBacked(0));
+					}),
+			new PsyOperator.Action
+				("cleardictstack", (oContext)->oContext.dictStack().setSize(2)),
+			new PsyOperator.Action
+				("clearstack", (oContext)->oContext.operandStack().clear()),
+			new PsyOperator.Action
+				("cleartomark",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStack();
+						ostack.setSize(ostack.findMarkPosition());
+					}),
+			new PsyOperator.Action
+				("copy",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						final int count=ostack.<PsyInteger>getBacked(0).intValue();
+						if(count<0)
+							throw new PsyRangeCheckException();
+						ostack.ensureSize(count);
+						final int opsize=ostack.size();
+						for(int j=opsize-count; j<opsize; j++)
+							ostack.push(ostack.get(j));
+					}),
+			new PsyOperator.Action
+				("countdictstack",
+					(oContext)->oContext.operandStack().push(PsyInteger.valueOf(oContext.dictStack().size()))),
+			new PsyOperator.Action
+				("countexecstack",
+					(oContext)->oContext.operandStack().push(PsyInteger.valueOf(oContext.executionStack().size()))),
+			new PsyOperator.Action
+				("countstack",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStack();
+						ostack.push(PsyInteger.valueOf(ostack.size()));
+					}),
+			new PsyOperator.Action
+				("counttomark",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStack();
+						ostack.push(PsyInteger.valueOf(-ostack.findMarkPosition()-1+ostack.size()));
+					}),
+			new PsyOperator.Action
+				("currentcontext", (oContext)->oContext.operandStack().push(oContext)),
+			new PsyOperator.Action
+				("currentdict",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStack();
+						ostack.push(oContext.currentDict());
+					}),
+			new PsyOperator.Action
+				("def",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						oContext.currentDict().psyPut(ostack.getBacked(0), ostack.getBacked(1));
+					}),
+			new PsyOperator.Action
+				("dictstack",
+					(oContext)->
+					{
+						oContext.operandStack()
+							.push(new PsyArray((java.util.ArrayList<PsyObject>)oContext.dictStack().clone()));
+					}),
+			new PsyOperator.Action
+				("dup",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStack();
+						ostack.ensureSize(1);
+						ostack.push(ostack.peek());
+					}),
+			new PsyOperator.Action
+				("end", (oContext)->oContext.dictStack().end()),
+			new PsyOperator.Action
+				("exch",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						ostack.push(ostack.getBacked(1));
+						ostack.push(ostack.getBacked(0));
+					}),
+			new PsyOperator.Action
+				("exec",
+					(oContext)->oContext.operandStackBacked(1).getBacked(0).invoke(oContext)),
+			new PsyOperator.Action
+				("execstack",
+					(oContext)->
+					{
+						oContext.operandStack().push(
+							new PsyArray((java.util.ArrayList<PsyObject>)oContext.executionStack().clone()));
+					}),
+			new PsyOperator.Action
+				("executive", (oContext)->oContext.repl()),
+			new PsyOperator.Action
+				("exit",
+					(oContext)->
+					{
+						if(oContext.currentLoopLevel()==-1)
+							throw new PsyInvalidExitException();
+						oContext.executionStack().setSize(oContext.popLoopLevel());
+					}),
+			new PsyOperator.Action
+				("for",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(4);
+						final var estack=oContext.executionStack();
+						final PsyRealNumeric oInitial=ostack.getBacked(0);
+						final PsyRealNumeric oIncrement=ostack.getBacked(1);
+						final PsyRealNumeric oLimit=ostack.getBacked(2);
+						final PsyObject oProc=ostack.getBacked(3);
+
+						oContext.pushLoopLevel();
+						final boolean forward=oIncrement.psyGt(PsyInteger.ZERO).booleanValue();
+						estack.push(forward?
+							new PsyOperator("#for_continue")
+								{
+									private PsyRealNumeric oCounter=oInitial;
+
+									@Override
+									public void action(final PsyContext oContext)
+									{
+										if(oCounter.psyGt(oLimit).booleanValue())
+											oContext.popLoopLevel();
+										else
+										{
+											estack.push(this);
+											ostack.push(oCounter);
+											oCounter=(PsyRealNumeric)oCounter.psyAdd(oIncrement);
+											oProc.invoke(oContext);
+										}
+									}
+								}:
+							new PsyOperator("#for_continue")
+								{
+									private PsyRealNumeric oCounter=oInitial;
+
+									@Override
+									public void action(final PsyContext oContext)
+									{
+										if(oCounter.psyLt(oLimit).booleanValue())
+											oContext.popLoopLevel();
+										else
+										{
+											estack.push(this);
+											ostack.push(oCounter);
+											oCounter=(PsyRealNumeric)oCounter.psyAdd(oIncrement);
+											oProc.invoke(oContext);
+										}
+									}
+								});
+						}),
+			new PsyOperator.Action
+				("fork",
+					(oContext)->
+						// TODO; error handling in forked context
+					{
+						final var ostack=oContext.operandStackBacked(1);
+
+						//ostack.ensureSize(2);
+						final var o=ostack.getBacked(0);
+
+						final var forkedDtack=(DictStack)oContext.dictStack().clone();
+						final var oForkedContext=new Interpreter()
+							{
+								private final DictStack dstack=forkedDtack;
+								//{
+								//	this.dstack=forkedDtack;
+								//}
+
+								@Override
+								public void run()
+								{
+									o.invoke(this);
+									handleExecutionStack();
+									if(getStopFlag())
+									{
+										PsyErrorDict.OP_HANDLEERROR.invoke(oContext);
+										return;
+									}
+								}
+							};
+						final int i=ostack.findMarkPosition();
+						final int ostackSize=ostack.size();
+						final var forkedOstack=oForkedContext.operandStack();
+						for(int j=i+1; j<ostackSize; j++)
+							forkedOstack.push(ostack.get(j));
+						ostack.setSize(i);
+						ostack.push(oForkedContext);
+						oForkedContext.start();
+					}),
+			new PsyOperator.Action
+				("halt",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						System.exit(ostack.<PsyInteger>getBacked(0).intValue());
+					}),
+			new PsyOperator.Action
+				("if",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						if(ostack.<PsyBoolean>getBacked(0).booleanValue())
+							ostack.getBacked(1).invoke(oContext);
+					}),
+			new PsyOperator.Action
+				("ifelse",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(3);
+						ostack.getBacked(ostack.<PsyBoolean>getBacked(0).booleanValue()? 1: 2)
+							.invoke(oContext);
+					}),
+			new PsyOperator.Action
+				("index",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						int index=ostack.<PsyInteger>getBacked(0).intValue();
+						if(index<0)
+							throw new PsyRangeCheckException();
+						ostack.ensureSize(index+1);
+						ostack.push(ostack.get(ostack.size()-index-1));
+					}),
+			new PsyOperator.Action
+				("join",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						final var oContextJoining=ostack.<PsyContext>getBacked(0);
+						if(oContextJoining==oContext)
+							throw new PsyInvalidContextException();
+						try
+						{
+							oContextJoining.join();
+						}
+						catch(final InterruptedException e)
+						{
+							throw new PsyInterruptException();
+						}
+						final var ostackJoining=oContextJoining.operandStack();
+						ostack.push(PsyMark.MARK);
+						for(final PsyObject o: ostackJoining)
+							ostack.push(o);
+					}),
+			new PsyOperator.Action
+				("load",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						ostack.push(oContext.psyLoad(ostack.getBacked(0)));
+					}),
+			new PsyOperator.Action
+				("loop",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						final var oProc=ostack.getBacked(0);
+
+						oContext.pushLoopLevel();
+						oContext.executionStack().push(new PsyOperator("#loop_continue")
+							{
+								@Override
+								public void action(final PsyContext oContext1)
+									throws PsyException
+								{
+									oContext1.executionStack().push(this);
+									oProc.invoke(oContext1);
+								}
+							});
+					}),
+			new PsyOperator.Action
+				("namespace",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						ostack.push(oContext.namespacePool().get(ostack.<PsyStringy>getBacked(0).stringValue()));
+					}),
+			new PsyOperator.Arity10<PsyObject>
+				("pop", (a)->{}),
+			new PsyOperator.Action
+				("prettyprint",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						final var oStdWriter=(PsyWriter)oContext.dictStack().load("stdout");
+						oStdWriter.psyWriteString(ostack.getBacked(0).psySyntax());
+						oStdWriter.psyWriteString(oContext.dictStack().load("eol"));
+						oStdWriter.psyFlush();
+					}),
+			new PsyOperator.Action
+				("print",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						oContext.dictStack().<PsyWriter>load("stdout")
+							.psyWriteString(ostack.getBacked(0));
+					}),
+			new PsyOperator.Action
+				("quit", (oContext)->oContext.quit()),
+			new PsyOperator.Action
+				("repeat",
+					(oContext)->
+					{
+						final OperandStack ostack=oContext.operandStackBacked(2);
+						final ExecutionStack estack=oContext.executionStack();
+						final PsyInteger oCount=ostack.getBacked(0);
+						final PsyObject oProc=ostack.getBacked(1);
+						final long count=oCount.longValue();
+
+						if(count<0)
+							throw new PsyRangeCheckException();
+						if(count==0)
+							return;
+
+						oContext.pushLoopLevel();
+						oContext.executionStack().push(new PsyOperator("#repeat_continue")
+							{
+								private long count1=count;
+
+								@Override
+								public void action(final PsyContext oContext1)
+								{
+									if(count1--==0)
+										oContext1.popLoopLevel();
+									else
+									{
+										estack.push(this);
+										oProc.invoke(oContext1);
+									}
+								}
+							});
+					}),
+			new PsyOperator.Action
+				("require",
+					(oContext)->
+					{
+						// TODO
+						final var ostack=oContext.operandStackBacked(1);
+						oContext.psyRequire(ostack.getBacked(0));
+					}),
+			new PsyOperator.Action
+				("roll",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						final int n=ostack.<PsyInteger>getBacked(0).intValue();
+						int j=ostack.<PsyInteger>getBacked(1).intValue();
+						final int ostackSize=ostack.size();
+						if(n<0)
+							throw new PsyRangeCheckException();
+						if(n==0)
+							return;
+						ostack.ensureSize(n);
+						while(j<0)
+							j+=n;
+						j%=n;
+						for(int i=0; i<j; i++)
+							ostack.add(ostackSize-n, ostack.pop());
+					}),
+			new PsyOperator.Action
+				("sleep",
+					(oContext)->
+					{
+						try
+						{
+							Thread.sleep(oContext.operandStackBacked(1).<PsyInteger>getBacked(0).longValue());
+						}
+						catch(final IllegalArgumentException e)
+						{
+							throw new PsyRangeCheckException();
+						}
+						catch(final InterruptedException e)
+						{
+							throw new PsyInterruptException();
+						}
+					}),
+			new PsyOperator.Action
+				("stack",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStack();
+						ostack.push(new PsyArray((java.util.ArrayList<PsyObject>)ostack.clone()));
+					}),
+			new PsyOperator.Action
+				("stop", PsyContext::stop_),
+			new PsyOperator.Action
+				("stopped",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						final PsyObject oProc=ostack.getBacked(0);
+
+						final int stopLevel=oContext.pushStopLevel();
+						oProc.invoke(oContext);
+						oContext.handleExecutionStack(stopLevel);
+						ostack.push(PsyBoolean.valueOf(oContext.getStopFlag()));
+						oContext.setStopFlag(false);
+						oContext.popStopLevel();
+
+						/*
+						interpreter.pushStopLevel();
+						interpreter.executionStack().push(new PsyOperator.Action
+						("#stopped_continue", (interpreter1)->
+						{
+							ostack.push(PsyBoolean.valueOf(interpreter1.getStopFlag()));
+							interpreter1.setStopFlag(false);
+							interpreter1.popStopLevel();
+						}));
+						oProc.invoke(interpreter);
+						*/
+					}),
+			new PsyOperator.Action
+				("store",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						oContext.dictStack().psyStore(ostack.getBacked(0), ostack.getBacked(1));
+					}),
+			new PsyOperator.Action
+				("tokens",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						oContext.interpretBraced(new PsyStringReader(ostack.<PsyStringy>getBacked(0)));
+					}),
+			new PsyOperator.Action
+				("where",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(1);
+						final PsyFormalDict oDict=oContext.psyWhere(ostack.<PsyStringy>getBacked(0));
+						if(oDict!=null)
+							ostack.push(oDict);
+						ostack.push(PsyBoolean.valueOf(oDict!=null));
+					}),
+			new PsyOperator.Action
+				("yield", (oContext)->((Thread)oContext).yield()),
+
+		};
 }

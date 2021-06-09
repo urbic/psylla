@@ -1,6 +1,8 @@
 package coneforest.psylla.core;
+import coneforest.psylla.*;
 
-@coneforest.psylla.Type("exception")
+@ExceptionType("exception")
+//@coneforest.psylla.Type("exception")
 abstract public class PsyException
 	extends	Exception
 	implements PsyObject
@@ -14,7 +16,10 @@ abstract public class PsyException
 		setEmitter(oEmitter);
 	}
 
-	abstract public String getName();
+	public String getName()
+	{
+		return "exception";
+	};
 
 	public void setEmitter(final PsyObject oEmitter)
 	{

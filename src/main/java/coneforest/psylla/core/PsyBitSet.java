@@ -7,7 +7,7 @@ import coneforest.psylla.*;
 */
 @Type("bitset")
 public class PsyBitSet
-	implements PsySetlike<PsyInteger>
+	implements PsyFormalSet<PsyInteger>
 {
 	/**
 	*	Instantiate an empty Ψ-{@code bitset} object.
@@ -78,7 +78,7 @@ public class PsyBitSet
 		if(oIterable instanceof PsyBitSet)
 			bitset.or(((PsyBitSet)oIterable).bitset);
 		else
-			PsySetlike.super.psyAppendAll(oIterable);
+			PsyFormalSet.super.psyAppendAll(oIterable);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class PsyBitSet
 		if(oIterable instanceof PsyBitSet)
 			bitset.andNot(((PsyBitSet)oIterable).bitset);
 		else
-			PsySetlike.super.psyRemoveAll(oIterable);
+			PsyFormalSet.super.psyRemoveAll(oIterable);
 	}
 
 	@Override
@@ -149,12 +149,12 @@ public class PsyBitSet
 	}
 
 	@Override
-	public PsyBoolean psyIntersects(final PsySetlike oSet)
+	public PsyBoolean psyIntersects(final PsyFormalSet oSet)
 	{
 		if(oSet instanceof PsyBitSet)
 			return PsyBoolean.valueOf(bitset.intersects(((PsyBitSet)oSet).bitset));
 		else
-			return PsySetlike.super.psyIntersects(oSet);
+			return PsyFormalSet.super.psyIntersects(oSet);
 	}
 
 	@Override
@@ -171,5 +171,11 @@ public class PsyBitSet
 	}
 
 	private final java.util.BitSet bitset;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01
+				("bitset", PsyBitSet::new),
+		};
 
 }

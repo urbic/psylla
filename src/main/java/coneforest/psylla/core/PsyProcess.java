@@ -5,7 +5,7 @@ import coneforest.psylla.*;
 public class PsyProcess
 	implements PsyObject
 {
-	public PsyProcess(final PsyDictlike oDictlike)
+	public PsyProcess(final PsyFormalDict oDict)
 		throws PsyException
 	{
 		try
@@ -13,16 +13,16 @@ public class PsyProcess
 			ProcessBuilder pb=null;
 
 			// TODO: empty command name
-			if(oDictlike.known("command"))
+			if(oDict.known("command"))
 			{
-				final var command=oDictlike.get("command");
+				final var command=oDict.get("command");
 				if(command instanceof PsyStringy)
 					pb=new ProcessBuilder(((PsyStringy)command).stringValue());
-				else if(command instanceof PsyArraylike)
+				else if(command instanceof PsyFormalArray)
 				{
 					java.util.ArrayList<String> commandList
-						=new java.util.ArrayList(((PsyArraylike)command).length());
-					for(final var o: (PsyArraylike<PsyObject>)command)
+						=new java.util.ArrayList(((PsyFormalArray)command).length());
+					for(final var o: (PsyFormalArray<PsyObject>)command)
 						commandList.add(((PsyStringy)o).stringValue());
 					pb=new ProcessBuilder(commandList);
 				}
@@ -30,22 +30,22 @@ public class PsyProcess
 					throw new PsyTypeCheckException();
 			}
 
-			if(oDictlike.known("directory"))
-				pb.directory(new java.io.File(((PsyStringy)oDictlike.get("directory")).stringValue()));
+			if(oDict.known("directory"))
+				pb.directory(new java.io.File(((PsyStringy)oDict.get("directory")).stringValue()));
 
-			if(oDictlike.known("environment"))
+			if(oDict.known("environment"))
 			{
 				// TODO
 				//bp.environment();
 			}
-			//PsyDictlike environment=(PsyDictlike)oDictlike.get("environment");
+			//PsyDict environment=(PsyDict)oDict.get("environment");
 
-			if(oDictlike.known("inheritinput")
-					&& ((PsyBoolean)oDictlike.get("inheritinput")).booleanValue())
+			if(oDict.known("inheritinput")
+					&& ((PsyBoolean)oDict.get("inheritinput")).booleanValue())
 				pb.redirectInput(ProcessBuilder.Redirect.INHERIT);
 
-			if(oDictlike.known("inheritoutput")
-					&& ((PsyBoolean)oDictlike.get("inheritoutput")).booleanValue())
+			if(oDict.known("inheritoutput")
+					&& ((PsyBoolean)oDict.get("inheritoutput")).booleanValue())
 				pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
 			process=pb.start();

@@ -2,27 +2,27 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code arraylike}, an abstraction of an array
+*	A representation of Ψ-{@code formalarray}, an abstraction of an array
 *	composed of Ψ-{@code object}s.
 *
 *	@param <T> a type of contained objects.
 */
-@Type("arraylike")
-public interface PsyArraylike<T extends PsyObject>
+@Type("formalarray")
+public interface PsyFormalArray<T extends PsyObject>
 	extends
 		PsyAppendable<T>,
 		PsyContainer<T>,
 		PsyIndexed<PsyInteger, T>,
-		PsySequential
+		PsySequential<T>
 {
 
 	@Override
-	public PsyArraylike<T> psyClone();
+	public PsyFormalArray<T> psyClone();
 
-	default public PsyArraylike<T> psyReverse()
+	default public PsyFormalArray<T> psyReverse()
 		throws PsyException
 	{
-		PsyArraylike<T> result=psyClone();
+		final PsyFormalArray<T> result=psyClone();
 		int length=result.length();
 		for(int i=0; i<(int)(length/2); i++)
 		{
@@ -50,7 +50,7 @@ public interface PsyArraylike<T extends PsyObject>
 		return get(oIndex.intValue());
 	}
 
-	public PsyArraylike<T> psyGetInterval(final PsyInteger oIndex, final PsyInteger oLength)
+	public PsyFormalArray<T> psyGetInterval(final PsyInteger oIndex, final PsyInteger oLength)
 		throws PsyException;
 
 	public void put(final int index, final T o)
@@ -128,7 +128,7 @@ public interface PsyArraylike<T extends PsyObject>
 	}
 
 	@Override
-	default public PsyArraylike<T> psyReplicate(final PsyInteger oCount)
+	default public PsyFormalArray<T> psyReplicate(final PsyInteger oCount)
 		throws PsyException
 	{
 		long count=oCount.longValue();
@@ -136,7 +136,7 @@ public interface PsyArraylike<T extends PsyObject>
 			throw new PsyRangeCheckException();
 		if(count*length()>Integer.MAX_VALUE)
 			throw new PsyLimitCheckException();
-		PsyArraylike<T> oResult=(PsyArraylike<T>)psyNewEmpty();
+		final PsyFormalArray<T> oResult=(PsyFormalArray<T>)psyNewEmpty();
 		while(count-->0)
 			oResult.psyAppendAll(this);
 		return oResult;
@@ -177,10 +177,10 @@ public interface PsyArraylike<T extends PsyObject>
 	}
 
 	@Override
-	default public PsyArraylike<T> psyGetAll(final PsyIterable<PsyInteger> oIndices)
+	default public PsyFormalArray<T> psyGetAll(final PsyIterable<PsyInteger> oIndices)
 		throws PsyException
 	{
-		final PsyArraylike<T> oResult=(PsyArraylike<T>)psyNewEmpty();
+		final PsyFormalArray<T> oResult=(PsyFormalArray<T>)psyNewEmpty();
 		for(final PsyInteger oIndex: oIndices)
 			oResult.psyAppend(psyGet(oIndex));
 		return oResult;
@@ -192,11 +192,11 @@ public interface PsyArraylike<T extends PsyObject>
 	public T extract(final int index)
 		throws PsyException;
 
-	public PsyArraylike<T> psyExtractInterval(final PsyInteger oIndex, final PsyInteger oCount)
+	public PsyFormalArray<T> psyExtractInterval(final PsyInteger oIndex, final PsyInteger oCount)
 		throws PsyException;
 
 	@Override
-	public PsyArraylike<T> psySlice(final PsyIterable<PsyInteger> oIndices)
+	public PsyFormalArray<T> psySlice(final PsyIterable<PsyInteger> oIndices)
 		throws PsyException;
 
 	@Override
@@ -277,7 +277,7 @@ public interface PsyArraylike<T extends PsyObject>
 										private int index=0;
 
 										private final java.util.Iterator<PsyObject> parentIterator
-											=(java.util.Iterator<PsyObject>)PsyArraylike.this.iterator();
+											=(java.util.Iterator<PsyObject>)PsyFormalArray.this.iterator();
 
 									};
 							}
@@ -305,5 +305,31 @@ public interface PsyArraylike<T extends PsyObject>
 				o.toSyntaxString());
 		return sj.toString();
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity31<PsyFormalArray, PsyInteger, PsyInteger>
+				("extractinterval", PsyFormalArray::psyExtractInterval),
+			new PsyOperator.Arity31<PsyFormalArray, PsyInteger, PsyInteger>
+				("getinterval", PsyFormalArray::psyGetInterval),
+			new PsyOperator.Arity30<PsyFormalArray, PsyInteger, PsyObject>
+				("insert", PsyFormalArray::psyInsert),
+			new PsyOperator.Arity30<PsyFormalArray, PsyInteger, PsyIterable>
+				("insertall", PsyFormalArray::psyInsertAll),
+			new PsyOperator.Arity11<PsyFormalArray>
+				("postchop", PsyFormalArray::psyPostChop),
+			new PsyOperator.Arity11<PsyFormalArray>
+				("prechop", PsyFormalArray::psyPreChop),
+			new PsyOperator.Arity20<PsyFormalArray, PsyObject>
+				("prepend", PsyFormalArray::psyPrepend),
+			new PsyOperator.Arity20<PsyFormalArray, PsyIterable>
+				("prependall", PsyFormalArray::psyPrependAll),
+			new PsyOperator.Arity30<PsyFormalArray, PsyInteger, PsyIterable>
+				("putinterval", PsyFormalArray::psyPutInterval),
+			new PsyOperator.Arity11<PsyFormalArray>
+				("reverse", PsyFormalArray::psyReverse),
+			new PsyOperator.Arity20<PsyFormalArray, PsyInteger>
+				("setlength", PsyFormalArray::psySetLength),
+		};
 
 }

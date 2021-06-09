@@ -46,7 +46,7 @@ bind def
 	for
 	0 1 //n 1 sub
 	{
-		dup notzero { ' ' print } if
+		dup nonzero { ' ' print } if
 		permutations exch get toname print
 	}
 	for

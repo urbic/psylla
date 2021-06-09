@@ -157,4 +157,18 @@ public interface PsyStringy
 		return stringValue().chars().<PsyInteger>mapToObj(PsyInteger::valueOf);
 	}*/
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity31<PsyStringy, PsyInteger, PsyInteger>
+				("indexofchar", PsyStringy::psyIndexOfChar),
+			new PsyOperator.Arity31<PsyStringy, PsyStringy, PsyInteger>
+				("indexofsubstring", PsyStringy::psyIndexOfSubstring),
+			new PsyOperator.Arity11<PsyStringy>
+				("lowercase", PsyStringy::psyLowerCase),
+			new PsyOperator.Arity21<PsyStringy, PsyRegExp>
+				("split", PsyStringy::psySplit),
+			new PsyOperator.Arity11<PsyStringy>
+				("uppercase", PsyStringy::psyUpperCase),
+		};
+
 }

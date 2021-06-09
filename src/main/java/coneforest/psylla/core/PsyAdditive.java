@@ -29,7 +29,6 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*	@return a sum.
 	*/
 	public T psyAdd(final T oAdditive);
-	//public <U extends T> T psyAdd(final U oAdditive);
 
 	/**
 	*	Returns a Ψ-{@code additive} representing the result of arithmetic
@@ -40,4 +39,10 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*/
 	public T psySub(final T oAdditive);
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("add", PsyAdditive::psyAdd),
+			new PsyOperator.Arity11<PsyAdditive>("neg", PsyAdditive::psyNeg),
+			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("sub", PsyAdditive::psySub),
+		};
 }

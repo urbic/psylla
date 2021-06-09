@@ -72,4 +72,15 @@ public interface PsyScalar<T extends PsyScalar>
 		return psyGt(oScalar).booleanValue()? this: oScalar;
 	}
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("cmp", PsyScalar::psyCmp),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("ge", PsyScalar::psyGe),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("gt", PsyScalar::psyGt),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("le", PsyScalar::psyLe),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("lt", PsyScalar::psyLt),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("max", PsyScalar::psyMax),
+			new PsyOperator.Arity21<PsyScalar, PsyScalar>("min", PsyScalar::psyMin),
+		};
+
 }

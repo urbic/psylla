@@ -15,11 +15,10 @@ public class PsyErrorDict
 		=new PsyOperator("handleerror")
 			{
 				@Override
-				public void action()
+				public void action(final PsyContext oContext)
 					throws ClassCastException, PsyException
 				{
-					final var interpreter=PsyContext.psyCurrentContext();
-					final PsyDictlike errorObj=(PsyDictlike)interpreter.systemDict().get("$error");
+					final PsyFormalDict errorObj=(PsyFormalDict)oContext.systemDict().get("$error");
 					errorObj.put("newerror", PsyBoolean.FALSE);
 
 					System.err.println(Messages.format("handleErrorMessage",
@@ -44,7 +43,7 @@ public class PsyErrorDict
 						System.err.println(sj.toString());
 					}
 
-					interpreter.setStopFlag(false);
+					oContext.setStopFlag(false);
 				}
 			};
 }

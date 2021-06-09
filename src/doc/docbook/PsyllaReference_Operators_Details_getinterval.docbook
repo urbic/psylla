@@ -23,7 +23,7 @@ consists of <replaceable>length</replaceable> elements starting at the
 <listitem>
 <replaceable>array</replaceable>,
 <replaceable>subarray</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>
 </listitem>
 <listitem>
 <replaceable>index</replaceable>,

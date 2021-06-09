@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @Type("streamable")
 public interface PsyStreamable<T extends PsyObject>
-	extends PsySequential
+	extends PsySequential<T>
 {
 
 	@Override

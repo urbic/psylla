@@ -38,18 +38,18 @@ public interface PsyObject
 	*	Execute this object in the current context. Pushes this object into
 	*	interpreter’s operand stack.
 	*/
-	default public void execute()
+	default public void execute(final PsyContext oContext)
 	{
-		PsyContext.psyCurrentContext().operandStack().push(this);
+		oContext.operandStack().push(this);
 	}
 
 	/**
 	*	Invoke this object in the current context. Pushes this object into
 	*	interpreter’s operand stack.
 	*/
-	default public void invoke()
+	default public void invoke(final PsyContext oContext)
 	{
-		PsyContext.psyCurrentContext().operandStack().push(this);
+		oContext.operandStack().push(this);
 	}
 
 	default public PsyBoolean psyEq(final PsyObject o)
@@ -158,4 +158,16 @@ public interface PsyObject
 		}
 	}
 	*/
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyObject>("clone", PsyObject::psyClone),
+			new PsyOperator.Arity21<PsyObject, PsyObject>("eq", PsyObject::psyEq),
+			new PsyOperator.Arity11("hashcode", PsyObject::psyHashCode),
+			new PsyOperator.Arity21<PsyObject, PsyStringy>("instanceof", PsyObject::psyInstanceOf),
+			new PsyOperator.Arity21<PsyObject, PsyObject>("ne", PsyObject::psyNe),
+			new PsyOperator.Arity11<PsyObject>("toname", PsyObject::psyToName),
+			new PsyOperator.Arity11<PsyObject>("tostring", PsyObject::psyToString),
+			new PsyOperator.Arity11<PsyObject>("type", PsyObject::psyType),
+		};
+
 }

@@ -12,7 +12,7 @@ public class TypeResolver
 			return (Class<? extends PsyObject>)Class.forName(
 					(new java.io.BufferedReader(new java.io.InputStreamReader(
 							TypeResolver.class.getClassLoader().getResourceAsStream(
-									"META-INF/psylla/types/"+typeName)))).readLine());
+									"META-INF/psylla/type/"+typeName)))).readLine());
 		}
 		catch(final java.io.IOException|ClassNotFoundException e)
 		{

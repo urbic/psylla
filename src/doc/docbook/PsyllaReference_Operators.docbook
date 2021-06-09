@@ -270,7 +270,7 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_notzero" xrefstyle="template:%t"/></term>
+<term><xref linkend="PsyllaReference_Operators_Details_nonzero" xrefstyle="template:%t"/></term>
 <listitem>a number is non-zero?</listitem>
 </varlistentry>
 
@@ -1548,10 +1548,10 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_namespace;
 &PsyllaReference_Operators_Details_ne;
 &PsyllaReference_Operators_Details_neg;
+&PsyllaReference_Operators_Details_nonzero;
 &PsyllaReference_Operators_Details_normaldeviate;
 &PsyllaReference_Operators_Details_not;
 &PsyllaReference_Operators_Details_notify;
-&PsyllaReference_Operators_Details_notzero;
 &PsyllaReference_Operators_Details_null;
 &PsyllaReference_Operators_Details_or;
 &PsyllaReference_Operators_Details_osarch;

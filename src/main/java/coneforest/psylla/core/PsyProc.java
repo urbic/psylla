@@ -20,9 +20,9 @@ public class PsyProc
 	}
 
 	@Override
-	public void invoke()
+	public void invoke(final PsyContext oContext)
 	{
-		final var estack=PsyContext.psyCurrentContext().executionStack();
+		final var estack=oContext.executionStack();
 		try
 		{
 			for(int i=length()-1; i>=0; i--)
@@ -98,5 +98,11 @@ public class PsyProc
 
 		return this;
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyProc>
+				("bind", PsyProc::psyBind),
+		};
 
 }

@@ -2,14 +2,14 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of a Ψ-{@code setlike}, an abstraction of a finite set of
-*	Ψ-{@code object}s. This interface declares methods for appending, removal
-*	and set operations.
+*	A representation of a Ψ-{@code formalset}, an abstraction of a finite set
+*	of Ψ-{@code object}s. This interface declares methods for appending,
+*	removal and set operations.
 *
 *	@param <T> a type of the elements.
 */
-@Type("setlike")
-public interface PsySetlike<T extends PsyObject>
+@Type("formalset")
+public interface PsyFormalSet<T extends PsyObject>
 	extends
 		PsyAppendable<T>,
 		PsyContainer<T>
@@ -91,13 +91,13 @@ public interface PsySetlike<T extends PsyObject>
 
 	/**
 	*	Returns a Ψ-{@code boolean} object indicating whether a given Ψ-{@code
-	*	setlike} set intersects with this set.
+	*	formalset} set intersects with this set.
 	*
-	*	@param oSet a given Ψ-{@code setlike} set.
-	*	@return {@link PsyBoolean#TRUE}, if a given Ψ-{@code setlike} set
+	*	@param oSet a given Ψ-{@code formalset} set.
+	*	@return {@link PsyBoolean#TRUE}, if a given Ψ-{@code formalset} set
 	*	intersects with this set, and {@link PsyBoolean#FALSE} otherwise.
 	*/
-	default public PsyBoolean psyIntersects(final PsySetlike<? extends T> oSet)
+	default public PsyBoolean psyIntersects(final PsyFormalSet<? extends T> oSet)
 	{
 		for(final T o: oSet)
 			if(psyContains(o).booleanValue())
@@ -106,7 +106,7 @@ public interface PsySetlike<T extends PsyObject>
 	}
 
 	@Override
-	default public PsySetlike<T> psyReplicate(final PsyInteger oCount)
+	default public PsyFormalSet<T> psyReplicate(final PsyInteger oCount)
 		throws PsyException
 	{
 		final long count=oCount.longValue();
@@ -115,8 +115,8 @@ public interface PsySetlike<T extends PsyObject>
 		if(count>Integer.MAX_VALUE)
 			throw new PsyLimitCheckException();
 		if(count==0)
-			return (PsySetlike<T>)psyNewEmpty();
-		return (PsySetlike<T>)psyClone();
+			return (PsyFormalSet<T>)psyNewEmpty();
+		return (PsyFormalSet<T>)psyClone();
 	}
 
 	@Override
@@ -142,5 +142,14 @@ public interface PsySetlike<T extends PsyObject>
 		}
 		return sb.toString();
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity21<PsyFormalSet, PsyObject>("contains", PsyFormalSet::psyContains),
+			new PsyOperator.Arity21<PsyFormalSet, PsyFormalSet>("intersects", PsyFormalSet::psyIntersects),
+			new PsyOperator.Arity20<PsyFormalSet, PsyObject>("remove", PsyFormalSet::psyRemove),
+			new PsyOperator.Arity20<PsyFormalSet, PsyIterable>("removeall", PsyFormalSet::psyRemoveAll),
+			new PsyOperator.Arity20<PsyFormalSet, PsyIterable>("retainall", PsyFormalSet::psyRetainAll),
+		};
 
 }

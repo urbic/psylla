@@ -30,8 +30,8 @@ to the <replaceable>container</replaceable>.
 
 <para>
 Для <replaceable>контейнеров</replaceable> типа <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_arraylike"/> добавление происходит в конец
-массива.
+linkend="PsyllaReference_Types_Details_formalarray"/> добавление происходит
+в конец массива.
 </para>
 
 <formalpara>

@@ -19,7 +19,7 @@ Returns a boolean <replaceable>result</replaceable> indicating whether the
 <itemizedlist>
 <listitem>
 <replaceable>set</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_setlike"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalset"/>
 </listitem>
 <listitem>
 <replaceable>object</replaceable>:

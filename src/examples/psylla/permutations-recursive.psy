@@ -34,7 +34,7 @@ n permutations
 	/p exch def
 	0 1 p length 1 sub
 	{
-		dup notzero { ' ' print } if
+		dup nonzero { ' ' print } if
 		p exch get toname print
 	}
 	for

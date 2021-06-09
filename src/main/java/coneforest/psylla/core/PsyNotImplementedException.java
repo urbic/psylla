@@ -1,13 +1,13 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
 
-@ExceptionType("limitcheck")
-public class PsyLimitCheckException
+@ExceptionType("notimplemented")
+public class PsyNotImplementedException
 	extends PsyException
 {
 	@Override
 	public String getName()
 	{
-		return "limitcheck";
+		return "notimplemented";
 	}
 }

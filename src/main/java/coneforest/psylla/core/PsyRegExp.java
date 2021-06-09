@@ -80,4 +80,10 @@ public class PsyRegExp
 
 	private final java.util.regex.Pattern pattern;
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyStringy>
+				("regexp", PsyRegExp::new),
+		};
+
 }

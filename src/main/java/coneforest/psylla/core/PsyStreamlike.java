@@ -35,7 +35,7 @@ public interface PsyStreamlike<T extends PsyObject>
 			};
 	}
 
-	default public PsyStreamlike<PsyObject> psyMapped(final PsyExecutable oMapper)
+	/*XXX default public PsyStreamlike<PsyObject> psyMapped(final PsyExecutable oMapper)
 		throws PsyException
 	{
 		return new PsyStreamlike<PsyObject>()
@@ -46,9 +46,9 @@ public interface PsyStreamlike<T extends PsyObject>
 					return PsyStreamlike.this.stream().map(oMapper.<T, PsyObject>asFunction());
 				}
 			};
-	}
+	}*/
 
-	default public PsyStreamlike<T> psySorted(final PsyExecutable oComparator)
+	/*XXX default public PsyStreamlike<T> psySorted(final PsyExecutable oComparator)
 	{
 		return new PsyStreamlike<T>()
 			{
@@ -58,7 +58,7 @@ public interface PsyStreamlike<T extends PsyObject>
 					return PsyStreamlike.this.stream().sorted(oComparator.<T>asComparator());
 				}
 			};
-	}
+	}*/
 
 	default public PsyStreamlike<T> psySkipped(final PsyInteger oCount)
 		throws PsyRangeCheckException
@@ -99,7 +99,7 @@ public interface PsyStreamlike<T extends PsyObject>
 	*	@return an iterable
 	*	@throws PsyException
 	*/
-	default public PsyStreamlike<T> psyFiltered(final PsyExecutable oPredicate)
+	/*XXX default public PsyStreamlike<T> psyFiltered(final PsyExecutable oPredicate)
 		throws PsyException
 	{
 		return new PsyStreamlike<T>()
@@ -110,7 +110,7 @@ public interface PsyStreamlike<T extends PsyObject>
 					return PsyStreamlike.this.stream().filter(oPredicate.<T>asPredicate());
 				}
 			};
-	}
+	}*/
 
 	/*
 	default public PsyStreamlike<T> psyIterate(final T oSeed, final PsyProc oProc)
@@ -156,7 +156,7 @@ public interface PsyStreamlike<T extends PsyObject>
 		interpreter.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
-				public void action()
+				public void action(final PsyContext oContext)
 					throws PsyException
 				{
 					if(iterator.hasNext())
@@ -170,15 +170,16 @@ public interface PsyStreamlike<T extends PsyObject>
 							// TODO more suitable exception type
 							throw new PsyUndefinedException();
 						}
-						PsyContext.psyCurrentContext().executionStack().push(this);
-						oProc.invoke();
+						oContext.executionStack().push(this);
+						oProc.invoke(oContext);
 					}
 					else
-						PsyContext.psyCurrentContext().popLoopLevel();
+						oContext.popLoopLevel();
 				}
 			});
 	}
 
+	/*XXX
 	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator)
 	{
 		T oIdent=oIdentity;
@@ -187,7 +188,7 @@ public interface PsyStreamlike<T extends PsyObject>
 		while(iterator.hasNext())
 			oIdent=op.apply(oIdent, iterator.next());
 		return oIdent;
-	}
+	}*/
 
 	public java.util.stream.Stream<T> stream();
 

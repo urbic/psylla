@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_dictlike">
-<title><type>dictlike</type></title>
+<section xml:id="PsyllaReference_Types_Details_formaldict">
+<title><type>formaldict</type></title>
 
 <para>
 A base type for dictionaries.
@@ -19,7 +19,7 @@ A base type for dictionaries.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_dictlike.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_formaldict.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

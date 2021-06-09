@@ -49,4 +49,12 @@ public class PsyLock
 	private final java.util.concurrent.locks.ReentrantLock lock
 		=new java.util.concurrent.locks.ReentrantLock();
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyLock>
+				("condition", PsyLock::psyCondition),
+			new PsyOperator.Arity01
+				("lock", PsyLock::new),
+		};
+
 }

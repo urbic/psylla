@@ -19,7 +19,7 @@ the beginning of the <replaceable>container</replaceable>.
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>
 </listitem>
 <listitem>
 <replaceable>enumeration</replaceable>:

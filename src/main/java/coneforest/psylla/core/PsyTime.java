@@ -36,7 +36,7 @@ public class PsyTime
 		return oCalendar;
 	}
 
-	public static PsyInteger psyCalendarTime(final PsyDictlike oCalendar)
+	public static PsyInteger psyCalendarTime(final PsyFormalDict oCalendar)
 		throws PsyException
 	{
 		final var calendar=new java.util.GregorianCalendar();
@@ -68,4 +68,8 @@ public class PsyTime
 			"dstoffset"
 		};
 
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01("time", PsyTime::psyTime),
+		};
 }

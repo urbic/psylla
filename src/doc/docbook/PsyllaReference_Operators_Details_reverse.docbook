@@ -20,7 +20,7 @@
 <listitem>
 <replaceable>массив</replaceable>,
 <replaceable>результат</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>
 </listitem>
 </itemizedlist>
 </formalpara>

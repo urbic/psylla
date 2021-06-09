@@ -42,7 +42,7 @@ the <replaceable>container</replaceable>.
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
 when the <replaceable>key</replaceable> is not a valid index in the <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arraylike"/>
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>
 container
 </listitem>
 <listitem>
@@ -56,7 +56,7 @@ type of <replaceable>container</replaceable> TODO
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/> —
 when the <replaceable>key</replaceable> is not in the <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dictlike"/>
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formaldict"/>
 container
 </listitem>
 </itemizedlist>

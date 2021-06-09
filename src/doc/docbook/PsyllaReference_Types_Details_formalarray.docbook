@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_arraylike">
-<title><type>arraylike</type></title>
+<section xml:id="PsyllaReference_Types_Details_formalarray">
+<title><type>formalarray</type></title>
 
 <para>
 A base type for arrays.
@@ -20,7 +20,7 @@ A base type for arrays.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_arraylike.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_formalarray.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

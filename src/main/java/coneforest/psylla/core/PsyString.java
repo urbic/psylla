@@ -8,7 +8,7 @@ import coneforest.psylla.*;
 public class PsyString
 	implements
 		PsyStringy,
-		PsyArraylike<PsyInteger>
+		PsyFormalArray<PsyInteger>
 {
 	/**
 	*	Creates a new empty Ψ-{@code string}.
@@ -224,16 +224,16 @@ public class PsyString
 	}
 
 	/*
-	public PsyString psyJoin(final PsyArraylike<? extends PsyString> arraylike)
+	public PsyString psyJoin(final PsyFormalArray<? extends PsyString> oArray)
 		throws PsyException
 	{
-		if(arraylike.isEmpty())
+		if(oArray.isEmpty())
 			return new PsyString();
-		PsyString result=((PsyString)arraylike.get(0)).psyClone();
-		for(int i=1; i<arraylike.length(); i++)
+		PsyString result=((PsyString)oArray.get(0)).psyClone();
+		for(int i=1; i<oArray.length(); i++)
 		{
 			result.psyAppendAll(this);
-			result.psyAppendAll(arraylike.get(i));
+			result.psyAppendAll(oArray.get(i));
 		}
 		return result;
 	}
@@ -363,5 +363,11 @@ public class PsyString
 	}
 
 	private final StringBuilder buffer;
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity01
+				("string", PsyString::new),
+		};
 
 }

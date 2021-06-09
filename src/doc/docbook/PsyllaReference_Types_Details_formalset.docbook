@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_setlike">
-<title><type>setlike</type></title>
+<section xml:id="PsyllaReference_Types_Details_formalset">
+<title><type>formalset</type></title>
 
 <para>
 A base type for sets.
@@ -19,7 +19,7 @@ A base type for sets.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_setlike.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_formalset.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

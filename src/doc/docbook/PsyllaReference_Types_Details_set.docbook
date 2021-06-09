@@ -11,11 +11,11 @@ A set.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_appendable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_clearable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_container"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalset"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_setlike"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>.
 <informalfigure>
 <mediaobject>

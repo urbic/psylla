@@ -10,9 +10,15 @@ public abstract class PsyOperator
 		PsyAtomic,
 		PsyExecutable
 {
+	// TODO protected?
 	public PsyOperator(final String name)
 	{
 		this.name=name;
+	}
+
+	public PsyOperator(final String name, final Action action)
+	{
+		this(name);
 	}
 
 	/**
@@ -20,9 +26,9 @@ public abstract class PsyOperator
 	*	#invoke()} method.
 	*/
 	@Override
-	public void execute()
+	public void execute(final PsyContext oContext)
 	{
-		invoke();
+		invoke(oContext);
 	}
 
 	/**
@@ -30,29 +36,28 @@ public abstract class PsyOperator
 	*	an action associated with it.
 	*/
 	@Override
-	public void invoke()
+	public void invoke(final PsyContext oContext)
 	{
-		final var interpreter=PsyContext.psyCurrentContext();
-		final var ostack=interpreter.operandStack();
+		final var ostack=oContext.operandStack();
 		ostack.clearBackup();
 		try
 		{
-			action();
+			action(oContext);
 		}
 		catch(final ClassCastException e)
 		{
 			ostack.restore();
-			interpreter.handleError(new PsyTypeCheckException(this));
+			oContext.handleError(new PsyTypeCheckException(this));
 		}
 		catch(final PsyException e)
 		{
 			ostack.restore();
 			e.setEmitter(this);
-			interpreter.handleError(e);
+			oContext.handleError(e);
 		}
 	}
 
-	abstract public void action()
+	abstract public void action(final PsyContext oContext)
 		throws ClassCastException, PsyException;
 
 	/**
@@ -108,9 +113,9 @@ public abstract class PsyOperator
 				final var mh=java.lang.invoke.MethodHandles.lookup().unreflect(method);
 				final var mht=mh.type();
 				if(mht.returnType().equals(void.class))
-					this.handler=()->
+					this.handler=(oContext)->
 						{
-							final var ostack=PsyContext.psyCurrentContext().operandStackBacked(mht.parameterCount());
+							final var ostack=oContext.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];
 							for(int i=0; i<mht.parameterCount(); i++)
 							{
@@ -127,9 +132,9 @@ public abstract class PsyOperator
 							}
 						};
 				else
-					this.handler=()->
+					this.handler=(oContext)->
 						{
-							final var ostack=PsyContext.psyCurrentContext().operandStackBacked(mht.parameterCount());
+							final var ostack=oContext.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];
 							for(int i=0; i<mht.parameterCount(); i++)
 							{
@@ -156,10 +161,10 @@ public abstract class PsyOperator
 		}
 
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			handler.handle();
+			handler.handle(oContext);
 		}
 	}
 		/*
@@ -345,7 +350,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
 			handler.handle();
@@ -371,10 +376,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			PsyContext.psyCurrentContext().operandStack().push(handler.handle());
+			oContext.operandStack().push(handler.handle());
 		}
 
 		public Arity01(final String name, final Handler handler)
@@ -397,10 +402,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(1);
+			final var ostack=oContext.operandStackBacked(1);
 			ostack.push(handler.handle(ostack.getBacked(0)));
 		}
 
@@ -424,10 +429,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(2);
+			final var ostack=oContext.operandStackBacked(2);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1)));
 		}
 
@@ -451,10 +456,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(1);
+			final var ostack=oContext.operandStackBacked(1);
 			handler.handle(ostack.getBacked(0));
 		}
 
@@ -478,10 +483,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(2);
+			final var ostack=oContext.operandStackBacked(2);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1));
 		}
 
@@ -505,10 +510,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(3);
+			final var ostack=oContext.operandStackBacked(3);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2));
 		}
 
@@ -532,10 +537,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws PsyException
 		{
-			final var ostack=PsyContext.psyCurrentContext().operandStackBacked(3);
+			final var ostack=oContext.operandStackBacked(3);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));
 		}
 
@@ -559,10 +564,10 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action()
+		public void action(final PsyContext oContext)
 			throws ClassCastException, PsyException
 		{
-			handler.handle();
+			handler.handle(oContext);
 		}
 
 		public Action(final String name, final Handler handler)
@@ -576,7 +581,7 @@ public abstract class PsyOperator
 		@FunctionalInterface
 		public static interface Handler
 		{
-			public void handle()
+			public void handle(final PsyContext oContext)
 				throws PsyException;
 		}
 	}

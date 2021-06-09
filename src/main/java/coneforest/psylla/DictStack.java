@@ -5,7 +5,7 @@ import coneforest.psylla.core.*;
 *	An interpreter’s dictionary stack.
 */
 public class DictStack
-	extends Stack<PsyDictlike<PsyObject>>
+	extends Stack<PsyFormalDict<PsyObject>>
 {
 	/**
 	*	Creates a new dictionary stack with two dictionaries in it (system and
@@ -36,7 +36,7 @@ public class DictStack
 		return this.<T>load(oKey.stringValue());
 	}
 
-	public PsyDictlike where(final String key)
+	public PsyFormalDict where(final String key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
@@ -47,7 +47,7 @@ public class DictStack
 		return null;
 	}
 
-	public PsyDictlike where(final PsyStringy oKey)
+	public PsyFormalDict where(final PsyStringy oKey)
 	{
 		return where(oKey.stringValue());
 	}
@@ -76,7 +76,7 @@ public class DictStack
 		store(oKey.stringValue(), oValue);
 	}
 
-	public void begin(final PsyDictlike oDict)
+	public void begin(final PsyFormalDict oDict)
 	{
 		push(oDict);
 	}
