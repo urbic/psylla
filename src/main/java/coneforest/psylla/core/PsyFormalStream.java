@@ -35,7 +35,7 @@ public interface PsyFormalStream<T extends PsyObject>
 			};
 	}
 
-	/*XXX default public PsyFormalStream<PsyObject> psyMapped(final PsyExecutable oMapper)
+	default public PsyFormalStream<PsyObject> psyMapped(final PsyExecutable oMapper, final PsyContext oContext)
 		throws PsyException
 	{
 		return new PsyFormalStream<PsyObject>()
@@ -43,10 +43,10 @@ public interface PsyFormalStream<T extends PsyObject>
 				@Override
 				public java.util.stream.Stream<PsyObject> stream()
 				{
-					return PsyFormalStream.this.stream().map(oMapper.<T, PsyObject>asFunction());
+					return PsyFormalStream.this.stream().map(oMapper.<T, PsyObject>asFunction(oContext));
 				}
 			};
-	}*/
+	}
 
 	/*XXX default public PsyFormalStream<T> psySorted(final PsyExecutable oComparator)
 	{
@@ -99,7 +99,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	*	@return an iterable
 	*	@throws PsyException
 	*/
-	/*XXX default public PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate)
+	default public PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate, final PsyContext oContext)
 		throws PsyException
 	{
 		return new PsyFormalStream<T>()
@@ -107,10 +107,10 @@ public interface PsyFormalStream<T extends PsyObject>
 				@Override
 				public java.util.stream.Stream<T> stream()
 				{
-					return PsyFormalStream.this.stream().filter(oPredicate.<T>asPredicate());
+					return PsyFormalStream.this.stream().filter(oPredicate.<T>asPredicate(oContext));
 				}
 			};
-	}*/
+	}
 
 	/*
 	default public PsyFormalStream<T> psyIterate(final T oSeed, final PsyProc oProc)
@@ -196,10 +196,22 @@ public interface PsyFormalStream<T extends PsyObject>
 		{
 			new PsyOperator.Arity11<PsyFormalStream>
 				("count", PsyFormalStream::psyCount),
-			//XXX new PsyOperator.Arity21<PsyFormalStream, PsyExecutable>("filtered", PsyFormalStream::psyFiltered),
+			new PsyOperator.Action
+				("filtered",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyFiltered(ostack.getBacked(1), oContext));
+					}),
 			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
 				("limited", PsyFormalStream::psyLimited),
-			//new PsyOperator.Arity21<PsyFormalStream, PsyExecutable>("mapped", PsyFormalStream::psyMapped),
+			new PsyOperator.Action
+				("mapped",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyMapped(ostack.getBacked(1), oContext));
+					}),
 			//XXX new PsyOperator.Arity31<PsyFormalStream, PsyObject, PsyExecutable>("reduce", PsyFormalStream::psyReduce),
 			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
 				("skipped", PsyFormalStream::psySkipped),
