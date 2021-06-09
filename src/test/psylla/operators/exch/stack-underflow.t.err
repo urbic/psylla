@@ -1,0 +1,4 @@
+Error: /stackunderflow in --exch--
+Operand stack:
+	/a
+Execution stack: (empty)
