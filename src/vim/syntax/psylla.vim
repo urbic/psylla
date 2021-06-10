@@ -2,7 +2,7 @@
 " Language:		Psylla
 " Maintainer:	Anton Shvetz <shvetz.anton@gmail.com>
 " Filenames:	*.psy
-" Last Change:	20170730
+" Last Change:	20210610
 " URL:			https://github.com/urbic/psylla
 "
 " Options Flags:
@@ -26,10 +26,11 @@ syn region psyllaComment		start="/#" end="#/" contains=psyllaTodo
 
 syn match psyllaCharacter		"`\([^\\]\|\\[afenrt\\]\)"
 
-syn match psyllaNameExecutable	"\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
+syn match psyllaNSPrefix		contained +[^/@]\+@+
+syn match psyllaNameExecutable	"\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
 syn match psyllaOperator		"[\[\]{}<>()?]"
-syn match psyllaNameLiteral		"/\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
-syn match psyllaNameImmediate	"//\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d$]\)*"
+syn match psyllaNameLiteral		"/\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
+syn match psyllaNameImmediate	"//\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*"
 syn region psyllaNameQuoted		start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=psyllaStringSpecial
 
 syn region psyllaString			start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psyllaStringSpecial
@@ -62,6 +63,7 @@ hi link psyllaNameLiteral		Constant
 hi link psyllaNameQuoted		Constant
 hi link psyllaStringSpecial		SpecialChar
 hi link psyllaRegExpSpecial		SpecialChar
+hi link psyllaNSPrefix			Special
 hi link psyllaTodo				Todo
 hi link psyllaSharpBang			PreProc
 hi link psyllaNameImmediate		Structure

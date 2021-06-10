@@ -157,7 +157,15 @@ public interface PsyContext
 					(oContext)->
 					{
 						final var ostack=oContext.operandStackBacked(2);
-						oContext.currentDict().psyPut(ostack.getBacked(0), ostack.getBacked(1));
+						final var oName=ostack.<PsyStringy>getBacked(0);
+						final var name=oName.stringValue();
+						final var o=ostack.getBacked(1);
+						final var prefixOffset=name.indexOf('@');
+						if(prefixOffset==-1)
+							oContext.currentDict().psyPut(oName, o);
+						else
+							oContext.namespacePool().get(name.substring(0, prefixOffset))
+								.put(name.substring(prefixOffset+1), o);
 					}),
 			new PsyOperator.Action
 				("dictstack",
