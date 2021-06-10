@@ -28,47 +28,48 @@ xlink:href="https://openjdk.java.net/">OpenJDK</application> or <application
 xlink:href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle
 JDK</application>)</listitem>
 
-<listitem><application xlink:href="http://javacc.org">JavaCC
-7.0.4</application></listitem>
+<listitem><application xlink:href="http://javacc.org">JavaCC</application>
+7.0.4</listitem>
 
 <listitem><application xlink:href="https://ant.apache.org/">Apache
-Ant 1.10.9</application></listitem>
+Ant</application> 1.10.9</listitem>
 
-<listitem><application xlink:href="https://ant.apache.org/">Ant Apache
-Resolver Task 1.10.9</application></listitem>
+<listitem><application xlink:href="https://ant.apache.org/">Ant Apache Resolver
+Task</application> 1.10.9</listitem>
 
-<listitem><application xlink:href="https://ant.apache.org/">Ant Junit Task
-1.10.9</application></listitem>
+<listitem><application xlink:href="https://ant.apache.org/">Ant Junit
+Task</application> 1.10.9</listitem>
 
-<listitem><application xlink:href="https://www.junit.org/">JUnit
-4</application></listitem>
+<listitem><application xlink:href="https://www.junit.org/">JUnit</application>
+4</listitem>
 
-<listitem><application xlink:href="https://jline.github.io/">JLine
-1</application></listitem>
+<listitem><application
+xlink:href="https://jline.github.io/">JLine</application> 1</listitem>
 
-<listitem><application xlink:href="http://saxon.sourceforge.net/">Saxon HE
-6</application></listitem>
+<listitem><application xlink:href="http://saxon.sourceforge.net/">Saxon
+HE</application> 6</listitem>
 
 <listitem><application
 xlink:href="https://github.com/docbook/xslt10-stylesheets/">Docbook 5 XSLT
-Stylesheets 1.79.2</application></listitem>
+Stylesheets</application> 1.79.2</listitem>
 
 <listitem><application
-xlink:href="http://sourceforge.net/projects/xslthl/">XSLTHL
-2.1.3</application></listitem>
+xlink:href="http://sourceforge.net/projects/xslthl/">XSLTHL</application>
+2.1.3</listitem>
 
 <listitem><application
-xlink:href="http://sourceforge.net/projects/docbook/">Docbook XSL Saxon
-1.0.0</application></listitem>
+xlink:href="http://sourceforge.net/projects/docbook/">Docbook XSL
+Saxon</application> 1.0.0</listitem>
 
 <listitem><application
-xlink:href="http://www.graphviz.org/">Graphviz 2.40.1</application></listitem>
+xlink:href="http://www.graphviz.org/">Graphviz</application> 2.40.1</listitem>
 
 <!--listitem><application
 xlink:href="http://www.perl.org/">Perl 5.26.1</application></listitem-->
 
 <listitem><application
-xlink:href="https://github.com/sass/sassc/">SassC 3.5.0</application></listitem>
+xlink:href="https://github.com/sass/sassc/">SassC</application>
+3.5.0</listitem>
 
 </itemizedlist>
 
@@ -148,7 +149,7 @@ Alternatively, you can run one of example programs
 </para>
 
 <para>
-You also can run into interactive session
+You also can run into interactive session:
 
 <screen><prompt>% </prompt><userinput>./psylla.sh</userinput>
 <computeroutput>Psylla v0.11.0
