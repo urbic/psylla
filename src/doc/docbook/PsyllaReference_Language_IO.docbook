@@ -3,27 +3,28 @@
 <title>Input and Output</title>
 
 <para>
-A <firstterm>file</firstterm><indexterm><primary>file</primary></indexterm> is
-a sequence of
+A <firstterm>file</firstterm><indexterm><primary>file</primary></indexterm> is
+a sequence of
 <firstterm>characters</firstterm><indexterm><primary>character</primary></indexterm>,
 usually the final. The file can be located in the file system or be created on
 the fly. Input/output operations are designed for exchange of character data
-between files and a program. I/O is the primary means of interaction between a
-program and its enviroment.
+between files and a program. I/O is the primary means of interaction between
+a program and its enviroment.
 </para>
 
 <para>
-The characters identified with the integers on the range
-from <constant>0</constant> to <constant>8589934591</constant> in accordance
-with the universal character set <acronym>UCS-4</acronym>. At the physical
-level, data in a file are represented as a sequence of bytes (octets). Some
-transformation that turns a sequence of octets into a sequence of characters
-(encoding) or vice versa (decoding) may be performed during I/O.
+The characters identified with the integers on the range from <math
+xmlns="&nsMathML;"><mn>0</mn></math> to <math
+xmlns="&nsMathML;"><mn>8589934591</mn></math> in accordance with the universal
+character set <acronym>UCS-4</acronym>. At the physical level, data in a file
+are represented as a sequence of bytes (octets). Some transformation that turns
+a sequence of octets into a sequence of characters (encoding) or vice versa
+(decoding) may be performed during I/O.
 </para>
 
 <para>
-On input of character data a file is considered as a source of characters, on
-output as a consumer. It is possible to input or output both individual
+On input of character data a file is considered as a source of characters, on
+output as a consumer. It is possible to input or output both individual
 characters and strings.
 </para>
 
@@ -43,11 +44,59 @@ linkend="PsyllaReference_Operators_Details_readstring"/> and <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_writestring"/>
 respectively read from a file or write to a file a character string. The <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readline"/>
-operator read from a file a string terminated by the platform-specific line
+operator read from a file a string terminated by the platform-specific line
 terminator. Terminator itself is available in the system dictionary by the
 name <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Operators_Details_eol"/>.
 </para>
+
+<para>
+When performing output operations, the output characters can be
+<firstterm>buffered</firstterm><indexterm><primary>I/O</primary><secondary>buffering</secondary></indexterm>
+for efficiency instead of being immediately sent to physical media. The <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_flush"/>
+operator immediately sends the buffered data to the media.
+</para>
+
+</section>
+
+<section xml:id="PsyllaReference_Language_IO_Standard">
+<title>Standard Input/Output</title>
+
+<para>
+The program environment provides standard files for input and output. Data
+written to <firstterm>standard
+output</firstterm><indexterm><primary>standard</primary><secondary>output</secondary></indexterm>
+or <firstterm>standard
+error</firstterm><indexterm><primary>standard</primary><secondary>error</secondary></indexterm>
+are sent to the terminal screen. The data entered by the user can be read by
+the program from the <firstterm>standard
+input</firstterm><indexterm><primary>standard</primary><secondary>input</secondary></indexterm>.
+</para>
+
+<para>
+Files representing standard input, output, and error message output are
+available in the system dictionary under the names <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stdin"/>,
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_stdout"/>, and <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stderr"/>,
+respectively.
+</para>
+
+<para>
+The <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_print"/> and <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_warn"/>
+operators send the specified string to standard output and standard error,
+respectively.
+</para>
+
+<para>
+<firstterm>Redirection</firstterm><indexterm><primary>I/O</primary><secondary>redirection</secondary></indexterm>
+of standard input and output by means of the operating system is possible.
+</para>
+
 
 </section>
 

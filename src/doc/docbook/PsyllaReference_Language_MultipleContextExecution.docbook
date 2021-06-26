@@ -22,8 +22,13 @@ create additional contexts, executing the <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Operators_Details_fork"/> operator.
 </para>
 
-<section xml:id="PsyllaReference_Language_MultipleContextExecution_Creation">
+<!--section xml:id="PsyllaReference_Language_MultipleContextExecution_Creation">
 <title>Creating Contexts</title>
+</section-->
+
+
+<section xml:id="PsyllaReference_Language_MultipleContextExecution_Operators">
+<title>Context Operators</title>
 
 <para>
 The <xref xrefstyle="template:%t"
@@ -36,23 +41,66 @@ the operand stack in a new context.
 
 <para>
 The <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_join"/> operator waits for the
+linkend="PsyllaReference_Operators_Details_join"/> operator
+<firstterm>waits</firstterm><indexterm><primary>execution
+context</primary><secondary>waiting for</secondary></indexterm> for the
 completion of the procedure being executed in the context previously created by
 the <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_fork"/> operator, and then copies the
-contents of the operand stack to the operand stack of the context that invoked
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_join"/>.
+linkend="PsyllaReference_Operators_Details_fork"/> operator, and then copies
+the contents of the operand stack to the operand stack of the context that
+invoked <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_join"/>.
 </para>
 
-</section>
+<para>
+The execution context
+<firstterm>suspends</firstterm><indexterm><primary>execution
+context</primary><secondary>suspending</secondary></indexterm> upon completion
+the procedure executing in it, waiting for the <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_join"/> operator. In addition, the
+suspension of the context occurs as a result of execution of operators <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_wait"/>,
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_monitor"/>, <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_yield"/> and
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_sleep"/> in it.
+</para>
 
-<section xml:id="PsyllaReference_Language_MultipleContextExecution_Operators">
-<title>Context Operators</title>
+<para>
+The <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_currentcontext"/> operator returns
+the <firstterm>current</firstterm><indexterm><primary>execution
+context</primary><secondary>current</secondary></indexterm> execution context.
+</para>
+
+<para>
+The execution context
+<firstterm>terminates</firstterm><indexterm><primary>execution
+context</primary><secondary>termination</secondary></indexterm> when the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_quit"/>
+operator executed in it.
+</para>
 
 </section>
 
 <section xml:id="PsyllaReference_Language_MultipleContextExecution_Synchronization">
 <title>Context Synchronization</title>
+
+<para>
+Because execution contexts share common data in the dictionary stack, they need
+a synchronization mechanism. The language has two types of synchronization
+objects and several operators for working with them.
+</para>
+
+<para>
+The <firstterm>lock</firstterm><indexterm><primary>lock</primary></indexterm>
+is a semaphore for mutual exclusion. Contexts can use locks to prevent
+concurrent access to their shared data. Before accessing the data, the context
+asks for a lock, which it later releases. While the lock is in effect, other
+contexts cannot acquire the lock, and as a result, they cannot access data that
+is possibly in an inconsistent state.
+</para>
 
 </section>
 
