@@ -21,5 +21,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
+    - name: Install dependencies
+      run: sudo apt-get install javacc
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml build
