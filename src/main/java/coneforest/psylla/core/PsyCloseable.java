@@ -11,7 +11,7 @@ public interface PsyCloseable
 {
 
 	/**
-	*	Close this object.
+	*	Closes this object.
 	*
 	*	@throws PsyException when error occured during closing.
 	*/
