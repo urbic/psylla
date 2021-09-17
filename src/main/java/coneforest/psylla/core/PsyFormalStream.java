@@ -13,11 +13,19 @@ public interface PsyFormalStream<T extends PsyObject>
 		return this;
 	}
 
+	/**
+	*	Returns the count of elements in this {@code formalstream}.
+	*
+	*	@return a count
+	*/
 	default public PsyInteger psyCount()
 	{
 		return PsyInteger.valueOf(stream().count());
 	}
 
+	/**
+	*	Closes this {@code formalstream}.
+	*/
 	default public void psyClose()
 	{
 		stream().close();
@@ -60,6 +68,15 @@ public interface PsyFormalStream<T extends PsyObject>
 			};
 	}
 
+	/**
+	*	Returns a {@code formalstream} consisting of the remaining elements of
+	*	this {@code formalstream} after discarding the first oCount elements of
+	*	the stream.
+	*
+	*	@param oCount the number of leading elements to skip
+	*	@return a skipped stream
+	*	@throws PsyRangeCheckException when oCount is negative
+	*/
 	default public PsyFormalStream<T> psySkipped(final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
@@ -76,6 +93,14 @@ public interface PsyFormalStream<T extends PsyObject>
 			};
 	}
 
+	/**
+	*	Returns a {@code formalstream} consisting of the elements of this
+	*	{@code formalstream}, truncated to be no longer than oCount in length.
+	*
+	*	@param oCount the number of elements the stream should be limited to
+	*	@return a limited stream
+	*	@throws PsyRangeCheckException when oCount is negative
+	*/
 	default public PsyFormalStream<T> psyLimited(final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
@@ -91,13 +116,14 @@ public interface PsyFormalStream<T extends PsyObject>
 				}
 			};
 	}
+
 	/**
-	*	Returns a Ψ-{@code formalstream} over elements of this object that
-	*	satisfies the criterium calculated during Ψ-{@code proc} invocation.
+	*	Returns a stream over elements of this stream that satisfies the given
+	*	predicate.
 	*
-	*	@param oPredicate a procedure
-	*	@param oContext
-	*	@return an iterable
+	*	@param oPredicate a predicate
+	*	@param oContext a context in which a predicate is called
+	*	@return a filtered stream
 	*	@throws PsyException
 	*/
 	default public PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate, final PsyContext oContext)
@@ -179,16 +205,15 @@ public interface PsyFormalStream<T extends PsyObject>
 			});
 	}
 
-	/*XXX
-	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator)
+	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator, final PsyContext oContext)
 	{
 		T oIdent=oIdentity;
 		final var iterator=stream().iterator();
-		final var op=oAccumulator.<T>asBinaryOperator();
+		final var op=oAccumulator.<T>asBinaryOperator(oContext);
 		while(iterator.hasNext())
 			oIdent=op.apply(oIdent, iterator.next());
 		return oIdent;
-	}*/
+	}
 
 	public java.util.stream.Stream<T> stream();
 
@@ -212,7 +237,13 @@ public interface PsyFormalStream<T extends PsyObject>
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyMapped(ostack.getBacked(1), oContext));
 					}),
-			//XXX new PsyOperator.Arity31<PsyFormalStream, PsyObject, PsyExecutable>("reduce", PsyFormalStream::psyReduce),
+			new PsyOperator.Action
+				("reduce",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(3);
+						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyReduce(ostack.getBacked(1), ostack.getBacked(2), oContext));
+					}),
 			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
 				("skipped", PsyFormalStream::psySkipped),
 			new PsyOperator.Action
