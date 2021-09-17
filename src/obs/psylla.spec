@@ -1,7 +1,7 @@
 #
 # spec file for package @obs.package.name@
 #
-# Copyright (c) 2014 SUSE LINUX Products GmbH, Nuernberg, Germany.
+# Copyright (c) 2021 SUSE LLC
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -12,24 +12,10 @@
 # license that conforms to the Open Source Definition (Version 1.9)
 # published by the Open Source Initiative.
 
-# Please submit bugfixes or comments via http://bugs.opensuse.org/
+# Please submit bugfixes or comments via https://bugs.opensuse.org/
 #
 
-Name:           @obs.package.name@
-Version:		@obs.package.version@
-Release:		0
-License:		Zlib
-Summary:		@obs.package.summary@
-URL:			https://github.com/urbic/%{name}
-Group:			Development/Languages/Other
-Source:			%{name}-%{version}.tar.xz
-BuildRequires:	ant
-BuildRequires:	javacc
-BuildRequires:	java-devel >= 11
-BuildRequires:	java-javadoc >= 11
-%if 0%{?mageia}
-BuildRequires:	locales-ru
-%endif
+
 %if 0%{?mageia} || 0%{?sle_version} >= 150200 || 0%{?suse_version} >= 1550
 %global jline1 jline1
 %global jline1_jar %{_prefix}/lib/java/jline1/jline-1.0.jar
@@ -37,18 +23,32 @@ BuildRequires:	locales-ru
 %global jline1 jline1
 %global jline1_jar %{_jnidir}/jline1/jline-1.0.jar
 %endif
+Name:           @obs.package.name@
+Version:		@obs.package.version@
+Release:		0
+Summary:		@obs.package.summary@
+License:		Zlib
+Group:			Development/Languages/Other
+URL:			https://github.com/urbic/%{name}
+Source:			%{name}-%{version}.tar.xz
+BuildRequires:	ant
+BuildRequires:	ant-junit
+BuildRequires:	java-devel >= 11
+BuildRequires:	java-javadoc >= 11
+BuildRequires:	javacc
+BuildRequires:	junit >= 4.0
 BuildRequires:	mvn(jline:jline:1)
 BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)
-Requires:		mvn(jline:jline:1)
-BuildRequires:	junit >= 4.0
-BuildRequires:	ant-junit
-Provides:		config(ant-%{name})
-Provides:		mimehandler(application/x-%{name})
 Requires:		java-headless >= 11
+Requires:		mvn(jline:jline:1)
 Requires(post):	shared-mime-info
 Requires(postun):	shared-mime-info
-BuildRoot:		%{_tmppath}/%{name}-%{version}-build
+Provides:		config(ant-%{name})
+Provides:		mimehandler(application/x-%{name})
 BuildArch:		noarch
+%if 0%{?mageia}
+BuildRequires:	locales-ru
+%endif
 
 %description
 @obs.package.description@
@@ -56,24 +56,23 @@ BuildArch:		noarch
 %package doc
 Summary:		Documentation for %{name}
 Group:			Documentation/HTML
-Requires:		paratype-pt-sans-fonts
 BuildRequires:	ant-apache-resolver
+BuildRequires:	graphviz
+BuildRequires:	sassc
+BuildRequires:	saxon6
+BuildRequires:	xslthl
+Requires:		paratype-pt-sans-fonts
 %if 0%{?mageia}
 BuildRequires:	docbook5-style-xsl
 BuildRequires:	java-javadoc >= 11
 %else
 BuildRequires:	docbook5-xsl-stylesheets
 %endif
-BuildRequires:	graphviz
-BuildRequires:	sassc
-BuildRequires:	saxon6
 %if 0%{?fedora} || 0%{?mageia}
 BuildRequires:	xerces-j2
 %else
 #BuildRequires:	xerces-j2-xml-apis
 %endif
-BuildRequires:	xslthl
-
 %if 0%{?fedora}
 BuildRequires:	ghostscript-core
 %endif
@@ -85,8 +84,8 @@ This package contains documentation for %{name}.
 %package javadoc
 Summary:		Javadocs for %{name}
 Group:			Development/Languages/Other
-BuildRequires:	junit-javadoc
 BuildRequires:	fdupes
+BuildRequires:	junit-javadoc
 Requires:		jpackage-utils
 
 %description javadoc
@@ -94,7 +93,6 @@ This package contains the API documentation for %{name}.
 
 %prep
 %setup -q
-%{__mkdir} -p target/lib
 
 %build
 LANG=ru_RU.UTF-8 \
@@ -122,11 +120,7 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %mime_database_postun
 :
 
-%clean
-%{__rm} -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_javadir}/*.jar
 %{_bindir}/*
 %dir %{_datadir}/%{name}
@@ -151,7 +145,6 @@ CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 %license %{_defaultlicensedir}/%{name}/LICENSE
 
 %files doc
-%defattr(-,root,root)
 %dir %{_docdir}/%{name}
 %{_docdir}/%{name}/html
 %{_docdir}/%{name}/examples
