@@ -17,16 +17,6 @@
 		<copy todir="${target.gh-pages}">
 			<fileset dir="${target.doc}/html" followsymlinks="false" includes="**/*"/>
 		</copy>
-		<symlink
-			link="${target.gh-pages}/en/common"
-			resource="../common"
-			overwrite="true"
-			/>
-		<symlink
-			link="${target.gh-pages}/ru/common"
-			resource="../common"
-			overwrite="true"
-			/>
 		<copy todir="${target.gh-pages}/apidocs">
 			<fileset dir="${target.doc.apidocs}" includes="**/*"/>
 		</copy>
