@@ -1,0 +1,20 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+html { height: 100%; }
+
+body { background-color: lightgray; color: #333; font-family: "PT Serif", serif; margin-top: 75px; }
+
+#main { width: 100%; text-align: center; }
+
+#main a:link, #main a:visited { color: #545454; text-decoration: none; font-size: 36pt; font-weight: bold; padding: 5px; }
+
+#main a:hover { border: solid 5px; }
+
+#main tr td { width: 50%; }
+
+header, footer { width: 100%; background-color: #bababa; position: fixed; left: 0%; right: 0%; padding-left: 20px; padding-right: 20px; padding-top: 5px; padding-bottom: 5px; }
+
+header { top: 0%; font-size: 36pt; }
+
+footer { bottom: 0%; margin: 0; }
+
+#github-link:link, #github-link:visited { font-family: "FontAwesome"; font-size: 32px; color: #545454; }

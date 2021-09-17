@@ -5,3 +5,4 @@ coneforest.psylla.engine
 coneforest.psylla.extensions.romannumerals
 coneforest.psylla.tools
 coneforest.psylla.tools.ant
+coneforest.psylla.tools.processors
