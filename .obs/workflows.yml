@@ -1,5 +1,5 @@
 workflow:
   steps:
-    - branch_package:
+    - link_package:
       source_project: home:urbic:java
       source_package: psylla
