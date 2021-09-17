@@ -1,4 +1,4 @@
-![Psylla logo](src/logo/psylla-64.png)
+![Psylla logo](src/logo/psylla.svg)
 
 # Psylla
 

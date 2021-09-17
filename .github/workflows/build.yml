@@ -18,5 +18,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: sudo apt-get install openjdk-11-jdk-headless openjdk-11-doc ant ant-optional javacc junit4 libjline-java libjline-java-doc docbook-xsl-ns docbook-mathml docbook-xsl-saxon libxslthl-java sassc libxerces2-java graphviz
-    - name: Build with Ant
+    - name: Build
       run: ant -noinput -buildfile build.xml build
+    - name: Test
+      run: ant -noinput -buildfile build.xml test
