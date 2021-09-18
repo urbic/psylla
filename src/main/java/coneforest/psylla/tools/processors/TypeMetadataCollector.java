@@ -64,7 +64,7 @@ public class TypeMetadataCollector extends AbstractProcessor
 	@Override
 	public Set<String> getSupportedOptions()
 	{
-		return Set.of("coneforest.psylla.tools.processors.TypeMetadataCollector.typemapDir");
+		return Set.of("coneforest.psylla.tools.processors.TypeMetadataCollector.metadataDir");
 	}
 
 	@Override
