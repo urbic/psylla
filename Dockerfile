@@ -29,11 +29,11 @@ USER root
 RUN chown -R psylla:users ${HOME}
 
 USER psylla
-RUN env -C ${HOME} LANG=en_US.UTF-8 CLASSPATH=$(build-classpath xerces-j2-xml-apis) JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
+RUN env -C ${HOME} LANG=C.UTF-8 CLASSPATH=$(build-classpath xerces-j2-xml-apis) JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
     ant build
 
 USER root
-RUN env -C ${HOME} LANG=ru_RU.UTF-8 JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 ant install -Ddestdir=/
+RUN env -C ${HOME} LANG=C.UTF-8 JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 ant install -Ddestdir=/
 
 USER psylla
 ENV LANG=en_US.UTF-8
