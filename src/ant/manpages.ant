@@ -3,7 +3,7 @@
 
 	<presetdef name="xslt.manpages">
 		<xslt
-			style="${src.doc.docbook}/manpages.xsl"
+			style="${src.doc.xsl}/manpages.xsl"
 			basedir="${src.doc.docbook}"
 			filedirparameter="${src.doc.docbook}"
 			classpathref="classpath.xslt"
