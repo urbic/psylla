@@ -266,10 +266,8 @@
 			<arg value="-I${src.main.psylla}"/>
 			<classpath refid="classpath.test"/>
 			<formatter type="plain" usefile="false"/>
-			<!--test dir="${src.test.psylla}"/-->
+			<!--test name="${src.test.psylla}"/-->
 			<test name="src/test/psylla"/>
-			<!--test name="src/test/psylla/operators/loop/0_exit_inside.t"/>
-			<test name="src/test/psylla/operators/loop/1_nested_in_loop.t"/-->
 		</psyllaunit>
 	</target>
 
