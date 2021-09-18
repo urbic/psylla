@@ -210,7 +210,7 @@ public class Interpreter
 	{
 		final var oLibraryPath
 			=(PsyFormalArray<PsyStringy>)systemDict().get("librarypath");
-		final var envLibraryPath=System.getenv("PSYLLA_LIB");
+		final var envLibraryPath=System.getenv("PSYLLA_LIBRARYPATH");
 		if(envLibraryPath!=null)
 			for(final var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
 				oLibraryPath.psyAppend(new PsyName(pathItem));
