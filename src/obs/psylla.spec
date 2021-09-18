@@ -62,12 +62,7 @@ BuildRequires:	sassc
 BuildRequires:	saxon6
 BuildRequires:	xslthl
 Requires:		paratype-pt-sans-fonts
-%if 0%{?mageia}
-BuildRequires:	docbook5-style-xsl
-BuildRequires:	java-javadoc >= 11
-%else
 BuildRequires:	docbook5-xsl-stylesheets
-%endif
 %if 0%{?fedora} || 0%{?mageia}
 BuildRequires:	xerces-j2
 %else
@@ -85,6 +80,7 @@ This package contains documentation for %{name}.
 Summary:		Javadocs for %{name}
 Group:			Development/Languages/Other
 BuildRequires:	fdupes
+BuildRequires:	jline1-javadoc
 BuildRequires:	junit-javadoc
 Requires:		jpackage-utils
 
@@ -95,7 +91,7 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-LANG=ru_RU.UTF-8 \
+LANG=C.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
 	%{ant} build \
 	-Djline1.jar=%{jline1_jar}
