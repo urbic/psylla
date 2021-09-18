@@ -1,0 +1,4 @@
+Error: /rangecheck in --skipped--
+Operand stack:
+	%range=0;1;99% -90
+Execution stack: (empty)
