@@ -1,0 +1,4 @@
+Error: /rangecheck in --limited--
+Operand stack:
+	%range=0;1;99% -10
+Execution stack: (empty)
