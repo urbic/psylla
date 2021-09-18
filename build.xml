@@ -161,7 +161,7 @@
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/META-INF/${project.name}/"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
-			<!--compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/-->
+			<compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 	</target>
