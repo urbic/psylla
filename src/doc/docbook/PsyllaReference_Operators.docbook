@@ -603,7 +603,7 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_filtered" xrefstyle="template:%t"/></term>
-<listitem>отбор элементов контейнера, удовлетворяющих условию</listitem>
+<listitem>create a filtered stream</listitem>
 </varlistentry>
 
 <varlistentry>

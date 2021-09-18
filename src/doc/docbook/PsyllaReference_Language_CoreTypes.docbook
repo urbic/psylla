@@ -488,6 +488,8 @@ expression</primary></indexterm> represents a template for search in a string.
 <section xml:id="PsyllaReference_Language_CoreTypes_RegExps_POSIXCharacterClasses">
 <title><acronym>POSIX</acronym> Character Classes</title>
 
+<remark>TODO</remark>
+
 </section>
 
 <section xml:id="PsyllaReference_Language_CoreTypes_RegExps_BoundaryAnchors">
@@ -524,11 +526,11 @@ expression</primary></indexterm> represents a template for search in a string.
 </row>
 <row>
 <entry><literal>\Z</literal></entry>
-<entry>TODO</entry>
+<entry><remark>TODO</remark></entry>
 </row>
 <row>
 <entry><literal>\z</literal></entry>
-<entry>TODO</entry>
+<entry><remark>TODO</remark></entry>
 </row>
 </tbody>
 </tgroup>

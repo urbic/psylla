@@ -69,7 +69,7 @@ operator when invoked outside the cyclic context.
 </para>
 </section>
 
-<section xml:id="PsyllaReference_Errors_Details_invalidexternal">
+<!-- TODO section xml:id="PsyllaReference_Errors_Details_invalidexternal">
 <title><errorname language="psylla">invalidexternal</errorname></title>
 <para>
 Неправильный внешний класс. Генерируется при загрузке внешнего класса или
@@ -77,7 +77,7 @@ operator when invoked outside the cyclic context.
 реализует интерфейс <classname>coneforest.psylla.PsyObject</classname> или не
 имеет общего конструктора без аргументов.
 </para>
-</section>
+</section-->
 
 <section xml:id="PsyllaReference_Errors_Details_invalidregexp">
 <title><errorname language="psylla">invalidregexp</errorname></title>
@@ -106,7 +106,7 @@ Input/output error.
 <section xml:id="PsyllaReference_Errors_Details_limitcheck">
 <title><errorname language="psylla">limitcheck</errorname></title>
 <para>
-Превышение установленных ограничений.
+System limits exceeded.
 </para>
 </section>
 

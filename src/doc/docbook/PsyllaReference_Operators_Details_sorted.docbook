@@ -3,7 +3,9 @@
 <title><token language="psylla">sorted</token></title>
 
 <para>
-TODO
+Returns a stream consisting of the elements of the
+<replaceable>stream</replaceable>, sorted according to the provided
+<replaceable>comparator</replaceable>.
 </para>
 
 <synopsis>
@@ -48,7 +50,7 @@ TODO
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_le"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_lt"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_max"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_min"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_min"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sort"/>.
 </formalpara>
 
