@@ -6,7 +6,7 @@ Maintainer: Anton Shvetz <shvetz.anton@gmail.com>
 Architecture: all
 Build-Depends: debhelper (>=9),
 	perl-base (>=5.18.2),
-	openjdk-11-jdk-headless,
+	openjdk-11-jre-headless (>=11),
 	openjdk-11-doc,
 	javacc,
 	junit4 (>=4.11),
