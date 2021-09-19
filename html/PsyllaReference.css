@@ -86,7 +86,7 @@ table.productionset { font-family: "Consolas", monospace; background-color: #faf
 
 .formalpara-title { font-weight: bold; }
 
-.programlisting, .screen, .synopsis, .cmdsynopsis, .literallayout { padding: 1em; background-color: #fafafa; font-size: 22px; }
+.programlisting, .screen, .cmdsynopsis, .literallayout { padding: 1em; background-color: #fafafa; font-size: 22px; }
 
 .literallayout p, .cmdsynopsis p { margin: 0em; }
 
