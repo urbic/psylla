@@ -54,7 +54,7 @@
 	<property name="sysconfdir" location="/etc"/>
 	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
 	<property name="file.encoding" location="UTF-8"/>
-	<property name="build.sysclasspath" value="last"/>
+	<property name="build.sysclasspath" value="ignore"/>
 	<property name="linux.idlike" value="redhat"/>
 
 	<property file="${src.ant}/config.properties"/>
