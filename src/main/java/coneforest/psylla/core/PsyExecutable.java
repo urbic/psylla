@@ -54,9 +54,11 @@ public interface PsyExecutable
 				public T apply(final T o)
 				{
 					ostack.push(o);
-					final var loopLevel=oContext.pushLoopLevel(); // TODO
+					//final var loopLevel=oContext.pushLoopLevel(); // TODO
+					final var execLevel=oContext.execLevel(); // TODO
 					invoke(oContext);
-					oContext.handleExecutionStack(loopLevel); // TODO
+					//oContext.handleExecutionStack(loopLevel); // TODO
+					oContext.handleExecutionStack(execLevel);	// TODO
 					return (T)ostack.pop();
 					// TODO: stop
 				}
@@ -73,9 +75,11 @@ public interface PsyExecutable
 				{
 					ostack.push(o1);
 					ostack.push(o2);
-					final var loopLevel=oContext.pushLoopLevel(); // TODO
+					//final var loopLevel=oContext.pushLoopLevel(); // TODO
+					final var execLevel=oContext.execLevel(); // TODO
 					invoke(oContext);
-					oContext.handleExecutionStack(loopLevel);	// TODO
+					//oContext.handleExecutionStack(loopLevel);	// TODO
+					oContext.handleExecutionStack(execLevel);	// TODO
 					return (T)ostack.pop();
 					// TODO: stop
 				}

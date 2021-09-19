@@ -206,13 +206,17 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 
 	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator, final PsyContext oContext)
+		throws PsyException
 	{
-		T oIdent=oIdentity;
-		final var iterator=stream().iterator();
-		final var op=oAccumulator.<T>asBinaryOperator(oContext);
-		while(iterator.hasNext())
-			oIdent=op.apply(oIdent, iterator.next());
-		return oIdent;
+		//try
+		//{
+			return stream().reduce(oIdentity, oAccumulator.<T>asBinaryOperator(oContext));
+		//}
+		//catch(final Exception e)
+		//{
+		//	throw new PsyException();
+		//	TODO
+		//}
 	}
 
 	public java.util.stream.Stream<T> stream();
