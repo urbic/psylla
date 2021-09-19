@@ -58,6 +58,9 @@
 					<propertyref name="obs.package.version"/>
 					<propertyref name="obs.package.summary"/>
 					<propertyref name="obs.package.description"/>
+					<propertyref name="project.developer.name"/>
+					<propertyref name="project.developer.email"/>
+					<propertyref name="project.scm.url"/>
 				</propertyset>
 			</filterset>
 		</copy>

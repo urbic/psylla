@@ -1,8 +1,8 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: @obs.project.name@
-Upstream-Contact: Anton Shvetz <shvetz.anton@gmail.com>
-Source: https://github.com/urbic/psylla
+Upstream-Name: @obs.package.name@
+Upstream-Contact: @project.developer.name@ <@project.developer.email@>
+Source: @project.scm.url@
 
 Files: *
-Copyright: 2014 Anton Shvetz
+Copyright: 2014 @project.developer.name@
 License: Zlib

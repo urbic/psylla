@@ -75,21 +75,23 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-LANG=C.UTF-8 \
-CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} build \
-	-Djline1.jar=%{jline1_jar}
+LANG=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
+	-Djline1.jar=%{jline1_jar} \
+	-Dconfig.libdir=%{_libdir} \
+	-Dconfig.docdir=%{_docdir} \
+	-Dconfig.licensedir=%{_defaultlicensedir} \
+	build
 
 %check
-LANG=ru_RU.UTF-8 \
-CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} test \
-	-Djline1.jar=%{jline1_jar}
+LANG=C.UTF-8 \
+CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
+	-Djline1.jar=%{jline1_jar} \
+	test
 
 %install
-LANG=ru_RU.UTF-8 \
-CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar \
-	%{ant} install -Ddestdir=%{buildroot} -Dconfig.docdir=%{_docdir} -Dconfig.licensedir=%{_defaultlicensedir}
+LANG=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
+	-Ddestdir=%{buildroot} \
+	install
 %fdupes %{buildroot}%{_javadocdir}/%{name}/jquery
 
 %post
