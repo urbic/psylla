@@ -6,11 +6,14 @@
 Returns the current execution <replaceable>context</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">currentcontext</token>
 <replaceable>context</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

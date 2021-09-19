@@ -7,6 +7,8 @@ Returns an <replaceable>array</replaceable> containing all the elements of the
 operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 ⊢
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -19,6 +21,7 @@ operand stack.
 <replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>array</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

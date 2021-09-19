@@ -7,12 +7,15 @@ Sets the <replaceable>permissions</replaceable> for the file or directory
 with the given <replaceable>name</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <replaceable>permissions</replaceable>
 <token language="psylla">filepermissions</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

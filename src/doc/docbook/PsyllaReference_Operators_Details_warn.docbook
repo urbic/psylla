@@ -6,11 +6,14 @@
 Writes the <replaceable>string</replaceable> to the standard error writer.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psylla">warn</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

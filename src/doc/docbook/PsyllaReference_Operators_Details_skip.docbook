@@ -8,12 +8,15 @@ from the <replaceable>input</replaceable>. Returns the
 <constant>number</constant> of characters actually skipped.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
 <replaceable>count</replaceable>
 <token language="psylla">skip</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

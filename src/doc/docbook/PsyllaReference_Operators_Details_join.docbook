@@ -11,6 +11,8 @@ operand stack onto the current context’s operand stack. Finally, it causes the
 other context to terminate.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>context</replaceable>
 <token language="psylla">join</token>
@@ -19,6 +21,7 @@ other context to terminate.
 …
 <replaceable>object<subscript>n</subscript></replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

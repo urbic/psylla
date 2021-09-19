@@ -7,12 +7,15 @@
 производится при помощи процедуры-<replaceable>компаратора</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>comparator</replaceable>
 <token language="psylla">sort</token>
 <replaceable>сортированный_массив</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

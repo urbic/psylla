@@ -10,12 +10,15 @@ Returns the <replaceable>quotient</replaceable> of the integer division of the
 signs.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>dividend</replaceable>
 <replaceable>divisor</replaceable>
 <token language="psylla">idiv</token>
 <replaceable>quotient</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

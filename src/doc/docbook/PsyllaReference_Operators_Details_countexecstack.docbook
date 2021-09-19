@@ -6,11 +6,14 @@
 Returns the <replaceable>number</replaceable> of objects in execution stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">countexecstack</token>
 <replaceable>number</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

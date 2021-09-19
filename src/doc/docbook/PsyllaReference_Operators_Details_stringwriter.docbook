@@ -7,11 +7,14 @@ Returns a new string <replaceable>writer</replaceable> for the given
 <replaceable>string</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psylla">stringwriter</token>
 <replaceable>writer</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

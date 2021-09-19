@@ -7,11 +7,14 @@
 получили возможность исполняться.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">yield</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

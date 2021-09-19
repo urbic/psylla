@@ -6,11 +6,14 @@
 Removes all elements from the <replaceable>container</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <token language="psylla">clear</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

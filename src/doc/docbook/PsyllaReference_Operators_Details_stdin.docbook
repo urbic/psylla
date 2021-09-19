@@ -6,11 +6,14 @@
 The standard input.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">stdin</token>
 <constant>stdin</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

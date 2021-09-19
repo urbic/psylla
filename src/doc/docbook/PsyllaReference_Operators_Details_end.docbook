@@ -6,9 +6,12 @@
 Removes the topmost dictionary from the dictionary stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 — <token language="psylla">end</token> —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

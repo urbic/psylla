@@ -6,11 +6,14 @@
 The name of an operating system.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">osname</token>
 <constant>osname</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -8,12 +8,15 @@
 списка его элементов.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>number</replaceable>
 <token language="psylla">replicate</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -8,12 +8,15 @@ contains in the <replaceable>indexed</replaceable> container, and
 <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>indexed</replaceable>
 <replaceable>key</replaceable>
 <token language="psylla">known</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

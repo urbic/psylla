@@ -7,11 +7,14 @@ Returns the <replaceable>cubic_root</replaceable> of
 the <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">cbrt</token>
 <replaceable>root</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

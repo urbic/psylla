@@ -7,12 +7,15 @@ Returns the <replaceable>product</replaceable> of two
 <replaceable>multipliers</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>multiplier<subscript>1</subscript></replaceable>
 <replaceable>multiplier<subscript>2</subscript></replaceable>
 <token language="psylla">mul</token>
 <replaceable>product</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,11 +7,14 @@ Returns the <replaceable>size</replaceable> (in bytes) for the file or
 directory with the given <replaceable>name</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">filesize</token>
 <replaceable>size</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

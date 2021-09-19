@@ -6,11 +6,14 @@
 The version of the Psylla interpreter.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">version</token>
 <constant>version</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

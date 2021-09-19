@@ -7,11 +7,14 @@ Returns <constant>true</constant>, if the <replaceable>name</replaceable>
 belongs to a directory, and <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">isdirectory</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

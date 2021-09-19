@@ -10,11 +10,14 @@ linkend="PsyllaReference_Types_Details_dict"/> containers, returns the number of
 contained keys.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <token language="psylla">length</token>
 <replaceable>length</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

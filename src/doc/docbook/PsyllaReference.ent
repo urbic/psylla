@@ -257,6 +257,7 @@
 <!ENTITY PsyllaReference_Operators_Details_readstring		SYSTEM "PsyllaReference_Operators_Details_readstring.docbook">
 <!ENTITY PsyllaReference_Operators_Details_ready			SYSTEM "PsyllaReference_Operators_Details_ready.docbook">
 <!ENTITY PsyllaReference_Operators_Details_realpart			SYSTEM "PsyllaReference_Operators_Details_realpart.docbook">
+<!ENTITY PsyllaReference_Operators_Details_reduce			SYSTEM "PsyllaReference_Operators_Details_reduce.docbook">
 <!ENTITY PsyllaReference_Operators_Details_regexp			SYSTEM "PsyllaReference_Operators_Details_regexp.docbook">
 <!ENTITY PsyllaReference_Operators_Details_remove			SYSTEM "PsyllaReference_Operators_Details_remove.docbook">
 <!ENTITY PsyllaReference_Operators_Details_removeall		SYSTEM "PsyllaReference_Operators_Details_removeall.docbook">
@@ -326,11 +327,12 @@
 <!ENTITY PsyllaReference_Operators_Details_xor				SYSTEM "PsyllaReference_Operators_Details_xor.docbook">
 <!ENTITY PsyllaReference_Operators_Details_yield			SYSTEM "PsyllaReference_Operators_Details_yield.docbook">
 
-<!ENTITY TitleExamples	"<title>Examples:</title>">
 <!ENTITY TitleErrors	"<title>Errors:</title>">
-<!ENTITY TitleSeeAlso	"<title>See Also:</title>">
+<!ENTITY TitleExamples	"<title>Examples:</title>">
 <!ENTITY TitleInherits	"<title>Inherits:</title>">
 <!ENTITY TitleOperands	"<title>Operands:</title>">
+<!ENTITY TitleSeeAlso	"<title>See Also:</title>">
+<!ENTITY TitleSynopsis	"<title>Synopsis:</title>">
 
 <!ENTITY ErrorReason_fileaccessdenied
 	"when the operation is prohibited due to a file permission or other access check">

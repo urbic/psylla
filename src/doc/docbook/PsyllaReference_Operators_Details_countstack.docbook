@@ -6,6 +6,8 @@
 Returns the number of objects on the operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 ⊢
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -18,6 +20,7 @@ Returns the number of objects on the operand stack.
 <replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>n</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

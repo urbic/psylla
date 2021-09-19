@@ -6,11 +6,14 @@
 Returns a new empty <replaceable>set</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">set</token>
 <replaceable>set</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

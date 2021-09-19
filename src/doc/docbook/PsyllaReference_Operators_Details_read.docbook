@@ -10,6 +10,8 @@ an <replaceable>input</replaceable>. Returns a
 value indicating the success of the operation.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
 <token language="psylla">read</token>
@@ -20,6 +22,7 @@ value indicating the success of the operation.
 <token language="psylla">read</token>
 <constant>false</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

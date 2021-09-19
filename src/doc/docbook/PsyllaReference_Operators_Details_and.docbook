@@ -7,12 +7,15 @@ Returns the <replaceable>conjunction</replaceable> of two
 <replaceable>operands</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>operand<subscript>1</subscript></replaceable>
 <replaceable>operand<subscript>2</subscript></replaceable>
 <token language="psylla">and</token>
 <replaceable>conjunction</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

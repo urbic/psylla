@@ -11,6 +11,8 @@ n</replaceable> steps on the operand stack (non-negative
 <replaceable>k</replaceable> denotes the shift in downward direction).
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object<subscript>n−1</subscript></replaceable>
 …
@@ -25,6 +27,7 @@ n</replaceable> steps on the operand stack (non-negative
 …
 <replaceable>object<subscript>k mod n</subscript></replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

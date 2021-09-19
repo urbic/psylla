@@ -16,12 +16,15 @@ equals to <constant>-1</constant> when
 <replaceable>scalar<subscript>2</subscript></replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psylla">cmp</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

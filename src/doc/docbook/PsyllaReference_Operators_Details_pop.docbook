@@ -6,11 +6,14 @@
 Removes the topmost <replaceable>object</replaceable> from the operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">pop</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

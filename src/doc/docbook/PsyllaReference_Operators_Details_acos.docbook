@@ -7,11 +7,14 @@ Returns the <replaceable>arc_cosine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">acos</token>
 <replaceable>arc_cosine</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

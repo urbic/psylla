@@ -2,6 +2,12 @@
 <section xml:id="PsyllaReference_Operators_Details_putinterval">
 <title><token language="psylla">putinterval</token></title>
 
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
@@ -9,6 +15,7 @@
 <token language="psylla">putinterval</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

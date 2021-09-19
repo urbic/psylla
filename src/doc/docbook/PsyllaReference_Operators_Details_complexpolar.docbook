@@ -7,12 +7,15 @@ Returns a new complex <replaceable>number</replaceable> with given
 <replaceable>magnitude</replaceable> and <replaceable>argument</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>magnitude</replaceable>
 <replaceable>argument</replaceable>
 <token language="psylla">complexpolar</token>
 <replaceable>number</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

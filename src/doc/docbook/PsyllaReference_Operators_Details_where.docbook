@@ -10,6 +10,8 @@ dictionary stack, starting with the topmost one. If the
 returns <constant>false</constant>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>key</replaceable>
 <token language="psylla">where</token>
@@ -20,6 +22,7 @@ returns <constant>false</constant>.
 <token language="psylla">where</token>
 <constant>false</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

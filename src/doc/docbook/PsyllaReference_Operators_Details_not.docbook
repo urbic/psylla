@@ -7,11 +7,14 @@ Returns the <replaceable>complement</replaceable> of a
 <replaceable>logical</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>logical</replaceable>
 <token language="psylla">not</token>
 <replaceable>complement</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

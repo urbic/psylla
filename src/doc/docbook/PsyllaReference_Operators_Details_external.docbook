@@ -7,11 +7,14 @@ Loads an external Java class by its <replaceable>class_name</replaceable> and
 returns an <replaceable>instance</replaceable> of this class.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>class_name</replaceable>
 <token language="psylla">external</token>
 <replaceable>instance</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

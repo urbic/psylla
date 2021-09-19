@@ -8,12 +8,15 @@ belongs to the given <replaceable>type</replaceable>, and
 <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>type</replaceable>
 <replaceable>object</replaceable>
 <token language="psylla">isinstance</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

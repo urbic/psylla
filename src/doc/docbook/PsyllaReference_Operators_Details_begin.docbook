@@ -7,11 +7,14 @@ Appends a <replaceable>dictionary</replaceable> on the top of the dictionary
 stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>dictionary</replaceable>
 <token language="psylla">begin</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

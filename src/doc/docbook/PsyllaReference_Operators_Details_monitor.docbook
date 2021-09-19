@@ -8,12 +8,15 @@ then invokes <replaceable>procedure</replaceable>, and finally releases
 <replaceable>lock</replaceable> again.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>lock</replaceable>
 <replaceable>procedure</replaceable>
 <token language="psylla">monitor</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

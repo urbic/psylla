@@ -11,12 +11,15 @@
 <replaceable>границы</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>генератор</replaceable>
 <replaceable>граница</replaceable>
 <token language="psylla">uniformdeviate</token>
 <replaceable>случайное</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

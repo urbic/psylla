@@ -9,6 +9,8 @@ consists of <replaceable>length</replaceable> elements starting at the
 <replaceable>index</replaceable> in the <replaceable>array</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
@@ -16,6 +18,7 @@ consists of <replaceable>length</replaceable> elements starting at the
 <token language="psylla">getinterval</token>
 <replaceable>subarray</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

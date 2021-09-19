@@ -6,11 +6,14 @@
 The standard source of random objects.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">stdrandom</token>
 <constant>stdrandom</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

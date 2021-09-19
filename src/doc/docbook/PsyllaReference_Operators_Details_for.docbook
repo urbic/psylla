@@ -2,6 +2,12 @@
 <section xml:id="PsyllaReference_Operators_Details_for">
 <title><token language="psylla">for</token></title>
 
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>initial</replaceable>
 <replaceable>increment</replaceable>
@@ -10,6 +16,7 @@
 <token language="psylla">for</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

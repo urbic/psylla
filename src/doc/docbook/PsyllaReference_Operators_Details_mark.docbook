@@ -9,11 +9,14 @@ an operator, but a <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_mark"/> value in the system dictionary.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">mark</token>
 <constant>mark</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

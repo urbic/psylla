@@ -7,12 +7,15 @@
 ошибочным <replaceable>объектом</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <replaceable>name</replaceable>
 <token language="psylla">signalerror</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

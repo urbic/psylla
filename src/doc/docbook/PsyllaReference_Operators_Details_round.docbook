@@ -8,11 +8,14 @@ Returns the <replaceable>number</replaceable> rounded to the nearest
 <replaceable>result</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">round</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

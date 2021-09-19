@@ -6,11 +6,14 @@
 The <constant>true</constant> value.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">true</token>
 <constant>true</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,11 +7,14 @@ Returns the <replaceable>ceiling</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">ceiling</token>
 <replaceable>ceiling</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

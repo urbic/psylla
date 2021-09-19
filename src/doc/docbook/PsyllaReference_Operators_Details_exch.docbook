@@ -6,6 +6,8 @@
 Exchanges two topmost operands in the operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object<subscript>1</subscript></replaceable>
 <replaceable>object<subscript>2</subscript></replaceable>
@@ -13,6 +15,7 @@ Exchanges two topmost operands in the operand stack.
 <replaceable>object<subscript>2</subscript></replaceable>
 <replaceable>object<subscript>1</subscript></replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

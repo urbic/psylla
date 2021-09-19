@@ -6,11 +6,14 @@
 The architecture of an operating system.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">osarch</token>
 <constant>osarch</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

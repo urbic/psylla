@@ -6,11 +6,14 @@
 Line terminator.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">eol</token>
 <constant>eol</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

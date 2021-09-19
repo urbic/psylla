@@ -6,11 +6,14 @@
 Returns a new <replaceable>lock</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">lock</token>
 <replaceable>lock</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

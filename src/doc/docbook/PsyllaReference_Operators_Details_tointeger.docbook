@@ -2,11 +2,18 @@
 <section xml:id="PsyllaReference_Operators_Details_tointeger">
 <title><token language="psylla">tointeger</token></title>
 
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psylla">tointeger</token>
 <replaceable>целое</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,12 +7,15 @@ Appends the <replaceable>object</replaceable>
 to the <replaceable>container</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>object</replaceable>
 <token language="psylla">append</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

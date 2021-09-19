@@ -7,12 +7,15 @@ Returns a new complex <replaceable>number</replaceable> with given
 <replaceable>real</replaceable> and <replaceable>imaginary</replaceable> parts.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>real</replaceable>
 <replaceable>imaginary</replaceable>
 <token language="psylla">complex</token>
 <replaceable>number</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

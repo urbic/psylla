@@ -7,11 +7,14 @@ Returns the <replaceable>arctangent</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">atan</token>
 <replaceable>arctangent</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

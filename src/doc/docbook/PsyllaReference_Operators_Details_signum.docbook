@@ -6,11 +6,14 @@
 Returns the <replaceable>signum</replaceable> of a <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">signum</token>
 <replaceable>signum</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

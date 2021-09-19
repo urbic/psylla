@@ -7,12 +7,15 @@ Invokes an <replaceable>object</replaceable> (typically a procedure), if a
 <replaceable>condition</replaceable> is true.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>condition</replaceable>
 <replaceable>object</replaceable>
 <token language="psylla">if</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

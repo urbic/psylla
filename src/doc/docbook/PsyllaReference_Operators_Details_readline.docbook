@@ -12,6 +12,8 @@ success.  The terminator becomes part of the read
 success of the operation.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
 <token language="psylla">readline</token>
@@ -22,6 +24,7 @@ success of the operation.
 <token language="psylla">readline</token>
 <constant>false</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

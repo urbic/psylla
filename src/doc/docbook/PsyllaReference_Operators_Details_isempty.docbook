@@ -7,11 +7,14 @@ Returns <constant>true</constant>, if the <replaceable>container</replaceable>
 is empty, and <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <token language="psylla">isempty</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

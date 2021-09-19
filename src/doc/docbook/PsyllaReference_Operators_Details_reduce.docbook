@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_reduce">
+<title><token language="psylla">reduce</token></title>
+
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
+<synopsis>
+<replaceable>stream</replaceable>
+<replaceable>identity</replaceable>
+<replaceable>accumulator</replaceable>
+<token language="psylla">reduce</token>
+<replaceable>result</replaceable>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>stream</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
+</listitem>
+<listitem>
+<replaceable>identity</replaceable>,
+<replaceable>result</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
+</listitem>
+<listitem>
+<replaceable>accumulator</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_executable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">1 1 100 range 0 { add } reduce	▶ 5050</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<!--<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,-->
+TODO
+</formalpara>
+
+</section>

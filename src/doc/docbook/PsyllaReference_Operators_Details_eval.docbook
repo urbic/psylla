@@ -6,11 +6,14 @@
 Interprets <replaceable>evaluable</replaceable> as Psylla program.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>evaluable</replaceable>
 <token language="psylla">eval</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,11 +7,14 @@ Flushes the buffer for <replaceable>flushable</replaceable> input/output
 object.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>flushable</replaceable>
 <token language="psylla">flush</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

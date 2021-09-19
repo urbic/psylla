@@ -9,6 +9,8 @@ the <replaceable>array</replaceable> before the element with the given
 <replaceable>array</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
@@ -16,6 +18,7 @@ the <replaceable>array</replaceable> before the element with the given
 <token language="psylla">insertall</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

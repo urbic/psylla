@@ -8,12 +8,15 @@ substrings matching the <replaceable>pattern</replaceable>, and returns the
 <replaceable>array</replaceable> composed of substrings.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
 <replaceable>pattern</replaceable>
 <token language="psylla">split</token>
 <replaceable>array</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

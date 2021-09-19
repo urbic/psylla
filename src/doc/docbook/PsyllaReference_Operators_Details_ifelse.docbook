@@ -8,6 +8,8 @@ Invokes an <replaceable>object<subscript>1</subscript></replaceable>, if a
 <replaceable>object<subscript>2</subscript></replaceable> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>condition</replaceable>
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -15,6 +17,7 @@ Invokes an <replaceable>object<subscript>1</subscript></replaceable>, if a
 <token language="psylla">ifelse</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

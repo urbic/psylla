@@ -7,11 +7,14 @@ Returns the <replaceable>permissions</replaceable> for the file or directory
 with the given <replaceable>name</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">filepermissions</token>
 <replaceable>permissions</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

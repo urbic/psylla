@@ -8,12 +8,17 @@ the <replaceable>container</replaceable>.
 </para>
 
 <formalpara>
-&TitleOperands;
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>enumeration</replaceable>
 <token language="psylla">appendall</token>
 —
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>container</replaceable>:
@@ -24,7 +29,6 @@ the <replaceable>container</replaceable>.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
 </listitem>
 </itemizedlist>
-</synopsis>
 </formalpara>
 
 <formalpara>

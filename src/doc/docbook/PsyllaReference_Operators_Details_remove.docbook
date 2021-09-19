@@ -7,12 +7,15 @@ Removes an <replaceable>element</replaceable> from the
 <replaceable>set</replaceable> if it is there.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>element</replaceable>
 <token language="psylla">remove</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,11 +7,14 @@ Returns <constant>true</constant>, if the <replaceable>input</replaceable> is
 ready to be read, and <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
 <token language="psylla">ready</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

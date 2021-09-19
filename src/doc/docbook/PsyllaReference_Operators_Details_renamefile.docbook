@@ -7,12 +7,15 @@ Changes an <replaceable>old</replaceable> file name to a
 <replaceable>new</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>old</replaceable>
 <replaceable>new</replaceable>
 <token language="psylla">renamefile</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

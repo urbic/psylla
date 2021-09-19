@@ -6,11 +6,14 @@
 Returns a new <replaceable>random</replaceable> objects generator.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">random</token>
 <replaceable>random</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

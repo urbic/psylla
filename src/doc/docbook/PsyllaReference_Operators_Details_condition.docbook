@@ -7,11 +7,14 @@ Returns a new <replaceable>condition</replaceable> associated with a
 <replaceable>lock</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>lock</replaceable>
 <token language="psylla">condition</token>
 <replaceable>condition</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,11 +7,14 @@ Returns <constant>true</constant>, if the <replaceable>name</replaceable>
 belongs to an ordinary file, and <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">isfile</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

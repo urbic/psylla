@@ -7,12 +7,15 @@ Returns the <replaceable>difference</replaceable> of the
 <replaceable>minuend</replaceable> and <replaceable>subtrahend</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>minuend</replaceable>
 <replaceable>subtrahend</replaceable>
 <token language="psylla">sub</token>
 <replaceable>difference</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

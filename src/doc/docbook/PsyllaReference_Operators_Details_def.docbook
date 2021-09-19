@@ -8,12 +8,15 @@ Associates an <replaceable>object</replaceable> with the
 dictionary stack).
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>key</replaceable>
 <replaceable>object</replaceable>
 <token language="psylla">def</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

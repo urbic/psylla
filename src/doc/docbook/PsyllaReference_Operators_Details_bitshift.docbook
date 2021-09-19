@@ -3,14 +3,18 @@
 <title><token language="psylla">bitshift</token></title>
 
 <para>
+TODO
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>shift</replaceable>
 <token language="psylla">bitshift</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -6,11 +6,14 @@
 The user dictionary.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">userdict</token>
 <constant>userdict</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

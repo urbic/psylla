@@ -7,6 +7,8 @@ Removes all the objects situated above the highest <constant>mark</constant> on
 the operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <constant>mark</constant>
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -15,6 +17,7 @@ the operand stack.
 <token language="psylla">cleartomark</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

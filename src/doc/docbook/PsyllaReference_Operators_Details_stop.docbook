@@ -3,13 +3,17 @@
 <title><token language="psylla">stop</token></title>
 
 <para>
+TODO
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">stop</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

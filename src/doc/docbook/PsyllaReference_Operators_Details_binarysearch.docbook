@@ -12,6 +12,8 @@ unpredictable. Returns the <replaceable>index</replaceable> of the
 the <replaceable>result</replaceable> indicating the success of the search.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>object</replaceable>
@@ -20,6 +22,7 @@ the <replaceable>result</replaceable> indicating the success of the search.
 <replaceable>index</replaceable>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

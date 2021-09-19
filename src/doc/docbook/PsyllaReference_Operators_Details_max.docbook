@@ -7,12 +7,15 @@ Returns the <replaceable>maximum</replaceable> of two
 <replaceable>scalars</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
 <token language="psylla">max</token>
 <replaceable>maximum</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -6,11 +6,14 @@
 Creates a new directory with the given <replaceable>name</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">createdirectory</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

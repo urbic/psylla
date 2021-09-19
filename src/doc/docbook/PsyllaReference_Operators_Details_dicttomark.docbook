@@ -8,6 +8,8 @@ located above the topmost mark on the operand stack. Removes the mark and the
 objects above it from the operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <constant>mark</constant>
 <replaceable>key<subscript>1</subscript></replaceable>
@@ -18,6 +20,7 @@ objects above it from the operand stack.
 <token language="psylla">dicttomark</token>
 <replaceable>dictionary</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

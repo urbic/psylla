@@ -8,12 +8,15 @@ Invokes a <replaceable>procedure</replaceable> for each element in the
 operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>enumeration</replaceable>
 <replaceable>procedure</replaceable>
 <token language="psylla">forall</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

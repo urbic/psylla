@@ -7,11 +7,14 @@ Returns the <replaceable>hyperbolic_cosine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">cosh</token>
 <replaceable>hyperbolic_cosine</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

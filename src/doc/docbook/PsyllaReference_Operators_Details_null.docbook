@@ -9,11 +9,14 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_null"/> value in
 the system dictionary.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">null</token>
 <constant>null</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

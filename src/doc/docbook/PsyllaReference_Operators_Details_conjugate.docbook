@@ -7,11 +7,14 @@ Rturns the <replaceable>conjugation</replaceable> of a complex
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">conjugate</token>
 <replaceable>conjugation</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

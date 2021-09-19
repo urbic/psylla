@@ -2,11 +2,16 @@
 <section xml:id="PsyllaReference_Operators_Details_bind">
 <title><token language="psylla">bind</token></title>
 
+TODO
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>procedure</replaceable>
 <token language="psylla">bind</token>
 <replaceable>procedure</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

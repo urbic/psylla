@@ -7,11 +7,14 @@ Returns a new <replaceable>pattern</replaceable> for a regular expression
 containing in the <replaceable>string</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psylla">regexp</token>
 <replaceable>pattern</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

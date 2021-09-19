@@ -7,11 +7,14 @@ Invokes an <replaceable>object</replaceable> (typically a procedure) in an
 infinite cycle.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">loop</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

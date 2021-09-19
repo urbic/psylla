@@ -7,11 +7,14 @@ Returns the <replaceable>enumeration</replaceable> of values containing in
 the <replaceable>indexed</replaceable> container.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>indexed</replaceable>
 <token language="psylla">values</token>
 <replaceable>enumeration</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

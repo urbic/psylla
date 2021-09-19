@@ -9,6 +9,8 @@ Inserts the <replaceable>object</replaceable> into the
 <replaceable>array</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
@@ -16,6 +18,7 @@ Inserts the <replaceable>object</replaceable> into the
 <token language="psylla">insert</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

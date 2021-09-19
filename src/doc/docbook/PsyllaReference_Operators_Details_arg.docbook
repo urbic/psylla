@@ -8,11 +8,16 @@ Returns the <replaceable>argument</replaceable> of a complex
 </para>
 
 <formalpara>
-&TitleOperands;
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">arg</token>
 <replaceable>argument</replaceable>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>:
@@ -23,7 +28,6 @@ Returns the <replaceable>argument</replaceable> of a complex
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>
 </listitem>
 </itemizedlist>
-</synopsis>
 </formalpara>
 
 <formalpara>

@@ -8,11 +8,14 @@ returns an associated <replaceable>object</replaceable>. The search is
 performed from the top to the bottom of the stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>key</replaceable>
 <token language="psylla">load</token>
 <replaceable>object</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

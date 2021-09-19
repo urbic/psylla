@@ -8,11 +8,14 @@
 следования элементов.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>массив</replaceable>
 <token language="psylla">reverse</token>
 <replaceable>результат</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

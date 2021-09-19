@@ -8,12 +8,15 @@ Returns a new <replaceable>matcher</replaceable> used for a search in the
 the <replaceable>pattern</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
 <replaceable>pattern</replaceable>
 <token language="psylla">matcher</token>
 <replaceable>matcher</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

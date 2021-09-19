@@ -7,11 +7,14 @@ Returns the <replaceable>hyperbolic_sine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">sinh</token>
 <replaceable>hyperbolic_sine</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

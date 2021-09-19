@@ -8,12 +8,15 @@ their squares), i. e. the <replaceable>hypotenuse</replaceable> calculated by
 <replaceable>catheti</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>cathetus<subscript>1</subscript></replaceable>
 <replaceable>cathetus<subscript>2</subscript></replaceable>
 <token language="psylla">hypot</token>
 <replaceable>hypotenuse</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

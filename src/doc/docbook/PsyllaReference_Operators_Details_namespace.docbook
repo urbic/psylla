@@ -8,11 +8,14 @@ Returns a <replaceable>namespace</replaceable> with the given
 namespace pool does not contain such a namespace, previously allocates it.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>prefix</replaceable>
 <token language="psylla">namespace</token>
 <replaceable>namespace</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

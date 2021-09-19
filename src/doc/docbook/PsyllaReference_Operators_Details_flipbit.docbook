@@ -6,12 +6,15 @@
 <remark>TODO</remark>
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>index</replaceable>
 <token language="psylla">flipbit</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

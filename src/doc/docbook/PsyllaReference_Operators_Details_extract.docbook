@@ -8,12 +8,15 @@ given <replaceable>key</replaceable> from
 the <replaceable>container</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>key</replaceable>
 <token language="psylla">extract</token>
 <replaceable>element</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

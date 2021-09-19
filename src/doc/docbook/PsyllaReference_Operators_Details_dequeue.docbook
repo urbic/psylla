@@ -6,11 +6,14 @@
 TODO
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>queue</replaceable>
 <token language="psylla">dequeue</token>
 <replaceable>element</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

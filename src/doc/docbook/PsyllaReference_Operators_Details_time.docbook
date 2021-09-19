@@ -7,11 +7,14 @@ Returns the current <replaceable>time</replaceable> (in milliseconds since
 1970.01.01 00:00:00 GMT).
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">time</token>
 <replaceable>time</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

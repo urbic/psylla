@@ -7,11 +7,14 @@ Returns the square <replaceable>square_root</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">sqrt</token>
 <replaceable>square_root</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,12 +7,15 @@ Writes the <replaceable>character</replaceable> to
 the <replaceable>output</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>output</replaceable>
 <replaceable>character</replaceable>
 <token language="psylla">write</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

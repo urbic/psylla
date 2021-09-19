@@ -7,11 +7,14 @@ Returns the <replaceable>number</replaceable> of objects in the dictionary
 stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">countdictstack</token>
 <replaceable>number</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

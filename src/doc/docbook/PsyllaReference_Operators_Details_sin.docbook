@@ -7,11 +7,14 @@ Returns the <replaceable>sine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">sin</token>
 <replaceable>sine</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

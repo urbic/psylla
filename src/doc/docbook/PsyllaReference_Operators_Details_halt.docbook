@@ -6,11 +6,14 @@
 Terminates the program execution with a given <replaceable>status</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>status</replaceable>
 <token language="psylla">halt</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

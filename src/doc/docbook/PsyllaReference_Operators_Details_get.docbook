@@ -8,12 +8,15 @@ Returns the <replaceable>element</replaceable> associated with a given
 <replaceable>container</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>key</replaceable>
 <token language="psylla">get</token>
 <replaceable>element</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

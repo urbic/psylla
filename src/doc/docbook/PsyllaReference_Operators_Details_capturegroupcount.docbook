@@ -8,11 +8,14 @@ Returns a <replaceable>count</replaceable> of capture groups for the given
 corresponds to the whole pattern; it does not counted.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>matcher</replaceable>
 <token language="psylla">capturegroupcount</token>
 <replaceable>count</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

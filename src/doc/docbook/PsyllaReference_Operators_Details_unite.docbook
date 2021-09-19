@@ -8,12 +8,15 @@ Returns a <replaceable>string</replaceable> obtained by concatenating
 <replaceable>separator</replaceable> string.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>enumeration</replaceable>
 <replaceable>separator</replaceable>
 <token language="psylla">unite</token>
 <replaceable>string</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,11 +7,14 @@ Returns <constant>true</constant>, if the <replaceable>number</replaceable> not
 equals to zero, and <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">nonzero</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

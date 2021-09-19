@@ -7,12 +7,15 @@ Retains only the elements in the <replaceable>set</replaceable> that are
 contained in the <replaceable>enumeration</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>enumeration</replaceable>
 <token language="psylla">retainall</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

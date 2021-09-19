@@ -2,11 +2,18 @@
 <section xml:id="PsyllaReference_Operators_Details_prettyprint">
 <title><token language="psylla">prettyprint</token></title>
 
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">prettyprint</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

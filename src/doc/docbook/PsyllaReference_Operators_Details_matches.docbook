@@ -2,6 +2,12 @@
 <section xml:id="PsyllaReference_Operators_Details_matches">
 <title><token language="psylla">matches</token></title>
 
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>matcher</replaceable>
 <token language="psylla">matches</token>
@@ -12,6 +18,7 @@
 <token language="psylla">matches</token>
 <constant>false</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

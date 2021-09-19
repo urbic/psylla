@@ -7,11 +7,14 @@ Suspends execution of the current context for given
 <replaceable>duration</replaceable> (in milliseconds).
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>duration</replaceable>
 <token language="psylla">sleep</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

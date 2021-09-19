@@ -3,13 +3,17 @@
 <title><token language="psylla">wait</token></title>
 
 <para>
+TODO
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>condition</replaceable>
 <token language="psylla">wait</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

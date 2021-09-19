@@ -7,11 +7,14 @@ Returns the <replaceable>real_part</replaceable> of the complex
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">realpart</token>
 <replaceable>real_part</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

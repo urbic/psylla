@@ -14,6 +14,8 @@ TODO
 </synopsis>
 
 <formalpara>
+&TitleSynopsis;
+<formalpara>
 &TitleOperands;
 <itemizedlist>
 <listitem>
@@ -29,6 +31,7 @@ TODO
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>
 </listitem>
 </itemizedlist>
+</formalpara>
 </formalpara>
 
 <para>

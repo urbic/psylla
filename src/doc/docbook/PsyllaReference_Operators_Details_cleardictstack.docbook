@@ -6,11 +6,14 @@
 Removes all non-permanent dictionaries from the dictionary stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">cleardictstack</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

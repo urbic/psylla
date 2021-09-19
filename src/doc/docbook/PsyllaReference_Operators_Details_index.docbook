@@ -8,6 +8,8 @@
 от вершины стека (нумерация начинается с нуля).
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object<subscript>n</subscript></replaceable>
 …
@@ -19,6 +21,7 @@
 <replaceable>object<subscript>0</subscript></replaceable>
 <replaceable>object<subscript>n</subscript></replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -6,6 +6,8 @@
 <remark>TODO</remark>
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">editline</token>
@@ -16,6 +18,7 @@
 <token language="psylla">editline</token>
 <constant>false</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

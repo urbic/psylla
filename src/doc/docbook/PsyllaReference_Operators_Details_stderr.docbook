@@ -6,11 +6,14 @@
 The standard error output.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">stderr</token>
 <constant>stderr</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

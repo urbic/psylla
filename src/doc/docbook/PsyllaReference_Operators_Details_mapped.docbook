@@ -11,12 +11,15 @@
 <replaceable>результат</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>stream</replaceable>
 <replaceable>executable</replaceable>
 <token language="psylla">mapped</token>
 <replaceable>mappedstream</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;
@@ -59,8 +62,8 @@ xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>.
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>.
 </formalpara>
 
 </section>

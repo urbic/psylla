@@ -7,11 +7,14 @@ Returns the contents of the dictionary stack in an
 <replaceable>array</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">dictstack</token>
 <replaceable>array</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

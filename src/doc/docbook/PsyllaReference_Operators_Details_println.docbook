@@ -8,11 +8,14 @@ xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eol"/>) to th
 standard output.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
 <token language="psylla">println</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

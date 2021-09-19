@@ -3,14 +3,18 @@
 <title><token language="psylla">synchronized</token></title>
 
 <para>
+TODO
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <replaceable>procedure</replaceable>
 <token language="psylla">synchronized</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

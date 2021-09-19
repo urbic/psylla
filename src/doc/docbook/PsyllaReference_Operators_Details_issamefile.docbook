@@ -9,12 +9,15 @@ Returns <constant>true</constant>, if the
 same file or directory, and <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name<subscript>1</subscript></replaceable>
 <replaceable>name<subscript>2</subscript></replaceable>
 <token language="psylla">issamefile</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -2,6 +2,8 @@
 <section xml:id="PsyllaReference_Operators_Details_capturegroupstart">
 <title><token language="psylla">capturegroupstart</token></title>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>matcher</replaceable>
 <replaceable>index</replaceable>
@@ -13,6 +15,11 @@
 <replaceable>index</replaceable>
 <token language="psylla">capturegroupstart</token>
 <constant>false</constant>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
 <itemizedlist>
 <listitem>
 <replaceable>matcher</replaceable>:
@@ -33,7 +40,7 @@
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
 </listitem>
 </itemizedlist>
-</synopsis>
+</formalpara>
 
 <para>
 Возвращает <replaceable>позицию</replaceable> первого символа, захваченного

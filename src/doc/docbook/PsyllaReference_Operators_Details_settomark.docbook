@@ -8,6 +8,8 @@ Returns a new <replaceable>set</replaceable> filled with
 operand stack. Removes the mark and the objects from the stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <constant>mark</constant>
 <replaceable>object<subscript>0</subscript></replaceable>
@@ -16,6 +18,7 @@ operand stack. Removes the mark and the objects from the stack.
 <token language="psylla">settomark</token>
 <replaceable>set</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

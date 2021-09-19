@@ -6,11 +6,14 @@
 The array containing the additional class path.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">classpath</token>
 <constant>classpath</constant>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,11 +7,14 @@ Establishes the stopping context and invokes an
 <replaceable>object</replaceable> (typically a procedure) in it.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">stopped</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

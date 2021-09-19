@@ -7,12 +7,15 @@ Creates a symbolic link named <replaceable>link</replaceable> to a file named
 <replaceable>target</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>target</replaceable>
 <replaceable>link</replaceable>
 <token language="psylla">symlink</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

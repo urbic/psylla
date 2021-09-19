@@ -3,10 +3,18 @@
 <title><token language="psylla">copy</token></title>
 
 <para>
-Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
-копирует в стек операндов верхние <replaceable>n</replaceable> объектов.
+Pops a non-negative integer <replaceable>n</replaceable> off the stack and
+copies the top <replaceable>n</replaceable> objects (in order) onto the operand
+stack.
 </para>
 
+<para>
+Only objects are copied, not their values. When copying composite objects, an
+object shares its value with the copy. 
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object<subscript>1</subscript></replaceable>
 …
@@ -20,6 +28,7 @@
 …
 <replaceable>object<subscript>n</subscript></replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;
@@ -37,28 +46,19 @@
 </itemizedlist>
 </formalpara>
 
-<para>
-Копируются только объекты, но не их значения. При копировании композитных
-объектов их значение остаётся общим.
-</para>
-
-<para>
-Генерирует <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Errors_Details_rangecheck"/> для отрицательного
-<replaceable>n</replaceable>.
-</para>
-
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">"A" "B" "C" 2 copy	▶ "A" "B" "C" "B" "C"
-1 2 3 0 copy		▶ 1 2 3</programlisting>
+<programlisting language="psylla">/A /B /C 2 copy	▶ /A /B /C /B /C
+1 2 3 0 copy	▶ 1 2 3</programlisting>
 </formalpara>
 
 <formalpara>
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_rangecheck"/> — when
+<replaceable>n</replaceable> is negative
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>

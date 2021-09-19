@@ -7,11 +7,14 @@ Returns the <replaceable>target</replaceable> of a symbolic link with a given
 <replaceable>name</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">readlink</token>
 <replaceable>target</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

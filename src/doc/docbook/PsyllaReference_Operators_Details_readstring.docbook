@@ -10,6 +10,8 @@ Returns the read <replaceable>string</replaceable>. Also returns a boolean
 <replaceable>input</replaceable> is exhausted during the operation.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
 <replaceable>length</replaceable>
@@ -17,6 +19,7 @@ Returns the read <replaceable>string</replaceable>. Also returns a boolean
 <replaceable>string</replaceable>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

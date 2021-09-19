@@ -6,11 +6,14 @@
 Terminates the current execution context.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">quit</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

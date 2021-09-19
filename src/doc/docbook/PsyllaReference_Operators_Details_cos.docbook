@@ -7,11 +7,14 @@ Returns the <replaceable>cosine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">cos</token>
 <replaceable>cosine</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

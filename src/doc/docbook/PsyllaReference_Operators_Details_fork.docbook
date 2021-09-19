@@ -10,6 +10,8 @@ stack is copied from the current context, and then copies
 created <replaceable>context</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <constant>mark</constant>
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -19,6 +21,7 @@ created <replaceable>context</replaceable>.
 <token language="psylla">fork</token>
 <replaceable>context</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

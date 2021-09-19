@@ -2,10 +2,13 @@
 <section xml:id="PsyllaReference_Operators_Details_filereader">
 <title><token language="psylla">filereader</token></title>
 
+<formalpara>
+&TitleSynopsis;
 <para>
 Returns a new file <replaceable>reader</replaceable> for a file with the given
 <replaceable>name</replaceable>.
 </para>
+</formalpara>
 
 <synopsis>
 <replaceable>name</replaceable>

@@ -7,11 +7,14 @@ Returns a <replaceable>copy</replaceable> of an
 <replaceable>object</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">clone</token>
 <replaceable>copy</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -10,12 +10,15 @@ elements, or adding the <replaceable>array</replaceable> to the specified
 the <replaceable>array</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>length</replaceable>
 <token language="psylla">setlength</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

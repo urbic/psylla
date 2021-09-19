@@ -7,12 +7,15 @@ Sets the <replaceable>seed</replaceable> for pseudorandom
 <replaceable>generator</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>generator</replaceable>
 <replaceable>seed</replaceable>
 <token language="psylla">setseed</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

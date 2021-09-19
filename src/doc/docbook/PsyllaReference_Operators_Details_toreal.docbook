@@ -2,11 +2,18 @@
 <section xml:id="PsyllaReference_Operators_Details_toreal">
 <title><token language="psylla">toreal</token></title>
 
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">toreal</token>
 <replaceable>real</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

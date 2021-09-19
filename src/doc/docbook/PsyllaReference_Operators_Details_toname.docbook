@@ -2,11 +2,18 @@
 <section xml:id="PsyllaReference_Operators_Details_toname">
 <title><token language="psylla">toname</token></title>
 
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>объект</replaceable>
 <token language="psylla">toname</token>
 <replaceable>имя</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

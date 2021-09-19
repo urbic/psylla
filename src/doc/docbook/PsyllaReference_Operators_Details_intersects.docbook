@@ -9,12 +9,15 @@ Returns <constant>true</constant>, if the
 <constant>false</constant> otherwise.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>set<subscript>1</subscript></replaceable>
 <replaceable>set<subscript>2</subscript></replaceable>
 <token language="psylla">intersects</token>
 <replaceable>result</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -7,12 +7,15 @@ Returns the <replaceable>sum</replaceable> of two
 <replaceable>summands</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>summand<subscript>1</subscript></replaceable>
 <replaceable>summand<subscript>2</subscript></replaceable>
 <token language="psylla">add</token>
 <replaceable>sum</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

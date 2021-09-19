@@ -9,12 +9,15 @@ from the <replaceable>dictionary</replaceable>. The absence of a
 does not cause an error.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>key</replaceable>
 <replaceable>dictionary</replaceable>
 <token language="psylla">undef</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

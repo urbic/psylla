@@ -7,12 +7,15 @@ Copies an <replaceable>existing</replaceable> file with a
 <replaceable>new</replaceable> name.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>existing</replaceable>
 <replaceable>new</replaceable>
 <token language="psylla">copyfile</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

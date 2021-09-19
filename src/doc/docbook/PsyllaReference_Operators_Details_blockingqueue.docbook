@@ -7,11 +7,14 @@ Returns a new blocking <replaceable>queue</replaceable> with a given
 <replaceable>capacity</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>capacity</replaceable>
 <token language="psylla">blockingqueue</token>
 <replaceable>queue</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

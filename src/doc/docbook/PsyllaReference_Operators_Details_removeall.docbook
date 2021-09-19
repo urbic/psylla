@@ -7,12 +7,15 @@ Removes all the objects from the <replaceable>enumeration</replaceable> from
 the <replaceable>set</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>enumeration</replaceable>
 <token language="psylla">removeall</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

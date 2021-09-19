@@ -7,11 +7,14 @@ Returns the <replaceable>object</replaceable>’s
 <replaceable>hashcode</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">hashcode</token>
 <replaceable>hashcode</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

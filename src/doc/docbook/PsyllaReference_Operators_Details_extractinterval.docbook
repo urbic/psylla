@@ -10,6 +10,8 @@
 <replaceable>массив</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
@@ -17,6 +19,7 @@
 <token language="psylla">extractinterval</token>
 <replaceable>subarray</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

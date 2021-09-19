@@ -8,12 +8,15 @@ Returns a stream consisting of the elements of the
 <replaceable>comparator</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>stream</replaceable>
 <replaceable>comparator</replaceable>
 <token language="psylla">sorted</token>
 <replaceable>sortedstream</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

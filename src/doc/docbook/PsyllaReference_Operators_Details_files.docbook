@@ -9,11 +9,14 @@ enumerated as <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_name"/> objects.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">files</token>
 <replaceable>enumeration</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

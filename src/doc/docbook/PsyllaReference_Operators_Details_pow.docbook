@@ -8,12 +8,15 @@ Raises the <replaceable>base</replaceable> to the
 <replaceable>power</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>base</replaceable>
 <replaceable>exponent</replaceable>
 <token language="psylla">pow</token>
 <replaceable>power</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -6,11 +6,14 @@
 Выводит на стандартный вывод содержимое стека операндов.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">pstack</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

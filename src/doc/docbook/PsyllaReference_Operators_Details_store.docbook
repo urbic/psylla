@@ -11,12 +11,15 @@
 словарей).
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>ключ</replaceable>
 <replaceable>объект</replaceable>
 <token language="psylla">store</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

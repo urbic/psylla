@@ -8,12 +8,15 @@ with the given standard <replaceable>deviation</replaceable> and zero mean
 taken from the given pseudorandom <replaceable>generator</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>generator</replaceable>
 <replaceable>deviation</replaceable>
 <token language="psylla">normaldeviate</token>
 <replaceable>number</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

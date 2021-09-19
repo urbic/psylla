@@ -6,11 +6,14 @@
 Returns a <replaceable>type</replaceable> of the <replaceable>object</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">type</token>
 <replaceable>type</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

@@ -6,12 +6,15 @@
 Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">dup</token>
 <replaceable>object</replaceable>
 <replaceable>object</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

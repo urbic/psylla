@@ -7,11 +7,14 @@ Returns the <replaceable>arc_sine</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">asin</token>
 <replaceable>arc_sine</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

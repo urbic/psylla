@@ -7,12 +7,15 @@ Invokes an <replaceable>object</replaceable> (typically a procedure)
 <replaceable>count</replaceable> of times.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>count</replaceable>
 <replaceable>object</replaceable>
 <token language="psylla">repeat</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

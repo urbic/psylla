@@ -6,6 +6,8 @@
 Removes all <replaceable>objects</replaceable> from the operand stack.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 ⊢
 <replaceable>object<subscript>1</subscript></replaceable>
@@ -14,6 +16,7 @@ Removes all <replaceable>objects</replaceable> from the operand stack.
 <token language="psylla">clearstack</token>
 ⊢
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

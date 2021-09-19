@@ -467,7 +467,7 @@
 </section>
 
 <section xml:id="PsyllaReference_Operators_ByCategory_Containers">
-<title>Container and Enumeration Handling Operators</title>
+<title>Container and Stream Handling Operators</title>
 
 <variablelist>
 
@@ -691,6 +691,11 @@ container</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_putinterval" xrefstyle="template:%t"/></term>
 <listitem>store all the objects from an enumeration in a container</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_reduce" xrefstyle="template:%t"/></term>
+<listitem>TODO</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1575,6 +1580,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_readstring;
 &PsyllaReference_Operators_Details_ready;
 &PsyllaReference_Operators_Details_realpart;
+&PsyllaReference_Operators_Details_reduce;
 &PsyllaReference_Operators_Details_regexp;
 &PsyllaReference_Operators_Details_remove;
 &PsyllaReference_Operators_Details_removeall;

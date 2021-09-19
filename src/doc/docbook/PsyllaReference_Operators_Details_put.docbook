@@ -8,6 +8,8 @@ Stores an <replaceable>object</replaceable> into the indexed
 <replaceable>key</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>key</replaceable>
@@ -15,6 +17,7 @@ Stores an <replaceable>object</replaceable> into the indexed
 <token language="psylla">put</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

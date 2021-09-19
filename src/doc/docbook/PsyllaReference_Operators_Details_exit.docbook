@@ -17,11 +17,14 @@ a procedure, invoked repeatedly by one of the following control operators:
 оператором.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 —
 <token language="psylla">exit</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleErrors;

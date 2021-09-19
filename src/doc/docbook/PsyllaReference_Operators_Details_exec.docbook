@@ -6,11 +6,14 @@
 Invokes an <replaceable>object</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
 <token language="psylla">exec</token>
 —
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;

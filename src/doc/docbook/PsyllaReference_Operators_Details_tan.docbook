@@ -7,11 +7,14 @@ Returns the <replaceable>tangent</replaceable> of a
 <replaceable>number</replaceable>.
 </para>
 
+<formalpara>
+&TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">tan</token>
 <replaceable>tangent</replaceable>
 </synopsis>
+</formalpara>
 
 <formalpara>
 &TitleOperands;
