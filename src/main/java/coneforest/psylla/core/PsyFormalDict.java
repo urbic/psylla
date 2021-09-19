@@ -10,7 +10,7 @@ import coneforest.psylla.*;
 public interface PsyFormalDict<V extends PsyObject>
 	extends
 		PsyContainer<V>,
-		PsyIndexed<PsyStringy, V>,
+		PsyIndexed<PsyTextual, V>,
 		PsySequential<V>
 {
 
@@ -45,14 +45,14 @@ public interface PsyFormalDict<V extends PsyObject>
 		throws PsyException;
 
 	@Override
-	default public V psyGet(final PsyStringy oKey)
+	default public V psyGet(final PsyTextual oKey)
 		throws PsyException
 	{
 		return get(oKey.stringValue());
 	}
 
 	@Override
-	default public PsyFormalArray<V> psyGetAll(final PsyIterable<PsyStringy> oEnumeration)
+	default public PsyFormalArray<V> psyGetAll(final PsyIterable<PsyTextual> oEnumeration)
 		throws PsyException
 	{
 		final PsyFormalArray<V> oResult=(PsyFormalArray<V>)new PsyArray();
@@ -64,7 +64,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	public void put(final String key, final V oValue);
 
 	@Override
-	default public void psyPut(final PsyStringy oKey, final V oValue)
+	default public void psyPut(final PsyTextual oKey, final V oValue)
 	{
 		put(oKey.stringValue(), oValue);
 	}
@@ -72,7 +72,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	public boolean known(final String key);
 
 	@Override
-	default public PsyBoolean psyKnown(final PsyStringy oKey)
+	default public PsyBoolean psyKnown(final PsyTextual oKey)
 	{
 		return PsyBoolean.valueOf(known(oKey.stringValue()));
 	}
@@ -82,25 +82,25 @@ public interface PsyFormalDict<V extends PsyObject>
 	/**
 	*	Deletes a key and associated value from this dictionary.
 	*
-	*	@param oKey a Ψ-{@code stringy} key.
+	*	@param oKey a Ψ-{@code textual} key.
 	*/
-	default public void psyUndef(final PsyStringy oKey)
+	default public void psyUndef(final PsyTextual oKey)
 	{
 		undef(oKey.stringValue());
 	}
 
 	@Override
-	public PsyFormalStream<PsyStringy> psyKeys();
+	public PsyFormalStream<PsyTextual> psyKeys();
 
 	@Override
-	default public void psyDelete(final PsyStringy oKey)
+	default public void psyDelete(final PsyTextual oKey)
 		throws PsyException
 	{
 		psyUndef(oKey);
 	}
 
 	@Override
-	default public V psyExtract(final PsyStringy oKey)
+	default public V psyExtract(final PsyTextual oKey)
 		throws PsyException
 	{
 		V oResult=psyGet(oKey);
@@ -109,7 +109,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	}
 
 	@Override
-	public PsyFormalDict<V> psySlice(final PsyIterable<PsyStringy> oEnumeration)
+	public PsyFormalDict<V> psySlice(final PsyIterable<PsyTextual> oEnumeration)
 		throws PsyException;
 
 	@Override
@@ -146,7 +146,7 @@ public interface PsyFormalDict<V extends PsyObject>
 
 							private PsyName oKey;
 
-							private java.util.Iterator<PsyStringy> parentIterator
+							private java.util.Iterator<PsyTextual> parentIterator
 								=psyKeys().stream().iterator();
 
 						};
@@ -184,7 +184,7 @@ public interface PsyFormalDict<V extends PsyObject>
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity20<PsyFormalDict, PsyStringy>
+			new PsyOperator.Arity20<PsyFormalDict, PsyTextual>
 				("undef", PsyFormalDict::psyUndef),
 		};
 

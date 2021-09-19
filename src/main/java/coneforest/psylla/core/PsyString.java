@@ -7,7 +7,7 @@ import coneforest.psylla.*;
 @Type("string")
 public class PsyString
 	implements
-		PsyStringy,
+		PsyTextual,
 		PsyFormalArray<PsyInteger>
 {
 	/**

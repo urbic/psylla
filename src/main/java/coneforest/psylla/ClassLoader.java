@@ -15,7 +15,7 @@ abstract public class ClassLoader
 		super();
 	}
 
-	public void psyExternal(final PsyStringy oClassName)
+	public void psyExternal(final PsyTextual oClassName)
 		throws PsyException
 	{
 		try

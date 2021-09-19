@@ -86,7 +86,7 @@ public class PsyDict
 	}
 
 	@Override
-	public PsyDict psySlice(final PsyIterable<PsyStringy> oKeys) // TODO
+	public PsyDict psySlice(final PsyIterable<PsyTextual> oKeys) // TODO
 		throws PsyException
 	{
 		final var values=new PsyDict();
@@ -98,7 +98,7 @@ public class PsyDict
 	@Override
 	public PsyStream psyKeys()
 	{
-		return new PsyStream(dict.keySet().stream().<PsyStringy>map(PsyName::new));
+		return new PsyStream(dict.keySet().stream().<PsyTextual>map(PsyName::new));
 	}
 
 	@Override
@@ -126,7 +126,7 @@ public class PsyDict
 						final var oDict=new PsyDict();
 						for(int j=i+1; j<ostackSize; j++)
 						{
-							final var oKey=(PsyStringy)ostack.get(j++);
+							final var oKey=(PsyTextual)ostack.get(j++);
 							final var o=ostack.get(j);
 							oDict.psyPut(oKey, o);
 						}

@@ -22,7 +22,7 @@ with the given <replaceable>name</replaceable>.
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
 <replaceable>permissions</replaceable>:

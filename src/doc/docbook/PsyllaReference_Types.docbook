@@ -140,7 +140,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_string;
 &PsyllaReference_Types_Details_stringreader;
 &PsyllaReference_Types_Details_stringwriter;
-&PsyllaReference_Types_Details_stringy;
+&PsyllaReference_Types_Details_textual;
 &PsyllaReference_Types_Details_type;
 &PsyllaReference_Types_Details_writable;
 &PsyllaReference_Types_Details_writer;

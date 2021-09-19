@@ -22,7 +22,7 @@ performed from the top to the bottom of the stack.
 <itemizedlist>
 <listitem>
 <replaceable>key</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
 <replaceable>object</replaceable>:

@@ -20,7 +20,7 @@ A string.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>

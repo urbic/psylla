@@ -16,14 +16,14 @@ public class PsyProcess
 			if(oDict.known("command"))
 			{
 				final var command=oDict.get("command");
-				if(command instanceof PsyStringy)
-					pb=new ProcessBuilder(((PsyStringy)command).stringValue());
+				if(command instanceof PsyTextual)
+					pb=new ProcessBuilder(((PsyTextual)command).stringValue());
 				else if(command instanceof PsyFormalArray)
 				{
 					java.util.ArrayList<String> commandList
 						=new java.util.ArrayList(((PsyFormalArray)command).length());
 					for(final var o: (PsyFormalArray<PsyObject>)command)
-						commandList.add(((PsyStringy)o).stringValue());
+						commandList.add(((PsyTextual)o).stringValue());
 					pb=new ProcessBuilder(commandList);
 				}
 				else
@@ -31,7 +31,7 @@ public class PsyProcess
 			}
 
 			if(oDict.known("directory"))
-				pb.directory(new java.io.File(((PsyStringy)oDict.get("directory")).stringValue()));
+				pb.directory(new java.io.File(((PsyTextual)oDict.get("directory")).stringValue()));
 
 			if(oDict.known("environment"))
 			{

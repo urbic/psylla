@@ -23,7 +23,7 @@ linkend="PsyllaReference_Types_Details_name"/> objects.
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
 <replaceable>enumeration</replaceable>:

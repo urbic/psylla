@@ -26,7 +26,7 @@ public class PsyFileWriter
 		*/
 	}
 
-	public PsyFileWriter(final PsyStringy oFileName)
+	public PsyFileWriter(final PsyTextual oFileName)
 		throws PsyException
 	{
 		this(oFileName.stringValue());
@@ -51,7 +51,7 @@ public class PsyFileWriter
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity11<PsyStringy>
+			new PsyOperator.Arity11<PsyTextual>
 				("filewriter", PsyFileWriter::new),
 		};
 

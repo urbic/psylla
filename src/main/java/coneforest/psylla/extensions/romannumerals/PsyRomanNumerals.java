@@ -14,7 +14,7 @@ public class PsyRomanNumerals
 			(
 				new PsyOperator.Arity11<PsyInteger>
 					("toroman", PsyRomanNumerals::psyToRoman),
-				new PsyOperator.Arity11<PsyStringy>
+				new PsyOperator.Arity11<PsyTextual>
 					("fromroman", PsyRomanNumerals::psyFromRoman)
 			);
 	}
@@ -31,10 +31,10 @@ public class PsyRomanNumerals
 		return new PsyName(sb);
 	}
 
-	private static PsyInteger psyFromRoman(final PsyStringy oStringy)
+	private static PsyInteger psyFromRoman(final PsyTextual oTextual)
 		throws PsyException
 	{
-		final var romanMatcher=romanPattern.matcher(oStringy.stringValue());
+		final var romanMatcher=romanPattern.matcher(oTextual.stringValue());
 		if(!romanMatcher.matches())
 			throw new PsyUndefinedResultException();
 		int result=0;

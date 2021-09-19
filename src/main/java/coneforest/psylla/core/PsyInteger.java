@@ -333,10 +333,10 @@ public class PsyInteger
 		return PsyInteger.valueOf(oShift.value>=0? value<<oShift.value: value>>(-oShift.value));
 	}
 
-	public PsyBoolean psyInUnicodeBlock(final PsyStringy oStringy)
+	public PsyBoolean psyInUnicodeBlock(final PsyTextual oTextual)
 	{
 		return PsyBoolean.valueOf(Character.UnicodeBlock.of((int)value).equals(
-				Character.UnicodeBlock.forName(oStringy.stringValue())));
+				Character.UnicodeBlock.forName(oTextual.stringValue())));
 	}
 
 	@Override

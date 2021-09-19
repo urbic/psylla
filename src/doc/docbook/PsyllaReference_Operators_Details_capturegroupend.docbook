@@ -28,7 +28,7 @@
 <listitem>
 <replaceable>index</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
-| <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+| <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
 <replaceable>position</replaceable>:
@@ -57,7 +57,7 @@ linkend="PsyllaReference_Types_Details_integer"/>
 <replaceable>index</replaceable> the group is selected by its number. The
 capture groups are numbered starting from one. The group number zero matches
 the entire pattern. For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_stringy"/>
+linkend="PsyllaReference_Types_Details_textual"/>
 <replaceable>index</replaceable> the group is selected by its name.
 </para>
 

@@ -21,18 +21,18 @@ public interface PsyWritable
 		throws PsyException;
 
 	/**
-	*	Writes a Ψ-{@code stringy} string of characters to this object.
+	*	Writes a Ψ-{@code textual} string of characters to this object.
 	*
-	*	@param oStringy a Ψ-{@code stringy} object representing a string to be
+	*	@param oTextual a Ψ-{@code textual} object representing a string to be
 	*	written.
 	*	@throws PsyException when an error occurs during write.
 	*/
-	public void psyWriteString(final PsyStringy oStringy)
+	public void psyWriteString(final PsyTextual oTextual)
 		throws PsyException;
 
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Arity20<PsyWritable, PsyInteger>("write", PsyWritable::psyWrite),
-			new PsyOperator.Arity20<PsyWritable, PsyStringy>("writestring", PsyWritable::psyWriteString),
+			new PsyOperator.Arity20<PsyWritable, PsyTextual>("writestring", PsyWritable::psyWriteString),
 		};
 }

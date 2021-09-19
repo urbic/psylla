@@ -39,7 +39,7 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/> �
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>,
 для <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_formaldict"/> — <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_stringy"/>), в противном случае
+linkend="PsyllaReference_Types_Details_textual"/>), в противном случае
 генерируется <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Errors_Details_typecheck"/>.
 </para>

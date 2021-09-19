@@ -41,7 +41,7 @@ linkend="PsyllaReference_Types_Details_formalarray"/> containers,
 linkend="PsyllaReference_Types_Details_integer"/> non-negative index. For <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formaldict"/>
 containers, <replaceable>key</replaceable> is a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_stringy"/> key.
+linkend="PsyllaReference_Types_Details_textual"/> key.
 </para>
 
 <formalpara>

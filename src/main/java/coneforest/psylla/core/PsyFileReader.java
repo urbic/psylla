@@ -11,7 +11,7 @@ public class PsyFileReader
 		super(newFileReader(fileName));
 	}
 
-	public PsyFileReader(final PsyStringy oFileName)
+	public PsyFileReader(final PsyTextual oFileName)
 		throws PsyException
 	{
 		this(oFileName.stringValue());
@@ -32,7 +32,7 @@ public class PsyFileReader
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity11<PsyStringy>
+			new PsyOperator.Arity11<PsyTextual>
 				("filereader", PsyFileReader::new),
 		};
 

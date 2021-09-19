@@ -33,7 +33,7 @@ public class PsyWriter
 	}
 
 	@Override
-	public void psyWriteString(final PsyStringy oString)
+	public void psyWriteString(final PsyTextual oString)
 		throws PsyIOErrorException
 	{
 		try

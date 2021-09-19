@@ -2,18 +2,18 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code stringy}, a basic type of mutable and
+*	A representation of Ψ-{@code textual}, a basic type of mutable and
 *	immutable strings.
 */
-@Type("stringy")
-public interface PsyStringy
+@Type("textual")
+public interface PsyTextual
 	extends
 		PsyEvaluable,
 		PsyConvertableToInteger,
 		PsyConvertableToReal,
 		PsyIterable<PsyInteger>,
 		PsyLengthy,
-		PsyScalar<PsyStringy>
+		PsyScalar<PsyTextual>
 {
 
 	/**
@@ -23,9 +23,9 @@ public interface PsyStringy
 	*/
 	public String stringValue();
 
-	public PsyStringy psyUpperCase();
+	public PsyTextual psyUpperCase();
 
-	public PsyStringy psyLowerCase();
+	public PsyTextual psyLowerCase();
 
 	@Override
 	default public PsyName psyToName()
@@ -78,36 +78,36 @@ public interface PsyStringy
 	@Override
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(o instanceof PsyStringy
-				&& stringValue().equals(((PsyStringy)o).stringValue()));
+		return PsyBoolean.valueOf(o instanceof PsyTextual
+				&& stringValue().equals(((PsyTextual)o).stringValue()));
 	}
 
 	@Override
-	default public PsyBoolean psyLt(final PsyStringy oString)
+	default public PsyBoolean psyLt(final PsyTextual oString)
 	{
 		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())<0);
 	}
 
 	@Override
-	default public PsyBoolean psyLe(final PsyStringy oString)
+	default public PsyBoolean psyLe(final PsyTextual oString)
 	{
 		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())<=0);
 	}
 
 	@Override
-	default public PsyBoolean psyGt(final PsyStringy oString)
+	default public PsyBoolean psyGt(final PsyTextual oString)
 	{
 		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())>0);
 	}
 
 	@Override
-	default public PsyBoolean psyGe(final PsyStringy oString)
+	default public PsyBoolean psyGe(final PsyTextual oString)
 	{
 		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())>=0);
 	}
 
 	@Override
-	default public PsyInteger psyCmp(final PsyStringy oString)
+	default public PsyInteger psyCmp(final PsyTextual oString)
 	{
 		return PsyInteger.valueOf(stringValue().compareTo(oString.stringValue()));
 	}
@@ -127,7 +127,7 @@ public interface PsyStringy
 		return PsyInteger.valueOf(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));
 	}
 
-	default public PsyInteger psyIndexOfSubstring(final PsyStringy oStr, final PsyInteger oFrom)
+	default public PsyInteger psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
 	{
 		return PsyInteger.valueOf(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));
 	}
@@ -159,16 +159,16 @@ public interface PsyStringy
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity31<PsyStringy, PsyInteger, PsyInteger>
-				("indexofchar", PsyStringy::psyIndexOfChar),
-			new PsyOperator.Arity31<PsyStringy, PsyStringy, PsyInteger>
-				("indexofsubstring", PsyStringy::psyIndexOfSubstring),
-			new PsyOperator.Arity11<PsyStringy>
-				("lowercase", PsyStringy::psyLowerCase),
-			new PsyOperator.Arity21<PsyStringy, PsyRegExp>
-				("split", PsyStringy::psySplit),
-			new PsyOperator.Arity11<PsyStringy>
-				("uppercase", PsyStringy::psyUpperCase),
+			new PsyOperator.Arity31<PsyTextual, PsyInteger, PsyInteger>
+				("indexofchar", PsyTextual::psyIndexOfChar),
+			new PsyOperator.Arity31<PsyTextual, PsyTextual, PsyInteger>
+				("indexofsubstring", PsyTextual::psyIndexOfSubstring),
+			new PsyOperator.Arity11<PsyTextual>
+				("lowercase", PsyTextual::psyLowerCase),
+			new PsyOperator.Arity21<PsyTextual, PsyRegExp>
+				("split", PsyTextual::psySplit),
+			new PsyOperator.Arity11<PsyTextual>
+				("uppercase", PsyTextual::psyUpperCase),
 		};
 
 }

@@ -27,7 +27,7 @@
 <itemizedlist>
 <listitem>
 <replaceable>строковое</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
 <replaceable>шаблон</replaceable>:

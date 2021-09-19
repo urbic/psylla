@@ -8,7 +8,7 @@ import coneforest.psylla.*;
 public class PsyName
 	implements
 		PsyAtomic,
-		PsyStringy
+		PsyTextual
 {
 	/**
 	*	Instantiate a new Ψ-{@code name} object with given name.
@@ -22,13 +22,13 @@ public class PsyName
 
 	/**
 	*	Instantiate a new Ψ-{@code name} object with name given as Ψ-{@code
-	*	stringy} object.
+	*	textual} object.
 	*
-	*	@param oStringy a stringy.
+	*	@param oTextual a textual.
 	*/
-	public PsyName(final PsyStringy oStringy)
+	public PsyName(final PsyTextual oTextual)
 	{
-		this(oStringy.stringValue());
+		this(oTextual.stringValue());
 	}
 
 	/**

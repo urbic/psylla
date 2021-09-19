@@ -25,7 +25,7 @@ public class PsyFileSystem
 	{
 	}
 
-	public static Path getPath(final PsyStringy oFileName)
+	public static Path getPath(final PsyTextual oFileName)
 	{
 		return Paths.get(oFileName.stringValue());
 	}
@@ -33,7 +33,7 @@ public class PsyFileSystem
 	/**
 	*	Creates a new directory with the given name.
 	*
-	*	@param oFileName a Ψ-{@code stringy} representing the name of the
+	*	@param oFileName a Ψ-{@code textual} representing the name of the
 	*	directory being created.
 	*
 	*	@throws PsyFileExistsException when the directory already exists.
@@ -42,7 +42,7 @@ public class PsyFileSystem
 	*	@throws PsySecurityErrorException when security policy is violated.
 	*	@throws PsyIOErrorException when an input/output error occurs.
 	*/
-	public static void psyCreateDirectory(final PsyStringy oFileName)
+	public static void psyCreateDirectory(final PsyTextual oFileName)
 		throws
 			PsyFileExistsException,
 			PsyFileAccessDeniedException,
@@ -72,8 +72,8 @@ public class PsyFileSystem
 	}
 
 	/*
-	public static PsyName psyCreateTempFile(final PsyStringy oPrefix,
-			final PsyStringy oSuffix, PsyStringy oDirectory)
+	public static PsyName psyCreateTempFile(final PsyTextual oPrefix,
+			final PsyTextual oSuffix, PsyTextual oDirectory)
 		throws PsyException
 	{
 		try
@@ -97,7 +97,7 @@ public class PsyFileSystem
 	/**
 	*	Deletes a file or empty directory with a given name.
 	*
-	*	@param oFileName a Ψ-{@code stringy} representing the name of a file or
+	*	@param oFileName a Ψ-{@code textual} representing the name of a file or
 	*	directory.
 	*
 	*	@throws PsyDirectoryNotEmptyException when the directory is not empty.
@@ -107,7 +107,7 @@ public class PsyFileSystem
 	*	@throws PsySecurityErrorException when security policy is violated.
 	*	@throws PsyIOErrorException when an input/output error occurs.
 	*/
-	public static void psyDeleteFile(final PsyStringy oFileName)
+	public static void psyDeleteFile(final PsyTextual oFileName)
 		throws
 			PsyFileNotFoundException,
 			PsyFileAccessDeniedException,
@@ -144,8 +144,8 @@ public class PsyFileSystem
 	/**
 	*	Copies a file to the target file.
 	*
-	*	@param oSourceName a Ψ-{@code stringy} representing the name of the file to copy.
-	*	@param oTargetName a Ψ-{@code stringy} representing the name of the target file.
+	*	@param oSourceName a Ψ-{@code textual} representing the name of the file to copy.
+	*	@param oTargetName a Ψ-{@code textual} representing the name of the target file.
 	*
 	*	@throws PsyDirectoryNotEmptyException
 	*	@throws PsyFileExistsException
@@ -156,7 +156,7 @@ public class PsyFileSystem
 	*	@throws PsyIOErrorException when an input/output error occurs.
 	*	@throws PsyUnsupportedException
 	*/
-	public static void psyCopyFile(final PsyStringy oSourceName, final PsyStringy oTargetName)
+	public static void psyCopyFile(final PsyTextual oSourceName, final PsyTextual oTargetName)
 		throws
 			PsyDirectoryNotEmptyException,
 			PsyFileAccessDeniedException,
@@ -200,7 +200,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyName psyReadLink(final PsyStringy oFileName)
+	public static PsyName psyReadLink(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -234,7 +234,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static void psySymLink(final PsyStringy oFileName1, final PsyStringy oFileName2)
+	public static void psySymLink(final PsyTextual oFileName1, final PsyTextual oFileName2)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileExistsException,
@@ -269,8 +269,8 @@ public class PsyFileSystem
 		}
 	}
 
-	public static void psyHardLink(final PsyStringy oFileName1,
-			final PsyStringy oFileName2)
+	public static void psyHardLink(final PsyTextual oFileName1,
+			final PsyTextual oFileName2)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileExistsException,
@@ -309,8 +309,8 @@ public class PsyFileSystem
 		}
 	}
 
-	public static void psyRenameFile(final PsyStringy oFileName1,
-			final PsyStringy oFileName2)
+	public static void psyRenameFile(final PsyTextual oFileName1,
+			final PsyTextual oFileName2)
 		throws
 			PsyDirectoryNotEmptyException,
 			PsyFileAccessDeniedException,
@@ -349,7 +349,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyBoolean psyFileExists(final PsyStringy oFileName)
+	public static PsyBoolean psyFileExists(final PsyTextual oFileName)
 		throws PsySecurityErrorException
 	{
 		try
@@ -362,7 +362,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyBoolean psyIsFile(final PsyStringy oFileName)
+	public static PsyBoolean psyIsFile(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -393,7 +393,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyBoolean psyIsDirectory(final PsyStringy oFileName)
+	public static PsyBoolean psyIsDirectory(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -424,7 +424,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyBoolean psyIsSameFile(final PsyStringy oFileName1, final PsyStringy oFileName2)
+	public static PsyBoolean psyIsSameFile(final PsyTextual oFileName1, final PsyTextual oFileName2)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -454,7 +454,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyBoolean psyIsSymLink(final PsyStringy oFileName)
+	public static PsyBoolean psyIsSymLink(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -489,7 +489,7 @@ public class PsyFileSystem
 	*	Returns the Ψ-{@code integer} representing the size (in bytes) for the
 	*	file or directory with the given name.
 	*
-	*	@param oFileName a Ψ-{@code stringy} representing the file name.
+	*	@param oFileName a Ψ-{@code textual} representing the file name.
 	*	@return a Ψ-{@code integer} representing the size (in bytes) of the
 	*	file or directory.
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited
@@ -498,7 +498,7 @@ public class PsyFileSystem
 	*	@throws PsySecurityErrorException when security policy is violated.
 	*	@throws PsyIOErrorException when an input/output error occurs.
 	*/
-	public static PsyInteger psyFileSize(final PsyStringy oFileName)
+	public static PsyInteger psyFileSize(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -527,7 +527,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyInteger psyFileAccessTime(final PsyStringy oFileName)
+	public static PsyInteger psyFileAccessTime(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -557,7 +557,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyInteger psyFileCreationTime(final PsyStringy oFileName)
+	public static PsyInteger psyFileCreationTime(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -587,7 +587,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyInteger psyFileModifiedTime(final PsyStringy oFileName)
+	public static PsyInteger psyFileModifiedTime(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -638,7 +638,7 @@ public class PsyFileSystem
 	*
 	*	@throws PsyIOErrorException when an input/output error occurs.
 	*/
-	public static PsyName psyFileAbsolutePath(final PsyStringy oFileName)
+	public static PsyName psyFileAbsolutePath(final PsyTextual oFileName)
 		throws
 			PsyIOErrorException
 	{
@@ -652,7 +652,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyInteger psyFilePermissions(final PsyStringy oFileName)
+	public static PsyInteger psyFilePermissions(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -687,7 +687,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static void psyChangeFilePermissions(final PsyStringy oFileName, final PsyInteger oPermissions)
+	public static void psyChangeFilePermissions(final PsyTextual oFileName, final PsyInteger oPermissions)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -723,7 +723,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyObject psyFileAttribute(final PsyStringy oFileName, final PsyStringy oAttribute)
+	public static PsyObject psyFileAttribute(final PsyTextual oFileName, final PsyTextual oAttribute)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -768,7 +768,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static void psyChangeFileAttribute(final PsyStringy oFileName, final PsyStringy oAttribute, final PsyObject oValue)
+	public static void psyChangeFileAttribute(final PsyTextual oFileName, final PsyTextual oAttribute, final PsyObject oValue)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -814,7 +814,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyFormalStream<PsyName> psyFiles(final PsyStringy oFileName)
+	public static PsyFormalStream<PsyName> psyFiles(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -867,8 +867,8 @@ public class PsyFileSystem
 	private static Object fromPsyObject(final PsyObject o)
 	{
 		//System.out.println(obj.getClass());
-		if(o instanceof PsyStringy)
-			return ((PsyStringy)o).stringValue();
+		if(o instanceof PsyTextual)
+			return ((PsyTextual)o).stringValue();
 		else if(o instanceof PsyInteger)
 			return ((PsyInteger)o).longValue();
 		else if(o instanceof PsyBoolean)
@@ -879,27 +879,27 @@ public class PsyFileSystem
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity20<PsyStringy, PsyInteger>("changefilepermissions", PsyFileSystem::psyChangeFilePermissions),
-			new PsyOperator.Arity20<PsyStringy, PsyStringy>("copyfile", PsyFileSystem::psyCopyFile),
-			new PsyOperator.Arity10<PsyStringy>("createdirectory", PsyFileSystem::psyCreateDirectory),
+			new PsyOperator.Arity20<PsyTextual, PsyInteger>("changefilepermissions", PsyFileSystem::psyChangeFilePermissions),
+			new PsyOperator.Arity20<PsyTextual, PsyTextual>("copyfile", PsyFileSystem::psyCopyFile),
+			new PsyOperator.Arity10<PsyTextual>("createdirectory", PsyFileSystem::psyCreateDirectory),
 			new PsyOperator.Arity01("currentdirectory", PsyFileSystem::psyCurrentDirectory),
-			new PsyOperator.Arity10<PsyStringy>("deletefile", PsyFileSystem::psyDeleteFile),
-			new PsyOperator.Arity11<PsyStringy>("fileaccesstime", PsyFileSystem::psyFileAccessTime),
-			new PsyOperator.Arity21<PsyStringy, PsyStringy>("fileattribute", PsyFileSystem::psyFileAttribute),
-			new PsyOperator.Arity11<PsyStringy>("filecreationtime", PsyFileSystem::psyFileCreationTime),
-			new PsyOperator.Arity11<PsyStringy>("fileexists", PsyFileSystem::psyFileExists),
-			new PsyOperator.Arity11<PsyStringy>("filemodifiedtime", PsyFileSystem::psyFileModifiedTime),
-			new PsyOperator.Arity11<PsyStringy>("filepermissions", PsyFileSystem::psyFilePermissions),
-			new PsyOperator.Arity11<PsyStringy>("files", PsyFileSystem::psyFiles),
-			new PsyOperator.Arity11<PsyStringy>("filesize", PsyFileSystem::psyFileSize),
-			new PsyOperator.Arity20<PsyStringy, PsyStringy>("hardlink", PsyFileSystem::psyHardLink),
-			new PsyOperator.Arity11<PsyStringy>("isdirectory", PsyFileSystem::psyIsDirectory),
-			new PsyOperator.Arity11<PsyStringy>("isfile", PsyFileSystem::psyIsFile),
-			new PsyOperator.Arity21<PsyStringy, PsyStringy>("issamefile", PsyFileSystem::psyIsSameFile),
-			new PsyOperator.Arity11<PsyStringy>("issymlink", PsyFileSystem::psyIsSymLink),
-			new PsyOperator.Arity11<PsyStringy>("readlink", PsyFileSystem::psyReadLink),
-			new PsyOperator.Arity20<PsyStringy, PsyStringy>("renamefile", PsyFileSystem::psyRenameFile),
-			new PsyOperator.Arity20<PsyStringy, PsyStringy>("symlink", PsyFileSystem::psySymLink),
+			new PsyOperator.Arity10<PsyTextual>("deletefile", PsyFileSystem::psyDeleteFile),
+			new PsyOperator.Arity11<PsyTextual>("fileaccesstime", PsyFileSystem::psyFileAccessTime),
+			new PsyOperator.Arity21<PsyTextual, PsyTextual>("fileattribute", PsyFileSystem::psyFileAttribute),
+			new PsyOperator.Arity11<PsyTextual>("filecreationtime", PsyFileSystem::psyFileCreationTime),
+			new PsyOperator.Arity11<PsyTextual>("fileexists", PsyFileSystem::psyFileExists),
+			new PsyOperator.Arity11<PsyTextual>("filemodifiedtime", PsyFileSystem::psyFileModifiedTime),
+			new PsyOperator.Arity11<PsyTextual>("filepermissions", PsyFileSystem::psyFilePermissions),
+			new PsyOperator.Arity11<PsyTextual>("files", PsyFileSystem::psyFiles),
+			new PsyOperator.Arity11<PsyTextual>("filesize", PsyFileSystem::psyFileSize),
+			new PsyOperator.Arity20<PsyTextual, PsyTextual>("hardlink", PsyFileSystem::psyHardLink),
+			new PsyOperator.Arity11<PsyTextual>("isdirectory", PsyFileSystem::psyIsDirectory),
+			new PsyOperator.Arity11<PsyTextual>("isfile", PsyFileSystem::psyIsFile),
+			new PsyOperator.Arity21<PsyTextual, PsyTextual>("issamefile", PsyFileSystem::psyIsSameFile),
+			new PsyOperator.Arity11<PsyTextual>("issymlink", PsyFileSystem::psyIsSymLink),
+			new PsyOperator.Arity11<PsyTextual>("readlink", PsyFileSystem::psyReadLink),
+			new PsyOperator.Arity20<PsyTextual, PsyTextual>("renamefile", PsyFileSystem::psyRenameFile),
+			new PsyOperator.Arity20<PsyTextual, PsyTextual>("symlink", PsyFileSystem::psySymLink),
 		};
 
 }

@@ -5,9 +5,9 @@ import coneforest.psylla.*;
 public class PsyMatcher
 	implements PsyResetable
 {
-	public PsyMatcher(final PsyStringy oStringy, final PsyRegExp oRegExp)
+	public PsyMatcher(final PsyTextual oTextual, final PsyRegExp oRegExp)
 	{
-		matcher=oRegExp.getPattern().matcher(oStringy.stringValue());
+		matcher=oRegExp.getPattern().matcher(oTextual.stringValue());
 	}
 
 	public void psyReset()
@@ -25,7 +25,7 @@ public class PsyMatcher
 		return PsyBoolean.valueOf(matcher.find());
 	}
 
-	public PsyName psyReplaceAll(final PsyStringy oReplacement)
+	public PsyName psyReplaceAll(final PsyTextual oReplacement)
 	{
 		return new PsyName(matcher.replaceAll(oReplacement.stringValue()));
 	}
@@ -43,8 +43,8 @@ public class PsyMatcher
 			final String group;
 			if(oKey instanceof PsyInteger)
 				group=matcher.group(((PsyInteger)oKey).intValue());
-			else if(oKey instanceof PsyStringy)
-				group=matcher.group(((PsyStringy)oKey).stringValue());
+			else if(oKey instanceof PsyTextual)
+				group=matcher.group(((PsyTextual)oKey).stringValue());
 			else
 				throw new PsyTypeCheckException();
 			return group!=null? new PsyString(group): null;
@@ -71,8 +71,8 @@ public class PsyMatcher
 			final int start;
 			if(oKey instanceof PsyInteger)
 				start=matcher.start(((PsyInteger)oKey).intValue());
-			else if(oKey instanceof PsyStringy)
-				start=matcher.start(((PsyStringy)oKey).stringValue());
+			else if(oKey instanceof PsyTextual)
+				start=matcher.start(((PsyTextual)oKey).stringValue());
 			else
 				throw new PsyTypeCheckException();
 			return start>=0? PsyInteger.valueOf(start): null;
@@ -99,8 +99,8 @@ public class PsyMatcher
 			final int end;
 			if(oKey instanceof PsyInteger)
 				end=matcher.start(((PsyInteger)oKey).intValue());
-			else if(oKey instanceof PsyStringy)
-				end=matcher.start(((PsyStringy)oKey).stringValue());
+			else if(oKey instanceof PsyTextual)
+				end=matcher.start(((PsyTextual)oKey).stringValue());
 			else
 				throw new PsyTypeCheckException();
 			return end>=0? PsyInteger.valueOf(end): null;

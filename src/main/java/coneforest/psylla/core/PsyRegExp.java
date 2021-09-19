@@ -21,10 +21,10 @@ public class PsyRegExp
 		}
 	}
 
-	public PsyRegExp(final PsyStringy oStringy)
+	public PsyRegExp(final PsyTextual oTextual)
 		throws PsyException
 	{
-		this(oStringy.stringValue());
+		this(oTextual.stringValue());
 	}
 
 	public java.util.regex.Pattern getPattern()
@@ -82,7 +82,7 @@ public class PsyRegExp
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity11<PsyStringy>
+			new PsyOperator.Arity11<PsyTextual>
 				("regexp", PsyRegExp::new),
 		};
 

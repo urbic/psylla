@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 /**
 *	An implementation of Ψ-{@code stringreader}, a character stream whose
-*	source is a Ψ-{@code stringy}.
+*	source is a Ψ-{@code textual}.
 */
 @Type("stringreader")
 public class PsyStringReader
@@ -22,16 +22,16 @@ public class PsyStringReader
 	/**
 	*	Creates a new Ψ-{@code stringreader}.
 	*
-	*	@param oStringy a Ψ-{@code stringy} providing the character string.
+	*	@param oTextual a Ψ-{@code textual} providing the character string.
 	*/
-	public PsyStringReader(final PsyStringy oStringy)
+	public PsyStringReader(final PsyTextual oTextual)
 	{
-		this(oStringy.stringValue());
+		this(oTextual.stringValue());
 	}
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Arity11<PsyStringy>
+			new PsyOperator.Arity11<PsyTextual>
 				("stringreader", PsyStringReader::new),
 		};
 }

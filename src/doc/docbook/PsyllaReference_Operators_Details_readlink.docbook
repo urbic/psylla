@@ -21,7 +21,7 @@ Returns the <replaceable>target</replaceable> of a symbolic link with a given
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringy"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
 <replaceable>target</replaceable>:

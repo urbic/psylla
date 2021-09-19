@@ -22,9 +22,9 @@ public class PsySystemDict
 
 			// "matcher"
 			new PsyOperator.Arity11<PsyMatcher>("capturegroupcount", PsyMatcher::psyCaptureGroupCount),
-			new PsyOperator.Arity21<PsyStringy, PsyRegExp>("matcher", PsyMatcher::new),
+			new PsyOperator.Arity21<PsyTextual, PsyRegExp>("matcher", PsyMatcher::new),
 			new PsyOperator.Arity11<PsyMatcher>("matches", PsyMatcher::psyMatches),
-			new PsyOperator.Arity21<PsyMatcher, PsyStringy>("replaceall", PsyMatcher::psyReplaceAll),
+			new PsyOperator.Arity21<PsyMatcher, PsyTextual>("replaceall", PsyMatcher::psyReplaceAll),
 
 			// "process"
 			new PsyOperator.Arity11<PsyFormalDict>("process", PsyProcess::new),
@@ -49,7 +49,7 @@ public class PsySystemDict
 					final var ostack=oContext.operandStackBacked(1);
 					final var stdwriter=(PsyWriter)oContext.dictStack().load("stdout");
 					stdwriter.psyWriteString(ostack.getBacked(0));
-					stdwriter.psyWriteString((PsyStringy)oContext.dictStack().load("eol"));
+					stdwriter.psyWriteString((PsyTextual)oContext.dictStack().load("eol"));
 					stdwriter.psyFlush();
 				}),
 		};
@@ -115,7 +115,7 @@ public class PsySystemDict
 			registerOperator(oOperator);
 		for(var oOperator: PsyResetable.OPERATORS)
 			registerOperator(oOperator);
-		for(var oOperator: PsyStringy.OPERATORS)
+		for(var oOperator: PsyTextual.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyEvaluable.OPERATORS)
 			registerOperator(oOperator);

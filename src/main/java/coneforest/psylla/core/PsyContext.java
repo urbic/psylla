@@ -82,12 +82,12 @@ public interface PsyContext
 	public OperandStack operandStackBacked(final int count)
 		throws PsyException;
 
-	public PsyFormalDict psyWhere(final PsyStringy oKey);
+	public PsyFormalDict psyWhere(final PsyTextual oKey);
 
-	public <T extends PsyObject> T psyLoad(final PsyStringy oKey)
+	public <T extends PsyObject> T psyLoad(final PsyTextual oKey)
 		throws PsyException;
 
-	public void psyRequire(final PsyStringy o)
+	public void psyRequire(final PsyTextual o)
 		throws PsyException;
 
 	public static final PsyOperator[] OPERATORS=
@@ -157,7 +157,7 @@ public interface PsyContext
 					(oContext)->
 					{
 						final var ostack=oContext.operandStackBacked(2);
-						final var oName=ostack.<PsyStringy>getBacked(0);
+						final var oName=ostack.<PsyTextual>getBacked(0);
 						final var name=oName.stringValue();
 						final var o=ostack.getBacked(1);
 						final var prefixOffset=name.indexOf('@');
@@ -388,7 +388,7 @@ public interface PsyContext
 					(oContext)->
 					{
 						final var ostack=oContext.operandStackBacked(1);
-						ostack.push(oContext.namespacePool().get(ostack.<PsyStringy>getBacked(0).stringValue()));
+						ostack.push(oContext.namespacePool().get(ostack.<PsyTextual>getBacked(0).stringValue()));
 					}),
 			new PsyOperator.Arity10<PsyObject>
 				("pop", (a)->{}),
@@ -536,14 +536,14 @@ public interface PsyContext
 					(oContext)->
 					{
 						final var ostack=oContext.operandStackBacked(1);
-						oContext.interpretBraced(new PsyStringReader(ostack.<PsyStringy>getBacked(0)));
+						oContext.interpretBraced(new PsyStringReader(ostack.<PsyTextual>getBacked(0)));
 					}),
 			new PsyOperator.Action
 				("where",
 					(oContext)->
 					{
 						final var ostack=oContext.operandStackBacked(1);
-						final PsyFormalDict oDict=oContext.psyWhere(ostack.<PsyStringy>getBacked(0));
+						final PsyFormalDict oDict=oContext.psyWhere(ostack.<PsyTextual>getBacked(0));
 						if(oDict!=null)
 							ostack.push(oDict);
 						ostack.push(PsyBoolean.valueOf(oDict!=null));

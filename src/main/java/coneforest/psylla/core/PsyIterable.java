@@ -28,7 +28,7 @@ public interface PsyIterable<T extends PsyObject>
 		return new PsyStream(java.util.stream.StreamSupport.<T>stream(spliterator(), false));
 	}
 
-	default public PsyString psyUnite(final PsyStringy oSeparator)
+	default public PsyString psyUnite(final PsyTextual oSeparator)
 		throws PsyException
 	{
 		final var separator=oSeparator.stringValue();
@@ -38,7 +38,7 @@ public interface PsyIterable<T extends PsyObject>
 		{
 			while(iterator.hasNext())
 			{
-				sb.append(((PsyStringy)iterator.next()).stringValue());
+				sb.append(((PsyTextual)iterator.next()).stringValue());
 				if(iterator.hasNext())
 					sb.append(separator);
 			}

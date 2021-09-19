@@ -30,7 +30,7 @@ public class DictStack
 			throw new PsyUndefinedException();
 	}
 
-	public <T extends PsyObject> T load(final PsyStringy oKey)
+	public <T extends PsyObject> T load(final PsyTextual oKey)
 		throws PsyException
 	{
 		return this.<T>load(oKey.stringValue());
@@ -47,7 +47,7 @@ public class DictStack
 		return null;
 	}
 
-	public PsyFormalDict where(final PsyStringy oKey)
+	public PsyFormalDict where(final PsyTextual oKey)
 	{
 		return where(oKey.stringValue());
 	}
@@ -71,7 +71,7 @@ public class DictStack
 		oDict.put(key, oValue);
 	}
 
-	public void psyStore(final PsyStringy oKey, final PsyObject oValue)
+	public void psyStore(final PsyTextual oKey, final PsyObject oValue)
 	{
 		store(oKey.stringValue(), oValue);
 	}

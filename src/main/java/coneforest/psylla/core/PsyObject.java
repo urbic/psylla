@@ -115,9 +115,9 @@ public interface PsyObject
 	}
 
 	// TODO
-	default public PsyBoolean psyInstanceOf(final PsyStringy oTypeName)
+	default public PsyBoolean psyInstanceOf(final PsyTextual oTypeName)
 	{
-		//Class<? extends PsyObject> clazz=TypeRegistry.get(stringy.getString());
+		//Class<? extends PsyObject> clazz=TypeRegistry.get(textual.getString());
 		//return PsyBoolean.valueOf(clazz!=null && clazz.isInstance(this));
 
 		//final var interpreter=Interpreter.currentInterpreter();
@@ -167,7 +167,7 @@ public interface PsyObject
 			new PsyOperator.Arity11<PsyObject>("clone", PsyObject::psyClone),
 			new PsyOperator.Arity21<PsyObject, PsyObject>("eq", PsyObject::psyEq),
 			new PsyOperator.Arity11("hashcode", PsyObject::psyHashCode),
-			new PsyOperator.Arity21<PsyObject, PsyStringy>("instanceof", PsyObject::psyInstanceOf),
+			new PsyOperator.Arity21<PsyObject, PsyTextual>("instanceof", PsyObject::psyInstanceOf),
 			new PsyOperator.Arity21<PsyObject, PsyObject>("ne", PsyObject::psyNe),
 			new PsyOperator.Arity11<PsyObject>("toname", PsyObject::psyToName),
 			new PsyOperator.Arity11<PsyObject>("tostring", PsyObject::psyToString),

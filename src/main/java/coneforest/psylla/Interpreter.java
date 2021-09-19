@@ -85,7 +85,7 @@ public class Interpreter
 	}
 
 	@Override
-	public PsyFormalDict psyWhere(final PsyStringy oKey)
+	public PsyFormalDict psyWhere(final PsyTextual oKey)
 	{
 		return where(oKey.stringValue());
 	}
@@ -101,7 +101,7 @@ public class Interpreter
 	}
 
 	@Override
-	public <T extends PsyObject> T psyLoad(final PsyStringy oKey)
+	public <T extends PsyObject> T psyLoad(final PsyTextual oKey)
 		throws PsyException
 	{
 		return this.<T>load(oKey.stringValue());
@@ -195,7 +195,7 @@ public class Interpreter
 		throws PsyException
 	{
 		final var oClassPath
-			=(PsyFormalArray<PsyStringy>)systemDict().get("classpath");
+			=(PsyFormalArray<PsyTextual>)systemDict().get("classpath");
 		final var envClassPath=System.getenv("PSYLLA_CLASSPATH");
 		if(envClassPath!=null)
 			for(final var pathItem: envClassPath.split(java.io.File.pathSeparator))
@@ -209,7 +209,7 @@ public class Interpreter
 		throws PsyException
 	{
 		final var oLibraryPath
-			=(PsyFormalArray<PsyStringy>)systemDict().get("librarypath");
+			=(PsyFormalArray<PsyTextual>)systemDict().get("librarypath");
 		final var envLibraryPath=System.getenv("PSYLLA_LIBRARYPATH");
 		if(envLibraryPath!=null)
 			for(final var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
@@ -607,7 +607,7 @@ public class Interpreter
 	public boolean loadLibraryResource(final String resourceName)
 		throws PsyException
 	{
-		final var oLibraryPath=(PsyFormalArray<PsyStringy>)dstack.load("librarypath");
+		final var oLibraryPath=(PsyFormalArray<PsyTextual>)dstack.load("librarypath");
 		final var filePath=resourceName.replace('.', '/');
 		for(final var oPathItem: oLibraryPath)
 		{
@@ -729,7 +729,7 @@ public class Interpreter
 	}
 
 	@Override
-	public void psyRequire(final PsyStringy oResourceName)
+	public void psyRequire(final PsyTextual oResourceName)
 		throws PsyException
 	{
 		final var resourceName=oResourceName.stringValue();
@@ -773,7 +773,7 @@ public class Interpreter
 					throws PsyException
 				{
 					final var parentIterator
-						=((PsyFormalArray<PsyStringy>)systemDict().get("classpath")).iterator();
+						=((PsyFormalArray<PsyTextual>)systemDict().get("classpath")).iterator();
 					return new Iterable<String>()
 						{
 							@Override
