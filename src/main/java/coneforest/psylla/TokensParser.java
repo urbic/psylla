@@ -28,8 +28,6 @@ public class TokensParser
 				return new PsyName(token.image.substring(1).intern());
 			case ParserConstants.COMMAND:
 				return new PsyCommand(token.image);
-			//case ParserConstants.LITERAL:
-			//	return TokensParser.parseLiteralToken(token);
 			default:
 				throw new AssertionError();
 		}
@@ -287,6 +285,8 @@ public class TokensParser
 	private static PsyRealNumeric parseIntegerToken(final Token token)
 		throws PsySyntaxErrorException
 	{
+		return PsyIntegral.parse(token.image);
+		/*
 		try
 		{
 			try
@@ -302,6 +302,7 @@ public class TokensParser
 		{
 			throw new PsySyntaxErrorException();
 		}
+		*/
 	}
 
 	private static PsyInteger parseIntegerHexadecimalToken(final Token token)
@@ -386,18 +387,5 @@ public class TokensParser
 				return PsyInteger.valueOf(token.image.charAt(1));
 		}
 	}
-
-	/*
-	private static PsyObject parseLiteralToken(final Token token)
-		throws PsyUndefinedException // TODO
-	{
-		final int i=token.image.indexOf('=');
-		final String typeName=token.image.substring(0, i);
-		System.out.println(typeName);
-		System.out.println(TypeResolver.resolve(typeName));
-		return null;
-		// TODO
-	}
-	*/
 
 }

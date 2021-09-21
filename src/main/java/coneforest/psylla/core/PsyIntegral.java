@@ -10,11 +10,55 @@ public interface PsyIntegral
 		//PsyBitwise<PsyIntegral>, TODO
 		PsyRealNumeric
 {
+	java.math.BigInteger bigIntegerValue();
+
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyException;
 
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyException;
+
+	public static PsyInteger valueOf(final long longValue)
+	{
+		return PsyInteger.valueOf(longValue);
+	}
+
+	public static PsyIntegral valueOf(final java.math.BigInteger bigIntegerValue)
+	{
+		try
+		{
+			return PsyInteger.valueOf(bigIntegerValue.longValueExact());
+		}
+		catch(final ArithmeticException ex)
+		{
+			return new PsyBigInteger(bigIntegerValue);
+		}
+	}
+
+	public static PsyIntegral parse(final String image)
+		throws PsySyntaxErrorException
+	{
+		try
+		{
+			try
+			{
+				return PsyInteger.valueOf(Long.parseLong(image));
+			}
+			catch(final NumberFormatException ex)
+			{
+				return new PsyBigInteger(image);
+			}
+		}
+		catch(final NumberFormatException ex)
+		{
+			throw new PsySyntaxErrorException();
+		}
+	}
+
+	public static final PsyInteger ZERO=PsyInteger.ZERO;
+	public static final PsyInteger ONE=PsyInteger.ONE;
+	public static final PsyInteger TWO=PsyInteger.TWO;
+	public static final PsyInteger MINUS_ONE=PsyInteger.MINUS_ONE;
 
 	public static final PsyOperator[] OPERATORS=
 		{

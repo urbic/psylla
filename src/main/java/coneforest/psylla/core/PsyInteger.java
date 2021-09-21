@@ -40,6 +40,12 @@ public class PsyInteger
 	}
 
 	@Override
+	public java.math.BigInteger bigIntegerValue()
+	{
+		return java.math.BigInteger.valueOf(value);
+	}
+
+	@Override
 	public String toSyntaxString()
 	{
 		return String.valueOf(value);
@@ -73,7 +79,7 @@ public class PsyInteger
 	public PsyRealNumeric psyNeg()
 	{
 		return value!=Long.MIN_VALUE?
-			PsyInteger.valueOf(-value): new PsyReal(-(double)value);
+			PsyInteger.valueOf(-value): new PsyBigInteger(bigIntegerValue().negate());
 	}
 
 	@Override
@@ -151,11 +157,15 @@ public class PsyInteger
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedAdd(long, long)
-			return ((value^numeric)<0|(value^result)>=0)?
-					PsyInteger.valueOf(result): new PsyReal(doubleValue()+oNumeric.doubleValue());
+			if((value^numeric)<0|(value^result)>=0)
+				return PsyInteger.valueOf(result);
+			else
+				return PsyIntegral.valueOf(bigIntegerValue().add(((PsyInteger)oNumeric).bigIntegerValue()));
 		}
-		else
-			return new PsyReal(doubleValue()+oNumeric.doubleValue());
+		else if(oNumeric instanceof PsyBigInteger)
+			return PsyIntegral.valueOf(bigIntegerValue().add(((PsyBigInteger)oNumeric).bigIntegerValue()));
+
+		return new PsyReal(doubleValue()+oNumeric.doubleValue());
 	}
 
 	@Override
@@ -168,11 +178,15 @@ public class PsyInteger
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedSubtract(long, long)
-			return ((value^numeric)>=0|(value^result)>=0)?
-					PsyInteger.valueOf(result): new PsyReal(doubleValue()-oNumeric.doubleValue());
+			if((value^numeric)>=0|(value^result)>=0)
+				return PsyInteger.valueOf(result);
+			else
+				return PsyIntegral.valueOf(bigIntegerValue().subtract(((PsyInteger)oNumeric).bigIntegerValue()));
 		}
-		else
-			return new PsyReal(doubleValue()-oNumeric.doubleValue());
+		else if(oNumeric instanceof PsyBigInteger)
+			return PsyIntegral.valueOf(bigIntegerValue().subtract(((PsyBigInteger)oNumeric).bigIntegerValue()));
+
+		return new PsyReal(doubleValue()-oNumeric.doubleValue());
 	}
 
 	@Override
@@ -198,10 +212,10 @@ public class PsyInteger
 					PsyInteger.valueOf(result): new PsyReal(doubleValue()*oNumeric.doubleValue());
 			}
 			else
-				return new PsyReal(doubleValue()*oNumeric.doubleValue());
+				return PsyIntegral.valueOf(bigIntegerValue().multiply(((PsyInteger)oNumeric).bigIntegerValue()));
 		}
 		else if(oNumeric instanceof PsyBigInteger)
-			return new PsyBigInteger(this).psyMul((PsyBigInteger)oNumeric);
+			return PsyIntegral.valueOf(bigIntegerValue().multiply(((PsyBigInteger)oNumeric).bigIntegerValue()));
 
 		return new PsyReal(doubleValue()*oNumeric.doubleValue());
 	}

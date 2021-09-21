@@ -50,6 +50,12 @@ public class PsyBigInteger
 	}
 
 	@Override
+	public java.math.BigInteger bigIntegerValue()
+	{
+		return value;
+	}
+
+	@Override
 	public PsyBigInteger psyBitShift(final PsyInteger oShift)
 	{
 		return new PsyBigInteger(value.shiftLeft(oShift.intValue()));
