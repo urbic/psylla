@@ -1,0 +1,43 @@
+#!/usr/bin/psylla
+
+/hanoi
+{
+	dict begin
+	/a exch def
+	/t exch def
+	/s exch def
+	/n exch def
+
+	n 0 gt
+	{
+		n 1 sub s a t hanoi
+		t s dup length 1 sub extract append
+		show
+		n 1 sub a t s hanoi
+	}
+	if
+
+	end
+}
+bind def
+
+/show
+{
+	'S> ' print
+	source { toname print ' ' print } forall
+	'\n' print
+	'A> ' print
+	auxiliary { toname print ' ' print } forall
+	'\n' print
+	'T> ' print
+	target { toname print ' ' print } forall
+	'\n\n' print
+}
+bind def
+
+/n arguments 0 get tointeger def
+/source [ n -1 1 {} for ] def
+/target array def
+/auxiliary array def
+
+n source target auxiliary hanoi
