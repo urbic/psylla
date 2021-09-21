@@ -20,6 +20,7 @@
 	<property name="src.main.resources" location="${src.main}/resources"/>
 	<property name="src.test.java" location="${src.test}/java"/>
 	<property name="src.test.psylla" location="${src.test}/psylla"/>
+	<property name="src.test.data" location="${src.test}/data"/>
 	<property name="src.main.jj" location="${src.main}/jj"/>
 	<property name="src.examples.psylla" location="${src.examples}/psylla"/>
 	<property name="src.examples.java" location="${src.examples}/java"/>
