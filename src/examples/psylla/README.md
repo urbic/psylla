@@ -62,7 +62,7 @@ Solves the [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi)
 problem for _n_ discs. The non-negative integer _n_ is passed in the command
 line.
 
-* [__`hanoi-recursuve.psy`__](hanoi-recursuve.psy) — recursive implementation
+* [__`hanoi-recursive.psy`__](hanoi-recursive.psy) — recursive implementation
 
 ## Find files
 
