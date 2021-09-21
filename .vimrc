@@ -1,5 +1,5 @@
 source src/vim/ftdetect/psylla.vim
-au BufRead,BufNewFile *.t set filetype=psylla
+au! BufNewFile,BufRead *.t se ft=psylla
 au Syntax psylla source src/vim/syntax/psylla.vim
 
 if has("autocmd")
