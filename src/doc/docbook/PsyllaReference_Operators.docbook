@@ -1420,7 +1420,6 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_array;
 &PsyllaReference_Operators_Details_arraytomark;
 &PsyllaReference_Operators_Details_asin;
-&PsyllaReference_Operators_Details_astore;
 &PsyllaReference_Operators_Details_atan;
 &PsyllaReference_Operators_Details_begin;
 &PsyllaReference_Operators_Details_binarysearch;

@@ -97,7 +97,6 @@
 <!ENTITY PsyllaReference_Operators_Details_array			SYSTEM "PsyllaReference_Operators_Details_array.docbook">
 <!ENTITY PsyllaReference_Operators_Details_arraytomark		SYSTEM "PsyllaReference_Operators_Details_arraytomark.docbook">
 <!ENTITY PsyllaReference_Operators_Details_asin				SYSTEM "PsyllaReference_Operators_Details_asin.docbook">
-<!ENTITY PsyllaReference_Operators_Details_astore			SYSTEM "PsyllaReference_Operators_Details_astore.docbook">
 <!ENTITY PsyllaReference_Operators_Details_atan				SYSTEM "PsyllaReference_Operators_Details_atan.docbook">
 <!ENTITY PsyllaReference_Operators_Details_begin			SYSTEM "PsyllaReference_Operators_Details_begin.docbook">
 <!ENTITY PsyllaReference_Operators_Details_binarysearch		SYSTEM "PsyllaReference_Operators_Details_binarysearch.docbook">
