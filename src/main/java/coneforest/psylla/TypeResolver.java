@@ -13,6 +13,7 @@ public class TypeResolver
 					(new java.io.BufferedReader(new java.io.InputStreamReader(
 							TypeResolver.class.getClassLoader().getResourceAsStream(
 									"META-INF/psylla/type/"+typeName)))).readLine());
+			// TODO: introduce caching
 		}
 		catch(final java.io.IOException|ClassNotFoundException e)
 		{

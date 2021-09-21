@@ -364,8 +364,37 @@ public class Interpreter
 		{
 			case ParserConstants.IMMEDIATE:
 				return dstack.load(token.image.substring(2));
+			case ParserConstants.LITERAL:
+				return parseLiteralToken(token);
 			default:
 				return TokensParser.parseToken(token);
+		}
+	}
+
+	private PsyObject parseLiteralToken(final Token token)
+		throws
+			PsyUndefinedException, // TODO
+			PsySyntaxErrorException
+	{
+		final int i=token.image.indexOf('=');
+		final String typeName=token.image.substring(0, i);
+		final var typeClass=TypeResolver.resolve(typeName);
+		final var image=token.image.substring(i+2, token.image.length()-1);
+		try
+		{
+			final var mh=java.lang.invoke.MethodHandles.lookup().findStatic(
+					typeClass,
+					"parse",
+					java.lang.invoke.MethodType.methodType(typeClass, String.class));
+			return typeClass.cast(mh.invoke(image));
+		}
+		catch(final NoSuchMethodException|IllegalAccessException ex)
+		{
+			throw new PsyUndefinedException();	// TODO more appropriate exception
+		}
+		catch(final Throwable ex)
+		{
+			throw new PsySyntaxErrorException();
 		}
 	}
 

@@ -10,10 +10,10 @@ public interface PsyIntegral
 		//PsyBitwise<PsyIntegral>, TODO
 		PsyRealNumeric
 {
-	public PsyIntegral psyIdiv(final PsyIntegral oInteger)
+	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyException;
 
-	public PsyIntegral psyMod(final PsyIntegral oInteger)
+	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyException;
 
 	public static final PsyOperator[] OPERATORS=

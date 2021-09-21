@@ -21,6 +21,16 @@ public class PsyBigInteger
 		this(oInteger.longValue());
 	}
 
+	public PsyBigInteger(final String image)
+	{
+		this(new java.math.BigInteger(image));
+	}
+
+	public static PsyBigInteger parse(final String image)
+	{
+		return new PsyBigInteger(image);
+	}
+
 	@Override
 	public int intValue()
 	{
@@ -197,6 +207,12 @@ public class PsyBigInteger
 		else if(oNumeric instanceof PsyInteger)
 			return PsyInteger.valueOf(value.compareTo(java.math.BigInteger.valueOf(((PsyInteger)oNumeric).longValue())));
 		return PsyInteger.valueOf(Double.valueOf(doubleValue()).compareTo(((PsyReal)oNumeric).doubleValue()));
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+		return String.valueOf(value);
 	}
 
 	@Override

@@ -28,8 +28,8 @@ public class TokensParser
 				return new PsyName(token.image.substring(1).intern());
 			case ParserConstants.COMMAND:
 				return new PsyCommand(token.image);
-			case ParserConstants.LITERAL:
-				return TokensParser.parseLiteralToken(token);
+			//case ParserConstants.LITERAL:
+			//	return TokensParser.parseLiteralToken(token);
 			default:
 				throw new AssertionError();
 		}
@@ -387,6 +387,7 @@ public class TokensParser
 		}
 	}
 
+	/*
 	private static PsyObject parseLiteralToken(final Token token)
 		throws PsyUndefinedException // TODO
 	{
@@ -397,5 +398,6 @@ public class TokensParser
 		return null;
 		// TODO
 	}
+	*/
 
 }
