@@ -88,6 +88,9 @@ public class PsyInteger
 		if(oNumeric instanceof PsyInteger)
 			return value<((PsyInteger)oNumeric).value? MINUS_ONE:
 				value>((PsyInteger)oNumeric).value? ONE: ZERO;
+		else if(oNumeric instanceof PsyBigInteger)
+			return PsyInteger.valueOf(
+					bigIntegerValue().compareTo(((PsyBigInteger)oNumeric).bigIntegerValue()));
 		else
 			return value<((PsyReal)oNumeric).doubleValue()? MINUS_ONE:
 				value>((PsyReal)oNumeric).doubleValue()? ONE: ZERO;
@@ -96,9 +99,7 @@ public class PsyInteger
 	@Override
 	public PsyRealNumeric psyAbs()
 	{
-		if(value>0L)
-			return this;
-		return psyNeg();
+		return value>0L? this: psyNeg();
 	}
 
 	@Override
