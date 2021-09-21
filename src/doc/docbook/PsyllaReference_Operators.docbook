@@ -393,11 +393,6 @@
 <variablelist>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_eval" xrefstyle="template:%t"/></term>
-<listitem>evaluate an expression</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_exec" xrefstyle="template:%t"/></term>
 <listitem>invoke an object</listitem>
 </varlistentry>
@@ -1192,6 +1187,11 @@ flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_eval" xrefstyle="template:%t"/></term>
+<listitem>evaluate an expression</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_execstack" xrefstyle="template:%t"/></term>
 <listitem>the snapshot of the execution stack</listitem>
 </varlistentry>
@@ -1272,7 +1272,7 @@ flush output buffer</listitem>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_where" xrefstyle="template:%t"/></term>
-<listitem>поиск словаря в глубину в стеке словарей по содержащемуся в нём ключу</listitem>
+<listitem>find dictionary in which the given key is defined</listitem>
 </varlistentry>
 
 </variablelist>
