@@ -155,9 +155,9 @@ You also can run into interactive session:
 <computeroutput>Psylla v0.11.0
 Copyright © 2014—2021, Anton Shvetz
 
-</computeroutput><prompt>PSYLLA> </prompt><userinput>2 sqrt ?</userinput>
+</computeroutput><prompt>PSYLLA&gt; </prompt><userinput>2 sqrt ?</userinput>
 <computeroutput>1.4142135623730951
-</computeroutput><prompt>PSYLLA> </prompt><userinput>quit</userinput></screen>
+</computeroutput><prompt>PSYLLA&gt; </prompt><userinput>quit</userinput></screen>
 </para>
 
 </section>
