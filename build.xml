@@ -257,6 +257,7 @@
 			<formatter type="plain" usefile="false"/>
 			<test name="coneforest.psylla.tools.MyTest"/>
 		</junit-->
+		<mkdir dir="${src.test.data}/DIRECTORY-EMPTY"/>
 		<taskdef name="psyllaunit"
 			classname="coneforest.psylla.tools.ant.PsyllaUnit"
 			classpathref="classpath.test"
