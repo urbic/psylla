@@ -1,0 +1,26 @@
+#!/usr/bin/psylla
+
+/sieve bitset def
+
+2 1 arguments 0 get tointeger
+{
+	//sieve exch append
+}
+bind for
+
+{
+	//sieve isempty { exit } if
+	//sieve { exit } forall
+	/p exch def
+	p toname say
+
+	//sieve
+	{
+		dup p mod iszero
+		{ //sieve exch remove }
+		{ pop }
+		ifelse
+	}
+	forall
+}
+bind loop

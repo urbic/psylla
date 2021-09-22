@@ -1,0 +1,56 @@
+#!/usr/bin/psylla
+
+/primes [ 2 3 5 7 ] def
+/step 1 primes { mul } forall def
+
+/wheel
+[
+	2 1 step 1 add
+	{
+		primes
+		{
+			1 index exch mod iszero
+			{ pop exit } if
+		}
+		forall
+	}
+	bind for
+]
+def
+
+/isprime
+{
+	dict begin
+		/n exch def
+
+		{
+			//false
+			primes
+			{
+				dup
+				n eq { pop not //true exch exit } if
+				n exch mod iszero { //true exit } if
+			}
+			forall { exit } if
+
+			/wheel wheel clone def
+			{
+				/s wheel 0 extract def
+				wheel s step add append
+				s dup mul n gt { //true exit } if
+				n s mod iszero { //false exit } if
+			}
+			loop
+
+			exit
+		}
+		loop
+	end
+}
+bind def
+
+2 1 arguments 0 get tointeger
+{
+	dup isprime { tostring say } { pop } ifelse
+}
+bind for

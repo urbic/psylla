@@ -1,0 +1,25 @@
+#!/usr/bin/psylla
+
+/x arguments 0 get toreal def
+
+/tleft 0 def
+/hleft //tleft def
+/tright //x 1 add 2 div def
+/hright //tright def
+
+{
+	/tmid tleft tright add 2 div def
+	tmid dup mul //x lt /tleft /tright ifelse tmid def
+
+	2
+	{
+		/hmid hleft hright add 2 div def
+		hmid dup mul //x lt /hleft /hright ifelse hmid def
+	}
+	repeat
+
+	tmid hmid eq { exit } if
+}
+bind loop
+
+tmid toname say

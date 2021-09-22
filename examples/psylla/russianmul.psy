@@ -1,0 +1,36 @@
+#!/usr/bin/psylla
+
+# Implementation of “Russian” multiplication algorithm
+
+# Calculate the product of two nonnegative integers
+#	x y -> result
+#	x, y: integer
+/russianmul
+{
+	dict begin
+		/y exch def
+		/x exch def
+		/r 0 def
+
+		{
+			x 1 le { exit } if
+			x 2 mod iszero
+			{
+				/x x -1 bitshift def
+			}
+			{
+				/x x 1 sub -1 bitshift def
+				/r r y add def
+			}
+			ifelse
+			/y y 1 bitshift def
+		}
+		loop
+
+		y r add
+	end
+}
+bind def
+
+arguments 0 2 getinterval { tointeger } forall
+russianmul toname say

@@ -1,0 +1,32 @@
+#!/usr/bin/psylla
+
+/shuffle
+{
+	dict begin
+		dup
+		/a exch def
+
+		a length 1 sub -1 1
+		{
+			/i exch def
+
+			i 1 add stdrandom
+			exch uniformdeviate
+			/j exch def
+
+			a i get
+			a j get
+			a i
+			3 -1 roll put
+			a j
+			3 -1 roll put
+		}
+		for
+	end
+}
+bind def
+
+arguments
+shuffle
+' ' unite println
+stdout flush

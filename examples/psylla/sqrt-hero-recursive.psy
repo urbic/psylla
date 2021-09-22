@@ -1,0 +1,26 @@
+#!/usr/bin/psylla
+
+{
+	/x arguments 0 get toreal def
+	x 0 lt { stop } if
+}
+stopped
+{
+	script warn
+	': a non-negative number required!\n' warn
+	1 halt
+}
+if
+
+x iszero { '0' say quit } if
+
+/sqrt-hero
+{
+	dup
+	dup //x exch div add 2 div
+	dup 3 -1 roll
+	lt { sqrt-hero } if
+}
+bind def
+
+x 1 add 2 div sqrt-hero toname say

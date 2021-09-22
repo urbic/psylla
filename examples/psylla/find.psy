@@ -1,0 +1,37 @@
+#!/usr/bin/psylla
+
+/handle
+{
+	dict begin
+		/name exch def
+
+		{
+			{
+				name isdirectory
+				{
+					name say
+					name files { handle } forall
+					name '/' eq { /name '' def } if
+					exit
+				}
+				if
+
+				name say exit
+			}
+			stopped
+			{
+				script warn
+				': can not open “' warn
+				name warn
+				'”\n' warn
+				exit
+			}
+			if
+		}
+		loop
+	end
+}
+bind def
+
+arguments length iszero '' { arguments 0 get } ifelse
+handle

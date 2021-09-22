@@ -1,0 +1,28 @@
+#!/usr/bin/psylla
+
+/n arguments 0 get tointeger 1 sub 2 div floor tointeger def
+
+/sieve bitset def
+1 1 n { //sieve exch append } bind for
+
+1 1 n
+{
+	1 1 2 index
+	{
+		2 copy mul 2 mul add 1 index add
+		dup //n le
+		{ //sieve exch remove }
+		{ pop }
+		ifelse
+	}
+	for
+	pop
+}
+bind for
+
+arguments 0 get tointeger 1 gt { '2' say } if
+sieve
+{
+	2 mul 1 add toname say
+}
+bind forall

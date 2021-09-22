@@ -1,0 +1,16 @@
+#!/usr/bin/psylla
+
+/factorial
+{
+	dup iszero
+	{ pop 1 }
+	{
+		dup 1 sub
+		factorial
+		mul
+	}
+	ifelse
+}
+bind def
+
+arguments 0 get tointeger factorial toname say

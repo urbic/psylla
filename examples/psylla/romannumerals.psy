@@ -1,0 +1,13 @@
+#!/usr/bin/psylla
+
+/coneforest.psylla.extensions.romannumerals.PsyRomanNumerals external begin
+
+0 1 3999
+{
+	toroman
+	dup fromroman
+	toname print
+	'\t' print
+	say
+}
+bind for

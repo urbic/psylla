@@ -1,0 +1,25 @@
+#!/usr/bin/psylla
+
+/n arguments 0 get tointeger def
+
+/sieve array def
+0 1 //n { dup 2 mod mul //sieve exch append } bind for
+
+//n 2 ge { 2 toname say } if
+
+3 2 //n
+{
+	/p exch def
+	//sieve p get nonzero
+	{
+		p toname say
+		p dup mul p //n
+		{
+			p dup mul //n gt { exit } if
+			//sieve exch 0 put
+		}
+		for
+	}
+	if
+}
+bind for

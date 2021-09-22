@@ -1,0 +1,11 @@
+#!/usr/bin/psylla
+
+dict begin
+/sqrt5 5 sqrt def
+/phi 1 //sqrt5 add 2 div def
+
+/fibonacci
+{ //phi exch pow //sqrt5 div round }
+end def
+
+arguments 0 get tointeger fibonacci toname say

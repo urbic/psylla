@@ -1,0 +1,18 @@
+#!/usr/bin/psylla
+
+/n arguments 0 get tointeger def
+
+/fibonacci
+{
+	1 index toname say
+	2 index n lt
+	{
+		3 -1 roll 1 add 3 1 roll
+		exch 1 index add
+		fibonacci
+	}
+	if
+}
+bind def
+
+0 0 1 fibonacci

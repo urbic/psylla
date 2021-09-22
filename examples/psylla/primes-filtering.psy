@@ -1,0 +1,40 @@
+#!/usr/bin/psylla
+
+/sequence
+{
+	<
+		/n 1
+		/next { /n n 1 add def n }
+	>
+}
+bind def
+
+/filter
+{
+	<
+		/source 4 -1 roll
+		/p 5 -1 roll
+		/next
+		{
+			source begin next end
+			dup p mod iszero
+			{
+				pop
+				source begin next end
+			}
+			if
+		}
+	>
+}
+bind def
+
+/n arguments 0 get tointeger def
+/source sequence def
+
+{
+	/p source begin next end def
+	p //n gt { exit } if
+	p toname say
+	/source source p filter def
+}
+bind loop

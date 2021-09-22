@@ -1,0 +1,20 @@
+#!/usr/bin/psylla
+
+arguments isempty { arguments '-' append } if
+
+arguments
+{
+	dup '-' ne { filereader } { stdin } ifelse
+	/in exch def
+
+	{
+		in 4096 readstring
+		exch print
+		stdout flush
+		not { exit } if
+	}
+	loop
+	stdout flush
+	in close
+}
+bind forall

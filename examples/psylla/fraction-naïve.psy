@@ -1,0 +1,47 @@
+#!/usr/bin/psylla
+
+arguments 0 get ~/~ split
+{ tointeger } forall
+tointeger /q exch def
+tointeger /p exch def
+
+p q idiv toname print
+/p p q mod def
+
+p nonzero { ',' print } { '' say quit } ifelse
+
+/pp array def
+
+{
+	0 1 pp length 1 sub
+	{
+		/i exch def
+		p pp i get eq
+		{
+			0 1 i 1 sub
+			{
+				pp exch get
+				10 mul q idiv toname print
+			}
+			for
+			p nonzero
+			{
+				'(' print
+				i 1 pp length 1 sub
+				{
+					pp exch get
+					10 mul q idiv toname print
+				}
+				for
+				')' print
+			}
+			if
+			'' say quit
+		}
+		if
+	}
+	for
+	pp p append
+	/p p 10 mul q mod def
+}
+bind loop

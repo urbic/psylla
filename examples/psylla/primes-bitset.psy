@@ -1,0 +1,32 @@
+#!/usr/bin/psylla
+
+/primes bitset def
+
+/isprime
+{
+	//true exch
+	//primes
+	{
+		1 index exch
+		mod iszero
+		{
+			exch not exch
+			exit
+		}
+		if
+	}
+	forall
+	1 index
+	{ //primes exch append } { pop } ifelse
+}
+bind def
+
+2 1 arguments 0 get tointeger
+{
+	dup
+	isprime
+	{ toname say }
+	{ pop }
+	ifelse
+}
+bind for

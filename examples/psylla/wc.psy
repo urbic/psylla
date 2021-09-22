@@ -1,0 +1,50 @@
+#!/usr/bin/psylla
+
+/wc
+{
+	dict begin
+		/filename exch def
+
+		/f filename filereader def
+
+		/lines 0 def
+		/words 0 def
+		/chars 0 def
+
+		/flag //false def
+
+		{
+			f read
+			{
+				/c exch def
+				/chars chars 1 add def
+				c `\n eq { /lines lines 1 add def } if
+				( 9 10 12 13 32 0xA0 ) c contains
+				{
+					flag { /words words 1 add def } if
+					/flag //false def
+				}
+				{ /flag //true def }
+				ifelse
+			}
+			{ exit }
+			ifelse
+		}
+		loop
+
+		f close
+		filename print '\t' print
+		lines toname print '\t' print
+		words toname print '\t' print
+		chars toname print '\n' print
+		stdout flush
+	end
+}
+bind def
+
+arguments
+{
+	dup { wc } stopped
+	{ 'Can not open file “' warn warn '”!\n' warn } { pop } ifelse
+}
+bind forall

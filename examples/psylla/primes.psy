@@ -1,0 +1,30 @@
+#!/usr/bin/psylla
+
+/isprime
+{
+	true exch
+	2 1 2 index
+	1 sub
+	{
+		1 index exch
+		mod iszero
+		{
+			exch not exch
+			exit
+		}
+		if
+	}
+	for
+	pop
+}
+bind def
+
+2 1 arguments 0 get tointeger
+{
+	dup
+	isprime
+	{ toname say }
+	{ pop }
+	ifelse
+}
+bind for

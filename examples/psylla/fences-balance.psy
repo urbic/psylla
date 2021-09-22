@@ -1,0 +1,45 @@
+#!/usr/bin/psylla
+
+/brackets '()[]{}' def
+/charstack "" def
+
+{
+	stdin read not { exit } if
+	/char exch def
+
+    /btype brackets char 0 indexofchar def
+	btype -1 ne
+	{
+		btype 2 mod iszero
+		{
+			charstack char append
+		}
+		{
+			charstack length 0 gt
+			brackets
+			string
+			dup charstack length 0 gt { charstack postchop append } { pop } ifelse
+			dup char append
+			0 indexofsubstring 0 ge
+			and not
+			{
+				'Balance is upset: unpaired closing fence\n' warn
+				1 halt
+			}
+			if
+		}
+		ifelse
+	}
+	if
+}
+bind loop
+
+charstack length 0 gt
+{
+	'Balance is upset: unpaired opening fence\n' warn
+	1 halt
+}
+{
+	'Balance is OK\n' warn
+}
+ifelse

@@ -1,0 +1,24 @@
+#!/usr/bin/psylla
+
+/power
+{
+	dup iszero
+	{ pop pop 1 }
+	{
+		dup 2 mod nonzero
+		{
+			1 index dup mul
+			exch 1 sub 2 idiv power mul
+		}
+		{
+			2 idiv exch dup mul exch power
+		}
+		ifelse
+	}
+	ifelse
+}
+bind def
+
+arguments 0 get tointeger
+arguments 1 get tointeger
+power toname say

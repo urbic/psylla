@@ -1,0 +1,17 @@
+#!/usr/bin/psylla
+
+/gcd
+{
+	2 copy lt { exch } if
+	dup iszero { pop }
+	{
+		dup 3 1 roll
+		mod gcd
+	}
+	ifelse
+}
+bind def
+
+arguments 0 get tointeger
+arguments 1 get tointeger
+gcd toname say
