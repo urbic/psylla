@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.psy set filetype=psylla
+au BufRead,BufNewFile *.psy se ft=psylla
