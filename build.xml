@@ -260,6 +260,7 @@
 		</junit-->
 		<mkdir dir="${src.test.data}/DIRECTORY-EMPTY"/>
 		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-1"/>
+		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-2/DIR-3"/>
 		<taskdef name="psyllaunit"
 			classname="coneforest.psylla.tools.ant.PsyllaUnit"
 			classpathref="classpath.test"
