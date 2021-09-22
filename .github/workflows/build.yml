@@ -1,24 +1,26 @@
-# This workflow will build a Java project with Ant
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-ant
-
 name: Java CI
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: sudo apt-get install openjdk-11-jdk-headless openjdk-11-doc ant ant-optional javacc junit4 libjline-java libjline-java-doc docbook-xsl-ns docbook-mathml docbook-xsl-saxon libxslthl-java sassc libxerces2-java graphviz
-    - name: Build
-      run: ant -noinput -buildfile build.xml build
-    - name: Test
-      run: ant -noinput -buildfile build.xml test
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install dependencies
+              run: sudo apt-get install openjdk-11-jdk-headless openjdk-11-doc ant ant-optional javacc junit4 libjline-java libjline-java-doc docbook-xsl-ns docbook-mathml docbook-xsl-saxon libxslthl-java sassc libxerces2-java graphviz
+            - name: Build
+              run: ant -noinput build
+            - name: Test
+              run: ant -noinput test
+            - name: Deploy site
+              uses: JamesIves/github-pages-deploy-action@3.6.2
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: target/doc
