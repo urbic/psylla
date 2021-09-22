@@ -264,7 +264,7 @@
 			classname="coneforest.psylla.tools.ant.PsyllaUnit"
 			classpathref="classpath.test"
 			/>
-		<psyllaunit>
+		<psyllaunit haltonfailure="yes">
 			<arg value="-LC"/>
 			<arg value="-I${src.main.psylla}"/>
 			<classpath refid="classpath.test"/>

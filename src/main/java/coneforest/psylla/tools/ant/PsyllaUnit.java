@@ -11,35 +11,56 @@ public class PsyllaUnit
 
 	@Override
 	public void execute()
+		throws org.apache.tools.ant.BuildException
 	{
-		final String[] args=new String[this.args.size()];
+		final var args=new String[this.args.size()];
 		int i=0;
 		for(final Arg a: this.args)
 			args[i++]=a.getValue();
 		final String argsEncoded=coneforest.psylla.tools.ant.Base64Codec.encode(args);
 		for(final Test t: tests)
 		{
-			final org.apache.tools.ant.taskdefs.optional.junit.JUnitTest test
-				=new org.apache.tools.ant.taskdefs.optional.junit.JUnitTest(coneforest.psylla.tools.PsyllaTest.class.getName());
+			final var test=new org.apache.tools.ant.taskdefs.optional.junit.JUnitTest(
+					coneforest.psylla.tools.PsyllaTest.class.getName(),
+					haltOnError,
+					haltOnFail,
+					true);
 			System.setProperty(PsyllaUnit.class.getName()+".testName", t.getName());
 			System.setProperty(PsyllaUnit.class.getName()+".psyllaArgs", argsEncoded);
-			super.execute(test);
+			execute(test);
 		}
 	}
 
 	public Test createTest()
 	{
-		final Test test=new Test();
+		final var test=new Test();
 		tests.add(test);
 		return test;
 	}
 
 	public Arg createArg()
 	{
-		final Arg arg=new Arg();
+		final var arg=new Arg();
 		args.add(arg);
 		return arg;
 	}
+
+	@Override
+	public void setHaltonerror(final boolean value)
+	{
+		haltOnError=value;
+		super.setHaltonerror(value);
+	}
+
+	@Override
+	public void setHaltonfailure(final boolean value)
+	{
+		haltOnFail=value;
+		super.setHaltonfailure(value);
+	}
+
+	private boolean haltOnError=false;
+	private boolean haltOnFail=false;
 
 	private final static java.util.ArrayList<Test> tests
 		=new java.util.ArrayList<Test>();
