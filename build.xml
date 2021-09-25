@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <project name="psylla"
 	default="jar"
-	basedir="."
 	xmlns:if="ant:if"
 	xmlns:unless="ant:unless"
-	xmlns:ivy="antlib:org.apache.ivy.ant"
 	>
 
 	<description>${project.description}</description>
@@ -56,24 +54,17 @@
 	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
 	<property name="file.encoding" location="UTF-8"/>
 	<property name="build.sysclasspath" value="ignore"/>
-	<property name="linux.idlike" value="redhat"/>
+	<property name="linux.flavour" value="redhat"/>
 
 	<property file="${src.ant}/config.properties"/>
 
-	<path id="classpath.main">
-		<pathelement path="${target.classes}"/>
-		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
-		<pathelement path="${config.javadir}/jline.jar"/><!-- For Debian -->
-		<pathelement path="${ant.core.lib}"/>
-		<pathelement path="${config.datadir}/ant/lib/ant-junit.jar"/>
-	</path>
-
-	<path id="classpath.test">
-		<pathelement path="${target.classes}"/>
-		<pathelement path="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
-		<pathelement path="${config.javadir}/jline.jar"/><!-- For Debian -->
-		<pathelement path="${config.javadir}/junit4.jar"/>
-		<pathelement path="${config.javadir}/junit.jar"/><!-- For Mageia -->
+	<path id="modulepath.main">
+		<pathelement location="${target.classes}"/>
+		<pathelement location="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
+		<pathelement location="${config.javadir}/jline.jar"/><!-- For Debian -->
+		<pathelement location="${ant.core.lib}"/>
+		<pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/>
+		<pathelement location="${config.javadir}/junit4.jar"/>
 	</path>
 
 	<xmlcatalog id="xmlcatalog.xslt">
@@ -88,7 +79,6 @@
 	<path id="classpath.xslt">
 		<pathelement location="${config.javadir}/saxon6.jar"/>
 		<pathelement location="${config.javadir}/docbook-xsl-saxon.jar"/>
-		<!--pathelement location="${target.lib}/saxon65.jar"/-->
 		<pathelement location="${config.javadir}/xslthl.jar"/>
 
 		<!-- for Debian -->
@@ -102,13 +92,6 @@
 	<import file="${src.ant}/install.ant" as="install"/>
 	<import file="${src.ant}/obs.ant"/>
 	<import file="${src.ant}/gh-pages.ant"/>
-
-	<target name="prepare">
-		<echo>${os.name}</echo>
-		<echo>${os.version}</echo>
-		<ivy:retrieve pattern="${target.lib}/[conf]/[artifact]-[revision].[ext]" conf="compile"/>
-		<!--ivy:resolve/-->
-	</target>
 
 	<target name="compile.jj"
 		description="Compile JJ sources"
@@ -130,13 +113,11 @@
 		<javac
 			srcdir="${src.main.java}"
 			destdir="${target.classes}"
-			source="11"
-			target="11"
+			release="11"
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
-			<classpath refid="classpath.main"/>
-			<classpath refid="classpath.test"/>
+			<classpath refid="modulepath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
@@ -153,8 +134,7 @@
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
-			<classpath refid="classpath.main"/>
-			<classpath refid="classpath.test"/>
+			<modulepath refid="modulepath.main"/>
 			<!--compilerarg value="-XprintRounds"/-->
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
@@ -162,7 +142,6 @@
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/META-INF/${project.name}/"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
-			<compilerarg value="-processorpath"/><compilerarg value="${toString:classpath.main}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
 	</target>
@@ -182,15 +161,14 @@
 		depends="jar"
 		>
 		<javadoc
-				sourcepath="${src.main.java}"
-				destdir="${target.doc.apidocs}"
-				access="public"
-				encoding="UTF-8"
-				charset="UTF-8"
-				windowtitle="Psylla ${project.version}"
-				>
-			<classpath refid="classpath.main"/>
-			<classpath refid="classpath.test"/>
+			sourcepath="${src.main.java}"
+			destdir="${target.doc.apidocs}"
+			access="public"
+			encoding="UTF-8"
+			charset="UTF-8"
+			windowtitle="Psylla ${project.version}"
+			>
+			<classpath refid="modulepath.main"/>
 			<arg value="-Xdoclint:missing,reference"/>
 			<link href="file://${config.javadocdir}/java"/>
 			<link href="file://${config.javadocdir}/junit"/>
@@ -206,14 +184,20 @@
 		<copy todir="${target.classes}">
 			<fileset dir="${src.main.resources}" includes="**"/>
 		</copy>
-		<echoproperties destfile="${target.classes}/coneforest/psylla/Config.properties">
+		<echoproperties
+			destfile="${target.classes}/coneforest/psylla/Config.properties"
+			>
 			<propertyset>
 				<propertyref prefix="config."/>
 				<propertyref prefix="project."/>
 			</propertyset>
 		</echoproperties>
-		<mkdir dir="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"/>
-		<echoproperties destfile="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties">
+		<mkdir
+			dir="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"
+			/>
+		<echoproperties
+			destfile="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties"
+			>
 			<propertyset>
 				<propertyref prefix="project.maven."/>
 				<mapper type="glob" from="project.maven.*" to="*"/>
@@ -249,12 +233,12 @@
 		depends="jar"
 		>
 		<!--junit>
-			<classpath refid="classpath.test"/>
+			<classpath refid="modulepath.main"/>
 			<formatter type="plain" usefile="false"/>
 			<test name="coneforest.psylla.tools.PsyllaTest"/>
 		</junit-->
 		<!--junit>
-			<classpath refid="classpath.test"/>
+			<classpath refid="modulepath.main"/>
 			<formatter type="plain" usefile="false"/>
 			<test name="coneforest.psylla.tools.MyTest"/>
 		</junit-->
@@ -263,12 +247,12 @@
 		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-2/DIR-3"/>
 		<taskdef name="psyllaunit"
 			classname="coneforest.psylla.tools.ant.PsyllaUnit"
-			classpathref="classpath.test"
+			classpathref="modulepath.main"
 			/>
 		<psyllaunit haltonfailure="yes">
 			<arg value="-LC"/>
 			<arg value="-I${src.main.psylla}"/>
-			<classpath refid="classpath.test"/>
+			<classpath refid="modulepath.main"/>
 			<formatter type="plain" usefile="false"/>
 			<!--test name="${src.test.psylla}"/-->
 			<test name="src/test/psylla"/>
@@ -297,7 +281,7 @@
 		<taskdef
 			name="psylla"
 			classname="coneforest.psylla.tools.ant.Psylla"
-			classpathref="classpath.main"
+			classpathref="modulepath.main"
 			/>
 		<psylla eval="0 1 1 99 { ? } for"/>
 		<psylla eval="1 atan 4 mul ?"/>
@@ -363,7 +347,7 @@
 		description="Build project"
 		depends="jar,docs"
 		>
-		<copy tofile="${target.bin}/${project.name}" file="${src.bin}/${project.name}-${linux.idlike}"/>
+		<copy tofile="${target.bin}/${project.name}" file="${src.bin}/${project.name}-${linux.flavour}"/>
 		<chmod file="${target.bin}/${project.name}" perm="ugo+rx"/>
 		<copy todir="${target.doc}">
 			<fileset dir="." includes="README LICENSE AUTHORS"/>
