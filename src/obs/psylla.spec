@@ -27,13 +27,13 @@ Group:			Development/Languages/Other
 URL:			https://github.com/urbic/%{name}
 Source:			%{name}-%{version}.tar.xz
 BuildRequires:	ant
-BuildRequires:	ant-junit
 BuildRequires:	java-devel >= 11
 BuildRequires:	java-javadoc >= 11
 BuildRequires:	javacc
 BuildRequires:	junit >= 4.0
 BuildRequires:	mvn(jline:jline:1)
 BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)
+BuildRequires:	mvn(org.apache.ant:ant-junit)
 Requires:		java-headless >= 11
 Requires:		mvn(jline:jline:1)
 Requires(post):	shared-mime-info
@@ -75,7 +75,7 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-LANG=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
+LC_ALL=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
 	-Djline1.jar=%{jline1_jar} \
 	-Dconfig.libdir=%{_libdir} \
 	-Dconfig.docdir=%{_docdir} \
@@ -83,7 +83,7 @@ LANG=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
 	build
 
 %check
-LANG=C.UTF-8 \
+LC_ALL=C.UTF-8 \
 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
 	-Djline1.jar=%{jline1_jar} \
 	test

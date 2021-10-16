@@ -14,8 +14,8 @@
 			<factory name="com.icl.saxon.TransformerFactoryImpl"/>
 			<xmlcatalog refid="xmlcatalog.xslt"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
-				<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
-			<param name="link.mailto.url" expression="mailto:${config.vendor.email}?subject=${project.name}"/>
+			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
+			<param name="link.mailto.url" expression="mailto:${config.developer.email}?subject=${project.name}"/>
 			<param name="shortcut.icon" expression="${project.name}.svg"/>
 			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
 			<param name="draft.mode" expression="maybe"/>

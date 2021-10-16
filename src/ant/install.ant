@@ -6,13 +6,12 @@
 		depends="build"
 		>
 		<!-- Make directories -->
-		<mkdir dir="${destdir}/${config.vendor.libdir}"/>
-		<mkdir dir="${destdir}/${config.site.libdir}"/>
+		<mkdir dir="${destdir}/${config.psylla.libdir}"/>
 		<mkdir dir="${destdir}/${config.javadir}"/>
 		<mkdir dir="${destdir}/${config.bindir}"/>
-		<mkdir dir="${destdir}/${config.vendor.docdir}"/>
-		<mkdir dir="${destdir}/${config.vendor.licensedir}"/>
-		<mkdir dir="${destdir}/${config.vendor.javadocdir}"/>
+		<mkdir dir="${destdir}/${config.psylla.docdir}"/>
+		<mkdir dir="${destdir}/${config.psylla.licensedir}"/>
+		<mkdir dir="${destdir}/${config.psylla.javadocdir}"/>
 		<mkdir dir="${destdir}/${config.datadir}/ant/lib"/>
 		<mkdir dir="${destdir}/${config.datadir}/vim/site"/>
 		<mkdir dir="${destdir}/${config.datadir}/mime/packages"/>
@@ -37,34 +36,24 @@
 		<chmod file="${destdir}/${config.bindir}/${project.name}" perm="ugo+rx"/>
 
 		<!-- Install library Psylla files -->
-		<copy todir="${destdir}/${config.vendor.libdir}">
+		<copy todir="${destdir}/${config.psylla.libdir}">
 			<fileset dir="${src.main.psylla}" includes="**/*"/>
 		</copy>
 
 		<!-- Install XHTML documentation and examples -->
-		<copy todir="${destdir}/${config.vendor.docdir}">
+		<copy todir="${destdir}/${config.psylla.docdir}">
 			<fileset
 				dir="${target.doc}"
 				followsymlinks="false"
 				includes="html/**/* examples/**/*"
 				excludes="html/**/*.css.map"/>
 		</copy>
-		<!--symlink
-			link="${destdir}/${config.vendor.docdir}/html/en/common"
-			resource="../common"
-			overwrite="true"
-			/>
-		<symlink
-			link="${destdir}/${config.vendor.docdir}/html/ru/common"
-			resource="../common"
-			overwrite="true"
-			/-->
 
 		<!-- Install LICENSE -->
-		<copy todir="${destdir}/${config.vendor.licensedir}" file="LICENSE"/>
+		<copy todir="${destdir}/${config.psylla.licensedir}" file="LICENSE"/>
 
 		<!-- Install README etc -->
-		<copy todir="${destdir}/${config.vendor.docdir}">
+		<copy todir="${destdir}/${config.psylla.docdir}">
 			<fileset dir="${target.doc}" includes="README AUTHORS"/>
 		</copy>
 
@@ -74,7 +63,7 @@
 		</copy>
 
 		<!-- Install API documentation -->
-		<copy todir="${destdir}/${config.vendor.javadocdir}">
+		<copy todir="${destdir}/${config.psylla.javadocdir}">
 			<fileset dir="${target.doc.apidocs}" includes="**/*"/>
 		</copy>
 
