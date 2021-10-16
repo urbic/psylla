@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code lock} object.
+*	A representation of {@code lock} object.
 */
 @Type("lock")
 public class PsyLock
@@ -37,9 +37,9 @@ public class PsyLock
 	}
 
 	/**
-	*	Returns a Ψ-{@code condition} for use with this lock.
+	*	Returns a {@code condition} object for use with this lock.
 	*
-	*	@return a Ψ-{@code condition} object.
+	*	@return a {@code condition} object.
 	*/
 	public PsyCondition psyCondition()
 	{

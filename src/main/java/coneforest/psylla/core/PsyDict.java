@@ -2,14 +2,14 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code dict}, a dictionary.
+*	A representation of {@code dict}, a dictionary.
 */
 @Type("dict")
 public class PsyDict
 	implements PsyFormalDict<PsyObject>
 {
 	/**
-	*	Creates a new empty Ψ-{@code dict}.
+	*	Creates a new empty {@code dict}.
 	*/
 	public PsyDict()
 	{
@@ -17,7 +17,7 @@ public class PsyDict
 	}
 
 	/**
-	*	Creates a new Ψ-{@code dict} wrapped around the given hash map.
+	*	Creates a new {@code dict} wrapped around the given hash map.
 	*
 	*	@param dict a given hash map.
 	*/

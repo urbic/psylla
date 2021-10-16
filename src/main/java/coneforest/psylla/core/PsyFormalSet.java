@@ -2,9 +2,9 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of a Ψ-{@code formalset}, an abstraction of a finite set
-*	of Ψ-{@code object}s. This interface declares methods for appending,
-*	removal and set operations.
+*	A representation of a {@code formalset}, an abstraction of a finite set of
+*	{@code object}s. This interface declares methods for appending, removal and
+*	set operations.
 *
 *	@param <T> a type of the elements.
 */
@@ -16,19 +16,19 @@ public interface PsyFormalSet<T extends PsyObject>
 {
 
 	/**
-	*	Removes a Ψ-{@code object} from this set. If a given object is not
+	*	Removes an {@code object} from this set. If a given object is not
 	*	present in this set, error does not occur.
 	*
-	*	@param o a given Ψ-{@code object}.
+	*	@param o an {@code object}.
 	*/
 	public void psyRemove(final T o);
 
 	/**
-	*	Removes all the Ψ-{@code object}s in a given Ψ-{@code iterable}
-	*	enumeration from this set. If some object is not present in this set,
-	*	error does not occur.
+	*	Removes all the {@code object}s in a given {@code iterable} enumeration
+	*	from this set. If some object is not present in this set, error does
+	*	not occur.
 	*
-	*	@param oEnumeration a given Ψ-{@code iterable} enumeration.
+	*	@param oEnumeration an {@code iterable} enumeration.
 	*/
 	default public void psyRemoveAll(final PsyIterable<? extends T> oEnumeration)
 	{
@@ -51,10 +51,10 @@ public interface PsyFormalSet<T extends PsyObject>
 	}
 
 	/**
-	*	Returns a Ψ-{@code boolean} object indicating whether a given Ψ-{@code
+	*	Returns a {@code boolean} object indicating whether a given {@code
 	*	object} belongs to this set.
 	*
-	*	@param o a given Ψ-{@code object}.
+	*	@param o an {@code object}.
 	*	@return {@link PsyBoolean#TRUE}, if an object belongs to this set, and
 	*	{@link PsyBoolean#FALSE} otherwise.
 	*/
@@ -71,12 +71,12 @@ public interface PsyFormalSet<T extends PsyObject>
 	}
 
 	/**
-	*	Appends all the Ψ-{@code object}s from a given Ψ-{@code iterable}
+	*	Appends all the {@code object}s from a given {@code iterable}
 	*	enumeration to this set. When a given enumeration is the same as this
 	*	set, first clone the enumeration, and then appends all the elements
 	*	from the clone.
 	*
-	*	@param oEnumeration a Ψ-{@code iterable} enumeration.
+	*	@param oEnumeration an {@code iterable} enumeration.
 	*	@throws PsyException when an error occurs.
 	*/
 	@Override
@@ -90,11 +90,11 @@ public interface PsyFormalSet<T extends PsyObject>
 	}
 
 	/**
-	*	Returns a Ψ-{@code boolean} object indicating whether a given Ψ-{@code
+	*	Returns a {@code boolean} object indicating whether a given {@code
 	*	formalset} set intersects with this set.
 	*
-	*	@param oSet a given Ψ-{@code formalset} set.
-	*	@return {@link PsyBoolean#TRUE}, if a given Ψ-{@code formalset} set
+	*	@param oSet a {@code formalset} set.
+	*	@return {@link PsyBoolean#TRUE}, if a given {@code formalset} set
 	*	intersects with this set, and {@link PsyBoolean#FALSE} otherwise.
 	*/
 	default public PsyBoolean psyIntersects(final PsyFormalSet<? extends T> oSet)

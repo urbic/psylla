@@ -2,14 +2,14 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code set} object.
+*	A representation of {@code set} object.
 */
 @Type("set")
 public class PsySet
 	implements PsyFormalSet<PsyObject>
 {
 	/**
-	*	Creates a new empty Ψ-{@code set}.
+	*	Creates a new empty {@code set} object.
 	*/
 	public PsySet()
 	{
@@ -17,7 +17,7 @@ public class PsySet
 	}
 
 	/**
-	*	Creates a new Ψ-{@code set} wrapped around the given hash set.
+	*	Creates a new {@code set} object wrapped around the given hash set.
 	*
 	*	@param set a given hash set.
 	*/

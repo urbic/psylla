@@ -2,14 +2,14 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code array} object.
+*	A representation of {@code array} object.
 */
 @Type("array")
 public class PsyArray
 	implements PsyFormalArray<PsyObject>
 {
 	/**
-	*	Creates a new empty Ψ-{@code array}.
+	*	Creates a new empty {@code array}.
 	*/
 	public PsyArray()
 	{
@@ -17,9 +17,9 @@ public class PsyArray
 	}
 
 	/**
-	*	Creates a new Ψ-{@code array} wrapped around the given array list.
+	*	Creates a new {@code array} wrapped around the given array list.
 	*
-	*	@param array a given arary list.
+	*	@param array a given array list.
 	*/
 	public PsyArray(final java.util.ArrayList<PsyObject> array)
 	{

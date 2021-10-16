@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code additive}, a type of object that is an operand
+*	A representation of {@code additive}, a type of object that is an operand
 *	of arithmetic operation. This interface declares methods for addition,
 *	subtraction and negation.
 *
@@ -14,7 +14,7 @@ public interface PsyAdditive<T extends PsyAdditive>
 {
 
 	/**
-	*	Returns a Ψ-{@code additive} representing the result of arithmetic
+	*	Returns an {@code additive} representing the result of arithmetic
 	*	negation of this object.
 	*
 	*	@return a negation.
@@ -22,7 +22,7 @@ public interface PsyAdditive<T extends PsyAdditive>
 	public T psyNeg();
 
 	/**
-	*	Returns a Ψ-{@code additive} representing the result of arithmetic
+	*	Returns an {@code additive} representing the result of arithmetic
 	*	addition of given object to this object.
 	*
 	*	@param oAdditive given object.
@@ -31,7 +31,7 @@ public interface PsyAdditive<T extends PsyAdditive>
 	public T psyAdd(final T oAdditive);
 
 	/**
-	*	Returns a Ψ-{@code additive} representing the result of arithmetic
+	*	Returns an {@code additive} representing the result of arithmetic
 	*	subtraction of given object from this object.
 	*
 	*	@param oAdditive given object.

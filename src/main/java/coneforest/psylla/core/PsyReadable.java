@@ -2,8 +2,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code readable}, a type of objects that can be
-*	treated as a source of characters.
+*	A representation of {@code readable}, an object that can be treated as a
+*	source of characters to read from.
 */
 @Type("readable")
 public interface PsyReadable
@@ -15,12 +15,13 @@ public interface PsyReadable
 		throws PsyException;
 
 	/**
-	*	Read a character (Ψ-{@code integer}) from this object and returns it.
+	*	Read an {@code integer} character from this object and returns it.
 	*	Returns {@link PsyInteger#MINUS_ONE} when end of input has been
 	*	reached.
 	*
-	*	@return a Ψ-{@code integer} representing the character read from this
+	*	@return an {@code integer} representing the character read from this
 	*	object.
+	*
 	*	@throws PsyException when error occurs.
 	*/
 	default public PsyInteger psyRead()
@@ -30,17 +31,19 @@ public interface PsyReadable
 	}
 
 	/**
-	*	Read a Ψ-{@code string} from this object and returns it.
+	*	Read a {@code string} from this object and returns it.
 	*
-	*	@param oCount a Ψ-{@code integer} representing the length of the string.
+	*	@param oCount an {@code integer} representing the length of the string.
+	*
 	*	@return a string read.
+	*
 	*	@throws PsyException when error occurs.
 	*/
 	public PsyString psyReadString(final PsyInteger oCount)
 		throws PsyException;
 
 	/**
-	*	Read a line (Ψ-{@code string}) from this object and returns it.
+	*	Read a line ({@code string}) from this object and returns it.
 	*
 	*	@return a line read,
 	*	@throws PsyException when error occurs.
@@ -52,18 +55,20 @@ public interface PsyReadable
 	*	Skips characters. This method will block until some characters are
 	*	available, an I/O error occurs, or end of input is reached.
 	*
-	*	@param oCount a Ψ-{@code integer} representing the number of characters
+	*	@param oCount an {@code integer} representing the number of characters
 	*	to be skipped.
-	*	@return a Ψ-{@code integer} representing the number of characters
+	*
+	*	@return an {@code integer} representing the number of characters
 	*	actually skipped.
+	*
 	*	@throws PsyException when an error occurs.
 	*/
 	public PsyInteger psySkip(final PsyInteger oCount)
 		throws PsyException;
 
 	/**
-	*	Returns a Ψ-{@code boolean} indicating whether this object is ready to
-	*	be read.
+	*	Returns a {@code boolean} object indicating whether this object is
+	*	ready to be read.
 	*
 	*	@return {@code true} if this object is ready to be read, and {@code
 	*	false} otherwise.

@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code context}, an execution context.
+*	A representation of {@code context}, an execution context.
 */
 @Type("context")
 public interface PsyContext

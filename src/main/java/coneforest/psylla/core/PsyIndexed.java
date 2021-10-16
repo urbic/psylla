@@ -2,8 +2,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code indexed}, a type of the container whose
-*	elements are indexed.
+*	A representation of {@code indexed}, a type of the container whose elements
+*	are indexed.
 *
 *	@param <K> a type of keys or indices.
 *	@param <V> a type of elements.
@@ -14,8 +14,8 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 {
 
 	/**
-	*	Returns a Ψ-{@code boolean} indicating whether given key or index
-	*	exists in this object.
+	*	Returns a {@code boolean} indicating whether given key or index exists
+	*	in this object.
 	*
 	*	@param oKey a key or an index.
 	*	@return a result.
@@ -59,7 +59,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 
 	/**
 	*	Returns a container of the same type as this object consisting of keys
-	*	or indices from given Ψ-{@code iterable} and of associated values.
+	*	or indices from given {@code iterable} and of associated values.
 	*
 	*	@param oKeys an enumeration of keys.
 	*	@return a container.
@@ -72,15 +72,14 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 		throws PsyException;
 
 	/**
-	*	Returns a Ψ-{@code iterable} enumeration of all the keys of this
-	*	object.
+	*	Returns an {@code iterable} enumeration of all the keys of this object.
 	*
 	*	@return an enumeration of keys.
 	*/
 	public PsyFormalStream<K> psyKeys();
 
 	/**
-	*	Returns a Ψ-{@code iterable} enumeration of all the values of this
+	*	Returns an {@code iterable} enumeration of all the values of this
 	*	object.
 	*
 	*	@return an enumeration of values.
@@ -108,7 +107,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	}
 
 	/**
-	*	Returns a Ψ-{@code iterable} enumeration of all the keys and values of
+	*	Returns an {@code iterable} enumeration of all the keys and values of
 	*	this object.
 	*
 	*	@return an enumeration of entries.

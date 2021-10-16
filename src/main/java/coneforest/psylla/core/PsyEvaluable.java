@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code evaluable}, a type of objects that can be
+*	A representation of {@code evaluable}, a type of objects that can be
 *	interpreted as the program.
 */
 @Type("evaluable")

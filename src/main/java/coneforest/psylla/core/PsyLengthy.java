@@ -2,9 +2,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code lengthy}, a type of an object that has length
-*	in some sense. Ususally the length is the number of elements in the
-*	container.
+*	A representation of {@code lengthy}, a type of an object that has length in
+*	some sense. Usually the length is the number of elements in the container.
 */
 @Type("lengthy")
 public interface PsyLengthy
@@ -31,9 +30,9 @@ public interface PsyLengthy
 	}
 
 	/**
-	*	Returns a Ψ-{@code integer} representing the length of this object.
+	*	Returns an {@code integer} representing the length of this object.
 	*
-	*	@return a Ψ-{@code integer} length.
+	*	@return an {@code integer} length.
 	*/
 	default public PsyInteger psyLength()
 	{
@@ -41,10 +40,10 @@ public interface PsyLengthy
 	}
 
 	/**
-	*	Returns a Ψ-{@code boolean} indicating if this container is empty (has
+	*	Returns a {@code boolean} indicating if this container is empty (has
 	*	zero length).
 	*
-	*	@return a Ψ-{@code boolean} result.
+	*	@return a {@code boolean} result.
 	*/
 	default public PsyBoolean psyIsEmpty()
 	{

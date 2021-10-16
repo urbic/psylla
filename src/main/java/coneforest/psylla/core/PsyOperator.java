@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code operator} object.
+*	A representation of {@code operator} object.
 */
 @Type("operator")
 public abstract class PsyOperator

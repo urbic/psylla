@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code object}, a basic type of Ψ objects.
+*	A representation of an {@code object}, a generic Psylla object.
 */
 @Type("object")
 public interface PsyObject
@@ -82,9 +82,9 @@ public interface PsyObject
 	}
 
 	/**
-	*	Returns a Ψ-{@code string} representing this object.
+	*	Returns a {@code string} representing this object.
 	*
-	*	@return a Ψ-{@code string} representing this object.
+	*	@return a {@code string} representing this object.
 	*/
 	@Override
 	default public PsyString psyToString()
@@ -93,9 +93,9 @@ public interface PsyObject
 	}
 
 	/**
-	*	Returns a Ψ-{@code name} representing this object.
+	*	Returns a {@code name} representing this object.
 	*
-	*	@return a Ψ-{@code name} representing this object.
+	*	@return a {@code name} representing this object.
 	*/
 	@Override
 	default public PsyName psyToName()
@@ -125,9 +125,9 @@ public interface PsyObject
 	}
 
 	/**
-	*	Returns a Ψ-{@code integer} hash code for this object.
+	*	Returns an {@code integer} hash code for this object.
 	*
-	*	@return a Ψ-{@code integer} hash code for this object.
+	*	@return an {@code integer} hash code for this object.
 	*/
 	default public PsyInteger psyHashCode()
 	{

@@ -1,7 +1,7 @@
 package coneforest.psylla.core;
 
 /**
-*	A representation of Ψ-{@code boolean} object.
+*	A representation of {@code boolean} object.
 */
 @coneforest.psylla.Type("boolean")
 public class PsyBoolean
@@ -139,10 +139,10 @@ public class PsyBoolean
 	}
 
 	/**
-	*	Returns a Ψ-{@code boolean} representing the given boolean value.
+	*	Returns a {@code boolean} representing the given boolean value.
 	*
 	*	@param bool a given value.
-	*	@return a Ψ-{@code boolean} object.
+	*	@return a {@code boolean} object.
 	*/
 	public static PsyBoolean valueOf(final boolean bool)
 	{
@@ -150,12 +150,12 @@ public class PsyBoolean
 	}
 
 	/**
-	*	A Ψ-{@code boolean} constant, representing false.
+	*	A {@code boolean} constant, representing false.
 	*/
 	public static final PsyBoolean FALSE=new PsyBoolean();
 
 	/**
-	*	A Ψ-{@code boolean} constant, representing true.
+	*	A {@code boolean} constant, representing true.
 	*/
 	public static final PsyBoolean TRUE=new PsyBoolean();
 }

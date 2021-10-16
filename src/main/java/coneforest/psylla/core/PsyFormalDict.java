@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code formaldict}, an abstraction of a dictionary.
+*	A representation of {@code formaldict}, an abstraction of a dictionary.
 *
 *	@param <V> a type of contained values.
 */
@@ -82,7 +82,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	/**
 	*	Deletes a key and associated value from this dictionary.
 	*
-	*	@param oKey a Ψ-{@code textual} key.
+	*	@param oKey a {@code textual} key.
 	*/
 	default public void psyUndef(final PsyTextual oKey)
 	{

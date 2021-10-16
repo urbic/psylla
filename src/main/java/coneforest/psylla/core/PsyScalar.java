@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of a Ψ-{@code scalar}, a type bringing total ordering to
+*	A representation of {@code scalar}, a type bringing total ordering to
 *	implementing Psylla type. This interface declares methods for comparison.
 *
 *	@param <T> a type of the second operand at binary comparison operation.
@@ -13,7 +13,7 @@ public interface PsyScalar<T extends PsyScalar>
 {
 
 	/**
-	*	Returns a Ψ-{@code boolean} object representing the result of “less”
+	*	Returns a {@code boolean} object representing the result of “less”
 	*	comparison of this object and a given object.
 	*
 	*	@param oScalar an object with which this object is compared.
@@ -23,7 +23,7 @@ public interface PsyScalar<T extends PsyScalar>
 	public PsyBoolean psyLt(final T oScalar);
 
 	/**
-	*	Returns a Ψ-{@code boolean} object representing the result of “less or
+	*	Returns a {@code boolean} object representing the result of “less or
 	*	equal” comparison of this object and a given object.
 	*
 	*	@param oScalar an object with which this object is compared.
@@ -33,25 +33,25 @@ public interface PsyScalar<T extends PsyScalar>
 	public PsyBoolean psyLe(final T oScalar);
 
 	/**
-	*	Returns a Ψ-{@code boolean} object representing the result of “greater”
+	*	Returns a {@code boolean} object representing the result of “greater”
 	*	comparison of this object and a given object.
 	*
 	*	@param oScalar an object with which this object is compared.
-	*	@return a Ψ-{@code boolean} result of comparison.
+	*	@return a {@code boolean} result of comparison.
 	*/
 	public PsyBoolean psyGt(final T oScalar);
 
 	/**
-	*	Returns a Ψ-{@code boolean} object representing the result of “greater
-	*	or equal” comparison of this object and a given object.
+	*	Returns a {@code boolean} object representing the result of “greater or
+	*	equal” comparison of this object and a given object.
 	*
 	*	@param oScalar an object with which this object is compared.
-	*	@return a Ψ-{@code boolean} result of comparison.
+	*	@return a {@code boolean} result of comparison.
 	*/
 	public PsyBoolean psyGe(final T oScalar);
 
 	/**
-	*	Compares this object against given object and returns a Ψ-{@code
+	*	Compares this object against given object and returns an {@code
 	*	integer} indicating the result of the comparison. Returns negative
 	*	value if this object is less than given one, zero if this object is
 	*	equal to given one, and positive value if this object is greater than

@@ -2,14 +2,14 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code command} object.
+*	A representation of {@code command} object.
 */
 @Type("command")
 public class PsyCommand
 	extends PsyName
 {
 	/**
-	*	Creates a new Ψ-{@code command} object with the given name.
+	*	Creates a new {@code command} object with the given name.
 	*
 	*	@param cs a name.
 	*/

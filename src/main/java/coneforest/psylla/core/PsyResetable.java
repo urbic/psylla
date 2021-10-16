@@ -2,8 +2,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code resetable}, a type of objects that can be
-*	reset in some sense.
+*	A representation of {@code resetable}, an object that can be reset in some
+*	sense.
 */
 @Type("resetable")
 public interface PsyResetable
@@ -11,7 +11,7 @@ public interface PsyResetable
 {
 
 	/**
-	*	Reset this object.
+	*	Reset this {@code resetable} object.
 	*
 	*	@throws PsyException when error occured during reset.
 	*/

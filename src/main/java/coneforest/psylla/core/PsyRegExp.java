@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code regexp} object.
+*	A representation of {@code regexp} object.
 */
 @Type("regexp")
 public class PsyRegExp

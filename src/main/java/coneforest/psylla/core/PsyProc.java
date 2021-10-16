@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	An implementation of Ψ-{@code proc}, a procedure.
+*	An implementation of {@code proc}, a procedure.
 */
 @Type("proc")
 public class PsyProc

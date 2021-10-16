@@ -2,15 +2,15 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code bitset}, a set of nonnegative Ψ-{@code
-*	integer} objects.
+*	A representation of {@code bitset}, a set of nonnegative {@code integer}
+*	objects.
 */
 @Type("bitset")
 public class PsyBitSet
 	implements PsyFormalSet<PsyInteger>
 {
 	/**
-	*	Instantiate an empty Ψ-{@code bitset} object.
+	*	Instantiate an empty {@code bitset} object.
 	*/
 	public PsyBitSet()
 	{
@@ -18,7 +18,7 @@ public class PsyBitSet
 	}
 
 	/**
-	*	Instantiate a Ψ-{@code bitset} object from a given {@link
+	*	Instantiate a {@code bitset} object from a given {@link
 	*	java.util.BitSet} object.
 	*
 	*	@param bitset a bit set.

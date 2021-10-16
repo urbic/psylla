@@ -2,8 +2,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code formalqueue}, an abstraction of a queue of
-*	Ψ-{@code object}s.
+*	A representation of {@code formalqueue}, an abstraction of a queue of
+*	{@code object}s.
 *
 *	@param <T> a type of contained objects.
 */
@@ -18,6 +18,7 @@ public interface PsyFormalQueue<T extends PsyObject>
 	*	Removes and returns the head of this queue.
 	*
 	*	@return a head of this queue.
+	*
 	*	@throws PsyException when this queue is empty.
 	*/
 	public T psyDequeue()
@@ -27,6 +28,7 @@ public interface PsyFormalQueue<T extends PsyObject>
 	*	Inserts an element into this queue.
 	*
 	*	@param o the element to enqueue.
+	*
 	*	@throws PsyException when the element can not be inserted without
 	*	violation of the capacity restrictions.
 	*/

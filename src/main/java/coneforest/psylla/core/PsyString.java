@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	An implementation of Ψ-{@code string} object.
+*	An implementation of {@code string} object.
 */
 @Type("string")
 public class PsyString
@@ -11,7 +11,7 @@ public class PsyString
 		PsyFormalArray<PsyInteger>
 {
 	/**
-	*	Creates a new empty Ψ-{@code string}.
+	*	Creates a new empty {@code string} object.
 	*/
 	public PsyString()
 	{
@@ -19,7 +19,8 @@ public class PsyString
 	}
 
 	/**
-	*	Creates a new Ψ-{@code string} whose buffer is initialized from string.
+	*	Creates a new {@code string} object whose buffer is initialized from
+	*	string.
 	*
 	*	@param string a string.
 	*/
@@ -29,7 +30,7 @@ public class PsyString
 	}
 
 	/**
-	*	Creates a new Ψ-{@code string} with the supplied buffer.
+	*	Creates a new {@code string} object with the supplied buffer.
 	*
 	*	@param buffer a buffer.
 	*/

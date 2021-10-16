@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code random}, a generator of pseudorandom objects.
+*	A representation of {@code random}, a generator of pseudorandom objects.
 */
 @Type("random")
 public class PsyRandom
@@ -10,7 +10,7 @@ public class PsyRandom
 {
 
 	/**
-	*	Sets the seed of this random generator.
+	*	Sets the seed of this {@code random} generator.
 	*
 	*	@param oSeed the given seed.
 	*/

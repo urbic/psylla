@@ -2,8 +2,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code formalarray}, an abstraction of an array
-*	composed of Ψ-{@code object}s.
+*	A representation of {@code formalarray}, an abstraction of an array
+*	composed of {@code object}s.
 *
 *	@param <T> a type of contained objects.
 */
@@ -64,22 +64,24 @@ public interface PsyFormalArray<T extends PsyObject>
 	}
 
 	/**
-	*	Inserts the specified Ψ-{@code object} into this array at the position
+	*	Inserts the specified {@code object} into this array at the position
 	*	specified by a given index.
 	*
-	*	@param index a Ψ-{@code integer} index.
-	*	@param o a Ψ-{@code object}.
+	*	@param index a {@code integer} index.
+	*	@param o a {@code object}.
+	*
 	*	@throws PsyException when an error occurs.
 	*/
 	public void insert(final int index, final T o)
 		throws PsyException;
 
 	/**
-	*	Inserts the specified Ψ-{@code object} into this array at the position
-	*	specified by a given Ψ-{@code integer} index.
+	*	Inserts the specified {@code object} into this array at the position
+	*	specified by a given {@code integer} index.
 	*
-	*	@param oIndex a Ψ-{@code integer} index.
-	*	@param o a Ψ-{@code object}.
+	*	@param oIndex an {@code integer} index.
+	*	@param o an {@code object}.
+	*
 	*	@throws PsyException when an error occurs.
 	*/
 	default public void psyInsert(final PsyInteger oIndex, final T o)
@@ -97,10 +99,9 @@ public interface PsyFormalArray<T extends PsyObject>
 	}
 
 	/**
-	*	Inserts the specified Ψ-{@code object} into this array at the
-	*	beginning.
+	*	Inserts the specified {@code object} into this array at the beginning.
 	*
-	*	@param o a Ψ-{@code object}.
+	*	@param o an {@code object}.
 	*	@throws PsyException when an error occurs.
 	*/
 	default public void psyPrepend(final T o)

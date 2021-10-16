@@ -2,7 +2,6 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 @ExceptionType("exception")
-//@coneforest.psylla.Type("exception")
 abstract public class PsyException
 	extends	Exception
 	implements PsyObject

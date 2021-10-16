@@ -33,7 +33,7 @@ public class PsyFileSystem
 	/**
 	*	Creates a new directory with the given name.
 	*
-	*	@param oFileName a Ψ-{@code textual} representing the name of the
+	*	@param oFileName a {@code textual} representing the name of the
 	*	directory being created.
 	*
 	*	@throws PsyFileExistsException when the directory already exists.
@@ -97,7 +97,7 @@ public class PsyFileSystem
 	/**
 	*	Deletes a file or empty directory with a given name.
 	*
-	*	@param oFileName a Ψ-{@code textual} representing the name of a file or
+	*	@param oFileName a {@code textual} representing the name of a file or
 	*	directory.
 	*
 	*	@throws PsyDirectoryNotEmptyException when the directory is not empty.
@@ -144,8 +144,8 @@ public class PsyFileSystem
 	/**
 	*	Copies a file to the target file.
 	*
-	*	@param oSourceName a Ψ-{@code textual} representing the name of the file to copy.
-	*	@param oTargetName a Ψ-{@code textual} representing the name of the target file.
+	*	@param oSourceName a {@code textual} representing the name of the file to copy.
+	*	@param oTargetName a {@code textual} representing the name of the target file.
 	*
 	*	@throws PsyDirectoryNotEmptyException
 	*	@throws PsyFileExistsException
@@ -486,12 +486,14 @@ public class PsyFileSystem
 	}
 
 	/**
-	*	Returns the Ψ-{@code integer} representing the size (in bytes) for the
+	*	Returns the {@code integer} representing the size (in bytes) for the
 	*	file or directory with the given name.
 	*
-	*	@param oFileName a Ψ-{@code textual} representing the file name.
-	*	@return a Ψ-{@code integer} representing the size (in bytes) of the
-	*	file or directory.
+	*	@param oFileName a {@code textual} representing the file name.
+	*
+	*	@return a {@code integer} representing the size (in bytes) of the file
+	*	or directory.
+	*
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited
 	*	due to a file permission or other access check.
 	*	@throws PsyFileNotFoundException when the file or directory does not exist.
@@ -618,10 +620,10 @@ public class PsyFileSystem
 	}
 
 	/**
-	*	Returns a Ψ-{@code name} representing the absolute name of the current
+	*	Returns a {@code name} representing the absolute name of the current
 	*	directory.
 	*
-	*	@return a Ψ-{@code name} representing the absolute name of the current
+	*	@return a {@code name} representing the absolute name of the current
 	*	directory.
 	*/
 	public static PsyName psyCurrentDirectory()
@@ -630,11 +632,11 @@ public class PsyFileSystem
 	}
 
 	/**
-	*	Returns a Ψ-{@code name} representing the absolute path to given file.
+	*	Returns a {@code name} representing the absolute path to given file.
 	*
-	*	@param oFileName a Ψ-{@code name} representing file name.
-	*	@return a Ψ-{@code name} representing the absolute path.
-	*	directory.
+	*	@param oFileName a {@code name} representing file name.
+	*
+	*	@return a {@code name} representing the absolute path. directory.
 	*
 	*	@throws PsyIOErrorException when an input/output error occurs.
 	*/

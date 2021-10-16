@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code iterable}, a type of an object that can be
+*	A representation of {@code iterable}, a type of an object that can be
 *	iterated over.
 *
 *	@param <T> a type of elements returned by the iterator.

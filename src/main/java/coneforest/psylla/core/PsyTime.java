@@ -11,10 +11,10 @@ public class PsyTime
 	}
 
 	/**
-	*	Returns a Ψ-{@code integer} representing the current time (in
+	*	Returns an {@code integer} object representing the current time (in
 	*	milliseconds since 1970.01.01 00:00:00 GMT).
 	*
-	*	@return a Ψ-{@code integer} representing the current time (in
+	*	@return an {@code integer} representing the current time (in
 	*	milliseconds since 1970.01.01 00:00:00 GMT).
 	*/
 	public static PsyInteger psyTime()

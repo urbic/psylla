@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code numeric}, an abstraction of complex and real
+*	A representation of {@code numeric}, an abstraction of complex and real
 *	numbers.
 */
 @coneforest.psylla.Type("numeric")
@@ -26,9 +26,9 @@ public interface PsyNumeric
 	public double imagValue();
 
 	/**
-	*	Returns a Ψ-{@code numeric} absolute value of this object.
+	*	Returns a {@code numeric} absolute value of this object.
 	*
-	*	@return a Ψ-{@code numeric} absolute value.
+	*	@return a {@code numeric} absolute value.
 	*/
 	public PsyRealNumeric psyAbs();
 
@@ -36,100 +36,97 @@ public interface PsyNumeric
 		throws PsyException;
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the exponent of this object.
+	*	Returns a {@code numeric} representing the exponent of this object.
 	*
-	*	@return a Ψ-{@code numeric} exponent.
+	*	@return a {@code numeric} exponent.
 	*/
 	public PsyNumeric psyExp();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the cosine of this object.
+	*	Returns a {@code numeric} representing the cosine of this object.
 	*
-	*	@return a Ψ-{@code numeric} cosine.
+	*	@return a {@code numeric} cosine.
 	*/
 	public PsyNumeric psyCos();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the sine of this object.
+	*	Returns a {@code numeric} representing the sine of this object.
 	*
-	*	@return a Ψ-{@code numeric} sine.
+	*	@return a {@code numeric} sine.
 	*/
 	public PsyNumeric psySin();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the tangent of this object.
+	*	Returns a {@code numeric} representing the tangent of this object.
 	*
-	*	@return a Ψ-{@code numeric} tangent.
+	*	@return a {@code numeric} tangent.
 	*/
 	public PsyNumeric psyTan();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the natural logarithm of this
+	*	Returns a {@code numeric} representing the natural logarithm of this
 	*	object.
 	*
-	*	@return a Ψ-{@code numeric} logarithm.
-	*	value.
+	*	@return a {@code numeric} logarithm.
 	*/
 	public PsyNumeric psyLog();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the arc cosine of this object.
+	*	Returns a {@code numeric} representing the arc cosine of this object.
 	*
-	*	@return a Ψ-{@code numeric} arc cosine.
+	*	@return a {@code numeric} arc cosine.
 	*/
 	public PsyNumeric psyAcos();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the arc sine of this object.
+	*	Returns a {@code numeric} representing the arc sine of this object.
 	*
-	*	@return a Ψ-{@code numeric} arc sine.
+	*	@return a {@code numeric} arc sine.
 	*/
 	public PsyNumeric psyAsin();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the arc tangent of this
-	*	object.
+	*	Returns a {@code numeric} representing the arc tangent of this object.
 	*
-	*	@return a Ψ-{@code numeric} arcc tangent.
+	*	@return a {@code numeric} arc tangent.
 	*/
 	public PsyNumeric psyAtan();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the square root of this
-	*	object.
+	*	Returns a {@code numeric} representing the square root of this object.
 	*
-	*	@return a Ψ-{@code numeric} square root of this number.
+	*	@return a {@code numeric} square root of this number.
 	*/
 	public PsyNumeric psySqrt();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the cubic root of this object.
+	*	Returns a {@code numeric} representing the cubic root of this object.
 	*
-	*	@return a Ψ-{@code numeric} cubic root of this number.
+	*	@return a {@code numeric} cubic root of this number.
 	*/
 	public PsyNumeric psyCbrt();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the hyperbolic cosine of this
+	*	Returns a {@code numeric} representing the hyperbolic cosine of this
 	*	object.
 	*
-	*	@return a Ψ-{@code numeric} hyperbolic cosine of this number.
+	*	@return a {@code numeric} hyperbolic cosine of this number.
 	*/
 	public PsyNumeric psyCosh();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the hyperbolic sine of this
+	*	Returns a {@code numeric} representing the hyperbolic sine of this
 	*	object.
 	*
-	*	@return a Ψ-{@code numeric} hyperbolic sine of this number.
+	*	@return a {@code numeric} hyperbolic sine of this number.
 	*/
 	public PsyNumeric psySinh();
 
 	/**
-	*	Returns a Ψ-{@code numeric} representing the hyperbolic tangent of this
+	*	Returns a {@code numeric} representing the hyperbolic tangent of this
 	*	object.
 	*
-	*	@return a Ψ-{@code numeric} hyperbolic tangent of this number.
+	*	@return a {@code numeric} hyperbolic tangent of this number.
 	*/
 	public PsyNumeric psyTanh();
 

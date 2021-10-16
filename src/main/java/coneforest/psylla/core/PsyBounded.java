@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code bounded}, a type of a container with bounded
+*	A representation of {@code bounded}, a type of a container with bounded
 *	capacity.
 */
 @Type("bounded")
@@ -19,9 +19,9 @@ public interface PsyBounded
 	public int capacity();
 
 	/**
-	*	Returns the Ψ-{@code integer} capacity of this container.
+	*	Returns the {@code integer} capacity of this container.
 	*
-	*	@return the Ψ-{@code integer} capacity of this container.
+	*	@return the {@code integer} capacity of this container.
 	*/
 	default public PsyInteger psyCapacity()
 	{
@@ -40,10 +40,10 @@ public interface PsyBounded
 	}
 
 	/**
-	*	Returns a Ψ-{@code boolean} indicating whether this container is full.
+	*	Returns a {@code boolean} indicating whether this container is full.
 	*
-	*	@return the Ψ-{@code boolean} {@code true} if this container is full,
-	*	and the Ψ-{@code boolean} {@code false} otherwise.
+	*	@return the {@code boolean} {@code true} if this container is full, and
+	*	the {@code boolean} {@code false} otherwise.
 	*/
 	default public PsyBoolean psyIsFull()
 	{

@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code complex} object.
+*	A representation of {@code complex} object.
 */
 @Type("complex")
 public class PsyComplex
@@ -61,9 +61,9 @@ public class PsyComplex
 	}
 
 	/**
-	*	Returns a Ψ-{@code real} real part of this object.
+	*	Returns a {@code real} real part of this object.
 	*
-	*	@return a Ψ-{@code real} real part.
+	*	@return a {@code real} real part.
 	*/
 	public PsyReal psyRealPart()
 	{
@@ -71,9 +71,9 @@ public class PsyComplex
 	}
 
 	/**
-	*	Returns a Ψ-{@code real} imaginary part of this object.
+	*	Returns a {@code real} imaginary part of this object.
 	*
-	*	@return a Ψ-{@code real} imaginary part.
+	*	@return a {@code real} imaginary part.
 	*/
 	public PsyReal psyImagPart()
 	{
@@ -81,10 +81,10 @@ public class PsyComplex
 	}
 
 	/**
-	*	Returns a Ψ-{@code real} representing the complex argument of this
+	*	Returns a {@code real} representing the complex argument of this
 	*	object. The argument belongs to the range (−π; π].
 	*
-	*	@return a Ψ-{@code real} argument.
+	*	@return a {@code real} argument.
 	*/
 	public PsyReal psyArg()
 	{
@@ -92,10 +92,10 @@ public class PsyComplex
 	}
 
 	/**
-	*	Returns a Ψ-{@code complex} representing the complex conjugate of this
+	*	Returns a {@code complex} representing the complex conjugate of this
 	*	object.
 	*
-	*	@return a Ψ-{@code complex} conjugate of this number.
+	*	@return a {@code complex} conjugate of this number.
 	*/
 	public PsyComplex psyConjugate()
 	{

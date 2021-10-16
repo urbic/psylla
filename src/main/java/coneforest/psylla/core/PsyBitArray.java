@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code bitarray} object.
+*	A representation of {@code bitarray} object.
 */
 @Type("bitarray")
 public class PsyBitArray
@@ -11,7 +11,7 @@ public class PsyBitArray
 		PsyBitwise<PsyBitArray>
 {
 	/**
-	*	Creates a new empty Ψ-{@code bitarray}.
+	*	Creates a new empty {@code bitarray}.
 	*/
 	public PsyBitArray()
 	{

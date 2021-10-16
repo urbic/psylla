@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code condition} object.
+*	A representation of {@code condition} object.
 */
 @Type("condition")
 public class PsyCondition
@@ -10,7 +10,7 @@ public class PsyCondition
 {
 
 	/**
-	*	Constructs a Ψ-{@code condition} object that wraps given condition.
+	*	Constructs a {@code condition} object that wraps given condition.
 	*
 	*	@param condition a condition.
 	*/

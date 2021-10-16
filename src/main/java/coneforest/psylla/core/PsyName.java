@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code name}, a type of immutable string.
+*	A representation of {@code name} object, an immutable string.
 */
 @Type("name")
 public class PsyName
@@ -11,9 +11,9 @@ public class PsyName
 		PsyTextual
 {
 	/**
-	*	Instantiate a new Ψ-{@code name} object with given name.
+	*	Instantiate a new {@code name} object from the given value.
 	*
-	*	@param cs a name.
+	*	@param cs a given value.
 	*/
 	public PsyName(final CharSequence cs)
 	{
@@ -21,10 +21,10 @@ public class PsyName
 	}
 
 	/**
-	*	Instantiate a new Ψ-{@code name} object with name given as Ψ-{@code
+	*	Instantiate a new {@code name} object from the value given as {@code
 	*	textual} object.
 	*
-	*	@param oTextual a textual.
+	*	@param oTextual a {@code textual} object.
 	*/
 	public PsyName(final PsyTextual oTextual)
 	{
@@ -49,7 +49,7 @@ public class PsyName
 	}
 
 	/**
-	*	@return a Ψ-{@code integer} length (in characters) of this name.
+	*	@return an {@code integer} length (in characters) of this name.
 	*/
 	@Override
 	public PsyInteger psyLength()
@@ -59,10 +59,10 @@ public class PsyName
 
 	/**
 	*	Converts all of the characters in this object to upper case according
-	*	to default locale and returns a new Ψ-{@code name} object representing
+	*	to default locale and returns a new {@code name} object representing
 	*	the result of the conversion.
 	*
-	*	@return a Ψ-{@code name} result of upper-casing.
+	*	@return a {@code name} result of upper-casing.
 	*/
 	@Override
 	public PsyName psyUpperCase()
@@ -72,10 +72,10 @@ public class PsyName
 
 	/**
 	*	Converts all of the characters in this object to lower case according
-	*	to default locale and returns a new Ψ-{@code name} object representing
+	*	to default locale and returns a new {@code name} object representing
 	*	the result of the conversion.
 	*
-	*	@return a Ψ-{@code name} result of lower-casing.
+	*	@return a {@code name} result of lower-casing.
 	*/
 	@Override
 	public PsyName psyLowerCase()
@@ -134,11 +134,12 @@ public class PsyName
 	}
 
 	/**
-	*	Returns a Ψ-{@code boolean} indicating whether some other Ψ-object is
-	*	“equal to” this one. Return value is {@code true} if and only if other
-	*	object has Ψ-{@code name} type and its value is equal to this one’s.
+	*	Returns a {@code boolean} object indicating whether some other object
+	*	is “equal to” this one. Return value is {@code true} if and only if
+	*	other object has {@code name} type and its value is equal to this
+	*	one’s.
 	*
-	*	@return a result.
+	*	@return a {@code boolean} result.
 	*/
 	@Override
 	public boolean equals(final Object object)

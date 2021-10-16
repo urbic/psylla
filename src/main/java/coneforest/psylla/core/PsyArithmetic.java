@@ -2,8 +2,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code arithmetic}, a type of object that is an
-*	operand of arithmetic operation. This interface declares methods for
+*	A representation of {@code arithmetic}, a type of object that is an operand
+*	of arithmetic operation. This interface declares methods for
 *	multiplication, division.
 *
 *	@param <T> a type of the second operand at binary operation.
@@ -31,7 +31,7 @@ public interface PsyArithmetic<T extends PsyArithmetic>
 	public T psyDiv(final T oArithmetic);
 
 	/**
-	*	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	*	Returns a {@code boolean} indicating whether this object represents a
 	*	zero value.
 	*
 	*	@return {@link PsyBoolean#TRUE} if this object represents a zero value,
@@ -40,7 +40,7 @@ public interface PsyArithmetic<T extends PsyArithmetic>
 	public PsyBoolean psyIsZero();
 
 	/**
-	*	Returns a Ψ-{@code boolean} indicating whether this object represents a
+	*	Returns a {@code boolean} indicating whether this object represents a
 	*	non-zero value.
 	*
 	*	@return {@link PsyBoolean#TRUE} if this object represents a non-zero value,

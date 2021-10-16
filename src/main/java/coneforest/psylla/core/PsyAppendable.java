@@ -2,10 +2,10 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code appendable}, a type of container that allow to
-*	append Ψ objects (usually to the end, if it makes sense).
+*	A representation of {@code appendable}, a type of container that allow to
+*	append objects (usually to the end, if it makes sense).
 *
-*	@param <T> a type of Ψ-{@code object}s being appended.
+*	@param <T> a type of {@code object}s being appended.
 */
 @Type("appendable")
 public interface PsyAppendable<T extends PsyObject>
@@ -13,21 +13,21 @@ public interface PsyAppendable<T extends PsyObject>
 {
 
 	/**
-	*	Appends a given Ψ-{@code object} to this container.
+	*	Appends a given {@code object} to this container.
 	*
-	*	@param o a given Ψ-{@code object} to append.
+	*	@param o an {@code object} to append.
 	*	@throws PsyException when an error occurs.
 	*/
 	public void psyAppend(final T o)
 		throws PsyException;
 
 	/**
-	*	Appends all the Ψ-{@code object}s from a given Ψ-{@code iterable}
+	*	Appends all the {@code object}s from a given {@code iterable}
 	*	enumeration to this container. When a given enumeration is the same as
 	*	this container, first clone the enumeration, and then appends all the
 	*	elements from the clone to avoid concurrent modification.
 	*
-	*	@param oEnumeration a Ψ-{@code iterable} enumeration.
+	*	@param oEnumeration an {@code iterable} enumeration.
 	*	@throws PsyException when an error occurs.
 	*/
 	default public void psyAppendAll(final PsyIterable<? extends T> oEnumeration)

@@ -2,15 +2,15 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	An implementation of Ψ-{@code stringreader}, a character stream whose
-*	source is a Ψ-{@code textual}.
+*	An implementation of {@code stringreader}, a character stream whose source
+*	is a {@code textual}.
 */
 @Type("stringreader")
 public class PsyStringReader
 	extends PsyReader
 {
 	/**
-	*	Creates a new Ψ-{@code stringreader}.
+	*	Creates a new {@code stringreader} object.
 	*
 	*	@param string a string providing the character string.
 	*/
@@ -20,9 +20,9 @@ public class PsyStringReader
 	}
 
 	/**
-	*	Creates a new Ψ-{@code stringreader}.
+	*	Creates a new {@code stringreader} object.
 	*
-	*	@param oTextual a Ψ-{@code textual} providing the character string.
+	*	@param oTextual a {@code textual} providing the character string.
 	*/
 	public PsyStringReader(final PsyTextual oTextual)
 	{
