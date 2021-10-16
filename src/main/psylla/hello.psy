@@ -2,5 +2,5 @@
 product print ' v' print
 version print /. say
 'Project site: ‹' print
-configdict /config.vendor.url get print
+configdict /project.url get print
 '›' say
