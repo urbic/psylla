@@ -2,12 +2,12 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code integer} object.
+*	A representation of {@code integer} object.
 */
 @Type("integer")
 public class PsyInteger
 	implements
-		PsyBitwise<PsyInteger>,
+		PsyBitwise<PsyIntegral>,
 		PsyIntegral
 {
 	public PsyInteger(final long value)
@@ -58,21 +58,27 @@ public class PsyInteger
 	}
 
 	@Override
-	public PsyInteger psyOr(final PsyInteger oInteger)
+	public PsyIntegral psyOr(final PsyIntegral oIntegral)
 	{
-		return PsyInteger.valueOf(value | oInteger.value);
+		if(oIntegral instanceof PsyInteger)
+			return PsyInteger.valueOf(value | ((PsyInteger)oIntegral).value);
+		return PsyIntegral.valueOf(bigIntegerValue().or(((PsyBigInteger)oIntegral).bigIntegerValue()));
 	}
 
 	@Override
-	public PsyInteger psyAnd(final PsyInteger oInteger)
+	public PsyIntegral psyAnd(final PsyIntegral oIntegral)
 	{
-		return PsyInteger.valueOf(value & oInteger.value);
+		if(oIntegral instanceof PsyInteger)
+			return PsyInteger.valueOf(value & ((PsyInteger)oIntegral).value);
+		return PsyIntegral.valueOf(bigIntegerValue().and(((PsyBigInteger)oIntegral).bigIntegerValue()));
 	}
 
 	@Override
-	public PsyInteger psyXor(final PsyInteger oInteger)
+	public PsyIntegral psyXor(final PsyIntegral oIntegral)
 	{
-		return PsyInteger.valueOf(value ^ oInteger.value);
+		if(oIntegral instanceof PsyInteger)
+			return PsyInteger.valueOf(value ^ ((PsyInteger)oIntegral).value);
+		return PsyIntegral.valueOf(bigIntegerValue().xor(((PsyBigInteger)oIntegral).bigIntegerValue()));
 	}
 
 	@Override
@@ -161,10 +167,12 @@ public class PsyInteger
 			if((value^numeric)<0|(value^result)>=0)
 				return PsyInteger.valueOf(result);
 			else
-				return PsyIntegral.valueOf(bigIntegerValue().add(((PsyInteger)oNumeric).bigIntegerValue()));
+				return PsyIntegral.valueOf(
+					bigIntegerValue().add(((PsyInteger)oNumeric).bigIntegerValue()));
 		}
 		else if(oNumeric instanceof PsyBigInteger)
-			return PsyIntegral.valueOf(bigIntegerValue().add(((PsyBigInteger)oNumeric).bigIntegerValue()));
+			return PsyIntegral.valueOf(
+				bigIntegerValue().add(((PsyBigInteger)oNumeric).bigIntegerValue()));
 
 		return new PsyReal(doubleValue()+oNumeric.doubleValue());
 	}
@@ -384,32 +392,32 @@ public class PsyInteger
 	}
 
 	/**
-	*	A Ψ-{@code integer} representing the number 0.
+	*	An {@code integer} representing the number 0.
 	*/
 	public static final PsyInteger ZERO=PsyInteger.valueOf(0L);
 
 	/**
-	*	A Ψ-{@code integer} representing the number 1.
+	*	An {@code integer} representing the number 1.
 	*/
 	public static final PsyInteger ONE=PsyInteger.valueOf(1L);
 
 	/**
-	*	A Ψ-{@code integer} representing the number 2.
+	*	An {@code integer} representing the number 2.
 	*/
 	public static final PsyInteger TWO=PsyInteger.valueOf(2L);
 
 	/**
-	*	A Ψ-{@code integer} representing the number −1.
+	*	An {@code integer} representing the number −1.
 	*/
 	public static final PsyInteger MINUS_ONE=PsyInteger.valueOf(-1L);
 
 	/**
-	*	A Ψ-{@code integer} representing the maximum representable value.
+	*	An {@code integer} representing the maximum representable value.
 	*/
 	public static final PsyInteger MAX_VALUE=PsyInteger.valueOf(Long.MAX_VALUE);
 
 	/**
-	*	A Ψ-{@code integer} representing the minimum representable value.
+	*	An {@code integer} representing the minimum representable value.
 	*/
 	public static final PsyInteger MIN_VALUE=PsyInteger.valueOf(Long.MIN_VALUE);
 

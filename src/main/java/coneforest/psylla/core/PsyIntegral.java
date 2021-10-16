@@ -2,15 +2,15 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of Ψ-{@code integral} object.
+*	A representation of {@code integral} object.
 */
 @Type("integral")
 public interface PsyIntegral
 	extends
-		//PsyBitwise<PsyIntegral>, TODO
+		PsyBitwise<PsyIntegral>,
 		PsyRealNumeric
 {
-	java.math.BigInteger bigIntegerValue();
+	public java.math.BigInteger bigIntegerValue();
 
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyException;

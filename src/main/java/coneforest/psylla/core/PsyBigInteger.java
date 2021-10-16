@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 @coneforest.psylla.Type("biginteger")
 public class PsyBigInteger
 	implements
-		PsyBitwise<PsyBigInteger>,
+		PsyBitwise<PsyIntegral>,
 		PsyIntegral
 {
 	public PsyBigInteger(final java.math.BigInteger value)
@@ -68,39 +68,39 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyBigInteger psySetBit(final PsyInteger oBit)
+	public PsyIntegral psySetBit(final PsyInteger oBit)
 	{
-		return new PsyBigInteger(value.setBit(oBit.intValue()));
+		return PsyIntegral.valueOf(value.setBit(oBit.intValue()));
 	}
 
 	@Override
-	public PsyBigInteger psyFlipBit(final PsyInteger oBit)
+	public PsyIntegral psyFlipBit(final PsyInteger oBit)
 	{
-		return new PsyBigInteger(value.flipBit(oBit.intValue()));
+		return PsyIntegral.valueOf(value.flipBit(oBit.intValue()));
 	}
 
 	@Override
-	public PsyBigInteger psyClearBit(final PsyInteger oBit)
+	public PsyIntegral psyClearBit(final PsyInteger oBit)
 	{
-		return new PsyBigInteger(value.clearBit(oBit.intValue()));
+		return PsyIntegral.valueOf(value.clearBit(oBit.intValue()));
 	}
 
 	@Override
-	public PsyBigInteger psyOr(final PsyBigInteger oBigInteger)
+	public PsyIntegral psyOr(final PsyIntegral oIntegral)
 	{
-		return new PsyBigInteger(value.or(oBigInteger.value));
+		return PsyIntegral.valueOf(value.or(oIntegral.bigIntegerValue()));
 	}
 
 	@Override
-	public PsyBigInteger psyAnd(final PsyBigInteger oBigInteger)
+	public PsyIntegral psyAnd(final PsyIntegral oIntegral)
 	{
-		return new PsyBigInteger(value.and(oBigInteger.value));
+		return PsyIntegral.valueOf(value.and(oIntegral.bigIntegerValue()));
 	}
 
 	@Override
-	public PsyBigInteger psyXor(final PsyBigInteger oBigInteger)
+	public PsyIntegral psyXor(final PsyIntegral oIntegral)
 	{
-		return new PsyBigInteger(value.xor(oBigInteger.value));
+		return PsyIntegral.valueOf(value.xor(oIntegral.bigIntegerValue()));
 	}
 
 	@Override
@@ -128,9 +128,9 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyBigInteger psyAbs()
+	public PsyIntegral psyAbs()
 	{
-		return new PsyBigInteger(value.abs());
+		return PsyIntegral.valueOf(value.abs());
 	}
 
 	@Override
@@ -146,14 +146,15 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyBigInteger psyMod(final PsyIntegral oIntegral)
+	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyException
 	{
 		if(oIntegral instanceof PsyBigInteger)
-			return new PsyBigInteger(value.mod(((PsyBigInteger)oIntegral).value));
+			return PsyIntegral.valueOf(value.mod(((PsyBigInteger)oIntegral).value));
 		if(oIntegral instanceof PsyInteger)
-			return new PsyBigInteger(
-				value.mod(java.math.BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
+			//return new PsyBigInteger(
+			//	value.mod(java.math.BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
+			return PsyIntegral.valueOf(value.mod(((PsyInteger)oIntegral).bigIntegerValue()));
 		throw new PsyTypeCheckException();
 	}
 
@@ -161,9 +162,9 @@ public class PsyBigInteger
 	public PsyRealNumeric psyMul(final PsyRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsyBigInteger)
-			return new PsyBigInteger(value.multiply(((PsyBigInteger)oNumeric).value));
+			return PsyIntegral.valueOf(value.multiply(((PsyBigInteger)oNumeric).value));
 		else if(oNumeric instanceof PsyInteger)
-			return new PsyBigInteger(value.multiply(new PsyBigInteger((PsyInteger)oNumeric).value));
+			return PsyIntegral.valueOf(value.multiply(new PsyBigInteger((PsyInteger)oNumeric).value));
 		return new PsyReal(doubleValue()*((PsyReal)oNumeric).doubleValue());
 	}
 
@@ -171,9 +172,9 @@ public class PsyBigInteger
 	public PsyRealNumeric psySub(final PsyRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsyBigInteger)
-			return new PsyBigInteger(value.subtract(((PsyBigInteger)oNumeric).value));
+			return PsyIntegral.valueOf(value.subtract(((PsyBigInteger)oNumeric).value));
 		else if(oNumeric instanceof PsyInteger)
-			return new PsyBigInteger(value.subtract(new PsyBigInteger((PsyInteger)oNumeric).value));
+			return PsyIntegral.valueOf(value.subtract(new PsyBigInteger((PsyInteger)oNumeric).value));
 		return new PsyReal(doubleValue()-((PsyReal)oNumeric).doubleValue());
 	}
 
@@ -181,16 +182,16 @@ public class PsyBigInteger
 	public PsyRealNumeric psyAdd(final PsyRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsyBigInteger)
-			return new PsyBigInteger(value.add(((PsyBigInteger)oNumeric).value));
+			return PsyIntegral.valueOf(value.add(((PsyBigInteger)oNumeric).value));
 		else if(oNumeric instanceof PsyInteger)
-			return new PsyBigInteger(value.add(new PsyBigInteger((PsyInteger)oNumeric).value));
+			return PsyIntegral.valueOf(value.add(new PsyBigInteger((PsyInteger)oNumeric).value));
 		return new PsyReal(doubleValue()+((PsyReal)oNumeric).doubleValue());
 	}
 
 	@Override
-	public PsyBigInteger psyNeg()
+	public PsyIntegral psyNeg()
 	{
-		return new PsyBigInteger(value.negate());
+		return PsyIntegral.valueOf(value.negate());
 	}
 
 	@Override
@@ -200,9 +201,9 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyBigInteger psySignum()
+	public PsyInteger psySignum()
 	{
-		return new PsyBigInteger(value.signum());
+		return PsyInteger.valueOf(value.signum());
 	}
 
 	@Override
@@ -224,6 +225,7 @@ public class PsyBigInteger
 	@Override
 	public boolean equals(final Object object)
 	{
+		// TODO PsyInteger
 		return object instanceof PsyBigInteger
 				&& value.equals(((PsyBigInteger)object).value);
 	}
