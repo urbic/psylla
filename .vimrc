@@ -1,4 +1,4 @@
-se rtp+=src/vim
+se indentexpr=
 
 ru ftdetect/psylla.vim
 ru syntax/psylla.vim
