@@ -50,41 +50,35 @@
 	<property name="target.mime" location="${target}/mime"/>
 	<property name="target.gh-pages" location="${target}/gh-pages"/>
 	<property name="datadir" location="/usr/share"/>
-	<property name="sysconfdir" location="/etc"/>
-	<property name="sysconfdir.xml" location="${sysconfdir}/xml"/>
-	<property name="file.encoding" location="UTF-8"/>
-	<property name="build.sysclasspath" value="ignore"/>
+	<property name="file.encoding" value="UTF-8"/>
 	<property name="linux.flavour" value="redhat"/>
+	<property name="build.sysclasspath" value="ignore"/>
 
 	<property file="${src.ant}/config.properties"/>
+	<property file="${src.ant}/config-${linux.flavour}.properties"/>
 
 	<path id="modulepath.main">
 		<pathelement location="${target.classes}"/>
-		<pathelement location="${config.jnidir}/jline1/jline-1.jar"/><!-- For openSUSE -->
-		<pathelement location="${config.javadir}/jline.jar"/><!-- For Debian -->
 		<pathelement location="${ant.core.lib}"/>
 		<pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/>
-		<pathelement location="${config.javadir}/junit.jar"/><!-- For openSUSE -->
-		<pathelement location="${config.javadir}/junit4.jar"/><!-- For Debian -->
+		<pathelement location="${config.jar.junit4}"/>
+		<pathelement location="${config.jar.jline1}"/>
 	</path>
 
 	<xmlcatalog id="xmlcatalog.xslt">
 		<catalogpath>
-			<pathelement location="${sysconfdir.xml}/catalog"/>
-			<pathelement location="${sysconfdir.xml}/docbook5-xsl-stylesheets.xml"/>
-			<pathelement location="${sysconfdir.xml}/docbook-xsl-ns.xml"/>
-			<pathelement location="${sysconfdir.xml}/w3-dtd--mathml.xml"/>
+			<pathelement location="${config.sysconfdir}/xml/catalog"/>
+			<pathelement location="${config.sysconfdir}/xml/docbook5-xsl-stylesheets.xml"/>
+			<pathelement location="${config.sysconfdir}/xml/docbook-xsl-ns.xml"/>
+			<pathelement location="${config.sysconfdir}/xml/w3-dtd--mathml.xml"/>
 		</catalogpath>
 	</xmlcatalog>
 
 	<path id="classpath.xslt">
-		<pathelement location="${config.javadir}/saxon6.jar"/>
-		<pathelement location="${config.javadir}/docbook-xsl-saxon.jar"/>
-		<pathelement location="${config.javadir}/xslthl.jar"/>
-
-		<!-- for Debian -->
-		<pathelement location="${config.javadir}/saxon-6.5.5.jar"/>
-		<pathelement location="${config.javadir}/xercesImpl.jar"/>
+		<pathelement location="${config.jar.saxon6}"/>
+		<pathelement location="${config.jar.docbook-xsl-saxon}"/>
+		<pathelement location="${config.jar.xslthl}"/>
+		<pathelement location="${config.jar.xerces}"/>
 	</path>
 
 	<!-- Import supplementary Ant projects -->
@@ -118,7 +112,7 @@
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
-			<classpath refid="modulepath.main"/>
+			<modulepath refid="modulepath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
@@ -171,11 +165,9 @@
 			>
 			<classpath refid="modulepath.main"/>
 			<arg value="-Xdoclint:missing,reference"/>
-			<link href="file://${config.javadocdir}/java"/>
-			<link href="file://${config.javadocdir}/junit"/>
-			<link href="file://${config.javadocdir}/jline1"/>
-			<link href="file://${config.docdir}/openjdk-11-jre-headless/api"/><!-- For Debian -->
-			<link href="file://${config.docdir}/libjline-java/api"/><!-- For Debian -->
+			<link href="${config.javadocdir.java}"/>
+			<link href="${config.javadocdir.junit4}"/>
+			<link href="${config.javadocdir.jline1}"/>
 		</javadoc>
 	</target>
 

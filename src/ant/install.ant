@@ -17,11 +17,6 @@
 		<mkdir dir="${destdir}/${config.datadir}/mime/packages"/>
 		<mkdir dir="${destdir}/${config.mandir}"/>
 		<mkdir dir="${destdir}/${config.sysconfdir}/ant.d"/>
-		<symlink
-			link="${destdir}/${config.datadir}/${project.name}/current"
-			resource="${project.version}"
-			overwrite="true"
-			/>
 
 		<!-- Install jar and make a symlink -->
 		<copy todir="${destdir}/${config.javadir}" file="${target.lib}/${project.name}-${project.version}.jar"/>

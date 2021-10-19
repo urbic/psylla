@@ -30,7 +30,7 @@ build-stamp:
 		build
 	# --- end custom part for compiling
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	LC_ALL=C.UTF-8 ant \
+	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant \
 		-Dlinux.flavour=debian \
 		test
 endif

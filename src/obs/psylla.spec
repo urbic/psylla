@@ -75,24 +75,19 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-LC_ALL=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
-	-Djline1.jar=%{jline1_jar} \
-	-Dconfig.libdir=%{_libdir} \
-	-Dconfig.docdir=%{_docdir} \
-	-Dconfig.licensedir=%{_defaultlicensedir} \
+LC_ALL=C.UTF-8 %{ant} -v \
 	build
 
 %check
 LC_ALL=C.UTF-8 \
-CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
-	-Djline1.jar=%{jline1_jar} \
+	%{ant} -v \
 	test
 
 %install
-LANG=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
+LANG=C.UTF-8 %{ant} -v \
 	-Ddestdir=%{buildroot} \
 	install
-%fdupes %{buildroot}%{_javadocdir}/%{name}/jquery
+%fdupes %{buildroot}%{_javadocdir}/%{name}
 
 %post
 %mime_database_post
@@ -115,7 +110,7 @@ LANG=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/ant/lib/ant-%{name}.jar
 %config %{_sysconfdir}/ant.d/*
-%{_mandir}/man1/*
+%{_mandir}/man1/*.1%{?ext_man}
 %dir %{_docdir}/%{name}
 %doc %{_docdir}/%{name}/README
 %doc %{_docdir}/%{name}/AUTHORS
