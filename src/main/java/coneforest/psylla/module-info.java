@@ -5,6 +5,6 @@ module coneforest.psylla
 	requires java.scripting;
 	requires java.compiler;
 	requires ant.junit;
-	requires junit;
+	//requires junit;
 	requires jline;
 }
