@@ -105,11 +105,7 @@ LANG=C.UTF-8 CLASSPATH=%{_javadir}/xerces-j2-xml-apis.jar %{ant} \
 %files
 %{_javadir}/*.jar
 %{_bindir}/*
-%dir %{_datadir}/%{name}
-%dir %{_datadir}/%{name}/site
-%dir %{_datadir}/%{name}/%{version}
-%{_datadir}/%{name}/%{version}/*
-%{_datadir}/%{name}/current
+%{_datadir}/%{name}
 %dir %{_datadir}/vim
 %dir %{_datadir}/vim/site
 %dir %{_datadir}/vim/site/ftdetect

@@ -64,7 +64,8 @@
 		<pathelement location="${config.javadir}/jline.jar"/><!-- For Debian -->
 		<pathelement location="${ant.core.lib}"/>
 		<pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/>
-		<pathelement location="${config.javadir}/junit4.jar"/>
+		<pathelement location="${config.javadir}/junit.jar"/><!-- For openSUSE -->
+		<pathelement location="${config.javadir}/junit4.jar"/><!-- For Debian -->
 	</path>
 
 	<xmlcatalog id="xmlcatalog.xslt">
@@ -283,8 +284,25 @@
 			classname="coneforest.psylla.tools.ant.Psylla"
 			classpathref="modulepath.main"
 			/>
-		<psylla eval="0 1 1 99 { ? } for"/>
+		<psylla eval="1 1 99 { ? } for"/>
 		<psylla eval="1 atan 4 mul ?"/>
+	</target>
+
+	<target name="test.jsr223" depends="jar">
+		<script
+			manager="javax"
+			language="psylla"
+			classpathref="modulepath.main"
+			>
+			<![CDATA[1 1 99 { ? } for]]>
+		</script>
+		<script
+			manager="javax"
+			language="psylla"
+			classpathref="modulepath.main"
+			>
+			<![CDATA[1 atan 4 mul ?]]>
+		</script>
 	</target>
 
 	<target name="htmldocs"
