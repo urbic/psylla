@@ -3,10 +3,10 @@ import javax.script.*;
 
 public class PsyllaScriptingExample
 {
-	public static void main(String[] args)
+	public static void main(final String[] args)
 	{
-		ScriptEngineManager manager=new ScriptEngineManager();
-		ScriptEngine engine=manager.getEngineByName("psylla");
+		final var manager=new ScriptEngineManager();
+		final var engine=manager.getEngineByName("psylla");
 
 		System.out.println(engine.get("javax.script.name"));
 		System.out.println(engine.get("javax.script.language"));
@@ -15,9 +15,9 @@ public class PsyllaScriptingExample
 		{
 			engine.eval("0 1 9 { ? } for");
 		}
-		catch(final javax.script.ScriptException e)
+		catch(final javax.script.ScriptException ex)
 		{
-			System.err.println(e.getMessage());
+			System.err.println(ex.getMessage());
 		}
 	}
 }

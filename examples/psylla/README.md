@@ -27,6 +27,8 @@ Prints the _n_!. The non-negative integer _n_ is passed in the command line.
   implementation
 * [__`factorial-recursive.psy`__](factorial-recursive.psy) — recursive
   implementation
+* [__`factorial-stream.psy`__](factorial-stream.psy) — stream-based
+  implementation
 
 ## Fences balance
 

@@ -82,7 +82,7 @@ hr { border: solid #2a675b 1px; }
 
 table.productionset { font-family: "Consolas", monospace; background-color: #fafafa; }
 
-:link:hover .errorname, .errorname { color: #b36200; text-decoration-color: #A22; }
+:link:hover .errorname, .errorname { color: #570057; text-decoration-color: #570057; }
 
 .formalpara-title { font-weight: bold; }
 
