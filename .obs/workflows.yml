@@ -1,5 +1,7 @@
 workflow:
   steps:
-    - link_package:
-      source_project: home:urbic:java
-      source_package: psylla
+    - rebuild_package:
+      project: home:urbic:java
+	  source_package: psylla
+  filters:
+    event: push
