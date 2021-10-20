@@ -2,9 +2,11 @@ workflow:
   steps:
     - rebuild_package:
       project: home:urbic:java
-      source_package: psylla
+      package: psylla
   filters:
     event: push
     branches:
+      only:
+        - master
       ignore:
         - gh-pages
