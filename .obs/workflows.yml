@@ -6,7 +6,5 @@ workflow:
   filters:
     event: push
     branches:
-      only:
-        - master
       ignore:
         - gh-pages
