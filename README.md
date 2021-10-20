@@ -57,7 +57,7 @@ bind def
 bind def
 ```
 
-Calculation factorial of 50:
+Calculating factorial of 50:
 
 ```
 50 factorial toname say
