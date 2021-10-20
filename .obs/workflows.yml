@@ -5,3 +5,6 @@ workflow:
       source_package: psylla
   filters:
     event: push
+    branches:
+      only:
+        - main
