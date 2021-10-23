@@ -21,10 +21,10 @@ jobs:
             - name: Deploy sources
               run: ant -v -noinput -Dlinux.flavour=debian dist.tar
               uses: actions/upload-artifact@v2
-                with:
-                  name: sources
-                  path: |
-                    target/*.xz
+              with:
+                name: sources
+                path: |
+                  target/*.xz
             - name: Deploy site
               uses: JamesIves/github-pages-deploy-action@3.6.2
               with:
