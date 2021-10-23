@@ -18,8 +18,9 @@ jobs:
               run: ant -v -noinput -Dlinux.flavour=debian build
             - name: Test
               run: ant -v -noinput -Dlinux.flavour=debian test
-            - name: Deploy sources
+            - name: Build OBS sources
               run: ant -v -noinput -Dlinux.flavour=debian dist.tar
+            - name: Deploy OBS sources
               uses: actions/upload-artifact@v2
               with:
                 name: sources
