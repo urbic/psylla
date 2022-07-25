@@ -33,5 +33,5 @@
 }
 bind def
 
-arguments length iszero '' { arguments 0 get } ifelse
-handle
+arguments isempty { arguments '' append } if
+arguments { handle } forall
