@@ -1,28 +1,33 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.util.stream.Stream;
 
 @Type("stream")
 public class PsyStream
 	implements PsyFormalStream
 {
-	public PsyStream(java.util.stream.Stream<? extends PsyObject> stream)
+	protected PsyStream(Stream<? extends PsyObject> stream)
 	{
 		this.stream=stream;
 	}
 
 	public static PsyStream psyIterate(final PsyObject o, final PsyProc oProc, final PsyContext oContext)
 	{
-		return new PsyStream(java.util.stream.Stream.<PsyObject>iterate(o,
-				oProc.asUnaryOperator(oContext)));
+		return new PsyStream(Stream.<PsyObject>iterate(o, oProc.asUnaryOperator(oContext)));
 	}
 
+	/*public PsyStream psyDistinct()
+	{
+		return new PsyStream(Stream.<PsyObject>distict());
+	}*/
+
 	@Override
-	public java.util.stream.Stream<? extends PsyObject> stream()
+	public Stream<? extends PsyObject> stream()
 	{
 		return stream;
 	}
 
-	private final java.util.stream.Stream<? extends PsyObject> stream;
+	private final Stream<? extends PsyObject> stream;
 
 	public static final PsyOperator[] OPERATORS=
 		{
@@ -33,5 +38,7 @@ public class PsyStream
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(PsyStream.psyIterate(ostack.getBacked(0), ostack.getBacked(1), oContext));
 					}),
+			//new PsyOperator.Arity11<PsyStream>
+			//	("distinct", PsyStream::psyDistinct),
 		};
 }

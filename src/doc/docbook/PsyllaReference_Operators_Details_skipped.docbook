@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_skipped">
+<title><token language="psylla">skipped</token></title>
+
+<para>
+Returns a stream consisting of the remaining elements of the
+<replaceable>stream</replaceable> after discarding the first
+<replaceable>n</replaceable> elements of the stream.
+</para>
+
+<formalpara>
+&TitleSynopsis;
+<synopsis>
+<replaceable>stream</replaceable>
+<replaceable>n</replaceable>
+<token language="psylla">skipped</token>
+<replaceable>skippedstream</replaceable>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>stream</replaceable>,
+<replaceable>skippedstream</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
+</listitem>
+<listitem>
+<replaceable>n</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 9 range 3 skipped {} forall ]	▶ [ 3 4 5 6 7 8 9 ]</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_limited"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sorted"/>.
+</formalpara>
+
+</section>

@@ -77,7 +77,8 @@ linkend="PsyllaReference_Operators_Details_filtered"/> непредсказуе�
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_limited"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_skipped"/>.
 </formalpara>
 
 </section>

@@ -69,7 +69,10 @@ xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_limited"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_skipped"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sorted"/>.
 </formalpara>
 
 </section>

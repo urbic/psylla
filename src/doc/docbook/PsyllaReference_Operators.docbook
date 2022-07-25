@@ -698,6 +698,12 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_iterate" xrefstyle="template:%t"/></term>
+<listitem>create a stream consisting of results of sequential applications of a
+procedure to an initial value</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_keys" xrefstyle="template:%t"/></term>
 <listitem>create an enumeration of container keys</listitem>
 </varlistentry>
@@ -786,6 +792,12 @@ container</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_slice" xrefstyle="template:%t"/></term>
 <listitem>TODO</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_skipped" xrefstyle="template:%t"/></term>
+<listitem>a stream consisting of the remaining elements of a stream after
+discarding the first few elements</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1544,6 +1556,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_issamefile;
 &PsyllaReference_Operators_Details_issymlink;
 &PsyllaReference_Operators_Details_iszero;
+&PsyllaReference_Operators_Details_iterate;
 &PsyllaReference_Operators_Details_join;
 &PsyllaReference_Operators_Details_keys;
 &PsyllaReference_Operators_Details_known;
@@ -1617,6 +1630,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_sin;
 &PsyllaReference_Operators_Details_sinh;
 &PsyllaReference_Operators_Details_skip;
+&PsyllaReference_Operators_Details_skipped;
 &PsyllaReference_Operators_Details_sleep;
 &PsyllaReference_Operators_Details_slice;
 &PsyllaReference_Operators_Details_sort;
