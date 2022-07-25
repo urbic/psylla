@@ -250,6 +250,8 @@ public interface PsyFormalStream<T extends PsyObject>
 					}),
 			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
 				("skipped", PsyFormalStream::psySkipped),
+			new PsyOperator.Arity21<PsyFormalStream, PsyFormalStream>
+				("concat", PsyFormalStream::psyConcat),
 			new PsyOperator.Action
 				("sorted",
 					(oContext)->
