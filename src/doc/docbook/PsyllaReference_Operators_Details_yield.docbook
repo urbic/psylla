@@ -3,8 +3,7 @@
 <title><token language="psylla">yield</token></title>
 
 <para>
-Приостанавливает исполнение текущего контекста с тем, чтобы остальные контексты
-получили возможность исполняться.
+Suspends execution of the current context, allowing other contexts to execute.
 </para>
 
 <formalpara>
@@ -19,6 +18,11 @@
 <formalpara>
 &TitleErrors;
 none.
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_MultipleContext"/>.
 </formalpara>
 
 <formalpara>

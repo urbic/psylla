@@ -56,6 +56,11 @@ operand stack. Removes the mark and the objects from the operand stack.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_["/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_]"/>,

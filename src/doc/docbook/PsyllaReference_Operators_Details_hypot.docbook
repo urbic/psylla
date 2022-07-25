@@ -51,4 +51,9 @@ their squares), i. e. the <replaceable>hypotenuse</replaceable> calculated by
 </itemizedlist>
 </formalpara>
 
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
+</formalpara>
+
 </section>

@@ -71,6 +71,11 @@ when the file named <replaceable>name</replaceable> is not a directory
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_FileSystem"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>.
 </formalpara>

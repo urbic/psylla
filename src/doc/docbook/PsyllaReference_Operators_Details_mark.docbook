@@ -45,6 +45,12 @@ possible to define the procedures with such behaviour.
 </para>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_ByCategory_OperandStackManipulation"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_("/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_)"/>,

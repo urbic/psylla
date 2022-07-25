@@ -48,6 +48,11 @@ Invokes an <replaceable>object<subscript>1</subscript></replaceable>, if a
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Control"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_if"/>.
 </formalpara>

@@ -42,4 +42,10 @@ Closes the <replaceable>closeable</replaceable> input/output object.
 </itemizedlist>
 </formalpara>
 
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_IO"/>.
+<!-- TODO Containers -->
+</formalpara>
+
 </section>

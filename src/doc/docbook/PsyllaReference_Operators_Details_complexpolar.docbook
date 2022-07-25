@@ -51,6 +51,11 @@ Returns a new complex <replaceable>number</replaceable> with given
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_abs"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_arg"/>,

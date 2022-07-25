@@ -48,6 +48,11 @@ ready to be read, and <constant>false</constant> otherwise.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_IO"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_read"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readstring"/>.

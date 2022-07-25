@@ -37,7 +37,7 @@ Creates a symbolic link named <replaceable>link</replaceable> to a file named
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_fileexists"/> —
-when the file or directory exists
+when the file or directory named <replaceable>link</replaceable> already exists
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_ioerror"/> —
@@ -59,6 +59,11 @@ when the file or directory exists
 &ErrorReason_unsupported;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_FileSystem"/>.
 </formalpara>
 
 <formalpara>

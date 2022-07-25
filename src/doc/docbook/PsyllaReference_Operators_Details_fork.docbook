@@ -65,6 +65,11 @@ created <replaceable>context</replaceable>.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_MultipleContext"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_currentcontext"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_join"/>.

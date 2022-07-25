@@ -60,6 +60,11 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_floor"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_round"/>.

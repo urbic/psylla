@@ -40,6 +40,11 @@ Returns the <replaceable>signum</replaceable> of a <replaceable>number</replacea
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_abs"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_neg"/>.

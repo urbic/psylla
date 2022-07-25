@@ -51,6 +51,11 @@ the beginning of the <replaceable>container</replaceable>.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_append"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_appendall"/>,

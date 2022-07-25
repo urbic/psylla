@@ -388,13 +388,58 @@
 </section>
 
 <section xml:id="PsyllaReference_Operators_ByCategory_Control">
-<title>Control Operators</title>
+<title>Control Operators and Operators Related to Introspection</title>
 
 <variablelist>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_begin" xrefstyle="template:%t"/></term>
+<listitem>push a dictionary to the dictionary stack</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
+<listitem>the size of the dictionary stack</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_countexecstack" xrefstyle="template:%t"/></term>
+<listitem>the size of the execution stack</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_currentdict" xrefstyle="template:%t"/></term>
+<listitem>the current dictionary (the topmost in the dictionary stack)</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_def" xrefstyle="template:%t"/></term>
+<listitem>store an object in the current dictionary with a given key</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_dictstack" xrefstyle="template:%t"/></term>
+<listitem>the snapshot of the dictionary stack</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_end" xrefstyle="template:%t"/></term>
+<listitem>pop the topmost dictionary from the dictionary stack</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_eval" xrefstyle="template:%t"/></term>
+<listitem>evaluate an expression</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_exec" xrefstyle="template:%t"/></term>
 <listitem>invoke an object</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_execstack" xrefstyle="template:%t"/></term>
+<listitem>the snapshot of the execution stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -428,6 +473,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_namespace" xrefstyle="template:%t"/></term>
+<listitem>obtain a namespace</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_quit" xrefstyle="template:%t"/></term>
 <listitem>terminate the execution of the current context</listitem>
 </varlistentry>
@@ -455,6 +505,11 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_stopped" xrefstyle="template:%t"/></term>
 <listitem>establish the stopped context</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_store" xrefstyle="template:%t"/></term>
+<listitem>замена самого верхнего определения в стеке словарей</listitem>
 </varlistentry>
 
 </variablelist>
@@ -499,11 +554,6 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_arraytomark" xrefstyle="template:%t"/></term>
 <listitem>complete array creation</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_begin" xrefstyle="template:%t"/></term>
-<listitem>push a dictionary to the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -557,16 +607,6 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_currentdict" xrefstyle="template:%t"/></term>
-<listitem>the current dictionary (the upper in the dictionary stack)</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_def" xrefstyle="template:%t"/></term>
-<listitem>store an object in the current dictionary with a given key</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_dequeue" xrefstyle="template:%t"/></term>
 <listitem>TODO</listitem>
 </varlistentry>
@@ -579,11 +619,6 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_dicttomark" xrefstyle="template:%t"/></term>
 <listitem>complete dictionary creation</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_end" xrefstyle="template:%t"/></term>
-<listitem>pop the topmost dictionary from the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -751,11 +786,6 @@ container</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_sort" xrefstyle="template:%t"/></term>
 <listitem>sort an array according to comparator</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_store" xrefstyle="template:%t"/></term>
-<listitem>замена самого верхнего определения в стеке словарей</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1175,45 +1205,6 @@ flush output buffer</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_uniformdeviate" xrefstyle="template:%t"/></term>
 <listitem>равномерно распределённое псевдослучайное число</listitem>
-</varlistentry>
-
-</variablelist>
-
-</section>
-
-<section xml:id="PsyllaReference_Operators_ByCategory_Introspection">
-<title>Operators Related to Introspection</title>
-
-<variablelist>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
-<listitem>the size of the dictionary stack</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_countexecstack" xrefstyle="template:%t"/></term>
-<listitem>the size of the execution stack</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_dictstack" xrefstyle="template:%t"/></term>
-<listitem>the snapshot of the dictionary stack</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_eval" xrefstyle="template:%t"/></term>
-<listitem>evaluate an expression</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_execstack" xrefstyle="template:%t"/></term>
-<listitem>the snapshot of the execution stack</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_namespace" xrefstyle="template:%t"/></term>
-<listitem>obtain a namespace</listitem>
 </varlistentry>
 
 </variablelist>

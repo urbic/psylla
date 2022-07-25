@@ -44,6 +44,11 @@ Returns a new <replaceable>condition</replaceable> associated with a
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_MultipleContext"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_lock"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_notify"/>,

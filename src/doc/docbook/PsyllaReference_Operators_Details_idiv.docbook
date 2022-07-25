@@ -58,6 +58,11 @@ when the <replaceable>divisor</replaceable> is zero
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mod"/>.

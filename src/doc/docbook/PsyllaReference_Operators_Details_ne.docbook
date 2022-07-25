@@ -50,6 +50,11 @@ xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eq"/>.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Relational"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eq"/>.
 </formalpara>

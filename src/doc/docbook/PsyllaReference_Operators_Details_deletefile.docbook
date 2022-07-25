@@ -58,4 +58,9 @@ when a file or directory does non exist
 </itemizedlist>
 </formalpara>
 
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_FileSystem"/>.
+</formalpara>
+
 </section>

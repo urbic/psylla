@@ -64,6 +64,11 @@ equals to <constant>-1</constant> when
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Relational"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_ge"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_gt"/>,

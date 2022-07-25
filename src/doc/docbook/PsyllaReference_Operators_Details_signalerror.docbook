@@ -44,4 +44,9 @@
 </itemizedlist>
 </formalpara>
 
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Control"/>.
+</formalpara>
+
 </section>

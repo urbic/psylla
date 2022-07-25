@@ -87,6 +87,11 @@ xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_get"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_getinterval"/>.

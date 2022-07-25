@@ -38,4 +38,9 @@ Removes all elements from the <replaceable>container</replaceable>.
 </itemizedlist>
 </formalpara>
 
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
+</formalpara>
+
 </section>

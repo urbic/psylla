@@ -329,6 +329,7 @@
 <!ENTITY PsyllaReference_Operators_Details_xor				SYSTEM "PsyllaReference_Operators_Details_xor.docbook">
 <!ENTITY PsyllaReference_Operators_Details_yield			SYSTEM "PsyllaReference_Operators_Details_yield.docbook">
 
+<!ENTITY TitleCategory	"<title>Category:</title>">
 <!ENTITY TitleErrors	"<title>Errors:</title>">
 <!ENTITY TitleExamples	"<title>Examples:</title>">
 <!ENTITY TitleInherits	"<title>Inherits:</title>">

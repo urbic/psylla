@@ -51,6 +51,11 @@ dictionary stack).
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Control"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_currentdict"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_get"/>,

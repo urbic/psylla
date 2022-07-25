@@ -46,6 +46,11 @@ Returns the natural <replaceable>logarithm</replaceable> of a
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exp"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_pow"/>.

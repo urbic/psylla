@@ -54,6 +54,12 @@ Returns the number of objects situated above the highest
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_ByCategory_OperandStackManipulation"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_countstack"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mark"/>.

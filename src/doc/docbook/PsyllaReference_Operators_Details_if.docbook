@@ -53,6 +53,11 @@ Invokes an <replaceable>object</replaceable> (typically a procedure), if a
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Control"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_ifelse"/>.
 </formalpara>

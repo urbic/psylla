@@ -48,6 +48,12 @@ Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_ByCategory_OperandStackManipulation"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_clone"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_copy"/>,

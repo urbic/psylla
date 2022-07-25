@@ -43,6 +43,11 @@ Writes the <replaceable>string</replaceable> to the standard error writer.
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_IO"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stderr"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_writestring"/>.

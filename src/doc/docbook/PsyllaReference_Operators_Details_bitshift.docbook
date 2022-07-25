@@ -53,6 +53,11 @@ TODO
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_LogicalBitwise"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_and"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_clearbit"/>,

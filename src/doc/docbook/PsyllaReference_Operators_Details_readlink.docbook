@@ -70,6 +70,11 @@ when a <replaceable>name</replaceable> does not belong to a symbolic link
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_FileSystem"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_issymlink"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_symlink"/>.

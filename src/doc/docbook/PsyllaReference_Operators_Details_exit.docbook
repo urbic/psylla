@@ -27,6 +27,11 @@ a procedure, invoked repeatedly by one of the following control operators:
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Control"/>.
+</formalpara>
+
+<formalpara>
 &TitleErrors;
 <itemizedlist>
 <listitem>
