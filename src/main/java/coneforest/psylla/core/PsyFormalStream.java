@@ -219,12 +219,26 @@ public interface PsyFormalStream<T extends PsyObject>
 		//}
 	}
 
+	default public PsyFormalStream<T> psyDistinct()
+	{
+		return new PsyFormalStream<T>()
+			{
+				@Override
+				public java.util.stream.Stream<T> stream()
+				{
+					return PsyFormalStream.this.stream().distinct();
+				}
+			};
+	}
+
 	public java.util.stream.Stream<T> stream();
 
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Arity11<PsyFormalStream>
 				("count", PsyFormalStream::psyCount),
+			new PsyOperator.Arity11<PsyFormalStream>
+				("distinct", PsyFormalStream::psyDistinct),
 			new PsyOperator.Action
 				("filtered",
 					(oContext)->

@@ -642,6 +642,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_distinct" xrefstyle="template:%t"/></term>
+<listitem>create a stream consisting of the distinct elements of the stream</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_filtered" xrefstyle="template:%t"/></term>
 <listitem>create a filtered stream</listitem>
 </varlistentry>
@@ -740,7 +745,7 @@ container</listitem>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_reduce" xrefstyle="template:%t"/></term>
-<listitem>TODO</listitem>
+<listitem>Performs a reduction on the elements of this stream</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1475,6 +1480,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_dict;
 &PsyllaReference_Operators_Details_dictstack;
 &PsyllaReference_Operators_Details_dicttomark;
+&PsyllaReference_Operators_Details_distinct;
 &PsyllaReference_Operators_Details_div;
 &PsyllaReference_Operators_Details_dup;
 &PsyllaReference_Operators_Details_editline;

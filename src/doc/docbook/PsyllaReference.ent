@@ -146,6 +146,7 @@
 <!ENTITY PsyllaReference_Operators_Details_dict				SYSTEM "PsyllaReference_Operators_Details_dict.docbook">
 <!ENTITY PsyllaReference_Operators_Details_dictstack		SYSTEM "PsyllaReference_Operators_Details_dictstack.docbook">
 <!ENTITY PsyllaReference_Operators_Details_dicttomark		SYSTEM "PsyllaReference_Operators_Details_dicttomark.docbook">
+<!ENTITY PsyllaReference_Operators_Details_distinct			SYSTEM "PsyllaReference_Operators_Details_distinct.docbook">
 <!ENTITY PsyllaReference_Operators_Details_div				SYSTEM "PsyllaReference_Operators_Details_div.docbook">
 <!ENTITY PsyllaReference_Operators_Details_dup				SYSTEM "PsyllaReference_Operators_Details_dup.docbook">
 <!ENTITY PsyllaReference_Operators_Details_editline			SYSTEM "PsyllaReference_Operators_Details_editline.docbook">
@@ -329,13 +330,14 @@
 <!ENTITY PsyllaReference_Operators_Details_xor				SYSTEM "PsyllaReference_Operators_Details_xor.docbook">
 <!ENTITY PsyllaReference_Operators_Details_yield			SYSTEM "PsyllaReference_Operators_Details_yield.docbook">
 
-<!ENTITY TitleCategory	"<title>Category:</title>">
-<!ENTITY TitleErrors	"<title>Errors:</title>">
-<!ENTITY TitleExamples	"<title>Examples:</title>">
-<!ENTITY TitleInherits	"<title>Inherits:</title>">
-<!ENTITY TitleOperands	"<title>Operands:</title>">
-<!ENTITY TitleSeeAlso	"<title>See Also:</title>">
-<!ENTITY TitleSynopsis	"<title>Synopsis:</title>">
+<!ENTITY TitleCategory		"<title>Category:</title>">
+<!ENTITY TitleDescription	"<title>Description:</title>">
+<!ENTITY TitleErrors		"<title>Errors:</title>">
+<!ENTITY TitleExamples		"<title>Examples:</title>">
+<!ENTITY TitleInherits		"<title>Inherits:</title>">
+<!ENTITY TitleOperands		"<title>Operands:</title>">
+<!ENTITY TitleSeeAlso		"<title>See Also:</title>">
+<!ENTITY TitleSynopsis		"<title>Synopsis:</title>">
 
 <!ENTITY ErrorReason_fileaccessdenied
 	"when the operation is prohibited due to a file permission or other access check">
