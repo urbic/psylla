@@ -40,4 +40,5 @@ bind def
 /target array def
 /auxiliary array def
 
+show
 n source target auxiliary hanoi

@@ -22,7 +22,7 @@
 
 html { background-color: white; height: 100%; }
 
-body { position: static; overflow: auto; font-size: 22px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; font-family: "PT Sans", sans-serif; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
+body { position: static; overflow: auto; font-size: 17px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; font-family: "PT Sans", sans-serif; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
 
 body > * { margin: 0 4pc 0 4pc; }
 
@@ -86,7 +86,7 @@ table.productionset { font-family: "Consolas", monospace; background-color: #faf
 
 .formalpara-title { font-weight: bold; }
 
-.programlisting, .screen, .cmdsynopsis, .literallayout { padding: 1em; background-color: #fafafa; font-size: 22px; }
+.programlisting, .screen, .cmdsynopsis, .literallayout { padding: 1em; background-color: #fafafa; font-size: 17px; }
 
 .literallayout p, .cmdsynopsis p { margin: 0em; }
 
