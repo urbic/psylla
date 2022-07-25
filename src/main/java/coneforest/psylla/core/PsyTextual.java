@@ -10,6 +10,7 @@ public interface PsyTextual
 	extends
 		PsyEvaluable,
 		PsyConvertableToInteger,
+		PsyConvertableToIntegral,
 		PsyConvertableToReal,
 		PsyIterable<PsyInteger>,
 		PsyLengthy,
@@ -48,6 +49,20 @@ public interface PsyTextual
 		{
 			// TODO fractional
 			return PsyInteger.valueOf(Long.parseLong(stringValue()));
+		}
+		catch(final NumberFormatException e)
+		{
+			throw new PsySyntaxErrorException();
+		}
+	}
+
+	@Override
+	default public PsyIntegral psyToIntegral()
+		throws PsyException
+	{
+		try
+		{
+			return PsyIntegral.parse(stringValue());
 		}
 		catch(final NumberFormatException e)
 		{

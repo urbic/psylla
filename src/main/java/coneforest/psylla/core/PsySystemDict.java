@@ -43,6 +43,7 @@ public class PsySystemDict
 					stderror.psyFlush();
 				}),
 			new PsyOperator.Arity11<PsyConvertableToInteger>("tointeger", PsyConvertableToInteger::psyToInteger),
+			new PsyOperator.Arity11<PsyConvertableToIntegral>("tointegral", PsyConvertableToIntegral::psyToIntegral),
 			new PsyOperator.Action("say",
 				(oContext)->
 				{
