@@ -1,0 +1,4 @@
+Error: /rangecheck in --copy--
+Operand stack:
+	1 2 3 4 5 -1
+Execution stack: (empty)

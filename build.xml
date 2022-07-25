@@ -124,8 +124,7 @@
 		<javac
 			srcdir="${src.main.java}:${target.src.main.java}:${src.test.java}"
 			destdir="${target.classes}"
-			source="11"
-			target="11"
+			release="11"
 			includeantruntime="false"
 			encoding="UTF-8"
 			>

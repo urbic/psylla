@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_limited">
+<title><token language="psylla">limited</token></title>
+
+<para>
+Returns a <replaceable>limitedstream</replaceable> consisting of the elements
+of th <replaceable>stream</replaceable>, truncated to be no longer than
+<replaceable>size</replaceable> in length.
+</para>
+
+<formalpara>
+&TitleSynopsis;
+<synopsis>
+<replaceable>stream</replaceable>
+<replaceable>size</replaceable>
+<token language="psylla">limited</token>
+<replaceable>limitedstream</replaceable>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>stream</replaceable>,
+<replaceable>limitedstream</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
+</listitem>
+<listitem>
+<replaceable>size</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 10 range 4 limited {} forall ]	▶ [ 0 1 2 3 ]</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when the <replaceable>size</replaceable> is negative.
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>.
+</formalpara>
+
+</section>

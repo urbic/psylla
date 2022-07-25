@@ -1,0 +1,1 @@
+configdict /project.name get ?

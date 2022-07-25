@@ -35,8 +35,8 @@ linkend="PsyllaReference_Types_Details_boolean"/>
 <replaceable>operands</replaceable> returns the logical
 <replaceable>exclusive_disjunction</replaceable>. For <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>
-<replaceable>operands</replaceable>, returns the bitwise <replaceable>exclusive
-disjunction</replaceable>.
+<replaceable>operands</replaceable>, returns the bitwise
+<replaceable>exclusive_disjunction</replaceable>.
 </para>
 
 <formalpara>

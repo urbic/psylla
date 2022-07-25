@@ -542,6 +542,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_concat" xrefstyle="template:%t"/></term>
+<listitem>create a lazy concatenation of two streams</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_contains" xrefstyle="template:%t"/></term>
 <listitem>the set contains an element?</listitem>
 </varlistentry>
@@ -660,6 +665,11 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_length" xrefstyle="template:%t"/></term>
 <listitem>the length of a container</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_limited" xrefstyle="template:%t"/></term>
+<listitem>create a stream truncated to given size</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1446,6 +1456,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_cmp;
 &PsyllaReference_Operators_Details_complex;
 &PsyllaReference_Operators_Details_complexpolar;
+&PsyllaReference_Operators_Details_concat;
 &PsyllaReference_Operators_Details_condition;
 &PsyllaReference_Operators_Details_conjugate;
 &PsyllaReference_Operators_Details_contains;
@@ -1535,6 +1546,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_known;
 &PsyllaReference_Operators_Details_le;
 &PsyllaReference_Operators_Details_length;
+&PsyllaReference_Operators_Details_limited;
 &PsyllaReference_Operators_Details_load;
 &PsyllaReference_Operators_Details_lock;
 &PsyllaReference_Operators_Details_log;
