@@ -149,12 +149,17 @@ public class PsyBigInteger
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyException
 	{
-		if(oIntegral instanceof PsyBigInteger)
-			return PsyIntegral.valueOf(value.mod(((PsyBigInteger)oIntegral).value));
-		if(oIntegral instanceof PsyInteger)
-			//return new PsyBigInteger(
-			//	value.mod(java.math.BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
-			return PsyIntegral.valueOf(value.mod(((PsyInteger)oIntegral).bigIntegerValue()));
+		try
+		{
+			if(oIntegral instanceof PsyBigInteger)
+				return PsyIntegral.valueOf(value.mod(((PsyBigInteger)oIntegral).value));
+			if(oIntegral instanceof PsyInteger)
+				return PsyIntegral.valueOf(value.mod(((PsyInteger)oIntegral).bigIntegerValue()));
+		}
+		catch(final java.lang.ArithmeticException e)
+		{
+			throw new PsyRangeCheckException();
+		}
 		throw new PsyTypeCheckException();
 	}
 
