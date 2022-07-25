@@ -141,6 +141,13 @@ Non-negative integer _n_ and _k_ are passed in the command line.
 * [__`power-fast-recursive.psy`__](power-fast-recursive.psy) — recursive
   implementation
 
+## Factorization
+
+Print the prime factors of each integer passed in the command line.
+
+* [__`factor-wheel.psy`__](factor-wheel.psy) — [wheel
+  factorization](https://en.wikipedia.org/wiki/Wheel_factorization)
+
 ## Prime numbers
 
 Prints the first prime numbers that do not exceed a given _n_. Non-negative
