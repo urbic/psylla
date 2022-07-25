@@ -388,7 +388,7 @@
 </section>
 
 <section xml:id="PsyllaReference_Operators_ByCategory_Control">
-<title>Control Operators and Operators Related to Introspection</title>
+<title>Control and Introspective Operators</title>
 
 <variablelist>
 
