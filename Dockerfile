@@ -1,6 +1,6 @@
 FROM opensuse/leap:15.4
 
-RUN zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:java/openSUSE_Leap_15.4 home:urbic:java
+RUN zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:java/15.4 home:urbic:java
 RUN zypper -n --gpg-auto-import-keys ar -p1 obs://Java:packages/SLE_15_SP4 Java:packages
 RUN zypper -n --gpg-auto-import-keys in -y \
 	ant \
