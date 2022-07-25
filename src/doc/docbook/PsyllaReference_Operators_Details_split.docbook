@@ -48,7 +48,8 @@ substrings matching the <replaceable>pattern</replaceable>, and returns the
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidregexp"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>

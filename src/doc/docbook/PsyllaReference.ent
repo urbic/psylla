@@ -131,6 +131,7 @@
 <!ENTITY PsyllaReference_Operators_Details_copyfile			SYSTEM "PsyllaReference_Operators_Details_copyfile.docbook">
 <!ENTITY PsyllaReference_Operators_Details_cos				SYSTEM "PsyllaReference_Operators_Details_cos.docbook">
 <!ENTITY PsyllaReference_Operators_Details_cosh				SYSTEM "PsyllaReference_Operators_Details_cosh.docbook">
+<!ENTITY PsyllaReference_Operators_Details_count			SYSTEM "PsyllaReference_Operators_Details_count.docbook">
 <!ENTITY PsyllaReference_Operators_Details_countdictstack	SYSTEM "PsyllaReference_Operators_Details_countdictstack.docbook">
 <!ENTITY PsyllaReference_Operators_Details_countexecstack	SYSTEM "PsyllaReference_Operators_Details_countexecstack.docbook">
 <!ENTITY PsyllaReference_Operators_Details_countstack		SYSTEM "PsyllaReference_Operators_Details_countstack.docbook">

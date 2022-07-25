@@ -4,7 +4,7 @@
 
 <para>
 Returns a <replaceable>limitedstream</replaceable> consisting of the elements
-of th <replaceable>stream</replaceable>, truncated to be no longer than
+of the <replaceable>stream</replaceable>, truncated to be no longer than
 <replaceable>size</replaceable> in length.
 </para>
 
@@ -35,19 +35,19 @@ of th <replaceable>stream</replaceable>, truncated to be no longer than
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 10 range 4 limited {} forall ]	▶ [ 0 1 2 3 ]</programlisting>
+<programlisting language="psylla">[ 0 1 9 range 4 limited {} forall ]	▶ [ 0 1 2 3 ]</programlisting>
 </formalpara>
 
 <formalpara>
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t"
-linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
 when the <replaceable>size</replaceable> is negative.
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
@@ -57,6 +57,7 @@ when the <replaceable>size</replaceable> is negative.
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_count"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>.

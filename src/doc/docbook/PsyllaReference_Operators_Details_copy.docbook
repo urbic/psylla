@@ -56,12 +56,12 @@ object shares its value with the copy.
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t"
-linkend="PsyllaReference_Errors_Details_rangecheck"/> — when
-<replaceable>n</replaceable> is negative
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when <replaceable>n</replaceable> is negative
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>

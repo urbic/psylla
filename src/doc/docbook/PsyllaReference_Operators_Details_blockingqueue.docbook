@@ -39,16 +39,17 @@ Returns a new blocking <replaceable>queue</replaceable> with a given
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t"
-linkend="PsyllaReference_Errors_Details_limitcheck"/> — when the
-<replaceable>capacity</replaceable> exceeds the limit
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_limitcheck"/> —
+when the <replaceable>capacity</replaceable> exceeds the limit
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
 when the <replaceable>capacity</replaceable> is less than one
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>

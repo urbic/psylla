@@ -552,6 +552,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_count" xrefstyle="template:%t"/></term>
+<listitem>count the elements of a stream</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_currentdict" xrefstyle="template:%t"/></term>
 <listitem>the current dictionary (the upper in the dictionary stack)</listitem>
 </varlistentry>
@@ -1464,6 +1469,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_copyfile;
 &PsyllaReference_Operators_Details_cos;
 &PsyllaReference_Operators_Details_cosh;
+&PsyllaReference_Operators_Details_count;
 &PsyllaReference_Operators_Details_countdictstack;
 &PsyllaReference_Operators_Details_countexecstack;
 &PsyllaReference_Operators_Details_countstack;

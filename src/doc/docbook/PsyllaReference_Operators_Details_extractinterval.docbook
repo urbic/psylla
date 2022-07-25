@@ -58,7 +58,8 @@ linkend="PsyllaReference_Errors_Details_rangecheck"/>, если фрагмент
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/>
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>

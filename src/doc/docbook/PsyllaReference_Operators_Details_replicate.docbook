@@ -43,17 +43,18 @@
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t"
-linkend="PsyllaReference_Errors_Details_limitcheck"/> — when the length of the
-<replaceable>container</replaceable> multiplied by
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_limitcheck"/> —
+when the length of the <replaceable>container</replaceable> multiplied by
 <replaceable>number</replaceable> exceeds the maximum possible length of a
 container
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> — when <replaceable>number</replaceable> is negative
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when <replaceable>number</replaceable> is negative
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>

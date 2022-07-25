@@ -33,7 +33,8 @@ Returns a <replaceable>type</replaceable> of the <replaceable>object</replaceabl
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 </itemizedlist>
 </formalpara>

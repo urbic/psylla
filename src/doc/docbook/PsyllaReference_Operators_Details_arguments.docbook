@@ -29,9 +29,9 @@ linkend="PsyllaReference_Types_Details_name"/> objects.
 
 <para>
 <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_arguments"/> is not an operator, but an
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
-value in the system dictionary.
+linkend="PsyllaReference_Operators_Details_arguments"/> is not an operator, but
+an <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_array"/> value in the system dictionary.
 </para>
 
 <formalpara>

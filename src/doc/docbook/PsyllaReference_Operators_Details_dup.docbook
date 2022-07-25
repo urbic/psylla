@@ -41,7 +41,8 @@ Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
 </listitem>
 </itemizedlist>
 </formalpara>
