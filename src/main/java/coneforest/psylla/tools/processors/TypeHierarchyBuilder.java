@@ -88,6 +88,7 @@ public class TypeHierarchyBuilder
 				+"\t\tstyle=\"filled\",\n"
 				+"\t\tfillcolor=\"linen\",\n"
 				+"\t\tfontname=\"Consolas, monospace\",\n"
+				+"\t\tfontsize=\"12px\",\n"
 				+"\t\thref=\"PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_\\N\",\n"
 				+"\t\ttarget=\"_parent\"\n"
 				+"\t]\n"
