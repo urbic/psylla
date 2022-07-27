@@ -266,7 +266,6 @@ public interface PsyContext
 			new PsyOperator.Action
 				("fork",
 					(oContext)->
-						// TODO; error handling in forked context
 					{
 						final var ostack=oContext.operandStackBacked(1);
 
@@ -274,12 +273,10 @@ public interface PsyContext
 						final var o=ostack.getBacked(0);
 
 						final var forkedDtack=(DictStack)oContext.dictStack().clone();
+						//final var forkedDtack=(DictStack)oContext.dictStack()/*.clone()*/;
 						final var oForkedContext=new Interpreter()
 							{
 								private final DictStack dstack=forkedDtack;
-								//{
-								//	this.dstack=forkedDtack;
-								//}
 
 								@Override
 								public void run()
@@ -288,7 +285,7 @@ public interface PsyContext
 									handleExecutionStack();
 									if(getStopFlag())
 									{
-										PsyErrorDict.OP_HANDLEERROR.invoke(oContext);
+										PsyErrorDict.OP_HANDLEERROR.invoke(this);
 										return;
 									}
 								}
