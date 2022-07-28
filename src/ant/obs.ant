@@ -14,6 +14,7 @@
 		<or>
 			<contains string="${obs.build.distro}" substring="Debian"/>
 			<contains string="${obs.build.distro}" substring="Ubuntu"/>
+			<contains string="${obs.build.distro}" substring="Raspbian"/>
 		</or>
 	</condition>
 	<property environment="env"/>
