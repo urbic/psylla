@@ -45,4 +45,4 @@ jobs:
         env:
           OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
         run: |
-          sudo ant -v -noinput -Dlinux.flavour=debian obs.commit
+          ant -v -noinput -Dlinux.flavour=debian obs.commit

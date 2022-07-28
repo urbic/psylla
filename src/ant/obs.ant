@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="obs" basedir=".">
+<project name="obs" basedir="." xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 	<property name="obs.package.name" value="${project.name}"/>
 	<property name="obs.package.version" value="${project.version}"/>
@@ -8,24 +8,44 @@
 	<property name="obs.build.distro" value="15.4"/>
 	<property name="obs.build.arch" value="x86_64"/>
 	<property name="obs.build.project" value="home:urbic:java"/>
-	<property name="target.oscrc" location="${target}/.oscrc"/>
 	<property name="src.obs" location="${src}/obs"/>
-	<property environment="env"/>
-	<condition property="obs.password.set">
-		<isset property="env.OBS_PASSWORD"/>
-    </condition>
-
 	<condition property="obs.build.desc" value="${obs.package.name}.dsc" else="${obs.package.name}.spec">
 		<or>
 			<contains string="${obs.build.distro}" substring="Debian"/>
 			<contains string="${obs.build.distro}" substring="Ubuntu"/>
 		</or>
 	</condition>
+	<property environment="env"/>
+	<condition property="obs.password.set" value="true" else="false">
+		<isset property="env.OBS_PASSWORD"/>
+	</condition>
+	<property name="target.oscrc" location="${target}/oscrc"/>
+
+	<target name="osc.config"
+		description="Configure osc"
+		>
+		<echo file="${target.oscrc}"><![CDATA[[general]
+apiurl=https://api.opensuse.org
+
+[https://api.opensuse.org]
+user=urbic
+credentials_mgr_class=osc.credentials.ObfuscatedConfigFileCredentialsManager
+pass=
+]]></echo>
+		<exec executable="osc" if:true="${obs.password.set}">
+			<arg value="-c${target.oscrc}"/>
+			<arg value="config"/>
+			<arg value="https://api.opensuse.org"/>
+			<arg value="pass"/>
+			<arg value="${env.OBS_PASSWORD}"/>
+		</exec>
+	</target>
 
 	<target name="obs.checkout"
 		description="Checkout OBS package"
 		>
 		<exec dir="${target}" executable="osc">
+			<arg value="-c${target.oscrc}" if:true="${obs.password.set}"/>
 			<arg value="checkout"/>
 			<arg value="${obs.build.project}"/>
 			<arg value="${obs.package.name}"/>
@@ -69,7 +89,7 @@
 				</propertyset>
 			</filterset>
 		</copy>
-		<exec dir="${target.obs}" executable="osc">
+		<exec executable="osc" dir="${target.obs}">
 			<arg value="addremove"/>
 		</exec>
 	</target>
@@ -91,30 +111,12 @@
 		</exec>
 	</target>
 
-	<target name="osc.config" if="${obs.password.set}">
-		<echo file="${target.oscrc}"><![CDATA[[general]
-apiurl=https://api.opensuse.org
-
-[https://api.opensuse.org]
-user=urbic
-credentials_mgr_class=osc.credentials.ObfuscatedConfigFileCredentialsManager
-pass=
-]]></echo>
-		<exec executable="osc">
-			<arg value="-c${target.oscrc}"/>
-			<arg value="config"/>
-			<arg value="https://api.opensuse.org"/>
-			<arg value="pass"/>
-			<arg value="${env.OBS_PASSWORD}"/>
-		</exec>
-	</target>
-
 	<target name="obs.commit"
 		description="Commit package to OBS"
 		depends="obs.copy.spec"
 		>
 		<exec dir="${target.obs}" executable="osc">
-			<arg value="-c${target.oscrc}" if="${obs.password.set}"/>
+			<arg value="-c${target.oscrc}" if:true="${obs.password.set}"/>
 			<arg value="commit"/>
 			<arg value="-n"/>
 		</exec>
