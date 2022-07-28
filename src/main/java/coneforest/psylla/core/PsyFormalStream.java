@@ -1,5 +1,6 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.util.stream.Stream;
 
 @Type("formalstream")
 public interface PsyFormalStream<T extends PsyObject>
@@ -36,9 +37,9 @@ public interface PsyFormalStream<T extends PsyObject>
 		return new PsyFormalStream<T>()
 			{
 				@Override
-				public java.util.stream.Stream<T> stream()
+				public Stream<T> stream()
 				{
-					return java.util.stream.Stream.concat(PsyFormalStream.this.stream(), oStream.stream());
+					return Stream.concat(PsyFormalStream.this.stream(), oStream.stream());
 				}
 			};
 	}
@@ -49,7 +50,7 @@ public interface PsyFormalStream<T extends PsyObject>
 		return new PsyFormalStream<PsyObject>()
 			{
 				@Override
-				public java.util.stream.Stream<PsyObject> stream()
+				public Stream<PsyObject> stream()
 				{
 					return PsyFormalStream.this.stream().map(oMapper.<T, PsyObject>asFunction(oContext));
 				}
@@ -61,7 +62,7 @@ public interface PsyFormalStream<T extends PsyObject>
 		return new PsyFormalStream<T>()
 			{
 				@Override
-				public java.util.stream.Stream<T> stream()
+				public Stream<T> stream()
 				{
 					return PsyFormalStream.this.stream().sorted(oComparator.<T>asComparator(oContext));
 				}
@@ -86,7 +87,7 @@ public interface PsyFormalStream<T extends PsyObject>
 		return new PsyFormalStream<T>()
 			{
 				@Override
-				public java.util.stream.Stream<T> stream()
+				public Stream<T> stream()
 				{
 					return PsyFormalStream.this.stream().skip(count);
 				}
@@ -110,7 +111,7 @@ public interface PsyFormalStream<T extends PsyObject>
 		return new PsyFormalStream<T>()
 			{
 				@Override
-				public java.util.stream.Stream<T> stream()
+				public Stream<T> stream()
 				{
 					return PsyFormalStream.this.stream().limit(count);
 				}
@@ -132,7 +133,7 @@ public interface PsyFormalStream<T extends PsyObject>
 		return new PsyFormalStream<T>()
 			{
 				@Override
-				public java.util.stream.Stream<T> stream()
+				public Stream<T> stream()
 				{
 					return PsyFormalStream.this.stream().filter(oPredicate.<T>asPredicate(oContext));
 				}
@@ -224,14 +225,14 @@ public interface PsyFormalStream<T extends PsyObject>
 		return new PsyFormalStream<T>()
 			{
 				@Override
-				public java.util.stream.Stream<T> stream()
+				public Stream<T> stream()
 				{
 					return PsyFormalStream.this.stream().distinct();
 				}
 			};
 	}
 
-	public java.util.stream.Stream<T> stream();
+	public Stream<T> stream();
 
 	public static final PsyOperator[] OPERATORS=
 		{
