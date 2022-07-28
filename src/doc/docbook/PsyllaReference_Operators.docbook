@@ -509,7 +509,7 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_store" xrefstyle="template:%t"/></term>
-<listitem>замена самого верхнего определения в стеке словарей</listitem>
+<listitem>replace topmost definition of a key</listitem>
 </varlistentry>
 
 <varlistentry>
