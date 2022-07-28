@@ -175,7 +175,8 @@ public interface PsyContext
 					(oContext)->
 					{
 						oContext.operandStack()
-							.push(new PsyArray((java.util.ArrayList<PsyObject>)oContext.dictStack().clone()));
+							.push(new PsyArray(
+								(java.util.ArrayList<PsyObject>)oContext.dictStack().clone()));
 					}),
 			new PsyOperator.Action
 				("dup",

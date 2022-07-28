@@ -25,7 +25,7 @@ public class DictStack
 	}
 
 	@Override
-	public DictStack clone()
+	public Object clone()
 	{
 		var cloned=(DictStack)super.clone();
 		for(int i=0; i<cloned.size(); i++)

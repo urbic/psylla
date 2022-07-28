@@ -1,1 +1,1 @@
-mark 1 { xxx } fork type ?
+mark 1 { } fork type ?
