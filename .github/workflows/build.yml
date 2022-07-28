@@ -27,8 +27,7 @@ jobs:
             openjdk-11-{jdk-headless,doc} \
             python3-m2crypto \
             osc \
-            sassc \
-            xz
+            sassc
       - name: Setup
         run: |
           git config tar.tar.xz.command 'xz -9'
