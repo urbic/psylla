@@ -24,6 +24,15 @@ public class DictStack
 		oSystemDict.put("userdict", oUserDict);
 	}
 
+	@Override
+	public DictStack clone()
+	{
+		var cloned=(DictStack)super.clone();
+		for(int i=0; i<cloned.size(); i++)
+			cloned.set(i, (PsyFormalDict<PsyObject>)cloned.get(i).psyClone());
+		return cloned;
+	}
+
 	public <T extends PsyObject> T load(final String key)
 		throws PsyException
 	{

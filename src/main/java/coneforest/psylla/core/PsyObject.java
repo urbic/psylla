@@ -17,16 +17,19 @@ public interface PsyObject
 	*/
 	default public String typeName()
 	{
-		if(getClass().isAnnotationPresent(Type.class))
-			return (getClass().getAnnotation(Type.class)).value();
-		if(getClass().getSuperclass().isAnnotationPresent(Type.class))
-			return (getClass().getSuperclass().getAnnotation(Type.class)).value();
-		for(final var iface: getClass().getInterfaces())
-			if(iface.isAnnotationPresent(Type.class))
-				return (iface.getAnnotation(Type.class)).value();
+		var agenda=new java.util.Stack<Class<?>>();
+		agenda.push(getClass());
+
+		while(agenda.size()>0)
+		{
+			var clazz=agenda.pop();
+			if(clazz.isAnnotationPresent(Type.class))
+				return (clazz.getAnnotation(Type.class)).value();
+			agenda.push(clazz.getSuperclass());
+			for(final var iface: clazz.getInterfaces())
+				agenda.push(iface);
+		}
 		return null;
-		//return java.lang.invoke.MethodHandles.lookup().lookupClass()
-		//	.getAnnotation(Type.class).value();
 	}
 
 	default public PsyName psyType()
