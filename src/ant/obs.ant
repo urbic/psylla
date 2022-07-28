@@ -58,11 +58,12 @@ pass=
 		description="Copy sources and specs to OBS working directory"
 		depends="dist.tar,obs.checkout"
 		>
-		<delete dir="${target.obs}" includes="*"/>
+		<delete>
+			<fileset dir="${target.obs}" includes="*"/>
+		</delete>
 
 		<copy todir="${target.obs}" overwrite="yes">
 			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
-			<fileset dir="${src.obs}" includes="_service"/>
 		</copy>
 		<copy todir="${target.obs}" filtering="true" overwrite="yes">
 			<fileset dir="${src.obs}" includes="${project.name}.*"/>
