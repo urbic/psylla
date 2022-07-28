@@ -27,7 +27,11 @@ jobs:
             openjdk-11-{jdk-headless,doc} \
             python3-m2crypto \
             osc \
-            sassc
+            sassc \
+            xz
+      - name: Setup
+        run: |
+          git config tar.tar.xz.command 'xz -9'
       - name: Build
         run: |
           ant -v -noinput -Dlinux.flavour=debian build
