@@ -27,4 +27,8 @@
 bind
 end def
 
-arguments 0 get tointeger fibonacci toname say
+0 1 arguments 0 get tointeger
+{
+	fibonacci toname say
+}
+bind for
