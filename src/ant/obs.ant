@@ -7,7 +7,8 @@
 	<property name="obs.package.description" value="${project.description}"/>
 	<property name="obs.build.distro" value="15.4"/>
 	<property name="obs.build.arch" value="x86_64"/>
-	<property name="obs.build.project" value="home:urbic:java"/>
+	<property name="obs.user" value="urbic"/>
+	<property name="obs.build.project" value="home:${obs.user}:java"/>
 	<property name="src.obs" location="${src}/obs"/>
 	<condition property="obs.build.desc" value="${obs.package.name}.dsc" else="${obs.package.name}.spec">
 		<or>
@@ -24,20 +25,26 @@
 	<target name="osc.config"
 		description="Configure osc"
 		>
-		<echo file="${target.oscrc}"><![CDATA[[general]
+		<!--echo file="${target.oscrc}"><![CDATA[[general]
 apiurl=https://api.opensuse.org
 
 [https://api.opensuse.org]
 user=urbic
 credentials_mgr_class=osc.credentials.ObfuscatedConfigFileCredentialsManager
 pass=
-]]></echo>
+]]></echo-->
 		<exec executable="osc" if:true="${obs.password.set}">
-			<arg value="-c${target.oscrc}"/>
+			<!--arg value="-c${target.oscrc}"/-->
 			<arg value="config"/>
 			<arg value="https://api.opensuse.org"/>
 			<arg value="pass"/>
 			<arg value="${env.OBS_PASSWORD}"/>
+		</exec>
+		<exec executable="osc" if:true="${obs.password.set}">
+			<arg value="config"/>
+			<arg value="https://api.opensuse.org"/>
+			<arg value="user"/>
+			<arg value="${obs.user}"/>
 		</exec>
 	</target>
 
@@ -45,7 +52,7 @@ pass=
 		description="Checkout OBS package"
 		>
 		<exec dir="${target}" executable="osc">
-			<arg value="-c${target.oscrc}" if:true="${obs.password.set}"/>
+			<!--arg value="-c${target.oscrc}" if:true="${obs.password.set}"/-->
 			<arg value="checkout"/>
 			<arg value="${obs.build.project}"/>
 			<arg value="${obs.package.name}"/>
@@ -113,10 +120,10 @@ pass=
 
 	<target name="obs.commit"
 		description="Commit package to OBS"
-		depends="obs.copy.spec"
+		depends="obs.copy.spec,osc.config"
 		>
 		<exec dir="${target.obs}" executable="osc">
-			<arg value="-c${target.oscrc}" if:true="${obs.password.set}"/>
+			<!--arg value="-c${target.oscrc}" if:true="${obs.password.set}"/-->
 			<arg value="commit"/>
 			<arg value="-n"/>
 		</exec>
