@@ -1,20 +1,28 @@
 @namespace url("http://www.w3.org/1999/xhtml");
 html { height: 100%; }
 
-body { background-color: lightgray; color: #333; font-family: "PT Serif", serif; margin-top: 75px; }
+body { background-color: lightgray; color: #333; font-family: "PT Sans", sans-serif; font-size: 1.2pc; margin-top: 6pc; margin-left: 25%; margin-right: 25%; }
 
-#main { width: 100%; text-align: center; }
+body .large { font-size: 1.6pc; }
 
-#main a:link, #main a:visited { color: #545454; text-decoration: none; font-size: 36pt; font-weight: bold; padding: 5px; }
+h4 { margin-bottom: .6pc; }
 
-#main a:hover { border: solid 5px; }
+header { width: 100%; background-color: #bababa; font-family: "PT Serif", serif; position: fixed; left: 0%; right: 0%; }
 
-#main tr td { width: 50%; }
+header { top: 0%; font-size: 1.2pc; font-family: "PT Sans", sans-serif; }
 
-header, footer { width: 100%; background-color: #bababa; position: fixed; left: 0%; right: 0%; padding-left: 20px; padding-right: 20px; padding-top: 5px; padding-bottom: 5px; }
+header #header-links { padding: .5pc 1pc .5pc .5pc; float: right; }
 
-header { top: 0%; font-size: 36pt; }
+header #header-links a { margin-left: .75pc; text-decoration: none; padding: .25pc; color: #545454; font-family: "PT Sans Narrow"; }
 
-footer { bottom: 0%; margin: 0; }
+header #header-links a:hover { color: lightgray; background-color: #545454; }
 
-#github-link:link, #github-link:visited { font-family: "FontAwesome"; font-size: 32px; color: #545454; }
+header #header-logo { padding: .5pc 1pc .5pc .5pc; margin-left: 1pc; float: left; font-weight: bold; }
+
+header #header-logo span { padding: .25pc; }
+
+header #header-logo img { height: 1.6pc; display: inline-block; vertical-align: top; }
+
+header #header-logo #version { font-weight: lighter; font-size: x-small; }
+
+ul { list-style-type: square; }
