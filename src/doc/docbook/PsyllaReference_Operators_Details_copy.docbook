@@ -10,7 +10,7 @@ stack.
 
 <para>
 Only objects are copied, not their values. When copying composite objects, an
-object shares its value with the copy. 
+object shares its value with the copy.
 </para>
 
 <formalpara>

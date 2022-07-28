@@ -85,10 +85,15 @@
 			<fileset dir="${src.doc.docbook}" includes="files/**" excludes="**/.htaccess"/>
 			<fileset dir="${src.doc.docbook}" includes="navigation/**"/>
 			<fileset dir="${src.doc.docbook}" includes="js/**"/>
-			<fileset dir="${src.doc.xhtml}" includes="*.xhtml"/>
-		</copy>
-		<copy todir="${target.doc.html}">
 			<fileset dir="${src.logo}" includes="${project.name}.svg"/>
+		</copy>
+		<copy todir="${target.doc.html}" filtering="true">
+			<fileset dir="${src.doc.xhtml}" includes="*.xhtml"/>
+			<filterset>
+				<propertyset>
+					<propertyref name="project.version"/>
+				</propertyset>
+			</filterset>
 		</copy>
 	</target>
 

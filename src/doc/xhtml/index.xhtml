@@ -3,27 +3,83 @@
 <head>
 <link rel="shortcut icon" href="psylla.svg" type="image/svg+xml"/>
 <link rel="stylesheet" href="PsyllaMain.css" type="text/css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&amp;family=PT+Sans+Narrow&amp;display=swap" rel="stylesheet"/>
 <title>Psylla: a scriptable interpretive concatenative homoiconic PostScript-like programming language</title>
 </head>
+
 <header>
-<img src="psylla.svg" type="image/svg+xml" height="36px"/>
+<div id="header-logo">
+<img src="psylla.svg" type="image/svg+xml"/>
+<span>Psylla</span><sup id="version">v@project.version@</sup>
+</div>
+<div id="header-links">
+<a href="PsyllaReference.xhtml">Download</a>
+<a href="PsyllaReference.xhtml">Documentation</a>
+<a href="../apidocs/index.html">API</a>
+<a href="https://github.com/urbic/psylla/">GitHub</a>
+</div>
 </header>
 
 <body>
 
-<p>Psylla</p>
+<h1>Psylla language</h1>
 
-<table id="main">
-<tr>
-<td id="reference"><a href="PsyllaReference.xhtml">Complete Reference</a></td>
-<td id="api"><a href="api">API Documentation</a></td>
-</tr>
-</table>
+<p>
+Psylla is a general purpose scriptable interpretive concatenative homoiconic
+PostScript-like programming language.
+</p>
 
-<footer>
-<a id="github-link" href="https://github.com/urbic/psylla/">&#xF092;</a>
-</footer>
+<p>
+The syntax of the language is based on postfix (reverse Polish) notation.
+</p>
+
+<p>
+Psylla is implemented as a library written in Java.
+</p>
+
+<h2>License</h2>
+
+<p>Zlib</p>
+
+
+<h2>Features</h2>
+
+<ul>
+<li>
+Dynamic arrays, strings, dictionaries, sets and streams
+</li>
+<li>
+Arbitrary-precision integer arithmetic
+</li>
+<li>
+Complex numbers
+</li>
+<li>
+Multicontext execution (multithreading), synchronization primitives, blocking
+queues
+</li>
+<li>
+Namespaces
+</li>
+<li>
+Regular expressions
+</li>
+<li>
+REPL
+</li>
+<li>
+Support for Java scripting API (JSR 223)
+</li>
+</ul>
+
+<h2>Author</h2>
+
+<p>
+Anton Shvetz
+</p>
 
 </body>
-</html>
 
+</html>
