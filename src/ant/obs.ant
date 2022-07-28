@@ -50,6 +50,7 @@ pass=
 
 	<target name="obs.checkout"
 		description="Checkout OBS package"
+		depends="osc.config"
 		>
 		<exec dir="${target}" executable="osc">
 			<!--arg value="-c${target.oscrc}" if:true="${obs.password.set}"/-->
