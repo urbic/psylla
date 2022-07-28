@@ -57,7 +57,8 @@ than the length of the <replaceable>array</replaceable>
 &ErrorReason_stackunderflow;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
 </formalpara>

@@ -351,6 +351,8 @@
 	"when the security policy is violated">
 <!ENTITY ErrorReason_stackunderflow
 	"when the operand stack does not contain all of the operands required">
+<!ENTITY ErrorReason_typecheck
+	"when an operand’s type is different from what an operator expects">
 <!ENTITY ErrorReason_unmatchedmark
 	"when the operand stack does not contain mark">
 <!ENTITY ErrorReason_unsupported

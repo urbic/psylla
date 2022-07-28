@@ -512,6 +512,11 @@
 <listitem>замена самого верхнего определения в стеке словарей</listitem>
 </varlistentry>
 
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_where" xrefstyle="template:%t"/></term>
+<listitem>find dictionary in which the given key is defined</listitem>
+</varlistentry>
+
 </variablelist>
 
 </section>
@@ -1291,11 +1296,6 @@ flush output buffer</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_version" xrefstyle="template:%t"/></term>
 <listitem>the version of the interpreter</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_where" xrefstyle="template:%t"/></term>
-<listitem>find dictionary in which the given key is defined</listitem>
 </varlistentry>
 
 </variablelist>

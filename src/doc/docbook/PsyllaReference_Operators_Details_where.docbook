@@ -51,9 +51,15 @@ returns <constant>false</constant>.
 &ErrorReason_stackunderflow;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Control"/>.
 </formalpara>
 
 <formalpara>

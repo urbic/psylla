@@ -4,7 +4,7 @@
 
 <para>
 Returns a new execution <replaceable>context</replaceable>, whose dictionary
-stack is copied from the current context, and then copies
+stack is cloned from the current context, and then copies
 <replaceable>objects</replaceable> to its operand stack. The
 <replaceable>procedure</replaceable> is asynchronously executed within newly
 created <replaceable>context</replaceable>.
@@ -55,7 +55,8 @@ created <replaceable>context</replaceable>.
 &ErrorReason_stackunderflow;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_unmatchedmark"/> —

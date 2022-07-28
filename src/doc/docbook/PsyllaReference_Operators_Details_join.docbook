@@ -55,7 +55,8 @@ when the <replaceable>context</replaceable> is the current context
 &ErrorReason_stackunderflow;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
 </formalpara>

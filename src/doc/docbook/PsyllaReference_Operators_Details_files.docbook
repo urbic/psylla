@@ -3,7 +3,7 @@
 <title><token language="psylla">files</token></title>
 
 <para>
-Returns a new <replaceable>enumeration</replaceable> of file names containing
+Returns a new <replaceable>stream</replaceable> of file names containing
 in the directory with the given <replaceable>name</replaceable>. Names are
 enumerated as <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_name"/> objects.
@@ -14,7 +14,7 @@ linkend="PsyllaReference_Types_Details_name"/> objects.
 <synopsis>
 <replaceable>name</replaceable>
 <token language="psylla">files</token>
-<replaceable>enumeration</replaceable>
+<replaceable>stream</replaceable>
 </synopsis>
 </formalpara>
 
@@ -26,8 +26,8 @@ linkend="PsyllaReference_Types_Details_name"/> objects.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
-<replaceable>enumeration</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+<replaceable>stream</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stream"/>
 </listitem>
 </itemizedlist>
 </formalpara>

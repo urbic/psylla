@@ -33,7 +33,8 @@ Terminates the program execution with a given <replaceable>status</replaceable>.
 &ErrorReason_stackunderflow;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
 </formalpara>
