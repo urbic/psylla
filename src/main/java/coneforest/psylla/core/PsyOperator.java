@@ -440,13 +440,15 @@ public abstract class PsyOperator
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1)));
 		}
 
-		public Arity21(final String name, final Handler<T1, T2> handler)
+		// TODO extends
+		public Arity21(final String name, final Handler<? extends T1, ? extends T2> handler)
 		{
 			super(name);
 			this.handler=handler;
 		}
 
-		private final Handler<T1, T2> handler;
+		// TODO extends
+		private final Handler<? extends T1, ? extends T2> handler;
 
 		@FunctionalInterface
 		public static interface Handler<O1 extends PsyObject, O2 extends PsyObject>

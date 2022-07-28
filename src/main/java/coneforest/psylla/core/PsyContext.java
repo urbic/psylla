@@ -30,6 +30,9 @@ public interface PsyContext
 		return (PsyContext)Thread.currentThread();
 	}
 
+	public void fork()
+		throws PsyException;
+
 	public void quit();
 
 	public void stop_();
@@ -263,42 +266,7 @@ public interface PsyContext
 									}
 								});
 						}),
-			new PsyOperator.Action
-				("fork",
-					(oContext)->
-					{
-						final var ostack=oContext.operandStackBacked(1);
-
-						//ostack.ensureSize(2);
-						final var o=ostack.getBacked(0);
-
-						final var forkedDtack=(DictStack)oContext.dictStack().clone();
-						//final var forkedDtack=(DictStack)oContext.dictStack()/*.clone()*/;
-						final var oForkedContext=new Interpreter()
-							{
-								private final DictStack dstack=forkedDtack;
-
-								@Override
-								public void run()
-								{
-									o.invoke(this);
-									handleExecutionStack();
-									if(getStopFlag())
-									{
-										PsyErrorDict.OP_HANDLEERROR.invoke(this);
-										return;
-									}
-								}
-							};
-						final int i=ostack.findMarkPosition();
-						final int ostackSize=ostack.size();
-						final var forkedOstack=oForkedContext.operandStack();
-						for(int j=i+1; j<ostackSize; j++)
-							forkedOstack.push(ostack.get(j));
-						ostack.setSize(i);
-						ostack.push(oForkedContext);
-						oForkedContext.start();
-					}),
+			new PsyOperator.Action("fork", (oContext)->oContext.fork()),
 			new PsyOperator.Action
 				("halt",
 					(oContext)->

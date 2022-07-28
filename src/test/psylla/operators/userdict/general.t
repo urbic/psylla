@@ -1,0 +1,1 @@
+systemdict /userdict known ?

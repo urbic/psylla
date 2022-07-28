@@ -194,9 +194,7 @@ public class PsySystemDict
         put("stdin", new PsyReader(new java.io.InputStreamReader(System.in)));
         put("stdout", new PsyWriter(new java.io.OutputStreamWriter(System.out)));
         put("stdrandom", new PsyRandom());
-        put("systemdict", this);
         put("true", PsyBoolean.TRUE);
-        put("userdict", new PsyDict());
         put("username", new PsyName(System.getProperty("user.name")));
         put("version", new PsyName(Version.getVersion()));
 

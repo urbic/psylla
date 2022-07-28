@@ -27,6 +27,41 @@ public class Interpreter
 		}
 	}
 
+	@Override
+	public void fork()
+		throws PsyException
+	{
+		final var ostack=operandStackBacked(1);
+		final var o=ostack.getBacked(0);
+		final var forkedDstack=(DictStack)dstack.clone();
+		final var oForkedContext=new Interpreter()
+			{
+				{
+					dstack=forkedDstack;
+				}
+
+				@Override
+				public void run()
+				{
+					o.invoke(this);
+					handleExecutionStack();
+					if(getStopFlag())
+					{
+						PsyErrorDict.OP_HANDLEERROR.invoke(this);
+						return;
+					}
+				}
+			};
+		final int i=ostack.findMarkPosition();
+		final int ostackSize=ostack.size();
+		final var forkedOstack=oForkedContext.operandStack();
+		for(int j=i+1; j<ostackSize; j++)
+			forkedOstack.push(ostack.get(j));
+		ostack.setSize(i);
+		ostack.push(oForkedContext);
+		oForkedContext.start();
+	}
+
 	/*public void importType(final String typeName)
 		throws PsyException
 	{
@@ -781,7 +816,7 @@ public class Interpreter
 	}
 
 	private final OperandStack ostack;
-	private final DictStack dstack;
+	protected DictStack dstack;
 	private final ExecutionStack estack;
 	private final ProcStack procstack;
 	private final Stack<Integer>

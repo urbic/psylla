@@ -18,7 +18,7 @@ public class PsyErrorDict
 				public void action(final PsyContext oContext)
 					throws ClassCastException, PsyException
 				{
-					final PsyFormalDict errorObj=(PsyFormalDict)oContext.systemDict().get("$error");
+					final var errorObj=(PsyFormalDict)oContext.systemDict().get("$error");
 					errorObj.put("newerror", PsyBoolean.FALSE);
 
 					System.err.println(Messages.format("handleErrorMessage",

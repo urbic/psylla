@@ -60,7 +60,7 @@ public interface PsyRealNumeric
 	@Override
 	public PsyRealNumeric psyNeg();
 
-	public PsyNumeric psyAdd(final PsyRealNumeric oNumber);
+	public PsyRealNumeric psyAdd(final PsyRealNumeric oNumber);
 
 	@Override
 	default public PsyNumeric psyAdd(final PsyNumeric oNumber)
@@ -70,7 +70,7 @@ public interface PsyRealNumeric
 		return new PsyComplex(this).psyAdd(oNumber);
 	}
 
-	public PsyNumeric psySub(final PsyRealNumeric oNumber);
+	public PsyRealNumeric psySub(final PsyRealNumeric oNumber);
 
 	@Override
 	default public PsyNumeric psySub(final PsyNumeric oNumber)
@@ -80,7 +80,7 @@ public interface PsyRealNumeric
 		return new PsyComplex(this).psySub(oNumber);
 	}
 
-	public PsyNumeric psyMul(final PsyRealNumeric oNumber);
+	public PsyRealNumeric psyMul(final PsyRealNumeric oNumber);
 
 	@Override
 	default public PsyNumeric psyMul(final PsyNumeric oNumber)

@@ -1,0 +1,1 @@
+systemdict /systemdict known ?

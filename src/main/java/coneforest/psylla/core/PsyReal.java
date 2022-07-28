@@ -56,19 +56,19 @@ public class PsyReal
 	}
 
 	@Override
-	public PsyNumeric psyAdd(final PsyRealNumeric oNumeric)
+	public PsyReal psyAdd(final PsyRealNumeric oNumeric)
 	{
 		return new PsyReal(value+oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsyNumeric psySub(final PsyRealNumeric oNumeric)
+	public PsyRealNumeric psySub(final PsyRealNumeric oNumeric)
 	{
 		return new PsyReal(value-oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsyNumeric psyMul(final PsyRealNumeric oNumeric)
+	public PsyRealNumeric psyMul(final PsyRealNumeric oNumeric)
 	{
 		return new PsyReal(value*oNumeric.doubleValue());
 	}
@@ -130,6 +130,4 @@ public class PsyReal
 		NAN=new PsyReal(Double.NaN);
 
 	private final double value;
-
-	//private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyReal.class);
 }

@@ -177,6 +177,7 @@ public class PsyInteger
 		return new PsyReal(doubleValue()+oNumeric.doubleValue());
 	}
 
+
 	@Override
 	public PsyRealNumeric psySub(final PsyRealNumeric oNumeric)
 	{

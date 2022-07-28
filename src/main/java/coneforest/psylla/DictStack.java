@@ -16,8 +16,12 @@ public class DictStack
 	public DictStack()
 		throws PsyException
 	{
-		push(new PsySystemDict());
-		push(new PsyDict()); // userdict
+		var oSystemDict=new PsySystemDict();
+		var oUserDict=new PsyDict();
+		push(oSystemDict);
+		push(oUserDict);
+		oSystemDict.put("systemdict", oSystemDict);
+		oSystemDict.put("userdict", oUserDict);
 	}
 
 	public <T extends PsyObject> T load(final String key)

@@ -1,0 +1,2 @@
+/hello /HELLO def
+userdict ?
