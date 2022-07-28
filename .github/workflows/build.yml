@@ -26,6 +26,7 @@ jobs:
             libxslthl-java \
             openjdk-11-{jdk-headless,doc} \
             osc \
+            python-m2crypto \
             sassc
       - name: Build
         run: |
