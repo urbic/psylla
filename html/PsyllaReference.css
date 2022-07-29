@@ -20,15 +20,15 @@
 
 .hl-structure { color: #226741; font-weight: bold; }
 
-html { background-color: white; height: 100%; }
+html { background-color: lightgray; height: 100%; }
 
-body { position: static; overflow: auto; font-size: 17px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; font-family: "PT Sans", sans-serif; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
+body { position: static; overflow: auto; font-family: "PT Sans", sans-serif; font-size: 17px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; background-color: white; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
 
 body > * { margin: 0 4pc 0 4pc; }
 
 p { text-align: justify; hyphens: auto; -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; }
 
-h1, h2, h3, h4, h5, h6 { color: #2a675b; }
+h1, h2, h3, h4, h5, h6 { color: #4c4c4c; }
 
 h4 { font-size: 100%; }
 
@@ -44,9 +44,9 @@ h1 { font-size: 172.8%; }
 
 :link:hover { text-decoration: underline; }
 
-hr { border: solid #2a675b 1px; }
+hr { border: solid #4c4c4c 1px; }
 
-.navfooter, .navheader { font-size: smaller; background-color: #73C6B6; }
+.navfooter, .navheader { font-size: smaller; background-color: #a0a0a0; }
 
 .navheader { border-radius: 0 0 15px 15px; }
 
@@ -56,7 +56,7 @@ hr { border: solid #2a675b 1px; }
 
 .literal { font-weight: bold; }
 
-.programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .errorname { font-family: "Consolas", monospace; }
+.programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .errorname { font-family: "PT Mono", monospace; }
 
 .sgmltag-element { color: #039; font-weight: bolder; }
 
@@ -80,7 +80,7 @@ hr { border: solid #2a675b 1px; }
 
 .command { font-weight: bold; }
 
-table.productionset { font-family: "Consolas", monospace; background-color: #fafafa; }
+table.productionset { font-family: "PT Mono", monospace; background-color: #fafafa; }
 
 :link:hover .errorname, .errorname { color: #570057; text-decoration-color: #570057; }
 
@@ -100,6 +100,6 @@ table.productionset { font-family: "Consolas", monospace; background-color: #faf
 
 .informaltable table tr td { padding: .5ex; }
 
-div.toc { position: fixed; overflow: auto; width: 25%; background-color: #ebf7f4; top: 0px; bottom: 0px; left: 0px; right: 25%; font-size: smaller; }
+div.toc { position: fixed; overflow: auto; width: 25%; background-color: #f4f4f4; top: 0px; bottom: 0px; left: 0px; right: 25%; font-size: smaller; }
 
 div.toc > * { margin: 1pc; }
