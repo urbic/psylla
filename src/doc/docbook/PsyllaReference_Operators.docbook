@@ -398,6 +398,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_cleardictstack" xrefstyle="template:%t"/></term>
+<listitem>remove all non-permanent dictionaries from the dictionary stack</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_countdictstack" xrefstyle="template:%t"/></term>
 <listitem>the size of the dictionary stack</listitem>
 </varlistentry>
@@ -589,11 +594,6 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_clear" xrefstyle="template:%t"/></term>
 <listitem>empty a container</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_cleardictstack" xrefstyle="template:%t"/></term>
-<listitem>remove all non-permanent dictionaries from the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -808,6 +808,11 @@ discarding the first few elements</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_sort" xrefstyle="template:%t"/></term>
 <listitem>sort an array according to comparator</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_streamtomark" xrefstyle="template:%t"/></term>
+<listitem>complete stream creation</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1645,6 +1650,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_stop;
 &PsyllaReference_Operators_Details_stopped;
 &PsyllaReference_Operators_Details_store;
+&PsyllaReference_Operators_Details_streamtomark;
 &PsyllaReference_Operators_Details_string;
 &PsyllaReference_Operators_Details_stringreader;
 &PsyllaReference_Operators_Details_stringwriter;

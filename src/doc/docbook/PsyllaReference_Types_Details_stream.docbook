@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_stream">
+<title><type>stream</type></title>
+
+<para>
+TODO
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_closeable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsyllaTypesHierarchy_stream.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>
