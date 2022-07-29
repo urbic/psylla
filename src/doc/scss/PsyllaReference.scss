@@ -1,18 +1,17 @@
 @namespace url("http://www.w3.org/1999/xhtml");
 @import "highlight.scss";
 
-$background-color-body: white; //#FAFAFA;
-$background-color-nav: #73C6B6;
-$font-family-body: "PT Sans", sans-serif;
-$font-size-body: 17px;
-$font-family-code: "Consolas", monospace;
-//$color-title: darkslategray; //darken($background-color-body, 60%);
+$background-color-html: lightgray;
+$background-color-body: lighten($background-color-html, 20%);
+$background-color-nav: darken($background-color-html, 20%);
 $color-title: darken($background-color-nav, 33%);
-$background-color-html: $background-color-body;//$color-title;
 $color-link: royalblue;
-$color-visited: $color-link;//darken($color-link, 7.5%);
+$color-visited: $color-link;
 $color-filename: black;
 $background-color-programlisting: darken($background-color-body, 2%);
+$font-family-body: "PT Sans", sans-serif;
+$font-size-body: 17px;
+$font-family-code: "PT Mono", monospace;
 
 html
 {
@@ -24,14 +23,14 @@ body
 {
 	position: static;
 	overflow: auto;
+	font-family: $font-family-body;
 	font-size: $font-size-body;
 	max-width: auto;
 	min-height: 100%;
 	margin: 0pc auto 0pc 25%;
 	top: 0px;
 	bottom: 0px;
-	//background-color: $background-color-body;
-	font-family: $font-family-body;
+	background-color: $background-color-body;
 	tab-size: 4;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
