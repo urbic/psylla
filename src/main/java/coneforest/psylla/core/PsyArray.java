@@ -183,12 +183,9 @@ public class PsyArray
 		}
 	}
 
-	// TODO
-	public PsyArray psySort(final java.util.Comparator<? super PsyObject> comparator)
+	public void psySort(final PsyProc oComparator, final PsyContext oContext)
 	{
-		final var result=psyClone();
-		java.util.Collections.sort(result.array, comparator);
-		return result;
+		java.util.Collections.sort(array, oComparator.asComparator(oContext));
 	}
 
 	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator, final PsyContext oContext)
@@ -250,6 +247,13 @@ public class PsyArray
 							ostack.push(PsyInteger.valueOf(-index-1));
 							ostack.push(PsyBoolean.FALSE);
 						}
+					}),
+			new PsyOperator.Action
+				("sort",
+					(oContext)->
+					{
+						final var ostack=oContext.operandStackBacked(2);
+						ostack.<PsyArray>getBacked(0).psySort(ostack.getBacked(1), oContext);
 					}),
 		};
 }
