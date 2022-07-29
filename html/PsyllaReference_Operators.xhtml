@@ -4266,16 +4266,15 @@ when an operand’s type is different from what an operator expects
 </li></ul></div><p><span class="formalpara-title">See Also: </span><a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_getall" title="5.2.109. getall"><code class="token"><span class="hl-keyword">getall</span></code></a>,
 <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_getinterval" title="5.2.110. getinterval"><code class="token"><span class="hl-keyword">getinterval</span></code></a>.
 </p></section><section class="section" id="PsyllaReference_Operators_Details_sort"><div class="titlepage"><div><div><h3 class="title">5.2.209. <code class="token"><span class="hl-keyword">sort</span></code></h3></div></div></div><p>
-Возвращает отсортированную копию <em class="replaceable"><code>массива</code></em>. Сортировка
-производится при помощи процедуры-<em class="replaceable"><code>компаратора</code></em>.
+Sort an <em class="replaceable"><code>array</code></em> according to
+<em class="replaceable"><code>comparator</code></em>.
 </p><p><span class="formalpara-title">Synopsis: </span></p><pre class="synopsis">
 <em class="replaceable"><code>array</code></em>
 <em class="replaceable"><code>comparator</code></em>
 <code class="token"><span class="hl-keyword">sort</span></code>
-<em class="replaceable"><code>сортированный_массив</code></em>
+—
 </pre><p><span class="formalpara-title">Operands: </span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><em class="replaceable"><code>array</code></em>,
-<em class="replaceable"><code>сортированный_массив</code></em>:
-<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_formalarray" title="4.1.30. formalarray"><span class="type">formalarray</span></a></li><li class="listitem"><em class="replaceable"><code>comparator</code></em>:
+<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_array" title="4.1.4. array"><span class="type">array</span></a></li><li class="listitem"><em class="replaceable"><code>comparator</code></em>:
 <a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_proc" title="4.1.52. proc"><span class="type">proc</span></a></li></ul></div><p><span class="formalpara-title">Errors: </span></p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="xref" href="PsyllaReference_Errors.xhtml#PsyllaReference_Errors_Details_stackunderflow" title="6.1.18. stackunderflow"><span class="errorname">stackunderflow</span></a> —
 when the operand stack does not contain all of the operands required
 </li><li class="listitem"><a class="xref" href="PsyllaReference_Errors.xhtml#PsyllaReference_Errors_Details_typecheck" title="6.1.20. typecheck"><span class="errorname">typecheck</span></a> —
@@ -4288,7 +4287,8 @@ when an operand’s type is different from what an operator expects
 <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_lt" title="5.2.143. lt"><code class="token"><span class="hl-keyword">lt</span></code></a>,
 <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_max" title="5.2.148. max"><code class="token"><span class="hl-keyword">max</span></code></a>,
 <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_min" title="5.2.149. min"><code class="token"><span class="hl-keyword">min</span></code></a>,
-<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_reverse" title="5.2.192. reverse"><code class="token"><span class="hl-keyword">reverse</span></code></a>.
+<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_reverse" title="5.2.192. reverse"><code class="token"><span class="hl-keyword">reverse</span></code></a>,
+<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_sorted" title="5.2.210. sorted"><code class="token"><span class="hl-keyword">sorted</span></code></a>.
 </p></section><section class="section" id="PsyllaReference_Operators_Details_sorted"><div class="titlepage"><div><div><h3 class="title">5.2.210. <code class="token"><span class="hl-keyword">sorted</span></code></h3></div></div></div><p>
 Returns a stream consisting of the elements of the
 <em class="replaceable"><code>stream</code></em>, sorted according to the provided
