@@ -288,8 +288,6 @@ public interface PsyFormalArray<T extends PsyObject>
 		*/
 	}
 
-	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator, final PsyContext oContext);
-
 	@Override
 	default public String toSyntaxString()
 	{
