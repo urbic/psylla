@@ -29,7 +29,7 @@ the <replaceable>result</replaceable> indicating the success of the search.
 <itemizedlist>
 <listitem>
 <replaceable>array</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>
 </listitem>
 <listitem>
 <replaceable>object</replaceable>:

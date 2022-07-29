@@ -191,6 +191,7 @@ public class PsyArray
 		return result;
 	}
 
+	@Override
 	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator, final PsyContext oContext)
 	{
 		final var opstack=oContext.operandStack();
