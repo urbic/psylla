@@ -1,7 +1,6 @@
 @namespace url("http://www.w3.org/1999/xhtml");
 
-//$color-hl-constant: #077; //crimson;
-$color-hl-constant: steelblue;//darken(tomato, 40%); //crimson;
+$color-hl-constant: steelblue;
 $color-hl-keyword: darken(mediumseagreen, 10%);
 $color-hl-comment: #999;
 $color-hl-directive: #777;
@@ -10,7 +9,6 @@ $color-hl-tag: #039;
 $color-hl-variable: #042;
 $color-hl-doctype: #505;
 $color-hl-annotation: fuchsia;
-// $color-hl-structure: tomato;
 $color-hl-structure: darken($color-hl-keyword, 10%);
 
 .hl-string,

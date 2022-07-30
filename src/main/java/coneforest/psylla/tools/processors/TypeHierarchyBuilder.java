@@ -75,7 +75,8 @@ public class TypeHierarchyBuilder
 			//final var dot=new ProcessBuilder("dot", "-Tsvg", "-o"+outputDir+"/PsyllaTypesHierarchy_"+head+".svg").start();
 			//final var dotWriter=new java.io.PrintStream(dot.getOutputStream());
 			final var dotWriter=new java.io.PrintStream(
-					java.nio.file.Files.newOutputStream(java.nio.file.Path.of(outputDir, "PsyllaTypesHierarchy_"+head+".dot")));
+					java.nio.file.Files.newOutputStream(java.nio.file.Path.of(outputDir,
+							"PsyllaTypesHierarchy_"+head+".dot")));
 			dotWriter.print("digraph "+head+"\n");
 			dotWriter.print("{\n"
 				+"\tgraph\n"
@@ -88,7 +89,7 @@ public class TypeHierarchyBuilder
 				+"\t\tstyle=\"filled\",\n"
 				+"\t\tfillcolor=\"linen\",\n"
 				+"\t\tfontname=\"PT Mono, monospace\",\n"
-				+"\t\tfontsize=\"10px\",\n"
+				+"\t\tfontsize=\"20px\",\n"
 				+"\t\thref=\"PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_\\N\",\n"
 				+"\t\ttarget=\"_parent\"\n"
 				+"\t]\n"

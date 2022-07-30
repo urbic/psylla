@@ -10,7 +10,7 @@ $color-visited: $color-link;
 $color-filename: black;
 $background-color-programlisting: darken($background-color-body, 2%);
 $font-family-body: "PT Sans", sans-serif;
-$font-size-body: 17px;
+$font-size-body: 20px;
 $font-family-code: "PT Mono", monospace;
 
 html
@@ -53,7 +53,7 @@ p
 h1, h2, h3, h4, h5, h6
 {
 	color: $color-title;
-	//text-shadow: 0 0 1.5px $background-color-body, 0 1px 1.5px lighten($color-title, 25%);
+	text-shadow: 0 0 1.5px $background-color-body, 0 1px 1.5px lighten($color-title, 25%);
 }
 
 h4
@@ -125,6 +125,7 @@ hr
 
 .literal
 {
+	font-family: $font-family-code;
 	font-weight: bold;
 }
 
@@ -286,4 +287,12 @@ div.toc
 	{
 		margin: 1pc;
 	}
+}
+
+div.navheader table tr:nth-child(2) th
+{
+	background-image: url("psylla.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }

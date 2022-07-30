@@ -26,15 +26,14 @@ numbers, but not to strings.
 Some operators are polymorphic, that is able to change its meaning in
 accordance with the type of its operands. For example, the same operator <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_add"/> for
-integer operands returns integer (except in the case where the sum is beyond
-the boundaries of integer type; then the result is real). If one of the
-operands is an integer, and the other is a real, or both are real, the result
-will also have a real type. If at least one of the operands has the complex
-type, the result will have the same type. Another example: the <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_or"/> operator
-returns the disjunction of its operands. If both operands are of boolean type,
-the result will be boolean, and if both operands are integer, bitwise
-disjunction is calculated, and the result will be integer.
+integer operands returns integer. If one of the operands is an integer, and the
+other is a real, or both are real, the result will also have a real type. If at
+least one of the operands has the complex type, the result will have the same
+type. Another example: the <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_or"/> operator returns the
+disjunction of its operands. If both operands are of boolean type, the result
+will be boolean, and if both operands are integer, bitwise disjunction is
+calculated, and the result will be integer.
 </para>
 
 <section xml:id="PsyllaReference_Types_Details">
@@ -136,6 +135,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_scalar;
 &PsyllaReference_Types_Details_sequential;
 &PsyllaReference_Types_Details_set;
+&PsyllaReference_Types_Details_stream;
 &PsyllaReference_Types_Details_streamable;
 &PsyllaReference_Types_Details_string;
 &PsyllaReference_Types_Details_stringreader;
