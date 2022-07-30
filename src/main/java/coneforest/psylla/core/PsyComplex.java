@@ -125,7 +125,9 @@ public class PsyComplex
 	{
 		final var x=oNumeric.realValue();
 		final var y=oNumeric.imagValue();
-		return new PsyComplex(re*x-im*y, im*x+re*y);
+		final var t1=re*x;
+		final var t2=im*y;
+		return new PsyComplex(t1-t2, (re+im)*(x+y)-t1-t2);
 	}
 
 	@Override
