@@ -15,14 +15,15 @@ public class PsyProcess
 			// TODO: empty command name
 			if(oDict.known("command"))
 			{
-				final var command=oDict.get("command");
-				if(command instanceof PsyTextual)
-					pb=new ProcessBuilder(((PsyTextual)command).stringValue());
-				else if(command instanceof PsyFormalArray)
+				//System.out.println("PROCESS");
+				final var oCommand=oDict.get("command");
+				if(oCommand instanceof PsyTextual)
+					pb=new ProcessBuilder(((PsyTextual)oCommand).stringValue());
+				else if(oCommand instanceof PsyFormalArray)
 				{
-					java.util.ArrayList<String> commandList
-						=new java.util.ArrayList(((PsyFormalArray)command).length());
-					for(final var o: (PsyFormalArray<PsyObject>)command)
+					final var commandList
+						=new java.util.ArrayList<String>(((PsyFormalArray)oCommand).length());
+					for(final var o: (PsyFormalArray<PsyObject>)oCommand)
 						commandList.add(((PsyTextual)o).stringValue());
 					pb=new ProcessBuilder(commandList);
 				}
@@ -35,21 +36,30 @@ public class PsyProcess
 
 			if(oDict.known("environment"))
 			{
-				// TODO
-				//bp.environment();
+				final var oEnv=(PsyFormalDict<PsyTextual>)oDict.get("environment");
+				final var env=pb.environment();
+				env.clear();
+				for(final var oKey: oEnv.psyKeys().stream().toArray(PsyTextual[]::new))
+					env.put(oKey.stringValue(), oEnv.psyGet(oKey).stringValue());
 			}
-			//PsyDict environment=(PsyDict)oDict.get("environment");
 
-			if(oDict.known("inheritinput")
-					&& ((PsyBoolean)oDict.get("inheritinput")).booleanValue())
+			if(oDict.known("input")
+					&& ((PsyBoolean)oDict.get("input")).booleanValue())
 				pb.redirectInput(ProcessBuilder.Redirect.INHERIT);
 
-			if(oDict.known("inheritoutput")
-					&& ((PsyBoolean)oDict.get("inheritoutput")).booleanValue())
+			if(oDict.known("output")
+					&& ((PsyBoolean)oDict.get("output")).booleanValue())
+				pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
+
+			if(oDict.known("error")
+					&& ((PsyBoolean)oDict.get("error")).booleanValue())
 				pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);
 
 			process=pb.start();
-
+		}
+		catch(final NullPointerException|IndexOutOfBoundsException e)
+		{
+			throw new PsyUndefinedException();
 		}
 		catch(final ClassCastException e)
 		{
@@ -62,6 +72,10 @@ public class PsyProcess
 		catch(final java.io.IOException e)
 		{
 			throw new PsyIOErrorException();
+		}
+		catch(final PsyException e)
+		{
+			throw e;
 		}
 	}
 
@@ -95,6 +109,15 @@ public class PsyProcess
 			throw new PsyInvalidStateException();
 		}
 	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyFormalDict>("process", PsyProcess::new),
+			new PsyOperator.Arity11<PsyProcess>("processerror", PsyProcess::psyProcessError),
+			new PsyOperator.Arity11<PsyProcess>("processreader", PsyProcess::psyProcessReader),
+			new PsyOperator.Arity11<PsyProcess>("processwriter", PsyProcess::psyProcessWriter),
+			new PsyOperator.Arity11<PsyProcess>("status", PsyProcess::psyStatus),
+		};
 
 	private Process process;
 

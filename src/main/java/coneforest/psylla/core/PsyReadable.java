@@ -87,12 +87,11 @@ public interface PsyReadable
 					(oContext)->
 					{
 						final var ostack=oContext.operandStackBacked(1);
-						final PsyInteger oCharacter=ostack.<PsyReadable>getBacked(0).psyRead();
+						final var oCharacter=ostack.<PsyReadable>getBacked(0).psyRead();
 						boolean notEOF=(oCharacter!=PsyInteger.MINUS_ONE);
 						if(notEOF)
 							ostack.push(oCharacter);
 						ostack.push(PsyBoolean.valueOf(notEOF));
 					}),
 		};
-
 }

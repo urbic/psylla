@@ -26,13 +26,6 @@ public class PsySystemDict
 			new PsyOperator.Arity11<PsyMatcher>("matches", PsyMatcher::psyMatches),
 			new PsyOperator.Arity21<PsyMatcher, PsyTextual>("replaceall", PsyMatcher::psyReplaceAll),
 
-			// "process"
-			new PsyOperator.Arity11<PsyFormalDict>("process", PsyProcess::new),
-			new PsyOperator.Arity11<PsyProcess>("processerror", PsyProcess::psyProcessError),
-			new PsyOperator.Arity11<PsyProcess>("processreader", PsyProcess::psyProcessReader),
-			new PsyOperator.Arity11<PsyProcess>("processwriter", PsyProcess::psyProcessWriter),
-			new PsyOperator.Arity11<PsyProcess>("status", PsyProcess::psyStatus),
-
 			// ?
 			new PsyOperator.Action("warn",
 				(oContext)->
@@ -155,6 +148,8 @@ public class PsySystemDict
 		for(var oOperator: PsySequential.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyStreamable.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsyProcess.OPERATORS)
 			registerOperator(oOperator);
 
 		for(var oOperator: OPERATORS)
