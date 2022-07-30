@@ -98,7 +98,9 @@ is passed in the command line in the form _p_`/`_q_.
 
 ## Greatest common divisor
 
-Prints the GCD calculated using Euclid’s algorithm.
+Prints the GCD calculated using [Euclid’s
+algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm). Numbers are
+passed in the command line.
 
 * [__`gcd-iterative.psy`__](gcd-iterative.psy) — iterative implementation
 * [__`gcd-recursive.psy`__](gcd-recursive.psy) — recursive implementation

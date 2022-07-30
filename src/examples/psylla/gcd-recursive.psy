@@ -12,6 +12,6 @@
 }
 bind def
 
-arguments 0 get tointeger
-arguments 1 get tointeger
-gcd toname say
+arguments stream { tointegral } mapped
+0 { gcd } reduce
+toname say
