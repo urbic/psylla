@@ -1,5 +1,10 @@
 # Example Psylla programs
 
+## Hello, world
+Prints greeting.
+
+* [__`hello.psy`__](hello.psy)
+
 ## Asterisks
 
 Prints _n_ × _n_ square filled with spaces and asterisks. The non-negative
@@ -11,6 +16,13 @@ integer _n_ is passed in the command line.
   and asterisks form nested squares
 * [__`asterisks-solid-square.psy`__](asterisks-solid-square.psy) — the whole
   square is filled with asterisks
+
+## Echo
+
+Prints all the command-line argumants separated by spaces and finally line feed
+character.
+
+* [__`echo.psy`__](echo.psy)
 
 ## Cat
 
