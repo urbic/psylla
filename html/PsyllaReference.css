@@ -22,13 +22,13 @@
 
 html { background-color: lightgray; height: 100%; }
 
-body { position: static; overflow: auto; font-family: "PT Sans", sans-serif; font-size: 17px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; background-color: white; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
+body { position: static; overflow: auto; font-family: "PT Sans", sans-serif; font-size: 20px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; background-color: white; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
 
 body > * { margin: 0 4pc 0 4pc; }
 
 p { text-align: justify; hyphens: auto; -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; }
 
-h1, h2, h3, h4, h5, h6 { color: #4c4c4c; }
+h1, h2, h3, h4, h5, h6 { color: #3a3a3a; text-shadow: 0 0 2px white, 0 1px 2px #7a7a7a; }
 
 h4 { font-size: 100%; }
 
@@ -44,9 +44,9 @@ h1 { font-size: 172.8%; }
 
 :link:hover { text-decoration: underline; }
 
-hr { border: solid #4c4c4c 1px; }
+hr { border: solid #3a3a3a 1px; }
 
-.navfooter, .navheader { font-size: smaller; background-color: #a0a0a0; }
+.navfooter, .navheader { font-size: smaller; background-color: #bababa; }
 
 .navheader { border-radius: 0 0 15px 15px; }
 
@@ -54,9 +54,9 @@ hr { border: solid #4c4c4c 1px; }
 
 .toc dl { margin-top: 0px; margin-bottom: 0px; }
 
-.literal { font-weight: bold; }
+.literal { font-family: "PT Mono", monospace; font-weight: bold; }
 
-.programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .errorname { font-family: "PT Mono", monospace; }
+code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .errorname, .replaceable, .parameter { font-family: "PT Mono", monospace; }
 
 .sgmltag-element { color: #039; font-weight: bolder; }
 
@@ -86,7 +86,7 @@ table.productionset { font-family: "PT Mono", monospace; background-color: #fafa
 
 .formalpara-title { font-weight: bold; }
 
-.programlisting, .screen, .cmdsynopsis, .literallayout { padding: 1em; background-color: #fafafa; font-size: 17px; }
+.programlisting, .screen, .cmdsynopsis, .literallayout { padding: 1em; background-color: #fafafa; font-size: 20px; }
 
 .literallayout p, .cmdsynopsis p { margin: 0em; }
 
@@ -100,6 +100,8 @@ table.productionset { font-family: "PT Mono", monospace; background-color: #fafa
 
 .informaltable table tr td { padding: .5ex; }
 
-div.toc { position: fixed; overflow: auto; width: 25%; background-color: #f4f4f4; top: 0px; bottom: 0px; left: 0px; right: 25%; font-size: smaller; }
+div.toc { position: fixed; overflow: auto; width: 25%; background-color: #f9f9f9; top: 0px; bottom: 0px; left: 0px; right: 25%; font-size: smaller; }
 
 div.toc > * { margin: 1pc; }
+
+div.navheader table tr:nth-child(2) th { background-image: url("psylla.svg"); background-repeat: no-repeat; background-position: center; background-size: contain; }

@@ -1,0 +1,11 @@
+#!/usr/bin/psylla
+
+/flag //false def
+arguments
+{
+	flag { ' ' print } if
+	/flag //true def
+	print
+}
+bind forall
+'' say
