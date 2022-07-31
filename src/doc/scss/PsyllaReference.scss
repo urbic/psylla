@@ -3,8 +3,8 @@
 
 $background-color-html: lightgray;
 $background-color-body: lighten($background-color-html, 20%);
-$background-color-nav: darken($background-color-html, 20%);
-$color-title: darken($background-color-nav, 33%);
+$background-color-nav: darken($background-color-html, 10%);
+$color-title: darken($background-color-nav, 50%);
 $color-link: royalblue;
 $color-visited: $color-link;
 $color-filename: black;
@@ -53,7 +53,7 @@ p
 h1, h2, h3, h4, h5, h6
 {
 	color: $color-title;
-	text-shadow: 0 0 1.5px $background-color-body, 0 1px 1.5px lighten($color-title, 25%);
+	text-shadow: 0 0 2px $background-color-body, 0 1px 2px lighten($color-title, 25%);
 }
 
 h4
@@ -129,6 +129,7 @@ hr
 	font-weight: bold;
 }
 
+code,
 .programlisting,
 .screen,
 .literallayout,
@@ -140,7 +141,9 @@ hr
 .command,
 .type,
 .token,
-.errorname
+.errorname,
+.replaceable,
+.parameter
 {
 	font-family: $font-family-code;
 }
@@ -277,7 +280,8 @@ div.toc
 	position: fixed;
 	overflow: auto;
 	width: 25%;
-	background-color: lighten($background-color-nav, 33%);
+	//background-color: lighten($background-color-nav, 33%);
+	background-color: lighten($background-color-nav, 25%);
 	top: 0px;
 	bottom: 0px;
 	left: 0px;

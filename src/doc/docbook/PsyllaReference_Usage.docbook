@@ -166,8 +166,11 @@ Argument passed to Psylla program.
 <title>Java Scripting API</title>
 
 <para>
-The Psylla provides support for Java Scripting API (JSR 223). The
-<command>jrunscript</command> shell demonstrates this feature:
+The Psylla provides support for <firstterm>Java Scripting
+API</firstterm><indexterm><primary>Java Scripting Api</primary></indexterm>
+(<firstterm>JSR 223</firstterm><indexterm><primary>JSR
+223</primary></indexterm>). The <command>jrunscript</command> shell
+demonstrates this feature:
 
 <screen><prompt>% </prompt><userinput>jrunscript -cp target/lib/psylla.jar -l psylla -e '1 1 1 7 { mul } for ?'</userinput>
 <computeroutput>5040</computeroutput></screen>

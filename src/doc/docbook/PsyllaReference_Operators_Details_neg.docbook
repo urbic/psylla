@@ -48,9 +48,8 @@ or <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">4 neg						▶ -4
--9223372036854775808 neg	▶ 9.223372036854776E18
 -4. neg						▶ 4.0
-0 1 complex neg				▶ -complex:-0.0,-1.0-</programlisting>
+0 1 complex neg				▶ %complex=-0.0;-1.0%</programlisting>
 </formalpara>
 
 <formalpara>

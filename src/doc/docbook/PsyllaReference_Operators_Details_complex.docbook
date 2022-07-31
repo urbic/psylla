@@ -34,7 +34,7 @@ Returns a new complex <replaceable>number</replaceable> with given
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 1 complex	▶ -complex:0.0,1.0-</programlisting>
+<programlisting language="psylla">0 1 complex	▶ %complex=0.0;1.0%</programlisting>
 </formalpara>
 
 <formalpara>

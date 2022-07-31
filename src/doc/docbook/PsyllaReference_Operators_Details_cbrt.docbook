@@ -31,7 +31,7 @@ the <replaceable>number</replaceable>.
 &TitleExamples;
 <programlisting language="psylla">2 cbrt				▶ 1.2599210498948732
 -1 cbrt	 			▶ -1.0
-0 1 complex cbrt	▶ -complex:0.8660254037844387,0.49999999999999994-</programlisting>
+0 1 complex cbrt	▶ %complex=0.8660254037844387;0.49999999999999994%</programlisting>
 </formalpara>
 
 <formalpara>
