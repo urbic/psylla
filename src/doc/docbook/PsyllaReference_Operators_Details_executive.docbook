@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_executive">
+<title><token language="psylla">executive</token></title>
+
+<para>
+Invoke <acronym>REPL</acronym> (read—evaluate—print loop).
+</para>
+
+<formalpara>
+&TitleSynopsis;
+<synopsis>
+—
+<token language="psylla">executive</token>
+—
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Control"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eval"/>.
+</formalpara>
+
+</section>

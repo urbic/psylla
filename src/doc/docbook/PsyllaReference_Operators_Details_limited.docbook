@@ -35,7 +35,7 @@ of the <replaceable>stream</replaceable>, truncated to be no longer than
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 9 range 4 limited {} forall ]	▶ [ 0 1 2 3 ]</programlisting>
+<programlisting language="psylla">0 1 9 range 4 limited { } forall	▶ 0 1 2 3</programlisting>
 </formalpara>
 
 <formalpara>

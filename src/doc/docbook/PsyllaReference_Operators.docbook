@@ -448,6 +448,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_executive" xrefstyle="template:%t"/></term>
+<listitem>invoke <acronym>REPL</acronym></listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_exit" xrefstyle="template:%t"/></term>
 <listitem>exit from a cycle</listitem>
 </varlistentry>
@@ -1512,6 +1517,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_exch;
 &PsyllaReference_Operators_Details_exec;
 &PsyllaReference_Operators_Details_execstack;
+&PsyllaReference_Operators_Details_executive;
 &PsyllaReference_Operators_Details_exit;
 &PsyllaReference_Operators_Details_exp;
 &PsyllaReference_Operators_Details_external;

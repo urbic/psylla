@@ -6,15 +6,11 @@
 Terminates the most inner enclosing looping context. A <firstterm>looping
 context</firstterm><indexterm><primary>looping context</primary></indexterm> is
 a procedure, invoked repeatedly by one of the following control operators:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_for"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_loop"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_repeat"/>.
-Выполнение программы продолжается с объекта, следующего за циклическим
-оператором.
+Program execution continues from the object following this operator.
 </para>
 
 <formalpara>

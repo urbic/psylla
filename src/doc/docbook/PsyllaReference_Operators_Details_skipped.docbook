@@ -35,7 +35,7 @@ Returns a stream consisting of the remaining elements of the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 9 range 3 skipped {} forall ]	▶ [ 3 4 5 6 7 8 9 ]</programlisting>
+<programlisting language="psylla">0 1 9 range 3 skipped { } forall	▶ 3 4 5 6 7 8 9</programlisting>
 </formalpara>
 
 <formalpara>

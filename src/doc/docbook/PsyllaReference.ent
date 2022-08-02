@@ -162,6 +162,7 @@
 <!ENTITY PsyllaReference_Operators_Details_exch				SYSTEM "PsyllaReference_Operators_Details_exch.docbook">
 <!ENTITY PsyllaReference_Operators_Details_exec				SYSTEM "PsyllaReference_Operators_Details_exec.docbook">
 <!ENTITY PsyllaReference_Operators_Details_execstack		SYSTEM "PsyllaReference_Operators_Details_execstack.docbook">
+<!ENTITY PsyllaReference_Operators_Details_executive		SYSTEM "PsyllaReference_Operators_Details_executive.docbook">
 <!ENTITY PsyllaReference_Operators_Details_exit				SYSTEM "PsyllaReference_Operators_Details_exit.docbook">
 <!ENTITY PsyllaReference_Operators_Details_exp				SYSTEM "PsyllaReference_Operators_Details_exp.docbook">
 <!ENTITY PsyllaReference_Operators_Details_external			SYSTEM "PsyllaReference_Operators_Details_external.docbook">
