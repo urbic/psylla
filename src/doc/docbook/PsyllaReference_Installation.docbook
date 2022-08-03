@@ -153,7 +153,7 @@ Alternatively, you can run one of example programs
 You also can run into interactive session:
 
 <screen><prompt>% </prompt><userinput>./psylla.sh</userinput>
-<computeroutput>Psylla &psylla.version;
+<computeroutput>Psylla v&psylla.version;
 Copyright © 2014—2022, Anton Shvetz
 
 </computeroutput><prompt>PSYLLA&gt; </prompt><userinput>2 sqrt ?</userinput>

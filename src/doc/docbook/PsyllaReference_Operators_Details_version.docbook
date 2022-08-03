@@ -30,7 +30,7 @@ the system dictionary.
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">version
-	▶ '0.3.1'</programlisting>
+	▶ '&psylla.version;'</programlisting>
 </formalpara>
 
 </section>

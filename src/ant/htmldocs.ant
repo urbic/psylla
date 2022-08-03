@@ -42,7 +42,7 @@
 	<target name="version">
 		<copy tofile="${target.doc}/version.ent">
             <string><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<!ENTITY ${project.name}.version "v${project.version}">
+<!ENTITY ${project.name}.version "${project.version}">
 ]]></string>
 		</copy>
 	</target>

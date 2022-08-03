@@ -14,7 +14,7 @@ interpreter in Java applications.
 </para>
 
 <para>
-This reference describes Psylla &psylla.version;.
+This reference describes Psylla v&psylla.version;.
 </para>
 
 <section xml:id="PsyllaReference_Introduction_CopyrightAndLicense">

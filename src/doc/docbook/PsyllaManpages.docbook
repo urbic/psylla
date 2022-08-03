@@ -224,7 +224,7 @@ The <application>Psylla</application> executable, which starts an interpreter.
 <refsection>
 <title>Version</title>
 <para>
-This document describes <application>Psylla</application> &psylla.version;.
+This document describes <application>Psylla</application> v&psylla.version;.
 </para>
 </refsection>
 
