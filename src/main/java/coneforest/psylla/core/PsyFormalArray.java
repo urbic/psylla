@@ -216,7 +216,8 @@ public interface PsyFormalArray<T extends PsyObject>
 	default public PsyFormalStream<PsyObject> psyEntries()
 	{
 		return null; // TODO
-		/*return new PsyFormalStream<PsyObject>()
+		/*
+		return new PsyFormalStream<PsyObject>()
 			{
 				@Override
 				public void psyForAll(final PsyObject oProc)

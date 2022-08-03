@@ -33,6 +33,7 @@ public interface PsyAppendable<T extends PsyObject>
 	default public void psyAppendAll(final PsyIterable<? extends T> oEnumeration)
 		throws PsyException
 	{
+		// TODO
 		for(T o: (this!=oEnumeration? oEnumeration: (PsyIterable<? extends T>)psyClone()))
 			psyAppend(o);
 	}

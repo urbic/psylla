@@ -424,9 +424,9 @@ public interface PsyContext
 					(oContext)->
 					{
 						final var ostack=oContext.operandStackBacked(2);
-						final int n=ostack.<PsyInteger>getBacked(0).intValue();
+						final var n=ostack.<PsyInteger>getBacked(0).intValue();
 						int j=ostack.<PsyInteger>getBacked(1).intValue();
-						final int ostackSize=ostack.size();
+						final var ostackSize=ostack.size();
 						if(n<0)
 							throw new PsyRangeCheckException();
 						if(n==0)

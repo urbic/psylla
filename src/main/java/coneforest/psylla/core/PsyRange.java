@@ -21,26 +21,28 @@ public class PsyRange
 		final boolean forward=oIncrement.psyGt(PsyInteger.ZERO).booleanValue();
 		return java.util.stream.StreamSupport.<PsyRealNumeric>stream(
 				java.util.Spliterators.<PsyRealNumeric>spliteratorUnknownSize(
-						new java.util.Iterator<PsyRealNumeric>()
+					new java.util.Iterator<PsyRealNumeric>()
+						{
+							@Override
+							public boolean hasNext()
 							{
-								@Override
-								public boolean hasNext()
-								{
-									return (forward? oNext.psyLe(oLimit): oNext.psyGe(oLimit)).booleanValue();
-								}
+								return (forward?
+										oNext.psyLe(oLimit):
+										oNext.psyGe(oLimit)).booleanValue();
+							}
 
-								@Override
-								public PsyRealNumeric next()
-								{
-									oCurrent=oNext;
-									oNext=(PsyRealNumeric)oCurrent.psyAdd(oIncrement);
-									return oCurrent;
-								}
+							@Override
+							public PsyRealNumeric next()
+							{
+								oCurrent=oNext;
+								oNext=(PsyRealNumeric)oCurrent.psyAdd(oIncrement);
+								return oCurrent;
+							}
 
-								private PsyRealNumeric oCurrent;
-								private PsyRealNumeric oNext=oInitial;
-							}, 0),
-						false);
+							private PsyRealNumeric oCurrent;
+							private PsyRealNumeric oNext=oInitial;
+						}, 0),
+					false);
 	}
 
 	@Override

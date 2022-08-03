@@ -1,5 +1,7 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
 *	A representation of {@code array} object.
@@ -13,7 +15,7 @@ public class PsyArray
 	*/
 	public PsyArray()
 	{
-		this(new java.util.ArrayList<PsyObject>());
+		this(new ArrayList<PsyObject>());
 	}
 
 	/**
@@ -21,7 +23,7 @@ public class PsyArray
 	*
 	*	@param array a given array list.
 	*/
-	public PsyArray(final java.util.ArrayList<PsyObject> array)
+	public PsyArray(final ArrayList<PsyObject> array)
 	{
 		this.array=array;
 	}
@@ -41,7 +43,7 @@ public class PsyArray
 	@Override
 	public PsyArray psyClone()
 	{
-		return new PsyArray((java.util.ArrayList<PsyObject>)array.clone());
+		return new PsyArray((ArrayList<PsyObject>)array.clone());
 	}
 
 	@Override
@@ -64,7 +66,7 @@ public class PsyArray
 	{
 		try
 		{
-			return new PsyArray(new java.util.ArrayList<PsyObject>(array.subList(oStart.intValue(),
+			return new PsyArray(new ArrayList<PsyObject>(array.subList(oStart.intValue(),
 					oStart.intValue()+oCount.intValue())));
 		}
 		catch(final IndexOutOfBoundsException|IllegalArgumentException e)
@@ -185,24 +187,14 @@ public class PsyArray
 
 	public void psySort(final PsyProc oComparator, final PsyContext oContext)
 	{
-		java.util.Collections.sort(array, oComparator.asComparator(oContext));
+		Collections.sort(array, oComparator.asComparator(oContext));
 	}
 
 	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator, final PsyContext oContext)
 	{
 		final var opstack=oContext.operandStack();
-		return PsyInteger.valueOf(java.util.Collections.<PsyObject>binarySearch(array, o,
-			// TODO gap
-			(o1, o2)->
-			{
-				opstack.push(o1);
-				opstack.push(o2);
-				final var execLevel=oContext.execLevel();
-				oComparator.invoke(oContext);
-				oContext.handleExecutionStack(execLevel);
-				// TODO: ensure stack size
-				return ((PsyInteger)opstack.pop()).intValue();
-			}));
+		return PsyInteger.valueOf(Collections.<PsyObject>binarySearch(array, o,
+				oComparator.asComparator(oContext)));
 	}
 
 	@Override
@@ -211,7 +203,7 @@ public class PsyArray
 		return new PsyStream(array.stream());
 	}
 
-	protected final java.util.ArrayList<PsyObject> array;
+	protected final ArrayList<PsyObject> array;
 
 	public static final PsyOperator[] OPERATORS=
 		{

@@ -1,5 +1,6 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.util.ArrayList;
 
 @Type("process")
 public class PsyProcess
@@ -22,7 +23,7 @@ public class PsyProcess
 				else if(oCommand instanceof PsyFormalArray)
 				{
 					final var commandList
-						=new java.util.ArrayList<String>(((PsyFormalArray)oCommand).length());
+						=new ArrayList<String>(((PsyFormalArray)oCommand).length());
 					for(final var o: (PsyFormalArray<PsyObject>)oCommand)
 						commandList.add(((PsyTextual)o).stringValue());
 					pb=new ProcessBuilder(commandList);

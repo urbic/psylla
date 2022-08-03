@@ -20,12 +20,6 @@ public class PsySystemDict
 			new PsyOperator.Arity11<PsyBounded>("capacity", PsyBounded::psyCapacity),
 			new PsyOperator.Arity11<PsyBounded>("isfull", PsyBounded::psyIsFull),
 
-			// "matcher"
-			new PsyOperator.Arity11<PsyMatcher>("capturegroupcount", PsyMatcher::psyCaptureGroupCount),
-			new PsyOperator.Arity21<PsyTextual, PsyRegExp>("matcher", PsyMatcher::new),
-			new PsyOperator.Arity11<PsyMatcher>("matches", PsyMatcher::psyMatches),
-			new PsyOperator.Arity21<PsyMatcher, PsyTextual>("replaceall", PsyMatcher::psyReplaceAll),
-
 			// ?
 			new PsyOperator.Action("warn",
 				(oContext)->
@@ -150,6 +144,8 @@ public class PsySystemDict
 		for(var oOperator: PsyStreamable.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyProcess.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsyMatcher.OPERATORS)
 			registerOperator(oOperator);
 
 		for(var oOperator: OPERATORS)

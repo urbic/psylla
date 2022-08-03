@@ -23,6 +23,7 @@ public interface PsyIterable<T extends PsyObject>
 		return oArray;
 	}
 
+	@Override
 	default public PsyFormalStream<T> psyStream()
 	{
 		return new PsyStream(java.util.stream.StreamSupport.<T>stream(spliterator(), false));

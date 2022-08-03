@@ -1,5 +1,8 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
 *	An implementation of {@code proc}, a procedure.
@@ -14,7 +17,7 @@ public class PsyProc
 		super();
 	}
 
-	public PsyProc(final java.util.ArrayList<PsyObject> array)
+	public PsyProc(final ArrayList<PsyObject> array)
 	{
 		super(array);
 	}
@@ -37,7 +40,7 @@ public class PsyProc
 	@Override
 	public PsyProc psyClone()
 	{
-		return new PsyProc((java.util.ArrayList<PsyObject>)array.clone());
+		return new PsyProc((ArrayList<PsyObject>)array.clone());
 	}
 
 	/*@Override
@@ -47,7 +50,7 @@ public class PsyProc
 	}*/
 
 	@Override
-	public String toSyntaxStringHelper(final java.util.Set<PsyContainer<PsyObject>> processed)
+	public String toSyntaxStringHelper(final Set<PsyContainer<PsyObject>> processed)
 	{
 		if(!processed.add((PsyContainer<PsyObject>)this))
 			return '%'+typeName()+'%';
@@ -63,8 +66,8 @@ public class PsyProc
 	{
 		final var dstack=PsyContext.psyCurrentContext().dictStack();
 
-		final var agenda=new java.util.ArrayList<PsyProc>();
-		final var bound=new java.util.HashSet<PsyProc>();
+		final var agenda=new ArrayList<PsyProc>();
+		final var bound=new HashSet<PsyProc>();
 
 		agenda.add(this);
 
