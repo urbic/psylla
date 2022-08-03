@@ -51,13 +51,20 @@ precision due to rounding, so that the expected equality may be violated.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">3. 3 eq					▶ true	# Equal real and integer numbers
-1 0 complex 1. eq		▶ true	# Equal complex and real numbers
-"xyz" "xyz" eq			▶ true	# Strings with equal content are equal
-/xyz "xyz" eq			▶ true	# Name and string with equal content ane equal
-[ 0 1 2 ] dup eq		▶ true	# Two instances of the same array are equal
-[ 0 1 2 ] [ 0 1 2 ] eq	▶ false	# Two distinct instances of arrays are not equal
-1 77777777 div 77777777 mul 1 eq	▶ false	# Equality is broken due to the loss of accuracy</programlisting>
+<programlisting language="psylla">3. 3 eq
+	▶ true	# Equal real and integer numbers
+1 0 complex 1. eq
+	▶ true	# Equal complex and real numbers
+"xyz" "xyz" eq
+	▶ true	# Strings with equal content are equal
+/xyz "xyz" eq
+	▶ true	# Name and string with equal content ane equal
+[ 0 1 2 ] dup eq
+	▶ true	# Two instances of the same array are equal
+[ 0 1 2 ] [ 0 1 2 ] eq
+	▶ false	# Two distinct instances of arrays are not equal
+1 77777777 div 77777777 mul 1 eq
+	▶ false	# Equality is broken due to the loss of accuracy</programlisting>
 </formalpara>
 
 <formalpara>

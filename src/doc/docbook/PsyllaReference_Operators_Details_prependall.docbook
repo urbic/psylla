@@ -33,8 +33,10 @@ the beginning of the <replaceable>container</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ /x /y ] dup [ 1 2 3 ] prependall	▶ [ 1 2 3 /x /y ]
-"abc" dup "xyz" prependall			▶ "xyzabc"</programlisting>
+<programlisting language="psylla">[ /x /y ] dup [ 1 2 3 ] prependall
+	▶ [ 1 2 3 /x /y ]
+"abc" dup "xyz" prependall
+	▶ "xyzabc"</programlisting>
 </formalpara>
 
 <formalpara>

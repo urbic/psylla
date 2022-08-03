@@ -35,7 +35,7 @@ linkend="PsyllaReference_Types_Details_integer"/>
 linkend="PsyllaReference_Types_Details_integer"/>, unless a
 <replaceable>number</replaceable> is <constant>-9223372036854775808</constant>,
 then the type of a <replaceable>negation</replaceable> is <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>.
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>. TODO
 </para>
 
 <para>
@@ -47,9 +47,12 @@ or <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">4 neg						▶ -4
--4. neg						▶ 4.0
-0 1 complex neg				▶ %complex=-0.0;-1.0%</programlisting>
+<programlisting language="psylla">4 neg
+	▶ -4
+-4. neg
+	▶ 4.0
+0 1 complex neg
+	▶ %complex=-0.0;-1.0%</programlisting>
 </formalpara>
 
 <formalpara>

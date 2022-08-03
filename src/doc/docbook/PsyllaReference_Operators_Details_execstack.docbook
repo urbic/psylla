@@ -28,7 +28,8 @@ Returns the contents of the execution stack in an
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">{ 1 2 add execstack exch pop } exec	▶ [ pop exch ]</programlisting>
+<programlisting language="psylla">{ 1 2 add execstack exch pop } exec
+	▶ [ pop exch ]</programlisting>
 </formalpara>
 
 <formalpara>

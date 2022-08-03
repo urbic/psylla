@@ -59,9 +59,12 @@ to any of them.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 10 20 30 ] 15 { cmp } binarysearch	▶ 2 false
-[ 0 10 20 30 ] 100 { cmp } binarysearch	▶ 4 false
-[ 0 10 20 30 ] 10 { cmp } binarysearch	▶ 1 true</programlisting>
+<programlisting language="psylla">[ 0 10 20 30 ] 15 { cmp } binarysearch
+	▶ 2 false
+[ 0 10 20 30 ] 100 { cmp } binarysearch
+	▶ 4 false
+[ 0 10 20 30 ] 10 { cmp } binarysearch
+	▶ 1 true</programlisting>
 </formalpara>
 
 <formalpara>

@@ -3,7 +3,23 @@
 <title><token language="psylla">capturegroup</token></title>
 
 <para>
-TODO
+Returns a <replaceable>group</replaceable> designated by the
+<replaceable>index</replaceable> captured during the last search operation for
+the <replaceable>matcher</replaceable> and group’s
+<replaceable>start</replaceable> and <replaceable>end</replaceable> positions
+on the input string. If the match was successful, but the group itself did not
+match anything both the <replaceable>start</replaceable> and
+<replaceable>end</replaceable> positions are <constant>-1</constant>.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/>
+<replaceable>index</replaceable> the group is selected by its number. The
+capture groups are numbered starting from one. The group number zero matches
+the entire pattern. For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_textual"/>
+<replaceable>index</replaceable> the group is selected by its name.
 </para>
 
 <formalpara>
@@ -13,6 +29,8 @@ TODO
 <replaceable>index</replaceable>
 <token language="psylla">capturegroup</token>
 <replaceable>group</replaceable>
+<replaceable>start</replaceable>
+<replaceable>end</replaceable>
 <constant>true</constant>
 <sbr/>
 <replaceable>matcher</replaceable>
@@ -39,31 +57,12 @@ TODO
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 <listitem>
-<constant>false</constant>,
-<constant>true</constant>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>
+<constant>start</constant>,
+<constant>end</constant>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-Возвращает <replaceable>группу</replaceable> с заданным
-<replaceable>индексом</replaceable>, захваченную во время последней операции
-поиска для заданного <replaceable>матчера</replaceable>. Если поиск прошёл
-успешно, но указанная <replaceable>группа</replaceable> не захватывает никакую
-часть входной строки, возвращает <constant>null</constant>.
-<remark>TODO</remark>
-</para>
-
-<para>
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>
-<replaceable>index</replaceable> the group is selected by its number. The
-capture groups are numbered starting from one. The group number zero matches
-the entire pattern. For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_textual"/>
-<replaceable>index</replaceable> the group is selected by its name.
-</para>
 
 <formalpara>
 &TitleErrors;
@@ -75,11 +74,11 @@ if no match has yet been attempted for the given
 failed
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
-when the <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>
-<replaceable>index</replaceable> is negative or exceeds the number of capture
-groups
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_rangecheck"/> — when the <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/> <replaceable>index</replaceable>
+is negative or exceeds the number of capture groups
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
@@ -90,12 +89,18 @@ groups
 &ErrorReason_typecheck;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/> —
-when the <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_textual"/>
-<replaceable>index</replaceable> not found among capture groups names
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_undefined"/> — when the <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_textual"/> <replaceable>index</replaceable>
+not found among capture groups names
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_RegExp"/>.
 </formalpara>
 
 <formalpara>
@@ -103,8 +108,6 @@ linkend="PsyllaReference_Types_Details_textual"/>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_find"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_findall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupcount"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupend"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupstart"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_matcher"/>.
 </formalpara>
 

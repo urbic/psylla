@@ -41,12 +41,17 @@ linkend="PsyllaReference_Types_Details_bitwise"/>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">false false or	▶ false
-false true or	▶ true
-true false or	▶ true
-true true or	▶ true
+<programlisting language="psylla">false false or
+	▶ false
+false true or
+	▶ true
+true false or
+	▶ true
+true true or
+	▶ true
 
-12 6 or			▶ 14</programlisting>
+12 6 or
+	▶ 14</programlisting>
 </formalpara>
 
 <formalpara>

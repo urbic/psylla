@@ -50,7 +50,8 @@ objects above it from the operand stack.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">mark /one 1 /two 2 /three 3 dicttomark	▶ &lt; /one 1 /three 3 /two 2 &gt;</programlisting>
+<programlisting language="psylla">mark /one 1 /two 2 /three 3 dicttomark
+	▶ &lt; /one 1 /three 3 /two 2 &gt;</programlisting>
 </formalpara>
 
 <formalpara>

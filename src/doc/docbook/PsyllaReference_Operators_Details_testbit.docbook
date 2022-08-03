@@ -3,7 +3,8 @@
 <title><token language="psylla">testbit</token></title>
 
 <para>
-<remark>TODO</remark>
+Returns true if and only if the bit designated by the
+<replaceable>index</replaceable> is set.
 </para>
 
 <formalpara>
@@ -36,8 +37,10 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">5 0 testbit	▶ true
-5 1 testbit	▶ false</programlisting>
+<programlisting language="psylla">5 0 testbit
+	▶ true
+5 1 testbit
+	▶ false</programlisting>
 </formalpara>
 
 <formalpara>

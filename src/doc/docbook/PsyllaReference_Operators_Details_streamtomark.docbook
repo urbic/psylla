@@ -42,7 +42,8 @@ operand stack. Removes the mark and the objects from the stack.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ mark /a /b /c streamtomark { } forall }	▶ [ /a /b /c ]</programlisting>
+<programlisting language="psylla">mark /a /b /c streamtomark { } forall
+	▶ /a /b /c</programlisting>
 </formalpara>
 
 <formalpara>

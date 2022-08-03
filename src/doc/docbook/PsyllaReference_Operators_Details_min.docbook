@@ -4,7 +4,7 @@
 
 <para>
 Returns the <replaceable>minimum</replaceable> of two
-<replaceable>scalars</replaceable>.
+<replaceable>scalar</replaceable>s.
 </para>
 
 <formalpara>
@@ -31,8 +31,10 @@ Returns the <replaceable>minimum</replaceable> of two
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 2 min	▶ 1
-/ab /aa min	▶ /aa</programlisting>
+<programlisting language="psylla">1 2 min
+	▶ 1
+/ab /aa min
+	▶ /aa</programlisting>
 </formalpara>
 
 <formalpara>
@@ -61,7 +63,9 @@ Returns the <replaceable>minimum</replaceable> of two
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_gt"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_le"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_lt"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_max"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_max"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sort"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sorted"/>.
 </formalpara>
 
 </section>

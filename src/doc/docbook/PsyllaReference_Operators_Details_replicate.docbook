@@ -35,8 +35,10 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 ] 4 replicate	▶ [ 0 1 2 0 1 2 0 1 2 0 1 2 ]
-"xyz" 4 replicate		▶ "xyzxyzxyzxyz"</programlisting>
+<programlisting language="psylla">[ 0 1 2 ] 4 replicate
+	▶ [ 0 1 2 0 1 2 0 1 2 0 1 2 ]
+"xyz" 4 replicate
+	▶ "xyzxyzxyzxyz"</programlisting>
 </formalpara>
 
 <formalpara>

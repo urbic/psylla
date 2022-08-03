@@ -35,7 +35,8 @@ their squares), i. e. the <replaceable>hypotenuse</replaceable> calculated by
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">3 4 hypot	▶ 5.0</programlisting>
+<programlisting language="psylla">3 4 hypot
+	▶ 5.0</programlisting>
 </formalpara>
 
 <formalpara>

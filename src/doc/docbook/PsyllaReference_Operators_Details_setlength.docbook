@@ -36,10 +36,14 @@ the <replaceable>array</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 3 ] dup 6 setlength	▶ [ 0 1 2 3 null null ]
-[ 0 1 2 3 ] dup 3 setlength	▶ [ 0 1 2 ]
-"abcd" dup 6 setlength		▶ "abcd\0\0"
-"abcd" dup 3 setlength		▶ "abc"</programlisting>
+<programlisting language="psylla">[ 0 1 2 3 ] dup 6 setlength
+	▶ [ 0 1 2 3 null null ]
+[ 0 1 2 3 ] dup 3 setlength
+	▶ [ 0 1 2 ]
+"abcd" dup 6 setlength
+	▶ "abcd\0\0"
+"abcd" dup 3 setlength
+	▶ "abc"</programlisting>
 </formalpara>
 
 <formalpara>

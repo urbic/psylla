@@ -45,8 +45,10 @@ linkend="PsyllaReference_Types_Details_integer"/> и неположительн�
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">stdrandom 1. uniformdeviate	▶ 0.6520579058825042
-stdrandom 5 uniformdeviate	▶ 4</programlisting>
+<programlisting language="psylla">stdrandom 1. uniformdeviate
+	▶ 0.6520579058825042
+stdrandom 5 uniformdeviate
+	▶ 4</programlisting>
 </formalpara>
 
 <formalpara>

@@ -3,7 +3,7 @@
 <title><token language="psylla">sort</token></title>
 
 <para>
-Sort an <replaceable>array</replaceable> according to
+Sort an <replaceable>array</replaceable> in place according to
 <replaceable>comparator</replaceable>.
 </para>
 
@@ -33,7 +33,8 @@ Sort an <replaceable>array</replaceable> according to
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 2 0 7 9 5 1 4 6 8 3 ] dup { cmp } sort	▶ [ 0 1 2 3 4 5 6 7 8 9 ]</programlisting>
+<programlisting language="psylla">[ 2 0 7 9 5 1 4 6 8 3 ] dup { cmp } sort
+	▶ [ 0 1 2 3 4 5 6 7 8 9 ]</programlisting>
 </formalpara>
 
 <formalpara>

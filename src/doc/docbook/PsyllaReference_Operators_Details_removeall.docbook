@@ -33,7 +33,8 @@ the <replaceable>set</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">( 0 1 2 3 4 ) dup [ 2 5 3 ] removeall	▶ ( 0 1 4 )</programlisting>
+<programlisting language="psylla">( 0 1 2 3 4 ) dup [ 2 5 3 ] removeall
+	▶ ( 0 1 4 )</programlisting>
 </formalpara>
 
 <formalpara>

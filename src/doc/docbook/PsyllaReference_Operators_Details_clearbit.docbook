@@ -3,7 +3,9 @@
 <title><token language="psylla">clearbit</token></title>
 
 <para>
-<remark>TODO</remark>
+Returns a new object <replaceable>result</replaceable>
+whose value is equivalent to this <replaceable>bitwise</replaceable> with the
+bit designated by the <replaceable>index</replaceable> cleared.
 </para>
 
 <formalpara>
@@ -33,7 +35,8 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">5 0 clearbit	▶ 4</programlisting>
+<programlisting language="psylla">5 0 clearbit
+	▶ 4</programlisting>
 </formalpara>
 
 <formalpara>

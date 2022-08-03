@@ -52,10 +52,14 @@ contains in the <replaceable>indexed</replaceable> container, and
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">&lt; /a 1 /b 2 /c 3 &gt;	/b known ▶ true
-&lt; /a 1 /b 2 /c 3 &gt; /x known ▶ false
-[ /x /y /z ] 1 known	▶ true
-[ /x /y /z ] 3 known	▶ false</programlisting>
+<programlisting language="psylla">&lt; /a 1 /b 2 /c 3 &gt;	/b known
+	▶ true
+&lt; /a 1 /b 2 /c 3 &gt; /x known
+	▶ false
+[ /x /y /z ] 1 known
+	▶ true
+[ /x /y /z ] 3 known
+	▶ false</programlisting>
 </formalpara>
 
 <formalpara>

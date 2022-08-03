@@ -38,8 +38,10 @@ taken from the given pseudorandom <replaceable>generator</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">stdrandom 1 normaldeviate	▶ -1.7063823635594297
-stdrandom 1 normaldeviate	▶ -0.31851714465547504</programlisting>
+<programlisting language="psylla">stdrandom 1 normaldeviate
+	▶ -1.7063823635594297
+stdrandom 1 normaldeviate
+	▶ -0.31851714465547504</programlisting>
 </formalpara>
 
 <formalpara>

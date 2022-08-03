@@ -32,7 +32,8 @@ Returns the <replaceable>target</replaceable> of a symbolic link with a given
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">'/usr/bin/java' readlink	▶ '/etc/alternatives/java'</programlisting>
+<programlisting language="psylla">'/usr/bin/java' readlink
+	▶ '/etc/alternatives/java'</programlisting>
 </formalpara>
 
 <formalpara>

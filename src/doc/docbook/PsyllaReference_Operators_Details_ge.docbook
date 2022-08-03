@@ -36,11 +36,16 @@ to <replaceable>scalar<subscript>2</subscript></replaceable>, and
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 2 ge				▶ false
-2 1. ge				▶ true
-"abc" "abcd" ge		▶ false
-/abcd "abc" ge		▶ true
-/abc "abc" ge		▶ true</programlisting>
+<programlisting language="psylla">1 2 ge
+	▶ false
+2 1. ge
+	▶ true
+"abc" "abcd" ge
+	▶ false
+/abcd "abc" ge
+	▶ true
+/abc "abc" ge
+	▶ true</programlisting>
 </formalpara>
 
 <formalpara>

@@ -32,7 +32,8 @@ returns an <replaceable>instance</replaceable> of this class.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">/coneforest.psylla.core.PsyString external	▶ ""</programlisting>
+<programlisting language="psylla">/coneforest.psylla.core.PsyString external
+	▶ ""</programlisting>
 </formalpara>
 
 <formalpara>

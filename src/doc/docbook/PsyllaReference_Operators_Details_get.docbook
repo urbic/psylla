@@ -61,9 +61,12 @@ xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ /a /b /c /d ] 2 get		▶ /c
-"abcd" 2 get				▶ 99
-&lt; /x 0 /y 1 /z 2 &gt; /y get	▶ 1</programlisting>
+<programlisting language="psylla">[ /a /b /c /d ] 2 get
+	▶ /c
+"abcd" 2 get
+	▶ 99
+&lt; /x 0 /y 1 /z 2 &gt; /y get
+	▶ 1</programlisting>
 </formalpara>
 
 <formalpara>

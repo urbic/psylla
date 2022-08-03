@@ -3,18 +3,17 @@
 <title><token language="psylla">sin</token></title>
 
 <para>
-Returns the <replaceable>sine</replaceable> of a
-<replaceable>number</replaceable>.
+Returns the sine of a <replaceable>number</replaceable> as
+<replaceable>result</replaceable>
 </para>
 
 <para>
 For <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_realnumeric"/> operands returns a <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/> result.
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_complex"/> operands, returns a <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
-result.
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>. For
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
+operands, returns a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_complex"/>.
 </para>
 
 <formalpara>
@@ -22,7 +21,7 @@ result.
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">sin</token>
-<replaceable>sine</replaceable>
+<replaceable>result</replaceable>
 </synopsis>
 </formalpara>
 
@@ -31,7 +30,7 @@ result.
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
-<replaceable>sine</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
@@ -39,7 +38,8 @@ result.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">3.141592653589793 sin	 ▶ 1.2246467991473532E-16</programlisting>
+<programlisting language="psylla">3.141592653589793 sin
+	▶ 1.2246467991473532e-16</programlisting>
 </formalpara>
 
 <formalpara>

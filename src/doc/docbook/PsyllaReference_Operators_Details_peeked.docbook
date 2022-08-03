@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Operators_Details_count">
-<title><token language="psylla">count</token></title>
+<section xml:id="PsyllaReference_Operators_Details_peeked">
+<title><token language="psylla">peeked</token></title>
 
 <para>
-Returns the <replaceable>count</replaceable> of elements in the
-<replaceable>stream</replaceable>.
+TODO
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>stream</replaceable>
-<token language="psylla">count</token>
-<replaceable>count</replaceable>
+<replaceable>executable</replaceable>
+<token language="psylla">peeked</token>
+<replaceable>peekedstream</replaceable>
 </synopsis>
 </formalpara>
 
@@ -20,20 +20,20 @@ Returns the <replaceable>count</replaceable> of elements in the
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>stream</replaceable>:
+<replaceable>stream</replaceable>,
+<replaceable>peekedstream</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
 </listitem>
 <listitem>
-<replaceable>count</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>
+<replaceable>executable</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_executable"/>
 </listitem>
 </itemizedlist>
 </formalpara>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 1 9 range count
-	▶ 10</programlisting>
+<programlisting language="psylla">/a array def 0 1 4 range { dup mul a exch append } peeked { } forall a	▶ 0 1 2 3 4 [0 1 4 8 16]</programlisting>
 </formalpara>
 
 <formalpara>
@@ -60,7 +60,8 @@ Returns the <replaceable>count</replaceable> of elements in the
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_limited"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_skipped"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sorted"/>.
 </formalpara>
 
 </section>

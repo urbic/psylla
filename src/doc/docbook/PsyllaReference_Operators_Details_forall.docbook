@@ -3,16 +3,16 @@
 <title><token language="psylla">forall</token></title>
 
 <para>
-Invokes a <replaceable>procedure</replaceable> for each element in the
-<replaceable>enumeration</replaceable>, previously adding an element to the
+Invokes an <replaceable>executable</replaceable> for each element in the
+<replaceable>sequence</replaceable>, previously adding an element to the
 operand stack.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
-<replaceable>enumeration</replaceable>
-<replaceable>procedure</replaceable>
+<replaceable>sequence</replaceable>
+<replaceable>executable</replaceable>
 <token language="psylla">forall</token>
 —
 </synopsis>
@@ -22,19 +22,22 @@ operand stack.
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>enumeration</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+<replaceable>sequence</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>
 </listitem>
 <listitem>
-<replaceable>procedure</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_proc"/>
+<replaceable>executable</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </formalpara>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 [ 0 1 2 3 4 5 6 7 8 9 ] { add } forall	▶ 45</programlisting>
+<programlisting language="psylla">0 [ 0 1 2 3 4 5 6 7 8 9 ] { add } forall
+	▶ 45
+0 0 1 9 range { add } forall
+	▶ 45</programlisting>
 </formalpara>
 
 <formalpara>

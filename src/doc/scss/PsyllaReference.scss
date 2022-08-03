@@ -148,6 +148,13 @@ code,
 	font-family: $font-family-code;
 }
 
+.replaceable
+{
+	font-style: normal;
+	text-decoration: underline;
+	text-decoration-style: wavy;
+}
+
 .sgmltag-element
 {
 	color: $color-hl-tag;

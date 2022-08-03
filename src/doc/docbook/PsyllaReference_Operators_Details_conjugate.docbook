@@ -29,7 +29,8 @@ Rturns the <replaceable>conjugation</replaceable> of a complex
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 1 complex conjugate	▶ %complex=0.0;-1.0%</programlisting>
+<programlisting language="psylla">0 1 complex conjugate
+	▶ %complex=0.0;-1.0%</programlisting>
 </formalpara>
 
 <formalpara>

@@ -43,11 +43,16 @@ equals to <constant>-1</constant> when
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 2 cmp				▶ -1
-2 1. cmp			▶ 1
-"abc" "abcd" cmp	▶ -1
-/abcd "abc" cmp		▶ 1
-/abc "abc" cmp		▶ 0</programlisting>
+<programlisting language="psylla">1 2 cmp
+	▶ -1
+2 1. cmp
+	▶ 1
+"abc" "abcd" cmp
+	▶ -1
+/abcd "abc" cmp
+	▶ 1
+/abc "abc" cmp
+	▶ 0</programlisting>
 </formalpara>
 
 <formalpara>
@@ -77,7 +82,8 @@ equals to <constant>-1</constant> when
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_lt"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_max"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_min"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sort"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sort"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sorted"/>.
 </formalpara>
 
 </section>

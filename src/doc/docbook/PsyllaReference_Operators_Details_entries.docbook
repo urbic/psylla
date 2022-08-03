@@ -32,8 +32,10 @@ the <replaceable>indexed</replaceable> container.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">&lt; /a 1 /b 2 &gt; entries { } forall	▶ /a 1 /b 2
-[ /a /b /c ] entries { } forall		▶ 0 /a 1 /b 2 /c</programlisting>
+<programlisting language="psylla">&lt; /a 1 /b 2 &gt; entries { } forall
+	▶ /a 1 /b 2
+[ /a /b /c ] entries { } forall
+	▶ 0 /a 1 /b 2 /c</programlisting>
 </formalpara>
 
 <formalpara>

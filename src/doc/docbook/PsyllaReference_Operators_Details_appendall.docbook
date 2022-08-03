@@ -33,9 +33,12 @@ the <replaceable>container</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ /x /y ] dup [ 1 2 3 ] appendall		▶ [ /x /y 1 2 3 ]
-"abc" dup "xyz" appendall				▶ "abcxyz"
-( /x /y ) dup [ /x /y /z ] appendall	▶ ( /z /y /x )</programlisting>
+<programlisting language="psylla">[ /x /y ] dup [ 1 2 3 ] appendall
+	▶ [ /x /y 1 2 3 ]
+"abc" dup "xyz" appendall
+	▶ "abcxyz"
+( /x /y ) dup [ /x /y /z ] appendall
+	▶ ( /z /y /x )</programlisting>
 </formalpara>
 
 <formalpara>

@@ -34,7 +34,10 @@ dictionary stack).
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">/zero 0 def zero	▶ 0</programlisting>
+<programlisting language="psylla">/zero 0 def zero
+	▶ 0
+/hypot { dup mul exch dup mul add sqrt } def 3 4 hypot
+	▶ 5.0</programlisting>
 </formalpara>
 
 <formalpara>

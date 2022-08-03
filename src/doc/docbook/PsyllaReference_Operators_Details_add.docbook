@@ -43,8 +43,10 @@ linkend="PsyllaReference_Types_Details_complex"/>, таким же будет �
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">9 16 add	▶ 25
-9. 16 add	▶ 25.</programlisting>
+<programlisting language="psylla">9 16 add
+	▶ 25
+9. 16 add
+	▶ 25.</programlisting>
 </formalpara>
 
 <formalpara>

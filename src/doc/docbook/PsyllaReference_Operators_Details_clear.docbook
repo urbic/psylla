@@ -26,6 +26,12 @@ Removes all elements from the <replaceable>container</replaceable>.
 </formalpara>
 
 <formalpara>
+&TitleExamples;
+<programlisting language="psylla">[ 0 1 2 3 4 5 ] dup clear
+	▶ [ ]</programlisting>
+</formalpara>
+
+<formalpara>
 &TitleErrors;
 <itemizedlist>
 <listitem>

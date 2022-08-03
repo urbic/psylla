@@ -32,7 +32,8 @@ Returns the <replaceable>argument</replaceable> of a complex
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 -1 complex arg	▶ -1.5707963267948966</programlisting>
+<programlisting language="psylla">0 -1 complex arg
+	▶ -1.5707963267948966</programlisting>
 </formalpara>
 
 <formalpara>

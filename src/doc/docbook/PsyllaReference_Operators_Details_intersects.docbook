@@ -36,8 +36,10 @@ Returns <constant>true</constant>, if the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">( 1 2 3 ) ( 1 2 4 ) intersects		▶ true
-( 1 2 3 ) ( 1. 2. 3. ) intersects	▶ false</programlisting>
+<programlisting language="psylla">( 1 2 3 ) ( 1 2 4 ) intersects
+	▶ true
+( 1 2 3 ) ( 1. 2. 3. ) intersects
+	▶ false</programlisting>
 </formalpara>
 
 <formalpara>

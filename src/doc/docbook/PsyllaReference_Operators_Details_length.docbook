@@ -35,11 +35,16 @@ contained keys.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 3 ] length			▶ 4
-&lt; /x 0 /y 1 /z 2 &gt; length	▶ 3
-( /x /y /z ) length			▶ 3
-"abcd" length				▶ 4
-/abcd length				▶ 4</programlisting>
+<programlisting language="psylla">[ 0 1 2 3 ] length
+	▶ 4
+&lt; /x 0 /y 1 /z 2 &gt; length
+	▶ 3
+( /x /y /z ) length
+	▶ 3
+"abcd" length
+	▶ 4
+/abcd length
+	▶ 4</programlisting>
 </formalpara>
 
 <formalpara>

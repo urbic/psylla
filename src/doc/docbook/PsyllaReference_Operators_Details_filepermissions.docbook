@@ -32,8 +32,10 @@ with the given <replaceable>name</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">'/root' filepermissions			▶ 448	# rwx------
-'/etc/shadow' filepermissions	▶ 416	# rw-r-----</programlisting>
+<programlisting language="psylla">'/root' filepermissions	# rwx------
+	▶ 448
+'/etc/shadow' filepermissions	# rw-r-----
+	▶ 416</programlisting>
 </formalpara>
 
 <formalpara>

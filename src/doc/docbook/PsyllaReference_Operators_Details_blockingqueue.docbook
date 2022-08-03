@@ -32,7 +32,8 @@ Returns a new blocking <replaceable>queue</replaceable> with a given
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 blockingqueue	▶ -blockingqueue-</programlisting>
+<programlisting language="psylla">1 blockingqueue
+	▶ %blockingqueue%</programlisting>
 </formalpara>
 
 <formalpara>

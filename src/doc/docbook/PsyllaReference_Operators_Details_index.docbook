@@ -46,8 +46,10 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">/A /B /C 2 index	▶ /A /B /C /A
-1 2 3 0 index		▶ 1 2 3 3</programlisting>
+<programlisting language="psylla">/A /B /C 2 index
+	▶ /A /B /C /A
+1 2 3 0 index
+	▶ 1 2 3 3</programlisting>
 </formalpara>
 
 <formalpara>

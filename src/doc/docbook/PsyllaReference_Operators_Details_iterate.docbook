@@ -39,7 +39,8 @@ produced by iterative application of the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">2 { dup mul } iterate 5 limited { } forall	▶ 2 4 16 256 65536</programlisting>
+<programlisting language="psylla">2 { dup mul } iterate 5 limited { } forall
+	▶ 2 4 16 256 65536</programlisting>
 </formalpara>
 
 <formalpara>

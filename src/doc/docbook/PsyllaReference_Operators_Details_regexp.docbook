@@ -32,7 +32,8 @@ containing in the <replaceable>string</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">"(.)\\1" regexp	▶ ~(.)\1~</programlisting>
+<programlisting language="psylla">"(.)\\1" regexp
+	▶ ~(.)\1~</programlisting>
 </formalpara>
 
 <formalpara>

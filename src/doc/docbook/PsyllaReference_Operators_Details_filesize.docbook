@@ -32,8 +32,10 @@ directory with the given <replaceable>name</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">'/etc/passwd' filesize	▶ 2186
-'/etc' filesize			▶ 5302</programlisting>
+<programlisting language="psylla">'/etc/passwd' filesize
+	▶ 2186
+'/etc' filesize
+	▶ 5302</programlisting>
 </formalpara>
 
 <formalpara>

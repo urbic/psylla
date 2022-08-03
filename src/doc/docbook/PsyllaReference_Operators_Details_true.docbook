@@ -3,7 +3,15 @@
 <title><token language="psylla">true</token></title>
 
 <para>
-The <constant>true</constant> value.
+The <constant>true</constant> value. Not an operator, but a <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/> value
+in the system dictionary.
+</para>
+
+<para>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_true"/>
+is not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/> value in the system dictionary.
 </para>
 
 <formalpara>
@@ -24,12 +32,6 @@ The <constant>true</constant> value.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_true"/>
-is not an operator, but a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_boolean"/> value in the system dictionary.
-</para>
 
 <formalpara>
 &TitleCategory;

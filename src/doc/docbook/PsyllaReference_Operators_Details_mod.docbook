@@ -31,9 +31,12 @@ Returns the <replaceable>remainder</replaceable> of dividing the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">7 5 mod		▶ 2
--7 5 mod	▶ 3
-0 5 mod		▶ 0</programlisting>
+<programlisting language="psylla">7 5 mod
+	▶ 2
+-7 5 mod
+	▶ 3
+0 5 mod
+	▶ 0</programlisting>
 </formalpara>
 
 <formalpara>

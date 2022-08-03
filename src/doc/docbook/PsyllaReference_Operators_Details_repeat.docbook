@@ -40,7 +40,8 @@ terminates prematurely.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 10 { 2 mul } repeat	▶ 1024</programlisting>
+<programlisting language="psylla">1 10 { 2 mul } repeat
+	▶ 1024</programlisting>
 </formalpara>
 
 <formalpara>

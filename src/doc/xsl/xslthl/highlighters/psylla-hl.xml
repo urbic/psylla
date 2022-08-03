@@ -51,6 +51,11 @@
 	</highlighter>
 
 	<highlighter type="regex">
+		<pattern>%[^%]+%</pattern>
+		<style>string</style>
+	</highlighter>
+
+	<highlighter type="regex">
 		<style>keyword</style>
 		<pattern>(//)?[A-Za-z_\.\$@][A-Za-z_\.\$@\d]*</pattern>
 	</highlighter>

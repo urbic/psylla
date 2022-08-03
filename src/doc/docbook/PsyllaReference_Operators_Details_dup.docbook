@@ -33,8 +33,10 @@ Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">2 dup		▶ 2 2
-[ 1 2 ] dup	▶ [ 1 2 ] [ 1 2 ]	# The same array</programlisting>
+<programlisting language="psylla">2 dup
+	▶ 2 2
+[ 1 2 ] dup
+	▶ [ 1 2 ] [ 1 2 ]	# The same array</programlisting>
 </formalpara>
 
 <formalpara>

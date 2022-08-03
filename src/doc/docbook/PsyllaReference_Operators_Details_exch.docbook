@@ -30,7 +30,8 @@ Exchanges two topmost operands in the operand stack.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 2 exch	▶ 2 1</programlisting>
+<programlisting language="psylla">1 2 3 exch
+	▶ 1 3 2</programlisting>
 </formalpara>
 
 <formalpara>

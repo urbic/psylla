@@ -40,9 +40,12 @@ Inserts the <replaceable>object</replaceable> into the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 ] dup 2 3 insert	▶ [ 0 1 3 2 ]
-[ 0 1 2 ] dup 3 3 insert	▶ [ 0 1 2 3 ]
-"abc" dup `X 2 insert		▶ "abXc"</programlisting>
+<programlisting language="psylla">[ 0 1 2 ] dup 2 3 insert
+	▶ [ 0 1 3 2 ]
+[ 0 1 2 ] dup 3 3 insert
+	▶ [ 0 1 2 3 ]
+"abc" dup `X 2 insert
+	▶ "abXc"</programlisting>
 </formalpara>
 
 <formalpara>

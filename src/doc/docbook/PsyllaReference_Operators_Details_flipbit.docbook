@@ -33,7 +33,8 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">5 3 flipbit	▶ 13</programlisting>
+<programlisting language="psylla">5 3 flipbit
+	▶ 13</programlisting>
 </formalpara>
 
 <formalpara>

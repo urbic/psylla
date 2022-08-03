@@ -46,9 +46,10 @@ linkend="PsyllaReference_Errors_Details_rangecheck"/>, если фрагмент
 <formalpara>
 &TitleExamples;
 
-<programlisting language="psylla">[ 2 3 5 7 11 13 ] dup 3 2 extractinterval	▶ [ 2 3 5 13 ] [ 7 11 ]
-"hello" dup 1 3 extractinterval				▶ "ho" "ell"</programlisting>
-
+<programlisting language="psylla">[ 2 3 5 7 11 13 ] dup 3 2 extractinterval
+	▶ [ 2 3 5 13 ] [ 7 11 ]
+"hello" dup 1 3 extractinterval
+	▶ "ho" "ell"</programlisting>
 </formalpara>
 
 <formalpara>

@@ -27,7 +27,8 @@ Returns a new empty <replaceable>string</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">string	▶ ""</programlisting>
+<programlisting language="psylla">string
+	▶ ""</programlisting>
 </formalpara>
 
 <formalpara>

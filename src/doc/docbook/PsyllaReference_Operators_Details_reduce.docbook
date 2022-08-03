@@ -38,7 +38,8 @@ TODO
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 1 100 range 0 { add } reduce	▶ 5050</programlisting>
+<programlisting language="psylla">1 1 100 range 0 { add } reduce
+	▶ 5050</programlisting>
 </formalpara>
 
 <formalpara>

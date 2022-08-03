@@ -3,7 +3,9 @@
 <title><token language="psylla">version</token></title>
 
 <para>
-The version of the Psylla interpreter.
+The version of the Psylla interpreter. Not an operator, but a <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/> value in
+the system dictionary.
 </para>
 
 <formalpara>
@@ -25,16 +27,10 @@ The version of the Psylla interpreter.
 </itemizedlist>
 </formalpara>
 
-<para>
-<xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_version"/> is not an operator, but a
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/> value
-in the system dictionary.
-</para>
-
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">version	▶ '0.1.1'</programlisting>
+<programlisting language="psylla">version
+	▶ '0.3.1'</programlisting>
 </formalpara>
 
 </section>

@@ -30,8 +30,10 @@
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 ] reverse	▶ [ 2 1 0 ]
-"xyz" reverse		▶ "zyx"</programlisting>
+<programlisting language="psylla">[ 0 1 2 ] reverse
+	▶ [ 2 1 0 ]
+"xyz" reverse
+	▶ "zyx"</programlisting>
 </formalpara>
 
 <formalpara>

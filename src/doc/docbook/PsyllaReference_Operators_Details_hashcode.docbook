@@ -32,8 +32,10 @@ Returns the <replaceable>object</replaceable>’s
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">true hashcode	▶ 1231
-55 hashcode		▶ 55</programlisting>
+<programlisting language="psylla">true hashcode
+	▶ 1231
+55 hashcode
+	▶ 55</programlisting>
 </formalpara>
 
 <formalpara>

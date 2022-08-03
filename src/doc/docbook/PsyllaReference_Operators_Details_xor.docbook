@@ -41,12 +41,17 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">false false xor	▶ false
-true false xor	▶ true
-false true xor	▶ true
-true true xor	▶ false
+<programlisting language="psylla">false false xor
+	▶ false
+true false xor
+	▶ true
+false true xor
+	▶ true
+true true xor
+	▶ false
 
-12 6 xor		▶ 10</programlisting>
+12 6 xor
+	▶ 10</programlisting>
 </formalpara>
 
 <formalpara>

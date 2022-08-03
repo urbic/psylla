@@ -34,7 +34,8 @@ in the system dictionary.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">osversion	▶ '3.16.7-24-desktop'</programlisting>
+<programlisting language="psylla">osversion
+	▶ '5.14.21-150400.24.11-default'</programlisting>
 </formalpara>
 
 <formalpara>

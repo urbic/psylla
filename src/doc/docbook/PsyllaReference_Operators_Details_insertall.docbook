@@ -40,9 +40,12 @@ the <replaceable>array</replaceable> before the element with the given
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 ] dup 2 [ 3 4 ] insertall	▶ [ 0 1 3 4 2 ]
-[ 0 1 2 ] dup 3 [ 3 4 ] insertall	▶ [ 0 1 2 3 4 ]
-"abc" dup "XY" 2 insertall			▶ "abXYc"</programlisting>
+<programlisting language="psylla">[ 0 1 2 ] dup 2 [ 3 4 ] insertall
+	▶ [ 0 1 3 4 2 ]
+[ 0 1 2 ] dup 3 [ 3 4 ] insertall
+	▶ [ 0 1 2 3 4 ]
+"abc" dup "XY" 2 insertall
+	▶ "abXYc"</programlisting>
 </formalpara>
 
 <formalpara>

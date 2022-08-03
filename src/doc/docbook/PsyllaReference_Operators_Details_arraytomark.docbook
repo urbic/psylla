@@ -42,7 +42,8 @@ operand stack. Removes the mark and the objects from the operand stack.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">mark 0 "hello" false arraytomark	▶ [ 0 "hello" false ]</programlisting>
+<programlisting language="psylla">mark 0 "hello" false arraytomark
+	▶ [ 0 "hello" false ]</programlisting>
 </formalpara>
 
 <formalpara>

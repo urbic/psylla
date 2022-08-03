@@ -63,11 +63,14 @@
 </formalpara>
 
 <formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_RegExp"/>.
+</formalpara>
+
+<formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroup"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupcount"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupend"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_capturegroupstart"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_find"/>.
 </formalpara>
 

@@ -27,7 +27,8 @@ Returns a new empty <replaceable>array</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">array	▶ []</programlisting>
+<programlisting language="psylla">array
+	▶ [ ]</programlisting>
 </formalpara>
 
 <formalpara>

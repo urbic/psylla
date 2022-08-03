@@ -33,7 +33,8 @@ linkend="PsyllaReference_Types_Details_name"/> value in the system dictionary.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">osarch	▶ /amd64</programlisting>
+<programlisting language="psylla">osarch
+	▶ /amd64</programlisting>
 </formalpara>
 
 <formalpara>

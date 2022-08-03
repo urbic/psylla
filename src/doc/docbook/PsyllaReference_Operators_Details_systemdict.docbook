@@ -3,7 +3,9 @@
 <title><token language="psylla">systemdict</token></title>
 
 <para>
-The system dictionary.
+The system dictionary. Not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_formaldict"/> value in the system
+dictionary.
 </para>
 
 <formalpara>
@@ -24,13 +26,6 @@ The system dictionary.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-<xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_systemdict"/> is not an operator, but a
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/> value
-in the system dictionary.
-</para>
 
 <formalpara>
 &TitleSeeAlso;

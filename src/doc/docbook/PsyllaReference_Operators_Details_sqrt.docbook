@@ -29,9 +29,12 @@ Returns the square <replaceable>square_root</replaceable> of the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">2 sqrt				▶ 1.4142135623730951
--1 sqrt	 			▶ NaN
-0 1 complex sqrt	▶ %complex=0.7071067811865476;0.7071067811865475%</programlisting>
+<programlisting language="psylla">2 sqrt
+	▶ 1.4142135623730951
+-1 sqrt
+	▶ NaN
+0 1 complex sqrt
+	▶ %complex=0.7071067811865476;0.7071067811865475%</programlisting>
 </formalpara>
 
 <formalpara>

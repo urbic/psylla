@@ -43,9 +43,12 @@ linkend="PsyllaReference_Types_Details_real"/>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">-9 abs						▶ 9
--9223372036854775808 abs	▶ 9.223372036854776E18
-3 4 complex abs				▶ 5.0</programlisting>
+<programlisting language="psylla">-9 abs
+	▶ 9
+-9223372036854775808 abs
+	▶ 9.223372036854776E18
+3 4 complex abs
+	▶ 5.0</programlisting>
 </formalpara>
 
 <formalpara>

@@ -3,7 +3,9 @@
 <title><token language="psylla">false</token></title>
 
 <para>
-The <constant>false</constant> value.
+The <constant>false</constant> value. Not an operator, but a <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/> value
+in the system dictionary.
 </para>
 
 <formalpara>
@@ -24,12 +26,6 @@ The <constant>false</constant> value.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_false"/>
-is not an operator, but a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_boolean"/> value in the system dictionary.
-</para>
 
 <formalpara>
 &TitleCategory;

@@ -37,10 +37,13 @@ linkend="PsyllaReference_Types_Details_bitwise"/> operand, returns the bitwise
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">false not	▶ true
-true not	▶ false
+<programlisting language="psylla">false not
+	▶ true
+true not
+	▶ false
 
-13 not		▶ -14</programlisting>
+13 not
+	▶ -14</programlisting>
 </formalpara>
 
 <formalpara>

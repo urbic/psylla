@@ -33,8 +33,10 @@ Inserts the <replaceable>object</replaceable> at the beginning of the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 ] dup 3 prepend	▶ [ 3 0 1 2 ]
-"abc" dup `d prepend	▶ "dabc"</programlisting>
+<programlisting language="psylla">[ 0 1 2 ] dup 3 prepend
+	▶ [ 3 0 1 2 ]
+"abc" dup `d prepend
+	▶ "dabc"</programlisting>
 </formalpara>
 
 <formalpara>

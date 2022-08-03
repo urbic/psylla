@@ -27,7 +27,8 @@ Returns a new empty <replaceable>dictionary</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">dict	▶ &lt;&gt;</programlisting>
+<programlisting language="psylla">dict
+	▶ &lt; &gt;</programlisting>
 </formalpara>
 
 <formalpara>

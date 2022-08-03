@@ -39,10 +39,14 @@ linkend="PsyllaReference_Types_Details_formalarray"/> добавление пр�
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ 0 1 2 ] dup 3 append		▶ [ 0 1 2 3 ]
-"abc" dup `d append			▶ "abcd"
-( /x /y ) dup /z append		▶ ( /z /y /x )
-( /x /y /z ) dup /z append	▶ ( /z /y /x )</programlisting>
+<programlisting language="psylla">[ 0 1 2 ] dup 3 append
+	▶ [ 0 1 2 3 ]
+"abc" dup `d append
+	▶ "abcd"
+( /x /y ) dup /z append
+	▶ ( /z /y /x )
+( /x /y /z ) dup /z append
+	▶ ( /z /y /x )</programlisting>
 </formalpara>
 
 <formalpara>

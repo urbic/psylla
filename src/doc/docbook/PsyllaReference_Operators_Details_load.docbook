@@ -33,7 +33,8 @@ performed from the top to the bottom of the stack.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">/add load	▶ --add--</programlisting>
+<programlisting language="psylla">/add load
+	▶ --add--</programlisting>
 </formalpara>
 
 <formalpara>

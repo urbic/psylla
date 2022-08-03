@@ -48,9 +48,12 @@ n</replaceable> steps on the operand stack (non-negative
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">/x /y /z 3 -1 roll	▶ /y /z /x
-/x /y /z 3 1 roll	▶ /z /x /y
-/x /y /z 3 0 roll	▶ /x /y /z</programlisting>
+<programlisting language="psylla">/x /y /z 3 -1 roll
+	▶ /y /z /x
+/x /y /z 3 1 roll
+	▶ /z /x /y
+/x /y /z 3 0 roll
+	▶ /x /y /z</programlisting>
 </formalpara>
 
 <formalpara>

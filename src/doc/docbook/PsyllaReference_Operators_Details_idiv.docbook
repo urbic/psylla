@@ -34,10 +34,14 @@ signs.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">17 3 idiv	▶ 5
--17 3 idiv	▶ -5
-17 -3 idiv	▶ -5
--17 -3 idiv	▶ 5</programlisting>
+<programlisting language="psylla">17 3 idiv
+	▶ 5
+-17 3 idiv
+	▶ -5
+17 -3 idiv
+	▶ -5
+-17 -3 idiv
+	▶ 5</programlisting>
 </formalpara>
 
 <formalpara>

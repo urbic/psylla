@@ -735,7 +735,12 @@ procedure to an initial value</listitem>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_mapped" xrefstyle="template:%t"/></term>
-<listitem>поэлементное применение процедуры в контейнере</listitem>
+<listitem>create a mapped stream</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_peeked" xrefstyle="template:%t"/></term>
+<listitem>create a peeked stream</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1156,18 +1161,8 @@ flush output buffer</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_capturegroupend" xrefstyle="template:%t"/></term>
-<listitem>позиция после последнего символа, захваченного в группу</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_capturegroupcount" xrefstyle="template:%t"/></term>
 <listitem>the number of capture groups</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_capturegroupstart" xrefstyle="template:%t"/></term>
-<listitem>позиция первого символа, захваченного в группу</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1462,9 +1457,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_bitshift;
 &PsyllaReference_Operators_Details_blockingqueue;
 &PsyllaReference_Operators_Details_capturegroup;
-&PsyllaReference_Operators_Details_capturegroupend;
 &PsyllaReference_Operators_Details_capturegroupcount;
-&PsyllaReference_Operators_Details_capturegroupstart;
 &PsyllaReference_Operators_Details_cbrt;
 &PsyllaReference_Operators_Details_ceiling;
 &PsyllaReference_Operators_Details_changefilepermissions;
@@ -1600,6 +1593,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_osarch;
 &PsyllaReference_Operators_Details_osname;
 &PsyllaReference_Operators_Details_osversion;
+&PsyllaReference_Operators_Details_peeked;
 &PsyllaReference_Operators_Details_pop;
 &PsyllaReference_Operators_Details_pow;
 &PsyllaReference_Operators_Details_prepend;

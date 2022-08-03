@@ -33,10 +33,14 @@ Invokes an <replaceable>object</replaceable> (typically a procedure), if a
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 1 lt "меньше" if	▶ "меньше"
-1 0 lt "меньше" if	▶ —
-1 0 lt { neg } if	▶ 1
--1 0 lt { neg } if	▶ 1</programlisting>
+<programlisting language="psylla">0 1 lt /less if
+	▶ /less
+1 0 lt /less if
+	▶ —
+1 0 lt { neg } if
+	▶ 1
+-1 0 lt { neg } if
+	▶ 1</programlisting>
 </formalpara>
 
 <formalpara>

@@ -36,7 +36,8 @@ TODO
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 1 1 100 { add } for	▶ 5050</programlisting>
+<programlisting language="psylla">0 1 1 100 { add } for
+	▶ 5050</programlisting>
 </formalpara>
 
 <formalpara>

@@ -28,7 +28,8 @@ Returns the current <replaceable>time</replaceable> (in milliseconds since
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">time	▶ 1416249783295</programlisting>
+<programlisting language="psylla">time
+	▶ 1416249783295</programlisting>
 </formalpara>
 
 <formalpara>

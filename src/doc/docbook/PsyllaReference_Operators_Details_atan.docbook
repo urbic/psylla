@@ -3,18 +3,17 @@
 <title><token language="psylla">atan</token></title>
 
 <para>
-Returns the <replaceable>arctangent</replaceable> of a
-<replaceable>number</replaceable>.
+Returns the arc tangent of a <replaceable>number</replaceable> as
+<replaceable>result</replaceable>.
 </para>
 
 <para>
 For <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_realnumeric"/> operands returns a <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/> result.
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_complex"/> operands, returns a <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
-result.
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>. For
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
+operands, returns a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_complex"/>.
 </para>
 
 <formalpara>
@@ -22,7 +21,7 @@ result.
 <synopsis>
 <replaceable>number</replaceable>
 <token language="psylla">atan</token>
-<replaceable>arctangent</replaceable>
+<replaceable>result</replaceable>
 </synopsis>
 </formalpara>
 
@@ -31,7 +30,7 @@ result.
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
-<replaceable>arctangent</replaceable>:
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
@@ -39,7 +38,8 @@ result.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 atan	▶ 0.7853981633974483</programlisting>
+<programlisting language="psylla">1 atan
+	▶ 0.7853981633974483</programlisting>
 </formalpara>
 
 <formalpara>

@@ -36,11 +36,16 @@ Returns <constant>true</constant>, if
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">1 2 gt				▶ false
-2 1. gt				▶ true
-"abc" "abcd" gt		▶ false
-/abcd "abc" gt		▶ true
-/abc "abc" gt		▶ false</programlisting>
+<programlisting language="psylla">1 2 gt
+	▶ false
+2 1. gt
+	▶ true
+"abc" "abcd" gt
+	▶ false
+/abcd "abc" gt
+	▶ true
+/abc "abc" gt
+	▶ false</programlisting>
 </formalpara>
 
 <formalpara>

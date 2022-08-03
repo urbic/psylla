@@ -27,7 +27,8 @@ Interprets <replaceable>evaluable</replaceable> as Psylla program.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">'1 2 add' eval	▶ 3</programlisting>
+<programlisting language="psylla">'1 2 add' eval
+	▶ 3</programlisting>
 </formalpara>
 
 <formalpara>

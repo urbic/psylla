@@ -7,6 +7,17 @@ Returns the <replaceable>ceiling</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integral"/>
+<replaceable>number</replaceable>, returns a <replaceable>number</replaceable>
+itself. For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_real"/>
+<replaceable>number</replaceable>, the <replaceable>ceiling</replaceable> is
+also <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_real"/>.
+</para>
+
 <formalpara>
 &TitleSynopsis;
 <synopsis>
@@ -27,23 +38,18 @@ Returns the <replaceable>ceiling</replaceable> of the
 </itemizedlist>
 </formalpara>
 
-<para>
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>
-<replaceable>number</replaceable>, returns a <replaceable>number</replaceable>
-itself. For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_real"/> <replaceable>number</replaceable>,
-the type of a <replaceable>ceiling</replaceable> is also <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>.
-</para>
-
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">2 ceiling		▶ 2
--2 ceiling		▶ -2
--2.0 ceiling	▶ -2.0
-2.1 ceiling 	▶ 3.0
--2.1 ceiling	▶ -2.0</programlisting>
+<programlisting language="psylla">2 ceiling
+	▶ 2
+-2 ceiling
+	▶ -2
+-2.0 ceiling
+	▶ -2.0
+2.1 ceiling
+	▶ 3.0
+-2.1 ceiling
+	▶ -2.0</programlisting>
 </formalpara>
 
 <formalpara>

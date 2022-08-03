@@ -45,7 +45,8 @@ xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 1 9 range { dup mul } mapped { } forall	▶ 0 1 4 9 16 25 36 49 64 81</programlisting>
+<programlisting language="psylla">0 1 9 range { dup mul } mapped { } forall
+	▶ 0 1 4 9 16 25 36 49 64 81</programlisting>
 </formalpara>
 
 <formalpara>

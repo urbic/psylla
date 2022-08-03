@@ -38,7 +38,8 @@ Returns a <replaceable>string</replaceable> obtained by concatenating
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">[ "hello" "world" ] " " unite	▶ "hello world"</programlisting>
+<programlisting language="psylla">[ "hello" "world" ] " " unite
+	▶ "hello world"</programlisting>
 </formalpara>
 
 <formalpara>

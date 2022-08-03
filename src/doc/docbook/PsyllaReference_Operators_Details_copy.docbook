@@ -48,8 +48,10 @@ object shares its value with the copy.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">/A /B /C 2 copy	▶ /A /B /C /B /C
-1 2 3 0 copy	▶ 1 2 3</programlisting>
+<programlisting language="psylla">/A /B /C 2 copy
+	▶ /A /B /C /B /C
+1 2 3 0 copy
+	▶ 1 2 3</programlisting>
 </formalpara>
 
 <formalpara>

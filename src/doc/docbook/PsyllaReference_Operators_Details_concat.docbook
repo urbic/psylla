@@ -32,7 +32,8 @@ elements of the <replaceable>stream<subscript>2</subscript></replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">0 1 3 range 0 -1 -3 range concat { } forall	▶ 0 1 2 3 0 -1 -2 -3</programlisting>
+<programlisting language="psylla">0 1 3 range 0 -1 -3 range concat { } forall
+	▶ 0 1 2 3 0 -1 -2 -3</programlisting>
 </formalpara>
 
 <formalpara>

@@ -27,7 +27,8 @@ Returns a new empty <replaceable>set</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">set	▶ ()</programlisting>
+<programlisting language="psylla">set
+	▶ ()</programlisting>
 </formalpara>
 
 <formalpara>

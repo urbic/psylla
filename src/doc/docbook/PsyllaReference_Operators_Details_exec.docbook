@@ -27,8 +27,10 @@ Invokes an <replaceable>object</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">"xyz" exec		▶ "xyz"
-1 2 //add exec	▶ 3</programlisting>
+<programlisting language="psylla">"xyz" exec
+	▶ "xyz"
+1 2 //add exec
+	▶ 3</programlisting>
 </formalpara>
 
 <formalpara>
