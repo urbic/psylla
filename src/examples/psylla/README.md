@@ -19,7 +19,7 @@ integer _n_ is passed in the command line.
 
 ## Echo
 
-Prints all the command-line argumants separated by spaces and finally line feed
+Prints all the command-line arguments separated by spaces and finally line feed
 character.
 
 * [__`echo.psy`__](echo.psy)
