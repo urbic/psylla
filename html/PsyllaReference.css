@@ -58,6 +58,8 @@ hr { border: solid #3a3a3a 1px; }
 
 code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .errorname, .replaceable, .parameter { font-family: "PT Mono", monospace; }
 
+.replaceable { font-style: normal; text-decoration: underline; text-decoration-style: wavy; }
+
 .sgmltag-element { color: #039; font-weight: bolder; }
 
 .sgmltag-attribute { color: #073; }
