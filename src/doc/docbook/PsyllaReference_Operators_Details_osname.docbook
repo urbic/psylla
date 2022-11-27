@@ -3,7 +3,9 @@
 <title><token language="psylla">osname</token></title>
 
 <para>
-The name of an operating system.
+The name of an operating system. Not an operator, but a <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/> value in
+the system dictionary.
 </para>
 
 <formalpara>
@@ -24,12 +26,6 @@ The name of an operating system.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_osname"/>
-is not an operator, but a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_name"/> value in the system dictionary.
-</para>
 
 <formalpara>
 &TitleExamples;

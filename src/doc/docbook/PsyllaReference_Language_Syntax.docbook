@@ -324,9 +324,9 @@ The interpreter does not execute the procedure, instead, it puts it on the
 operand stack. The procedure will be executed only at the result of its
 invocation. The execution of the procedure (and all of its constituent objects)
 is
-<firstterm>deferred</firstterm><indexterm><primary>execution</primary><secondary>deferred</secondary></indexterm>).
-The meaning of the deferred execution is explained in <xref
-linkend="PsyllaReference_Language_Execution"/>.
+<firstterm>deferred</firstterm><indexterm><primary>execution</primary><secondary>deferred</secondary></indexterm>.
+The meaning of the deferred execution is explained in Section <xref
+linkend="PsyllaReference_Language_Execution_Deferred"/>.
 </para>
 
 </section>

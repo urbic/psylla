@@ -112,27 +112,7 @@ linkend="PsyllaReference_Types_Details_biginteger" xrefstyle="template:%t"/>).
 
 <para>
 The integer numeric object represents a mathematical integer number in the
-range from
-
-<math xmlns="&nsMathML;">
-	<mo>−</mo>
-	<msup>
-		<mn>2</mn>
-		<mn>63</mn>
-	</msup>
-</math>
-
-to
-
-<math xmlns="&nsMathML;">
-	<msup>
-		<mn>2</mn>
-		<mn>63</mn>
-	</msup>
-	<mo>−</mo>
-	<mn>1</mn>
-</math>
-
+range from −2<superscript>63</superscript> to 2<superscript>63</superscript>−1
 inclusive.
 </para>
 

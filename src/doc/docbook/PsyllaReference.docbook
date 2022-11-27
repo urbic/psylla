@@ -17,8 +17,8 @@
 	xml:lang="en"
 	>
 
+<info>
 <title>The Psylla Language. Complete Reference</title>
-
 <author>
 <person>
 <personname>
@@ -28,6 +28,22 @@
 <email>shvetz.anton@gmail.com</email>
 </person>
 </author>
+<keywordset>
+<keyword>Psylla</keyword>
+<keyword>interpreter</keyword>
+<keyword>programming language</keyword>
+<keyword>scripting language</keyword>
+<keyword>general purpose language</keyword>
+<keyword>JVM language</keyword>
+<keyword>stack-based</keyword>
+<keyword>concatenative</keyword>
+<keyword>homoiconic</keyword>
+<keyword>reverse polish notation</keyword>
+</keywordset>
+<abstract>
+This document describes the Psylla programming language.
+</abstract>
+</info>
 
 &PsyllaReference_Preface;
 &PsyllaReference_Installation;
@@ -41,7 +57,3 @@
 <index xml:id="PsyllaReference_Index"/>
 
 </book>
-<!--
-vim:indentexpr=
-vim:filetype=docbkxml
--->

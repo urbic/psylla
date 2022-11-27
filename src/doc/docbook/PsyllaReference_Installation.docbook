@@ -2,14 +2,13 @@
 <chapter xml:id="PsyllaReference_Installation">
 <title>Installation</title>
 
-<section xml:id="PsyllaReference_Installation_Obtaining">
-<title>Obtaining Psylla</title>
+<section xml:id="PsyllaReference_Installation_Prebuilt">
+<title>Pre-built binary Packages</title>
 
 <para>
-Pre-built binary packages for <systemitem class="osname">openSUSE</systemitem>,
-<systemitem class="osname">Debian</systemitem>, <systemitem
-class="osname">Ubuntu</systemitem> and <systemitem
-class="osname">Raspbian</systemitem> are available at <link
+Pre-built binary packages for <productname>openSUSE</productname>,
+<productname>Debian</productname>, <productname>Ubuntu</productname> and
+<productname>Raspbian</productname> are available at <link
 xlink:href="https://software.opensuse.org/download.html?project=home%3Aurbic%3Ajava&amp;package=psylla">openSUSE
 Build Service</link>.
 </para>
@@ -65,19 +64,34 @@ Saxon</application> 1.0.0</listitem>
 <listitem><application
 xlink:href="http://www.graphviz.org/">Graphviz</application> 2.40.1</listitem>
 
-<!--listitem><application
-xlink:href="http://www.perl.org/">Perl 5.26.1</application></listitem-->
-
 <listitem><application
 xlink:href="https://github.com/sass/sassc/">SassC</application>
 3.5.0</listitem>
 
 </itemizedlist>
 
+<para>
+To install dependencies, run (<productname>openSUSE 15.4</productname>)
+
+<screen><prompt>% </prompt><userinput>sudo zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:java/15.4 home:urbic:java</userinput>
+<prompt>% </prompt><userinput>sudo zypper -n --gpg-auto-import-keys in -y \
+	ant{,-apache-resolver,-junit} javacc jline1 \
+	docbook5-xsl-stylesheets docbook-xsl-saxon graphviz sassc saxon6 \
+	glibc-locale javapackages-tools xslthl</userinput></screen>
+
+or (<productname>Debian 11</productname>)
+
+<screen><prompt>% </prompt><userinput>sudo apt-get install -y \
+	ant{,-optional} docbook-{xsl-{ns,saxon},mathml} \
+	graphviz sassc javacc junit4 libjline-java{,-doc} libxerces2-java \
+	libxslthl-java openjdk-11-{jdk-headless,doc}</userinput></screen>
+</para>
+
 </section>
 
-<section xml:id="PsyllaReference_Installation_BuildingFromSources_BuildProcess">
-<title>Build Process</title>
+<section
+xml:id="PsyllaReference_Installation_ObtainingSources">
+<title>Obtaining Sources</title>
 
 <para>
 The sources are available in the <link
@@ -93,6 +107,12 @@ command
 
 </para>
 
+</section>
+
+<section
+xml:id="PsyllaReference_Installation_BuildingFromSources_Building">
+<title>Building</title>
+
 <para>
 After cloning the project repository, a new subdirectory named
 <filename>psylla</filename> is created in the current directory. Change to it:
@@ -107,6 +127,105 @@ Ant</link> as a build tool. Run
 
 <screen><prompt>% </prompt><userinput>ant build</userinput></screen>
 
+</para>
+
+<para>
+The build process expects that the required resources are located in proper
+places. Since different operating systems use different file arrangement
+conventions, you may need to to explicitly specify such locations via
+properties:
+
+<screen><prompt>% </prompt><userinput>ant build -D<replaceable>property</replaceable>=<replaceable>value</replaceable> …</userinput></screen>
+
+Default values of the properties are chosen to satisfy the conventions of the
+<productname>openSUSE Leap 15.4</productname>. For
+<productname>Debian</productname>, <productname>Ubuntu</productname>,
+<productname>Raspbian</productname> specify
+
+<screen><prompt>% </prompt><userinput>ant build -Dlinux.flavour=debian</userinput></screen>
+
+<variablelist>
+<varlistentry>
+<term>
+<property>linux.flavour</property>
+</term>
+<listitem>
+the Linux flavour, either <literal>redhat</literal> (default) or
+<literal>debian</literal>.
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term>
+<property>config.jar.jline1</property>
+</term>
+<term>
+<property>config.jar.junit4</property>
+</term>
+<term>
+<property>config.jar.saxon6</property>
+</term>
+<term>
+<property>config.jar.docbook-xsl-saxon</property>
+</term>
+<term>
+<property>config.jar.xml-commons-apis</property>
+</term>
+<term>
+<property>config.jar.xslthl</property>
+</term>
+<term>
+<property>config.jar.xerces</property>
+</term>
+<listitem>
+locations of required JAR files.
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry>
+<term>
+<property>config.javadocdir.java</property>
+</term>
+<term>
+<property>config.javadocdir.junit4</property>
+</term>
+<term>
+<property>config.jar.jline1</property>
+</term>
+<listitem>
+locations of API documentation directopies.
+</listitem>
+</varlistentry>
+</variablelist>
+
+</para>
+
+<para>
+To view build target descriptions, run
+
+<screen><prompt>% </prompt><userinput>ant -p</userinput></screen>
+</para>
+
+</section>
+
+<section
+xml:id="PsyllaReference_Installation_BuildingFromSources_Testing">
+<title>Testing</title>
+
+<para>
+To perform unit tests, run
+
+<screen><prompt>% </prompt><userinput>ant test</userinput>
+<computeroutput>…
+BUILD SUCCESSFUL
+Total time: 1 second</computeroutput></screen>
+</para>
+
+<para>
 After a successfull build, you can run the Psylla one-liner program directly
 from the command line:
 

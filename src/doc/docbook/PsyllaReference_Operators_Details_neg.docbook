@@ -7,6 +7,22 @@ Returns the arithmetic <replaceable>negation</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/>
+<replaceable>number</replaceable> the type of a
+<replaceable>negation</replaceable> is also <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/>, unless a
+<replaceable>number</replaceable> is <constant>-9223372036854775808</constant>,
+then the type of a <replaceable>negation</replaceable> is <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_biginteger"/>.
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_real"/> or <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_complex"/>
+<replaceable>number</replaceable> the type of a
+<replaceable>negation</replaceable> is the same.
+</para>
+
 <formalpara>
 &TitleSynopsis;
 <synopsis>
@@ -27,24 +43,6 @@ Returns the arithmetic <replaceable>negation</replaceable> of the
 </itemizedlist>
 </formalpara>
 
-<para>
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>
-<replaceable>number</replaceable> the type of a
-<replaceable>negation</replaceable> is also <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>, unless a
-<replaceable>number</replaceable> is <constant>-9223372036854775808</constant>,
-then the type of a <replaceable>negation</replaceable> is <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>. TODO
-</para>
-
-<para>
-For <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>
-or <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
-<replaceable>number</replaceable> the type of a
-<replaceable>negation</replaceable> is the same.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">4 neg
@@ -63,7 +61,8 @@ or <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"
 &ErrorReason_stackunderflow;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -76,6 +75,7 @@ or <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_add"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_signum"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sub"/>.
 </formalpara>
 
