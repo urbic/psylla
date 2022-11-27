@@ -10,6 +10,7 @@ public interface PsyRealNumeric
 	extends
 		PsyNumeric,
 		PsyConvertableToInteger,
+		PsyConvertableToIntegral,
 		PsyConvertableToReal,
 		PsyScalar<PsyRealNumeric>
 {

@@ -650,8 +650,7 @@ public class Interpreter
 	public String prompt()
 	{
 		final var sb=new StringBuilder("PSYLLA");
-		for(int i=procstack.size(); i>0; i--)
-			sb.append('{');
+		sb.append("{".repeat(procstack.size()));
 		if(ostack.size()>0)
 			sb.append("<"+ostack.size());
 		sb.append("> ");
@@ -786,7 +785,7 @@ public class Interpreter
 			return true;
 		}
 		//catch(java.io.IOException|ClassNotFoundException|NullPointerException|IllegalAccessException e)
-		catch(java.io.IOException|ClassNotFoundException|NullPointerException e)
+		catch(final java.io.IOException|ClassNotFoundException|NullPointerException e)
 		{
 			return false;
 		}

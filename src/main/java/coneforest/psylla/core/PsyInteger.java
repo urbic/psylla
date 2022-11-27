@@ -1,5 +1,6 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.math.BigInteger;
 
 /**
 *	A representation of {@code integer} object.
@@ -40,9 +41,9 @@ public class PsyInteger
 	}
 
 	@Override
-	public java.math.BigInteger bigIntegerValue()
+	public BigInteger bigIntegerValue()
 	{
-		return java.math.BigInteger.valueOf(value);
+		return BigInteger.valueOf(value);
 	}
 
 	@Override

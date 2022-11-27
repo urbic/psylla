@@ -1,5 +1,6 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.math.BigDecimal;
 
 /**
 *	A representation of {@code real} object.
@@ -11,6 +12,15 @@ public class PsyReal
 	public PsyReal(final double value)
 	{
 		this.value=value;
+	}
+
+	@Override
+	public PsyIntegral psyToIntegral()
+		throws PsyRangeCheckException
+	{
+		if(Double.isInfinite(value))
+			throw new PsyRangeCheckException();
+		return PsyIntegral.valueOf(BigDecimal.valueOf(value).toBigInteger());
 	}
 
 	@Override

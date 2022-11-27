@@ -10,8 +10,7 @@ public abstract class PsyOperator
 		PsyAtomic,
 		PsyExecutable
 {
-	// TODO protected?
-	public PsyOperator(final String name)
+	protected PsyOperator(final String name)
 	{
 		this.name=name;
 	}

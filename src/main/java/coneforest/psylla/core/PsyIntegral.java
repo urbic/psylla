@@ -23,6 +23,11 @@ public interface PsyIntegral
 		return PsyInteger.valueOf(longValue);
 	}
 
+	default public PsyIntegral psyToIntegral()
+	{
+		return this;
+	}
+
 	public static PsyIntegral valueOf(final java.math.BigInteger bigIntegerValue)
 	{
 		try

@@ -468,11 +468,9 @@ public interface PsyContext
 				("stopped",
 					(oContext)->
 					{
+						final var stopLevel=oContext.pushStopLevel();
 						final var ostack=oContext.operandStackBacked(1);
-						final PsyObject oProc=ostack.getBacked(0);
-
-						final int stopLevel=oContext.pushStopLevel();
-						oProc.invoke(oContext);
+						ostack.getBacked(0).invoke(oContext);
 						oContext.handleExecutionStack(stopLevel);
 						ostack.push(PsyBoolean.valueOf(oContext.getStopFlag()));
 						oContext.setStopFlag(false);
