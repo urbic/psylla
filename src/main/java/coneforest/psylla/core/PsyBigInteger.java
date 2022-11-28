@@ -1,19 +1,19 @@
 package coneforest.psylla.core;
+import java.math.BigInteger;
 
 @coneforest.psylla.Type("biginteger")
 public class PsyBigInteger
 	implements
-		PsyBitwise<PsyIntegral>,
 		PsyIntegral
 {
-	public PsyBigInteger(final java.math.BigInteger value)
+	public PsyBigInteger(final BigInteger value)
 	{
 		this.value=value;
 	}
 
 	public PsyBigInteger(final long integer)
 	{
-		this.value=java.math.BigInteger.valueOf(integer);
+		this.value=BigInteger.valueOf(integer);
 	}
 
 	public PsyBigInteger(final PsyInteger oInteger)
@@ -23,7 +23,7 @@ public class PsyBigInteger
 
 	public PsyBigInteger(final String image)
 	{
-		this(new java.math.BigInteger(image));
+		this(new BigInteger(image));
 	}
 
 	public static PsyBigInteger parse(final String image)
@@ -50,7 +50,7 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public java.math.BigInteger bigIntegerValue()
+	public BigInteger bigIntegerValue()
 	{
 		return value;
 	}
@@ -141,7 +141,7 @@ public class PsyBigInteger
 			return new PsyBigInteger(value.divide(((PsyBigInteger)oIntegral).value));
 		if(oIntegral instanceof PsyInteger)
 			return new PsyBigInteger(
-				value.divide(java.math.BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
+				value.divide(BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
 		throw new PsyTypeCheckException();
 	}
 
@@ -202,7 +202,7 @@ public class PsyBigInteger
 	@Override
 	public PsyBoolean psyIsZero()
 	{
-		return PsyBoolean.valueOf(value.equals(java.math.BigInteger.ZERO));
+		return PsyBoolean.valueOf(value.equals(BigInteger.ZERO));
 	}
 
 	@Override
@@ -217,7 +217,7 @@ public class PsyBigInteger
 		if(oNumeric instanceof PsyBigInteger)
 			return PsyInteger.valueOf(value.compareTo(((PsyBigInteger)oNumeric).value));
 		else if(oNumeric instanceof PsyInteger)
-			return PsyInteger.valueOf(value.compareTo(java.math.BigInteger.valueOf(((PsyInteger)oNumeric).longValue())));
+			return PsyInteger.valueOf(value.compareTo(BigInteger.valueOf(((PsyInteger)oNumeric).longValue())));
 		return PsyInteger.valueOf(Double.valueOf(doubleValue()).compareTo(((PsyReal)oNumeric).doubleValue()));
 	}
 
@@ -241,5 +241,5 @@ public class PsyBigInteger
 		return value.hashCode();
 	}
 
-	private final java.math.BigInteger value;
+	private final BigInteger value;
 }
