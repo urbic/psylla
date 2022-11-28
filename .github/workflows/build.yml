@@ -23,6 +23,7 @@ jobs:
             junit4 \
             libjline-java{,-doc} \
             libxerces2-java \
+            libxml-commons-resolver1.1 \
             libxslthl-java \
             openjdk-11-{jdk-headless,doc} \
             python3-m2crypto \
