@@ -347,6 +347,8 @@
 	"when the operation is prohibited due to a file permission or other access check">
 <!ENTITY ErrorReason_filenotfound
 	"when the file or directory does not exist">
+<!ENTITY ErrorReason_invalidstate
+	"when the state of an operand is inappropriate to the operation">
 <!ENTITY ErrorReason_ioerror
 	"when an input/output error occurs">
 <!ENTITY ErrorReason_securityerror

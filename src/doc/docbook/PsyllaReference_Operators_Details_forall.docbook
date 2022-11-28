@@ -3,7 +3,7 @@
 <title><token language="psylla">forall</token></title>
 
 <para>
-Invokes an <replaceable>executable</replaceable> for each element in the
+Invokes an <replaceable>consumer</replaceable> for each element in the
 <replaceable>sequence</replaceable>, previously adding an element to the
 operand stack.
 </para>
@@ -12,7 +12,7 @@ operand stack.
 &TitleSynopsis;
 <synopsis>
 <replaceable>sequence</replaceable>
-<replaceable>executable</replaceable>
+<replaceable>consumer</replaceable>
 <token language="psylla">forall</token>
 —
 </synopsis>
@@ -26,7 +26,7 @@ operand stack.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>
 </listitem>
 <listitem>
-<replaceable>executable</replaceable>:
+<replaceable>consumer</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
@@ -46,6 +46,10 @@ operand stack.
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_concurrentmodification"/> —
 when the concurrent modification occured
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidstate"/> —
+&ErrorReason_invalidstate;
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —

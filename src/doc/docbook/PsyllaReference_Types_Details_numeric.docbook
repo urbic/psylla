@@ -3,8 +3,7 @@
 <title><type>numeric</type></title>
 
 <para>
-Тип объектов, которые могут рассматриваться как числа. Целый, вещественный,
-комплексный и большой целый типы являются производными от этого типа.
+The type of numbers. Integral, real and complex types inherit from this type.
 </para>
 
 <formalpara>

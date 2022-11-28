@@ -194,7 +194,7 @@ locations of required JAR files.
 <property>config.javadocdir.junit4</property>
 </term>
 <term>
-<property>config.jar.jline1</property>
+<property>config.javadocdir.jline1</property>
 </term>
 <listitem>
 locations of API documentation directopies.

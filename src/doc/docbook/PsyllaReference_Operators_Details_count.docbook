@@ -40,6 +40,10 @@ Returns the <replaceable>count</replaceable> of elements in the
 &TitleErrors;
 <itemizedlist>
 <listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidstate"/> —
+when the stream is closed
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
 &ErrorReason_stackunderflow;
 </listitem>

@@ -3,14 +3,17 @@
 <title><token language="psylla">peeked</token></title>
 
 <para>
-TODO
+Returns a <replaceable>peekedstream</replaceable> consisting of the elements of
+this <replaceable>stream</replaceable>, additionally performing the action
+provided by the <replaceable>consumer</replaceable> on each element as elements
+are consumed from the resulting stream.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>stream</replaceable>
-<replaceable>executable</replaceable>
+<replaceable>consumer</replaceable>
 <token language="psylla">peeked</token>
 <replaceable>peekedstream</replaceable>
 </synopsis>
@@ -25,7 +28,7 @@ TODO
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
 </listitem>
 <listitem>
-<replaceable>executable</replaceable>:
+<replaceable>consumer</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_executable"/>
 </listitem>
 </itemizedlist>
@@ -33,7 +36,8 @@ TODO
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">/a array def 0 1 4 range { dup mul a exch append } peeked { } forall a	▶ 0 1 2 3 4 [0 1 4 8 16]</programlisting>
+<programlisting language="psylla">/a array def 0 1 4 range { dup mul a exch append } peeked { } forall a
+	▶ 0 1 2 3 4 [0 1 4 8 16]</programlisting>
 </formalpara>
 
 <formalpara>

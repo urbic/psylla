@@ -766,7 +766,7 @@ container</listitem>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_reduce" xrefstyle="template:%t"/></term>
-<listitem>Performs a reduction on the elements of this stream</listitem>
+<listitem>performs a reduction on the elements of this stream</listitem>
 </varlistentry>
 
 <varlistentry>

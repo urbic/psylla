@@ -7,6 +7,16 @@ Returns the <replaceable>conjunction</replaceable> of two
 <replaceable>operands</replaceable>.
 </para>
 
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/>
+<replaceable>operands</replaceable>, returns the logical
+<replaceable>conjunction</replaceable>. For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_bitwise"/>
+<replaceable>operands</replaceable>, returns the bitwise
+<replaceable>conjunction</replaceable>.
+</para>
+
 <formalpara>
 &TitleSynopsis;
 <synopsis>
@@ -28,16 +38,6 @@ Returns the <replaceable>conjunction</replaceable> of two
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_boolean"/>
-<replaceable>operands</replaceable>, returns the logical
-<replaceable>conjunction</replaceable>. For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_bitwise"/>
-<replaceable>operands</replaceable>, returns the bitwise
-<replaceable>conjunction</replaceable>.
-</para>
 
 <formalpara>
 &TitleExamples;

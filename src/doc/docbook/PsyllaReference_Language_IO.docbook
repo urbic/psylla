@@ -13,13 +13,11 @@ a program and its enviroment.
 </para>
 
 <para>
-The characters identified with the integers on the range from <math
-xmlns="&nsMathML;"><mn>0</mn></math> to <math
-xmlns="&nsMathML;"><mn>8589934591</mn></math> in accordance with the universal
-character set <acronym>UCS-4</acronym>. At the physical level, data in a file
-are represented as a sequence of bytes (octets). Some transformation that turns
-a sequence of octets into a sequence of characters (encoding) or vice versa
-(decoding) may be performed during I/O.
+The characters identified with the integers on the range from 0 to 8589934591
+in accordance with the universal character set <acronym>UCS-4</acronym>. At the
+physical level, data in a file are represented as a sequence of bytes (octets).
+Some transformation that turns a sequence of octets into a sequence of
+characters (encoding) or vice versa (decoding) may be performed during I/O.
 </para>
 
 <para>

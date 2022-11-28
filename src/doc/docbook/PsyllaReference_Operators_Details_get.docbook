@@ -8,6 +8,36 @@ Returns the <replaceable>element</replaceable> associated with a given
 <replaceable>container</replaceable>.
 </para>
 
+<para>
+The <replaceable>key</replaceable> type must match the
+<replaceable>container</replaceable> type (<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_integer"/> for <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_formalarray"/> containers, <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+for <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_formaldict"/>), otherwise the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>
+error is generated.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_formalarray"/>
+<replaceable>container</replaceable>, the <replaceable>key</replaceable> serves
+as an index in the array. When an index goes out of bounds, a <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/>
+is generated.
+</para>
+
+<para>
+For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_formaldict"/>
+<replaceable>container</replaceable>, if a <replaceable>key</replaceable> is
+not in a <replaceable>container</replaceable>, an <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_undefined"/> error is generated.
+</para>
+
 <formalpara>
 &TitleSynopsis;
 <synopsis>
@@ -33,32 +63,6 @@ Returns the <replaceable>element</replaceable> associated with a given
 </itemizedlist>
 </formalpara>
 
-<para>
-Тип ключа должен соответствовать типу контейнера (для контейнеров типа <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/> —
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>,
-для <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_formaldict"/> — <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_textual"/>), в противном случае
-генерируется <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Errors_Details_typecheck"/>.
-</para>
-
-<para>
-Для <replaceable>контейнера</replaceable> типа <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_formalarray"/>
-<replaceable>ключ</replaceable> служит индексом в массиве. При выходе индекса
-за допустимые границы генерируется <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Errors_Details_rangecheck"/>.
-</para>
-
-<para>
-Для <replaceable>контейнера</replaceable> типа <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_formaldict"/>
-при отсутствии <replaceable>ключа</replaceable> в словаре генерируется <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">[ /a /b /c /d ] 2 get
@@ -73,7 +77,8 @@ xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>.
 &TitleErrors;
 <itemizedlist>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
+when an index goes out of array bounds
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
@@ -84,7 +89,8 @@ xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>.
 &ErrorReason_typecheck;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/> —
+when a key is not in a dictionary
 </listitem>
 </itemizedlist>
 </formalpara>
