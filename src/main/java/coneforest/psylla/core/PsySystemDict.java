@@ -40,6 +40,25 @@ public class PsySystemDict
 					stdwriter.psyWriteString((PsyTextual)oContext.dictStack().load("eol"));
 					stdwriter.psyFlush();
 				}),
+			new PsyOperator.Action("editline",
+					(interpreter)->
+					{
+						try
+						{
+							final var ostack=interpreter.operandStack();
+							final jline.ConsoleReader consoleReader
+								=new jline.ConsoleReader();
+							final var line=consoleReader.readLine();
+							if(line!=null)
+								ostack.push(new PsyString(line+"\n"));
+							ostack.push(PsyBoolean.valueOf(line!=null));
+						}
+						catch(final java.io.IOException e)
+						{
+							throw new PsyIOErrorException();
+						}
+					}
+				),
 		};
 
 	public PsySystemDict()
