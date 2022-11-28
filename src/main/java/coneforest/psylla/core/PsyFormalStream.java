@@ -20,8 +20,16 @@ public interface PsyFormalStream<T extends PsyObject>
 	*	@return a count
 	*/
 	default public PsyInteger psyCount()
+		throws PsyInvalidStateException
 	{
-		return PsyInteger.valueOf(stream().count());
+		try
+		{
+			return PsyInteger.valueOf(stream().count());
+		}
+		catch(final IllegalStateException e)
+		{
+			throw new PsyInvalidStateException();
+		}
 	}
 
 	/**
@@ -157,46 +165,52 @@ public interface PsyFormalStream<T extends PsyObject>
 		throws PsyException
 	{
 		final var ostack=oContext.operandStack();
-		final java.util.Iterator<T> iterator=stream().iterator();
-		oContext.pushLoopLevel();
-		oContext.executionStack().push(new PsyOperator("#forall_continue")
-			{
-				@Override
-				public void action(final PsyContext oContext1)
-					throws PsyException
+		try
+		{
+			final java.util.Iterator<T> iterator=stream().iterator();
+			oContext.pushLoopLevel();
+			oContext.executionStack().push(new PsyOperator("#forall_continue")
 				{
-					if(iterator.hasNext())
+					@Override
+					public void action(final PsyContext oContext1)
+						throws PsyException
 					{
-						try
+						if(iterator.hasNext())
 						{
-							ostack.push(iterator.next());
+							try
+							{
+								ostack.push(iterator.next());
+							}
+							catch(final java.util.NoSuchElementException e)
+							{
+								// TODO more suitable exception type
+								throw new PsyUndefinedException();
+							}
+							oContext1.executionStack().push(this);
+							oProc.invoke(oContext1);
 						}
-						catch(final java.util.NoSuchElementException e)
-						{
-							// TODO more suitable exception type
-							throw new PsyUndefinedException();
-						}
-						oContext1.executionStack().push(this);
-						oProc.invoke(oContext1);
+						else
+							oContext1.popLoopLevel();
 					}
-					else
-						oContext1.popLoopLevel();
-				}
-			});
+				});
+		}
+		catch(final IllegalStateException e)
+		{
+			throw new PsyInvalidStateException();
+		}
 	}
 
 	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator, final PsyContext oContext)
 		throws PsyException
 	{
-		//try
-		//{
+		try
+		{
 			return stream().reduce(oIdentity, oAccumulator.<T>asBinaryOperator(oContext));
-		//}
-		//catch(final Exception e)
-		//{
-		//	throw new PsyException();
-		//	TODO
-		//}
+		}
+		catch(final IllegalStateException e)
+		{
+			throw new PsyInvalidStateException();
+		}
 	}
 
 	default public PsyFormalStream<T> psyDistinct()
