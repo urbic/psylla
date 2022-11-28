@@ -7,7 +7,7 @@
 	stdin read not { exit } if
 	/char exch def
 
-    /btype brackets char 0 indexofchar def
+	/btype brackets char 0 indexofchar def
 	btype -1 ne
 	{
 		btype 2 mod iszero

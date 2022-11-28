@@ -56,7 +56,7 @@ hr { border: solid #3a3a3a 1px; }
 
 .literal { font-family: "PT Mono", monospace; font-weight: bold; }
 
-code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .errorname, .replaceable, .parameter { font-family: "PT Mono", monospace; }
+code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .errorname, .replaceable, .parameter, .property { font-family: "PT Mono", monospace; }
 
 .replaceable { font-style: normal; text-decoration: underline; text-decoration-style: wavy; }
 
@@ -68,7 +68,7 @@ code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attri
 
 .filename { color: black; font-weight: bolder; }
 
-.toc-title, .example-title, .figure-title, .itemizedlist-title { font-weight: bold; }
+.abstract-title, .toc-title, .example-title, .figure-title, .itemizedlist-title { font-weight: bold; }
 
 .application { font-style: italic; }
 
