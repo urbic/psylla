@@ -163,21 +163,27 @@ The
 the sole object of type <xref linkend="PsyllaReference_Types_Details_mark"
 xrefstyle="template:%t"/>. It serves to indicate the position in the operand
 stack.  The mark present in the system dictionary under the names of <xref
-linkend="PsyllaReference_Operators_Details_mark" xrefstyle="template:%t"/> (<xref
-linkend="PsyllaReference_Operators_Details_[" xrefstyle="template:%t"/>, <xref
-linkend="PsyllaReference_Operators_Details_&lt;" xrefstyle="template:%t"/>, <xref
-linkend="PsyllaReference_Operators_Details_(" xrefstyle="template:%t"/>).
-Basically marks serves as operands for operators <xref
-linkend="PsyllaReference_Operators_Details_arraytomark" xrefstyle="template:%t"/>
-(<xref linkend="PsyllaReference_Operators_Details_]" xrefstyle="template:%t"/>),
-<xref linkend="PsyllaReference_Operators_Details_dicttomark"
-xrefstyle="template:%t"/> (<xref linkend="PsyllaReference_Operators_Details_&gt;"
+linkend="PsyllaReference_Operators_Details_mark" xrefstyle="template:%t"/>
+(<xref linkend="PsyllaReference_Operators_Details_[" xrefstyle="template:%t"/>,
+<xref linkend="PsyllaReference_Operators_Details_&lt;"
+xrefstyle="template:%t"/>, <xref linkend="PsyllaReference_Operators_Details_("
+xrefstyle="template:%t"/>). Basically mark serves as operand for operators
+<xref linkend="PsyllaReference_Operators_Details_arraytomark"
+xrefstyle="template:%t"/> (<xref linkend="PsyllaReference_Operators_Details_]"
 xrefstyle="template:%t"/>), <xref
-linkend="PsyllaReference_Operators_Details_settomark" xrefstyle="template:%t"/>
-(<xref linkend="PsyllaReference_Operators_Details_)" xrefstyle="template:%t"/>),
-<xref linkend="PsyllaReference_Operators_Details_counttomark"
+linkend="PsyllaReference_Operators_Details_dicttomark"
+xrefstyle="template:%t"/> (<xref
+linkend="PsyllaReference_Operators_Details_&gt;" xrefstyle="template:%t"/>),
+<xref linkend="PsyllaReference_Operators_Details_settomark"
+xrefstyle="template:%t"/> (<xref linkend="PsyllaReference_Operators_Details_)"
+xrefstyle="template:%t"/>), <xref
+linkend="PsyllaReference_Operators_Details_streamtomark"
 xrefstyle="template:%t"/>, <xref
-linkend="PsyllaReference_Operators_Details_cleartomark" xrefstyle="template:%t"/>.
+linkend="PsyllaReference_Operators_Details_counttomark"
+xrefstyle="template:%t"/>, <xref
+linkend="PsyllaReference_Operators_Details_cleartomark"
+xrefstyle="template:%t"/>, <xref
+linkend="PsyllaReference_Operators_Details_fork" xrefstyle="template:%t"/>.
 </para>
 
 </section>
