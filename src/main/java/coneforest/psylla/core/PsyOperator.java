@@ -36,7 +36,7 @@ public abstract class PsyOperator
 	*	Invoke this object in the context of the interpreter performing
 	*	an action associated with it.
 	*
-	*	@param oContext
+	*	@param oContext the context
 	*/
 	@Override
 	public void invoke(final PsyContext oContext)
