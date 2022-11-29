@@ -31,7 +31,7 @@ public interface PsyContext
 	}
 
 	public void fork()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public void quit();
 
@@ -66,7 +66,7 @@ public interface PsyContext
 	public boolean getStopFlag();
 
 	public void repl()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public void setStopFlag(final boolean stopFlag);
 
@@ -74,24 +74,24 @@ public interface PsyContext
 
 	public void handleExecutionStack(final int level);
 
-	public void handleError(final PsyException oException);
+	//public void handleError(final PsyErrorException oException);
 
 	public void interpret(final PsyReader oReader)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public void interpretBraced(final PsyReader oReader)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public OperandStack operandStackBacked(final int count)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyFormalDict psyWhere(final PsyTextual oKey);
 
 	public <T extends PsyObject> T psyLoad(final PsyTextual oKey)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public void psyRequire(final PsyTextual o)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{
@@ -314,7 +314,7 @@ public interface PsyContext
 						{
 							oContextJoining.join();
 						}
-						catch(final InterruptedException e)
+						catch(final InterruptedException ex)
 						{
 							throw new PsyInterruptException();
 						}
@@ -342,7 +342,7 @@ public interface PsyContext
 							{
 								@Override
 								public void action(final PsyContext oContext1)
-									throws PsyException
+									throws PsyErrorException
 								{
 									oContext1.executionStack().push(this);
 									oProc.invoke(oContext1);
@@ -446,11 +446,11 @@ public interface PsyContext
 						{
 							Thread.sleep(oContext.operandStackBacked(1).<PsyInteger>getBacked(0).longValue());
 						}
-						catch(final IllegalArgumentException e)
+						catch(final IllegalArgumentException ex)
 						{
 							throw new PsyRangeCheckException();
 						}
-						catch(final InterruptedException e)
+						catch(final InterruptedException ex)
 						{
 							throw new PsyInterruptException();
 						}

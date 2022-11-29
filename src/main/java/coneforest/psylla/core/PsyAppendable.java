@@ -16,10 +16,10 @@ public interface PsyAppendable<T extends PsyObject>
 	*	Appends a given {@code object} to this container.
 	*
 	*	@param o an {@code object} to append.
-	*	@throws PsyException when an error occurs.
+	*	@throws PsyErrorException when an error occurs.
 	*/
 	public void psyAppend(final T o)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Appends all the {@code object}s from a given {@code iterable}
@@ -28,10 +28,10 @@ public interface PsyAppendable<T extends PsyObject>
 	*	elements from the clone to avoid concurrent modification.
 	*
 	*	@param oEnumeration an {@code iterable} enumeration.
-	*	@throws PsyException when an error occurs.
+	*	@throws PsyErrorException when an error occurs.
 	*/
 	default public void psyAppendAll(final PsyIterable<? extends T> oEnumeration)
-		throws PsyException
+		throws PsyErrorException
 	{
 		// TODO
 		for(T o: (this!=oEnumeration? oEnumeration: (PsyIterable<? extends T>)psyClone()))
@@ -40,7 +40,7 @@ public interface PsyAppendable<T extends PsyObject>
 
 	// TODO
 	public PsyAppendable psyReplicate(final PsyInteger oCount)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

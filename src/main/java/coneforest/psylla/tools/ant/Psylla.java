@@ -36,7 +36,7 @@ public class Psylla
 		{
 			coneforest.psylla.Psylla.launch(args).join();
 		}
-		catch(final coneforest.psylla.core.PsyException e)
+		catch(final coneforest.psylla.core.PsyErrorException e)
 		{
 			// TODO
 		}

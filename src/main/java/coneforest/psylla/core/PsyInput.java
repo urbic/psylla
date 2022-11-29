@@ -25,13 +25,13 @@ public class PsyInput
 
 	@Override
 	public int read()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return input.read();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -39,7 +39,7 @@ public class PsyInput
 
 	@Override
 	public PsyString psyReadString(final PsyInteger oCount)
-		throws PsyException
+		throws PsyErrorException
 	{
 		// TODO
 		throw new PsyUnsupportedException();
@@ -47,7 +47,7 @@ public class PsyInput
 
 	@Override
 	public PsyString psyReadLine()
-		throws PsyException
+		throws PsyErrorException
 	{
 		// TODO
 		throw new PsyUnsupportedException();
@@ -55,13 +55,13 @@ public class PsyInput
 
 	@Override
 	public void psyClose()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			input.close();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -75,7 +75,7 @@ public class PsyInput
 		{
 			return PsyBoolean.valueOf(input.available()>0);
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -89,11 +89,11 @@ public class PsyInput
 		{
 			return PsyInteger.valueOf(input.skip(oCount.longValue()));
 		}
-		catch(final IllegalArgumentException e)
+		catch(final IllegalArgumentException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -101,13 +101,13 @@ public class PsyInput
 
 	@Override
 	public void psyReset()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			input.reset();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}

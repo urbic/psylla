@@ -37,7 +37,7 @@ public class PsyTime
 	}
 
 	public static PsyInteger psyCalendarTime(final PsyFormalDict oCalendar)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var calendar=new java.util.GregorianCalendar();
 		for(int i=0; i<fieldNames.length; i++)

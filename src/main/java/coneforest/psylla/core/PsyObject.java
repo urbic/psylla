@@ -158,9 +158,9 @@ public interface PsyObject
 		{
 			throw e;
 		}
-		catch(final Throwable e)
+		catch(final Throwable ex)
 		{
-			System.out.println(e);
+			System.out.println(ex);
 			throw new PsyUnregisteredException();
 		}
 	}

@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("stackunderflow")
 public class PsyStackUnderflowException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

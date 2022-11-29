@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("notlink")
 public class PsyNotLinkException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

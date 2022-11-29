@@ -16,7 +16,7 @@ public interface PsyFormalDict<V extends PsyObject>
 
 	@Override
 	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var ostack=oContext.operandStack();
 		final var keysIterator=psyKeys().stream().iterator();
@@ -25,7 +25,7 @@ public interface PsyFormalDict<V extends PsyObject>
 			{
 				@Override
 				public void action(final PsyContext oContext1)
-					throws PsyException
+					throws PsyErrorException
 				{
 					if(keysIterator.hasNext())
 					{
@@ -42,18 +42,18 @@ public interface PsyFormalDict<V extends PsyObject>
 	}
 
 	public V get(final String key)
-		throws PsyException;
+		throws PsyErrorException;
 
 	@Override
 	default public V psyGet(final PsyTextual oKey)
-		throws PsyException
+		throws PsyErrorException
 	{
 		return get(oKey.stringValue());
 	}
 
 	@Override
 	default public PsyFormalArray<V> psyGetAll(final PsyIterable<PsyTextual> oEnumeration)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final PsyFormalArray<V> oResult=(PsyFormalArray<V>)new PsyArray();
 		for(final var oKey: oEnumeration)
@@ -94,14 +94,14 @@ public interface PsyFormalDict<V extends PsyObject>
 
 	@Override
 	default public void psyDelete(final PsyTextual oKey)
-		throws PsyException
+		throws PsyErrorException
 	{
 		psyUndef(oKey);
 	}
 
 	@Override
 	default public V psyExtract(final PsyTextual oKey)
-		throws PsyException
+		throws PsyErrorException
 	{
 		V oResult=psyGet(oKey);
 		psyUndef(oKey);
@@ -110,7 +110,7 @@ public interface PsyFormalDict<V extends PsyObject>
 
 	@Override
 	public PsyFormalDict<V> psySlice(final PsyIterable<PsyTextual> oEnumeration)
-		throws PsyException;
+		throws PsyErrorException;
 
 	@Override
 	default public PsyStream psyEntries()
@@ -136,7 +136,7 @@ public interface PsyFormalDict<V extends PsyObject>
 									return (flag=!flag)?
 										(oKey=(PsyName)parentIterator.next()): psyGet(oKey);
 								}
-								catch(final PsyException e)
+								catch(final PsyErrorException e)
 								{
 									throw new AssertionError(e);
 								}

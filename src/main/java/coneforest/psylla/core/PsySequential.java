@@ -6,7 +6,7 @@ public interface PsySequential<T extends PsyObject>
 	extends PsyObject
 {
 	public void psyForAll(final PsyObject oProc, final PsyContext oContext)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

@@ -30,13 +30,13 @@ public class PsyCondition
 	*	@throws PsyInterruptException when current context is interrupted.
 	*/
 	public void psyWait()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			condition.await();
 		}
-		catch(final InterruptedException e)
+		catch(final InterruptedException ex)
 		{
 			throw new PsyInterruptException();
 		}

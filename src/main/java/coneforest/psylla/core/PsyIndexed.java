@@ -27,10 +27,10 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@param oKey a key or an index.
 	*	@return an element.
-	*	@throws PsyException when index is out of range.
+	*	@throws PsyErrorException when index is out of range.
 	*/
 	public V psyGet(final K oKey)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Stores an element with given key or index. In {@link PsyFormalArray}
@@ -40,22 +40,22 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@param oKey a key or an index.
 	*	@param oValue an element to be stored.
-	*	@throws PsyException when key is absent or index is out of range.
+	*	@throws PsyErrorException when key is absent or index is out of range.
 	*/
 	public void psyPut(final K oKey, final V oValue)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Deletes a key or index and a value associated with it from this object.
 	*
 	*	@param oKey a key or an index.
-	*	@throws PsyException when key is absent or index is out of range.
+	*	@throws PsyErrorException when key is absent or index is out of range.
 	*/
 	public void psyDelete(final K oKey)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public V psyExtract(final K oKey)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Returns a container of the same type as this object consisting of keys
@@ -63,13 +63,13 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	*
 	*	@param oKeys an enumeration of keys.
 	*	@return a container.
-	*	@throws PsyException when key is absent or index is out of range.
+	*	@throws PsyErrorException when key is absent or index is out of range.
 	*/
 	public PsyIndexed<K, V> psySlice(final PsyIterable<K> oKeys)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyFormalArray<V> psyGetAll(final PsyIterable<K> oKeys)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Returns an {@code iterable} enumeration of all the keys of this object.
@@ -97,7 +97,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 							{
 								return PsyIndexed.this.psyGet(oKey);
 							}
-							catch(final PsyException e)
+							catch(final PsyErrorException e)
 							{
 								return null;
 							}
@@ -157,7 +157,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 			{
 				@Override
 				public void psyForAll(final PsyObject oProc)
-					throws PsyException
+					throws PsyErrorException
 				{
 					final coneforest.psylla.Interpreter interpreter
 						=(coneforest.psylla.Interpreter)PsyContext.psyCurrentContext();
@@ -168,7 +168,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 						{
 							@Override
 							public void action(final coneforest.psylla.Interpreter interpreter1)
-								throws PsyException
+								throws PsyErrorException
 							{
 								if(iterator.hasNext())
 								{

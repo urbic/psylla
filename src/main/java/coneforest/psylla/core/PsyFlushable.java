@@ -13,10 +13,10 @@ public interface PsyFlushable
 	/**
 	*	Flush this {@code flushable}.
 	*
-	*	@throws PsyException when error occurs during flush.
+	*	@throws PsyErrorException when error occurs during flush.
 	*/
 	public void psyFlush()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

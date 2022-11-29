@@ -24,7 +24,7 @@ public class PsyReader
 
 	@Override
 	public void psyEval()
-		throws PsyException
+		throws PsyErrorException
 	{
 		PsyContext.psyCurrentContext().interpret(this);
 	}
@@ -42,7 +42,7 @@ public class PsyReader
 		{
 			return reader.read();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -67,11 +67,11 @@ public class PsyReader
 			buffer.flip();
 			return new PsyString(buffer.toString());
 		}
-		catch(final OutOfMemoryError e)
+		catch(final OutOfMemoryError ex)
 		{
 			throw new PsyLimitCheckException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -96,7 +96,7 @@ public class PsyReader
 			}
 			while(true);
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -114,11 +114,11 @@ public class PsyReader
 			//return PsyBoolean.valueOf(count==reader.skip(count));
 			return PsyInteger.valueOf(reader.skip(count));
 		}
-		catch(final IllegalArgumentException e)
+		catch(final IllegalArgumentException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -132,7 +132,7 @@ public class PsyReader
 		{
 			return PsyBoolean.valueOf(reader.ready());
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -146,7 +146,7 @@ public class PsyReader
 		{
 			reader.close();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -160,7 +160,7 @@ public class PsyReader
 		{
 			reader.reset();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}

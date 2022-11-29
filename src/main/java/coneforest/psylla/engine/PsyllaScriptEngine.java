@@ -48,7 +48,7 @@ public class PsyllaScriptEngine
 		{
 			return interpreter.systemDict().get(key);
 		}
-		catch(final coneforest.psylla.core.PsyException e)
+		catch(final coneforest.psylla.core.PsyErrorException e)
 		{
 			return null;
 		}

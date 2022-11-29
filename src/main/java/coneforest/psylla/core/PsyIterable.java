@@ -15,7 +15,7 @@ public interface PsyIterable<T extends PsyObject>
 {
 
 	default public PsyArray psyToArray()
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var oArray=new PsyArray();
 		for(final T o: this)
@@ -30,7 +30,7 @@ public interface PsyIterable<T extends PsyObject>
 	}
 
 	default public PsyString psyUnite(final PsyTextual oSeparator)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var separator=oSeparator.stringValue();
 		final var sb=new StringBuilder();
@@ -44,7 +44,7 @@ public interface PsyIterable<T extends PsyObject>
 					sb.append(separator);
 			}
 		}
-		catch(final ClassCastException e)
+		catch(final ClassCastException ex)
 		{
 			throw new PsyTypeCheckException();
 		}

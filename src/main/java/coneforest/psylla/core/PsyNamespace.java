@@ -42,7 +42,7 @@ public class PsyNamespace
 
 	@Override
 	public PsyObject get(final String key)
-		throws PsyException
+		throws PsyErrorException
 	{
 		//System.out.println("namespace:get "+key);
 		final var agenda=new Stack<PsyNamespace>();

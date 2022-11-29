@@ -25,10 +25,15 @@ public class PsyCommand
 		{
 			oContext.psyLoad(this).invoke(oContext);
 		}
-		catch(final PsyException e)
+		catch(final PsyErrorException e)
 		{
 			e.setEmitter(this);
-			oContext.handleError(e);
+			final var ostack=oContext.operandStack();
+			final var estack=oContext.executionStack();
+			final var dstack=oContext.dictStack();
+			e.setStacks(ostack, estack, dstack);
+			//oContext.handleError(e);
+			e.invoke(oContext);
 		}
 	}
 

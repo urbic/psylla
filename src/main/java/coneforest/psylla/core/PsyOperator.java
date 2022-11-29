@@ -47,21 +47,30 @@ public abstract class PsyOperator
 		{
 			action(oContext);
 		}
-		catch(final ClassCastException e)
+		catch(final ClassCastException ex)
 		{
 			ostack.restore();
-			oContext.handleError(new PsyTypeCheckException(this));
+			var e=new PsyTypeCheckException(this);
+			final var estack=oContext.executionStack();
+			final var dstack=oContext.dictStack();
+			e.setStacks(ostack, estack, dstack);
+			//oContext.handleError(e);
+			e.invoke(oContext);
 		}
-		catch(final PsyException e)
+		catch(final PsyErrorException e)
 		{
 			ostack.restore();
+			final var estack=oContext.executionStack();
+			final var dstack=oContext.dictStack();
+			e.setStacks(ostack, estack, dstack);
 			e.setEmitter(this);
-			oContext.handleError(e);
+			//oContext.handleError(e);
+			e.invoke(oContext);
 		}
 	}
 
 	abstract public void action(final PsyContext oContext)
-		throws ClassCastException, PsyException;
+		throws ClassCastException, PsyErrorException;
 
 	/**
 	*	Returns a syntatctic string representation of this operator.
@@ -108,7 +117,7 @@ public abstract class PsyOperator
 		private final Action.Handler handler;
 
 		public Method(final java.lang.reflect.Method method)
-			throws PsyException
+			throws PsyErrorException
 		{
 			super(method.getAnnotation(Operator.class).value());
 			try
@@ -128,10 +137,10 @@ public abstract class PsyOperator
 							{
 								mh.invokeWithArguments((Object[])params);
 							}
-							catch(final Throwable e)
+							catch(final Throwable ex)
 							{
-								// TODO: throw new PsyException(e);
-								System.out.println("THROWABLE "+e);
+								// TODO: throw new PsyErrorException(e);
+								System.out.println("THROWABLE "+ex);
 							}
 						};
 				else
@@ -149,14 +158,14 @@ public abstract class PsyOperator
 								//System.out.println("CALL OP "+oRet);
 								ostack.push((PsyObject)mh.invokeWithArguments((Object[])params));
 							}
-							catch(final Throwable e)
+							catch(final Throwable ex)
 							{
-								// TODO: throw new PsyException(e);
-								//System.out.println("THROWABLE "+e);
+								// TODO: throw new PsyErrorException(ex);
+								//System.out.println("THROWABLE "+ex);
 							}
 						};
 				}
-				catch(IllegalAccessException e)
+				catch(IllegalAccessException ex)
 				{
 					// TODO
 					throw new PsyUndefinedException();
@@ -165,7 +174,7 @@ public abstract class PsyOperator
 
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			handler.handle(oContext);
 		}
@@ -182,7 +191,7 @@ public abstract class PsyOperator
 					{
 						@Override
 						public void action(final Interpreter interpreter)
-							throws PsyException
+							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];
@@ -194,10 +203,10 @@ public abstract class PsyOperator
 							{
 								mh.invokeWithArguments((Object[])params);
 							}
-							catch(final Throwable e)
+							catch(final Throwable ex)
 							{
-								// TODO: throw new PsyException(e);
-								System.out.println("THROWABLE "+e);
+								// TODO: throw new PsyErrorException(ex);
+								System.out.println("THROWABLE "+ex);
 							}
 						}
 					};
@@ -206,7 +215,7 @@ public abstract class PsyOperator
 					{
 						@Override
 						public void action(final Interpreter interpreter)
-							throws PsyException
+							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];
@@ -221,15 +230,15 @@ public abstract class PsyOperator
 								//System.out.println("CALL OP "+oRet);
 								ostack.push(oRet);
 							}
-							catch(final Throwable e)
+							catch(final Throwable ex)
 							{
-								// TODO: throw new PsyException(e);
-								//System.out.println("THROWABLE "+e);
+								// TODO: throw new PsyErrorException(ex);
+								//System.out.println("THROWABLE "+ex);
 							}
 						}
 					};
 		}
-		catch(final IllegalAccessException e)
+		catch(final IllegalAccessException ex)
 		{
 			// TODO
 		}
@@ -251,7 +260,7 @@ public abstract class PsyOperator
 					{
 						@Override
 						public void action(final Interpreter interpreter)
-							throws PsyException
+							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];
@@ -264,10 +273,10 @@ public abstract class PsyOperator
 							{
 								mh.invokeWithArguments((Object[])params);
 							}
-							catch(final Throwable e)
+							catch(final Throwable ex)
 							{
-								// TODO: throw new PsyException(e);
-								//System.out.println("THROWABLE "+e);
+								// TODO: throw new PsyErrorException(ex);
+								//System.out.println("THROWABLE "+ex);
 							}
 						}
 					};
@@ -276,7 +285,7 @@ public abstract class PsyOperator
 					{
 						@Override
 						public void action(final Interpreter interpreter)
-							throws PsyException
+							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];
@@ -291,15 +300,15 @@ public abstract class PsyOperator
 								//System.out.println("CALL OP "+oRet);
 								ostack.push(oRet);
 							}
-							catch(final Throwable e)
+							catch(final Throwable ex)
 							{
-								// TODO: throw new PsyException(e);
-								//System.out.println("THROWABLE "+e);
+								// TODO: throw new PsyErrorException(ex);
+								//System.out.println("THROWABLE "+ex);
 							}
 						}
 					};
 		}
-		catch(final IllegalAccessException e)
+		catch(final IllegalAccessException ex)
 		{
 			// TODO
 		}
@@ -318,7 +327,7 @@ public abstract class PsyOperator
 				{
 					@Override
 					public void action(final Interpreter interpreter)
-						throws PsyException
+						throws PsyErrorException
 					{
 						final var ostack=interpreter.operandStackBacked(mht.parameterCount());
 						final var params=new PsyObject[mht.parameterCount()];
@@ -333,15 +342,15 @@ public abstract class PsyOperator
 							//System.out.println("CALL OP "+oRet);
 							ostack.push(oRet);
 						}
-						catch(final Throwable e)
+						catch(final Throwable ex)
 						{
-							// TODO: throw new PsyException(e);
-							//System.out.println("THROWABLE "+e);
+							// TODO: throw new PsyErrorException(ex);
+							//System.out.println("THROWABLE "+ex);
 						}
 					}
 				};
 		}
-		catch(final IllegalAccessException e)
+		catch(final IllegalAccessException ex)
 		{
 			// TODO
 		}
@@ -354,7 +363,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			handler.handle();
 		}
@@ -371,7 +380,7 @@ public abstract class PsyOperator
 		public static interface Handler
 		{
 			public void handle()
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -380,7 +389,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			oContext.operandStack().push(handler.handle());
 		}
@@ -397,7 +406,7 @@ public abstract class PsyOperator
 		public static interface Handler
 		{
 			public PsyObject handle()
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -406,7 +415,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(1);
 			ostack.push(handler.handle(ostack.getBacked(0)));
@@ -424,7 +433,7 @@ public abstract class PsyOperator
 		public static interface Handler<O extends PsyObject>
 		{
 			public PsyObject handle(final O o)
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -433,7 +442,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(2);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1)));
@@ -453,7 +462,7 @@ public abstract class PsyOperator
 		public static interface Handler<O1 extends PsyObject, O2 extends PsyObject>
 		{
 			public PsyObject handle(final O1 o1, final O2 o2)
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -462,7 +471,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(1);
 			handler.handle(ostack.getBacked(0));
@@ -480,7 +489,7 @@ public abstract class PsyOperator
 		public static interface Handler<O extends PsyObject>
 		{
 			public void handle(final O o)
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -489,7 +498,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(2);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1));
@@ -507,7 +516,7 @@ public abstract class PsyOperator
 		public static interface Handler<O1 extends PsyObject, O2 extends PsyObject>
 		{
 			public void handle(final O1 o1, final O2 o2)
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -516,7 +525,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(3);
 			handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2));
@@ -534,7 +543,7 @@ public abstract class PsyOperator
 		public static interface Handler<O1 extends PsyObject, O2 extends PsyObject, O3 extends PsyObject>
 		{
 			public void handle(final O1 o1, final O2 o2, final O3 o3)
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -543,7 +552,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws PsyException
+			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(3);
 			ostack.push(handler.handle(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));
@@ -561,7 +570,7 @@ public abstract class PsyOperator
 		public static interface Handler<O1 extends PsyObject, O2 extends PsyObject, O3 extends PsyObject>
 		{
 			public PsyObject handle(final O1 o1, final O2 o2, final O3 o3)
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -570,7 +579,7 @@ public abstract class PsyOperator
 	{
 		@Override
 		public void action(final PsyContext oContext)
-			throws ClassCastException, PsyException
+			throws ClassCastException, PsyErrorException
 		{
 			handler.handle(oContext);
 		}
@@ -587,7 +596,7 @@ public abstract class PsyOperator
 		public static interface Handler
 		{
 			public void handle(final PsyContext oContext)
-				throws PsyException;
+				throws PsyErrorException;
 		}
 	}
 
@@ -596,7 +605,7 @@ public abstract class PsyOperator
 	public static interface Handler21<T1 extends PsyObject, T2 extends PsyObject>
 	{
 		public PsyObject handle(final T1 o1, final T2 o2)
-			throws PsyException;
+			throws PsyErrorException;
 	}
 
 	public <T1 extends PsyObject, T2 extends PsyObject> PsyOperator(final String name, final Handler21<T1, T2> handler)

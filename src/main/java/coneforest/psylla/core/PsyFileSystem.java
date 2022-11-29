@@ -53,19 +53,19 @@ public class PsyFileSystem
 		{
 			Files.createDirectory(getPath(oFileName));
 		}
-		catch(final FileAlreadyExistsException e)
+		catch(final FileAlreadyExistsException ex)
 		{
 			throw new PsyFileExistsException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -83,11 +83,11 @@ public class PsyFileSystem
 			//		oSuffix.stringValue(), new java.io.File(oDirectory.stringValue()));
 			//return new PsyName(file.getPath());
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -119,23 +119,23 @@ public class PsyFileSystem
 		{
 			Files.delete(getPath(oFileName));
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final DirectoryNotEmptyException e)
+		catch(final DirectoryNotEmptyException ex)
 		{
 			throw new PsyDirectoryNotEmptyException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -170,31 +170,31 @@ public class PsyFileSystem
 		{
 			Files.copy(getPath(oSourceName), getPath(oTargetName));
 		}
-		catch(final UnsupportedOperationException e)
+		catch(final UnsupportedOperationException ex)
 		{
 			throw new PsyUnsupportedException();
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final DirectoryNotEmptyException e)
+		catch(final DirectoryNotEmptyException ex)
 		{
 			throw new PsyDirectoryNotEmptyException();
 		}
-		catch(final FileAlreadyExistsException e)
+		catch(final FileAlreadyExistsException ex)
 		{
 			throw new PsyFileExistsException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -212,23 +212,23 @@ public class PsyFileSystem
 		{
 			return new PsyName(Files.readSymbolicLink(getPath(oFileName)).toString());
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final NotLinkException e)
+		catch(final NotLinkException ex)
 		{
 			throw new PsyNotLinkException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -247,23 +247,23 @@ public class PsyFileSystem
 			Files.createSymbolicLink(getPath(oFileName2),
 				getPath(oFileName1));
 		}
-		catch(final UnsupportedOperationException e)
+		catch(final UnsupportedOperationException ex)
 		{
 			throw new PsyUnsupportedException();
 		}
-		catch(final FileAlreadyExistsException e)
+		catch(final FileAlreadyExistsException ex)
 		{
 			throw new PsyFileExistsException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -283,27 +283,27 @@ public class PsyFileSystem
 		{
 			Files.createLink(getPath(oFileName2), getPath(oFileName1));
 		}
-		catch(final UnsupportedOperationException e)
+		catch(final UnsupportedOperationException ex)
 		{
 			throw new PsyUnsupportedException();
 		}
-		catch(final FileAlreadyExistsException e)
+		catch(final FileAlreadyExistsException ex)
 		{
 			throw new PsyFileExistsException();
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -323,27 +323,27 @@ public class PsyFileSystem
 		{
 			Files.move(getPath(oFileName1), getPath(oFileName2));
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final FileAlreadyExistsException e)
+		catch(final FileAlreadyExistsException ex)
 		{
 			throw new PsyFileExistsException();
 		}
-		catch(final DirectoryNotEmptyException e)
+		catch(final DirectoryNotEmptyException ex)
 		{
 			throw new PsyDirectoryNotEmptyException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -356,7 +356,7 @@ public class PsyFileSystem
 		{
 			return PsyBoolean.valueOf(Files.exists(getPath(oFileName)));
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
@@ -375,19 +375,19 @@ public class PsyFileSystem
 					BasicFileAttributes.class,
 					LinkOption.NOFOLLOW_LINKS).isRegularFile());
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -406,19 +406,19 @@ public class PsyFileSystem
 					BasicFileAttributes.class,
 					LinkOption.NOFOLLOW_LINKS).isDirectory());
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -436,19 +436,19 @@ public class PsyFileSystem
 			return PsyBoolean.valueOf(Files.isSameFile(
 					getPath(oFileName1), getPath(oFileName2)));
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -467,19 +467,19 @@ public class PsyFileSystem
 					BasicFileAttributes.class,
 					LinkOption.NOFOLLOW_LINKS).isSymbolicLink());
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -511,19 +511,19 @@ public class PsyFileSystem
 		{
 			return PsyInteger.valueOf(Files.size(getPath(oFileName)));
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -541,19 +541,19 @@ public class PsyFileSystem
 			return PsyInteger.valueOf(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class).lastAccessTime().toMillis());
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -571,19 +571,19 @@ public class PsyFileSystem
 			return PsyInteger.valueOf(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class).creationTime().toMillis());
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -601,19 +601,19 @@ public class PsyFileSystem
 			return PsyInteger.valueOf(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class).lastModifiedTime().toMillis());
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -648,7 +648,7 @@ public class PsyFileSystem
 		{
 			return new PsyName(Paths.get(oFileName.stringValue()).toAbsolutePath().toString());
 		}
-		catch(final java.io.IOError e)
+		catch(final java.io.IOError ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -671,19 +671,19 @@ public class PsyFileSystem
 
 			return PsyInteger.valueOf(permissions);
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
@@ -707,19 +707,19 @@ public class PsyFileSystem
 			Files.setPosixFilePermissions(getPath(oFileName), permSet);
 
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
@@ -740,31 +740,31 @@ public class PsyFileSystem
 			return toPsyObject(Files.getAttribute(getPath(oFileName),
 					oAttribute.stringValue(), LinkOption.NOFOLLOW_LINKS));
 		}
-		catch(final ClassCastException e)
+		catch(final ClassCastException ex)
 		{
 			throw new PsyTypeCheckException();
 		}
-		catch(final UnsupportedOperationException e)
+		catch(final UnsupportedOperationException ex)
 		{
 			throw new PsyUnsupportedException();
 		}
-		catch(final IllegalArgumentException e)
+		catch(final IllegalArgumentException ex)
 		{
 			throw new PsyUndefinedException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
@@ -786,31 +786,31 @@ public class PsyFileSystem
 					oAttribute.stringValue(), fromPsyObject(oValue),
 					LinkOption.NOFOLLOW_LINKS);
 		}
-		catch(final ClassCastException e)
+		catch(final ClassCastException ex)
 		{
 			throw new PsyTypeCheckException();
 		}
-		catch(final UnsupportedOperationException e)
+		catch(final UnsupportedOperationException ex)
 		{
 			throw new PsyUnsupportedException();
 		}
-		catch(final IllegalArgumentException e)
+		catch(final IllegalArgumentException ex)
 		{
 			throw new PsyUndefinedException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
@@ -829,23 +829,23 @@ public class PsyFileSystem
 			return new PsyStream(Files.list(getPath(oFileName)).<PsyName>map(
 				(final var path)->new PsyName(path.toString())));
 		}
-		catch(final NoSuchFileException e)
+		catch(final NoSuchFileException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final NotDirectoryException e)
+		catch(final NotDirectoryException ex)
 		{
 			throw new PsyNotDirectoryException();
 		}
-		catch(final AccessDeniedException e)
+		catch(final AccessDeniedException ex)
 		{
 			throw new PsyFileAccessDeniedException();
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}

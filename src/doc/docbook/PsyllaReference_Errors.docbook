@@ -21,6 +21,13 @@ operator, when the dictionary stack contains only permanent dictionaries.
 </para>
 </section>
 
+<section xml:id="PsyllaReference_Errors_Details_error">
+<title><errorname language="psylla">error</errorname></title>
+<para>
+TODO
+</para>
+</section>
+
 <section xml:id="PsyllaReference_Errors_Details_directorynotempty">
 <title><errorname language="psylla">directorynotempty</errorname></title>
 <para>

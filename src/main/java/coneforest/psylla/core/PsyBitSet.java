@@ -65,7 +65,7 @@ public class PsyBitSet
 		{
 			bitset.set(oIndex.intValue(), true);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -73,7 +73,7 @@ public class PsyBitSet
 
 	@Override
 	public void psyAppendAll(final PsyIterable<? extends PsyInteger> oIterable)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(oIterable instanceof PsyBitSet)
 			bitset.or(((PsyBitSet)oIterable).bitset);
@@ -88,8 +88,9 @@ public class PsyBitSet
 		{
 			bitset.set(oIndex.intValue(), false);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
+			// NOP
 		}
 	}
 

@@ -6,25 +6,25 @@ public class PsyFileReader
 	extends PsyReader
 {
 	public PsyFileReader(final String fileName)
-		throws PsyException
+		throws PsyErrorException
 	{
 		super(newFileReader(fileName));
 	}
 
 	public PsyFileReader(final PsyTextual oFileName)
-		throws PsyException
+		throws PsyErrorException
 	{
 		this(oFileName.stringValue());
 	}
 
 	private static java.io.FileReader newFileReader(final String fileName)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return new java.io.FileReader(java.nio.file.Paths.get(fileName).toString());
 		}
-		catch(final java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}

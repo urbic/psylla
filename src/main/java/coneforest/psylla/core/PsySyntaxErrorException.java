@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("syntaxerror")
 public class PsySyntaxErrorException
-	extends PsyException
+	extends PsyErrorException
 {
 	public PsySyntaxErrorException()
 	{

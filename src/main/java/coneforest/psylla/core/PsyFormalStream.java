@@ -26,7 +26,7 @@ public interface PsyFormalStream<T extends PsyObject>
 		{
 			return PsyInteger.valueOf(stream().count());
 		}
-		catch(final IllegalStateException e)
+		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}
@@ -53,7 +53,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 
 	default public PsyFormalStream<PsyObject> psyMapped(final PsyExecutable oMapper, final PsyContext oContext)
-		throws PsyException
+		throws PsyErrorException
 	{
 		return new PsyFormalStream<PsyObject>()
 			{
@@ -146,10 +146,10 @@ public interface PsyFormalStream<T extends PsyObject>
 	*	@param oPredicate a predicate
 	*	@param oContext a context in which a predicate is called
 	*	@return a filtered stream
-	*	@throws PsyException
+	*	@throws PsyErrorException
 	*/
 	default public PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate, final PsyContext oContext)
-		throws PsyException
+		throws PsyErrorException
 	{
 		return new PsyFormalStream<T>()
 			{
@@ -162,7 +162,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 
 	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var ostack=oContext.operandStack();
 		try
@@ -173,7 +173,7 @@ public interface PsyFormalStream<T extends PsyObject>
 				{
 					@Override
 					public void action(final PsyContext oContext1)
-						throws PsyException
+						throws PsyErrorException
 					{
 						if(iterator.hasNext())
 						{
@@ -181,7 +181,7 @@ public interface PsyFormalStream<T extends PsyObject>
 							{
 								ostack.push(iterator.next());
 							}
-							catch(final java.util.NoSuchElementException e)
+							catch(final java.util.NoSuchElementException ex)
 							{
 								// TODO more suitable exception type
 								throw new PsyUndefinedException();
@@ -194,20 +194,20 @@ public interface PsyFormalStream<T extends PsyObject>
 					}
 				});
 		}
-		catch(final IllegalStateException e)
+		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}
 	}
 
 	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator, final PsyContext oContext)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return stream().reduce(oIdentity, oAccumulator.<T>asBinaryOperator(oContext));
 		}
-		catch(final IllegalStateException e)
+		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}

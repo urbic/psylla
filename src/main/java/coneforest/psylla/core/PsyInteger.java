@@ -111,7 +111,7 @@ public class PsyInteger
 
 	@Override
 	public PsyBoolean psyTestBit(final PsyInteger oBit)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
@@ -121,7 +121,7 @@ public class PsyInteger
 
 	@Override
 	public PsyInteger psyClearBit(final PsyInteger oBit)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
@@ -131,7 +131,7 @@ public class PsyInteger
 
 	@Override
 	public PsyInteger psySetBit(final PsyInteger oBit)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
@@ -141,7 +141,7 @@ public class PsyInteger
 
 	@Override
 	public PsyInteger psyFlipBit(final PsyInteger oBit)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var bit=oBit.value;
 		if(bit<0 || bit>Long.SIZE-1)
@@ -262,7 +262,7 @@ public class PsyInteger
 	/*
 	@Override
 	public PsyNumeric psyPow(final PsyNumeric cn)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(cn instanceof PsyInteger)
 		{
@@ -327,7 +327,7 @@ public class PsyInteger
 
 	@Override
 	public PsyInteger psyMod(final PsyIntegral oInteger)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var integer=((PsyInteger)oInteger).value; // TODO
 		if(integer<=0)
@@ -345,7 +345,7 @@ public class PsyInteger
 
 	@Override
 	public PsyInteger psyIdiv(final PsyIntegral oInteger)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(((PsyInteger)oInteger).value==0) // TODO
 			throw new PsyUndefinedResultException();

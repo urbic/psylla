@@ -20,7 +20,7 @@ public class PsyRandom
 	}
 
 	public PsyRealNumeric psyUniformDeviate(final PsyRealNumeric oNumeric)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(oNumeric instanceof PsyReal)
 			return new PsyReal(oNumeric.doubleValue()*random.nextDouble());
@@ -33,7 +33,7 @@ public class PsyRandom
 			{
 				return PsyInteger.valueOf(random.nextInt(numeric));
 			}
-			catch(final IllegalArgumentException e)
+			catch(final IllegalArgumentException ex)
 			{
 				throw new PsyRangeCheckException();
 			}

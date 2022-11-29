@@ -34,7 +34,7 @@ public class PsyDict
 
 	@Override
 	public PsyObject get(final String key)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var oValue=dict.get(key);
 		if(oValue!=null)
@@ -87,7 +87,7 @@ public class PsyDict
 
 	@Override
 	public PsyDict psySlice(final PsyIterable<PsyTextual> oKeys) // TODO
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var values=new PsyDict();
 		for(final var oKey: oKeys)

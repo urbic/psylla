@@ -26,7 +26,7 @@ public class PsyBitArray
 
 	@Override
 	public PsyBoolean get(final int index)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(index>=size)
 			throw new PsyRangeCheckException();
@@ -34,7 +34,7 @@ public class PsyBitArray
 		{
 			return PsyBoolean.valueOf(bitarray.get(index));
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -42,7 +42,7 @@ public class PsyBitArray
 
 	@Override
 	public PsyBitArray psyGetInterval(final PsyInteger oIndex, final PsyInteger oCount)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var index=oIndex.intValue();
 		final var count=oCount.intValue();
@@ -54,7 +54,7 @@ public class PsyBitArray
 			newBitArray.size=count;
 			return newBitArray;
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -62,7 +62,7 @@ public class PsyBitArray
 
 	@Override
 	public void put(final int index, final PsyBoolean oBoolean)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(index>=size)
 			throw new PsyRangeCheckException();
@@ -70,7 +70,7 @@ public class PsyBitArray
 		{
 			bitarray.set(index, oBoolean.booleanValue());
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -78,7 +78,7 @@ public class PsyBitArray
 
 	@Override
 	public void psyPutInterval(final PsyInteger oIndex, PsyIterable<? extends PsyBoolean> oIterable)
-		throws PsyException
+		throws PsyErrorException
 	{
 		int index=oIndex.intValue();
 		if(index<0
@@ -111,7 +111,7 @@ public class PsyBitArray
 
 	@Override
 	public void delete(final int index)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -119,7 +119,7 @@ public class PsyBitArray
 				bitarray.set(i-1, bitarray.get(i));
 			size--;
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -127,7 +127,7 @@ public class PsyBitArray
 
 	@Override
 	public PsyBoolean extract(int indexValue)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -137,7 +137,7 @@ public class PsyBitArray
 			size--;
 			return result;
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -145,7 +145,7 @@ public class PsyBitArray
 
 	@Override
 	public PsyBitArray psyExtractInterval(final PsyInteger oStart, final PsyInteger oCount)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var oResult=psyGetInterval(oStart, oCount);
 		final var start=oStart.intValue();
@@ -282,7 +282,7 @@ public class PsyBitArray
 
 	@Override
 	public PsyBitArray psySlice(final PsyIterable<PsyInteger> oIndices)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var oResult=new PsyBitArray();
 		for(final var oIndex: oIndices)
@@ -292,7 +292,7 @@ public class PsyBitArray
 
 	@Override
 	public void psySetLength(final PsyInteger oLength)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var length=oLength.longValue();
 		if(length<0)

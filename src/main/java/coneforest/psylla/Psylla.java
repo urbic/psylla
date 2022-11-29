@@ -12,26 +12,26 @@ public class Psylla
 		{
 			launch(args);
 		}
-		catch(final PsyException e)
+		catch(final PsyErrorException e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
 		}
-		catch(final coneforest.cli.ProcessingException e)
+		catch(final coneforest.cli.ProcessingException ex)
 		{
-			System.err.println(e.getLocalizedMessage());
+			System.err.println(ex.getLocalizedMessage());
 			System.err.println(Messages.getString("useHelpOption"));
 			System.exit(1);
 		}
-		catch(final java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException ex)
 		{
-			System.out.println(Messages.format("badScript", e.getLocalizedMessage()));
+			System.out.println(Messages.format("badScript", ex.getLocalizedMessage()));
 			System.exit(1);
 		}
 	}
 
 	public Psylla(final PsyllaConfig psyllaConfig)
-		throws PsyException
+		throws PsyErrorException
 	{
 		interpreter=(psyllaConfig.scriptReader!=null)?
 			new Interpreter()
@@ -51,8 +51,9 @@ public class Psylla
 						{
 							repl();
 						}
-						catch(final PsyException e)
+						catch(final PsyErrorException e)
 						{
+							// NOP
 						}
 					}
 				};
@@ -71,13 +72,13 @@ public class Psylla
 	*
 	*	@param args the command-line options
 	*	@return the {@link Psylla} instance launched.
-	*	@throws PsyException
+	*	@throws PsyErrorException
 	*	@throws coneforest.cli.ProcessingException
 	*	@throws java.io.FileNotFoundException
 	*/
 	public static Psylla launch(final String args[])
 		throws
-			PsyException,
+			PsyErrorException,
 			coneforest.cli.ProcessingException,
 			java.io.FileNotFoundException
 	{
@@ -155,7 +156,7 @@ public class Psylla
 			System.setOut(new java.io.PrintStream(System.out, true, ce));
 			System.setErr(new java.io.PrintStream(System.err, true, ce));
 		}
-		catch(final java.io.UnsupportedEncodingException e)
+		catch(final java.io.UnsupportedEncodingException ex)
 		{
 			System.err.println(Messages.format("unsupportedEncoding", consoleEncoding));
 			System.exit(1);

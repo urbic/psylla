@@ -36,7 +36,7 @@ public class PsyMatcher
 	}
 
 	public PsyInteger psyCaptureGroupStart(final PsyObject oKey)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -49,22 +49,22 @@ public class PsyMatcher
 				throw new PsyTypeCheckException();
 			return start>=0? PsyInteger.valueOf(start): null;
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
-		catch(final IllegalArgumentException e)
+		catch(final IllegalArgumentException ex)
 		{
 			throw new PsyUndefinedException();
 		}
-		catch(final IllegalStateException e)
+		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}
 	}
 
 	public PsyInteger psyCaptureGroupEnd(final PsyObject oKey)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -77,15 +77,15 @@ public class PsyMatcher
 				throw new PsyTypeCheckException();
 			return end>=0? PsyInteger.valueOf(end): null;
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
-		catch(final IllegalArgumentException e)
+		catch(final IllegalArgumentException ex)
 		{
 			throw new PsyUndefinedException();
 		}
-		catch(final IllegalStateException e)
+		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}
@@ -130,15 +130,15 @@ public class PsyMatcher
 							else
 								throw new PsyTypeCheckException();
 						}
-						catch(final IndexOutOfBoundsException e)
+						catch(final IndexOutOfBoundsException ex)
 						{
 							throw new PsyRangeCheckException();
 						}
-						catch(final IllegalArgumentException e)
+						catch(final IllegalArgumentException ex)
 						{
 							throw new PsyUndefinedException();
 						}
-						catch(final IllegalStateException e)
+						catch(final IllegalStateException ex)
 						{
 							throw new PsyInvalidStateException();
 						}

@@ -8,7 +8,7 @@ public class PsyBlockingQueue
 		PsyCloseable
 {
 	public PsyBlockingQueue(final PsyInteger oCapacity)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var capacity=oCapacity.longValue();
 		if(capacity>=Integer.MAX_VALUE)
@@ -17,7 +17,7 @@ public class PsyBlockingQueue
 		{
 			queue=new java.util.concurrent.ArrayBlockingQueue<PsyObject>((int)capacity);
 		}
-		catch(final IllegalArgumentException e)
+		catch(final IllegalArgumentException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -36,13 +36,13 @@ public class PsyBlockingQueue
 
 	@Override
 	public void psyGive(final PsyObject o)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			queue.put(o);
 		}
-		catch(final InterruptedException e)
+		catch(final InterruptedException ex)
 		{
 			throw new PsyInterruptException();
 		}
@@ -50,13 +50,13 @@ public class PsyBlockingQueue
 
 	@Override
 	public void psyEnqueue(final PsyObject o)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			queue.add(o);
 		}
-		catch(final IllegalStateException e)
+		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}
@@ -64,13 +64,13 @@ public class PsyBlockingQueue
 
 	@Override
 	public PsyObject psyDequeue()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return queue.remove();
 		}
-		catch(final IllegalStateException e)
+		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}
@@ -78,13 +78,13 @@ public class PsyBlockingQueue
 
 	@Override
 	public PsyObject psyTake()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return queue.take();
 		}
-		catch(final InterruptedException e)
+		catch(final InterruptedException ex)
 		{
 			throw new PsyInterruptException();
 		}

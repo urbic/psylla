@@ -5,7 +5,7 @@ public class PsyErrorDict
 	extends PsyModule
 {
 	public PsyErrorDict()
-		throws PsyException
+		throws PsyErrorException
 	{
 		//super("error");
 		registerOperators(OP_HANDLEERROR);
@@ -16,7 +16,7 @@ public class PsyErrorDict
 			{
 				@Override
 				public void action(final PsyContext oContext)
-					throws ClassCastException, PsyException
+					throws ClassCastException, PsyErrorException
 				{
 					final var errorObj=(PsyFormalDict)oContext.systemDict().get("$error");
 					errorObj.put("newerror", PsyBoolean.FALSE);

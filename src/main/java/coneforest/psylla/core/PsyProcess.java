@@ -7,7 +7,7 @@ public class PsyProcess
 	implements PsyObject
 {
 	public PsyProcess(final PsyFormalDict oDict)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -58,23 +58,23 @@ public class PsyProcess
 
 			process=pb.start();
 		}
-		catch(final NullPointerException|IndexOutOfBoundsException e)
+		catch(final NullPointerException|IndexOutOfBoundsException ex)
 		{
 			throw new PsyUndefinedException();
 		}
-		catch(final ClassCastException e)
+		catch(final ClassCastException ex)
 		{
 			throw new PsyTypeCheckException();
 		}
-		catch(final SecurityException e)
+		catch(final SecurityException ex)
 		{
 			throw new PsySecurityErrorException();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
-		catch(final PsyException e)
+		catch(final PsyErrorException e)
 		{
 			throw e;
 		}
@@ -99,13 +99,13 @@ public class PsyProcess
 	}
 
 	public PsyInteger psyStatus()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return PsyInteger.valueOf(process.exitValue());
 		}
-		catch(final IllegalThreadStateException e)
+		catch(final IllegalThreadStateException ex)
 		{
 			throw new PsyInvalidStateException();
 		}

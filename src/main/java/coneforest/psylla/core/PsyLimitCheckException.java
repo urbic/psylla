@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("limitcheck")
 public class PsyLimitCheckException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

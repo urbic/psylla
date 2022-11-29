@@ -33,7 +33,7 @@ public interface PsyNumeric
 	public PsyRealNumeric psyAbs();
 
 	public PsyNumeric psyPow(final PsyNumeric oNumeric)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Returns a {@code numeric} representing the exponent of this object.

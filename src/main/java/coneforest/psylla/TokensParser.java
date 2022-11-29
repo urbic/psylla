@@ -4,7 +4,7 @@ import coneforest.psylla.core.*;
 public class TokensParser
 {
 	public static PsyObject parseToken(final Token token)
-		throws PsyException
+		throws PsyErrorException
 	{
 		switch(token.kind)
 		{
@@ -95,7 +95,7 @@ public class TokensParser
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
-							catch(final IllegalArgumentException e)
+							catch(final IllegalArgumentException ex)
 							{
 								throw new PsySyntaxErrorException();
 							}
@@ -172,7 +172,7 @@ public class TokensParser
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
-							catch(final IllegalArgumentException e)
+							catch(final IllegalArgumentException ex)
 							{
 								throw new PsySyntaxErrorException();
 							}
@@ -188,7 +188,7 @@ public class TokensParser
 	}
 
 	private static PsyRegExp parseRegExpToken(final Token token)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var sb=new StringBuilder();
 		for(int i=1; i<token.image.length()-1; i++)
@@ -244,7 +244,7 @@ public class TokensParser
 								sb.append(Character.toChars(Integer.valueOf(token.image.substring(i+2, j), 16)));
 								i=j;
 							}
-							catch(final IllegalArgumentException e)
+							catch(final IllegalArgumentException ex)
 							{
 								throw new PsySyntaxErrorException();
 							}
@@ -286,25 +286,9 @@ public class TokensParser
 		throws PsySyntaxErrorException
 	{
 		return PsyIntegral.parse(token.image);
-		/*
-		try
-		{
-			try
-			{
-				return PsyInteger.valueOf(Long.parseLong(token.image));
-			}
-			catch(final NumberFormatException e)
-			{
-				return new PsyReal(Double.parseDouble(token.image));
-			}
-		}
-		catch(final NumberFormatException e)
-		{
-			throw new PsySyntaxErrorException();
-		}
-		*/
 	}
 
+	// TODO
 	private static PsyInteger parseIntegerHexadecimalToken(final Token token)
 		throws PsySyntaxErrorException
 	{
@@ -316,12 +300,13 @@ public class TokensParser
 			else
 				return PsyInteger.valueOf(Long.parseLong(token.image.substring(2), 16));
 		}
-		catch(final NumberFormatException e)
+		catch(final NumberFormatException ex)
 		{
 			throw new PsySyntaxErrorException();
 		}
 	}
 
+	// TODO
 	private static PsyInteger parseIntegerBinaryToken(final Token token)
 		throws PsySyntaxErrorException
 	{
@@ -333,7 +318,7 @@ public class TokensParser
 			else
 				return PsyInteger.valueOf(Long.parseLong(token.image.substring(2), 2));
 		}
-		catch(final NumberFormatException e)
+		catch(final NumberFormatException ex)
 		{
 			throw new PsySyntaxErrorException();
 		}
@@ -378,7 +363,7 @@ public class TokensParser
 							return PsyInteger.valueOf(Integer.valueOf(
 									token.image.substring(4, token.image.length()-1), 16));
 						}
-						catch(final IllegalArgumentException e)
+						catch(final IllegalArgumentException ex)
 						{
 							throw new PsySyntaxErrorException();
 						}

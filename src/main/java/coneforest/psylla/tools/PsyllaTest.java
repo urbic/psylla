@@ -73,7 +73,7 @@ public class PsyllaTest
 		{
 			coneforest.psylla.Psylla.launch(cmdLine).join();
 		}
-		catch(final coneforest.psylla.core.PsyException e)
+		catch(final coneforest.psylla.core.PsyErrorException e)
 		{
 			// TODO
 		}

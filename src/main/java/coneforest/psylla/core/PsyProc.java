@@ -92,7 +92,7 @@ public class PsyProc
 							oProc.put(i, oNew);
 					}
 				}
-				catch(final PsyException e)
+				catch(final PsyErrorException e)
 				{
 					// NOP
 				}

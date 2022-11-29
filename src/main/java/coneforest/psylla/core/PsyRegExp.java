@@ -9,20 +9,20 @@ public class PsyRegExp
 	implements PsyAtomic
 {
 	public PsyRegExp(final CharSequence cs)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			pattern=java.util.regex.Pattern.compile(cs.toString());
 		}
-		catch(final java.util.regex.PatternSyntaxException e)
+		catch(final java.util.regex.PatternSyntaxException ex)
 		{
 			throw new PsyInvalidRegExpException();
 		}
 	}
 
 	public PsyRegExp(final PsyTextual oTextual)
-		throws PsyException
+		throws PsyErrorException
 	{
 		this(oTextual.stringValue());
 	}

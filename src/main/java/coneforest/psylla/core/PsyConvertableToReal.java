@@ -4,5 +4,5 @@ public interface PsyConvertableToReal
 	extends PsyObject
 {
 	public PsyReal psyToReal()
-		throws PsyException;
+		throws PsyErrorException;
 }

@@ -19,27 +19,27 @@ public interface PsyFormalQueue<T extends PsyObject>
 	*
 	*	@return a head of this queue.
 	*
-	*	@throws PsyException when this queue is empty.
+	*	@throws PsyErrorException when this queue is empty.
 	*/
 	public T psyDequeue()
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Inserts an element into this queue.
 	*
 	*	@param o the element to enqueue.
 	*
-	*	@throws PsyException when the element can not be inserted without
+	*	@throws PsyErrorException when the element can not be inserted without
 	*	violation of the capacity restrictions.
 	*/
 	public void psyEnqueue(final T o)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public T psyTake()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public void psyGive(final T o)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

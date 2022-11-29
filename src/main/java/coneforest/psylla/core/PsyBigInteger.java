@@ -135,7 +135,7 @@ public class PsyBigInteger
 
 	@Override
 	public PsyBigInteger psyIdiv(final PsyIntegral oIntegral)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(oIntegral instanceof PsyBigInteger)
 			return new PsyBigInteger(value.divide(((PsyBigInteger)oIntegral).value));
@@ -147,7 +147,7 @@ public class PsyBigInteger
 
 	@Override
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -156,7 +156,7 @@ public class PsyBigInteger
 			if(oIntegral instanceof PsyInteger)
 				return PsyIntegral.valueOf(value.mod(((PsyInteger)oIntegral).bigIntegerValue()));
 		}
-		catch(final java.lang.ArithmeticException e)
+		catch(final java.lang.ArithmeticException ex)
 		{
 			throw new PsyRangeCheckException();
 		}

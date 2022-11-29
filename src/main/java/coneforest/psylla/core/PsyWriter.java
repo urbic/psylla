@@ -26,7 +26,7 @@ public class PsyWriter
 		{
 			writer.write(oCharacter.intValue());
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -40,7 +40,7 @@ public class PsyWriter
 		{
 			writer.write(oString.stringValue());
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -54,7 +54,7 @@ public class PsyWriter
 		{
 			writer.flush();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -68,7 +68,7 @@ public class PsyWriter
 		{
 			writer.close();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}

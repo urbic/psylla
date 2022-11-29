@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("invalidcontext")
 public class PsyInvalidContextException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

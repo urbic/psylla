@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("undefined")
 public class PsyUndefinedException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

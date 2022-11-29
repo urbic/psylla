@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("fileexists")
 public class PsyFileExistsException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

@@ -54,7 +54,7 @@ public class PsyArray
 		{
 			return array.get(index);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -69,7 +69,7 @@ public class PsyArray
 			return new PsyArray(new ArrayList<PsyObject>(array.subList(oStart.intValue(),
 					oStart.intValue()+oCount.intValue())));
 		}
-		catch(final IndexOutOfBoundsException|IllegalArgumentException e)
+		catch(final IndexOutOfBoundsException|IllegalArgumentException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -92,7 +92,7 @@ public class PsyArray
 		{
 			array.add(indexValue, o);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -106,7 +106,7 @@ public class PsyArray
 		{
 			array.set(indexValue, o);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -120,7 +120,7 @@ public class PsyArray
 		{
 			array.remove(indexValue);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -134,7 +134,7 @@ public class PsyArray
 		{
 			return array.remove(indexValue);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -151,7 +151,7 @@ public class PsyArray
 
 	@Override
 	public PsyArray psySlice(final PsyIterable<PsyInteger> oIndices)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var oValues=new PsyArray();
 		for(final var oIndex: oIndices)

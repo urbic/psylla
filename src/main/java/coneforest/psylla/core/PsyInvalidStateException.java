@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("invalidstate")
 public class PsyInvalidStateException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

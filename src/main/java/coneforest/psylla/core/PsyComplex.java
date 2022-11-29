@@ -151,7 +151,7 @@ public class PsyComplex
 
 	@Override
 	public PsyNumeric psyPow(final PsyNumeric oNumeric)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(psyIsZero().booleanValue() && oNumeric.psyNotZero().booleanValue())
 			return this;

@@ -42,7 +42,7 @@ public interface PsyRealNumeric
 
 	@Override
 	default public PsyInteger psyToInteger()
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(doubleValue()>=Long.MIN_VALUE
 				&& doubleValue()<=Long.MAX_VALUE)
@@ -53,7 +53,7 @@ public interface PsyRealNumeric
 
 	@Override
 	default public PsyReal psyToReal()
-		throws PsyException
+		throws PsyErrorException
 	{
 		return new PsyReal(doubleValue());
 	}
@@ -111,7 +111,7 @@ public interface PsyRealNumeric
 
 	@Override
 	default public PsyNumeric psyPow(final PsyNumeric oNumber)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(oNumber instanceof PsyRealNumeric)
 			return psyPow((PsyRealNumeric)oNumber);

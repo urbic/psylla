@@ -62,7 +62,7 @@ public class PsySystemDict
 		};
 
 	public PsySystemDict()
-		throws PsyException
+		throws PsyErrorException
 	{
 		for(var oOperator: PsyProc.OPERATORS)
 			registerOperator(oOperator);

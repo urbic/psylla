@@ -40,7 +40,7 @@ public interface PsyFormalSet<T extends PsyObject>
 	}
 
 	default public void psyRetainAll(final PsyIterable<? extends T> oEnumeration)
-		throws PsyException
+		throws PsyErrorException
 	{
 	//	for(final T obj: this)
 	//		for(final T otherObj: iterable)
@@ -77,11 +77,11 @@ public interface PsyFormalSet<T extends PsyObject>
 	*	from the clone.
 	*
 	*	@param oEnumeration an {@code iterable} enumeration.
-	*	@throws PsyException when an error occurs.
+	*	@throws PsyErrorException when an error occurs.
 	*/
 	@Override
 	default public void psyAppendAll(final PsyIterable<? extends T> oEnumeration)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(this==oEnumeration)
 			return;
@@ -107,7 +107,7 @@ public interface PsyFormalSet<T extends PsyObject>
 
 	@Override
 	default public PsyFormalSet<T> psyReplicate(final PsyInteger oCount)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final long count=oCount.longValue();
 		if(count<0)

@@ -13,10 +13,10 @@ public interface PsyCloseable
 	/**
 	*	Closes this object.
 	*
-	*	@throws PsyException when error occured during closing.
+	*	@throws PsyErrorException when error occured during closing.
 	*/
 	public void psyClose()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

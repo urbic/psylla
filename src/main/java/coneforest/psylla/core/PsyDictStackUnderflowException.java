@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("dictstackunderflow")
 public class PsyDictStackUnderflowException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

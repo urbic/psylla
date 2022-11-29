@@ -10,7 +10,7 @@ public interface PsyContainer<T extends PsyObject>
 {
 
 	default public PsyContainer<T> psyNewEmpty()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -19,7 +19,7 @@ public interface PsyContainer<T extends PsyObject>
 		catch(final InstantiationException
 				|IllegalAccessException
 				|NoSuchMethodException
-				|java.lang.reflect.InvocationTargetException e)
+				|java.lang.reflect.InvocationTargetException ex)
 		{
 			throw new PsyUnsupportedException();
 		}

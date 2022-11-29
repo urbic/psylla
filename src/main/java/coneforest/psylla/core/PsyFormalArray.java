@@ -20,7 +20,7 @@ public interface PsyFormalArray<T extends PsyObject>
 	public PsyFormalArray<T> psyClone();
 
 	default public PsyFormalArray<T> psyReverse()
-		throws PsyException
+		throws PsyErrorException
 	{
 		final PsyFormalArray<T> result=psyClone();
 		int length=result.length();
@@ -41,24 +41,24 @@ public interface PsyFormalArray<T extends PsyObject>
 	}
 
 	public T get(final int index)
-		throws PsyException;
+		throws PsyErrorException;
 
 	@Override
 	default public T psyGet(final PsyInteger oIndex)
-		throws PsyException
+		throws PsyErrorException
 	{
 		return get(oIndex.intValue());
 	}
 
 	public PsyFormalArray<T> psyGetInterval(final PsyInteger oIndex, final PsyInteger oLength)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public void put(final int index, final T o)
-		throws PsyException;
+		throws PsyErrorException;
 
 	@Override
 	default public void psyPut(final PsyInteger oIndex, final T o)
-		throws PsyException
+		throws PsyErrorException
 	{
 		put(oIndex.intValue(), o);
 	}
@@ -70,10 +70,10 @@ public interface PsyFormalArray<T extends PsyObject>
 	*	@param index a {@code integer} index.
 	*	@param o a {@code object}.
 	*
-	*	@throws PsyException when an error occurs.
+	*	@throws PsyErrorException when an error occurs.
 	*/
 	public void insert(final int index, final T o)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Inserts the specified {@code object} into this array at the position
@@ -82,16 +82,16 @@ public interface PsyFormalArray<T extends PsyObject>
 	*	@param oIndex an {@code integer} index.
 	*	@param o an {@code object}.
 	*
-	*	@throws PsyException when an error occurs.
+	*	@throws PsyErrorException when an error occurs.
 	*/
 	default public void psyInsert(final PsyInteger oIndex, final T o)
-		throws PsyException
+		throws PsyErrorException
 	{
 		insert(oIndex.intValue(), o);
 	}
 
 	default public void psyInsertAll(final PsyInteger oIndex, final PsyIterable<? extends T> oEnumeration)
-		throws PsyException
+		throws PsyErrorException
 	{
 		int index=oIndex.intValue();
 		for(final T o: (this!=oEnumeration? oEnumeration: (PsyIterable<? extends T>)psyClone()))
@@ -102,35 +102,35 @@ public interface PsyFormalArray<T extends PsyObject>
 	*	Inserts the specified {@code object} into this array at the beginning.
 	*
 	*	@param o an {@code object}.
-	*	@throws PsyException when an error occurs.
+	*	@throws PsyErrorException when an error occurs.
 	*/
 	default public void psyPrepend(final T o)
-		throws PsyException
+		throws PsyErrorException
 	{
 		insert(0, o);
 	}
 
 	default public T psyPreChop()
-		throws PsyException
+		throws PsyErrorException
 	{
 		return extract(0);
 	}
 
 	default public T psyPostChop()
-		throws PsyException
+		throws PsyErrorException
 	{
 		return extract(length()-1);
 	}
 
 	default public void psyPrependAll(final PsyIterable<? extends T> oEnumeration)
-		throws PsyException
+		throws PsyErrorException
 	{
 		psyInsertAll(PsyInteger.ZERO, oEnumeration);
 	}
 
 	@Override
 	default public PsyFormalArray<T> psyReplicate(final PsyInteger oCount)
-		throws PsyException
+		throws PsyErrorException
 	{
 		long count=oCount.longValue();
 		if(count<0)
@@ -144,7 +144,7 @@ public interface PsyFormalArray<T extends PsyObject>
 	}
 
 	default public void psyPutInterval(final PsyInteger oIndex, final PsyIterable<? extends T> oEnumeration)
-		throws PsyException
+		throws PsyErrorException
 	{
 		int index=oIndex.intValue();
 		if(index<0
@@ -162,24 +162,24 @@ public interface PsyFormalArray<T extends PsyObject>
 
 	@Override
 	default public void psyDelete(final PsyInteger oIndex)
-		throws PsyException
+		throws PsyErrorException
 	{
 		delete(oIndex.intValue());
 	}
 
 	public void delete(int index)
-		throws PsyException;
+		throws PsyErrorException;
 
 	@Override
 	default public T psyExtract(final PsyInteger oIndex)
-		throws PsyException
+		throws PsyErrorException
 	{
 		return extract(oIndex.intValue());
 	}
 
 	@Override
 	default public PsyFormalArray<T> psyGetAll(final PsyIterable<PsyInteger> oIndices)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final PsyFormalArray<T> oResult=(PsyFormalArray<T>)psyNewEmpty();
 		for(final PsyInteger oIndex: oIndices)
@@ -188,17 +188,17 @@ public interface PsyFormalArray<T extends PsyObject>
 	}
 
 	public void psySetLength(final PsyInteger oLength)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public T extract(final int index)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyFormalArray<T> psyExtractInterval(final PsyInteger oIndex, final PsyInteger oCount)
-		throws PsyException;
+		throws PsyErrorException;
 
 	@Override
 	public PsyFormalArray<T> psySlice(final PsyIterable<PsyInteger> oIndices)
-		throws PsyException;
+		throws PsyErrorException;
 
 	@Override
 	default public PsyStream psyKeys()
@@ -221,7 +221,7 @@ public interface PsyFormalArray<T extends PsyObject>
 			{
 				@Override
 				public void psyForAll(final PsyObject oProc)
-					throws PsyException
+					throws PsyErrorException
 				{
 					final var interpreter=PsyContext.psyCurrentContext();
 					final var ostack=interpreter.operandStack();
@@ -231,7 +231,7 @@ public interface PsyFormalArray<T extends PsyObject>
 						{
 							@Override
 							public void action()
-								throws PsyException
+								throws PsyErrorException
 							{
 								final var interpreter1=PsyContext.psyCurrentContext();
 								if(iterator.hasNext())

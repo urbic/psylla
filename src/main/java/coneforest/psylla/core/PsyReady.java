@@ -9,7 +9,7 @@ public interface PsyReady
 	extends PsyObject
 {
 	public PsyBoolean psyReady()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("invalidexternal")
 public class PsyInvalidExternalException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

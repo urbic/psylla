@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("securityerror")
 public class PsySecurityErrorException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

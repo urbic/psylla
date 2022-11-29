@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("unregistered")
 public class PsyUnregisteredException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()

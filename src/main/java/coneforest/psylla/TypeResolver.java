@@ -15,7 +15,7 @@ public class TypeResolver
 									"META-INF/psylla/type/"+typeName)))).readLine());
 			// TODO: introduce caching
 		}
-		catch(final java.io.IOException|ClassNotFoundException e)
+		catch(final java.io.IOException|ClassNotFoundException ex)
 		{
 			// TODO more appropriate exception when IOException is thrown
 			throw new PsyUndefinedException();

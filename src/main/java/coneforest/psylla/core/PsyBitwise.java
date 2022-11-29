@@ -12,16 +12,16 @@ public interface PsyBitwise<T extends PsyBitwise>
 {
 
 	public PsyBitwise psyClearBit(final PsyInteger oBit)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyBitwise psyFlipBit(final PsyInteger oBit)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyBitwise psySetBit(final PsyInteger oBit)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyBoolean psyTestBit(final PsyInteger oBit)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyBitwise psyBitShift(final PsyInteger oShift);
 

@@ -36,21 +36,21 @@ public interface PsyTextual
 
 	@Override
 	default public void psyEval()
-		throws PsyException
+		throws PsyErrorException
 	{
 		(new PsyStringReader(this)).psyEval();
 	}
 
 	@Override
 	default public PsyInteger psyToInteger()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			// TODO fractional
 			return PsyInteger.valueOf(Long.parseLong(stringValue()));
 		}
-		catch(final NumberFormatException e)
+		catch(final NumberFormatException ex)
 		{
 			throw new PsySyntaxErrorException();
 		}
@@ -58,13 +58,13 @@ public interface PsyTextual
 
 	@Override
 	default public PsyIntegral psyToIntegral()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return PsyIntegral.parse(stringValue());
 		}
-		catch(final NumberFormatException e)
+		catch(final NumberFormatException ex)
 		{
 			throw new PsySyntaxErrorException();
 		}
@@ -78,7 +78,7 @@ public interface PsyTextual
 		{
 			return new PsyReal(Double.parseDouble(stringValue()));
 		}
-		catch(final NumberFormatException e)
+		catch(final NumberFormatException ex)
 		{
 			throw new PsySyntaxErrorException();
 		}
@@ -128,7 +128,7 @@ public interface PsyTextual
 	}
 
 	default public PsyArray psySplit(final PsyRegExp oRegExp)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var oArray=new PsyArray();
 		for(final var item: oRegExp.getPattern().split(stringValue(), -1))

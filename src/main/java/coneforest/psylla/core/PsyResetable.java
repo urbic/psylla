@@ -13,10 +13,10 @@ public interface PsyResetable
 	/**
 	*	Reset this {@code resetable} object.
 	*
-	*	@throws PsyException when error occured during reset.
+	*	@throws PsyErrorException when error occured during reset.
 	*/
 	public void psyReset()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

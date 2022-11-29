@@ -12,7 +12,7 @@ public interface PsyReadable
 {
 
 	public int read()
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Read an {@code integer} character from this object and returns it.
@@ -22,10 +22,10 @@ public interface PsyReadable
 	*	@return an {@code integer} representing the character read from this
 	*	object.
 	*
-	*	@throws PsyException when error occurs.
+	*	@throws PsyErrorException when error occurs.
 	*/
 	default public PsyInteger psyRead()
-		throws PsyException
+		throws PsyErrorException
 	{
 		return PsyInteger.valueOf(read());
 	}
@@ -37,19 +37,19 @@ public interface PsyReadable
 	*
 	*	@return a string read.
 	*
-	*	@throws PsyException when error occurs.
+	*	@throws PsyErrorException when error occurs.
 	*/
 	public PsyString psyReadString(final PsyInteger oCount)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Read a line ({@code string}) from this object and returns it.
 	*
 	*	@return a line read,
-	*	@throws PsyException when error occurs.
+	*	@throws PsyErrorException when error occurs.
 	*/
 	public PsyString psyReadLine()
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Skips characters. This method will block until some characters are
@@ -61,10 +61,10 @@ public interface PsyReadable
 	*	@return an {@code integer} representing the number of characters
 	*	actually skipped.
 	*
-	*	@throws PsyException when an error occurs.
+	*	@throws PsyErrorException when an error occurs.
 	*/
 	public PsyInteger psySkip(final PsyInteger oCount)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Returns a {@code boolean} object indicating whether this object is

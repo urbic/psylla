@@ -6,7 +6,7 @@ public class PsyFileWriter
 	extends PsyWriter
 {
 	public PsyFileWriter(final String fileName)
-		throws PsyException
+		throws PsyErrorException
 	{
 		super(newFileWriter(fileName));
 		/*
@@ -15,11 +15,11 @@ public class PsyFileWriter
 			setWriter(new java.io.FileWriter(
 					coneforest.psylla.FileSystem.getPath(fileName).toString()));
 		}
-		catch(final java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -27,23 +27,23 @@ public class PsyFileWriter
 	}
 
 	public PsyFileWriter(final PsyTextual oFileName)
-		throws PsyException
+		throws PsyErrorException
 	{
 		this(oFileName.stringValue());
 	}
 
 	private static java.io.FileWriter newFileWriter(final String fileName)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return new java.io.FileWriter(java.nio.file.Paths.get(fileName).toString());
 		}
-		catch(final java.io.FileNotFoundException e)
+		catch(final java.io.FileNotFoundException ex)
 		{
 			throw new PsyFileNotFoundException();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}

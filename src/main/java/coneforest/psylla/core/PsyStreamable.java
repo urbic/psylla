@@ -8,7 +8,7 @@ public interface PsyStreamable<T extends PsyObject>
 
 	@Override
 	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
-		throws PsyException
+		throws PsyErrorException
 	{
 		psyStream().psyForAll(oProc, oContext);
 	}

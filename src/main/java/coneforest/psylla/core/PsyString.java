@@ -69,13 +69,13 @@ public class PsyString
 
 	@Override
 	public PsyInteger get(final int index)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			return PsyInteger.valueOf(buffer.charAt(index));
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -83,7 +83,7 @@ public class PsyString
 
 	@Override
 	public PsyString psyGetInterval(final PsyInteger oIndex, final PsyInteger oCount)
-		throws PsyException
+		throws PsyErrorException
 	{
 		int index=oIndex.intValue();
 		int count=oCount.intValue();
@@ -91,7 +91,7 @@ public class PsyString
 		{
 			return new PsyString(buffer.substring(index, index+count));
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -99,13 +99,13 @@ public class PsyString
 
 	@Override
 	public void put(final int index, final PsyInteger oCharacter)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			buffer.setCharAt(index, (char)oCharacter.intValue());
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -113,7 +113,7 @@ public class PsyString
 
 	@Override
 	public void psyPutInterval(final PsyInteger oIndex, final PsyIterable<? extends PsyInteger> oIterable)
-		throws PsyException
+		throws PsyErrorException
 	{
 		int index=oIndex.intValue();
 		if(index<0
@@ -140,13 +140,13 @@ public class PsyString
 
 	@Override
 	public void insert(final int index, final PsyInteger oCharacter)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			buffer.insert(index, (char)oCharacter.intValue());
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -154,7 +154,7 @@ public class PsyString
 
 	@Override
 	public void psyInsertAll(final PsyInteger oIndex, PsyIterable<? extends PsyInteger> oIterable)
-		throws PsyException
+		throws PsyErrorException
 	{
 		int index=oIndex.intValue();
 		try
@@ -169,7 +169,7 @@ public class PsyString
 			for(final var oCharacter: oIterable)
 				buffer.insert(index++, (char)oCharacter.intValue());
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -177,13 +177,13 @@ public class PsyString
 
 	@Override
 	public void delete(final int index)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			buffer.deleteCharAt(index);
 		}
-		catch(final StringIndexOutOfBoundsException e)
+		catch(final StringIndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -191,7 +191,7 @@ public class PsyString
 
 	@Override
 	public PsyInteger extract(final int index)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
@@ -199,7 +199,7 @@ public class PsyString
 			buffer.deleteCharAt(index);
 			return oResult;
 		}
-		catch(final StringIndexOutOfBoundsException e)
+		catch(final StringIndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -207,7 +207,7 @@ public class PsyString
 
 	@Override
 	public PsyString psyExtractInterval(final PsyInteger oStart, final PsyInteger oLength)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final PsyString oResult=psyGetInterval(oStart, oLength);
 		buffer.replace(oStart.intValue(), oStart.intValue()+oLength.intValue(), "");
@@ -216,7 +216,7 @@ public class PsyString
 
 	@Override
 	public PsyString psySlice(final PsyIterable<PsyInteger> oIndices)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final PsyString oValues=new PsyString();
 		for(final var oIndex: oIndices)
@@ -226,7 +226,7 @@ public class PsyString
 
 	/*
 	public PsyString psyJoin(final PsyFormalArray<? extends PsyString> oArray)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(oArray.isEmpty())
 			return new PsyString();
@@ -259,7 +259,7 @@ public class PsyString
 
 	@Override
 	public void psySetLength(final PsyInteger oLength)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final long length=oLength.longValue();
 		if(length>Integer.MAX_VALUE)
@@ -268,7 +268,7 @@ public class PsyString
 		{
 			buffer.setLength((int)length);
 		}
-		catch(final IndexOutOfBoundsException e)
+		catch(final IndexOutOfBoundsException ex)
 		{
 			throw new PsyRangeCheckException();
 		}

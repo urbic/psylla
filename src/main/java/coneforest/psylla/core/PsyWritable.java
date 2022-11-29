@@ -16,10 +16,10 @@ public interface PsyWritable
 	*	@param oCharacter an {@code integer} object representing a character to
 	*	be written.
 	*
-	*	@throws PsyException when an error occurs during write.
+	*	@throws PsyErrorException when an error occurs during write.
 	*/
 	public void psyWrite(final PsyInteger oCharacter)
-		throws PsyException;
+		throws PsyErrorException;
 
 	/**
 	*	Writes a {@code textual} string of characters to this object.
@@ -27,10 +27,10 @@ public interface PsyWritable
 	*	@param oTextual a {@code textual} object representing a string to be
 	*	written.
 	*
-	*	@throws PsyException when an error occurs during write.
+	*	@throws PsyErrorException when an error occurs during write.
 	*/
 	public void psyWriteString(final PsyTextual oTextual)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

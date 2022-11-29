@@ -13,11 +13,11 @@ public interface PsyEvaluable
 	/**
 	*	Evaluate this object in the current context.
 	*
-	*	@throws PsyException when an error occurs durind evaluation of this
-	*	object.
+	*	@throws PsyErrorException when an error occurs durind evaluation of
+	*	this object.
 	*/
 	public void psyEval()
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static final PsyOperator[] OPERATORS=
 		{

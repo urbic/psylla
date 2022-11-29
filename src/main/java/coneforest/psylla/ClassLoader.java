@@ -16,13 +16,13 @@ abstract public class ClassLoader
 	}
 
 	public void psyExternal(final PsyTextual oClassName)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			loadClass(oClassName.stringValue());
 		}
-		catch(final ClassNotFoundException e)
+		catch(final ClassNotFoundException ex)
 		{
 			throw new PsyInvalidExternalException();
 		}
@@ -36,7 +36,7 @@ abstract public class ClassLoader
 		{
 			return findSystemClass(className);
 		}
-		catch(final ClassNotFoundException e)
+		catch(final ClassNotFoundException ex)
 		{
 			// NOP
 		}
@@ -55,7 +55,7 @@ abstract public class ClassLoader
 			classes.put(className, result);
 			return result;
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
 			throw new ClassNotFoundException();
 		}
@@ -90,13 +90,13 @@ abstract public class ClassLoader
 						return Path.of(itemPath.toString(), name).toUri().toURL();
 					}
 				}
-				catch(final IOException e)
+				catch(final IOException ex)
 				{
 					return null;
 				}
 			}
 		}
-		catch(Exception e)
+		catch(Exception ex)
 		{
 			return null;
 		}

@@ -11,10 +11,10 @@ public class DictStack
 	*	Creates a new dictionary stack with two dictionaries in it (system and
 	*	user dictionaries).
 	*
-	*	@throws PsyException when the error occur.
+	*	@throws PsyErrorException when the error occurs.
 	*/
 	public DictStack()
-		throws PsyException
+		throws PsyErrorException
 	{
 		var oSystemDict=new PsySystemDict();
 		var oUserDict=new PsyDict();
@@ -34,7 +34,7 @@ public class DictStack
 	}
 
 	public <T extends PsyObject> T load(final String key)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final var oDict=where(key);
 		if(oDict!=null)
@@ -44,7 +44,7 @@ public class DictStack
 	}
 
 	public <T extends PsyObject> T load(final PsyTextual oKey)
-		throws PsyException
+		throws PsyErrorException
 	{
 		return this.<T>load(oKey.stringValue());
 	}

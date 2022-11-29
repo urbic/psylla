@@ -24,33 +24,33 @@ abstract public class PsyOutput
 	}
 
 	public void write(final int b)
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			output.write(b);
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
 	}
 
 	public void write(final PsyInteger oCharacter)
-		throws PsyException
+		throws PsyErrorException
 	{
 		write(oCharacter.intValue());
 	}
 
 	@Override
 	public void psyFlush()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			output.flush();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
@@ -58,13 +58,13 @@ abstract public class PsyOutput
 
 	@Override
 	public void psyClose()
-		throws PsyException
+		throws PsyErrorException
 	{
 		try
 		{
 			output.close();
 		}
-		catch(final java.io.IOException e)
+		catch(final java.io.IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}

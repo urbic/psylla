@@ -17,7 +17,7 @@ public class OperandStack extends Stack<PsyObject>
 	}
 
 	public void ensureSize(final int size)
-		throws PsyException
+		throws PsyErrorException
 	{
 		if(size()<size)
 			throw new PsyStackUnderflowException();
@@ -26,7 +26,7 @@ public class OperandStack extends Stack<PsyObject>
 	}
 
 	public void popOperands(final int count)
-		throws PsyException
+		throws PsyErrorException
 	{
 		final int offset=size()-count;
 		if(offset<0)

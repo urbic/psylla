@@ -13,10 +13,10 @@ public interface PsyIntegral
 	public java.math.BigInteger bigIntegerValue();
 
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
-		throws PsyException;
+		throws PsyErrorException;
 
 	public static PsyInteger valueOf(final long longValue)
 	{

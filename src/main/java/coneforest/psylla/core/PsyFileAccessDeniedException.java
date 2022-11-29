@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 
 @ExceptionType("fileaccessdenied")
 public class PsyFileAccessDeniedException
-	extends PsyException
+	extends PsyErrorException
 {
 	@Override
 	public String getName()
