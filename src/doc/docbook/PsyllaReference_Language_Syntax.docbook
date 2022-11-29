@@ -51,10 +51,8 @@ comment</firstterm><indexterm><primary>comment</primary><secondary>multiline</se
 continuing to the next <literal>#/</literal> characters. Nesting multiline
 comments into each other is not allowed.
 
-<programlisting language="psylla">/#
-This is
-a multiline comment
-#/</programlisting>
+<programlisting language="psylla">/# This is
+a multiline comment #/</programlisting>
 
 </para>
 
