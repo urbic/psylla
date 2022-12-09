@@ -26,17 +26,28 @@ public class PsyRandom
 			return new PsyReal(oNumeric.doubleValue()*random.nextDouble());
 		else if(oNumeric instanceof PsyInteger)
 		{
-			final var numeric=oNumeric.intValue();
-			if(numeric>Integer.MAX_VALUE)
+			final var numeric=oNumeric.longValue();
+			if(numeric>Long.MAX_VALUE)
 				throw new PsyRangeCheckException();
 			try
 			{
-				return PsyInteger.valueOf(random.nextInt(numeric));
+				return PsyInteger.valueOf(random.nextLong(numeric));
 			}
 			catch(final IllegalArgumentException ex)
 			{
 				throw new PsyRangeCheckException();
 			}
+		}
+		else if(oNumeric instanceof PsyBigInteger)
+		{
+			var bi=((PsyBigInteger)oNumeric).bigIntegerValue();
+			java.math.BigInteger rbi;
+			do
+			{
+				rbi=new java.math.BigInteger(bi.bitLength(), random);
+			}
+			while(rbi.compareTo(bi)>=0);
+			return PsyIntegral.valueOf(rbi);
 		}
 		else
 			throw new PsyTypeCheckException();
