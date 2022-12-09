@@ -82,9 +82,10 @@
 	</path>
 
 	<!-- Import supplementary Ant projects -->
-	<import file="${src.ant}/htmldocs.ant" as="htmldocs"/>
-	<import file="${src.ant}/manpages.ant" as="manpages"/>
-	<import file="${src.ant}/install.ant" as="install"/>
+	<import file="${src.ant}/test-examples.ant"/>
+	<import file="${src.ant}/htmldocs.ant"/>
+	<import file="${src.ant}/manpages.ant"/>
+	<import file="${src.ant}/install.ant"/>
 	<import file="${src.ant}/obs.ant"/>
 	<import file="${src.ant}/gh-pages.ant"/>
 
@@ -108,7 +109,7 @@
 		<javac
 			srcdir="${src.main.java}"
 			destdir="${target.classes}"
-			release="11"
+			release="17"
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
@@ -124,7 +125,7 @@
 		<javac
 			srcdir="${src.main.java}:${target.src.main.java}:${src.test.java}"
 			destdir="${target.classes}"
-			release="11"
+			release="17"
 			includeantruntime="false"
 			encoding="UTF-8"
 			>

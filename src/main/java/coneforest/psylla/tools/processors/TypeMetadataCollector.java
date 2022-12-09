@@ -16,7 +16,7 @@ import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
 @SupportedAnnotationTypes({"coneforest.psylla.Type", "coneforest.psylla.ExceptionType"})
-@SupportedSourceVersion(SourceVersion.RELEASE_11)
+@SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class TypeMetadataCollector extends AbstractProcessor
 {
 	@Override

@@ -27,14 +27,14 @@ Group:			Development/Languages/Other
 URL:			https://github.com/urbic/%{name}
 Source:			%{name}-%{version}.tar.xz
 BuildRequires:	ant
-BuildRequires:	java-devel >= 11
-BuildRequires:	java-javadoc >= 11
+BuildRequires:	java-devel >= 17
+BuildRequires:	java-javadoc >= 17
 BuildRequires:	javacc
 BuildRequires:	junit >= 4.0
 BuildRequires:	mvn(jline:jline:1)
 BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)
 BuildRequires:	mvn(org.apache.ant:ant-junit)
-Requires:		java-headless >= 11
+Requires:		java-headless >= 17
 Requires:		mvn(jline:jline:1)
 Requires(post):	shared-mime-info
 Requires(postun):	shared-mime-info

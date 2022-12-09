@@ -70,7 +70,7 @@ More sample programs can be found in the dedicated
 
 ### Jar:
 
-Java 11 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, JUnit 4, JLine 1
+Java 17 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, JUnit 4, JLine 1
 
 ### Documentation:
 
