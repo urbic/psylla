@@ -24,7 +24,7 @@ jobs:
             libjline-java{,-doc} \
             libxerces2-java \
             libxslthl-java \
-            openjdk-11-{jdk-headless,doc} \
+            openjdk-17-{jdk-headless,doc} \
             python3-m2crypto \
             osc \
             sassc
