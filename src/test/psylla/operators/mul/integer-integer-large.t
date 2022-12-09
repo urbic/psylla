@@ -1,0 +1,1 @@
+maxinteger dup mul ?
