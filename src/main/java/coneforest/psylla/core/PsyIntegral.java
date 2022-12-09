@@ -18,6 +18,17 @@ public interface PsyIntegral
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyErrorException;
 
+	public PsyIntegral psyGCD(final PsyIntegral oIntegral)
+		throws PsyErrorException;
+
+	default PsyIntegral psyLCM(final PsyIntegral oIntegral)
+		throws PsyErrorException
+	{
+		if(psyIsZero().booleanValue() || oIntegral.psyIsZero().booleanValue())
+			return PsyInteger.ZERO;
+		return ((PsyIntegral)psyMul(oIntegral)).psyIdiv(psyGCD(oIntegral));
+	}
+
 	public static PsyInteger valueOf(final long longValue)
 	{
 		return PsyInteger.valueOf(longValue);
@@ -71,6 +82,10 @@ public interface PsyIntegral
 				("idiv", PsyIntegral::psyIdiv),
 			new PsyOperator.Arity21<PsyIntegral, PsyIntegral>
 				("mod", PsyIntegral::psyMod),
+			new PsyOperator.Arity21<PsyIntegral, PsyIntegral>
+				("gcd", PsyIntegral::psyGCD),
+			new PsyOperator.Arity21<PsyIntegral, PsyIntegral>
+				("lcm", PsyIntegral::psyLCM),
 		};
 
 }

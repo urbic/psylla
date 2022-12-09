@@ -26,11 +26,6 @@ public class PsyBigInteger
 		this(new BigInteger(image));
 	}
 
-	public static PsyBigInteger parse(final String image)
-	{
-		return new PsyBigInteger(image);
-	}
-
 	@Override
 	public int intValue()
 	{
@@ -106,6 +101,7 @@ public class PsyBigInteger
 	@Override
 	public PsyBigInteger psyNot()
 	{
+		// TODO
 		return new PsyBigInteger(value.not());
 	}
 
@@ -134,13 +130,13 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyBigInteger psyIdiv(final PsyIntegral oIntegral)
+	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyErrorException
 	{
 		if(oIntegral instanceof PsyBigInteger)
-			return new PsyBigInteger(value.divide(((PsyBigInteger)oIntegral).value));
+			return PsyIntegral.valueOf(value.divide(((PsyBigInteger)oIntegral).value));
 		if(oIntegral instanceof PsyInteger)
-			return new PsyBigInteger(
+			return PsyIntegral.valueOf(
 				value.divide(BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
 		throw new PsyTypeCheckException();
 	}
@@ -149,12 +145,12 @@ public class PsyBigInteger
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyErrorException
 	{
+		if(oIntegral.psyIsZero().booleanValue())
+			throw new PsyUndefinedResultException();
 		try
 		{
-			if(oIntegral instanceof PsyBigInteger)
-				return PsyIntegral.valueOf(value.mod(((PsyBigInteger)oIntegral).value));
-			if(oIntegral instanceof PsyInteger)
-				return PsyIntegral.valueOf(value.mod(((PsyInteger)oIntegral).bigIntegerValue()));
+			if(oIntegral instanceof PsyIntegral)
+				return PsyIntegral.valueOf(value.mod(((PsyIntegral)oIntegral).bigIntegerValue()));
 		}
 		catch(final java.lang.ArithmeticException ex)
 		{
@@ -164,33 +160,40 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyRealNumeric psyMul(final PsyRealNumeric oNumeric)
+	public PsyIntegral psyGCD(final PsyIntegral oIntegral)
+		throws PsyErrorException
 	{
-		if(oNumeric instanceof PsyBigInteger)
-			return PsyIntegral.valueOf(value.multiply(((PsyBigInteger)oNumeric).value));
-		else if(oNumeric instanceof PsyInteger)
-			return PsyIntegral.valueOf(value.multiply(new PsyBigInteger((PsyInteger)oNumeric).value));
-		return new PsyReal(doubleValue()*((PsyReal)oNumeric).doubleValue());
+		if(psyIsZero().booleanValue())
+			return oIntegral;
+		if(oIntegral.psyIsZero().booleanValue())
+			return this;
+		if(value.compareTo(BigInteger.ZERO)<0 || oIntegral.psyCmp(ZERO).intValue()<0)
+			throw new PsyRangeCheckException();
+		return PsyIntegral.valueOf(value.gcd(oIntegral.bigIntegerValue()));
 	}
 
 	@Override
-	public PsyRealNumeric psySub(final PsyRealNumeric oNumeric)
+	public PsyRealNumeric psyMul(final PsyRealNumeric oNumeric)
 	{
-		if(oNumeric instanceof PsyBigInteger)
-			return PsyIntegral.valueOf(value.subtract(((PsyBigInteger)oNumeric).value));
-		else if(oNumeric instanceof PsyInteger)
-			return PsyIntegral.valueOf(value.subtract(new PsyBigInteger((PsyInteger)oNumeric).value));
-		return new PsyReal(doubleValue()-((PsyReal)oNumeric).doubleValue());
+		if(oNumeric instanceof PsyIntegral)
+			return PsyIntegral.valueOf(value.multiply(((PsyIntegral)oNumeric).bigIntegerValue()));
+		return new PsyReal(doubleValue()*((PsyReal)oNumeric).doubleValue());
 	}
 
 	@Override
 	public PsyRealNumeric psyAdd(final PsyRealNumeric oNumeric)
 	{
-		if(oNumeric instanceof PsyBigInteger)
-			return PsyIntegral.valueOf(value.add(((PsyBigInteger)oNumeric).value));
-		else if(oNumeric instanceof PsyInteger)
-			return PsyIntegral.valueOf(value.add(new PsyBigInteger((PsyInteger)oNumeric).value));
+		if(oNumeric instanceof PsyIntegral)
+			return PsyIntegral.valueOf(value.add(((PsyIntegral)oNumeric).bigIntegerValue()));
 		return new PsyReal(doubleValue()+((PsyReal)oNumeric).doubleValue());
+	}
+
+	@Override
+	public PsyRealNumeric psySub(final PsyRealNumeric oNumeric)
+	{
+		if(oNumeric instanceof PsyIntegral)
+			return PsyIntegral.valueOf(value.subtract(((PsyIntegral)oNumeric).bigIntegerValue()));
+		return new PsyReal(doubleValue()-((PsyReal)oNumeric).doubleValue());
 	}
 
 	@Override

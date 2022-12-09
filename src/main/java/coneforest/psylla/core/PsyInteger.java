@@ -220,7 +220,7 @@ public class PsyInteger
 			{
 				final var result=value*numeric;
 				return (value==0 || result/value==numeric)?
-					PsyInteger.valueOf(result): new PsyReal(doubleValue()*oNumeric.doubleValue());
+					PsyInteger.valueOf(result): new PsyBigInteger(bigIntegerValue().multiply(BigInteger.valueOf(numeric)));
 			}
 			else
 				return PsyIntegral.valueOf(bigIntegerValue().multiply(((PsyInteger)oNumeric).bigIntegerValue()));
@@ -326,21 +326,66 @@ public class PsyInteger
 	}
 
 	@Override
-	public PsyInteger psyMod(final PsyIntegral oInteger)
+	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyErrorException
 	{
-		final var integer=((PsyInteger)oInteger).value; // TODO
-		if(integer<=0)
+		if(oIntegral.psyIsZero().booleanValue())
+			throw new PsyUndefinedResultException();
+		if(oIntegral instanceof PsyInteger)
+		{
+			final var integer=((PsyInteger)oIntegral).value; // TODO
+			if(integer<0)
+				throw new PsyRangeCheckException();
+			if(integer==0)
+				throw new PsyUndefinedResultException();
+			final var result=value % integer;
+			return PsyInteger.valueOf((result>=0)? result: result+integer);
+		}
+		else if(oIntegral instanceof PsyBigInteger)
+		{
+			try
+			{
+				return PsyIntegral.valueOf(
+						bigIntegerValue().mod(((PsyBigInteger)oIntegral).bigIntegerValue()));
+			}
+			catch(final ArithmeticException ex)
+			{
+				throw new PsyRangeCheckException();
+			}
+		}
+		throw new PsyTypeCheckException();
+	}
+
+	@Override
+	public PsyIntegral psyGCD(final PsyIntegral oIntegral)
+		throws PsyErrorException
+	{
+		if(value==0L)
+			return oIntegral;
+		if(oIntegral.psyIsZero().booleanValue())
+			return this;
+		if(value<0L || oIntegral.psyCmp(ZERO).intValue()<0)
 			throw new PsyRangeCheckException();
-		final var result=value % integer;
-		return PsyInteger.valueOf((result>=0)? result: result+integer);
-		/*
-		if(integer.value>0)
-			return new PsyInteger(value>=0? value%integer.value: integer.value-(-value)%integer.value);
-		if(integer.value<0)
-			return new PsyInteger(value>=0? value%(-integer.value)+(value!=0? integer.value:0): -((-value)%(-integer.value)));
-		throw new PsyUndefinedResultException();
-		*/
+		if(oIntegral instanceof PsyBigInteger)
+			return oIntegral.psyGCD(this);
+		else if(oIntegral instanceof PsyInteger)
+		{
+			var x=value;
+			var y=((PsyInteger)oIntegral).value;
+			while(x!=0)
+			{
+				if(x>y)
+				{
+					var t=x;
+					x=y;
+					y=t;
+					continue;
+				}
+				y%=x;
+			}
+			return PsyInteger.valueOf(y);
+		}
+		throw new PsyTypeCheckException();
 	}
 
 	@Override
