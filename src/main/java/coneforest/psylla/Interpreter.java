@@ -280,9 +280,7 @@ public class Interpreter
 
 				// If "stop" is invoked outside an explicit stopping context
 				if(getStopFlag())
-				{
 					return;
-				}
 			}
 			if(procstack.size()>initProcLevel)
 				throw new PsySyntaxErrorException(oReader);
