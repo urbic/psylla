@@ -29,8 +29,6 @@ public class PsySystemDict
 					stderror.psyWriteString(ostack.getBacked(0));
 					stderror.psyFlush();
 				}),
-			new PsyOperator.Arity11<PsyConvertableToInteger>("tointeger", PsyConvertableToInteger::psyToInteger),
-			new PsyOperator.Arity11<PsyConvertableToIntegral>("tointegral", PsyConvertableToIntegral::psyToIntegral),
 			new PsyOperator.Action("say",
 				(oContext)->
 				{
@@ -165,6 +163,12 @@ public class PsySystemDict
 		for(var oOperator: PsyProcess.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyMatcher.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsyConvertableToReal.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsyConvertableToInteger.OPERATORS)
+			registerOperator(oOperator);
+		for(var oOperator: PsyConvertableToIntegral.OPERATORS)
 			registerOperator(oOperator);
 
 		for(var oOperator: OPERATORS)
