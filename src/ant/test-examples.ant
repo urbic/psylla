@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project name="test-examples" basedir=".">
+
+	<target name="test.examples" depends="jar">
+		<taskdef
+			name="psylla"
+			classname="coneforest.psylla.tools.ant.Psylla"
+			classpathref="modulepath.main"
+			/>
+		<psylla script="${src.examples.psylla}/sqrt-bisection-floyd.psy">
+			<arg value="3"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-bitset.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-bitset-optimized.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-array-optimized.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-filtering.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-eratosthenes-array.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-eratosthenes-array-optimized.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-eratosthenes-bitarray-optimized.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-eratosthenes-bitset.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/primes-multicontext.psy">
+			<arg value="10000"/>
+		</psylla>
+		<psylla script="${src.examples.psylla}/life.psy" timeout="1000"/>
+	</target>
+
+</project>
