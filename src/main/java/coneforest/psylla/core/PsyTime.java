@@ -19,7 +19,7 @@ public class PsyTime
 	*/
 	public static PsyInteger psyTime()
 	{
-		return new PsyInteger(System.currentTimeMillis());
+		return PsyInteger.valueOf(System.currentTimeMillis());
 	}
 
 	public static PsyDict psyCalendar(final PsyInteger oTime)
