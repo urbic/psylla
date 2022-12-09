@@ -18,7 +18,7 @@ public class Psylla
 		if(eval!=null)
 			psyllaArgs.add("--eval="+eval);
 		if(script!=null)
-			psyllaArgs.add(script);
+			psyllaArgs.add(script.toString());
 
 		final String[] args=new String[psyllaArgs.size()+argList.size()];
 		int i=0;
@@ -34,7 +34,10 @@ public class Psylla
 
 		try
 		{
-			coneforest.psylla.Psylla.launch(args).join();
+			if(timeout!=0)
+				coneforest.psylla.Psylla.launch(args).join(timeout);
+			else
+				coneforest.psylla.Psylla.launch(args).join();
 		}
 		catch(final coneforest.psylla.core.PsyErrorException e)
 		{
@@ -73,9 +76,14 @@ public class Psylla
 		consoleEncoding=value;
 	}
 
-	public void setScript(final String value)
+	public void setScript(final java.io.File value)
 	{
 		script=value;
+	}
+
+	public void setTimeout(final Integer timeout)
+	{
+		this.timeout=timeout.intValue();
 	}
 
 	public Arg createArg()
@@ -88,7 +96,11 @@ public class Psylla
 	private final java.util.ArrayList<Arg> argList
 		=new java.util.ArrayList<Arg>();
 
-	private String eval, classPath, consoleEncoding, locale, script;
+	private String eval, classPath, consoleEncoding, locale;
+
+	private java.io.File script;
+
+	private int timeout;
 
 	public class Arg
 	{
