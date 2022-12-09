@@ -215,6 +215,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_gcd" xrefstyle="template:%t"/></term>
+<listitem>the greatest common divisor of two numbers</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_div" xrefstyle="template:%t"/></term>
 <listitem>quotient by dividing two numbers</listitem>
 </varlistentry>
@@ -247,6 +252,11 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_iszero" xrefstyle="template:%t"/></term>
 <listitem>a number is zero?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_lcm" xrefstyle="template:%t"/></term>
+<listitem>the least common multiple of two numbers</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1535,6 +1545,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_for;
 &PsyllaReference_Operators_Details_forall;
 &PsyllaReference_Operators_Details_fork;
+&PsyllaReference_Operators_Details_gcd;
 &PsyllaReference_Operators_Details_ge;
 &PsyllaReference_Operators_Details_get;
 &PsyllaReference_Operators_Details_getall;
@@ -1564,6 +1575,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_join;
 &PsyllaReference_Operators_Details_keys;
 &PsyllaReference_Operators_Details_known;
+&PsyllaReference_Operators_Details_lcm;
 &PsyllaReference_Operators_Details_le;
 &PsyllaReference_Operators_Details_length;
 &PsyllaReference_Operators_Details_limited;

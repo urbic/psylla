@@ -69,7 +69,9 @@ when the <replaceable>divisor</replaceable> is zero
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_gcd"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_lcm"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mod"/>.
 </formalpara>
 

@@ -23,7 +23,7 @@ Build Service</link>.
 
 <itemizedlist>
 
-<listitem><application>Java 11</application> (<application
+<listitem><application>Java 17</application> (<application
 xlink:href="https://openjdk.java.net/">OpenJDK</application> or <application
 xlink:href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle
 JDK</application>)</listitem>
@@ -84,7 +84,7 @@ or (<productname>Debian 11</productname>)
 <screen><prompt>% </prompt><userinput>sudo apt-get install -y \
 	ant{,-optional} docbook-{xsl-{ns,saxon},mathml} \
 	graphviz sassc javacc junit4 libjline-java{,-doc} libxerces2-java \
-	libxslthl-java openjdk-11-{jdk-headless,doc}</userinput></screen>
+	libxslthl-java openjdk-17-{jdk-headless,doc}</userinput></screen>
 </para>
 
 </section>

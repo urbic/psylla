@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Operators_Details_mod">
-<title><token language="psylla">mod</token></title>
+<section xml:id="PsyllaReference_Operators_Details_lcm">
+<title><token language="psylla">lcm</token></title>
 
 <para>
-Returns the <replaceable>remainder</replaceable> of dividing the
-<replaceable>dividend</replaceable> by the <replaceable>divisor</replaceable>.
+Returns the least common multiple of two <replaceable>number</replaceable>s.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
-<replaceable>dividend</replaceable>
-<replaceable>divisor</replaceable>
-<token language="psylla">mod</token>
-<replaceable>remainder</replaceable>
+<replaceable>number<subscript>1</subscript></replaceable>
+<replaceable>number<subscript>2</subscript></replaceable>
+<token language="psylla">lcm</token>
+<replaceable>result</replaceable>
 </synopsis>
 </formalpara>
 
@@ -21,9 +20,9 @@ Returns the <replaceable>remainder</replaceable> of dividing the
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>dividend</replaceable>,
-<replaceable>divisor</replaceable>,
-<replaceable>remainder</replaceable>:
+<replaceable>number<subscript>1</subscript></replaceable>,
+<replaceable>number<subscript>2</subscript></replaceable>,
+<replaceable>result</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>
 </listitem>
 </itemizedlist>
@@ -31,12 +30,8 @@ Returns the <replaceable>remainder</replaceable> of dividing the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">7 5 mod
-	▶ 2
--7 5 mod
-	▶ 3
-0 5 mod
-	▶ 0</programlisting>
+<programlisting language="psylla">105 147 lcm
+	▶ 5</programlisting>
 </formalpara>
 
 <formalpara>
@@ -44,7 +39,7 @@ Returns the <replaceable>remainder</replaceable> of dividing the
 <itemizedlist>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
-when the <replaceable>divisor</replaceable> is negative
+when the at least one of the <replaceable>number</replaceable>s is negative
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
@@ -53,10 +48,6 @@ when the <replaceable>divisor</replaceable> is negative
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
 &ErrorReason_typecheck;
-</listitem>
-<listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/> —
-when the <replaceable>divisor</replaceable> is zero
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -68,8 +59,9 @@ when the <replaceable>divisor</replaceable> is zero
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_idiv"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_gcd"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_idiv"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mod"/>.
 </formalpara>
 
 </section>
