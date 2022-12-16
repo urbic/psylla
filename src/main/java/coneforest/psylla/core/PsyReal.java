@@ -20,13 +20,13 @@ public class PsyReal
 	{
 		if(Double.isInfinite(value))
 			throw new PsyRangeCheckException();
-		return PsyIntegral.valueOf(BigDecimal.valueOf(value).toBigInteger());
+		return PsyIntegral.of(BigDecimal.valueOf(value).toBigInteger());
 	}
 
 	@Override
 	public PsyBoolean psyIsZero()
 	{
-		return PsyBoolean.valueOf(value==0.D);
+		return PsyBoolean.of(value==0.D);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class PsyReal
 	@Override
 	public PsyInteger psyRound()
 	{
-		return PsyInteger.valueOf(Math.round(value));
+		return PsyInteger.of(Math.round(value));
 	}
 
 	@Override

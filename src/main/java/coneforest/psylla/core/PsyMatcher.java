@@ -17,12 +17,12 @@ public class PsyMatcher
 
 	public PsyBoolean psyMatches()
 	{
-		return PsyBoolean.valueOf(matcher.matches());
+		return PsyBoolean.of(matcher.matches());
 	}
 
 	public PsyBoolean psyFind()
 	{
-		return PsyBoolean.valueOf(matcher.find());
+		return PsyBoolean.of(matcher.find());
 	}
 
 	public PsyName psyReplaceAll(final PsyTextual oReplacement)
@@ -32,7 +32,7 @@ public class PsyMatcher
 
 	public PsyInteger psyCaptureGroupCount()
 	{
-		return PsyInteger.valueOf(matcher.groupCount());
+		return PsyInteger.of(matcher.groupCount());
 	}
 
 	public PsyInteger psyCaptureGroupStart(final PsyObject oKey)
@@ -47,7 +47,7 @@ public class PsyMatcher
 				start=matcher.start(((PsyTextual)oKey).stringValue());
 			else
 				throw new PsyTypeCheckException();
-			return start>=0? PsyInteger.valueOf(start): null;
+			return start>=0? PsyInteger.of(start): null;
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
@@ -75,7 +75,7 @@ public class PsyMatcher
 				end=matcher.start(((PsyTextual)oKey).stringValue());
 			else
 				throw new PsyTypeCheckException();
-			return end>=0? PsyInteger.valueOf(end): null;
+			return end>=0? PsyInteger.of(end): null;
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
@@ -110,10 +110,10 @@ public class PsyMatcher
 								if(group!=null)
 								{
 									ostack.push(new PsyName(group));
-									ostack.push(PsyInteger.valueOf(matcher.start(index)));
-									ostack.push(PsyInteger.valueOf(matcher.end(index)));
+									ostack.push(PsyInteger.of(matcher.start(index)));
+									ostack.push(PsyInteger.of(matcher.end(index)));
 								}
-								ostack.push(PsyBoolean.valueOf(group!=null));
+								ostack.push(PsyBoolean.of(group!=null));
 							}
 							else if(oKey instanceof PsyTextual)
 							{
@@ -122,10 +122,10 @@ public class PsyMatcher
 								if(group!=null)
 								{
 									ostack.push(new PsyName(group));
-									ostack.push(PsyInteger.valueOf(matcher.start(key)));
-									ostack.push(PsyInteger.valueOf(matcher.end(key)));
+									ostack.push(PsyInteger.of(matcher.start(key)));
+									ostack.push(PsyInteger.of(matcher.end(key)));
 								}
-								ostack.push(PsyBoolean.valueOf(group!=null));
+								ostack.push(PsyBoolean.of(group!=null));
 							}
 							else
 								throw new PsyTypeCheckException();

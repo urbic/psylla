@@ -37,7 +37,7 @@ public interface PsyFormalArray<T extends PsyObject>
 	default public PsyBoolean psyKnown(final PsyInteger oIndex)
 	{
 		long index=oIndex.longValue();
-		return PsyBoolean.valueOf(index>=0 && index<length());
+		return PsyBoolean.of(index>=0 && index<length());
 	}
 
 	public T get(final int index)
@@ -203,7 +203,7 @@ public interface PsyFormalArray<T extends PsyObject>
 	@Override
 	default public PsyStream psyKeys()
 	{
-		return new PsyStream(java.util.stream.IntStream.range(0, length()).mapToObj(PsyInteger::valueOf));
+		return new PsyStream(java.util.stream.IntStream.range(0, length()).mapToObj(PsyInteger::of));
 	}
 
 	@Override
@@ -271,7 +271,7 @@ public interface PsyFormalArray<T extends PsyObject>
 										public PsyObject next()
 										{
 											return (flag=!flag)?
-												PsyInteger.valueOf(index++): parentIterator.next();
+												PsyInteger.of(index++): parentIterator.next();
 										}
 
 										private boolean flag=false;

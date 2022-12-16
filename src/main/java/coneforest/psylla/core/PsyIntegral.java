@@ -47,9 +47,9 @@ public interface PsyIntegral
 		return ((PsyIntegral)psyMul(oIntegral)).psyIdiv(psyGCD(oIntegral));
 	}
 
-	public static PsyInteger valueOf(final long longValue)
+	public static PsyInteger of(final long longValue)
 	{
-		return PsyInteger.valueOf(longValue);
+		return PsyInteger.of(longValue);
 	}
 
 	default public PsyIntegral psyToIntegral()
@@ -57,11 +57,11 @@ public interface PsyIntegral
 		return this;
 	}
 
-	public static PsyIntegral valueOf(final java.math.BigInteger bigIntegerValue)
+	public static PsyIntegral of(final java.math.BigInteger bigIntegerValue)
 	{
 		try
 		{
-			return PsyInteger.valueOf(bigIntegerValue.longValueExact());
+			return PsyInteger.of(bigIntegerValue.longValueExact());
 		}
 		catch(final ArithmeticException ex)
 		{
@@ -76,7 +76,7 @@ public interface PsyIntegral
 		{
 			try
 			{
-				return PsyInteger.valueOf(Long.parseLong(image));
+				return PsyInteger.of(Long.parseLong(image));
 			}
 			catch(final NumberFormatException ex)
 			{

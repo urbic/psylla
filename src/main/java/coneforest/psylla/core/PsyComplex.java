@@ -45,7 +45,7 @@ public class PsyComplex
 	@Override
 	public PsyBoolean psyIsZero()
 	{
-		return PsyBoolean.valueOf(re==0.D && im==0.D);
+		return PsyBoolean.of(re==0.D && im==0.D);
 	}
 
 	@Override

@@ -55,7 +55,7 @@ public class PsyBoolean
 	@Override
 	public PsyBoolean psyOr(final PsyBoolean oBoolean)
 	{
-		return PsyBoolean.valueOf(booleanValue() || oBoolean.booleanValue());
+		return PsyBoolean.of(booleanValue() || oBoolean.booleanValue());
 	}
 
 	/**
@@ -68,7 +68,7 @@ public class PsyBoolean
 	@Override
 	public PsyBoolean psyAnd(final PsyBoolean oBoolean)
 	{
-		return PsyBoolean.valueOf(booleanValue() && oBoolean.booleanValue());
+		return PsyBoolean.of(booleanValue() && oBoolean.booleanValue());
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class PsyBoolean
 	@Override
 	public PsyBoolean psyXor(final PsyBoolean oBoolean)
 	{
-		return PsyBoolean.valueOf(booleanValue() ^ oBoolean.booleanValue());
+		return PsyBoolean.of(booleanValue() ^ oBoolean.booleanValue());
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class PsyBoolean
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(equals(o));
+		return PsyBoolean.of(equals(o));
 	}
 
 	@Override
@@ -105,25 +105,25 @@ public class PsyBoolean
 	@Override
 	public PsyBoolean psyLt(final PsyBoolean oBoolean)
 	{
-		return PsyBoolean.valueOf(this==FALSE && oBoolean==TRUE);
+		return PsyBoolean.of(this==FALSE && oBoolean==TRUE);
 	}
 
 	@Override
 	public PsyBoolean psyLe(final PsyBoolean oBoolean)
 	{
-		return PsyBoolean.valueOf(this==FALSE || this==oBoolean);
+		return PsyBoolean.of(this==FALSE || this==oBoolean);
 	}
 
 	@Override
 	public PsyBoolean psyGt(final PsyBoolean oBoolean)
 	{
-		return PsyBoolean.valueOf(this==TRUE && this==FALSE);
+		return PsyBoolean.of(this==TRUE && this==FALSE);
 	}
 
 	@Override
 	public PsyBoolean psyGe(final PsyBoolean oBoolean)
 	{
-		return PsyBoolean.valueOf(this==TRUE || this==oBoolean);
+		return PsyBoolean.of(this==TRUE || this==oBoolean);
 	}
 
 	@Override
@@ -144,7 +144,7 @@ public class PsyBoolean
 	*	@param bool a given value.
 	*	@return a {@code boolean} object.
 	*/
-	public static PsyBoolean valueOf(final boolean bool)
+	public static PsyBoolean of(final boolean bool)
 	{
 		return bool? TRUE: FALSE;
 	}

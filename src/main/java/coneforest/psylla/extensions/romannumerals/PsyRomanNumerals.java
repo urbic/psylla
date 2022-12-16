@@ -45,7 +45,7 @@ public class PsyRomanNumerals
 					result=10*result+n;
 					break;
 				}
-		return PsyInteger.valueOf(result);
+		return PsyInteger.of(result);
 	}
 
 	private static final java.util.regex.Pattern romanPattern

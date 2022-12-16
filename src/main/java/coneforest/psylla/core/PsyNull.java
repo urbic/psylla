@@ -31,7 +31,7 @@ public final class PsyNull
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(o==NULL);
+		return PsyBoolean.of(o==NULL);
 	}
 
 	/**

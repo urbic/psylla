@@ -193,7 +193,7 @@ public class PsyArray
 	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator, final PsyContext oContext)
 	{
 		final var opstack=oContext.operandStack();
-		return PsyInteger.valueOf(Collections.<PsyObject>binarySearch(array, o,
+		return PsyInteger.of(Collections.<PsyObject>binarySearch(array, o,
 				oComparator.asComparator(oContext)));
 	}
 
@@ -236,7 +236,7 @@ public class PsyArray
 						}
 						else
 						{
-							ostack.push(PsyInteger.valueOf(-index-1));
+							ostack.push(PsyInteger.of(-index-1));
 							ostack.push(PsyBoolean.FALSE);
 						}
 					}),

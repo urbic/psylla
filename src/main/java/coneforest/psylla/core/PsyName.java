@@ -54,7 +54,7 @@ public class PsyName
 	@Override
 	public PsyInteger psyLength()
 	{
-		return PsyInteger.valueOf(name.length());
+		return PsyInteger.of(name.length());
 	}
 
 	/**

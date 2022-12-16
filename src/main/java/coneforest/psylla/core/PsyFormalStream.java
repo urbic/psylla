@@ -24,7 +24,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	{
 		try
 		{
-			return PsyInteger.valueOf(stream().count());
+			return PsyInteger.of(stream().count());
 		}
 		catch(final IllegalStateException ex)
 		{

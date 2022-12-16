@@ -27,7 +27,7 @@ public interface PsyReadable
 	default public PsyInteger psyRead()
 		throws PsyErrorException
 	{
-		return PsyInteger.valueOf(read());
+		return PsyInteger.of(read());
 	}
 
 	/**
@@ -91,7 +91,7 @@ public interface PsyReadable
 						boolean notEOF=(oCharacter!=PsyInteger.MINUS_ONE);
 						if(notEOF)
 							ostack.push(oCharacter);
-						ostack.push(PsyBoolean.valueOf(notEOF));
+						ostack.push(PsyBoolean.of(notEOF));
 					}),
 		};
 }

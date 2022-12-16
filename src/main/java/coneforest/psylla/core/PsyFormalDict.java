@@ -74,7 +74,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	@Override
 	default public PsyBoolean psyKnown(final PsyTextual oKey)
 	{
-		return PsyBoolean.valueOf(known(oKey.stringValue()));
+		return PsyBoolean.of(known(oKey.stringValue()));
 	}
 
 	public void undef(final String key);

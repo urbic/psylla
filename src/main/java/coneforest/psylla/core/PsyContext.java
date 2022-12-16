@@ -128,23 +128,23 @@ public interface PsyContext
 					}),
 			new PsyOperator.Action
 				("countdictstack",
-					(oContext)->oContext.operandStack().push(PsyInteger.valueOf(oContext.dictStack().size()))),
+					(oContext)->oContext.operandStack().push(PsyInteger.of(oContext.dictStack().size()))),
 			new PsyOperator.Action
 				("countexecstack",
-					(oContext)->oContext.operandStack().push(PsyInteger.valueOf(oContext.executionStack().size()))),
+					(oContext)->oContext.operandStack().push(PsyInteger.of(oContext.executionStack().size()))),
 			new PsyOperator.Action
 				("countstack",
 					(oContext)->
 					{
 						final var ostack=oContext.operandStack();
-						ostack.push(PsyInteger.valueOf(ostack.size()));
+						ostack.push(PsyInteger.of(ostack.size()));
 					}),
 			new PsyOperator.Action
 				("counttomark",
 					(oContext)->
 					{
 						final var ostack=oContext.operandStack();
-						ostack.push(PsyInteger.valueOf(-ostack.findMarkPosition()-1+ostack.size()));
+						ostack.push(PsyInteger.of(-ostack.findMarkPosition()-1+ostack.size()));
 					}),
 			new PsyOperator.Action
 				("currentcontext", (oContext)->oContext.operandStack().push(oContext)),
@@ -472,7 +472,7 @@ public interface PsyContext
 						final var ostack=oContext.operandStackBacked(1);
 						ostack.getBacked(0).invoke(oContext);
 						oContext.handleExecutionStack(stopLevel);
-						ostack.push(PsyBoolean.valueOf(oContext.getStopFlag()));
+						ostack.push(PsyBoolean.of(oContext.getStopFlag()));
 						oContext.setStopFlag(false);
 						oContext.popStopLevel();
 
@@ -481,7 +481,7 @@ public interface PsyContext
 						interpreter.executionStack().push(new PsyOperator.Action
 						("#stopped_continue", (interpreter1)->
 						{
-							ostack.push(PsyBoolean.valueOf(interpreter1.getStopFlag()));
+							ostack.push(PsyBoolean.of(interpreter1.getStopFlag()));
 							interpreter1.setStopFlag(false);
 							interpreter1.popStopLevel();
 						}));
@@ -510,7 +510,7 @@ public interface PsyContext
 						final PsyFormalDict oDict=oContext.psyWhere(ostack.<PsyTextual>getBacked(0));
 						if(oDict!=null)
 							ostack.push(oDict);
-						ostack.push(PsyBoolean.valueOf(oDict!=null));
+						ostack.push(PsyBoolean.of(oDict!=null));
 					}),
 			new PsyOperator.Action
 				("yield", (oContext)->((Thread)oContext).yield()),

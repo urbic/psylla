@@ -73,7 +73,7 @@ public class PsyInput
 	{
 		try
 		{
-			return PsyBoolean.valueOf(input.available()>0);
+			return PsyBoolean.of(input.available()>0);
 		}
 		catch(final java.io.IOException ex)
 		{
@@ -87,7 +87,7 @@ public class PsyInput
 	{
 		try
 		{
-			return PsyInteger.valueOf(input.skip(oCount.longValue()));
+			return PsyInteger.of(input.skip(oCount.longValue()));
 		}
 		catch(final IllegalArgumentException ex)
 		{

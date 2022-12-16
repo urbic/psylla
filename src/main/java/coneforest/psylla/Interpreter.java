@@ -223,7 +223,7 @@ public class Interpreter
 	{
 		if(randomSeed!=null)
 			((PsyRandom)systemDict().get("stdrandom"))
-				.psySetSeed(PsyInteger.valueOf(randomSeed));
+				.psySetSeed(PsyInteger.of(randomSeed));
 	}
 
 	public void setClassPath(final String[] classPath)
@@ -721,13 +721,13 @@ public class Interpreter
 				final var oOperator=new PsyOperator.Method(method);
 				nspool.get(oOperator.getPrefix()).put(oOperator.getSimpleName(), oOperator);
 				//oNamespace.put(method.getDeclaredAnnotation(Operator.class).value(),
-				//		PsyOperator.valueOf(method));
+				//		PsyOperator.of(method));
 			}
 		//
 		for(final var constructor: clazz.getDeclaredConstructors())
 			if(constructor.isAnnotationPresent(Operator.class))
 				oNamespace.put(constructor.getDeclaredAnnotation(Operator.class).value(),
-						PsyOperator.valueOf(constructor));
+						PsyOperator.of(constructor));
 		//
 	}
 	*/
@@ -759,7 +759,7 @@ public class Interpreter
 				if(method.isAnnotationPresent(Operator.class))
 				{
 					final var operatorName=method.getDeclaredAnnotation(Operator.class).value();
-					oNamespace.put(operatorName, PsyOperator.valueOf(method));
+					oNamespace.put(operatorName, PsyOperator.of(method));
 				}
 			}
 			for(final var constructor: clazz.getDeclaredConstructors())
@@ -767,7 +767,7 @@ public class Interpreter
 				if(constructor.isAnnotationPresent(Operator.class))
 				{
 					final var operatorName=constructor.getDeclaredAnnotation(Operator.class).value();
-					oNamespace.put(operatorName, PsyOperator.valueOf(constructor));
+					oNamespace.put(operatorName, PsyOperator.of(constructor));
 				}
 			}
 			for(final var field: clazz.getDeclaredFields())

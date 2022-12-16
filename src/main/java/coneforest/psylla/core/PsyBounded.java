@@ -25,7 +25,7 @@ public interface PsyBounded
 	*/
 	default public PsyInteger psyCapacity()
 	{
-		return PsyInteger.valueOf(capacity());
+		return PsyInteger.of(capacity());
 	}
 
 	/**
@@ -47,7 +47,7 @@ public interface PsyBounded
 	*/
 	default public PsyBoolean psyIsFull()
 	{
-		return PsyBoolean.valueOf(isFull());
+		return PsyBoolean.of(isFull());
 	}
 
 }

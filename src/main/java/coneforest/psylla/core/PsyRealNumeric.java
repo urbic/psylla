@@ -46,7 +46,7 @@ public interface PsyRealNumeric
 	{
 		if(doubleValue()>=Long.MIN_VALUE
 				&& doubleValue()<=Long.MAX_VALUE)
-			return PsyInteger.valueOf(longValue());
+			return PsyInteger.of(longValue());
 		else
 			throw new PsyRangeCheckException();
 	}
@@ -213,44 +213,44 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(o instanceof PsyRealNumeric
+		return PsyBoolean.of(o instanceof PsyRealNumeric
 				&& doubleValue()==((PsyRealNumeric)o).doubleValue());
 	}
 
 	/**
-	*	“Less” arithmetic comparison.
+	*	The “less” arithmetic comparison.
 	*/
 	@Override
 	default public PsyBoolean psyLt(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.valueOf(doubleValue()<oNumeric.doubleValue());
+		return PsyBoolean.of(doubleValue()<oNumeric.doubleValue());
 	}
 
 	/**
-	*	“Less or equal” arithmetic comparison.
+	*	The “less or equal” arithmetic comparison.
 	*/
 	@Override
 	default public PsyBoolean psyLe(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.valueOf(doubleValue()<=oNumeric.doubleValue());
+		return PsyBoolean.of(doubleValue()<=oNumeric.doubleValue());
 	}
 
 	/**
-	*	“Greater” arithmetic comparison.
+	*	The “greater” arithmetic comparison.
 	*/
 	@Override
 	default public PsyBoolean psyGt(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.valueOf(doubleValue()>oNumeric.doubleValue());
+		return PsyBoolean.of(doubleValue()>oNumeric.doubleValue());
 	}
 
 	/**
-	*	“Greater or equal” arithmetic comparison.
+	*	The “Greater or equal” arithmetic comparison.
 	*/
 	@Override
 	default public PsyBoolean psyGe(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.valueOf(doubleValue()>=oNumeric.doubleValue());
+		return PsyBoolean.of(doubleValue()>=oNumeric.doubleValue());
 	}
 
 	public static final PsyOperator[] OPERATORS=

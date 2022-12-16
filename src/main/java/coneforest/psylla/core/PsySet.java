@@ -53,7 +53,7 @@ public class PsySet
 	@Override
 	public PsyBoolean psyContains(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(set.contains(o));
+		return PsyBoolean.of(set.contains(o));
 	}
 
 	@Override

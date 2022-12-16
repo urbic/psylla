@@ -49,7 +49,7 @@ public class PsySystemDict
 							final var line=consoleReader.readLine();
 							if(line!=null)
 								ostack.push(new PsyString(line+"\n"));
-							ostack.push(PsyBoolean.valueOf(line!=null));
+							ostack.push(PsyBoolean.of(line!=null));
 						}
 						catch(final java.io.IOException e)
 						{
@@ -204,7 +204,7 @@ public class PsySystemDict
         put("osarch", new PsyName(System.getProperty("os.arch")));
         put("osname", new PsyName(System.getProperty("os.name")));
         put("osversion", new PsyName(System.getProperty("os.version")));
-        put("processors", PsyInteger.valueOf(Runtime.getRuntime().availableProcessors()));
+        put("processors", PsyInteger.of(Runtime.getRuntime().availableProcessors()));
         put("product", new PsyName("Psylla"));
         put("stderr", new PsyWriter(new java.io.OutputStreamWriter(System.err)));
         put("stdin", new PsyReader(new java.io.InputStreamReader(System.in)));

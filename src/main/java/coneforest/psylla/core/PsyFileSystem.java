@@ -354,7 +354,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyBoolean.valueOf(Files.exists(getPath(oFileName)));
+			return PsyBoolean.of(Files.exists(getPath(oFileName)));
 		}
 		catch(final SecurityException ex)
 		{
@@ -371,7 +371,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyBoolean.valueOf(Files.readAttributes(getPath(oFileName),
+			return PsyBoolean.of(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class,
 					LinkOption.NOFOLLOW_LINKS).isRegularFile());
 		}
@@ -402,7 +402,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyBoolean.valueOf(Files.readAttributes(getPath(oFileName),
+			return PsyBoolean.of(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class,
 					LinkOption.NOFOLLOW_LINKS).isDirectory());
 		}
@@ -433,7 +433,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyBoolean.valueOf(Files.isSameFile(
+			return PsyBoolean.of(Files.isSameFile(
 					getPath(oFileName1), getPath(oFileName2)));
 		}
 		catch(final NoSuchFileException ex)
@@ -463,7 +463,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyBoolean.valueOf(Files.readAttributes(getPath(oFileName),
+			return PsyBoolean.of(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class,
 					LinkOption.NOFOLLOW_LINKS).isSymbolicLink());
 		}
@@ -509,7 +509,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyInteger.valueOf(Files.size(getPath(oFileName)));
+			return PsyInteger.of(Files.size(getPath(oFileName)));
 		}
 		catch(final NoSuchFileException ex)
 		{
@@ -538,7 +538,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyInteger.valueOf(Files.readAttributes(getPath(oFileName),
+			return PsyInteger.of(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class).lastAccessTime().toMillis());
 		}
 		catch(final NoSuchFileException ex)
@@ -568,7 +568,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyInteger.valueOf(Files.readAttributes(getPath(oFileName),
+			return PsyInteger.of(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class).creationTime().toMillis());
 		}
 		catch(final NoSuchFileException ex)
@@ -598,7 +598,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			return PsyInteger.valueOf(Files.readAttributes(getPath(oFileName),
+			return PsyInteger.of(Files.readAttributes(getPath(oFileName),
 					BasicFileAttributes.class).lastModifiedTime().toMillis());
 		}
 		catch(final NoSuchFileException ex)
@@ -669,7 +669,7 @@ public class PsyFileSystem
 			for(final var p: permSet)
 				permissions|=(256L>>p.ordinal());
 
-			return PsyInteger.valueOf(permissions);
+			return PsyInteger.of(permissions);
 		}
 		catch(final NoSuchFileException ex)
 		{
@@ -857,11 +857,11 @@ public class PsyFileSystem
 		if(obj instanceof String)
 			return new PsyName((String)obj);
 		else if(obj instanceof Integer)
-			return PsyInteger.valueOf(((Integer)obj).longValue());
+			return PsyInteger.of(((Integer)obj).longValue());
 		else if(obj instanceof Long)
-			return PsyInteger.valueOf(((Long)obj).longValue());
+			return PsyInteger.of(((Long)obj).longValue());
 		else if(obj instanceof Boolean)
-			return PsyBoolean.valueOf((Boolean)obj);
+			return PsyBoolean.of((Boolean)obj);
 		else
 			throw new ClassCastException();
 	}

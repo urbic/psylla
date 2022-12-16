@@ -73,7 +73,7 @@ public class PsyString
 	{
 		try
 		{
-			return PsyInteger.valueOf(buffer.charAt(index));
+			return PsyInteger.of(buffer.charAt(index));
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{

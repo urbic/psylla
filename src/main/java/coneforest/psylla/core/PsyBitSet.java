@@ -119,7 +119,7 @@ public class PsyBitSet
 				{
 					//if(hasNext())
 					//{
-						PsyInteger result=PsyInteger.valueOf(index);
+						PsyInteger result=PsyInteger.of(index);
 						index=bitset.nextSetBit(index+1);
 						return result;
 					//}
@@ -146,14 +146,14 @@ public class PsyBitSet
 	@Override
 	public PsyBoolean psyContains(final PsyInteger oElement)
 	{
-		return PsyBoolean.valueOf(bitset.get(oElement.intValue()));
+		return PsyBoolean.of(bitset.get(oElement.intValue()));
 	}
 
 	@Override
 	public PsyBoolean psyIntersects(final PsyFormalSet oSet)
 	{
 		if(oSet instanceof PsyBitSet)
-			return PsyBoolean.valueOf(bitset.intersects(((PsyBitSet)oSet).bitset));
+			return PsyBoolean.of(bitset.intersects(((PsyBitSet)oSet).bitset));
 		else
 			return PsyFormalSet.super.psyIntersects(oSet);
 	}
@@ -161,14 +161,14 @@ public class PsyBitSet
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(o instanceof PsyBitSet
+		return PsyBoolean.of(o instanceof PsyBitSet
 				&& bitset.equals(((PsyBitSet)o).bitset));
 	}
 
 	@Override
 	public PsyStream psyStream()
 	{
-		return new PsyStream(bitset.stream().<PsyInteger>mapToObj(PsyInteger::valueOf));
+		return new PsyStream(bitset.stream().<PsyInteger>mapToObj(PsyInteger::of));
 	}
 
 	private final java.util.BitSet bitset;

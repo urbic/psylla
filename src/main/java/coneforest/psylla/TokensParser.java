@@ -295,10 +295,10 @@ public class TokensParser
 		try
 		{
 			if(token.image.startsWith("+") || token.image.startsWith("-"))
-				return PsyInteger.valueOf(Long.parseLong(token.image.substring(0, 1)
+				return PsyInteger.of(Long.parseLong(token.image.substring(0, 1)
 						+token.image.substring(3), 16));
 			else
-				return PsyInteger.valueOf(Long.parseLong(token.image.substring(2), 16));
+				return PsyInteger.of(Long.parseLong(token.image.substring(2), 16));
 		}
 		catch(final NumberFormatException ex)
 		{
@@ -313,10 +313,10 @@ public class TokensParser
 		try
 		{
 			if(token.image.startsWith("+") || token.image.startsWith("-"))
-				return PsyInteger.valueOf(Long.parseLong(token.image.substring(0, 1)
+				return PsyInteger.of(Long.parseLong(token.image.substring(0, 1)
 						+token.image.substring(3), 2));
 			else
-				return PsyInteger.valueOf(Long.parseLong(token.image.substring(2), 2));
+				return PsyInteger.of(Long.parseLong(token.image.substring(2), 2));
 		}
 		catch(final NumberFormatException ex)
 		{
@@ -333,34 +333,34 @@ public class TokensParser
 				switch(token.image.charAt(2))
 				{
 					case '0':
-						return PsyInteger.valueOf('\u0000');
+						return PsyInteger.of('\u0000');
 					case 'a':
-						return PsyInteger.valueOf('\u0007');
+						return PsyInteger.of('\u0007');
 					case 'n':
-						return PsyInteger.valueOf('\n');
+						return PsyInteger.of('\n');
 					case 'r':
-						return PsyInteger.valueOf('\r');
+						return PsyInteger.of('\r');
 					case 't':
-						return PsyInteger.valueOf('\t');
+						return PsyInteger.of('\t');
 					case 'v':
-						return PsyInteger.valueOf('\u000B');
+						return PsyInteger.of('\u000B');
 					case 'f':
-						return PsyInteger.valueOf('\f');
+						return PsyInteger.of('\f');
 					case 'e':
-						return PsyInteger.valueOf('\u001B');
+						return PsyInteger.of('\u001B');
 					case '\\':
-						return PsyInteger.valueOf('\\');
+						return PsyInteger.of('\\');
 					case 'u':
-						return PsyInteger.valueOf(Integer.valueOf(token.image.substring(3, 7), 16));
+						return PsyInteger.of(Integer.valueOf(token.image.substring(3, 7), 16));
 					case 'c':
 						{
 							final var ch=token.image.charAt(3);
-							return PsyInteger.valueOf(ch+(ch<64? 64: -64));
+							return PsyInteger.of(ch+(ch<64? 64: -64));
 						}
 					case 'x':
 						try
 						{
-							return PsyInteger.valueOf(Integer.valueOf(
+							return PsyInteger.of(Integer.valueOf(
 									token.image.substring(4, token.image.length()-1), 16));
 						}
 						catch(final IllegalArgumentException ex)
@@ -369,7 +369,7 @@ public class TokensParser
 						}
 				}
 			default:
-				return PsyInteger.valueOf(token.image.charAt(1));
+				return PsyInteger.of(token.image.charAt(1));
 		}
 	}
 

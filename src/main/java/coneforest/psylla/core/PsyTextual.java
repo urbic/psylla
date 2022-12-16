@@ -48,7 +48,7 @@ public interface PsyTextual
 		try
 		{
 			// TODO fractional
-			return PsyInteger.valueOf(Long.parseLong(stringValue()));
+			return PsyInteger.of(Long.parseLong(stringValue()));
 		}
 		catch(final NumberFormatException ex)
 		{
@@ -93,38 +93,38 @@ public interface PsyTextual
 	@Override
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(o instanceof PsyTextual
+		return PsyBoolean.of(o instanceof PsyTextual
 				&& stringValue().equals(((PsyTextual)o).stringValue()));
 	}
 
 	@Override
 	default public PsyBoolean psyLt(final PsyTextual oString)
 	{
-		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())<0);
+		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())<0);
 	}
 
 	@Override
 	default public PsyBoolean psyLe(final PsyTextual oString)
 	{
-		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())<=0);
+		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())<=0);
 	}
 
 	@Override
 	default public PsyBoolean psyGt(final PsyTextual oString)
 	{
-		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())>0);
+		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())>0);
 	}
 
 	@Override
 	default public PsyBoolean psyGe(final PsyTextual oString)
 	{
-		return PsyBoolean.valueOf(stringValue().compareTo(oString.stringValue())>=0);
+		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())>=0);
 	}
 
 	@Override
 	default public PsyInteger psyCmp(final PsyTextual oString)
 	{
-		return PsyInteger.valueOf(stringValue().compareTo(oString.stringValue()));
+		return PsyInteger.of(stringValue().compareTo(oString.stringValue()));
 	}
 
 	default public PsyArray psySplit(final PsyRegExp oRegExp)
@@ -139,12 +139,12 @@ public interface PsyTextual
 
 	default public PsyInteger psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
 	{
-		return PsyInteger.valueOf(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));
+		return PsyInteger.of(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));
 	}
 
 	default public PsyInteger psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
 	{
-		return PsyInteger.valueOf(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));
+		return PsyInteger.of(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));
 	}
 
 	@Override
@@ -159,7 +159,7 @@ public interface PsyTextual
 
 				public PsyInteger next()
 				{
-					return PsyInteger.valueOf(stringValue().charAt(index++));
+					return PsyInteger.of(stringValue().charAt(index++));
 				}
 
 				private int index=0;
@@ -169,7 +169,7 @@ public interface PsyTextual
 	/*@Override
 	default public java.util.stream.Stream<PsyInteger> stream()
 	{
-		return stringValue().chars().<PsyInteger>mapToObj(PsyInteger::valueOf);
+		return stringValue().chars().<PsyInteger>mapToObj(PsyInteger::of);
 	}*/
 
 	public static final PsyOperator[] OPERATORS=

@@ -32,7 +32,7 @@ public class PsyBitArray
 			throw new PsyRangeCheckException();
 		try
 		{
-			return PsyBoolean.valueOf(bitarray.get(index));
+			return PsyBoolean.of(bitarray.get(index));
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
@@ -213,7 +213,7 @@ public class PsyBitArray
 		final int bit=oBit.intValue();
 		if(bit<0)
 			throw new PsyRangeCheckException();
-		return PsyBoolean.valueOf(bitarray.get(bit));
+		return PsyBoolean.of(bitarray.get(bit));
 	}
 
 	@Override
@@ -265,7 +265,7 @@ public class PsyBitArray
 				public PsyBoolean next()
 				{
 					//if(hasNext())
-						return PsyBoolean.valueOf(bitarray.get(index++));
+						return PsyBoolean.of(bitarray.get(index++));
 					//else
 					//	throw new java.util.NoSuchElementException();
 				}

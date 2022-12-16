@@ -103,7 +103,7 @@ public class PsyProcess
 	{
 		try
 		{
-			return PsyInteger.valueOf(process.exitValue());
+			return PsyInteger.of(process.exitValue());
 		}
 		catch(final IllegalThreadStateException ex)
 		{

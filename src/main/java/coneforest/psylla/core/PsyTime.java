@@ -19,7 +19,7 @@ public class PsyTime
 	*/
 	public static PsyInteger psyTime()
 	{
-		return PsyInteger.valueOf(System.currentTimeMillis());
+		return PsyInteger.of(System.currentTimeMillis());
 	}
 
 	public static PsyDict psyCalendar(final PsyInteger oTime)
@@ -29,9 +29,9 @@ public class PsyTime
 
 		final var oCalendar=new PsyDict();
 		for(int i=0; i<fieldNames.length; i++)
-			oCalendar.put(fieldNames[i], PsyInteger.valueOf(calendar.get(i)));
+			oCalendar.put(fieldNames[i], PsyInteger.of(calendar.get(i)));
 
-		// oCalendar.put("leapyear", PsyBoolean.valueOf(calendar.isLeapYear(calendar.get(java.util.Calendar.YEAR))));
+		// oCalendar.put("leapyear", PsyBoolean.of(calendar.isLeapYear(calendar.get(java.util.Calendar.YEAR))));
 
 		return oCalendar;
 	}
@@ -44,7 +44,7 @@ public class PsyTime
 			if(oCalendar.known(fieldNames[i]))
 				calendar.set(i, ((PsyInteger)oCalendar.get(fieldNames[i])).intValue());
 
-		return PsyInteger.valueOf(calendar.getTimeInMillis());
+		return PsyInteger.of(calendar.getTimeInMillis());
 	}
 
 	private static final String[] fieldNames

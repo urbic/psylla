@@ -31,7 +31,7 @@ public class PsyRandom
 				throw new PsyRangeCheckException();
 			try
 			{
-				return PsyInteger.valueOf(random.nextLong(numeric));
+				return PsyInteger.of(random.nextLong(numeric));
 			}
 			catch(final IllegalArgumentException ex)
 			{
@@ -47,7 +47,7 @@ public class PsyRandom
 				rbi=new java.math.BigInteger(bi.bitLength(), random);
 			}
 			while(rbi.compareTo(bi)>=0);
-			return PsyIntegral.valueOf(rbi);
+			return PsyIntegral.of(rbi);
 		}
 		else
 			throw new PsyTypeCheckException();
@@ -55,7 +55,7 @@ public class PsyRandom
 
 	public PsyBoolean psyUniformBoolean()
 	{
-		return PsyBoolean.valueOf(random.nextBoolean());
+		return PsyBoolean.of(random.nextBoolean());
 	}
 
 	public PsyReal psyNormalDeviate(final PsyRealNumeric oNumeric)

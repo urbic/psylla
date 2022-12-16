@@ -14,7 +14,7 @@ public final class PsyMark
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(o==MARK);
+		return PsyBoolean.of(o==MARK);
 	}
 
 	/**

@@ -111,8 +111,8 @@ public class PsyReader
 		try
 		{
 			final long count=oCount.longValue();
-			//return PsyBoolean.valueOf(count==reader.skip(count));
-			return PsyInteger.valueOf(reader.skip(count));
+			//return PsyBoolean.of(count==reader.skip(count));
+			return PsyInteger.of(reader.skip(count));
 		}
 		catch(final IllegalArgumentException ex)
 		{
@@ -130,7 +130,7 @@ public class PsyReader
 	{
 		try
 		{
-			return PsyBoolean.valueOf(reader.ready());
+			return PsyBoolean.of(reader.ready());
 		}
 		catch(final IOException ex)
 		{

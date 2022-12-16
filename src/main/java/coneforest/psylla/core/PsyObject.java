@@ -61,7 +61,7 @@ public interface PsyObject
 
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.valueOf(this==o);
+		return PsyBoolean.of(this==o);
 	}
 
 	default public PsyBoolean psyNe(final PsyObject o)
@@ -121,7 +121,7 @@ public interface PsyObject
 	default public PsyBoolean psyInstanceOf(final PsyTextual oTypeName)
 	{
 		//Class<? extends PsyObject> clazz=TypeRegistry.get(textual.getString());
-		//return PsyBoolean.valueOf(clazz!=null && clazz.isInstance(this));
+		//return PsyBoolean.of(clazz!=null && clazz.isInstance(this));
 
 		//final var interpreter=Interpreter.currentInterpreter();
 		return PsyBoolean.TRUE;
@@ -134,7 +134,7 @@ public interface PsyObject
 	*/
 	default public PsyInteger psyHashCode()
 	{
-		return PsyInteger.valueOf(hashCode());
+		return PsyInteger.of(hashCode());
 	}
 
 

@@ -36,7 +36,7 @@ public interface PsyLengthy
 	*/
 	default public PsyInteger psyLength()
 	{
-		return PsyInteger.valueOf(length());
+		return PsyInteger.of(length());
 	}
 
 	/**
@@ -47,7 +47,7 @@ public interface PsyLengthy
 	*/
 	default public PsyBoolean psyIsEmpty()
 	{
-		return PsyBoolean.valueOf(isEmpty());
+		return PsyBoolean.of(isEmpty());
 	}
 
 	public static final PsyOperator[] OPERATORS=
