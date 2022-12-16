@@ -12,6 +12,24 @@ public interface PsyIntegral
 {
 	public java.math.BigInteger bigIntegerValue();
 
+	@Override
+	default public PsyIntegral psyFloor()
+	{
+		return this;
+	}
+
+	@Override
+	default public PsyIntegral psyCeiling()
+	{
+		return this;
+	}
+
+	@Override
+	default public PsyIntegral psyRound()
+	{
+		return this;
+	}
+
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyErrorException;
 

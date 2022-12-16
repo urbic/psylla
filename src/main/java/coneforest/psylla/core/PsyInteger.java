@@ -308,24 +308,6 @@ public class PsyInteger
 	*/
 
 	@Override
-	public PsyInteger psyFloor()
-	{
-		return this;
-	}
-
-	@Override
-	public PsyInteger psyRound()
-	{
-		return this;
-	}
-
-	@Override
-	public PsyInteger psyCeiling()
-	{
-		return this;
-	}
-
-	@Override
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyErrorException
 	{

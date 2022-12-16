@@ -106,24 +106,6 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyBigInteger psyCeiling()
-	{
-		return this;
-	}
-
-	@Override
-	public PsyBigInteger psyFloor()
-	{
-		return this;
-	}
-
-	@Override
-	public PsyBigInteger psyRound()
-	{
-		return this;
-	}
-
-	@Override
 	public PsyIntegral psyAbs()
 	{
 		return PsyIntegral.valueOf(value.abs());
