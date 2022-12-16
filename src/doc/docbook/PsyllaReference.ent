@@ -58,6 +58,7 @@
 <!ENTITY PsyllaReference_Types_Details_logical				SYSTEM "PsyllaReference_Types_Details_logical.docbook">
 <!ENTITY PsyllaReference_Types_Details_mark					SYSTEM "PsyllaReference_Types_Details_mark.docbook">
 <!ENTITY PsyllaReference_Types_Details_matcher				SYSTEM "PsyllaReference_Types_Details_matcher.docbook">
+<!ENTITY PsyllaReference_Types_Details_multiplicative		SYSTEM "PsyllaReference_Types_Details_multiplicative.docbook">
 <!ENTITY PsyllaReference_Types_Details_name					SYSTEM "PsyllaReference_Types_Details_name.docbook">
 <!ENTITY PsyllaReference_Types_Details_namespace			SYSTEM "PsyllaReference_Types_Details_namespace.docbook">
 <!ENTITY PsyllaReference_Types_Details_null					SYSTEM "PsyllaReference_Types_Details_null.docbook">

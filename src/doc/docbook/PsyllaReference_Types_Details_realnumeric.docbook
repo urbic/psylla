@@ -11,6 +11,7 @@ A base type for integral and real numbers.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_additive"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arithmetic"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_atomic"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_multiplicative"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>.
@@ -27,6 +28,7 @@ A base type for integral and real numbers.
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_biginteger"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>.
 </formalpara>
 

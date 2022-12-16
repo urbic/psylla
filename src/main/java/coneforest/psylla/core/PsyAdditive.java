@@ -39,10 +39,33 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*/
 	public T psySub(final T oAdditive);
 
+	/**
+	*   Returns a {@code boolean} indicating whether this object represents a
+	*   zero value.
+	*
+	*   @return {@link PsyBoolean#TRUE} if this object represents a zero value,
+	*   and {@link PsyBoolean#FALSE} otherwise.
+	*/
+	public PsyBoolean psyIsZero();
+
+	/**
+	*   Returns a {@code boolean} indicating whether this object represents a
+	*   non-zero value.
+	*
+	*   @return {@link PsyBoolean#TRUE} if this object represents a non-zero value,
+	*   and {@link PsyBoolean#FALSE} otherwise.
+	*/
+	default public PsyBoolean psyNotZero()
+	{
+		return psyIsZero().psyNot();
+	}
+
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("add", PsyAdditive::psyAdd),
+			new PsyOperator.Arity11<PsyAdditive>("iszero", PsyAdditive::psyIsZero),
 			new PsyOperator.Arity11<PsyAdditive>("neg", PsyAdditive::psyNeg),
+			new PsyOperator.Arity11<PsyAdditive>("nonzero", PsyAdditive::psyNotZero),
 			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("sub", PsyAdditive::psySub),
 		};
 }

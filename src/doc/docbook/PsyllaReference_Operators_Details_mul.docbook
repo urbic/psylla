@@ -24,7 +24,7 @@ Returns the <replaceable>product</replaceable> of two
 <replaceable>multiplier<subscript>1</subscript></replaceable>,
 <replaceable>multiplier<subscript>2</subscript></replaceable>,
 <replaceable>product</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arithmetic"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_multiplicative"/>
 </listitem>
 </itemizedlist>
 </formalpara>

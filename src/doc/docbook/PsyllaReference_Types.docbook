@@ -116,6 +116,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_logical;
 &PsyllaReference_Types_Details_mark;
 &PsyllaReference_Types_Details_matcher;
+&PsyllaReference_Types_Details_multiplicative;
 &PsyllaReference_Types_Details_name;
 &PsyllaReference_Types_Details_namespace;
 &PsyllaReference_Types_Details_null;

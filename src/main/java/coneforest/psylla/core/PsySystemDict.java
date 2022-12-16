@@ -72,8 +72,10 @@ public class PsySystemDict
 			registerOperator(oOperator);
 		for(var oOperator: PsyAdditive.OPERATORS)
 			registerOperator(oOperator);
-		for(var oOperator: PsyArithmetic.OPERATORS)
+		for(var oOperator: PsyMultiplicative.OPERATORS)
 			registerOperator(oOperator);
+		//for(var oOperator: PsyArithmetic.OPERATORS)
+		//	registerOperator(oOperator);
 		for(var oOperator: PsyNumeric.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyTime.OPERATORS)
