@@ -9,7 +9,7 @@ The syntax of the language is based on postfix (reverse Polish) notation.
 
 Psylla is implemented as a library written in Java.
 
-[![License](https://img.shields.io/badge/license-zlib%2Fpng-blue.svg)](http://opensource.org/licenses/Zlib)
+[![License](https://img.shields.io/badge/license-zlib%2Fpng-blue.svg)](https://opensource.org/licenses/Zlib)
 [![Java CI Build Status](https://github.com/urbic/psylla/actions/workflows/build.yml/badge.svg)](https://github.com/urbic/psylla/actions/workflows/build.yml)
 
 ---
