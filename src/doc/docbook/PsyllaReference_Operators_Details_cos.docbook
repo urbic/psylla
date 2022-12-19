@@ -9,7 +9,7 @@ Returns the <replaceable>cosine</replaceable> of a
 
 <para>
 For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_realnumeric"/> operands returns a <xref
+linkend="PsyllaReference_Types_Details_realnumeric"/> operands, returns a <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/> result.
 For <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_complex"/> operands, returns a <xref

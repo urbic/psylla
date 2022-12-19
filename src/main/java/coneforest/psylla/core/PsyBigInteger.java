@@ -113,44 +113,38 @@ public class PsyBigInteger
 
 	@Override
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
-		throws PsyErrorException
+		throws PsyUndefinedResultException
 	{
 		if(oIntegral instanceof PsyBigInteger)
 			return PsyIntegral.of(value.divide(((PsyBigInteger)oIntegral).value));
-		if(oIntegral instanceof PsyInteger)
+		else
 			return PsyIntegral.of(
 				value.divide(BigInteger.valueOf(((PsyInteger)oIntegral).longValue())));
-		throw new PsyTypeCheckException();
 	}
 
 	@Override
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
-		throws PsyErrorException
+		throws PsyUndefinedResultException, PsyRangeCheckException
 	{
 		if(oIntegral.psyIsZero().booleanValue())
 			throw new PsyUndefinedResultException();
 		try
 		{
-			if(oIntegral instanceof PsyIntegral)
-				return PsyIntegral.of(value.mod(((PsyIntegral)oIntegral).bigIntegerValue()));
+			return PsyIntegral.of(value.mod(((PsyIntegral)oIntegral).bigIntegerValue()));
 		}
 		catch(final java.lang.ArithmeticException ex)
 		{
 			throw new PsyRangeCheckException();
 		}
-		throw new PsyTypeCheckException();
 	}
 
 	@Override
 	public PsyIntegral psyGCD(final PsyIntegral oIntegral)
-		throws PsyErrorException
 	{
 		if(psyIsZero().booleanValue())
 			return oIntegral;
 		if(oIntegral.psyIsZero().booleanValue())
 			return this;
-		if(value.compareTo(BigInteger.ZERO)<0 || oIntegral.psyCmp(ZERO).intValue()<0)
-			throw new PsyRangeCheckException();
 		return PsyIntegral.of(value.gcd(oIntegral.bigIntegerValue()));
 	}
 
@@ -159,6 +153,31 @@ public class PsyBigInteger
 	{
 		if(oNumeric instanceof PsyIntegral)
 			return PsyIntegral.of(value.multiply(((PsyIntegral)oNumeric).bigIntegerValue()));
+		if(oNumeric instanceof PsyRational)
+			try
+			{
+				return PsyRational.of(
+						(PsyIntegral)psyMul(((PsyRational)oNumeric).psyNumerator()),
+						((PsyRational)oNumeric).psyDenominator()
+					);
+			}
+			catch(final PsyUndefinedResultException e)
+			{
+				// NOP
+			}
+		return new PsyReal(doubleValue()*((PsyReal)oNumeric).doubleValue());
+	}
+
+	@Override
+	public PsyRealNumeric psyDiv(final PsyRealNumeric oNumeric)
+		throws PsyUndefinedResultException
+	{
+		if(oNumeric instanceof PsyRational)
+		{
+			return PsyRational.of(
+					(PsyIntegral)psyNumerator().psyMul(((PsyRational)oNumeric).psyDenominator()),
+					(PsyIntegral)psyDenominator().psyMul(((PsyRational)oNumeric).psyNumerator()));
+		}
 		return new PsyReal(doubleValue()*((PsyReal)oNumeric).doubleValue());
 	}
 

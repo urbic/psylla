@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_denominator">
+<title><token language="psylla">denominator</token></title>
+
+<para>
+Returns the <replaceable>denominator</replaceable> of the rational
+<replaceable>number</replaceable>.
+</para>
+
+<formalpara>
+&TitleSynopsis;
+<synopsis>
+<replaceable>number</replaceable>
+<token language="psylla">denominator</token>
+<replaceable>denominator</replaceable>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>number</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_rational"/>
+</listitem>
+<listitem>
+<replaceable>denominator</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+<itemizedlist>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
+&ErrorReason_stackunderflow;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_numerator"/>.
+</formalpara>
+
+</section>

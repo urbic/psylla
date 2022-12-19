@@ -91,13 +91,12 @@ public interface PsyRealNumeric
 		return new PsyComplex(this).psyMul(oNumber);
 	}
 
-	default public PsyReal psyDiv(final PsyRealNumeric oNumber)
-	{
-		return new PsyReal(doubleValue()/oNumber.doubleValue());
-	}
+	public PsyRealNumeric psyDiv(final PsyRealNumeric oNumber)
+		throws PsyUndefinedResultException;
 
 	@Override
 	default public PsyNumeric psyDiv(final PsyNumeric oNumber)
+		throws PsyUndefinedResultException
 	{
 		if(oNumber instanceof PsyRealNumeric)
 			return psyDiv((PsyRealNumeric)oNumber);

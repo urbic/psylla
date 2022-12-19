@@ -57,7 +57,13 @@ public class PsyComplex
 	@Override
 	public String toSyntaxString()
 	{
-		return "%complex="+re+";"+im+"%";
+		var sb=new StringBuilder();
+		sb.append(re);
+		if(im>=0.D)
+			sb.append('+');
+		sb.append(im);
+		sb.append("*i");
+		return sb.toString();
 	}
 
 	/**

@@ -3,6 +3,7 @@
 	default="jar"
 	xmlns:if="ant:if"
 	xmlns:unless="ant:unless"
+	xmlns:ivy="antlib:org.apache.ivy.ant"
 	>
 
 	<description>${project.description}</description>
@@ -61,8 +62,9 @@
 		<pathelement location="${target.classes}"/>
 		<pathelement location="${ant.core.lib}"/>
 		<pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/>
-		<pathelement location="${config.jar.junit4}"/>
-		<pathelement location="${config.jar.jline1}"/>
+		<!--pathelement location="${config.jar.junit4}"/-->
+		<!--pathelement location="${config.jar.jline1}"/-->
+		<path refid="modulepath.resolved"/>
 	</path>
 
 	<xmlcatalog id="xmlcatalog.xslt">
@@ -89,6 +91,11 @@
 	<import file="${src.ant}/obs.ant"/>
 	<import file="${src.ant}/gh-pages.ant"/>
 
+	<target name="resolve" description="Retrieve dependencies with Ivy">
+		<ivy:resolve/>
+		<ivy:cachepath pathid="modulepath.resolved"/>
+	</target>
+
 	<target name="compile.jj"
 		description="Compile JJ sources"
 		>
@@ -104,7 +111,7 @@
 
 	<target name="compile.java"
 		description="Compile Java sources"
-		depends="copy.resources,compile.jj"
+		depends="resolve,copy.resources,compile.jj"
 		>
 		<javac
 			srcdir="${src.main.java}"

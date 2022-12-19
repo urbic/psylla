@@ -26,7 +26,8 @@ License:		Zlib
 Group:			Development/Languages/Other
 URL:			https://github.com/urbic/%{name}
 Source:			%{name}-%{version}.tar.xz
-BuildRequires:	ant
+#BuildRequires:	ant
+BuildRequires:	ivy-local
 BuildRequires:	java-devel >= 17
 BuildRequires:	java-javadoc >= 17
 BuildRequires:	javacc

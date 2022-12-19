@@ -9,7 +9,7 @@ Returns the arc tangent of a <replaceable>number</replaceable> as
 
 <para>
 For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_realnumeric"/> operands returns a <xref
+linkend="PsyllaReference_Types_Details_realnumeric"/> operands, returns a <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/>. For
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>
 operands, returns a <xref xrefstyle="template:%t"

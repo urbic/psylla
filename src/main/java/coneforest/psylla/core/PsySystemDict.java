@@ -152,6 +152,8 @@ public class PsySystemDict
 			registerOperator(oOperator);
 		for(var oOperator: PsyAppendable.OPERATORS)
 			registerOperator(oOperator);
+		for(var oOperator: PsyRational.OPERATORS)
+			registerOperator(oOperator);
 		for(var oOperator: PsyIntegral.OPERATORS)
 			registerOperator(oOperator);
 		for(var oOperator: PsyFormalStream.OPERATORS)

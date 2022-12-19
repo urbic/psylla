@@ -8,9 +8,25 @@ import coneforest.psylla.*;
 public interface PsyIntegral
 	extends
 		PsyBitwise<PsyIntegral>,
-		PsyRealNumeric
+		PsyRational
 {
-	public java.math.BigInteger bigIntegerValue();
+	@Override
+	default public PsyIntegral psyNumerator()
+	{
+		return this;
+	}
+
+	@Override
+	default public PsyIntegral psyDenominator()
+	{
+		return ONE;
+	}
+
+	@Override
+	public PsyIntegral psyAbs();
+
+	@Override
+	public PsyIntegral psyNeg();
 
 	@Override
 	default public PsyIntegral psyFloor()
@@ -31,13 +47,12 @@ public interface PsyIntegral
 	}
 
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
-		throws PsyErrorException;
+		throws PsyUndefinedResultException;
 
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
-		throws PsyErrorException;
+		throws PsyUndefinedResultException, PsyRangeCheckException;
 
-	public PsyIntegral psyGCD(final PsyIntegral oIntegral)
-		throws PsyErrorException;
+	public PsyIntegral psyGCD(final PsyIntegral oIntegral);
 
 	default PsyIntegral psyLCM(final PsyIntegral oIntegral)
 		throws PsyErrorException
@@ -47,14 +62,14 @@ public interface PsyIntegral
 		return ((PsyIntegral)psyMul(oIntegral)).psyIdiv(psyGCD(oIntegral));
 	}
 
-	public static PsyInteger of(final long longValue)
-	{
-		return PsyInteger.of(longValue);
-	}
-
 	default public PsyIntegral psyToIntegral()
 	{
 		return this;
+	}
+
+	public static PsyInteger of(final long longValue)
+	{
+		return PsyInteger.of(longValue);
 	}
 
 	public static PsyIntegral of(final java.math.BigInteger bigIntegerValue)

@@ -36,7 +36,7 @@
 	</highlighter>
 
 	<highlighter type="regex">
-		<pattern>[\+\-]?(\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?</pattern>
+		<pattern>[\+\-]?(\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?([\+\-](\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?\*i)?</pattern>
 		<style>number</style>
 	</highlighter>
 
@@ -56,13 +56,13 @@
 	</highlighter>
 
 	<highlighter type="regex">
-		<style>keyword</style>
 		<pattern>(//)?[A-Za-z_\.\$@][A-Za-z_\.\$@\d]*</pattern>
+		<style>keyword</style>
 	</highlighter>
 
 	<highlighter type="regex">
-		<style>structure</style>
 		<pattern>[\(\)\[\]&lt;&gt;?]</pattern>
+		<style>structure</style>
 	</highlighter>
 
 </highlighters>

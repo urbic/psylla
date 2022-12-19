@@ -41,7 +41,7 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>.
 <programlisting language="psylla">1 log
 	▶ 0.0
 0 1 complex log
-	▶ %complex=0.0;1.5707963267948966%</programlisting>
+	▶ 0.0+1.5707963267948966*i</programlisting>
 </formalpara>
 
 <formalpara>

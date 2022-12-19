@@ -35,7 +35,7 @@ Returns a new complex <replaceable>number</replaceable> with given
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">1 3.141592653589793 complexpolar
-	▶ %complex=-1.0;1.2246467991473532E-16%</programlisting>
+	▶ -1.0+1.2246467991473532E-16*i</programlisting>
 </formalpara>
 
 <formalpara>

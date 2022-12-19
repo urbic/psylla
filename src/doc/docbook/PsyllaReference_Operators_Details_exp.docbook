@@ -42,7 +42,7 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>.
 <programlisting language="psylla">1 exp
 	▶ 2.718281828459045
 1 0 complex exp
-	▶ %complex=2.718281828459045;0.0%</programlisting>
+	▶ 2.718281828459045+0.0*i</programlisting>
 </formalpara>
 
 <formalpara>

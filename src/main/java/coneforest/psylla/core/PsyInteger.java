@@ -83,7 +83,7 @@ public class PsyInteger
 	}
 
 	@Override
-	public PsyRealNumeric psyNeg()
+	public PsyIntegral psyNeg()
 	{
 		return value!=Long.MIN_VALUE?
 			PsyInteger.of(-value): new PsyBigInteger(bigIntegerValue().negate());
@@ -104,7 +104,7 @@ public class PsyInteger
 	}
 
 	@Override
-	public PsyRealNumeric psyAbs()
+	public PsyIntegral psyAbs()
 	{
 		return value>0L? this: psyNeg();
 	}
@@ -161,19 +161,30 @@ public class PsyInteger
 		if(oNumeric instanceof PsyInteger)
 		{
 			final var numeric=((PsyInteger)oNumeric).value;
-			final var result=value+numeric;
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedAdd(long, long)
+			final var result=value+numeric;
 			if((value^numeric)<0|(value^result)>=0)
 				return PsyInteger.of(result);
 			else
 				return PsyIntegral.of(
 					bigIntegerValue().add(((PsyInteger)oNumeric).bigIntegerValue()));
 		}
-		else if(oNumeric instanceof PsyBigInteger)
+		if(oNumeric instanceof PsyBigInteger)
 			return PsyIntegral.of(
 				bigIntegerValue().add(((PsyBigInteger)oNumeric).bigIntegerValue()));
+		if(oNumeric instanceof PsyRational)
+			try
+			{
+				return psyMul(((PsyRational)oNumeric).psyDenominator())
+						.psyAdd(((PsyRational)oNumeric).psyNumerator())
+						.psyDiv(((PsyRational)oNumeric).psyDenominator());
+			}
+			catch(final PsyUndefinedResultException e)
+			{
+				// NOP
+			}
 
 		return new PsyReal(doubleValue()+oNumeric.doubleValue());
 	}
@@ -185,17 +196,28 @@ public class PsyInteger
 		if(oNumeric instanceof PsyInteger)
 		{
 			final var numeric=((PsyInteger)oNumeric).value;
-			final var result=value-numeric;
 
 			// Overflow condition from
 			// com.google.common.math.LongMath.checkedSubtract(long, long)
+			final var result=value-numeric;
 			if((value^numeric)>=0|(value^result)>=0)
 				return PsyInteger.of(result);
 			else
 				return PsyIntegral.of(bigIntegerValue().subtract(((PsyInteger)oNumeric).bigIntegerValue()));
 		}
-		else if(oNumeric instanceof PsyBigInteger)
+		if(oNumeric instanceof PsyBigInteger)
 			return PsyIntegral.of(bigIntegerValue().subtract(((PsyBigInteger)oNumeric).bigIntegerValue()));
+		if(oNumeric instanceof PsyRational)
+			try
+			{
+				return psyMul(((PsyRational)oNumeric).psyDenominator())
+						.psySub(((PsyRational)oNumeric).psyNumerator())
+						.psyDiv(((PsyRational)oNumeric).psyDenominator());
+			}
+			catch(final PsyUndefinedResultException e)
+			{
+				// NOP
+			}
 
 		return new PsyReal(doubleValue()-oNumeric.doubleValue());
 	}
@@ -215,7 +237,6 @@ public class PsyInteger
 				+Long.numberOfLeadingZeros(~numeric);
 			if(leadingZeros>Long.SIZE+1)
 				return PsyInteger.of(value*numeric);
-
 			if(leadingZeros>=Long.SIZE && value>=0 | numeric!=Long.MIN_VALUE)
 			{
 				final var result=value*numeric;
@@ -225,10 +246,37 @@ public class PsyInteger
 			else
 				return PsyIntegral.of(bigIntegerValue().multiply(((PsyInteger)oNumeric).bigIntegerValue()));
 		}
-		else if(oNumeric instanceof PsyBigInteger)
+		if(oNumeric instanceof PsyBigInteger)
 			return PsyIntegral.of(bigIntegerValue().multiply(((PsyBigInteger)oNumeric).bigIntegerValue()));
+		if(oNumeric instanceof PsyRational)
+			try
+			{
+				return PsyRational.of(
+						(PsyIntegral)psyMul(((PsyRational)oNumeric).psyNumerator()),
+						((PsyRational)oNumeric).psyDenominator()
+					);
+			}
+			catch(final PsyUndefinedResultException e)
+			{
+				// NOP
+			}
 
 		return new PsyReal(doubleValue()*oNumeric.doubleValue());
+	}
+
+	@Override
+	public PsyRealNumeric psyDiv(final PsyRealNumeric oNumeric)
+		throws PsyUndefinedResultException
+	{
+		if(oNumeric instanceof PsyIntegral)
+			return PsyRational.of(this, (PsyIntegral)oNumeric);
+		if(oNumeric instanceof PsyRational)
+			return PsyRational.of(
+					(PsyIntegral)psyMul(((PsyRational)oNumeric).psyDenominator()),
+					((PsyRational)oNumeric).psyNumerator()				
+				);
+
+		return new PsyReal(doubleValue()/oNumeric.doubleValue());
 	}
 
 	/*
@@ -309,7 +357,7 @@ public class PsyInteger
 
 	@Override
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
-		throws PsyErrorException
+		throws PsyUndefinedResultException, PsyRangeCheckException
 	{
 		if(oIntegral.psyIsZero().booleanValue())
 			throw new PsyUndefinedResultException();
@@ -320,10 +368,9 @@ public class PsyInteger
 				throw new PsyRangeCheckException();
 			if(integer==0)
 				throw new PsyUndefinedResultException();
-			final var result=value % integer;
-			return PsyInteger.of((result>=0)? result: result+integer);
+			return PsyInteger.of(Math.floorMod(value, integer));
 		}
-		else if(oIntegral instanceof PsyBigInteger)
+		else
 		{
 			try
 			{
@@ -335,44 +382,20 @@ public class PsyInteger
 				throw new PsyRangeCheckException();
 			}
 		}
-		throw new PsyTypeCheckException();
 	}
 
 	@Override
 	public PsyIntegral psyGCD(final PsyIntegral oIntegral)
-		throws PsyErrorException
 	{
-		if(value==0L)
-			return oIntegral;
-		if(oIntegral.psyIsZero().booleanValue())
-			return this;
-		if(value<0L || oIntegral.psyCmp(ZERO).intValue()<0)
-			throw new PsyRangeCheckException();
-		if(oIntegral instanceof PsyBigInteger)
-			return oIntegral.psyGCD(this);
-		else if(oIntegral instanceof PsyInteger)
-		{
-			var x=value;
-			var y=((PsyInteger)oIntegral).value;
-			while(x!=0)
-			{
-				if(x>y)
-				{
-					var t=x;
-					x=y;
-					y=t;
-					continue;
-				}
-				y%=x;
-			}
-			return PsyInteger.of(y);
-		}
-		throw new PsyTypeCheckException();
+		if(oIntegral instanceof PsyInteger)
+			return PsyInteger.of(gcd(value, ((PsyInteger)oIntegral).value));
+		else
+			return ((PsyBigInteger)oIntegral).psyGCD(this);
 	}
 
 	@Override
 	public PsyInteger psyIdiv(final PsyIntegral oInteger)
-		throws PsyErrorException
+		throws PsyUndefinedResultException
 	{
 		if(((PsyInteger)oInteger).value==0) // TODO
 			throw new PsyUndefinedResultException();
@@ -405,6 +428,26 @@ public class PsyInteger
 					doubleValue()==((PsyComplex)o).psyRealPart().doubleValue()
 						&& ((PsyComplex)o).psyImagPart().doubleValue()==0.D);
 		return PsyBoolean.FALSE;
+	}
+
+	public long gcd(long x, long y)
+	{
+		if(x<0L)
+			x=-x;
+		if(y<0L)
+			y=-y;
+		while(x!=0)
+		{
+			if(x>y)
+			{
+				var t=x;
+				x=y;
+				y=t;
+				continue;
+			}
+			y%=x;
+		}
+		return y;
 	}
 
 	@Override

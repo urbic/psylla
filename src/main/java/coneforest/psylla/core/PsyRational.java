@@ -1,0 +1,40 @@
+package coneforest.psylla.core;
+import coneforest.psylla.*;
+import java.math.BigInteger;
+
+@Type("rational")
+public interface PsyRational
+	extends PsyRealNumeric
+{
+	public BigInteger bigIntegerValue();
+
+	public PsyIntegral psyNumerator();
+
+	public PsyIntegral psyDenominator();
+
+	public static PsyRational of(final PsyIntegral oNumerator, final PsyIntegral oDenominator)
+		throws PsyUndefinedResultException
+	{
+		if(oDenominator.psyIsZero().booleanValue())
+			throw new PsyUndefinedResultException();
+		try
+		{
+			if(oNumerator.psyMod(oDenominator.psyAbs()).psyIsZero().booleanValue())
+				return oNumerator.psyIdiv(oDenominator);
+		}
+		catch(final PsyRangeCheckException e)
+		{
+			// NOP
+		}
+		if(oNumerator instanceof PsyInteger && oDenominator instanceof PsyInteger)
+			return PsyFractional.of(oNumerator.longValue(), oDenominator.longValue());
+		else
+			return PsyBigFractional.of(oNumerator.bigIntegerValue(), oDenominator.bigIntegerValue());
+	}
+
+	public static final PsyOperator[] OPERATORS=
+		{
+			new PsyOperator.Arity11<PsyRational>("numerator", PsyRational::psyNumerator),
+			new PsyOperator.Arity11<PsyRational>("denominator", PsyRational::psyDenominator),
+		};
+}

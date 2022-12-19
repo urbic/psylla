@@ -215,8 +215,8 @@
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_gcd" xrefstyle="template:%t"/></term>
-<listitem>the greatest common divisor of two numbers</listitem>
+<term><xref linkend="PsyllaReference_Operators_Details_denominator" xrefstyle="template:%t"/></term>
+<listitem>the denominator of a fraction</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -232,6 +232,11 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_floor" xrefstyle="template:%t"/></term>
 <listitem>the floor of a number</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_gcd" xrefstyle="template:%t"/></term>
+<listitem>the greatest common divisor of two numbers</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -282,6 +287,11 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_nonzero" xrefstyle="template:%t"/></term>
 <listitem>a number is non-zero?</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_numerator" xrefstyle="template:%t"/></term>
+<listitem>the numerator of a fraction</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1501,6 +1511,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_currentdirectory;
 &PsyllaReference_Operators_Details_def;
 &PsyllaReference_Operators_Details_deletefile;
+&PsyllaReference_Operators_Details_denominator;
 &PsyllaReference_Operators_Details_dequeue;
 &PsyllaReference_Operators_Details_dict;
 &PsyllaReference_Operators_Details_dictstack;
@@ -1601,6 +1612,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_not;
 &PsyllaReference_Operators_Details_notify;
 &PsyllaReference_Operators_Details_null;
+&PsyllaReference_Operators_Details_numerator;
 &PsyllaReference_Operators_Details_or;
 &PsyllaReference_Operators_Details_osarch;
 &PsyllaReference_Operators_Details_osname;

@@ -84,6 +84,12 @@ public class PsyReal
 	}
 
 	@Override
+	public PsyRealNumeric psyDiv(final PsyRealNumeric oNumeric)
+	{
+		return new PsyReal(value/oNumeric.doubleValue());
+	}
+
+	@Override
 	public PsyInteger psyRound()
 	{
 		return PsyInteger.of(Math.round(value));

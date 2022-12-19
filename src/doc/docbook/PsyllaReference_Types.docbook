@@ -44,6 +44,7 @@ calculated, and the result will be integer.
 &PsyllaReference_Types_Details_arithmetic;
 &PsyllaReference_Types_Details_array;
 &PsyllaReference_Types_Details_atomic;
+&PsyllaReference_Types_Details_bigfractional;
 &PsyllaReference_Types_Details_biginteger;
 &PsyllaReference_Types_Details_bitarray;
 &PsyllaReference_Types_Details_bitset;
@@ -106,6 +107,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_formalqueue;
 &PsyllaReference_Types_Details_formalset;
 &PsyllaReference_Types_Details_formalstream;
+&PsyllaReference_Types_Details_fractional;
 &PsyllaReference_Types_Details_indexed;
 &PsyllaReference_Types_Details_input;
 &PsyllaReference_Types_Details_integer;
@@ -126,6 +128,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_output;
 &PsyllaReference_Types_Details_proc;
 &PsyllaReference_Types_Details_random;
+&PsyllaReference_Types_Details_rational;
 &PsyllaReference_Types_Details_readable;
 &PsyllaReference_Types_Details_reader;
 &PsyllaReference_Types_Details_ready;
