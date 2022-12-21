@@ -19,6 +19,7 @@ jobs:
             ant{,-optional} \
             docbook-{xsl-{ns,saxon},mathml} \
             graphviz \
+            ivy \
             javacc \
             junit4 \
             libjline-java{,-doc} \
