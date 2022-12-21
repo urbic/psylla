@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<project name="htmldocs" basedir=".">
+<project name="htmldocs"
+	xmlns:ivy="antlib:org.apache.ivy.ant"
+	basedir="."
+	>
 
 	<property name="xslt.highlight.xslthl.config" location="${src.doc.xsl}/xslthl/highlighters/xslthl-config.xml"/>
 
@@ -15,7 +18,7 @@
 			<xmlcatalog refid="xmlcatalog.xslt"/>
 			<param name="rootid" expression="${xslt.rootid}" if="${xslt.rootid}"/>
 			<param name="shortcut.icon" expression="${xslt.shortcut.icon}"/>
-			<param name="link.mailto.url" expression="mailto:${config.developer.email}?subject=${project.name}"/>
+			<param name="link.mailto.url" expression="mailto:${project.developer.email}?subject=${project.name}"/>
 			<param name="shortcut.icon" expression="${project.name}.svg"/>
 			<param name="tablecolumns.extension" expression="${xslt.tablecolumns.extension}"/>
 			<param name="draft.mode" expression="maybe"/>
@@ -47,7 +50,10 @@
 		</copy>
 	</target>
 
-	<target name="htmldocs" description="Build XHTML documentation" depends="compile,css,version">
+	<target name="htmldocs"
+		description="Build XHTML documentation"
+		depends="compile,css,version"
+		>
 		<mkdir dir="${target.doc.html}"/>
 		<apply executable="dot" dest="${target.doc.html}" parallel="false">
 			<arg value="-Tsvg"/>

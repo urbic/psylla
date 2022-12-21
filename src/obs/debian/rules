@@ -8,23 +8,21 @@
 # This is the debhelper compatibility version to use.
 export DH_COMPAT=10
 
-CFLAGS = -g
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-CFLAGS += -O0
-else
-CFLAGS += -O2
-endif
+export LC_ALL:=C.UTF-8
+export CLASSPATH:=/usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar
 
-build: build-stamp
-build-stamp:
-	dh_testdir
+%:
+	dh $@ --buildsystem=ivy --with maven-repo-helper
 
+override_dh_auto_build-indep:
 	# Add here commands to compile the package.
 	if [ "$(DEB_BUILD_ARCH)" = "armhf" ]; then \
 		sed -i -e 's/2\.718281828459045/2\.7182818284590455/' \
 			src/test/psylla/operators/exp/general.t.out; \
 	fi
-	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant -v \
+	dh_auto_build -- -v \
+		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
+		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
 		-Ddestdir=$(DESTDIR) \
 		-Dconfig.docdir=/usr/share/doc \
 		-Dconfig.psylla.docdir=/usr/share/doc/psylla \
@@ -34,20 +32,19 @@ build-stamp:
 		build
 	# --- end custom part for compiling
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant \
+	dh_auto_build -- -v \
+		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
+		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
 		-Dlinux.flavour=debian \
 		test
 endif
 
-	touch build-stamp
-
-clean:
+override_dh_auto_clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp
 
 	# Add here commands to clean up after the build process.
-	ant clean
+	dh_auto_build -- -v clean
 	# --- end custom part for cleaning up
 
 	dh_clean
@@ -62,7 +59,9 @@ install: build
 
 	# Add here commands to install the package
 	# The DESTDIR Has To Be Exactly  /usr/src/packages/BUILD/debian/<nameOfPackage>
-	LC_ALL=C.UTF-8 CLASSPATH=/usr/share/java/xercesImpl.jar ant \
+	dh_auto_build -- -v \
+		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
+		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
 		-Ddestdir=$(DESTDIR) \
 		-Dconfig.docdir=/usr/share/doc \
 		-Dconfig.psylla.docdir=/usr/share/doc/psylla \
@@ -82,28 +81,11 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir
 	dh_testroot
-#	dh_installdebconf
-	dh_installdocs
-	dh_installexamples
-#	dh_installmenu
-#	dh_installlogrotate
-#	dh_installemacsen
-#	dh_installpam
-	dh_installmime
-#	dh_installinit
-#	dh_installcron
-	dh_installman
-#	dh_installinfo
-#	dh_undocumented
 	dh_installchangelogs
 	dh_link
-	dh_strip
 	dh_compress
 	dh_fixperms
-#	dh_makeshlibs
 	dh_installdeb
-#	dh_perl
-#	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb

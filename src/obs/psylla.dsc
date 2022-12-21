@@ -2,25 +2,28 @@ Format: 1.0
 Version: @obs.package.version@-0
 Source: @obs.package.name@
 Binary: @obs.package.name@
-Maintainer: Anton Shvetz <shvetz.anton@gmail.com>
+Maintainer: @project.developer.name@ <@project.developer.email@>
 Architecture: all
-Build-Depends: debhelper (>=9),
-	perl-base (>=5.18.2),
+Build-Depends:
+	debhelper (>=10),
 	openjdk-17-jdk-headless,
 	openjdk-17-doc,
 	javacc,
 	junit4 (>=4.11),
-	ant,
 	ant-optional,
+	ivy-debian-helper,
 	libjline-java,
 	libjline-java-doc,
+	libxslthl-java,
 	docbook-xsl-ns (>=1.79),
 	docbook-mathml,
 	docbook-xsl-saxon,
-	libxslthl-java,
 	sassc,
 	libxerces2-java,
 	graphviz
+Vcs-Git: @project.scm.url@.git
+Vcs-Browser: @project.scm.url@
+Homepage: @project.scm.url@
 Debtransform-Tar: @obs.package.name@-@obs.package.version@.tar.xz
 Files:
 	00000000000000000000000000000000 0 @obs.package.name@_@obs.package.version@.orig.tar.xz

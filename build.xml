@@ -58,13 +58,21 @@
 	<property file="${src.ant}/config.properties"/>
 	<property file="${src.ant}/config-${linux.flavour}.properties"/>
 
-	<path id="modulepath.main">
+	<path id="classpath.main">
 		<pathelement location="${target.classes}"/>
-		<pathelement location="${ant.core.lib}"/>
-		<pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/>
+		<!--pathelement location="${ant.core.lib}"/-->
+		<!--pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/-->
 		<!--pathelement location="${config.jar.junit4}"/-->
 		<!--pathelement location="${config.jar.jline1}"/-->
-		<path refid="modulepath.resolved"/>
+		<path refid="classpath.main.resolved"/>
+	</path>
+
+	<path id="classpath.xslt">
+		<!--pathelement location="${config.jar.saxon6}"/-->
+		<!--pathelement location="${config.jar.xslthl}"/-->
+		<pathelement location="${config.jar.xerces}"/>
+		<pathelement location="${config.jar.docbook-xsl-saxon}"/>
+		<path refid="classpath.xslt.resolved"/>
 	</path>
 
 	<xmlcatalog id="xmlcatalog.xslt">
@@ -76,14 +84,8 @@
 		</catalogpath>
 	</xmlcatalog>
 
-	<path id="classpath.xslt">
-		<pathelement location="${config.jar.saxon6}"/>
-		<pathelement location="${config.jar.docbook-xsl-saxon}"/>
-		<pathelement location="${config.jar.xslthl}"/>
-		<pathelement location="${config.jar.xerces}"/>
-	</path>
-
 	<!-- Import supplementary Ant projects -->
+	<import file="${src.ant}/test.ant"/>
 	<import file="${src.ant}/test-examples.ant"/>
 	<import file="${src.ant}/htmldocs.ant"/>
 	<import file="${src.ant}/manpages.ant"/>
@@ -92,8 +94,9 @@
 	<import file="${src.ant}/gh-pages.ant"/>
 
 	<target name="resolve" description="Retrieve dependencies with Ivy">
-		<ivy:resolve/>
-		<ivy:cachepath pathid="modulepath.resolved"/>
+		<ivy:resolve conf="compile,xslt"/>
+		<ivy:cachepath pathid="classpath.main.resolved" conf="compile"/>
+		<ivy:cachepath pathid="classpath.xslt.resolved" conf="xslt"/>
 	</target>
 
 	<target name="compile.jj"
@@ -120,7 +123,7 @@
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
-			<modulepath refid="modulepath.main"/>
+			<modulepath refid="classpath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
@@ -136,7 +139,7 @@
 			includeantruntime="false"
 			encoding="UTF-8"
 			>
-			<modulepath refid="modulepath.main"/>
+			<modulepath refid="classpath.main"/>
 			<!--compilerarg value="-XprintRounds"/-->
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
@@ -170,7 +173,7 @@
 			charset="UTF-8"
 			windowtitle="Psylla ${project.version}"
 			>
-			<classpath refid="modulepath.main"/>
+			<classpath refid="classpath.main"/>
 			<arg value="-Xdoclint:missing,reference"/>
 			<link href="${config.javadocdir.java}"/>
 			<link href="${config.javadocdir.junit4}"/>
@@ -210,7 +213,7 @@
 		depends="compile"
 		>
 		<jar
-			jarfile="${target.lib}/${project.name}-${project.version}.jar"
+			jarfile="${target.lib}/${project.nameversion}.jar"
 			basedir="${target.classes}"
 			>
 			<manifest>
@@ -218,54 +221,19 @@
 			</manifest>
 		</jar>
 		<symlink
-			resource="${project.name}-${project.version}.jar"
+			resource="${project.nameversion}.jar"
 			link="${target.lib}/${project.name}.jar"
 			overwrite="true"
 			/>
 	</target>
 
-	<target name="clean" description="Clean build directory">
-		<delete dir="${target}"/>
-	</target>
-
-	<target name="test"
-		description="Perform unit tests"
-		depends="jar"
-		>
-		<!--junit>
-			<classpath refid="modulepath.main"/>
-			<formatter type="plain" usefile="false"/>
-			<test name="coneforest.psylla.tools.PsyllaTest"/>
-		</junit-->
-		<!--junit>
-			<classpath refid="modulepath.main"/>
-			<formatter type="plain" usefile="false"/>
-			<test name="coneforest.psylla.tools.MyTest"/>
-		</junit-->
-		<mkdir dir="${src.test.data}/DIRECTORY-EMPTY"/>
-		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-1"/>
-		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-2/DIR-3"/>
-		<taskdef name="psyllaunit"
-			classname="coneforest.psylla.tools.ant.PsyllaUnit"
-			classpathref="modulepath.main"
-			/>
-		<psyllaunit haltonfailure="yes">
-			<arg value="-LC"/>
-			<arg value="-I${src.main.psylla}"/>
-			<classpath refid="modulepath.main"/>
-			<formatter type="plain" usefile="false"/>
-			<!--test name="${src.test.psylla}"/-->
-			<test name="src/test/psylla"/>
-		</psyllaunit>
-	</target>
-
 	<target name="pom"
-		description="Copy POM"
+		description="Generate POM"
 		>
 		<mkdir dir="${target.lib}"/>
-		<copy
+		<!--copy
 			file="${src.maven}/${project.name}.pom"
-			tofile="${target.lib}/${project.name}-${project.version}.pom"
+			tofile="${target.lib}/${project.nameversion}.pom"
 			filtering="true"
 			overwrite="yes"
 			>
@@ -274,35 +242,27 @@
 					<propertyref prefix="project."/>
 				</propertyset>
 			</filterset>
-		</copy>
-	</target>
-
-	<target name="test.anttask" depends="jar">
-		<taskdef
-			name="psylla"
-			classname="coneforest.psylla.tools.ant.Psylla"
-			classpathref="modulepath.main"
+		</copy-->
+		<ivy:makepom
+			ivyfile="ivy.xml"
+			templatefile="${src.maven}/${project.name}.pom"
+			pomfile="${target.lib}/${project.nameversion}.pom"
+			>
+			<ivy:mapping conf="default" scope="compile"/>
+		</ivy:makepom>
+		<symlink
+			resource="${project.nameversion}.pom"
+			link="${target.lib}/${project.name}.pom"
+			overwrite="true"
 			/>
-		<psylla eval="1 1 99 { ? } for"/>
-		<psylla eval="1 atan 4 mul ?"/>
 	</target>
 
-	<target name="test.jsr223" depends="jar">
-		<script
-			manager="javax"
-			language="psylla"
-			classpathref="modulepath.main"
-			>
-			<![CDATA[1 1 99 { ? } for]]>
-		</script>
-		<script
-			manager="javax"
-			language="psylla"
-			classpathref="modulepath.main"
-			>
-			<![CDATA[1 atan 4 mul ?]]>
-		</script>
+	<target name="clean" description="Clean build directory">
+		<delete dir="${target}"/>
 	</target>
+
+	<target name="test" description="Perform general tests"
+		depends="test.anttask,test.cli,test.jsr223,test.psylla"/>
 
 	<target name="htmldocs"
 		description="Build XHTML documentation"
@@ -315,20 +275,20 @@
 		/>
 
 	<target name="dist.zip" description="Make Zip distribution">
-		<mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
-		<copy todir="${target}/tmp/${project.name}-${project.version}">
+		<mkdir dir="${target}/tmp/${project.nameversion}"/>
+		<copy todir="${target}/tmp/${project.nameversion}">
 			<fileset
 				dir="."
 				includes="src/** build.xml README LICENSE AUTHORS"
 				/>
 		</copy>
 		<zip
-			destfile="${target}/${project.name}-${project.version}.zip"
+			destfile="${target}/${project.nameversion}.zip"
 			basedir="${target}/tmp"
 			>
 			<fileset
 				dir="${target}/tmp"
-				includes="${project.name}-${project.version}/**"
+				includes="${project.nameversion}/**"
 				/>
 		</zip>
 		<delete dir="${target}/tmp" quiet="yes"/>
@@ -348,11 +308,12 @@
 		<echo message="${git.object}"/>
 		<exec executable="git">
 			<arg value="archive"/>
-			<arg value="--prefix=${project.name}-${project.version}/"/>
-			<arg value="--output=${target}/${project.name}-${project.version}.tar.xz"/>
+			<arg value="--prefix=${project.nameversion}/"/>
+			<arg value="--output=${target}/${project.nameversion}.tar.xz"/>
 			<arg value="${git.object}"/>
 			<arg value="--"/>
 			<arg value="build.xml"/>
+			<arg value="ivy.xml"/>
 			<arg value="src"/>
 			<arg value="README"/>
 			<arg value="LICENSE"/>
@@ -362,7 +323,7 @@
 
 	<target name="build"
 		description="Build project"
-		depends="jar,docs"
+		depends="jar,pom,docs"
 		>
 		<copy tofile="${target.bin}/${project.name}" file="${src.bin}/${project.name}-${linux.flavour}"/>
 		<chmod file="${target.bin}/${project.name}" perm="ugo+rx"/>

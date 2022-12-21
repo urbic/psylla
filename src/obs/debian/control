@@ -1,31 +1,32 @@
 Source: @obs.package.name@
 Section: contrib/interpreters
 Priority: optional
-Maintainer: Anton Shvetz <shvetz.anton@gmail.com>
-Build-Depends: debhelper (>=9),
-	perl-base (>=5.18.2),
+Maintainer: @project.developer.name@ <@project.developer.email@>
+Build-Depends:
+	debhelper (>=10),
 	openjdk-17-jdk-headless,
 	openjdk-17-doc,
 	javacc,
 	junit4 (>=4.11),
-	ant,
 	ant-optional,
+	ivy-debian-helper,
 	libjline-java,
 	libjline-java-doc,
+	libxslthl-java,
 	docbook-xsl-ns (>=1.79),
 	docbook-mathml,
 	docbook-xsl-saxon,
-	libxslthl-java,
 	sassc,
 	libxerces2-java,
 	graphviz
-Vcs-Git: https://github.com/urbic/@obs.package.name@.git
-Vcs-Browser: https://github.com/urbic/@obs.package.name@
-Homepage: https://github.com/urbic/@obs.package.name@
+Vcs-Git: @project.scm.url@.git
+Vcs-Browser: @project.scm.url@
+Homepage: @project.scm.url@
 
 Package: @obs.package.name@
 Architecture: all
-Depends: debhelper (>=9),
+Depends:
+	debhelper (>=10),
 	openjdk-17-jre-headless,
 	javacc,
 	junit4 (>=4.11),
@@ -40,7 +41,7 @@ Description: @obs.package.summary@
 Package: @obs.package.name@-doc
 Architecture: all
 Section: doc
-Depends: debhelper (>=9),
+Depends: debhelper (>=10),
 Recommends:
 	openjdk-17-doc,
 	ant-doc,

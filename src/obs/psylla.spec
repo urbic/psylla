@@ -31,7 +31,8 @@ BuildRequires:	ivy-local
 BuildRequires:	java-devel >= 17
 BuildRequires:	java-javadoc >= 17
 BuildRequires:	javacc
-BuildRequires:	junit >= 4.0
+#BuildRequires:	junit >= 4.0
+BuildRequires:	mvn(junit:junit) < 5
 BuildRequires:	mvn(jline:jline:1)
 BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)
 BuildRequires:	mvn(org.apache.ant:ant-junit)
@@ -76,16 +77,18 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-LC_ALL=C.UTF-8 %{ant} -v \
+LC_ALL=C.UTF-8 \
+	%{ant} -Divy.mode=local -v \
 	build
 
 %check
 LC_ALL=C.UTF-8 \
-	%{ant} -v \
+	%{ant} -Divy.mode=local -v \
 	test
 
 %install
-LANG=C.UTF-8 %{ant} -v \
+LANG=C.UTF-8 \
+	%{ant} -Divy.mode=local -v \
 	-Ddestdir=%{buildroot} \
 	install
 %fdupes %{buildroot}%{_javadocdir}/%{name}

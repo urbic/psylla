@@ -6,8 +6,9 @@
 	<property name="obs.package.summary" value="${project.summary}"/>
 	<property name="obs.package.description" value="${project.description}"/>
 	<property name="obs.build.distro" value="15.4"/>
+	<property name="obs.build.apiurl" value="https://api.opensuse.org"/>
 	<property name="obs.build.arch" value="x86_64"/>
-	<property name="obs.user" value="urbic"/>
+	<property name="obs.user" value="${project.developer.id}"/>
 	<property name="obs.build.project" value="home:${obs.user}:java"/>
 	<property name="src.obs" location="${src}/obs"/>
 	<condition property="obs.build.desc" value="${obs.package.name}.dsc" else="${obs.package.name}.spec">
@@ -23,13 +24,25 @@
 	</condition>
 	<property name="osc.rc" location="${user.home}/.config/osc/oscrc"/>
 
+	<filterset id="obs.build.filterset">
+		<propertyset>
+			<propertyref name="obs.package.name"/>
+			<propertyref name="obs.package.version"/>
+			<propertyref name="obs.package.summary"/>
+			<propertyref name="obs.package.description"/>
+			<propertyref name="project.developer.name"/>
+			<propertyref name="project.developer.email"/>
+			<propertyref name="project.scm.url"/>
+		</propertyset>
+	</filterset>
+
 	<target name="osc.config"
 		description="Configure osc"
 		>
 		<echo file="${osc.rc}" if:true="${obs.password.set}"><![CDATA[[general]
-apiurl=https://api.opensuse.org
+apiurl=${osc.build.apiurl}
 
-[https://api.opensuse.org]
+[${osc.build.apiurl}]
 user=${obs.user}
 credentials_mgr_class=osc.credentials.ObfuscatedConfigFileCredentialsManager
 pass=
@@ -63,33 +76,16 @@ pass=
 		</delete>
 
 		<copy todir="${target.obs}" overwrite="yes">
-			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
+			<fileset dir="${target}" includes="${project.nameversion}.tar.xz"/>
 		</copy>
 		<copy todir="${target.obs}" filtering="true" overwrite="yes">
 			<fileset dir="${src.obs}" includes="${project.name}.*"/>
-			<filterset>
-				<propertyset>
-					<propertyref name="obs.package.name"/>
-					<propertyref name="obs.package.version"/>
-					<propertyref name="obs.package.summary"/>
-					<propertyref name="obs.package.description"/>
-				</propertyset>
-			</filterset>
+			<filterset refid="obs.build.filterset"/>
 		</copy>
 		<copy todir="${target.obs}" filtering="true" overwrite="yes">
 			<fileset dir="${src.obs}/debian" includes="*"/>
 			<mapper type="glob" from="*" to="debian.*"/>
-			<filterset>
-				<propertyset>
-					<propertyref name="obs.package.name"/>
-					<propertyref name="obs.package.version"/>
-					<propertyref name="obs.package.summary"/>
-					<propertyref name="obs.package.description"/>
-					<propertyref name="project.developer.name"/>
-					<propertyref name="project.developer.email"/>
-					<propertyref name="project.scm.url"/>
-				</propertyset>
-			</filterset>
+			<filterset refid="obs.build.filterset"/>
 		</copy>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="addremove"/>

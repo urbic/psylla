@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<project name="test" basedir=".">
+
+	<target name="test.psylla"
+		description="Perform unit tests"
+		depends="compile.java,copy.resources"
+		>
+		<mkdir dir="${src.test.data}/DIRECTORY-EMPTY"/>
+		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-1"/>
+		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-2/DIR-3"/>
+		<taskdef name="psyllaunit"
+			classname="coneforest.psylla.tools.ant.PsyllaUnit"
+			classpathref="classpath.main"
+			/>
+		<psyllaunit haltonfailure="yes">
+			<arg value="-LC"/>
+			<arg value="-I${src.main.psylla}"/>
+			<classpath refid="classpath.main"/>
+			<formatter type="plain" usefile="false"/>
+			<!--test name="${src.test.psylla}"/-->
+			<test name="src/test/psylla"/>
+		</psyllaunit>
+	</target>
+
+	<target name="test.anttask"
+		description="Perform ant-task tests"
+		depends="compile.java,copy.resources">
+		<taskdef
+			name="psylla"
+			classname="coneforest.psylla.tools.ant.Psylla"
+			classpathref="classpath.main"
+			/>
+		<psylla eval="1 1 99 { ? } for"/>
+		<psylla eval="1 atan 4 mul ?"/>
+	</target>
+
+	<target name="test.jsr223"
+		description="Perform JSR 223 tests"
+		depends="compile.java,copy.resources">
+		<script
+			manager="javax"
+			language="psylla"
+			classpathref="classpath.main"
+			>
+			<![CDATA[1 1 99 { ? } for]]>
+		</script>
+		<script
+			manager="javax"
+			language="psylla"
+			classpathref="classpath.main"
+			>
+			<![CDATA[1 atan 4 mul ?]]>
+		</script>
+	</target>
+
+	<target name="test.cli"
+		description="Perform CLI tests"
+		depends="compile.java,copy.resources">
+		<junit>
+			<classpath refid="classpath.main"/>
+			<formatter type="plain" usefile="false"/>
+			<test name="coneforest.cli.test.ProcessorTest"/>
+		</junit>
+	</target>
+
+</project>

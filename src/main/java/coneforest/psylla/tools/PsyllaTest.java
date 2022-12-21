@@ -1,25 +1,22 @@
 package coneforest.psylla.tools;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Suite;
 import static org.junit.Assert.*;
 
-@org.junit.runner.RunWith(org.junit.runners.Parameterized.class)
+@RunWith(Parameterized.class)
 public class PsyllaTest
-	extends junit.framework.TestCase
 {
-
-	public static junit.framework.Test suite()
-	{
-		return new junit.framework.JUnit4TestAdapter(PsyllaTest.class);
-	}
 
 	public PsyllaTest(final String testName)
 	{
-		super(testName);
 		this.testName=testName;
 	}
 
 	public final String testName;
 
-	@org.junit.Test
+	@Test
 	public void test()
 		throws java.io.IOException
 	{
@@ -28,7 +25,7 @@ public class PsyllaTest
 		runTest(testName, new String[0], args);
 	}
 
-	@org.junit.runners.Parameterized.Parameters(name="{0}")
+	@Parameterized.Parameters(name="{0}")
 	public static Iterable<String[]> data()
 	{
 		final var root=System.getProperty(coneforest.psylla.tools.ant.PsyllaUnit.class.getName()+".testName");

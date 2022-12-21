@@ -273,7 +273,7 @@ public class PsyInteger
 		if(oNumeric instanceof PsyRational)
 			return PsyRational.of(
 					(PsyIntegral)psyMul(((PsyRational)oNumeric).psyDenominator()),
-					((PsyRational)oNumeric).psyNumerator()				
+					((PsyRational)oNumeric).psyNumerator()
 				);
 
 		return new PsyReal(doubleValue()/oNumeric.doubleValue());

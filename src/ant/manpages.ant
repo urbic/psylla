@@ -25,7 +25,10 @@
 		</xslt>
 	</presetdef>
 
-	<target name="manpages" description="Make manual pages" depends="version">
+	<target name="manpages"
+		description="Make manual pages"
+		depends="resolve,version"
+		>
 		<symlink resource="${src.doc.docbook}/examples" link="examples" overwrite="true"/>
 		<sequential>
 			<dependset>
