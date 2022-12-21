@@ -6,6 +6,7 @@ RUN zypper -n --gpg-auto-import-keys in -y \
 	ant \
 	ant-apache-resolver \
 	ant-junit \
+	ivy \
 	javacc \
 	'mvn(jline:jline:1)' \
 	docbook5-xsl-stylesheets \
