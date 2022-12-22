@@ -71,8 +71,8 @@ More sample programs can be found in the dedicated
 
 ### Jar:
 
-Java 17 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, JUnit 4, JLine 1
+Java 17 (OpenJDK or Oracle JDK), JavaCC, Apache Ant, Apache Ivy, JUnit 4, JLine 1
 
 ### Documentation:
 
-Apache Ant, Docbook 5 XSL, Saxon HE 6, XSLTHL, SassC, Graphviz
+Apache Ant, Apache Ivy, Docbook 5 XSL, Saxon HE 6, XSLTHL, SassC, Graphviz
