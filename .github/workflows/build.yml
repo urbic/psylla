@@ -36,7 +36,8 @@ jobs:
         env:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
         run: |
-          ant -lib /usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar -v -noinput -Dlinux.flavour=debian build
+          ant -lib /usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
+            -v -noinput -Dlinux.flavour=debian build
           echo \
           '<html xmlns="http://www.w3.org/1999/xhtml">
           <head><meta http-equiv="refresh" content="0; url=html/"/></head>
@@ -46,7 +47,8 @@ jobs:
         env:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
         run: |
-          ant -lib /usr/share/java/ivy.jar -v -noinput -Dlinux.flavour=debian test
+          ant -lib /usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
+            -v -noinput -Dlinux.flavour=debian test
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
