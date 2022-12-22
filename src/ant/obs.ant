@@ -40,16 +40,16 @@
 		description="Configure osc"
 		>
 		<echo file="${osc.rc}" if:true="${obs.password.set}"><![CDATA[[general]
-apiurl=${osc.build.apiurl}
+apiurl=${obs.build.apiurl}
 
-[${osc.build.apiurl}]
+[${obs.build.apiurl}]
 user=${obs.user}
 credentials_mgr_class=osc.credentials.ObfuscatedConfigFileCredentialsManager
 pass=
 ]]></echo>
 		<exec executable="osc" if:true="${obs.password.set}">
 			<arg value="config"/>
-			<arg value="https://api.opensuse.org"/>
+			<arg value="${obs.build.apiurl}"/>
 			<arg value="pass"/>
 			<arg value="${env.OBS_PASSWORD}"/>
 		</exec>
