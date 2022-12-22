@@ -162,6 +162,13 @@ Print the prime factors of each integer passed in the command line.
 * [__`factor-wheel.psy`__](factor-wheel.psy) — [wheel
   factorization](https://en.wikipedia.org/wiki/Wheel_factorization)
 
+## Pollard-Brent factorization
+
+Print facor of an integer passed in the command line.
+
+* [__`pollard-brent.psy`__](pollard-brent.psy) — [Pollard’s ρ
+  algorithm](https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm)
+
 ## Prime numbers
 
 Prints the first prime numbers that do not exceed a given _n_. Non-negative
