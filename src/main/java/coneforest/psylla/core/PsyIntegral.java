@@ -52,8 +52,46 @@ public interface PsyIntegral
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
 		throws PsyUndefinedResultException, PsyRangeCheckException;
 
-	public PsyIntegral psyGCD(final PsyIntegral oIntegral);
+	/**
+	*	Returns an {@code additive} representing the greatest common divisor of
+	*	this object and given object.
+	*
+	*	@param oIntegral given object.
+	*	@return the greatest common divisor.
+	*/
+	default public PsyIntegral psyGCD(final PsyIntegral oIntegral)
+	{
+		var oX=psyAbs();
+		var oY=oIntegral.psyAbs();
+		if(oY.psyIsZero().booleanValue())
+			return oX;
+		while(oX.psyNotZero().booleanValue())
+		{
+			if(oX.psyGt(oY).booleanValue())
+			{
+				var oT=oX;
+				oX=oY;
+				oY=oT;
+			}
+			try
+			{
+				oY=oY.psyMod(oX);
+			}
+			catch(final PsyUndefinedResultException|PsyRangeCheckException e)
+			{
+				// NOP
+			}
+		}
+		return oY;
+	}
 
+	/**
+	*	Returns an {@code additive} representing the least common multiple of
+	*	this object and given object.
+	*
+	*	@param oIntegral given object.
+	*	@return the least common multiple.
+	*/
 	default PsyIntegral psyLCM(final PsyIntegral oIntegral)
 		throws PsyErrorException
 	{

@@ -385,15 +385,6 @@ public class PsyInteger
 	}
 
 	@Override
-	public PsyIntegral psyGCD(final PsyIntegral oIntegral)
-	{
-		if(oIntegral instanceof PsyInteger)
-			return PsyInteger.of(gcd(value, ((PsyInteger)oIntegral).value));
-		else
-			return ((PsyBigInteger)oIntegral).psyGCD(this);
-	}
-
-	@Override
 	public PsyInteger psyIdiv(final PsyIntegral oInteger)
 		throws PsyUndefinedResultException
 	{
@@ -428,26 +419,6 @@ public class PsyInteger
 					doubleValue()==((PsyComplex)o).psyRealPart().doubleValue()
 						&& ((PsyComplex)o).psyImagPart().doubleValue()==0.D);
 		return PsyBoolean.FALSE;
-	}
-
-	public long gcd(long x, long y)
-	{
-		if(x<0L)
-			x=-x;
-		if(y<0L)
-			y=-y;
-		while(x!=0)
-		{
-			if(x>y)
-			{
-				var t=x;
-				x=y;
-				y=t;
-				continue;
-			}
-			y%=x;
-		}
-		return y;
 	}
 
 	@Override
