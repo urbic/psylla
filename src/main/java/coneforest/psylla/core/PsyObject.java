@@ -13,7 +13,7 @@ public interface PsyObject
 	/**
 	*	Returns a string representation of a type name.
 	*
-	*	@return a string {@code "object"}.
+	*	@return TODO a string {@code "object"}.
 	*/
 	default public String typeName()
 	{
