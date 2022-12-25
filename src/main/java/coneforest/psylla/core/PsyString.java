@@ -363,6 +363,83 @@ public class PsyString
 		return "\""+sb.toString()+"\"";
 	}
 
+	public static PsyString parseLiteral(final String image)
+		throws PsySyntaxErrorException
+	{
+		final var sb=new StringBuilder();
+		for(int i=1; i<image.length()-1; i++)
+		{
+			final var c=image.charAt(i);
+			switch(c)
+			{
+				case '\\':
+					i++;
+					switch(image.charAt(i))
+					{
+						case '0':
+							sb.append('\u0000');
+							break;
+						case 'a':
+							sb.append('\u0007');
+							break;
+						case 'n':
+							sb.append('\n');
+							break;
+						case 'r':
+							sb.append('\r');
+							break;
+						case 't':
+							sb.append('\t');
+							break;
+						case 'v':
+							sb.append('\u000B');
+							break;
+						case 'f':
+							sb.append('\f');
+							break;
+						case 'e':
+							sb.append('\u001B');
+							break;
+						case '"':
+							sb.append('"');
+							break;
+						case '\\':
+							sb.append('\\');
+							break;
+						case '\n':
+							break;
+						case 'u':
+							sb.append(Character.toChars(Integer.valueOf(image.substring(i+1, i+5), 16)));
+							i+=4;
+							break;
+						case 'c':
+							{
+								final var ch=image.charAt(++i);
+								sb.append(Character.toChars(ch+(ch<64? 64: -64)));
+							}
+							break;
+						case 'x':
+							try
+							{
+								final var j=image.indexOf('}', i+2);
+								sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));
+								i=j;
+							}
+							catch(final IllegalArgumentException ex)
+							{
+								throw new PsySyntaxErrorException();
+							}
+							break;
+					}
+					break;
+				default:
+					sb.append(c);
+					break;
+			}
+		}
+		return new PsyString(sb);
+	}
+
 	private final StringBuilder buffer;
 
 	public static final PsyOperator[] OPERATORS=

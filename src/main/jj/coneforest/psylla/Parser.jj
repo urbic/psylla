@@ -39,36 +39,52 @@ TOKEN:
 
 TOKEN:
 {
-	<#INTEGER_UNSIGNED: (<DIGIT>)+>
+	<INTEGRAL:
+		<INTEGRAL_DEC>
+			| <INTEGRAL_HEX>
+			| <INTEGRAL_BIN>
+			| <INTEGRAL_OCT>
+			| <INTEGRAL_CHR>
+	>
 }
 
 TOKEN:
 {
-	<INTEGER: (<SIGN>)? <INTEGER_UNSIGNED>>
+	<#INTEGRAL_DEC_UNSIGNED: (<DIGIT>)+>
 }
 
 TOKEN:
 {
-	<INTEGER_HEXADECIMAL: (<SIGN>)? "0" ["X", "x"] (<HEXDIGIT>)+>
+	<#INTEGRAL_DEC: (<SIGN>)? <INTEGRAL_DEC_UNSIGNED>>
 }
 
 TOKEN:
 {
-	<INTEGER_BINARY: (<SIGN>)? "0" ["B", "b"] (["0", "1"])+>
+	<#INTEGRAL_HEX: ["X", "x"] "`" (<SIGN>)? (<HEXDIGIT>)+>
 }
 
 TOKEN:
 {
-	<CHAR: "`" (~["\\"] | <STRING_SPECIAL>)>
+	<#INTEGRAL_BIN: ["B", "b"] "`" (<SIGN>)? (["0", "1"])+>
+}
+
+TOKEN:
+{
+	<#INTEGRAL_OCT: ["O", "o"] "`" (<SIGN>)? (["0"-"7"])+>
+}
+
+TOKEN:
+{
+	<#INTEGRAL_CHR: ["C", "c"] "`" (~["\\"] | <STRING_SPECIAL>)>
 }
 
 TOKEN:
 {
 	<#REAL_UNSIGNED:
 		(
-			<INTEGER_UNSIGNED> ("." (<DIGIT>)*)?
+			<INTEGRAL_DEC_UNSIGNED> ("." (<DIGIT>)*)?
 			|
-			"." <INTEGER_UNSIGNED>
+			"." <INTEGRAL_DEC_UNSIGNED>
 		)
 		(<EXPONENT>)?
 	>
@@ -81,7 +97,7 @@ TOKEN:
 
 TOKEN:
 {
-	<#EXPONENT: ["E", "e"] <INTEGER>>
+	<#EXPONENT: ["E", "e"] <INTEGRAL_DEC>>
 }
 
 TOKEN:
@@ -106,7 +122,17 @@ TOKEN:
 
 TOKEN:
 {
-	<NAME_QUOTED: "'" (<STRING_SPECIAL> | "\\'" | ~["'", "\\"])* "'">
+	<NAME: <NAME_SLASHED> | <NAME_QUOTED>>
+}
+
+TOKEN:
+{
+	<#NAME_SLASHED: "/" <COMMAND>>
+}
+
+TOKEN:
+{
+	<#NAME_QUOTED: "'" (<STRING_SPECIAL> | "\\'" | ~["'", "\\"])* "'">
 }
 
 TOKEN:
@@ -143,11 +169,6 @@ TOKEN:
 TOKEN:
 {
 	<#REGEXP_SPECIAL: "\\" ~[]>
-}
-
-TOKEN:
-{
-	<NAME_SLASHED: "/" <COMMAND>>
 }
 
 TOKEN:

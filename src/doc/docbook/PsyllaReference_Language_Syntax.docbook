@@ -79,15 +79,22 @@ Decimal integers, such as
 <listitem>
 <para>
 Hexadecimal integers, such as
-<programlisting language="psylla">0x13AF
--0X31123e4</programlisting>
+<programlisting language="psylla">x`13AF
+X`-31123e4</programlisting>
+</para>
+</listitem>
+<listitem>
+<para>
+Octal integers, such as
+<programlisting language="psylla">o`644
+O`-644</programlisting>
 </para>
 </listitem>
 <listitem>
 <para>
 Binary integers, such as
-<programlisting language="psylla">0b101110101
--0B111010</programlisting>
+<programlisting language="psylla">b`101110101
+B`-111010</programlisting>
 </para>
 </listitem>
 <listitem>
@@ -114,7 +121,7 @@ Real numbers, such as
 <para>
 The program can create numeric objects of integer, real and complex types. The
 language provides a literal representation only for integer and real numbers.
-The integers can be written in decimal, hexadecimal or binary form.
+The integers can be written in decimal, hexadecimal, octal or binary form.
 </para>
 
 <!--section xml:id="PsyllaReference_Language_Syntax_Numbers_Decimal">
@@ -175,7 +182,7 @@ The integers can be written in decimal, hexadecimal or binary form.
 <para>
 String literals are enclosed in double quotes (<literal>"</literal>,
 <constant>U+22</constant>). Backslash character (<literal>\</literal>,
-<constant>U+5C</constant>) between quotatian marks have special meaning defined
+<constant>U+5C</constant>) between quotation marks have special meaning defined
 by the following character.
 
 <informaltable>

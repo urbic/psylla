@@ -32,6 +32,16 @@ public interface PsyRational
 			return PsyBigFractional.of(oNumerator.bigIntegerValue(), oDenominator.bigIntegerValue());
 	}
 
+	public static PsyRational parse(final String image)
+		throws PsySyntaxErrorException, PsyUndefinedResultException
+	{
+		var colonIndex=image.indexOf(':');
+		if(colonIndex==-1)
+			return PsyIntegral.parseLiteral(image);
+		return of(PsyIntegral.parseLiteral(image.substring(0, colonIndex)),
+				PsyIntegral.parseLiteral(image.substring(colonIndex)));
+	}
+
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Arity11<PsyRational>("numerator", PsyRational::psyNumerator),

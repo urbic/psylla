@@ -1,5 +1,6 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.math.BigInteger;
 
 /**
 *	A representation of {@code integral} object.
@@ -100,6 +101,7 @@ public interface PsyIntegral
 		return ((PsyIntegral)psyMul(oIntegral)).psyIdiv(psyGCD(oIntegral));
 	}
 
+	@Override
 	default public PsyIntegral psyToIntegral()
 	{
 		return this;
@@ -110,7 +112,7 @@ public interface PsyIntegral
 		return PsyInteger.of(longValue);
 	}
 
-	public static PsyIntegral of(final java.math.BigInteger bigIntegerValue)
+	public static PsyIntegral of(final BigInteger bigIntegerValue)
 	{
 		try
 		{
@@ -122,23 +124,96 @@ public interface PsyIntegral
 		}
 	}
 
-	public static PsyIntegral parse(final String image)
+	public static PsyIntegral parseLiteral(final String image)
 		throws PsySyntaxErrorException
 	{
+		int radix=10;
+		var prefixlessImage=image;
+		if(image.length()>1 && image.charAt(1)=='`')
+		{
+			prefixlessImage=image.substring(2);
+			switch(image.charAt(0))
+			{
+				case 'X':
+				case 'x':
+					radix=16;
+					break;
+				case 'O':
+				case 'o':
+					radix=8;
+					break;
+				case 'B':
+				case 'b':
+					radix=2;
+					break;
+				case 'C':
+				case 'c':
+					return parseCharLiteral(prefixlessImage);
+			}
+		}
 		try
 		{
 			try
 			{
-				return PsyInteger.of(Long.parseLong(image));
+				return PsyInteger.of(Long.parseLong(prefixlessImage, radix));
 			}
 			catch(final NumberFormatException ex)
 			{
-				return new PsyBigInteger(image);
+				return new PsyBigInteger(new BigInteger(prefixlessImage, radix));
 			}
 		}
 		catch(final NumberFormatException ex)
 		{
 			throw new PsySyntaxErrorException();
+		}
+	}
+
+	private static PsyInteger parseCharLiteral(final String image)
+		throws PsySyntaxErrorException
+	{
+		switch(image.charAt(0))
+		{
+			case '\\':
+				switch(image.charAt(1))
+				{
+					case '0':
+						return PsyInteger.of('\u0000');
+					case 'a':
+						return PsyInteger.of('\u0007');
+					case 'n':
+						return PsyInteger.of('\n');
+					case 'r':
+						return PsyInteger.of('\r');
+					case 't':
+						return PsyInteger.of('\t');
+					case 'v':
+						return PsyInteger.of('\u000B');
+					case 'f':
+						return PsyInteger.of('\f');
+					case 'e':
+						return PsyInteger.of('\u001B');
+					case '\\':
+						return PsyInteger.of('\\');
+					case 'u':
+						return PsyInteger.of(Integer.valueOf(image.substring(2, 6), 16));
+					case 'c':
+						{
+							final var ch=image.charAt(2);
+							return PsyInteger.of(ch+(ch<64? 64: -64));
+						}
+					case 'x':
+						try
+						{
+							return PsyInteger.of(Integer.valueOf(
+									image.substring(3, image.length()-1), 16));
+						}
+						catch(final IllegalArgumentException ex)
+						{
+							throw new PsySyntaxErrorException();
+						}
+				}
+			default:
+				return PsyInteger.of(image.charAt(0));
 		}
 	}
 

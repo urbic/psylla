@@ -134,6 +134,11 @@ public class PsyReal
 				&& psyEq((PsyReal)object).booleanValue();
 	}
 
+	public static PsyReal parseLiteral(final String image)
+	{
+		return new PsyReal(Double.parseDouble(image));
+	}
+
 	public static final PsyReal
 		ZERO=new PsyReal(0.D),
 		ONE=new PsyReal(1.D),

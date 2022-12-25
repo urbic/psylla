@@ -338,6 +338,10 @@ expression</primary></indexterm> represents a template for search in a string.
 <entry>character <replaceable>X</replaceable></entry>
 </row>
 <row>
+<entry><literal><replaceable>\0</replaceable></literal></entry>
+<entry>null character</entry>
+</row>
+<row>
 <entry><literal>\\</literal></entry>
 <entry>backslash character, <constant>U+5C</constant></entry>
 </row>

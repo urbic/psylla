@@ -26,12 +26,17 @@
 	</highlighter>
 
 	<highlighter type="regex">
-		<pattern>[\+\-]?0[Xx][\dA-Fa-f]+</pattern>
+		<pattern>[Xx]`[\+\-]?[\dA-Fa-f]+</pattern>
 		<style>number</style>
 	</highlighter>
 
 	<highlighter type="regex">
-		<pattern>[\+\-]?0[Bb][01]+</pattern>
+		<pattern>[Bb]`[\+\-]?[01]+</pattern>
+		<style>number</style>
+	</highlighter>
+
+	<highlighter type="regex">
+		<pattern>[Oo]`[\+\-]?[0-7]+</pattern>
 		<style>number</style>
 	</highlighter>
 

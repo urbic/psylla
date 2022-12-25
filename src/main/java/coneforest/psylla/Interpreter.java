@@ -341,16 +341,14 @@ public class Interpreter
 					parseToken(token).execute(this);
 					handleExecutionStack();
 					break;
-				case ParserConstants.INTEGER:
-				case ParserConstants.INTEGER_HEXADECIMAL:
-				case ParserConstants.INTEGER_BINARY:
+				case ParserConstants.INTEGRAL:
 				case ParserConstants.REAL:
 				case ParserConstants.STRING:
-				case ParserConstants.NAME_SLASHED:
-				case ParserConstants.NAME_QUOTED:
+				case ParserConstants.NAME:
+				//case ParserConstants.NAME_SLASHED:
+				//case ParserConstants.NAME_QUOTED:
 				case ParserConstants.IMMEDIATE:
 				case ParserConstants.REGEXP:
-				case ParserConstants.CHAR:
 				case ParserConstants.LITERAL:
 					ostack.push(parseToken(token));
 					break;
@@ -379,17 +377,15 @@ public class Interpreter
 							ostack.push(proc);
 					}
 					break;
-				case ParserConstants.INTEGER:
-				case ParserConstants.INTEGER_HEXADECIMAL:
-				case ParserConstants.INTEGER_BINARY:
+				case ParserConstants.INTEGRAL:
 				case ParserConstants.REAL:
 				case ParserConstants.STRING:
-				case ParserConstants.NAME_SLASHED:
-				case ParserConstants.NAME_QUOTED:
+				case ParserConstants.NAME:
+				//case ParserConstants.NAME_SLASHED:
+				//case ParserConstants.NAME_QUOTED:
 				case ParserConstants.COMMAND:
 				case ParserConstants.IMMEDIATE:
 				case ParserConstants.REGEXP:
-				case ParserConstants.CHAR:
 				case ParserConstants.LITERAL:
 					procstack.peek().psyAppend(parseToken(token));
 					break;
@@ -403,33 +399,45 @@ public class Interpreter
 		throws PsyErrorException
 	{
 		// TODO: make TokensParser inner class of Interpreter
+		var image=token.image;
 		switch(token.kind)
 		{
 			case ParserConstants.IMMEDIATE:
-				return dstack.load(token.image.substring(2));
+				return dstack.load(image.substring(2));
+			case ParserConstants.NAME:
+				return PsyName.parseLiteral(image);
+			case ParserConstants.INTEGRAL:
+				return PsyIntegral.parseLiteral(image);
+			case ParserConstants.REAL:
+				return PsyReal.parseLiteral(image);
+			case ParserConstants.STRING:
+				return PsyString.parseLiteral(image);
+			case ParserConstants.REGEXP:
+				return PsyRegExp.parseLiteral(image);
+			case ParserConstants.COMMAND:
+				return new PsyCommand(image);
 			case ParserConstants.LITERAL:
-				return parseLiteralToken(token);
+				return parseLiteralImage(image);
 			default:
-				return TokensParser.parseToken(token);
+				throw new AssertionError();
 		}
 	}
 
-	private PsyObject parseLiteralToken(final Token token)
+	private PsyObject parseLiteralImage(final String image)
 		throws
 			PsyUndefinedException, // TODO
 			PsySyntaxErrorException
 	{
-		final int i=token.image.indexOf('=');
-		final String typeName=token.image.substring(0, i);
+		final int i=image.indexOf('=');
+		final String typeName=image.substring(0, i);
 		final var typeClass=TypeResolver.resolve(typeName);
-		final var image=token.image.substring(i+2, token.image.length()-1);
 		try
 		{
 			final var mh=java.lang.invoke.MethodHandles.lookup().findStatic(
 					typeClass,
-					"parse",
+					"parseLiteral",
 					java.lang.invoke.MethodType.methodType(typeClass, String.class));
-			return typeClass.cast(mh.invoke(image));
+			return typeClass.cast(mh.invoke(image.substring(i+2, image.length()-1)));
 		}
 		catch(final NoSuchMethodException|IllegalAccessException ex)
 		{

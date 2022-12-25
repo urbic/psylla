@@ -62,7 +62,7 @@ public interface PsyTextual
 	{
 		try
 		{
-			return PsyIntegral.parse(stringValue());
+			return PsyIntegral.parseLiteral(stringValue());
 		}
 		catch(final NumberFormatException ex)
 		{

@@ -11,12 +11,12 @@
 		3 { min } repeat
 		2 mod iszero
 		stdout exch
-		`* `  ifelse
+		c`* c`  ifelse
 		write
 	}
 	for
 	pop
-	stdout `\n write
+	stdout c`\n write
 }
 bind for
 

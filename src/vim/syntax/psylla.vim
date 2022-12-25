@@ -2,7 +2,7 @@
 " Language:		Psylla
 " Maintainer:	Anton Shvetz <shvetz.anton@gmail.com>
 " Filenames:	*.psy
-" Last Change:	20210610
+" Last Change:	20221225
 " URL:			https://github.com/urbic/psylla
 "
 " Options Flags:
@@ -15,16 +15,6 @@ syn keyword psyllaTodo 			contained TODO
 syn keyword psyllaTodo 			contained XXX
 syn match psyllaComment			"#.*$" contains=psyllaTodo,@Spell extend
 syn match psyllaSharpBang		"^#!.*"
-syn match psyllaInteger			"[+-]\=\d\+"
-syn match psyllaHexInteger		"[+-]\=0x\x\+"
-syn match psyllaReal			"[+-]\=\d\+\."
-syn match psyllaReal			"[+-]\=\d\+\.\d*\([Ee][+-]\=\d\+\)\=\>"
-syn match psyllaReal			"[+-]\=\.\d\+\([Ee][+-]\=\d\+\)\=\>"
-syn match psyllaReal			"[+-]\=\d\+[Ee][+-]\=\d\+\>"
-syn cluster psyllaNumeric		contains=psyllaInteger,psyllaHexInteger,psyllaReal
-syn region psyllaComment		start="/#" end="#/" contains=psyllaTodo
-
-syn match psyllaCharacter		"`\([^\\]\|\\[afenrt\\]\)"
 
 syn match psyllaNSPrefix		contained +[^/@]\+@+
 syn match psyllaNameExecutable	"\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
@@ -32,6 +22,19 @@ syn match psyllaOperator		"[\[\]{}<>()?]"
 syn match psyllaNameLiteral		"/\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
 syn match psyllaNameImmediate	"//\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*"
 syn region psyllaNameQuoted		start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=psyllaStringSpecial
+
+syn match psyllaIntegral		"[+-]\=\d\+"
+syn match psyllaHexIntegral		"[Xx]`[+-]\=\x\+" contains=psyllaIntegralPrefix
+syn match psyllaBinIntegral		"[Bb]`[+-]\=[01]\+" contains=psyllaIntegralPrefix
+syn match psyllaOctIntegral		"[Oo]`[+-]\=[0-7]\+" contains=psyllaIntegralPrefix
+syn match psyllaChrIntegral		"[Cc]`\([^\\]\|\\[0afenrt\\]\)" contains=psyllaIntegralPrefix
+syn match psyllaReal			"[+-]\=\d\+\."
+syn match psyllaReal			"[+-]\=\d\+\.\d*\([Ee][+-]\=\d\+\)\=\>"
+syn match psyllaReal			"[+-]\=\.\d\+\([Ee][+-]\=\d\+\)\=\>"
+syn match psyllaReal			"[+-]\=\d\+[Ee][+-]\=\d\+\>"
+syn cluster psyllaNumeric		contains=psyllaIntegral,psyllaHexIntegral,psyllaBinIntegral,psyllaOctIntegral,psyllaReal
+syn region psyllaComment		start="/#" end="#/" contains=psyllaTodo
+
 
 syn region psyllaString			start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psyllaStringSpecial
 syn match psyllaStringSpecial	contained +\\[0antf"\\er]+
@@ -50,19 +53,23 @@ syn match psyllaRegExpSpecial	contained "\[[^\]]\+\]"
 syn match psyllaRegExpSpecial	contained "\\[pP]{[[:alpha:]]\+}"
 syn match psyllaRegExpSpecial	contained "[\^^$]"
 syn match psyllaRegExpSpecial	contained "\\k<[[:alpha:]]\+>"
+syn match psyllaIntegralPrefix	contained "[XxOoBbCc]`"
 
 hi link psyllaString			Constant
 hi link psyllaRegExp			Constant
-hi link psyllaCharacter			Constant
+hi link psyllaChrIntegral		Constant
 hi link psyllaComment			Comment
-hi link psyllaInteger			Number
-hi link psyllaHexInteger		Number
+hi link psyllaIntegral			Number
+hi link psyllaHexIntegral		Number
+hi link psyllaBinIntegral		Number
+hi link psyllaOctIntegral		Number
 hi link psyllaReal				Number
 hi link psyllaNameExecutable	Identifier
 hi link psyllaNameLiteral		Constant
 hi link psyllaNameQuoted		Constant
 hi link psyllaStringSpecial		SpecialChar
 hi link psyllaRegExpSpecial		SpecialChar
+hi link psyllaIntegralPrefix	SpecialChar
 hi link psyllaNSPrefix			Special
 hi link psyllaTodo				Todo
 hi link psyllaSharpBang			PreProc
