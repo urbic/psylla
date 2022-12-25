@@ -6,10 +6,10 @@ n
 {
 	n
 	{
-		stdout `* write
+		stdout c`* write
 	}
 	repeat
-	stdout `\n write
+	stdout c`\n write
 }
 bind repeat
 

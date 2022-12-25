@@ -1,0 +1,76 @@
+#!/usr/bin/psylla
+
+/#
+/gcd
+{
+	{
+		2 copy lt { exch } if
+		dup iszero { pop exit } if
+		dup 3 1 roll mod
+	}
+	loop
+}
+bind def
+#/
+
+/rho
+{
+	dict begin
+		/n exch def
+		n 3 gt
+		{
+			/x stdrandom n 3 sub uniformdeviate 1 add def
+			/y 1 def
+			/i 0 def
+			/stage 2 def
+
+			{
+				n x y sub abs gcd dup 1 ne
+				{ exit } #{ dup n ne { exit } if }
+				{ pop }
+				ifelse
+				i stage eq
+				{
+					/y x def
+					/stage stage 2 mul def
+				}
+				if
+				#x ? '>>>' ?
+				/x x dup mul 1 add n mod def
+				/i i 1 add def
+			}
+			loop
+		}
+		{ n }
+		ifelse
+	end
+}
+bind def
+
+/#
+/agenda [ arguments 0 get tointegral ] def
+/factors array def
+
+{
+	#agenda ?
+	#factors ?
+	agenda isempty { exit } if
+	/n agenda prechop def
+	/f n rho def
+	#f ? '<<<' ?
+	n f eq
+	{
+		factors f append
+	}
+	{
+		agenda f prepend
+		agenda n f idiv prepend
+	}
+	ifelse
+}
+bind loop
+
+factors stream { cmp } sorted { toname say } forall
+#/
+
+arguments 0 get tointegral rho ?

@@ -18,8 +18,8 @@
 			{
 				/c exch def
 				/chars chars 1 add def
-				c `\n eq { /lines lines 1 add def } if
-				( 9 10 12 13 32 0xA0 ) c contains
+				c c`\n eq { /lines lines 1 add def } if
+				( 9 10 12 13 32 c`A0 ) c contains
 				{
 					flag { /words words 1 add def } if
 					/flag //false def

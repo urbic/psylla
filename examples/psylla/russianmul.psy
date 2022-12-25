@@ -4,7 +4,7 @@
 
 # Calculate the product of two nonnegative integers
 #	x y -> result
-#	x, y: integer
+#	x, y: integral
 /russianmul
 {
 	dict begin
@@ -32,5 +32,5 @@
 }
 bind def
 
-arguments 0 2 getinterval { tointeger } forall
+arguments 0 2 getinterval { tointegral } forall
 russianmul toname say
