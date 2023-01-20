@@ -1,0 +1,4 @@
+Error: /undefinedresult in --idiv--
+Operand stack:
+	9223372036854775808 0
+Execution stack: (empty)

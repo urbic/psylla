@@ -57,6 +57,19 @@ public abstract class PsyOperator
 			//oContext.handleError(e);
 			e.invoke(oContext);
 		}
+		catch(final OutOfMemoryError ex)
+		{
+			ostack.restore();
+			// More appropriate exception
+			var e=new PsyLimitCheckException();
+			e.setEmitter(this);
+			final var estack=oContext.executionStack();
+			final var dstack=oContext.dictStack();
+			e.setStacks(ostack, estack, dstack);
+			//oContext.handleError(e);
+			System.gc();
+			e.invoke(oContext);
+		}
 		catch(final PsyErrorException e)
 		{
 			ostack.restore();

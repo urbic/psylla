@@ -32,7 +32,7 @@ public interface PsyRational
 			return PsyBigFractional.of(oNumerator.bigIntegerValue(), oDenominator.bigIntegerValue());
 	}
 
-	public static PsyRational parse(final String image)
+	public static PsyRational parseLiteral(final String image)
 		throws PsySyntaxErrorException, PsyUndefinedResultException
 	{
 		var colonIndex=image.indexOf(':');

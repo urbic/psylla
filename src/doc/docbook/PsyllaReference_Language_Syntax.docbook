@@ -100,8 +100,8 @@ B`-111010</programlisting>
 <listitem>
 <para>
 Integers represented by characters, such as
-<programlisting language="psylla">`X
-`\n</programlisting>
+<programlisting language="psylla">c`X
+c`\n</programlisting>
 </para>
 </listitem>
 <listitem>

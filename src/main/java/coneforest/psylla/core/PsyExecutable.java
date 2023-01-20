@@ -16,7 +16,7 @@ public interface PsyExecutable
 	@Override
 	public void invoke(final PsyContext oContext);
 
-	default public void invokeAndWait(final PsyContext oContext)
+	default public void invokeAndHandle(final PsyContext oContext)
 	{
 		final var execLevel=oContext.execLevel();
 		invoke(oContext);
@@ -34,7 +34,7 @@ public interface PsyExecutable
 					ostack.push(o);
 					//try
 					//{
-					invokeAndWait(oContext);
+					invokeAndHandle(oContext);
 					//}
 					//catch(Throwable ex)
 					//{
@@ -55,7 +55,7 @@ public interface PsyExecutable
 				public R apply(final T o)
 				{
 					ostack.push(o);
-					invokeAndWait(oContext);
+					invokeAndHandle(oContext);
 					return (R)ostack.pop();
 					// TODO: stop
 				}
@@ -71,7 +71,7 @@ public interface PsyExecutable
 				public T apply(final T o)
 				{
 					ostack.push(o);
-					invokeAndWait(oContext);
+					invokeAndHandle(oContext);
 					return (T)ostack.pop();
 					// TODO: stop
 				}
@@ -88,7 +88,7 @@ public interface PsyExecutable
 				{
 					ostack.push(o1);
 					ostack.push(o2);
-					invokeAndWait(oContext);
+					invokeAndHandle(oContext);
 					return (T)ostack.pop();
 					// TODO: stop
 				}
@@ -105,7 +105,7 @@ public interface PsyExecutable
 				{
 					ostack.push(o1);
 					ostack.push(o2);
-					invokeAndWait(oContext);
+					invokeAndHandle(oContext);
 					return ((PsyInteger)ostack.pop()).intValue();
 				}
 			};
@@ -119,7 +119,7 @@ public interface PsyExecutable
 				@Override
 				public T get()
 				{
-					invokeAndWait(oContext);
+					invokeAndHandle(oContext);
 					return (T)ostack.pop();
 				}
 			};
@@ -134,7 +134,7 @@ public interface PsyExecutable
 				public void accept(T o)
 				{
 					ostack.push(o);
-					invokeAndWait(oContext);
+					invokeAndHandle(oContext);
 				}
 			};
 	}

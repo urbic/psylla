@@ -47,12 +47,12 @@ public class PsyArray
 	}
 
 	@Override
-	public PsyObject get(final int index)
+	public PsyObject get(final int indexValue)
 		throws PsyRangeCheckException
 	{
 		try
 		{
-			return array.get(index);
+			return array.get(indexValue<0? indexValue+length(): indexValue);
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
@@ -104,7 +104,8 @@ public class PsyArray
 	{
 		try
 		{
-			array.set(indexValue, o);
+			//array.set(indexValue, o);
+			array.set(indexValue<0? indexValue+length(): indexValue, o);
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{

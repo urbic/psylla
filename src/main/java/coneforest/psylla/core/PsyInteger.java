@@ -385,12 +385,17 @@ public class PsyInteger
 	}
 
 	@Override
-	public PsyInteger psyIdiv(final PsyIntegral oInteger)
+	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyUndefinedResultException
 	{
-		if(((PsyInteger)oInteger).value==0) // TODO
+		if(oIntegral.psyIsZero().booleanValue())
 			throw new PsyUndefinedResultException();
-		return PsyInteger.of(value/((PsyInteger)oInteger).value); // TODO
+		if(oIntegral instanceof PsyInteger)
+		//if(((PsyInteger)oInteger).value==0) // TODO
+		//throw new PsyUndefinedResultException();
+			return PsyInteger.of(value/((PsyInteger)oIntegral).value); // TODO
+		//if(oIntegral instanceof PsyBigInteger)
+		return PsyIntegral.of(bigIntegerValue().divide(oIntegral.bigIntegerValue()));
 	}
 
 	@Override

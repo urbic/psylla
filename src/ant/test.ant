@@ -24,7 +24,8 @@
 
 	<target name="test.anttask"
 		description="Perform ant-task tests"
-		depends="compile.java,copy.resources">
+		depends="compile.java,copy.resources"
+		>
 		<taskdef
 			name="psylla"
 			classname="coneforest.psylla.tools.ant.Psylla"
@@ -36,7 +37,8 @@
 
 	<target name="test.jsr223"
 		description="Perform JSR 223 tests"
-		depends="compile.java,copy.resources">
+		depends="compile.java,copy.resources"
+		>
 		<script
 			manager="javax"
 			language="psylla"
@@ -53,9 +55,19 @@
 		</script>
 	</target>
 
+	<target name="test.toolprovider"
+		description="Perform ToolProvider test"
+		depends="compile.java,copy.resources"
+		>
+		<java classname="coneforest.psylla.test.PsyllaToolProviderTest">
+			<classpath refid="classpath.main"/>
+		</java>
+	</target>
+
 	<target name="test.cli"
 		description="Perform CLI tests"
-		depends="compile.java,copy.resources">
+		depends="compile.java,copy.resources"
+		>
 		<junit>
 			<classpath refid="classpath.main"/>
 			<formatter type="plain" usefile="false"/>

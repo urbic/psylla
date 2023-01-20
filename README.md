@@ -9,17 +9,18 @@ The syntax of the language is based on postfix (reverse Polish) notation.
 
 Psylla is implemented as a library written in Java.
 
+[![Tag](https://shields.io/github/v/tag/urbic/psylla)](tags)
 [![License](https://img.shields.io/badge/license-zlib%2Fpng-blue.svg)](https://opensource.org/licenses/Zlib)
 [![Java CI Build Status](https://github.com/urbic/psylla/actions/workflows/build.yml/badge.svg)](https://github.com/urbic/psylla/actions/workflows/build.yml)
-[![build result](https://build.opensuse.org/projects/home:urbic:java/packages/psylla/badge.svg?type=percent)](https://build.opensuse.org/package/show/home:urbic:java/psylla)
+[![OBS Build Result](https://build.opensuse.org/projects/home:urbic:java/packages/psylla/badge.svg?type=percent)](https://build.opensuse.org/package/show/home:urbic:java/psylla)
 
 ---
 
 ## Features
 
 * Dynamic arrays, strings, dictionaries, sets and streams
-* Arbitrary-precision integer arithmetic
-* Complex numbers
+* Arbitrary-precision rational arithmetic
+* Real and complex numbers
 * Multicontext execution (multithreading), synchronization primitives, blocking
   queues
 * Regular expressions _(under construction)_

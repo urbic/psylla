@@ -24,7 +24,7 @@ public interface PsyFormalArray<T extends PsyObject>
 	{
 		final PsyFormalArray<T> result=psyClone();
 		int length=result.length();
-		for(int i=0; i<(int)(length/2); i++)
+		for(int i=0; i<length/2; i++)
 		{
 			T o=result.get(i);
 			result.put(i, result.get(length-1-i));

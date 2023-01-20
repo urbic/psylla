@@ -115,6 +115,8 @@ public class PsyBigInteger
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyUndefinedResultException
 	{
+		if(oIntegral.psyIsZero().booleanValue())
+			throw new PsyUndefinedResultException();
 		if(oIntegral instanceof PsyBigInteger)
 			return PsyIntegral.of(value.divide(((PsyBigInteger)oIntegral).value));
 		else

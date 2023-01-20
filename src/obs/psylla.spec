@@ -31,7 +31,6 @@ BuildRequires:	ivy-local
 BuildRequires:	java-devel >= 17
 BuildRequires:	java-javadoc >= 17
 BuildRequires:	javacc
-#BuildRequires:	junit >= 4.0
 BuildRequires:	mvn(junit:junit) < 5
 BuildRequires:	mvn(jline:jline:1)
 BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)

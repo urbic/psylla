@@ -1,4 +1,4 @@
 Error: /rangecheck in --put--
 Operand stack:
-	[/a /b /c] -1 /x
+	[/a /b /c] -4 /x
 Execution stack: (empty)

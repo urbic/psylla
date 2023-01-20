@@ -33,7 +33,7 @@ with the given <replaceable>name</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">'MyFile' 0b110100100 changefilepermissions	# rw-r--r--</programlisting>
+<programlisting language="psylla">'MyFile' o`644 changefilepermissions	# rw-r--r--</programlisting>
 </formalpara>
 
 <formalpara>

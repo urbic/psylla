@@ -1,9 +1,9 @@
 #!/usr/bin/psylla
 
 arguments 0 get ~/~ split
-{ tointeger } forall
-tointeger /q exch def
-tointeger /p exch def
+{ tointegral } forall
+/q exch def
+/p exch def
 
 p q idiv toname print
 
