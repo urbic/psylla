@@ -1,4 +1,5 @@
 #!/bin/sh
+
 if [ -x /usr/bin/build-classpath ]; then
 	CLASSPATH=$(build-classpath jline1)
 	exec java -cp target/lib/psylla.jar:$CLASSPATH coneforest.psylla.Psylla -Isrc/main/psylla "$@"

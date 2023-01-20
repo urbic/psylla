@@ -10,7 +10,6 @@ module coneforest.psylla
 	requires junit;
 	//requires jline;
 	//requires javacc;
-	exports coneforest.psylla.core;
 	provides javax.script.ScriptEngineFactory
 		with coneforest.psylla.engine.PsyllaScriptEngineFactory;
 	provides java.util.spi.ToolProvider

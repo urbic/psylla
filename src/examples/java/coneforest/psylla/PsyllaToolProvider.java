@@ -1,10 +1,10 @@
-package coneforest.psylla.test;
+package coneforest.psylla;
 
 import java.io.PrintWriter;
 import java.util.ServiceLoader;
 import java.util.spi.ToolProvider;
 
-public class PsyllaToolProviderTest
+public class PsyllaToolProvider
 {
 	public static void main(final String[] args)
 	{

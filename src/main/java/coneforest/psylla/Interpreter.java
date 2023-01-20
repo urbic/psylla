@@ -345,8 +345,6 @@ public class Interpreter
 				case ParserConstants.REAL:
 				case ParserConstants.STRING:
 				case ParserConstants.NAME:
-				//case ParserConstants.NAME_SLASHED:
-				//case ParserConstants.NAME_QUOTED:
 				case ParserConstants.IMMEDIATE:
 				case ParserConstants.REGEXP:
 				case ParserConstants.LITERAL:
@@ -381,8 +379,6 @@ public class Interpreter
 				case ParserConstants.REAL:
 				case ParserConstants.STRING:
 				case ParserConstants.NAME:
-				//case ParserConstants.NAME_SLASHED:
-				//case ParserConstants.NAME_QUOTED:
 				case ParserConstants.COMMAND:
 				case ParserConstants.IMMEDIATE:
 				case ParserConstants.REGEXP:
@@ -509,6 +505,7 @@ public class Interpreter
 		System.out.print("Loop level stack:\n\t");
 		for(final var o: loopstack)
 			System.out.print(" "+o);
+		//loopstack.forEach(l->System.out.print(l));
 		System.out.println();
 	}
 
@@ -845,6 +842,10 @@ public class Interpreter
 	private final Stack<Integer>
 		loopstack=new Stack<Integer>(),
 		stopstack=new Stack<Integer>();
+
+	//private IntStack
+	//	loopstack=new IntStack(),
+	//	stopstack=new IntStack();
 	private final java.util.HashMap<String, String> resourceRegistry
 		=new java.util.HashMap<String, String>();
 	private final NamespacePool nspool=new NamespacePool();

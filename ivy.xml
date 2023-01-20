@@ -16,13 +16,55 @@
 	</configurations>
 
 	<dependencies>
-		<dependency org="jline" name="jline" rev="1.0" conf="compile"/>
-		<dependency org="junit" name="junit" rev="4.13.2" transitive="false" conf="compile"/>
-		<dependency org="org.apache.ant" name="ant-junit" rev="1.10.12" conf="compile"/>
-		<dependency org="net.java.dev.javacc" name="javacc" rev="7.0.11" conf="compile"/>
-		<dependency org="saxon" name="saxon" rev="(,6.5.5]" conf="xslt"/>
-		<dependency org="net.sf.xslthl" name="xslthl" rev="2.1.3" conf="xslt"/>
-		<dependency org="xerces" name="xercesImpl" rev="2.12.2" conf="xslt"/>
+		<dependency
+			org="jline"
+			name="jline"
+			rev="1.0"
+			conf="compile"
+			/>
+		<!--dependency
+			org="org.junit.vintage"
+			name="junit-vintage-engine"
+			rev="[5.3.2,)"
+			transitive="false"
+			conf="compile"
+			/-->
+		<dependency
+			org="org.apache.ant"
+			name="ant-junit"
+			rev="1.10.12"
+			conf="compile"
+			/>
+		<dependency
+			org="net.java.dev.javacc"
+			name="javacc"
+			rev="7.0.11"
+			conf="compile"
+			/>
+		<!--dependency
+			org="org.eclipse.collections"
+			name="eclipse-collections"
+			rev="[11.0.0,)"
+			conf="compile"
+			/-->
+		<dependency
+			org="saxon"
+			name="saxon"
+			rev="(,6.5.5]"
+			conf="xslt"
+			/>
+		<dependency
+			org="net.sf.xslthl"
+			name="xslthl"
+			rev="2.1.3"
+			conf="xslt"
+			/>
+		<dependency
+			org="xerces"
+			name="xercesImpl"
+			rev="2.12.2"
+			conf="xslt"
+			/>
 		<!--dependency org="net.sf.docbook" name="docbook-xsl-saxon" rev="1.0.0" conf="xslt"/-->
 		<exclude org="org.hamcrest"/>
 	</dependencies>
