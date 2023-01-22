@@ -6,3 +6,4 @@ coneforest.psylla.extensions.romannumerals
 coneforest.psylla.tools
 coneforest.psylla.tools.ant
 coneforest.psylla.tools.processors
+coneforest.psylla.tools.toolprovider

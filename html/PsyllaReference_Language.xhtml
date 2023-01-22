@@ -87,8 +87,8 @@ Binary integers, such as
 <span class="hl-number">B`-111010</span></pre><p>
 </p></li><li class="listitem"><p>
 Integers represented by characters, such as
-</p><pre class="programlisting"><span class="hl-number">`X</span>
-<span class="hl-number">`\n</span></pre><p>
+</p><pre class="programlisting"><span class="hl-keyword">c</span><span class="hl-number">`X</span>
+<span class="hl-keyword">c</span><span class="hl-number">`\n</span></pre><p>
 </p></li><li class="listitem"><p>
 Real numbers, such as
 </p><pre class="programlisting"><span class="hl-number">-.5</span>
@@ -108,7 +108,7 @@ String literals are enclosed in double quotes (<code class="literal">"</code>,
 <code class="constant">U+5C</code>) between quotation marks have special meaning defined
 by the following character.
 
-</p><div class="informaltable"><table style="border-collapse: collapse; border-top: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-right: 1px solid ; "><colgroup><col style="width: 1*; "/><col style="width: 3*; "/></colgroup><tbody><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\0</code></td><td style="border-bottom: 1px solid ; ">null character, <code class="constant">U+0</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\a</code></td><td style="border-bottom: 1px solid ; ">bell character, <code class="constant">U+7</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\t</code></td><td style="border-bottom: 1px solid ; ">tab character, <code class="constant">U+9</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\n</code></td><td style="border-bottom: 1px solid ; ">end of line character, <code class="constant">U+A</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\f</code></td><td style="border-bottom: 1px solid ; ">end of page character, <code class="constant">U+C</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\r</code></td><td style="border-bottom: 1px solid ; ">carriage return character, <code class="constant">U+D</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\e</code></td><td style="border-bottom: 1px solid ; ">escape character, <code class="constant">U+1B</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\"</code></td><td style="border-bottom: 1px solid ; ">double quote character <code class="literal">"</code>, <code class="constant">U+22</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\\</code></td><td style="border-bottom: 1px solid ; ">backslash character <code class="literal">\</code>, <code class="constant">U+5C</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\u<em class="replaceable"><code>XXXX</code></em></code></td><td style="border-bottom: 1px solid ; ">Unicode code unit <code class="constant">U+<em class="replaceable"><code>XXXX</code></em></code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\x{<em class="replaceable"><code>XXXXXXXX</code></em>}</code></td><td style="border-bottom: 1px solid ; ">Unicode code point <code class="constant">U+<em class="replaceable"><code>XXXXXXXX</code></em></code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\N{<em class="replaceable"><code>name</code></em>}</code></td><td style="border-bottom: 1px solid ; ">Unicode character named <em class="replaceable"><code>name</code></em> <em><span class="remark">(not implemented)</span></em></td></tr><tr><td style="border-right: 1px solid ; "><code class="literal">\c<em class="replaceable"><code>C</code></em></code></td><td>for
+</p><div class="informaltable"><table style="border-collapse: collapse; border-top: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-right: 1px solid ; "><colgroup><col style="width: 1*; "/><col style="width: 3*; "/></colgroup><tbody><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\0</code></td><td style="border-bottom: 1px solid ; ">null character, <code class="constant">U+0</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\a</code></td><td style="border-bottom: 1px solid ; ">bell character, <code class="constant">U+7</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\t</code></td><td style="border-bottom: 1px solid ; ">tab character, <code class="constant">U+9</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\n</code></td><td style="border-bottom: 1px solid ; ">end of line character, <code class="constant">U+A</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\f</code></td><td style="border-bottom: 1px solid ; ">end of page character, <code class="constant">U+C</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\r</code></td><td style="border-bottom: 1px solid ; ">carriage return character, <code class="constant">U+D</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\e</code></td><td style="border-bottom: 1px solid ; ">escape character, <code class="constant">U+1B</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\"</code></td><td style="border-bottom: 1px solid ; ">double quote character <code class="literal">"</code>, <code class="constant">U+22</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\\</code></td><td style="border-bottom: 1px solid ; ">backslash character <code class="literal">\</code>, <code class="constant">U+5C</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\u<em class="replaceable"><code>XXXX</code></em></code></td><td style="border-bottom: 1px solid ; ">Unicode code unit <code class="constant">U+<em class="replaceable"><code>XXXX</code></em></code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\x{<em class="replaceable"><code>XXXXXXXX</code></em>}</code></td><td style="border-bottom: 1px solid ; ">Unicode code point <code class="constant">U+<em class="replaceable"><code>XXXXXXXX</code></em></code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\N{<em class="replaceable"><code>name</code></em>}</code></td><td style="border-bottom: 1px solid ; ">Unicode character named <em class="replaceable"><code>name</code></em></td></tr><tr><td style="border-right: 1px solid ; "><code class="literal">\c<em class="replaceable"><code>C</code></em></code></td><td>for
 <em class="replaceable"><code>C</code></em> character within the
 range <code class="constant">U+0‥3F</code>, increment character’s code by 64, for
 character within the range <code class="constant">U+40‥7F</code>, decrement the code
@@ -117,9 +117,9 @@ by 64
 
 </p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="PsyllaReference_Language_Syntax_Names"><div class="titlepage"><div><div><h3 class="title">3.2.4. Names</h3></div></div></div><p>
 There are two syntatctic form of names:
-<em class="firstterm">quoted</em><a id="d5e506" class="indexterm"/>,
+<em class="firstterm">quoted</em><a id="d5e505" class="indexterm"/>,
 and
-<em class="firstterm">unquoted</em><a id="d5e510" class="indexterm"/>.
+<em class="firstterm">unquoted</em><a id="d5e509" class="indexterm"/>.
 </p><p>
 A quoted name is surrounded by single quotation characters
 (<code class="literal">'</code>, <code class="constant">U+27</code>). Any occurence of the
@@ -127,7 +127,7 @@ quotation character itself must be prefixed by the backslash character
 (<code class="literal">\</code>, <code class="constant">U+5C</code>).
 </p><p>
 An unquoted
-<em class="firstterm">name</em><a id="d5e520" class="indexterm"/>
+<em class="firstterm">name</em><a id="d5e519" class="indexterm"/>
 consists of letters from <code class="literal">A</code> to <code class="literal">Z</code> and
 from <code class="literal">a</code> to <code class="literal">z</code>
 (<code class="constant">U+41‥5A</code>, <code class="constant">U+61‥7A</code>), decimal digits
@@ -143,7 +143,7 @@ preceded by the slash character (<code class="literal">/</code>,
 </p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="PsyllaReference_Language_Syntax_Commands"><div class="titlepage"><div><div><h3 class="title">3.2.5. Commands</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="PsyllaReference_Language_Syntax_Procedures"><div class="titlepage"><div><div><h3 class="title">3.2.6. Procedures</h3></div></div></div><p>
 The curly bracket characters (<code class="literal">{</code>, <code class="constant">U+7B</code>
 and <code class="literal">}</code>, <code class="constant">U+7D</code>) are used to create
-<em class="firstterm">procedures</em><a id="d5e555" class="indexterm"/>.
+<em class="firstterm">procedures</em><a id="d5e554" class="indexterm"/>.
 </p><p>
 When the parser encounters the <code class="literal">{</code> character, it continues to
 scan and create objects, but they are not executed by the interpreter. When the
@@ -160,21 +160,21 @@ The interpreter does not execute the procedure, instead, it puts it on the
 operand stack. The procedure will be executed only at the result of its
 invocation. The execution of the procedure (and all of its constituent objects)
 is
-<em class="firstterm">deferred</em><a id="d5e567" class="indexterm"/>.
+<em class="firstterm">deferred</em><a id="d5e566" class="indexterm"/>.
 The meaning of the deferred execution is explained in Section <a class="xref" href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Execution_Deferred" title="3.5.2. Deferred execution">3.5.2. “Deferred execution”</a>.
 </p></section><section class="section" id="PsyllaReference_Language_Syntax_RegExps"><div class="titlepage"><div><div><h3 class="title">3.2.7. Regular Expressions</h3></div></div></div><p class="remark"><em><span class="remark">TODO</span></em></p></section></section><section class="section" id="PsyllaReference_Language_CoreTypes"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3.3. Core Types</h2></div></div></div><p>
 All data in the Psylla language exist in form of
-<em class="firstterm">objects</em><a id="d5e578" class="indexterm"/>.
+<em class="firstterm">objects</em><a id="d5e577" class="indexterm"/>.
 Most of the objects created and handled by operators. Some types of objects are
 also created by the parser and executed by the interpreter.
 </p><p>
 Each object belongs to a certain
-<em class="firstterm">type</em><a id="d5e582" class="indexterm"/>.
+<em class="firstterm">type</em><a id="d5e581" class="indexterm"/>.
 Object type affects the way that the object will be handled by operators. Types
 are divided into
-<em class="firstterm">simple</em><a id="d5e585" class="indexterm"/>
+<em class="firstterm">simple</em><a id="d5e584" class="indexterm"/>
 and
-<em class="firstterm">complex</em><a id="d5e589" class="indexterm"/>.
+<em class="firstterm">complex</em><a id="d5e588" class="indexterm"/>.
 </p><p>
 Objects of simple types can not be changed, they are only created as the result
 of calculations. For example, the <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_neg" title="5.2.157. neg"><code class="token"><span class="hl-keyword">neg</span></code></a> operator does not change the
@@ -192,7 +192,7 @@ language core. Language extensions may introduce new object types.
 <div class="itemizedlist"><div class="itemizedlist-title">Complex Types</div><ul style="list-style-type: disc; " class="itemizedlist"><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_array" title="4.1.4. array"><span class="type">array</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_bitarray" title="4.1.8. bitarray"><span class="type">bitarray</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_bitset" title="4.1.9. bitset"><span class="type">bitset</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_dict" title="4.1.25. dict"><span class="type">dict</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_input" title="4.1.38. input"><span class="type">input</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_lock" title="4.1.43. lock"><span class="type">lock</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_matcher" title="4.1.46. matcher"><span class="type">matcher</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_output" title="4.1.54. output"><span class="type">output</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_proc" title="4.1.55. proc"><span class="type">proc</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_random" title="4.1.56. random"><span class="type">random</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_reader" title="4.1.59. reader"><span class="type">reader</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_set" title="4.1.67. set"><span class="type">set</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_string" title="4.1.70. string"><span class="type">string</span></a></li><li class="listitem"><a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_writer" title="4.1.76. writer"><span class="type">writer</span></a></li></ul></div>
 </td></tr></tbody></table></div><section class="section" id="PsyllaReference_Language_CoreTypes_Operators"><div class="titlepage"><div><div><h3 class="title">3.3.1. Operators</h3></div></div></div><p>
 An
-<em class="firstterm">operator</em><a id="d5e661" class="indexterm"/>
+<em class="firstterm">operator</em><a id="d5e660" class="indexterm"/>
 in the Psylla language represents a code that manipulates the interpreter. The
 oparator objects have the <a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_operator" title="4.1.53. operator"><span class="type">operator</span></a>
 type. All core operators are initially placed in the system dictionary and
@@ -225,7 +225,7 @@ boolean objects present in the system dictionary under the names of <a class="xr
 <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_true" title="5.2.242. true"><code class="token"><span class="hl-keyword">true</span></code></a>.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_Marks"><div class="titlepage"><div><div><h3 class="title">3.3.4. Mark</h3></div></div></div><p>
 The
-<em class="firstterm">mark</em><a id="d5e690" class="indexterm"/> is
+<em class="firstterm">mark</em><a id="d5e689" class="indexterm"/> is
 the sole object of type <a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_mark" title="4.1.45. mark"><span class="type">mark</span></a>. It serves to indicate the position in the operand
 stack.  The mark present in the system dictionary under the names of <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_mark" title="5.2.147. mark"><code class="token"><span class="hl-keyword">mark</span></code></a>
 (<a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_[" title="5.2.6. ["><code class="token"><span class="hl-structure">[</span></code></a>,
@@ -239,24 +239,24 @@ null objects appear in arrays when their size increase. Null object present in
 the system dictionary under the name <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_null" title="5.2.162. null"><code class="token"><span class="hl-keyword">null</span></code></a>. It can
 not be the operand for most operators.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_Names"><div class="titlepage"><div><div><h3 class="title">3.3.6. Names</h3></div></div></div><p>
-A <em class="firstterm">name</em><a id="d5e716" class="indexterm"/>
+A <em class="firstterm">name</em><a id="d5e715" class="indexterm"/>
 object (<a class="xref" href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_name" title="4.1.48. name"><span class="type">name</span></a>) represents an immutable string. The names are
 mostly used as keys in the dictionaries associated to corresponding values.
 Every core operator is stored in the system dictionary under its own name.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_Commands"><div class="titlepage"><div><div><h3 class="title">3.3.7. Commands</h3></div></div></div><p>
 The
-<em class="firstterm">commands</em><a id="d5e723" class="indexterm"/>
+<em class="firstterm">commands</em><a id="d5e722" class="indexterm"/>
 (<em class="firstterm">executable
-names</em><a id="d5e726" class="indexterm"/>)
+names</em><a id="d5e725" class="indexterm"/>)
 differ from the names in execution semantics. The execution of the command
 leads to the search of the object associated with it in the dictionary stack,
 and the subsequent invocation of the found object.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_Arrays"><div class="titlepage"><div><div><h3 class="title">3.3.8. Arrays</h3></div></div></div><p>
-The <em class="firstterm">array</em><a id="d5e733" class="indexterm"/>
+The <em class="firstterm">array</em><a id="d5e732" class="indexterm"/>
 is a container for objects numbered with non-negative integer numbers
-(<em class="firstterm">indices</em><a id="d5e736" class="indexterm"/>).
+(<em class="firstterm">indices</em><a id="d5e735" class="indexterm"/>).
 Arrays in the Psylla language are
-<em class="firstterm">heterogeneous</em><a id="d5e740" class="indexterm"/>,
+<em class="firstterm">heterogeneous</em><a id="d5e739" class="indexterm"/>,
 that is, the array elements can be objects of any type. In particular, the
 arrays may contain other containers (arrays, dictionaries, sets), which allows
 the construction of multi-dimensional data structures of any complexity.
@@ -268,37 +268,37 @@ the <a class="xref" href="PsyllaReference_Errors.xhtml#PsyllaReference_Errors_De
 The length of the array changes when inserting or removing elements.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_Procedures"><div class="titlepage"><div><div><h3 class="title">3.3.9. Procedures</h3></div></div></div><p>
 A
-<em class="firstterm">procedure</em><a id="d5e750" class="indexterm"/>
+<em class="firstterm">procedure</em><a id="d5e749" class="indexterm"/>
 (<em class="firstterm">executable
-array</em><a id="d5e753" class="indexterm"/>)
+array</em><a id="d5e752" class="indexterm"/>)
 differ from the array in execution semantics. The execution of the procedure
 leads to sequential execution of all its elements.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_Strings"><div class="titlepage"><div><div><h3 class="title">3.3.10. Strings</h3></div></div></div><p>
-A <em class="firstterm">string</em><a id="d5e760" class="indexterm"/>
+A <em class="firstterm">string</em><a id="d5e759" class="indexterm"/>
 conceptually arranged as an array whose elements are integers between 0 and
-65535 inclusive (<em class="firstterm">code units</em><a id="d5e763" class="indexterm"/>).
+65535 inclusive (<em class="firstterm">code units</em><a id="d5e762" class="indexterm"/>).
 </p><p>
 Strings are used to store text. Each character of text is represented by one or
 two code units in accordance with the encoding
-<em class="firstterm"><abbr class="acronym">UTF-16</abbr></em><a id="d5e768" class="indexterm"/>.
+<em class="firstterm"><abbr class="acronym">UTF-16</abbr></em><a id="d5e767" class="indexterm"/>.
 One code unit encodes a character of the <em class="firstterm">basic multilingual
-plane</em><a id="d5e771" class="indexterm"/>
-(<abbr class="acronym">BMP</abbr><a id="d5e774" class="indexterm"/>).  The remaining Unicode
+plane</em><a id="d5e770" class="indexterm"/>
+(<abbr class="acronym">BMP</abbr><a id="d5e773" class="indexterm"/>).  The remaining Unicode
 characters are encoded with so-called <em class="firstterm">surrogate
-pairs</em><a id="d5e780" class="indexterm"/>.
+pairs</em><a id="d5e779" class="indexterm"/>.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_Dictionaries"><div class="titlepage"><div><div><h3 class="title">3.3.11. Dictionaries</h3></div></div></div><p>
 A
-<em class="firstterm">dictionary</em><a id="d5e786" class="indexterm"/>
+<em class="firstterm">dictionary</em><a id="d5e785" class="indexterm"/>
 is a container for objects indexed with names. Such structures also called
 <em class="firstterm">associative
-arrays</em><a id="d5e789" class="indexterm"/>.
+arrays</em><a id="d5e788" class="indexterm"/>.
 </p><p>
 The interpreter intensively uses dictionaries to associate objects (typically
 operators and procedures) with names. Each time the parser detects a command,
 the interpreter searches the dictionary stack for an object associated with the
 name of the command, and then executes the found object.
 </p></section><section class="section" id="PsyllaReference_Language_CoreTypes_RegExps"><div class="titlepage"><div><div><h3 class="title">3.3.12. Regular Expressions</h3></div></div></div><p>
-<em class="firstterm">Regular expression</em><a id="d5e797" class="indexterm"/> represents a template for search in a string.
+<em class="firstterm">Regular expression</em><a id="d5e796" class="indexterm"/> represents a template for search in a string.
 </p><section class="section" id="PsyllaReference_Language_CoreTypes_RegExps_Characters"><div class="titlepage"><div><div><h4 class="title">3.3.12.1. Characters</h4></div></div></div><div class="informaltable"><table style="width: 100%; border-collapse: collapse; border-top: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-right: 1px solid ; "><colgroup><col style="width: 1*; "/><col style="width: 3*; "/></colgroup><tbody><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal"><em class="replaceable"><code>X</code></em></code></td><td style="border-bottom: 1px solid ; ">character <em class="replaceable"><code>X</code></em></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal"><em class="replaceable"><code>\0</code></em></code></td><td style="border-bottom: 1px solid ; ">null character</td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\\</code></td><td style="border-bottom: 1px solid ; ">backslash character, <code class="constant">U+5C</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\u<em class="replaceable"><code>HHHH</code></em></code></td><td style="border-bottom: 1px solid ; ">character <code class="constant">U+<em class="replaceable"><code>HHHH</code></em></code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\x{<em class="replaceable"><code>H…H</code></em>}</code></td><td style="border-bottom: 1px solid ; ">character <code class="constant">U+<em class="replaceable"><code>H…H</code></em></code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\t</code></td><td style="border-bottom: 1px solid ; ">tab character, <code class="constant">U+9</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\n</code></td><td style="border-bottom: 1px solid ; ">end of line character, <code class="constant">U+A</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\r</code></td><td style="border-bottom: 1px solid ; ">carriage-return character, <code class="constant">U+D</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\f</code></td><td style="border-bottom: 1px solid ; ">line feed character, <code class="constant">U+C</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\a</code></td><td style="border-bottom: 1px solid ; ">bell character, <code class="constant">U+7</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\e</code></td><td style="border-bottom: 1px solid ; ">escape character, <code class="constant">U+1B</code></td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">\~</code></td><td style="border-bottom: 1px solid ; ">tilde character <code class="literal">~</code>, <code class="constant">U+7E</code></td></tr><tr><td style="border-right: 1px solid ; "><code class="literal">\c<em class="replaceable"><code>X</code></em></code></td><td>control+<em class="replaceable"><code>X</code></em> character</td></tr></tbody></table></div></section><section class="section" id="PsyllaReference_Language_CoreTypes_RegExps_ExplicitCharacterClasses"><div class="titlepage"><div><div><h4 class="title">3.3.12.2. Explicit Character Classes</h4></div></div></div><div class="informaltable"><table style="width: 100%; border-collapse: collapse; border-top: 1px solid ; border-bottom: 1px solid ; border-left: 1px solid ; border-right: 1px solid ; "><colgroup><col style="width: 1*; "/><col style="width: 3*; "/></colgroup><tbody><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">[abc]</code></td><td style="border-bottom: 1px solid ; "><code class="literal">a</code>, <code class="literal">b</code> or <code class="literal">c</code> (simple class)</td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">[^abc]</code></td><td style="border-bottom: 1px solid ; ">any character except <code class="literal">a</code>, <code class="literal">b</code> and <code class="literal">c</code> (negation)</td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">[A-Za-z]</code></td><td style="border-bottom: 1px solid ; "><code class="literal">A</code> through <code class="literal">Z</code> or
 <code class="literal">a</code> through <code class="literal">z</code>, inclusive (range)</td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">[A-Z[0-9]]</code></td><td style="border-bottom: 1px solid ; "><code class="literal">A</code> through <code class="literal">Z</code> or
 <code class="literal">a</code> through <code class="literal">z</code> (union)</td></tr><tr><td style="border-right: 1px solid ; border-bottom: 1px solid ; "><code class="literal">[A-P&amp;&amp;[M-Z]]</code></td><td style="border-bottom: 1px solid ; "><code class="literal">P</code> through <code class="literal">M</code> (intersection)</td></tr><tr><td style="border-right: 1px solid ; "><code class="literal">[A-Z&amp;&amp;[^M-P]]</code></td><td><code class="literal">A</code> through <code class="literal">L</code> or
@@ -306,9 +306,9 @@ name of the command, and then executes the found object.
 The Psylla interpreter supports several stacks intended to store data during
 the program execution or represent the program execution state. Three of them
 are essential: the <em class="firstterm">operand
-stack</em><a id="d5e1019" class="indexterm"/>, the
-<em class="firstterm">dictionary stack</em><a id="d5e1022" class="indexterm"/> and the <em class="firstterm">execution
-stack</em><a id="d5e1025" class="indexterm"/>.
+stack</em><a id="d5e1018" class="indexterm"/>, the
+<em class="firstterm">dictionary stack</em><a id="d5e1021" class="indexterm"/> and the <em class="firstterm">execution
+stack</em><a id="d5e1024" class="indexterm"/>.
 </p><p>
 Each of the stacks is arranged according to the <abbr class="acronym">LIFO</abbr>
 principle: Last In-First Out.
@@ -336,23 +336,23 @@ directly operating the execution stack. This is control operators that
 implement cycles.
 </p></section><section class="section" id="PsyllaReference_Language_Stacks_Auxiliary"><div class="titlepage"><div><div><h3 class="title">3.4.4. Auxiliary Stacks</h3></div></div></div><p>
 In addition to three main stacks, there are several auxiliary stacks built into
-the interpreter: <em class="firstterm">exit stack</em><a id="d5e1043" class="indexterm"/> and <em class="firstterm">stop
-stack</em><a id="d5e1046" class="indexterm"/>. Only a
+the interpreter: <em class="firstterm">exit stack</em><a id="d5e1042" class="indexterm"/> and <em class="firstterm">stop
+stack</em><a id="d5e1045" class="indexterm"/>. Only a
 few control operators operate on auxiliary stacks.
 </p></section></section><section class="section" id="PsyllaReference_Language_Execution"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3.5. Execution of Objects</h2></div></div></div><p>
 Execution semantics depends on the object’s type, as well as whether the object
 was received by the parser or in another way. Execution can be either
-<em class="firstterm">immediate</em><a id="d5e1052" class="indexterm"/>,
+<em class="firstterm">immediate</em><a id="d5e1051" class="indexterm"/>,
 which performed as soon as the object is created by the parser, or
-<em class="firstterm">deferred</em><a id="d5e1056" class="indexterm"/>.
+<em class="firstterm">deferred</em><a id="d5e1055" class="indexterm"/>.
 </p><section class="section" id="PsyllaReference_Language_Execution_Immediate"><div class="titlepage"><div><div><h3 class="title">3.5.1. Immediate execution</h3></div></div></div><p>
 
 </p></section><section class="section" id="PsyllaReference_Language_Execution_Deferred"><div class="titlepage"><div><div><h3 class="title">3.5.2. Deferred execution</h3></div></div></div><p>
 
 </p></section></section><section class="section" id="PsyllaReference_Language_EarlyNameBinding"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3.6. Early Name Binding</h2></div></div></div><section class="section" id="PsyllaReference_Language_EarlyNameBinding_BindOperator"><div class="titlepage"><div><div><h3 class="title">3.6.1. The <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_bind" title="5.2.22. bind"><code class="token"><span class="hl-keyword">bind</span></code></a> operator</h3></div></div></div></section><section class="section" id="PsyllaReference_Language_EarlyNameBinding_Immediate"><div class="titlepage"><div><div><h3 class="title">3.6.2. Immediate Names</h3></div></div></div></section></section><section class="section" id="PsyllaReference_Language_IO"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3.7. Input and Output</h2></div></div></div><p>
-A <em class="firstterm">file</em><a id="d5e1076" class="indexterm"/> is
+A <em class="firstterm">file</em><a id="d5e1075" class="indexterm"/> is
 a sequence of
-<em class="firstterm">characters</em><a id="d5e1079" class="indexterm"/>,
+<em class="firstterm">characters</em><a id="d5e1078" class="indexterm"/>,
 usually the final. The file can be located in the file system or be created on
 the fly. Input/output operations are designed for exchange of character data
 between files and a program. I/O is the primary means of interaction between
@@ -378,18 +378,18 @@ terminator. Terminator itself is available in the system dictionary by the
 name <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_eol" title="5.2.75. eol"><code class="token"><span class="hl-keyword">eol</span></code></a>.
 </p><p>
 When performing output operations, the output characters can be
-<em class="firstterm">buffered</em><a id="d5e1096" class="indexterm"/>
+<em class="firstterm">buffered</em><a id="d5e1095" class="indexterm"/>
 for efficiency instead of being immediately sent to physical media. The <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_flush" title="5.2.103. flush"><code class="token"><span class="hl-keyword">flush</span></code></a>
 operator immediately sends the buffered data to the media.
 </p></section><section class="section" id="PsyllaReference_Language_IO_Standard"><div class="titlepage"><div><div><h3 class="title">3.7.2. Standard Input/Output</h3></div></div></div><p>
 The program environment provides standard files for input and output. Data
 written to <em class="firstterm">standard
-output</em><a id="d5e1104" class="indexterm"/>
+output</em><a id="d5e1103" class="indexterm"/>
 or <em class="firstterm">standard
-error</em><a id="d5e1108" class="indexterm"/>
+error</em><a id="d5e1107" class="indexterm"/>
 are sent to the terminal screen. The data entered by the user can be read by
 the program from the <em class="firstterm">standard
-input</em><a id="d5e1112" class="indexterm"/>.
+input</em><a id="d5e1111" class="indexterm"/>.
 </p><p>
 Files representing standard input, output, and error message output are
 available in the system dictionary under the names <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_stdin" title="5.2.219. stdin"><code class="token"><span class="hl-keyword">stdin</span></code></a>,
@@ -400,11 +400,11 @@ The <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operat
 operators send the specified string to standard output and standard error,
 respectively.
 </p><p>
-<em class="firstterm">Redirection</em><a id="d5e1124" class="indexterm"/>
+<em class="firstterm">Redirection</em><a id="d5e1123" class="indexterm"/>
 of standard input and output by means of the operating system is possible.
 </p></section></section><section class="section" id="PsyllaReference_Language_MultipleContextExecution"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3.8. Multiple Context Execution</h2></div></div></div><p>
 The Psylla language has support for asynchronous <em class="firstterm">execution
-contexts</em><a id="d5e1131" class="indexterm"/>. The execution context is a separate interpreter
+contexts</em><a id="d5e1130" class="indexterm"/>. The execution context is a separate interpreter
 instance.
 </p><p>
 Each context creates an environment for executing program, consisting of
@@ -421,31 +421,31 @@ executed in the new context, and the remaining operands are used to initialize
 the operand stack in a new context.
 </p><p>
 The <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_join" title="5.2.134. join"><code class="token"><span class="hl-keyword">join</span></code></a> operator
-<em class="firstterm">waits</em><a id="d5e1144" class="indexterm"/> for the
+<em class="firstterm">waits</em><a id="d5e1143" class="indexterm"/> for the
 completion of the procedure being executed in the context previously created by
 the <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_fork" title="5.2.106. fork"><code class="token"><span class="hl-keyword">fork</span></code></a> operator, and then copies
 the contents of the operand stack to the operand stack of the context that
 invoked <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_join" title="5.2.134. join"><code class="token"><span class="hl-keyword">join</span></code></a>.
 </p><p>
 The execution context
-<em class="firstterm">suspends</em><a id="d5e1151" class="indexterm"/> upon completion
+<em class="firstterm">suspends</em><a id="d5e1150" class="indexterm"/> upon completion
 the procedure executing in it, waiting for the <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_join" title="5.2.134. join"><code class="token"><span class="hl-keyword">join</span></code></a> operator. In addition, the
 suspension of the context occurs as a result of execution of operators <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_wait" title="5.2.251. wait"><code class="token"><span class="hl-keyword">wait</span></code></a>,
 <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_monitor" title="5.2.153. monitor"><code class="token"><span class="hl-keyword">monitor</span></code></a>, <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_yield" title="5.2.257. yield"><code class="token"><span class="hl-keyword">yield</span></code></a> and
 <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_sleep" title="5.2.211. sleep"><code class="token"><span class="hl-keyword">sleep</span></code></a> in it.
 </p><p>
 The <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_currentcontext" title="5.2.57. currentcontext"><code class="token"><span class="hl-keyword">currentcontext</span></code></a> operator returns
-the <em class="firstterm">current</em><a id="d5e1162" class="indexterm"/> execution context.
+the <em class="firstterm">current</em><a id="d5e1161" class="indexterm"/> execution context.
 </p><p>
 The execution context
-<em class="firstterm">terminates</em><a id="d5e1167" class="indexterm"/> when the <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_quit" title="5.2.179. quit"><code class="token"><span class="hl-keyword">quit</span></code></a>
+<em class="firstterm">terminates</em><a id="d5e1166" class="indexterm"/> when the <a class="xref" href="PsyllaReference_Operators.xhtml#PsyllaReference_Operators_Details_quit" title="5.2.179. quit"><code class="token"><span class="hl-keyword">quit</span></code></a>
 operator executed in it.
 </p></section><section class="section" id="PsyllaReference_Language_MultipleContextExecution_Synchronization"><div class="titlepage"><div><div><h3 class="title">3.8.2. Context Synchronization</h3></div></div></div><p>
 Because execution contexts share common data in the dictionary stack, they need
 a synchronization mechanism. The language has two types of synchronization
 objects and several operators for working with them.
 </p><p>
-The <em class="firstterm">lock</em><a id="d5e1176" class="indexterm"/>
+The <em class="firstterm">lock</em><a id="d5e1175" class="indexterm"/>
 is a semaphore for mutual exclusion. Contexts can use locks to prevent
 concurrent access to their shared data. Before accessing the data, the context
 asks for a lock, which it later releases. While the lock is in effect, other
@@ -453,7 +453,7 @@ contexts cannot acquire the lock, and as a result, they cannot access data that
 is possibly in an inconsistent state.
 </p></section></section><section class="section" id="PsyllaReference_Language_Errors"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3.9. Errors</h2></div></div></div><p>
 Various
-<em class="firstterm">errors</em><a id="d5e1182" class="indexterm"/>
+<em class="firstterm">errors</em><a id="d5e1181" class="indexterm"/>
 can occur while a program executes. Some of them are generated by the
 interpreter. Others arise during execution of the operators, for example, the
 operand type mismatch error or operand stack underflow error.
