@@ -211,6 +211,16 @@ public interface PsyIntegral
 						{
 							throw new PsySyntaxErrorException();
 						}
+					case 'N':
+						try
+						{
+							return PsyInteger.of(
+									Character.codePointOf(image.substring(3, image.length()-1)));
+						}
+						catch(final IllegalArgumentException ex)
+						{
+							throw new PsySyntaxErrorException();
+						}
 				}
 			default:
 				return PsyInteger.of(image.charAt(0));

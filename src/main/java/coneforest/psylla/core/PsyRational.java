@@ -35,9 +35,9 @@ public interface PsyRational
 	@Override
 	default public int cmp(final PsyRealNumeric oNumeric)
 	{
-		if(oNumeric instanceof PsyRational)
-			return psyNumerator().psyMul(((PsyRational)oNumeric).psyDenominator())
-				.cmp(psyDenominator().psyMul(((PsyRational)oNumeric).psyNumerator()));
+		if(oNumeric instanceof PsyRational oRational)
+			return psyNumerator().psyMul(oRational.psyDenominator())
+					.cmp(psyDenominator().psyMul(oRational.psyNumerator()));
 		return Double.compare(doubleValue(), oNumeric.doubleValue());
 	}
 

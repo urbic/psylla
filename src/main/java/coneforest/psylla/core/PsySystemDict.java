@@ -21,16 +21,14 @@ public class PsySystemDict
 			new PsyOperator.Arity11<PsyBounded>("isfull", PsyBounded::psyIsFull),
 
 			// ?
-			new PsyOperator.Action("warn",
-				(oContext)->
+			new PsyOperator.Action("warn", oContext->
 				{
 					final var ostack=oContext.operandStackBacked(1);
 					final PsyWriter stderror=oContext.dictStack().load("stderr");
 					stderror.psyWriteString(ostack.getBacked(0));
 					stderror.psyFlush();
 				}),
-			new PsyOperator.Action("say",
-				(oContext)->
+			new PsyOperator.Action("say", oContext->
 				{
 					final var ostack=oContext.operandStackBacked(1);
 					final var stdwriter=(PsyWriter)oContext.dictStack().load("stdout");
@@ -38,8 +36,7 @@ public class PsySystemDict
 					stdwriter.psyWriteString((PsyTextual)oContext.dictStack().load("eol"));
 					stdwriter.psyFlush();
 				}),
-			new PsyOperator.Action("editline",
-					(interpreter)->
+			new PsyOperator.Action("editline", interpreter->
 					{
 						try
 						{

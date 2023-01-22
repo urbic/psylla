@@ -46,7 +46,7 @@ Task</application> 1.10.9</listitem>
 <listitem><application
 xlink:href="https://jline.github.io/">JLine</application> 1</listitem>
 
-<listitem><application xlink:href="http://saxon.sourceforge.net/">Saxon
+<listitem><application xlink:href="https://saxon.sourceforge.net/">Saxon
 HE</application> 6</listitem>
 
 <listitem><application
@@ -54,15 +54,15 @@ xlink:href="https://github.com/docbook/xslt10-stylesheets/">Docbook 5 XSLT
 Stylesheets</application> 1.79.2</listitem>
 
 <listitem><application
-xlink:href="http://sourceforge.net/projects/xslthl/">XSLTHL</application>
+xlink:href="https://sourceforge.net/projects/xslthl/">XSLTHL</application>
 2.1.3</listitem>
 
 <listitem><application
-xlink:href="http://sourceforge.net/projects/docbook/">Docbook XSL
+xlink:href="https://sourceforge.net/projects/docbook/">Docbook XSL
 Saxon</application> 1.0.0</listitem>
 
 <listitem><application
-xlink:href="http://www.graphviz.org/">Graphviz</application> 2.40.1</listitem>
+xlink:href="https://www.graphviz.org/">Graphviz</application> 2.40.1</listitem>
 
 <listitem><application
 xlink:href="https://github.com/sass/sassc/">SassC</application>
@@ -273,7 +273,7 @@ You also can run into interactive session:
 
 <screen><prompt>% </prompt><userinput>./psylla.sh</userinput>
 <computeroutput>Psylla v&psylla.version;
-Copyright © 2014—2022, Anton Shvetz
+Copyright © 2014—2023, Anton Shvetz
 
 </computeroutput><prompt>PSYLLA&gt; </prompt><userinput>2 sqrt ?</userinput>
 <computeroutput>1.4142135623730951

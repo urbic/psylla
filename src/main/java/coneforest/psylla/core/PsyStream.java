@@ -27,15 +27,13 @@ public class PsyStream
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Action
-				("iterate",
-					(oContext)->
+				("iterate", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(PsyStream.psyIterate(ostack.getBacked(0), ostack.getBacked(1), oContext));
 					}),
 			new PsyOperator.Action
-				("streamtomark",
-					(oContext)->
+				("streamtomark", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						final var i=ostack.findMarkPosition()+1;

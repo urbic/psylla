@@ -115,8 +115,7 @@ public class PsyDict
 			new PsyOperator.Arity01
 				("dict", PsyDict::new),
 			new PsyOperator.Action
-				("dicttomark",
-					(oContext)->
+				("dicttomark", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						final var i=ostack.findMarkPosition();

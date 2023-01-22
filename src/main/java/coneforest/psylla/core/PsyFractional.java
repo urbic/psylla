@@ -137,9 +137,9 @@ public class PsyFractional
 		{
 			if(oRealNumeric instanceof PsyIntegral)
 				return psyNumerator().psyMul(oRealNumeric).psyDiv(psyDenominator());
-			if(oRealNumeric instanceof PsyRational)
-				return psyNumerator().psyMul(((PsyRational)oRealNumeric).psyNumerator())
-						.psyDiv(psyDenominator().psyMul(((PsyRational)oRealNumeric).psyDenominator()));
+			if(oRealNumeric instanceof PsyRational oRational)
+				return psyNumerator().psyMul(oRational.psyNumerator())
+						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
 		}
 		catch(final PsyUndefinedResultException e)
 		{
@@ -154,9 +154,9 @@ public class PsyFractional
 	{
 		if(oRealNumeric instanceof PsyIntegral)
 			return psyNumerator().psyDiv(psyDenominator().psyMul(oRealNumeric));
-		if(oRealNumeric instanceof PsyRational)
-			return psyNumerator().psyMul(((PsyRational)oRealNumeric).psyDenominator())
-					.psyDiv(psyDenominator().psyMul(((PsyRational)oRealNumeric).psyNumerator()));
+		if(oRealNumeric instanceof PsyRational oRational)
+			return psyNumerator().psyMul(oRational.psyDenominator())
+					.psyDiv(psyDenominator().psyMul(oRational.psyNumerator()));
 		return new PsyReal(doubleValue()*oRealNumeric.doubleValue());
 	}
 
@@ -169,10 +169,10 @@ public class PsyFractional
 				return psyNumerator()
 						.psyAdd(psyDenominator().psyMul(oRealNumeric))
 						.psyDiv(psyDenominator());
-			if(oRealNumeric instanceof PsyRational)
-				return psyNumerator().psyMul(((PsyRational)oRealNumeric).psyDenominator())
-						.psyAdd(psyDenominator().psyMul(((PsyRational)oRealNumeric).psyNumerator()))
-						.psyDiv(psyDenominator().psyMul(((PsyRational)oRealNumeric).psyDenominator()));
+			if(oRealNumeric instanceof PsyRational oRational)
+				return psyNumerator().psyMul(oRational.psyDenominator())
+						.psyAdd(psyDenominator().psyMul(oRational.psyNumerator()))
+						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
 		}
 		catch(final PsyUndefinedResultException e)
 		{
@@ -190,10 +190,10 @@ public class PsyFractional
 				return psyNumerator()
 						.psySub(psyDenominator().psyMul(oRealNumeric))
 						.psyDiv(psyDenominator());
-			if(oRealNumeric instanceof PsyRational)
-				return psyNumerator().psyMul(((PsyRational)oRealNumeric).psyDenominator())
-						.psySub(psyDenominator().psyMul(((PsyRational)oRealNumeric).psyNumerator()))
-						.psyDiv(psyDenominator().psyMul(((PsyRational)oRealNumeric).psyDenominator()));
+			if(oRealNumeric instanceof PsyRational oRational)
+				return psyNumerator().psyMul(oRational.psyDenominator())
+						.psySub(psyDenominator().psyMul(oRational.psyNumerator()))
+						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
 		}
 		catch(final PsyUndefinedResultException e)
 		{

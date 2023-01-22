@@ -75,8 +75,8 @@ public class PsyBitSet
 	public void psyAppendAll(final PsyIterable<? extends PsyInteger> oIterable)
 		throws PsyErrorException
 	{
-		if(oIterable instanceof PsyBitSet)
-			bitset.or(((PsyBitSet)oIterable).bitset);
+		if(oIterable instanceof PsyBitSet oBitSet)
+			bitset.or(oBitSet.bitset);
 		else
 			PsyFormalSet.super.psyAppendAll(oIterable);
 	}
@@ -97,8 +97,8 @@ public class PsyBitSet
 	@Override
 	public void psyRemoveAll(PsyIterable<? extends PsyInteger> oIterable)
 	{
-		if(oIterable instanceof PsyBitSet)
-			bitset.andNot(((PsyBitSet)oIterable).bitset);
+		if(oIterable instanceof PsyBitSet oBitSet)
+			bitset.andNot(oBitSet.bitset);
 		else
 			PsyFormalSet.super.psyRemoveAll(oIterable);
 	}
@@ -152,8 +152,8 @@ public class PsyBitSet
 	@Override
 	public PsyBoolean psyIntersects(final PsyFormalSet oSet)
 	{
-		if(oSet instanceof PsyBitSet)
-			return PsyBoolean.of(bitset.intersects(((PsyBitSet)oSet).bitset));
+		if(oSet instanceof PsyBitSet oBitSet)
+			return PsyBoolean.of(bitset.intersects(oBitSet.bitset));
 		else
 			return PsyFormalSet.super.psyIntersects(oSet);
 	}
@@ -161,8 +161,8 @@ public class PsyBitSet
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.of(o instanceof PsyBitSet
-				&& bitset.equals(((PsyBitSet)o).bitset));
+		return PsyBoolean.of(o instanceof PsyBitSet oBitSet
+				&& bitset.equals(oBitSet.bitset));
 	}
 
 	@Override

@@ -222,6 +222,20 @@ public class PsyName
 								throw new PsySyntaxErrorException();
 							}
 							break;
+						case 'N':
+							try
+							{
+								final var j=image.indexOf('}', i+2);
+								final var cp=Character.codePointOf(image.substring(i+2, j));
+								// TODO
+								sb.append((char)cp);
+								i=j;
+							}
+							catch(final IllegalArgumentException ex)
+							{
+								throw new PsySyntaxErrorException();
+							}
+							break;
 					}
 					break;
 				default:

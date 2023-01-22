@@ -138,7 +138,7 @@ public abstract class PsyOperator
 				final var mh=java.lang.invoke.MethodHandles.lookup().unreflect(method);
 				final var mht=mh.type();
 				if(mht.returnType().equals(void.class))
-					this.handler=(oContext)->
+					this.handler=oContext->
 						{
 							final var ostack=oContext.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];
@@ -157,7 +157,7 @@ public abstract class PsyOperator
 							}
 						};
 				else
-					this.handler=(oContext)->
+					this.handler=oContext->
 						{
 							final var ostack=oContext.operandStackBacked(mht.parameterCount());
 							final var params=new PsyObject[mht.parameterCount()];

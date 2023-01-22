@@ -236,7 +236,7 @@ by the following character.
 </row>
 <row>
 <entry><literal>\N{<replaceable>name</replaceable>}</literal></entry>
-<entry>Unicode character named <replaceable>name</replaceable> <remark>(not implemented)</remark></entry>
+<entry>Unicode character named <replaceable>name</replaceable></entry>
 </row>
 <row>
 <entry><literal>\c<replaceable>C</replaceable></literal></entry> <entry>for

@@ -118,8 +118,8 @@ public class PsyString
 		int index=oIndex.intValue();
 		if(index<0
 				||
-				oIterable instanceof PsyLengthy
-				&& index+((PsyLengthy)oIterable).length()>=length())
+				oIterable instanceof PsyLengthy oLengthy
+				&& index+oLengthy.length()>=length())
 			throw new PsyRangeCheckException();
 		for(final var oCharacter: oIterable)
 		{
@@ -159,14 +159,15 @@ public class PsyString
 		int index=oIndex.intValue();
 		try
 		{
-			if(oIterable instanceof PsyString)
+			if(oIterable instanceof PsyString oString)
 			{
 				// Take care when attempting to insert this object into itself
-				buffer.insert(index, this==oIterable? buffer.toString(): ((PsyString)oIterable).buffer);
+				buffer.insert(index, this==oIterable? buffer.toString(): oString.buffer);
 				return;
 			}
 
 			for(final var oCharacter: oIterable)
+				// TODO
 				buffer.insert(index++, (char)oCharacter.intValue());
 		}
 		catch(final IndexOutOfBoundsException ex)
@@ -423,6 +424,20 @@ public class PsyString
 							{
 								final var j=image.indexOf('}', i+2);
 								sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));
+								i=j;
+							}
+							catch(final IllegalArgumentException ex)
+							{
+								throw new PsySyntaxErrorException();
+							}
+							break;
+						case 'N':
+							try
+							{
+								final var j=image.indexOf('}', i+2);
+								final var cp=Character.codePointOf(image.substring(i+2, j));
+								// TODO
+								sb.append((char)cp);
 								i=j;
 							}
 							catch(final IllegalArgumentException ex)

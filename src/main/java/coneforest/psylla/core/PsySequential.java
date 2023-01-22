@@ -10,8 +10,7 @@ public interface PsySequential<T extends PsyObject>
 
 	public static final PsyOperator[] OPERATORS=
 		{
-			new PsyOperator.Action("forall",
-				(oContext)->
+			new PsyOperator.Action("forall", oContext->
 				{
 					final var ostack=oContext.operandStackBacked(2);
 					ostack.<PsySequential>getBacked(0).psyForAll(ostack.getBacked(1), oContext);

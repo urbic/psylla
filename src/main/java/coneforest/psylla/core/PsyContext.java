@@ -96,26 +96,23 @@ public interface PsyContext
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Action
-				("begin",
-					(oContext)->
+				("begin", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						oContext.dictStack().begin(ostack.getBacked(0));
 					}),
 			new PsyOperator.Action
-				("cleardictstack", (oContext)->oContext.dictStack().setSize(2)),
+				("cleardictstack", oContext->oContext.dictStack().setSize(2)),
 			new PsyOperator.Action
-				("clearstack", (oContext)->oContext.operandStack().clear()),
+				("clearstack", oContext->oContext.operandStack().clear()),
 			new PsyOperator.Action
-				("cleartomark",
-					(oContext)->
+				("cleartomark", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						ostack.setSize(ostack.findMarkPosition());
 					}),
 			new PsyOperator.Action
-				("copy",
-					(oContext)->
+				("copy", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						final int count=ostack.<PsyInteger>getBacked(0).intValue();
@@ -127,37 +124,33 @@ public interface PsyContext
 							ostack.push(ostack.get(j));
 					}),
 			new PsyOperator.Action
-				("countdictstack",
-					(oContext)->oContext.operandStack().push(PsyInteger.of(oContext.dictStack().size()))),
+				("countdictstack", oContext->
+					oContext.operandStack().push(PsyInteger.of(oContext.dictStack().size()))),
 			new PsyOperator.Action
-				("countexecstack",
-					(oContext)->oContext.operandStack().push(PsyInteger.of(oContext.executionStack().size()))),
+				("countexecstack", oContext->
+					oContext.operandStack().push(PsyInteger.of(oContext.executionStack().size()))),
 			new PsyOperator.Action
-				("countstack",
-					(oContext)->
+				("countstack", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						ostack.push(PsyInteger.of(ostack.size()));
 					}),
 			new PsyOperator.Action
-				("counttomark",
-					(oContext)->
+				("counttomark", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						ostack.push(PsyInteger.of(-ostack.findMarkPosition()-1+ostack.size()));
 					}),
 			new PsyOperator.Action
-				("currentcontext", (oContext)->oContext.operandStack().push(oContext)),
+				("currentcontext", oContext->oContext.operandStack().push(oContext)),
 			new PsyOperator.Action
-				("currentdict",
-					(oContext)->
+				("currentdict", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						ostack.push(oContext.currentDict());
 					}),
 			new PsyOperator.Action
-				("def",
-					(oContext)->
+				("def", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						final var oName=ostack.<PsyTextual>getBacked(0);
@@ -171,54 +164,47 @@ public interface PsyContext
 								.put(name.substring(prefixOffset+1), o);
 					}),
 			new PsyOperator.Action
-				("dictstack",
-					(oContext)->
+				("dictstack", oContext->
 					{
 						oContext.operandStack()
 							.push(new PsyArray(
 								(java.util.ArrayList<PsyObject>)oContext.dictStack().clone()));
 					}),
 			new PsyOperator.Action
-				("dup",
-					(oContext)->
+				("dup", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						ostack.ensureSize(1);
 						ostack.push(ostack.peek());
 					}),
 			new PsyOperator.Action
-				("end", (oContext)->oContext.dictStack().end()),
+				("end", oContext->oContext.dictStack().end()),
 			new PsyOperator.Action
-				("exch",
-					(oContext)->
+				("exch", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(ostack.getBacked(1));
 						ostack.push(ostack.getBacked(0));
 					}),
 			new PsyOperator.Action
-				("exec",
-					(oContext)->oContext.operandStackBacked(1).getBacked(0).invoke(oContext)),
+				("exec", oContext->oContext.operandStackBacked(1).getBacked(0).invoke(oContext)),
 			new PsyOperator.Action
-				("execstack",
-					(oContext)->
+				("execstack", oContext->
 					{
 						oContext.operandStack().push(
 							new PsyArray((java.util.ArrayList<PsyObject>)oContext.executionStack().clone()));
 					}),
 			new PsyOperator.Action
-				("executive", (oContext)->oContext.repl()),
+				("executive", oContext->oContext.repl()),
 			new PsyOperator.Action
-				("exit",
-					(oContext)->
+				("exit", oContext->
 					{
 						if(oContext.currentLoopLevel()==-1)
 							throw new PsyInvalidExitException();
 						oContext.executionStack().setSize(oContext.popLoopLevel());
 					}),
 			new PsyOperator.Action
-				("for",
-					(oContext)->
+				("for", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(4);
 						final var estack=oContext.executionStack();
@@ -228,8 +214,9 @@ public interface PsyContext
 						final PsyObject oProc=ostack.getBacked(3);
 
 						oContext.pushLoopLevel();
-						final boolean forward=oIncrement.psyGt(PsyInteger.ZERO).booleanValue();
-						estack.push(forward?
+						//final boolean forward=oIncrement.psyGt(PsyInteger.ZERO).booleanValue();
+						//estack.push(forward?
+						estack.push(oIncrement.psyGt(PsyInteger.ZERO).booleanValue()?
 							new PsyOperator("#for_continue")
 								{
 									private PsyRealNumeric oCounter=oInitial;
@@ -267,33 +254,29 @@ public interface PsyContext
 									}
 								});
 						}),
-			new PsyOperator.Action("fork", (oContext)->oContext.fork()),
+			new PsyOperator.Action("fork", oContext->oContext.fork()),
 			new PsyOperator.Action
-				("halt",
-					(oContext)->
+				("halt", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						System.exit(ostack.<PsyInteger>getBacked(0).intValue());
 					}),
 			new PsyOperator.Action
-				("if",
-					(oContext)->
+				("if", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						if(ostack.<PsyBoolean>getBacked(0).booleanValue())
 							ostack.getBacked(1).invoke(oContext);
 					}),
 			new PsyOperator.Action
-				("ifelse",
-					(oContext)->
+				("ifelse", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(3);
 						ostack.getBacked(ostack.<PsyBoolean>getBacked(0).booleanValue()? 1: 2)
 							.invoke(oContext);
 					}),
 			new PsyOperator.Action
-				("index",
-					(oContext)->
+				("index", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						int index=ostack.<PsyInteger>getBacked(0).intValue();
@@ -303,8 +286,7 @@ public interface PsyContext
 						ostack.push(ostack.get(ostack.size()-index-1));
 					}),
 			new PsyOperator.Action
-				("join",
-					(oContext)->
+				("join", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						final var oContextJoining=ostack.<PsyContext>getBacked(0);
@@ -324,15 +306,13 @@ public interface PsyContext
 							ostack.push(o);
 					}),
 			new PsyOperator.Action
-				("load",
-					(oContext)->
+				("load", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						ostack.push(oContext.psyLoad(ostack.getBacked(0)));
 					}),
 			new PsyOperator.Action
-				("loop",
-					(oContext)->
+				("loop", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						final var oProc=ostack.getBacked(0);
@@ -350,17 +330,15 @@ public interface PsyContext
 							});
 					}),
 			new PsyOperator.Action
-				("namespace",
-					(oContext)->
+				("namespace", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						ostack.push(oContext.namespacePool().get(ostack.<PsyTextual>getBacked(0).stringValue()));
 					}),
 			new PsyOperator.Arity10<PsyObject>
-				("pop", (a)->{}),
+				("pop", o->{}),
 			new PsyOperator.Action
-				("prettyprint",
-					(oContext)->
+				("prettyprint", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						final var oStdWriter=(PsyWriter)oContext.dictStack().load("stdout");
@@ -369,18 +347,16 @@ public interface PsyContext
 						oStdWriter.psyFlush();
 					}),
 			new PsyOperator.Action
-				("print",
-					(oContext)->
+				("print", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						oContext.dictStack().<PsyWriter>load("stdout")
 							.psyWriteString(ostack.getBacked(0));
 					}),
 			new PsyOperator.Action
-				("quit", (oContext)->oContext.quit()),
+				("quit", oContext->oContext.quit()),
 			new PsyOperator.Action
-				("repeat",
-					(oContext)->
+				("repeat", oContext->
 					{
 						final OperandStack ostack=oContext.operandStackBacked(2);
 						final ExecutionStack estack=oContext.executionStack();
@@ -412,16 +388,14 @@ public interface PsyContext
 							});
 					}),
 			new PsyOperator.Action
-				("require",
-					(oContext)->
+				("require", oContext->
 					{
 						// TODO
 						final var ostack=oContext.operandStackBacked(1);
 						oContext.psyRequire(ostack.getBacked(0));
 					}),
 			new PsyOperator.Action
-				("roll",
-					(oContext)->
+				("roll", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						final var n=ostack.<PsyInteger>getBacked(0).intValue();
@@ -439,8 +413,7 @@ public interface PsyContext
 							ostack.add(ostackSize-n, ostack.pop());
 					}),
 			new PsyOperator.Action
-				("sleep",
-					(oContext)->
+				("sleep", oContext->
 					{
 						try
 						{
@@ -456,8 +429,7 @@ public interface PsyContext
 						}
 					}),
 			new PsyOperator.Action
-				("stack",
-					(oContext)->
+				("stack", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						ostack.push(new PsyArray((java.util.ArrayList<PsyObject>)ostack.clone()));
@@ -465,8 +437,7 @@ public interface PsyContext
 			new PsyOperator.Action
 				("stop", PsyContext::stop_),
 			new PsyOperator.Action
-				("stopped",
-					(oContext)->
+				("stopped", oContext->
 					{
 						final var stopLevel=oContext.pushStopLevel();
 						final var ostack=oContext.operandStackBacked(1);
@@ -489,22 +460,19 @@ public interface PsyContext
 						*/
 					}),
 			new PsyOperator.Action
-				("store",
-					(oContext)->
+				("store", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						oContext.dictStack().psyStore(ostack.getBacked(0), ostack.getBacked(1));
 					}),
 			new PsyOperator.Action
-				("tokens",
-					(oContext)->
+				("tokens", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						oContext.interpretBraced(new PsyStringReader(ostack.<PsyTextual>getBacked(0)));
 					}),
 			new PsyOperator.Action
-				("where",
-					(oContext)->
+				("where", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						final PsyFormalDict oDict=oContext.psyWhere(ostack.<PsyTextual>getBacked(0));
@@ -513,7 +481,7 @@ public interface PsyContext
 						ostack.push(PsyBoolean.of(oDict!=null));
 					}),
 			new PsyOperator.Action
-				("yield", (oContext)->((Thread)oContext).yield()),
+				("yield", oContext->((Thread)oContext).yield()),
 
 		};
 }

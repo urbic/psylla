@@ -41,10 +41,10 @@ public class PsyMatcher
 		try
 		{
 			final int start;
-			if(oKey instanceof PsyInteger)
-				start=matcher.start(((PsyInteger)oKey).intValue());
-			else if(oKey instanceof PsyTextual)
-				start=matcher.start(((PsyTextual)oKey).stringValue());
+			if(oKey instanceof PsyInteger oIntegerKey)
+				start=matcher.start(oIntegerKey.intValue());
+			else if(oKey instanceof PsyTextual oTextualKey)
+				start=matcher.start(oTextualKey.stringValue());
 			else
 				throw new PsyTypeCheckException();
 			return start>=0? PsyInteger.of(start): null;
@@ -69,10 +69,10 @@ public class PsyMatcher
 		try
 		{
 			final int end;
-			if(oKey instanceof PsyInteger)
-				end=matcher.start(((PsyInteger)oKey).intValue());
-			else if(oKey instanceof PsyTextual)
-				end=matcher.start(((PsyTextual)oKey).stringValue());
+			if(oKey instanceof PsyInteger oIntegerKey)
+				end=matcher.start(oIntegerKey.intValue());
+			else if(oKey instanceof PsyTextual oTextualKey)
+				end=matcher.start(oTextualKey.stringValue());
 			else
 				throw new PsyTypeCheckException();
 			return end>=0? PsyInteger.of(end): null;
@@ -96,16 +96,16 @@ public class PsyMatcher
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Action
-				("capturegroup", (oContext)->
+				("capturegroup", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						try
 						{
 							final var matcher=((PsyMatcher)ostack.getBacked(0)).matcher;
 							final var oKey=ostack.getBacked(1);
-							if(oKey instanceof PsyInteger)
+							if(oKey instanceof PsyInteger oIntegerKey)
 							{
-								final var index=((PsyInteger)oKey).intValue();
+								final var index=oIntegerKey.intValue();
 								final var group=matcher.group(index);
 								if(group!=null)
 								{
@@ -115,9 +115,9 @@ public class PsyMatcher
 								}
 								ostack.push(PsyBoolean.of(group!=null));
 							}
-							else if(oKey instanceof PsyTextual)
+							else if(oKey instanceof PsyTextual oTextualKey)
 							{
-								final var key=((PsyTextual)oKey).stringValue();
+								final var key=oTextualKey.stringValue();
 								final var group=matcher.group(key);
 								if(group!=null)
 								{

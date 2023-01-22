@@ -66,8 +66,8 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyNumeric psyAdd(final PsyNumeric oNumber)
 	{
-		if(oNumber instanceof PsyRealNumeric)
-			return psyAdd((PsyRealNumeric)oNumber);
+		if(oNumber instanceof PsyRealNumeric oRealNumeric)
+			return psyAdd(oRealNumeric);
 		return new PsyComplex(this).psyAdd(oNumber);
 	}
 
@@ -76,8 +76,8 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyNumeric psySub(final PsyNumeric oNumber)
 	{
-		if(oNumber instanceof PsyRealNumeric)
-			return psySub((PsyRealNumeric)oNumber);
+		if(oNumber instanceof PsyRealNumeric oRealNumeric)
+			return psySub(oRealNumeric);
 		return new PsyComplex(this).psySub(oNumber);
 	}
 
@@ -86,8 +86,8 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyNumeric psyMul(final PsyNumeric oNumber)
 	{
-		if(oNumber instanceof PsyRealNumeric)
-			return psyMul((PsyRealNumeric)oNumber);
+		if(oNumber instanceof PsyRealNumeric oRealNumeric)
+			return psyMul(oRealNumeric);
 		return new PsyComplex(this).psyMul(oNumber);
 	}
 
@@ -98,8 +98,8 @@ public interface PsyRealNumeric
 	default public PsyNumeric psyDiv(final PsyNumeric oNumber)
 		throws PsyUndefinedResultException
 	{
-		if(oNumber instanceof PsyRealNumeric)
-			return psyDiv((PsyRealNumeric)oNumber);
+		if(oNumber instanceof PsyRealNumeric oRealNumeric)
+			return psyDiv(oRealNumeric);
 		return new PsyComplex(this).psyDiv(oNumber);
 	}
 
@@ -112,8 +112,8 @@ public interface PsyRealNumeric
 	default public PsyNumeric psyPow(final PsyNumeric oNumber)
 		throws PsyErrorException
 	{
-		if(oNumber instanceof PsyRealNumeric)
-			return psyPow((PsyRealNumeric)oNumber);
+		if(oNumber instanceof PsyRealNumeric oRealNumeric)
+			return psyPow(oRealNumeric);
 		return new PsyComplex(this).psyPow(oNumber);
 	}
 
@@ -198,9 +198,9 @@ public interface PsyRealNumeric
 		return new PsyReal(Math.atan(doubleValue()));
 	}
 
-	default public PsyReal psyHypot(final PsyRealNumeric oNumeric)
+	default public PsyReal psyHypot(final PsyRealNumeric oRealNumeric)
 	{
-		return new PsyReal(Math.hypot(doubleValue(), oNumeric.doubleValue()));
+		return new PsyReal(Math.hypot(doubleValue(), oRealNumeric.doubleValue()));
 	}
 
 	public PsyRealNumeric psyFloor();
@@ -212,52 +212,52 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.of(o instanceof PsyRealNumeric
-				&& cmp((PsyRealNumeric)o)==0);
+		return PsyBoolean.of(o instanceof PsyRealNumeric oRealNumeric
+				&& cmp(oRealNumeric)==0);
 	}
 
-	public int cmp(final PsyRealNumeric oNumeric);
+	public int cmp(final PsyRealNumeric oRealNumeric);
 
 	/**
 	*	The “less” arithmetic comparison.
 	*/
 	@Override
-	default public PsyBoolean psyLt(final PsyRealNumeric oNumeric)
+	default public PsyBoolean psyLt(final PsyRealNumeric oRealNumeric)
 	{
-		return PsyBoolean.of(cmp(oNumeric)<0);
+		return PsyBoolean.of(cmp(oRealNumeric)<0);
 	}
 
 	/**
 	*	The “less or equal” arithmetic comparison.
 	*/
 	@Override
-	default public PsyBoolean psyLe(final PsyRealNumeric oNumeric)
+	default public PsyBoolean psyLe(final PsyRealNumeric oRealNumeric)
 	{
-		return PsyBoolean.of(cmp(oNumeric)<=0);
+		return PsyBoolean.of(cmp(oRealNumeric)<=0);
 	}
 
 	/**
 	*	The “greater” arithmetic comparison.
 	*/
 	@Override
-	default public PsyBoolean psyGt(final PsyRealNumeric oNumeric)
+	default public PsyBoolean psyGt(final PsyRealNumeric oRealNumeric)
 	{
-		return PsyBoolean.of(cmp(oNumeric)>0);
+		return PsyBoolean.of(cmp(oRealNumeric)>0);
 	}
 
 	/**
 	*	The “greater or equal” arithmetic comparison.
 	*/
 	@Override
-	default public PsyBoolean psyGe(final PsyRealNumeric oNumeric)
+	default public PsyBoolean psyGe(final PsyRealNumeric oRealNumeric)
 	{
-		return PsyBoolean.of(cmp(oNumeric)>=0);
+		return PsyBoolean.of(cmp(oRealNumeric)>=0);
 	}
 
 	@Override
-	default public PsyInteger psyCmp(final PsyRealNumeric oNumeric)
+	default public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
 	{
-		return PsyInteger.of(cmp(oNumeric));
+		return PsyInteger.of(cmp(oRealNumeric));
 	}
 
 	public static final PsyOperator[] OPERATORS=

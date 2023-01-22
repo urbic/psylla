@@ -79,12 +79,11 @@ public class PsySet
 	public static final PsyOperator[] OPERATORS=
 		{
 			new PsyOperator.Arity01("set", PsySet::new),
-			new PsyOperator.Action("settomark",
-				(oContext)->
+			new PsyOperator.Action("settomark", oContext->
 				{
 					final var ostack=oContext.operandStack();
 					final int i=ostack.findMarkPosition();
-					final PsySet oSet=new PsySet();
+					final var oSet=new PsySet();
 					for(int j=ostack.size()-1; j>=i+1; j--)
 						oSet.psyAppend(ostack.get(j));
 					ostack.setSize(i);

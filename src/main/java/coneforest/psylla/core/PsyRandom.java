@@ -1,5 +1,6 @@
 package coneforest.psylla.core;
 import coneforest.psylla.*;
+import java.util.Random;
 
 /**
 *	A representation of {@code random}, a generator of pseudorandom objects.
@@ -19,14 +20,14 @@ public class PsyRandom
 		random.setSeed(oSeed.longValue());
 	}
 
-	public PsyRealNumeric psyUniformDeviate(final PsyRealNumeric oNumeric)
+	public PsyRealNumeric psyUniformDeviate(final PsyRealNumeric oRealNumeric)
 		throws PsyErrorException
 	{
-		if(oNumeric instanceof PsyReal)
-			return new PsyReal(oNumeric.doubleValue()*random.nextDouble());
-		else if(oNumeric instanceof PsyInteger)
+		if(oRealNumeric instanceof PsyReal)
+			return new PsyReal(oRealNumeric.doubleValue()*random.nextDouble());
+		else if(oRealNumeric instanceof PsyInteger)
 		{
-			final var numeric=oNumeric.longValue();
+			final var numeric=oRealNumeric.longValue();
 			if(numeric>Long.MAX_VALUE)
 				throw new PsyRangeCheckException();
 			try
@@ -38,14 +39,12 @@ public class PsyRandom
 				throw new PsyRangeCheckException();
 			}
 		}
-		else if(oNumeric instanceof PsyBigInteger)
+		else if(oRealNumeric instanceof PsyBigInteger oBigInteger)
 		{
-			var bi=((PsyBigInteger)oNumeric).bigIntegerValue();
+			var bi=oBigInteger.bigIntegerValue();
 			java.math.BigInteger rbi;
 			do
-			{
 				rbi=new java.math.BigInteger(bi.bitLength(), random);
-			}
 			while(rbi.compareTo(bi)>=0);
 			return PsyIntegral.of(rbi);
 		}
@@ -58,11 +57,11 @@ public class PsyRandom
 		return PsyBoolean.of(random.nextBoolean());
 	}
 
-	public PsyReal psyNormalDeviate(final PsyRealNumeric oNumeric)
+	public PsyReal psyNormalDeviate(final PsyRealNumeric oRealNumeric)
 	{
-		return new PsyReal(oNumeric.doubleValue()*random.nextGaussian());
+		return new PsyReal(oRealNumeric.doubleValue()*random.nextGaussian());
 	}
 
-	private final java.util.Random random=new java.util.Random();
+	private final Random random=new Random();
 
 }

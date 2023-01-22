@@ -83,8 +83,7 @@ public interface PsyReadable
 			new PsyOperator.Arity21<PsyReadable, PsyInteger>
 				("skip", PsyReadable::psySkip),
 			new PsyOperator.Action
-				("read",
-					(oContext)->
+				("read", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(1);
 						final var oCharacter=ostack.<PsyReadable>getBacked(0).psyRead();

@@ -854,29 +854,26 @@ public class PsyFileSystem
 	private static PsyObject toPsyObject(final Object obj)
 	{
 		//System.out.println(obj.getClass());
-		if(obj instanceof String)
-			return new PsyName((String)obj);
-		else if(obj instanceof Integer)
-			return PsyInteger.of(((Integer)obj).longValue());
-		else if(obj instanceof Long)
-			return PsyInteger.of(((Long)obj).longValue());
-		else if(obj instanceof Boolean)
-			return PsyBoolean.of((Boolean)obj);
-		else
-			throw new ClassCastException();
+		if(obj instanceof String stringobj)
+			return new PsyName(stringobj);
+		if(obj instanceof Integer integerobj)
+			return PsyInteger.of(integerobj.longValue());
+		if(obj instanceof Long longobj)
+			return PsyInteger.of(longobj.longValue());
+		if(obj instanceof Boolean booleanobj)
+			return PsyBoolean.of(booleanobj);
+		throw new ClassCastException();
 	}
 
 	private static Object fromPsyObject(final PsyObject o)
 	{
-		//System.out.println(obj.getClass());
-		if(o instanceof PsyTextual)
-			return ((PsyTextual)o).stringValue();
-		else if(o instanceof PsyInteger)
-			return ((PsyInteger)o).longValue();
-		else if(o instanceof PsyBoolean)
-			return ((PsyBoolean)o).booleanValue();
-		else
-			throw new ClassCastException();
+		if(o instanceof PsyTextual oTextual)
+			return oTextual.stringValue();
+		if(o instanceof PsyInteger oInteger)
+			return oInteger.longValue();
+		if(o instanceof PsyBoolean oBoolean)
+			return oBoolean.booleanValue();
+		throw new ClassCastException();
 	}
 
 	public static final PsyOperator[] OPERATORS=

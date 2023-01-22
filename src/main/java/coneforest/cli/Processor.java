@@ -44,8 +44,8 @@ public class Processor
 						final String name=args[i].substring(2, j);
 						final String arg=args[i].substring(j+1);
 						final Option option=findOption(name);
-						if(option instanceof OptionWithArg)
-							((OptionWithArg)option).handle(arg);
+						if(option instanceof OptionWithArg optionWithArg)
+							optionWithArg.handle(arg);
 						else
 							throw new ProcessingException(Messages.format("optProcExcpnDoesntNeedArg", "--"+name));
 					}
@@ -53,10 +53,10 @@ public class Processor
 					{
 						final String name=args[i].substring(2);
 						final Option option=findOption(name);
-						if(option instanceof OptionWithArg)
+						if(option instanceof OptionWithArg optionWithArg)
 						{
 							if(++i<args.length)
-								((OptionWithArg)option).handle(args[i]);
+								optionWithArg.handle(args[i]);
 							else
 								throw new ProcessingException(Messages.format("optProcExcpnNeedsArg", "--"+name));
 						}
@@ -70,11 +70,11 @@ public class Processor
 					{
 						final String name=args[i].substring(j, j+1);
 						final Option option=findOption(name);
-						if(option instanceof OptionWithArg)
+						if(option instanceof OptionWithArg optionWithArg)
 						{
 							if(++j==args[i].length())
 								if(++i<args.length)
-									((OptionWithArg)option).handle(args[i]);
+									optionWithArg.handle(args[i]);
 								else
 									throw new ProcessingException(Messages.format("optProcExcpnNeedsArg", "-"+name));
 							else

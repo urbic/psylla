@@ -127,10 +127,10 @@ public class PsyReal
 	}
 
 	@Override
-	public boolean equals(final Object object)
+	public boolean equals(final Object obj)
 	{
-		return object instanceof PsyReal
-				&& psyEq((PsyReal)object).booleanValue();
+		return obj instanceof PsyReal oReal
+				&& psyEq(oReal).booleanValue();
 	}
 
 	public static PsyReal parseLiteral(final String image)

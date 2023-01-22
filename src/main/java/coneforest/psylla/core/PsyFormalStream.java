@@ -234,8 +234,7 @@ public interface PsyFormalStream<T extends PsyObject>
 			new PsyOperator.Arity11<PsyFormalStream>
 				("distinct", PsyFormalStream::psyDistinct),
 			new PsyOperator.Action
-				("filtered",
-					(oContext)->
+				("filtered", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyFiltered(
@@ -244,24 +243,21 @@ public interface PsyFormalStream<T extends PsyObject>
 			new PsyOperator.Arity21<PsyFormalStream, PsyInteger>
 				("limited", PsyFormalStream::psyLimited),
 			new PsyOperator.Action
-				("mapped",
-					(oContext)->
+				("mapped", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyMapped(
 								ostack.getBacked(1), oContext));
 					}),
 			new PsyOperator.Action
-				("peeked",
-					(oContext)->
+				("peeked", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyPeeked(
 								ostack.getBacked(1), oContext));
 					}),
 			new PsyOperator.Action
-				("reduce",
-					(oContext)->
+				("reduce", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(3);
 						ostack.push(ostack.<PsyFormalStream>getBacked(0).psyReduce(
@@ -272,8 +268,7 @@ public interface PsyFormalStream<T extends PsyObject>
 			new PsyOperator.Arity21<PsyFormalStream, PsyFormalStream>
 				("concat", PsyFormalStream::psyConcat),
 			new PsyOperator.Action
-				("sorted",
-					(oContext)->
+				("sorted", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.push(ostack.<PsyFormalStream>getBacked(0).psySorted(ostack.getBacked(1), oContext));

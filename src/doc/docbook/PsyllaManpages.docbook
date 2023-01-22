@@ -241,7 +241,7 @@ This document describes <application>Psylla</application> v&psylla.version;.
 <refsection>
 <title>License</title>
 <para>
-zlib/png: <link xlink:href="http://opensource.org/licenses/Zlib"/>.
+zlib/png: <link xlink:href="https://opensource.org/licenses/Zlib"/>.
 </para>
 </refsection>
 

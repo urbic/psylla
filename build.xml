@@ -67,6 +67,14 @@
 		<path refid="classpath.main.resolved"/>
 	</path>
 
+	<!--path id="modulepath.main">
+		<!- -path refid="modulepath.main.resolved"/- ->
+		<pathelement location="${config.jar.jline1}"/>
+		<pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/>
+		<pathelement location="${config.jar.junit4}"/>
+		<pathelement location="${ant.core.lib}"/>
+	</path-->
+
 	<path id="classpath.xslt">
 		<!--pathelement location="${config.jar.saxon6}"/-->
 		<!--pathelement location="${config.jar.xslthl}"/-->

@@ -211,8 +211,7 @@ public class PsyArray
 			new PsyOperator.Arity01
 				("array", PsyArray::new),
 			new PsyOperator.Action
-				("arraytomark",
-					(oContext)->
+				("arraytomark", oContext->
 					{
 						final var ostack=oContext.operandStack();
 						final var i=ostack.findMarkPosition();
@@ -223,8 +222,7 @@ public class PsyArray
 						ostack.push(oArray);
 					}),
 			new PsyOperator.Action
-				("binarysearch",
-					(oContext)->
+				("binarysearch", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(3);
 						final var oIndex=ostack.<PsyArray>getBacked(0).psyBinarySearch(
@@ -242,8 +240,7 @@ public class PsyArray
 						}
 					}),
 			new PsyOperator.Action
-				("sort",
-					(oContext)->
+				("sort", oContext->
 					{
 						final var ostack=oContext.operandStackBacked(2);
 						ostack.<PsyArray>getBacked(0).psySort(ostack.getBacked(1), oContext);

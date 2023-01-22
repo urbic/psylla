@@ -127,8 +127,8 @@ public class Psylla
 		else
 		{
 			scriptName="--repl";
-			scriptReader=null;
 			shellArguments=new String[]{};
+			scriptReader=null;
 		}
 
 		final var psyllaConfig=new PsyllaConfig();
@@ -208,9 +208,9 @@ public class Psylla
 		{
 			propertyNames.stream()
 					.sorted()
-					.filter((name)->Globs.matches(pattern, name))
+					.filter(name->Globs.matches(pattern, name))
 					//.forEach(System.out::println);
-					.forEach((name)->{ System.out.println(name+"=\'"+Config.getProperty(name)+"\'"); });
+					.forEach(name->System.out.println(name+"=\'"+Config.getProperty(name)+"\'"));
 		}
 		System.exit(0);
 	}
