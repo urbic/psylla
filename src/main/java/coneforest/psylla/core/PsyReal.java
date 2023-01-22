@@ -108,12 +108,11 @@ public class PsyReal
 	}
 
 	@Override
-	public PsyInteger psyCmp(final PsyRealNumeric oNumeric)
+	public int cmp(final PsyRealNumeric oNumeric)
 	{
-		final var result=Double.compare(value, oNumeric.doubleValue());
-		return result<0? PsyInteger.MINUS_ONE:
-			result>0? PsyInteger.ONE: PsyInteger.ZERO;
+		return Double.compare(value, oNumeric.doubleValue());
 	}
+
 
 	@Override
 	public String toSyntaxString()

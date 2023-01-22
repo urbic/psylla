@@ -218,14 +218,16 @@ public class PsyBigInteger
 	}
 
 	@Override
-	public PsyInteger psyCmp(final PsyRealNumeric oNumeric)
+	public int cmp(final PsyRealNumeric oNumeric)
 	{
-		if(oNumeric instanceof PsyBigInteger)
-			return PsyInteger.of(value.compareTo(((PsyBigInteger)oNumeric).value));
-		else if(oNumeric instanceof PsyInteger)
-			return PsyInteger.of(value.compareTo(BigInteger.valueOf(((PsyInteger)oNumeric).longValue())));
-		return PsyInteger.of(Double.valueOf(doubleValue()).compareTo(((PsyReal)oNumeric).doubleValue()));
+		if(oNumeric instanceof PsyIntegral)
+			return value.compareTo(((PsyIntegral)oNumeric).bigIntegerValue());
+		if(oNumeric instanceof PsyRational)
+			return psyMul(((PsyRational)oNumeric).psyDenominator())
+					.cmp(((PsyRational)oNumeric).psyNumerator());
+		return Double.compare(doubleValue(), oNumeric.doubleValue());
 	}
+
 
 	@Override
 	public String toSyntaxString()

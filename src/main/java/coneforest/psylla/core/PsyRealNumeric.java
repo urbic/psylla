@@ -213,8 +213,10 @@ public interface PsyRealNumeric
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
 		return PsyBoolean.of(o instanceof PsyRealNumeric
-				&& doubleValue()==((PsyRealNumeric)o).doubleValue());
+				&& cmp((PsyRealNumeric)o)==0);
 	}
+
+	public int cmp(final PsyRealNumeric oNumeric);
 
 	/**
 	*	The “less” arithmetic comparison.
@@ -222,7 +224,7 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyBoolean psyLt(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.of(doubleValue()<oNumeric.doubleValue());
+		return PsyBoolean.of(cmp(oNumeric)<0);
 	}
 
 	/**
@@ -231,7 +233,7 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyBoolean psyLe(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.of(doubleValue()<=oNumeric.doubleValue());
+		return PsyBoolean.of(cmp(oNumeric)<=0);
 	}
 
 	/**
@@ -240,16 +242,22 @@ public interface PsyRealNumeric
 	@Override
 	default public PsyBoolean psyGt(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.of(doubleValue()>oNumeric.doubleValue());
+		return PsyBoolean.of(cmp(oNumeric)>0);
 	}
 
 	/**
-	*	The “Greater or equal” arithmetic comparison.
+	*	The “greater or equal” arithmetic comparison.
 	*/
 	@Override
 	default public PsyBoolean psyGe(final PsyRealNumeric oNumeric)
 	{
-		return PsyBoolean.of(doubleValue()>=oNumeric.doubleValue());
+		return PsyBoolean.of(cmp(oNumeric)>=0);
+	}
+
+	@Override
+	default public PsyInteger psyCmp(final PsyRealNumeric oNumeric)
+	{
+		return PsyInteger.of(cmp(oNumeric));
 	}
 
 	public static final PsyOperator[] OPERATORS=

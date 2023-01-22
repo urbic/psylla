@@ -265,6 +265,20 @@ public class PsyInteger
 	}
 
 	@Override
+	public int cmp(final PsyRealNumeric oNumeric)
+	{
+		if(oNumeric instanceof PsyInteger)
+			return Long.compare(value, ((PsyInteger)oNumeric).value);
+		if(oNumeric instanceof PsyBigInteger)
+			return bigIntegerValue()
+				.compareTo(((PsyBigInteger)oNumeric).bigIntegerValue());
+		if(oNumeric instanceof PsyRational)
+			return psyMul(((PsyRational)oNumeric).psyDenominator())
+					.cmp(((PsyRational)oNumeric).psyNumerator());
+		return Double.compare(doubleValue(), oNumeric.doubleValue());
+	}
+
+	@Override
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oNumeric)
 		throws PsyUndefinedResultException
 	{
@@ -418,7 +432,7 @@ public class PsyInteger
 		else if(o instanceof PsyReal)
 			return PsyBoolean.of(doubleValue()==((PsyReal)o).doubleValue());
 		else if(o instanceof PsyBigInteger)
-			return PsyBoolean.of(new PsyBigInteger(value).equals(((PsyBigInteger)o)));
+			return PsyBoolean.of(bigIntegerValue().equals(((PsyBigInteger)o).bigIntegerValue()));
 		else if(o instanceof PsyComplex)
 			return PsyBoolean.of(
 					doubleValue()==((PsyComplex)o).psyRealPart().doubleValue()

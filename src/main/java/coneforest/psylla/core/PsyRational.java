@@ -32,6 +32,15 @@ public interface PsyRational
 			return PsyBigFractional.of(oNumerator.bigIntegerValue(), oDenominator.bigIntegerValue());
 	}
 
+	@Override
+	default public int cmp(final PsyRealNumeric oNumeric)
+	{
+		if(oNumeric instanceof PsyRational)
+			return psyNumerator().psyMul(((PsyRational)oNumeric).psyDenominator())
+				.cmp(psyDenominator().psyMul(((PsyRational)oNumeric).psyNumerator()));
+		return Double.compare(doubleValue(), oNumeric.doubleValue());
+	}
+
 	public static PsyRational parseLiteral(final String image)
 		throws PsySyntaxErrorException, PsyUndefinedResultException
 	{
