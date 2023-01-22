@@ -48,6 +48,13 @@ public class Version
 		return Integer.parseInt(Config.getProperty("project.version.micro"));
 	}
 
+	public static String getCode()
+	{
+		return Character.toString((char)getMajor())
+				+Character.toString((char)getMinor())
+				+Character.toString((char)getMicro());
+	}
+
 	/**
 	*	Get the release type.
 	*
