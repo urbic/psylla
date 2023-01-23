@@ -21,7 +21,7 @@ Returns the <replaceable>signum</replaceable> of a <replaceable>number</replacea
 <listitem>
 <replaceable>number</replaceable>,
 <replaceable>signum</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_realnumeric"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_numeric"/>
 </listitem>
 </itemizedlist>
 </formalpara>

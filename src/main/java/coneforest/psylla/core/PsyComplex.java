@@ -55,6 +55,14 @@ public class PsyComplex
 	}
 
 	@Override
+	public PsyComplex psySignum()
+	{
+		if(psyIsZero().booleanValue())
+			return this;
+		return psyDiv(psyAbs());
+	}
+
+	@Override
 	public String toSyntaxString()
 	{
 		var sb=new StringBuilder();

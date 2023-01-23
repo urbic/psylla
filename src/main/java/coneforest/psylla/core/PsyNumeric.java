@@ -32,6 +32,14 @@ public interface PsyNumeric
 	*/
 	public PsyRealNumeric psyAbs();
 
+
+	/**
+	*	Returns the signum of this object.
+	*
+	*	@return the {@code numeric} signum of this object.
+	*/
+	public PsyNumeric psySignum();
+
 	public PsyNumeric psyPow(final PsyNumeric oNumeric)
 		throws PsyErrorException;
 
@@ -142,6 +150,7 @@ public interface PsyNumeric
 			new PsyOperator.Arity11<PsyNumeric>("exp", PsyNumeric::psyExp),
 			new PsyOperator.Arity11<PsyNumeric>("log", PsyNumeric::psyLog),
 			new PsyOperator.Arity21<PsyNumeric, PsyNumeric>("pow", PsyNumeric::psyPow),
+			new PsyOperator.Arity11<PsyNumeric>("signum", PsyNumeric::psySignum),
 			new PsyOperator.Arity11<PsyNumeric>("sin", PsyNumeric::psySin),
 			new PsyOperator.Arity11<PsyNumeric>("sinh", PsyNumeric::psySinh),
 			new PsyOperator.Arity11<PsyNumeric>("sqrt", PsyNumeric::psySqrt),

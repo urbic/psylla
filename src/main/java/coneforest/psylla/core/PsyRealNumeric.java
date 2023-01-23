@@ -33,13 +33,6 @@ public interface PsyRealNumeric
 		return 0.D;
 	}
 
-	/**
-	*	Returns the signum of this object.
-	*
-	*	@return the {@code realnumeric} signum of this object.
-	*/
-	public PsyRealNumeric psySignum();
-
 	@Override
 	default public PsyInteger psyToInteger()
 		throws PsyErrorException
@@ -270,7 +263,5 @@ public interface PsyRealNumeric
 				("hypot", PsyRealNumeric::psyHypot),
 			new PsyOperator.Arity11<PsyRealNumeric>
 				("round", PsyRealNumeric::psyRound),
-			new PsyOperator.Arity11<PsyRealNumeric>
-				("signum", PsyRealNumeric::psySignum),
 		};
 }
