@@ -6,10 +6,6 @@ abstract public class PsyErrorException
 	extends	Exception
 	implements PsyExecutable
 {
-	public PsyErrorException()
-	{
-	}
-
 	public void invoke(final PsyContext oContext)
 	{
 		try
