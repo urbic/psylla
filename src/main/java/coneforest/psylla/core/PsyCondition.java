@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code condition} object.
+*	A representation of {@code condition}.
 */
 @Type("condition")
 public class PsyCondition

@@ -1,7 +1,7 @@
 package coneforest.psylla.core;
 
 /**
-*	A representation of {@code mark} object.
+*	A representation of {@code mark}.
 */
 @coneforest.psylla.Type("mark")
 public final class PsyMark

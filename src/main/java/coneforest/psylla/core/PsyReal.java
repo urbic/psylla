@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 import java.math.BigDecimal;
 
 /**
-*	A representation of {@code real} object.
+*	A representation of {@code real}.
 */
 @Type("real")
 public class PsyReal

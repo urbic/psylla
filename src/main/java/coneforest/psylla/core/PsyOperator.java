@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code operator} object.
+*	A representation of {@code operator}.
 */
 @Type("operator")
 public abstract class PsyOperator
@@ -21,7 +21,7 @@ public abstract class PsyOperator
 	}
 
 	/**
-	*	Execute this object in the context of the interpreter.  Calls {@link
+	*	Execute this object in the context of the interpreter. Calls {@link
 	*	#invoke(PsyContext)} method.
 	*
 	*	@param oContext

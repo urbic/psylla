@@ -2,8 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code realnumeric} object, an abstraction of real
-*	numbers.
+*	A representation of {@code realnumeric}, an abstraction of real numbers.
 */
 @Type("realnumeric")
 public interface PsyRealNumeric

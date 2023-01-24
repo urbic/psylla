@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code integer} object.
+*	A representation of {@code integer}.
 */
 @Type("integer")
 public class PsyInteger

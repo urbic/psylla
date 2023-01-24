@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code complex} object.
+*	A representation of {@code complex}.
 */
 @Type("complex")
 public class PsyComplex

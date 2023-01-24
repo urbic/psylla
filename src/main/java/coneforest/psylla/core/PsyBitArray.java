@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code bitarray} object.
+*	A representation of {@code bitarray}.
 */
 @Type("bitarray")
 public class PsyBitArray

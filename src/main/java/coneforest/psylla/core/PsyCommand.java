@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code command} object.
+*	A representation of {@code command}.
 */
 @Type("command")
 public class PsyCommand

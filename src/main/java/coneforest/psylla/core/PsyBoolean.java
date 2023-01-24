@@ -1,7 +1,7 @@
 package coneforest.psylla.core;
 
 /**
-*	A representation of {@code boolean} object.
+*	A representation of {@code boolean}.
 */
 @coneforest.psylla.Type("boolean")
 public class PsyBoolean

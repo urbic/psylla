@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code namespace} object, a named dictionary.
+*	A representation of {@code namespace}, a named dictionary.
 */
 @Type("namespace")
 public class PsyNamespace

@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code lock} object.
+*	A representation of {@code lock}.
 */
 @Type("lock")
 public class PsyLock

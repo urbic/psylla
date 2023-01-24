@@ -3,7 +3,7 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code integral} object.
+*	A representation of {@code integral}.
 */
 @Type("integral")
 public interface PsyIntegral

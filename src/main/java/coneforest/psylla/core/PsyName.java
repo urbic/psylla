@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code name} object, an immutable string.
+*	A representation of {@code name}, an immutable string.
 */
 @Type("name")
 public class PsyName

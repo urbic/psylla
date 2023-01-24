@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code set} object.
+*	A representation of {@code set}.
 */
 @Type("set")
 public class PsySet

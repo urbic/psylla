@@ -2,7 +2,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	An implementation of {@code string} object.
+*	An implementation of {@code string}.
 */
 @Type("string")
 public class PsyString

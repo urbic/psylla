@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
-*	A representation of {@code array} object.
+*	A representation of {@code array}.
 */
 @Type("array")
 public class PsyArray
