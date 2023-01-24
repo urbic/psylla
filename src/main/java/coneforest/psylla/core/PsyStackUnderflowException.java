@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyStackUnderflowException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "stackunderflow";
-	}
 }

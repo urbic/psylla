@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyInvalidExitException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "invalidexit";
-	}
 }

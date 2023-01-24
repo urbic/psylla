@@ -10,11 +10,6 @@ abstract public class PsyErrorException
 	{
 	}
 
-	public PsyErrorException(final PsyObject oEmitter)
-	{
-		setEmitter(oEmitter);
-	}
-
 	public void invoke(final PsyContext oContext)
 	{
 		try
@@ -47,13 +42,26 @@ abstract public class PsyErrorException
 			System.err.println(sj.toString());
 		}
 
-		//oContext.setStopFlag(false);
 		oContext.quit();
 	}
 
 	public String getName()
 	{
-		return "error";
+		//return "error";
+
+		var agenda=new java.util.Stack<Class<?>>();
+		agenda.push(getClass());
+
+		while(agenda.size()>0)
+		{
+			var clazz=agenda.pop();
+			if(clazz.isAnnotationPresent(ExceptionType.class))
+				return (clazz.getAnnotation(ExceptionType.class)).value();
+			agenda.push(clazz.getSuperclass());
+			for(final var iface: clazz.getInterfaces())
+				agenda.push(iface);
+		}
+		return null;
 	};
 
 	public void setEmitter(final PsyObject oEmitter)

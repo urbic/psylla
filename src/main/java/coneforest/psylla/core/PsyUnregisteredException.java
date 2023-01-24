@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyUnregisteredException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "unregistered";
-	}
 }

@@ -283,7 +283,11 @@ public class Interpreter
 					return;
 			}
 			if(procstack.size()>initProcLevel)
-				throw new PsySyntaxErrorException(oReader);
+			{
+				var e=new PsySyntaxErrorException();
+				e.setEmitter(oReader);
+				throw e;
+			}
 
 			dstack.<PsyFlushable>load("stdout").psyFlush();
 			dstack.<PsyFlushable>load("stderr").psyFlush();
@@ -300,8 +304,8 @@ public class Interpreter
 		}
 		catch(final TokenMgrError ex)
 		{
-			//handleError(new PsySyntaxErrorException(oReader));
-			var e=new PsySyntaxErrorException(oReader);
+			var e=new PsySyntaxErrorException();
+			e.setEmitter(oReader);
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
 			// TODO
@@ -318,8 +322,8 @@ public class Interpreter
 		interpret(oReader);
 		if(procstack.size()==0)
 		{
-			//handleError(new PsySyntaxErrorException(oReader));
-			var e=new PsySyntaxErrorException(oReader);
+			var e=new PsySyntaxErrorException();
+			e.setEmitter(oReader);
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
 		}
@@ -635,9 +639,7 @@ public class Interpreter
 				}
 				catch(final PsyErrorException e)
 				{
-					//e.setEmitter(PsyNull.NULL);
 					e.setEmitter(oReader);
-					//handleError(e);
 					e.setStacks(ostack, estack, dstack);
 					e.invoke(this);
 					// TODO
@@ -646,9 +648,8 @@ public class Interpreter
 				}
 				catch(final TokenMgrError ex)
 				{
-					//handleError(new PsySyntaxErrorException(PsyNull.NULL));
-					//var e=new PsySyntaxErrorException(PsyNull.NULL);
-					var e=new PsySyntaxErrorException(oReader);
+					var e=new PsySyntaxErrorException();
+					e.setEmitter(oReader);
 					e.setStacks(ostack, estack, dstack);
 					e.invoke(this);
 					// TODO

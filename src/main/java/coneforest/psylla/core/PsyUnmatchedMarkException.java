@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyUnmatchedMarkException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "unmatchedmark";
-	}
 }

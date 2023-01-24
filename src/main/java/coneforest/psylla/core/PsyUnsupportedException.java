@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyUnsupportedException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "unsupported";
-	}
 }

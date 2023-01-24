@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsySecurityErrorException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "securityerror";
-	}
 }

@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyFileNotFoundException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "filenotfound";
-	}
 }

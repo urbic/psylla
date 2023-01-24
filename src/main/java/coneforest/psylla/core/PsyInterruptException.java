@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyInterruptException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "interrupt";
-	}
 }

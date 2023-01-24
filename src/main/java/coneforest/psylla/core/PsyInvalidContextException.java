@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyInvalidContextException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "invalidcontext";
-	}
 }

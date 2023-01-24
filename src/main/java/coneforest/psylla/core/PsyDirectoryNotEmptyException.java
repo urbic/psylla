@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyDirectoryNotEmptyException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "directorynotempty";
-	}
 }

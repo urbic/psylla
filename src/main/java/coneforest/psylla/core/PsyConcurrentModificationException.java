@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyConcurrentModificationException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "concurrentmodification";
-	}
 }

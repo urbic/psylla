@@ -5,9 +5,4 @@ import coneforest.psylla.*;
 public class PsyInvalidRegExpException
 	extends PsyErrorException
 {
-	@Override
-	public String getName()
-	{
-		return "invalidregexp";
-	}
 }
