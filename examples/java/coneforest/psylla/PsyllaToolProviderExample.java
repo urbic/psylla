@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.util.ServiceLoader;
 import java.util.spi.ToolProvider;
 
-public class PsyllaToolProvider
+public class PsyllaToolProviderExample
 {
 	public static void main(final String[] args)
 	{
