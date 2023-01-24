@@ -22,7 +22,7 @@ public abstract class PsyOperator
 
 	/**
 	*	Execute this object in the context of the interpreter.  Calls {@link
-	*	#invoke(coneforest.psylla.core.PsyContext)} method.
+	*	#invoke(PsyContext)} method.
 	*
 	*	@param oContext
 	*/
@@ -50,34 +50,20 @@ public abstract class PsyOperator
 		catch(final ClassCastException ex)
 		{
 			ostack.restore();
-			var e=new PsyTypeCheckException(this);
-			final var estack=oContext.executionStack();
-			final var dstack=oContext.dictStack();
-			e.setStacks(ostack, estack, dstack);
-			//oContext.handleError(e);
-			e.invoke(oContext);
-		}
-		catch(final OutOfMemoryError ex)
-		{
-			ostack.restore();
-			// More appropriate exception
-			var e=new PsyLimitCheckException();
+			var e=new PsyTypeCheckException();
 			e.setEmitter(this);
 			final var estack=oContext.executionStack();
 			final var dstack=oContext.dictStack();
 			e.setStacks(ostack, estack, dstack);
-			//oContext.handleError(e);
-			System.gc();
 			e.invoke(oContext);
 		}
 		catch(final PsyErrorException e)
 		{
 			ostack.restore();
+			e.setEmitter(this);
 			final var estack=oContext.executionStack();
 			final var dstack=oContext.dictStack();
 			e.setStacks(ostack, estack, dstack);
-			e.setEmitter(this);
-			//oContext.handleError(e);
 			e.invoke(oContext);
 		}
 	}
