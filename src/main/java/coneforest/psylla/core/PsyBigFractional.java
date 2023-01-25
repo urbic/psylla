@@ -32,8 +32,7 @@ public class PsyBigFractional
 	@Override
 	public BigInteger bigIntegerValue()
 	{
-		// TODO
-		return null;
+		return psyFloor().bigIntegerValue();
 	}
 
 	@Override
@@ -49,23 +48,25 @@ public class PsyBigFractional
 	}
 
 	@Override
+	public PsyIntegral psyFloor()
+	{
+		return PsyIntegral.of(numerator.signum()<0?
+				numerator.divide(denominator).subtract(BigInteger.ONE):
+				numerator.divide(denominator));
+	}
+
+	@Override
+	public PsyIntegral psyCeiling()
+	{
+		return PsyIntegral.of(numerator.signum()<0?
+				numerator.divide(denominator):
+				numerator.divide(denominator).add(BigInteger.ONE));
+	}
+
+	@Override
 	public int intValue()
 	{
 		return (int)doubleValue();
-	}
-
-	@Override
-	public PsyInteger psyCeiling()
-	{
-		//
-		return null;
-	}
-
-	@Override
-	public PsyInteger psyFloor()
-	{
-		// TODO
-		return null;
 	}
 
 	@Override

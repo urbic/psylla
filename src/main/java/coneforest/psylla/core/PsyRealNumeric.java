@@ -197,9 +197,9 @@ public interface PsyRealNumeric
 
 	public PsyRealNumeric psyFloor();
 
-	public PsyRealNumeric psyRound();
-
 	public PsyRealNumeric psyCeiling();
+
+	public PsyRealNumeric psyRound();
 
 	@Override
 	default public PsyBoolean psyEq(final PsyObject o)

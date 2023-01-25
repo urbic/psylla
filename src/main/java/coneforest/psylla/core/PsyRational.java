@@ -8,9 +8,25 @@ public interface PsyRational
 {
 	public BigInteger bigIntegerValue();
 
+	/**
+	*	Returns an {@code integral} representing a numerator of this fraction.
+	*
+	*	@return the numerator.
+	*/
 	public PsyIntegral psyNumerator();
 
+	/**
+	*	Returns an {@code integral} representing a denominator of this fraction.
+	*
+	*	@return the denominator.
+	*/
 	public PsyIntegral psyDenominator();
+
+	@Override
+	public PsyIntegral psyCeiling();
+
+	@Override
+	public PsyIntegral psyFloor();
 
 	public static PsyRational of(final PsyIntegral oNumerator, final PsyIntegral oDenominator)
 		throws PsyUndefinedResultException

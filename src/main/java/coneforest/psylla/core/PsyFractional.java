@@ -85,16 +85,15 @@ public class PsyFractional
 	}
 
 	@Override
-	public PsyInteger psyCeiling()
+	public PsyInteger psyFloor()
 	{
-		return PsyInteger.of(numerator/denominator);
+		return PsyInteger.of(numerator<0? numerator/denominator-1: numerator/denominator);
 	}
 
 	@Override
-	public PsyInteger psyFloor()
+	public PsyInteger psyCeiling()
 	{
-		// TODO
-		return PsyInteger.of(numerator/denominator+1);
+		return PsyInteger.of(numerator<0? numerator/denominator: numerator/denominator+1);
 	}
 
 	@Override
