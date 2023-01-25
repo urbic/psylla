@@ -54,7 +54,7 @@ public interface PsyIntegral
 		throws PsyUndefinedResultException, PsyRangeCheckException;
 
 	/**
-	*	Returns an {@code additive} representing the greatest common divisor of
+	*	Returns an {@code integral} representing the greatest common divisor of
 	*	this object and given object.
 	*
 	*	@param oIntegral given object.
@@ -87,7 +87,7 @@ public interface PsyIntegral
 	}
 
 	/**
-	*	Returns an {@code additive} representing the least common multiple of
+	*	Returns an {@code integral} representing the least common multiple of
 	*	this object and given object.
 	*
 	*	@param oIntegral given object.
