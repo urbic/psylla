@@ -1,11 +1,16 @@
 package coneforest.cli;
 
 /**
-*	Class representing a counter. Integer option value, initially zero,
-*	increments every time when option is processed.
+*	A counter option. Integer option value, initially zero, increments every
+*	time when option is processed.
 */
 public class OptionCounter extends OptionWithoutArg
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionCounter(final String names)
 	{
 		super(names);

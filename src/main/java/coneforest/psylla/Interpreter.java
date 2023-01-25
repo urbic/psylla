@@ -1,5 +1,13 @@
 package coneforest.psylla;
 import coneforest.psylla.core.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.Writer;
+import java.util.HashMap;
 
 /**
 *	An interpreter.
@@ -203,17 +211,17 @@ public class Interpreter
 		return dstack.currentNamespace();
 	}
 
-	public void setReader(final java.io.Reader reader)
+	public void setReader(final Reader reader)
 	{
 		systemDict().put("stdin", new PsyReader(reader));
 	}
 
-	public void setWriter(final java.io.Writer writer)
+	public void setWriter(final Writer writer)
 	{
 		systemDict().put("stdout", new PsyWriter(writer));
 	}
 
-	public void setErrorWriter(final java.io.Writer writer)
+	public void setErrorWriter(final Writer writer)
 	{
 		systemDict().put("stderr", new PsyWriter(writer));
 	}
@@ -233,7 +241,7 @@ public class Interpreter
 			=(PsyFormalArray<PsyTextual>)systemDict().get("classpath");
 		final var envClassPath=System.getenv("PSYLLA_CLASSPATH");
 		if(envClassPath!=null)
-			for(final var pathItem: envClassPath.split(java.io.File.pathSeparator))
+			for(final var pathItem: envClassPath.split(File.pathSeparator))
 				oClassPath.psyAppend(new PsyName(pathItem));
 		if(classPath!=null)
 			for(final var pathItem: classPath)
@@ -247,14 +255,14 @@ public class Interpreter
 			=(PsyFormalArray<PsyTextual>)systemDict().get("librarypath");
 		final var envLibraryPath=System.getenv("PSYLLA_LIBRARYPATH");
 		if(envLibraryPath!=null)
-			for(final var pathItem: envLibraryPath.split(java.io.File.pathSeparator))
+			for(final var pathItem: envLibraryPath.split(File.pathSeparator))
 				oLibraryPath.psyAppend(new PsyName(pathItem));
 		if(libraryPath!=null)
 			for(final var pathItem: libraryPath)
 				oLibraryPath.psyAppend(new PsyName(pathItem));
 	}
 
-	public void interpret(final java.io.Reader reader)
+	public void interpret(final Reader reader)
 	{
 		interpret(new PsyReader(reader));
 	}
@@ -295,7 +303,6 @@ public class Interpreter
 		catch(final PsyErrorException e)
 		{
 			e.setEmitter(oReader); // IMPORTANT
-			//handleError(e);
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
 			// TODO
@@ -398,7 +405,6 @@ public class Interpreter
 	private PsyObject parseToken(final Token token)
 		throws PsyErrorException
 	{
-		// TODO: make TokensParser inner class of Interpreter
 		var image=token.image;
 		switch(token.kind)
 		{
@@ -619,7 +625,7 @@ public class Interpreter
 					cr.flushConsole();
 					return;
 				}
-				final var oReader=new PsyReader(new java.io.StringReader(line));
+				final var oReader=new PsyReader(new StringReader(line));
 				final var parser=new Parser(oReader);
 				try
 				{
@@ -658,17 +664,27 @@ public class Interpreter
 				}
 			}
 		}
-		catch(final java.io.IOException ex)
+		catch(final IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}
 	}
 
+	/**
+	*	Returns the Psylla banner.
+	*
+	*	@return the banner.
+	*/
 	public String banner()
 	{
 		return String.format(Messages.getString("banner"), Version.getVersion());
 	}
 
+	/**
+	*	Returns the Psylla prompt.
+	*
+	*	@return the prompt.
+	*/
 	public String prompt()
 	{
 		final var sb=new StringBuilder("PSYLLA");
@@ -701,12 +717,11 @@ public class Interpreter
 			if(PsyFileSystem.psyFileExists(oFullResourceName).booleanValue()
 					&& PsyFileSystem.psyIsFile(oFullResourceName).booleanValue())
 			{
-				final var resourceID="file:"+PsyFileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();
+				final var resourceID
+					="file:"+PsyFileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();
 				if(resourceRegistry.containsKey(resourceName))
-				{
+					// TODO
 					System.out.println("Already loaded: "+resourceID);
-					return true;
-				}
 				else
 				{
 					resourceRegistry.put(resourceName, resourceID);
@@ -745,7 +760,7 @@ public class Interpreter
 		{
 			final var clazz=
 				(Class<? extends PsyObject>)Class.forName(
-						(new java.io.BufferedReader(new java.io.InputStreamReader(
+						(new BufferedReader(new InputStreamReader(
 								classLoader.getResourceAsStream(
 										"META-INF/psylla/type/"+typeName)))).readLine(),
 						true,
@@ -806,8 +821,8 @@ public class Interpreter
 			*/
 			return true;
 		}
-		//catch(java.io.IOException|ClassNotFoundException|NullPointerException|IllegalAccessException e)
-		catch(final java.io.IOException|ClassNotFoundException|NullPointerException ex)
+		//catch(IOException|ClassNotFoundException|NullPointerException|IllegalAccessException e)
+		catch(final IOException|ClassNotFoundException|NullPointerException ex)
 		{
 			return false;
 		}
@@ -848,7 +863,7 @@ public class Interpreter
 	//	loopstack=new IntStack(),
 	//	stopstack=new IntStack();
 	private final java.util.HashMap<String, String> resourceRegistry
-		=new java.util.HashMap<String, String>();
+		=new HashMap<String, String>();
 	private final NamespacePool nspool=new NamespacePool();
 
 	private boolean stopFlag=false;

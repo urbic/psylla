@@ -1,8 +1,16 @@
 package coneforest.cli;
 
+/**
+*	An option holding a {@link Float} value.
+*/
 public class OptionFloat
 	extends OptionHolder<Float>
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionFloat(final String names)
 	{
 		super(names);

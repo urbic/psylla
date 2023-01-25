@@ -1,12 +1,17 @@
 package coneforest.cli;
 
 /**
-*	Class representing a flag. Boolean option value, initially false, set to
-*	true every time when option is processed.
+*	A flag option. Boolean option value, initially false, set to true every
+*	time when option is processed.
 */
 public class OptionFlag
 	extends OptionWithoutArg<Boolean>
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionFlag(final String names)
 	{
 		super(names);

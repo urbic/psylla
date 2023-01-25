@@ -2,7 +2,14 @@ package coneforest.psylla;
 
 public class Globs
 {
+	/**
+	*	The {@code '?'} character.
+	*/
 	public static final char SINGULAR_PATTERN='?';
+
+	/**
+	*	The {@code '*'} character.
+	*/
 	public static final char PLURAL_PATTERN='*';
 
 	public static boolean matches(final String pattern, final String string,

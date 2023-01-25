@@ -5,6 +5,8 @@ import coneforest.psylla.*;
 *	A representation of {@code bitwise}, a type of object that is an operand of
 *	bitwise operation. This interface declares methods for setting, clearing,
 *	testing of certain bits and bitwise shift.
+*
+*	@param <T> a type of the second operand at binary operations.
 */
 @Type("bitwise")
 public interface PsyBitwise<T extends PsyBitwise>

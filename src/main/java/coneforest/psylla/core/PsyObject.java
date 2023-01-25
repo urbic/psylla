@@ -38,10 +38,10 @@ public interface PsyObject
 	}
 
 	/**
-	*	Execute this object in the current context. Pushes this object into
-	*	interpreter’s operand stack.
+	*	Execute this object in the given execution context. Pushes this object
+	*	into context’s operand stack.
 	*
-	*	@param oContext
+	*	@param oContext the execution context.
 	*/
 	default public void execute(final PsyContext oContext)
 	{
@@ -49,10 +49,10 @@ public interface PsyObject
 	}
 
 	/**
-	*	Invoke this object in the current context. Pushes this object into
-	*	interpreter’s operand stack.
+	*	Invoke this object in the given execution context. Pushes this object
+	*	into context’s operand stack.
 	*
-	*	@param oContext
+	*	@param oContext the execution context.
 	*/
 	default public void invoke(final PsyContext oContext)
 	{

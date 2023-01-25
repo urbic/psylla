@@ -1,10 +1,15 @@
 package coneforest.cli;
 
 /**
-*	An option holding a list of {@link java.lang.Integer} values.
+*	An option holding a list of {@link Integer} values.
 */
 public class OptionCollectorInteger extends OptionCollector<Integer>
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionCollectorInteger(final String names)
 	{
 		super(names);

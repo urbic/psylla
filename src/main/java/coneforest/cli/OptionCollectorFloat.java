@@ -1,10 +1,15 @@
 package coneforest.cli;
 
 /**
-*	An option holding a list of {@link java.lang.Float} values.
+*	An option holding a list of {@link Float} values.
 */
 public class OptionCollectorFloat extends OptionCollector<Float>
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionCollectorFloat(final String names)
 	{
 		super(names);

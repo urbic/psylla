@@ -1,12 +1,17 @@
 package coneforest.cli;
 
 /**
-*	Class representing a toggle. Boolean option value, initially false, toggles
-*	every time when option is processed.
+*	A toggle option. Boolean option value, initially false, toggles every time
+*	when option is processed.
 */
 public class OptionToggle
 	extends OptionWithoutArg
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionToggle(final String names)
 	{
 		super(names);

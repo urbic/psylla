@@ -1,11 +1,16 @@
 package coneforest.cli;
 
 /**
-*	Base class representing an abstract option without argument.
+*	An abstract option without argument.
 */
 abstract public class OptionWithoutArg<T>
 	extends Option
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionWithoutArg(final String names)
 	{
 		super(names);

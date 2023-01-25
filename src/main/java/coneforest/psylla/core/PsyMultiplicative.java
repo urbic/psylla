@@ -26,6 +26,8 @@ public interface PsyMultiplicative<T extends PsyMultiplicative>
 	*
 	*	@param oArithmetic a given object.
 	*	@return a fraction.
+	*	@throws PsyUndefinedResultException when the result of division is not
+	*	defined.
 	*/
 	public T psyDiv(final T oArithmetic)
 		throws PsyUndefinedResultException;

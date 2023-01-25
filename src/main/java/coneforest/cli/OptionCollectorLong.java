@@ -1,10 +1,15 @@
 package coneforest.cli;
 
 /**
-*	An option holding a list of {@link java.lang.Long} values.
+*	An option holding a list of {@link Long} values.
 */
 public class OptionCollectorLong extends OptionCollector<Long>
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionCollectorLong(final String names)
 	{
 		super(names);

@@ -6,7 +6,7 @@ package coneforest.psylla;
 public class Version
 {
 	/**
-	*	Get the version string.
+	*	Returns the version string.
 	*
 	*	@return the version string.
 	*/
@@ -19,7 +19,7 @@ public class Version
 	}
 
 	/**
-	*	Get the major version number.
+	*	Returns the major version number.
 	*
 	*	@return the major version number.
 	*/
@@ -29,7 +29,7 @@ public class Version
 	}
 
 	/**
-	*	Get the minor version number.
+	*	Returns the minor version number.
 	*
 	*	@return the minor version number.
 	*/
@@ -39,7 +39,7 @@ public class Version
 	}
 
 	/**
-	*	Get the micro version number.
+	*	Returns the micro version number.
 	*
 	*	@return the micro version number.
 	*/
@@ -48,6 +48,11 @@ public class Version
 		return Integer.parseInt(Config.getProperty("project.version.micro"));
 	}
 
+	/**
+	*	Returns the version encoded as a string.
+	*
+	*	@return the version encoded as a string.
+	*/
 	public static String getCode()
 	{
 		return Character.toString((char)getMajor())

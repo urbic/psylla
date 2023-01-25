@@ -23,6 +23,9 @@ public interface PsyExecutable
 		oContext.handleExecutionStack(execLevel);
 	}
 
+	/**
+	*	Rerurns a {@code Predicate} view of this object.
+	*/
 	default public <T extends PsyObject> Predicate<T> asPredicate(final PsyContext oContext)
 	{
 		final var ostack=oContext.operandStack();

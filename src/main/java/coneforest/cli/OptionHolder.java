@@ -1,13 +1,18 @@
 package coneforest.cli;
 
 /**
-*	Base class representing an abstract option holding an object.
+*	An abstract option holding an object.
 *
 *	@param <T> class of containing object.
 */
 abstract public class OptionHolder<T>
 	extends OptionWithArg<T>
 {
+	/**
+	*	Creates new option with given names.
+	*
+	*	@param names space-delimited names.
+	*/
 	public OptionHolder(final String names)
 	{
 		super(names);
