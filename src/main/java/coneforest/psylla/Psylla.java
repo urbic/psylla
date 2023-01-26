@@ -1,5 +1,14 @@
 package coneforest.psylla;
 import coneforest.psylla.core.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintStream;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 
 /**
 *	The Psylla interpreter launcher.
@@ -23,7 +32,7 @@ public class Psylla
 			System.err.println(Messages.getString("useHelpOption"));
 			System.exit(1);
 		}
-		catch(final java.io.FileNotFoundException ex)
+		catch(final FileNotFoundException ex)
 		{
 			System.out.println(Messages.format("badScript", ex.getLocalizedMessage()));
 			System.exit(1);
@@ -57,8 +66,8 @@ public class Psylla
 						}
 					}
 				};
-		interpreter.setWriter(new java.io.OutputStreamWriter(System.out));
-		interpreter.setErrorWriter(new java.io.OutputStreamWriter(System.err));
+		interpreter.setWriter(new OutputStreamWriter(System.out));
+		interpreter.setErrorWriter(new OutputStreamWriter(System.err));
 		interpreter.setEnvironment(System.getenv());
 		interpreter.setShellArguments(psyllaConfig.shellArguments);
 		interpreter.setScriptName(psyllaConfig.scriptName);
@@ -74,13 +83,13 @@ public class Psylla
 	*	@return the {@link Psylla} instance launched.
 	*	@throws PsyErrorException
 	*	@throws coneforest.cli.ProcessingException
-	*	@throws java.io.FileNotFoundException
+	*	@throws FileNotFoundException
 	*/
 	public static Psylla launch(final String args[])
 		throws
 			PsyErrorException,
 			coneforest.cli.ProcessingException,
-			java.io.FileNotFoundException
+			FileNotFoundException
 	{
 
 		final coneforest.cli.Processor cli=new coneforest.cli.Processor
@@ -106,7 +115,7 @@ public class Psylla
 		if(!cli.<java.util.List<String>>getValue("config").isEmpty())
 			showConfig(cli.getValue("config"));
 
-		final java.io.Reader scriptReader;
+		final Reader scriptReader;
 		final String scriptName;
 		final String[] shellArguments;
 
@@ -114,15 +123,15 @@ public class Psylla
 		{
 			scriptName="--eval";
 			shellArguments=java.util.Arrays.copyOfRange(args, processed, args.length);
-			scriptReader=new java.io.StringReader(cli.getValue("eval"));
+			scriptReader=new StringReader(cli.getValue("eval"));
 		}
 		else if(processed<args.length)
 		{
 			scriptName=args[processed];
 			shellArguments=java.util.Arrays.copyOfRange(args, processed+1, args.length);
 			scriptReader=scriptName.equals("-")?
-					new java.io.InputStreamReader(System.in):
-					new java.io.FileReader(scriptName);
+					new InputStreamReader(System.in):
+					new FileReader(scriptName);
 		}
 		else
 		{
@@ -146,17 +155,15 @@ public class Psylla
 
 	public static void setConsoleEncoding(final String consoleEncoding)
 	{
-		String ce;
-		if(consoleEncoding!=null)
-			ce=consoleEncoding;
-		else
-			ce=java.nio.charset.Charset.defaultCharset().toString();
+		final String ce=(consoleEncoding!=null)?
+				consoleEncoding:
+				Charset.defaultCharset().toString();
 		try
 		{
-			System.setOut(new java.io.PrintStream(System.out, true, ce));
-			System.setErr(new java.io.PrintStream(System.err, true, ce));
+			System.setOut(new PrintStream(System.out, true, ce));
+			System.setErr(new PrintStream(System.err, true, ce));
 		}
-		catch(final java.io.UnsupportedEncodingException ex)
+		catch(final UnsupportedEncodingException ex)
 		{
 			System.err.println(Messages.format("unsupportedEncoding", consoleEncoding));
 			System.exit(1);
@@ -217,7 +224,7 @@ public class Psylla
 
 	private static class PsyllaConfig
 	{
-		private void setScriptReader(final java.io.Reader scriptReader)
+		private void setScriptReader(final Reader scriptReader)
 		{
 			this.scriptReader=scriptReader;
 		}
@@ -247,7 +254,7 @@ public class Psylla
 			this.libraryPath=libraryPath;
 		}
 
-		private java.io.Reader scriptReader;
+		private Reader scriptReader;
 		private String scriptName;
 		private String[] shellArguments;
 		private Long randomSeed;
