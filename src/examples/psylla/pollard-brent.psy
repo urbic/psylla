@@ -1,18 +1,5 @@
 #!/usr/bin/psylla
 
-/#
-/gcd
-{
-	{
-		2 copy lt { exch } if
-		dup iszero { pop exit } if
-		dup 3 1 roll mod
-	}
-	loop
-}
-bind def
-#/
-
 /rho
 {
 	dict begin
@@ -47,30 +34,4 @@ bind def
 }
 bind def
 
-/#
-/agenda [ arguments 0 get tointegral ] def
-/factors array def
-
-{
-	#agenda ?
-	#factors ?
-	agenda isempty { exit } if
-	/n agenda prechop def
-	/f n rho def
-	#f ? '<<<' ?
-	n f eq
-	{
-		factors f append
-	}
-	{
-		agenda f prepend
-		agenda n f idiv prepend
-	}
-	ifelse
-}
-bind loop
-
-factors stream { cmp } sorted { toname say } forall
-#/
-
-arguments 0 get tointegral rho ?
+arguments 0 get tointegral rho toname say
