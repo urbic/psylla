@@ -32,9 +32,11 @@
 		<dependency
 			org="org.apache.ant"
 			name="ant-junit"
-			rev="1.10.12"
+			rev="1.10.13"
 			conf="compile"
-			/>
+			>
+			<exclude org="org.apache.ant" name="ant-launcher"/>
+		</dependency>
 		<dependency
 			org="net.java.dev.javacc"
 			name="javacc"
