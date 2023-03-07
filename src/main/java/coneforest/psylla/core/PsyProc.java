@@ -12,6 +12,9 @@ public class PsyProc
 	extends PsyArray
 	implements PsyExecutable
 {
+	/**
+	*	Creates new empty {@code proc}.
+	*/
 	public PsyProc()
 	{
 		super();

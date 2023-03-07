@@ -26,6 +26,11 @@ public interface PsyFormalStream<T extends PsyObject>
 		{
 			return PsyInteger.of(stream().count());
 		}
+		/*catch(final RuntimeException ex)
+		{
+			System.out.println("ERROR!");
+			return null;
+		}*/
 		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();

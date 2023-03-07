@@ -35,14 +35,7 @@ public interface PsyExecutable
 				public boolean test(final T o)
 				{
 					ostack.push(o);
-					//try
-					//{
 					invokeAndHandle(oContext);
-					//}
-					//catch(Throwable ex)
-					//{
-					//	throw new PsyUnregisteredException();
-					//}
 					return ((PsyBoolean)ostack.pop()).booleanValue();
 					// TODO: stop
 				}
@@ -59,6 +52,7 @@ public interface PsyExecutable
 				{
 					ostack.push(o);
 					invokeAndHandle(oContext);
+					//throw new RuntimeException();
 					return (R)ostack.pop();
 					// TODO: stop
 				}
