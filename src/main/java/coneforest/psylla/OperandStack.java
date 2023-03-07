@@ -39,7 +39,7 @@ public class OperandStack extends Stack<PsyObject>
 		setSize(offset);
 	}
 
-	public void restore()
+	public void rollback()
 	{
 		for(int i=0; i<backupSize; i++)
 			push(backup[i]);

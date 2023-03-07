@@ -49,7 +49,7 @@ public abstract class PsyOperator
 		}
 		catch(final ClassCastException ex)
 		{
-			ostack.restore();
+			ostack.rollback();
 			var e=new PsyTypeCheckException();
 			e.setEmitter(this);
 			final var estack=oContext.executionStack();
@@ -59,7 +59,7 @@ public abstract class PsyOperator
 		}
 		catch(final PsyErrorException e)
 		{
-			ostack.restore();
+			ostack.rollback();
 			e.setEmitter(this);
 			final var estack=oContext.executionStack();
 			final var dstack=oContext.dictStack();
