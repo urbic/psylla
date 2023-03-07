@@ -8,6 +8,8 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
 *	An interpreter.
@@ -53,7 +55,7 @@ public class Interpreter
 				{
 					o.invoke(this);
 					handleExecutionStack();
-					if(getStopFlag())
+					if(getStopped())
 					{
 						//PsyErrorDict.OP_HANDLEERROR.invoke(this);
 						return;
@@ -287,7 +289,7 @@ public class Interpreter
 				processToken(token);
 
 				// If "stop" is invoked outside an explicit stopping context
-				if(getStopFlag())
+				if(getStopped())
 					return;
 			}
 			if(procstack.size()>initProcLevel)
@@ -306,7 +308,7 @@ public class Interpreter
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
 			// TODO
-			if(getStopFlag())
+			if(getStopped())
 				PsyErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 		catch(final TokenMgrError ex)
@@ -316,7 +318,7 @@ public class Interpreter
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
 			// TODO
-			if(getStopFlag())
+			if(getStopped())
 				PsyErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 	}
@@ -526,15 +528,15 @@ public class Interpreter
 	}
 
 	@Override
-	public boolean getStopFlag()
+	public boolean getStopped()
 	{
-		return stopFlag;
+		return stopped;
 	}
 
 	@Override
-	public void setStopFlag(final boolean stopFlag)
+	public void setStopped(final boolean stopped)
 	{
-		this.stopFlag=stopFlag;
+		this.stopped=stopped;
 	}
 
 	@Override
@@ -585,13 +587,12 @@ public class Interpreter
 	public void setShellArguments(final String[] args)
 		throws PsyErrorException
 	{
-		final var oArguments
-			=(PsyArray)systemDict().get("arguments");
+		final var oArguments=(PsyArray)systemDict().get("arguments");
 		for(final var arg: args)
 			oArguments.psyAppend(new PsyName(arg));
 	}
 
-	public void setEnvironment(final java.util.Map<String, String> env)
+	public void setEnvironment(final Map<String, String> env)
 	{
 		final var environment=new PsyDict();
 		for(final var entry: env.entrySet())
@@ -603,7 +604,7 @@ public class Interpreter
 	public void quit()
 	{
 		running=false;
-		stopFlag=false;
+		stopped=false;
 		estack.clear();
 	}
 
@@ -636,9 +637,9 @@ public class Interpreter
 							break;
 						processToken(token);
 						// If "stop" invoked outside an explicit stopping context
-						if(getStopFlag())
+						if(getStopped())
 						{
-							setStopFlag(false);
+							setStopped(false);
 							break;
 						}
 					}
@@ -649,7 +650,7 @@ public class Interpreter
 					e.setStacks(ostack, estack, dstack);
 					e.invoke(this);
 					// TODO
-					if(getStopFlag())
+					if(getStopped())
 						PsyErrorDict.OP_HANDLEERROR.invoke(this);
 				}
 				catch(final TokenMgrError ex)
@@ -659,7 +660,7 @@ public class Interpreter
 					e.setStacks(ostack, estack, dstack);
 					e.invoke(this);
 					// TODO
-					if(getStopFlag())
+					if(getStopped())
 						PsyErrorDict.OP_HANDLEERROR.invoke(this);
 				}
 			}
@@ -698,7 +699,7 @@ public class Interpreter
 	@Override
 	public void stop_()
 	{
-		setStopFlag(true);
+		setStopped(true);
 		if(currentStopLevel()>-1)
 			estack.setSize(currentStopLevel());
 		else
@@ -862,11 +863,11 @@ public class Interpreter
 	//private IntStack
 	//	loopstack=new IntStack(),
 	//	stopstack=new IntStack();
-	private final java.util.HashMap<String, String> resourceRegistry
+	private final HashMap<String, String> resourceRegistry
 		=new HashMap<String, String>();
 	private final NamespacePool nspool=new NamespacePool();
 
-	private boolean stopFlag=false;
+	private boolean stopped=false;
 	private boolean running=true;
 
 	private final java.lang.ClassLoader classLoader
@@ -881,9 +882,9 @@ public class Interpreter
 					return new Iterable<String>()
 						{
 							@Override
-							public java.util.Iterator<String> iterator()
+							public Iterator<String> iterator()
 							{
-								return new java.util.Iterator<String>()
+								return new Iterator<String>()
 									{
 										@Override
 										public String next()

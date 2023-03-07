@@ -43,7 +43,7 @@ public class PsyErrorDict
 						System.err.println(sj.toString());
 					}
 
-					oContext.setStopFlag(false);
+					oContext.setStopped(false);
 				}
 			};
 }

@@ -63,12 +63,12 @@ public interface PsyContext
 
 	public int currentStopLevel();
 
-	public boolean getStopFlag();
+	public boolean getStopped();
 
 	public void repl()
 		throws PsyErrorException;
 
-	public void setStopFlag(final boolean stopFlag);
+	public void setStopped(final boolean stopFlag);
 
 	public void handleExecutionStack();
 
@@ -443,8 +443,8 @@ public interface PsyContext
 						final var ostack=oContext.operandStackBacked(1);
 						ostack.getBacked(0).invoke(oContext);
 						oContext.handleExecutionStack(stopLevel);
-						ostack.push(PsyBoolean.of(oContext.getStopFlag()));
-						oContext.setStopFlag(false);
+						ostack.push(PsyBoolean.of(oContext.getStopped()));
+						oContext.setStopped(false);
 						oContext.popStopLevel();
 
 						/*
@@ -452,8 +452,8 @@ public interface PsyContext
 						interpreter.executionStack().push(new PsyOperator.Action
 						("#stopped_continue", (interpreter1)->
 						{
-							ostack.push(PsyBoolean.of(interpreter1.getStopFlag()));
-							interpreter1.setStopFlag(false);
+							ostack.push(PsyBoolean.of(interpreter1.getStopped()));
+							interpreter1.setStopped(false);
 							interpreter1.popStopLevel();
 						}));
 						oProc.invoke(interpreter);
