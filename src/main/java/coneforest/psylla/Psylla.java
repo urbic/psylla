@@ -1,14 +1,16 @@
 package coneforest.psylla;
+
 import coneforest.psylla.core.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.util.List;
 
 /**
 *	The Psylla interpreter launcher.
@@ -19,7 +21,7 @@ public class Psylla
 	{
 		try
 		{
-			launch(args);
+			launch(System.out, System.err, args);
 		}
 		catch(final PsyErrorException e)
 		{
@@ -66,8 +68,8 @@ public class Psylla
 						}
 					}
 				};
-		interpreter.setWriter(new OutputStreamWriter(System.out));
-		interpreter.setErrorWriter(new OutputStreamWriter(System.err));
+		interpreter.setWriter(psyllaConfig.outputWriter);
+		interpreter.setErrorWriter(psyllaConfig.errorWriter);
 		interpreter.setEnvironment(System.getenv());
 		interpreter.setShellArguments(psyllaConfig.shellArguments);
 		interpreter.setScriptName(psyllaConfig.scriptName);
@@ -85,7 +87,8 @@ public class Psylla
 	*	@throws coneforest.cli.ProcessingException
 	*	@throws FileNotFoundException
 	*/
-	public static Psylla launch(final String args[])
+	public static Psylla launch(final PrintWriter outputWriter, final PrintWriter errorWriter,
+			final String... args)
 		throws
 			PsyErrorException,
 			coneforest.cli.ProcessingException,
@@ -143,6 +146,8 @@ public class Psylla
 		final var psyllaConfig=new PsyllaConfig();
 		psyllaConfig.setScriptName(scriptName);
 		psyllaConfig.setScriptReader(scriptReader);
+		psyllaConfig.setOutputWriter(outputWriter);
+		psyllaConfig.setErrorWriter(errorWriter);
 		psyllaConfig.setShellArguments(shellArguments);
 		psyllaConfig.setRandomSeed(cli.getValue("random-seed"));
 		psyllaConfig.setClassPath(cli.<String[]>getValue("classpath"));
@@ -151,6 +156,17 @@ public class Psylla
 		final var psylla=new Psylla(psyllaConfig);
 		psylla.start();
 		return psylla;
+	}
+
+	public static Psylla launch(
+			final PrintStream outputStream, final PrintStream errorStream,
+			final String... args)
+		throws
+			PsyErrorException,
+			coneforest.cli.ProcessingException,
+			FileNotFoundException
+	{
+		return launch(new PrintWriter(outputStream), new PrintWriter(errorStream), args);
 	}
 
 	public static void setConsoleEncoding(final String consoleEncoding)
@@ -207,7 +223,7 @@ public class Psylla
 		System.exit(0);
 	}
 
-	private static void showConfig(final java.util.List<String> patterns)
+	private static void showConfig(final List<String> patterns)
 	{
 		final java.util.Set<String> propertyNames=Config.stringPropertyNames();
 
@@ -227,6 +243,16 @@ public class Psylla
 		private void setScriptReader(final Reader scriptReader)
 		{
 			this.scriptReader=scriptReader;
+		}
+
+		private void setOutputWriter(final PrintWriter outputWriter)
+		{
+			this.outputWriter=outputWriter;
+		}
+
+		private void setErrorWriter(final PrintWriter errorWriter)
+		{
+			this.errorWriter=errorWriter;
 		}
 
 		private void setScriptName(final String scriptName)
@@ -256,6 +282,8 @@ public class Psylla
 
 		private Reader scriptReader;
 		private String scriptName;
+		private PrintWriter outputWriter;
+		private PrintWriter errorWriter;
 		private String[] shellArguments;
 		private Long randomSeed;
 		private String[] classPath, libraryPath;

@@ -1,8 +1,12 @@
 package coneforest.psylla.tools;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Suite;
+
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
@@ -57,18 +61,17 @@ public class PsyllaTest
 			cmdLine[psyllaArgs.length+1+i]=testArgs[i];
 
 		final var out=System.out;
-		final var outData
-			=new java.io.ByteArrayOutputStream();
-		System.setOut(new java.io.PrintStream(outData));
+		final var outData=new ByteArrayOutputStream();
+		System.setOut(new PrintStream(outData));
 
 		final var err=System.err;
-		final var errData
-			=new java.io.ByteArrayOutputStream();
-		System.setErr(new java.io.PrintStream(errData));
+		final var errData=new ByteArrayOutputStream();
+		System.setErr(new PrintStream(errData));
 
 		try
 		{
-			coneforest.psylla.Psylla.launch(cmdLine).join();
+			coneforest.psylla.Psylla.launch(
+					System.out, System.err, cmdLine).join();
 		}
 		catch(final coneforest.psylla.core.PsyErrorException e)
 		{

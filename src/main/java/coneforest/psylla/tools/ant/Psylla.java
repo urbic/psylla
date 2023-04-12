@@ -1,5 +1,7 @@
 package coneforest.psylla.tools.ant;
+
 import coneforest.psylla.*;
+import java.util.ArrayList;
 
 public class Psylla
 	extends org.apache.tools.ant.Task
@@ -7,8 +9,7 @@ public class Psylla
 	@Override
 	public void execute()
 	{
-		final java.util.ArrayList<String> psyllaArgs
-			=new java.util.ArrayList<String>();
+		final ArrayList<String> psyllaArgs=new ArrayList<String>();
 		if(consoleEncoding!=null)
 			psyllaArgs.add("--console-encoding="+consoleEncoding);
 		if(classPath!=null)
@@ -34,10 +35,8 @@ public class Psylla
 
 		try
 		{
-			if(timeout!=0)
-				coneforest.psylla.Psylla.launch(args).join(timeout);
-			else
-				coneforest.psylla.Psylla.launch(args).join();
+			coneforest.psylla.Psylla.launch(
+				System.out, System.err, args).join(timeout);
 		}
 		catch(final coneforest.psylla.core.PsyErrorException e)
 		{
@@ -93,8 +92,7 @@ public class Psylla
 		return arg;
 	}
 
-	private final java.util.ArrayList<Arg> argList
-		=new java.util.ArrayList<Arg>();
+	private final ArrayList<Arg> argList=new ArrayList<Arg>();
 
 	private String eval, classPath, consoleEncoding, locale;
 
