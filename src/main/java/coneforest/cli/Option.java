@@ -1,7 +1,7 @@
 package coneforest.cli;
 
 /**
-*	Base class representing an abstract option.
+*	An abstract option.
 */
 abstract public class Option
 {
