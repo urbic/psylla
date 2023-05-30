@@ -9,7 +9,6 @@
 	<description>${project.description}</description>
 
 	<!-- Properties -->
-	<property name="project.name" value="${ant.project.name}"/>
 	<property name="src" location="src"/>
 	<property name="src.main" location="${src}/main"/>
 	<property name="src.test" location="${src}/test"/>
@@ -195,6 +194,11 @@
 		<copy todir="${target.classes}">
 			<fileset dir="${src.main.resources}" includes="**"/>
 		</copy>
+		<mkdir dir="${target.classes}/META-INF/licenses"/>
+		<copy
+			todir="${target.classes}/META-INF/licenses"
+			file="LICENSE"
+			/>
 		<echoproperties
 			destfile="${target.classes}/coneforest/psylla/Config.properties"
 			>
