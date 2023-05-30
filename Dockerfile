@@ -13,6 +13,7 @@ RUN zypper -n --gpg-auto-import-keys in -y \
 	'mvn(net.sf.xslthl:xslthl)' \
 	glibc-locale \
 	graphviz \
+	shadow \
 	sassc
 
 USER root
