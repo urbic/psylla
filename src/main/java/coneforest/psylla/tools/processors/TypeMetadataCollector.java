@@ -1,5 +1,9 @@
 package coneforest.psylla.tools.processors;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Map;
 import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Messager;
@@ -31,11 +35,11 @@ public class TypeMetadataCollector extends AbstractProcessor
 			{
 				final var typeName=element.getAnnotation(coneforest.psylla.Type.class).value();
 				final var className=((TypeElement)element).getQualifiedName().toString();
-				final var ps=new java.io.PrintStream(new java.io.File(md+"type/", typeName));
+				final var ps=new PrintStream(new File(md+"type/", typeName));
 				ps.println(className);
 				ps.close();
 			}
-			catch(final java.io.FileNotFoundException e)
+			catch(final FileNotFoundException e)
 			{
 				messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage(), element);
 			}
@@ -48,11 +52,11 @@ public class TypeMetadataCollector extends AbstractProcessor
 			{
 				final var typeName=element.getAnnotation(coneforest.psylla.ExceptionType.class).value();
 				final var className=((TypeElement)element).getQualifiedName().toString();
-				final var ps=new java.io.PrintStream(new java.io.File(md+"exception/", typeName));
+				final var ps=new PrintStream(new File(md+"exception/", typeName));
 				ps.println(className);
 				ps.close();
 			}
-			catch(final java.io.FileNotFoundException e)
+			catch(final FileNotFoundException e)
 			{
 				messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage(), element);
 			}
@@ -76,6 +80,6 @@ public class TypeMetadataCollector extends AbstractProcessor
 		options=penv.getOptions();
 	}
 
-	private java.util.Map<String, String> options;
+	private Map<String, String> options;
 	private Messager messager;
 }

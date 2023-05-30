@@ -95,7 +95,7 @@ public class Psylla
 			FileNotFoundException
 	{
 
-		final coneforest.cli.Processor cli=new coneforest.cli.Processor
+		final var cli=new coneforest.cli.Processor
 			(
 				new coneforest.cli.OptionFlag("help usage h ?"),
 				new coneforest.cli.OptionFlag("version V"),
