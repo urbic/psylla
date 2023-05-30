@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
 	<mime-type type="application/x-psylla">
+		<comment xml:lang="de">Psylla-Skript</comment>
+		<comment xml:lang="el">Δέσμη ενεργειών Psylla</comment>
 		<comment xml:lang="en">Psylla script</comment>
+		<comment xml:lang="es">secuencia de órdenes en Psylla</comment>
+		<comment xml:lang="fr">script Psylla</comment>
+		<comment xml:lang="he">תסריט מעטפת של Psylla</comment>
+		<comment xml:lang="it">Script Psylla</comment>
+		<comment xml:lang="nl">Psylla-script</comment>
+		<comment xml:lang="pt">script Psylla</comment>
 		<comment xml:lang="ru">сценарий Psylla</comment>
 		<sub-class-of type="application/x-executable"/>
 		<sub-class-of type="text/plain"/>
+		<alias type="text/x-psylla"/>
 		<generic-icon name="text-x-script"/>
 		<glob pattern="*.psy"/>
 	</mime-type>
