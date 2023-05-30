@@ -222,7 +222,7 @@ public interface PsyContext
 									private PsyRealNumeric oCounter=oInitial;
 
 									@Override
-									public void action(final PsyContext oContext)
+									public void perform(final PsyContext oContext)
 									{
 										if(oCounter.psyGt(oLimit).booleanValue())
 											oContext.popLoopLevel();
@@ -240,7 +240,7 @@ public interface PsyContext
 									private PsyRealNumeric oCounter=oInitial;
 
 									@Override
-									public void action(final PsyContext oContext)
+									public void perform(final PsyContext oContext)
 									{
 										if(oCounter.psyLt(oLimit).booleanValue())
 											oContext.popLoopLevel();
@@ -321,7 +321,7 @@ public interface PsyContext
 						oContext.executionStack().push(new PsyOperator("#loop_continue")
 							{
 								@Override
-								public void action(final PsyContext oContext1)
+								public void perform(final PsyContext oContext1)
 									throws PsyErrorException
 								{
 									oContext1.executionStack().push(this);
@@ -375,7 +375,7 @@ public interface PsyContext
 								private long count1=count;
 
 								@Override
-								public void action(final PsyContext oContext1)
+								public void perform(final PsyContext oContext1)
 								{
 									if(count1--==0)
 										oContext1.popLoopLevel();

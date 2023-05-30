@@ -55,7 +55,7 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*   @return {@link PsyBoolean#TRUE} if this object represents a non-zero value,
 	*   and {@link PsyBoolean#FALSE} otherwise.
 	*/
-	default public PsyBoolean psyNotZero()
+	default public PsyBoolean psyNonZero()
 	{
 		return psyIsZero().psyNot();
 	}
@@ -65,7 +65,7 @@ public interface PsyAdditive<T extends PsyAdditive>
 			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("add", PsyAdditive::psyAdd),
 			new PsyOperator.Arity11<PsyAdditive>("iszero", PsyAdditive::psyIsZero),
 			new PsyOperator.Arity11<PsyAdditive>("neg", PsyAdditive::psyNeg),
-			new PsyOperator.Arity11<PsyAdditive>("nonzero", PsyAdditive::psyNotZero),
+			new PsyOperator.Arity11<PsyAdditive>("nonzero", PsyAdditive::psyNonZero),
 			new PsyOperator.Arity21<PsyAdditive, PsyAdditive>("sub", PsyAdditive::psySub),
 		};
 }

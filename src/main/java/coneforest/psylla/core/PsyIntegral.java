@@ -66,7 +66,7 @@ public interface PsyIntegral
 		var oY=oIntegral.psyAbs();
 		if(oY.psyIsZero().booleanValue())
 			return oX;
-		while(oX.psyNotZero().booleanValue())
+		while(oX.psyNonZero().booleanValue())
 		{
 			if(oX.psyGt(oY).booleanValue())
 			{

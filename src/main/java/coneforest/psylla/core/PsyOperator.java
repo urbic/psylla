@@ -45,7 +45,7 @@ public abstract class PsyOperator
 		ostack.clearBackup();
 		try
 		{
-			action(oContext);
+			perform(oContext);
 		}
 		catch(final ClassCastException ex)
 		{
@@ -68,7 +68,7 @@ public abstract class PsyOperator
 		}
 	}
 
-	abstract public void action(final PsyContext oContext)
+	abstract public void perform(final PsyContext oContext)
 		throws ClassCastException, PsyErrorException;
 
 	/**
@@ -172,7 +172,7 @@ public abstract class PsyOperator
 		}
 
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			handler.handle(oContext);
@@ -189,7 +189,7 @@ public abstract class PsyOperator
 				return new PsyOperator(name)
 					{
 						@Override
-						public void action(final Interpreter interpreter)
+						public void perform(final Interpreter interpreter)
 							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
@@ -213,7 +213,7 @@ public abstract class PsyOperator
 				return new PsyOperator(name)
 					{
 						@Override
-						public void action(final Interpreter interpreter)
+						public void perform(final Interpreter interpreter)
 							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
@@ -258,7 +258,7 @@ public abstract class PsyOperator
 				return new PsyOperator(name)
 					{
 						@Override
-						public void action(final Interpreter interpreter)
+						public void perform(final Interpreter interpreter)
 							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
@@ -283,7 +283,7 @@ public abstract class PsyOperator
 				return new PsyOperator(name)
 					{
 						@Override
-						public void action(final Interpreter interpreter)
+						public void perform(final Interpreter interpreter)
 							throws PsyErrorException
 						{
 							final var ostack=interpreter.operandStackBacked(mht.parameterCount());
@@ -325,7 +325,7 @@ public abstract class PsyOperator
 			return new PsyOperator(name)
 				{
 					@Override
-					public void action(final Interpreter interpreter)
+					public void perform(final Interpreter interpreter)
 						throws PsyErrorException
 					{
 						final var ostack=interpreter.operandStackBacked(mht.parameterCount());
@@ -361,7 +361,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			handler.handle();
@@ -387,7 +387,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			oContext.operandStack().push(handler.handle());
@@ -413,7 +413,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(1);
@@ -440,7 +440,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(2);
@@ -469,7 +469,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(1);
@@ -496,7 +496,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(2);
@@ -523,7 +523,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(3);
@@ -550,7 +550,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws PsyErrorException
 		{
 			final var ostack=oContext.operandStackBacked(3);
@@ -577,7 +577,7 @@ public abstract class PsyOperator
 		extends PsyOperator
 	{
 		@Override
-		public void action(final PsyContext oContext)
+		public void perform(final PsyContext oContext)
 			throws ClassCastException, PsyErrorException
 		{
 			handler.handle(oContext);

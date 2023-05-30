@@ -15,7 +15,7 @@ public class PsyErrorDict
 		=new PsyOperator("handleerror")
 			{
 				@Override
-				public void action(final PsyContext oContext)
+				public void perform(final PsyContext oContext)
 					throws ClassCastException, PsyErrorException
 				{
 					final var errorObj=(PsyFormalDict)oContext.systemDict().get("$error");

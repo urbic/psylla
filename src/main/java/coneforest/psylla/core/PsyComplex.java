@@ -167,7 +167,7 @@ public class PsyComplex
 	public PsyNumeric psyPow(final PsyNumeric oNumeric)
 		throws PsyErrorException
 	{
-		if(psyIsZero().booleanValue() && oNumeric.psyNotZero().booleanValue())
+		if(psyIsZero().booleanValue() && oNumeric.psyNonZero().booleanValue())
 			return this;
 		return psyLog().psyMul(oNumeric).psyExp();
 	}

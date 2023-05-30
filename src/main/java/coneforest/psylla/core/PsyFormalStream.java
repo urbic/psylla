@@ -177,7 +177,7 @@ public interface PsyFormalStream<T extends PsyObject>
 			oContext.executionStack().push(new PsyOperator("#forall_continue")
 				{
 					@Override
-					public void action(final PsyContext oContext1)
+					public void perform(final PsyContext oContext1)
 						throws PsyErrorException
 					{
 						if(iterator.hasNext())

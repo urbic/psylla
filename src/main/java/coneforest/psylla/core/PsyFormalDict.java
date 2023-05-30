@@ -24,7 +24,7 @@ public interface PsyFormalDict<V extends PsyObject>
 		oContext.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
-				public void action(final PsyContext oContext1)
+				public void perform(final PsyContext oContext1)
 					throws PsyErrorException
 				{
 					if(keysIterator.hasNext())
