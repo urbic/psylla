@@ -1,22 +1,19 @@
-FROM opensuse/leap:15.4
+FROM opensuse/tumbleweed:latest
 
-RUN zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:java/15.4 home:urbic:java
-RUN zypper -n --gpg-auto-import-keys ar -p1 obs://Java:packages/SLE_15_SP4 Java:packages
+RUN zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE_Tumbleweed home:urbic:coneforest
+RUN zypper -n --gpg-auto-import-keys ar -p1 obs://Java:packages/openSUSE_Tumbleweed Java:packages
 RUN zypper -n --gpg-auto-import-keys in -y \
-	ant \
-	ant-apache-resolver \
-	ant-junit \
+	ant{,-apache-resolver,-junit} \
 	ivy \
 	javacc \
-	'mvn(jline:jline:1)' \
-	docbook5-xsl-stylesheets \
-	'mvn(net.sf.docbook:docbook-xsl-saxon)' \
-	graphviz \
-	sassc \
-	'mvn(saxon:saxon)' \
-	glibc-locale \
 	javapackages-tools \
-	xslthl
+	docbook5-xsl-stylesheets \
+	'mvn(jline:jline:1)' \
+	'mvn(net.sf.docbook:docbook-xsl-saxon)' \
+	'mvn(net.sf.xslthl:xslthl)' \
+	glibc-locale \
+	graphviz \
+	sassc
 
 USER root
 RUN useradd -ms /bin/sh psylla

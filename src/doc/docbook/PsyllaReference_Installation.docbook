@@ -9,7 +9,7 @@
 Pre-built binary packages for <productname>openSUSE</productname>,
 <productname>Debian</productname>, <productname>Ubuntu</productname> and
 <productname>Raspbian</productname> are available at <link
-xlink:href="https://software.opensuse.org/download.html?project=home%3Aurbic%3Ajava&amp;package=psylla">openSUSE
+xlink:href="https://software.opensuse.org/download.html?project=home%3Aurbic%3Aconeforest&amp;package=psylla">openSUSE
 Build Service</link>.
 </para>
 
@@ -73,7 +73,7 @@ xlink:href="https://github.com/sass/sassc/">SassC</application>
 <para>
 To install dependencies, run (<productname>openSUSE 15.4</productname>)
 
-<screen><prompt>% </prompt><userinput>sudo zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:java/15.4 home:urbic:java</userinput>
+<screen><prompt>% </prompt><userinput>sudo zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE_Tumbleweed home:urbic:coneforest</userinput>
 <prompt>% </prompt><userinput>sudo zypper -n --gpg-auto-import-keys in -y \
 	ant{,-apache-resolver,-junit} javacc jline1 \
 	docbook5-xsl-stylesheets docbook-xsl-saxon graphviz sassc saxon6 \

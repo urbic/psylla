@@ -12,7 +12,7 @@ Psylla is implemented as a library written in Java.
 [![Tag](https://shields.io/github/v/tag/urbic/psylla)](tags)
 [![License](https://img.shields.io/badge/license-zlib%2Fpng-blue.svg)](https://opensource.org/licenses/Zlib)
 [![Java CI Build Status](https://github.com/urbic/psylla/actions/workflows/build.yml/badge.svg)](https://github.com/urbic/psylla/actions/workflows/build.yml)
-[![OBS Build Result](https://build.opensuse.org/projects/home:urbic:java/packages/psylla/badge.svg?type=percent)](https://build.opensuse.org/package/show/home:urbic:java/psylla)
+[![OBS Build Result](https://build.opensuse.org/projects/home:urbic:coneforest/packages/psylla/badge.svg?type=percent)](https://build.opensuse.org/package/show/home:urbic:coneforest/psylla)
 
 ---
 

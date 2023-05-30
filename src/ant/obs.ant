@@ -5,11 +5,11 @@
 	<property name="obs.package.version" value="${project.version}"/>
 	<property name="obs.package.summary" value="${project.summary}"/>
 	<property name="obs.package.description" value="${project.description}"/>
-	<property name="obs.build.distro" value="15.4"/>
+	<property name="obs.build.distro" value="openSUSE_Tumbleweed"/>
 	<property name="obs.build.apiurl" value="https://api.opensuse.org"/>
 	<property name="obs.build.arch" value="x86_64"/>
 	<property name="obs.user" value="${project.developer.id}"/>
-	<property name="obs.build.project" value="home:${obs.user}:java"/>
+	<property name="obs.build.project" value="home:${obs.user}:coneforest"/>
 	<property name="src.obs" location="${src}/obs"/>
 	<condition property="obs.build.desc" value="${obs.package.name}.dsc" else="${obs.package.name}.spec">
 		<or>
