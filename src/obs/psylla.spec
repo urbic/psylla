@@ -52,8 +52,7 @@ Group:			Documentation/HTML
 BuildRequires:	ant-apache-resolver
 BuildRequires:	graphviz
 BuildRequires:	sassc
-BuildRequires:	saxon6
-BuildRequires:	xslthl
+BuildRequires:	mvn(net.sf.xslthl:xslthl)
 Requires:		paratype-pt-sans-fonts
 BuildRequires:	docbook5-xsl-stylesheets
 
