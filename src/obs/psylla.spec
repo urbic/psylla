@@ -62,7 +62,7 @@ This package contains documentation for %{name}.
 
 %package javadoc
 Summary:		Javadocs for %{name}
-Group:			Development/Languages/Other
+Group:          Documentation/HTML
 BuildRequires:	fdupes
 BuildRequires:	jline1-javadoc
 BuildRequires:	junit-javadoc
@@ -75,20 +75,13 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-LC_ALL=C.UTF-8 \
-	%{ant} -Divy.mode=local -v \
-	build
+%{ant} -Divy.mode=local -v build
 
 %check
-LC_ALL=C.UTF-8 \
-	%{ant} -Divy.mode=local -v \
-	test
+%{ant} -Divy.mode=local -v test
 
 %install
-LANG=C.UTF-8 \
-	%{ant} -Divy.mode=local -v \
-	-Ddestdir=%{buildroot} \
-	install
+%{ant} -Divy.mode=local -v -Ddestdir=%{buildroot} install
 %fdupes %{buildroot}%{_javadocdir}/%{name}
 
 %post

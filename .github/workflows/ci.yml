@@ -38,7 +38,7 @@ jobs:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
         run: |
           ant -lib /usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
-            -v -noinput -Dlinux.flavour=debian build
+            -v -noinput build
           echo \
           '<html xmlns="http://www.w3.org/1999/xhtml">
           <head><meta http-equiv="refresh" content="0; url=html/"/></head>
@@ -49,7 +49,7 @@ jobs:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
         run: |
           ant -lib /usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
-            -v -noinput -Dlinux.flavour=debian test
+            -v -noinput test
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
@@ -61,4 +61,4 @@ jobs:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
           OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
         run: |
-          ant -lib /usr/share/java/ivy.jar -v -noinput -Dlinux.flavour=debian obs.commit
+          ant -lib /usr/share/java/ivy.jar -v -noinput obs.commit

@@ -27,7 +27,6 @@ build-stamp:
 		-Dconfig.psylla.docdir=/usr/share/doc/psylla \
 		-Dconfig.psylla.javadocdir=/usr/share/doc/psylla/api \
 		-Dconfig.psylla.licensedir=/usr/share/doc/psylla \
-		-Dlinux.flavour=debian \
 		build
 	# --- end custom part for compiling
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
@@ -35,7 +34,6 @@ ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	ant -v \
 		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
 		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
-		-Dlinux.flavour=debian \
 		test
 endif
 
@@ -70,7 +68,6 @@ install: build
 		-Dconfig.psylla.docdir=/usr/share/doc/psylla \
 		-Dconfig.psylla.javadocdir=/usr/share/doc/psylla/api \
 		-Dconfig.psylla.licensedir=/usr/share/doc/psylla \
-		-Dlinux.flavour=debian \
 		install
 	ln -s LICENSE $(DESTDIR)/usr/share/doc/psylla/copyright
 	dh_install

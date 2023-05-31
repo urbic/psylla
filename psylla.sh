@@ -1,8 +1,13 @@
 #!/bin/sh
 
 if [ -x /usr/bin/build-classpath ]; then
-	CLASSPATH=$(build-classpath jline1)
-	exec java -cp target/lib/psylla.jar:$CLASSPATH coneforest.psylla.Psylla -Isrc/main/psylla "$@"
+	exec java \
+		--add-reads coneforest.psylla=ALL-UNNAMED \
+		-p target/classes:$(build-classpath junit junit5) \
+		-cp $(build-classpath jline1) \
+		coneforest.psylla.Psylla \
+		-Isrc/main/psylla \
+		"$@"
 fi
 
 if [ -r /usr/lib/java-wrappers/java-wrappers.sh ]; then

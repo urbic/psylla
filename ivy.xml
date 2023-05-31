@@ -30,6 +30,13 @@
 			conf="compile"
 			/-->
 		<dependency
+			org="org.junit.jupiter"
+			name="junit-jupiter-api"
+			rev="[5.8.2,)"
+			transitive="true"
+			conf="compile"
+			/>
+		<dependency
 			org="org.apache.ant"
 			name="ant-junit"
 			rev="1.10.13"
@@ -66,6 +73,12 @@
 			name="xercesImpl"
 			rev="2.12.2"
 			conf="xslt"
+			/>
+		<dependency
+			name="clianthus"
+			rev="[0.1.2,)"
+			transitive="true"
+			conf="compile"
 			/>
 		<!--dependency org="net.sf.docbook" name="docbook-xsl-saxon" rev="1.0.0" conf="xslt"/-->
 		<exclude org="org.hamcrest"/>

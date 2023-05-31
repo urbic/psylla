@@ -35,13 +35,16 @@
 	<property name="src.mime" location="${src}/mime"/>
 	<property name="src.logo" location="${src}/logo"/>
 	<property name="target" location="target"/>
+	<property name="target.lib" location="${target}/lib"/>
 	<property name="target.src.main" location="${target}/src/main"/>
 	<property name="target.src.main.java" location="${target.src.main}/java"/>
 	<property name="target.doc" location="${target}/doc"/>
 	<property name="target.doc.apidocs"  location="${target.doc}/apidocs"/>
 	<property name="target.dot"  location="${target}/dot"/>
 	<property name="target.classes" location="${target}/classes"/>
-	<property name="target.lib"  location="${target}/lib"/>
+	<property name="target.artifacts"  location="${target}/artifacts"/>
+	<property name="target.artifacts.jar"  location="${target.artifacts}.jar"/>
+	<property name="target.artifacts.pom"  location="${target.artifacts}.pom"/>
 	<property name="target.bin"  location="${target}/bin"/>
 	<property name="target.obs" location="${target}/obs"/>
 	<property name="target.man"  location="${target}/man"/>
@@ -51,28 +54,35 @@
 	<property name="target.gh-pages" location="${target}/gh-pages"/>
 	<property name="datadir" location="/usr/share"/>
 	<property name="file.encoding" value="UTF-8"/>
-	<property name="linux.flavour" value="redhat"/>
 	<property name="build.sysclasspath" value="ignore"/>
 
 	<property file="${src.ant}/config.properties"/>
-	<property file="${src.ant}/config-${linux.flavour}.properties"/>
+
+	<path id="modulesourcepath.main">
+		<pathelement path="${src.main.java}"/>
+		<pathelement path="${target.src.main.java}"/>
+	</path>
+
+	<path id="modulepath.main">
+		<path refid="classpath.main.resolved"/>
+		<pathelement location="${target.classes}"/>
+	</path>
+
+	<path id="modulesourcepath.test">
+		<pathelement path="${src.test.java}"/>
+	</path>
 
 	<path id="classpath.main">
-		<pathelement location="${target.classes}"/>
+		<pathelement
+			location="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}"/>
+		<pathelement
+			location="${target.classes}/${project.maven.groupId}.cli"/>
 		<!--pathelement location="${ant.core.lib}"/-->
 		<!--pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/-->
 		<!--pathelement location="${config.jar.junit4}"/-->
 		<!--pathelement location="${config.jar.jline1}"/-->
 		<path refid="classpath.main.resolved"/>
 	</path>
-
-	<!--path id="modulepath.main">
-		<!- -path refid="modulepath.main.resolved"/- ->
-		<pathelement location="${config.jar.jline1}"/>
-		<pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/>
-		<pathelement location="${config.jar.junit4}"/>
-		<pathelement location="${ant.core.lib}"/>
-	</path-->
 
 	<path id="classpath.xslt">
 		<!--pathelement location="${config.jar.saxon6}"/-->
@@ -102,17 +112,18 @@
 
 	<target name="resolve" description="Retrieve dependencies with Ivy">
 		<ivy:resolve conf="compile,xslt"/>
-		<ivy:cachepath pathid="classpath.main.resolved" conf="compile"/>
-		<ivy:cachepath pathid="classpath.xslt.resolved" conf="xslt"/>
+		<ivy:cachepath conf="compile" pathid="classpath.main.resolved"/>
+		<ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/>
 	</target>
 
 	<target name="compile.jj"
 		description="Compile JJ sources"
 		>
-		<mkdir dir="${target.src.main.java}/coneforest/psylla"/>
+		<mkdir
+			dir="${target.src.main.java}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla"/>
 		<javacc
-			target="${src.main.jj}/coneforest/psylla/Parser.jj"
-			outputdirectory="${target.src.main.java}/coneforest/psylla"
+			target="${src.main.jj}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla/Parser.jj"
+			outputdirectory="${target.src.main.java}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla"
 			javacchome="${config.datadir}/java"
 			unicodeinput="true"
 			static="false"
@@ -124,35 +135,42 @@
 		depends="resolve,copy.resources,compile.jj"
 		>
 		<javac
-			srcdir="${src.main.java}"
 			destdir="${target.classes}"
 			release="17"
 			includeantruntime="false"
 			encoding="UTF-8"
+			createMissingPackageInfoClass="false"
 			>
-			<modulepath refid="classpath.main"/>
+			<modulesourcepath refid="modulesourcepath.main"/>
+			<modulesourcepath refid="modulesourcepath.test"/>
+			<modulepath refid="modulepath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
+			<include name="coneforest/psylla/ExceptionType.java"/>
+			<include name="coneforest/psylla/Type.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
 			<compilerarg value="-Xdiags:verbose"/>
+			<compilerarg value="-implicit:none"/>
 		</javac>
-		<mkdir dir="${target.classes}/META-INF/${project.name}/type"/>
-		<mkdir dir="${target.classes}/META-INF/${project.name}/exception"/>
+		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/type"/>
+		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/exception"/>
 		<mkdir dir="${target.dot}"/>
 		<javac
-			srcdir="${src.main.java}:${target.src.main.java}:${src.test.java}"
 			destdir="${target.classes}"
 			release="17"
 			includeantruntime="false"
 			encoding="UTF-8"
+			createMissingPackageInfoClass="false"
 			>
-			<modulepath refid="classpath.main"/>
+			<modulesourcepath refid="modulesourcepath.main"/>
+			<modulesourcepath refid="modulesourcepath.test"/>
+			<modulepath refid="modulepath.main"/>
 			<!--compilerarg value="-XprintRounds"/-->
+			<compilerarg value="--processor-path=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}"/>
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
-			<compilerarg value="-implicit:class"/>
 			<compilerarg value="-Xlint:deprecation"/>
-			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/META-INF/${project.name}/"/>
+			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 		</javac>
@@ -194,13 +212,13 @@
 		<copy todir="${target.classes}">
 			<fileset dir="${src.main.resources}" includes="**"/>
 		</copy>
-		<mkdir dir="${target.classes}/META-INF/licenses"/>
+		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/licenses"/>
 		<copy
-			todir="${target.classes}/META-INF/licenses"
+			todir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/licenses"
 			file="LICENSE"
 			/>
 		<echoproperties
-			destfile="${target.classes}/coneforest/psylla/Config.properties"
+			destfile="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla/Config.properties"
 			>
 			<propertyset>
 				<propertyref prefix="config."/>
@@ -208,10 +226,10 @@
 			</propertyset>
 		</echoproperties>
 		<mkdir
-			dir="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"
+			dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"
 			/>
 		<echoproperties
-			destfile="${target.classes}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties"
+			destfile="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties"
 			>
 			<propertyset>
 				<propertyref prefix="project.maven."/>
@@ -225,16 +243,30 @@
 		depends="compile"
 		>
 		<jar
-			jarfile="${target.lib}/${project.nameversion}.jar"
-			basedir="${target.classes}"
+			jarfile="${target.artifacts}/jar/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.jar"
+			basedir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}"
 			>
 			<manifest>
 				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
 			</manifest>
 		</jar>
+		<jar
+			jarfile="${target.artifacts}/jar/${project.maven.groupId}.cli-${project.version}.jar"
+			basedir="${target.classes}/${project.maven.groupId}.cli"
+			>
+			<manifest>
+				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
+			</manifest>
+		</jar>
+		<mkdir dir="${target.lib}"/>
 		<symlink
-			resource="${project.nameversion}.jar"
-			link="${target.lib}/${project.name}.jar"
+			resource="../artifacts/jar/${project.maven.groupId}.${project.name}-${project.version}.jar"
+			link="${target.lib}/${project.maven.groupId}.${project.maven.artifactId}.jar"
+			overwrite="true"
+			/>
+		<symlink
+			resource="../artifacts/jar/${project.maven.groupId}.cli-${project.version}.jar"
+			link="${target.lib}/${project.maven.groupId}.cli.jar"
 			overwrite="true"
 			/>
 	</target>
@@ -242,31 +274,13 @@
 	<target name="pom"
 		description="Generate POM"
 		>
-		<mkdir dir="${target.lib}"/>
-		<!--copy
-			file="${src.maven}/${project.name}.pom"
-			tofile="${target.lib}/${project.nameversion}.pom"
-			filtering="true"
-			overwrite="yes"
-			>
-			<filterset>
-				<propertyset>
-					<propertyref prefix="project."/>
-				</propertyset>
-			</filterset>
-		</copy-->
 		<ivy:makepom
 			ivyfile="ivy.xml"
-			templatefile="${src.maven}/${project.name}.pom"
-			pomfile="${target.lib}/${project.nameversion}.pom"
+			templatefile="${src.maven}/${project.maven.groupId}.${project.maven.artifactId}.pom"
+			pomfile="${target.artifacts}/pom/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.pom"
 			>
 			<ivy:mapping conf="default" scope="compile"/>
 		</ivy:makepom>
-		<symlink
-			resource="${project.nameversion}.pom"
-			link="${target.lib}/${project.name}.pom"
-			overwrite="true"
-			/>
 	</target>
 
 	<target name="clean" description="Clean build directory">
@@ -287,20 +301,20 @@
 		/>
 
 	<target name="dist.zip" description="Make Zip distribution">
-		<mkdir dir="${target}/tmp/${project.nameversion}"/>
-		<copy todir="${target}/tmp/${project.nameversion}">
+		<mkdir dir="${target}/tmp/${project.name}-${project.version}"/>
+		<copy todir="${target}/tmp/${project.name}-${project.version}">
 			<fileset
 				dir="."
 				includes="src/** build.xml README LICENSE AUTHORS"
 				/>
 		</copy>
 		<zip
-			destfile="${target}/${project.nameversion}.zip"
+			destfile="${target}/${project.name}-${project.version}.zip"
 			basedir="${target}/tmp"
 			>
 			<fileset
 				dir="${target}/tmp"
-				includes="${project.nameversion}/**"
+				includes="${project.name}-${project.version}/**"
 				/>
 		</zip>
 		<delete dir="${target}/tmp" quiet="yes"/>
@@ -320,8 +334,8 @@
 		<echo message="${git.object}"/>
 		<exec executable="git">
 			<arg value="archive"/>
-			<arg value="--prefix=${project.nameversion}/"/>
-			<arg value="--output=${target}/${project.nameversion}.tar.xz"/>
+			<arg value="--prefix=${project.name}-${project.version}/"/>
+			<arg value="--output=${target}/${project.name}-${project.version}.tar.xz"/>
 			<arg value="${git.object}"/>
 			<arg value="--"/>
 			<arg value="build.xml"/>
@@ -335,7 +349,7 @@
 
 	<target name="build"
 		description="Build project"
-		depends="jar,pom,docs"
+		depends="artifacts,docs"
 		>
 		<copy tofile="${target.bin}/${project.name}" file="${src.bin}/${project.name}-${linux.flavour}"/>
 		<chmod file="${target.bin}/${project.name}" perm="ugo+rx"/>
@@ -358,5 +372,7 @@
 			<arg value="."/>
 		</exec>
 	</target>
+
+	<target name="artifacts" depends="jar,pom"/>
 
 </project>
