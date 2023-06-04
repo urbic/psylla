@@ -8,6 +8,7 @@ RUN zypper -n --gpg-auto-import-keys in -y \
 	javacc \
 	javapackages-tools \
 	docbook5-xsl-stylesheets \
+	'mvn(coneforest:clianthus)' \
 	'mvn(jline:jline:1)' \
 	'mvn(net.sf.docbook:docbook-xsl-saxon)' \
 	'mvn(net.sf.xslthl:xslthl)' \
