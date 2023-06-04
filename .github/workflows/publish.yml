@@ -26,7 +26,6 @@ jobs:
             ivy \
             javacc \
             junit4 \
-            libclianthus-java \
             libjline-java{,-doc} \
             libxerces2-java \
             libxslthl-java \
