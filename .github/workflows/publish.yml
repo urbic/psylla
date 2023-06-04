@@ -21,9 +21,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             ant{,-optional} \
+            docbook-{xsl-{ns,saxon},mathml} \
+            graphviz \
             ivy \
-            junit \
-            openjdk-17-{jdk-headless,doc}
+            javacc \
+            junit4 \
+            libclianthus-java \
+            libjline-java{,-doc} \
+            libxerces2-java \
+            libxslthl-java \
+            openjdk-17-{jdk-headless,doc} \
       - name: Setup
         run: |
           git config tar.tar.xz.command 'xz -9'

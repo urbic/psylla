@@ -21,7 +21,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             ant{,-optional} \
-            libclianthus-java \
             docbook-{xsl-{ns,saxon},mathml} \
             graphviz \
             ivy \
