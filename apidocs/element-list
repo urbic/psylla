@@ -1,8 +1,6 @@
-coneforest.cli
+module:coneforest.psylla
 coneforest.psylla
 coneforest.psylla.core
-coneforest.psylla.engine
-coneforest.psylla.extensions.romannumerals
 coneforest.psylla.tools
 coneforest.psylla.tools.ant
 coneforest.psylla.tools.processors
