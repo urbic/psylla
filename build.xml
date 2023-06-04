@@ -371,7 +371,7 @@
 		depends="artifacts"
 		>
 		<ivy:publish
-			resolver="github-packages"
+			resolver="github-packages-psylla"
 			overwrite="true"
 			forcedeliver="true"
 			artifactspattern="${target.artifacts}/[type]/[organisation].[artifact]-[revision].[ext]"
