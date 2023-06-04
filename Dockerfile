@@ -5,6 +5,7 @@ RUN zypper -n --gpg-auto-import-keys ar -p1 obs://Java:packages/openSUSE_Tumblew
 RUN zypper -n --gpg-auto-import-keys in -y \
 	ant{,-apache-resolver,-junit} \
 	ivy \
+	ivy-local \
 	javacc \
 	javapackages-tools \
 	docbook5-xsl-stylesheets \
@@ -29,11 +30,12 @@ USER root
 RUN chown -R psylla:users ${HOME}
 
 USER psylla
+RUN rm ivysettings.xml
 RUN env -C ${HOME} LANG=C.UTF-8 CLASSPATH=$(build-classpath xerces-j2-xml-apis) JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
-    ant build
+    ant -Divy.mode=local build
 
 USER root
-RUN env -C ${HOME} LANG=C.UTF-8 JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 ant install -Ddestdir=/
+RUN env -C ${HOME} LANG=C.UTF-8 JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 ant -Divy.mode=local -Ddestdir=/ install
 
 USER psylla
 ENV LANG=en_US.UTF-8

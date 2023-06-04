@@ -27,7 +27,7 @@
 		<dependency
 			org="jline"
 			name="jline"
-			rev="1.+"
+			rev="1.0"
 			conf="compile"
 			/>
 		<dependency
