@@ -20,7 +20,7 @@
 	<dependencies>
 		<dependency
 			name="clianthus"
-			rev="[0.1.3,)"
+			rev="0.1.3"
 			transitive="true"
 			conf="compile"
 			/>
