@@ -11,7 +11,11 @@
 	<property name="obs.user" value="${project.developer.id}"/>
 	<property name="obs.build.project" value="home:${obs.user}:coneforest"/>
 	<property name="src.obs" location="${src}/obs"/>
-	<condition property="obs.build.desc" value="${obs.package.name}.dsc" else="${obs.package.name}.spec">
+	<condition
+		property="obs.build.desc"
+		value="${obs.package.name}.dsc"
+		else="${obs.package.name}.spec"
+		>
 		<or>
 			<contains string="${obs.build.distro}" substring="Debian"/>
 			<contains string="${obs.build.distro}" substring="Ubuntu"/>
@@ -32,6 +36,7 @@
 			<propertyref name="obs.package.description"/>
 			<propertyref name="project.developer.name"/>
 			<propertyref name="project.developer.email"/>
+			<propertyref name="project.name"/>
 			<propertyref name="project.scm.url"/>
 		</propertyset>
 	</filterset>
@@ -76,10 +81,10 @@ pass=
 		</delete>
 
 		<copy todir="${target.obs}" overwrite="yes">
-			<fileset dir="${target}" includes="${project.nameversion}.tar.xz"/>
+			<fileset dir="${target}" includes="${project.name}-${project.version}.tar.xz"/>
 		</copy>
 		<copy todir="${target.obs}" filtering="true" overwrite="yes">
-			<fileset dir="${src.obs}" includes="${project.name}.*"/>
+			<fileset dir="${src.obs}" includes="*"/>
 			<filterset refid="obs.build.filterset"/>
 		</copy>
 		<copy todir="${target.obs}" filtering="true" overwrite="yes">

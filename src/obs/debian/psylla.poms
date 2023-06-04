@@ -1,1 +1,1 @@
-target/psylla.pom --java-lib --has-package-version --artifact=target/psylla.jar
+target/artifacts/pom/coneforest.psylla-*.pom --java-lib --has-package-version --usj-name=coneforest.psylla

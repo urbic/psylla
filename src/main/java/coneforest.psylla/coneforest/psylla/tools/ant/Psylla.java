@@ -42,7 +42,7 @@ public class Psylla
 		{
 			// TODO
 		}
-		catch(final coneforest.cli.ProcessingException e)
+		catch(final coneforest.clianthus.processor.ProcessingException e)
 		{
 			// TODO
 		}

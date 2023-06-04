@@ -8,6 +8,9 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,6 +21,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             ant{,-optional} \
+            libclianthus-java \
             docbook-{xsl-{ns,saxon},mathml} \
             graphviz \
             ivy \
@@ -36,9 +40,12 @@ jobs:
       - name: Build
         env:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ant -lib /usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
-            -v -noinput build
+            -v -noinput \
+            -Dlinux.flavour=debian \
+            build
           echo \
           '<html xmlns="http://www.w3.org/1999/xhtml">
           <head><meta http-equiv="refresh" content="0; url=html/"/></head>
@@ -47,13 +54,15 @@ jobs:
       - name: Test
         env:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ant -lib /usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
-            -v -noinput test
+            -v -noinput \
+            -Dlinux.flavour=debian \
+            test
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: target/doc
       - name: Commit to OBS
@@ -61,4 +70,4 @@ jobs:
           JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
           OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
         run: |
-          ant -lib /usr/share/java/ivy.jar -v -noinput obs.commit
+          ant -lib /usr/share/java/ivy.jar -v -noinput -Dlinux.flavour=debian obs.commit

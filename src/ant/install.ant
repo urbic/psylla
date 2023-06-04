@@ -6,27 +6,27 @@
 		depends="build"
 		>
 		<!-- Make directories -->
-		<mkdir dir="${destdir}/${config.psylla.libdir}"/>
+		<mkdir dir="${destdir}/${config.libdir.package}"/>
 		<mkdir dir="${destdir}/${config.javadir}"/>
 		<mkdir dir="${destdir}/${config.bindir}"/>
-		<mkdir dir="${destdir}/${config.psylla.docdir}"/>
-		<mkdir dir="${destdir}/${config.psylla.licensedir}"/>
-		<mkdir dir="${destdir}/${config.psylla.javadocdir}"/>
+		<mkdir dir="${destdir}/${config.mavenpomsdir}"/>
+		<mkdir dir="${destdir}/${config.docdir.package}"/>
+		<mkdir dir="${destdir}/${config.licensedir.package}"/>
+		<mkdir dir="${destdir}/${config.javadocdir.package}"/>
 		<mkdir dir="${destdir}/${config.datadir}/ant/lib"/>
 		<mkdir dir="${destdir}/${config.datadir}/vim/site"/>
 		<mkdir dir="${destdir}/${config.datadir}/mime/packages"/>
 		<mkdir dir="${destdir}/${config.mandir}"/>
 		<mkdir dir="${destdir}/${config.sysconfdir}/ant.d"/>
 
-		<!-- Install jar and make a symlink -->
+		<!-- Install artifacts -->
 		<copy
-			todir="${destdir}/${config.javadir}"
-			file="${target.artifacts.jar}/${project.nameversion}.jar"
+			tofile="${destdir}/${config.javadir}/${project.maven.groupId}.${project.maven.artifactId}.jar"
+			file="${target.artifacts.jar}/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.jar"
 			/>
-		<symlink
-			link="${destdir}/${config.javadir}/${project.name}.jar"
-			resource="${project.nameversion}.jar"
-			overwrite="true"
+		<copy
+			tofile="${destdir}/${config.mavenpomsdir}/${project.maven.groupId}.${project.maven.artifactId}.pom"
+			file="${target.artifacts.pom}/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.pom"
 			/>
 
 		<!-- Install script -->
@@ -34,12 +34,12 @@
 		<chmod file="${destdir}/${config.bindir}/${project.name}" perm="ugo+rx"/>
 
 		<!-- Install library Psylla files -->
-		<copy todir="${destdir}/${config.psylla.libdir}">
+		<copy todir="${destdir}/${config.libdir.package}">
 			<fileset dir="${src.main.psylla}" includes="**/*"/>
 		</copy>
 
 		<!-- Install XHTML documentation and examples -->
-		<copy todir="${destdir}/${config.psylla.docdir}">
+		<copy todir="${destdir}/${config.docdir.package}">
 			<fileset
 				dir="${target.doc}"
 				followsymlinks="false"
@@ -48,10 +48,10 @@
 		</copy>
 
 		<!-- Install LICENSE -->
-		<copy todir="${destdir}/${config.psylla.licensedir}" file="LICENSE"/>
+		<copy todir="${destdir}/${config.licensedir.package}" file="LICENSE"/>
 
 		<!-- Install README etc -->
-		<copy todir="${destdir}/${config.psylla.docdir}">
+		<copy todir="${destdir}/${config.docdir.package}">
 			<fileset dir="${target.doc}" includes="README AUTHORS"/>
 		</copy>
 
@@ -61,7 +61,7 @@
 		</copy>
 
 		<!-- Install API documentation -->
-		<copy todir="${destdir}/${config.psylla.javadocdir}">
+		<copy todir="${destdir}/${config.javadocdir.package}">
 			<fileset dir="${target.doc.apidocs}" includes="**/*"/>
 		</copy>
 
@@ -76,7 +76,7 @@
 		<!-- Install Ant task -->
 		<symlink
 			link="${destdir}/${config.datadir}/ant/lib/ant-${project.name}.jar"
-			resource="../../java/${project.name}.jar"
+			resource="../../java/${project.maven.groupId}.${project.maven.artifactId}.jar"
 			overwrite="true"
 			/>
 		<echo

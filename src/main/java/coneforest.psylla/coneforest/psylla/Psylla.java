@@ -28,7 +28,7 @@ public class Psylla
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
 		}
-		catch(final coneforest.cli.ProcessingException ex)
+		catch(final coneforest.clianthus.processor.ProcessingException ex)
 		{
 			System.err.println(ex.getLocalizedMessage());
 			System.err.println(Messages.getString("useHelpOption"));
@@ -84,28 +84,28 @@ public class Psylla
 	*	@param args the command-line options
 	*	@return the {@link Psylla} instance launched.
 	*	@throws PsyErrorException
-	*	@throws coneforest.cli.ProcessingException
+	*	@throws coneforest.clianthus.processor.ProcessingException
 	*	@throws FileNotFoundException
 	*/
 	public static Psylla launch(final PrintWriter outputWriter, final PrintWriter errorWriter,
 			final String... args)
 		throws
 			PsyErrorException,
-			coneforest.cli.ProcessingException,
+			coneforest.clianthus.processor.ProcessingException,
 			FileNotFoundException
 	{
 
-		final var cli=new coneforest.cli.Processor
+		final var cli=new coneforest.clianthus.processor.Processor
 			(
-				new coneforest.cli.OptionFlag("help usage h ?"),
-				new coneforest.cli.OptionFlag("version V"),
-				new coneforest.cli.OptionString("console-encoding C"),
-				new coneforest.cli.OptionPath("classpath cp"),
-				new coneforest.cli.OptionPath("librarypath lp I"),
-				new coneforest.cli.OptionString("eval e"),
-				new coneforest.cli.OptionString("locale L"),
-				new coneforest.cli.OptionLong("random-seed S"),
-				new coneforest.cli.OptionCollectorString("config cfg")
+				new coneforest.clianthus.option.OptionFlag("help usage h ?"),
+				new coneforest.clianthus.option.OptionFlag("version V"),
+				new coneforest.clianthus.option.OptionString("console-encoding C"),
+				new coneforest.clianthus.option.OptionPath("classpath cp"),
+				new coneforest.clianthus.option.OptionPath("librarypath lp I"),
+				new coneforest.clianthus.option.OptionString("eval e"),
+				new coneforest.clianthus.option.OptionString("locale L"),
+				new coneforest.clianthus.option.OptionLong("random-seed S"),
+				new coneforest.clianthus.option.OptionCollectorString("config cfg")
 			);
 		final int processed=cli.parse(args, 0);
 
@@ -163,7 +163,7 @@ public class Psylla
 			final String... args)
 		throws
 			PsyErrorException,
-			coneforest.cli.ProcessingException,
+			coneforest.clianthus.processor.ProcessingException,
 			FileNotFoundException
 	{
 		return launch(new PrintWriter(outputStream), new PrintWriter(errorStream), args);

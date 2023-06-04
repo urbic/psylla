@@ -26,11 +26,11 @@ License:		Zlib
 Group:			Development/Languages/Other
 URL:			https://github.com/urbic/%{name}
 Source:			%{name}-%{version}.tar.xz
-#BuildRequires:	ant
 BuildRequires:	ivy-local
 BuildRequires:	java-devel >= 17
 BuildRequires:	java-javadoc >= 17
 BuildRequires:	javacc
+BuildRequires:	mvn(coneforest:clianthus)
 BuildRequires:	mvn(junit:junit) < 5
 BuildRequires:	mvn(jline:jline:1)
 BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)
@@ -75,14 +75,19 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-%{ant} -Divy.mode=local -v build
+LC_ALL=C.UTF-8 \
+	%{ant} -Divy.mode=local -v build
 
 %check
-%{ant} -Divy.mode=local -v test
+LC_ALL=C.UTF-8 \
+	%{ant} -Divy.mode=local -v test
 
 %install
-%{ant} -Divy.mode=local -v -Ddestdir=%{buildroot} install
+LC_ALL=C.UTF-8 \
+	%{ant} -Divy.mode=local -v -Ddestdir=%{buildroot} install
 %fdupes %{buildroot}%{_javadocdir}/%{name}
+
+%add_maven_depmap coneforest.%{name}.pom coneforest.%{name}.jar
 
 %post
 %mime_database_post
@@ -92,7 +97,7 @@ This package contains the API documentation for %{name}.
 %mime_database_postun
 :
 
-%files
+%files -f .mfiles
 %{_javadir}/*.jar
 %{_bindir}/*
 %{_datadir}/%{name}

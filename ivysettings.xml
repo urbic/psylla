@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivysettings>
+
+	<credentials
+		host="maven.pkg.github.com"
+		realm="GitHub Package Registry"
+		username="${project.developer.id}"
+		passwd="${env.GITHUB_TOKEN}"
+		/>
+
+	<caches defaultCacheDir="${user.home}/.ivy2/cache"/>
+
+	<resolvers>
+		<chain name="main">
+			<ibiblio name="public" m2compatible="true"/>
+			<ibiblio
+				name="github-packages"
+				m2compatible="true"
+				root="https://maven.pkg.github.com/${project.developer.id}/*"
+				/>
+		</chain>
+		<ibiblio
+			name="github-packages-${project.name}"
+			m2compatible="true"
+			root="https://maven.pkg.github.com/${project.developer.id}/${project.name}"
+			/>
+	</resolvers>
+
+	<settings defaultResolver="main"/>
+
+</ivysettings>

@@ -1,0 +1,38 @@
+---
+
+name: Publish package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ant{,-optional} \
+            ivy \
+            junit \
+            openjdk-17-{jdk-headless,doc}
+      - name: Setup
+        run: |
+          git config tar.tar.xz.command 'xz -9'
+      - name: Deploy package
+        env:
+          JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ant -lib /usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
+            -v -noinput \
+            -Dlinux.flavour=debian \
+            deploy

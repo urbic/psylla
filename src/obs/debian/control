@@ -10,6 +10,7 @@ Build-Depends:
 	junit4 (>=4.11),
 	ant-optional,
 	ivy-debian-helper,
+	libclianthus-java,
 	libjline-java,
 	libjline-java-doc,
 	libxslthl-java,

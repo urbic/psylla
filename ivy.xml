@@ -13,33 +13,27 @@
 	<configurations defaultconfmapping="*->default">
 		<conf name="compile"/>
 		<conf name="xslt"/>
+		<conf name="linux.redhat"/>
+		<conf name="linux.debian"/>
 	</configurations>
 
 	<dependencies>
 		<dependency
-			org="jline"
-			name="jline"
-			rev="1.0"
+			name="clianthus"
+			rev="[0.1.3,)"
+			transitive="true"
 			conf="compile"
 			/>
-		<!--dependency
-			org="org.junit.vintage"
-			name="junit-vintage-engine"
-			rev="[5.3.2,)"
-			transitive="false"
-			conf="compile"
-			/-->
 		<dependency
-			org="org.junit.jupiter"
-			name="junit-jupiter-api"
-			rev="[5.8.2,)"
-			transitive="true"
+			org="jline"
+			name="jline"
+			rev="1.+"
 			conf="compile"
 			/>
 		<dependency
 			org="org.apache.ant"
 			name="ant-junit"
-			rev="1.10.13"
+			rev="[1.10.13,)"
 			conf="compile"
 			>
 			<exclude org="org.apache.ant" name="ant-launcher"/>
@@ -47,7 +41,7 @@
 		<dependency
 			org="net.java.dev.javacc"
 			name="javacc"
-			rev="7.0.11"
+			rev="[7.0.11,)"
 			conf="compile"
 			/>
 		<!--dependency
@@ -62,25 +56,24 @@
 			rev="(,6.5.5]"
 			conf="xslt"
 			/>
-		<dependency
-			org="net.sf.xslthl"
+		<dependency org="net.sf.xslthl"
 			name="xslthl"
-			rev="2.1.3"
+			rev="[2.1.3,)"
 			conf="xslt"
 			/>
 		<dependency
 			org="xerces"
 			name="xercesImpl"
-			rev="2.12.2"
+			rev="[2.12.2,)"
 			conf="xslt"
 			/>
 		<dependency
-			name="clianthus"
-			rev="[0.1.2,)"
-			transitive="true"
-			conf="compile"
+			org="net.sf.docbook"
+			name="docbook-xsl-saxon"
+			rev="[1,)"
+			conf="xslt+linux.redhat"
+			transitive="false"
 			/>
-		<!--dependency org="net.sf.docbook" name="docbook-xsl-saxon" rev="1.0.0" conf="xslt"/-->
 		<exclude org="org.hamcrest"/>
 	</dependencies>
 

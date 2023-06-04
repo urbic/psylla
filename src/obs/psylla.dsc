@@ -12,6 +12,7 @@ Build-Depends:
 	junit4 (>=4.11),
 	ant-optional,
 	ivy-debian-helper,
+	libclianthus-java,
 	libjline-java,
 	libjline-java-doc,
 	libxslthl-java,
@@ -24,6 +25,7 @@ Build-Depends:
 Vcs-Git: @project.scm.url@.git
 Vcs-Browser: @project.scm.url@
 Homepage: @project.scm.url@
+Debtransform-Release: 1
 Debtransform-Tar: @obs.package.name@-@obs.package.version@.tar.xz
 Files:
 	00000000000000000000000000000000 0 @obs.package.name@_@obs.package.version@.orig.tar.xz

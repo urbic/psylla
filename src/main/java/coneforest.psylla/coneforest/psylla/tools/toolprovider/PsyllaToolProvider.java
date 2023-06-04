@@ -29,7 +29,7 @@ public class PsyllaToolProvider
 			System.err.println(e.getLocalizedMessage());
 			return 1;
 		}
-		catch(final coneforest.cli.ProcessingException ex)
+		catch(final coneforest.clianthus.processor.ProcessingException ex)
 		{
 			System.err.println(ex.getLocalizedMessage());
 			System.err.println(Messages.getString("useHelpOption"));

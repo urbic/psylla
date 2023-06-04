@@ -11,7 +11,7 @@ module coneforest.psylla
 	requires java.compiler;
 	//requires ant.junit;
 	requires junit;
-	requires coneforest.cli;
+	requires coneforest.clianthus;
 	//requires jline;
 	//requires javacc;
 	provides javax.script.ScriptEngineFactory
