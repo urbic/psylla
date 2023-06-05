@@ -4,7 +4,6 @@ module coneforest.psylla
 	exports coneforest.psylla.tools.ant;
 	exports coneforest.psylla.tools.processors;
 	exports coneforest.psylla.tools.toolprovider;
-	exports coneforest.psylla.tools;
 	exports coneforest.psylla;
 
 	requires java.scripting;

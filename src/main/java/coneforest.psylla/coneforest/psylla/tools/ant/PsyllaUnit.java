@@ -21,7 +21,7 @@ public class PsyllaUnit
 		for(final Test t: tests)
 		{
 			final var test=new org.apache.tools.ant.taskdefs.optional.junit.JUnitTest(
-					coneforest.psylla.tools.PsyllaTest.class.getName(),
+					PsyllaTest.class.getName(),
 					haltOnError,
 					haltOnFail,
 					true);

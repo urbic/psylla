@@ -1,13 +1,14 @@
-package coneforest.psylla.tools;
+package coneforest.psylla.tools.ant;
+
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Suite;
-
-import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class PsyllaTest
@@ -24,18 +25,18 @@ public class PsyllaTest
 	public void test()
 		throws java.io.IOException
 	{
-		final var args=(String [])coneforest.psylla.tools.ant.Base64Codec.decode(
-				System.getProperty(coneforest.psylla.tools.ant.PsyllaUnit.class.getName()+".psyllaArgs"));
+		final var args=(String [])Base64Codec.decode(
+				System.getProperty(PsyllaUnit.class.getName()+".psyllaArgs"));
 		runTest(testName, new String[0], args);
 	}
 
 	@Parameterized.Parameters(name="{0}")
 	public static Iterable<String[]> data()
 	{
-		final var root=System.getProperty(coneforest.psylla.tools.ant.PsyllaUnit.class.getName()+".testName");
-		final var files=new java.util.ArrayList<java.io.File>();
+		final var root=System.getProperty(PsyllaUnit.class.getName()+".testName");
+		final var files=new ArrayList<java.io.File>();
 		files.add(new java.io.File(root));
-		final var data=new java.util.ArrayList<String[]>();
+		final var data=new ArrayList<String[]>();
 		while(!files.isEmpty())
 		{
 			final var current=files.remove(0);
