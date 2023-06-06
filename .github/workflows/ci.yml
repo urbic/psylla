@@ -3,7 +3,6 @@
 name: Java CI
 
 on:
-  create
   push:
     branches: [master]
   pull_request:
