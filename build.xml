@@ -51,36 +51,40 @@
 	<property name="target.doc.html" location="${target.doc}/html"/>
 	<property name="target.vim" location="${target}/vim"/>
 	<property name="target.mime" location="${target}/mime"/>
-	<property name="datadir" location="/usr/share"/>
 	<property name="file.encoding" value="UTF-8"/>
 	<property name="linux.flavour" value="redhat"/>
 	<property name="build.sysclasspath" value="ignore"/>
 
+	<property file="${src.ant}/ivy.properties"/>
+	<property file="${src.ant}/version.properties"/>
 	<property file="${src.ant}/config.properties"/>
 	<property file="${src.ant}/config-${linux.flavour}.properties"/>
 
 	<path id="modulesourcepath.main">
 		<pathelement location="${src.main.java}"/>
+		<pathelement location="${src.examples.java}"/>
 		<pathelement location="${target.src.main.java}"/>
-	</path>
-
-	<path id="modulepath.main">
-		<path refid="classpath.main.resolved"/>
-		<pathelement location="${target.classes}"/>
 	</path>
 
 	<path id="modulesourcepath.test">
 		<pathelement location="${src.test.java}"/>
 	</path>
 
+	<path id="modulepath.main">
+		<path refid="modulepath.main.resolved"/>
+		<pathelement location="${target.classes}"/>
+	</path>
+
 	<path id="classpath.main">
-		<pathelement
-			location="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}"/>
+		<dirset
+			dir="${target.classes}"
+			includes="${project.maven.groupId}.${project.maven.artifactId}*"
+			/>
+		<path refid="classpath.main.resolved"/>
 		<!--pathelement location="${ant.core.lib}"/-->
 		<!--pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/-->
 		<!--pathelement location="${config.jar.junit4}"/-->
 		<!--pathelement location="${config.jar.jline1}"/-->
-		<path refid="classpath.main.resolved"/>
 	</path>
 
 	<path id="classpath.xslt">
@@ -110,7 +114,8 @@
 
 	<target name="resolve" description="Retrieve dependencies with Ivy">
 		<ivy:resolve conf="compile,xslt,linux.${linux.flavour}"/>
-		<ivy:cachepath conf="compile" pathid="classpath.main.resolved"/>
+		<ivy:cachepath conf="compile+classpath" pathid="classpath.main.resolved"/>
+		<ivy:cachepath conf="compile+modulepath" pathid="modulepath.main.resolved"/>
 		<ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/>
 	</target>
 
@@ -119,12 +124,13 @@
 		>
 		<mkdir
 			dir="${target.src.main.java}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla"/>
+		<dirname property="javacc.home" file="${config.jar.javacc}"/>
 		<javacc
 			target="${src.main.jj}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla/Parser.jj"
 			outputdirectory="${target.src.main.java}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla"
-			javacchome="${config.datadir}/java"
 			unicodeinput="true"
 			static="false"
+			javacchome="${javacc.home}"
 			/>
 	</target>
 
@@ -142,6 +148,7 @@
 			<modulesourcepath refid="modulesourcepath.main"/>
 			<modulesourcepath refid="modulesourcepath.test"/>
 			<modulepath refid="modulepath.main"/>
+			<classpath refid="classpath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
 			<include name="coneforest/psylla/ExceptionType.java"/>
 			<include name="coneforest/psylla/Type.java"/>
@@ -149,6 +156,8 @@
 			<compilerarg value="-proc:none"/>
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:none"/>
+			<compilerarg value="--add-reads=coneforest.psylla=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=coneforest.psylla.tools=ALL-UNNAMED"/>
 		</javac>
 		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/type"/>
 		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/exception"/>
@@ -163,7 +172,7 @@
 			<modulesourcepath refid="modulesourcepath.main"/>
 			<modulesourcepath refid="modulesourcepath.test"/>
 			<modulepath refid="modulepath.main"/>
-			<!--compilerarg value="-XprintRounds"/-->
+			<classpath refid="classpath.main"/>
 			<compilerarg value="--processor-path=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}"/>
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
@@ -172,6 +181,8 @@
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:class"/>
+			<compilerarg value="--add-reads=coneforest.psylla=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=coneforest.psylla.tools=ALL-UNNAMED"/>
 		</javac>
 	</target>
 
@@ -251,6 +262,14 @@
 				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
 			</manifest>
 		</jar>
+		<jar
+			jarfile="${target.artifacts}/jar/${project.maven.groupId}.${project.maven.artifactId}.tools-${project.version}.jar"
+			basedir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}.tools"
+			>
+			<manifest>
+				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
+			</manifest>
+		</jar>
 		<mkdir dir="${target.lib}"/>
 		<symlink
 			resource="../artifacts/jar/${project.maven.groupId}.${project.name}-${project.version}.jar"
@@ -267,7 +286,15 @@
 			templatefile="${src.maven}/${project.maven.groupId}.${project.maven.artifactId}.pom"
 			pomfile="${target.artifacts}/pom/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.pom"
 			>
-			<ivy:mapping conf="default" scope="compile"/>
+			<ivy:mapping conf="default" scope="runtime"/>
+		</ivy:makepom>
+		<ivy:makepom
+			ivyfile="ivy.xml"
+			artifactName="${project.maven.artifactId}.tools"
+			templatefile="${src.maven}/${project.maven.groupId}.${project.maven.artifactId}.pom"
+			pomfile="${target.artifacts}/pom/${project.maven.groupId}.${project.maven.artifactId}.tools-${project.version}.pom"
+			>
+			<ivy:mapping conf="default" scope="runtime"/>
 		</ivy:makepom>
 	</target>
 
@@ -276,7 +303,7 @@
 	</target>
 
 	<target name="test" description="Perform general tests"
-		depends="test.anttask,test.cli,test.jsr223,test.psylla"/>
+		depends="test.anttask,test.jsr223,test.psylla"/>
 
 	<target name="htmldocs"
 		description="Build XHTML documentation"

@@ -33,8 +33,7 @@
 			<targetfileset dir="${target.doc.html}" includes="${project.name}.css"/>
 		</dependset>
 		<apply executable="sassc" dest="${target.doc.html}" parallel="false">
-			<arg value="--style"/>
-			<arg value="compact"/>
+			<arg value="-tcompact"/>
 			<srcfile/>
 			<targetfile/>
 			<fileset dir="${src.doc.scss}" includes="PsyllaReference.scss PsyllaMain.scss"/>

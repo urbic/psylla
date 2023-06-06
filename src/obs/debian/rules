@@ -19,7 +19,7 @@ build-stamp:
 		sed -i -e 's/2\.718281828459045/2\.7182818284590455/' \
 			src/test/psylla/operators/exp/general.t.out; \
 	fi
-	ant -v \
+	dh_auto_build -- -v \
 		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
 		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
 		-Ddestdir=$(DESTDIR) \
@@ -32,7 +32,7 @@ build-stamp:
 	# --- end custom part for compiling
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	#dh_auto_test -- -v
-	ant -v \
+	dh_auto_build -- -v \
 		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
 		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
 		-Dlinux.flavour=debian \
@@ -47,7 +47,7 @@ clean:
 	rm -f build-stamp
 
 	# Add here commands to clean up after the build process.
-	ant -v clean
+	dh_auto_build -- -v clean
 	# --- end custom part for cleaning up
 
 	dh_clean

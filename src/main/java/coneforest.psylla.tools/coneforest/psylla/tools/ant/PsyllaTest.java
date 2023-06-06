@@ -3,6 +3,9 @@ package coneforest.psylla.tools.ant;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import org.junit.Test;
@@ -34,8 +37,8 @@ public class PsyllaTest
 	public static Iterable<String[]> data()
 	{
 		final var root=System.getProperty(PsyllaUnit.class.getName()+".testName");
-		final var files=new ArrayList<java.io.File>();
-		files.add(new java.io.File(root));
+		final var files=new ArrayList<File>();
+		files.add(new File(root));
 		final var data=new ArrayList<String[]>();
 		while(!files.isEmpty())
 		{
@@ -82,7 +85,7 @@ public class PsyllaTest
 		{
 			// TODO
 		}
-		catch(final java.io.FileNotFoundException e)
+		catch(final FileNotFoundException e)
 		{
 			// TODO
 		}
@@ -95,18 +98,18 @@ public class PsyllaTest
 			System.setErr(err);
 		}
 
-		final var outFile=new java.io.File(testName+".out");
+		final var outFile=new File(testName+".out");
 		assertEquals(outFile.exists()? slurp(outFile): "", outData.toString());
 
-		final var errFile=new java.io.File(testName+".err");
+		final var errFile=new File(testName+".err");
 		assertEquals(errFile.exists()? slurp(errFile): "", errData.toString());
 	}
 
-	private static String slurp(final java.io.File file)
+	private static String slurp(final File file)
 		throws java.io.IOException
 	{
 		final var slurpBuffer=new byte[(int)file.length()];
-		new java.io.FileInputStream(file).read(slurpBuffer);
+		new FileInputStream(file).read(slurpBuffer);
 		return new String(slurpBuffer);
 	}
 

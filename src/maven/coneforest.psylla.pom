@@ -6,13 +6,13 @@
 	>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>${project.maven.groupId}</groupId>
-	<artifactId>${project.maven.artifactId}</artifactId>
-	<version>${project.maven.version}</version>
+	<groupId>${ivy.pom.groupId}</groupId>
+	<artifactId>${ivy.pom.artifactId}</artifactId>
+	<version>${ivy.pom.version}</version>
 
-	<name>${project.name}</name>
-	<description>${project.description}</description>
-	<url>${project.url}</url>
+	<name>${ivy.pom.name}</name>
+	<description>${ivy.pom.description}</description>
+	<url>${ivy.pom.url}</url>
 
 	<licenses>
 		<license>
@@ -41,18 +41,5 @@
 			<timezone>${project.developer.timezone}</timezone>
 		</developer>
 	</developers>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.ant</groupId>
-			<artifactId>ant-apache-resolver</artifactId>
-			<version>[1.10.9,)</version>
-		</dependency>
-		<dependency>
-			<groupId>xml-resolver</groupId>
-			<artifactId>xml-resolver</artifactId>
-			<version>[1.2,)</version>
-		</dependency>
-	</dependencies>
 
 </project>

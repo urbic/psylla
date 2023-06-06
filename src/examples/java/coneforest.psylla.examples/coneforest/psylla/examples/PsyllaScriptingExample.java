@@ -1,4 +1,5 @@
-package coneforest.psylla;
+package coneforest.psylla.examples;
+
 import javax.script.*;
 
 public class PsyllaScriptingExample

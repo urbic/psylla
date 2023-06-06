@@ -10,8 +10,10 @@
 		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-2/DIR-3"/>
 		<taskdef name="psyllaunit"
 			classname="coneforest.psylla.tools.ant.PsyllaUnit"
-			classpathref="classpath.main"
-			/>
+			>
+			<classpath refid="modulepath.main"/>
+			<classpath refid="classpath.main"/>
+		</taskdef>
 		<psyllaunit haltonfailure="yes">
 			<arg value="-LC"/>
 			<arg value="-I${src.main.psylla}"/>
@@ -29,8 +31,10 @@
 		<taskdef
 			name="psylla"
 			classname="coneforest.psylla.tools.ant.Psylla"
-			classpathref="classpath.main"
-			/>
+			>
+			<classpath refid="modulepath.main"/>
+			<classpath refid="classpath.main"/>
+		</taskdef>
 		<psylla eval="1 1 99 { ? } for"/>
 		<psylla eval="1 atan 4 mul ?"/>
 	</target>
@@ -59,20 +63,13 @@
 		description="Perform ToolProvider test"
 		depends="compile.java,copy.resources"
 		>
-		<java classname="coneforest.psylla.test.PsyllaToolProviderTest">
-			<classpath refid="classpath.main"/>
+		<java
+			module="coneforest.psylla.examples/coneforest.psylla.examples.PsyllaToolProviderExample"
+			clonevm="false"
+			fork="true"
+			>
+			<modulepath refid="classpath.main"/>
 		</java>
-	</target>
-
-	<target name="test.cli"
-		description="Perform CLI tests"
-		depends="compile.java,copy.resources"
-		>
-		<junit>
-			<classpath refid="classpath.main"/>
-			<formatter type="plain" usefile="false"/>
-			<test name="coneforest.cli.test.ProcessorTest"/>
-		</junit>
 	</target>
 
 </project>

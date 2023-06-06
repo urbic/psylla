@@ -16,57 +16,56 @@
 #
 
 
-%global jline1 jline1
-%global jline1_jar %{_jnidir}/jline1/jline-1.0.jar
 Name:           @obs.package.name@
-Version:		@obs.package.version@
-Release:		0
-Summary:		@obs.package.summary@
-License:		Zlib
-Group:			Development/Languages/Other
-URL:			https://github.com/urbic/%{name}
-Source:			%{name}-%{version}.tar.xz
-BuildRequires:	ivy-local
-BuildRequires:	java-devel >= 17
-BuildRequires:	java-javadoc >= 17
-BuildRequires:	javacc
-BuildRequires:	mvn(coneforest:clianthus)
-BuildRequires:	mvn(junit:junit) < 5
-BuildRequires:	mvn(jline:jline:1)
-BuildRequires:	mvn(net.sf.docbook:docbook-xsl-saxon)
-BuildRequires:	mvn(org.apache.ant:ant-junit)
-Requires:		java-headless >= 17
-Requires:		mvn(jline:jline:1)
-Requires(post):	shared-mime-info
-Requires(postun):	shared-mime-info
-Provides:		config(ant-%{name})
-Provides:		mimehandler(application/x-%{name})
-BuildArch:		noarch
+Version:        @obs.package.version@
+Release:        0
+Summary:        @obs.package.summary@
+License:        Zlib
+Group:          Development/Languages/Other
+URL:            https://github.com/urbic/%{name}
+Source:         %{name}-%{version}.tar.xz
+BuildRequires:  ivy-local
+BuildRequires:  java-devel >= 17
+BuildRequires:  java-javadoc >= 17
+BuildRequires:  javacc
+BuildRequires:  mvn(coneforest:clianthus)
+BuildRequires:  mvn(jline:jline:1)
+BuildRequires:  mvn(junit:junit) < 5
+BuildRequires:  mvn(net.sf.docbook:docbook-xsl-saxon)
+BuildRequires:  mvn(org.apache.ant:ant-junit)
+Requires:       java-headless >= 17
+Requires:       mvn(coneforest:clianthus)
+Requires:       mvn(jline:jline:1)
+Requires(post): shared-mime-info
+Requires(postun): shared-mime-info
+Provides:       config(ant-%{name})
+Provides:       mimehandler(application/x-%{name})
+BuildArch:      noarch
 
 %description
 @obs.package.description@
 
 %package doc
-Summary:		Documentation for %{name}
-Group:			Documentation/HTML
-BuildRequires:	ant-apache-resolver
-BuildRequires:	graphviz
-BuildRequires:	sassc
-BuildRequires:	mvn(net.sf.xslthl:xslthl)
-Requires:		paratype-pt-sans-fonts
-BuildRequires:	docbook5-xsl-stylesheets
+Summary:        Documentation for %{name}
+Group:          Documentation/HTML
+BuildRequires:  ant-apache-resolver
+BuildRequires:  docbook5-xsl-stylesheets
+BuildRequires:  graphviz
+BuildRequires:  mvn(net.sf.xslthl:xslthl)
+BuildRequires:  sassc
+Requires:       paratype-pt-sans-fonts
 
 %description doc
 @obs.package.description@
 This package contains documentation for %{name}.
 
 %package javadoc
-Summary:		Javadocs for %{name}
+Summary:        Javadocs for %{name}
 Group:          Documentation/HTML
-BuildRequires:	fdupes
-BuildRequires:	jline1-javadoc
-BuildRequires:	junit-javadoc
-Requires:		jpackage-utils
+BuildRequires:  fdupes
+BuildRequires:  jline1-javadoc
+BuildRequires:  junit-javadoc
+Requires:       jpackage-utils
 
 %description javadoc
 This package contains the API documentation for %{name}.
@@ -75,19 +74,17 @@ This package contains the API documentation for %{name}.
 %setup -q
 
 %build
-LC_ALL=C.UTF-8 \
-	%{ant} -Divy.mode=local -v build
+LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local build
 
 %check
-LC_ALL=C.UTF-8 \
-	%{ant} -Divy.mode=local -v test
+LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local test
 
 %install
-LC_ALL=C.UTF-8 \
-	%{ant} -Divy.mode=local -v -Ddestdir=%{buildroot} install
+LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local -Ddestdir=%{buildroot} install
 %fdupes %{buildroot}%{_javadocdir}/%{name}
 
-%add_maven_depmap coneforest.%{name}.pom coneforest.%{name}.jar
+%add_maven_depmap %{name}/coneforest.%{name}.pom %{name}/coneforest.%{name}.jar
+%add_maven_depmap %{name}/coneforest.%{name}.tools.pom %{name}/coneforest.%{name}.tools.jar
 
 %post
 %mime_database_post
@@ -98,8 +95,7 @@ LC_ALL=C.UTF-8 \
 :
 
 %files -f .mfiles
-%{_javadir}/*.jar
-%{_bindir}/*
+%{_bindir}/%{name}
 %{_datadir}/%{name}
 %dir %{_datadir}/vim
 %dir %{_datadir}/vim/site
@@ -123,7 +119,6 @@ LC_ALL=C.UTF-8 \
 %{_docdir}/%{name}/examples
 
 %files javadoc
-%defattr(0644,root,root,0755)
 %{_javadocdir}/%{name}
 
 #%%changelog

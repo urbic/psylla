@@ -6,6 +6,6 @@
 # We need sun runtime.
 find_java_runtime openjdk
 
-find_jars psylla jline
+find_jars coneforest.psylla jline
 
 run_java coneforest.psylla.Psylla "$@"

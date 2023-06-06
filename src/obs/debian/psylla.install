@@ -1,4 +1,4 @@
-usr/share/java/*.jar
+usr/share/java/psylla
 usr/bin/*
 usr/share/@obs.package.name@/*
 usr/share/vim/*

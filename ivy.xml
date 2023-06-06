@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ivy-module version="2.0">
 
 	<info
@@ -12,38 +13,47 @@
 
 	<configurations defaultconfmapping="*->default">
 		<conf name="compile"/>
-		<conf name="xslt"/>
-		<conf name="linux.redhat"/>
 		<conf name="linux.debian"/>
+		<conf name="linux.redhat"/>
+		<conf name="xslt"/>
+		<conf name="classpath"/>
+		<conf name="modulepath"/>
 	</configurations>
+
+	<publications>
+		<artifact/>
+		<artifact type="pom"/>
+		<artifact name="${project.maven.artifactId}.tools"/>
+		<artifact name="${project.maven.artifactId}.tools" type="pom"/>
+	</publications>
 
 	<dependencies>
 		<dependency
 			name="clianthus"
 			rev="0.1.3"
 			transitive="true"
-			conf="compile"
+			conf="compile+modulepath"
 			/>
 		<dependency
 			org="jline"
 			name="jline"
 			rev="1.0"
-			conf="compile"
+			conf="compile+classpath"
 			/>
 		<dependency
 			org="org.apache.ant"
 			name="ant-junit"
 			rev="[1.10.13,)"
-			conf="compile"
+			conf="compile+classpath"
 			>
 			<exclude org="org.apache.ant" name="ant-launcher"/>
 		</dependency>
-		<dependency
+		<!--dependency
 			org="net.java.dev.javacc"
 			name="javacc"
 			rev="[7.0.11,)"
-			conf="compile"
-			/>
+			conf="javacc"
+			/-->
 		<!--dependency
 			org="org.eclipse.collections"
 			name="eclipse-collections"

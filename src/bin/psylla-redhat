@@ -21,10 +21,7 @@ fi
 MAIN_CLASS=coneforest.psylla.Psylla
 BASE_FLAGS=""
 BASE_OPTIONS=""
-BASE_JARS=psylla
-
-# Optional jars
-CLASSPATH="$CLASSPATH:"$(build-classpath jline1 2>/dev/null) || :
+BASE_JARS="psylla coneforest.clianthus jline1"
 
 # Set parameters
 set_jvm

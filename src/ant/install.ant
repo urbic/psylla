@@ -7,9 +7,9 @@
 		>
 		<!-- Make directories -->
 		<mkdir dir="${destdir}/${config.libdir.package}"/>
-		<mkdir dir="${destdir}/${config.javadir}"/>
+		<mkdir dir="${destdir}/${config.javadir.package}"/>
 		<mkdir dir="${destdir}/${config.bindir}"/>
-		<mkdir dir="${destdir}/${config.mavenpomsdir}"/>
+		<mkdir dir="${destdir}/${config.mavenpomsdir.package}"/>
 		<mkdir dir="${destdir}/${config.docdir.package}"/>
 		<mkdir dir="${destdir}/${config.licensedir.package}"/>
 		<mkdir dir="${destdir}/${config.javadocdir.package}"/>
@@ -20,14 +20,20 @@
 		<mkdir dir="${destdir}/${config.sysconfdir}/ant.d"/>
 
 		<!-- Install artifacts -->
-		<copy
-			tofile="${destdir}/${config.javadir}/${project.maven.groupId}.${project.maven.artifactId}.jar"
-			file="${target.artifacts.jar}/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.jar"
-			/>
-		<copy
-			tofile="${destdir}/${config.mavenpomsdir}/${project.maven.groupId}.${project.maven.artifactId}.pom"
-			file="${target.artifacts.pom}/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.pom"
-			/>
+		<copy todir="${destdir}/${config.javadir.package}">
+			<fileset
+				dir="${target.artifacts.jar}"
+				includes="*.jar"
+				/>
+			<mapper type="glob" from="*-${project.version}.jar" to="*.jar"/>
+		</copy>
+		<copy todir="${destdir}/${config.mavenpomsdir.package}">
+			<fileset
+				dir="${target.artifacts.pom}"
+				includes="*.pom"
+				/>
+			<mapper type="glob" from="*-${project.version}.pom" to="*.pom"/>
+		</copy>
 
 		<!-- Install script -->
 		<copy todir="${destdir}/${config.bindir}" file="${target.bin}/${project.name}"/>
@@ -76,7 +82,7 @@
 		<!-- Install Ant task -->
 		<symlink
 			link="${destdir}/${config.datadir}/ant/lib/ant-${project.name}.jar"
-			resource="../../java/${project.maven.groupId}.${project.maven.artifactId}.jar"
+			resource="../../java/${project.name}/${project.maven.groupId}.${project.maven.artifactId}.jar"
 			overwrite="true"
 			/>
 		<echo

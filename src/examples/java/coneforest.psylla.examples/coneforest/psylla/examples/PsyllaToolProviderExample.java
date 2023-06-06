@@ -1,4 +1,4 @@
-package coneforest.psylla;
+package coneforest.psylla.examples;
 
 import java.io.PrintWriter;
 import java.util.ServiceLoader;
@@ -8,7 +8,8 @@ public class PsyllaToolProviderExample
 {
 	public static void main(final String[] args)
 	{
-		var tool=ToolProvider.findFirst("psylla").get();
-		tool.run((PrintWriter)null, (PrintWriter)null, "-e", "1 1 10 { ? } for");
+		ToolProvider.findFirst("psylla")
+				.get()
+				.run(System.out, System.err, "-e", "1 1 10 { ? } for");
 	}
 }
