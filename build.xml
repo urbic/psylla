@@ -35,7 +35,6 @@
 	<property name="src.mime" location="${src}/mime"/>
 	<property name="src.logo" location="${src}/logo"/>
 	<property name="target" location="target"/>
-	<property name="target.lib" location="${target}/lib"/>
 	<property name="target.src.main" location="${target}/src/main"/>
 	<property name="target.src.main.java" location="${target.src.main}/java"/>
 	<property name="target.doc" location="${target}/doc"/>
@@ -72,7 +71,7 @@
 
 	<path id="modulepath.main">
 		<path refid="modulepath.main.resolved"/>
-		<pathelement location="${target.classes}"/>
+		<!--pathelement location="${target.classes}"/-->
 	</path>
 
 	<path id="classpath.main">
@@ -150,7 +149,7 @@
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
-			<include name="coneforest/psylla/ExceptionType.java"/>
+			<include name="coneforest/psylla/ErrorType.java"/>
 			<include name="coneforest/psylla/Type.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
@@ -270,12 +269,6 @@
 				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
 			</manifest>
 		</jar>
-		<mkdir dir="${target.lib}"/>
-		<symlink
-			resource="../artifacts/jar/${project.maven.groupId}.${project.name}-${project.version}.jar"
-			link="${target.lib}/${project.maven.groupId}.${project.maven.artifactId}.jar"
-			overwrite="true"
-			/>
 	</target>
 
 	<target name="pom"

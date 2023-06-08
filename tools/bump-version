@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+
+use warnings;
+use utf8;
+use open qw/:std :encoding(UTF-8)/;
+
+my $component=shift//'--micro';
+$component=~s/^--(micro|minor|major)$/$1/
+	or die "Usage: $0 --micro|--minor|--major\n";
+
+my $filename='src/ant/version.properties';
+my @version;
+my $fd;
+
+open $fd, '<', $filename
+	or die "Can not open $filename: $!\n";
+while(<$fd>)
+{
+	if(m/project\.version\.(micro|minor|major)=(\d+)/)
+	{
+		@version[2]=$2 if($1 eq 'micro');
+		@version[1]=$2 if($1 eq 'minor');
+		@version[0]=$2 if($1 eq 'major');
+	}
+}
+close $fd;
+
+my $old_version=join('.', @version);
+
+if($component eq 'micro')
+{
+	$version[2]++;
+}
+elsif($component eq 'minor')
+{
+	$version[1]++;
+	$version[2]=0;
+}
+elsif($component eq 'major')
+{
+	$version[0]++;
+	$version[2]=$version[1]=0;
+}
+
+my $new_version=join('.', @version);
+
+open $fd, '>', $filename
+	or die "Can not open $filename: $!\n";
+print {$fd} <<__PROPERTIES__;
+project.version.major=$version[0]
+project.version.minor=$version[1]
+project.version.micro=$version[2]
+__PROPERTIES__
+close $fd;
+
+print "$old_version → $new_version\n";

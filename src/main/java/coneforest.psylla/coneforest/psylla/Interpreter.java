@@ -1,5 +1,34 @@
 package coneforest.psylla;
-import coneforest.psylla.core.*;
+
+import coneforest.psylla.core.errors.PsyError;
+import coneforest.psylla.core.errors.PsyIOError;
+import coneforest.psylla.core.errors.PsySyntaxError;
+import coneforest.psylla.core.errors.PsyUndefined;
+import coneforest.psylla.core.types.PsyArray;
+import coneforest.psylla.core.types.PsyCommand;
+import coneforest.psylla.core.types.PsyContext;
+import coneforest.psylla.core.types.PsyDict;
+import coneforest.psylla.core.types.PsyErrorDict;
+import coneforest.psylla.core.types.PsyFileReader;
+import coneforest.psylla.core.types.PsyFileSystem;
+import coneforest.psylla.core.types.PsyFlushable;
+import coneforest.psylla.core.types.PsyFormalArray;
+import coneforest.psylla.core.types.PsyFormalArray;
+import coneforest.psylla.core.types.PsyFormalDict;
+import coneforest.psylla.core.types.PsyInteger;
+import coneforest.psylla.core.types.PsyIntegral;
+import coneforest.psylla.core.types.PsyName;
+import coneforest.psylla.core.types.PsyNamespace;
+import coneforest.psylla.core.types.PsyObject;
+import coneforest.psylla.core.types.PsyProc;
+import coneforest.psylla.core.types.PsyRandom;
+import coneforest.psylla.core.types.PsyReader;
+import coneforest.psylla.core.types.PsyReal;
+import coneforest.psylla.core.types.PsyRegExp;
+import coneforest.psylla.core.types.PsyString;
+import coneforest.psylla.core.types.PsyStringReader;
+import coneforest.psylla.core.types.PsyTextual;
+import coneforest.psylla.core.types.PsyWriter;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +60,7 @@ public class Interpreter
 			dstack=new DictStack();
 			pushStopLevel();
 		}
-		catch(final PsyErrorException e)
+		catch(final PsyError e)
 		{
 			throw new AssertionError(e);
 		}
@@ -39,7 +68,7 @@ public class Interpreter
 
 	@Override
 	public void fork()
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var ostack=operandStackBacked(1);
 		final var o=ostack.getBacked(0);
@@ -73,7 +102,7 @@ public class Interpreter
 	}
 
 	/*public void importType(final String typeName)
-		throws PsyErrorException
+		throws PsyError
 	{
 		PsyNamespace.namespace("system").psyImport(PsyNamespace.namespace(TypeResolver.resolve(typeName)));
 	}*/
@@ -91,7 +120,7 @@ public class Interpreter
 
 	@Override
 	public OperandStack operandStackBacked(final int count)
-		throws PsyErrorException
+		throws PsyError
 	{
 		ostack.popOperands(count);
 		return ostack;
@@ -136,7 +165,7 @@ public class Interpreter
 	}
 
 	public <T extends PsyObject> T load(final String name)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var prefixOffset=name.indexOf('@');
 		if(prefixOffset==-1)
@@ -147,7 +176,7 @@ public class Interpreter
 
 	@Override
 	public <T extends PsyObject> T psyLoad(final PsyTextual oKey)
-		throws PsyErrorException
+		throws PsyError
 	{
 		return this.<T>load(oKey.stringValue());
 	}
@@ -229,7 +258,7 @@ public class Interpreter
 	}
 
 	public void setRandomSeed(final Long randomSeed)
-		throws PsyErrorException
+		throws PsyError
 	{
 		if(randomSeed!=null)
 			((PsyRandom)systemDict().get("stdrandom"))
@@ -237,7 +266,7 @@ public class Interpreter
 	}
 
 	public void setClassPath(final String[] classPath)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var oClassPath
 			=(PsyFormalArray<PsyTextual>)systemDict().get("classpath");
@@ -251,7 +280,7 @@ public class Interpreter
 	}
 
 	public void setLibraryPath(final String[] libraryPath)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var oLibraryPath
 			=(PsyFormalArray<PsyTextual>)systemDict().get("librarypath");
@@ -294,7 +323,7 @@ public class Interpreter
 			}
 			if(procstack.size()>initProcLevel)
 			{
-				var e=new PsySyntaxErrorException();
+				var e=new PsySyntaxError();
 				e.setEmitter(oReader);
 				throw e;
 			}
@@ -302,7 +331,7 @@ public class Interpreter
 			dstack.<PsyFlushable>load("stdout").psyFlush();
 			dstack.<PsyFlushable>load("stderr").psyFlush();
 		}
-		catch(final PsyErrorException e)
+		catch(final PsyError e)
 		{
 			e.setEmitter(oReader); // IMPORTANT
 			e.setStacks(ostack, estack, dstack);
@@ -313,7 +342,7 @@ public class Interpreter
 		}
 		catch(final TokenMgrError ex)
 		{
-			var e=new PsySyntaxErrorException();
+			var e=new PsySyntaxError();
 			e.setEmitter(oReader);
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
@@ -325,13 +354,13 @@ public class Interpreter
 
 	@Override
 	public void interpretBraced(final PsyReader oReader)
-		throws PsyErrorException
+		throws PsyError
 	{
 		procstack.push(new PsyProc());
 		interpret(oReader);
 		if(procstack.size()==0)
 		{
-			var e=new PsySyntaxErrorException();
+			var e=new PsySyntaxError();
 			e.setEmitter(oReader);
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
@@ -344,7 +373,7 @@ public class Interpreter
 	}
 
 	private void processToken(final Token token)
-		throws PsyErrorException
+		throws PsyError
 	{
 		if(procstack.size()==0)
 		{
@@ -367,7 +396,7 @@ public class Interpreter
 					procstack.push(new PsyProc());
 					break;
 				case ParserConstants.CLOSE_BRACE:
-					throw new PsySyntaxErrorException();
+					throw new PsySyntaxError();
 				case ParserConstants.EOF:
 					break;
 			}
@@ -399,13 +428,13 @@ public class Interpreter
 					procstack.peek().psyAppend(parseToken(token));
 					break;
 				case ParserConstants.EOF:
-					throw new PsySyntaxErrorException();
+					throw new PsySyntaxError();
 			}
 		}
 	}
 
 	private PsyObject parseToken(final Token token)
-		throws PsyErrorException
+		throws PsyError
 	{
 		var image=token.image;
 		switch(token.kind)
@@ -433,8 +462,8 @@ public class Interpreter
 
 	private PsyObject parseLiteralImage(final String image)
 		throws
-			PsyUndefinedException, // TODO
-			PsySyntaxErrorException
+			PsyUndefined, // TODO
+			PsySyntaxError
 	{
 		final int i=image.indexOf('=');
 		final String typeName=image.substring(0, i);
@@ -449,16 +478,16 @@ public class Interpreter
 		}
 		catch(final NoSuchMethodException|IllegalAccessException ex)
 		{
-			throw new PsyUndefinedException();	// TODO more appropriate exception
+			throw new PsyUndefined();	// TODO more appropriate exception
 		}
 		catch(final Throwable ex)
 		{
-			throw new PsySyntaxErrorException();
+			throw new PsySyntaxError();
 		}
 	}
 
 	public PsyFormalDict errorDict()
-		throws PsyErrorException
+		throws PsyError
 	{
 		return (PsyFormalDict)systemDict().get("errordict");
 		//return PsyNamespace.namespace("errordict");
@@ -466,7 +495,7 @@ public class Interpreter
 
 	/*
 	@Override
-	public void handleError(final PsyErrorException oException)
+	public void handleError(final PsyError oException)
 	{
 		final var errorName=oException.getName();
 		final var errorObj=new PsyDict();
@@ -486,7 +515,7 @@ public class Interpreter
 			else
 				stop_();
 		}
-		catch(final PsyErrorException e)
+		catch(final PsyError e)
 		{
 			throw new AssertionError(e);
 		}
@@ -585,7 +614,7 @@ public class Interpreter
 	}
 
 	public void setShellArguments(final String[] args)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var oArguments=(PsyArray)systemDict().get("arguments");
 		for(final var arg: args)
@@ -610,7 +639,7 @@ public class Interpreter
 
 	@Override
 	public void repl()
-		throws PsyErrorException
+		throws PsyError
 	{
 		try
 		{
@@ -644,7 +673,7 @@ public class Interpreter
 						}
 					}
 				}
-				catch(final PsyErrorException e)
+				catch(final PsyError e)
 				{
 					e.setEmitter(oReader);
 					e.setStacks(ostack, estack, dstack);
@@ -655,7 +684,7 @@ public class Interpreter
 				}
 				catch(final TokenMgrError ex)
 				{
-					var e=new PsySyntaxErrorException();
+					var e=new PsySyntaxError();
 					e.setEmitter(oReader);
 					e.setStacks(ostack, estack, dstack);
 					e.invoke(this);
@@ -667,7 +696,7 @@ public class Interpreter
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOError();
 		}
 	}
 
@@ -707,7 +736,7 @@ public class Interpreter
 	}
 
 	public boolean loadLibraryResource(final String resourceName)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var oLibraryPath=(PsyFormalArray<PsyTextual>)dstack.load("librarypath");
 		final var filePath=resourceName.replace('.', '/');
@@ -755,7 +784,7 @@ public class Interpreter
 	*/
 
 	public boolean loadType(final String typeName)
-		throws PsyErrorException
+		throws PsyError
 	{
 		try
 		{
@@ -831,7 +860,7 @@ public class Interpreter
 
 	@Override
 	public void psyRequire(final PsyTextual oResourceName)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var resourceName=oResourceName.stringValue();
 		//classLoader.findResource("jline/History.class");
@@ -849,7 +878,7 @@ public class Interpreter
 			return;
 		if(loadLibraryResource(resourceName))
 			return;
-		throw new PsyUndefinedException(); // TODO: more appropriate exception
+		throw new PsyUndefined(); // TODO: more appropriate exception
 	}
 
 	private final OperandStack ostack;
@@ -875,7 +904,7 @@ public class Interpreter
 			{
 				@Override
 				protected Iterable<String> getClassPath()
-					throws PsyErrorException
+					throws PsyError
 				{
 					final var parentIterator
 						=((PsyFormalArray<PsyTextual>)systemDict().get("classpath")).iterator();

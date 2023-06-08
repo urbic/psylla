@@ -1,5 +1,11 @@
 package coneforest.psylla;
-import coneforest.psylla.core.*;
+
+import coneforest.psylla.core.errors.PsyError;
+import coneforest.psylla.core.errors.PsyRangeCheck;
+import coneforest.psylla.core.errors.PsyStackUnderflow;
+import coneforest.psylla.core.errors.PsyUnmatchedMark;
+import coneforest.psylla.core.types.PsyMark;
+import coneforest.psylla.core.types.PsyObject;
 
 /**
 *	An interpreter’s operand stack.
@@ -17,22 +23,22 @@ public class OperandStack extends Stack<PsyObject>
 	}
 
 	public void ensureSize(final int size)
-		throws PsyErrorException
+		throws PsyError
 	{
 		if(size()<size)
-			throw new PsyStackUnderflowException();
+			throw new PsyStackUnderflow();
 		if(size<0)
-			throw new PsyRangeCheckException();
+			throw new PsyRangeCheck();
 	}
 
 	public void popOperands(final int count)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final int offset=size()-count;
 		if(offset<0)
 		{
 			backupSize=0;
-			throw new PsyStackUnderflowException();
+			throw new PsyStackUnderflow();
 		}
 		for(backupSize=0; backupSize<count; backupSize++)
 			backup[backupSize]=get(offset+backupSize);
@@ -47,12 +53,12 @@ public class OperandStack extends Stack<PsyObject>
 	}
 
 	public int findMarkPosition()
-		throws PsyUnmatchedMarkException
+		throws PsyUnmatchedMark
 	{
 		for(int i=size()-1; i>=0; i--)
 			if(get(i)==PsyMark.MARK)
 				return i;
-		throw new PsyUnmatchedMarkException();
+		throw new PsyUnmatchedMark();
 	}
 
 	private PsyObject[] backup=new PsyObject[5];

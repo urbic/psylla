@@ -1,6 +1,6 @@
 package coneforest.psylla.tools.ant;
 
-import coneforest.psylla.*;
+import coneforest.psylla.core.errors.PsyError;
 import java.util.ArrayList;
 
 public class Psylla
@@ -38,7 +38,7 @@ public class Psylla
 			coneforest.psylla.Psylla.launch(
 				System.out, System.err, args).join(timeout);
 		}
-		catch(final coneforest.psylla.core.PsyErrorException e)
+		catch(final PsyError e)
 		{
 			// TODO
 		}

@@ -1,5 +1,14 @@
 package coneforest.psylla;
-import coneforest.psylla.core.*;
+
+import coneforest.psylla.core.errors.PsyDictStackUnderflow;
+import coneforest.psylla.core.errors.PsyError;
+import coneforest.psylla.core.errors.PsyUndefined;
+import coneforest.psylla.core.types.PsyDict;
+import coneforest.psylla.core.types.PsyFormalDict;
+import coneforest.psylla.core.types.PsyNamespace;
+import coneforest.psylla.core.types.PsyObject;
+import coneforest.psylla.core.types.PsySystemDict;
+import coneforest.psylla.core.types.PsyTextual;
 
 /**
 *	An interpreter’s dictionary stack.
@@ -11,10 +20,10 @@ public class DictStack
 	*	Creates a new dictionary stack with two dictionaries in it (system and
 	*	user dictionaries).
 	*
-	*	@throws PsyErrorException when the error occurs.
+	*	@throws PsyError when the error occurs.
 	*/
 	public DictStack()
-		throws PsyErrorException
+		throws PsyError
 	{
 		var oSystemDict=new PsySystemDict();
 		var oUserDict=new PsyDict();
@@ -34,17 +43,17 @@ public class DictStack
 	}
 
 	public <T extends PsyObject> T load(final String key)
-		throws PsyErrorException
+		throws PsyError
 	{
 		final var oDict=where(key);
 		if(oDict!=null)
 			return (T)oDict.get(key);
 		else
-			throw new PsyUndefinedException();
+			throw new PsyUndefined();
 	}
 
 	public <T extends PsyObject> T load(final PsyTextual oKey)
-		throws PsyErrorException
+		throws PsyError
 	{
 		return this.<T>load(oKey.stringValue());
 	}
@@ -95,10 +104,10 @@ public class DictStack
 	}
 
 	public void end()
-		throws PsyDictStackUnderflowException
+		throws PsyDictStackUnderflow
 	{
 		if(size()<=2)
-			throw new PsyDictStackUnderflowException();
+			throw new PsyDictStackUnderflow();
 		pop();
 	}
 }

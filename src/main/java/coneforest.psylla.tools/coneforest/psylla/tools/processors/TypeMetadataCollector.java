@@ -1,5 +1,7 @@
 package coneforest.psylla.tools.processors;
 
+import coneforest.psylla.ErrorType;
+import coneforest.psylla.Type;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -19,7 +21,7 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
-@SupportedAnnotationTypes({"coneforest.psylla.Type", "coneforest.psylla.ExceptionType"})
+@SupportedAnnotationTypes({"coneforest.psylla.Type", "coneforest.psylla.ErrorType"})
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class TypeMetadataCollector extends AbstractProcessor
 {
@@ -27,13 +29,13 @@ public class TypeMetadataCollector extends AbstractProcessor
 	public boolean process(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv)
 	{
 		final var md=options.get("coneforest.psylla.tools.processors.TypeMetadataCollector.metadataDir");
-		final var typeElements=roundEnv.getElementsAnnotatedWith(coneforest.psylla.Type.class);
+		final var typeElements=roundEnv.getElementsAnnotatedWith(Type.class);
 
 		for(final var element: typeElements)
 		{
 			try
 			{
-				final var typeName=element.getAnnotation(coneforest.psylla.Type.class).value();
+				final var typeName=element.getAnnotation(Type.class).value();
 				final var className=((TypeElement)element).getQualifiedName().toString();
 				final var ps=new PrintStream(new File(md+"type/", typeName));
 				ps.println(className);
@@ -45,12 +47,12 @@ public class TypeMetadataCollector extends AbstractProcessor
 			}
 		}
 
-		final var exceptionElements=roundEnv.getElementsAnnotatedWith(coneforest.psylla.ExceptionType.class);
+		final var exceptionElements=roundEnv.getElementsAnnotatedWith(ErrorType.class);
 		for(final var element: exceptionElements)
 		{
 			try
 			{
-				final var typeName=element.getAnnotation(coneforest.psylla.ExceptionType.class).value();
+				final var typeName=element.getAnnotation(ErrorType.class).value();
 				final var className=((TypeElement)element).getQualifiedName().toString();
 				final var ps=new PrintStream(new File(md+"exception/", typeName));
 				ps.println(className);

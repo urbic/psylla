@@ -104,7 +104,6 @@ LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local -Ddestdir=%{buildroot} install
 %{_datadir}/vim/site/ftdetect/%{name}.vim
 %{_datadir}/vim/site/syntax/%{name}.vim
 %{_datadir}/mime/packages/%{name}.xml
-%{_datadir}/ant/lib/ant-%{name}.jar
 %config %{_sysconfdir}/ant.d/*
 %{_mandir}/man1/*.1%{?ext_man}
 %dir %{_docdir}/%{name}

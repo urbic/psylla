@@ -1,11 +1,13 @@
 package coneforest.psylla;
-import coneforest.psylla.core.*;
+
+import coneforest.psylla.core.errors.PsyInvalidExternal;
+import coneforest.psylla.core.types.PsyTextual;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Files;
-import java.util.jar.JarFile;
-import java.util.jar.JarEntry;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 abstract public class ClassLoader
 	extends java.lang.ClassLoader
@@ -16,7 +18,7 @@ abstract public class ClassLoader
 	}
 
 	public void psyExternal(final PsyTextual oClassName)
-		throws PsyErrorException
+		throws PsyInvalidExternal
 	{
 		try
 		{
@@ -24,7 +26,7 @@ abstract public class ClassLoader
 		}
 		catch(final ClassNotFoundException ex)
 		{
-			throw new PsyInvalidExternalException();
+			throw new PsyInvalidExternal();
 		}
 	}
 

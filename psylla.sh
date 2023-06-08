@@ -3,8 +3,8 @@
 if [ -x /usr/bin/build-classpath ]; then
 	exec java \
 		--add-reads coneforest.psylla=ALL-UNNAMED \
-		-cp target/classes:$(build-classpath jline1) \
-		-p target/classes:$(build-classpath junit coneforest.clianthus) \
+		-cp $(build-classpath jline1) \
+		-p target/artifacts/jar:$(build-classpath coneforest.clianthus) \
 		coneforest.psylla.Psylla \
 		-Isrc/main/psylla \
 		"$@"

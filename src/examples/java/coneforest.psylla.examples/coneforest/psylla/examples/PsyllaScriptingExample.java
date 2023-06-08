@@ -1,6 +1,7 @@
 package coneforest.psylla.examples;
 
-import javax.script.*;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 public class PsyllaScriptingExample
 {
@@ -16,7 +17,7 @@ public class PsyllaScriptingExample
 		{
 			engine.eval("0 1 9 { ? } for");
 		}
-		catch(final javax.script.ScriptException ex)
+		catch(final ScriptException ex)
 		{
 			System.err.println(ex.getMessage());
 		}

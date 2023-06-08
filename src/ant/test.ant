@@ -11,12 +11,15 @@
 		<taskdef name="psyllaunit"
 			classname="coneforest.psylla.tools.ant.PsyllaUnit"
 			>
-			<classpath refid="modulepath.main"/>
-			<classpath refid="classpath.main"/>
+			<classpath>
+				<path refid="modulepath.main"/>
+				<path refid="classpath.main"/>
+			</classpath>
 		</taskdef>
 		<psyllaunit haltonfailure="yes">
 			<arg value="-LC"/>
 			<arg value="-I${src.main.psylla}"/>
+			<classpath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
 			<formatter type="plain" usefile="false"/>
 			<!--test name="${src.test.psylla}"/-->
@@ -32,8 +35,11 @@
 			name="psylla"
 			classname="coneforest.psylla.tools.ant.Psylla"
 			>
-			<classpath refid="modulepath.main"/>
-			<classpath refid="classpath.main"/>
+			<classpath>
+				<path refid="modulepath.main"/>
+				<path refid="classpath.main"/>
+				<pathelement location="/usr/share/java/coneforest.clianthus.jar"/>
+			</classpath>
 		</taskdef>
 		<psylla eval="1 1 99 { ? } for"/>
 		<psylla eval="1 atan 4 mul ?"/>

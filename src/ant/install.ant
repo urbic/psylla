@@ -80,14 +80,9 @@
 		</copy>
 
 		<!-- Install Ant task -->
-		<symlink
-			link="${destdir}/${config.datadir}/ant/lib/ant-${project.name}.jar"
-			resource="../../java/${project.name}/${project.maven.groupId}.${project.maven.artifactId}.jar"
-			overwrite="true"
-			/>
 		<echo
 			file="${destdir}/${config.sysconfdir}/ant.d/${project.name}"
-			message="${project.name} ant/ant-${project.name}${line.separator}"
+			message="${project.name}"
 			/>
 	</target>
 

@@ -1,6 +1,6 @@
 package coneforest.psylla;
 
-import coneforest.psylla.core.*;
+import coneforest.psylla.core.errors.PsyError;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.InputStreamReader;
@@ -23,7 +23,7 @@ public class Psylla
 		{
 			launch(System.out, System.err, args);
 		}
-		catch(final PsyErrorException e)
+		catch(final PsyError e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
@@ -42,7 +42,7 @@ public class Psylla
 	}
 
 	public Psylla(final PsyllaConfig psyllaConfig)
-		throws PsyErrorException
+		throws PsyError
 	{
 		interpreter=(psyllaConfig.scriptReader!=null)?
 			new Interpreter()
@@ -62,7 +62,7 @@ public class Psylla
 						{
 							repl();
 						}
-						catch(final PsyErrorException e)
+						catch(final PsyError e)
 						{
 							// NOP
 						}
@@ -83,14 +83,14 @@ public class Psylla
 	*
 	*	@param args the command-line options
 	*	@return the {@link Psylla} instance launched.
-	*	@throws PsyErrorException
+	*	@throws PsyError
 	*	@throws coneforest.clianthus.processor.ProcessingException
 	*	@throws FileNotFoundException
 	*/
 	public static Psylla launch(final PrintWriter outputWriter, final PrintWriter errorWriter,
 			final String... args)
 		throws
-			PsyErrorException,
+			PsyError,
 			coneforest.clianthus.processor.ProcessingException,
 			FileNotFoundException
 	{
@@ -162,7 +162,7 @@ public class Psylla
 			final PrintStream outputStream, final PrintStream errorStream,
 			final String... args)
 		throws
-			PsyErrorException,
+			PsyError,
 			coneforest.clianthus.processor.ProcessingException,
 			FileNotFoundException
 	{

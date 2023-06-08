@@ -2,6 +2,8 @@ package coneforest.psylla.tools.ant;
 
 import static org.junit.Assert.*;
 
+import coneforest.clianthus.processor.ProcessingException;
+import coneforest.psylla.core.errors.PsyError;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -77,11 +79,11 @@ public class PsyllaTest
 			coneforest.psylla.Psylla.launch(
 					System.out, System.err, cmdLine).join();
 		}
-		catch(final coneforest.psylla.core.PsyErrorException e)
+		catch(final PsyError e)
 		{
 			// TODO
 		}
-		catch(final coneforest.clianthus.processor.ProcessingException e)
+		catch(final ProcessingException e)
 		{
 			// TODO
 		}

@@ -1,5 +1,6 @@
 package coneforest.psylla;
-import coneforest.psylla.core.*;
+
+import coneforest.psylla.core.types.PsyObject;
 
 /**
 *	An interpreter’s execution stack.

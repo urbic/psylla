@@ -1,10 +1,14 @@
 package coneforest.psylla.engine;
 
+import java.util.List;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineFactory;
+
 /**
 *	The Psylla language scripting engine factory.
 */
 public class PsyllaScriptEngineFactory
-	implements javax.script.ScriptEngineFactory
+	implements ScriptEngineFactory
 {
 	/**
 	*	@return a string {@code "Psylla"}.
@@ -21,7 +25,7 @@ public class PsyllaScriptEngineFactory
 	*	@return an engine.
 	*/
 	@Override
-	public javax.script.ScriptEngine getScriptEngine()
+	public ScriptEngine getScriptEngine()
 	{
 		return new PsyllaScriptEngine(this);
 	}
@@ -30,9 +34,9 @@ public class PsyllaScriptEngineFactory
 	*	@return a list consisting of single string {@code "psylla"}.
 	*/
 	@Override
-	public java.util.List<String> getNames()
+	public List<String> getNames()
 	{
-		return java.util.Collections.unmodifiableList(java.util.Arrays.asList("psylla"));
+		return List.<String>of("psylla");
 	}
 
 	@Override
@@ -63,15 +67,15 @@ public class PsyllaScriptEngineFactory
 	@Override
 	public String getParameter(final String key)
 	{
-		if(key.equals(javax.script.ScriptEngine.ENGINE))
+		if(key.equals(ScriptEngine.ENGINE))
 			return getEngineName();
-		if(key.equals(javax.script.ScriptEngine.ENGINE_VERSION))
+		if(key.equals(ScriptEngine.ENGINE_VERSION))
 			return getEngineVersion();
-		if(key.equals(javax.script.ScriptEngine.NAME))
+		if(key.equals(ScriptEngine.NAME))
 			return getEngineName();
-		if(key.equals(javax.script.ScriptEngine.LANGUAGE))
+		if(key.equals(ScriptEngine.LANGUAGE))
 			return getLanguageName();
-		if(key.equals(javax.script.ScriptEngine.LANGUAGE_VERSION))
+		if(key.equals(ScriptEngine.LANGUAGE_VERSION))
 			return getLanguageVersion();
 		if(key.equals("THREADING"))
 			return "MULTITHREADED";	// TODO
@@ -105,10 +109,10 @@ public class PsyllaScriptEngineFactory
 	*	@return a list consisting of single string {@code "application/x-psylla"}.
 	*/
 	@Override
-	public java.util.List<String> getMimeTypes()
+	public List<String> getMimeTypes()
 	{
 		if(mimeTypes==null)
-			mimeTypes=java.util.Collections.unmodifiableList(java.util.Arrays.asList("application/x-psylla"));
+			mimeTypes=List.<String>of("application/x-psylla");
 		return mimeTypes;
 	}
 
@@ -116,13 +120,13 @@ public class PsyllaScriptEngineFactory
 	*	@return a list consisting of single string {@code "psy"}.
 	*/
 	@Override
-	public java.util.List<String> getExtensions()
+	public List<String> getExtensions()
 	{
 		if(extensions==null)
-			extensions=java.util.Collections.unmodifiableList(java.util.Arrays.asList("psy"));
+			extensions=List.<String>of("psy");
 		return extensions;
 	}
 
-	private java.util.List<String> mimeTypes;
-	private java.util.List<String> extensions;
+	private List<String> mimeTypes;
+	private List<String> extensions;
 }

@@ -2,7 +2,7 @@ package coneforest.psylla.tools.toolprovider;
 
 import coneforest.psylla.Messages;
 import coneforest.psylla.Psylla;
-import coneforest.psylla.core.*;
+import coneforest.psylla.core.errors.PsyError;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.spi.ToolProvider;
@@ -24,7 +24,7 @@ public class PsyllaToolProvider
 		{
 			Psylla.launch(outputWriter, errorWriter, args);
 		}
-		catch(final PsyErrorException e)
+		catch(final PsyError e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			return 1;
