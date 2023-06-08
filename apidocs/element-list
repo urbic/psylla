@@ -1,4 +1,5 @@
 module:coneforest.psylla
 coneforest.psylla
-coneforest.psylla.core
+coneforest.psylla.core.errors
+coneforest.psylla.core.types
 coneforest.psylla.engine
