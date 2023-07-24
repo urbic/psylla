@@ -17,6 +17,7 @@
 <!ENTITY PsyllaReference_Operators							SYSTEM "PsyllaReference_Operators.docbook">
 <!ENTITY PsyllaReference_Errors								SYSTEM "PsyllaReference_Errors.docbook">
 <!ENTITY PsyllaReference_Development						SYSTEM "PsyllaReference_Development.docbook">
+<!ENTITY PsyllaReference_Bibliography						SYSTEM "PsyllaReference_Bibliography.docbook">
 
 <!ENTITY PsyllaReference_Types_Details_additive				SYSTEM "PsyllaReference_Types_Details_additive.docbook">
 <!ENTITY PsyllaReference_Types_Details_appendable			SYSTEM "PsyllaReference_Types_Details_appendable.docbook">

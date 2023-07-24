@@ -1,8 +1,13 @@
 package coneforest.psylla.tools.ant;
+
 import coneforest.psylla.*;
+import java.util.ArrayList;
+import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.taskdefs.optional.junit.JUnitTask;
+import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 
 public class PsyllaUnit
-	extends org.apache.tools.ant.taskdefs.optional.junit.JUnitTask
+	extends JUnitTask
 {
 	public PsyllaUnit()
 		throws Exception
@@ -11,16 +16,16 @@ public class PsyllaUnit
 
 	@Override
 	public void execute()
-		throws org.apache.tools.ant.BuildException
+		throws BuildException
 	{
 		final var args=new String[this.args.size()];
 		int i=0;
 		for(final Arg a: this.args)
 			args[i++]=a.getValue();
-		final String argsEncoded=coneforest.psylla.tools.ant.Base64Codec.encode(args);
+		final String argsEncoded=Base64Codec.encode(args);
 		for(final Test t: tests)
 		{
-			final var test=new org.apache.tools.ant.taskdefs.optional.junit.JUnitTest(
+			final var test=new JUnitTest(
 					PsyllaTest.class.getName(),
 					haltOnError,
 					haltOnFail,
@@ -62,11 +67,9 @@ public class PsyllaUnit
 	private boolean haltOnError=false;
 	private boolean haltOnFail=false;
 
-	private final static java.util.ArrayList<Test> tests
-		=new java.util.ArrayList<Test>();
+	private final static ArrayList<Test> tests=new ArrayList<>();
 
-	private final static java.util.ArrayList<Arg> args
-		=new java.util.ArrayList<Arg>();
+	private final static ArrayList<Arg> args=new ArrayList<>();
 
 	public class Test
 	{

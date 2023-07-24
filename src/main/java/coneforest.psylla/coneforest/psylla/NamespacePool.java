@@ -1,6 +1,6 @@
 package coneforest.psylla;
 
-import coneforest.psylla.core.types.PsyNamespace;
+import coneforest.psylla.core.*;
 import java.util.HashMap;
 
 public class NamespacePool
@@ -12,6 +12,5 @@ public class NamespacePool
 		return pool.get(prefix);
 	}
 
-	private final HashMap<String, PsyNamespace> pool
-		=new HashMap<String, PsyNamespace>();
+	private final HashMap<String, PsyNamespace> pool=new HashMap<>();
 }

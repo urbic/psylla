@@ -498,6 +498,11 @@
 </varlistentry>
 
 <varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_load" xrefstyle="template:%t"/></term>
+<listitem>search a value by the key in the dictionary stack</listitem>
+</varlistentry>
+
+<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_loop" xrefstyle="template:%t"/></term>
 <listitem>the unconditional cycle</listitem>
 </varlistentry>
@@ -1286,11 +1291,6 @@ flush output buffer</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_hashcode" xrefstyle="template:%t"/></term>
 <listitem>the hash code of the object</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_load" xrefstyle="template:%t"/></term>
-<listitem>search a value by the key in the dictionary stack</listitem>
 </varlistentry>
 
 <varlistentry>

@@ -1,7 +1,10 @@
 package coneforest.psylla.tools.ant;
 
-import coneforest.psylla.core.errors.PsyError;
+import coneforest.psylla.core.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import org.apache.tools.ant.BuildException;
 
 public class Psylla
 	extends org.apache.tools.ant.Task
@@ -9,7 +12,7 @@ public class Psylla
 	@Override
 	public void execute()
 	{
-		final ArrayList<String> psyllaArgs=new ArrayList<String>();
+		final var psyllaArgs=new ArrayList<String>();
 		if(consoleEncoding!=null)
 			psyllaArgs.add("--console-encoding="+consoleEncoding);
 		if(classPath!=null)
@@ -29,16 +32,15 @@ public class Psylla
 		{
 			final String arg=argObject.getValue();
 			if(arg==null)
-				throw new org.apache.tools.ant.BuildException("\"arg\" element must have \"value\" attribute");
+				throw new BuildException("\"arg\" element must have \"value\" attribute");
 			args[i++]=arg;
 		};
 
 		try
 		{
-			coneforest.psylla.Psylla.launch(
-				System.out, System.err, args).join(timeout);
+			coneforest.psylla.Psylla.launch(System.out, System.err, args).join(timeout);
 		}
-		catch(final PsyError e)
+		catch(final PsyErrorException e)
 		{
 			// TODO
 		}
@@ -46,7 +48,7 @@ public class Psylla
 		{
 			// TODO
 		}
-		catch(final java.io.FileNotFoundException e)
+		catch(final FileNotFoundException e)
 		{
 			// TODO
 		}
@@ -75,7 +77,7 @@ public class Psylla
 		consoleEncoding=value;
 	}
 
-	public void setScript(final java.io.File value)
+	public void setScript(final File value)
 	{
 		script=value;
 	}
@@ -92,11 +94,11 @@ public class Psylla
 		return arg;
 	}
 
-	private final ArrayList<Arg> argList=new ArrayList<Arg>();
+	private final ArrayList<Arg> argList=new ArrayList<>();
 
 	private String eval, classPath, consoleEncoding, locale;
 
-	private java.io.File script;
+	private File script;
 
 	private int timeout;
 

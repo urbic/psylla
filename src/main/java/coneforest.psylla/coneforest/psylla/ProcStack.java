@@ -1,6 +1,6 @@
 package coneforest.psylla;
 
-import coneforest.psylla.core.types.PsyProc;
+import coneforest.psylla.core.*;
 
 /**
 *	An interpreter’s procedure stack.

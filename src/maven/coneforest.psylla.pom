@@ -12,6 +12,7 @@
 
 	<name>${ivy.pom.name}</name>
 	<description>${ivy.pom.description}</description>
+	<inceptionYear>2014</inceptionYear>
 	<url>${ivy.pom.url}</url>
 
 	<licenses>

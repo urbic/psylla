@@ -1,37 +1,26 @@
 package coneforest.psylla.extensions.romannumerals;
 
-import coneforest.psylla.core.errors.PsyError;
-import coneforest.psylla.core.errors.PsyRangeCheck;
-import coneforest.psylla.core.errors.PsyUndefinedResult;
-import coneforest.psylla.core.types.PsyInteger;
-import coneforest.psylla.core.types.PsyModule;
-import coneforest.psylla.core.types.PsyName;
-import coneforest.psylla.core.types.PsyOperator;
-import coneforest.psylla.core.types.PsyTextual;
+import coneforest.psylla.*;
+import coneforest.psylla.core.*;
+import java.util.regex.Pattern;
 
 public class PsyRomanNumerals
 	extends PsyModule
 {
 	public PsyRomanNumerals()
-		throws PsyError
+		throws PsyErrorException
 	{
 		//super("text.roman");
 
-		registerOperators
-			(
-				new PsyOperator.Arity11<PsyInteger>
-					("toroman", PsyRomanNumerals::psyToRoman),
-				new PsyOperator.Arity11<PsyTextual>
-					("fromroman", PsyRomanNumerals::psyFromRoman)
-			);
+		importOperators(getClass());
 	}
 
 	private static PsyName psyToRoman(final PsyInteger oInteger)
-		throws PsyError
+		throws PsyErrorException
 	{
 		long n=oInteger.longValue();
 		if(n<0 || n>=4000)
-			throw new PsyRangeCheck();
+			throw new PsyRangeCheckException();
 		final var sb=new StringBuilder();
 		for(int d=0; n>0; n/=10, d++)
 			sb.insert(0, conversionTable[d][(int)n % 10]);
@@ -39,11 +28,11 @@ public class PsyRomanNumerals
 	}
 
 	private static PsyInteger psyFromRoman(final PsyTextual oTextual)
-		throws PsyError
+		throws PsyErrorException
 	{
 		final var romanMatcher=romanPattern.matcher(oTextual.stringValue());
 		if(!romanMatcher.matches())
-			throw new PsyUndefinedResult();
+			throw new PsyUndefinedResultException();
 		int result=0;
 		for(int d=3; d>=0; d--)
 			for(int n=0; n<conversionTable[d].length; n++)
@@ -55,8 +44,8 @@ public class PsyRomanNumerals
 		return PsyInteger.of(result);
 	}
 
-	private static final java.util.regex.Pattern romanPattern
-		=java.util.regex.Pattern.compile("^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$");
+	private static final Pattern romanPattern
+		=Pattern.compile("^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$");
 
 	private static final String[][] conversionTable=new String[][]
 		{
@@ -65,4 +54,12 @@ public class PsyRomanNumerals
 			{"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
 			{"", "M", "MM", "MMM"}
 		};
+
+	@OperatorType("toroman")
+	public static final ContextAction PSY_TOROMAN
+		=ContextAction.<PsyInteger>ofFunction(PsyRomanNumerals::psyToRoman);
+
+	@OperatorType("fromroman")
+	public static final ContextAction PSY_FROMROMAN
+		=ContextAction.<PsyTextual>ofFunction(PsyRomanNumerals::psyFromRoman);
 }

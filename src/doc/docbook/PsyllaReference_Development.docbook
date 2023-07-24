@@ -92,14 +92,15 @@ exec	# ⇒ "MCMLXXXVII"</programlisting>
 <title>Пример: римская числовая нотация</title>
 
 <para>
-В данном примере мы создаём словарь с двумя новыми операторами. Оператор <token
-language="psylla">toroman</token> преобразует целое число к строке, содержащей
-римскую запись. Оператор <token language="psylla">fromroman</token>, наоборот,
-преобразует строку с римской записью в числовую форму.
+In this example, we are creating a dictionary with two new operators. The
+<token language="psylla">toroman</token> operator converts an integer to
+a string containing Roman notation. The <token
+language="psylla">fromroman</token> operator, on the other hand, converts
+a Roman string into a numeric form.
 </para>
 
 <programlisting language="java"><textobject><textdata
-fileref="src/main/java/coneforest/psylla/extensions/romannumerals/PsyRomanNumerals.java"/></textobject></programlisting>
+fileref="src/main/java/coneforest.psylla/coneforest/psylla/extensions/romannumerals/PsyRomanNumerals.java"/></textobject></programlisting>
 
 </section>
 

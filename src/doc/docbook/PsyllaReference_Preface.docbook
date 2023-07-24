@@ -36,11 +36,9 @@ fileref="LICENSE"/></textobject></literallayout>
 <title>About this Reference</title>
 
 <para>
-This reference is inspired by the books <link
-xlink:href="https://www.adobe.com/products/postscript/pdfs/PLRM.pdf">PostScript®
-Language Reference (third edition)</link> and <link
-xlink:href="http://partners.adobe.com/public/developer/en/ps/psrefman.pdf">PostScript
-Language Reference Manual (second edition)</link>. The reference structure, the
+This reference is inspired by the books <biblioref
+linkend="PsyllaReference_Bibliography_PLRM2"/> and <biblioref
+linkend="PsyllaReference_Bibliography_PLRM3"/>. The reference structure, the
 description of the language and operators are largely borrowed from these
 sources. We thank the writers of Adobe Systems Incorporated for the excellent
 books.

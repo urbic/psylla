@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bibliography xml:id="PsyllaReference_Bibliography">
+<title>Bibliography</title>
+
+<biblioentry xml:id="PsyllaReference_Bibliography_PLRM2">
+<title>PostScript language reference manual</title>
+<org><orgname>Adobe Systems Incorporated</orgname></org>
+<edition>2nd edition</edition>
+<publisher><publishername>Addison-Wesley Publishing Company</publishername></publisher>
+<pubdate>1990</pubdate>
+<copyright><year>1985, 1986, 1987, 1988, 1990</year><holder>Adobe Systems Incorporated</holder>
+</copyright>
+<biblioid class="isbn">0-201-18127-4</biblioid>
+<bibliomisc><link xlink:href="https://www.os2site.com/sw/dev/openwatcom/docs/postscript_level_2_reference_manual.pdf"/></bibliomisc>
+</biblioentry>
+
+<biblioentry xml:id="PsyllaReference_Bibliography_PLRM3">
+<title>PostScript language reference manual</title>
+<org><orgname>Adobe Systems Incorporated</orgname></org>
+<edition>3rd edition</edition>
+<publisher><publishername>Addison-Wesley Publishing Company</publishername></publisher>
+<pubdate>1999</pubdate>
+<copyright><year>1985–1999</year><holder>Adobe Systems Incorporated</holder>
+</copyright>
+<biblioid class="isbn">0-201-37922-8</biblioid>
+<bibliomisc><link xlink:href="https://www.adobe.com/jp/print/postscript/pdfs/PLRM.pdf"/></bibliomisc>
+</biblioentry>
+
+</bibliography>

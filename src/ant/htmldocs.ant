@@ -55,6 +55,12 @@
 		>
 		<mkdir dir="${target.doc.html}"/>
 		<apply executable="dot" dest="${target.doc.html}" parallel="false">
+			<arg value="-Gbgcolor=none"/>
+			<arg value="-Nfontname=Roboto Mono,monospace"/>
+			<arg value="-Nfontsize=12px"/>
+			<arg value="-Nshape=note"/>
+			<arg value="-Nstyle=filled"/>
+			<arg value="-Nfillcolor=linen"/>
 			<arg value="-Tsvg"/>
 			<arg value="-o"/>
 			<targetfile/>

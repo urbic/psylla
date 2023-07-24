@@ -53,6 +53,7 @@
 	<property name="file.encoding" value="UTF-8"/>
 	<property name="linux.flavour" value="redhat"/>
 	<property name="build.sysclasspath" value="ignore"/>
+	<property name="java.release" value="17"/>
 
 	<property file="${src.ant}/ivy.properties"/>
 	<property file="${src.ant}/version.properties"/>
@@ -139,7 +140,7 @@
 		>
 		<javac
 			destdir="${target.classes}"
-			release="17"
+			release="${java.release}"
 			includeantruntime="false"
 			encoding="UTF-8"
 			createMissingPackageInfoClass="false"
@@ -149,21 +150,23 @@
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
-			<include name="coneforest/psylla/ErrorType.java"/>
 			<include name="coneforest/psylla/Type.java"/>
+			<include name="coneforest/psylla/ErrorType.java"/>
+			<include name="coneforest/psylla/OperatorType.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:none"/>
-			<compilerarg value="--add-reads=coneforest.psylla=ALL-UNNAMED"/>
-			<compilerarg value="--add-reads=coneforest.psylla.tools=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}.tools=ALL-UNNAMED"/>
 		</javac>
+		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/error"/>
+		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/operator"/>
 		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/type"/>
-		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/exception"/>
 		<mkdir dir="${target.dot}"/>
 		<javac
 			destdir="${target.classes}"
-			release="17"
+			release="${java.release}"
 			includeantruntime="false"
 			encoding="UTF-8"
 			createMissingPackageInfoClass="false"
@@ -172,16 +175,17 @@
 			<modulesourcepath refid="modulesourcepath.test"/>
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
-			<compilerarg value="--processor-path=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}"/>
+			<compilerarg
+				value="--processor-path=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}:${target.classes}/${project.maven.groupId}.${project.maven.artifactId}.tools"/>
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
 			<compilerarg value="-Xlint:deprecation"/>
-			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/"/>
+			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:class"/>
-			<compilerarg value="--add-reads=coneforest.psylla=ALL-UNNAMED"/>
-			<compilerarg value="--add-reads=coneforest.psylla.tools=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}.tools=ALL-UNNAMED"/>
 		</javac>
 	</target>
 
@@ -206,14 +210,18 @@
 			charset="UTF-8"
 			windowtitle="Psylla ${project.version}"
 			>
-			<!--classpath refid="classpath.main"/-->
 			<module name="${project.maven.groupId}.${project.maven.artifactId}"/>
+			<module name="${project.maven.groupId}.${project.maven.artifactId}.tools"/>
 			<modulesourcepath refid="modulesourcepath.main"/>
 			<modulepath refid="modulepath.main"/>
+			<classpath refid="classpath.main"/>
+			<arg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}=ALL-UNNAMED"/>
+			<arg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}.tools=ALL-UNNAMED"/>
 			<arg value="-Xdoclint:missing,reference"/>
-			<link href="${config.javadocdir.java}"/>
-			<link href="${config.javadocdir.junit4}"/>
-			<link href="${config.javadocdir.jline1}"/>
+			<link href="file://${config.javadocdir.java}"/>
+			<link href="https://ant.apache.org/manual/api/"/>
+			<link href="file://${config.javadocdir.junit4}"/>
+			<link href="file://${config.javadocdir.jline1}"/>
 		</javadoc>
 	</target>
 
@@ -264,11 +272,7 @@
 		<jar
 			jarfile="${target.artifacts}/jar/${project.maven.groupId}.${project.maven.artifactId}.tools-${project.version}.jar"
 			basedir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}.tools"
-			>
-			<manifest>
-				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
-			</manifest>
-		</jar>
+			/>
 	</target>
 
 	<target name="pom"

@@ -1,14 +1,17 @@
 package coneforest.psylla;
 
+import java.util.ArrayList;
+
 /**
 *	Base class for interpreter’s stacks.
 *
 *	@param <E> a type of an element.
 */
-public class Stack<E> extends java.util.ArrayList<E>
+public class Stack<E>
+	extends ArrayList<E>
 {
 	/**
-	*	Pops and returns the last element of the stack.
+	*	Pops and returns the topmost element of this stack.
 	*
 	*	@return an element popped.
 	*/
@@ -18,7 +21,7 @@ public class Stack<E> extends java.util.ArrayList<E>
 	}
 
 	/**
-	*	Returns the last element of the stack without popping it.
+	*	Returns the topmost of this stack without popping it.
 	*
 	*	@return an element.
 	*/

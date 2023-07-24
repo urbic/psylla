@@ -27,26 +27,12 @@ Returns the <replaceable>absolute_value</replaceable> of the
 </itemizedlist>
 </formalpara>
 
-<para>
-Если <replaceable>операнд</replaceable> имеет тип <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>, и результат принадлежит
-диапазону <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>, таким же будет и тип
-результата. Если тип <replaceable>операнда</replaceable> <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/> и равен
-наименьшему целому значению, или тип <replaceable>операнда</replaceable> <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_real"/> или <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>, тип
-<replaceable>результата</replaceable> <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_real"/>.
-</para>
-
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">-9 abs
 	▶ 9
 -9223372036854775808 abs
-	▶ 9.223372036854776E18
+	▶ 9223372036854775808
 3 4 complex abs
 	▶ 5.0</programlisting>
 </formalpara>

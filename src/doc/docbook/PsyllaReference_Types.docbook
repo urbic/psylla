@@ -69,24 +69,6 @@ linkend="PsyllaReference_Types_Details_integer"/>.
 </para>
 </section>
 
-<section xml:id="PsyllaReference_Types_Details_convertabletoname">
-<title><type>convertabletoname</type></title>
-<para>
-Тип объектов, которые могут быть преобразованы к типу <xref
-xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_name"/>.
-</para>
-</section>
-
-<section xml:id="PsyllaReference_Types_Details_convertabletostring">
-<title><type>convertabletostring</type></title>
-<para>
-Тип объектов, которые могут быть преобразованы к типу <xref
-xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_string"/>.
-</para>
-</section>
-
 <section xml:id="PsyllaReference_Types_Details_convertabletoreal">
 <title><type>convertabletoreal</type></title>
 <para>

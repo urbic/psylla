@@ -20,7 +20,7 @@
 	<xsl:param name="admon.style"/>
 	<xsl:param name="arg.rep.repeat.str">…</xsl:param>
 	<xsl:param name="bibliography.numbered" select="1"/>
-	<xsl:param name="bibliography.style">iso960</xsl:param>
+	<xsl:param name="bibliography.style">iso690</xsl:param>
 	<xsl:param name="blurb.on.titlepage.enabled" select="1"/>
 	<xsl:param name="callout.graphics" select="0"/>
 	<xsl:param name="callout.unicode" select="1"/>

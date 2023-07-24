@@ -1,8 +1,7 @@
 package coneforest.psylla.engine;
 
-import coneforest.psylla.Interpreter;
-import coneforest.psylla.core.errors.PsyError;
-import coneforest.psylla.core.types.PsyObject;
+import coneforest.psylla.*;
+import coneforest.psylla.core.*;
 import java.io.Reader;
 import javax.script.AbstractScriptEngine;
 import javax.script.Bindings;
@@ -55,7 +54,7 @@ public class PsyllaScriptEngine
 		{
 			return interpreter.systemDict().get(key);
 		}
-		catch(final PsyError e)
+		catch(final PsyErrorException e)
 		{
 			return null;
 		}

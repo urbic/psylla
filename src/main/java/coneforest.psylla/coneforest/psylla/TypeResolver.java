@@ -1,7 +1,6 @@
 package coneforest.psylla;
 
-import coneforest.psylla.core.types.PsyObject;
-import coneforest.psylla.core.errors.PsyUndefined;
+import coneforest.psylla.core.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +8,7 @@ import java.io.InputStreamReader;
 public class TypeResolver
 {
 	public static Class<? extends PsyObject> resolve(final String typeName)
-		throws PsyUndefined
+		throws PsyUndefinedException
 	{
 		try
 		{
@@ -22,7 +21,7 @@ public class TypeResolver
 		catch(final IOException|ClassNotFoundException ex)
 		{
 			// TODO more appropriate exception when IOException is thrown
-			throw new PsyUndefined();
+			throw new PsyUndefinedException();
 		}
 	}
 }

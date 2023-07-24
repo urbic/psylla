@@ -4,7 +4,11 @@
 
 <para>
 Establishes the stopping context and invokes an
-<replaceable>object</replaceable> (typically a procedure) in it.
+<replaceable>object</replaceable> (typically a procedure) in it. If the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stop"/>
+operator was called during execution of the <replaceable>object</replaceable>,
+returns <constant>true</constant>, otherwise returns
+<constant>false</constant>.
 </para>
 
 <formalpara>
@@ -29,13 +33,6 @@ Establishes the stopping context and invokes an
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-If the <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_stop"/> operator was called during
-execution of the <replaceable>object</replaceable>, returns
-<constant>true</constant>, otherwise returns <constant>false</constant>.
-</para>
 
 <formalpara>
 &TitleErrors;

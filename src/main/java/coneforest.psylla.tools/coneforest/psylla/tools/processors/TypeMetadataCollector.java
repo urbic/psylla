@@ -1,7 +1,6 @@
 package coneforest.psylla.tools.processors;
 
-import coneforest.psylla.ErrorType;
-import coneforest.psylla.Type;
+import coneforest.psylla.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -19,16 +18,19 @@ import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.VariableElement;
 import javax.tools.Diagnostic;
 
-@SupportedAnnotationTypes({"coneforest.psylla.Type", "coneforest.psylla.ErrorType"})
+@SupportedAnnotationTypes({"coneforest.psylla.Type", "coneforest.psylla.ErrorType", "coneforest.psylla.OperatorType"})
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
-public class TypeMetadataCollector extends AbstractProcessor
+public class TypeMetadataCollector
+	extends AbstractProcessor
 {
 	@Override
 	public boolean process(final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv)
 	{
 		final var md=options.get("coneforest.psylla.tools.processors.TypeMetadataCollector.metadataDir");
+
 		final var typeElements=roundEnv.getElementsAnnotatedWith(Type.class);
 
 		for(final var element: typeElements)
@@ -37,7 +39,7 @@ public class TypeMetadataCollector extends AbstractProcessor
 			{
 				final var typeName=element.getAnnotation(Type.class).value();
 				final var className=((TypeElement)element).getQualifiedName().toString();
-				final var ps=new PrintStream(new File(md+"type/", typeName));
+				final var ps=new PrintStream(new File(md+"/type", typeName));
 				ps.println(className);
 				ps.close();
 			}
@@ -54,8 +56,23 @@ public class TypeMetadataCollector extends AbstractProcessor
 			{
 				final var typeName=element.getAnnotation(ErrorType.class).value();
 				final var className=((TypeElement)element).getQualifiedName().toString();
-				final var ps=new PrintStream(new File(md+"exception/", typeName));
+				final var ps=new PrintStream(new File(md+"/error", typeName));
 				ps.println(className);
+				ps.close();
+			}
+			catch(final FileNotFoundException e)
+			{
+				messager.printMessage(Diagnostic.Kind.ERROR, e.getMessage(), element);
+			}
+		}
+		final var operatorElements=roundEnv.getElementsAnnotatedWith(OperatorType.class);
+		for(final var element: operatorElements)
+		{
+			try
+			{
+				final var operatorName=element.getAnnotation(OperatorType.class).value();
+				final var ps=new PrintStream(new File(md+"/operator", operatorName));
+				ps.println(element.getEnclosingElement()+"#"+element.getSimpleName());
 				ps.close();
 			}
 			catch(final FileNotFoundException e)
@@ -70,7 +87,7 @@ public class TypeMetadataCollector extends AbstractProcessor
 	@Override
 	public Set<String> getSupportedOptions()
 	{
-		return Set.of("coneforest.psylla.tools.processors.TypeMetadataCollector.metadataDir");
+		return Set.of(getClass().getName()+".metadataDir");
 	}
 
 	@Override

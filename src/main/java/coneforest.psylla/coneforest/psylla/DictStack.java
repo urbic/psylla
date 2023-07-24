@@ -1,14 +1,8 @@
 package coneforest.psylla;
 
-import coneforest.psylla.core.errors.PsyDictStackUnderflow;
-import coneforest.psylla.core.errors.PsyError;
-import coneforest.psylla.core.errors.PsyUndefined;
-import coneforest.psylla.core.types.PsyDict;
-import coneforest.psylla.core.types.PsyFormalDict;
-import coneforest.psylla.core.types.PsyNamespace;
-import coneforest.psylla.core.types.PsyObject;
-import coneforest.psylla.core.types.PsySystemDict;
-import coneforest.psylla.core.types.PsyTextual;
+import coneforest.psylla.core.*;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 /**
 *	An interpreter’s dictionary stack.
@@ -17,13 +11,12 @@ public class DictStack
 	extends Stack<PsyFormalDict<PsyObject>>
 {
 	/**
-	*	Creates a new dictionary stack with two dictionaries in it (system and
-	*	user dictionaries).
+	*	Creates a new dictionary stack with two dictionaries in it (system and user dictionaries).
 	*
-	*	@throws PsyError when the error occurs.
+	*	@throws PsyUndefinedException when TODO.
 	*/
 	public DictStack()
-		throws PsyError
+		throws PsyUndefinedException
 	{
 		var oSystemDict=new PsySystemDict();
 		var oUserDict=new PsyDict();
@@ -43,33 +36,36 @@ public class DictStack
 	}
 
 	public <T extends PsyObject> T load(final String key)
-		throws PsyError
+		throws PsyUndefinedException
 	{
-		final var oDict=where(key);
-		if(oDict!=null)
-			return (T)oDict.get(key);
-		else
-			throw new PsyUndefined();
+		try
+		{
+			return (T)where(key).orElseThrow().get(key);
+		}
+		catch(final NoSuchElementException ex)
+		{
+			throw new PsyUndefinedException();
+		}
 	}
 
 	public <T extends PsyObject> T load(final PsyTextual oKey)
-		throws PsyError
+		throws PsyUndefinedException
 	{
 		return this.<T>load(oKey.stringValue());
 	}
 
-	public PsyFormalDict where(final String key)
+	public Optional<PsyFormalDict> where(final String key)
 	{
 		for(int i=size()-1; i>=0; i--)
 		{
 			final var oDict=get(i);
 			if(oDict.known(key))
-				return oDict;
+				return Optional.<PsyFormalDict>of(oDict);
 		}
-		return null;
+		return Optional.<PsyFormalDict>empty();
 	}
 
-	public PsyFormalDict where(final PsyTextual oKey)
+	public Optional<PsyFormalDict> where(final PsyTextual oKey)
 	{
 		return where(oKey.stringValue());
 	}
@@ -85,17 +81,10 @@ public class DictStack
 		return null; // TODO
 	}
 
-	public void store(final String key, final PsyObject oValue)
+	public void store(final PsyTextual oKey, final PsyObject oValue)
 	{
-		var oDict=where(key);
-		if(oDict==null)
-			oDict=peek();
-		oDict.put(key, oValue);
-	}
-
-	public void psyStore(final PsyTextual oKey, final PsyObject oValue)
-	{
-		store(oKey.stringValue(), oValue);
+		var key=oKey.stringValue();
+		where(key).orElse(peek()).put(key, oValue);
 	}
 
 	public void begin(final PsyFormalDict oDict)
@@ -104,10 +93,10 @@ public class DictStack
 	}
 
 	public void end()
-		throws PsyDictStackUnderflow
+		throws PsyDictStackUnderflowException
 	{
 		if(size()<=2)
-			throw new PsyDictStackUnderflow();
+			throw new PsyDictStackUnderflowException();
 		pop();
 	}
 }

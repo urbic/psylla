@@ -3,19 +3,19 @@
 <title><token language="psylla">store</token></title>
 
 <para>
-Ищет словарь в стеке словарей (от вершины к основанию), в котором присутствует
-<replaceable>ключ</replaceable>, и cвязывает <replaceable>объект</replaceable>
-с <replaceable>ключом</replaceable> в найденном словаре. Если словарь не
-найден, связывает <replaceable>объект</replaceable>
-с <replaceable>ключом</replaceable> в текущем словаре (верхнем в стеке
-словарей).
+Looks up a dictionary in a dictionary stack (top to bottom) that contains a
+<replaceable>key</replaceable>, and associates an
+<replaceable>object</replaceable> with the <replaceable>key</replaceable> in
+the found dictionary. If no dictionary is found, associates the
+<replaceable>object</replaceable> with the <replaceable>key</replaceable> in
+the current dictionary (the topmost in the dictionary stack).
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
-<replaceable>ключ</replaceable>
-<replaceable>объект</replaceable>
+<replaceable>key</replaceable>
+<replaceable>object</replaceable>
 <token language="psylla">store</token>
 —
 </synopsis>
@@ -25,11 +25,11 @@
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>ключ</replaceable>:
+<replaceable>key</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
 </listitem>
 <listitem>
-<replaceable>объект</replaceable>:
+<replaceable>object</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>

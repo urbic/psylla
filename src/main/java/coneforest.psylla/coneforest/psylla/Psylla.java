@@ -1,6 +1,6 @@
 package coneforest.psylla;
 
-import coneforest.psylla.core.errors.PsyError;
+import coneforest.psylla.core.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.InputStreamReader;
@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class Psylla
 		{
 			launch(System.out, System.err, args);
 		}
-		catch(final PsyError e)
+		catch(final PsyErrorException e)
 		{
 			System.err.println(e.getLocalizedMessage());
 			System.exit(1);
@@ -42,7 +43,7 @@ public class Psylla
 	}
 
 	public Psylla(final PsyllaConfig psyllaConfig)
-		throws PsyError
+		throws PsyErrorException
 	{
 		interpreter=(psyllaConfig.scriptReader!=null)?
 			new Interpreter()
@@ -62,7 +63,7 @@ public class Psylla
 						{
 							repl();
 						}
-						catch(final PsyError e)
+						catch(final PsyErrorException e)
 						{
 							// NOP
 						}
@@ -81,16 +82,16 @@ public class Psylla
 	/**
 	*	Process command-line options and launches the Psylla interpreter.
 	*
-	*	@param args the command-line options
+	*	@param args the command-line options.
 	*	@return the {@link Psylla} instance launched.
-	*	@throws PsyError
-	*	@throws coneforest.clianthus.processor.ProcessingException
-	*	@throws FileNotFoundException
+	*	@throws PsyErrorException when TODO
+	*	@throws coneforest.clianthus.processor.ProcessingException when TODO
+	*	@throws FileNotFoundException when TODO
 	*/
 	public static Psylla launch(final PrintWriter outputWriter, final PrintWriter errorWriter,
 			final String... args)
 		throws
-			PsyError,
+			PsyErrorException,
 			coneforest.clianthus.processor.ProcessingException,
 			FileNotFoundException
 	{
@@ -125,13 +126,13 @@ public class Psylla
 		if(cli.getValue("eval")!=null)
 		{
 			scriptName="--eval";
-			shellArguments=java.util.Arrays.copyOfRange(args, processed, args.length);
+			shellArguments=Arrays.copyOfRange(args, processed, args.length);
 			scriptReader=new StringReader(cli.getValue("eval"));
 		}
 		else if(processed<args.length)
 		{
 			scriptName=args[processed];
-			shellArguments=java.util.Arrays.copyOfRange(args, processed+1, args.length);
+			shellArguments=Arrays.copyOfRange(args, processed+1, args.length);
 			scriptReader=scriptName.equals("-")?
 					new InputStreamReader(System.in):
 					new FileReader(scriptName);
@@ -162,7 +163,7 @@ public class Psylla
 			final PrintStream outputStream, final PrintStream errorStream,
 			final String... args)
 		throws
-			PsyError,
+			PsyErrorException,
 			coneforest.clianthus.processor.ProcessingException,
 			FileNotFoundException
 	{

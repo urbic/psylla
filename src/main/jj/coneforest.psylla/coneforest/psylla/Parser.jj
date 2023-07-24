@@ -2,7 +2,7 @@ PARSER_BEGIN(Parser)
 
 package coneforest.psylla;
 
-import coneforest.psylla.core.types.PsyReader;
+import coneforest.psylla.core.PsyReader;
 
 class Parser
 {

@@ -9,9 +9,9 @@ TODO
 <formalpara>
 &TitleSynopsis;
 <synopsis>
-<replaceable>объект</replaceable>
+<replaceable>object</replaceable>
 <token language="psylla">tostring</token>
-<replaceable>строка</replaceable>
+<replaceable>string</replaceable>
 </synopsis>
 </formalpara>
 
@@ -19,11 +19,11 @@ TODO
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>объект</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_convertabletostring"/>
+<replaceable>object</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>строка</replaceable>:
+<replaceable>string</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>

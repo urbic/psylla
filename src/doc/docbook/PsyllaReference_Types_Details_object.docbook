@@ -6,9 +6,4 @@
 An object, a basic type for all types in the Psylla language.
 </para>
 
-<formalpara>
-&TitleInherits;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_convertabletostring"/>.
-</formalpara>
-
 </section>

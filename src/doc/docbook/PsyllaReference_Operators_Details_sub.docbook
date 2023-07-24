@@ -29,18 +29,6 @@ Returns the <replaceable>difference</replaceable> of the
 </itemizedlist>
 </formalpara>
 
-<para>
-Если оба операнда имеют тип <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>, и результат принадлежит
-диапазону <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>, тип результата будет <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integer"/>. Если
-хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_real"/>, таким же будет тип результата.
-Если хотя бы один из операндов имеет тип <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_complex"/>, таким же будет тип результата.
-</para>
-
 <formalpara>
 &TitleErrors;
 <itemizedlist>

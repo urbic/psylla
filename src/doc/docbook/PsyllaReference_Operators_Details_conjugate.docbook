@@ -3,7 +3,7 @@
 <title><token language="psylla">conjugate</token></title>
 
 <para>
-Rturns the <replaceable>conjugation</replaceable> of a complex
+Returns the <replaceable>conjugation</replaceable> of a complex
 <replaceable>number</replaceable>.
 </para>
 

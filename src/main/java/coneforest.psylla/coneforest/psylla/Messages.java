@@ -1,5 +1,7 @@
 package coneforest.psylla;
 
+import java.util.ResourceBundle;
+
 public class Messages
 {
 	public static String getString(final String id)
@@ -12,6 +14,6 @@ public class Messages
 		return String.format(getString(id), args);
 	}
 
-	private static final java.util.ResourceBundle messages
-		=java.util.ResourceBundle.getBundle("coneforest.psylla.Messages");
+	private static final ResourceBundle messages
+		=ResourceBundle.getBundle("coneforest.psylla.Messages");
 }

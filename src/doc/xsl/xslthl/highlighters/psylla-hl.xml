@@ -46,7 +46,7 @@
 	</highlighter>
 
 	<highlighter type="regex">
-		<pattern>`([^\\]|\\[efranux])</pattern>
+		<pattern>[Cc]`([^\\]|\\[efranux])</pattern>
 		<style>number</style>
 	</highlighter>
 

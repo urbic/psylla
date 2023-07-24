@@ -1,9 +1,12 @@
 package coneforest.psylla;
 
-//@java.lang.annotation.Target({java.lang.annotation.ElementType.TYPE,java.lang.annotation.ElementType.TYPE_USE})
-@java.lang.annotation.Target(java.lang.annotation.ElementType.TYPE)
-@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-//@java.lang.annotation.Inherited
+import java.lang.annotation.ElementType;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface Type
 {
 	String value();
