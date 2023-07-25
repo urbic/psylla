@@ -22,7 +22,7 @@ Release:        0
 Summary:        @obs.package.summary@
 License:        Zlib
 Group:          Development/Languages/Other
-URL:            https://github.com/urbic/%{name}
+URL:            @project.url@
 Source:         %{name}-%{version}.tar.xz
 BuildRequires:  ivy-local
 BuildRequires:  java-devel >= 17
@@ -53,7 +53,8 @@ BuildRequires:  docbook5-xsl-stylesheets
 BuildRequires:  graphviz
 BuildRequires:  mvn(net.sf.xslthl:xslthl)
 BuildRequires:  sassc
-Requires:       paratype-pt-sans-fonts
+Requires:       adobe-sourcecodepro-fonts
+Requires:       adobe-sourcesanspro-fonts
 
 %description doc
 @obs.package.description@

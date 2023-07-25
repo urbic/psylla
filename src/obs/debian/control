@@ -22,7 +22,7 @@ Build-Depends:
 	graphviz
 Vcs-Git: @project.scm.url@.git
 Vcs-Browser: @project.scm.url@
-Homepage: @project.scm.url@
+Homepage: @project.url@
 
 Package: @obs.package.name@
 Architecture: all

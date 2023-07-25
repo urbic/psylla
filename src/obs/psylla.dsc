@@ -24,7 +24,7 @@ Build-Depends:
 	graphviz
 Vcs-Git: @project.scm.url@.git
 Vcs-Browser: @project.scm.url@
-Homepage: @project.scm.url@
+Homepage: @project.url@
 Debtransform-Release: 1
 Debtransform-Tar: @obs.package.name@-@obs.package.version@.tar.xz
 Files:

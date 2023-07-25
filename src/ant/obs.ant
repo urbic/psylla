@@ -37,6 +37,7 @@
 			<propertyref name="project.developer.name"/>
 			<propertyref name="project.developer.email"/>
 			<propertyref name="project.name"/>
+			<propertyref name="project.url"/>
 			<propertyref name="project.scm.url"/>
 		</propertyset>
 	</filterset>
