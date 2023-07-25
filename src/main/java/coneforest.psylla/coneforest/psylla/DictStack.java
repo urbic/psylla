@@ -75,8 +75,8 @@ public class DictStack
 		for(int i=size()-1; i>=0; i--)
 		{
 			final var oDict=get(i);
-			if(oDict instanceof PsyNamespace)
-				return (PsyNamespace)oDict;
+			if(oDict instanceof PsyNamespace oNamespace)
+				return oNamespace;
 		}
 		return null; // TODO
 	}

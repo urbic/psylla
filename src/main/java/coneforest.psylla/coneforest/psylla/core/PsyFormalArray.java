@@ -155,10 +155,7 @@ public interface PsyFormalArray<T extends PsyObject>
 		throws PsyRangeCheckException
 	{
 		int index=oIndex.intValue();
-		if(index<0
-			||
-			oEnumeration instanceof PsyLengthy
-			&& index+((PsyLengthy)oEnumeration).length()>=length())
+		if(index<0 || oEnumeration instanceof PsyLengthy oLengthy && index+oLengthy.length()>=length())
 			throw new PsyRangeCheckException();
 		for(final T o: oEnumeration)
 		{

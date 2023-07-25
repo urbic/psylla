@@ -7,7 +7,7 @@ import java.math.BigInteger;
 *	A representation of {@code integer}.
 */
 @Type("integer")
-public class PsyInteger
+public final class PsyInteger
 	implements
 		PsyBitwise<PsyIntegral>,
 		PsyIntegral
@@ -64,7 +64,9 @@ public class PsyInteger
 	{
 		if(oIntegral instanceof PsyInteger oInteger)
 			return PsyInteger.of(value | oInteger.value);
-		return PsyIntegral.of(bigIntegerValue().or(((PsyBigInteger)oIntegral).bigIntegerValue()));
+		if(oIntegral instanceof PsyBigInteger oBigInteger)
+			return PsyIntegral.of(bigIntegerValue().or(oBigInteger.bigIntegerValue()));
+		throw new ClassCastException();
 	}
 
 	@Override
@@ -72,7 +74,9 @@ public class PsyInteger
 	{
 		if(oIntegral instanceof PsyInteger oInteger)
 			return PsyInteger.of(value & oInteger.value);
-		return PsyIntegral.of(bigIntegerValue().and(((PsyBigInteger)oIntegral).bigIntegerValue()));
+		if(oIntegral instanceof PsyBigInteger oBigInteger)
+			return PsyIntegral.of(bigIntegerValue().and(oBigInteger.bigIntegerValue()));
+		throw new ClassCastException();
 	}
 
 	@Override
@@ -80,12 +84,15 @@ public class PsyInteger
 	{
 		if(oIntegral instanceof PsyInteger oInteger)
 			return PsyInteger.of(value ^ oInteger.value);
-		return PsyIntegral.of(bigIntegerValue().xor(((PsyBigInteger)oIntegral).bigIntegerValue()));
+		if(oIntegral instanceof PsyBigInteger oBigInteger)
+			return PsyIntegral.of(bigIntegerValue().xor(oBigInteger.bigIntegerValue()));
+		throw new ClassCastException();
 	}
 
 	@Override
 	public PsyIntegral psyNeg()
 	{
+		// TODO
 		return value!=Long.MIN_VALUE?
 			PsyInteger.of(-value): new PsyBigInteger(bigIntegerValue().negate());
 	}
@@ -95,13 +102,12 @@ public class PsyInteger
 	public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
 	{
 		if(oRealNumeric instanceof PsyInteger oInteger)
-			return value<oInteger.value? MINUS_ONE:
-				value>oInteger.value? ONE: ZERO;
+			return value<oInteger.value? MINUS_ONE: value>oInteger.value? ONE: ZERO;
 		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
-			return PsyInteger.of(
-					bigIntegerValue().compareTo(oBigInteger.bigIntegerValue()));
-		return value<((PsyReal)oRealNumeric).doubleValue()? MINUS_ONE:
-			value>((PsyReal)oRealNumeric).doubleValue()? ONE: ZERO;
+			return PsyInteger.of(bigIntegerValue().compareTo(oBigInteger.bigIntegerValue()));
+		if(oRealNumeric instanceof PsyReal oReal)
+			return value<oReal.doubleValue()? MINUS_ONE: value>oReal.doubleValue()? ONE: ZERO;
+		throw new ClassCastException();
 	}
 
 	@Override
@@ -168,9 +174,7 @@ public class PsyInteger
 			final var result=value+numeric;
 			if((value^numeric)<0|(value^result)>=0)
 				return PsyInteger.of(result);
-			else
-				return PsyIntegral.of(
-					bigIntegerValue().add(oInteger.bigIntegerValue()));
+			return PsyIntegral.of(bigIntegerValue().add(oInteger.bigIntegerValue()));
 		}
 		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
 			return PsyIntegral.of(
@@ -184,10 +188,11 @@ public class PsyInteger
 			}
 			catch(final PsyUndefinedResultException e)
 			{
-				// NOP
+				throw new AssertionError();
 			}
-
-		return new PsyReal(doubleValue()+oRealNumeric.doubleValue());
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()+oReal.doubleValue());
+		throw new ClassCastException();
 	}
 
 
@@ -219,8 +224,9 @@ public class PsyInteger
 			{
 				// NOP
 			}
-
-		return new PsyReal(doubleValue()-oRealNumeric.doubleValue());
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()-oReal.doubleValue());
+		throw new ClassCastException();
 	}
 
 	@Override
@@ -259,8 +265,9 @@ public class PsyInteger
 			{
 				// NOP
 			}
-
-		return new PsyReal(doubleValue()*oRealNumeric.doubleValue());
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()*oReal.doubleValue());
+		throw new ClassCastException();
 	}
 
 	@Override
@@ -272,7 +279,9 @@ public class PsyInteger
 			return bigIntegerValue().compareTo(oBigInteger.bigIntegerValue());
 		if(oRealNumeric instanceof PsyRational oRational)
 			return psyMul(oRational.psyDenominator()).cmp(oRational.psyNumerator());
-		return Double.compare(doubleValue(), oRealNumeric.doubleValue());
+		if(oRealNumeric instanceof PsyReal oReal)
+			return Double.compare(doubleValue(), oReal.doubleValue());
+		throw new ClassCastException();
 	}
 
 	@Override
@@ -284,85 +293,10 @@ public class PsyInteger
 		if(oRealNumeric instanceof PsyRational oRational)
 			return PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator()),
 					oRational.psyNumerator());
-
-		return new PsyReal(doubleValue()/oRealNumeric.doubleValue());
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()/oReal.doubleValue());
+		throw new ClassCastException();
 	}
-
-	/*
-	@Override
-	public PsyRealNumeric psyPow(final PsyInteger integer)
-	{
-		double resultValue=Math.pow(value, integer.doubleValue());
-		if(resultValue>=Long.MIN_VALUE && resultValue<=Long.MAX_VALUE)
-			return new PsyInteger(((Double)resultValue).longValue());
-		return new PsyReal(resultValue);
-	}
-	*/
-
-	/*
-	@Override
-	public PsyRealNumeric psyPow(final PsyNumeric cn)
-	{
-		double resultValue=Math.pow(value, cn.doubleValue());
-		if(numeric instanceof PsyInteger
-				&& resultValue>=Long.MIN_VALUE
-				&& resultValue<=Long.MAX_VALUE)
-			//return new PsyInteger(((Double)resultValue).longValue());
-			return new PsyInteger(resultValue);
-		else if(numeric instanceof PsyReal)
-			return new PsyReal(result);
-		else if(numeric instanceof PsyComplex)
-			return psyPow((PsyComplex)numeric);
-	}
-	*/
-
-	/*
-	@Override
-	public PsyNumeric psyPow(final PsyNumeric cn)
-		throws PsyErrorException
-	{
-		if(cn instanceof PsyInteger)
-		{
-			long cnValue=((PsyInteger)cn).value;
-			if(cnValue<0)
-				throw new PsyRangeCheckException();
-			if(value>=-2 & value<=2)
-			{
-				switch((int)value)
-				{
-					case 0:
-						return new PsyInteger((cnValue==0)? 1: 0);
-					case 1:
-						return new PsyInteger.MINUS_ONE;
-					case -1:
-						return new PsyInteger(((cnValue&1)==0)? 1: -1);
-					case 2:
-						return (cnValue<Long.SIZE-1)?
-							new PsyInteger(1L<<cnValue):
-							new PsyReal(Math.pow(value, cnValue));
-					case -2:
-						return (cnValue<Long.SIZE)?
-							new PsyInteger(((cnValue&1)==0)? (1L<<cnValue): (-1L<<cnValue)):
-							new PsyReal(Math.pow(value, cnValue));
-					default:
-						throw new AssertionError();
-				}
-			}
-			long accum=1;
-			while(true)
-			{
-				if(cnValue==0)
-					return new PsyInteger(accum);
-				else if(cnValue==1)
-					return psyMul()
-			}
-		}
-		else if(cn instanceof PsyReal)
-			return new PsyReal(Math.pow(value, ((PsyReal)cn).doubleValue()));
-		else
-			return super.psyPow((PsyComplex)cn);
-	}
-	*/
 
 	@Override
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
@@ -400,8 +334,6 @@ public class PsyInteger
 		if(oIntegral.psyIsZero().booleanValue())
 			throw new PsyUndefinedResultException();
 		if(oIntegral instanceof PsyInteger oInteger)
-		//if(((PsyInteger)oInteger).value==0) // TODO
-		//throw new PsyUndefinedResultException();
 			return PsyInteger.of(value/oInteger.value); // TODO
 		//if(oIntegral instanceof PsyBigInteger)
 		return PsyIntegral.of(bigIntegerValue().divide(oIntegral.bigIntegerValue()));
@@ -413,6 +345,7 @@ public class PsyInteger
 		return PsyInteger.of(oShift.value>=0? value<<oShift.value: value>>(-oShift.value));
 	}
 
+	// TODO more appropriate class
 	public PsyBoolean psyInUnicodeBlock(final PsyTextual oTextual)
 	{
 		return PsyBoolean.of(Character.UnicodeBlock.of((int)value).equals(
@@ -443,8 +376,7 @@ public class PsyInteger
 	@Override
 	public boolean equals(final Object object)
 	{
-		return object instanceof PsyInteger oInteger
-				&& value==oInteger.value;
+		return object instanceof PsyInteger oInteger && value==oInteger.value;
 	}
 
 	/**
@@ -498,20 +430,4 @@ public class PsyInteger
 				cache[i]=new PsyInteger(i-128);
 		}
 	}
-
-	//private static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyInteger.class);
-
-	//public static void register(final Interpreter interpreter)
-	//{
-		/*return java.lang.invoke.MethodHandles.lookup().lookupClass()
-			.getAnnotation(Type.class).value();
-		*/
-
-		//final String prefix=PsyInteger.class.getAnnotation(Type.class).value();
-		//interpreter.namespacePool().obtain(prefix);
-		//System.out.println("Registered: "+prefix);
-
-		//System.out.println(getClass().getAnnotation(Type.class).value());
-	//}
-
 }

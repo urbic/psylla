@@ -88,9 +88,9 @@ public class PsyProc
 					final var o=oProc.get(i);
 					if(o instanceof PsyProc)
 						agenda.add((PsyProc)o);
-					else if(o instanceof PsyCommand)
+					else if(o instanceof PsyCommand oCommand)
 					{
-						final var oNew=dstack.load((PsyCommand)o);
+						final var oNew=dstack.load(oCommand);
 						if(oNew instanceof PsyOperator
 								|| oNew instanceof PsyMark
 								|| oNew instanceof PsyNull)

@@ -7,7 +7,7 @@ import java.math.BigInteger;
 *	A representation of {@code bigfractional}.
 */
 @Type("bigfractional")
-public class PsyBigFractional
+public final class PsyBigFractional
 	implements PsyRational
 {
 	private PsyBigFractional(final BigInteger numerator, final BigInteger denominator)
@@ -84,6 +84,7 @@ public class PsyBigFractional
 	public PsyIntegral psyToIntegral()
 	{
 		// TODO
+		System.err.println("PsyBigFractional::psyToIntegral");
 		return null;
 	}
 
@@ -91,6 +92,7 @@ public class PsyBigFractional
 	public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
 	{
 		// TODO
+		System.err.println("PsyBigFractional::psyCmp");
 		return null;
 	}
 
@@ -98,6 +100,7 @@ public class PsyBigFractional
 	public PsyReal psyRound()
 	{
 		// TODO
+		System.err.println("PsyBigFractional::psyRound");
 		return null;
 	}
 
@@ -105,6 +108,7 @@ public class PsyBigFractional
 	public PsyRational psyAbs()
 	{
 		// TODO
+		System.err.println("PsyBigFractional::psyAbs");
 		return null;
 	}
 
@@ -112,6 +116,7 @@ public class PsyBigFractional
 	public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
 	{
 		// TODO
+		System.err.println("PsyBigFractional::psyMul");
 		return null;
 	}
 
@@ -119,6 +124,7 @@ public class PsyBigFractional
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 	{
 		// TODO
+		System.err.println("PsyBigFractional::psyDiv");
 		return null;
 	}
 
@@ -129,19 +135,31 @@ public class PsyBigFractional
 		return null;
 	}
 
+	/*
 	@Override
 	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
-		// TODO
-		return null;
+		if(oRealNumeric instanceof PsyRational oRational)
+		{
+			try
+			{
+				return psyNumerator().psyMul(oRational.psyDenominator()).psySub(
+						psyDenominator().psyMul(oRational.psyNumerator()))
+						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
+			}
+			catch(final PsyUndefinedResultException e)
+			{
+				throw new AssertionError();
+			}
+		}
+		else
+		{
+			// NOP
+			System.err.println("PsyBigFractional::psySub: "+toSyntaxString()+" - "+oRealNumeric.toSyntaxString());
+			return null;
+		}
 	}
-
-	@Override
-	public PsyRational psyNeg()
-	{
-		// TODO
-		return null;
-	}
+	*/
 
 	@Override
 	public PsyInteger psySignum()
@@ -155,6 +173,5 @@ public class PsyBigFractional
 		return String.format("%d:%d", numerator, denominator);
 	}
 
-	private final BigInteger numerator;
-	private final BigInteger denominator;
+	private final BigInteger numerator, denominator;
 }

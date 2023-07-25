@@ -7,7 +7,7 @@ import java.math.BigInteger;
 *	A representation of {@code fractional}.
 */
 @Type("fractional")
-public class PsyFractional
+public final class PsyFractional
 	implements
 		PsyRational
 {
@@ -138,29 +138,33 @@ public class PsyFractional
 	{
 		try
 		{
-			if(oRealNumeric instanceof PsyIntegral)
-				return psyNumerator().psyMul(oRealNumeric).psyDiv(psyDenominator());
+			if(oRealNumeric instanceof PsyIntegral oIntegral)
+				return psyNumerator().psyMul(oIntegral).psyDiv(psyDenominator());
 			if(oRealNumeric instanceof PsyRational oRational)
 				return psyNumerator().psyMul(oRational.psyNumerator())
 						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
+			if(oRealNumeric instanceof PsyReal oReal)
+				return new PsyReal(doubleValue()*oReal.doubleValue());
 		}
 		catch(final PsyUndefinedResultException e)
 		{
-			// NOP
+			throw new AssertionError();
 		}
-		return new PsyReal(doubleValue()*oRealNumeric.doubleValue());
+		throw new ClassCastException();
 	}
 
 	@Override
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 		throws PsyUndefinedResultException
 	{
-		if(oRealNumeric instanceof PsyIntegral)
-			return psyNumerator().psyDiv(psyDenominator().psyMul(oRealNumeric));
+		if(oRealNumeric instanceof PsyIntegral oIntegral)
+			return psyNumerator().psyDiv(psyDenominator().psyMul(oIntegral));
 		if(oRealNumeric instanceof PsyRational oRational)
 			return psyNumerator().psyMul(oRational.psyDenominator())
 					.psyDiv(psyDenominator().psyMul(oRational.psyNumerator()));
-		return new PsyReal(doubleValue()*oRealNumeric.doubleValue());
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()*oReal.doubleValue());
+		throw new ClassCastException();
 	}
 
 	@Override
@@ -168,20 +172,22 @@ public class PsyFractional
 	{
 		try
 		{
-			if(oRealNumeric instanceof PsyIntegral)
+			if(oRealNumeric instanceof PsyIntegral oIntegral)
 				return psyNumerator()
-						.psyAdd(psyDenominator().psyMul(oRealNumeric))
+						.psyAdd(psyDenominator().psyMul(oIntegral))
 						.psyDiv(psyDenominator());
 			if(oRealNumeric instanceof PsyRational oRational)
 				return psyNumerator().psyMul(oRational.psyDenominator())
 						.psyAdd(psyDenominator().psyMul(oRational.psyNumerator()))
 						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
+			if(oRealNumeric instanceof PsyReal oReal)
+				return new PsyReal(doubleValue()+oReal.doubleValue());
+			throw new ClassCastException();
 		}
 		catch(final PsyUndefinedResultException e)
 		{
-			// NOP
+			throw new AssertionError();
 		}
-		return new PsyReal(doubleValue()+oRealNumeric.doubleValue());
 	}
 
 	@Override
@@ -197,25 +203,13 @@ public class PsyFractional
 				return psyNumerator().psyMul(oRational.psyDenominator())
 						.psySub(psyDenominator().psyMul(oRational.psyNumerator()))
 						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
+			if(oRealNumeric instanceof PsyReal oReal)
+				return new PsyReal(doubleValue()-oReal.doubleValue());
+			throw new ClassCastException();
 		}
 		catch(final PsyUndefinedResultException e)
 		{
-			// NOP
-		}
-		return new PsyReal(doubleValue()+oRealNumeric.doubleValue());
-	}
-
-	@Override
-	public PsyRational psyNeg()
-	{
-		try
-		{
-			return (PsyRational)psyNumerator().psyNeg().psyDiv(psyDenominator());
-		}
-		catch(final PsyUndefinedResultException e)
-		{
-			// NOP
-			return null;
+			throw new AssertionError();
 		}
 	}
 
@@ -231,6 +225,5 @@ public class PsyFractional
 		return String.format("%d:%d", numerator, denominator);
 	}
 
-	private final long numerator;
-	private final long denominator;
+	private final long numerator, denominator;
 }

@@ -7,10 +7,13 @@ import java.math.BigInteger;
 *	A representation of {@code integral}.
 */
 @Type("integral")
-public interface PsyIntegral
+public sealed interface PsyIntegral
 	extends
 		PsyBitwise<PsyIntegral>,
 		PsyRational
+	permits
+		PsyBigInteger,
+		PsyInteger
 {
 	@Override
 	default public PsyIntegral psyNumerator()

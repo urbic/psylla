@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 *	A representation of {@code real}.
 */
 @Type("real")
-public class PsyReal
+public final class PsyReal
 	implements PsyRealNumeric
 {
 	public PsyReal(final double value)

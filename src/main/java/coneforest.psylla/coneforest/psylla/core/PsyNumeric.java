@@ -7,10 +7,13 @@ import coneforest.psylla.*;
 *	numbers.
 */
 @Type("numeric")
-public interface PsyNumeric
+public sealed interface PsyNumeric
 	extends
 		PsyAtomic,
 		PsyArithmetic<PsyNumeric>
+	permits
+		PsyComplex,
+		PsyRealNumeric
 {
 	/**
 	*	Returns the real part of this object.

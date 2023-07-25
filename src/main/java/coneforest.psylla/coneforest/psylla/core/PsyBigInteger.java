@@ -7,7 +7,7 @@ import java.math.BigInteger;
 *	A representation of {@code biginteger}.
 */
 @Type("biginteger")
-public class PsyBigInteger
+public final class PsyBigInteger
 	implements
 		PsyIntegral
 {

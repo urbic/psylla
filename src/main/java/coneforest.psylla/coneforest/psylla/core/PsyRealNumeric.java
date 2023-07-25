@@ -6,13 +6,16 @@ import coneforest.psylla.*;
 *	A representation of {@code realnumeric}, an abstraction of real number.
 */
 @Type("realnumeric")
-public interface PsyRealNumeric
+public sealed interface PsyRealNumeric
 	extends
 		PsyNumeric,
 		PsyConvertableToInteger,
 		PsyConvertableToIntegral,
 		PsyConvertableToReal,
 		PsyScalar<PsyRealNumeric>
+	permits
+		PsyRational,
+		PsyReal
 {
 
 	public int intValue();

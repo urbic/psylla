@@ -7,8 +7,12 @@ import java.math.BigInteger;
 *	A representation of {@code rational}.
 */
 @Type("rational")
-public interface PsyRational
+public sealed interface PsyRational
 	extends PsyRealNumeric
+	permits
+		PsyIntegral,
+		PsyFractional,
+		PsyBigFractional
 {
 	public BigInteger bigIntegerValue();
 
@@ -25,6 +29,82 @@ public interface PsyRational
 	*	@return the denominator.
 	*/
 	public PsyIntegral psyDenominator();
+
+	@Override
+	default public PsyRational psyNeg()
+	{
+		try
+		{
+			return of(psyNumerator().psyNeg(), psyDenominator());
+		}
+		catch(final PsyUndefinedResultException e)
+		{
+			// NOP
+			throw new AssertionError();
+		}
+	}
+
+	@Override
+	default public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
+	{
+		try
+		{
+			if(oRealNumeric instanceof PsyIntegral oIntegral)
+			{
+				return of(
+					(PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
+					psyDenominator());
+			}
+			if(oRealNumeric instanceof PsyRational oRational)
+			{
+				return of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+							.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+			}
+			if(oRealNumeric instanceof PsyReal oReal)
+			{
+				// TODO
+				return null;
+			}
+			throw new ClassCastException();
+		}
+		catch(final PsyUndefinedResultException e)
+		{
+			throw new AssertionError();
+		}
+	}
+
+	@Override
+	default public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
+	{
+		try
+		{
+			if(oRealNumeric instanceof PsyIntegral oIntegral)
+			{
+				return of(
+						(PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
+						psyDenominator());
+			}
+			if(oRealNumeric instanceof PsyRational oRational)
+			{
+				return of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+							.psySub(psyDenominator().psyMul(oRational.psyNumerator())),
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+			}
+			if(oRealNumeric instanceof PsyReal oReal)
+			{
+				// TODO
+				return null;
+			}
+			throw new ClassCastException();
+		}
+		catch(final PsyUndefinedResultException e)
+		{
+			throw new AssertionError();
+		}
+	}
 
 	@Override
 	public PsyIntegral psyCeiling();

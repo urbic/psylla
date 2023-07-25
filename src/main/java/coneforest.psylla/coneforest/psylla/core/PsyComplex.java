@@ -6,7 +6,7 @@ import coneforest.psylla.*;
 *	A representation of {@code complex}.
 */
 @Type("complex")
-public class PsyComplex
+public final class PsyComplex
 	implements
 		PsyNumeric
 {
