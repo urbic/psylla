@@ -48,7 +48,7 @@ public interface PsyTextual
 	{
 		try
 		{
-			// TODO fractional
+			// TODO fraction
 			return PsyInteger.of(Long.parseLong(stringValue()));
 		}
 		catch(final NumberFormatException ex)

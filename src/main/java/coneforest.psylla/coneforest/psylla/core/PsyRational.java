@@ -11,8 +11,8 @@ public sealed interface PsyRational
 	extends PsyRealNumeric
 	permits
 		PsyIntegral,
-		PsyFractional,
-		PsyBigFractional
+		PsyFraction,
+		PsyBigFraction
 {
 	public BigInteger bigIntegerValue();
 
@@ -127,9 +127,9 @@ public sealed interface PsyRational
 			// NOP
 		}
 		if(oNumerator instanceof PsyInteger && oDenominator instanceof PsyInteger)
-			return PsyFractional.of(oNumerator.longValue(), oDenominator.longValue());
+			return PsyFraction.of(oNumerator.longValue(), oDenominator.longValue());
 		else
-			return PsyBigFractional.of(oNumerator.bigIntegerValue(), oDenominator.bigIntegerValue());
+			return PsyBigFraction.of(oNumerator.bigIntegerValue(), oDenominator.bigIntegerValue());
 	}
 
 	@Override

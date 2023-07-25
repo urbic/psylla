@@ -4,14 +4,14 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code fractional}.
+*	A representation of {@code fraction}.
 */
-@Type("fractional")
-public final class PsyFractional
+@Type("fraction")
+public final class PsyFraction
 	implements
 		PsyRational
 {
-	private PsyFractional(final long numerator, final long denominator)
+	private PsyFraction(final long numerator, final long denominator)
 	{
 		this.numerator=numerator;
 		this.denominator=denominator;
@@ -49,7 +49,7 @@ public final class PsyFractional
 			x=-x;
 			y=-y;
 		}
-		return (y!=1L)? new PsyFractional(x, y): PsyInteger.of(x);
+		return (y!=1L)? new PsyFraction(x, y): PsyInteger.of(x);
 	}
 
 	@Override
@@ -130,7 +130,7 @@ public final class PsyFractional
 	public PsyRational psyAbs()
 	{
 		// TODO
-		return new PsyFractional((numerator>=0L)? numerator: -numerator, denominator);
+		return new PsyFraction((numerator>=0L)? numerator: -numerator, denominator);
 	}
 
 	@Override

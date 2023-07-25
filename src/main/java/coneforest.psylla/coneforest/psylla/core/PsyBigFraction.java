@@ -4,21 +4,21 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code bigfractional}.
+*	A representation of {@code bigfraction}.
 */
-@Type("bigfractional")
-public final class PsyBigFractional
+@Type("bigfraction")
+public final class PsyBigFraction
 	implements PsyRational
 {
-	private PsyBigFractional(final BigInteger numerator, final BigInteger denominator)
+	private PsyBigFraction(final BigInteger numerator, final BigInteger denominator)
 	{
 		this.numerator=numerator;
 		this.denominator=denominator;
 	}
 
-	public static PsyBigFractional of(final BigInteger numerator, final BigInteger denominator)
+	public static PsyBigFraction of(final BigInteger numerator, final BigInteger denominator)
 	{
-		return new PsyBigFractional(numerator, denominator);
+		return new PsyBigFraction(numerator, denominator);
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public final class PsyBigFractional
 	public PsyIntegral psyToIntegral()
 	{
 		// TODO
-		System.err.println("PsyBigFractional::psyToIntegral");
+		System.err.println("PsyBigFraction::psyToIntegral");
 		return null;
 	}
 
@@ -92,7 +92,7 @@ public final class PsyBigFractional
 	public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
 	{
 		// TODO
-		System.err.println("PsyBigFractional::psyCmp");
+		System.err.println("PsyBigFraction::psyCmp");
 		return null;
 	}
 
@@ -100,7 +100,7 @@ public final class PsyBigFractional
 	public PsyReal psyRound()
 	{
 		// TODO
-		System.err.println("PsyBigFractional::psyRound");
+		System.err.println("PsyBigFraction::psyRound");
 		return null;
 	}
 
@@ -108,7 +108,7 @@ public final class PsyBigFractional
 	public PsyRational psyAbs()
 	{
 		// TODO
-		System.err.println("PsyBigFractional::psyAbs");
+		System.err.println("PsyBigFraction::psyAbs");
 		return null;
 	}
 
@@ -116,7 +116,7 @@ public final class PsyBigFractional
 	public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
 	{
 		// TODO
-		System.err.println("PsyBigFractional::psyMul");
+		System.err.println("PsyBigFraction::psyMul");
 		return null;
 	}
 
@@ -124,7 +124,7 @@ public final class PsyBigFractional
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 	{
 		// TODO
-		System.err.println("PsyBigFractional::psyDiv");
+		System.err.println("PsyBigFraction::psyDiv");
 		return null;
 	}
 
@@ -155,7 +155,7 @@ public final class PsyBigFractional
 		else
 		{
 			// NOP
-			System.err.println("PsyBigFractional::psySub: "+toSyntaxString()+" - "+oRealNumeric.toSyntaxString());
+			System.err.println("PsyBigFraction::psySub: "+toSyntaxString()+" - "+oRealNumeric.toSyntaxString());
 			return null;
 		}
 	}

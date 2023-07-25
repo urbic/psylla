@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_fractional">
-<title><type>fractional</type></title>
+<section xml:id="PsyllaReference_Types_Details_bigfraction">
+<title><type>bigfraction</type></title>
 
 <para>
 TODO
@@ -20,7 +20,7 @@ TODO
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_fractional.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_bigfraction.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>
@@ -28,7 +28,7 @@ TODO
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bigfractional"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_fraction"/>.
 </formalpara>
 
 </section>
