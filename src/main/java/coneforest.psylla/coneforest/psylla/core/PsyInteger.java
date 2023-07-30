@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code integer}.
+*	The representation of {@code integer}.
 */
 @Type("integer")
 public final class PsyInteger
@@ -12,7 +12,7 @@ public final class PsyInteger
 		PsyBitwise<PsyIntegral>,
 		PsyIntegral
 {
-	public PsyInteger(final long value)
+	private PsyInteger(final long value)
 	{
 		this.value=value;
 	}
@@ -83,7 +83,7 @@ public final class PsyInteger
 	public PsyIntegral psyXor(final PsyIntegral oIntegral)
 	{
 		if(oIntegral instanceof PsyInteger oInteger)
-			return PsyInteger.of(value ^ oInteger.value);
+			return PsyInteger.of(value^oInteger.value);
 		if(oIntegral instanceof PsyBigInteger oBigInteger)
 			return PsyIntegral.of(bigIntegerValue().xor(oBigInteger.bigIntegerValue()));
 		throw new ClassCastException();
@@ -167,65 +167,49 @@ public final class PsyInteger
 	{
 		if(oRealNumeric instanceof PsyInteger oInteger)
 		{
-			final var numeric=oInteger.value;
-
-			// Overflow condition from
-			// com.google.common.math.LongMath.checkedAdd(long, long)
-			final var result=value+numeric;
-			if((value^numeric)<0|(value^result)>=0)
-				return PsyInteger.of(result);
-			return PsyIntegral.of(bigIntegerValue().add(oInteger.bigIntegerValue()));
+			try
+			{
+				return PsyInteger.of(Math.addExact(value, oInteger.value));
+			}
+			catch(final ArithmeticException ex)
+			{
+				return PsyIntegral.of(bigIntegerValue().add(oInteger.bigIntegerValue()));
+			}
 		}
 		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
 			return PsyIntegral.of(
 				bigIntegerValue().add(oBigInteger.bigIntegerValue()));
 		if(oRealNumeric instanceof PsyRational oRational)
-			try
-			{
-				return psyMul(oRational.psyDenominator())
-						.psyAdd(oRational.psyNumerator())
-						.psyDiv(oRational.psyDenominator());
-			}
-			catch(final PsyUndefinedResultException e)
-			{
-				throw new AssertionError();
-			}
+			return PsyRational.of(
+					(PsyIntegral)psyMul(oRational.psyDenominator()).psyAdd(oRational.psyNumerator()),
+					oRational.psyDenominator());
 		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()+oReal.doubleValue());
+			return new PsyReal(value+oReal.doubleValue());
 		throw new ClassCastException();
 	}
-
 
 	@Override
 	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
 		if(oRealNumeric instanceof PsyInteger oInteger)
 		{
-			final var numeric=oInteger.value;
-
-			// Overflow condition from
-			// com.google.common.math.LongMath.checkedSubtract(long, long)
-			final var result=value-numeric;
-			if((value^numeric)>=0|(value^result)>=0)
-				return PsyInteger.of(result);
-			else
+			try
+			{
+				return PsyInteger.of(Math.subtractExact(value, oInteger.value));
+			}
+			catch(final ArithmeticException ex)
+			{
 				return PsyIntegral.of(bigIntegerValue().subtract(oInteger.bigIntegerValue()));
+			}
 		}
 		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
 			return PsyIntegral.of(bigIntegerValue().subtract(oBigInteger.bigIntegerValue()));
 		if(oRealNumeric instanceof PsyRational oRational)
-			try
-			{
-				return psyMul(oRational.psyDenominator())
-						.psySub(oRational.psyNumerator())
-						.psyDiv(oRational.psyDenominator());
-			}
-			catch(final PsyUndefinedResultException e)
-			{
-				// NOP
-			}
+			return PsyRational.of(
+					(PsyIntegral)psyMul(oRational.psyDenominator()).psySub(oRational.psyNumerator()),
+					oRational.psyDenominator());
 		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()-oReal.doubleValue());
+			return new PsyReal(value-oReal.doubleValue());
 		throw new ClassCastException();
 	}
 
@@ -234,39 +218,22 @@ public final class PsyInteger
 	{
 		if(oRealNumeric instanceof PsyInteger oInteger)
 		{
-			// Overflow condition from
-			// com.google.common.math.LongMath.checkedMultiply(long, long)
-			final var numeric=oInteger.value;
-			final var leadingZeros
-				=Long.numberOfLeadingZeros(value)
-				+Long.numberOfLeadingZeros(~value)
-				+Long.numberOfLeadingZeros(numeric)
-				+Long.numberOfLeadingZeros(~numeric);
-			if(leadingZeros>Long.SIZE+1)
-				return PsyInteger.of(value*numeric);
-			if(leadingZeros>=Long.SIZE && value>=0 | numeric!=Long.MIN_VALUE)
+			try
 			{
-				final var result=value*numeric;
-				return (value==0 || result/value==numeric)?
-					PsyInteger.of(result): new PsyBigInteger(bigIntegerValue().multiply(BigInteger.valueOf(numeric)));
+				return PsyInteger.of(Math.multiplyExact(value, oInteger.value));
 			}
-			else
+			catch(final ArithmeticException ex)
+			{
 				return PsyIntegral.of(bigIntegerValue().multiply(oInteger.bigIntegerValue()));
+			}
 		}
 		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
 			return PsyIntegral.of(bigIntegerValue().multiply(oBigInteger.bigIntegerValue()));
 		if(oRealNumeric instanceof PsyRational oRational)
-			try
-			{
-				return PsyRational.of((PsyIntegral)psyMul(oRational.psyNumerator()),
-						oRational.psyDenominator());
-			}
-			catch(final PsyUndefinedResultException e)
-			{
-				// NOP
-			}
+			return PsyRational.of((PsyIntegral)psyMul(oRational.psyNumerator()),
+					oRational.psyDenominator());
 		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()*oReal.doubleValue());
+			return new PsyReal(value*oReal.doubleValue());
 		throw new ClassCastException();
 	}
 
@@ -288,14 +255,36 @@ public final class PsyInteger
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 		throws PsyUndefinedResultException
 	{
-		if(oRealNumeric instanceof PsyIntegral oIntegral)
-			return PsyRational.of(this, oIntegral);
+		if(oRealNumeric instanceof PsyInteger oInteger)
+		{
+			if(oInteger==PsyInteger.ZERO)
+				throw new PsyUndefinedResultException();
+			return PsyFraction.of(value, oInteger.value);
+		}
+		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
+			return PsyRational.of(this, oBigInteger);
 		if(oRealNumeric instanceof PsyRational oRational)
 			return PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator()),
 					oRational.psyNumerator());
 		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()/oReal.doubleValue());
+			return new PsyReal(value/oReal.doubleValue());
 		throw new ClassCastException();
+		/*
+		if(oRealNumeric==ZERO)
+			throw new PsyUndefinedResultException();
+		return switch(oRealNumeric)
+			{
+				case PsyInteger oInteger->
+					PsyFraction.of(value, oInteger.value);
+				case PsyBigInteger oBigInteger->
+					PsyRational.of(this, oBigInteger);
+				case PsyRational oRational->
+					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator()),
+		                    oRational.psyNumerator());
+				case PsyReal oReal->
+					new PsyReal(value/oReal.doubleValue());
+			};
+		*/
 	}
 
 	@Override
