@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="manpages" default="dist" basedir=".">
+<project name="manpages"
+	basedir="."
+	xmlns:ivy="antlib:org.apache.ivy.ant"
+	>
 
 	<presetdef name="xslt.manpages">
 		<xslt
@@ -27,8 +30,9 @@
 
 	<target name="manpages"
 		description="Make manual pages"
-		depends="resolve,version"
+		depends="version"
 		>
+		<ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/>
 		<symlink resource="${src.doc.docbook}/examples" link="examples" overwrite="true"/>
 		<sequential>
 			<dependset>

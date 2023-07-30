@@ -54,6 +54,7 @@
 	<property name="linux.flavour" value="redhat"/>
 	<property name="build.sysclasspath" value="ignore"/>
 	<property name="java.release" value="17"/>
+	<!--property name="ivy.cache.ttl.default" value="eternal"/-->
 
 	<property file="${src.ant}/ivy.properties"/>
 	<property file="${src.ant}/version.properties"/>
@@ -70,16 +71,20 @@
 		<pathelement location="${src.test.java}"/>
 	</path>
 
+	<path id="modulesourcepath.examples">
+		<pathelement location="${src.examples.java}"/>
+	</path>
+
 	<path id="modulepath.main">
 		<path refid="modulepath.main.resolved"/>
+		<dirset
+			dir="${target.classes}"
+			includes="${project.moduleprefix}*"
+			/>
 		<!--pathelement location="${target.classes}"/-->
 	</path>
 
 	<path id="classpath.main">
-		<dirset
-			dir="${target.classes}"
-			includes="${project.maven.groupId}.${project.maven.artifactId}*"
-			/>
 		<path refid="classpath.main.resolved"/>
 		<!--pathelement location="${ant.core.lib}"/-->
 		<!--pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/-->
@@ -114,20 +119,18 @@
 
 	<target name="resolve" description="Retrieve dependencies with Ivy">
 		<ivy:resolve conf="compile,xslt,linux.${linux.flavour}"/>
-		<ivy:cachepath conf="compile+classpath" pathid="classpath.main.resolved"/>
-		<ivy:cachepath conf="compile+modulepath" pathid="modulepath.main.resolved"/>
-		<ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/>
+		<!--ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/-->
 	</target>
 
 	<target name="compile.jj"
 		description="Compile JJ sources"
 		>
 		<mkdir
-			dir="${target.src.main.java}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla"/>
+			dir="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla"/>
 		<dirname property="javacc.home" file="${config.jar.javacc}"/>
 		<javacc
-			target="${src.main.jj}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla/Parser.jj"
-			outputdirectory="${target.src.main.java}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla"
+			target="${src.main.jj}/${project.moduleprefix}/coneforest/psylla/Parser.jj"
+			outputdirectory="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla"
 			unicodeinput="true"
 			static="false"
 			javacchome="${javacc.home}"
@@ -136,8 +139,10 @@
 
 	<target name="compile.java"
 		description="Compile Java sources"
-		depends="resolve,copy.resources,compile.jj"
+		depends="copy.resources,compile.jj"
 		>
+		<ivy:cachepath conf="compile+classpath" pathid="classpath.main.resolved"/>
+		<ivy:cachepath conf="compile+modulepath" pathid="modulepath.main.resolved"/>
 		<javac
 			destdir="${target.classes}"
 			release="${java.release}"
@@ -157,12 +162,13 @@
 			<compilerarg value="-proc:none"/>
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:none"/>
-			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}=ALL-UNNAMED"/>
-			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}.tools=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
+			<compilerarg value="--enable-preview"/>
 		</javac>
-		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/error"/>
-		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/operator"/>
-		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}/type"/>
+		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/error"/>
+		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/operator"/>
+		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/type"/>
 		<mkdir dir="${target.dot}"/>
 		<javac
 			destdir="${target.classes}"
@@ -172,20 +178,23 @@
 			createMissingPackageInfoClass="false"
 			>
 			<modulesourcepath refid="modulesourcepath.main"/>
+			<modulesourcepath refid="modulesourcepath.examples"/>
 			<modulesourcepath refid="modulesourcepath.test"/>
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
 			<compilerarg
-				value="--processor-path=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}:${target.classes}/${project.maven.groupId}.${project.maven.artifactId}.tools"/>
+				value="--processor-path=${target.classes}/${project.moduleprefix}:${target.classes}/${project.moduleprefix}.tools"/>
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
 			<compilerarg value="-Xlint:deprecation"/>
-			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/${project.name}"/>
+			<compilerarg
+				value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/${project.moduleprefix}/META-INF/${project.name}"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:class"/>
-			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}=ALL-UNNAMED"/>
-			<compilerarg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}.tools=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
+			<compilerarg value="--enable-preview"/>
 		</javac>
 	</target>
 
@@ -210,13 +219,13 @@
 			charset="UTF-8"
 			windowtitle="Psylla ${project.version}"
 			>
-			<module name="${project.maven.groupId}.${project.maven.artifactId}"/>
-			<module name="${project.maven.groupId}.${project.maven.artifactId}.tools"/>
+			<module name="${project.moduleprefix}"/>
+			<module name="${project.moduleprefix}.tools"/>
 			<modulesourcepath refid="modulesourcepath.main"/>
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
-			<arg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}=ALL-UNNAMED"/>
-			<arg value="--add-reads=${project.maven.groupId}.${project.maven.artifactId}.tools=ALL-UNNAMED"/>
+			<arg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
+			<arg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
 			<arg value="-Xdoclint:missing,reference"/>
 			<link href="file://${config.javadocdir.java}"/>
 			<link href="https://ant.apache.org/manual/api/"/>
@@ -231,13 +240,13 @@
 		<copy todir="${target.classes}">
 			<fileset dir="${src.main.resources}" includes="**"/>
 		</copy>
-		<mkdir dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/licenses"/>
+		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/licenses"/>
 		<copy
-			todir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/licenses"
+			todir="${target.classes}/${project.moduleprefix}/META-INF/licenses"
 			file="LICENSE"
 			/>
 		<echoproperties
-			destfile="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/coneforest/psylla/Config.properties"
+			destfile="${target.classes}/${project.moduleprefix}/coneforest/psylla/Config.properties"
 			>
 			<propertyset>
 				<propertyref prefix="config."/>
@@ -245,10 +254,10 @@
 			</propertyset>
 		</echoproperties>
 		<mkdir
-			dir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"
+			dir="${target.classes}/${project.moduleprefix}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"
 			/>
 		<echoproperties
-			destfile="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties"
+			destfile="${target.classes}/${project.moduleprefix}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties"
 			>
 			<propertyset>
 				<propertyref prefix="project.maven."/>
@@ -262,16 +271,16 @@
 		depends="compile"
 		>
 		<jar
-			jarfile="${target.artifacts}/jar/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.jar"
-			basedir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}"
+			jarfile="${target.artifacts}/jar/${project.moduleprefix}-${project.version}.jar"
+			basedir="${target.classes}/${project.moduleprefix}"
 			>
 			<manifest>
 				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
 			</manifest>
 		</jar>
 		<jar
-			jarfile="${target.artifacts}/jar/${project.maven.groupId}.${project.maven.artifactId}.tools-${project.version}.jar"
-			basedir="${target.classes}/${project.maven.groupId}.${project.maven.artifactId}.tools"
+			jarfile="${target.artifacts}/jar/${project.moduleprefix}.tools-${project.version}.jar"
+			basedir="${target.classes}/${project.moduleprefix}.tools"
 			/>
 	</target>
 
@@ -280,16 +289,16 @@
 		>
 		<ivy:makepom
 			ivyfile="ivy.xml"
-			templatefile="${src.maven}/${project.maven.groupId}.${project.maven.artifactId}.pom"
-			pomfile="${target.artifacts}/pom/${project.maven.groupId}.${project.maven.artifactId}-${project.version}.pom"
+			templatefile="${src.maven}/${project.moduleprefix}.pom"
+			pomfile="${target.artifacts}/pom/${project.moduleprefix}-${project.version}.pom"
 			>
 			<ivy:mapping conf="default" scope="runtime"/>
 		</ivy:makepom>
 		<ivy:makepom
 			ivyfile="ivy.xml"
 			artifactName="${project.maven.artifactId}.tools"
-			templatefile="${src.maven}/${project.maven.groupId}.${project.maven.artifactId}.pom"
-			pomfile="${target.artifacts}/pom/${project.maven.groupId}.${project.maven.artifactId}.tools-${project.version}.pom"
+			templatefile="${src.maven}/${project.moduleprefix}.pom"
+			pomfile="${target.artifacts}/pom/${project.moduleprefix}.tools-${project.version}.pom"
 			>
 			<ivy:mapping conf="default" scope="runtime"/>
 		</ivy:makepom>
