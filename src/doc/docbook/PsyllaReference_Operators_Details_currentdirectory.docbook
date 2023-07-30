@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_currentdirectory">
-<title><token language="psylla">currentdirectory</token></title>
+<title><function>currentdirectory</function></title>
+<indexterm><primary><function>currentdirectory</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>name</replaceable> of the current directory.
@@ -10,7 +11,7 @@ Returns the <replaceable>name</replaceable> of the current directory.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">currentdirectory</token>
+<function>currentdirectory</function>
 <replaceable>name</replaceable>
 </synopsis>
 </formalpara>

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_errordict">
-<title><token language="psylla">errordict</token></title>
+<title><function>errordict</function></title>
+<indexterm><primary><function>errordict</function> Ⓞ</primary></indexterm>
 
 <para>
-The error dictionary.
+The error dictionary. Not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_dict"/> value in the system dictionary.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
-— <token language="psylla">errordict</token>
+— <function>errordict</function>
 <constant>errordict</constant>
 </synopsis>
 </formalpara>
@@ -24,15 +26,9 @@ The error dictionary.
 </itemizedlist>
 </formalpara>
 
-<para>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_errordict"/> is not an operator, but a
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_dict"/> value
-in the system dictionary.
-</para>
-
-<formalpara>
+<!--formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_$error"/>.
-</formalpara>
+</formalpara-->
 
 </section>

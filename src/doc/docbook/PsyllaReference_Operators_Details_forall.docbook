@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_forall">
-<title><token language="psylla">forall</token></title>
+<title><function>forall</function></title>
+<indexterm><primary><function>forall</function> Ⓞ</primary></indexterm>
 
 <para>
 Invokes an <replaceable>consumer</replaceable> for each element in the
@@ -13,7 +14,7 @@ operand stack.
 <synopsis>
 <replaceable>sequence</replaceable>
 <replaceable>consumer</replaceable>
-<token language="psylla">forall</token>
+<function>forall</function>
 —
 </synopsis>
 </formalpara>

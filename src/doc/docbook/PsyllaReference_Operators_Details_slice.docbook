@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_slice">
-<title><token language="psylla">slice</token></title>
+<title><function>slice</function></title>
+<indexterm><primary><function>slice</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -11,7 +12,7 @@ TODO
 <synopsis>
 <replaceable>контейнер</replaceable>
 <replaceable>перечисление</replaceable>
-<token language="psylla">slice</token>
+<function>slice</function>
 <replaceable>результат</replaceable>
 </synopsis>
 </formalpara>

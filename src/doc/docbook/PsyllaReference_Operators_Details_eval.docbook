@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_eval">
-<title><token language="psylla">eval</token></title>
+<title><function>eval</function></title>
+<indexterm><primary><function>eval</function> Ⓞ</primary></indexterm>
 
 <para>
 Interprets <replaceable>evaluable</replaceable> as Psylla program.
@@ -10,7 +11,7 @@ Interprets <replaceable>evaluable</replaceable> as Psylla program.
 &TitleSynopsis;
 <synopsis>
 <replaceable>evaluable</replaceable>
-<token language="psylla">eval</token>
+<function>eval</function>
 —
 </synopsis>
 </formalpara>

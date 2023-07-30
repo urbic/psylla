@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_filecreationtime">
-<title><token language="psylla">filecreationtime</token></title>
+<title><function>filecreationtime</function></title>
+<indexterm><primary><function>filecreationtime</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the creation <replaceable>time</replaceable> (in milliseconds
@@ -12,7 +13,7 @@ since 1970.01.01 00:00:00 GMT) for a file or directory with the given
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">filecreationtime</token>
+<function>filecreationtime</function>
 <replaceable>time</replaceable>
 </synopsis>
 </formalpara>

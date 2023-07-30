@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_div">
-<title><token language="psylla">div</token></title>
+<title><function>div</function></title>
+<indexterm><primary><function>div</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>quotient</replaceable> of the division a
@@ -12,7 +13,7 @@ Returns the <replaceable>quotient</replaceable> of the division a
 <synopsis>
 <replaceable>dividend</replaceable>
 <replaceable>divisor</replaceable>
-<token language="psylla">div</token>
+<function>div</function>
 <replaceable>quotient</replaceable>
 </synopsis>
 </formalpara>

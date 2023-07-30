@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_regexp">
-<title><token language="psylla">regexp</token></title>
+<title><function>regexp</function></title>
+<indexterm><primary><function>regexp</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>pattern</replaceable> for a regular expression
@@ -11,7 +12,7 @@ containing in the <replaceable>string</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
-<token language="psylla">regexp</token>
+<function>regexp</function>
 <replaceable>pattern</replaceable>
 </synopsis>
 </formalpara>
@@ -32,7 +33,7 @@ containing in the <replaceable>string</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">"(.)\\1" regexp
+<programlisting language="psylla">'(.)\\1' regexp
 	▶ ~(.)\1~</programlisting>
 </formalpara>
 
@@ -52,6 +53,11 @@ when the regular expression contains a syntax error
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_RegExp"/>.
 </formalpara>
 
 <formalpara>

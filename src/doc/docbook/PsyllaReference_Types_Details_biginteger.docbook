@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_biginteger">
 <title><type>biginteger</type></title>
+<indexterm><primary><type>biginteger</type> Ⓣ</primary></indexterm>
 
 <para>
 The type of integer numbers of arbitrary magnitude.

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_renamefile">
-<title><token language="psylla">renamefile</token></title>
+<title><function>renamefile</function></title>
+<indexterm><primary><function>renamefile</function> Ⓞ</primary></indexterm>
 
 <para>
 Changes an <replaceable>old</replaceable> file name to a
@@ -12,7 +13,7 @@ Changes an <replaceable>old</replaceable> file name to a
 <synopsis>
 <replaceable>old</replaceable>
 <replaceable>new</replaceable>
-<token language="psylla">renamefile</token>
+<function>renamefile</function>
 —
 </synopsis>
 </formalpara>

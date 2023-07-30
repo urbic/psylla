@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_time">
-<title><token language="psylla">time</token></title>
+<title><function>time</function></title>
 
 <para>
 Returns the current <replaceable>time</replaceable> (in milliseconds since
@@ -11,7 +11,7 @@ Returns the current <replaceable>time</replaceable> (in milliseconds since
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">time</token>
+<function>time</function>
 <replaceable>time</replaceable>
 </synopsis>
 </formalpara>

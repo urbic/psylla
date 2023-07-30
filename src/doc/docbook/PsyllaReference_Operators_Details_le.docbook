@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_le">
-<title><token language="psylla">le</token></title>
+<title><function>le</function></title>
+<indexterm><primary><function>le</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if
@@ -14,7 +15,7 @@ to <replaceable>scalar<subscript>2</subscript></replaceable>, and
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
-<token language="psylla">le</token>
+<function>le</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

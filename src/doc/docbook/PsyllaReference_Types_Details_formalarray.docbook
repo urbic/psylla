@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_formalarray">
 <title><type>formalarray</type></title>
+<indexterm><primary><type>formalarray</type> Ⓣ</primary></indexterm>
 
 <para>
 A base type for arrays.

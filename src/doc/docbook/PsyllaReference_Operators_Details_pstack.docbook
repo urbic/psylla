@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_pstack">
-<title><token language="psylla">pstack</token></title>
+<title><function>pstack</function></title>
+<indexterm><primary><function>pstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Выводит на стандартный вывод содержимое стека операндов.
@@ -10,7 +11,7 @@
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">pstack</token>
+<function>pstack</function>
 —
 </synopsis>
 </formalpara>

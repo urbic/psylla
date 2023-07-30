@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_monitor">
-<title><token language="psylla">monitor</token></title>
+<title><function>monitor</function></title>
+<indexterm><primary><function>monitor</function> Ⓞ</primary></indexterm>
 
 <para>
 Acquires <replaceable>lock</replaceable>, first waiting for it to become free,
@@ -13,7 +14,7 @@ then invokes <replaceable>procedure</replaceable>, and finally releases
 <synopsis>
 <replaceable>lock</replaceable>
 <replaceable>procedure</replaceable>
-<token language="psylla">monitor</token>
+<function>monitor</function>
 —
 </synopsis>
 </formalpara>

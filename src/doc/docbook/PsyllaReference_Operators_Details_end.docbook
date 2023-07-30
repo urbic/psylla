@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_end">
-<title><token language="psylla">end</token></title>
+<title><function>end</function></title>
+<indexterm><primary><function>end</function> Ⓞ</primary></indexterm>
 
 <para>
 Removes the topmost dictionary from the dictionary stack.
@@ -9,7 +10,7 @@ Removes the topmost dictionary from the dictionary stack.
 <formalpara>
 &TitleSynopsis;
 <synopsis>
-— <token language="psylla">end</token> —
+— <function>end</function> —
 </synopsis>
 </formalpara>
 

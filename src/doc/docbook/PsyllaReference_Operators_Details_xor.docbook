@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_xor">
-<title><token language="psylla">xor</token></title>
+<title><function>xor</function></title>
 
 <para>
 Returns the <replaceable>exclusive_disjunction</replaceable> of two
@@ -12,7 +12,7 @@ Returns the <replaceable>exclusive_disjunction</replaceable> of two
 <synopsis>
 <replaceable>operand<subscript>1</subscript></replaceable>
 <replaceable>operand<subscript>2</subscript></replaceable>
-<token language="psylla">xor</token>
+<function>xor</function>
 <replaceable>exclusive_disjunction</replaceable>
 </synopsis>
 </formalpara>

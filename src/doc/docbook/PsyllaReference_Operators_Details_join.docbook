@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_join">
-<title><token language="psylla">join</token></title>
+<title><function>join</function></title>
+<indexterm><primary><function>join</function> Ⓞ</primary></indexterm>
 
 <para>
 Waits for the <replaceable>context</replaceable> to finish executing its
@@ -15,7 +16,7 @@ other context to terminate.
 &TitleSynopsis;
 <synopsis>
 <replaceable>context</replaceable>
-<token language="psylla">join</token>
+<function>join</function>
 <constant>mark</constant>
 <replaceable>object<subscript>1</subscript></replaceable>
 …

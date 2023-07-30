@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_iterate">
-<title><token language="psylla">iterate</token></title>
+<title><function>iterate</function></title>
+<indexterm><primary><function>iterate</function> Ⓞ</primary></indexterm>
 
 <para>
-Returns an infinite sequential ordered <replaceable>stream</replaceable>
-produced by iterative application of the
-<replaceable>unary_operator</replaceable> to an initial element
-<replaceable>seed</replaceable>.
+Returns an infinite sequential ordered
+<replaceable>iteratedstream</replaceable> produced by iterative application of
+the unary <replaceable>operator</replaceable> to an initial element
+<replaceable>seed</replaceable>. It is assumed that the
+<replaceable>operator</replaceable> consumes exactly one object and provides
+exactly one object to the operand stack, otherwise the subsequent operations on
+the <replaceable>iteratedstream</replaceable> may lead to unpredictable
+results.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>seed</replaceable>
-<replaceable>unary_operator</replaceable>
-<token language="psylla">iterate</token>
-<replaceable>stream</replaceable>
+<replaceable>operator</replaceable>
+<function>iterate</function>
+<replaceable>iteratedstream</replaceable>
 </synopsis>
 </formalpara>
 
@@ -27,11 +32,11 @@ produced by iterative application of the
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
 </listitem>
 <listitem>
-<replaceable>unary_operator</replaceable>:
+<replaceable>operator</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_executable"/>
 </listitem>
 <listitem>
-<replaceable>stream</replaceable>:
+<replaceable>iteratedstream</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
 </listitem>
 </itemizedlist>
@@ -39,8 +44,8 @@ produced by iterative application of the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">2 { dup mul } iterate 5 limited { } forall
-	▶ 2 4 16 256 65536</programlisting>
+<programlisting language="psylla">2 { dup mul } iterate 7 limited { } forall
+	▶ 2 4 16 256 65536 4294967296 18446744073709551616</programlisting>
 </formalpara>
 
 <formalpara>
@@ -66,6 +71,7 @@ produced by iterative application of the
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_filtered"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_forall"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_limited"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sorted"/>.
 </formalpara>

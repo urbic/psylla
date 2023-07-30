@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_set">
 <title><type>set</type></title>
+<indexterm><primary><type>set</type> Ⓣ</primary></indexterm>
 
 <para>
 A set.

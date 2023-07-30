@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_proc">
 <title><type>proc</type></title>
+<indexterm><primary><type>proc</type> Ⓣ</primary></indexterm>
 
 <para>
 A procedure.

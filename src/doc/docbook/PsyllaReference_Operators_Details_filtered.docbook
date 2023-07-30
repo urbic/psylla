@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_filtered">
-<title><token language="psylla">filtered</token></title>
+<title><function>filtered</function></title>
+<indexterm><primary><function>filtered</function> Ⓞ</primary></indexterm>
 
 <para>
-Returns a stream consisting of the elements of this
-<replaceable>stream</replaceable> that match the given
-<replaceable>predicate</replaceable>.
-TODO
-Вызывает <replaceable>predicate</replaceable> для каждого элемента
-<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
-операндов. После каждого вызова процедуры со стека операндов снимается один
-объект типа <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_boolean"/>, и если его значение истинно,
-элемент добавляется в новый контейнер того же типа, что и
-<replaceable>контейнер</replaceable>. Возвращает новый контейнер как
-<replaceable>результат</replaceable>.
+Returns a <replaceable>filteredstream</replaceable> consisting of the elements
+of the <replaceable>stream</replaceable> that match the given
+<replaceable>predicate</replaceable>. It is assumed that the
+<replaceable>predicate</replaceable> consumes exactly one object and provides
+exactly one <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_boolean"/> object to the operand stack,
+otherwise the subsequent operations on the
+<replaceable>filteredstream</replaceable> may lead to unpredictable results.
 </para>
 
 <formalpara>
@@ -22,7 +19,7 @@ linkend="PsyllaReference_Types_Details_boolean"/>, и если его значе
 <synopsis>
 <replaceable>stream</replaceable>
 <replaceable>predicate</replaceable>
-<token language="psylla">filtered</token>
+<function>filtered</function>
 <replaceable>filteredstream</replaceable>
 </synopsis>
 </formalpara>
@@ -41,14 +38,6 @@ linkend="PsyllaReference_Types_Details_boolean"/>, и если его значе
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-Предполагается, что <replaceable>predicate</replaceable> не меняет длину стека
-операндов и после её вызова на вершине стека находится объект типа <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/>,
-в противном случае результат исполнения <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_filtered"/> непредсказуем.
-</para>
 
 <formalpara>
 &TitleExamples;

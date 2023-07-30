@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_take">
-<title><token language="psylla">take</token></title>
+<title><function>take</function></title>
 
 <para>
 TODO
@@ -10,7 +10,7 @@ TODO
 &TitleSynopsis;
 <synopsis>
 <replaceable>queue</replaceable>
-<token language="psylla">take</token>
+<function>take</function>
 <replaceable>element</replaceable>
 </synopsis>
 </formalpara>

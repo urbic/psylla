@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_print">
-<title><token language="psylla">print</token></title>
+<title><function>print</function></title>
+<indexterm><primary><function>print</function> Ⓞ</primary></indexterm>
 
 <para>
 Writes the <replaceable>string</replaceable> to the standard output.
@@ -10,7 +11,7 @@ Writes the <replaceable>string</replaceable> to the standard output.
 &TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
-<token language="psylla">print</token>
+<function>print</function>
 —
 </synopsis>
 </formalpara>

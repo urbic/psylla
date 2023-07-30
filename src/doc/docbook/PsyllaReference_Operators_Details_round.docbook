@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_round">
-<title><token language="psylla">round</token></title>
+<title><function>round</function></title>
+<indexterm><primary><function>round</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>number</replaceable> rounded to the nearest
@@ -12,7 +13,7 @@ Returns the <replaceable>number</replaceable> rounded to the nearest
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">round</token>
+<function>round</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>
@@ -43,6 +44,11 @@ Returns the <replaceable>number</replaceable> rounded to the nearest
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Math"/>.
 </formalpara>
 
 <formalpara>

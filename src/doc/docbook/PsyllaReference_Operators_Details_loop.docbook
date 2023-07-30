@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_loop">
-<title><token language="psylla">loop</token></title>
+<title><function>loop</function></title>
+<indexterm><primary><function>loop</function> Ⓞ</primary></indexterm>
 
 <para>
 Invokes an <replaceable>object</replaceable> (typically a procedure) in an
@@ -11,7 +12,7 @@ infinite cycle.
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">loop</token>
+<function>loop</function>
 —
 </synopsis>
 </formalpara>

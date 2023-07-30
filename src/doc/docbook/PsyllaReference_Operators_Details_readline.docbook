@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_readline">
-<title><token language="psylla">readline</token></title>
+<title><function>readline</function></title>
+<indexterm><primary><function>readline</function> Ⓞ</primary></indexterm>
 
 <para>
 Attempts to read a <replaceable>line</replaceable> of characters terminated by
@@ -16,12 +17,12 @@ success of the operation.
 &TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
-<token language="psylla">readline</token>
+<function>readline</function>
 <replaceable>line</replaceable>
 <constant>true</constant>
 <sbr/>
 <replaceable>input</replaceable>
-<token language="psylla">readline</token>
+<function>readline</function>
 <constant>false</constant>
 </synopsis>
 </formalpara>

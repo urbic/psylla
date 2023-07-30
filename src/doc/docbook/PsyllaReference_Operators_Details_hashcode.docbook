@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_hashcode">
-<title><token language="psylla">hashcode</token></title>
+<title><function>hashcode</function></title>
+<indexterm><primary><function>hashcode</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>object</replaceable>’s
@@ -11,7 +12,7 @@ Returns the <replaceable>object</replaceable>’s
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">hashcode</token>
+<function>hashcode</function>
 <replaceable>hashcode</replaceable>
 </synopsis>
 </formalpara>

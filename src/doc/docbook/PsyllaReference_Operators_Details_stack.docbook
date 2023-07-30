@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_stack">
-<title><token language="psylla">stack</token></title>
+<title><function>stack</function></title>
+<indexterm><primary><function>stack</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns an <replaceable>array</replaceable> containing all the elements of the
@@ -14,7 +15,7 @@ operand stack.
 <replaceable>object<subscript>1</subscript></replaceable>
 …
 <replaceable>object<subscript>n</subscript></replaceable>
-<token language="psylla">stack</token>
+<function>stack</function>
 ⊢
 <replaceable>object<subscript>1</subscript></replaceable>
 …

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_matcher">
-<title><token language="psylla">matcher</token></title>
+<title><function>matcher</function></title>
+<indexterm><primary><function>matcher</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>matcher</replaceable> used for a search in the
@@ -13,7 +14,7 @@ the <replaceable>pattern</replaceable>.
 <synopsis>
 <replaceable>string</replaceable>
 <replaceable>pattern</replaceable>
-<token language="psylla">matcher</token>
+<function>matcher</function>
 <replaceable>matcher</replaceable>
 </synopsis>
 </formalpara>

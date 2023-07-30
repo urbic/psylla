@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_pop">
-<title><token language="psylla">pop</token></title>
+<title><function>pop</function></title>
+<indexterm><primary><function>pop</function> Ⓞ</primary></indexterm>
 
 <para>
 Removes the topmost <replaceable>object</replaceable> from the operand stack.
@@ -10,7 +11,7 @@ Removes the topmost <replaceable>object</replaceable> from the operand stack.
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">pop</token>
+<function>pop</function>
 —
 </synopsis>
 </formalpara>

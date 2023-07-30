@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_countstack">
-<title><token language="psylla">countstack</token></title>
+<title><function>countstack</function></title>
+<indexterm><primary><function>countstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the number of objects on the operand stack.
@@ -13,7 +14,7 @@ Returns the number of objects on the operand stack.
 <replaceable>object<subscript>1</subscript></replaceable>
 …
 <replaceable>object<subscript>n</subscript></replaceable>
-<token language="psylla">countstack</token>
+<function>countstack</function>
 ⊢
 <replaceable>object<subscript>1</subscript></replaceable>
 …

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_max">
-<title><token language="psylla">max</token></title>
+<title><function>max</function></title>
+<indexterm><primary><function>max</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>maximum</replaceable> of two
@@ -12,7 +13,7 @@ Returns the <replaceable>maximum</replaceable> of two
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
-<token language="psylla">max</token>
+<function>max</function>
 <replaceable>maximum</replaceable>
 </synopsis>
 </formalpara>

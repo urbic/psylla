@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_put">
-<title><token language="psylla">put</token></title>
+<title><function>put</function></title>
+<indexterm><primary><function>put</function> Ⓞ</primary></indexterm>
 
 <para>
 Stores an <replaceable>object</replaceable> into the indexed
@@ -24,7 +25,7 @@ linkend="PsyllaReference_Types_Details_textual"/> key.
 <replaceable>container</replaceable>
 <replaceable>key</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">put</token>
+<function>put</function>
 —
 </synopsis>
 </formalpara>

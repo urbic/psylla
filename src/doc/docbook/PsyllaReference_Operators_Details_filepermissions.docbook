@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_filepermissions">
-<title><token language="psylla">filepermissions</token></title>
+<title><function>filepermissions</function></title>
+<indexterm><primary><function>filepermissions</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>permissions</replaceable> for the file or directory
@@ -11,7 +12,7 @@ with the given <replaceable>name</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">filepermissions</token>
+<function>filepermissions</function>
 <replaceable>permissions</replaceable>
 </synopsis>
 </formalpara>

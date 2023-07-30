@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_split">
-<title><token language="psylla">split</token></title>
+<title><function>split</function></title>
+<indexterm><primary><function>split</function> Ⓞ</primary></indexterm>
 
 <para>
 Splits the <replaceable>string</replaceable> into substrings delimited by
@@ -13,7 +14,7 @@ substrings matching the <replaceable>pattern</replaceable>, and returns the
 <synopsis>
 <replaceable>string</replaceable>
 <replaceable>pattern</replaceable>
-<token language="psylla">split</token>
+<function>split</function>
 <replaceable>array</replaceable>
 </synopsis>
 </formalpara>

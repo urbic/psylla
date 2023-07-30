@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_say">
-<title><token language="psylla">say</token></title>
+<title><function>say</function></title>
+<indexterm><primary><function>say</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -10,7 +11,7 @@ TODO
 &TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
-<token language="psylla">say</token>
+<function>say</function>
 —
 </synopsis>
 </formalpara>

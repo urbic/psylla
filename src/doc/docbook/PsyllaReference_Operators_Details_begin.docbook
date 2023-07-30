@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_begin">
-<title><token language="psylla">begin</token></title>
+<title><function>begin</function></title>
+<indexterm><primary><function>begin</function> Ⓞ</primary></indexterm>
 
 <para>
 Appends a <replaceable>dictionary</replaceable> on the top of the dictionary
@@ -11,7 +12,7 @@ stack.
 &TitleSynopsis;
 <synopsis>
 <replaceable>dictionary</replaceable>
-<token language="psylla">begin</token>
+<function>begin</function>
 —
 </synopsis>
 </formalpara>

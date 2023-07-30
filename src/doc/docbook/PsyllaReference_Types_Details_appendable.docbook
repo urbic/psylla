@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_appendable">
 <title><type>appendable</type></title>
+<indexterm><primary><type>appendable</type> Ⓣ</primary></indexterm>
 
 <para>
 A container in which new elements can be appended.

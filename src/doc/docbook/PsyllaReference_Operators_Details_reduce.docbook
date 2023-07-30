@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_reduce">
-<title><token language="psylla">reduce</token></title>
+<title><function>reduce</function></title>
+<indexterm><primary><function>reduce</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -12,7 +13,7 @@ TODO
 <replaceable>stream</replaceable>
 <replaceable>identity</replaceable>
 <replaceable>accumulator</replaceable>
-<token language="psylla">reduce</token>
+<function>reduce</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

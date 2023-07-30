@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_sub">
-<title><token language="psylla">sub</token></title>
+<title><function>sub</function></title>
+<indexterm><primary><function>sub</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>difference</replaceable> of the
@@ -12,7 +13,7 @@ Returns the <replaceable>difference</replaceable> of the
 <synopsis>
 <replaceable>minuend</replaceable>
 <replaceable>subtrahend</replaceable>
-<token language="psylla">sub</token>
+<function>sub</function>
 <replaceable>difference</replaceable>
 </synopsis>
 </formalpara>

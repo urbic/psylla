@@ -271,6 +271,7 @@
 <!ENTITY PsyllaReference_Operators_Details_readstring		SYSTEM "PsyllaReference_Operators_Details_readstring.docbook">
 <!ENTITY PsyllaReference_Operators_Details_ready			SYSTEM "PsyllaReference_Operators_Details_ready.docbook">
 <!ENTITY PsyllaReference_Operators_Details_realpart			SYSTEM "PsyllaReference_Operators_Details_realpart.docbook">
+<!ENTITY PsyllaReference_Operators_Details_reciprocal		SYSTEM "PsyllaReference_Operators_Details_reciprocal.docbook">
 <!ENTITY PsyllaReference_Operators_Details_reduce			SYSTEM "PsyllaReference_Operators_Details_reduce.docbook">
 <!ENTITY PsyllaReference_Operators_Details_regexp			SYSTEM "PsyllaReference_Operators_Details_regexp.docbook">
 <!ENTITY PsyllaReference_Operators_Details_remove			SYSTEM "PsyllaReference_Operators_Details_remove.docbook">

@@ -67,51 +67,47 @@ a multiline comment #/</programlisting>
 There are several kinds of number literals in the Psylla language:
 
 <itemizedlist>
+
 <listitem>
 <para>
-Decimal integers, such as
-<programlisting language="psylla">720
--13
-0
-+504</programlisting>
+Decimal integers, such as <constant>-13</constant>, <constant>0</constant>,
+<constant>+504</constant>.
 </para>
 </listitem>
+
 <listitem>
 <para>
-Hexadecimal integers, such as
-<programlisting language="psylla">x`13AF
-X`-31123e4</programlisting>
+Hexadecimal integers, such as <constant>x`13AF</constant>,
+<constant>X`-31123e4</constant>.
 </para>
 </listitem>
+
 <listitem>
 <para>
-Octal integers, such as
-<programlisting language="psylla">o`644
-O`-644</programlisting>
+Octal integers, such as <constant>o`644</constant>,
+<constant>O`-644</constant>.
 </para>
 </listitem>
+
 <listitem>
 <para>
-Binary integers, such as
-<programlisting language="psylla">b`101110101
-B`-111010</programlisting>
+Binary integers, such as <constant>b`101110101</constant>,
+<constant>B`-111010</constant>.
 </para>
 </listitem>
+
 <listitem>
 <para>
-Integers represented by characters, such as
-<programlisting language="psylla">c`X
-c`\n</programlisting>
+Integers represented by characters, such as <constant>c`X</constant>,
+<constant>c`\n</constant>.
 </para>
 </listitem>
+
 <listitem>
 <para>
-Real numbers, such as
-<programlisting language="psylla">-.5
-1.
--1.0
-1e5
-7.673E-3</programlisting>
+Real numbers, such as <constant>-.5</constant>, <constant>1.</constant>,
+<constant>-1.0</constant>, <constant>1e5</constant>,
+<constant>7.673E-3</constant>.
 </para>
 </listitem>
 </itemizedlist>

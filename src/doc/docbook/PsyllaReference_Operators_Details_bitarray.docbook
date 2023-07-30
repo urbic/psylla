@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_bitarray">
-<title><token language="psylla">bitarray</token></title>
+<title><function>bitarray</function></title>
+<indexterm><primary><function>bitarray</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new empty <replaceable>bitarray</replaceable>.
@@ -10,7 +11,7 @@ Returns a new empty <replaceable>bitarray</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">bitarray</token>
+<function>bitarray</function>
 <replaceable>bit_array</replaceable>
 </synopsis>
 </formalpara>

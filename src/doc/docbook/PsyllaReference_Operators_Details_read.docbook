@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_read">
-<title><token language="psylla">read</token></title>
+<title><function>read</function></title>
+<indexterm><primary><function>read</function> Ⓞ</primary></indexterm>
 
 <para>
 Attempts to read a <replaceable>character</replaceable> from
@@ -14,12 +15,12 @@ value indicating the success of the operation.
 &TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
-<token language="psylla">read</token>
+<function>read</function>
 <replaceable>character</replaceable>
 <constant>true</constant>
 <sbr/>
 <replaceable>input</replaceable>
-<token language="psylla">read</token>
+<function>read</function>
 <constant>false</constant>
 </synopsis>
 </formalpara>

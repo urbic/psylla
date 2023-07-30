@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_settomark">
-<title><token language="psylla">settomark</token></title>
+<title><function>settomark</function></title>
+<indexterm><primary><function>settomark</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>set</replaceable> filled with
@@ -15,7 +16,7 @@ operand stack. Removes the mark and the objects from the stack.
 <replaceable>object<subscript>0</subscript></replaceable>
 …
 <replaceable>object<subscript>n−1</subscript></replaceable>
-<token language="psylla">settomark</token>
+<function>settomark</function>
 <replaceable>set</replaceable>
 </synopsis>
 </formalpara>

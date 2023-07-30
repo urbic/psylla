@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_load">
-<title><token language="psylla">load</token></title>
+<title><function>load</function></title>
+<indexterm><primary><function>load</function> Ⓞ</primary></indexterm>
 
 <para>
 Looks for the <replaceable>key</replaceable> in the dictionary stack and
@@ -12,7 +13,7 @@ performed from the top to the bottom of the stack.
 &TitleSynopsis;
 <synopsis>
 <replaceable>key</replaceable>
-<token language="psylla">load</token>
+<function>load</function>
 <replaceable>object</replaceable>
 </synopsis>
 </formalpara>
@@ -34,7 +35,7 @@ performed from the top to the bottom of the stack.
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">/add load
-	▶ --add--</programlisting>
+	▶ <constant>--add--</constant></programlisting>
 </formalpara>
 
 <formalpara>

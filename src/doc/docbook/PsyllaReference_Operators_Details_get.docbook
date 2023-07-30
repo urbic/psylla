@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_get">
-<title><token language="psylla">get</token></title>
+<title><function>get</function></title>
+<indexterm><primary><function>get</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>element</replaceable> associated with a given
@@ -43,7 +44,7 @@ linkend="PsyllaReference_Errors_Details_undefined"/> error is generated.
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>key</replaceable>
-<token language="psylla">get</token>
+<function>get</function>
 <replaceable>element</replaceable>
 </synopsis>
 </formalpara>

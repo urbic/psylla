@@ -1,38 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_getall">
-<title><token language="psylla">getall</token></title>
+<title><function>getall</function></title>
+<indexterm><primary><function>getall</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
 </para>
-
-<synopsis>
-<replaceable>container</replaceable>
-<replaceable>enumeration</replaceable>
-<token language="psylla">getall</token>
-<replaceable>массив</replaceable>
-</synopsis>
-
-<formalpara>
-&TitleSynopsis;
-<formalpara>
-&TitleOperands;
-<itemizedlist>
-<listitem>
-<replaceable>container</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>
-</listitem>
-<listitem>
-<replaceable>enumeration</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
-</listitem>
-<listitem>
-<replaceable>массив</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>
-</listitem>
-</itemizedlist>
-</formalpara>
-</formalpara>
 
 <para>
 Тип ключей должен соответствовать типу контейнера (для контейнеров типа <xref
@@ -59,6 +32,31 @@ linkend="PsyllaReference_Types_Details_formaldict"/>
 при отсутствии <replaceable>ключа</replaceable> в словаре генерируется <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefined"/>.
 </para>
+
+<synopsis>
+<replaceable>container</replaceable>
+<replaceable>keys</replaceable>
+<function>getall</function>
+<replaceable>values</replaceable>
+</synopsis>
+
+<formalpara>
+&TitleSynopsis;
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>container</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>
+</listitem>
+<listitem>
+<replaceable>keys</replaceable>,
+<replaceable>values</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+</formalpara>
 
 <formalpara>
 &TitleExamples;

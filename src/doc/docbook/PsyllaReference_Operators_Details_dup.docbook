@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_dup">
-<title><token language="psylla">dup</token></title>
+<title><function>dup</function></title>
+<indexterm><primary><function>dup</function> Ⓞ</primary></indexterm>
 
 <para>
 Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
+Only the object itself is copied, not its value. When copying composite
+objects, their value remains the same.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">dup</token>
+<function>dup</function>
 <replaceable>object</replaceable>
 <replaceable>object</replaceable>
 </synopsis>
@@ -25,11 +28,6 @@ Duplicates the topmost <replaceable>object</replaceable> in the operand stack.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-Копируется только объект, но не его значение. При копировании композитных
-объектов их значение остаётся общим.
-</para>
 
 <formalpara>
 &TitleExamples;
@@ -59,7 +57,9 @@ linkend="PsyllaReference_Operators_ByCategory_OperandStackManipulation"/>.
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_clone"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_copy"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_exch"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_index"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_roll"/>.
 </formalpara>
 
 </section>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_close">
-<title><token language="psylla">close</token></title>
+<title><function>close</function></title>
+<indexterm><primary><function>close</function> Ⓞ</primary></indexterm>
 
 <para>
 Closes the <replaceable>closeable</replaceable> input/output object.
@@ -10,7 +11,7 @@ Closes the <replaceable>closeable</replaceable> input/output object.
 &TitleSynopsis;
 <synopsis>
 <replaceable>cleseable</replaceable>
-<token language="psylla">close</token>
+<function>close</function>
 —
 </synopsis>
 </formalpara>

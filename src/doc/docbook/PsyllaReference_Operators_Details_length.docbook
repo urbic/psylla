@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_length">
-<title><token language="psylla">length</token></title>
+<title><function>length</function></title>
+<indexterm><primary><function>length</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>length</replaceable> of the
@@ -14,7 +15,7 @@ contained keys.
 &TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
-<token language="psylla">length</token>
+<function>length</function>
 <replaceable>length</replaceable>
 </synopsis>
 </formalpara>

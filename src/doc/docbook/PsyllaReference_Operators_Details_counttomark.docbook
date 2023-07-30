@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_counttomark">
-<title><token language="psylla">counttomark</token></title>
+<title><function>counttomark</function></title>
+<indexterm><primary><function>counttomark</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the number of objects situated above the highest
@@ -14,7 +15,7 @@ Returns the number of objects situated above the highest
 <replaceable>object<subscript>1</subscript></replaceable>
 …
 <replaceable>object<subscript>n</subscript></replaceable>
-<token language="psylla">counttomark</token>
+<function>counttomark</function>
 <constant>mark</constant>
 <replaceable>object<subscript>1</subscript></replaceable>
 …

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_clearstack">
-<title><token language="psylla">clearstack</token></title>
+<title><function>clearstack</function></title>
+<indexterm><primary><function>clearstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Removes all <replaceable>objects</replaceable> from the operand stack.
@@ -13,7 +14,7 @@ Removes all <replaceable>objects</replaceable> from the operand stack.
 <replaceable>object<subscript>1</subscript></replaceable>
 …
 <replaceable>object<subscript>n</subscript></replaceable>
-<token language="psylla">clearstack</token>
+<function>clearstack</function>
 ⊢
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_capturegroup">
-<title><token language="psylla">capturegroup</token></title>
+<title><function>capturegroup</function></title>
+<indexterm><primary><function>capturegroup</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a <replaceable>group</replaceable> designated by the
@@ -27,7 +28,7 @@ linkend="PsyllaReference_Types_Details_textual"/>
 <synopsis>
 <replaceable>matcher</replaceable>
 <replaceable>index</replaceable>
-<token language="psylla">capturegroup</token>
+<function>capturegroup</function>
 <replaceable>group</replaceable>
 <replaceable>start</replaceable>
 <replaceable>end</replaceable>
@@ -35,7 +36,7 @@ linkend="PsyllaReference_Types_Details_textual"/>
 <sbr/>
 <replaceable>matcher</replaceable>
 <replaceable>index</replaceable>
-<token language="psylla">capturegroup</token>
+<function>capturegroup</function>
 <constant>false</constant>
 </synopsis>
 </formalpara>

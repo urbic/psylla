@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_streamtomark">
-<title><token language="psylla">streamtomark</token></title>
+<title><function>streamtomark</function></title>
+<indexterm><primary><function>streamtomark</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>stream</replaceable> filled with
@@ -15,7 +16,7 @@ operand stack. Removes the mark and the objects from the stack.
 <replaceable>object<subscript>0</subscript></replaceable>
 …
 <replaceable>object<subscript>n−1</subscript></replaceable>
-<token language="psylla">streamtomark</token>
+<function>streamtomark</function>
 <replaceable>stream</replaceable>
 </synopsis>
 </formalpara>

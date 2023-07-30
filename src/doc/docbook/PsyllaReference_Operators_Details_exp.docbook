@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_exp">
-<title><token language="psylla">exp</token></title>
+<title><function>exp</function></title>
+<indexterm><primary><function>exp</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the exponent of a <replaceable>number</replaceable> as
@@ -21,7 +22,7 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">exp</token>
+<function>exp</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>
@@ -42,7 +43,7 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_complex"/>.
 <programlisting language="psylla">1 exp
 	▶ 2.718281828459045
 1 0 complex exp
-	▶ 2.718281828459045+0.0*i</programlisting>
+	▶ 2.718281828459045+0.0i</programlisting>
 </formalpara>
 
 <formalpara>

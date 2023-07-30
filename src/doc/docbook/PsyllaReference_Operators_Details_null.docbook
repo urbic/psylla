@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_null">
-<title><token language="psylla">null</token></title>
+<title><function>null</function></title>
+<indexterm><primary><function>null</function> Ⓞ</primary></indexterm>
 
 <para>
-The <constant>null</constant> value. <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_null"/> is not an operator, but a <xref
+The <constant>null</constant> value. Not an operator, but a <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_null"/> value in
 the system dictionary.
 </para>
@@ -13,7 +13,7 @@ the system dictionary.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">null</token>
+<function>null</function>
 <constant>null</constant>
 </synopsis>
 </formalpara>

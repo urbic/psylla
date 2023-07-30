@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_bitset">
 <title><type>bitset</type></title>
+<indexterm><primary><type>bitset</type> Ⓣ</primary></indexterm>
 
 <para>
 A bit set, a compact implementation of a set consisting of non-negative numbers

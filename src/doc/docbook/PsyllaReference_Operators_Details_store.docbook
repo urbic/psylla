@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_store">
-<title><token language="psylla">store</token></title>
+<title><function>store</function></title>
+<indexterm><primary><function>store</function> Ⓞ</primary></indexterm>
 
 <para>
 Looks up a dictionary in a dictionary stack (top to bottom) that contains a
@@ -16,7 +17,7 @@ the current dictionary (the topmost in the dictionary stack).
 <synopsis>
 <replaceable>key</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">store</token>
+<function>store</function>
 —
 </synopsis>
 </formalpara>

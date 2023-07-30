@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_and">
-<title><token language="psylla">and</token></title>
+<title><function>and</function></title>
+<indexterm><primary><function>and</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>conjunction</replaceable> of two
@@ -22,7 +23,7 @@ linkend="PsyllaReference_Types_Details_bitwise"/>
 <synopsis>
 <replaceable>operand<subscript>1</subscript></replaceable>
 <replaceable>operand<subscript>2</subscript></replaceable>
-<token language="psylla">and</token>
+<function>and</function>
 <replaceable>conjunction</replaceable>
 </synopsis>
 </formalpara>

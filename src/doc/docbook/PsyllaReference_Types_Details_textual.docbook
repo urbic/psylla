@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_textual">
 <title><type>textual</type></title>
+<indexterm><primary><type>textual</type> Ⓣ</primary></indexterm>
 
 <para>
 Тип строкоподобных величин, объединяющий строки и имена.

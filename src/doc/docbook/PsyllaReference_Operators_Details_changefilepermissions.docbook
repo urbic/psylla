@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_changefilepermissions">
-<title><token language="psylla">changefilepermissions</token></title>
+<title><function>changefilepermissions</function></title>
+<indexterm><primary><function>changefilepermissions</function> Ⓞ</primary></indexterm>
 
 <para>
 Sets the <replaceable>permissions</replaceable> for the file or directory
@@ -12,7 +13,7 @@ with the given <replaceable>name</replaceable>.
 <synopsis>
 <replaceable>name</replaceable>
 <replaceable>permissions</replaceable>
-<token language="psylla">filepermissions</token>
+<function>filepermissions</function>
 —
 </synopsis>
 </formalpara>

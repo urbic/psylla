@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_cleardictstack">
-<title><token language="psylla">cleardictstack</token></title>
+<title><function>cleardictstack</function></title>
+<indexterm><primary><function>cleardictstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Removes all non-permanent dictionaries from the dictionary stack.
@@ -10,7 +11,7 @@ Removes all non-permanent dictionaries from the dictionary stack.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">cleardictstack</token>
+<function>cleardictstack</function>
 —
 </synopsis>
 </formalpara>

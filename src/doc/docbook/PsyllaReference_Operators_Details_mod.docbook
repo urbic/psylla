@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_mod">
-<title><token language="psylla">mod</token></title>
+<title><function>mod</function></title>
+<indexterm><primary><function>mod</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>remainder</replaceable> of dividing the
@@ -12,7 +13,7 @@ Returns the <replaceable>remainder</replaceable> of dividing the
 <synopsis>
 <replaceable>dividend</replaceable>
 <replaceable>divisor</replaceable>
-<token language="psylla">mod</token>
+<function>mod</function>
 <replaceable>remainder</replaceable>
 </synopsis>
 </formalpara>

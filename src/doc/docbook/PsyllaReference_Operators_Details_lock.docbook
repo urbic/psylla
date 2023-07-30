@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_lock">
-<title><token language="psylla">lock</token></title>
+<title><function>lock</function></title>
+<indexterm><primary><function>lock</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>lock</replaceable>.
@@ -10,7 +11,7 @@ Returns a new <replaceable>lock</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">lock</token>
+<function>lock</function>
 <replaceable>lock</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_executive">
-<title><token language="psylla">executive</token></title>
+<title><function>executive</function></title>
+<indexterm><primary><function>executive</function> Ⓞ</primary></indexterm>
 
 <para>
 Invoke <acronym>REPL</acronym> (read—evaluate—print loop).
@@ -10,7 +11,7 @@ Invoke <acronym>REPL</acronym> (read—evaluate—print loop).
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">executive</token>
+<function>executive</function>
 —
 </synopsis>
 </formalpara>

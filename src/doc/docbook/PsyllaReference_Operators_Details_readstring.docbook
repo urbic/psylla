@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_readstring">
-<title><token language="psylla">readstring</token></title>
+<title><function>readstring</function></title>
+<indexterm><primary><function>readstring</function> Ⓞ</primary></indexterm>
 
 <para>
 Attempts to read a <replaceable>string</replaceable> of specified
@@ -15,7 +16,7 @@ Returns the <replaceable>string</replaceable> read. Also returns a boolean
 <synopsis>
 <replaceable>input</replaceable>
 <replaceable>length</replaceable>
-<token language="psylla">readstring</token>
+<function>readstring</function>
 <replaceable>string</replaceable>
 <replaceable>flag</replaceable>
 </synopsis>

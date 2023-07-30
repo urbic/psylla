@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_reset">
-<title><token language="psylla">reset</token></title>
+<title><function>reset</function></title>
+<indexterm><primary><function>reset</function> Ⓞ</primary></indexterm>
 
 <para>
 Resets an <replaceable>input</replaceable>.
@@ -10,7 +11,7 @@ Resets an <replaceable>input</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
-<token language="psylla">reset</token>
+<function>reset</function>
 —
 </synopsis>
 </formalpara>

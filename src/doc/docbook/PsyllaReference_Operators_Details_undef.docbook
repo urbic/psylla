@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_undef">
-<title><token language="psylla">undef</token></title>
+<title><function>undef</function></title>
 
 <para>
 Removes the <replaceable>key</replaceable> and the value associated with it
@@ -14,7 +14,7 @@ does not cause an error.
 <synopsis>
 <replaceable>key</replaceable>
 <replaceable>dictionary</replaceable>
-<token language="psylla">undef</token>
+<function>undef</function>
 —
 </synopsis>
 </formalpara>

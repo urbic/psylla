@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_wait">
-<title><token language="psylla">wait</token></title>
+<title><function>wait</function></title>
 
 <para>
 TODO
@@ -10,7 +10,7 @@ TODO
 &TitleSynopsis;
 <synopsis>
 <replaceable>condition</replaceable>
-<token language="psylla">wait</token>
+<function>wait</function>
 —
 </synopsis>
 </formalpara>

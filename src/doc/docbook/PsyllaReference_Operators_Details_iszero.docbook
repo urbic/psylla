@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_iszero">
-<title><token language="psylla">iszero</token></title>
+<title><function>iszero</function></title>
+<indexterm><primary><function>iszero</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if the <replaceable>number</replaceable> is
@@ -11,7 +12,7 @@ zero, and <constant>false</constant> otherwise.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">iszero</token>
+<function>iszero</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

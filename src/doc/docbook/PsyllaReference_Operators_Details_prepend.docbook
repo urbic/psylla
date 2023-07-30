@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_prepend">
-<title><token language="psylla">prepend</token></title>
+<title><function>prepend</function></title>
+<indexterm><primary><function>prepend</function> Ⓞ</primary></indexterm>
 
 <para>
 Inserts the <replaceable>object</replaceable> at the beginning of the
@@ -12,7 +13,7 @@ Inserts the <replaceable>object</replaceable> at the beginning of the
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">prepend</token>
+<function>prepend</function>
 —
 </synopsis>
 </formalpara>
@@ -35,7 +36,7 @@ Inserts the <replaceable>object</replaceable> at the beginning of the
 &TitleExamples;
 <programlisting language="psylla">[ 0 1 2 ] dup 3 prepend
 	▶ [ 3 0 1 2 ]
-"abc" dup `d prepend
+"abc" dup c`d prepend
 	▶ "dabc"</programlisting>
 </formalpara>
 

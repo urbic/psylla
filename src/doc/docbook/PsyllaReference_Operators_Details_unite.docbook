@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_unite">
-<title><token language="psylla">unite</token></title>
+<title><function>unite</function></title>
 
 <para>
 Returns a <replaceable>string</replaceable> obtained by concatenating
@@ -13,7 +13,7 @@ Returns a <replaceable>string</replaceable> obtained by concatenating
 <synopsis>
 <replaceable>enumeration</replaceable>
 <replaceable>separator</replaceable>
-<token language="psylla">unite</token>
+<function>unite</function>
 <replaceable>string</replaceable>
 </synopsis>
 </formalpara>

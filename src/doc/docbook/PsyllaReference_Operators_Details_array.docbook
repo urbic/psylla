@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_array">
-<title><token language="psylla">array</token></title>
+<title><function>array</function></title>
+<indexterm><primary><function>array</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new empty <replaceable>array</replaceable>.
@@ -10,7 +11,7 @@ Returns a new empty <replaceable>array</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">array</token>
+<function>array</function>
 <replaceable>array</replaceable>
 </synopsis>
 </formalpara>

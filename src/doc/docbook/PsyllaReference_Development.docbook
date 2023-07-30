@@ -24,8 +24,8 @@ xlink:href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(conefores
 <!--para>
 По умолчанию имя оператора выводится из имени его класса. Встроенные операторы
 Psylla определены в классах, чьё имя начинается со знака подчёркивания, за
-которым следует имя оператора. К примеру, оператор <token
-language="psylla">dup</token> определён в классе <classname
+которым следует имя оператора. К примеру, оператор <function
+language="psylla">dup</function> определён в классе <classname
 xlink:href="../../javadoc/coneforest/psylla/core/_dup.html">coneforest.psylla.systemdict._dup</classname>.
 Метод <methodname
 xlink:href="../../javadoc/coneforest/psylla/core/PsyOperator.html#getName()">coneforest.psylla.core.PsyOperator.getName()</methodname>
@@ -40,7 +40,7 @@ xlink:href="../../javadoc/coneforest/psylla/core/PsyOperator.html#getName()">con
 
 <para>
 Объект, определённый во внешнем классе, может быть загружен на стек операндов
-оператором <token language="psylla">external</token>. Операндом этого оператора
+оператором <function language="psylla">external</function>. Операндом этого оператора
 должно быть двоичное имя класса, представленное как строка или имя.
 </para>
 
@@ -48,7 +48,7 @@ xlink:href="../../javadoc/coneforest/psylla/core/PsyOperator.html#getName()">con
 В разделе <xref
 linkend="PsyllaReference_Development_Extension_ExampleRomanNumerals"/> создаются
 новые операторы для преобразования чисел в римскую запись и наоборот. Оператор
-<token language="psylla">toroman</token> определяется в классе<sbr/>
+<function language="psylla">toroman</function> определяется в классе<sbr/>
 <classname>coneforest.psylla.extensions.romannumerals.PsyRomanNumerals._toroman</classname>.
 Для вызова этого оператора потребуется код
 
@@ -70,13 +70,13 @@ exec	# ⇒ "MCMLXXXVII"</programlisting>
 </para>
 
 <para>
-Оператор <token language="psylla">external</token> использует загрузчик классов
-<token language="psylla">classpath</token>, реализованный как массив строковых
+Оператор <function language="psylla">external</function> использует загрузчик классов
+<function language="psylla">classpath</function>, реализованный как массив строковых
 объектов. Элементы массива интерпретируются как элементы пути поиска классов.
 Элементы могут добавляться или удаляться во время исполнения программы.
 Загрузчик выполняет поиск классов сначала с помощью системного загрузчика Java,
 а затем ищет класс, принимая во внимание пути, заданные в массиве.
-Массив-загрузчик <token language="psylla">classpath</token> изначально заполнен
+Массив-загрузчик <function language="psylla">classpath</function> изначально заполнен
 элементами, заданными как параметр <option>--classpath</option> в командной
 строке. Если параметр не задан, массив пуст.
 </para>
@@ -93,9 +93,9 @@ exec	# ⇒ "MCMLXXXVII"</programlisting>
 
 <para>
 In this example, we are creating a dictionary with two new operators. The
-<token language="psylla">toroman</token> operator converts an integer to
-a string containing Roman notation. The <token
-language="psylla">fromroman</token> operator, on the other hand, converts
+<function language="psylla">toroman</function> operator converts an integer to
+a string containing Roman notation. The <function
+language="psylla">fromroman</function> operator, on the other hand, converts
 a Roman string into a numeric form.
 </para>
 

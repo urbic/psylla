@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_bitset">
-<title><token language="psylla">bitset</token></title>
+<title><function>bitset</function></title>
+<indexterm><primary><function>bitset</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new empty <replaceable>bit_set</replaceable>.
@@ -10,7 +11,7 @@ Returns a new empty <replaceable>bit_set</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">bitset</token>
+<function>bitset</function>
 <replaceable>bit_set</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_deletefile">
-<title><token language="psylla">deletefile</token></title>
+<title><function>deletefile</function></title>
+<indexterm><primary><function>deletefile</function> Ⓞ</primary></indexterm>
 
 <para>
 Deletes a file or nonempty directory with a given <replaceable>name</replaceable>.
@@ -10,7 +11,7 @@ Deletes a file or nonempty directory with a given <replaceable>name</replaceable
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">deletefile</token>
+<function>deletefile</function>
 —
 </synopsis>
 </formalpara>

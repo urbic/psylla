@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_where">
-<title><token language="psylla">where</token></title>
+<title><function>where</function></title>
 
 <para>
 Searches for a <replaceable>key</replaceable> in each dictionary on the
@@ -14,12 +14,12 @@ returns <constant>false</constant>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>key</replaceable>
-<token language="psylla">where</token>
+<function>where</function>
 <replaceable>dictionary</replaceable>
 <constant>true</constant>
 <sbr/>
 <replaceable>key</replaceable>
-<token language="psylla">where</token>
+<function>where</function>
 <constant>false</constant>
 </synopsis>
 </formalpara>

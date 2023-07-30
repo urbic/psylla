@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_signum">
-<title><token language="psylla">signum</token></title>
+<title><function>signum</function></title>
+<indexterm><primary><function>signum</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>signum</replaceable> of a <replaceable>number</replaceable>.
@@ -10,7 +11,7 @@ Returns the <replaceable>signum</replaceable> of a <replaceable>number</replacea
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">signum</token>
+<function>signum</function>
 <replaceable>signum</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_quit">
-<title><token language="psylla">quit</token></title>
+<title><function>quit</function></title>
+<indexterm><primary><function>quit</function> Ⓞ</primary></indexterm>
 
 <para>
 Terminates the current execution context.
@@ -10,7 +11,7 @@ Terminates the current execution context.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">quit</token>
+<function>quit</function>
 —
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_additive">
 <title><type>additive</type></title>
+<indexterm><primary><type>additive</type> Ⓣ</primary></indexterm>
 
 <para>
 The type of operands for additive operations: addition, subtraction and

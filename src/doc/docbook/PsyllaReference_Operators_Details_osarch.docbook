@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_osarch">
-<title><token language="psylla">osarch</token></title>
+<title><function>osarch</function></title>
+<indexterm><primary><function>osarch</function> Ⓞ</primary></indexterm>
 
 <para>
 The architecture of an operating system. Not an operator, but a <xref
@@ -12,7 +13,7 @@ the system dictionary.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">osarch</token>
+<function>osarch</function>
 <constant>osarch</constant>
 </synopsis>
 </formalpara>

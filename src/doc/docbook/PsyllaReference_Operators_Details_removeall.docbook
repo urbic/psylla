@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_removeall">
-<title><token language="psylla">removeall</token></title>
+<title><function>removeall</function></title>
+<indexterm><primary><function>removeall</function> Ⓞ</primary></indexterm>
 
 <para>
 Removes all the objects from the <replaceable>enumeration</replaceable> from
@@ -12,7 +13,7 @@ the <replaceable>set</replaceable>.
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>enumeration</replaceable>
-<token language="psylla">removeall</token>
+<function>removeall</function>
 —
 </synopsis>
 </formalpara>

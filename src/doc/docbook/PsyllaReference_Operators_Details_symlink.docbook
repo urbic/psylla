@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_symlink">
-<title><token language="psylla">symlink</token></title>
+<title><function>symlink</function></title>
+<indexterm><primary><function>symlink</function> Ⓞ</primary></indexterm>
 
 <para>
 Creates a symbolic link named <replaceable>link</replaceable> to a file named
@@ -12,7 +13,7 @@ Creates a symbolic link named <replaceable>link</replaceable> to a file named
 <synopsis>
 <replaceable>target</replaceable>
 <replaceable>link</replaceable>
-<token language="psylla">symlink</token>
+<function>symlink</function>
 —
 </synopsis>
 </formalpara>

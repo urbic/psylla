@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_arithmetic">
 <title><type>arithmetic</type></title>
+<indexterm><primary><type>arithmetic</type> Ⓣ</primary></indexterm>
 
 <para>
 The type of operands for arithmetic operations: addition, subtraction,

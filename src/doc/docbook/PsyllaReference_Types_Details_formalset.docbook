@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_formalset">
 <title><type>formalset</type></title>
+<indexterm><primary><type>formalset</type> Ⓣ</primary></indexterm>
 
 <para>
 A base type for sets.

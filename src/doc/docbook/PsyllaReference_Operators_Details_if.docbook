@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_if">
-<title><token language="psylla">if</token></title>
+<title><function>if</function></title>
+<indexterm><primary><function>if</function> Ⓞ</primary></indexterm>
 
 <para>
 Invokes an <replaceable>object</replaceable> (typically a procedure), if a
@@ -12,7 +13,7 @@ Invokes an <replaceable>object</replaceable> (typically a procedure), if a
 <synopsis>
 <replaceable>condition</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">if</token>
+<function>if</function>
 —
 </synopsis>
 </formalpara>

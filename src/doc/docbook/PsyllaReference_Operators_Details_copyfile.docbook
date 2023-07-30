@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_copyfile">
-<title><token language="psylla">copyfile</token></title>
+<title><function>copyfile</function></title>
+<indexterm><primary><function>copyfile</function> Ⓞ</primary></indexterm>
 
 <para>
 Copies an <replaceable>existing</replaceable> file with a
@@ -12,7 +13,7 @@ Copies an <replaceable>existing</replaceable> file with a
 <synopsis>
 <replaceable>existing</replaceable>
 <replaceable>new</replaceable>
-<token language="psylla">copyfile</token>
+<function>copyfile</function>
 —
 </synopsis>
 </formalpara>

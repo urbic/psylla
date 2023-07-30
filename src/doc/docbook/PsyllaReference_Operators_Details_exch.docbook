@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_exch">
-<title><token language="psylla">exch</token></title>
+<title><function>exch</function></title>
+<indexterm><primary><function>exch</function> Ⓞ</primary></indexterm>
 
 <para>
 Exchanges two topmost operands in the operand stack.
@@ -11,7 +12,7 @@ Exchanges two topmost operands in the operand stack.
 <synopsis>
 <replaceable>object<subscript>1</subscript></replaceable>
 <replaceable>object<subscript>2</subscript></replaceable>
-<token language="psylla">exch</token>
+<function>exch</function>
 <replaceable>object<subscript>2</subscript></replaceable>
 <replaceable>object<subscript>1</subscript></replaceable>
 </synopsis>

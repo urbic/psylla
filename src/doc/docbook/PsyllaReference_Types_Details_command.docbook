@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_command">
 <title><type>command</type></title>
+<indexterm><primary><type>command</type> Ⓣ</primary></indexterm>
 
 <para>
 A command.

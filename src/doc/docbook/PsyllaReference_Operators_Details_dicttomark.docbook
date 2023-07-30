@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_dicttomark">
-<title><token language="psylla">dicttomark</token></title>
+<title><function>dicttomark</function></title>
+<indexterm><primary><function>dicttomark</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>dictionary</replaceable> containing key-value pairs
@@ -17,7 +18,7 @@ objects above it from the operand stack.
 …
 <replaceable>key<subscript>n</subscript></replaceable>
 <replaceable>value<subscript>n</subscript></replaceable>
-<token language="psylla">dicttomark</token>
+<function>dicttomark</function>
 <replaceable>dictionary</replaceable>
 </synopsis>
 </formalpara>

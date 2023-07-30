@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_exit">
-<title><token language="psylla">exit</token></title>
+<title><function>exit</function></title>
+<indexterm><primary><function>exit</function> Ⓞ</primary></indexterm>
 
 <para>
 Terminates the most inner enclosing looping context. A <firstterm>looping
@@ -17,7 +18,7 @@ Program execution continues from the object following this operator.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">exit</token>
+<function>exit</function>
 —
 </synopsis>
 </formalpara>

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_bitshift">
-<title><token language="psylla">bitshift</token></title>
+<title><function>bitshift</function></title>
+<indexterm><primary><function>bitshift</function> Ⓞ</primary></indexterm>
 
 <para>
-TODO
+Returns a <replaceable>shifted</replaceable> whose value is equivalent to
+<replaceable>bitwise</replaceable> with bits shifted by
+<replaceable>distance</replaceable> positions. For positive
+<replaceable>distance</replaceable>, shifts to the left, for negative
+<replaceable>distance</replaceable>, shifts to the right. If
+<replaceable>distance</replaceable> is zero, no shift is performed.
 </para>
 
 <formalpara>
@@ -11,8 +17,8 @@ TODO
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>shift</replaceable>
-<token language="psylla">bitshift</token>
-<replaceable>result</replaceable>
+<function>bitshift</function>
+<replaceable>shifted</replaceable>
 </synopsis>
 </formalpara>
 
@@ -21,7 +27,7 @@ TODO
 <itemizedlist>
 <listitem>
 <replaceable>bitwise</replaceable>,
-<replaceable>result</replaceable>:
+<replaceable>shifted</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>
 </listitem>
 <listitem>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_ifelse">
-<title><token language="psylla">ifelse</token></title>
+<title><function>ifelse</function></title>
+<indexterm><primary><function>ifelse</function> Ⓞ</primary></indexterm>
 
 <para>
 Invokes an <replaceable>object<subscript>1</subscript></replaceable>, if a
@@ -14,7 +15,7 @@ Invokes an <replaceable>object<subscript>1</subscript></replaceable>, if a
 <replaceable>condition</replaceable>
 <replaceable>object<subscript>1</subscript></replaceable>
 <replaceable>object<subscript>2</subscript></replaceable>
-<token language="psylla">ifelse</token>
+<function>ifelse</function>
 —
 </synopsis>
 </formalpara>

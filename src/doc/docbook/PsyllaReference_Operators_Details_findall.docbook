@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_findall">
-<title><token language="psylla">findall</token></title>
+<title><function>findall</function></title>
+<indexterm><primary><function>findall</function> Ⓞ</primary></indexterm>
 
 <para>
 Ищет последовательно все соответствия <replaceable>шаблону</replaceable>
@@ -17,7 +18,7 @@
 <replaceable>строковое</replaceable>
 <replaceable>шаблон</replaceable>
 <replaceable>объект</replaceable>
-<token language="psylla">findall</token>
+<function>findall</function>
 —
 </synopsis>
 </formalpara>

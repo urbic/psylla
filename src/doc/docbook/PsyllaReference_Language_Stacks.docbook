@@ -14,7 +14,7 @@ stack</firstterm><indexterm><primary>execution stack</primary></indexterm>.
 
 <para>
 Each of the stacks is arranged according to the <acronym>LIFO</acronym>
-principle: Last In-First Out.
+principle: Last In—First Out.
 </para>
 
 <section xml:id="PsyllaReference_Language_Stacks_OperandStack">

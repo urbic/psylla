@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Operators_Details_neg">
-<title><function>neg</function></title>
-<indexterm><primary><function>neg</function> Ⓞ</primary></indexterm>
+<section xml:id="PsyllaReference_Operators_Details_reciprocal">
+<title><function>reciprocal</function></title>
+<indexterm><primary><function>reciprocal</function> Ⓞ</primary></indexterm>
 
 <para>
-Returns the arithmetic <replaceable>negation</replaceable> of the
+Returns the multiplicative <replaceable>inverse</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 
-<para>
+<!--para>
 For <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_integer"/>
 <replaceable>number</replaceable> the type of a
@@ -22,14 +22,14 @@ linkend="PsyllaReference_Types_Details_real"/> or <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_complex"/>
 <replaceable>number</replaceable> the type of a
 <replaceable>negation</replaceable> is the same.
-</para>
+</para-->
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<function>neg</function>
-<replaceable>negation</replaceable>
+<function>reciprocal</function>
+<replaceable>inverse</replaceable>
 </synopsis>
 </formalpara>
 
@@ -38,20 +38,20 @@ linkend="PsyllaReference_Types_Details_complex"/>
 <itemizedlist>
 <listitem>
 <replaceable>number</replaceable>,
-<replaceable>negation</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_additive"/>
+<replaceable>inverse</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_multiplicative"/>
 </listitem>
 </itemizedlist>
 </formalpara>
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">4 neg
-	▶ -4
--4. neg
-	▶ 4.0
-0 1 complex neg
-	▶ -0.0-1.0i</programlisting>
+<programlisting language="psylla">4 reciprocal
+	▶ 1:4
+-4. reciprocal
+	▶ -0.25
+3 4 complex reciprocal
+	▶ 0.12-0.16i</programlisting>
 </formalpara>
 
 <formalpara>
@@ -65,6 +65,10 @@ linkend="PsyllaReference_Types_Details_complex"/>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
 &ErrorReason_typecheck;
 </listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/> —
+when the <replaceable>number</replaceable> is zero
+</listitem>
 </itemizedlist>
 </formalpara>
 
@@ -75,9 +79,8 @@ linkend="PsyllaReference_Types_Details_complex"/>
 
 <formalpara>
 &TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_add"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_signum"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_sub"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mul"/>.
 </formalpara>
 
 </section>

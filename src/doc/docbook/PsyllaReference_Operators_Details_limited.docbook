@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_limited">
-<title><token language="psylla">limited</token></title>
+<title><function>limited</function></title>
+<indexterm><primary><function>limited</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a <replaceable>limitedstream</replaceable> consisting of the elements
@@ -13,7 +14,7 @@ of the <replaceable>stream</replaceable>, truncated to be no longer than
 <synopsis>
 <replaceable>stream</replaceable>
 <replaceable>size</replaceable>
-<token language="psylla">limited</token>
+<function>limited</function>
 <replaceable>limitedstream</replaceable>
 </synopsis>
 </formalpara>
@@ -44,7 +45,7 @@ of the <replaceable>stream</replaceable>, truncated to be no longer than
 <itemizedlist>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
-when the <replaceable>size</replaceable> is negative.
+when the <replaceable>size</replaceable> is negative
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —

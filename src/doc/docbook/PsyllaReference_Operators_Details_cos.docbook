@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_cos">
-<title><token language="psylla">cos</token></title>
+<title><function>cos</function></title>
+<indexterm><primary><function>cos</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>cosine</replaceable> of a
@@ -21,7 +22,7 @@ result.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">cos</token>
+<function>cos</function>
 <replaceable>cosine</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_writestring">
-<title><token language="psylla">writestring</token></title>
+<title><function>writestring</function></title>
 
 <para>
 Writes the <replaceable>string</replaceable> to
@@ -12,7 +12,7 @@ the <replaceable>output</replaceable>.
 <synopsis>
 <replaceable>output</replaceable>
 <replaceable>string</replaceable>
-<token language="psylla">writestring</token>
+<function>writestring</function>
 —
 </synopsis>
 </formalpara>

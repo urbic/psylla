@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_regexp">
 <title><type>regexp</type></title>
+<indexterm><primary><type>regexp</type> Ⓣ</primary></indexterm>
 
 <para>
 A compiled instance of regular expression.

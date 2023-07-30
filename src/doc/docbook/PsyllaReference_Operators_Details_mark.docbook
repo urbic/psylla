@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_mark">
-<title><token language="psylla">mark</token></title>
+<title><function>mark</function></title>
+<indexterm><primary><function>mark</function> Ⓞ</primary></indexterm>
 
 <para>
-Appends a <constant>mark</constant> to the operand stack. <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mark"/> is not
-an operator, but a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_mark"/> value in the system dictionary.
+Appends a <constant>mark</constant> to the operand stack. Not an operator, but
+a <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_mark"/>
+value in the system dictionary.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">mark</token>
+<function>mark</function>
 <constant>mark</constant>
 </synopsis>
 </formalpara>

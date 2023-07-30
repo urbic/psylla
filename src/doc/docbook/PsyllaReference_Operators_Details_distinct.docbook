@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_distinct">
-<title><token language="psylla">distinct</token></title>
+<title><function>distinct</function></title>
+<indexterm><primary><function>distinct</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a stream consisting of the distinct elements of the given
@@ -11,7 +12,7 @@ Returns a stream consisting of the distinct elements of the given
 &TitleSynopsis;
 <synopsis>
 <replaceable>stream</replaceable>
-<token language="psylla">distinct</token>
+<function>distinct</function>
 <replaceable>distinctstream</replaceable>
 </synopsis>
 </formalpara>

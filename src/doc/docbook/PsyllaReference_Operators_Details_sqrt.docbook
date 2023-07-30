@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_sqrt">
-<title><token language="psylla">sqrt</token></title>
+<title><function>sqrt</function></title>
+<indexterm><primary><function>sqrt</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the square <replaceable>square_root</replaceable> of the
@@ -11,7 +12,7 @@ Returns the square <replaceable>square_root</replaceable> of the
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">sqrt</token>
+<function>sqrt</function>
 <replaceable>square_root</replaceable>
 </synopsis>
 </formalpara>
@@ -34,7 +35,7 @@ Returns the square <replaceable>square_root</replaceable> of the
 -1 sqrt
 	▶ NaN
 0 1 complex sqrt
-	▶ 0.7071067811865476+0.7071067811865475*i</programlisting>
+	▶ 0.7071067811865476+0.7071067811865475i</programlisting>
 </formalpara>
 
 <formalpara>

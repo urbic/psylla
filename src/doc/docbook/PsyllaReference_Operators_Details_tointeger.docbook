@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_tointeger">
-<title><token language="psylla">tointeger</token></title>
+<title><function>tointeger</function></title>
 
 <para>
 TODO
@@ -10,7 +10,7 @@ TODO
 &TitleSynopsis;
 <synopsis>
 <replaceable>объект</replaceable>
-<token language="psylla">tointeger</token>
+<function>tointeger</function>
 <replaceable>целое</replaceable>
 </synopsis>
 </formalpara>

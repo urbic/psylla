@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_sleep">
-<title><token language="psylla">sleep</token></title>
+<title><function>sleep</function></title>
+<indexterm><primary><function>sleep</function> Ⓞ</primary></indexterm>
 
 <para>
 Suspends execution of the current context for given
@@ -11,7 +12,7 @@ Suspends execution of the current context for given
 &TitleSynopsis;
 <synopsis>
 <replaceable>duration</replaceable>
-<token language="psylla">sleep</token>
+<function>sleep</function>
 —
 </synopsis>
 </formalpara>

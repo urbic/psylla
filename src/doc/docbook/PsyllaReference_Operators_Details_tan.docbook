@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_tan">
-<title><token language="psylla">tan</token></title>
+<title><function>tan</function></title>
 
 <para>
 Returns the tangent of a <replaceable>number</replaceable> as
@@ -20,7 +20,7 @@ linkend="PsyllaReference_Types_Details_complex"/>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">tan</token>
+<function>tan</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

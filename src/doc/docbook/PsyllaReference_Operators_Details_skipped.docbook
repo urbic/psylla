@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_skipped">
-<title><token language="psylla">skipped</token></title>
+<title><function>skipped</function></title>
+<indexterm><primary><function>skipped</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a stream consisting of the remaining elements of the
@@ -13,7 +14,7 @@ Returns a stream consisting of the remaining elements of the
 <synopsis>
 <replaceable>stream</replaceable>
 <replaceable>n</replaceable>
-<token language="psylla">skipped</token>
+<function>skipped</function>
 <replaceable>skippedstream</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_blockingqueue">
-<title><token language="psylla">blockingqueue</token></title>
+<title><function>blockingqueue</function></title>
+<indexterm><primary><function>blockingqueue</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new blocking <replaceable>queue</replaceable> with a given
@@ -11,7 +12,7 @@ Returns a new blocking <replaceable>queue</replaceable> with a given
 &TitleSynopsis;
 <synopsis>
 <replaceable>capacity</replaceable>
-<token language="psylla">blockingqueue</token>
+<function>blockingqueue</function>
 <replaceable>queue</replaceable>
 </synopsis>
 </formalpara>

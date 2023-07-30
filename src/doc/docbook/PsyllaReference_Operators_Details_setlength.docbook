@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_setlength">
-<title><token language="psylla">setlength</token></title>
+<title><function>setlength</function></title>
+<indexterm><primary><function>setlength</function> Ⓞ</primary></indexterm>
 
 <para>
 Set the size of the <replaceable>array</replaceable> to the
@@ -15,7 +16,7 @@ the <replaceable>array</replaceable>.
 <synopsis>
 <replaceable>array</replaceable>
 <replaceable>length</replaceable>
-<token language="psylla">setlength</token>
+<function>setlength</function>
 —
 </synopsis>
 </formalpara>

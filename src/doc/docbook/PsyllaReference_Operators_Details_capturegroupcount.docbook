@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_capturegroupcount">
-<title><token language="psylla">capturegroupcount</token></title>
+<title><function>capturegroupcount</function></title>
+<indexterm><primary><function>capturegroupcount</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a <replaceable>count</replaceable> of capture groups for the given
@@ -12,7 +13,7 @@ corresponds to the whole pattern; it does not counted.
 &TitleSynopsis;
 <synopsis>
 <replaceable>matcher</replaceable>
-<token language="psylla">capturegroupcount</token>
+<function>capturegroupcount</function>
 <replaceable>count</replaceable>
 </synopsis>
 </formalpara>

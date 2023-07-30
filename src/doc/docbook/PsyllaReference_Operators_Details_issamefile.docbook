@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_issamefile">
-<title><token language="psylla">issamefile</token></title>
+<title><function>issamefile</function></title>
+<indexterm><primary><function>issamefile</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if the
@@ -14,7 +15,7 @@ same file or directory, and <constant>false</constant> otherwise.
 <synopsis>
 <replaceable>name<subscript>1</subscript></replaceable>
 <replaceable>name<subscript>2</subscript></replaceable>
-<token language="psylla">issamefile</token>
+<function>issamefile</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

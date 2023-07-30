@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_repeat">
-<title><token language="psylla">repeat</token></title>
+<title><function>repeat</function></title>
+<indexterm><primary><function>repeat</function> Ⓞ</primary></indexterm>
 
 <para>
 Invokes an <replaceable>object</replaceable> (typically a procedure)
@@ -12,7 +13,7 @@ Invokes an <replaceable>object</replaceable> (typically a procedure)
 <synopsis>
 <replaceable>count</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">repeat</token>
+<function>repeat</function>
 —
 </synopsis>
 </formalpara>

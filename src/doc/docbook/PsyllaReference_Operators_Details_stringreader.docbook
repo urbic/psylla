@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_stringreader">
-<title><token language="psylla">stringreader</token></title>
+<title><function>stringreader</function></title>
+<indexterm><primary><function>stringreader</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new string <replaceable>reader</replaceable> for the given
@@ -11,7 +12,7 @@ Returns a new string <replaceable>reader</replaceable> for the given
 &TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
-<token language="psylla">stringreader</token>
+<function>stringreader</function>
 <replaceable>reader</replaceable>
 </synopsis>
 </formalpara>

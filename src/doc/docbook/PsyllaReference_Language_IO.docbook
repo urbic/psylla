@@ -14,10 +14,18 @@ a program and its enviroment.
 
 <para>
 The characters identified with the integers on the range from 0 to 8589934591
-in accordance with the universal character set <acronym>UCS-4</acronym>. At the
-physical level, data in a file are represented as a sequence of bytes (octets).
+in accordance with the <firstterm>universal character
+set</firstterm><indexterm><primary>universal character
+set</primary></indexterm>
+<firstterm><acronym>UCS-4</acronym></firstterm><indexterm><primary>UCS-4</primary></indexterm>.
+At the physical level, data in a file are represented as a sequence of bytes
+<firstterm>(octets)</firstterm><indexterm><primary>octet</primary></indexterm>.
 Some transformation that turns a sequence of octets into a sequence of
-characters (encoding) or vice versa (decoding) may be performed during I/O.
+characters
+<firstterm>(encoding)</firstterm><indexterm><primary>encoding</primary></indexterm>
+or vice versa
+<firstterm>(decoding)</firstterm><indexterm><primary>decoding</primary></indexterm>
+may be performed during I/O.
 </para>
 
 <para>
@@ -39,12 +47,13 @@ respectively read from a file or write to a file one character.
 <para>
 Operators <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Operators_Details_readstring"/> and <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_writestring"/>
-respectively read from a file or write to a file a character string. The <xref
+xrefstyle="template:%t"
+linkend="PsyllaReference_Operators_Details_writestring"/> respectively read a
+character string from a file or write to a file. The <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_readline"/>
 operator read from a file a string terminated by the platform-specific line
-terminator. Terminator itself is available in the system dictionary by the
-name <xref xrefstyle="template:%t"
+terminator. Terminator itself is available in the system dictionary by the name
+<xref xrefstyle="template:%t"
 linkend="PsyllaReference_Operators_Details_eol"/>.
 </para>
 

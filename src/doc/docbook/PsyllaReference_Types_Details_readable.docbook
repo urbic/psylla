@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_readable">
 <title><type>readable</type></title>
+<indexterm><primary><type>readable</type> Ⓣ</primary></indexterm>
 
 <para>
 A readable object, a stream of characters that can be read from it.

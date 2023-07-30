@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_uniformboolean">
-<title><token language="psylla">uniformboolean</token></title>
+<title><function>uniformboolean</function></title>
 
 <para>
 Возвращает очередное псевдослучайное равновероятное булевское значение.
@@ -10,7 +10,7 @@
 &TitleSynopsis;
 <synopsis>
 <replaceable>генератор</replaceable>
-<token language="psylla">uniformboolean</token>
+<function>uniformboolean</function>
 <replaceable>случайное</replaceable>
 </synopsis>
 </formalpara>
@@ -41,6 +41,19 @@
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Random"/>.
+</formalpara>
+
+<formalpara>
+&TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_normaldeviate"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_random"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stdrandom"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_uniformdeviate"/>.
 </formalpara>
 
 </section>

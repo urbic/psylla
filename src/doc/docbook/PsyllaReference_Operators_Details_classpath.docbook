@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_classpath">
-<title><token language="psylla">classpath</token></title>
+<title><function>classpath</function></title>
+<indexterm><primary><function>classpath</function> Ⓞ</primary></indexterm>
 
 <para>
-The array containing the additional class path.
+The array containing the additional class path. Not an operator, but an <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/> value
+in the system dictionary.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">classpath</token>
+<function>classpath</function>
 <constant>classpath</constant>
 </synopsis>
 </formalpara>
@@ -24,13 +27,6 @@ The array containing the additional class path.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-<xref xrefstyle="template:%t"
-linkend="PsyllaReference_Operators_Details_classpath"/> is not an operator, but an
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
-value in the system dictionary.
-</para>
 
 <formalpara>
 &TitleSeeAlso;

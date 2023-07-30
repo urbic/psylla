@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_closeable">
 <title><type>closeable</type></title>
+<indexterm><primary><type>closeable</type> Ⓣ</primary></indexterm>
 
 <para>
 The type of objects that can be closed in some sense.

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_exec">
-<title><token language="psylla">exec</token></title>
+<title><function>exec</function></title>
+<indexterm><primary><function>exec</function> Ⓞ</primary></indexterm>
 
 <para>
 Invokes an <replaceable>object</replaceable>.
@@ -10,7 +11,7 @@ Invokes an <replaceable>object</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">exec</token>
+<function>exec</function>
 —
 </synopsis>
 </formalpara>

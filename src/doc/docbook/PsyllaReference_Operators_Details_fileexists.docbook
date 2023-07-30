@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_fileexists">
-<title><token language="psylla">fileexists</token></title>
+<title><function>fileexists</function></title>
+<indexterm><primary><function>fileexists</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant> if a file or a directory with the given
@@ -12,7 +13,7 @@ otherwise.
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">fileexists</token>
+<function>fileexists</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_insertall">
-<title><token language="psylla">insertall</token></title>
+<title><function>insertall</function></title>
+<indexterm><primary><function>insertall</function> Ⓞ</primary></indexterm>
 
 <para>
 Inserts all the objects from the <replaceable>enumeration</replaceable> into
@@ -15,7 +16,7 @@ the <replaceable>array</replaceable> before the element with the given
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
 <replaceable>enumeration</replaceable>
-<token language="psylla">insertall</token>
+<function>insertall</function>
 —
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_contains">
-<title><token language="psylla">contains</token></title>
+<title><function>contains</function></title>
+<indexterm><primary><function>contains</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a boolean <replaceable>result</replaceable> indicating whether the
@@ -12,7 +13,7 @@ Returns a boolean <replaceable>result</replaceable> indicating whether the
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">contains</token>
+<function>contains</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

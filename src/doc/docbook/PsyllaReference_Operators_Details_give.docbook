@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_give">
-<title><token language="psylla">give</token></title>
+<title><function>give</function></title>
+<indexterm><primary><function>give</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -11,7 +12,7 @@ TODO
 <synopsis>
 <replaceable>queue</replaceable>
 <replaceable>element</replaceable>
-<token language="psylla">give</token>
+<function>give</function>
 —
 </synopsis>
 </formalpara>

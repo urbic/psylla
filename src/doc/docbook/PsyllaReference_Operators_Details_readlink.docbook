@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_readlink">
-<title><token language="psylla">readlink</token></title>
+<title><function>readlink</function></title>
+<indexterm><primary><function>readlink</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>target</replaceable> of a symbolic link with a given
@@ -11,7 +12,7 @@ Returns the <replaceable>target</replaceable> of a symbolic link with a given
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">readlink</token>
+<function>readlink</function>
 <replaceable>target</replaceable>
 </synopsis>
 </formalpara>
@@ -54,7 +55,7 @@ not exist
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_notlink"/> —
-when a <replaceable>name</replaceable> does not belong to a symbolic link
+when the <replaceable>name</replaceable> does not belong to a symbolic link
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_securityerror"/> —

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_flush">
-<title><token language="psylla">flush</token></title>
+<title><function>flush</function></title>
+<indexterm><primary><function>flush</function> Ⓞ</primary></indexterm>
 
 <para>
 Flushes the buffer for <replaceable>flushable</replaceable> input/output
@@ -11,7 +12,7 @@ object.
 &TitleSynopsis;
 <synopsis>
 <replaceable>flushable</replaceable>
-<token language="psylla">flush</token>
+<function>flush</function>
 —
 </synopsis>
 </formalpara>

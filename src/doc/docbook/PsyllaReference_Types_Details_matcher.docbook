@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_matcher">
 <title><type>matcher</type></title>
+<indexterm><primary><type>matcher</type> Ⓣ</primary></indexterm>
 
 <para>
 A matcher, an engine that performs match operations on a string.

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_synchronized">
-<title><token language="psylla">synchronized</token></title>
+<title><function>synchronized</function></title>
+<indexterm><primary><function>synchronized</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -11,7 +12,7 @@ TODO
 <synopsis>
 <replaceable>object</replaceable>
 <replaceable>procedure</replaceable>
-<token language="psylla">synchronized</token>
+<function>synchronized</function>
 —
 </synopsis>
 </formalpara>

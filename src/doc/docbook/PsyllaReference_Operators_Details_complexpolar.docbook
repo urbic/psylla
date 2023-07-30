@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_complexpolar">
-<title><token language="psylla">complexpolar</token></title>
+<title><function>complexpolar</function></title>
+<indexterm><primary><function>complexpolar</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new complex <replaceable>number</replaceable> with given
@@ -12,7 +13,7 @@ Returns a new complex <replaceable>number</replaceable> with given
 <synopsis>
 <replaceable>magnitude</replaceable>
 <replaceable>argument</replaceable>
-<token language="psylla">complexpolar</token>
+<function>complexpolar</function>
 <replaceable>number</replaceable>
 </synopsis>
 </formalpara>
@@ -35,7 +36,7 @@ Returns a new complex <replaceable>number</replaceable> with given
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">1 3.141592653589793 complexpolar
-	▶ -1.0+1.2246467991473532E-16*i</programlisting>
+	▶ -1.0+1.2246467991473532E-16i</programlisting>
 </formalpara>
 
 <formalpara>

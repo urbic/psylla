@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_not">
-<title><token language="psylla">not</token></title>
+<title><function>not</function></title>
+<indexterm><primary><function>not</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>complement</replaceable> of a
@@ -11,7 +12,7 @@ Returns the <replaceable>complement</replaceable> of a
 &TitleSynopsis;
 <synopsis>
 <replaceable>logical</replaceable>
-<token language="psylla">not</token>
+<function>not</function>
 <replaceable>complement</replaceable>
 </synopsis>
 </formalpara>

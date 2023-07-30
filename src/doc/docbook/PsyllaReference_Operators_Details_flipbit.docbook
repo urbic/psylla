@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_flipbit">
-<title><token language="psylla">flipbit</token></title>
+<title><function>flipbit</function></title>
+<indexterm><primary><function>flipbit</function> Ⓞ</primary></indexterm>
 
 <para>
-<remark>TODO</remark>
+Returns <replaceable>flipped</replaceable> whose value is equivalent to
+<replaceable>bitwise</replaceable> with the bit designated by
+<replaceable>index</replaceable> flipped.
 </para>
 
 <formalpara>
@@ -11,8 +14,8 @@
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>index</replaceable>
-<token language="psylla">flipbit</token>
-<replaceable>result</replaceable>
+<function>flipbit</function>
+<replaceable>flipped</replaceable>
 </synopsis>
 </formalpara>
 

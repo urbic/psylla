@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_userdict">
-<title><token language="psylla">userdict</token></title>
+<title><function>userdict</function></title>
 
 <para>
 The user dictionary. Not an operator, but a <xref xrefstyle="template:%t"
@@ -12,7 +12,7 @@ dictionary.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">userdict</token>
+<function>userdict</function>
 <constant>userdict</constant>
 </synopsis>
 </formalpara>

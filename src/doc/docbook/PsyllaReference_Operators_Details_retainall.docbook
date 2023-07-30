@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_retainall">
-<title><token language="psylla">retainall</token></title>
+<title><function>retainall</function></title>
+<indexterm><primary><function>retainall</function> Ⓞ</primary></indexterm>
 
 <para>
 Retains only the elements in the <replaceable>set</replaceable> that are
@@ -12,7 +13,7 @@ contained in the <replaceable>enumeration</replaceable>.
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>enumeration</replaceable>
-<token language="psylla">retainall</token>
+<function>retainall</function>
 —
 </synopsis>
 </formalpara>
@@ -49,6 +50,11 @@ contained in the <replaceable>enumeration</replaceable>.
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
 </formalpara>
 
 <formalpara>

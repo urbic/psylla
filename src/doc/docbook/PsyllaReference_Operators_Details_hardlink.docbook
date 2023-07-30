@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_hardlink">
-<title><token language="psylla">hardlink</token></title>
+<title><function>hardlink</function></title>
+<indexterm><primary><function>hardlink</function> Ⓞ</primary></indexterm>
 
 <para>
 Creates a hard link named <replaceable>link</replaceable> to a file named
@@ -12,7 +13,7 @@ Creates a hard link named <replaceable>link</replaceable> to a file named
 <synopsis>
 <replaceable>target</replaceable>
 <replaceable>link</replaceable>
-<token language="psylla">hardlink</token>
+<function>hardlink</function>
 —
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_osversion">
-<title><token language="psylla">osversion</token></title>
+<title><function>osversion</function></title>
+<indexterm><primary><function>osversion</function> Ⓞ</primary></indexterm>
 
 <para>
 The version of an operating system. Not an operator, but a <xref
@@ -12,7 +13,7 @@ the system dictionary.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">osversion</token>
+<function>osversion</function>
 <constant>osversion</constant>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_sorted">
-<title><token language="psylla">sorted</token></title>
+<title><function>sorted</function></title>
+<indexterm><primary><function>sorted</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a stream consisting of the elements of the
@@ -13,7 +14,7 @@ Returns a stream consisting of the elements of the
 <synopsis>
 <replaceable>stream</replaceable>
 <replaceable>comparator</replaceable>
-<token language="psylla">sorted</token>
+<function>sorted</function>
 <replaceable>sortedstream</replaceable>
 </synopsis>
 </formalpara>
@@ -45,6 +46,11 @@ Returns a stream consisting of the elements of the
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
 </formalpara>
 
 <formalpara>

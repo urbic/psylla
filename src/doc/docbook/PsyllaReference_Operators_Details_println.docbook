@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_println">
-<title><token language="psylla">println</token></title>
+<title><function>println</function></title>
+<indexterm><primary><function>println</function> Ⓞ</primary></indexterm>
 
 <para>
 Writes the <replaceable>string</replaceable> and the line terminator (<xref
@@ -12,7 +13,7 @@ standard output.
 &TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
-<token language="psylla">println</token>
+<function>println</function>
 —
 </synopsis>
 </formalpara>

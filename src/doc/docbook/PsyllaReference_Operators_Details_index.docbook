@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_index">
-<title><token language="psylla">index</token></title>
+<title><function>index</function></title>
+<indexterm><primary><function>index</function> Ⓞ</primary></indexterm>
 
 <para>
 Снимает целое неотрицательное число <replaceable>n</replaceable> со стека и
@@ -15,7 +16,7 @@
 …
 <replaceable>object<subscript>0</subscript></replaceable>
 <replaceable>n</replaceable>
-<token language="psylla">index</token>
+<function>index</function>
 <replaceable>object<subscript>n</subscript></replaceable>
 …
 <replaceable>object<subscript>0</subscript></replaceable>

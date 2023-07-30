@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_sin">
-<title><token language="psylla">sin</token></title>
+<title><function>sin</function></title>
+<indexterm><primary><function>sin</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the sine of a <replaceable>number</replaceable> as
@@ -20,7 +21,7 @@ linkend="PsyllaReference_Types_Details_complex"/>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">sin</token>
+<function>sin</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

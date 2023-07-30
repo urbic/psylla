@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_editline">
-<title><token language="psylla">editline</token></title>
+<title><function>editline</function></title>
+<indexterm><primary><function>editline</function> Ⓞ</primary></indexterm>
 
 <para>
 <remark>TODO</remark>
@@ -10,12 +11,12 @@
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">editline</token>
+<function>editline</function>
 <replaceable>line</replaceable>
 <constant>true</constant>
 <sbr/>
 —
-<token language="psylla">editline</token>
+<function>editline</function>
 <constant>false</constant>
 </synopsis>
 </formalpara>

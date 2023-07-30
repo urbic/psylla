@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_systemdict">
-<title><token language="psylla">systemdict</token></title>
+<title><function>systemdict</function></title>
+<indexterm><primary><function>systemdict</function> Ⓞ</primary></indexterm>
 
 <para>
 The system dictionary. Not an operator, but a <xref xrefstyle="template:%t"
@@ -12,7 +13,7 @@ dictionary.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">systemdict</token>
+<function>systemdict</function>
 <constant>systemdict</constant>
 </synopsis>
 </formalpara>

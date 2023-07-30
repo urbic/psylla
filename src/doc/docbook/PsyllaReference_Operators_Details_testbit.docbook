@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_testbit">
-<title><token language="psylla">testbit</token></title>
+<title><function>testbit</function></title>
 
 <para>
 Returns true if and only if the bit designated by the
@@ -12,7 +12,7 @@ Returns true if and only if the bit designated by the
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>index</replaceable>
-<token language="psylla">testbit</token>
+<function>testbit</function>
 <replaceable>bit</replaceable>
 </synopsis>
 </formalpara>

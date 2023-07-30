@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_condition">
-<title><token language="psylla">condition</token></title>
+<title><function>condition</function></title>
+<indexterm><primary><function>condition</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>condition</replaceable> associated with a
@@ -11,7 +12,7 @@ Returns a new <replaceable>condition</replaceable> associated with a
 &TitleSynopsis;
 <synopsis>
 <replaceable>lock</replaceable>
-<token language="psylla">condition</token>
+<function>condition</function>
 <replaceable>condition</replaceable>
 </synopsis>
 </formalpara>

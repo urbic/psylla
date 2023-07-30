@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_setbit">
-<title><token language="psylla">setbit</token></title>
+<title><function>setbit</function></title>
+<indexterm><primary><function>setbit</function> Ⓞ</primary></indexterm>
 
 <para>
 <remark>TODO</remark>
@@ -11,7 +12,7 @@
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>index</replaceable>
-<token language="psylla">setbit</token>
+<function>setbit</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_add">
-<title><token language="psylla">add</token></title>
+<title><function>add</function></title>
+<indexterm><primary><function>add</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>sum</replaceable> of two
@@ -12,7 +13,7 @@ Returns the <replaceable>sum</replaceable> of two
 <synopsis>
 <replaceable>summand<subscript>1</subscript></replaceable>
 <replaceable>summand<subscript>2</subscript></replaceable>
-<token language="psylla">add</token>
+<function>add</function>
 <replaceable>sum</replaceable>
 </synopsis>
 </formalpara>

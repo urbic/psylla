@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_cbrt">
-<title><token language="psylla">cbrt</token></title>
+<title><function>cbrt</function></title>
+<indexterm><primary><function>cbrt</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>cubic_root</replaceable> of
@@ -11,7 +12,7 @@ the <replaceable>number</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">cbrt</token>
+<function>cbrt</function>
 <replaceable>root</replaceable>
 </synopsis>
 </formalpara>
@@ -34,7 +35,7 @@ the <replaceable>number</replaceable>.
 -1 cbrt
 	▶ -1.0
 0 1 complex cbrt
-	▶ 0.8660254037844387+0.49999999999999994*i</programlisting>
+	▶ 0.8660254037844387+0.49999999999999994i</programlisting>
 </formalpara>
 
 <formalpara>

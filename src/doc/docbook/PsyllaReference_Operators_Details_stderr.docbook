@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_stderr">
-<title><token language="psylla">stderr</token></title>
+<title><function>stderr</function></title>
+<indexterm><primary><function>stderr</function> Ⓞ</primary></indexterm>
 
 <para>
-The standard error output.
+The standard error output. Not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_writer"/> value in the system
+dictionary.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">stderr</token>
+<function>stderr</function>
 <constant>stderr</constant>
 </synopsis>
 </formalpara>
@@ -24,12 +27,6 @@ The standard error output.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_stderr"/>
-is not an operator, but a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_writer"/> value in the system dictionary.
-</para>
 
 <formalpara>
 &TitleCategory;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_min">
-<title><token language="psylla">min</token></title>
+<title><function>min</function></title>
+<indexterm><primary><function>min</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>minimum</replaceable> of two
@@ -12,7 +13,7 @@ Returns the <replaceable>minimum</replaceable> of two
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
-<token language="psylla">min</token>
+<function>min</function>
 <replaceable>minimum</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_eq">
-<title><token language="psylla">eq</token></title>
+<title><function>eq</function></title>
+<indexterm><primary><function>eq</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant> if
@@ -14,7 +15,7 @@ Returns <constant>true</constant> if
 <synopsis>
 <replaceable>object<subscript>1</subscript></replaceable>
 <replaceable>object<subscript>2</subscript></replaceable>
-<token language="psylla">eq</token>
+<function>eq</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

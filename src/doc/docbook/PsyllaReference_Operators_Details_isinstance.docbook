@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_isinstance">
-<title><token language="psylla">isinstance</token></title>
+<title><function>isinstance</function></title>
+<indexterm><primary><function>isinstance</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if the <replaceable>object</replaceable>
@@ -13,7 +14,7 @@ belongs to the given <replaceable>type</replaceable>, and
 <synopsis>
 <replaceable>type</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">isinstance</token>
+<function>isinstance</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

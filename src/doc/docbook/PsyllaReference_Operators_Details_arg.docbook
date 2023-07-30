@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_arg">
-<title><token language="psylla">arg</token></title>
+<title><function>arg</function></title>
+<indexterm><primary><function>arg</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>argument</replaceable> of a complex
@@ -11,7 +12,7 @@ Returns the <replaceable>argument</replaceable> of a complex
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">arg</token>
+<function>arg</function>
 <replaceable>argument</replaceable>
 </synopsis>
 </formalpara>

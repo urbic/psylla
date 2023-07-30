@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_remove">
-<title><token language="psylla">remove</token></title>
+<title><function>remove</function></title>
+<indexterm><primary><function>remove</function> Ⓞ</primary></indexterm>
 
 <para>
 Removes an <replaceable>element</replaceable> from the
@@ -12,7 +13,7 @@ Removes an <replaceable>element</replaceable> from the
 <synopsis>
 <replaceable>set</replaceable>
 <replaceable>element</replaceable>
-<token language="psylla">remove</token>
+<function>remove</function>
 —
 </synopsis>
 </formalpara>
@@ -33,8 +34,10 @@ Removes an <replaceable>element</replaceable> from the
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">( 0 1 2 3 4 ) dup 2 remove
-	▶ ( 0 1 3 4 )</programlisting>
+<programlisting language="psylla">( 2 4 0 3 1 ) dup 2 remove
+	▶ ( 0 1 3 4 )
+( 2 4 0 3 1 ) dup 5 remove
+	▶ ( 0 1 2 3 4 )</programlisting>
 </formalpara>
 
 <formalpara>

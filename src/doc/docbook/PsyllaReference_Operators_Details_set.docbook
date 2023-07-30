@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_set">
-<title><token language="psylla">set</token></title>
+<title><function>set</function></title>
+<indexterm><primary><function>set</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new empty <replaceable>set</replaceable>.
@@ -10,7 +11,7 @@ Returns a new empty <replaceable>set</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">set</token>
+<function>set</function>
 <replaceable>set</replaceable>
 </synopsis>
 </formalpara>

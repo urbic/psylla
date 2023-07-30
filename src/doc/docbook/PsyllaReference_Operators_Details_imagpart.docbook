@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_imagpart">
-<title><token language="psylla">imagpart</token></title>
+<title><function>imagpart</function></title>
+<indexterm><primary><function>imagpart</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>imaginary</replaceable> part of the complex
@@ -11,7 +12,7 @@ Returns the <replaceable>imaginary</replaceable> part of the complex
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">imagpart</token>
+<function>imagpart</function>
 <replaceable>imaginary</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_external">
-<title><token language="psylla">external</token></title>
+<title><function>external</function></title>
+<indexterm><primary><function>external</function> Ⓞ</primary></indexterm>
 
 <para>
 Loads an external Java class by its <replaceable>class_name</replaceable> and
@@ -11,7 +12,7 @@ returns an <replaceable>instance</replaceable> of this class.
 &TitleSynopsis;
 <synopsis>
 <replaceable>class_name</replaceable>
-<token language="psylla">external</token>
+<function>external</function>
 <replaceable>instance</replaceable>
 </synopsis>
 </formalpara>

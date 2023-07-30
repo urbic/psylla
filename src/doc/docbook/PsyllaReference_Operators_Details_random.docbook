@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_random">
-<title><token language="psylla">random</token></title>
+<title><function>random</function></title>
+<indexterm><primary><function>random</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>random</replaceable> objects generator.
@@ -10,7 +11,7 @@ Returns a new <replaceable>random</replaceable> objects generator.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">random</token>
+<function>random</function>
 <replaceable>random</replaceable>
 </synopsis>
 </formalpara>

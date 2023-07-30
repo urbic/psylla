@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_count">
-<title><token language="psylla">count</token></title>
+<title><function>count</function></title>
+<indexterm><primary><function>count</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>count</replaceable> of elements in the
@@ -11,7 +12,7 @@ Returns the <replaceable>count</replaceable> of elements in the
 &TitleSynopsis;
 <synopsis>
 <replaceable>stream</replaceable>
-<token language="psylla">count</token>
+<function>count</function>
 <replaceable>count</replaceable>
 </synopsis>
 </formalpara>

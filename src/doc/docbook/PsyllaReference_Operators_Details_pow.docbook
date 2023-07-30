@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_pow">
-<title><token language="psylla">pow</token></title>
+<title><function>pow</function></title>
+<indexterm><primary><function>pow</function> Ⓞ</primary></indexterm>
 
 <para>
 Raises the <replaceable>base</replaceable> to the
@@ -13,7 +14,7 @@ Raises the <replaceable>base</replaceable> to the
 <synopsis>
 <replaceable>base</replaceable>
 <replaceable>exponent</replaceable>
-<token language="psylla">pow</token>
+<function>pow</function>
 <replaceable>power</replaceable>
 </synopsis>
 </formalpara>

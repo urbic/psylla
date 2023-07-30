@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_for">
-<title><token language="psylla">for</token></title>
+<title><function>for</function></title>
+<indexterm><primary><function>for</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -13,7 +14,7 @@ TODO
 <replaceable>increment</replaceable>
 <replaceable>limit</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">for</token>
+<function>for</function>
 —
 </synopsis>
 </formalpara>

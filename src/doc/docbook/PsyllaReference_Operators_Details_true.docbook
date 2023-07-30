@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_true">
-<title><token language="psylla">true</token></title>
+<title><function>true</function></title>
 
 <para>
 The <constant>true</constant> value. Not an operator, but a <xref
@@ -8,17 +8,11 @@ xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_boolean"/> value
 in the system dictionary.
 </para>
 
-<para>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_true"/>
-is not an operator, but a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_boolean"/> value in the system dictionary.
-</para>
-
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">true</token>
+<function>true</function>
 <constant>true</constant>
 </synopsis>
 </formalpara>

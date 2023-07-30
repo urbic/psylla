@@ -45,6 +45,12 @@ This document describes the Psylla programming language.
 </abstract>
 </info>
 
+<!--mediaobject>
+<imageobject>
+<imagedata fileref="psylla-banner.svg" format="SVG" width="50%"/>
+</imageobject>
+</mediaobject-->
+
 &PsyllaReference_Preface;
 &PsyllaReference_Installation;
 &PsyllaReference_Usage;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_object">
 <title><type>object</type></title>
+<indexterm><primary><type>object</type> Ⓣ</primary></indexterm>
 
 <para>
 An object, a basic type for all types in the Psylla language.

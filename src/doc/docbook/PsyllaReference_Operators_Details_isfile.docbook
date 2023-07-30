@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_isfile">
-<title><token language="psylla">isfile</token></title>
+<title><function>isfile</function></title>
+<indexterm><primary><function>isfile</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if the <replaceable>name</replaceable>
@@ -11,7 +12,7 @@ belongs to an ordinary file, and <constant>false</constant> otherwise.
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">isfile</token>
+<function>isfile</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>
@@ -58,6 +59,11 @@ when the file or directory does not exist
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_FileSystem"/>.
 </formalpara>
 
 <formalpara>

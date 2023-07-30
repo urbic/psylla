@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_signalerror">
-<title><token language="psylla">signalerror</token></title>
+<title><function>signalerror</function></title>
+<indexterm><primary><function>signalerror</function> Ⓞ</primary></indexterm>
 
 <para>
 Вызывает обработчик ошибки с заданным <replaceable>именем</replaceable> и заданным
@@ -12,7 +13,7 @@
 <synopsis>
 <replaceable>object</replaceable>
 <replaceable>name</replaceable>
-<token language="psylla">signalerror</token>
+<function>signalerror</function>
 —
 </synopsis>
 </formalpara>

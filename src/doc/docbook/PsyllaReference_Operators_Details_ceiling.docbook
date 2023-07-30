@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_ceiling">
-<title><token language="psylla">ceiling</token></title>
+<title><function>ceiling</function></title>
+<indexterm><primary><function>ceiling</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>ceiling</replaceable> of the
@@ -22,7 +23,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">ceiling</token>
+<function>ceiling</function>
 <replaceable>ceiling</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_isempty">
-<title><token language="psylla">isempty</token></title>
+<title><function>isempty</function></title>
+<indexterm><primary><function>isempty</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if the <replaceable>container</replaceable>
@@ -11,7 +12,7 @@ is empty, and <constant>false</constant> otherwise.
 &TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
-<token language="psylla">isempty</token>
+<function>isempty</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

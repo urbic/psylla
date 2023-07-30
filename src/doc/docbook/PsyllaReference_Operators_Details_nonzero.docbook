@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_nonzero">
-<title><token language="psylla">nonzero</token></title>
+<title><function>nonzero</function></title>
+<indexterm><primary><function>nonzero</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if the <replaceable>number</replaceable> not
@@ -11,7 +12,7 @@ equals to zero, and <constant>false</constant> otherwise.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">nonzero</token>
+<function>nonzero</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

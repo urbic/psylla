@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_entries">
-<title><token language="psylla">entries</token></title>
+<title><function>entries</function></title>
+<indexterm><primary><function>entries</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns an <replaceable>enumeration</replaceable> of keys and values from
@@ -11,7 +12,7 @@ the <replaceable>indexed</replaceable> container.
 &TitleSynopsis;
 <synopsis>
 <replaceable>indexed</replaceable>
-<token language="psylla">entries</token>
+<function>entries</function>
 <replaceable>enumeration</replaceable>
 </synopsis>
 </formalpara>

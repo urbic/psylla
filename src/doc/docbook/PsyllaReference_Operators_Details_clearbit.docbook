@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_clearbit">
-<title><token language="psylla">clearbit</token></title>
+<title><function>clearbit</function></title>
+<indexterm><primary><function>clearbit</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new object <replaceable>result</replaceable>
@@ -13,7 +14,7 @@ bit designated by the <replaceable>index</replaceable> cleared.
 <synopsis>
 <replaceable>bitwise</replaceable>
 <replaceable>index</replaceable>
-<token language="psylla">clearbit</token>
+<function>clearbit</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

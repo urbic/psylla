@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_cmp">
-<title><token language="psylla">cmp</token></title>
+<title><function>cmp</function></title>
+<indexterm><primary><function>cmp</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>result</replaceable> of the comparison of two
@@ -21,7 +22,7 @@ equals to <constant>-1</constant> when
 <synopsis>
 <replaceable>scalar<subscript>1</subscript></replaceable>
 <replaceable>scalar<subscript>2</subscript></replaceable>
-<token language="psylla">cmp</token>
+<function>cmp</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>
@@ -76,6 +77,7 @@ equals to <constant>-1</constant> when
 
 <formalpara>
 &TitleSeeAlso;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eq"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_ge"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_gt"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_le"/>,

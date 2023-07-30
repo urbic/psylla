@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_copy">
-<title><token language="psylla">copy</token></title>
+<title><function>copy</function></title>
+<indexterm><primary><function>copy</function> Ⓞ</primary></indexterm>
 
 <para>
 Pops a non-negative integer <replaceable>n</replaceable> off the stack and
@@ -20,7 +21,7 @@ object shares its value with the copy.
 …
 <replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>n</replaceable>
-<token language="psylla">copy</token>
+<function>copy</function>
 <replaceable>object<subscript>1</subscript></replaceable>
 …
 <replaceable>object<subscript>n</subscript></replaceable>

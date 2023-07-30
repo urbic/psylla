@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_abs">
-<title><token language="psylla">abs</token></title>
+<title><function>abs</function></title>
+<indexterm><primary><function>abs</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>absolute_value</replaceable> of the
@@ -11,7 +12,7 @@ Returns the <replaceable>absolute_value</replaceable> of the
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">abs</token>
+<function>abs</function>
 <replaceable>absolute_value</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_def">
-<title><token language="psylla">def</token></title>
+<title><function>def</function></title>
+<indexterm><primary><function>def</function> Ⓞ</primary></indexterm>
 
 <para>
 Associates an <replaceable>object</replaceable> with the
@@ -13,7 +14,7 @@ dictionary stack).
 <synopsis>
 <replaceable>key</replaceable>
 <replaceable>object</replaceable>
-<token language="psylla">def</token>
+<function>def</function>
 —
 </synopsis>
 </formalpara>

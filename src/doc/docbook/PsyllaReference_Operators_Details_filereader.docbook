@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_filereader">
-<title><token language="psylla">filereader</token></title>
+<title><function>filereader</function></title>
+<indexterm><primary><function>filereader</function> Ⓞ</primary></indexterm>
 
 <formalpara>
 &TitleSynopsis;
@@ -12,7 +13,7 @@ Returns a new file <replaceable>reader</replaceable> for a file with the given
 
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">filereader</token>
+<function>filereader</function>
 <replaceable>reader</replaceable>
 </synopsis>
 

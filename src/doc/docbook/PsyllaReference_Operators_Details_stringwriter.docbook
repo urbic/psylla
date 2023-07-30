@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_stringwriter">
-<title><token language="psylla">stringwriter</token></title>
+<title><function>stringwriter</function></title>
+<indexterm><primary><function>stringwriter</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new string <replaceable>writer</replaceable> for the given
@@ -11,7 +12,7 @@ Returns a new string <replaceable>writer</replaceable> for the given
 &TitleSynopsis;
 <synopsis>
 <replaceable>string</replaceable>
-<token language="psylla">stringwriter</token>
+<function>stringwriter</function>
 <replaceable>writer</replaceable>
 </synopsis>
 </formalpara>
@@ -28,6 +29,11 @@ Returns a new string <replaceable>writer</replaceable> for the given
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringwriter"/>
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_IO"/>.
 </formalpara>
 
 <formalpara>

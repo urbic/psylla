@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_execstack">
-<title><token language="psylla">execstack</token></title>
+<title><function>execstack</function></title>
+<indexterm><primary><function>execstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the contents of the execution stack in an
@@ -11,7 +12,7 @@ Returns the contents of the execution stack in an
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">execstack</token>
+<function>execstack</function>
 <replaceable>arary</replaceable>
 </synopsis>
 </formalpara>

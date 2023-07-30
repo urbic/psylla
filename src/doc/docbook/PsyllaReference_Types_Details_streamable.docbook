@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_streamable">
 <title><type>streamable</type></title>
+<indexterm><primary><type>streamable</type> Ⓣ</primary></indexterm>
 
 <para>
-TODO
+The type of objects that provide stream of something.
 </para>
 
 <formalpara>

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_bind">
-<title><token language="psylla">bind</token></title>
+<title><function>bind</function></title>
+<indexterm><primary><function>bind</function> Ⓞ</primary></indexterm>
 
+<para>
 TODO
+</para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>procedure</replaceable>
-<token language="psylla">bind</token>
+<function>bind</function>
 <replaceable>procedure</replaceable>
 </synopsis>
 </formalpara>
@@ -21,6 +24,12 @@ TODO
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_proc"/>
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">{ 1 2 1 4 -1 roll { mul } for } bind
+	▶ { 1 2 1 4 -1 <constant>--roll--</constant> { <constant>--mul--</constant> } <constant>--for--</constant> }</programlisting>
 </formalpara>
 
 <formalpara>

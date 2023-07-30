@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_mapped">
-<title><token language="psylla">mapped</token></title>
+<title><function>mapped</function></title>
+<indexterm><primary><function>mapped</function> Ⓞ</primary></indexterm>
 
 <para>
-Вызывает <replaceable>executable</replaceable> для каждого элемента
-<replaceable>контейнера</replaceable>, предварительно добавляя его на стек
-операндов. После каждого вызова процедуры со стека операндов снимается один
-объект и добавляется в новый контейнер того же типа, что и
-<replaceable>контейнер</replaceable>. Возвращает новый контейнер как
-<replaceable>результат</replaceable>.
+Returns a <replaceable>mappedstream</replaceable> consisting of the results of
+applying the <replaceable>mapper</replaceable> function to the elements of the
+<replaceable>stream</replaceable>. It is assumed that the
+<replaceable>mapper</replaceable> consumes exactly one object and provides
+exactly one object to the operand stack, otherwise the subsequent operations on
+the <replaceable>mappedstream</replaceable> may lead to unpredictable results.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>stream</replaceable>
-<replaceable>executable</replaceable>
-<token language="psylla">mapped</token>
+<replaceable>mapper</replaceable>
+<function>mapped</function>
 <replaceable>mappedstream</replaceable>
 </synopsis>
 </formalpara>
@@ -30,18 +31,11 @@
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
 </listitem>
 <listitem>
-<replaceable>executable</replaceable>:
+<replaceable>mapper</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_executable"/>
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-Предполагается, что <replaceable>executable</replaceable> не меняет длину стека
-операндов, в противном случае результат исполнения <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mapped"/>
-непредсказуем.
-</para>
 
 <formalpara>
 &TitleExamples;

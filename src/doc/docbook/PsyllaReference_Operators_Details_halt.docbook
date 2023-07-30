@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_halt">
-<title><token language="psylla">halt</token></title>
+<title><function>halt</function></title>
+<indexterm><primary><function>halt</function> Ⓞ</primary></indexterm>
 
 <para>
 Terminates the program execution with a given <replaceable>status</replaceable>.
@@ -10,7 +11,7 @@ Terminates the program execution with a given <replaceable>status</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>status</replaceable>
-<token language="psylla">halt</token>
+<function>halt</function>
 —
 </synopsis>
 </formalpara>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_type">
-<title><token language="psylla">type</token></title>
+<title><function>type</function></title>
 
 <para>
 Returns a <replaceable>type</replaceable> of the <replaceable>object</replaceable>.
@@ -10,7 +10,7 @@ Returns a <replaceable>type</replaceable> of the <replaceable>object</replaceabl
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">type</token>
+<function>type</function>
 <replaceable>type</replaceable>
 </synopsis>
 </formalpara>

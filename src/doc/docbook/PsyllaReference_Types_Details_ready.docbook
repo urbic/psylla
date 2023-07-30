@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_ready">
 <title><type>ready</type></title>
+<indexterm><primary><type>ready</type> Ⓣ</primary></indexterm>
 
 <para>
-The type of objects that can be ready in some sense.
+The type of objects that can report its readiness for something.
 </para>
 
 <formalpara>

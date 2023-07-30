@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_createdirectory">
-<title><token language="psylla">createdirectory</token></title>
+<title><function>createdirectory</function></title>
+<indexterm><primary><function>createdirectory</function> Ⓞ</primary></indexterm>
 
 <para>
 Creates a new directory with the given <replaceable>name</replaceable>.
@@ -10,7 +11,7 @@ Creates a new directory with the given <replaceable>name</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">createdirectory</token>
+<function>createdirectory</function>
 —
 </synopsis>
 </formalpara>

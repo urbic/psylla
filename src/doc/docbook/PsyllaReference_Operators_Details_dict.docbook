@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_dict">
-<title><token language="psylla">dict</token></title>
+<title><function>dict</function></title>
+<indexterm><primary><function>dict</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new empty <replaceable>dictionary</replaceable>.
@@ -10,7 +11,7 @@ Returns a new empty <replaceable>dictionary</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">dict</token>
+<function>dict</function>
 <replaceable>dictionary</replaceable>
 </synopsis>
 </formalpara>

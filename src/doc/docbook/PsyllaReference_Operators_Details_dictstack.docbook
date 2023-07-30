@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_dictstack">
-<title><token language="psylla">dictstack</token></title>
+<title><function>dictstack</function></title>
+<indexterm><primary><function>dictstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the contents of the dictionary stack in an
@@ -11,7 +12,7 @@ Returns the contents of the dictionary stack in an
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">dictstack</token>
+<function>dictstack</function>
 <replaceable>array</replaceable>
 </synopsis>
 </formalpara>

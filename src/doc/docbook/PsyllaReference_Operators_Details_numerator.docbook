@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_numerator">
-<title><token language="psylla">numerator</token></title>
+<title><function>numerator</function></title>
+<indexterm><primary><function>numerator</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>numerator</replaceable> of the rational
@@ -11,7 +12,7 @@ Returns the <replaceable>numerator</replaceable> of the rational
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">numerator</token>
+<function>numerator</function>
 <replaceable>numerator</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_countexecstack">
-<title><token language="psylla">countexecstack</token></title>
+<title><function>countexecstack</function></title>
+<indexterm><primary><function>countexecstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>number</replaceable> of objects in execution stack.
@@ -10,7 +11,7 @@ Returns the <replaceable>number</replaceable> of objects in execution stack.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">countexecstack</token>
+<function>countexecstack</function>
 <replaceable>number</replaceable>
 </synopsis>
 </formalpara>

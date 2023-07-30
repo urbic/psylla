@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_prettyprint">
-<title><token language="psylla">prettyprint</token></title>
+<title><function>prettyprint</function></title>
+<indexterm><primary><function>prettyprint</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -10,7 +11,7 @@ TODO
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">prettyprint</token>
+<function>prettyprint</function>
 —
 </synopsis>
 </formalpara>

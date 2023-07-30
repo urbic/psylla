@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_clone">
-<title><token language="psylla">clone</token></title>
+<title><function>clone</function></title>
+<indexterm><primary><function>clone</function> Ⓞ</primary></indexterm>
 
 <para>
-Returns a <replaceable>copy</replaceable> of an
-<replaceable>object</replaceable>.
+Returns a <replaceable>clone</replaceable> of an
+<replaceable>object</replaceable>. For <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_atomic"/>
+<replaceable>object</replaceable>, returns an <replaceable>object</replaceable>
+itself. For composite <replaceable>object</replaceable>, returns a new object
+copy fully dissociated from an <replaceable>object</replaceable>.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">clone</token>
-<replaceable>copy</replaceable>
+<function>clone</function>
+<replaceable>clone</replaceable>
 </synopsis>
 </formalpara>
 
@@ -21,18 +26,11 @@ Returns a <replaceable>copy</replaceable> of an
 <itemizedlist>
 <listitem>
 <replaceable>object</replaceable>,
-<replaceable>copy</replaceable>:
+<replaceable>clone</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-For <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_atomic"/>
-<replaceable>object</replaceable>, returns an <replaceable>object</replaceable>
-itself. For composite <replaceable>object</replaceable>, returns a new object
-copy fully dissociated from an <replaceable>object</replaceable>.
-</para>
 
 <formalpara>
 &TitleErrors;

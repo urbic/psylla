@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_yield">
-<title><token language="psylla">yield</token></title>
+<title><function>yield</function></title>
 
 <para>
 Suspends execution of the current context, allowing other contexts to execute.
@@ -10,7 +10,7 @@ Suspends execution of the current context, allowing other contexts to execute.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">yield</token>
+<function>yield</function>
 —
 </synopsis>
 </formalpara>

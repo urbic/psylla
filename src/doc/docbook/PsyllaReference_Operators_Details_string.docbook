@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_string">
-<title><token language="psylla">string</token></title>
+<title><function>string</function></title>
+<indexterm><primary><function>string</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new empty <replaceable>string</replaceable>.
@@ -10,7 +11,7 @@ Returns a new empty <replaceable>string</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">string</token>
+<function>string</function>
 <replaceable>string</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_denominator">
-<title><token language="psylla">denominator</token></title>
+<title><function>denominator</function></title>
+<indexterm><primary><function>denominator</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>denominator</replaceable> of the rational
@@ -11,7 +12,7 @@ Returns the <replaceable>denominator</replaceable> of the rational
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">denominator</token>
+<function>denominator</function>
 <replaceable>denominator</replaceable>
 </synopsis>
 </formalpara>

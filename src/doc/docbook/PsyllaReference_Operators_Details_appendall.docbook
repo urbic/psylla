@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_appendall">
-<title><token language="psylla">appendall</token></title>
+<title><function>appendall</function></title>
+<indexterm><primary><function>appendall</function> Ⓞ</primary></indexterm>
 
 <para>
 Appends all the objects from the <replaceable>enumeration</replaceable> to
@@ -12,7 +13,7 @@ the <replaceable>container</replaceable>.
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>enumeration</replaceable>
-<token language="psylla">appendall</token>
+<function>appendall</function>
 —
 </synopsis>
 </formalpara>

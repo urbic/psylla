@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_version">
-<title><token language="psylla">version</token></title>
+<title><function>version</function></title>
 
 <para>
 The version of the Psylla interpreter. Not an operator, but a <xref
@@ -12,7 +12,7 @@ the system dictionary.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">version</token>
+<function>version</function>
 <constant>version</constant>
 </synopsis>
 </formalpara>

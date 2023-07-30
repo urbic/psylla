@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_fork">
-<title><token language="psylla">fork</token></title>
+<title><function>fork</function></title>
+<indexterm><primary><function>fork</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new execution <replaceable>context</replaceable>, whose dictionary
@@ -18,7 +19,7 @@ created <replaceable>context</replaceable>.
 …
 <replaceable>object<subscript>n</subscript></replaceable>
 <replaceable>procedure</replaceable>
-<token language="psylla">fork</token>
+<function>fork</function>
 <replaceable>context</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_arraytomark">
-<title><token language="psylla">arraytomark</token></title>
+<title><function>arraytomark</function></title>
+<indexterm><primary><function>arraytomark</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new <replaceable>array</replaceable> filled with
@@ -15,7 +16,7 @@ operand stack. Removes the mark and the objects from the operand stack.
 <replaceable>object<subscript>0</subscript></replaceable>
 …
 <replaceable>object<subscript>n−1</subscript></replaceable>
-<token language="psylla">arraytomark</token>
+<function>arraytomark</function>
 <replaceable>array</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_getinterval">
-<title><token language="psylla">getinterval</token></title>
+<title><function>getinterval</function></title>
+<indexterm><primary><function>getinterval</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a <replaceable>subarray</replaceable> of an
@@ -15,7 +16,7 @@ consists of <replaceable>length</replaceable> elements starting at the
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
 <replaceable>length</replaceable>
-<token language="psylla">getinterval</token>
+<function>getinterval</function>
 <replaceable>subarray</replaceable>
 </synopsis>
 </formalpara>

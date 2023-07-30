@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_ready">
-<title><token language="psylla">ready</token></title>
+<title><function>ready</function></title>
+<indexterm><primary><function>ready</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns <constant>true</constant>, if the <replaceable>input</replaceable> is
@@ -11,7 +12,7 @@ ready to be read, and <constant>false</constant> otherwise.
 &TitleSynopsis;
 <synopsis>
 <replaceable>input</replaceable>
-<token language="psylla">ready</token>
+<function>ready</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

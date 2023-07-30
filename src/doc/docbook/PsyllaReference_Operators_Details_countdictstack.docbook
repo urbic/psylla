@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_countdictstack">
-<title><token language="psylla">countdictstack</token></title>
+<title><function>countdictstack</function></title>
+<indexterm><primary><function>countdictstack</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>number</replaceable> of objects in the dictionary
@@ -11,7 +12,7 @@ stack.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">countdictstack</token>
+<function>countdictstack</function>
 <replaceable>number</replaceable>
 </synopsis>
 </formalpara>

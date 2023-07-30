@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_clear">
-<title><token language="psylla">clear</token></title>
+<title><function>clear</function></title>
+<indexterm><primary><function>clear</function> Ⓞ</primary></indexterm>
 
 <para>
 Removes all elements from the <replaceable>container</replaceable>.
@@ -10,7 +11,7 @@ Removes all elements from the <replaceable>container</replaceable>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>container</replaceable>
-<token language="psylla">clear</token>
+<function>clear</function>
 —
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_currentcontext">
-<title><token language="psylla">currentcontext</token></title>
+<title><function>currentcontext</function></title>
+<indexterm><primary><function>currentcontext</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the current execution <replaceable>context</replaceable>.
@@ -10,7 +11,7 @@ Returns the current execution <replaceable>context</replaceable>.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">currentcontext</token>
+<function>currentcontext</function>
 <replaceable>context</replaceable>
 </synopsis>
 </formalpara>

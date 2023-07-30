@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_currentdict">
-<title><token language="psylla">currentdict</token></title>
+<title><function>currentdict</function></title>
+<indexterm><primary><function>currentdict</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the current dictionary (the topmost in the dictionary stack). The
@@ -11,7 +12,7 @@ dictionary stack remains untouch.
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">currentdict</token>
+<function>currentdict</function>
 <replaceable>dictionary</replaceable>
 </synopsis>
 </formalpara>

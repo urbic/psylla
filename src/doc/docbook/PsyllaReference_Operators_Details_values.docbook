@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_values">
-<title><token language="psylla">values</token></title>
+<title><function>values</function></title>
 
 <para>
 Returns the <replaceable>enumeration</replaceable> of values containing in
@@ -11,7 +11,7 @@ the <replaceable>indexed</replaceable> container.
 &TitleSynopsis;
 <synopsis>
 <replaceable>indexed</replaceable>
-<token language="psylla">values</token>
+<function>values</function>
 <replaceable>enumeration</replaceable>
 </synopsis>
 </formalpara>

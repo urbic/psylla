@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_flushable">
 <title><type>flushable</type></title>
+<indexterm><primary><type>flushable</type> Ⓣ</primary></indexterm>
 
 <para>
 The type of containers that can be flushed in some sense.

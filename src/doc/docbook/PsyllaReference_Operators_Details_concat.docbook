@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_concat">
-<title><token language="psylla">concat</token></title>
+<title><function>concat</function></title>
+<indexterm><primary><function>concat</function> Ⓞ</primary></indexterm>
 
 <para>
 Creates a lazily concatenated stream whose elements are all the elements of the
@@ -13,7 +14,7 @@ elements of the <replaceable>stream<subscript>2</subscript></replaceable>.
 <synopsis>
 <replaceable>stream<subscript>1</subscript></replaceable>
 <replaceable>stream<subscript>2</subscript></replaceable>
-<token language="psylla">concat</token>
+<function>concat</function>
 <replaceable>concatenatedstream</replaceable>
 </synopsis>
 </formalpara>

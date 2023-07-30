@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_mul">
-<title><token language="psylla">mul</token></title>
+<title><function>mul</function></title>
+<indexterm><primary><function>mul</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>product</replaceable> of two
@@ -12,7 +13,7 @@ Returns the <replaceable>product</replaceable> of two
 <synopsis>
 <replaceable>multiplier<subscript>1</subscript></replaceable>
 <replaceable>multiplier<subscript>2</subscript></replaceable>
-<token language="psylla">mul</token>
+<function>mul</function>
 <replaceable>product</replaceable>
 </synopsis>
 </formalpara>

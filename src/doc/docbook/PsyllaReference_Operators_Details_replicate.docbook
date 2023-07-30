@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_replicate">
-<title><token language="psylla">replicate</token></title>
+<title><function>replicate</function></title>
+<indexterm><primary><function>replicate</function> Ⓞ</primary></indexterm>
 
 <para>
 Возвращает в качестве <replaceable>результата</replaceable> новый контейнер,
@@ -13,7 +14,7 @@
 <synopsis>
 <replaceable>container</replaceable>
 <replaceable>number</replaceable>
-<token language="psylla">replicate</token>
+<function>replicate</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_skip">
-<title><token language="psylla">skip</token></title>
+<title><function>skip</function></title>
+<indexterm><primary><function>skip</function> Ⓞ</primary></indexterm>
 
 <para>
 Attemps to skip the specified <replaceable>count</replaceable> of characters
@@ -13,7 +14,7 @@ from the <replaceable>input</replaceable>. Returns the
 <synopsis>
 <replaceable>input</replaceable>
 <replaceable>count</replaceable>
-<token language="psylla">skip</token>
+<function>skip</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

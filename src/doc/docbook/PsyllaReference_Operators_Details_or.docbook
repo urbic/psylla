@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_or">
-<title><token language="psylla">or</token></title>
+<title><function>or</function></title>
+<indexterm><primary><function>or</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>disjunction</replaceable> of two
@@ -12,7 +13,7 @@ Returns the <replaceable>disjunction</replaceable> of two
 <synopsis>
 <replaceable>operand<subscript>1</subscript></replaceable>
 <replaceable>operand<subscript>2</subscript></replaceable>
-<token language="psylla">or</token>
+<function>or</function>
 <replaceable>disjunction</replaceable>
 </synopsis>
 </formalpara>

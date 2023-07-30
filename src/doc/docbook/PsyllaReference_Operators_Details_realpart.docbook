@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_realpart">
-<title><token language="psylla">realpart</token></title>
+<title><function>realpart</function></title>
+<indexterm><primary><function>realpart</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>real_part</replaceable> of the complex
@@ -11,7 +12,7 @@ Returns the <replaceable>real_part</replaceable> of the complex
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">realpart</token>
+<function>realpart</function>
 <replaceable>real_part</replaceable>
 </synopsis>
 </formalpara>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_setseed">
-<title><token language="psylla">setseed</token></title>
+<title><function>setseed</function></title>
+<indexterm><primary><function>setseed</function> Ⓞ</primary></indexterm>
 
 <para>
 Sets the <replaceable>seed</replaceable> for pseudorandom
@@ -12,7 +13,7 @@ Sets the <replaceable>seed</replaceable> for pseudorandom
 <synopsis>
 <replaceable>generator</replaceable>
 <replaceable>seed</replaceable>
-<token language="psylla">setseed</token>
+<function>setseed</function>
 —
 </synopsis>
 </formalpara>
@@ -43,6 +44,11 @@ Sets the <replaceable>seed</replaceable> for pseudorandom
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Random"/>.
 </formalpara>
 
 <formalpara>

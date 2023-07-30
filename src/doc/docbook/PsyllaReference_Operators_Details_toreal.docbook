@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_toreal">
-<title><token language="psylla">toreal</token></title>
+<title><function>toreal</function></title>
 
 <para>
 TODO
@@ -10,7 +10,7 @@ TODO
 &TitleSynopsis;
 <synopsis>
 <replaceable>object</replaceable>
-<token language="psylla">toreal</token>
+<function>toreal</function>
 <replaceable>real</replaceable>
 </synopsis>
 </formalpara>

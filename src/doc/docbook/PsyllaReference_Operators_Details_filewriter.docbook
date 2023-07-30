@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_filewriter">
-<title><token language="psylla">filewriter</token></title>
+<title><function>filewriter</function></title>
+<indexterm><primary><function>filewriter</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a new file <replaceable>writer</replaceable> for a file with the given
@@ -11,7 +12,7 @@ Returns a new file <replaceable>writer</replaceable> for a file with the given
 &TitleSynopsis;
 <synopsis>
 <replaceable>name</replaceable>
-<token language="psylla">filewriter</token>
+<function>filewriter</function>
 <replaceable>writer</replaceable>
 </synopsis>
 </formalpara>

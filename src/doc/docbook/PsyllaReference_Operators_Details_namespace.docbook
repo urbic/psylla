@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_namespace">
-<title><token language="psylla">namespace</token></title>
+<title><function>namespace</function></title>
+<indexterm><primary><function>namespace</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a <replaceable>namespace</replaceable> with the given
@@ -12,7 +13,7 @@ namespace pool does not contain such a namespace, previously allocates it.
 &TitleSynopsis;
 <synopsis>
 <replaceable>prefix</replaceable>
-<token language="psylla">namespace</token>
+<function>namespace</function>
 <replaceable>namespace</replaceable>
 </synopsis>
 </formalpara>

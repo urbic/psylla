@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_enqueue">
-<title><token language="psylla">enqueue</token></title>
+<title><function>enqueue</function></title>
+<indexterm><primary><function>enqueue</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -11,7 +12,7 @@ TODO
 <synopsis>
 <replaceable>queue</replaceable>
 <replaceable>element</replaceable>
-<token language="psylla">enqueue</token>
+<function>enqueue</function>
 —
 </synopsis>
 </formalpara>

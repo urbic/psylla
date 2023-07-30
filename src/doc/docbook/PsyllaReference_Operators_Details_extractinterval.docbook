@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_extractinterval">
-<title><token language="psylla">extractinterval</token></title>
+<title><function>extractinterval</function></title>
+<indexterm><primary><function>extractinterval</function> Ⓞ</primary></indexterm>
 
 <para>
 Удаляет из <replaceable>массива</replaceable> непрерывный фрагмент с заданными
@@ -16,7 +17,7 @@
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
 <replaceable>length</replaceable>
-<token language="psylla">extractinterval</token>
+<function>extractinterval</function>
 <replaceable>subarray</replaceable>
 </synopsis>
 </formalpara>

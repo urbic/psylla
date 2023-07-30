@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_eol">
-<title><token language="psylla">eol</token></title>
+<title><function>eol</function></title>
+<indexterm><primary><function>eol</function> Ⓞ</primary></indexterm>
 
 <para>
-Line terminator.
+Line terminator. Not an operator, but a <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_name"/> value in the system dictionary.
 </para>
 
 <formalpara>
 &TitleSynopsis;
 <synopsis>
 —
-<token language="psylla">eol</token>
+<function>eol</function>
 <constant>eol</constant>
 </synopsis>
 </formalpara>
@@ -24,12 +26,6 @@ Line terminator.
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_eol"/> is
-not an operator, but a <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_name"/> value in the system dictionary.
-</para>
 
 <formalpara>
 &TitleCategory;

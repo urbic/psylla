@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_normaldeviate">
-<title><token language="psylla">normaldeviate</token></title>
+<title><function>normaldeviate</function></title>
+<indexterm><primary><function>normaldeviate</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the normally distributed pseudorandom <replaceable>number</replaceable>
@@ -13,7 +14,7 @@ taken from the given pseudorandom <replaceable>generator</replaceable>.
 <synopsis>
 <replaceable>generator</replaceable>
 <replaceable>deviation</replaceable>
-<token language="psylla">normaldeviate</token>
+<function>normaldeviate</function>
 <replaceable>number</replaceable>
 </synopsis>
 </formalpara>
@@ -56,6 +57,11 @@ stdrandom 1 normaldeviate
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Random"/>.
 </formalpara>
 
 <formalpara>

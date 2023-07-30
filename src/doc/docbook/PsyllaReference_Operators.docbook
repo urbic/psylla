@@ -281,7 +281,7 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_neg" xrefstyle="template:%t"/></term>
-<listitem>the arithmetic negation</listitem>
+<listitem>the arithmetic negation of a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -302,6 +302,16 @@
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_realpart" xrefstyle="template:%t"/></term>
 <listitem>the real part of a number</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_reciprocal" xrefstyle="template:%t"/></term>
+<listitem>the multiplicative reciprocal of a number</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_round" xrefstyle="template:%t"/></term>
+<listitem>the closest integer to a number</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -668,12 +678,12 @@
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_extract" xrefstyle="template:%t"/></term>
-<listitem>извлечение с удалением элемента из контейнера по заданному ключу</listitem>
+<listitem>fetch and remove an element of a container with the given key or index</listitem>
 </varlistentry>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_extractinterval" xrefstyle="template:%t"/></term>
-<listitem>извлечение с удалением непрерывного фрагмента из массива</listitem>
+<listitem>fetch and remove a subarray from an array</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -811,7 +821,7 @@ container</listitem>
 
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_reverse" xrefstyle="template:%t"/></term>
-<listitem>смена порядка элементов массива на противоположный</listitem>
+<listitem>reverse the order of array elements</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -843,6 +853,11 @@ discarding the first few elements</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_sort" xrefstyle="template:%t"/></term>
 <listitem>sort an array according to comparator</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_sorted" xrefstyle="template:%t"/></term>
+<listitem>create a stream sorted according to a comparator</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1263,6 +1278,65 @@ flush output buffer</listitem>
 
 </section>
 
+<section xml:id="PsyllaReference_Operators_ByCategory_MultipleContext">
+<title>Multiple Execution Context Operators</title>
+
+<variablelist>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_condition" xrefstyle="template:%t"/></term>
+<listitem>create a new condition object</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_currentcontext" xrefstyle="template:%t"/></term>
+<listitem>the current context</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_fork" xrefstyle="template:%t"/></term>
+<listitem>invoke a procedure in a new execution context</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_join" xrefstyle="template:%t"/></term>
+<listitem>wait for execution context termination and retrieve results</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_lock" xrefstyle="template:%t"/></term>
+<listitem>create a new lock</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
+<listitem>invoke a procedure while holding lock</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_notify" xrefstyle="template:%t"/></term>
+<listitem>TODO</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_synchronized" xrefstyle="template:%t"/></term>
+<listitem>invoke a procedure while holding internal object’s lock</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_wait" xrefstyle="template:%t"/></term>
+<listitem>release lock, wait for condition, reacquire lock</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_yield" xrefstyle="template:%t"/></term>
+<listitem>momentarily suspend current execution context</listitem>
+</varlistentry>
+
+</variablelist>
+
+</section>
+
 <section xml:id="PsyllaReference_Operators_ByCategory_Miscellaneous">
 <title>Miscellaneous Operators</title>
 
@@ -1321,60 +1395,6 @@ flush output buffer</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_version" xrefstyle="template:%t"/></term>
 <listitem>the version of the interpreter</listitem>
-</varlistentry>
-
-</variablelist>
-
-</section>
-
-<section xml:id="PsyllaReference_Operators_ByCategory_MultipleContext">
-<title>Multiple Execution Context Operators</title>
-
-<variablelist>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_condition" xrefstyle="template:%t"/></term>
-<listitem>create a new condition object</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_currentcontext" xrefstyle="template:%t"/></term>
-<listitem>the current context</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_fork" xrefstyle="template:%t"/></term>
-<listitem>invoke a procedure in a new execution context</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_join" xrefstyle="template:%t"/></term>
-<listitem>wait for execution context termination and retrieve results</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_lock" xrefstyle="template:%t"/></term>
-<listitem>create a new lock</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_monitor" xrefstyle="template:%t"/></term>
-<listitem>invoke a procedure while holding lock</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_synchronized" xrefstyle="template:%t"/></term>
-<listitem>invoke a procedure while holding internal object’s lock</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_wait" xrefstyle="template:%t"/></term>
-<listitem>release lock, wait for condition, reacquire lock</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_yield" xrefstyle="template:%t"/></term>
-<listitem>momentarily suspend current execution context</listitem>
 </varlistentry>
 
 </variablelist>
@@ -1636,6 +1656,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_readstring;
 &PsyllaReference_Operators_Details_ready;
 &PsyllaReference_Operators_Details_realpart;
+&PsyllaReference_Operators_Details_reciprocal;
 &PsyllaReference_Operators_Details_reduce;
 &PsyllaReference_Operators_Details_regexp;
 &PsyllaReference_Operators_Details_remove;

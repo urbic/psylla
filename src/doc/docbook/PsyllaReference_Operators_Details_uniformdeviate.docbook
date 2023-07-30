@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_uniformdeviate">
-<title><token language="psylla">uniformdeviate</token></title>
+<title><function>uniformdeviate</function></title>
 
 <para>
 Возвращает очередное равномерно распределённое
@@ -16,7 +16,7 @@
 <synopsis>
 <replaceable>генератор</replaceable>
 <replaceable>граница</replaceable>
-<token language="psylla">uniformdeviate</token>
+<function>uniformdeviate</function>
 <replaceable>случайное</replaceable>
 </synopsis>
 </formalpara>
@@ -67,6 +67,11 @@ TODO
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Random"/>.
 </formalpara>
 
 <formalpara>

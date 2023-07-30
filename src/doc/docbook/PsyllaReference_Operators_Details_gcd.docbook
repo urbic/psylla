@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_gcd">
-<title><token language="psylla">gcd</token></title>
+<title><function>gcd</function></title>
+<indexterm><primary><function>gcd</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the greatest common divisor of two <replaceable>number</replaceable>s.
@@ -11,7 +12,7 @@ Returns the greatest common divisor of two <replaceable>number</replaceable>s.
 <synopsis>
 <replaceable>number<subscript>1</subscript></replaceable>
 <replaceable>number<subscript>2</subscript></replaceable>
-<token language="psylla">gcd</token>
+<function>gcd</function>
 <replaceable>result</replaceable>
 </synopsis>
 </formalpara>

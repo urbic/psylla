@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Types_Details_random">
 <title><type>random</type></title>
+<indexterm><primary><type>random</type> Ⓣ</primary></indexterm>
 
 <para>
 A generator of pseudorandom data.

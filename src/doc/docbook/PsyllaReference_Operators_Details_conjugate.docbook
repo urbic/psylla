@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_conjugate">
-<title><token language="psylla">conjugate</token></title>
+<title><function>conjugate</function></title>
+<indexterm><primary><function>conjugate</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>conjugation</replaceable> of a complex
@@ -11,7 +12,7 @@ Returns the <replaceable>conjugation</replaceable> of a complex
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">conjugate</token>
+<function>conjugate</function>
 <replaceable>conjugation</replaceable>
 </synopsis>
 </formalpara>
@@ -30,7 +31,7 @@ Returns the <replaceable>conjugation</replaceable> of a complex
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">0 1 complex conjugate
-	▶ 0.0-1.0*i</programlisting>
+	▶ 0.0-1.0i</programlisting>
 </formalpara>
 
 <formalpara>

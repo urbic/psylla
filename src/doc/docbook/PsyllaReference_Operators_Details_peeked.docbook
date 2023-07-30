@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_peeked">
-<title><token language="psylla">peeked</token></title>
+<title><function>peeked</function></title>
+<indexterm><primary><function>peeked</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns a <replaceable>peekedstream</replaceable> consisting of the elements of
-this <replaceable>stream</replaceable>, additionally performing the action
-provided by the <replaceable>consumer</replaceable> on each element as elements
-are consumed from the resulting stream.
+<replaceable>stream</replaceable>, additionally performing the action provided
+by the <replaceable>consumer</replaceable> on each element as elements are
+consumed from the resulting stream.
 </para>
 
 <formalpara>
@@ -14,7 +15,7 @@ are consumed from the resulting stream.
 <synopsis>
 <replaceable>stream</replaceable>
 <replaceable>consumer</replaceable>
-<token language="psylla">peeked</token>
+<function>peeked</function>
 <replaceable>peekedstream</replaceable>
 </synopsis>
 </formalpara>

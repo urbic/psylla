@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_roll">
-<title><token language="psylla">roll</token></title>
+<title><function>roll</function></title>
+<indexterm><primary><function>roll</function> Ⓞ</primary></indexterm>
 
 <para>
 Performs a cyclic shift of the operands
@@ -19,7 +20,7 @@ n</replaceable> steps on the operand stack (non-negative
 <replaceable>object<subscript>0</subscript></replaceable>
 <replaceable>n</replaceable>
 <replaceable>k</replaceable>
-<token language="psylla">roll</token>
+<function>roll</function>
 <replaceable>object<subscript>(k−1) mod n</subscript></replaceable>
 …
 <replaceable>object<subscript>0</subscript></replaceable>

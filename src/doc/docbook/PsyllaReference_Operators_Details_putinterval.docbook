@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_putinterval">
-<title><token language="psylla">putinterval</token></title>
+<title><function>putinterval</function></title>
+<indexterm><primary><function>putinterval</function> Ⓞ</primary></indexterm>
 
 <para>
 TODO
@@ -12,7 +13,7 @@ TODO
 <replaceable>array</replaceable>
 <replaceable>index</replaceable>
 <replaceable>enumeration</replaceable>
-<token language="psylla">putinterval</token>
+<function>putinterval</function>
 —
 </synopsis>
 </formalpara>
@@ -50,6 +51,11 @@ TODO
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
 </formalpara>
 
 <formalpara>

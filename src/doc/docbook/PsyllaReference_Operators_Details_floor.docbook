@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xml:id="PsyllaReference_Operators_Details_floor">
-<title><token language="psylla">floor</token></title>
+<title><function>floor</function></title>
+<indexterm><primary><function>floor</function> Ⓞ</primary></indexterm>
 
 <para>
 Returns the <replaceable>floor</replaceable> of the
@@ -22,7 +23,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &TitleSynopsis;
 <synopsis>
 <replaceable>number</replaceable>
-<token language="psylla">floor</token>
+<function>floor</function>
 <replaceable>floor</replaceable>
 </synopsis>
 </formalpara>
