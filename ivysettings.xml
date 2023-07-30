@@ -8,7 +8,9 @@
 		passwd="${env.GITHUB_TOKEN}"
 		/>
 
-	<caches defaultCacheDir="${user.home}/.ivy2/cache"/>
+	<caches
+		defaultTTL="eternal"
+		/>
 
 	<resolvers>
 		<chain name="main">
