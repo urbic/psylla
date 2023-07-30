@@ -35,7 +35,6 @@ syn match psyllaReal			"[+-]\=\d\+[Ee][+-]\=\d\+\>"
 syn cluster psyllaNumeric		contains=psyllaIntegral,psyllaHexIntegral,psyllaBinIntegral,psyllaOctIntegral,psyllaReal
 syn region psyllaComment		start="/#" end="#/" contains=psyllaTodo
 
-
 syn region psyllaString			start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psyllaStringSpecial
 syn match psyllaStringSpecial	contained +\\[0antf"\\er]+
 syn match psyllaStringSpecial	contained "\\u[[:xdigit:]]\{4}"
