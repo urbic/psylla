@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svgPsyllaLogo"
+   viewBox="0 0 2048 1024"
+   width="1280"
+   height="640"
+   version="1.1"
+   sodipodi:docname="psylla-1.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata33">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs31">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter868">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood858" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite860" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="3"
+         result="blur"
+         id="feGaussianBlur862" />
+      <feOffset
+         dx="6"
+         dy="6"
+         result="offset"
+         id="feOffset864" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite866" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Drop Shadow"
+       id="filter880">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood870" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite872" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="3"
+         result="blur"
+         id="feGaussianBlur874" />
+      <feOffset
+         dx="6"
+         dy="6"
+         result="offset"
+         id="feOffset876" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite878" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:menu-tooltip="Paper like emboss effect"
+       inkscape:menu="Bumps"
+       inkscape:label="Paper Bump"
+       id="filter1076">
+      <feTurbulence
+         result="result0"
+         seed="0"
+         baseFrequency="1"
+         numOctaves="5"
+         type="fractalNoise"
+         id="feTurbulence1058" />
+      <feConvolveMatrix
+         result="result5"
+         order="5 5"
+         kernelMatrix="-2 0 0 0 -2 0 -2 0 -2 0 0 0 -10 0 0 0 -2 0 -2 0 -2 0 0 0 -2 "
+         targetX="2"
+         targetY="2"
+         id="feConvolveMatrix1060" />
+      <feComposite
+         result="result2"
+         k3="0.5"
+         k2="0.5"
+         k1="1.5"
+         operator="arithmetic"
+         in="result5"
+         in2="SourceGraphic"
+         id="feComposite1062" />
+      <feColorMatrix
+         in="result2"
+         type="luminanceToAlpha"
+         result="result2"
+         id="feColorMatrix1064" />
+      <feDiffuseLighting
+         surfaceScale="5"
+         result="result1"
+         diffuseConstant="0.6"
+         id="feDiffuseLighting1068">
+        <feDistantLight
+           elevation="35"
+           azimuth="225"
+           id="feDistantLight1066" />
+      </feDiffuseLighting>
+      <feComposite
+         operator="arithmetic"
+         in="result1"
+         k1="1.5"
+         k3="0.5"
+         result="result3"
+         in2="SourceGraphic"
+         id="feComposite1070" />
+      <feBlend
+         in="result3"
+         mode="normal"
+         result="result6"
+         in2="result1"
+         id="feBlend1072" />
+      <feComposite
+         operator="in"
+         in2="SourceGraphic"
+         id="feComposite1074" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1375"
+     id="namedview29"
+     showgrid="false"
+     inkscape:zoom="1.1171875"
+     inkscape:cx="640"
+     inkscape:cy="320"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svgPsyllaLogo" />
+  <title
+     id="title2">Psylla logo</title>
+  <rect
+     x="0"
+     y="0"
+     width="2048"
+     height="1024"
+     fill="lightgray"
+     id="rect4"
+     style="filter:url(#filter1076)" />
+  <g
+     transform="matrix(0.8,0,0,0.8,102.4,102.4)"
+     id="g22"
+     style="filter:url(#filter880)">
+    <defs
+       id="defs7">
+      <circle
+         id="circle"
+         cx="512"
+         cy="512"
+         r="448" />
+    </defs>
+    <use
+       xlink:href="#circle"
+       fill="#ff6347"
+       id="use9"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+    <g
+       stroke="#000000"
+       stroke-width="48"
+       clip-path="url(#clipPath)"
+       id="g18">
+      <clipPath
+         id="clipPath">
+        <use
+           xlink:href="#circle"
+           id="use11"
+           x="0"
+           y="0"
+           width="100%"
+           height="100%" />
+      </clipPath>
+      <use
+         xlink:href="#circle"
+         transform="translate(0,-448)"
+         fill="#3cb371"
+         id="use14"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%" />
+      <path
+         d="M 512,64 V 960"
+         id="path16" />
+    </g>
+    <use
+       xlink:href="#circle"
+       fill="none"
+       stroke="#000000"
+       stroke-width="48"
+       id="use20"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+  </g>
+  <text
+     id="text26"
+     style="filter:url(#filter868)"><tspan
+       font-family="Alegreya Sans"
+       font-weight="bold"
+       font-size="350"
+       x="1920"
+       y="512"
+       text-anchor="end"
+       dominant-baseline="central"
+       id="tspan24">Ψύλλα</tspan></text>
+</svg>
