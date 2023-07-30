@@ -12,6 +12,7 @@
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml5/profile-chunk.xsl"/>
 
 	<xsl:import href="highlight.xsl"/>
+	<xsl:import href="autoidx.xsl"/>
 	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml/autoidx-kosek.xsl"/>
 
 	<xsl:param name="admon.graphics" select="1"/>
@@ -187,7 +188,7 @@
 				or $format='XHTML'">1</xsl:if>
 	</xsl:template>
 
-	<xsl:template match="d:token|d:code">
+	<xsl:template match="d:code">
 		<code class="{name(.)}">
 			<xsl:choose>
 				<xsl:when test="$highlight.source!=0">
@@ -197,6 +198,14 @@
 					<xsl:apply-templates/>
 				</xsl:otherwise>
 			</xsl:choose>
+		</code>
+	</xsl:template>
+
+	<xsl:template match="d:function">
+		<code class="token">
+			<span class="hl-keyword">
+				<xsl:apply-templates/>
+			</span>
 		</code>
 	</xsl:template>
 
