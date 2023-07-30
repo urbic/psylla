@@ -18,9 +18,9 @@ while(<$fd>)
 {
 	if(m/project\.version\.(micro|minor|major)=(\d+)/)
 	{
-		@version[2]=$2 if($1 eq 'micro');
-		@version[1]=$2 if($1 eq 'minor');
-		@version[0]=$2 if($1 eq 'major');
+		@version[2]=$2 if $1 eq 'micro';
+		@version[1]=$2 if $1 eq 'minor';
+		@version[0]=$2 if $1 eq 'major';
 	}
 }
 close $fd;
