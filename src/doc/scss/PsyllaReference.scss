@@ -9,9 +9,9 @@ $color-link: royalblue;
 $color-visited: $color-link;
 $color-filename: black;
 $background-color-programlisting: darken($background-color-body, 2%);
-$font-family-body: "Roboto", sans-serif;
+$font-family-body: "Source Sans Pro", "Roboto", sans-serif;
 $font-size-body: 18px;
-$font-family-code: "Roboto Mono", monospace;
+$font-family-code: "Source Code Pro", "Roboto Mono", monospace;
 
 html
 {
@@ -146,6 +146,7 @@ code,
 .command,
 .type,
 .token,
+.function,
 .errorname,
 .replaceable,
 .parameter,

@@ -15,8 +15,7 @@ body
 {
 	background-color: $background-color-body;
 	color: #333;
-	//font-family: "PT Serif", serif;
-	font-family: "PT Sans", sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	font-size: 1.2pc;
 	margin-top: 6pc;
 	margin-left: 25%;
@@ -37,7 +36,7 @@ header
 {
 	width: 100%;
 	background-color: $background-color-hf;
-	font-family: "PT Serif", serif;
+	font-family: "Source Sans PRO", serif;
 	position: fixed;
 	left: 0%;
 	right: 0%;
@@ -47,7 +46,7 @@ header
 {
 	top: 0%;
 	font-size: 1.2pc;
-	font-family: "PT Sans", sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	#header-links
 	{
 		padding: .5pc 1pc .5pc .5pc;
@@ -58,7 +57,7 @@ header
 			text-decoration: none;
 			padding: .25pc;
 			color: $color-body;
-			font-family: "PT Sans Narrow";
+			font-family: "Source Sans Pro";
 			&:hover
 			{
 				color: $background-color-body;

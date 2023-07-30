@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="htmldocs"
-	xmlns:ivy="antlib:org.apache.ivy.ant"
 	basedir="."
+	xmlns:ivy="antlib:org.apache.ivy.ant"
 	>
 
 	<property name="xslt.highlight.xslthl.config" location="${src.doc.xsl}/xslthl/highlighters/xslthl-config.xml"/>
@@ -53,10 +53,11 @@
 		description="Build XHTML documentation"
 		depends="compile,css,version"
 		>
+		<ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/>
 		<mkdir dir="${target.doc.html}"/>
 		<apply executable="dot" dest="${target.doc.html}" parallel="false">
 			<arg value="-Gbgcolor=none"/>
-			<arg value="-Nfontname=Roboto Mono,monospace"/>
+			<arg value="-Nfontname=Source Code Pro,monospace"/>
 			<arg value="-Nfontsize=12px"/>
 			<arg value="-Nshape=note"/>
 			<arg value="-Nstyle=filled"/>
@@ -96,7 +97,7 @@
 			<fileset dir="${src.doc.docbook}" includes="files/**" excludes="**/.htaccess"/>
 			<fileset dir="${src.doc.docbook}" includes="navigation/**"/>
 			<fileset dir="${src.doc.docbook}" includes="js/**"/>
-			<fileset dir="${src.logo}" includes="${project.name}.svg"/>
+			<fileset dir="${src.logo}" includes="${project.name}.svg ${project.name}-banner.svg"/>
 		</copy>
 		<copy todir="${target.doc.html}" filtering="true">
 			<fileset dir="${src.doc.xhtml}" includes="*.xhtml"/>
