@@ -1,0 +1,4 @@
+Error: /notlink in --readlink--
+Operand stack:
+	'/etc/passwd'
+Execution stack: (empty)
