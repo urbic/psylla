@@ -24,6 +24,8 @@ License:        Zlib
 Group:          Development/Languages/Other
 URL:            @project.url@
 Source:         %{name}-%{version}.tar.xz
+BuildRequires:  adobe-sourcecodepro-fonts
+BuildRequires:  adobe-sourcesanspro-fonts
 BuildRequires:  ivy-local
 BuildRequires:  java-devel >= 17
 BuildRequires:  java-javadoc >= 17
