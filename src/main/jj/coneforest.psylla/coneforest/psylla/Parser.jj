@@ -4,7 +4,7 @@ package coneforest.psylla;
 
 import coneforest.psylla.core.PsyReader;
 
-class Parser
+public class Parser
 {
 	public Parser(final PsyReader oReader)
 	{
@@ -94,12 +94,12 @@ TOKEN:
 
 TOKEN:
 {
-	<REAL: (<SIGN>)? <REAL_UNSIGNED>>
+	<#EXPONENT: ["E", "e"] <INTEGRAL_DEC>>
 }
 
 TOKEN:
 {
-	<#EXPONENT: ["E", "e"] <INTEGRAL_DEC>>
+	<REAL: (<SIGN>)? <REAL_UNSIGNED>>
 }
 
 TOKEN:
