@@ -25,7 +25,7 @@ Psylla is implemented as a library written in Java.
   queues
 * Regular expressions _(under construction)_
 * REPL
-* Support for Java scripting API (JSR 223)
+* Support for Java scripting API (JSR 223)
 
 ## Examples
 
