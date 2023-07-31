@@ -1,1 +1,1 @@
-moduleSearchIndex = [{"l":"coneforest.psylla"}];updateSearchResults();
+moduleSearchIndex = [{"l":"coneforest.psylla"},{"l":"coneforest.psylla.tools"}];updateSearchResults();

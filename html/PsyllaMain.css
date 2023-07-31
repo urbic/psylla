@@ -1,19 +1,19 @@
 @namespace url("http://www.w3.org/1999/xhtml");
 html { height: 100%; }
 
-body { background-color: lightgray; color: #333; font-family: "PT Sans", sans-serif; font-size: 1.2pc; margin-top: 6pc; margin-left: 25%; margin-right: 25%; }
+body { background-color: lightgray; color: #333; font-family: "Source Sans Pro", sans-serif; font-size: 1.2pc; margin-top: 6pc; margin-left: 25%; margin-right: 25%; }
 
 body .large { font-size: 1.6pc; }
 
 h4 { margin-bottom: .6pc; }
 
-header { width: 100%; background-color: #bababa; font-family: "PT Serif", serif; position: fixed; left: 0%; right: 0%; }
+header { width: 100%; background-color: #bababa; font-family: "Source Sans PRO", serif; position: fixed; left: 0%; right: 0%; }
 
-header { top: 0%; font-size: 1.2pc; font-family: "PT Sans", sans-serif; }
+header { top: 0%; font-size: 1.2pc; font-family: "Source Sans Pro", sans-serif; }
 
 header #header-links { padding: .5pc 1pc .5pc .5pc; float: right; }
 
-header #header-links a { margin-left: .75pc; text-decoration: none; padding: .25pc; color: #545454; font-family: "PT Sans Narrow"; }
+header #header-links a { margin-left: .75pc; text-decoration: none; padding: .25pc; color: #545454; font-family: "Source Sans Pro"; }
 
 header #header-links a:hover { color: lightgray; background-color: #545454; }
 

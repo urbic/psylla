@@ -1,5 +1,8 @@
 module:coneforest.psylla
 coneforest.psylla
-coneforest.psylla.core.errors
-coneforest.psylla.core.types
+coneforest.psylla.core
 coneforest.psylla.engine
+module:coneforest.psylla.tools
+coneforest.psylla.tools.ant
+coneforest.psylla.tools.processors
+coneforest.psylla.tools.toolprovider
