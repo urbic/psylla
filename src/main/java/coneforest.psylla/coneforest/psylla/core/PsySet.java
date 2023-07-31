@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 /**
-*	A representation of {@code set}.
+*	The representation of {@code set}.
 */
 @Type("set")
 public class PsySet

@@ -8,7 +8,7 @@ import java.util.StringJoiner;
 import java.util.stream.StreamSupport;
 
 /**
-*	A representation of {@code formaldict}, an abstraction of a dictionary.
+*	The representation of {@code formaldict}, an abstraction of a dictionary.
 *
 *	@param <V> a type of contained values.
 */
@@ -56,6 +56,7 @@ public interface PsyFormalDict<V extends PsyObject>
 		return get(oKey.stringValue());
 	}
 
+	/*
 	@Override
 	default public PsyFormalArray<V> psyGetAll(final PsyIterable<PsyTextual> oEnumeration)
 		throws PsyLimitCheckException, PsyRangeCheckException, PsyUndefinedException
@@ -65,6 +66,7 @@ public interface PsyFormalDict<V extends PsyObject>
 			oResult.psyAppend(psyGet(oKey));
 		return oResult;
 	}
+	*/
 
 	public void put(final String key, final V oValue);
 

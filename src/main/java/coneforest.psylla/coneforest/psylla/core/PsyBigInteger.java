@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code biginteger}.
+*	The representation of {@code biginteger}.
 */
 @Type("biginteger")
 public final class PsyBigInteger
@@ -160,15 +160,7 @@ public final class PsyBigInteger
 		if(oRealNumeric instanceof PsyIntegral oIntegral)
 			return PsyIntegral.of(value.multiply(oIntegral.bigIntegerValue()));
 		if(oRealNumeric instanceof PsyRational oRational)
-			try
-			{
-				return PsyRational.of((PsyIntegral)psyMul(oRational.psyNumerator()),
-						oRational.psyDenominator());
-			}
-			catch(final PsyUndefinedResultException e)
-			{
-				// NOP
-			}
+			return PsyRational.of((PsyIntegral)psyMul(oRational.psyNumerator()), oRational.psyDenominator());
 		if(oRealNumeric instanceof PsyReal oReal)
 			return new PsyReal(doubleValue()*oReal.doubleValue());
 		throw new ClassCastException();
@@ -178,6 +170,8 @@ public final class PsyBigInteger
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 		throws PsyUndefinedResultException
 	{
+		if(oRealNumeric instanceof PsyIntegral oIntegral)
+			return PsyRational.of(psyNumerator(), (PsyIntegral)psyDenominator().psyMul(oIntegral));
 		if(oRealNumeric instanceof PsyRational oRational)
 			return PsyRational.of(
 					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),

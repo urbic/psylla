@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
-*	A representation of {@code range}.
+*	The representation of {@code range}.
 */
 @Type("range")
 public class PsyRange

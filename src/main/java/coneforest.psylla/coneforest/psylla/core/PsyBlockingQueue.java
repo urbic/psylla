@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
-*	A representation of {@code blockingqueue}.
+*	The representation of {@code blockingqueue}.
 */
 @Type("blockingqueue")
 public class PsyBlockingQueue

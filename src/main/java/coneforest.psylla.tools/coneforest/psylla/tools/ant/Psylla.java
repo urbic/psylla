@@ -4,10 +4,11 @@ import coneforest.psylla.core.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import org.apache.tools.ant.Task;
 import org.apache.tools.ant.BuildException;
 
 public class Psylla
-	extends org.apache.tools.ant.Task
+	extends Task
 {
 	@Override
 	public void execute()
@@ -24,13 +25,13 @@ public class Psylla
 		if(script!=null)
 			psyllaArgs.add(script.toString());
 
-		final String[] args=new String[psyllaArgs.size()+argList.size()];
+		final var args=new String[psyllaArgs.size()+argList.size()];
 		int i=0;
-		for(final String arg: psyllaArgs)
+		for(final var arg: psyllaArgs)
 			args[i++]=arg;
-		for(final Arg argObject: argList)
+		for(final var argObject: argList)
 		{
-			final String arg=argObject.getValue();
+			final var arg=argObject.getValue();
 			if(arg==null)
 				throw new BuildException("\"arg\" element must have \"value\" attribute");
 			args[i++]=arg;
@@ -89,7 +90,7 @@ public class Psylla
 
 	public Arg createArg()
 	{
-		final Arg arg=new Arg();
+		final var arg=new Arg();
 		argList.add(arg);
 		return arg;
 	}

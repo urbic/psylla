@@ -8,7 +8,6 @@ public class PsyRomanNumerals
 	extends PsyModule
 {
 	public PsyRomanNumerals()
-		throws PsyErrorException
 	{
 		//super("text.roman");
 
@@ -16,7 +15,7 @@ public class PsyRomanNumerals
 	}
 
 	private static PsyName psyToRoman(final PsyInteger oInteger)
-		throws PsyErrorException
+		throws PsyRangeCheckException
 	{
 		long n=oInteger.longValue();
 		if(n<0 || n>=4000)
@@ -28,7 +27,7 @@ public class PsyRomanNumerals
 	}
 
 	private static PsyInteger psyFromRoman(final PsyTextual oTextual)
-		throws PsyErrorException
+		throws PsyUndefinedResultException
 	{
 		final var romanMatcher=romanPattern.matcher(oTextual.stringValue());
 		if(!romanMatcher.matches())

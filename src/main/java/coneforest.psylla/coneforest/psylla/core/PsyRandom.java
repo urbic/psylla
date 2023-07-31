@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.util.Random;
 
 /**
-*	A representation of {@code random}, a generator of pseudorandom objects.
+*	The representation of {@code random}, a generator of pseudorandom objects.
 */
 @Type("random")
 public class PsyRandom

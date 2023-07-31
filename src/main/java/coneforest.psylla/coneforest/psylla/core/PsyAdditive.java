@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code additive}, a type of object that is an operand of arithmetic
+*	The representation of {@code additive}, a type of object that is an operand of arithmetic
 *	operation. This interface declares methods for addition, subtraction and negation.
 *
 *	@param <T> a type of the second operand at binary operation.

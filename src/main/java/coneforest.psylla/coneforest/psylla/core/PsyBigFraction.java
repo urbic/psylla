@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code bigfraction}.
+*	The representation of {@code bigfraction}.
 */
 @Type("bigfraction")
 public final class PsyBigFraction
@@ -16,9 +16,39 @@ public final class PsyBigFraction
 		this.denominator=denominator;
 	}
 
-	public static PsyBigFraction of(final BigInteger numerator, final BigInteger denominator)
+	public static PsyRational of(final BigInteger numerator, final BigInteger denominator)
 	{
-		return new PsyBigFraction(numerator, denominator);
+		var x=numerator;
+		var y=denominator;
+		if(y.equals(BigInteger.ZERO))
+			throw new IllegalArgumentException();
+		if(y.compareTo(BigInteger.ZERO)<0)
+		{
+			x=x.negate();
+			y=y.negate();
+		}
+		if(x.compareTo(BigInteger.ZERO)<0)
+			x=x.negate();
+		while(x.compareTo(BigInteger.ZERO)!=0)
+		{
+			if(x.compareTo(y)>0)
+			{
+				var t=x;
+				x=y;
+				y=t;
+				continue;
+			}
+			y=y.mod(x);
+		}
+		x=numerator.divide(y);
+		y=denominator.divide(y);
+		if(y.compareTo(BigInteger.ZERO)<0)
+		{
+			x=x.negate();
+			y=y.negate();
+		}
+		return (!y.equals(BigInteger.ONE))? new PsyBigFraction(x, y): PsyIntegral.of(x);
+		//return (!y.equals(BigInteger.ONE))? new PsyRational.of(x, y): PsyIntegral.of(x);
 	}
 
 	@Override
@@ -103,63 +133,6 @@ public final class PsyBigFraction
 		System.err.println("PsyBigFraction::psyRound");
 		return null;
 	}
-
-	@Override
-	public PsyRational psyAbs()
-	{
-		// TODO
-		System.err.println("PsyBigFraction::psyAbs");
-		return null;
-	}
-
-	@Override
-	public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
-	{
-		// TODO
-		System.err.println("PsyBigFraction::psyMul");
-		return null;
-	}
-
-	@Override
-	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
-	{
-		// TODO
-		System.err.println("PsyBigFraction::psyDiv");
-		return null;
-	}
-
-	@Override
-	public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
-	{
-		// TODO
-		return null;
-	}
-
-	/*
-	@Override
-	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
-	{
-		if(oRealNumeric instanceof PsyRational oRational)
-		{
-			try
-			{
-				return psyNumerator().psyMul(oRational.psyDenominator()).psySub(
-						psyDenominator().psyMul(oRational.psyNumerator()))
-						.psyDiv(psyDenominator().psyMul(oRational.psyDenominator()));
-			}
-			catch(final PsyUndefinedResultException e)
-			{
-				throw new AssertionError();
-			}
-		}
-		else
-		{
-			// NOP
-			System.err.println("PsyBigFraction::psySub: "+toSyntaxString()+" - "+oRealNumeric.toSyntaxString());
-			return null;
-		}
-	}
-	*/
 
 	@Override
 	public PsyInteger psySignum()

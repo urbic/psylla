@@ -2,6 +2,10 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.*;
 
+/**
+*	The representation of the {@code stackunderflow} error thrown when the operand stack contains
+*	fewer operands than the operator expects.
+*/
 @ErrorType("stackunderflow")
 public class PsyStackUnderflowException
 	extends PsyErrorException

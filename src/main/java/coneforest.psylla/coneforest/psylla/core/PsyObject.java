@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of an {@code object}, a generic Psylla object.
+*	The representation of an {@code object}, a generic Psylla object.
 */
 @Type("object")
 public interface PsyObject
@@ -36,8 +36,8 @@ public interface PsyObject
 	}
 
 	/**
-	*	Execute this object in the given execution context. Pushes this object
-	*	into context’s operand stack.
+	*	Execute this object in the given execution context. Pushes this object into context’s
+	*	operand stack.
 	*
 	*	@param oContext the execution context.
 	*/
@@ -47,8 +47,8 @@ public interface PsyObject
 	}
 
 	/**
-	*	Invoke this object in the given execution context. Pushes this object
-	*	into context’s operand stack.
+	*	Invoke this object in the given execution context. Pushes this object into context’s operand
+	*	stack.
 	*
 	*	@param oContext the execution context.
 	*/

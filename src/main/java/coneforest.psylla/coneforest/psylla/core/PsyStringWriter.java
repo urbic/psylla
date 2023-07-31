@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.io.Writer;
 
 /**
-*	A representation of {@code stringwriter}.
+*	The representation of {@code stringwriter}.
 */
 @Type("stringwriter")
 public class PsyStringWriter

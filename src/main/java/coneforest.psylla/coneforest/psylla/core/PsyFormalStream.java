@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 /**
-*	A representation of {@code formalstream}, an abstraction of the stream.
+*	The representation of {@code formalstream}, an abstraction of the stream.
 */
 @Type("formalstream")
 public interface PsyFormalStream<T extends PsyObject>

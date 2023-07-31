@@ -5,8 +5,7 @@ import java.util.BitSet;
 import java.util.Iterator;
 
 /**
-*	A representation of {@code bitset}, a set of nonnegative {@code integer}
-*	objects.
+*	The representation of {@code bitset}, a set of nonnegative {@code integer} objects.
 */
 @Type("bitset")
 public class PsyBitSet

@@ -3,10 +3,10 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code boolean}.
+*	The representation of {@code boolean}.
 */
 @Type("boolean")
-public class PsyBoolean
+public final class PsyBoolean
 	implements
 		PsyAtomic,
 		PsyScalar<PsyBoolean>,
@@ -33,7 +33,7 @@ public class PsyBoolean
 	@Override
 	public String toSyntaxString()
 	{
-		return ""+booleanValue();
+		return "%"+booleanValue()+"%";
 	}
 
 	/**

@@ -3,12 +3,11 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code complex}.
+*	The representation of {@code complex}.
 */
 @Type("complex")
 public final class PsyComplex
-	implements
-		PsyNumeric
+	implements PsyNumeric
 {
 	public PsyComplex(final double re, final double im)
 	{
@@ -46,6 +45,7 @@ public final class PsyComplex
 	@Override
 	public PsyBoolean psyIsZero()
 	{
+		// TODO
 		return PsyBoolean.of(re==0.D && im==0.D);
 	}
 
@@ -71,7 +71,7 @@ public final class PsyComplex
 		if(im>=0.D)
 			sb.append('+');
 		sb.append(im);
-		sb.append("*i");
+		sb.append('i');
 		return sb.toString();
 	}
 
@@ -96,8 +96,8 @@ public final class PsyComplex
 	}
 
 	/**
-	*	Returns a {@code real} representing the complex argument of this
-	*	object. The argument belongs to the range (−π; π].
+	*	Returns a {@code real} representing the complex argument of this object. The argument
+	*	belongs to the range (−π; π].
 	*
 	*	@return a {@code real} argument.
 	*/
@@ -107,8 +107,7 @@ public final class PsyComplex
 	}
 
 	/**
-	*	Returns a {@code complex} representing the complex conjugate of this
-	*	object.
+	*	Returns a {@code complex} representing the complex conjugate of this object.
 	*
 	*	@return a {@code complex} conjugate of this number.
 	*/
@@ -133,6 +132,13 @@ public final class PsyComplex
 	public PsyComplex psySub(final PsyNumeric oNumeric)
 	{
 		return new PsyComplex(re-oNumeric.realValue(), im-oNumeric.imagValue());
+	}
+
+	@Override
+	public PsyComplex psyReciprocal()
+	{
+		final var d=re*re+im*im;
+		return new PsyComplex(re/d, -im/d);
 	}
 
 	@Override
@@ -194,25 +200,25 @@ public final class PsyComplex
 	@Override
 	public PsyComplex psyLog()
 	{
-		return new PsyComplex((PsyReal)psyAbs().psyLog(), psyArg());
+		return new PsyComplex(Math.log(Math.hypot(re, im)), Math.atan2(im, re));
 	}
 
 	@Override
 	public PsyComplex psyAcos()
 	{
-		return psyAdd(ONE.psySub(psyMul(this)).psySqrt().psyMul(I)).psyLog().psyMul(MINUS_I);
+		return psyAdd(PsyReal.ONE.psySub(psyMul(this)).psySqrt().psyMul(I)).psyLog().psyMul(MINUS_I);
 	}
 
 	@Override
 	public PsyComplex psyAsin()
 	{
-		return new PsyComplex(Math.PI/2.D).psySub(psyAcos());
+		return new PsyComplex(Math.PI/2.D, 0.D).psySub(psyAcos());
 	}
 
 	@Override
 	public PsyComplex psyAtan()
 	{
-		return (I.psyAdd(this).psyDiv(I.psySub(this))).psyLog().psyMul(I).psyDiv(TWO);
+		return (I.psyAdd(this).psyDiv(I.psySub(this))).psyLog().psyMul(I).psyDiv(PsyReal.TWO);
 	}
 
 	@Override
@@ -230,8 +236,8 @@ public final class PsyComplex
 	@Override
 	public PsyComplex psyCosh()
 	{
-		final var tmpExp=psyExp();
-		return tmpExp.psyAdd(ONE.psyDiv(tmpExp)).psyDiv(TWO);
+		final var oExp=psyExp();
+		return oExp.psyAdd(oExp.psyReciprocal()).psyDiv(PsyReal.TWO);
 	}
 
 	@Override
@@ -244,7 +250,7 @@ public final class PsyComplex
 	public PsyComplex psySinh()
 	{
 		final var oExp=psyExp();
-		return oExp.psySub(ONE.psyDiv(oExp)).psyDiv(TWO);
+		return oExp.psySub(oExp.psyReciprocal()).psyDiv(PsyReal.TWO);
 	}
 
 	@Override
@@ -264,10 +270,6 @@ public final class PsyComplex
 	}
 
 	public static final PsyComplex
-		ZERO=new PsyComplex(0.D, 0.D),
-		ONE=new PsyComplex(1.D, 0.D),
-		MINUS_ONE=new PsyComplex(-1.D, 0.D),
-		TWO=new PsyComplex(2.D, 0.D),
 		I=new PsyComplex(0.D, 1.D),
 		MINUS_I=new PsyComplex(0.D, -1.D);
 

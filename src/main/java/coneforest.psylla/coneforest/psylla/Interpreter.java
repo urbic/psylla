@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -40,7 +42,7 @@ public class Interpreter
 
 	@Override
 	public void fork()
-		throws PsyErrorException
+		throws PsyStackUnderflowException, PsyUnmatchedMarkException
 	{
 		final var ostack=operandStackBacked(1);
 		final var o=ostack.getBacked(0);
@@ -55,7 +57,7 @@ public class Interpreter
 				public void run()
 				{
 					o.invoke(this);
-					handleExecutionStack();
+					handleExecutionStack(0);
 					if(getStopped())
 					{
 						//PsyErrorDict.OP_HANDLEERROR.invoke(this);
@@ -98,22 +100,12 @@ public class Interpreter
 		return ostack;
 	}
 
-	/**
-	*	Returns the dictionary stack.
-	*
-	*	@return the dictionary stack.
-	*/
 	@Override
 	public DictStack dictStack()
 	{
 		return dstack;
 	}
 
-	/**
-	*	Returns the execution stack.
-	*
-	*	@return the execution stack.
-	*/
 	@Override
 	public ExecutionStack executionStack()
 	{
@@ -143,24 +135,12 @@ public class Interpreter
 	}
 
 	@Override
-	public void handleExecutionStack()
-	{
-		while(estack.size()>0)
-			estack.pop().execute(this);
-	}
-
-	@Override
 	public void handleExecutionStack(final int level)
 	{
 		while(estack.size()>level)
 			estack.pop().execute(this);
 	}
 
-	/**
-	*	Returns the current dictionary.
-	*
-	*	@return the current dictionary.
-	*/
 	@Override
 	public PsyFormalDict currentDict()
 	{
@@ -188,6 +168,7 @@ public class Interpreter
 		return dstack.get(1);
 	}
 
+	@Override
 	public NamespacePool namespacePool()
 	{
 		return nspool;
@@ -321,7 +302,7 @@ public class Interpreter
 
 	@Override
 	public void interpretBraced(final PsyReader oReader)
-		throws PsyErrorException
+		throws PsyLimitCheckException
 	{
 		procstack.push(new PsyProc());
 		interpret(oReader);
@@ -352,7 +333,7 @@ public class Interpreter
 			{
 				case ParserConstants.COMMAND:
 					parseToken(token).execute(this);
-					handleExecutionStack();
+					handleExecutionStack(0);
 					break;
 				case ParserConstants.INTEGRAL:
 				case ParserConstants.REAL:
@@ -444,10 +425,10 @@ public class Interpreter
 		final var typeClass=TypeResolver.resolve(typeName);
 		try
 		{
-			final var mh=java.lang.invoke.MethodHandles.lookup().findStatic(
+			final var mh=MethodHandles.lookup().findStatic(
 					typeClass,
 					"parseLiteral",
-					java.lang.invoke.MethodType.methodType(typeClass, String.class));
+					MethodType.methodType(typeClass, String.class));
 			return typeClass.cast(mh.invoke(image.substring(i+2, image.length()-1)));
 		}
 		catch(final NoSuchMethodException|IllegalAccessException ex)
@@ -520,7 +501,6 @@ public class Interpreter
 		System.out.print("Loop level stack:\n\t");
 		for(final var o: loopstack)
 			System.out.print(" "+o);
-		//loopstack.forEach(l->System.out.print(l));
 		System.out.println();
 	}
 
@@ -597,10 +577,10 @@ public class Interpreter
 
 	public void setEnvironment(final Map<String, String> env)
 	{
-		final var environment=new PsyDict();
+		final var oEnvironment=new PsyDict();
 		for(final var entry: env.entrySet())
-			environment.put(entry.getKey(), new PsyName(entry.getValue()));
-		systemDict().put("environment", environment);
+			oEnvironment.put(entry.getKey(), new PsyName(entry.getValue()));
+		systemDict().put("environment", oEnvironment);
 	}
 
 	@Override
@@ -613,7 +593,7 @@ public class Interpreter
 
 	@Override
 	public void repl()
-		throws PsyErrorException
+		throws PsyIOErrorException
 	{
 		try
 		{
@@ -685,9 +665,9 @@ public class Interpreter
 	}
 
 	/**
-	*	Returns the Psylla prompt.
+	*	Returns the REPL prompt.
 	*
-	*	@return the prompt.
+	*	@return the REPL prompt.
 	*/
 	public String prompt()
 	{

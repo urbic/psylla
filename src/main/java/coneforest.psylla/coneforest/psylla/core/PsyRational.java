@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code rational}.
+*	The representation of {@code rational}.
 */
 @Type("rational")
 public sealed interface PsyRational
@@ -17,14 +17,14 @@ public sealed interface PsyRational
 	public BigInteger bigIntegerValue();
 
 	/**
-	*	Returns an {@code integral} representing a numerator of this fraction.
+	*	Returns an {@code integral} numerator of this fraction.
 	*
 	*	@return the numerator.
 	*/
 	public PsyIntegral psyNumerator();
 
 	/**
-	*	Returns an {@code integral} representing a denominator of this fraction.
+	*	Returns an {@code integral} denominator of this fraction.
 	*
 	*	@return the denominator.
 	*/
@@ -33,98 +33,120 @@ public sealed interface PsyRational
 	@Override
 	default public PsyRational psyNeg()
 	{
-		try
-		{
-			return of(psyNumerator().psyNeg(), psyDenominator());
-		}
-		catch(final PsyUndefinedResultException e)
-		{
-			// NOP
-			throw new AssertionError();
-		}
+		return of(psyNumerator().psyNeg(), psyDenominator());
 	}
 
 	@Override
 	default public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
 	{
-		try
+		if(oRealNumeric instanceof PsyIntegral oIntegral)
 		{
-			if(oRealNumeric instanceof PsyIntegral oIntegral)
-			{
-				return of(
-					(PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
-					psyDenominator());
-			}
-			if(oRealNumeric instanceof PsyRational oRational)
-			{
-				return of(
-					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
-							.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),
-					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-			}
-			if(oRealNumeric instanceof PsyReal oReal)
-			{
-				// TODO
-				return null;
-			}
-			throw new ClassCastException();
+			return of(
+				(PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
+				psyDenominator());
 		}
-		catch(final PsyUndefinedResultException e)
+		if(oRealNumeric instanceof PsyRational oRational)
 		{
-			throw new AssertionError();
+			return of(
+				(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+						.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),
+				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
 		}
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()+oReal.doubleValue());
+		throw new ClassCastException();
 	}
 
 	@Override
 	default public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
+		if(oRealNumeric instanceof PsyIntegral oIntegral)
+		{
+			return of(
+					(PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
+					psyDenominator());
+		}
+		if(oRealNumeric instanceof PsyRational oRational)
+		{
+			return of(
+				(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+						.psySub(psyDenominator().psyMul(oRational.psyNumerator())),
+				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+		}
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()+oReal.doubleValue());
+		throw new ClassCastException();
+	}
+
+	@Override
+	default public PsyRational psyReciprocal()
+		throws PsyUndefinedResultException
+	{
 		try
 		{
-			if(oRealNumeric instanceof PsyIntegral oIntegral)
-			{
-				return of(
-						(PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
-						psyDenominator());
-			}
-			if(oRealNumeric instanceof PsyRational oRational)
-			{
-				return of(
-					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
-							.psySub(psyDenominator().psyMul(oRational.psyNumerator())),
-					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-			}
-			if(oRealNumeric instanceof PsyReal oReal)
-			{
-				// TODO
-				return null;
-			}
-			throw new ClassCastException();
+			return of(psyDenominator(), psyNumerator());
 		}
-		catch(final PsyUndefinedResultException e)
+		catch(final IllegalArgumentException ex)
 		{
-			throw new AssertionError();
+			throw new PsyUndefinedResultException();
 		}
+	}
+
+	@Override
+	default public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
+	{
+		if(oRealNumeric instanceof PsyIntegral oIntegral)
+			return PsyRational.of(
+					(PsyIntegral)psyNumerator().psyMul(oIntegral),
+					psyDenominator());
+		if(oRealNumeric instanceof PsyRational oRational)
+			return PsyRational.of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()*oReal.doubleValue());
+		throw new ClassCastException();
+	}
+
+	default public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
+		throws PsyUndefinedResultException
+	{
+		if(oRealNumeric instanceof PsyIntegral oIntegral)
+			return PsyRational.of(psyNumerator(),
+					(PsyIntegral)psyDenominator().psyMul(oIntegral));
+		if(oRealNumeric instanceof PsyRational oRational)
+			return PsyRational.of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));
+		if(oRealNumeric instanceof PsyReal oReal)
+			return new PsyReal(doubleValue()*oReal.doubleValue());
+		throw new ClassCastException();
 	}
 
 	@Override
 	public PsyIntegral psyCeiling();
 
 	@Override
+	default public PsyRational psyAbs()
+	{
+		if(psyCmp(PsyInteger.ZERO).equals(PsyInteger.MINUS_ONE))
+			return of(psyNumerator().psyNeg(), psyDenominator());
+		return this;
+	}
+
+	@Override
 	public PsyIntegral psyFloor();
 
 	public static PsyRational of(final PsyIntegral oNumerator, final PsyIntegral oDenominator)
-		throws PsyUndefinedResultException
 	{
-		if(oDenominator.psyIsZero().booleanValue())
-			throw new PsyUndefinedResultException();
 		try
 		{
 			if(oNumerator.psyMod(oDenominator.psyAbs()).psyIsZero().booleanValue())
 				return oNumerator.psyIdiv(oDenominator);
 		}
-		catch(final PsyRangeCheckException e)
+		catch(final PsyRangeCheckException|PsyUndefinedResultException e)
 		{
-			// NOP
+			throw new IllegalArgumentException();
 		}
 		if(oNumerator instanceof PsyInteger && oDenominator instanceof PsyInteger)
 			return PsyFraction.of(oNumerator.longValue(), oDenominator.longValue());

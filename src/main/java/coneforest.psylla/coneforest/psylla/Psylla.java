@@ -12,6 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 /**
 *	The Psylla interpreter launcher.
@@ -226,14 +227,13 @@ public class Psylla
 
 	private static void showConfig(final List<String> patterns)
 	{
-		final java.util.Set<String> propertyNames=Config.stringPropertyNames();
+		final Set<String> propertyNames=Config.stringPropertyNames();
 
 		for(final String pattern: patterns)
 		{
 			propertyNames.stream()
 					.sorted()
 					.filter(name->Globs.matches(pattern, name))
-					//.forEach(System.out::println);
 					.forEach(name->System.out.println(name+"=\'"+Config.getProperty(name)+"\'"));
 		}
 		System.exit(0);

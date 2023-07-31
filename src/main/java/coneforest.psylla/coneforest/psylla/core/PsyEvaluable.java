@@ -3,8 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code evaluable}, a type of objects that can be
-*	interpreted as the program.
+*	The representation of {@code evaluable}, an object that can be interpreted as the program.
 */
 @Type("evaluable")
 public interface PsyEvaluable

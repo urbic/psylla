@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
-*	A representation of {@code writer}.
+*	The representation of {@code writer}.
 */
 @Type("writer")
 public class PsyWriter

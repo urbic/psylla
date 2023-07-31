@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code operator}.
+*	The representation of {@code operator}.
 */
 @Type("operator")
 public abstract class PsyOperator
@@ -65,7 +65,7 @@ public abstract class PsyOperator
 	}
 
 	abstract public void perform(final PsyContext oContext)
-		throws ClassCastException, PsyErrorException;
+		throws PsyErrorException;
 
 	/**
 	*	Returns a syntactic string representation of this operator. A syntatctic representation has

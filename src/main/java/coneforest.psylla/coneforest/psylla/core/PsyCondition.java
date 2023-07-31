@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.util.concurrent.locks.Condition;
 
 /**
-*	A representation of {@code condition}.
+*	The representation of {@code condition}.
 */
 @Type("condition")
 public class PsyCondition

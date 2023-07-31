@@ -1,11 +1,11 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.*;
+import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
 /**
-*	A representation of {@code iterable}, a type of an object that can be
-*	iterated over.
+*	The representation of {@code iterable}, a type of an object that can be iterated over.
 *
 *	@param <T> a type of elements returned by the iterator.
 */
@@ -36,7 +36,7 @@ public interface PsyIterable<T extends PsyObject>
 	{
 		final var separator=oSeparator.stringValue();
 		final var sb=new StringBuilder();
-		final java.util.Iterator<T> iterator=iterator();
+		final Iterator<T> iterator=iterator();
 		try
 		{
 			while(iterator.hasNext())
@@ -52,5 +52,4 @@ public interface PsyIterable<T extends PsyObject>
 		}
 		return new PsyString(sb);
 	}
-
 }

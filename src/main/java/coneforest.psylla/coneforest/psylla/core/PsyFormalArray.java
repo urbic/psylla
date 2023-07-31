@@ -8,7 +8,8 @@ import java.util.stream.IntStream;
 import java.util.stream.StreamSupport;
 
 /**
-*	A representation of {@code formalarray}, an abstraction of an array composed of {@code object}s.
+*	The representation of {@code formalarray}, an abstraction of an array composed of {@code
+*	object}s.
 *
 *	@param <T> a type of contained objects.
 */
@@ -182,19 +183,6 @@ public interface PsyFormalArray<T extends PsyObject>
 		return extract(oIndex.intValue());
 	}
 
-	@Override
-	default public PsyFormalArray<T> psyGetAll(final PsyIterable<PsyInteger> oIndices)
-		throws
-			PsyRangeCheckException,
-			PsyLimitCheckException,
-			PsyUnsupportedException
-	{
-		final PsyFormalArray<T> oResult=(PsyFormalArray<T>)psyNewEmpty();
-		for(final PsyInteger oIndex: oIndices)
-			oResult.psyAppend(psyGet(oIndex));
-		return oResult;
-	}
-
 	public void psySetLength(final PsyInteger oLength)
 		throws PsyLimitCheckException, PsyRangeCheckException;
 
@@ -222,6 +210,21 @@ public interface PsyFormalArray<T extends PsyObject>
 	{
 		return new PsyStream(StreamSupport.stream(spliterator(), false));
 	}
+
+	/*
+	@Override
+	default public PsyFormalArray<T> psyGetAll(final PsyIterable<PsyInteger> oIndices)
+		throws
+			PsyRangeCheckException,
+			PsyLimitCheckException,
+			PsyUnsupportedException
+	{
+		final PsyFormalArray<T> oResult=(PsyFormalArray<T>)psyNewEmpty();
+		for(final PsyInteger oIndex: oIndices)
+			oResult.psyAppend(psyGet(oIndex));
+		return oResult;
+	}
+	*/
 
 	@Override
 	default public PsyFormalStream<PsyObject> psyEntries()

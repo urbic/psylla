@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.util.ArrayList;
 
 /**
-*	A representation of {@code namespace}, a named dictionary.
+*	The representation of {@code namespace}, a named dictionary.
 */
 @Type("namespace")
 public class PsyNamespace

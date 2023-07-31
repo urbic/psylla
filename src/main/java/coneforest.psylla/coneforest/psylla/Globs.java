@@ -1,5 +1,8 @@
 package coneforest.psylla;
 
+/**
+*	Support for shell-like glob patterns.
+*/
 public class Globs
 {
 	/**

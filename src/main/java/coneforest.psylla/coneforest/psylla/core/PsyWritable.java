@@ -3,8 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code writable}, a type of objects that can be treated as sink for
-*	characters.
+*	The representation of {@code writable}, an object that can be treated as sink for characters.
 */
 @Type("writable")
 public interface PsyWritable

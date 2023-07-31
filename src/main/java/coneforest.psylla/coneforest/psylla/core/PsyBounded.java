@@ -3,13 +3,11 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code bounded}, a type of a container with bounded
-*	capacity.
+*	The representation of {@code bounded}, a type of a container with bounded capacity.
 */
 @Type("bounded")
 public interface PsyBounded
-	extends
-		PsyLengthy
+	extends PsyLengthy
 {
 
 	/**

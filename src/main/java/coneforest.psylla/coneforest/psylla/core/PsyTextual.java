@@ -3,8 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code textual}, a basic type of mutable and immutable
-*	strings.
+*	The representation of {@code textual}, a basic type of mutable and immutable strings.
 */
 @Type("textual")
 public interface PsyTextual

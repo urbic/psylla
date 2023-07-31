@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
-*	A representation of {@code lock}.
+*	The representation of {@code lock}.
 */
 @Type("lock")
 public class PsyLock

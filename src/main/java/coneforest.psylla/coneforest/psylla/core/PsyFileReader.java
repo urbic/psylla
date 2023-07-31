@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.nio.file.Paths;
 
 /**
-*	A representation of {@code filereader}.
+*	The representation of {@code filereader}.
 */
 @Type("filereader")
 public class PsyFileReader

@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of a {@code flushable}, an object that can be flushed in some sense.
+*	The representation of a {@code flushable}, an object that can be flushed in some sense.
 */
 @Type("flushable")
 public interface PsyFlushable

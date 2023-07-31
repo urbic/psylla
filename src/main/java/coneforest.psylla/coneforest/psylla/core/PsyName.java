@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code name}, an immutable string.
+*	The representation of {@code name}, an immutable string.
 */
 @Type("name")
 public class PsyName
@@ -22,8 +22,7 @@ public class PsyName
 	}
 
 	/**
-	*	Instantiate a new {@code name} object from the value given as {@code
-	*	textual} object.
+	*	Instantiate a new {@code name} object from the value given as {@code textual} object.
 	*
 	*	@param oTextual a {@code textual} object.
 	*/
@@ -59,9 +58,8 @@ public class PsyName
 	}
 
 	/**
-	*	Converts all of the characters in this object to upper case according
-	*	to default locale and returns a new {@code name} object representing
-	*	the result of the conversion.
+	*	Converts all of the characters in this object to upper case according to default locale and
+	*	returns a new {@code name} object representing the result of the conversion.
 	*
 	*	@return a {@code name} result of upper-casing.
 	*/
@@ -72,9 +70,8 @@ public class PsyName
 	}
 
 	/**
-	*	Converts all of the characters in this object to lower case according
-	*	to default locale and returns a new {@code name} object representing
-	*	the result of the conversion.
+	*	Converts all of the characters in this object to lower case according to default locale and
+	*	returns a new {@code name} object representing the result of the conversion.
 	*
 	*	@return a {@code name} result of lower-casing.
 	*/
@@ -85,8 +82,8 @@ public class PsyName
 	}
 
 	/**
-	*	Returns a syntactic representation of this object’s value. Returns a
-	*	value string prepended with {@code /}.
+	*	Returns a syntactic representation of this object’s value. Returns a value string prepended
+	*	with {@code /}.
 	*
 	*	@return a syntactic representation of this object’s value.
 	*/
@@ -135,10 +132,9 @@ public class PsyName
 	}
 
 	/**
-	*	Returns a {@code boolean} object indicating whether some other object
-	*	is “equal to” this one. Return value is {@code true} if and only if
-	*	other object has {@code name} type and its value is equal to this
-	*	one’s.
+	*	Returns a {@code boolean} object indicating whether some other object is “equal to” this
+	*	one. Return value is {@code true} if and only if other object has {@code name} type and its
+	*	value is equal to this one’s.
 	*
 	*	@return a {@code boolean} result.
 	*/

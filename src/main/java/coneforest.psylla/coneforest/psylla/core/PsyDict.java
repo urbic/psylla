@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
 /**
-*	A representation of {@code dict}, a dictionary.
+*	The representation of {@code dict}, a dictionary.
 */
 @Type("dict")
 public class PsyDict

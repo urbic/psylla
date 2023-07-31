@@ -1,11 +1,12 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.*;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.stream.Stream;
 
 /**
-*	A representation of {@code indexed}, a type of the container whose elements
-*	are indexed.
+*	The representation of {@code indexed}, a type of the container whose elements are indexed.
 *
 *	@param <K> a type of keys or indices.
 *	@param <V> a type of elements.
@@ -77,12 +78,44 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 			PsyUndefinedException,
 			PsyUnsupportedException;
 
-	public PsyFormalArray<V> psyGetAll(final PsyIterable<K> oKeys)
+	default public PsyIterable<V> psyGetAll(final PsyIterable<K> oKeys)
 		throws
 			PsyRangeCheckException,
 			PsyLimitCheckException,
 			PsyUndefinedException,
-			PsyUnsupportedException;
+			PsyUnsupportedException
+	{
+		return new PsyIterable<V>()
+			{
+				@Override
+				public Iterator iterator()
+				{
+					return new Iterator()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return keysIterator.hasNext();
+							}
+
+							@Override
+							public V next()
+							{
+								try
+								{
+									return PsyIndexed.this.psyGet(keysIterator.next());
+								}
+								catch(final PsyRangeCheckException|PsyUndefinedException e)
+								{
+									throw new NoSuchElementException();
+								}
+							}
+						};
+				}
+
+				private Iterator<K> keysIterator=oKeys.iterator();
+			};
+	}
 
 	/**
 	*	Returns an {@code iterable} enumeration of all the keys of this object.
@@ -109,7 +142,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 							{
 								return PsyIndexed.this.psyGet(oKey);
 							}
-							catch(final PsyErrorException e)
+							catch(final PsyRangeCheckException|PsyUndefinedException e)
 							{
 								return null;
 							}

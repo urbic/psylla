@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code appendable}, a type of container that allow to append objects
+*	The representation of {@code appendable}, a type of container that allow to append objects
 *	(usually to the end, if it makes sense).
 *
 *	@param <T> a type of {@code object}s being appended.

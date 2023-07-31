@@ -3,9 +3,9 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code logical}, a type of object that is an operand of
-*	logical operation. This interface declares methods for logical negation,
-*	disjunction, conjunction and exclusive disjunction.
+*	The representation of {@code logical}, a type of object that is an operand of logical operation.
+*	This interface declares methods for logical negation, disjunction, conjunction and exclusive
+*	disjunction.
 *
 *	@param <T> a type of the second operand at binary operation.
 */
@@ -22,8 +22,7 @@ public interface PsyLogical<T extends PsyLogical>
 	public PsyLogical psyNot();
 
 	/**
-	*	Returns a result of logical disjunction of this object and given
-	*	object.
+	*	Returns a result of logical disjunction of this object and given object.
 	*
 	*	@param oLogical given object.
 	*	@return a result.
@@ -31,8 +30,7 @@ public interface PsyLogical<T extends PsyLogical>
 	public PsyLogical psyOr(final T oLogical);
 
 	/**
-	*	Returns a result of logical conjunction of this object and given
-	*	object.
+	*	Returns a result of logical conjunction of this object and given object.
 	*
 	*	@param oLogical given object.
 	*	@return a result.
@@ -40,8 +38,7 @@ public interface PsyLogical<T extends PsyLogical>
 	public PsyLogical psyAnd(final T oLogical);
 
 	/**
-	*	Returns a result of logical exclusive disjunction of this object and
-	*	given object.
+	*	Returns a result of logical exclusive disjunction of this object and given object.
 	*
 	*	@param oLogical given object.
 	*	@return a result.

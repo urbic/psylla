@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code mark}.
+*	The representation of {@code mark}.
 */
 @Type("mark")
 public final class PsyMark

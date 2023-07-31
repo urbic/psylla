@@ -3,8 +3,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code lengthy}, an object that has length in some sense. Usually the length
-*	is the number of elements in the container.
+*	The representation of {@code lengthy}, an object that has length in some sense. Usually the
+*	length is the number of elements in the container.
 */
 @Type("lengthy")
 public interface PsyLengthy

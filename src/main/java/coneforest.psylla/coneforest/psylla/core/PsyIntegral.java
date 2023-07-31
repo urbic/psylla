@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	A representation of {@code integral}.
+*	The representation of {@code integral}.
 */
 @Type("integral")
 public sealed interface PsyIntegral
@@ -54,14 +54,21 @@ public sealed interface PsyIntegral
 	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
 		throws PsyUndefinedResultException;
 
+	/**
+	*	Returns an {@code integral} representing this object modulo given modulus.
+	*
+	*	@param oIntegral the given modulus.
+	*	@throws PsyRangeCheckException when the modulus is negative.
+	*	@throws PsyUndefinedResultException when the modulus is zero.
+	*/
 	public PsyIntegral psyMod(final PsyIntegral oIntegral)
-		throws PsyUndefinedResultException, PsyRangeCheckException;
+		throws PsyRangeCheckException, PsyUndefinedResultException;
 
 	/**
-	*	Returns an {@code integral} representing the greatest common divisor of
-	*	this object and given object.
+	*	Returns an {@code integral} representing the greatest common divisor of this object and
+	*	given object.
 	*
-	*	@param oIntegral given object.
+	*	@param oIntegral the given object.
 	*	@return the greatest common divisor.
 	*/
 	default public PsyIntegral psyGCD(final PsyIntegral oIntegral)
@@ -91,8 +98,8 @@ public sealed interface PsyIntegral
 	}
 
 	/**
-	*	Returns an {@code integral} representing the least common multiple of
-	*	this object and given object.
+	*	Returns an {@code integral} representing the least common multiple of this object and given
+	*	object.
 	*
 	*	@param oIntegral given object.
 	*	@return the least common multiple.

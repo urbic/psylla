@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code streamable}.
+*	The representation of {@code streamable}, an object that provide stream of something.
 */
 @Type("streamable")
 public interface PsyStreamable<T extends PsyObject>

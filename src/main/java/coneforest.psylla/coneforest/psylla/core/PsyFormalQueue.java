@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code formalqueue}, an abstraction of a queue of {@code object}s.
+*	The representation of {@code formalqueue}, an abstraction of a queue of {@code object}s.
 *
 *	@param <T> a type of contained objects.
 */

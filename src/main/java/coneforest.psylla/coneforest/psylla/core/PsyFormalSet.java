@@ -3,9 +3,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of a {@code formalset}, an abstraction of a finite set of
-*	{@code object}s. This interface declares methods for appending, removal and
-*	set operations.
+*	The representation of a {@code formalset}, an abstraction of a finite set of {@code object}s.
+*	This interface declares methods for appending, removal and set operations.
 *
 *	@param <T> a type of the elements.
 */
@@ -17,17 +16,16 @@ public interface PsyFormalSet<T extends PsyObject>
 {
 
 	/**
-	*	Removes an {@code object} from this set. If a given object is not
-	*	present in this set, error does not occur.
+	*	Removes an {@code object} from this set. If a given object is not present in this set, error
+	*	does not occur.
 	*
 	*	@param o an {@code object}.
 	*/
 	public void psyRemove(final T o);
 
 	/**
-	*	Removes all the {@code object}s in a given {@code iterable} enumeration
-	*	from this set. If some object is not present in this set, error does
-	*	not occur.
+	*	Removes all the {@code object}s in a given {@code iterable} enumeration from this set. If
+	*	some object is not present in this set, error does not occur.
 	*
 	*	@param oEnumeration an {@code iterable} enumeration.
 	*/

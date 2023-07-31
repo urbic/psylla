@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code resetable}, an object that can be reset in some sense.
+*	The representation of {@code resetable}, an object that can be reset in some manner.
 */
 @Type("resetable")
 public interface PsyResetable

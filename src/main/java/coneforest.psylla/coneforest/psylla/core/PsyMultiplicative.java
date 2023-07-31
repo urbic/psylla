@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code multiplicative}, a type of object that is an operand of
+*	The representation of {@code multiplicative}, a type of object that is an operand of
 *	multiplicative operation. This interface declares methods for multiplication, division.
 *
 *	@param <T> a type of the second operand at binary operation.
@@ -12,6 +12,8 @@ import coneforest.psylla.*;
 public interface PsyMultiplicative<T extends PsyMultiplicative>
 	extends PsyObject
 {
+	public T psyReciprocal()
+		throws PsyUndefinedResultException;
 
 	/**
 	*	Returns a result of arithmetic multiplication of given object by this object.
@@ -44,4 +46,12 @@ public interface PsyMultiplicative<T extends PsyMultiplicative>
 	@OperatorType("mul")
 	public static final ContextAction PSY_MUL
 		=ContextAction.<PsyMultiplicative, PsyMultiplicative>ofBiFunction(PsyMultiplicative::psyMul);
+
+	/**
+	*	Context action of the {@code reciprocal} operator.
+	*/
+	@OperatorType("reciprocal")
+	public static final ContextAction PSY_RECIPROCAL
+		=ContextAction.<PsyMultiplicative>ofFunction(PsyMultiplicative::psyReciprocal);
+
 }

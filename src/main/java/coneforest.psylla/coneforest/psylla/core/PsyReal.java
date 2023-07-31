@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.math.BigDecimal;
 
 /**
-*	A representation of {@code real}.
+*	The representation of {@code real}.
 */
 @Type("real")
 public final class PsyReal
@@ -73,21 +73,43 @@ public final class PsyReal
 	}
 
 	@Override
-	public PsyRealNumeric psySub(final PsyRealNumeric oNumeric)
+	public PsyReal psySub(final PsyRealNumeric oNumeric)
 	{
 		return new PsyReal(value-oNumeric.doubleValue());
 	}
 
 	@Override
-	public PsyRealNumeric psyMul(final PsyRealNumeric oNumeric)
+	public PsyReal psyReciprocal()
 	{
-		return new PsyReal(value*oNumeric.doubleValue());
+		return new PsyReal(1.D/value);
 	}
 
 	@Override
-	public PsyRealNumeric psyDiv(final PsyRealNumeric oNumeric)
+	public PsyReal psyMul(final PsyRealNumeric oRealNumeric)
 	{
-		return new PsyReal(value/oNumeric.doubleValue());
+		return new PsyReal(value*oRealNumeric.doubleValue());
+	}
+
+	/*
+	@Override
+	public PsyFloatingPoint psyDiv(final PsyNumeric oNumeric)
+	{
+		if(oNumeric instanceof PsyRealNumeric oRealNumeric)
+			return new PsyReal(doubleValue()/oRealNumeric.doubleValue());
+		else
+		{
+			final var x=oNumeric.realValue();
+			final var y=oNumeric.imagValue();
+			final var m=value/Math.hypot(x, y);
+			return PsyFloatingPoint.of(x*m, -y*m);
+		}
+	}
+	*/
+
+	@Override
+	public PsyReal psyDiv(final PsyRealNumeric oRealNumeric)
+	{
+		return new PsyReal(value/oRealNumeric.doubleValue());
 	}
 
 	@Override

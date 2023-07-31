@@ -3,8 +3,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code clearable}, a type of objects that can be
-*	cleared (emptied) in some sense.
+*	The representation of {@code clearable}, a type of objects that can be cleared (emptied) in some
+*	manner.
 */
 @Type("clearable")
 public interface PsyClearable

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
-*	A representation of {@code output}.
+*	The representation of {@code output}.
 */
 @Type("output")
 abstract public class PsyOutput
@@ -14,7 +14,7 @@ abstract public class PsyOutput
 		PsyFlushable,
 		PsyWritable
 {
-	public PsyOutput(final java.io.OutputStream output)
+	public PsyOutput(final OutputStream output)
 	{
 		setOutput(output);
 	}

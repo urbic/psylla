@@ -3,8 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code closeable}, a type of objects that can be closed
-*	in some sense.
+*	The representation of {@code closeable}, a type of objects that can be closed in some sense.
 */
 @Type("closeable")
 public interface PsyCloseable

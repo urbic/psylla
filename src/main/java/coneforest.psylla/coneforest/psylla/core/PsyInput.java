@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
-*	A representation of {@code input}.
+*	The representation of {@code input}.
 */
 @Type("input")
 public class PsyInput

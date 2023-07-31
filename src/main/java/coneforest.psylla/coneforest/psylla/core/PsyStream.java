@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.util.stream.Stream;
 
 /**
-*	A representation of {@code stream}.
+*	The representation of {@code stream}.
 */
 @Type("stream")
 public class PsyStream
@@ -15,9 +15,9 @@ public class PsyStream
 		this.stream=stream;
 	}
 
-	public static PsyStream psyIterate(final PsyObject o, final PsyProc oProc, final PsyContext oContext)
+	public static PsyStream psyIterate(final PsyObject o, final PsyExecutable oUnaryOp, final PsyContext oContext)
 	{
-		return new PsyStream(Stream.<PsyObject>iterate(o, oProc.asUnaryOperator(oContext)));
+		return new PsyStream(Stream.<PsyObject>iterate(o, oUnaryOp.asUnaryOperator(oContext)));
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 /**
-*	A representation of {@code context}, an execution context.
+*	The representation of {@code context}, an execution context.
 */
 @Type("context")
 public interface PsyContext
@@ -35,7 +35,7 @@ public interface PsyContext
 	}
 
 	public void fork()
-		throws PsyErrorException;
+		throws PsyStackUnderflowException, PsyUnmatchedMarkException;
 
 	public void quit();
 
@@ -43,28 +43,86 @@ public interface PsyContext
 
 	public OperandStack operandStack();
 
+	/**
+	*	Returns the dictionary stack.
+	*
+	*	@return the dictionary stack.
+	*/
 	public DictStack dictStack();
 
+	/**
+	*	Returns the execution stack.
+	*
+	*	@return the execution stack.
+	*/
 	public ExecutionStack executionStack();
 
 	public PsyFormalDict systemDict();
 
+	/**
+	*	Returns the current dictionary (the topmost on the dictionary stack).
+	*
+	*	@return the current dictionary.
+	*/
 	public PsyFormalDict currentDict();
 
+	/**
+	*	Returns the namespace pool.
+	*
+	*	@return the namespace pool.
+	*/
 	public NamespacePool namespacePool();
 
 	public int execLevel();
 
+	/**
+	*	Pushes the current execution level onto the loop stack and returns this level.
+	*
+	*	@return the current execution level.
+	*/
 	public int pushLoopLevel();
 
+	/**
+	*	Removes the execution level from the loop stack and returns this level or {@code -1} if the
+	*	loop stack is empty.
+	*
+	*	@return the execution level on the top of the loop stack or {@code -1} if the loop stack is
+	*	empty.
+	*/
 	public int popLoopLevel();
 
+	/**
+	*	Returns the topmost execution level at the loop stack or {@code -1} if the loop stack is
+	*	empty.
+	*
+	*	@return the topmost execution level at the loop stack or {@code -1} if the loop stack is
+	*	empty.
+	*/
 	public int currentLoopLevel();
 
+	/**
+	*	Pushes the current execution level onto the stop stack and returns this level.
+	*
+	*	@return the current execution level.
+	*/
 	public int pushStopLevel();
 
+	/**
+	*	Removes the execution level from the stop stack and returns this level or {@code -1} if the
+	*	stop stack is empty.
+	*
+	*	@return the execution level on the top of the stop stack or {@code -1} if the stop stack is
+	*	empty.
+	*/
 	public int popStopLevel();
 
+	/**
+	*	Returns the topmost execution level at the stop stack or {@code -1} if the stop stack is
+	*	empty.
+	*
+	*	@return the topmost execution level at the stop stack or {@code -1} if the stop stack is
+	*	empty.
+	*/
 	public int currentStopLevel();
 
 	public boolean getStopped();
@@ -74,14 +132,9 @@ public interface PsyContext
 
 	public void setStopped(final boolean stopFlag);
 
-	public void handleExecutionStack();
-
 	public void handleExecutionStack(final int level);
 
-	//public void handleError(final PsyErrorException oException);
-
-	public void interpret(final PsyReader oReader)
-		throws PsyErrorException;
+	public void interpret(final PsyReader oReader);
 
 	public void interpretBraced(final PsyReader oReader)
 		throws PsyErrorException;

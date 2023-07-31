@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 /**
-*	A representation of {@code regexp}.
+*	The representation of {@code regexp}.
 */
 @Type("regexp")
 public class PsyRegExp

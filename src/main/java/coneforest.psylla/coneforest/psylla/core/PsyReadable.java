@@ -4,8 +4,8 @@ import coneforest.psylla.*;
 import java.util.Optional;
 
 /**
-*	A representation of {@code readable}, an object that can be treated as a source of characters to
-*	read from.
+*	The representation of {@code readable}, an object that can be treated as a source of characters
+*	to read from.
 */
 @Type("readable")
 public interface PsyReadable

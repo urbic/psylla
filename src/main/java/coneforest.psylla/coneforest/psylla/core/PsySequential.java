@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code sequential}.
+*	The representation of {@code sequential}.
 */
 @Type("sequential")
 public interface PsySequential<T extends PsyObject>

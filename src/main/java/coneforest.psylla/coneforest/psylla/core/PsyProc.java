@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.StringJoiner;
 
 /**
-*	An implementation of {@code proc}, a procedure.
+*	The representation of {@code proc}, a procedure.
 */
 @Type("proc")
 public class PsyProc
@@ -92,12 +92,13 @@ public class PsyProc
 					{
 						final var oNew=dstack.load(oCommand);
 						if(oNew instanceof PsyOperator
+								|| oNew instanceof PsyBoolean
 								|| oNew instanceof PsyMark
 								|| oNew instanceof PsyNull)
 							oProc.put(i, oNew);
 					}
 				}
-				catch(final PsyErrorException e)
+				catch(final PsyRangeCheckException|PsyUndefinedException e)
 				{
 					// NOP
 				}

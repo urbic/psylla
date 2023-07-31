@@ -5,7 +5,7 @@ import java.util.BitSet;
 import java.util.Iterator;
 
 /**
-*	A representation of {@code bitarray}.
+*	The representation of {@code bitarray}.
 */
 @Type("bitarray")
 public class PsyBitArray

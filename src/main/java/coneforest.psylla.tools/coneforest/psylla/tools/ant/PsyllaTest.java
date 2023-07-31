@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import org.junit.Test;
@@ -28,7 +29,7 @@ public class PsyllaTest
 
 	@Test
 	public void test()
-		throws java.io.IOException
+		throws IOException
 	{
 		final var args=(String [])Base64Codec.decode(
 				System.getProperty(PsyllaUnit.class.getName()+".psyllaArgs"));
@@ -57,7 +58,7 @@ public class PsyllaTest
 	}
 
 	public static void runTest(final String testName, final String[] testArgs, final String[] psyllaArgs)
-		throws java.io.IOException
+		throws IOException
 	{
 		final var cmdLine=new String[psyllaArgs.length+1+testArgs.length];
 		for(int i=0; i<psyllaArgs.length; i++)
@@ -76,8 +77,7 @@ public class PsyllaTest
 
 		try
 		{
-			coneforest.psylla.Psylla.launch(
-					System.out, System.err, cmdLine).join();
+			coneforest.psylla.Psylla.launch(System.out, System.err, cmdLine).join();
 		}
 		catch(final PsyErrorException e)
 		{
@@ -108,7 +108,7 @@ public class PsyllaTest
 	}
 
 	private static String slurp(final File file)
-		throws java.io.IOException
+		throws IOException
 	{
 		final var slurpBuffer=new byte[(int)file.length()];
 		new FileInputStream(file).read(slurpBuffer);
@@ -116,13 +116,13 @@ public class PsyllaTest
 	}
 
 	public static void runTest(final String testName, final String[] testArgs)
-		throws java.io.IOException
+		throws IOException
 	{
 		runTest(testName, testArgs, new String[0]);
 	}
 
 	public static void runTest(final String testName)
-		throws java.io.IOException
+		throws IOException
 	{
 		runTest(testName, new String[0]);
 	}

@@ -3,8 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code numeric}, an abstraction of complex and real
-*	numbers.
+*	The representation of {@code numeric}, an abstraction of complex and real numbers.
 */
 @Type("numeric")
 public sealed interface PsyNumeric
@@ -118,24 +117,21 @@ public sealed interface PsyNumeric
 	public PsyNumeric psyCbrt();
 
 	/**
-	*	Returns a {@code numeric} representing the hyperbolic cosine of this
-	*	object.
+	*	Returns a {@code numeric} representing the hyperbolic cosine of this object.
 	*
 	*	@return a {@code numeric} hyperbolic cosine of this number.
 	*/
 	public PsyNumeric psyCosh();
 
 	/**
-	*	Returns a {@code numeric} representing the hyperbolic sine of this
-	*	object.
+	*	Returns a {@code numeric} representing the hyperbolic sine of this object.
 	*
 	*	@return a {@code numeric} hyperbolic sine of this number.
 	*/
 	public PsyNumeric psySinh();
 
 	/**
-	*	Returns a {@code numeric} representing the hyperbolic tangent of this
-	*	object.
+	*	Returns a {@code numeric} representing the hyperbolic tangent of this object.
 	*
 	*	@return a {@code numeric} hyperbolic tangent of this number.
 	*/

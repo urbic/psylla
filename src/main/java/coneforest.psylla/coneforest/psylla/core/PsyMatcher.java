@@ -4,7 +4,7 @@ import coneforest.psylla.*;
 import java.util.regex.Matcher;
 
 /**
-*	A representation of {@code matcher}.
+*	The representation of {@code matcher}.
 */
 @Type("matcher")
 public class PsyMatcher

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.CharBuffer;
 
 /**
-*	A representation of {@code ready}.
+*	The representation of {@code ready}, an object that can report its readiness for something.
 */
 @Type("ready")
 public interface PsyReady

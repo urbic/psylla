@@ -8,7 +8,7 @@ import java.io.Reader;
 import java.nio.CharBuffer;
 
 /**
-*	A representation of {@code reader}.
+*	The representation of {@code reader}.
 */
 @Type("reader")
 public class PsyReader

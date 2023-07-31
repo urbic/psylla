@@ -3,8 +3,8 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	A representation of {@code scalar}, a type bringing total ordering to implementing Psylla type.
-*	This interface declares methods for comparison.
+*	The representation of {@code scalar}, a type bringing total ordering to implementing Psylla
+*	type. This interface declares methods for comparison.
 *
 *	@param <T> a type of the second operand at binary comparison operation.
 */
