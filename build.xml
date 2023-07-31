@@ -164,7 +164,6 @@
 			<compilerarg value="-implicit:none"/>
 			<compilerarg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
 			<compilerarg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
-			<compilerarg value="--enable-preview"/>
 		</javac>
 		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/error"/>
 		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/operator"/>
@@ -194,7 +193,6 @@
 			<compilerarg value="-implicit:class"/>
 			<compilerarg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
 			<compilerarg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
-			<compilerarg value="--enable-preview"/>
 		</javac>
 	</target>
 
