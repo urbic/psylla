@@ -1,7 +1,7 @@
 FROM opensuse/tumbleweed:latest
 
 RUN zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE_Tumbleweed home:urbic:coneforest
-RUN zypper -n --gpg-auto-import-keys ar -p1 obs://Java:packages/openSUSE_Tumbleweed Java:packages
+RUN zypper -n --gpg-auto-import-keys ar -p2 obs://Java:packages/openSUSE_Tumbleweed Java:packages
 RUN zypper -n --gpg-auto-import-keys in -y \
 	ant{,-apache-resolver,-junit} \
 	ivy \
@@ -14,6 +14,7 @@ RUN zypper -n --gpg-auto-import-keys in -y \
 	'mvn(jline:jline:1)' \
 	'mvn(net.sf.docbook:docbook-xsl-saxon)' \
 	'mvn(net.sf.xslthl:xslthl)' \
+	'mvn(saxon:saxon)' \
 	glibc-locale \
 	graphviz \
 	shadow \
