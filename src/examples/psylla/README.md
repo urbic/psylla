@@ -55,7 +55,7 @@ The name of the file is passed in the command line.
 ## Decimal fractions
 
 Prints the decimal periodic representation of the vulgar fraction. The fraction
-is passed in the command line in the form $p$`/`$q$.
+is passed in the command line in the form $p/q$.
 
 * [__`fraction-floyd.psy`__](fraction-floyd.psy) — an implementation with the
   cycle detection based on the [Floyd’s Tortoise and Hare
@@ -113,7 +113,7 @@ in the command line.
 
 * [__`fibonacci-binet.psy`__](fibonacci-binet.psy) — calculation using [Binet’s
   formula](https://en.wikipedia.org/wiki/Fibonacci_number#Binet's_formula)
-  _(inexact when n > 70)_
+  _(inexact when_ $n > 70$_)_
 * [__`fibonacci-iterative.psy`__](fibonacci-iterative.psy) — iterative
   implementation
 * [__`fibonacci-recursive-1.psy`__](fibonacci-recursive-1.psy) — recursive
