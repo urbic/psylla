@@ -1,5 +1,6 @@
 package coneforest.psylla.tools.toolprovider;
 
+import coneforest.clianthus.processor.ProcessingException;
 import coneforest.psylla.*;
 import coneforest.psylla.core.*;
 import java.io.FileNotFoundException;
@@ -28,7 +29,7 @@ public class PsyllaToolProvider
 			System.err.println(e.getLocalizedMessage());
 			return 1;
 		}
-		catch(final coneforest.clianthus.processor.ProcessingException ex)
+		catch(final ProcessingException ex)
 		{
 			System.err.println(ex.getLocalizedMessage());
 			System.err.println(Messages.getString("useHelpOption"));

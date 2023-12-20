@@ -1,6 +1,7 @@
 package coneforest.psylla.tools.ant;
 
 import coneforest.psylla.core.*;
+import coneforest.clianthus.processor.ProcessingException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class Psylla
 		{
 			// TODO
 		}
-		catch(final coneforest.clianthus.processor.ProcessingException e)
+		catch(final ProcessingException e)
 		{
 			// TODO
 		}

@@ -43,9 +43,9 @@ public class Config
 		{
 			config.load(Config.class.getResourceAsStream("Config.properties"));
 		}
-		catch(final IOException e)
+		catch(final IOException ex)
 		{
-			System.out.println(e.getMessage());
+			System.out.println(ex.getMessage());
 			System.exit(1);
 		}
 	}
