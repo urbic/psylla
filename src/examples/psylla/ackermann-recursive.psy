@@ -1,0 +1,23 @@
+#!/usr/bin/psylla
+
+/ackermann
+{
+	{
+		1 index iszero
+		{ 1 add exch pop exit } if
+
+		dup iszero
+		{ pop 1 sub 1 ackermann exit } if
+
+		1 sub 1 index 1 sub
+		3 1 roll
+		ackermann ackermann
+		exit
+	}
+	loop
+}
+bind def
+
+arguments 0 get tointegral
+arguments 1 get tointegral
+ackermann toname say

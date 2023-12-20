@@ -1,0 +1,31 @@
+#!/usr/bin/psylla
+
+/ackermann
+{
+	mark 3 1 roll
+
+	{
+		counttomark 1 eq { exch pop exit } if
+
+		1 index iszero
+		{ exch pop 1 add }
+		{
+			dup iszero
+			{ pop 1 sub 1 }
+			{
+				1 sub
+				1 index
+				1 sub
+				3 1 roll
+			}
+			ifelse
+		}
+		ifelse
+	}
+	loop
+}
+bind def
+
+arguments 0 get tointegral
+arguments 1 get tointegral
+ackermann toname say
