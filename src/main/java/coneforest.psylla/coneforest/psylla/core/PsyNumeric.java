@@ -29,111 +29,110 @@ public sealed interface PsyNumeric
 	public double imagValue();
 
 	/**
-	*	Returns a {@code numeric} absolute value of this object.
+	*	Returns the {@code numeric} absolute value of this object.
 	*
-	*	@return a {@code numeric} absolute value.
+	*	@return the {@code numeric} absolute value.
 	*/
 	public PsyRealNumeric psyAbs();
 
 
 	/**
-	*	Returns the signum of this object.
+	*	Returns the {@code numeric} signum of this object.
 	*
-	*	@return the {@code numeric} signum of this object.
+	*	@return the {@code numeric} signum.
 	*/
 	public PsyNumeric psySignum();
 
 	public PsyNumeric psyPow(final PsyNumeric oNumeric);
 
 	/**
-	*	Returns a {@code numeric} representing the exponent of this object.
+	*	Returns the {@code numeric} exponent of this object.
 	*
-	*	@return a {@code numeric} exponent.
+	*	@return the {@code numeric} exponent.
 	*/
 	public PsyNumeric psyExp();
 
 	/**
-	*	Returns a {@code numeric} representing the cosine of this object.
+	*	Returns the {@code numeric} cosine of this object.
 	*
-	*	@return a {@code numeric} cosine.
+	*	@return the {@code numeric} cosine.
 	*/
 	public PsyNumeric psyCos();
 
 	/**
-	*	Returns a {@code numeric} representing the sine of this object.
+	*	Returns the {@code numeric} sine of this object.
 	*
-	*	@return a {@code numeric} sine.
+	*	@return the {@code numeric} sine.
 	*/
 	public PsyNumeric psySin();
 
 	/**
-	*	Returns a {@code numeric} representing the tangent of this object.
+	*	Returns the {@code numeric} tangent of this object.
 	*
-	*	@return a {@code numeric} tangent.
+	*	@return the {@code numeric} tangent.
 	*/
 	public PsyNumeric psyTan();
 
 	/**
-	*	Returns a {@code numeric} representing the natural logarithm of this
-	*	object.
+	*	Returns the {@code numeric} natural logarithm of this object.
 	*
-	*	@return a {@code numeric} logarithm.
+	*	@return the {@code numeric} natural logarithm.
 	*/
 	public PsyNumeric psyLog();
 
 	/**
-	*	Returns a {@code numeric} representing the arc cosine of this object.
+	*	Returns the {@code numeric} arc cosine of this object.
 	*
-	*	@return a {@code numeric} arc cosine.
+	*	@return the {@code numeric} arc cosine.
 	*/
 	public PsyNumeric psyAcos();
 
 	/**
-	*	Returns a {@code numeric} representing the arc sine of this object.
+	*	Returns the {@code numeric} arc sine of this object.
 	*
-	*	@return a {@code numeric} arc sine.
+	*	@return the {@code numeric} arc sine.
 	*/
 	public PsyNumeric psyAsin();
 
 	/**
-	*	Returns a {@code numeric} representing the arc tangent of this object.
+	*	Returns the {@code numeric} arc tangent of this object.
 	*
-	*	@return a {@code numeric} arc tangent.
+	*	@return the {@code numeric} arc tangent.
 	*/
 	public PsyNumeric psyAtan();
 
 	/**
-	*	Returns a {@code numeric} representing the square root of this object.
+	*	Returns the {@code numeric} square root of this object.
 	*
-	*	@return a {@code numeric} square root of this number.
+	*	@return the {@code numeric} square root.
 	*/
 	public PsyNumeric psySqrt();
 
 	/**
-	*	Returns a {@code numeric} representing the cubic root of this object.
+	*	Returns the {@code numeric} cubic root of this object.
 	*
-	*	@return a {@code numeric} cubic root of this number.
+	*	@return the {@code numeric} cubic root.
 	*/
 	public PsyNumeric psyCbrt();
 
 	/**
-	*	Returns a {@code numeric} representing the hyperbolic cosine of this object.
+	*	Returns the {@code numeric} hyperbolic cosine of this object.
 	*
-	*	@return a {@code numeric} hyperbolic cosine of this number.
+	*	@return the {@code numeric} hyperbolic cosine.
 	*/
 	public PsyNumeric psyCosh();
 
 	/**
-	*	Returns a {@code numeric} representing the hyperbolic sine of this object.
+	*	Returns the {@code numeric} hyperbolic sine of this object.
 	*
-	*	@return a {@code numeric} hyperbolic sine of this number.
+	*	@return the {@code numeric} hyperbolic sine.
 	*/
 	public PsyNumeric psySinh();
 
 	/**
-	*	Returns a {@code numeric} representing the hyperbolic tangent of this object.
+	*	Returns the {@code numeric} hyperbolic tangent of this object.
 	*
-	*	@return a {@code numeric} hyperbolic tangent of this number.
+	*	@return the {@code numeric} hyperbolic tangent.
 	*/
 	public PsyNumeric psyTanh();
 

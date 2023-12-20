@@ -18,11 +18,22 @@ public class PsyReader
 		PsyReadable,
 		PsyResetable
 {
+
+	/**
+	*	Constructs a new {@code reader} object from the reader.
+	*
+	*	@param reader the reader.
+	*/
 	public PsyReader(final Reader reader)
 	{
 		this.reader=reader;
 	}
 
+	/**
+	*	Constructs a new {@code reader} object from the input stream.
+	*
+	*	@param is the input stream.
+	*/
 	public PsyReader(final InputStream is)
 	{
 		this(new InputStreamReader(is));

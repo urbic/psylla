@@ -3,7 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.*;
 
 /**
-*	The representation of {@code complex}.
+*	The representation of {@code complex}, a complex number.
 */
 @Type("complex")
 public final class PsyComplex
@@ -269,9 +269,15 @@ public final class PsyComplex
 		return new PsyComplex(abs*Math.cos(arg), abs*Math.sin(arg));
 	}
 
-	public static final PsyComplex
-		I=new PsyComplex(0.D, 1.D),
-		MINUS_I=new PsyComplex(0.D, -1.D);
+	/**
+	*	Imaginary unit.
+	*/
+	public static final PsyComplex I=new PsyComplex(0.D, 1.D);
+
+	/**
+	*	Munus imaginary unit.
+	*/
+	public static final PsyComplex MINUS_I=new PsyComplex(0.D, -1.D);
 
 	private final double re, im;
 

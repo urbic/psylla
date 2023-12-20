@@ -147,11 +147,6 @@ public class Interpreter
 		return dstack.peek();
 	}
 
-	/**
-	*	Returns system dictionary.
-	*
-	*	@return the system dictionary.
-	*/
 	@Override
 	public PsyFormalDict systemDict()
 	{

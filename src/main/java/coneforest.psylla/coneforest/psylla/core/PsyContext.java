@@ -57,6 +57,11 @@ public interface PsyContext
 	*/
 	public ExecutionStack executionStack();
 
+	/**
+	*	Returns the system dictionary.
+	*
+	*	@return the system dictionary.
+	*/
 	public PsyFormalDict systemDict();
 
 	/**
@@ -130,6 +135,11 @@ public interface PsyContext
 	public void repl()
 		throws PsyErrorException;
 
+	/**
+	*	Sets the stopped flag to the specified value.
+	*
+	*	@param stopFlag the value of the stopped flag.
+	*/
 	public void setStopped(final boolean stopFlag);
 
 	public void handleExecutionStack(final int level);

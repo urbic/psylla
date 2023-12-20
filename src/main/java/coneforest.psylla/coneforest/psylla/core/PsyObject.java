@@ -102,6 +102,11 @@ public interface PsyObject
 		return new PsyName(toSyntaxString());
 	}
 
+	/**
+	*	Returns the syntactic representation of this object.
+	*
+	*	@return the syntactic representation of this object.
+	*/
 	default public String toSyntaxString()
 	{
 		return '%'+typeName()+'%';

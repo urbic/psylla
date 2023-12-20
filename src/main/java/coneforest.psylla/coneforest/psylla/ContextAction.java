@@ -3,12 +3,28 @@ package coneforest.psylla;
 import coneforest.psylla.core.*;
 import java.util.Optional;
 
+/**
+*	An action on the execution context.
+*/
 @FunctionalInterface
 public interface ContextAction
 {
+	/**
+	*	Performs this action on the specified execution context.
+	*
+	*	@param oContext the execution context.
+	*	@throws PsyErrorException when an error occurs.
+	*/
 	public void perform(final PsyContext oContext)
 		throws PsyErrorException;
 
+	/**
+	*	Returns the context action created from the consumer.
+	*
+	*	@param <T> the type of the input to the consumer.
+	*	@param consumer the consumer.
+	*	@return the context action created.
+	*/
 	public static <T extends PsyObject> ContextAction ofConsumer(final Consumer<T> consumer)
 	{
 		return oContext->
@@ -18,6 +34,12 @@ public interface ContextAction
 			};
 	}
 
+	/**
+	*	Returns the context action created from the supplier.
+	*
+	*	@param supplier the supplier.
+	*	@return the context action created.
+	*/
 	public static ContextAction ofSupplier(final Supplier supplier)
 	{
 		return oContext->oContext.operandStack().push(supplier.get());

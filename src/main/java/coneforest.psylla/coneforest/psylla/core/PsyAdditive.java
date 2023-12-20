@@ -14,26 +14,26 @@ public interface PsyAdditive<T extends PsyAdditive>
 {
 
 	/**
-	*	Returns an {@code additive} representing the result of arithmetic negation of this object.
+	*	Returns the {@code additive} result of arithmetic negation of this object.
 	*
-	*	@return a negation.
+	*	@return the {@code additive} result of arithmetic negation.
 	*/
 	public T psyNeg();
 
 	/**
-	*	Returns an {@code additive} representing the result of arithmetic addition of given object
-	*	to this object.
+	*	Returns the {@code additive} result of arithmetic addition of specified object to this
+	*	object.
 	*
-	*	@param oAdditive given object.
-	*	@return a sum.
+	*	@param oAdditive the specified object.
+	*	@return the sum.
 	*/
 	public T psyAdd(final T oAdditive);
 
 	/**
-	*	Returns an {@code additive} representing the result of arithmetic subtraction of given
-	*	object from this object.
+	*	Returns the {@code additive} result of arithmetic subtraction of specified object from this
+	*	object.
 	*
-	*	@param oAdditive given object.
+	*	@param oAdditive the specified object.
 	*	@return a difference.
 	*/
 	public T psySub(final T oAdditive);
