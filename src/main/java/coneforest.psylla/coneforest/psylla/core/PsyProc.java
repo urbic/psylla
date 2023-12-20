@@ -92,7 +92,6 @@ public class PsyProc
 					{
 						final var oNew=dstack.load(oCommand);
 						if(oNew instanceof PsyOperator
-								|| oNew instanceof PsyBoolean
 								|| oNew instanceof PsyMark
 								|| oNew instanceof PsyNull)
 							oProc.put(i, oNew);
