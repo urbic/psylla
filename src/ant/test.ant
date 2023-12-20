@@ -2,13 +2,14 @@
 <project name="test" basedir=".">
 
 	<target name="test.psylla"
-		description="Perform unit tests"
+		description="Perform Psylla unit tests"
 		depends="compile.java,copy.resources"
 		>
 		<mkdir dir="${src.test.data}/DIRECTORY-EMPTY"/>
 		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-1"/>
 		<mkdir dir="${src.test.data}/DIRECTORY-NONEMPTY/DIR-2/DIR-3"/>
-		<taskdef name="psyllaunit"
+		<taskdef
+			name="psyllaunit"
 			classname="coneforest.psylla.tools.ant.PsyllaUnit"
 			>
 			<classpath>
@@ -85,16 +86,16 @@
 	<target name="test.obs"
 		description="Perform OBS build tests"
 		>
-		<antcall target="obs.build">
+		<antcall target="obs.build" inheritAll="false">
 			<param name="obs.build.distro" value="15.5"/>
 		</antcall>
-		<antcall target="obs.build">
+		<antcall target="obs.build" inheritAll="false">
 			<param name="obs.build.distro" value="openSUSE_Tumbleweed"/>
 		</antcall>
-		<antcall target="obs.build">
+		<antcall target="obs.build" inheritAll="false">
 			<param name="obs.build.distro" value="Debian_11"/>
 		</antcall>
-		<!--antcall target="obs.build">
+		<!--antcall target="obs.build" inheritAll="false">
 			<param name="obs.build.distro" value="xUbuntu_23.04"/>
 		</antcall-->
 	</target>

@@ -1,5 +1,6 @@
-<?xml version="1.0"?>
-<project name="psylla"
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	name="psylla"
 	default="jar"
 	xmlns:if="ant:if"
 	xmlns:unless="ant:unless"
@@ -86,10 +87,6 @@
 
 	<path id="classpath.main">
 		<path refid="classpath.main.resolved"/>
-		<!--pathelement location="${ant.core.lib}"/-->
-		<!--pathelement location="${config.datadir}/ant/lib/ant-junit.jar"/-->
-		<!--pathelement location="${config.jar.junit4}"/-->
-		<!--pathelement location="${config.jar.jline1}"/-->
 	</path>
 
 	<path id="classpath.xslt">
@@ -119,7 +116,6 @@
 
 	<target name="resolve" description="Retrieve dependencies with Ivy">
 		<ivy:resolve conf="compile,xslt,linux.${linux.flavour}"/>
-		<!--ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/-->
 	</target>
 
 	<target name="compile.jj"
@@ -181,6 +177,7 @@
 			<modulesourcepath refid="modulesourcepath.test"/>
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
+			<include name="**/*.java"/>
 			<compilerarg
 				value="--processor-path=${target.classes}/${project.moduleprefix}:${target.classes}/${project.moduleprefix}.tools"/>
 			<compilerarg value="-XprintProcessorInfo"/>
@@ -273,7 +270,7 @@
 			basedir="${target.classes}/${project.moduleprefix}"
 			>
 			<manifest>
-				<attribute name="Main-Class" value="coneforest.psylla.Psylla"/>
+				<attribute name="Main-Class" value="${project.moduleprefix}.Psylla"/>
 			</manifest>
 		</jar>
 		<jar

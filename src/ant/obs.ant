@@ -30,15 +30,8 @@
 
 	<filterset id="obs.build.filterset">
 		<propertyset>
-			<propertyref name="obs.package.name"/>
-			<propertyref name="obs.package.version"/>
-			<propertyref name="obs.package.summary"/>
-			<propertyref name="obs.package.description"/>
-			<propertyref name="project.developer.name"/>
-			<propertyref name="project.developer.email"/>
-			<propertyref name="project.name"/>
-			<propertyref name="project.url"/>
-			<propertyref name="project.scm.url"/>
+			<propertyref prefix="obs."/>
+			<propertyref prefix="project."/>
 		</propertyset>
 	</filterset>
 
