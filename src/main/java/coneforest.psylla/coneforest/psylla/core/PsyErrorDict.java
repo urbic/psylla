@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.*;
+import java.util.StringJoiner;
 
 public class PsyErrorDict
 	extends PsyModule
@@ -28,7 +29,7 @@ public class PsyErrorDict
 					System.err.print(Messages.getString("handleErrorMessageOStack"));
 					final var ostack=(PsyArray)errorObj.get("ostack");
 					{
-						final var sj=new java.util.StringJoiner(" ", "\n\t", "");
+						final var sj=new StringJoiner(" ", "\n\t", "");
 						sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
 						ostack.forEach(o->sj.add(o.toSyntaxString()));
 						System.err.println(sj.toString());
@@ -37,7 +38,7 @@ public class PsyErrorDict
 					System.err.print(Messages.getString("handleErrorMessageEStack"));
 					final var estack=(PsyArray)errorObj.get("estack");
 					{
-						final var sj=new java.util.StringJoiner(" ", "\n\t", "");
+						final var sj=new StringJoiner(" ", "\n\t", "");
 						sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
 						estack.forEach(o->sj.add(o.toSyntaxString()));
 						System.err.println(sj.toString());

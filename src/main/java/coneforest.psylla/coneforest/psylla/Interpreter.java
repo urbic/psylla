@@ -32,7 +32,7 @@ public class Interpreter
 			estack=new ExecutionStack();
 			procstack=new ProcStack();
 			dstack=new DictStack();
-			pushStopLevel();
+			//pushStopLevel();
 		}
 		catch(final PsyErrorException e)
 		{
@@ -284,9 +284,6 @@ public class Interpreter
 			e.setEmitter(oReader); // IMPORTANT
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
-			// TODO
-			if(getStopped())
-				PsyErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 		catch(final TokenMgrError ex)
 		{
@@ -294,9 +291,6 @@ public class Interpreter
 			e.setEmitter(oReader);
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(this);
-			// TODO
-			if(getStopped())
-				PsyErrorDict.OP_HANDLEERROR.invoke(this);
 		}
 	}
 
@@ -629,12 +623,10 @@ public class Interpreter
 				}
 				catch(final PsyErrorException e)
 				{
+
 					e.setEmitter(oReader);
 					e.setStacks(ostack, estack, dstack);
 					e.invoke(this);
-					// TODO
-					if(getStopped())
-						PsyErrorDict.OP_HANDLEERROR.invoke(this);
 				}
 				catch(final TokenMgrError ex)
 				{
@@ -642,9 +634,6 @@ public class Interpreter
 					e.setEmitter(oReader);
 					e.setStacks(ostack, estack, dstack);
 					e.invoke(this);
-					// TODO
-					if(getStopped())
-						PsyErrorDict.OP_HANDLEERROR.invoke(this);
 				}
 			}
 		}

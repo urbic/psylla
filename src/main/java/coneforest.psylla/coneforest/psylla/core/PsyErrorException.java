@@ -21,6 +21,10 @@ abstract public class PsyErrorException
 			// NOP
 		}
 
+		oContext.setStopped(true);
+		if(oContext.currentStopLevel()>-1)
+			return;
+
 		System.err.println(Messages.format("handleErrorMessage",
 				'/'+getName(),
 				getEmitter().toSyntaxString()));
@@ -40,8 +44,6 @@ abstract public class PsyErrorException
 			estack.forEach(o->sj.add(o.toSyntaxString()));
 			System.err.println(sj.toString());
 		}
-
-		oContext.quit();
 	}
 
 	public String getName()
