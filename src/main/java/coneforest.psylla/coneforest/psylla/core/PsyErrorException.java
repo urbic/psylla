@@ -23,7 +23,10 @@ abstract public class PsyErrorException
 
 		oContext.setStopped(true);
 		if(oContext.currentStopLevel()>-1)
+		{
+			oContext.executionStack().setSize(oContext.currentStopLevel());
 			return;
+		}
 
 		System.err.println(Messages.format("handleErrorMessage",
 				'/'+getName(),
