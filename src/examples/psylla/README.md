@@ -2,9 +2,9 @@
 
 ## Ackermann function
 
-Prints the value of the [Ackermann function
-$A(n,m)$](https://en.wikipedia.org/wiki/Ackermann_function). The non-negative
-integers $n$ and $m$ are passed in the command line.
+Prints the value of the [Ackermann
+function](https://en.wikipedia.org/wiki/Ackermann_function) $A(n,m)$. The
+non-negative integers $n$ and $m$ are passed in the command line.
 
 * [__`ackermann-recursive.psy`__](ackermann-recursive.psy) — recursive
   implementation
