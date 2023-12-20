@@ -13,7 +13,7 @@
 
 			{
 				n x y sub abs gcd dup 1 ne
-				{ exit } #{ dup n ne { exit } if }
+				{ exit }
 				{ pop }
 				ifelse
 				i stage eq
@@ -22,7 +22,6 @@
 					/stage stage 2 mul def
 				}
 				if
-				#x ? '>>>' ?
 				/x x dup mul 1 add n mod def
 				/i i 1 add def
 			}
