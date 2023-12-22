@@ -144,11 +144,18 @@ public sealed interface PsyNumeric
 		=ContextAction.<PsyNumeric>ofFunction(PsyNumeric::psyAbs);
 
 	/**
-	*	Context action of the {@code scos} operator.
+	*	Context action of the {@code acos} operator.
 	*/
 	@OperatorType("acos")
 	public static final ContextAction PSY_ACOS
 		=ContextAction.<PsyNumeric>ofFunction(PsyNumeric::psyAcos);
+
+	/**
+	*	Context action of the {@code asin} operator.
+	*/
+	@OperatorType("asin")
+	public static final ContextAction PSY_ASIN
+		=ContextAction.<PsyNumeric>ofFunction(PsyNumeric::psyAsin);
 
 	/**
 	*	Context action of the {@code atan} operator.
