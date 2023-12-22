@@ -15,5 +15,5 @@ public class Messages
 	}
 
 	private static final ResourceBundle messages
-		=ResourceBundle.getBundle("coneforest.psylla.Messages");
+		=ResourceBundle.getBundle(coneforest.psylla.Messages.class.getName());
 }

@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
-*	An interpreter.
+*	The Psylla language interpreter.
 */
 public class Interpreter
 	extends Thread
@@ -36,6 +36,7 @@ public class Interpreter
 		}
 		catch(final PsyErrorException e)
 		{
+			// TODO more appropriate exception
 			throw new AssertionError(e);
 		}
 	}
@@ -59,10 +60,7 @@ public class Interpreter
 					o.invoke(this);
 					handleExecutionStack(0);
 					if(getStopped())
-					{
-						//PsyErrorDict.OP_HANDLEERROR.invoke(this);
 						return;
-					}
 				}
 			};
 		final int i=ostack.findMarkPosition();
@@ -81,11 +79,6 @@ public class Interpreter
 		PsyNamespace.namespace("system").psyImport(PsyNamespace.namespace(TypeResolver.resolve(typeName)));
 	}*/
 
-	/**
-	*	Returns the operand stack.
-	*
-	*	@return the operand stack.
-	*/
 	@Override
 	public OperandStack operandStack()
 	{
@@ -112,6 +105,11 @@ public class Interpreter
 		return estack;
 	}
 
+	/**
+	*	Returns the interpreter’s class loader.
+	*
+	*	@return the interpreter’s class loader.
+	*/
 	public java.lang.ClassLoader classLoader()
 	{
 		return classLoader;
@@ -153,11 +151,7 @@ public class Interpreter
 		return dstack.get(0);
 	}
 
-	/**
-	*	Returns the user dictionary.
-	*
-	*	@return the user dictionary.
-	*/
+	@Override
 	public PsyFormalDict userDict()
 	{
 		return dstack.get(1);
@@ -179,16 +173,31 @@ public class Interpreter
 		return dstack.currentNamespace();
 	}
 
+	/**
+	*	Sets the interpreter’s standard reader.
+	*
+	*	@param reader the reader.
+	*/
 	public void setReader(final Reader reader)
 	{
 		systemDict().put("stdin", new PsyReader(reader));
 	}
 
+	/**
+	*	Sets the interpreter’s standard writer.
+	*
+	*	@param writer the writer.
+	*/
 	public void setWriter(final Writer writer)
 	{
 		systemDict().put("stdout", new PsyWriter(writer));
 	}
 
+	/**
+	*	Sets the interpreter’s standard error writer.
+	*
+	*	@param writer the error writer.
+	*/
 	public void setErrorWriter(final Writer writer)
 	{
 		systemDict().put("stderr", new PsyWriter(writer));

@@ -226,6 +226,7 @@
 			<link href="https://ant.apache.org/manual/api/"/>
 			<link href="file://${config.javadocdir.junit4}"/>
 			<link href="file://${config.javadocdir.jline1}"/>
+			<link href="file://${config.javadocdir.clianthus}"/>
 		</javadoc>
 	</target>
 

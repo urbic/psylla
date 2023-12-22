@@ -60,7 +60,7 @@ public class OperandStack
 	*	Returns the position of the topmost {@code mark} object on the operand stack.
 	*
 	*	@return the position of the topmost {@code mark} object on the operand stack.
-	*	@throws PsyUnmatchedMarkException when there is no {@code mark} object on the operand stack.
+	*	@throws PsyUnmatchedMarkException if there is no {@code mark} object on the operand stack.
 	*/
 	public int findMarkPosition()
 		throws PsyUnmatchedMarkException

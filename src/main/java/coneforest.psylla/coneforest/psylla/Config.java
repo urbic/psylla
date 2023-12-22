@@ -4,8 +4,7 @@ import java.util.Properties;
 import java.util.Set;
 
 /**
-*	Methods for obtaining configuration properties stored in the {@code
-*	Config.properties} resource.
+*	Methods for obtaining configuration properties stored in the {@code Config.properties} resource.
 */
 public class Config
 {
@@ -14,11 +13,10 @@ public class Config
 	}
 
 	/**
-	*	Returns the value associated with the given name. If not found, returns
-	*	{@code null}.
+	*	Returns the value associated with the given name. If not found, returns {@code null}.
 	*
 	*	@param name the property name.
-	*	@return the value with the specified name.
+	*	@return the value with the given name.
 	*/
 	public static String getProperty(final String name)
 	{

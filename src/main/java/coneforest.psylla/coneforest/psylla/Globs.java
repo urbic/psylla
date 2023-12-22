@@ -3,18 +3,28 @@ package coneforest.psylla;
 /**
 *	Support for shell-like glob patterns.
 */
-public class Globs
+public interface Globs
 {
 	/**
-	*	The {@code '?'} character.
+	*	The character denoting singular quantifier ({@value}).
 	*/
-	public static final char SINGULAR_PATTERN='?';
+	public static final char QUANTIFIER_SINGULAR='?';
 
 	/**
-	*	The {@code '*'} character.
+	*	The character denoting plural quantifier ({@value}).
 	*/
-	public static final char PLURAL_PATTERN='*';
+	public static final char QUANTIFIER_PLURAL='*';
 
+	/**
+	*	Checks if the string matches the given pattern using the given characters denoting singular
+	*	and plural quantifiers.
+	*
+	*	@param pattern the pattern.
+	*	@param string the string.
+	*	@param singular the character denoting singular quantifier.
+	*	@param plural the character denoting plural quantifier.
+	*	@return {@code true} if the string matches the pattern, {@code false} otherwise.
+	*/
 	public static boolean matches(final String pattern, final String string,
 			final char singular, final char plural)
 	{
@@ -42,8 +52,16 @@ public class Globs
 		}
 	}
 
+	/**
+	*	Checks if the string matches the given pattern using default quantifier notation ({@value
+	*	QUANTIFIER_SINGULAR} for singular, {@value QUANTIFIER_PLURAL} for plural).
+	*
+	*	@param pattern the pattern.
+	*	@param string the string.
+	*	@return {@code true} if the string matches the pattern, {@code false} otherwise.
+	*/
 	public static boolean matches(final String pattern, final String string)
 	{
-		return matches(pattern, string, SINGULAR_PATTERN, PLURAL_PATTERN);
+		return matches(pattern, string, QUANTIFIER_SINGULAR, QUANTIFIER_PLURAL);
 	}
 }

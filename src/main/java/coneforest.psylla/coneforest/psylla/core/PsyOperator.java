@@ -11,16 +11,20 @@ public abstract class PsyOperator
 		PsyAtomic,
 		PsyExecutable
 {
+	/**
+	*	Constructs a new {@code operator} with the given name.
+	*
+	*	@param name the name.
+	*/
 	protected PsyOperator(final String name)
 	{
 		this.name=name;
 	}
 
 	/**
-	*	Execute this object in the context of the interpreter. Calls {@link #invoke(PsyContext)}
-	*	method.
+	*	Execute this object in the execution context. Calls the {@link #invoke(PsyContext)} method.
 	*
-	*	@param oContext the context.
+	*	@param oContext the execution context.
 	*/
 	@Override
 	public void execute(final PsyContext oContext)
@@ -29,10 +33,9 @@ public abstract class PsyOperator
 	}
 
 	/**
-	*	Invoke this object in the context of the interpreter performing an action associated with
-	*	it.
+	*	Invoke this operator in the execution context performing an action associated with it.
 	*
-	*	@param oContext the context.
+	*	@param oContext the execution context.
 	*/
 	@Override
 	public void invoke(final PsyContext oContext)
@@ -46,7 +49,7 @@ public abstract class PsyOperator
 		catch(final ClassCastException ex)
 		{
 			ostack.rollback();
-			var e=new PsyTypeCheckException();
+			final var e=new PsyTypeCheckException();
 			e.setEmitter(this);
 			final var estack=oContext.executionStack();
 			final var dstack=oContext.dictStack();

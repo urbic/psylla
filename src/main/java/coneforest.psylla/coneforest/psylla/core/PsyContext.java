@@ -41,6 +41,11 @@ public interface PsyContext
 
 	public void stop_();
 
+	/**
+	*	Returns the operand stack.
+	*
+	*	@return the operand stack.
+	*/
 	public OperandStack operandStack();
 
 	/**
@@ -63,6 +68,13 @@ public interface PsyContext
 	*	@return the system dictionary.
 	*/
 	public PsyFormalDict systemDict();
+
+	/**
+	*	Returns the user dictionary.
+	*
+	*	@return the user dictionary.
+	*/
+	public PsyFormalDict userDict();
 
 	/**
 	*	Returns the current dictionary (the topmost on the dictionary stack).
@@ -130,10 +142,15 @@ public interface PsyContext
 	*/
 	public int currentStopLevel();
 
-	public boolean getStopped();
-
 	public void repl()
 		throws PsyErrorException;
+
+	/**
+	*	Gets the stopped flag to the specified value.
+	*
+	*	@return the value of the stopped flag.
+	*/
+	public boolean getStopped();
 
 	/**
 	*	Sets the stopped flag to the specified value.

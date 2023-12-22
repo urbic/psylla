@@ -11,6 +11,7 @@ Build-Depends:
 	ant-optional,
 	ivy-debian-helper,
 	libclianthus-java,
+	libclianthus-java-doc,
 	libjline-java,
 	libjline-java-doc,
 	libxslthl-java,
@@ -19,7 +20,7 @@ Build-Depends:
 	docbook-xsl-saxon,
 	sassc,
 	libxerces2-java,
-	graphviz
+	graphviz,
 Vcs-Git: @project.scm.url@.git
 Vcs-Browser: @project.scm.url@
 Homepage: @project.url@
@@ -45,8 +46,9 @@ Architecture: all
 Section: doc
 Depends: debhelper (>=10),
 Recommends:
-	openjdk-17-doc,
 	ant-doc,
 	ant-optional,
+	libclianthus-java-doc,
+	openjdk-17-doc,
 Description: Psylla programming language (documentation)
 	This package contains documentation for @obs.package.name@.

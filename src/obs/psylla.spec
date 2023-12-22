@@ -66,6 +66,7 @@ This package contains documentation for %{name}.
 Summary:        Javadocs for %{name}
 Group:          Documentation/HTML
 BuildRequires:  fdupes
+BuildRequires:  clianthus-javadoc
 BuildRequires:  jline1-javadoc
 BuildRequires:  junit-javadoc
 Requires:       jpackage-utils

@@ -13,6 +13,7 @@ Build-Depends:
 	ant-optional,
 	ivy-debian-helper,
 	libclianthus-java,
+	libclianthus-java-doc,
 	libjline-java,
 	libjline-java-doc,
 	libxslthl-java,
