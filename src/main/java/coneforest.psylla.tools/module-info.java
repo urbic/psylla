@@ -2,6 +2,7 @@
 *	The Psylla language tools.
 *
 *	@author Anton Shvetz ‹shvetz.anton@gmail.com›
+*	@provides java.util.spi.ToolProvider
 */
 module coneforest.psylla.tools
 {

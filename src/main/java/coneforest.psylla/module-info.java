@@ -2,6 +2,7 @@
 *	The Psylla language interpreter and core.
 *
 *	@author Anton Shvetz ‹shvetz.anton@gmail.com›
+*	@provides javax.script.ScriptEngineFactory
 */
 module coneforest.psylla
 {

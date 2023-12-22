@@ -48,12 +48,12 @@ public class PsyArray
 	}
 
 	@Override
-	public PsyObject get(final int indexValue)
+	public PsyObject get(final int index)
 		throws PsyRangeCheckException
 	{
 		try
 		{
-			return array.get(indexValue<0? indexValue+length(): indexValue);
+			return array.get(index<0? index+length(): index);
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
@@ -187,14 +187,29 @@ public class PsyArray
 		}
 	}
 
+	/**
+	*	Sorts this list according to the order induced by the specified comparator. The sort is
+	*	stable: this method must not reorder equal elements.
+	*
+	*	@param oComparator the {@code proc} comparator used to compare array elements.
+	*	@param oContext the execution context.
+	*/
 	public void psySort(final PsyProc oComparator, final PsyContext oContext)
 	{
-		Collections.sort(array, oComparator.asComparator(oContext));
+		array.sort(oComparator.asComparator(oContext));
 	}
 
+	/**
+	*	Searches this array for the specified value using the binary search algorithm. The array
+	*	must be sorted into ascending order according to the specified comparator. TODO
+	*
+	*	@param o the value to be searched for.
+	*	@param oComparator the comparator by which the array is ordered.
+	*	@param oContext the execution context.
+	*	@return TODO
+	*/
 	public PsyInteger psyBinarySearch(final PsyObject o, final PsyProc oComparator, final PsyContext oContext)
 	{
-		final var opstack=oContext.operandStack();
 		return PsyInteger.of(Collections.<PsyObject>binarySearch(array, o,
 				oComparator.asComparator(oContext)));
 	}

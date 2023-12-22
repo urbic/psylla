@@ -12,6 +12,7 @@ public class NamespacePool
 	*	Allocates (if absent) and returns the {@code namespace} object with the given prefix.
 	*
 	*	@param prefix the prefix.
+	*	@return the {@code namespace} object.
 	*/
 	public PsyNamespace get(final String prefix)
 	{

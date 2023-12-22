@@ -227,19 +227,16 @@ public class Psylla
 
 	private static void showConfig(final List<String> patterns)
 	{
-		final Set<String> propertyNames=Config.stringPropertyNames();
-
+		final var propertyNames=Config.stringPropertyNames();
 		for(final String pattern: patterns)
-		{
 			propertyNames.stream()
 					.sorted()
 					.filter(name->Globs.matches(pattern, name))
 					.forEach(name->System.out.println(name+"=\'"+Config.getProperty(name)+"\'"));
-		}
 		System.exit(0);
 	}
 
-	private static class PsyllaConfig
+	public static class PsyllaConfig
 	{
 		private void setScriptReader(final Reader scriptReader)
 		{

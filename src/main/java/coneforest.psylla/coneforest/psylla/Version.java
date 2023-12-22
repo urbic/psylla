@@ -1,9 +1,9 @@
 package coneforest.psylla;
 
 /**
-*	A class holding versioning information.
+*	Versioning information.
 */
-public class Version
+public interface Version
 {
 	/**
 	*	Returns the version string.

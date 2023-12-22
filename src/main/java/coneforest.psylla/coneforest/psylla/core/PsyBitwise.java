@@ -21,6 +21,7 @@ public interface PsyBitwise<T extends PsyBitwise>
 	*	@param oBit the index of bit to clear.
 	*	@return a {@code bitwise} whose value is equivalent to this value with
 	*	the designated bit cleared.
+	*	@throws PsyRangeCheckException if the index is out of range.
 	*/
 	public PsyBitwise psyClearBit(final PsyInteger oBit)
 		throws PsyRangeCheckException;
@@ -32,6 +33,7 @@ public interface PsyBitwise<T extends PsyBitwise>
 	*	@param oBit the index of bit to flip.
 	*	@return a {@code bitwise} whose value is equivalent to this value with
 	*	the designated bit flipped.
+	*	@throws PsyRangeCheckException if the index is out of range.
 	*/
 	public PsyBitwise psyFlipBit(final PsyInteger oBit)
 		throws PsyRangeCheckException;
@@ -43,6 +45,7 @@ public interface PsyBitwise<T extends PsyBitwise>
 	*	@param oBit the index of bit to set.
 	*	@return a {@code bitwise} whose value is equivalent to this value with
 	*	the designated bit set.
+	*	@throws PsyRangeCheckException if the index is out of range.
 	*/
 	public PsyBitwise psySetBit(final PsyInteger oBit)
 		throws PsyRangeCheckException;
@@ -52,6 +55,7 @@ public interface PsyBitwise<T extends PsyBitwise>
 	*
 	*	@param oBit the index of bit to test.
 	*	@return a {@code boolean} indicating if the designated bit set.
+	*	@throws PsyRangeCheckException if the index is out of range.
 	*/
 	public PsyBoolean psyTestBit(final PsyInteger oBit)
 		throws PsyRangeCheckException;

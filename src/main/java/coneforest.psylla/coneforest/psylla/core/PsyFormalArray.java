@@ -42,10 +42,18 @@ public interface PsyFormalArray<T extends PsyObject>
 	@Override
 	default public PsyBoolean psyKnown(final PsyInteger oIndex)
 	{
+		// TODO: index<0
 		long index=oIndex.longValue();
 		return PsyBoolean.of(index>=0 && index<length());
 	}
 
+	/**
+	*	Returns the element at the specified position in this array.
+	*
+	*	@param index the index of the element.
+	*	@return the element at the specified position in this list.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
 	public T get(final int index)
 		throws PsyRangeCheckException;
 
@@ -173,6 +181,12 @@ public interface PsyFormalArray<T extends PsyObject>
 		delete(oIndex.intValue());
 	}
 
+	/**
+	*	Removes the element at the specified position in this array.
+	*
+	*	@param index the index of the element to be removed.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
 	public void delete(int index)
 		throws PsyRangeCheckException;
 

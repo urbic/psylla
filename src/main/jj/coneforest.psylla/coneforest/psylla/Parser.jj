@@ -1,11 +1,26 @@
+options
+{
+	JDK_VERSION="17";
+	// BUILD_TOKEN_MANAGER=false;
+}
+
 PARSER_BEGIN(Parser)
 
 package coneforest.psylla;
 
 import coneforest.psylla.core.PsyReader;
 
+/**
+*	The Psylla language parser.
+*/
+@SuppressWarnings("javadoc")
 public class Parser
 {
+	/**
+	*	Constructs a new parser over given {@code reader} object.
+	*
+	*	@param oReader the {@code reader} object.
+	*/
 	public Parser(final PsyReader oReader)
 	{
 		this(oReader.reader());

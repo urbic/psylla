@@ -90,6 +90,11 @@ public interface PsyContext
 	*/
 	public NamespacePool namespacePool();
 
+	/**
+	*	Returns the size of the execution stack.
+	*
+	*	@return the size of the execution stack.
+	*/
 	public int execLevel();
 
 	/**
