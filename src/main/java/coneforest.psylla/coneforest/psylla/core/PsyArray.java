@@ -12,7 +12,7 @@ public class PsyArray
 	implements PsyFormalArray<PsyObject>
 {
 	/**
-	*	Creates a new empty {@code array}.
+	*	Constructs a new empty {@code array}.
 	*/
 	public PsyArray()
 	{
@@ -20,7 +20,7 @@ public class PsyArray
 	}
 
 	/**
-	*	Creates a new {@code array} wrapped around the given array list.
+	*	Constructs a new {@code array} wrapped around the given array list.
 	*
 	*	@param array a given array list.
 	*/

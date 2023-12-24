@@ -11,5 +11,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface OperatorType
 {
-	String value();
+	/**
+	*	Returns the operator’s name.
+	*
+	*	@return the operator’s name.
+	*/
+	public String value();
 }

@@ -61,11 +61,23 @@ public interface PsyScalar<T extends PsyScalar>
 	*/
 	public PsyInteger psyCmp(final T oScalar);
 
+	/**
+	*	Returns the minimum of this {@code scalar} and given {@code scalar}.
+	*
+	*	@param oScalar the given {@code scalar}.
+	*	@return the minimum of this {@code scalar} and given {@code scalar}.
+	*/
 	default public PsyScalar psyMin(final T oScalar)
 	{
 		return psyLt(oScalar).booleanValue()? this: oScalar;
 	}
 
+	/**
+	*	Returns the maximum of this {@code scalar} and given {@code scalar}.
+	*
+	*	@param oScalar the given {@code scalar}.
+	*	@return the maximum of this {@code scalar} and given {@code scalar}.
+	*/
 	default public PsyScalar psyMax(final T oScalar)
 	{
 		return psyGt(oScalar).booleanValue()? this: oScalar;

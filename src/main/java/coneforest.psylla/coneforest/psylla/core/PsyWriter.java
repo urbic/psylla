@@ -14,11 +14,21 @@ public class PsyWriter
 		PsyFlushable,
 		PsyWritable
 {
+	/**
+	*	Constructs a new {@code writer} object wrapping the given writer.
+	*
+	*	@param writer the writer.
+	*/
 	public PsyWriter(final Writer writer)
 	{
 		this.writer=writer;
 	}
 
+	/**
+	*	Returns the underlying writer.
+	*
+	*	@return the underlying writer.
+	*/
 	public Writer writer()
 	{
 		return writer;

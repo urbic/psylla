@@ -222,6 +222,8 @@
 			<arg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
 			<arg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
 			<arg value="-Xdoclint:missing,reference"/>
+			<arg value="-Xmaxwarns"/>
+			<arg value="1000"/>
 			<link href="file://${config.javadocdir.java}"/>
 			<link href="https://ant.apache.org/manual/api/"/>
 			<link href="file://${config.javadocdir.junit4}"/>

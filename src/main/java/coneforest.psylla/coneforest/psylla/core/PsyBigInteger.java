@@ -4,31 +4,21 @@ import coneforest.psylla.*;
 import java.math.BigInteger;
 
 /**
-*	The representation of {@code biginteger}.
+*	The representation of {@code biginteger}, arbitrary precision integer.
 */
 @Type("biginteger")
 public final class PsyBigInteger
 	implements
 		PsyIntegral
 {
+	/**
+	*	Constructs a new {@code biginteger} for the given value.
+	*
+	*	@param value the value.
+	*/
 	public PsyBigInteger(final BigInteger value)
 	{
 		this.value=value;
-	}
-
-	public PsyBigInteger(final long integer)
-	{
-		this.value=BigInteger.valueOf(integer);
-	}
-
-	public PsyBigInteger(final PsyInteger oInteger)
-	{
-		this(oInteger.longValue());
-	}
-
-	public PsyBigInteger(final String image)
-	{
-		this(new BigInteger(image));
 	}
 
 	@Override
@@ -106,7 +96,6 @@ public final class PsyBigInteger
 	@Override
 	public PsyBigInteger psyNot()
 	{
-		// TODO
 		return new PsyBigInteger(value.not());
 	}
 

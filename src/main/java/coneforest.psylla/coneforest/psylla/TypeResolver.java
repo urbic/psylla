@@ -5,8 +5,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TypeResolver
+/**
+*	The type resolver.
+*/
+public interface TypeResolver
 {
+	/**
+	*	Resolves the type name
+	*/
 	public static Class<? extends PsyObject> resolve(final String typeName)
 		throws PsyUndefinedException
 	{
