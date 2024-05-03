@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import org.apache.tools.ant.Task;
 import org.apache.tools.ant.BuildException;
 
+/**
+*	The {@code psylla} Ant task.
+*/
 public class Psylla
 	extends Task
 {
@@ -69,11 +72,21 @@ public class Psylla
 		classPath=value;
 	}
 
+	/**
+	*	Set the locale.
+	*
+	*	@param value the locale name.
+	*/
 	public void setLocale(final String value)
 	{
 		locale=value;
 	}
 
+	/**
+	*	Set the console encoding.
+	*
+	*	@param value the console encoding.
+	*/
 	public void setConsoleEncoding(final String value)
 	{
 		consoleEncoding=value;

@@ -67,6 +67,12 @@ public abstract class PsyOperator
 		}
 	}
 
+	/**
+	*	Perform an action associated with this operator in the given execution context.
+	*
+	*	@param oContext the execution context.
+	*	@throws PsyErrorException when an error occurs.
+	*/
 	abstract public void perform(final PsyContext oContext)
 		throws PsyErrorException;
 
@@ -84,21 +90,31 @@ public abstract class PsyOperator
 	}
 
 	/**
-	*	Returns a name of this operator.
+	*	Returns the name of this operator.
 	*
-	*	@return a name.
+	*	@return the name of this operator.
 	*/
 	public String getName()
 	{
 		return name;
 	}
 
+	/**
+	*	Returns the namespace prefix of this operator.
+	*
+	*	@return the namespace prefix of this operator.
+	*/
 	public String getPrefix()
 	{
 		final var prefixOffset=getName().indexOf('@');
 		return prefixOffset<0? "core": getName().substring(0, prefixOffset);
 	}
 
+	/**
+	*	Returns the simple name of this operator.
+	*
+	*	@return the simple name of this operator.
+	*/
 	public String getSimpleName()
 	{
 		return getName().substring(getPrefix().length()+1);

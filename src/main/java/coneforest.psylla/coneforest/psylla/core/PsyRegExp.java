@@ -11,6 +11,13 @@ import java.util.regex.PatternSyntaxException;
 public class PsyRegExp
 	implements PsyAtomic
 {
+	/**
+	*	Constructs a new {@code regexp} from the character sequence.
+	*
+	*	@param cs the character sequence.
+	*	@throws PsyInvalidRegExpException when a syntax error in a regular-expression pattern
+	*	occured.
+	*/
 	public PsyRegExp(final CharSequence cs)
 		throws PsyInvalidRegExpException
 	{
