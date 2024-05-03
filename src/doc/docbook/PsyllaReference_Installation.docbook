@@ -274,7 +274,7 @@ You also can run into interactive session:
 
 <screen><prompt>% </prompt><userinput>./psylla.sh</userinput>
 <computeroutput>Psylla v&psylla.version;
-Copyright © 2014—2023, Anton Shvetz
+Copyright © 2014—2024 Anton Shvetz
 
 </computeroutput><prompt>PSYLLA&gt; </prompt><userinput>2 sqrt ?</userinput>
 <computeroutput>1.4142135623730951
