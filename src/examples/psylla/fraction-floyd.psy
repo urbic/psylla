@@ -9,7 +9,7 @@ p q idiv toname print
 
 /p p q mod def
 
-p nonzero { ',' print } { '' say quit } ifelse
+p nonzero { '.' print } { '' say quit } ifelse
 
 /t p def
 /h p def
