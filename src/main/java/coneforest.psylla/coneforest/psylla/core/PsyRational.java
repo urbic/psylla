@@ -40,18 +40,14 @@ public sealed interface PsyRational
 	default public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
 	{
 		if(oRealNumeric instanceof PsyIntegral oIntegral)
-		{
 			return of(
 				(PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
 				psyDenominator());
-		}
 		if(oRealNumeric instanceof PsyRational oRational)
-		{
 			return of(
 				(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
 						.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),
 				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-		}
 		if(oRealNumeric instanceof PsyReal oReal)
 			return new PsyReal(doubleValue()+oReal.doubleValue());
 		throw new ClassCastException();
@@ -61,18 +57,14 @@ public sealed interface PsyRational
 	default public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
 		if(oRealNumeric instanceof PsyIntegral oIntegral)
-		{
 			return of(
 					(PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
 					psyDenominator());
-		}
 		if(oRealNumeric instanceof PsyRational oRational)
-		{
 			return of(
 				(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
 						.psySub(psyDenominator().psyMul(oRational.psyNumerator())),
 				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-		}
 		if(oRealNumeric instanceof PsyReal oReal)
 			return new PsyReal(doubleValue()+oReal.doubleValue());
 		throw new ClassCastException();

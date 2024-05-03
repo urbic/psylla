@@ -212,6 +212,7 @@
 			access="public"
 			encoding="UTF-8"
 			charset="UTF-8"
+			doctitle="Psylla ${project.version}"
 			windowtitle="Psylla ${project.version}"
 			>
 			<module name="${project.moduleprefix}"/>
@@ -221,7 +222,8 @@
 			<classpath refid="classpath.main"/>
 			<arg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
 			<arg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
-			<arg value="-Xdoclint:missing,reference"/>
+			<!--arg value="-Xdoclint:missing,reference,syntax"/-->
+			<arg value="-Xdoclint:all"/>
 			<arg value="-Xmaxwarns"/>
 			<arg value="1000"/>
 			<link href="file://${config.javadocdir.java}"/>
@@ -229,6 +231,7 @@
 			<link href="file://${config.javadocdir.junit4}"/>
 			<link href="file://${config.javadocdir.jline1}"/>
 			<link href="file://${config.javadocdir.clianthus}"/>
+			<bottom>Copyright © 2014—2024 ${project.developer.name}</bottom>
 		</javadoc>
 	</target>
 

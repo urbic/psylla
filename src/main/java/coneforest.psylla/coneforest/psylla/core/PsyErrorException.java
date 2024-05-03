@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.*;
+import java.util.Stack;
 import java.util.StringJoiner;
 
 @Type("error")
@@ -9,6 +10,7 @@ abstract public class PsyErrorException
 	extends	Exception
 	implements PsyExecutable
 {
+	@Override
 	public void invoke(final PsyContext oContext)
 	{
 		try
@@ -51,7 +53,7 @@ abstract public class PsyErrorException
 
 	public String getName()
 	{
-		var agenda=new java.util.Stack<Class<?>>();
+		var agenda=new Stack<Class<?>>();
 		agenda.push(getClass());
 
 		while(agenda.size()>0)
