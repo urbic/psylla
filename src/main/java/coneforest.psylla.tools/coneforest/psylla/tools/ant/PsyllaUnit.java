@@ -6,6 +6,9 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTask;
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTest;
 
+/**
+*	The {@code psyllaunit} Ant task.
+*/
 public class PsyllaUnit
 	extends JUnitTask
 {
