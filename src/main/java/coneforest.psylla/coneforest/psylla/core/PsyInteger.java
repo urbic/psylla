@@ -217,16 +217,14 @@ public final class PsyInteger
 	public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
 	{
 		if(oRealNumeric instanceof PsyInteger oInteger)
-		{
 			try
 			{
-				return PsyInteger.of(Math.multiplyExact(value, oInteger.value));
+				return of(Math.multiplyExact(value, oInteger.value));
 			}
 			catch(final ArithmeticException ex)
 			{
 				return PsyIntegral.of(bigIntegerValue().multiply(oInteger.bigIntegerValue()));
 			}
-		}
 		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
 			return PsyIntegral.of(bigIntegerValue().multiply(oBigInteger.bigIntegerValue()));
 		if(oRealNumeric instanceof PsyRational oRational)
@@ -323,7 +321,11 @@ public final class PsyInteger
 		if(oIntegral.psyIsZero().booleanValue())
 			throw new PsyUndefinedResultException();
 		if(oIntegral instanceof PsyInteger oInteger)
-			return PsyInteger.of(value/oInteger.value); // TODO
+		{
+			if(value==Long.MIN_VALUE && oInteger.value==-1L)
+				return of(Long.MIN_VALUE).psyNeg();
+			return of(value/oInteger.value);
+		}
 		//if(oIntegral instanceof PsyBigInteger)
 		return PsyIntegral.of(bigIntegerValue().divide(oIntegral.bigIntegerValue()));
 	}
