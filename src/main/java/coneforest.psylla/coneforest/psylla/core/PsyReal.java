@@ -146,7 +146,7 @@ public final class PsyReal
 	@Override
 	public int hashCode()
 	{
-		return (int)value;
+		return Double.hashCode(value);
 	}
 
 	@Override
