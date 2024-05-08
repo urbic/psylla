@@ -11,6 +11,7 @@ public sealed interface PsyRealNumeric
 		PsyNumeric,
 		PsyConvertableToInteger,
 		PsyConvertableToIntegral,
+		PsyConvertableToRational,
 		PsyConvertableToReal,
 		PsyScalar<PsyRealNumeric>
 	permits
@@ -23,6 +24,16 @@ public sealed interface PsyRealNumeric
 	public long longValue();
 
 	public double doubleValue();
+
+	public PsyRational rationalValue()
+		throws PsyUndefinedResultException;
+
+	@Override
+	default public PsyRational psyToRational()
+		throws PsyUndefinedResultException
+	{
+		return rationalValue();
+	}
 
 	@Override
 	default public double realValue()

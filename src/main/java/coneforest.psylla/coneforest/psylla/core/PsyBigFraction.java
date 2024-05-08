@@ -119,14 +119,6 @@ public final class PsyBigFraction
 	}
 
 	@Override
-	public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
-	{
-		// TODO
-		System.err.println("PsyBigFraction::psyCmp");
-		return null;
-	}
-
-	@Override
 	public PsyReal psyRound()
 	{
 		// TODO

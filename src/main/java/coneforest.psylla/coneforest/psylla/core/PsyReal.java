@@ -2,6 +2,7 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.*;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 /**
 *	The representation of {@code real}.
@@ -46,6 +47,40 @@ public final class PsyReal
 	public double doubleValue()
 	{
 		return value;
+	}
+
+	@Override
+	public PsyRational rationalValue()
+		throws PsyUndefinedResultException
+	{
+		if(value==0.D||value==-0.D)
+			return PsyInteger.ZERO;
+		if(Double.isNaN(value)||Double.isInfinite(value))
+			throw new PsyUndefinedResultException();
+
+		final long bits=Double.doubleToLongBits(value);
+		final long mantissa=bits&0x000FFFFFFFFFFFFFL;
+		final int exponent=(int)((bits&0x7FF0000000000000L)>>52);
+
+		if(exponent==0)
+			return (PsyRational)PsyInteger
+					.of((bits&0x8000000000000000L)==0L? mantissa: -mantissa)
+					.psyDiv(new PsyBigInteger(BigInteger.ZERO.flipBit(-51-Double.MAX_EXPONENT)));
+
+		final int pow=exponent-Double.MAX_EXPONENT;
+
+		PsyRational retval=(PsyRational)PsyInteger.of(mantissa)
+				.psyDiv(PsyInteger.of(0x10000000000000L))
+				.psyAdd(PsyInteger.ONE);
+		if((bits&0x8000000000000000L)!=0L)
+			retval=retval.psyNeg();
+		return (PsyRational)(pow>=0?
+				retval.psyMul((pow<63)?
+						PsyInteger.of(1L<<pow):
+						new PsyBigInteger(BigInteger.ZERO.flipBit(pow))):
+				retval.psyDiv((-pow<63)?
+						PsyInteger.of(1L<<-pow):
+						new PsyBigInteger(BigInteger.ZERO.flipBit(-pow))));
 	}
 
 	@Override

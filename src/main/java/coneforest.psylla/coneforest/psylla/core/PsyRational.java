@@ -16,6 +16,11 @@ public sealed interface PsyRational
 {
 	public BigInteger bigIntegerValue();
 
+	default public PsyRational rationalValue()
+	{
+		return this;
+	}
+
 	/**
 	*	Returns an {@code integral} numerator of this fraction.
 	*
@@ -29,6 +34,12 @@ public sealed interface PsyRational
 	*	@return the denominator.
 	*/
 	public PsyIntegral psyDenominator();
+
+	@Override
+	default public PsyRational psyToRational()
+	{
+		return this;
+	}
 
 	@Override
 	default public PsyRational psyNeg()
@@ -152,6 +163,7 @@ public sealed interface PsyRational
 		if(oNumeric instanceof PsyRational oRational)
 			return psyNumerator().psyMul(oRational.psyDenominator())
 					.cmp(psyDenominator().psyMul(oRational.psyNumerator()));
+		// TODO
 		return Double.compare(doubleValue(), oNumeric.doubleValue());
 	}
 

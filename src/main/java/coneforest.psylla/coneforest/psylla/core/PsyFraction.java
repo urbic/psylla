@@ -116,16 +116,9 @@ public final class PsyFraction
 	}
 
 	@Override
-	public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
-	{
-		// TODO
-		return null;
-	}
-
-	@Override
 	public PsyReal psyRound()
 	{
-		return new PsyReal(Math.round((double)numerator/(double)denominator));
+		return new PsyReal(Math.round(doubleValue()));
 	}
 
 	@Override
