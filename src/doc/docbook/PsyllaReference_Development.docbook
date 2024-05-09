@@ -16,7 +16,7 @@ The extension of the language is done by adding new operators and types.
 The new operator is implemented as a subclass of the
 <classname>coneforest.psylla.core.PsyOperator</classname> class. In the
 operator class, you should override the method <methodname
-xlink:href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(coneforest.psylla.Interpreter)">invoke()</methodname>.
+xlink:href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(coneforest.psylla.runtime.Interpreter)">invoke()</methodname>.
 Этот метод получает интерпретатор как параметр и выполняет требуемое действие,
 нужным образом манипулируя с интерпретатором.
 </para>

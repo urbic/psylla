@@ -18,7 +18,7 @@ if [ -f $HOME/.psyllarc ] ; then
 fi
 
 # Configuration
-MAIN_CLASS=coneforest.psylla.Psylla
+MAIN_CLASS=coneforest.psylla.runtime.Psylla
 BASE_FLAGS=""
 BASE_OPTIONS=""
 BASE_JARS="psylla coneforest.clianthus jline1"

@@ -5,7 +5,7 @@ if [ -x /usr/bin/build-classpath ]; then
 		--add-reads coneforest.psylla=ALL-UNNAMED \
 		-cp $(build-classpath jline1) \
 		-p target/artifacts/jar:$(build-classpath coneforest.clianthus) \
-		coneforest.psylla.Psylla \
+		coneforest.psylla.runtime.Psylla \
 		-Isrc/main/psylla \
 		"$@"
 fi
@@ -15,5 +15,5 @@ if [ -r /usr/lib/java-wrappers/java-wrappers.sh ]; then
 	find_java_runtime openjdk
 	JAVA_CLASSPATH=target/lib/psylla.jar
 	find_jars jline ./target/lib/psylla.jar
-	run_java coneforest.psylla.Psylla -Isrc/main/psylla "$@"
+	run_java coneforest.psylla.runtime.Psylla -Isrc/main/psylla "$@"
 fi

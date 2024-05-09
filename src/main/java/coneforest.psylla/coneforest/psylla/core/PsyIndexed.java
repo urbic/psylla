@@ -203,15 +203,15 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 				public void psyForAll(final PsyObject oProc)
 					throws PsyErrorException
 				{
-					final coneforest.psylla.Interpreter interpreter
-						=(coneforest.psylla.Interpreter)PsyContext.psyCurrentContext();
-					final coneforest.psylla.OperandStack ostack=interpreter.operandStack();
+					final coneforest.psylla.runtime.Interpreter interpreter
+						=(coneforest.psylla.runtime.Interpreter)PsyContext.psyCurrentContext();
+					final coneforest.psylla.runtime.OperandStack ostack=interpreter.operandStack();
 					final java.util.Iterator<K> iterator=psyKeys().iterator();
 					interpreter.pushLoopLevel();
 					interpreter.executionStack().push(new PsyOperator("#forall_continue")
 						{
 							@Override
-							public void action(final coneforest.psylla.Interpreter interpreter1)
+							public void action(final coneforest.psylla.runtime.Interpreter interpreter1)
 								throws PsyErrorException
 							{
 								if(iterator.hasNext())
