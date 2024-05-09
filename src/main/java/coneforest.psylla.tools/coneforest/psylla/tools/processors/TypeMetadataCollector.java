@@ -22,7 +22,7 @@ import javax.lang.model.element.VariableElement;
 import javax.tools.Diagnostic;
 
 @SupportedAnnotationTypes({"coneforest.psylla.runtime.Type",
-	"coneforest.psylla.runtime,ErrorType",
+	"coneforest.psylla.runtime.ErrorType",
 	"coneforest.psylla.runtime.OperatorType"})
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class TypeMetadataCollector
