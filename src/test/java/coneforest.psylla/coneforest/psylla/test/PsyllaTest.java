@@ -6,7 +6,7 @@ public class PsyllaTest
 	/*
 	public static void run(final String[] args)
 	{
-		coneforest.psylla.Psylla.main(args);
+		coneforest.psylla.runtime.Psylla.main(args);
 	}
 
 	public static void runScript(final String scriptName, final String[] scriptArgs, final String[] psyllaArgs)

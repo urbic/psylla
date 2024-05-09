@@ -151,9 +151,9 @@
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
 			<include name="coneforest/psylla/tools/processors/*.java"/>
-			<include name="coneforest/psylla/Type.java"/>
-			<include name="coneforest/psylla/ErrorType.java"/>
-			<include name="coneforest/psylla/OperatorType.java"/>
+			<include name="coneforest/psylla/runtime/Type.java"/>
+			<include name="coneforest/psylla/runtime/ErrorType.java"/>
+			<include name="coneforest/psylla/runtime/OperatorType.java"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<compilerarg value="-proc:none"/>
 			<compilerarg value="-Xdiags:verbose"/>
