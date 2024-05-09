@@ -3,7 +3,7 @@ The extension of the language is done by adding new operators and types.
 </p><section class="section" id="PsyllaReference_Development_Extension_NewOperators"><div class="titlepage"><div><div><h3 class="title">7.1.1. Adding new operators</h3></div></div></div><p>
 The new operator is implemented as a subclass of the
 <code class="classname">coneforest.psylla.core.PsyOperator</code> class. In the
-operator class, you should override the method <code class="methodname"><a class="methodname" href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(coneforest.psylla.Interpreter)" target="_top">invoke()</a></code>.
+operator class, you should override the method <code class="methodname"><a class="methodname" href="../../javadoc/coneforest/psylla/core/PsyObject.html#invoke(coneforest.psylla.runtime.Interpreter)" target="_top">invoke()</a></code>.
 Этот метод получает интерпретатор как параметр и выполняет требуемое действие,
 нужным образом манипулируя с интерпретатором.
 </p></section><section class="section" id="PsyllaReference_Development_Extension_External"><div class="titlepage"><div><div><h3 class="title">7.1.2. Загрузка объектов расширения</h3></div></div></div><p>
@@ -47,7 +47,7 @@ a string containing Roman notation. The <code class="token"><span class="hl-key
 a Roman string into a numeric form.
 </p><pre class="programlisting"><span class="hl-keyword">package</span> coneforest.psylla.extensions.romannumerals;
 
-<span class="hl-keyword">import</span> coneforest.psylla.*;
+<span class="hl-keyword">import</span> coneforest.psylla.runtime.*;
 <span class="hl-keyword">import</span> coneforest.psylla.core.*;
 <span class="hl-keyword">import</span> java.util.regex.Pattern;
 
