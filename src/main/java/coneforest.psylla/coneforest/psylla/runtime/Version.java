@@ -1,4 +1,4 @@
-package coneforest.psylla;
+package coneforest.psylla.runtime;
 
 /**
 *	Versioning information.

@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of the {@code stackunderflow} error thrown when the operand stack contains

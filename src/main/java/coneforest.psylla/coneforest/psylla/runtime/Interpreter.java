@@ -1,4 +1,4 @@
-package coneforest.psylla;
+package coneforest.psylla.runtime;
 
 import coneforest.psylla.core.*;
 import java.io.BufferedReader;
@@ -857,7 +857,7 @@ public class Interpreter
 	private boolean running=true;
 
 	private final java.lang.ClassLoader classLoader
-		=new coneforest.psylla.ClassLoader()
+		=new coneforest.psylla.runtime.ClassLoader()
 			{
 				@Override
 				protected Iterable<String> getClassPath()

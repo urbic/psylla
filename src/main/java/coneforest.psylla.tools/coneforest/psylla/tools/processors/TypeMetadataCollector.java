@@ -1,6 +1,6 @@
 package coneforest.psylla.tools.processors;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
@@ -21,7 +21,9 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
 import javax.tools.Diagnostic;
 
-@SupportedAnnotationTypes({"coneforest.psylla.Type", "coneforest.psylla.ErrorType", "coneforest.psylla.OperatorType"})
+@SupportedAnnotationTypes({"coneforest.psylla.runtime.Type",
+	"coneforest.psylla.runtime,ErrorType",
+	"coneforest.psylla.runtime.OperatorType"})
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class TypeMetadataCollector
 	extends AbstractProcessor

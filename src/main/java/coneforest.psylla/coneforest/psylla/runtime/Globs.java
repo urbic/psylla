@@ -1,4 +1,4 @@
-package coneforest.psylla;
+package coneforest.psylla.runtime;
 
 /**
 *	Support for shell-like glob patterns.

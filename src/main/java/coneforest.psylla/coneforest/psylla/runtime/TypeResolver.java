@@ -1,4 +1,4 @@
-package coneforest.psylla;
+package coneforest.psylla.runtime;
 
 import coneforest.psylla.core.*;
 import java.io.BufferedReader;
@@ -11,7 +11,11 @@ import java.io.InputStreamReader;
 public interface TypeResolver
 {
 	/**
-	*	Resolves the type name
+	*	Resolves the type name.
+	*
+	*	@param typeName the type name to resolve.
+	*	@return the class that was found.
+	*	@throws PsyUndefinedException TODO
 	*/
 	public static Class<? extends PsyObject> resolve(final String typeName)
 		throws PsyUndefinedException

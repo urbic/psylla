@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of {@code null}, a type of a void placeholder. There is the only instance of

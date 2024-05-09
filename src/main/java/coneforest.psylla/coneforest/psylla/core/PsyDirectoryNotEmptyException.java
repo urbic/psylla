@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 
 @ErrorType("directorynotempty")
 public class PsyDirectoryNotEmptyException

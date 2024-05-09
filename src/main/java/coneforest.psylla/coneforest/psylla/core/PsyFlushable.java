@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of a {@code flushable}, an object that can be flushed in some sense.

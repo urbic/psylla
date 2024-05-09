@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import java.util.Comparator;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;

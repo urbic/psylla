@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of a {@code formalset}, an abstraction of a finite set of {@code object}s.

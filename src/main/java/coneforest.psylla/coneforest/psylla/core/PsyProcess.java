@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

@@ -1,6 +1,6 @@
 package coneforest.psylla.tools.ant;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import java.util.ArrayList;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.optional.junit.JUnitTask;

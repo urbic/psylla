@@ -1,4 +1,4 @@
-package coneforest.psylla;
+package coneforest.psylla.runtime;
 
 import java.util.ResourceBundle;
 
@@ -15,5 +15,5 @@ public class Messages
 	}
 
 	private static final ResourceBundle messages
-		=ResourceBundle.getBundle(coneforest.psylla.Messages.class.getName());
+		=ResourceBundle.getBundle(coneforest.psylla.runtime.Messages.class.getName());
 }

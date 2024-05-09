@@ -1,6 +1,6 @@
 package coneforest.psylla.engine;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import coneforest.psylla.core.*;
 import java.io.Reader;
 import javax.script.AbstractScriptEngine;
@@ -17,7 +17,7 @@ public class PsyllaScriptEngine
 	public PsyllaScriptEngine(final ScriptEngineFactory factory)
 	{
 		this.factory=factory;
-		interpreter=new coneforest.psylla.Interpreter();
+		interpreter=new coneforest.psylla.runtime.Interpreter();
 		interpreter.start();
 	}
 

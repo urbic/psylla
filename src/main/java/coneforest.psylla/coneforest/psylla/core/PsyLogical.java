@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of {@code logical}, a type of object that is an operand of logical operation.
@@ -9,7 +9,7 @@ import coneforest.psylla.*;
 *
 *	@param <T> a type of the second operand at binary operation.
 */
-@coneforest.psylla.Type("logical")
+@Type("logical")
 public interface PsyLogical<T extends PsyLogical>
 	extends PsyObject
 {

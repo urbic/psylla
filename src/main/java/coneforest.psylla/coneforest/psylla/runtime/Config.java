@@ -1,4 +1,5 @@
-package coneforest.psylla;
+package coneforest.psylla.runtime;
+
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Set;

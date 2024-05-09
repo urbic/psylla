@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Paths;

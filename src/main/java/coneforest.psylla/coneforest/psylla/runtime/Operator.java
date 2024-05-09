@@ -1,4 +1,4 @@
-package coneforest.psylla;
+package coneforest.psylla.runtime;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

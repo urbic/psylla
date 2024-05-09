@@ -5,7 +5,7 @@ options
 
 PARSER_BEGIN(Parser)
 
-package coneforest.psylla;
+package coneforest.psylla.runtime;
 
 import coneforest.psylla.core.PsyReader;
 

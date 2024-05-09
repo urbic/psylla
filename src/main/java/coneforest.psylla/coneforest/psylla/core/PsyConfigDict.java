@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.Config;
+import coneforest.psylla.runtime.Config;
 import java.util.Properties;
 
 public class PsyConfigDict

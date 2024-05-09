@@ -122,11 +122,11 @@
 		description="Compile JJ sources"
 		>
 		<mkdir
-			dir="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla"/>
+			dir="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla/runtime"/>
 		<dirname property="javacc.home" file="${config.jar.javacc}"/>
 		<javacc
-			target="${src.main.jj}/${project.moduleprefix}/coneforest/psylla/Parser.jj"
-			outputdirectory="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla"
+			target="${src.main.jj}/${project.moduleprefix}/coneforest/psylla/runtime/Parser.jj"
+			outputdirectory="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla/runtime"
 			unicodeinput="true"
 			static="false"
 			javacchome="${javacc.home}"
@@ -247,7 +247,7 @@
 			file="LICENSE"
 			/>
 		<echoproperties
-			destfile="${target.classes}/${project.moduleprefix}/coneforest/psylla/Config.properties"
+			destfile="${target.classes}/${project.moduleprefix}/coneforest/psylla/runtime/Config.properties"
 			>
 			<propertyset>
 				<propertyref prefix="config."/>

@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import java.math.BigInteger;
 
 /**
@@ -170,11 +170,11 @@ public sealed interface PsyRational
 	public static PsyRational parseLiteral(final String image)
 		throws PsySyntaxErrorException, PsyUndefinedResultException
 	{
-		var colonIndex=image.indexOf(':');
-		if(colonIndex==-1)
+		var slashIndex=image.indexOf('/');
+		if(slashIndex==-1)
 			return PsyIntegral.parseLiteral(image);
-		return of(PsyIntegral.parseLiteral(image.substring(0, colonIndex)),
-				PsyIntegral.parseLiteral(image.substring(colonIndex)));
+		return of(PsyIntegral.parseLiteral(image.substring(0, slashIndex)),
+				PsyIntegral.parseLiteral(image.substring(slashIndex)));
 	}
 
 	/**

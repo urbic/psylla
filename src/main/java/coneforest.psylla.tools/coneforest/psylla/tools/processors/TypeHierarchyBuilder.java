@@ -25,7 +25,7 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 
-@SupportedAnnotationTypes({"coneforest.psylla.Type"})
+@SupportedAnnotationTypes({"coneforest.psylla.runtime.Type"})
 @SupportedSourceVersion(SourceVersion.RELEASE_17)
 public class TypeHierarchyBuilder
 	extends AbstractProcessor
@@ -35,20 +35,20 @@ public class TypeHierarchyBuilder
 	{
 		final var hierarchy=new HashMap<String, ArrayList<String>>();
 
-		for(final var element: roundEnv.getElementsAnnotatedWith(coneforest.psylla.Type.class))
+		for(final var element: roundEnv.getElementsAnnotatedWith(coneforest.psylla.runtime.Type.class))
 		{
-			final var typeName=element.getAnnotation(coneforest.psylla.Type.class).value();
+			final var typeName=element.getAnnotation(coneforest.psylla.runtime.Type.class).value();
 			final var parentNames=new ArrayList<String>();
 			for(final var iface: ((TypeElement)element).getInterfaces())
 			{
-				final var annot=(tu.asElement(iface)).getAnnotation(coneforest.psylla.Type.class);
+				final var annot=(tu.asElement(iface)).getAnnotation(coneforest.psylla.runtime.Type.class);
 				if(annot!=null)
 					parentNames.add(annot.value());
 			}
 			final var superclass=tu.asElement(((TypeElement)element).getSuperclass());
 			if(superclass!=null)
 			{
-				final var annot=superclass.getAnnotation(coneforest.psylla.Type.class);
+				final var annot=superclass.getAnnotation(coneforest.psylla.runtime.Type.class);
 				if(annot!=null)
 					parentNames.add(annot.value());
 			}

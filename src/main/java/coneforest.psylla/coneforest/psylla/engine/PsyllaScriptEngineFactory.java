@@ -85,13 +85,13 @@ public class PsyllaScriptEngineFactory
 	@Override
 	public String getLanguageVersion()
 	{
-		return coneforest.psylla.Version.getVersion();
+		return coneforest.psylla.runtime.Version.getVersion();
 	}
 
 	@Override
 	public String getEngineVersion()
 	{
-		return coneforest.psylla.Version.getVersion();
+		return coneforest.psylla.runtime.Version.getVersion();
 	}
 
 	/**

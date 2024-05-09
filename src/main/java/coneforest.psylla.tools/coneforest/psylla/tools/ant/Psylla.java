@@ -43,7 +43,7 @@ public class Psylla
 
 		try
 		{
-			coneforest.psylla.Psylla.launch(System.out, System.err, args).join(timeout);
+			coneforest.psylla.runtime.Psylla.launch(System.out, System.err, args).join(timeout);
 		}
 		catch(final PsyErrorException e)
 		{

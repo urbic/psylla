@@ -77,7 +77,7 @@ public class PsyllaTest
 
 		try
 		{
-			coneforest.psylla.Psylla.launch(System.out, System.err, cmdLine).join();
+			coneforest.psylla.runtime.Psylla.launch(System.out, System.err, cmdLine).join();
 		}
 		catch(final PsyErrorException e)
 		{

@@ -1,6 +1,6 @@
 package coneforest.psylla.core;
 
-import coneforest.psylla.*;
+import coneforest.psylla.runtime.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
