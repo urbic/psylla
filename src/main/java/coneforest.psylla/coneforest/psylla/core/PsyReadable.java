@@ -26,7 +26,6 @@ public interface PsyReadable
 	default public Optional<PsyInteger> psyRead()
 		throws PsyIOErrorException
 	{
-		//return PsyInteger.of(read());
 		int c=read();
 		return c==-1? Optional.<PsyInteger>empty(): Optional.<PsyInteger>of(PsyInteger.of(c));
 	}
