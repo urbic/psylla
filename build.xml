@@ -277,6 +277,12 @@
 			>
 			<manifest>
 				<attribute name="Main-Class" value="${project.moduleprefix}.Psylla"/>
+				<attribute name="Specification-Title" value="Psylla"/>
+				<attribute name="Specification-Version" value="${project.version}"/>
+				<attribute name="Specification-Vendor" value="${project.developer.name}"/>
+				<attribute name="Implementation-Title" value="Psylla"/>
+				<attribute name="Implementation-Version" value="${project.version}"/>
+				<attribute name="Implementation-Vendor" value="${project.developer.name}"/>
 			</manifest>
 		</jar>
 		<jar
