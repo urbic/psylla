@@ -2,6 +2,8 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
@@ -102,9 +104,9 @@ public class PsySystemDict
         put("osversion", new PsyName(System.getProperty("os.version")));
         put("processors", PsyInteger.of(Runtime.getRuntime().availableProcessors()));
         put("product", new PsyName("Psylla"));
-        put("stderr", new PsyWriter(new java.io.OutputStreamWriter(System.err)));
-        put("stdin", new PsyReader(new java.io.InputStreamReader(System.in)));
-        put("stdout", new PsyWriter(new java.io.OutputStreamWriter(System.out)));
+        put("stderr", new PsyWriter(new OutputStreamWriter(System.err)));
+        put("stdin", new PsyReader(new InputStreamReader(System.in)));
+        put("stdout", new PsyWriter(new OutputStreamWriter(System.out)));
         put("stdrandom", new PsyRandom());
         put("true", PsyBoolean.TRUE);
         put("username", new PsyName(System.getProperty("user.name")));
