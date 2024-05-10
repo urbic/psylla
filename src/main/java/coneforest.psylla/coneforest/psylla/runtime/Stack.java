@@ -31,7 +31,7 @@ public class Stack<E>
 	}
 
 	/**
-	*	Pushes an element to the stack.
+	*	Pushes an element to this stack.
 	*
 	*	@param element an element.
 	*/
@@ -40,6 +40,11 @@ public class Stack<E>
 		add(element);
 	}
 
+	/**
+	*	Truncate this stack to the specified size.
+	*
+	*	@param size the size.
+	*/
 	public void setSize(final int size)
 	{
 		removeRange(size, size());
