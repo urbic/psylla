@@ -40,11 +40,10 @@ public class PsyReader
 	}
 
 	@Override
-	public void psyEval()
+	public void psyEval(final PsyContext oContext)
 		throws PsyErrorException
 	{
-		// TODO
-		PsyContext.psyCurrentContext().interpret(this);
+		oContext.interpret(this);
 	}
 
 	public Reader reader()

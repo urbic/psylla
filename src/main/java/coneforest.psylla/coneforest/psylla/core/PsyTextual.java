@@ -35,10 +35,10 @@ public interface PsyTextual
 	}
 
 	@Override
-	default public void psyEval()
+	default public void psyEval(final PsyContext oContext)
 		throws PsyErrorException
 	{
-		(new PsyStringReader(this)).psyEval();
+		(new PsyStringReader(this)).psyEval(oContext);
 	}
 
 	@Override

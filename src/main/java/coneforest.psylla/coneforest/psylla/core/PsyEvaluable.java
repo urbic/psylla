@@ -15,13 +15,13 @@ public interface PsyEvaluable
 	*
 	*	@throws PsyErrorException when an error occurs durind evaluation of this object.
 	*/
-	public void psyEval()
+	public void psyEval(final PsyContext oContext)
 		throws PsyErrorException;
 
 	/**
 	*	Context action of the {@code eval} operator.
 	*/
 	@OperatorType("eval")
-	public static final ContextAction PSY_EVAL
-		=ContextAction.<PsyEvaluable>ofConsumer(PsyEvaluable::psyEval);
+	public static final ContextAction PSY_EVAL=oContext->
+		oContext.operandStackBacked(1).<PsyEvaluable>getBacked(0).psyEval(oContext);
 }

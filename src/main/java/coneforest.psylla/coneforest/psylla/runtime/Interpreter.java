@@ -273,6 +273,7 @@ public class Interpreter
 				if(getStopped())
 					return;
 			}
+			// Incomplete procedure read
 			if(procstack.size()>initProcLevel)
 			{
 				var e=new PsySyntaxErrorException();
@@ -708,7 +709,7 @@ public class Interpreter
 				else
 				{
 					resourceRegistry.put(resourceName, resourceID);
-					new PsyFileReader(oFullResourceName).psyEval();
+					new PsyFileReader(oFullResourceName).psyEval(this);
 				}
 				return true;
 			}
