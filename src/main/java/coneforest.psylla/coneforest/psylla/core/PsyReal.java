@@ -11,6 +11,11 @@ import java.math.BigInteger;
 public final class PsyReal
 	implements PsyRealNumeric
 {
+	/**
+	*	Creates a new {@code real} representing the specified {@code double} value.
+	*
+	*	@param value a {@code double} value.
+	*/
 	public PsyReal(final double value)
 	{
 		this.value=value;
