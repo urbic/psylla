@@ -78,6 +78,7 @@
 			clonevm="false"
 			fork="true"
 			>
+			<modulepath refid="modulepath.main"/>
 			<arg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
 			<arg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
 		</java>
