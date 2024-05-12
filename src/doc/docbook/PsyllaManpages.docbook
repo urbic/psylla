@@ -217,6 +217,13 @@ The <application>Psylla</application> executable, which starts an interpreter.
 </listitem>
 </varlistentry>
 
+<varlistentry>
+<term><filename>*.psy</filename></term>
+<listitem>
+The <application>Psylla</application> programs.
+</listitem>
+</varlistentry>
+
 </variablelist>
 
 </refsection>
