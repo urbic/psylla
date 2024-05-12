@@ -10,8 +10,10 @@ import coneforest.psylla.runtime.*;
 */
 @Type("scalar")
 public interface PsyScalar<T extends PsyScalar>
-	extends PsyObject
+	extends PsyObject, Comparable<T>
 {
+
+	public int compareTo(T oScalar);
 
 	/**
 	*	Returns a {@code boolean} object representing the result of “less” comparison of this object
@@ -20,7 +22,10 @@ public interface PsyScalar<T extends PsyScalar>
 	*	@param oScalar an object with which this object is compared.
 	*	@return a {@code boolean} value indicating if this object is less than given object.
 	*/
-	public PsyBoolean psyLt(final T oScalar);
+	default public PsyBoolean psyLt(final T oScalar)
+	{
+		return PsyBoolean.of(compareTo(oScalar)<0);
+	}
 
 	/**
 	*	Returns a {@code boolean} object representing the result of “less or equal” comparison of
@@ -30,7 +35,10 @@ public interface PsyScalar<T extends PsyScalar>
 	*	@return a {@code boolean} value indicating if this object is less than or equal to given
 	*	object.
 	*/
-	public PsyBoolean psyLe(final T oScalar);
+	default public PsyBoolean psyLe(final T oScalar)
+	{
+		return PsyBoolean.of(compareTo(oScalar)<=0);
+	}
 
 	/**
 	*	Returns a {@code boolean} object representing the result of “greater” comparison of this
@@ -39,7 +47,10 @@ public interface PsyScalar<T extends PsyScalar>
 	*	@param oScalar an object with which this object is compared.
 	*	@return a {@code boolean} result of comparison.
 	*/
-	public PsyBoolean psyGt(final T oScalar);
+	default public PsyBoolean psyGt(final T oScalar)
+	{
+		return PsyBoolean.of(compareTo(oScalar)>0);
+	}
 
 	/**
 	*	Returns a {@code boolean} object representing the result of “greater or equal” comparison of
@@ -48,7 +59,10 @@ public interface PsyScalar<T extends PsyScalar>
 	*	@param oScalar an object with which this object is compared.
 	*	@return a {@code boolean} result of comparison.
 	*/
-	public PsyBoolean psyGe(final T oScalar);
+	default public PsyBoolean psyGe(final T oScalar)
+	{
+		return PsyBoolean.of(compareTo(oScalar)>=0);
+	}
 
 	/**
 	*	Compares this object against given object and returns an {@code integer} indicating the
@@ -59,7 +73,10 @@ public interface PsyScalar<T extends PsyScalar>
 	*	@param oScalar an object with which this object is compared.
 	*	@return a result of the comparison.
 	*/
-	public PsyInteger psyCmp(final T oScalar);
+	default public PsyInteger psyCmp(final T oScalar)
+	{
+		return PsyInteger.of(compareTo(oScalar));
+	}
 
 	/**
 	*	Returns the minimum of this {@code scalar} and given {@code scalar}.
@@ -69,7 +86,7 @@ public interface PsyScalar<T extends PsyScalar>
 	*/
 	default public PsyScalar psyMin(final T oScalar)
 	{
-		return psyLt(oScalar).booleanValue()? this: oScalar;
+		return compareTo(oScalar)<0? this: oScalar;
 	}
 
 	/**
@@ -80,7 +97,7 @@ public interface PsyScalar<T extends PsyScalar>
 	*/
 	default public PsyScalar psyMax(final T oScalar)
 	{
-		return psyGt(oScalar).booleanValue()? this: oScalar;
+		return compareTo(oScalar)>0? this: oScalar;
 	}
 
 	/**

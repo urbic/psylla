@@ -158,11 +158,11 @@ public sealed interface PsyRational
 	}
 
 	@Override
-	default public int cmp(final PsyRealNumeric oNumeric)
+	default public int compareTo(final PsyRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsyRational oRational)
 			return psyNumerator().psyMul(oRational.psyDenominator())
-					.cmp(psyDenominator().psyMul(oRational.psyNumerator()));
+					.compareTo(psyDenominator().psyMul(oRational.psyNumerator()));
 		// TODO
 		return Double.compare(doubleValue(), oNumeric.doubleValue());
 	}

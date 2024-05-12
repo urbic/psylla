@@ -91,40 +91,16 @@ public interface PsyTextual
 	}
 
 	@Override
+	default public int compareTo(final PsyTextual oTextual)
+	{
+		return stringValue().compareTo(oTextual.stringValue());
+	}
+
+	@Override
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
 		return PsyBoolean.of(o instanceof PsyTextual
 				&& stringValue().equals(((PsyTextual)o).stringValue()));
-	}
-
-	@Override
-	default public PsyBoolean psyLt(final PsyTextual oString)
-	{
-		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())<0);
-	}
-
-	@Override
-	default public PsyBoolean psyLe(final PsyTextual oString)
-	{
-		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())<=0);
-	}
-
-	@Override
-	default public PsyBoolean psyGt(final PsyTextual oString)
-	{
-		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())>0);
-	}
-
-	@Override
-	default public PsyBoolean psyGe(final PsyTextual oString)
-	{
-		return PsyBoolean.of(stringValue().compareTo(oString.stringValue())>=0);
-	}
-
-	@Override
-	default public PsyInteger psyCmp(final PsyTextual oString)
-	{
-		return PsyInteger.of(stringValue().compareTo(oString.stringValue()));
 	}
 
 	default public PsyArray psySplit(final PsyRegExp oRegExp)

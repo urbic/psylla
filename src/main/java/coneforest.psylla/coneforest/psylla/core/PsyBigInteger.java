@@ -209,14 +209,16 @@ public final class PsyBigInteger
 	}
 
 	@Override
-	public int cmp(final PsyRealNumeric oRealNumeric)
+	public int compareTo(final PsyRealNumeric oRealNumeric)
 	{
 		if(oRealNumeric instanceof PsyIntegral oIntegral)
 			return value.compareTo(oIntegral.bigIntegerValue());
 		if(oRealNumeric instanceof PsyRational oRational)
-			return psyMul(oRational.psyDenominator()).cmp(oRational.psyNumerator());
+			return psyMul(oRational.psyDenominator()).compareTo(oRational.psyNumerator());
 		if(oRealNumeric instanceof PsyReal oReal)
 			return Double.compare(doubleValue(), oReal.doubleValue());
+
+		// TODO
 		throw new ClassCastException();
 	}
 

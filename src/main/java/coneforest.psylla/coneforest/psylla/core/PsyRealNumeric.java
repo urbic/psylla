@@ -228,52 +228,11 @@ public sealed interface PsyRealNumeric
 	@Override
 	default public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.of(o instanceof PsyRealNumeric oRealNumeric && cmp(oRealNumeric)==0);
-	}
-
-	public int cmp(final PsyRealNumeric oRealNumeric);
-
-	/**
-	*	The “less” arithmetic comparison.
-	*/
-	@Override
-	default public PsyBoolean psyLt(final PsyRealNumeric oRealNumeric)
-	{
-		return PsyBoolean.of(cmp(oRealNumeric)<0);
-	}
-
-	/**
-	*	The “less or equal” arithmetic comparison.
-	*/
-	@Override
-	default public PsyBoolean psyLe(final PsyRealNumeric oRealNumeric)
-	{
-		return PsyBoolean.of(cmp(oRealNumeric)<=0);
-	}
-
-	/**
-	*	The “greater” arithmetic comparison.
-	*/
-	@Override
-	default public PsyBoolean psyGt(final PsyRealNumeric oRealNumeric)
-	{
-		return PsyBoolean.of(cmp(oRealNumeric)>0);
-	}
-
-	/**
-	*	The “greater or equal” arithmetic comparison.
-	*/
-	@Override
-	default public PsyBoolean psyGe(final PsyRealNumeric oRealNumeric)
-	{
-		return PsyBoolean.of(cmp(oRealNumeric)>=0);
+		return PsyBoolean.of(o instanceof PsyRealNumeric oRealNumeric && compareTo(oRealNumeric)==0);
 	}
 
 	@Override
-	default public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
-	{
-		return PsyInteger.of(cmp(oRealNumeric));
-	}
+	public int compareTo(final PsyRealNumeric oRealNumeric);
 
 	/**
 	*	Context action of the {@code ceiling} operator.

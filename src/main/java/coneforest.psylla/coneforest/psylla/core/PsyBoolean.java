@@ -98,34 +98,9 @@ public final class PsyBoolean
 	}
 
 	@Override
-	public PsyInteger psyCmp(final PsyBoolean oBoolean)
+	public int compareTo(final PsyBoolean oBoolean)
 	{
-		return this==oBoolean? PsyInteger.ZERO:
-				this==FALSE? PsyInteger.MINUS_ONE: PsyInteger.ONE;
-	}
-
-	@Override
-	public PsyBoolean psyLt(final PsyBoolean oBoolean)
-	{
-		return PsyBoolean.of(this==FALSE && oBoolean==TRUE);
-	}
-
-	@Override
-	public PsyBoolean psyLe(final PsyBoolean oBoolean)
-	{
-		return PsyBoolean.of(this==FALSE || this==oBoolean);
-	}
-
-	@Override
-	public PsyBoolean psyGt(final PsyBoolean oBoolean)
-	{
-		return PsyBoolean.of(this==TRUE && this==FALSE);
-	}
-
-	@Override
-	public PsyBoolean psyGe(final PsyBoolean oBoolean)
-	{
-		return PsyBoolean.of(this==TRUE || this==oBoolean);
+		return this==oBoolean? 0: this==FALSE? -1: 1;
 	}
 
 	@Override

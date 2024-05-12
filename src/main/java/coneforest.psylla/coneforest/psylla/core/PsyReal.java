@@ -171,11 +171,10 @@ public final class PsyReal
 	}
 
 	@Override
-	public int cmp(final PsyRealNumeric oNumeric)
+	public int compareTo(final PsyRealNumeric oNumeric)
 	{
 		return Double.compare(value, oNumeric.doubleValue());
 	}
-
 
 	@Override
 	public String toSyntaxString()
