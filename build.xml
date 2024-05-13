@@ -280,7 +280,7 @@
 				<attribute name="Specification-Title" value="Psylla"/>
 				<attribute name="Specification-Version" value="${project.version}"/>
 				<attribute name="Specification-Vendor" value="${project.developer.name}"/>
-				<attribute name="Implementation-Title" value="Psylla"/>
+				<attribute name="Implementation-Title" value="${project.moduleprefix}"/>
 				<attribute name="Implementation-Version" value="${project.version}"/>
 				<attribute name="Implementation-Vendor" value="${project.developer.name}"/>
 			</manifest>
@@ -288,7 +288,16 @@
 		<jar
 			jarfile="${target.artifacts}/jar/${project.moduleprefix}.tools-${project.version}.jar"
 			basedir="${target.classes}/${project.moduleprefix}.tools"
-			/>
+			>
+			<manifest>
+				<attribute name="Specification-Title" value="Psylla tools"/>
+				<attribute name="Specification-Version" value="${project.version}"/>
+				<attribute name="Specification-Vendor" value="${project.developer.name}"/>
+				<attribute name="Implementation-Title" value="${project.moduleprefix}.tools"/>
+				<attribute name="Implementation-Version" value="${project.version}"/>
+				<attribute name="Implementation-Vendor" value="${project.developer.name}"/>
+			</manifest>
+		</jar>
 	</target>
 
 	<target name="pom"
