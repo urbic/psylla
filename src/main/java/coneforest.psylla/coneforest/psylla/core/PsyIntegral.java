@@ -79,7 +79,7 @@ public sealed interface PsyIntegral
 			return oX;
 		while(oX.psyNonZero().booleanValue())
 		{
-			if(oX.psyGt(oY).booleanValue())
+			if(oX.compareTo(oY)>0)
 			{
 				var oT=oX;
 				oX=oY;

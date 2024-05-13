@@ -92,22 +92,8 @@ public final class PsyInteger
 	@Override
 	public PsyIntegral psyNeg()
 	{
-		// TODO
 		return value!=Long.MIN_VALUE?
 			PsyInteger.of(-value): new PsyBigInteger(bigIntegerValue().negate());
-	}
-
-	// TODO
-	@Override
-	public PsyInteger psyCmp(final PsyRealNumeric oRealNumeric)
-	{
-		if(oRealNumeric instanceof PsyInteger oInteger)
-			return value<oInteger.value? MINUS_ONE: value>oInteger.value? ONE: ZERO;
-		if(oRealNumeric instanceof PsyBigInteger oBigInteger)
-			return PsyInteger.of(bigIntegerValue().compareTo(oBigInteger.bigIntegerValue()));
-		if(oRealNumeric instanceof PsyReal oReal)
-			return value<oReal.doubleValue()? MINUS_ONE: value>oReal.doubleValue()? ONE: ZERO;
-		throw new ClassCastException();
 	}
 
 	@Override

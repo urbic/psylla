@@ -26,7 +26,7 @@ public class PsyRange
 	@Override
 	public Stream<PsyRealNumeric> stream()
 	{
-		final boolean forward=oIncrement.psyGt(PsyInteger.ZERO).booleanValue();
+		final boolean forward=(oIncrement.compareTo(PsyInteger.ZERO)>0);
 		return StreamSupport.<PsyRealNumeric>stream(
 				Spliterators.<PsyRealNumeric>spliteratorUnknownSize(
 					new Iterator<PsyRealNumeric>()
@@ -34,9 +34,9 @@ public class PsyRange
 							@Override
 							public boolean hasNext()
 							{
-								return (forward?
-										oNext.psyLe(oLimit):
-										oNext.psyGe(oLimit)).booleanValue();
+								return forward?
+										oNext.compareTo(oLimit)<=0:
+										oNext.compareTo(oLimit)>=0;
 							}
 
 							@Override

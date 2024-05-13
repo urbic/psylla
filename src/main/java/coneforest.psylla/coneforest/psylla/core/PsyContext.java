@@ -403,7 +403,7 @@ public interface PsyContext
 			final PsyObject oProc=ostack.getBacked(3);
 
 			oContext.pushLoopLevel();
-			estack.push(oIncrement.psyGt(PsyInteger.ZERO).booleanValue()?
+			estack.push(oIncrement.compareTo(PsyInteger.ZERO)>0?
 				new PsyOperator("#for_continue")
 					{
 						private PsyRealNumeric oCounter=oInitial;
@@ -411,7 +411,7 @@ public interface PsyContext
 						@Override
 						public void perform(final PsyContext oContext)
 						{
-							if(oCounter.psyGt(oLimit).booleanValue())
+							if(oCounter.compareTo(oLimit)>0)
 								oContext.popLoopLevel();
 							else
 							{
@@ -429,7 +429,7 @@ public interface PsyContext
 						@Override
 						public void perform(final PsyContext oContext)
 						{
-							if(oCounter.psyLt(oLimit).booleanValue())
+							if(oCounter.compareTo(oLimit)<0)
 								oContext.popLoopLevel();
 							else
 							{
