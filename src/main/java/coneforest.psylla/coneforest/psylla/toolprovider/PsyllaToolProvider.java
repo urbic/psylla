@@ -1,4 +1,4 @@
-package coneforest.psylla.tools.toolprovider;
+package coneforest.psylla.toolprovider;
 
 import coneforest.clianthus.processor.ProcessingException;
 import coneforest.psylla.runtime.*;

@@ -5,7 +5,7 @@ options
 
 PARSER_BEGIN(Parser)
 
-package coneforest.psylla.runtime;
+package coneforest.psylla.runtime.parser;
 
 import coneforest.psylla.core.PsyReader;
 
@@ -100,6 +100,7 @@ TOKEN:
 		(
 			<INTEGRAL_DEC_UNSIGNED> ("." (<DIGIT>)*)?
 				| "." <INTEGRAL_DEC_UNSIGNED>
+				| "∞"
 		)
 		(<EXPONENT>)?
 	>
