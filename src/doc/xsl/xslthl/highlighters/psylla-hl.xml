@@ -40,13 +40,18 @@
 		<style>number</style>
 	</highlighter>
 
-	<!--highlighter type="regex">
-		<pattern>[\+\-]?(\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?([\+\-](\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?i)?</pattern>
-		<style>number</style>
-	</highlighter-->
-
 	<highlighter type="regex">
 		<pattern>[Cc]`([^\\]|\\[efranux])</pattern>
+		<style>number</style>
+	</highlighter>
+
+	<highlighter type="regex">
+		<pattern>[\+\-]?(\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?([\+\-](\d*\.\d+|\d+(\.\d*)?)([Ee][\+\-]?\d+)?i)?</pattern>
+		<style>number</style>
+	</highlighter>
+
+	<highlighter type="regex">
+		<pattern>[\+\-]?∞</pattern>
 		<style>number</style>
 	</highlighter>
 
