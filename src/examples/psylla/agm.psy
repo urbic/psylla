@@ -1,0 +1,17 @@
+#!/usr/bin/psylla
+
+/agm
+{
+	1. 2 copy gt { exch } if
+	{
+		dup 3 1 roll
+		2 copy mul sqrt 3 1 roll add 2. div
+		3 -1 roll
+		2 copy ge { pop exch pop exit } if
+		pop
+	}
+	loop
+}
+bind def
+
+arguments 0 get toreal agm ?

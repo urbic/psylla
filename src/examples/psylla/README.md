@@ -11,6 +11,14 @@ non-negative integers $n$ and $m$ are passed in the command line.
 * [__`ackermann-iterative.psy`__](ackermann-recursive.psy) — iterative
   implementation
 
+## Arithmetic–geometric mean
+
+Prints the value of the [Arithmetic–geometric
+mean](https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean)
+$\mathrm{agm}(1,x)$. The positive real $x$ is passed in the command line.
+
+* [__`agm.psy`__](agm.psy)
+
 ## Asterisks
 
 Prints $n\times n$ square filled with spaces and asterisks. The non-negative
