@@ -82,7 +82,7 @@
 		<!-- Install Ant task -->
 		<echo
 			file="${destdir}/${config.sysconfdir}/ant.d/${project.name}"
-			message="${project.name}"
+			message="${project.name} ${project.groupId}.clianthus"
 			/>
 	</target>
 
