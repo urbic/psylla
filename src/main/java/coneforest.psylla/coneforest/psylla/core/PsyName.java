@@ -7,9 +7,7 @@ import coneforest.psylla.runtime.*;
 */
 @Type("name")
 public class PsyName
-	implements
-		PsyAtomic,
-		PsyTextual
+	implements PsyTextual, PsyValue
 {
 	/**
 	*	Instantiate a new {@code name} object from the given value.

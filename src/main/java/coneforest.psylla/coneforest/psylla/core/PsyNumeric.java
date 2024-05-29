@@ -7,12 +7,8 @@ import coneforest.psylla.runtime.*;
 */
 @Type("numeric")
 public sealed interface PsyNumeric
-	extends
-		PsyAtomic,
-		PsyArithmetic<PsyNumeric>
-	permits
-		PsyComplex,
-		PsyRealNumeric
+	extends PsyArithmetic<PsyNumeric>, PsyValue
+	permits PsyComplex, PsyRealNumeric
 {
 	/**
 	*	Returns the real part of this object.

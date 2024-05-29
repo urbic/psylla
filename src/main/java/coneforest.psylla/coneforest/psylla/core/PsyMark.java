@@ -3,11 +3,12 @@ package coneforest.psylla.core;
 import coneforest.psylla.runtime.*;
 
 /**
-*	The representation of {@code mark}.
+*	The {@code mark} object is used as a mark on the operand stack. There is the only instance of
+*	this class, {@link #MARK}.
 */
 @Type("mark")
 public final class PsyMark
-	implements PsyAtomic
+	implements PsyValue
 {
 	private PsyMark()
 	{

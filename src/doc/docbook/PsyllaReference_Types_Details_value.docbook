@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<section xml:id="PsyllaReference_Types_Details_atomic">
-<title><type>atomic</type></title>
-<indexterm><primary><type>atomic</type> Ⓣ</primary></indexterm>
+<section xml:id="PsyllaReference_Types_Details_value">
+<title><type>value</type></title>
+<indexterm><primary><type>value</type> Ⓣ</primary></indexterm>
 
 <para>
-A base type for atomic objects.
+A base type for value objects.
 </para>
 
 <formalpara>
@@ -13,7 +13,7 @@ A base type for atomic objects.
 <informalfigure>
 <mediaobject>
 <imageobject>
-<imagedata fileref="PsyllaTypesHierarchy_atomic.svg" format="SVG"/>
+<imagedata fileref="PsyllaTypesHierarchy_value.svg" format="SVG"/>
 </imageobject>
 </mediaobject>
 </informalfigure>

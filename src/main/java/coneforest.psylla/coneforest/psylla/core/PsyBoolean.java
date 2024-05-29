@@ -7,10 +7,7 @@ import coneforest.psylla.runtime.*;
 */
 @Type("boolean")
 public final class PsyBoolean
-	implements
-		PsyAtomic,
-		PsyScalar<PsyBoolean>,
-		PsyLogical<PsyBoolean>
+	implements PsyLogical<PsyBoolean>, PsyScalar<PsyBoolean>, PsyValue
 {
 	private PsyBoolean()
 	{
@@ -94,7 +91,7 @@ public final class PsyBoolean
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.of(equals(o));
+		return PsyBoolean.of(this==o);
 	}
 
 	@Override

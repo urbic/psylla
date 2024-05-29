@@ -9,7 +9,6 @@ A name, an immutable string.
 
 <formalpara>
 &TitleInherits;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_evaluable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
@@ -17,7 +16,8 @@ A name, an immutable string.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_value"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>

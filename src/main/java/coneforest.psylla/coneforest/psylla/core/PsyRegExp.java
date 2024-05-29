@@ -9,7 +9,7 @@ import java.util.regex.PatternSyntaxException;
 */
 @Type("regexp")
 public class PsyRegExp
-	implements PsyAtomic
+	implements PsyValue
 {
 	/**
 	*	Constructs a new {@code regexp} from the character sequence.

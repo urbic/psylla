@@ -9,9 +9,7 @@ import coneforest.psylla.runtime.*;
 public interface PsyObject
 {
 	/**
-	*	Returns a string representation of a type name.
-	*
-	*	@return TODO a string {@code "object"}.
+	*	{@return a string representation of a type name}
 	*/
 	default public String typeName()
 	{
@@ -68,24 +66,23 @@ public interface PsyObject
 	}
 
 	/**
-	*	Returns a clone of this object.
-	*
-	*	@return a clone of this object.
+	*	{@return a clone of this object}
 	*/
 	default public PsyObject psyClone()
 	{
 		return this;
 	}
 
+	/**
+	*	{@return a syntatctic representation of this object as a {@code name}}
+	*/
 	default public PsyName psySyntax()
 	{
 		return new PsyName(toSyntaxString());
 	}
 
 	/**
-	*	Returns a {@code string} representing this object.
-	*
-	*	@return a {@code string} representing this object.
+	*	{@return a {@code string} representing this object}
 	*/
 	default public PsyString psyToString()
 	{
@@ -93,9 +90,7 @@ public interface PsyObject
 	}
 
 	/**
-	*	Returns a {@code name} representing this object.
-	*
-	*	@return a {@code name} representing this object.
+	*	{@return a {@code name} representing this object}
 	*/
 	default public PsyName psyToName()
 	{
@@ -103,9 +98,7 @@ public interface PsyObject
 	}
 
 	/**
-	*	Returns the syntactic representation of this object.
-	*
-	*	@return the syntactic representation of this object.
+	*	{@return the syntactic representation of this object}
 	*/
 	default public String toSyntaxString()
 	{
@@ -129,9 +122,7 @@ public interface PsyObject
 	}
 
 	/**
-	*	Returns an {@code integer} hash code for this object.
-	*
-	*	@return an {@code integer} hash code for this object.
+	*	{@return an {@code integer} hash code for this object}
 	*/
 	default public PsyInteger psyHashCode()
 	{

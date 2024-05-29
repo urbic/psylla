@@ -8,7 +8,7 @@ import coneforest.psylla.runtime.*;
 */
 @Type("null")
 public final class PsyNull
-	implements PsyAtomic
+	implements PsyValue
 {
 	private PsyNull()
 	{

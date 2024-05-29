@@ -11,7 +11,6 @@ An integer number.
 &TitleInherits;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_additive"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_arithmetic"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_atomic"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_bitwise"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_logical"/>,
@@ -20,7 +19,8 @@ An integer number.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_rational"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_realnumeric"/>,
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>.
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_value"/>.
 <informalfigure>
 <mediaobject>
 <imageobject>

@@ -43,7 +43,6 @@ calculated, and the result will be integer.
 &PsyllaReference_Types_Details_appendable;
 &PsyllaReference_Types_Details_arithmetic;
 &PsyllaReference_Types_Details_array;
-&PsyllaReference_Types_Details_atomic;
 &PsyllaReference_Types_Details_bigfraction;
 &PsyllaReference_Types_Details_biginteger;
 &PsyllaReference_Types_Details_bitarray;
@@ -128,6 +127,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_stringwriter;
 &PsyllaReference_Types_Details_textual;
 &PsyllaReference_Types_Details_type;
+&PsyllaReference_Types_Details_value;
 &PsyllaReference_Types_Details_writable;
 &PsyllaReference_Types_Details_writer;
 

@@ -6,7 +6,7 @@
 <para>
 Returns a <replaceable>clone</replaceable> of an
 <replaceable>object</replaceable>. For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_atomic"/>
+linkend="PsyllaReference_Types_Details_value"/>
 <replaceable>object</replaceable>, returns an <replaceable>object</replaceable>
 itself. For composite <replaceable>object</replaceable>, returns a new object
 copy fully dissociated from an <replaceable>object</replaceable>.

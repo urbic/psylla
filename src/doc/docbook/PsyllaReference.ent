@@ -23,7 +23,6 @@
 <!ENTITY PsyllaReference_Types_Details_appendable			SYSTEM "PsyllaReference_Types_Details_appendable.docbook">
 <!ENTITY PsyllaReference_Types_Details_arithmetic			SYSTEM "PsyllaReference_Types_Details_arithmetic.docbook">
 <!ENTITY PsyllaReference_Types_Details_array				SYSTEM "PsyllaReference_Types_Details_array.docbook">
-<!ENTITY PsyllaReference_Types_Details_atomic				SYSTEM "PsyllaReference_Types_Details_atomic.docbook">
 <!ENTITY PsyllaReference_Types_Details_bigfraction			SYSTEM "PsyllaReference_Types_Details_bigfraction.docbook">
 <!ENTITY PsyllaReference_Types_Details_biginteger			SYSTEM "PsyllaReference_Types_Details_biginteger.docbook">
 <!ENTITY PsyllaReference_Types_Details_bitarray				SYSTEM "PsyllaReference_Types_Details_bitarray.docbook">
@@ -89,6 +88,7 @@
 <!ENTITY PsyllaReference_Types_Details_stringwriter			SYSTEM "PsyllaReference_Types_Details_stringwriter.docbook">
 <!ENTITY PsyllaReference_Types_Details_textual				SYSTEM "PsyllaReference_Types_Details_textual.docbook">
 <!ENTITY PsyllaReference_Types_Details_type					SYSTEM "PsyllaReference_Types_Details_type.docbook">
+<!ENTITY PsyllaReference_Types_Details_value				SYSTEM "PsyllaReference_Types_Details_value.docbook">
 <!ENTITY PsyllaReference_Types_Details_writable				SYSTEM "PsyllaReference_Types_Details_writable.docbook">
 <!ENTITY PsyllaReference_Types_Details_writer				SYSTEM "PsyllaReference_Types_Details_writer.docbook">
 
