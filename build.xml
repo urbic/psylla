@@ -69,7 +69,7 @@
 	</path>
 
 	<path id="modulesourcepath.test">
-		<pathelement location="${src.test.java}"/>
+		<!--pathelement location="${src.test.java}"/-->
 	</path>
 
 	<path id="modulesourcepath.examples">
@@ -122,11 +122,11 @@
 		description="Compile JJ sources"
 		>
 		<mkdir
-			dir="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla/runtime"/>
+			dir="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla/runtime/parser"/>
 		<dirname property="javacc.home" file="${config.jar.javacc}"/>
 		<javacc
-			target="${src.main.jj}/${project.moduleprefix}/coneforest/psylla/runtime/Parser.jj"
-			outputdirectory="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla/runtime"
+			target="${src.main.jj}/${project.moduleprefix}/coneforest/psylla/runtime/parser/Parser.jj"
+			outputdirectory="${target.src.main.java}/${project.moduleprefix}/coneforest/psylla/runtime/parser"
 			unicodeinput="true"
 			static="false"
 			javacchome="${javacc.home}"
@@ -214,6 +214,7 @@
 			charset="UTF-8"
 			doctitle="Psylla ${project.version}"
 			windowtitle="Psylla ${project.version}"
+			bottom="Copyright © 2014—2024 ${project.developer.name}"
 			>
 			<module name="${project.moduleprefix}"/>
 			<module name="${project.moduleprefix}.tools"/>
@@ -224,6 +225,7 @@
 			<arg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
 			<!--arg value="-Xdoclint:missing,reference,syntax"/-->
 			<arg value="-Xdoclint:all"/>
+			<arg value="-Xdoclint/package:-${project.moduleprefix}.runtime"/>
 			<arg value="-Xmaxwarns"/>
 			<arg value="1000"/>
 			<link href="file://${config.javadocdir.java}"/>
@@ -231,7 +233,6 @@
 			<link href="file://${config.javadocdir.junit4}"/>
 			<link href="file://${config.javadocdir.jline1}"/>
 			<link href="file://${config.javadocdir.clianthus}"/>
-			<bottom>Copyright © 2014—2024 ${project.developer.name}</bottom>
 		</javadoc>
 	</target>
 
