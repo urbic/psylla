@@ -23,6 +23,7 @@ Summary:        @obs.package.summary@
 License:        Zlib
 Group:          Development/Languages/Other
 URL:            @project.url@
+VCS:            git:@project.scm.url@
 Source:         %{name}-%{version}.tar.xz
 BuildRequires:  adobe-sourcecodepro-fonts
 BuildRequires:  adobe-sourcesanspro-fonts
