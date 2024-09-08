@@ -4,6 +4,8 @@ import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of {@code streamable}, an object that provide stream of something.
+*
+*	@param <T> the type of the elements of the stream.
 */
 @Type("streamable")
 public interface PsyStreamable<T extends PsyObject>

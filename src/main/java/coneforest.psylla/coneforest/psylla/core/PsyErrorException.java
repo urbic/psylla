@@ -10,6 +10,25 @@ abstract public class PsyErrorException
 	extends	Exception
 	implements PsyExecutable
 {
+
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyErrorException()
+	{
+		super();
+	}
+
+	/**
+	*	Constructs a new {@code exception} object with the specified detail message.
+	*
+	*	@param message the detail message.
+	*/
+	public PsyErrorException(final String message)
+	{
+		super(message);
+	}
+
 	@Override
 	public void invoke(final PsyContext oContext)
 	{

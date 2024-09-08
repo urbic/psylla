@@ -11,4 +11,11 @@ import coneforest.psylla.runtime.*;
 public class PsyUndefinedException
 	extends PsyErrorException
 {
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyUndefinedException()
+	{
+		super();
+	}
 }

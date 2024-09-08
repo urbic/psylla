@@ -20,9 +20,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 
 	/**
-	*	Returns the count of elements in this {@code formalstream}.
-	*
-	*	@return a count
+	*	{@return the count of elements in this {@code formalstream}}
 	*/
 	default public PsyInteger psyCount()
 		throws PsyInvalidStateException
@@ -88,11 +86,10 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 
 	/**
-	*	Returns a {@code formalstream} consisting of the remaining elements of this {@code
-	*	formalstream} after discarding the first oCount elements of the stream.
+	*	{@return a {@code formalstream} consisting of the remaining elements of this {@code
+	*	formalstream} after discarding the first oCount elements of the stream}
 	*
 	*	@param oCount the number of leading elements to skip.
-	*	@return a skipped stream.
 	*	@throws PsyRangeCheckException when oCount is negative.
 	*/
 	default public PsyFormalStream<T> psySkipped(final PsyInteger oCount)
@@ -112,11 +109,10 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 
 	/**
-	*	Returns a {@code formalstream} consisting of the elements of this
-	*	{@code formalstream}, truncated to be no longer than oCount in length.
+	*	{@return a {@code formalstream} consisting of the elements of this {@code formalstream},
+	*	truncated to be no longer than oCount in length}
 	*
 	*	@param oCount the number of elements the stream should be limited to.
-	*	@return a limited stream.
 	*	@throws PsyRangeCheckException when oCount is negative.
 	*/
 	default public PsyFormalStream<T> psyLimited(final PsyInteger oCount)
@@ -149,11 +145,10 @@ public interface PsyFormalStream<T extends PsyObject>
 	}
 
 	/**
-	*	Returns a stream over elements of this stream that satisfies the given predicate.
+	*	{@return a stream over elements of this stream that satisfies the given predicate}
 	*
 	*	@param oPredicate a predicate.
 	*	@param oContext a context in which a predicate is called.
-	*	@return a filtered stream.
 	*	@throws PsyErrorException TODO
 	*/
 	default public PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate, final PsyContext oContext)

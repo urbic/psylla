@@ -365,6 +365,12 @@ public class PsyString
 		return "\""+sb.toString()+"\"";
 	}
 
+	/**
+	*	{@return the {@code string} object obtained as a result of parsing the string literal image}
+	*
+	*	@param image the string literal image.
+	*	@throws PsySyntaxErrorException when the string literal is syntactically incorrect.
+	*/
 	public static PsyString parseLiteral(final String image)
 		throws PsySyntaxErrorException
 	{

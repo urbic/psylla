@@ -13,6 +13,13 @@ public interface PsyReadable
 		PsyReady
 {
 
+	/**
+	*	Reads a single character.
+	*
+	*	@return the character read, as an integer in the range 0 to 65535 ({@code 0x00–0xFFFF}), or
+	*		-1 if the end of the source has been reached.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public int read()
 		throws PsyIOErrorException;
 
@@ -21,7 +28,7 @@ public interface PsyReadable
 	*	PsyInteger#MINUS_ONE} when end of input has been reached. TODO
 	*
 	*	@return an {@code integer} representing the character read from this object.
-	*	@throws PsyIOErrorException when I/O error occurs.
+	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
 	default public Optional<PsyInteger> psyRead()
 		throws PsyIOErrorException

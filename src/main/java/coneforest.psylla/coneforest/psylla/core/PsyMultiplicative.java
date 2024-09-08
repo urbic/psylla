@@ -12,22 +12,25 @@ import coneforest.psylla.runtime.*;
 public interface PsyMultiplicative<T extends PsyMultiplicative>
 	extends PsyObject
 {
+	/**
+	*	{@return the multiplicative inverse of this object}
+	*
+	*	@throws PsyUndefinedResultException if this object is zero.
+	*/
 	public T psyReciprocal()
 		throws PsyUndefinedResultException;
 
 	/**
-	*	Returns a result of arithmetic multiplication of given object by this object.
+	*	{@return a result of arithmetic multiplication of this number by given object}
 	*
-	*	@param oMultiplicative a given object.
-	*	@return a product.
+	*	@param oMultiplicative a given number.
 	*/
 	public T psyMul(final T oMultiplicative);
 
 	/**
-	*	Returns a result of arithmetic division of this object by given object.
+	*	{@return a result of arithmetic division of this object by given object}
 	*
 	*	@param oMultiplicative a given object.
-	*	@return a fraction.
 	*	@throws PsyUndefinedResultException when the result of division is not defined.
 	*/
 	public T psyDiv(final T oMultiplicative)

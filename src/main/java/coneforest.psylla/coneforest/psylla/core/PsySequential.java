@@ -4,6 +4,8 @@ import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of {@code sequential}.
+*
+*	@param <T> the type of the objects in the sequence.
 */
 @Type("sequential")
 public interface PsySequential<T extends PsyObject>

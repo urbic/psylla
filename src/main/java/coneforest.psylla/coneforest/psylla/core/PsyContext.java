@@ -166,6 +166,11 @@ public interface PsyContext
 
 	public void handleExecutionStack(final int level);
 
+	/**
+	*	Interprets the Psylla code from the {@code reader} object.
+	*
+	*	@param oReader the {@code reader} object.
+	*/
 	public void interpret(final PsyReader oReader);
 
 	public void interpretBraced(final PsyReader oReader)

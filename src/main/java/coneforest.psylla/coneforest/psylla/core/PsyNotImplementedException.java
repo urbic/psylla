@@ -6,4 +6,11 @@ import coneforest.psylla.runtime.*;
 public class PsyNotImplementedException
 	extends PsyErrorException
 {
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyNotImplementedException()
+	{
+		super();
+	}
 }

@@ -43,7 +43,10 @@ public interface PsyAdditive<T extends PsyAdditive>
 	*
 	*   @return a {@code boolean} indicating whether this object represents a zero value.
 	*/
-	public PsyBoolean psyIsZero();
+	default public PsyBoolean psyIsZero()
+	{
+		return PsyBoolean.of(isZero());
+	}
 
 	/**
 	*   Returns a {@code boolean} indicating whether this object represents a non-zero value.
@@ -55,10 +58,13 @@ public interface PsyAdditive<T extends PsyAdditive>
 		return psyIsZero().psyNot();
 	}
 
+	public boolean isZero();
+
 	/**
 	*	Context action of the {@code add} operator.
 	*/
 	@OperatorType("add")
+	@SuppressWarnings("unchecked")
 	public static final ContextAction PSY_ADD
 		=ContextAction.<PsyAdditive, PsyAdditive>ofBiFunction(PsyAdditive::psyAdd);
 

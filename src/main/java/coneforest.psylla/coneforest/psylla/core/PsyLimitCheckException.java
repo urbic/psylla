@@ -9,4 +9,11 @@ import coneforest.psylla.runtime.*;
 public class PsyLimitCheckException
 	extends PsyErrorException
 {
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyLimitCheckException()
+	{
+		super();
+	}
 }

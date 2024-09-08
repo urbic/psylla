@@ -1,7 +1,7 @@
 package coneforest.psylla.runtime;
 
 /**
-*	Versioning information.
+*	Methods for obtaining version information.
 */
 public interface Version
 {
