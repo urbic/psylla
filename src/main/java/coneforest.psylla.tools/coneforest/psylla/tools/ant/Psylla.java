@@ -10,18 +10,33 @@ import org.apache.tools.ant.BuildException;
 
 /**
 *	The {@code psylla} Ant task.
+*
+*   <p>
+*	Supported attributes:
+*	<ul>
+*		<li>{@code eval}</li>
+*		<li>{@code script}</li>
+*		<li>{@code locale}</li>
+*		<li>{@code consoleEncoding}</li>
+*		<li>{@code classPath}</li>
+*		<li>{@code libraryPath}</li>
+*		<li>{@code timeout}</li>
+*	</ul>
 */
 public class Psylla
 	extends Task
 {
 	@Override
 	public void execute()
+		throws BuildException
 	{
 		final var psyllaArgs=new ArrayList<String>();
 		if(consoleEncoding!=null)
 			psyllaArgs.add("--console-encoding="+consoleEncoding);
 		if(classPath!=null)
 			psyllaArgs.add("--classpath="+classPath);
+		if(libraryPath!=null)
+			psyllaArgs.add("--librarypath="+libraryPath);
 		if(locale!=null)
 			psyllaArgs.add("--locale="+locale);
 		if(eval!=null)
@@ -37,7 +52,7 @@ public class Psylla
 		{
 			final var arg=argObject.getValue();
 			if(arg==null)
-				throw new BuildException("\"arg\" element must have \"value\" attribute");
+				throw new BuildException("The \"arg\" element must have the \"value\" attribute");
 			args[i++]=arg;
 		};
 
@@ -45,31 +60,44 @@ public class Psylla
 		{
 			coneforest.psylla.runtime.Psylla.launch(System.out, System.err, args).join(timeout);
 		}
-		catch(final PsyErrorException e)
+		catch(final PsyErrorException|ProcessingException|FileNotFoundException e)
 		{
-			// TODO
-		}
-		catch(final ProcessingException e)
-		{
-			// TODO
-		}
-		catch(final FileNotFoundException e)
-		{
-			// TODO
+			throw new BuildException(e);
 		}
 		catch(final InterruptedException e)
 		{
+			// NOP
 		}
 	}
 
+	/**
+	*	Set the eval string.
+	*
+	*	@param value the eval string.
+	*/
 	public void setEval(final String value)
 	{
 		eval=value;
 	}
 
+	/**
+	*	Set the class path.
+	*
+	*	@param value the class path.
+	*/
 	public void setClassPath(final String value)
 	{
 		classPath=value;
+	}
+
+	/**
+	*	Set the library path.
+	*
+	*	@param value the library path.
+	*/
+	public void setLibraryPath(final String value)
+	{
+		libraryPath=value;
 	}
 
 	/**
@@ -92,16 +120,29 @@ public class Psylla
 		consoleEncoding=value;
 	}
 
+	/**
+	*	Set the script.
+	*
+	*	@param value the script.
+	*/
 	public void setScript(final File value)
 	{
 		script=value;
 	}
 
+	/**
+	*	Set the timeout.
+	*
+	*	@param value the timeout.
+	*/
 	public void setTimeout(final Integer timeout)
 	{
 		this.timeout=timeout.intValue();
 	}
 
+	/**
+	*	Add a command-line argument.
+	*/
 	public Arg createArg()
 	{
 		final var arg=new Arg();
@@ -111,7 +152,7 @@ public class Psylla
 
 	private final ArrayList<Arg> argList=new ArrayList<>();
 
-	private String eval, classPath, consoleEncoding, locale;
+	private String eval, classPath, libraryPath, consoleEncoding, locale;
 
 	private File script;
 
