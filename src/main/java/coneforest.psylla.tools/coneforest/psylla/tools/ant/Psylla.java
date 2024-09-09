@@ -133,7 +133,7 @@ public class Psylla
 	/**
 	*	Set the timeout.
 	*
-	*	@param value the timeout.
+	*	@param timeout the timeout.
 	*/
 	public void setTimeout(final Integer timeout)
 	{

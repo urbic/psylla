@@ -83,6 +83,8 @@ public class Psylla
 	/**
 	*	Process command-line options and launches the Psylla interpreter.
 	*
+	*	@param outputWriter the output writer.
+	*	@param errorWriter the error writer.
 	*	@param args the command-line options.
 	*	@return the {@link Psylla} instance launched.
 	*	@throws PsyErrorException when TODO

@@ -8,7 +8,7 @@ import coneforest.psylla.runtime.*;
 */
 @ErrorType("notdirectory")
 public class PsyNotDirectoryException
-	extends PsyErrorException
+	extends PsyFileSystemErrorException
 {
 	/**
 	*	Constructs a new {@code exception} object with null as its detail message.
@@ -16,5 +16,13 @@ public class PsyNotDirectoryException
 	public PsyNotDirectoryException()
 	{
 		super();
+	}
+
+	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*/
+	public PsyNotDirectoryException(final Throwable cause)
+	{
+		super(cause);
 	}
 }

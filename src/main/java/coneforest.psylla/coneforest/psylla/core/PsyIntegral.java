@@ -143,6 +143,13 @@ public sealed interface PsyIntegral
 		}
 	}
 
+	/**
+	*	{@return the {@code integral} object obtained as a result of parsing the literal token
+	*	image}
+	*
+	*	@param image the literal token image.
+	*	@throws PsySyntaxErrorException when the literal image is syntactically incorrect.
+	*/
 	public static PsyIntegral parseLiteral(final String image)
 		throws PsySyntaxErrorException
 	{

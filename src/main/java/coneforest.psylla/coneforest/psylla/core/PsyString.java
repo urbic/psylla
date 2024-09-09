@@ -366,10 +366,10 @@ public class PsyString
 	}
 
 	/**
-	*	{@return the {@code string} object obtained as a result of parsing the string literal image}
+	*	{@return the {@code string} object obtained as a result of parsing the literal token image}
 	*
-	*	@param image the string literal image.
-	*	@throws PsySyntaxErrorException when the string literal is syntactically incorrect.
+	*	@param image the literal token image.
+	*	@throws PsySyntaxErrorException when the literal image is syntactically incorrect.
 	*/
 	public static PsyString parseLiteral(final String image)
 		throws PsySyntaxErrorException

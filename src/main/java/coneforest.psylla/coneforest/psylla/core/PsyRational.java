@@ -128,10 +128,9 @@ public sealed interface PsyRational
 	}
 
 	/**
-	*	Returns an {@code integral} representing this object modulo given modulus.
+	*	{@return an {@code integral} representing this object modulo given modulus}
 	*
 	*	@param oRational the given modulus.
-	*	@return an {@code integral} representing this object modulo given modulus.
 	*	@throws PsyRangeCheckException when the modulus is negative.
 	*	@throws PsyUndefinedResultException when the modulus is zero.
 	*/
@@ -144,7 +143,13 @@ public sealed interface PsyRational
 			(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
 	}
 
-	// TODO javadoc
+	/**
+	*	{@return the quotient of the integer division of this {@code rational} by the {@code
+	*	rational} divisor.
+	*
+	*	@param oRational the divisor.
+	*	@throws PsyUndefinedResultException when the divisor is zero.
+	*/
 	default public PsyIntegral psyIdiv(final PsyRational oRational)
 		throws PsyUndefinedResultException
 	{
@@ -153,11 +158,10 @@ public sealed interface PsyRational
 	}
 
 	/**
-	*	Returns a {@code rational} representing the greatest common divisor of this object and given
-	*	object.
+	*	{@return a {@code rational} representing the greatest common divisor of this object and
+	*	given object}
 	*
 	*	@param oRational the given object.
-	*	@return the greatest common divisor.
 	*/
 	default public PsyRational psyGCD(final PsyRational oRational)
 	{

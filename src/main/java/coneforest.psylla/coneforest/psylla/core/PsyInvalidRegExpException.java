@@ -6,4 +6,11 @@ import coneforest.psylla.runtime.*;
 public class PsyInvalidRegExpException
 	extends PsyErrorException
 {
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyInvalidRegExpException()
+	{
+		super();
+	}
 }

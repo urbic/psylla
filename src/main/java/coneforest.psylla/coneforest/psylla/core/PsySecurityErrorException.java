@@ -17,4 +17,12 @@ public class PsySecurityErrorException
 	{
 		super();
 	}
+
+	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*/
+	public PsySecurityErrorException(final Throwable cause)
+	{
+		super(cause);
+	}
 }

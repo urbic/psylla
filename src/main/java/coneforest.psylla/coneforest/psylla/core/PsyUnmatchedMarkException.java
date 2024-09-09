@@ -10,4 +10,11 @@ import coneforest.psylla.runtime.*;
 public class PsyUnmatchedMarkException
 	extends PsyErrorException
 {
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyUnmatchedMarkException()
+	{
+		super();
+	}
 }

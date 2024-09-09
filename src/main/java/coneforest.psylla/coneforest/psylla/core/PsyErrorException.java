@@ -20,6 +20,14 @@ abstract public class PsyErrorException
 	}
 
 	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*/
+	public PsyErrorException(final Throwable cause)
+	{
+		super(cause);
+	}
+
+	/**
 	*	Constructs a new {@code exception} object with the specified detail message.
 	*
 	*	@param message the detail message.

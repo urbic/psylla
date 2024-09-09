@@ -16,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.PosixFilePermission;
+import java.util.Set;
 
 /**
 *	An utility class providing filesystem-related methods.
@@ -27,7 +28,7 @@ public class PsyFileSystem
 	{
 	}
 
-	public static Path getPath(final PsyTextual oFileName)
+	private static Path getPath(final PsyTextual oFileName)
 	{
 		return Paths.get(oFileName.stringValue());
 	}
@@ -40,7 +41,7 @@ public class PsyFileSystem
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
 	*	permission or other access check.
 	*	@throws PsySecurityErrorException when security policy is violated.
-	*	@throws PsyIOErrorException when an input/output error occurs.
+	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
 	public static void psyCreateDirectory(final PsyTextual oFileName)
 		throws
@@ -55,19 +56,19 @@ public class PsyFileSystem
 		}
 		catch(final FileAlreadyExistsException ex)
 		{
-			throw new PsyFileExistsException();
+			throw new PsyFileExistsException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
@@ -103,7 +104,7 @@ public class PsyFileSystem
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
 	*	permission or other access check.
 	*	@throws PsySecurityErrorException when security policy is violated.
-	*	@throws PsyIOErrorException when an input/output error occurs.
+	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
 	public static void psyDeleteFile(final PsyTextual oFileName)
 		throws
@@ -119,38 +120,38 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final DirectoryNotEmptyException ex)
 		{
-			throw new PsyDirectoryNotEmptyException();
+			throw new PsyDirectoryNotEmptyException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
 	/**
 	*	Copies a file to the target file.
 	*
-	*	@param oSourceName a {@code textual} representing the name of the file to copy.
-	*	@param oTargetName a {@code textual} representing the name of the target file.
+	*	@param oSourceName a {@code textual} name of the file to copy.
+	*	@param oTargetName a {@code textual} name of the target file.
 	*	@throws PsyDirectoryNotEmptyException TODO
 	*	@throws PsyFileExistsException TODO
 	*	@throws PsyFileNotFoundException when the file or directory does not exist.
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file permission or
 	*	other access check.
 	*	@throws PsySecurityErrorException when security policy is violated.
-	*	@throws PsyIOErrorException when an input/output error occurs.
+	*	@throws PsyIOErrorException when an I/O error occurs.
 	*	@throws PsyUnsupportedException
 	*/
 	public static void psyCopyFile(final PsyTextual oSourceName, final PsyTextual oTargetName)
@@ -173,30 +174,36 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final DirectoryNotEmptyException ex)
 		{
-			throw new PsyDirectoryNotEmptyException();
+			throw new PsyDirectoryNotEmptyException(ex);
 		}
 		catch(final FileAlreadyExistsException ex)
 		{
-			throw new PsyFileExistsException();
+			throw new PsyFileExistsException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	{@return the target of a symbolic link}
+	*
+	*	@param oFileName the name of the target file.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyName psyReadLink(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -211,27 +218,34 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final NotLinkException ex)
 		{
-			throw new PsyNotLinkException();
+			throw new PsyNotLinkException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
-	public static void psySymlink(final PsyTextual oFileName1, final PsyTextual oFileName2)
+	/**
+	*	Creates a symbolic link to a target.
+	*
+	*	@param oTarget the target of the symbolic link.
+	*	@param oLink the path of the symbolic link to create.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psySymlink(final PsyTextual oTarget, final PsyTextual oLink)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileExistsException,
@@ -241,8 +255,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			Files.createSymbolicLink(getPath(oFileName2),
-				getPath(oFileName1));
+			Files.createSymbolicLink(getPath(oLink), getPath(oTarget));
 		}
 		catch(final UnsupportedOperationException ex)
 		{
@@ -250,24 +263,28 @@ public class PsyFileSystem
 		}
 		catch(final FileAlreadyExistsException ex)
 		{
-			throw new PsyFileExistsException();
+			throw new PsyFileExistsException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
-	public static void psyHardlink(final PsyTextual oFileName1,
-			final PsyTextual oFileName2)
+	/**
+	*	Creates a new link (directory entry) for an existing file.
+	*
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psyHardlink(final PsyTextual oExisting, final PsyTextual oLink)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileExistsException,
@@ -278,7 +295,7 @@ public class PsyFileSystem
 	{
 		try
 		{
-			Files.createLink(getPath(oFileName2), getPath(oFileName1));
+			Files.createLink(getPath(oLink), getPath(oExisting));
 		}
 		catch(final UnsupportedOperationException ex)
 		{
@@ -286,26 +303,29 @@ public class PsyFileSystem
 		}
 		catch(final FileAlreadyExistsException ex)
 		{
-			throw new PsyFileExistsException();
+			throw new PsyFileExistsException(ex);
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static void psyRenameFile(final PsyTextual oFileName1, final PsyTextual oFileName2)
 		throws
 			PsyDirectoryNotEmptyException,
@@ -321,27 +341,27 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final FileAlreadyExistsException ex)
 		{
-			throw new PsyFileExistsException();
+			throw new PsyFileExistsException(ex);
 		}
 		catch(final DirectoryNotEmptyException ex)
 		{
-			throw new PsyDirectoryNotEmptyException();
+			throw new PsyDirectoryNotEmptyException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
@@ -354,10 +374,13 @@ public class PsyFileSystem
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyBoolean psyIsFile(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -373,22 +396,25 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyBoolean psyIsDirectory(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -404,22 +430,25 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyBoolean psyIsSameFile(final PsyTextual oFileName1, final PsyTextual oFileName2)
 		throws
 			PsyFileAccessDeniedException,
@@ -434,22 +463,25 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyBoolean psyIsSymlink(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -465,19 +497,19 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
@@ -491,7 +523,7 @@ public class PsyFileSystem
 	*	other access check.
 	*	@throws PsyFileNotFoundException when the file or directory does not exist.
 	*	@throws PsySecurityErrorException when security policy is violated.
-	*	@throws PsyIOErrorException when an input/output error occurs.
+	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
 	public static PsyInteger psyFileSize(final PsyTextual oFileName)
 		throws
@@ -506,22 +538,25 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyInteger psyFileAccessTime(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -536,22 +571,25 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyInteger psyFileCreationTime(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -566,22 +604,25 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyInteger psyFileModifiedTime(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -596,26 +637,24 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
 	/**
-	*	Returns a {@code name} representing the absolute name of the current directory.
-	*
-	*	@return a {@code name} representing the absolute name of the current directory.
+	*	{@return a {@code name} representing the absolute name of the current directory}
 	*/
 	public static PsyName psyCurrentDirectory()
 	{
@@ -623,11 +662,10 @@ public class PsyFileSystem
 	}
 
 	/**
-	*	Returns a {@code name} representing the absolute path to given file.
+	*	{@return a {@code name} representing the absolute path to given file}
 	*
 	*	@param oFileName a {@code name} representing file name.
-	*	@return a {@code name} representing the absolute path. directory.
-	*	@throws PsyIOErrorException when an input/output error occurs.
+	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
 	public static PsyName psyFileAbsolutePath(final PsyTextual oFileName)
 		throws PsyIOErrorException
@@ -638,10 +676,13 @@ public class PsyFileSystem
 		}
 		catch(final IOError ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyInteger psyFilePermissions(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -651,7 +692,8 @@ public class PsyFileSystem
 	{
 		try
 		{
-			final java.util.Set<PosixFilePermission> permSet
+			//final Set<PosixFilePermission> permSet
+			final var permSet
 				=Files.getPosixFilePermissions(getPath(oFileName));
 			long permissions=0L;
 			for(final var p: permSet)
@@ -661,22 +703,25 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static void psyChangeFilePermissions(final PsyTextual oFileName, final PsyInteger oPermissions)
 		throws
 			PsyFileAccessDeniedException,
@@ -697,22 +742,25 @@ public class PsyFileSystem
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyObject psyFileAttribute(final PsyTextual oFileName, final PsyTextual oAttribute)
 		throws
 			PsyFileAccessDeniedException,
@@ -754,10 +802,13 @@ public class PsyFileSystem
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 	}
 
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static void psyChangeFileAttribute(final PsyTextual oFileName, final PsyTextual oAttribute, final PsyObject oValue)
 		throws
 			PsyFileAccessDeniedException,
@@ -788,22 +839,29 @@ public class PsyFileSystem
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 	}
 
+	/**
+	*	{@return a lazily populated stream, the elements of which are the entries in the directory}
+	*	The listing is not recursive.}
+	*
+	*	@param oFileName the name of the directory.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
 	public static PsyStream psyFiles(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
@@ -819,23 +877,23 @@ public class PsyFileSystem
 		}
 		catch(final NoSuchFileException ex)
 		{
-			throw new PsyFileNotFoundException();
+			throw new PsyFileNotFoundException(ex);
 		}
 		catch(final NotDirectoryException ex)
 		{
-			throw new PsyNotDirectoryException();
+			throw new PsyNotDirectoryException(ex);
 		}
 		catch(final AccessDeniedException ex)
 		{
-			throw new PsyFileAccessDeniedException();
+			throw new PsyFileAccessDeniedException(ex);
 		}
 		catch(final IOException ex)
 		{
-			throw new PsyIOErrorException();
+			throw new PsyIOErrorException(ex);
 		}
 		catch(final SecurityException ex)
 		{
-			throw new PsySecurityErrorException();
+			throw new PsySecurityErrorException(ex);
 		}
 	}
 

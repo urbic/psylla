@@ -21,6 +21,8 @@ public interface PsyFormalStream<T extends PsyObject>
 
 	/**
 	*	{@return the count of elements in this {@code formalstream}}
+	*
+	*	@throws PsyInvalidStateException TODO
 	*/
 	default public PsyInteger psyCount()
 		throws PsyInvalidStateException

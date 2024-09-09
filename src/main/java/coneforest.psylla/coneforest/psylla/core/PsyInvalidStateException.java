@@ -10,4 +10,11 @@ import coneforest.psylla.runtime.*;
 public class PsyInvalidStateException
 	extends PsyErrorException
 {
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyInvalidStateException()
+	{
+		super();
+	}
 }

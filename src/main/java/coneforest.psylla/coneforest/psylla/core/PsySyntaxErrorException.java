@@ -9,4 +9,11 @@ import coneforest.psylla.runtime.*;
 public class PsySyntaxErrorException
 	extends PsyErrorException
 {
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsySyntaxErrorException()
+	{
+		super();
+	}
 }
