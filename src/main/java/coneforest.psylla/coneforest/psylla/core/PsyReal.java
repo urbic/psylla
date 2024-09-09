@@ -31,9 +31,9 @@ public final class PsyReal
 	}
 
 	@Override
-	public PsyBoolean psyIsZero()
+	public boolean isZero()
 	{
-		return PsyBoolean.of(value==0.D);
+		return value==0.D;
 	}
 
 	@Override
@@ -80,10 +80,10 @@ public final class PsyReal
 		if((bits&0x8000000000000000L)!=0L)
 			retval=retval.psyNeg();
 		return (PsyRational)(pow>=0?
-				retval.psyMul((pow<63)?
+				retval.psyMul((1+pow<Double.SIZE)?
 						PsyInteger.of(1L<<pow):
 						new PsyBigInteger(BigInteger.ZERO.flipBit(pow))):
-				retval.psyDiv((-pow<63)?
+				retval.psyDiv((1-pow<Double.SIZE)?
 						PsyInteger.of(1L<<-pow):
 						new PsyBigInteger(BigInteger.ZERO.flipBit(-pow))));
 	}
@@ -130,22 +130,6 @@ public final class PsyReal
 		return new PsyReal(value*oRealNumeric.doubleValue());
 	}
 
-	/*
-	@Override
-	public PsyFloatingPoint psyDiv(final PsyNumeric oNumeric)
-	{
-		if(oNumeric instanceof PsyRealNumeric oRealNumeric)
-			return new PsyReal(doubleValue()/oRealNumeric.doubleValue());
-		else
-		{
-			final var x=oNumeric.realValue();
-			final var y=oNumeric.imagValue();
-			final var m=value/Math.hypot(x, y);
-			return PsyFloatingPoint.of(x*m, -y*m);
-		}
-	}
-	*/
-
 	@Override
 	public PsyReal psyDiv(final PsyRealNumeric oRealNumeric)
 	{
@@ -179,6 +163,10 @@ public final class PsyReal
 	@Override
 	public String toSyntaxString()
 	{
+		if(value==Double.NEGATIVE_INFINITY)
+			return "-∞";
+		if(value==Double.POSITIVE_INFINITY)
+			return "∞";
 		return String.valueOf(value);
 	}
 
@@ -197,7 +185,12 @@ public final class PsyReal
 
 	public static PsyReal parseLiteral(final String image)
 	{
-		return new PsyReal(Double.parseDouble(image));
+		return new PsyReal(switch(image)
+			{
+				case "∞"->Double.POSITIVE_INFINITY;
+				case "-∞"->Double.NEGATIVE_INFINITY;
+				default->Double.parseDouble(image);
+			});
 	}
 
 	/**

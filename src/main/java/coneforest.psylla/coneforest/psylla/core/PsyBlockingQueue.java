@@ -8,7 +8,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 *	The representation of {@code blockingqueue}.
 */
 @Type("blockingqueue")
-public class PsyBlockingQueue
+public final class PsyBlockingQueue
 	implements
 		PsyFormalQueue<PsyObject>,
 		PsyCloseable

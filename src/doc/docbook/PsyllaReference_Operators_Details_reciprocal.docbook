@@ -8,22 +8,6 @@ Returns the multiplicative <replaceable>inverse</replaceable> of the
 <replaceable>number</replaceable>.
 </para>
 
-<!--para>
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>
-<replaceable>number</replaceable> the type of a
-<replaceable>negation</replaceable> is also <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_integer"/>, unless a
-<replaceable>number</replaceable> is <constant>-9223372036854775808</constant>,
-then the type of a <replaceable>negation</replaceable> is <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_biginteger"/>.
-For <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_real"/> or <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_complex"/>
-<replaceable>number</replaceable> the type of a
-<replaceable>negation</replaceable> is the same.
-</para-->
-
 <formalpara>
 &TitleSynopsis;
 <synopsis>
@@ -48,8 +32,20 @@ linkend="PsyllaReference_Types_Details_complex"/>
 &TitleExamples;
 <programlisting language="psylla">4 reciprocal
 	▶ 1:4
+0 reciprocal
+	▶ <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/>
+-2 3 div reciprocal
+	▶ -3:2
 -4. reciprocal
 	▶ -0.25
+-0. reciprocal
+	▶ -∞
+0. reciprocal
+	▶ ∞
+-∞ reciprocal
+	▶ -0.0
+∞ reciprocal
+	▶ 0.0
 3 4 complex reciprocal
 	▶ 0.12-0.16i</programlisting>
 </formalpara>
@@ -66,8 +62,10 @@ linkend="PsyllaReference_Types_Details_complex"/>
 &ErrorReason_typecheck;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_undefinedresult"/> —
-when the <replaceable>number</replaceable> is zero
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_undefinedresult"/> — when the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_rational"/>
+<replaceable>number</replaceable> is zero
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -80,6 +78,7 @@ when the <replaceable>number</replaceable> is zero
 <formalpara>
 &TitleSeeAlso;
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_div"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_idiv"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_mul"/>.
 </formalpara>
 

@@ -43,10 +43,9 @@ public final class PsyComplex
 	}
 
 	@Override
-	public PsyBoolean psyIsZero()
+	public boolean isZero()
 	{
-		// TODO
-		return PsyBoolean.of(re==0.D && im==0.D);
+		return (re==0.D && im==0.D);
 	}
 
 	@Override
@@ -58,7 +57,7 @@ public final class PsyComplex
 	@Override
 	public PsyComplex psySignum()
 	{
-		if(psyIsZero().booleanValue())
+		if(isZero())
 			return this;
 		return psyDiv(psyAbs());
 	}
@@ -67,10 +66,10 @@ public final class PsyComplex
 	public String toSyntaxString()
 	{
 		var sb=new StringBuilder();
-		sb.append(re);
-		if(im>=0.D)
+		sb.append(Double.isInfinite(re)? (re==Double.NEGATIVE_INFINITY? "-∞": "∞"): String.valueOf(re));
+		if(Double.compare(im, 0.D)>=0)
 			sb.append('+');
-		sb.append(im);
+		sb.append(Double.isInfinite(im)? (im==Double.NEGATIVE_INFINITY? "-∞": "∞"): String.valueOf(im));
 		sb.append('i');
 		return sb.toString();
 	}
@@ -137,6 +136,16 @@ public final class PsyComplex
 	@Override
 	public PsyComplex psyReciprocal()
 	{
+		if(Double.compare(re, -0.D)==0)
+			if(Double.compare(im, -0.D)==0)
+				return new PsyComplex(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
+			else if(Double.compare(im, 0.D)==0)
+				return new PsyComplex(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+		if(Double.compare(re, 0.D)==0)
+			if(Double.compare(im, -0.D)==0)
+				return new PsyComplex(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
+			else if(Double.compare(im, 0.D)==0)
+				return new PsyComplex(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY);
 		final var d=re*re+im*im;
 		return new PsyComplex(re/d, -im/d);
 	}
@@ -173,7 +182,7 @@ public final class PsyComplex
 	@Override
 	public PsyNumeric psyPow(final PsyNumeric oNumeric)
 	{
-		if(psyIsZero().booleanValue() && oNumeric.psyNonZero().booleanValue())
+		if(isZero() && !oNumeric.isZero())
 			return this;
 		return psyLog().psyMul(oNumeric).psyExp();
 	}

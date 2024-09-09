@@ -31,7 +31,7 @@ jobs:
             libjline-java{,-doc} \
             libxerces2-java \
             libxslthl-java \
-            openjdk-17-{jdk-headless,doc} \
+            openjdk-21-{jdk-headless,doc} \
             python3-m2crypto \
             osc \
             sassc
@@ -40,7 +40,7 @@ jobs:
           git config tar.tar.xz.command 'xz -9'
       - name: Build
         env:
-          JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+          JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ant -lib /usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
@@ -54,7 +54,7 @@ jobs:
             >target/doc/index.xhtml
       - name: Test
         env:
-          JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+          JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ant -lib /usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
@@ -68,7 +68,7 @@ jobs:
           FOLDER: target/doc
       - name: Commit to OBS
         env:
-          JAVA_HOME: /usr/lib/jvm/java-17-openjdk-amd64
+          JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
           OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
         run: |
           ant -lib /usr/share/java/ivy.jar -v -noinput -Dlinux.flavour=debian obs.commit

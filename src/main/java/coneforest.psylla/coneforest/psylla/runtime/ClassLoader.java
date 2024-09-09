@@ -2,7 +2,7 @@ package coneforest.psylla.runtime;
 
 import coneforest.psylla.core.*;
 import java.io.IOException;
-import java.net.URL;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Hashtable;
@@ -84,7 +84,7 @@ abstract public class ClassLoader
 						final var entry=jar.getJarEntry(name);
 						if(entry==null)
 							return null;
-						return new java.net.URL("jar:"+itemPath.toUri().toURL()+"!/"+entry);
+						return new URI("jar:"+itemPath.toUri().toURL()+"!/"+entry).toURL();
 					}
 					else if(Files.isDirectory(itemPath))
 					{

@@ -7,9 +7,7 @@ import coneforest.psylla.runtime.*;
 */
 @Type("operator")
 public abstract class PsyOperator
-	implements
-		PsyAtomic,
-		PsyExecutable
+	implements PsyExecutable, PsyValue
 {
 	/**
 	*	Constructs a new {@code operator} with the given name.

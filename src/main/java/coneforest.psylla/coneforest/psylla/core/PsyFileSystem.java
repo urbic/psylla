@@ -804,7 +804,7 @@ public class PsyFileSystem
 		}
 	}
 
-	public static PsyFormalStream<PsyName> psyFiles(final PsyTextual oFileName)
+	public static PsyStream psyFiles(final PsyTextual oFileName)
 		throws
 			PsyFileAccessDeniedException,
 			PsyFileNotFoundException,
@@ -841,27 +841,34 @@ public class PsyFileSystem
 
 	private static PsyObject toPsyTObject(final Object obj)
 	{
-		//System.out.println(obj.getClass());
-		if(obj instanceof String stringobj)
-			return new PsyName(stringobj);
-		if(obj instanceof Integer integerobj)
-			return PsyInteger.of(integerobj.longValue());
-		if(obj instanceof Long longobj)
-			return PsyInteger.of(longobj.longValue());
-		if(obj instanceof Boolean booleanobj)
-			return PsyBoolean.of(booleanobj);
-		throw new ClassCastException();
+		switch(obj)
+		{
+			case String stringobj:
+				return new PsyName(stringobj);
+			case Integer integerobj:
+				return PsyInteger.of(integerobj.longValue());
+			case Long longobj:
+				return PsyInteger.of(longobj.longValue());
+			case Boolean booleanobj:
+				return PsyBoolean.of(booleanobj);
+			default:
+				throw new ClassCastException();
+		}
 	}
 
 	private static Object fromPsyTObject(final PsyObject o)
 	{
-		if(o instanceof PsyTextual oTextual)
-			return oTextual.stringValue();
-		if(o instanceof PsyInteger oInteger)
-			return oInteger.longValue();
-		if(o instanceof PsyBoolean oBoolean)
-			return oBoolean.booleanValue();
-		throw new ClassCastException();
+		switch(o)
+		{
+			case PsyTextual oTextual:
+				return oTextual.stringValue();
+			case PsyInteger oInteger:
+				return oInteger.longValue();
+			case PsyBoolean oBoolean:
+				return oBoolean.booleanValue();
+			default:
+				throw new ClassCastException();
+		}
 	}
 
 	/**

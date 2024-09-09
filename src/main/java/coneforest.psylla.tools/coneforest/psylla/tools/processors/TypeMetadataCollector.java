@@ -24,7 +24,7 @@ import javax.tools.Diagnostic;
 @SupportedAnnotationTypes({"coneforest.psylla.runtime.Type",
 	"coneforest.psylla.runtime.ErrorType",
 	"coneforest.psylla.runtime.OperatorType"})
-@SupportedSourceVersion(SourceVersion.RELEASE_17)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class TypeMetadataCollector
 	extends AbstractProcessor
 {

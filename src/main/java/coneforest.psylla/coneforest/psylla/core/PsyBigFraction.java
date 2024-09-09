@@ -105,9 +105,9 @@ public final class PsyBigFraction
 	}
 
 	@Override
-	public PsyBoolean psyIsZero()
+	public boolean isZero()
 	{
-		return PsyBoolean.FALSE;
+		return false;
 	}
 
 	@Override

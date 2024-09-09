@@ -26,7 +26,7 @@ import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 
 @SupportedAnnotationTypes({"coneforest.psylla.runtime.Type"})
-@SupportedSourceVersion(SourceVersion.RELEASE_17)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class TypeHierarchyBuilder
 	extends AbstractProcessor
 {

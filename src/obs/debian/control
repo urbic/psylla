@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: @project.developer.name@ <@project.developer.email@>
 Build-Depends:
 	debhelper (>=10),
-	openjdk-17-jdk-headless,
-	openjdk-17-doc,
+	openjdk-21-jdk-headless,
+	openjdk-21-doc,
 	javacc,
 	junit4 (>=4.11),
 	ant-optional,
@@ -29,7 +29,7 @@ Package: @obs.package.name@
 Architecture: all
 Depends:
 	debhelper (>=10),
-	openjdk-17-jre-headless,
+	openjdk-21-jre-headless,
 	javacc,
 	junit4 (>=4.11),
 	ant-optional,
@@ -49,6 +49,6 @@ Recommends:
 	ant-doc,
 	ant-optional,
 	libclianthus-java-doc,
-	openjdk-17-doc,
+	openjdk-21-doc,
 Description: Psylla programming language (documentation)
 	This package contains documentation for @obs.package.name@.

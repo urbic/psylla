@@ -6,7 +6,7 @@ RUN zypper -n --gpg-auto-import-keys in -y \
 	ant{,-apache-resolver,-junit} \
 	ivy \
 	ivy-local \
-	'java-devel>=17' \
+	'java-devel>=21' \
 	javacc \
 	javapackages-tools \
 	docbook5-xsl-stylesheets \

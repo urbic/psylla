@@ -51,50 +51,52 @@ public sealed interface PsyIntegral
 		return this;
 	}
 
-	public PsyIntegral psyIdiv(final PsyIntegral oIntegral)
-		throws PsyUndefinedResultException;
+	@Override
+	default public PsyIntegral psyIdiv(final PsyRational oRational)
+		throws PsyUndefinedResultException
+	{
+		return ((PsyIntegral)psyMul(oRational.psyDenominator()))
+				.psyIdiv(oRational.psyNumerator());
+	}
 
-	/**
-	*	Returns an {@code integral} representing this object modulo given modulus.
-	*
-	*	@param oIntegral the given modulus.
-	*	@throws PsyRangeCheckException when the modulus is negative.
-	*	@throws PsyUndefinedResultException when the modulus is zero.
-	*/
-	public PsyIntegral psyMod(final PsyIntegral oIntegral)
+	@Override
+	public PsyIntegral psyMod(final PsyRational oRational)
 		throws PsyRangeCheckException, PsyUndefinedResultException;
 
-	/**
-	*	Returns an {@code integral} representing the greatest common divisor of this object and
-	*	given object.
-	*
-	*	@param oIntegral the given object.
-	*	@return the greatest common divisor.
-	*/
-	default public PsyIntegral psyGCD(final PsyIntegral oIntegral)
+	@Override
+	default public PsyRational psyGCD(final PsyRational oRational)
 	{
-		var oX=psyAbs();
-		var oY=oIntegral.psyAbs();
-		if(oY.psyIsZero().booleanValue())
-			return oX;
-		while(oX.psyNonZero().booleanValue())
+		switch(oRational)
 		{
-			if(oX.compareTo(oY)>0)
-			{
-				var oT=oX;
-				oX=oY;
-				oY=oT;
-			}
-			try
-			{
-				oY=oY.psyMod(oX);
-			}
-			catch(final PsyUndefinedResultException|PsyRangeCheckException e)
-			{
-				// NOP
-			}
+			case PsyIntegral oIntegral:
+				var oX=psyAbs();
+				var oY=oIntegral.psyAbs();
+				if(oY.isZero())
+					return oX;
+				while(!oX.isZero())
+				{
+					if(oX.compareTo(oY)>0)
+					{
+						var oT=oX;
+						oX=oY;
+						oY=oT;
+					}
+					try
+					{
+						oY=oY.psyMod(oX);
+					}
+					catch(final PsyUndefinedResultException|PsyRangeCheckException e)
+					{
+						// NOP
+					}
+				}
+				return oY;
+			default:
+				return PsyRational.of(
+					(PsyIntegral)((PsyIntegral)psyMul(oRational.psyDenominator()))
+							.psyGCD(oRational.psyNumerator()),
+					oRational.psyDenominator());
 		}
-		return oY;
 	}
 
 	/**
@@ -102,14 +104,20 @@ public sealed interface PsyIntegral
 	*	object.
 	*
 	*	@param oIntegral given object.
-	*	@return the least common multiple.
+	*	@return the least common multiple of this object and given object.
 	*/
 	default PsyIntegral psyLCM(final PsyIntegral oIntegral)
-		throws PsyUndefinedResultException
 	{
-		if(psyIsZero().booleanValue() || oIntegral.psyIsZero().booleanValue())
+		if(isZero() || oIntegral.isZero())
 			return PsyInteger.ZERO;
-		return ((PsyIntegral)psyMul(oIntegral)).psyIdiv(psyGCD(oIntegral));
+		try
+		{
+			return ((PsyIntegral)psyMul(oIntegral)).psyIdiv(psyGCD(oIntegral)).psyAbs();
+		}
+		catch(final PsyUndefinedResultException e)
+		{
+			throw new AssertionError();
+		}
 	}
 
 	@Override
@@ -242,27 +250,6 @@ public sealed interface PsyIntegral
 	public static final PsyInteger ONE=PsyInteger.ONE;
 	public static final PsyInteger TWO=PsyInteger.TWO;
 	public static final PsyInteger MINUS_ONE=PsyInteger.MINUS_ONE;
-
-	/**
-	*	Context action of the {@code idiv} operator.
-	*/
-	@OperatorType("idiv")
-	public static final ContextAction PSY_IDIV
-		=ContextAction.<PsyIntegral, PsyIntegral>ofBiFunction(PsyIntegral::psyIdiv);
-
-	/**
-	*	Context action of the {@code mod} operator.
-	*/
-	@OperatorType("mod")
-	public static final ContextAction PSY_MOD
-		=ContextAction.<PsyIntegral, PsyIntegral>ofBiFunction(PsyIntegral::psyMod);
-
-	/**
-	*	Context action of the {@code gcd} operator.
-	*/
-	@OperatorType("gcd")
-	public static final ContextAction PSY_GCD
-		=ContextAction.<PsyIntegral, PsyIntegral>ofBiFunction(PsyIntegral::psyGCD);
 
 	/**
 	*	Context action of the {@code lcm} operator.

@@ -67,40 +67,46 @@ public sealed interface PsyRealNumeric
 	@Override
 	public PsyRealNumeric psyNeg();
 
-	public PsyRealNumeric psyAdd(final PsyRealNumeric oNumber);
+	public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric);
 
 	@Override
-	default public PsyNumeric psyAdd(final PsyNumeric oNumber)
+	default public PsyNumeric psyAdd(final PsyNumeric oNumeric)
 	{
-		if(oNumber instanceof PsyRealNumeric oRealNumeric)
-			return psyAdd(oRealNumeric);
-		if(oNumber instanceof PsyComplex oComplex)
-			return new PsyComplex(this).psyAdd(oComplex);
-		throw new ClassCastException();
+		return switch(oNumeric)
+			{
+				case PsyRealNumeric oRealNumeric->
+					psyAdd(oRealNumeric);
+				case PsyComplex oComplex->
+					new PsyComplex(this).psyAdd(oComplex);
+			};
 	}
 
-	public PsyRealNumeric psySub(final PsyRealNumeric oNumber);
+	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric);
 
 	@Override
-	default public PsyNumeric psySub(final PsyNumeric oNumber)
+	default public PsyNumeric psySub(final PsyNumeric oNumeric)
 	{
-		if(oNumber instanceof PsyRealNumeric oRealNumeric)
-			return psySub(oRealNumeric);
-		if(oNumber instanceof PsyComplex oComplex)
-			return new PsyComplex(this).psySub(oComplex);
-		throw new ClassCastException();
+		return switch(oNumeric)
+			{
+				case PsyRealNumeric oRealNumeric->
+					psySub(oRealNumeric);
+				case PsyComplex oComplex->
+					new PsyComplex(this).psySub(oComplex);
+			};
 	}
 
-	public PsyRealNumeric psyMul(final PsyRealNumeric oNumber);
+	public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric);
 
 	@Override
-	default public PsyNumeric psyMul(final PsyNumeric oNumber)
+	default public PsyNumeric psyMul(final PsyNumeric oNumeric)
 	{
-		if(oNumber instanceof PsyRealNumeric oRealNumeric)
-			return psyMul(oRealNumeric);
-		if(oNumber instanceof PsyComplex oComplex)
-			return new PsyComplex(this).psyMul(oComplex);
-		throw new ClassCastException();
+		return switch(oNumeric)
+			{
+				case PsyRealNumeric oRealNumeric->
+					psyMul(oRealNumeric);
+				case PsyComplex oComplex->
+					new PsyComplex(this).psyMul(oComplex);
+			};
 	}
 
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
@@ -110,11 +116,13 @@ public sealed interface PsyRealNumeric
 	default public PsyNumeric psyDiv(final PsyNumeric oNumeric)
 		throws PsyUndefinedResultException
 	{
-		if(oNumeric instanceof PsyRealNumeric oRealNumeric)
-			return psyDiv(oRealNumeric);
-		if(oNumeric instanceof PsyComplex oComplex)
-			return new PsyComplex(this).psyDiv(oComplex);
-		throw new ClassCastException();
+		return switch(oNumeric)
+			{
+				case PsyRealNumeric oRealNumeric->
+					psyDiv(oRealNumeric);
+				case PsyComplex oComplex->
+					new PsyComplex(this).psyDiv(oComplex);
+			};
 	}
 
 	default public PsyReal psyPow(final PsyRealNumeric oNumber)
@@ -123,14 +131,16 @@ public sealed interface PsyRealNumeric
 	}
 
 	@Override
-	default public PsyNumeric psyPow(final PsyNumeric oNumber)
+	default public PsyNumeric psyPow(final PsyNumeric oNumeric)
 	{
-		if(oNumber instanceof PsyRealNumeric oRealNumeric)
-			return psyPow(oRealNumeric);
-		if(oNumber instanceof PsyComplex oComplex)
-			// TODO
-			return new PsyComplex(this).psyPow(oComplex);
-		throw new ClassCastException();
+		return switch(oNumeric)
+			{
+				case PsyRealNumeric oRealNumeric->
+					psyPow(oRealNumeric);
+				case PsyComplex oComplex->
+					// TODO
+					new PsyComplex(this).psyPow(oComplex);
+			};
 	}
 
 	@Override

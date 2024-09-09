@@ -46,6 +46,9 @@ public class PsyReader
 		oContext.interpret(this);
 	}
 
+	/**
+	*	{@return the {@link Reader} object backed by this object}
+	*/
 	public Reader reader()
 	{
 		return reader;

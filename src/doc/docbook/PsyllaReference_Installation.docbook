@@ -23,7 +23,7 @@ Build Service</link>.
 
 <itemizedlist>
 
-<listitem><application>Java 17</application> (<application
+<listitem><application>Java 21</application> (<application
 xlink:href="https://openjdk.java.net/">OpenJDK</application> or <application
 xlink:href="https://www.oracle.com/java/technologies/javase-downloads.html">Oracle
 JDK</application>)</listitem>
@@ -71,10 +71,10 @@ xlink:href="https://github.com/sass/sassc/">SassC</application>
 </itemizedlist>
 
 <para>
-To install dependencies, run (<productname>openSUSE Leap 15.5</productname>)
+To install dependencies, run (<productname>openSUSE Leap 15.6</productname>)
 
 <screen><prompt>% </prompt><userinput>sudo zypper -n --gpg-auto-import-keys ar -p1 \
-	obs://home:urbic:coneforest/15.5 home:urbic:coneforest</userinput>
+	obs://home:urbic:coneforest/15.6 home:urbic:coneforest</userinput>
 <prompt>% </prompt><userinput>sudo zypper -n --gpg-auto-import-keys in -y \
 	ant{,-apache-resolver,-junit} javacc jline1 \
 	docbook5-xsl-stylesheets docbook-xsl-saxon graphviz sassc saxon6 \
@@ -85,7 +85,7 @@ or (<productname>Debian 11</productname>)
 <screen><prompt>% </prompt><userinput>sudo apt-get install -y \
 	ant{,-optional} docbook-{xsl-{ns,saxon},mathml} \
 	graphviz sassc javacc junit4 libjline-java{,-doc} libxerces2-java \
-	libxslthl-java openjdk-17-{jdk-headless,doc}</userinput></screen>
+	libxslthl-java openjdk-21-{jdk-headless,doc}</userinput></screen>
 </para>
 
 </section>

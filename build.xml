@@ -54,7 +54,7 @@
 	<property name="file.encoding" value="UTF-8"/>
 	<property name="linux.flavour" value="redhat"/>
 	<property name="build.sysclasspath" value="ignore"/>
-	<property name="java.release" value="17"/>
+	<property name="java.release" value="21"/>
 	<!--property name="ivy.cache.ttl.default" value="eternal"/-->
 
 	<property file="${src.ant}/ivy.properties"/>
@@ -183,6 +183,7 @@
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
 			<compilerarg value="-Xlint:deprecation"/>
+			<!--compilerarg value="-Xlint:unchecked"/-->
 			<compilerarg
 				value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/${project.moduleprefix}/META-INF/${project.name}"/>
 			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
@@ -225,7 +226,7 @@
 			<arg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
 			<!--arg value="-Xdoclint:missing,reference,syntax"/-->
 			<arg value="-Xdoclint:all"/>
-			<arg value="-Xdoclint/package:-${project.moduleprefix}.runtime"/>
+			<arg value="-Xdoclint/package:-${project.moduleprefix}.runtime.parser"/>
 			<arg value="-Xmaxwarns"/>
 			<arg value="1000"/>
 			<link href="file://${config.javadocdir.java}"/>
@@ -426,6 +427,33 @@
 			forcedeliver="true"
 			artifactspattern="${target.artifacts}/[type]/[organisation].[artifact]-[revision].[ext]"
 			/>
+	</target>
+
+	<target name="spotbugs"
+		depends="jar"
+		>
+		<taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties"/>
+			<!-- home="/usr/share/spotbugs" -->
+		<spotbugs
+			home="spotbugs-4.8.5"
+            output="html"
+			effort="max"
+            outputFile="SPOTBUGS.html"
+			stylesheet="fancy.xsl"
+			debug="true"
+			>
+			<!--sourcepath refid="modulesourcepath.main"/-->
+			<sourcepath location="src/main/java/coneforest.psylla"/>
+			<!--sourcepath>
+				<path refid="modulesourcepath.main"/>
+			</sourcepath-->
+			<auxClasspath>
+				<pathelement location="/usr/share/java/coneforest.clianthus.jar"/>
+				<pathelement location="/usr/share/java/jline/jline.jar"/>
+			</auxClasspath>
+			<class
+				location="${target.artifacts}/jar/${project.moduleprefix}-${project.version}.jar"/>
+		</spotbugs>
 	</target>
 
 </project>

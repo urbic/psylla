@@ -50,35 +50,35 @@ public sealed interface PsyRational
 	@Override
 	default public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
 	{
-		if(oRealNumeric instanceof PsyIntegral oIntegral)
-			return of(
-				(PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
-				psyDenominator());
-		if(oRealNumeric instanceof PsyRational oRational)
-			return of(
-				(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
-						.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),
-				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()+oReal.doubleValue());
-		throw new ClassCastException();
+		return switch(oRealNumeric)
+			{
+				case PsyIntegral oIntegral->
+					of((PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
+						psyDenominator());
+				case PsyRational oRational->
+					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+							.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),
+						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+				case PsyReal oReal->
+					new PsyReal(doubleValue()+oReal.doubleValue());
+			};
 	}
 
 	@Override
 	default public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
-		if(oRealNumeric instanceof PsyIntegral oIntegral)
-			return of(
-					(PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
-					psyDenominator());
-		if(oRealNumeric instanceof PsyRational oRational)
-			return of(
-				(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
-						.psySub(psyDenominator().psyMul(oRational.psyNumerator())),
-				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()+oReal.doubleValue());
-		throw new ClassCastException();
+		return switch(oRealNumeric)
+			{
+				case PsyIntegral oIntegral->
+					of((PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
+						psyDenominator());
+				case PsyRational oRational->
+					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+							.psySub(psyDenominator().psyMul(oRational.psyNumerator())),
+						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+				case PsyReal oReal->
+					new PsyReal(doubleValue()+oReal.doubleValue());
+			};
 	}
 
 	@Override
@@ -98,32 +98,73 @@ public sealed interface PsyRational
 	@Override
 	default public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
 	{
-		if(oRealNumeric instanceof PsyIntegral oIntegral)
-			return PsyRational.of(
-					(PsyIntegral)psyNumerator().psyMul(oIntegral),
-					psyDenominator());
-		if(oRealNumeric instanceof PsyRational oRational)
-			return PsyRational.of(
-					(PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),
-					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()*oReal.doubleValue());
-		throw new ClassCastException();
+		return switch(oRealNumeric)
+			{
+				case PsyIntegral oIntegral->
+					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oIntegral),
+						psyDenominator());
+				case PsyRational oRational->
+					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),
+						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+				case PsyReal oReal->
+					new PsyReal(doubleValue()*oReal.doubleValue());
+			};
 	}
 
 	default public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 		throws PsyUndefinedResultException
 	{
-		if(oRealNumeric instanceof PsyIntegral oIntegral)
-			return PsyRational.of(psyNumerator(),
-					(PsyIntegral)psyDenominator().psyMul(oIntegral));
-		if(oRealNumeric instanceof PsyRational oRational)
-			return PsyRational.of(
-					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
-					(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));
-		if(oRealNumeric instanceof PsyReal oReal)
-			return new PsyReal(doubleValue()*oReal.doubleValue());
-		throw new ClassCastException();
+		return switch(oRealNumeric)
+			{
+				case PsyIntegral oIntegral->
+					PsyRational.of(psyNumerator(),
+						(PsyIntegral)psyDenominator().psyMul(oIntegral));
+				case PsyRational oRational->
+					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
+						(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));
+				case PsyReal oReal->
+					new PsyReal(doubleValue()/oReal.doubleValue());
+			};
+	}
+
+	/**
+	*	Returns an {@code integral} representing this object modulo given modulus.
+	*
+	*	@param oRational the given modulus.
+	*	@return an {@code integral} representing this object modulo given modulus.
+	*	@throws PsyRangeCheckException when the modulus is negative.
+	*	@throws PsyUndefinedResultException when the modulus is zero.
+	*/
+	default public PsyRational psyMod(final PsyRational oRational)
+		throws PsyRangeCheckException, PsyUndefinedResultException
+	{
+		return of(
+			((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
+					.psyMod((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),
+			(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+	}
+
+	// TODO javadoc
+	default public PsyIntegral psyIdiv(final PsyRational oRational)
+		throws PsyUndefinedResultException
+	{
+		return ((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
+				.psyIdiv((PsyIntegral)oRational.psyNumerator().psyMul(psyDenominator()));
+	}
+
+	/**
+	*	Returns a {@code rational} representing the greatest common divisor of this object and given
+	*	object.
+	*
+	*	@param oRational the given object.
+	*	@return the greatest common divisor.
+	*/
+	default public PsyRational psyGCD(final PsyRational oRational)
+	{
+		return of(
+			(PsyIntegral)((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
+					.psyGCD((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),
+			(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
 	}
 
 	@Override
@@ -132,7 +173,7 @@ public sealed interface PsyRational
 	@Override
 	default public PsyRational psyAbs()
 	{
-		if(psyCmp(PsyInteger.ZERO).equals(PsyInteger.MINUS_ONE))
+		if(compareTo(PsyInteger.ZERO)<0)
 			return of(psyNumerator().psyNeg(), psyDenominator());
 		return this;
 	}
@@ -178,16 +219,38 @@ public sealed interface PsyRational
 	}
 
 	/**
+	*	Context action of the {@code denominator} operator.
+	*/
+	@OperatorType("denominator")
+	public static final ContextAction PSY_DENOMINATOR
+		=ContextAction.<PsyRational>ofFunction(PsyRational::psyDenominator);
+
+	/**
+	*	Context action of the {@code gcd} operator.
+	*/
+	@OperatorType("gcd")
+	public static final ContextAction PSY_GCD
+		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyGCD);
+
+	/**
+	*	Context action of the {@code idiv} operator.
+	*/
+	@OperatorType("idiv")
+	public static final ContextAction PSY_IDIV
+		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyIdiv);
+
+	/**
+	*	Context action of the {@code mod} operator.
+	*/
+	@OperatorType("mod")
+	public static final ContextAction PSY_MOD
+		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyMod);
+
+	/**
 	*	Context action of the {@code numerator} operator.
 	*/
 	@OperatorType("numerator")
 	public static final ContextAction PSY_NUMERATOR
 		=ContextAction.<PsyRational>ofFunction(PsyRational::psyNumerator);
 
-	/**
-	*	Context action of the {@code denominator} operator.
-	*/
-	@OperatorType("denominator")
-	public static final ContextAction PSY_DENOMINATOR
-		=ContextAction.<PsyRational>ofFunction(PsyRational::psyDenominator);
 }

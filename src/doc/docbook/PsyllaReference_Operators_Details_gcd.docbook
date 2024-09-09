@@ -24,7 +24,7 @@ Returns the greatest common divisor of two <replaceable>number</replaceable>s.
 <replaceable>number<subscript>1</subscript></replaceable>,
 <replaceable>number<subscript>1</subscript></replaceable>,
 <replaceable>result</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_rational"/>
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -38,10 +38,6 @@ Returns the greatest common divisor of two <replaceable>number</replaceable>s.
 <formalpara>
 &TitleErrors;
 <itemizedlist>
-<listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
-when the at least one of the <replaceable>number</replaceable>s is negative
-</listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_stackunderflow"/> —
 &ErrorReason_stackunderflow;

@@ -30,7 +30,7 @@ public class PsyRandom
 		else if(oRealNumeric instanceof PsyInteger)
 		{
 			final var numeric=oRealNumeric.longValue();
-			if(numeric>Long.MAX_VALUE)
+			if(numeric>Long.MAX_VALUE)	// TODO
 				throw new PsyRangeCheckException();
 			try
 			{

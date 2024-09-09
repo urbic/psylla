@@ -26,7 +26,10 @@ signs.
 <itemizedlist>
 <listitem>
 <replaceable>dividend</replaceable>,
-<replaceable>divisor</replaceable>,
+<replaceable>divisor</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_rational"/>
+</listitem>
+<listitem>
 <replaceable>quotient</replaceable>:
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_integral"/>
 </listitem>

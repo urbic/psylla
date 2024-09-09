@@ -103,9 +103,9 @@ public final class PsyFraction
 	}
 
 	@Override
-	public PsyBoolean psyIsZero()
+	public boolean isZero()
 	{
-		return PsyBoolean.FALSE;
+		return false;
 	}
 
 	@Override
