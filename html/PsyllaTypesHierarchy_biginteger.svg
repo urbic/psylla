@@ -190,22 +190,22 @@
 <path fill="none" stroke="black" d="M440.34,-503.85C445.35,-466.83 457.23,-379.18 463.3,-334.39"/>
 <polygon fill="black" stroke="black" points="466.8,-334.61 464.68,-324.23 459.87,-333.67 466.8,-334.61"/>
 </g>
-<!-- atomic -->
-<g id="node13" class="node">
-<title>atomic</title>
-<g id="a_node13"><a xlink:href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_atomic" xlink:title="atomic" target="_parent">
-<polygon fill="linen" stroke="black" points="551.01,-396 495.01,-396 495.01,-360 557.01,-360 557.01,-390 551.01,-396"/>
-<polyline fill="none" stroke="black" points="551.01,-396 551.01,-390 "/>
-<polyline fill="none" stroke="black" points="557.01,-390 551.01,-390 "/>
-<text text-anchor="middle" x="526.01" y="-374.9" font-family="Source Code Pro,monospace" font-size="12.00">atomic</text>
+<!-- value -->
+<g id="node14" class="node">
+<title>value</title>
+<g id="a_node14"><a xlink:href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_value" xlink:title="value" target="_parent">
+<polygon fill="linen" stroke="black" points="543.01,-396 495.01,-396 495.01,-360 549.01,-360 549.01,-390 543.01,-396"/>
+<polyline fill="none" stroke="black" points="543.01,-396 543.01,-390 "/>
+<polyline fill="none" stroke="black" points="549.01,-390 543.01,-390 "/>
+<text text-anchor="middle" x="522.01" y="-374.9" font-family="Source Code Pro,monospace" font-size="12.00">value</text>
 </a>
 </g>
 </g>
-<!-- object&#45;&gt;atomic -->
-<g id="edge18" class="edge">
-<title>object&#45;&gt;atomic</title>
-<path fill="none" stroke="black" d="M453.74,-503.57C462.35,-493.56 472.9,-480.53 481.01,-468 493.96,-448.02 505.98,-423.82 514.34,-405.7"/>
-<polygon fill="black" stroke="black" points="517.65,-406.88 518.59,-396.33 511.27,-403.99 517.65,-406.88"/>
+<!-- object&#45;&gt;value -->
+<g id="edge20" class="edge">
+<title>object&#45;&gt;value</title>
+<path fill="none" stroke="black" d="M453.91,-503.69C462.59,-493.71 473.13,-480.68 481.01,-468 493.45,-448.01 504.42,-423.63 511.88,-405.44"/>
+<polygon fill="black" stroke="black" points="515.17,-406.63 515.64,-396.04 508.68,-404.02 515.17,-406.63"/>
 </g>
 <!-- additive -->
 <g id="node15" class="node">
@@ -282,40 +282,40 @@
 <path fill="none" stroke="black" d="M438.39,-287.88C423.09,-278.72 404.07,-267.34 387.6,-257.48"/>
 <polygon fill="black" stroke="black" points="389.12,-254.32 378.74,-252.19 385.53,-260.33 389.12,-254.32"/>
 </g>
-<!-- atomic&#45;&gt;numeric -->
-<g id="edge12" class="edge">
-<title>atomic&#45;&gt;numeric</title>
-<path fill="none" stroke="black" d="M532.19,-359.7C535.01,-351.81 538.4,-342.3 541.53,-333.55"/>
-<polygon fill="black" stroke="black" points="544.84,-334.7 544.9,-324.1 538.24,-332.34 544.84,-334.7"/>
-</g>
 <!-- arithmetic -->
-<g id="node14" class="node">
+<g id="node13" class="node">
 <title>arithmetic</title>
-<g id="a_node14"><a xlink:href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_arithmetic" xlink:title="arithmetic" target="_parent">
-<polygon fill="linen" stroke="black" points="661.01,-396 575.01,-396 575.01,-360 667.01,-360 667.01,-390 661.01,-396"/>
-<polyline fill="none" stroke="black" points="661.01,-396 661.01,-390 "/>
-<polyline fill="none" stroke="black" points="667.01,-390 661.01,-390 "/>
-<text text-anchor="middle" x="621.01" y="-374.9" font-family="Source Code Pro,monospace" font-size="12.00">arithmetic</text>
+<g id="a_node13"><a xlink:href="PsyllaReference_Types.xhtml#PsyllaReference_Types_Details_arithmetic" xlink:title="arithmetic" target="_parent">
+<polygon fill="linen" stroke="black" points="653.01,-396 567.01,-396 567.01,-360 659.01,-360 659.01,-390 653.01,-396"/>
+<polyline fill="none" stroke="black" points="653.01,-396 653.01,-390 "/>
+<polyline fill="none" stroke="black" points="659.01,-390 653.01,-390 "/>
+<text text-anchor="middle" x="613.01" y="-374.9" font-family="Source Code Pro,monospace" font-size="12.00">arithmetic</text>
 </a>
 </g>
 </g>
 <!-- arithmetic&#45;&gt;numeric -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>arithmetic&#45;&gt;numeric</title>
-<path fill="none" stroke="black" d="M603.71,-359.7C595.15,-351.14 584.67,-340.66 575.32,-331.3"/>
-<polygon fill="black" stroke="black" points="577.66,-328.7 568.12,-324.1 572.71,-333.65 577.66,-328.7"/>
+<path fill="none" stroke="black" d="M597.69,-359.7C590.25,-351.3 581.19,-341.07 573.03,-331.86"/>
+<polygon fill="black" stroke="black" points="575.41,-329.27 566.16,-324.1 570.17,-333.91 575.41,-329.27"/>
+</g>
+<!-- value&#45;&gt;numeric -->
+<g id="edge13" class="edge">
+<title>value&#45;&gt;numeric</title>
+<path fill="none" stroke="black" d="M529.18,-359.7C532.45,-351.81 536.39,-342.3 540.02,-333.55"/>
+<polygon fill="black" stroke="black" points="543.33,-334.68 543.93,-324.1 536.87,-332 543.33,-334.68"/>
 </g>
 <!-- additive&#45;&gt;arithmetic -->
-<g id="edge19" class="edge">
+<g id="edge18" class="edge">
 <title>additive&#45;&gt;arithmetic</title>
-<path fill="none" stroke="black" d="M584.13,-431.7C589.88,-423.47 596.87,-413.48 603.22,-404.42"/>
-<polygon fill="black" stroke="black" points="606.17,-406.3 609.04,-396.1 600.44,-402.29 606.17,-406.3"/>
+<path fill="none" stroke="black" d="M582.15,-431.7C586.86,-423.64 592.57,-413.89 597.79,-404.98"/>
+<polygon fill="black" stroke="black" points="600.96,-406.5 602.99,-396.1 594.92,-402.96 600.96,-406.5"/>
 </g>
 <!-- multiplicative&#45;&gt;arithmetic -->
-<g id="edge20" class="edge">
+<g id="edge19" class="edge">
 <title>multiplicative&#45;&gt;arithmetic</title>
-<path fill="none" stroke="black" d="M672.96,-431.7C664.52,-423.14 654.19,-412.66 644.97,-403.3"/>
-<polygon fill="black" stroke="black" points="647.39,-400.77 637.87,-396.1 642.4,-405.68 647.39,-400.77"/>
+<path fill="none" stroke="black" d="M670.98,-431.7C661.47,-423.05 649.81,-412.45 639.44,-403.03"/>
+<polygon fill="black" stroke="black" points="641.58,-400.24 631.83,-396.1 636.87,-405.42 641.58,-400.24"/>
 </g>
 </g>
 </svg>
