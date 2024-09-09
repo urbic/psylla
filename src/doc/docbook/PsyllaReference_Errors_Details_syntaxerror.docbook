@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_syntaxerror">
+<title><errorname>syntaxerror</errorname></title>
+<indexterm><primary><errorname>syntaxerror</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Syntax error.
+</para>
+
+</section>

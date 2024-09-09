@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_limitcheck">
+<title><errorname>limitcheck</errorname></title>
+<indexterm><primary><errorname>limitcheck</errorname> Ⓔ</primary></indexterm>
+
+<para>
+System limits exceeded.
+</para>
+
+</section>

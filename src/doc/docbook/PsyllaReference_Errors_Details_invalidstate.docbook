@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_invalidstate">
+<title><errorname>invalidstate</errorname></title>
+<indexterm><primary><errorname>invalidstate</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Invalid state. The error is generated if the execution of the operator is not
+possible with the current state of the operand or environment.
+</para>
+
+</section>

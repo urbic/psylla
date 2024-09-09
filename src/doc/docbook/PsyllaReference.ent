@@ -344,6 +344,34 @@
 <!ENTITY PsyllaReference_Operators_Details_xor				SYSTEM "PsyllaReference_Operators_Details_xor.docbook">
 <!ENTITY PsyllaReference_Operators_Details_yield			SYSTEM "PsyllaReference_Operators_Details_yield.docbook">
 
+<!ENTITY PsyllaReference_Errors_Details_concurrentmodification	SYSTEM "PsyllaReference_Errors_Details_concurrentmodification.docbook">
+<!ENTITY PsyllaReference_Errors_Details_dictstackunderflow	SYSTEM "PsyllaReference_Errors_Details_dictstackunderflow.docbook">
+<!ENTITY PsyllaReference_Errors_Details_directorynotempty	SYSTEM "PsyllaReference_Errors_Details_directorynotempty.docbook">
+<!ENTITY PsyllaReference_Errors_Details_error				SYSTEM "PsyllaReference_Errors_Details_error.docbook">
+<!ENTITY PsyllaReference_Errors_Details_fileaccessdenied	SYSTEM "PsyllaReference_Errors_Details_fileaccessdenied.docbook">
+<!ENTITY PsyllaReference_Errors_Details_fileexists			SYSTEM "PsyllaReference_Errors_Details_fileexists.docbook">
+<!ENTITY PsyllaReference_Errors_Details_filenotfound		SYSTEM "PsyllaReference_Errors_Details_filenotfound.docbook">
+<!ENTITY PsyllaReference_Errors_Details_filesystemerror		SYSTEM "PsyllaReference_Errors_Details_filesystemerror.docbook">
+<!ENTITY PsyllaReference_Errors_Details_invalidcontext		SYSTEM "PsyllaReference_Errors_Details_invalidcontext.docbook">
+<!ENTITY PsyllaReference_Errors_Details_invalidexit			SYSTEM "PsyllaReference_Errors_Details_invalidexit.docbook">
+<!ENTITY PsyllaReference_Errors_Details_invalidexternal		SYSTEM "PsyllaReference_Errors_Details_invalidexternal.docbook">
+<!ENTITY PsyllaReference_Errors_Details_invalidregexp		SYSTEM "PsyllaReference_Errors_Details_invalidregexp.docbook">
+<!ENTITY PsyllaReference_Errors_Details_invalidstate		SYSTEM "PsyllaReference_Errors_Details_invalidstate.docbook">
+<!ENTITY PsyllaReference_Errors_Details_ioerror				SYSTEM "PsyllaReference_Errors_Details_ioerror.docbook">
+<!ENTITY PsyllaReference_Errors_Details_limitcheck			SYSTEM "PsyllaReference_Errors_Details_limitcheck.docbook">
+<!ENTITY PsyllaReference_Errors_Details_notdirectory		SYSTEM "PsyllaReference_Errors_Details_notdirectory.docbook">
+<!ENTITY PsyllaReference_Errors_Details_notimplemented		SYSTEM "PsyllaReference_Errors_Details_notimplemented.docbook">
+<!ENTITY PsyllaReference_Errors_Details_notlink				SYSTEM "PsyllaReference_Errors_Details_notlink.docbook">
+<!ENTITY PsyllaReference_Errors_Details_rangecheck			SYSTEM "PsyllaReference_Errors_Details_rangecheck.docbook">
+<!ENTITY PsyllaReference_Errors_Details_securityerror		SYSTEM "PsyllaReference_Errors_Details_securityerror.docbook">
+<!ENTITY PsyllaReference_Errors_Details_stackunderflow		SYSTEM "PsyllaReference_Errors_Details_stackunderflow.docbook">
+<!ENTITY PsyllaReference_Errors_Details_syntaxerror			SYSTEM "PsyllaReference_Errors_Details_syntaxerror.docbook">
+<!ENTITY PsyllaReference_Errors_Details_typecheck			SYSTEM "PsyllaReference_Errors_Details_typecheck.docbook">
+<!ENTITY PsyllaReference_Errors_Details_undefined			SYSTEM "PsyllaReference_Errors_Details_undefined.docbook">
+<!ENTITY PsyllaReference_Errors_Details_undefinedresult		SYSTEM "PsyllaReference_Errors_Details_undefinedresult.docbook">
+<!ENTITY PsyllaReference_Errors_Details_unmatchedmark		SYSTEM "PsyllaReference_Errors_Details_unmatchedmark.docbook">
+<!ENTITY PsyllaReference_Errors_Details_unsupported			SYSTEM "PsyllaReference_Errors_Details_unsupported.docbook">
+
 <!ENTITY TitleCategory		"<title>Category:</title>">
 <!ENTITY TitleDescription	"<title>Description:</title>">
 <!ENTITY TitleErrors		"<title>Errors:</title>">

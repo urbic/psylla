@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_stackunderflow">
+<title><errorname>stackunderflow</errorname></title>
+<indexterm><primary><errorname>stackunderflow</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Operand stack underflow. The error is generated when the operand stack contains
+fewer operands than the operator expects.
+</para>
+
+</section>

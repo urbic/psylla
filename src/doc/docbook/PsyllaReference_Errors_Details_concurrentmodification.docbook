@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_concurrentmodification">
+<title><errorname>concurrentmodification</errorname></title>
+<indexterm><primary><errorname>concurrentmodification</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Concurrent modification detected.
+</para>
+
+</section>

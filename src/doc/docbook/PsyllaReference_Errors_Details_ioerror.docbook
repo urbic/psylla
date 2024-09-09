@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_ioerror">
+<title><errorname>ioerror</errorname></title>
+<indexterm><primary><errorname>ioerror</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Input/output error.
+</para>
+
+</section>

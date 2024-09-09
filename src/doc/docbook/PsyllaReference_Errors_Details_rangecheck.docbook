@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_rangecheck">
+<title><errorname>rangecheck</errorname></title>
+<indexterm><primary><errorname>rangecheck</errorname> Ⓔ</primary></indexterm>
+
+<para>
+The error is generated when the operand has the value outside the range
+acceptable for the operator.
+</para>
+
+</section>

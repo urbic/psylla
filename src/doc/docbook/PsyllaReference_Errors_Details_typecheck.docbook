@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_typecheck">
+<title><errorname>typecheck</errorname></title>
+<indexterm><primary><errorname>typecheck</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Type mismatch. The error is generated if the operand has the type that is
+unexpected for the operator.
+</para>
+
+</section>

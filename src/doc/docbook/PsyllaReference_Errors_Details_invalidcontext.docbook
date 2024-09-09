@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_invalidcontext">
+<title><errorname>invalidcontext</errorname></title>
+<indexterm><primary><errorname>invalidcontext</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Invalid context.
+</para>
+
+</section>

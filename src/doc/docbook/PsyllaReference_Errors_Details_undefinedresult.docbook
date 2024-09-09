@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_undefinedresult">
+<title><errorname>undefinedresult</errorname></title>
+<indexterm><primary><errorname>undefinedresult</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Undefined result. The error is generated when the result of the operation is
+not defined, for example, when trying to integer division by zero in the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Operators_Details_idiv"/>
+operator.
+</para>
+
+</section>

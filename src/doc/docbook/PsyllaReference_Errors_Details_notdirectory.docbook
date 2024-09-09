@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_notdirectory">
+<title><errorname>notdirectory</errorname></title>
+<indexterm><primary><errorname>notdirectory</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Not a directory.
+</para>
+
+</section>
