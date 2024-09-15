@@ -28,15 +28,15 @@ Source:         %{name}-%{version}.tar.xz
 BuildRequires:  adobe-sourcecodepro-fonts
 BuildRequires:  adobe-sourcesanspro-fonts
 BuildRequires:  ivy-local
-BuildRequires:  java-devel >= 17
-BuildRequires:  java-javadoc >= 17
+BuildRequires:  java-devel >= 21
+BuildRequires:  java-javadoc >= 21
 BuildRequires:  javacc
 BuildRequires:  mvn(coneforest:clianthus)
 BuildRequires:  mvn(jline:jline:1)
 BuildRequires:  mvn(junit:junit) < 5
 BuildRequires:  mvn(net.sf.docbook:docbook-xsl-saxon)
 BuildRequires:  mvn(org.apache.ant:ant-junit)
-Requires:       java-headless >= 17
+Requires:       java-headless >= 21
 Requires:       mvn(coneforest:clianthus)
 Requires:       mvn(jline:jline:1)
 Requires(post): shared-mime-info
