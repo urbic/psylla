@@ -6,8 +6,7 @@
 export DH_COMPAT=10
 
 export LC_ALL:=C.UTF-8
-export
-CLASSPATH:=/usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar
+export CLASSPATH:=/usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar
 
 
 build: build-stamp
