@@ -6,8 +6,8 @@ Maintainer: @project.developer.name@ <@project.developer.email@>
 Architecture: all
 Build-Depends:
 	debhelper (>=10),
-	openjdk-17-jdk-headless,
-	openjdk-17-doc,
+	openjdk-21-jdk-headless,
+	openjdk-21-doc,
 	javacc,
 	junit4 (>=4.11),
 	ant-optional,
