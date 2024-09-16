@@ -51,6 +51,7 @@
 	<property name="target.doc.html" location="${target.doc}/html"/>
 	<property name="target.vim" location="${target}/vim"/>
 	<property name="target.mime" location="${target}/mime"/>
+	<property name="target.reports" location="${target}/reports"/>
 	<property name="file.encoding" value="UTF-8"/>
 	<property name="linux.flavour" value="redhat"/>
 	<property name="build.sysclasspath" value="ignore"/>
@@ -177,7 +178,6 @@
 			<modulesourcepath refid="modulesourcepath.test"/>
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
-			<include name="**/*.java"/>
 			<compilerarg
 				value="--processor-path=${target.classes}/${project.moduleprefix}:${target.classes}/${project.moduleprefix}.tools"/>
 			<compilerarg value="-XprintProcessorInfo"/>
@@ -430,29 +430,28 @@
 	</target>
 
 	<target name="spotbugs"
+		description="Generate SpotBugs report"
 		depends="jar"
 		>
+		<mkdir dir="${target.reports}"/>
 		<taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties"/>
-			<!-- home="/usr/share/spotbugs" -->
 		<spotbugs
-			home="spotbugs-4.8.5"
+			home="${config.datadir}/spotbugs"
             output="html"
 			effort="max"
-            outputFile="SPOTBUGS.html"
+            outputFile="${target.reports}/spotbugs.html"
 			stylesheet="fancy.xsl"
 			debug="true"
 			>
-			<!--sourcepath refid="modulesourcepath.main"/-->
-			<sourcepath location="src/main/java/coneforest.psylla"/>
-			<!--sourcepath>
-				<path refid="modulesourcepath.main"/>
-			</sourcepath-->
+			<sourcepath location="${src.main.java}/${project.moduleprefix}"/>
 			<auxClasspath>
-				<pathelement location="/usr/share/java/coneforest.clianthus.jar"/>
-				<pathelement location="/usr/share/java/jline/jline.jar"/>
+				<pathelement location="${config.javadir}/coneforest.clianthus.jar"/>
+				<pathelement location="${config.jar.jline1}"/>
 			</auxClasspath>
 			<class
 				location="${target.artifacts}/jar/${project.moduleprefix}-${project.version}.jar"/>
+			<class
+				location="${target.artifacts}/jar/${project.moduleprefix}.tools-${project.version}.jar"/>
 		</spotbugs>
 	</target>
 
