@@ -328,7 +328,7 @@ public interface PsyContext
 	/**
 	*	Context action of the {@code editline} operator.
 	*/
-	@OperatorType("edtline")
+	@OperatorType("editline")
 	public static final ContextAction PSY_EDITLINE=oContext->
 		{
 			try
