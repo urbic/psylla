@@ -21,7 +21,7 @@ Build-Depends:
 	docbook-mathml,
 	docbook-xsl-saxon,
 	sassc,
-	libxerces2-java,
+	libxml-commons-resolver1.1-java,
 	graphviz
 Vcs-Git: @project.scm.url@.git
 Vcs-Browser: @project.scm.url@

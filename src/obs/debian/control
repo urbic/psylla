@@ -18,8 +18,8 @@ Build-Depends:
 	docbook-xsl-ns (>=1.79),
 	docbook-mathml,
 	docbook-xsl-saxon,
+	libxml-commons-resolver1.1-java,
 	sassc,
-	libxerces2-java,
 	graphviz,
 Vcs-Git: @project.scm.url@.git
 Vcs-Browser: @project.scm.url@
