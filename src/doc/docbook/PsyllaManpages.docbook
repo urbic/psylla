@@ -183,6 +183,43 @@ Argument passed to the Psylla program.
 </refsection>
 
 <refsection>
+<title>Exit Codes</title>
+
+<variablelist>
+
+<varlistentry>
+<term><constant>0</constant></term>
+<listitem>
+OK.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><constant>1</constant></term>
+<listitem>
+Command-line parsing error.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><constant>2</constant></term>
+<listitem>
+Script file not found or is not readable.
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><constant>127</constant></term>
+<listitem>
+Error during execution of the script.
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsection>
+
+<refsection>
 <title>Environment</title>
 
 <variablelist>
