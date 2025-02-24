@@ -4,6 +4,8 @@ RUN zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE
 RUN zypper -n --gpg-auto-import-keys ar -p2 obs://Java:packages/openSUSE_Tumbleweed Java:packages
 RUN zypper -n --gpg-auto-import-keys in -y \
 	ant{,-apache-resolver,-junit} \
+	git \
+	osc \
 	ivy \
 	ivy-local \
 	jacoco \
