@@ -47,7 +47,6 @@ language core. Language extensions may introduce new object types.
 <title>Simple Types</title>
 <listitem><xref linkend="PsyllaReference_Types_Details_biginteger" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_boolean" xrefstyle="template:%t"/></listitem>
-<listitem><xref linkend="PsyllaReference_Types_Details_command" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_complex" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_integer" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_mark" xrefstyle="template:%t"/></listitem>
@@ -56,6 +55,7 @@ language core. Language extensions may introduce new object types.
 <listitem><xref linkend="PsyllaReference_Types_Details_operator" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_real" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_regexp" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsyllaReference_Types_Details_string" xrefstyle="template:%t"/></listitem>
 </itemizedlist>
 </entry>
 <entry>
@@ -73,7 +73,7 @@ language core. Language extensions may introduce new object types.
 <listitem><xref linkend="PsyllaReference_Types_Details_random" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_reader" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_set" xrefstyle="template:%t"/></listitem>
-<listitem><xref linkend="PsyllaReference_Types_Details_string" xrefstyle="template:%t"/></listitem>
+<listitem><xref linkend="PsyllaReference_Types_Details_stringbuffer" xrefstyle="template:%t"/></listitem>
 <listitem><xref linkend="PsyllaReference_Types_Details_writer" xrefstyle="template:%t"/></listitem>
 </itemizedlist>
 </entry>
@@ -208,7 +208,7 @@ not be the operand for most operators.
 
 <para>
 A <firstterm>name</firstterm><indexterm><primary>name</primary></indexterm>
-object (<xref linkend="PsyllaReference_Types_Details_name"
+object (<xref linkend="PsyllaReference_Types_Details_string"
 xrefstyle="template:%t"/>) represents an immutable string. The names are
 mostly used as keys in the dictionaries associated to corresponding values.
 Every core operator is stored in the system dictionary under its own name.

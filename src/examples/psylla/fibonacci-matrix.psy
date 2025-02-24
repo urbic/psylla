@@ -56,4 +56,4 @@ bind def
 bind def
 
 arguments 0 get tointeger
-fibonacci toname say
+fibonacci tostring say

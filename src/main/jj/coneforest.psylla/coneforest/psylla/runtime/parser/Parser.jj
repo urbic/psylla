@@ -1,6 +1,6 @@
 options
 {
-	JDK_VERSION="17";
+	JDK_VERSION="21";
 }
 
 PARSER_BEGIN(Parser)
@@ -133,22 +133,22 @@ TOKEN:
 
 TOKEN:
 {
-	<STRING: "\"" (<STRING_SPECIAL> | "\\\"" | ~["\"", "\\"])* "\"">
+	<STRINGBUFFER: "\"" (<STRING_SPECIAL> | "\\\"" | ~["\"", "\\"])* "\"">
 }
 
 TOKEN:
 {
-	<NAME: <NAME_SLASHED> | <NAME_QUOTED>>
+	<STRING: <STRING_SLASHED> | <STRING_QUOTED>>
 }
 
 TOKEN:
 {
-	<#NAME_SLASHED: "/" <COMMAND>>
+	<#STRING_SLASHED: "/" <NAME>>
 }
 
 TOKEN:
 {
-	<#NAME_QUOTED: "'" (<STRING_SPECIAL> | "\\'" | ~["'", "\\"])* "'">
+	<#STRING_QUOTED: "'" (<STRING_SPECIAL> | "\\'" | ~["'", "\\"])* "'">
 }
 
 TOKEN:
@@ -179,26 +179,26 @@ TOKEN:
 
 TOKEN:
 {
-	<IMMEDIATE: "/" <NAME_SLASHED>>
+	<IMMEDIATE: "/" <STRING_SLASHED>>
 }
 
 TOKEN:
 {
-	<#COMMAND_UNQUALIFIED:
-		(<LETTER> | <NAME_SPECIAL_CHAR>)
-		(<LETTER> | <NAME_SPECIAL_CHAR> | <DIGIT>)*
+	<#NAME_UNQUALIFIED:
+		(<LETTER> | <STRING_SPECIAL_CHAR>)
+		(<LETTER> | <STRING_SPECIAL_CHAR> | <DIGIT>)*
 			| ["[", "]", "(", ")", "<", ">", "=", "?"]
 	>
 }
 
 TOKEN:
 {
-	<COMMAND: <COMMAND_UNQUALIFIED> ("@" <COMMAND_UNQUALIFIED>)?>
+	<NAME: <NAME_UNQUALIFIED> ("@" <NAME_UNQUALIFIED>)?>
 }
 
 TOKEN:
 {
-	<LITERAL: <COMMAND> "=%" ("\\%" | ~["%", "\\"])* "%">
+	<LITERAL: <NAME> "=%" ("\\%" | ~["%", "\\"])* "%">
 }
 
 TOKEN:
@@ -213,5 +213,5 @@ TOKEN:
 
 TOKEN:
 {
-	<#NAME_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$"]>
+	<#STRING_SPECIAL_CHAR: ["_", ".", "-", "+", "=", "$"]>
 }

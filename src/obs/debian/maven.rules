@@ -1,2 +1,3 @@
 junit junit * s/4\..*/4.x/
-net.sf.xslthl xslthl * s/.*/2.x/
+net.sf.xslthl xslthl * s/2\..*/2.x/ * *
+xerces xercesImpl * s/.*/2.12.0/ * *

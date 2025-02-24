@@ -7,9 +7,19 @@ import java.util.ArrayList;
 *
 *	@param <E> a type of an element.
 */
+@SuppressWarnings("serial")
 public class Stack<E>
 	extends ArrayList<E>
 {
+	/**
+	*	Constructs an empty stack with an initial capacity of ten.
+	*
+	*	@param <E> a type of an element.
+	*/
+	public <E> Stack()
+	{
+	}
+
 	/**
 	*	Pops and returns the topmost element of this stack.
 	*
@@ -21,9 +31,7 @@ public class Stack<E>
 	}
 
 	/**
-	*	Returns the topmost of this stack without popping it.
-	*
-	*	@return an element.
+	*	{@return the topmost of this stack without popping it}
 	*/
 	public E peek()
 	{

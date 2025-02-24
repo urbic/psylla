@@ -1,7 +1,6 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
-import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
 /**
@@ -16,7 +15,7 @@ public interface PsyIterable<T extends PsyObject>
 		Iterable<T>
 {
 
-	default public PsyArray psyToArray()
+	public default PsyArray psyToArray()
 		throws PsyErrorException
 	{
 		final var oArray=new PsyArray();
@@ -26,17 +25,18 @@ public interface PsyIterable<T extends PsyObject>
 	}
 
 	@Override
-	default public PsyFormalStream<T> psyStream()
+	public default PsyFormalStream<T> psyStream()
 	{
-		return new PsyStream(StreamSupport.<T>stream(spliterator(), false));
+		//return new PsyStream(StreamSupport.<T>stream(spliterator(), false));
+		return PsyFormalStream.<T>of(StreamSupport.<T>stream(spliterator(), false));
 	}
 
-	default public PsyString psyUnite(final PsyTextual oSeparator)
+	public default PsyStringBuffer psyUnite(final PsyTextual oSeparator)
 		throws PsyErrorException
 	{
 		final var separator=oSeparator.stringValue();
 		final var sb=new StringBuilder();
-		final Iterator<T> iterator=iterator();
+		final var iterator=iterator();
 		try
 		{
 			while(iterator.hasNext())
@@ -50,6 +50,6 @@ public interface PsyIterable<T extends PsyObject>
 		{
 			throw new PsyTypeCheckException();
 		}
-		return new PsyString(sb);
+		return new PsyStringBuffer(sb);
 	}
 }

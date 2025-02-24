@@ -13,7 +13,7 @@ public interface PsyValue
 	*	{@return this object}
 	*/
 	@Override
-	default public PsyObject psyClone()
+	public default PsyObject psyClone()
 	{
 		return this;
 	}

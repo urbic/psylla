@@ -10,6 +10,25 @@ import java.util.concurrent.locks.ReentrantLock;
 public class PsyLock
 	implements PsyObject
 {
+	/**
+	*	Context action of the {@code condition} operator.
+	*/
+	@OperatorType("condition")
+	public static final ContextAction PSY_CONDITION
+		=ContextAction.<PsyLock>ofFunction(PsyLock::psyCondition);
+
+	/**
+	*	Context action of the {@code lock} operator.
+	*/
+	@OperatorType("lock")
+	public static final ContextAction PSY_LOCK
+		=ContextAction.ofSupplier(PsyLock::new);
+
+	private final ReentrantLock lock=new ReentrantLock();
+
+	public PsyLock()
+	{
+	}
 
 	/**
 	*	Acquires the lock.
@@ -39,28 +58,10 @@ public class PsyLock
 	}
 
 	/**
-	*	Returns a {@code condition} object for use with this lock.
-	*
-	*	@return a {@code condition} object.
+	*	{@return a {@code condition} object for use with this lock}
 	*/
 	public PsyCondition psyCondition()
 	{
 		return new PsyCondition(lock.newCondition());
 	}
-
-	private final ReentrantLock lock=new ReentrantLock();
-
-	/**
-	*	Context action of the {@code condition} operator.
-	*/
-	@OperatorType("condition")
-	public static final ContextAction PSY_CONDITION
-		=ContextAction.<PsyLock>ofFunction(PsyLock::psyCondition);
-
-	/**
-	*	Context action of the {@code lock} operator.
-	*/
-	@OperatorType("lock")
-	public static final ContextAction PSY_LOCK
-		=ContextAction.ofSupplier(PsyLock::new);
 }

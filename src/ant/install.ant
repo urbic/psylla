@@ -22,14 +22,14 @@
 		<!-- Install artifacts -->
 		<copy todir="${destdir}/${config.javadir.package}">
 			<fileset
-				dir="${target.artifacts.jar}"
+				dir="${target.artifacts.jars}"
 				includes="*.jar"
 				/>
 			<mapper type="glob" from="*-${project.version}.jar" to="*.jar"/>
 		</copy>
 		<copy todir="${destdir}/${config.mavenpomsdir.package}">
 			<fileset
-				dir="${target.artifacts.pom}"
+				dir="${target.artifacts.poms}"
 				includes="*.pom"
 				/>
 			<mapper type="glob" from="*-${project.version}.pom" to="*.pom"/>
@@ -82,7 +82,7 @@
 		<!-- Install Ant task -->
 		<echo
 			file="${destdir}/${config.sysconfdir}/ant.d/${project.name}"
-			message="${project.name} ${project.groupId}.clianthus"
+			message="${project.name} ${project.maven.groupId}.clianthus"
 			/>
 	</target>
 

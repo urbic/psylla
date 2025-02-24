@@ -11,10 +11,122 @@ import java.util.stream.Stream;
 public interface PsyFormalStream<T extends PsyObject>
 	extends
 		PsyStreamable<T>,
-		PsyCloseable
+		PsyCloseable,
+		PsyConcatenable<PsyFormalStream<T>>
 {
+	/**
+	*	Context action of the {@code count} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("count")
+	public static final ContextAction PSY_COUNT
+		=ContextAction.<PsyFormalStream>ofFunction(PsyFormalStream::psyCount);
+
+	/**
+	*	Context action of the {@code distinct} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("distinct")
+	public static final ContextAction PSY_DISTINCT
+		=ContextAction.<PsyFormalStream>ofFunction(PsyFormalStream::psyDistinct);
+
+	/**
+	*	Context action of the {@code filtered} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("filtered")
+	public static final ContextAction PSY_FILTERED=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(2);
+			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyFiltered(
+					ostack.getBacked(1), oContext));
+		};
+
+	/**
+	*	Context action of the {@code limited} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("limited")
+	public static final ContextAction PSY_LIMITED
+		=ContextAction.<PsyFormalStream, PsyInteger>ofBiFunction(PsyFormalStream::psyLimited);
+
+	/**
+	*	Context action of the {@code mapped} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("mapped")
+	public static final ContextAction PSY_MAPPED=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(2);
+			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyMapped(
+					ostack.getBacked(1), oContext));
+		};
+
+	/**
+	*	Context action of the {@code peeked} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("peeked")
+	public static final ContextAction PSY_PEEKED=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(2);
+			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyPeeked(
+					ostack.getBacked(1), oContext));
+		};
+
+	/**
+	*	Context action of the {@code reduce} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("reduce")
+	public static final ContextAction PSY_REDUCE=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(3);
+			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyReduce(
+					ostack.getBacked(1), ostack.getBacked(2), oContext));
+		};
+
+	/**
+	*	Context action of the {@code skipped} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("skipped")
+	public static final ContextAction PSY_SKIPPED
+		=ContextAction.<PsyFormalStream, PsyInteger>ofBiFunction(PsyFormalStream::psySkipped);
+
+	///**
+	//*	Context action of the {@code concat} operator.
+	//*/
+	//@SuppressWarnings({"unchecked", "rawtypes"})
+	//@OperatorType("concat")
+	//public static final ContextAction PSY_CONCAT
+	//	=ContextAction.<PsyFormalStream, PsyFormalStream>ofBiFunction(PsyFormalStream::psyConcat);
+
+	/**
+	*	Context action of the {@code sorted} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("sorted")
+	public static final ContextAction PSY_SORTED=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(2);
+			ostack.push(ostack.<PsyFormalStream>getBacked(0).psySorted(ostack.getBacked(1), oContext));
+		};
+
+	public static <T1 extends PsyObject> PsyFormalStream<T1> of(final Stream<T1> stream)
+	{
+		return new PsyFormalStream<T1>()
+			{
+				@Override
+				public Stream<T1> stream()
+				{
+					return stream;
+				}
+			};
+	}
+
 	@Override
-	default public PsyFormalStream<T> psyStream()
+	public default PsyFormalStream<T> psyStream()
 	{
 		return this;
 	}
@@ -22,20 +134,15 @@ public interface PsyFormalStream<T extends PsyObject>
 	/**
 	*	{@return the count of elements in this {@code formalstream}}
 	*
-	*	@throws PsyInvalidStateException TODO
+	*	@throws PsyInvalidStateException when this stream is closed.
 	*/
-	default public PsyInteger psyCount()
+	public default PsyInteger psyCount()
 		throws PsyInvalidStateException
 	{
 		try
 		{
 			return PsyInteger.of(stream().count());
 		}
-		/*catch(final RuntimeException ex)
-		{
-			System.out.println("ERROR!");
-			return null;
-		}*/
 		catch(final IllegalStateException ex)
 		{
 			throw new PsyInvalidStateException();
@@ -45,46 +152,41 @@ public interface PsyFormalStream<T extends PsyObject>
 	/**
 	*	Closes this {@code formalstream}.
 	*/
-	default public void psyClose()
+	public default void psyClose()
 	{
 		stream().close();
 	}
 
-	default public PsyFormalStream<T> psyConcat(final PsyFormalStream<T> oStream)
+	@Override
+	public default PsyFormalStream<T> psyConcat(final PsyFormalStream<T> oStream)
+		throws PsyInvalidStateException
 	{
-		return new PsyFormalStream<T>()
-			{
-				@Override
-				public Stream<T> stream()
-				{
-					return Stream.concat(PsyFormalStream.this.stream(), oStream.stream());
-				}
-			};
+		try
+		{
+			return of(Stream.concat(stream(), oStream.stream()));
+		}
+		catch(final IllegalStateException ex)
+		{
+			throw new PsyInvalidStateException();
+		}
 	}
 
-	default public PsyFormalStream<PsyObject> psyMapped(final PsyExecutable oMapper, final PsyContext oContext)
+	public default PsyFormalStream<PsyObject> psyMapped(final PsyExecutable oMapper, final PsyContext oContext)
 		throws PsyErrorException
 	{
-		return new PsyFormalStream<PsyObject>()
-			{
-				@Override
-				public Stream<PsyObject> stream()
-				{
-					return PsyFormalStream.this.stream().map(oMapper.<T, PsyObject>asFunction(oContext));
-				}
-			};
+		try
+		{
+			return of(stream().map(oMapper.<T, PsyObject>asFunction(oContext)));
+		}
+		catch(final IllegalStateException ex)
+		{
+			throw new PsyInvalidStateException();
+		}
 	}
 
-	default public PsyFormalStream<T> psySorted(final PsyExecutable oComparator, final PsyContext oContext)
+	public default PsyFormalStream<T> psySorted(final PsyExecutable oComparator, final PsyContext oContext)
 	{
-		return new PsyFormalStream<T>()
-			{
-				@Override
-				public Stream<T> stream()
-				{
-					return PsyFormalStream.this.stream().sorted(oComparator.<T>asComparator(oContext));
-				}
-			};
+		return of(stream().sorted(oComparator.<T>asComparator(oContext)));
 	}
 
 	/**
@@ -94,7 +196,7 @@ public interface PsyFormalStream<T extends PsyObject>
 	*	@param oCount the number of leading elements to skip.
 	*	@throws PsyRangeCheckException when oCount is negative.
 	*/
-	default public PsyFormalStream<T> psySkipped(final PsyInteger oCount)
+	public default PsyFormalStream<T> psySkipped(final PsyInteger oCount)
 		throws PsyRangeCheckException
 	{
 		final var count=oCount.longValue();
@@ -112,38 +214,40 @@ public interface PsyFormalStream<T extends PsyObject>
 
 	/**
 	*	{@return a {@code formalstream} consisting of the elements of this {@code formalstream},
-	*	truncated to be no longer than oCount in length}
+	*	truncated to be no longer than specified count in length}
 	*
 	*	@param oCount the number of elements the stream should be limited to.
 	*	@throws PsyRangeCheckException when oCount is negative.
 	*/
-	default public PsyFormalStream<T> psyLimited(final PsyInteger oCount)
-		throws PsyRangeCheckException
+	public default PsyFormalStream<T> psyLimited(final PsyInteger oCount)
+		throws PsyRangeCheckException, PsyInvalidStateException
 	{
 		final var count=oCount.longValue();
-		if(count<0)
+		try
+		{
+			return of(stream().limit(count));
+		}
+		catch(final IllegalArgumentException ex)
+		{
 			throw new PsyRangeCheckException();
-		return new PsyFormalStream<T>()
-			{
-				@Override
-				public Stream<T> stream()
-				{
-					return PsyFormalStream.this.stream().limit(count);
-				}
-			};
+		}
+		catch(final IllegalStateException ex)
+		{
+			throw new PsyInvalidStateException();
+		}
 	}
 
-	default public PsyFormalStream<T> psyPeeked(final PsyExecutable oProc, final PsyContext oContext)
-		throws PsyRangeCheckException
+	public default PsyFormalStream<T> psyPeeked(final PsyExecutable oProc, final PsyContext oContext)
+		throws PsyRangeCheckException, PsyInvalidStateException
 	{
-		return new PsyFormalStream<T>()
-			{
-				@Override
-				public Stream<T> stream()
-				{
-					return PsyFormalStream.this.stream().peek(oProc.asConsumer(oContext));
-				}
-			};
+		try
+		{
+			return of(stream().peek(oProc.asConsumer(oContext)));
+		}
+		catch(final IllegalStateException ex)
+		{
+			throw new PsyInvalidStateException();
+		}
 	}
 
 	/**
@@ -153,49 +257,55 @@ public interface PsyFormalStream<T extends PsyObject>
 	*	@param oContext a context in which a predicate is called.
 	*	@throws PsyErrorException TODO
 	*/
-	default public PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate, final PsyContext oContext)
+	public default PsyFormalStream<T> psyFiltered(final PsyExecutable oPredicate, final PsyContext oContext)
 		throws PsyErrorException
 	{
-		return new PsyFormalStream<T>()
-			{
-				@Override
-				public Stream<T> stream()
-				{
-					return PsyFormalStream.this.stream().filter(oPredicate.<T>asPredicate(oContext));
-				}
-			};
+		return of(stream().filter(oPredicate.<T>asPredicate(oContext)));
 	}
 
-	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
+	public default void psyForAll(final PsyObject oProc, final PsyContext oContext)
 		throws PsyErrorException
 	{
 		final var ostack=oContext.operandStack();
 		try
 		{
-			final java.util.Iterator<T> iterator=stream().iterator();
-			oContext.pushLoopLevel();
+			final var iterator=stream().iterator();
+			//System.out.println("LL: "+oContext.pushLoopLevel());
+			//final var loopLevel=oContext.pushLoopLevel();
+			oContext.executionStack().enterLoop();
 			oContext.executionStack().push(new PsyOperator("#forall_continue")
 				{
 					@Override
 					public void perform(final PsyContext oContext1)
 						throws PsyErrorException
 					{
+						//System.out.println("STOPPED:"+oContext1.getStopped());
+						/*if(oContext1.getStopped())
+						{
+							//System.out.println("CLL: "+oContext.currentLoopLevel());
+							if(oContext.currentLoopLevel()==-1)
+								throw new PsyInvalidExitException();	// TODO
+							System.out.println("STOPPED, POPLOOPLEVEL");
+							oContext.executionStack().setSize(oContext.popLoopLevel());
+							return;
+						}*/
 						if(iterator.hasNext())
 						{
+							oContext.executionStack().enterLoop();
 							try
 							{
 								ostack.push(iterator.next());
+								oContext1.executionStack().push(this);
+								oProc.invoke(oContext1);
 							}
 							catch(final NoSuchElementException ex)
 							{
-								// TODO more suitable exception type
+								// TODO more suitable exception type: PsyInternalError
 								throw new PsyUndefinedException();
 							}
-							oContext1.executionStack().push(this);
-							oProc.invoke(oContext1);
 						}
 						else
-							oContext1.popLoopLevel();
+							oContext1.executionStack().exitLoop();
 					}
 				});
 		}
@@ -205,7 +315,7 @@ public interface PsyFormalStream<T extends PsyObject>
 		}
 	}
 
-	default public T psyReduce(final T oIdentity, final PsyExecutable oAccumulator, final PsyContext oContext)
+	public default T psyReduce(final T oIdentity, final PsyExecutable oAccumulator, final PsyContext oContext)
 		throws PsyInvalidStateException
 	{
 		try
@@ -218,106 +328,13 @@ public interface PsyFormalStream<T extends PsyObject>
 		}
 	}
 
-	default public PsyFormalStream<T> psyDistinct()
+	/**
+	*	{@return a stream consisting of the distinct elements of this stream}
+	*/
+	public default PsyFormalStream<T> psyDistinct()
 	{
-		return new PsyFormalStream<T>()
-			{
-				@Override
-				public Stream<T> stream()
-				{
-					return PsyFormalStream.this.stream().distinct();
-				}
-			};
+		return of(stream().distinct());
 	}
 
 	public Stream<T> stream();
-
-	/**
-	*	Context action of the {@code count} operator.
-	*/
-	@OperatorType("count")
-	public static final ContextAction PSY_COUNT
-		=ContextAction.<PsyFormalStream>ofFunction(PsyFormalStream::psyCount);
-
-	/**
-	*	Context action of the {@code distinct} operator.
-	*/
-	@OperatorType("distinct")
-	public static final ContextAction PSY_DISTINCT
-		=ContextAction.<PsyFormalStream>ofFunction(PsyFormalStream::psyDistinct);
-
-	/**
-	*	Context action of the {@code filtered} operator.
-	*/
-	@OperatorType("filtered")
-	public static final ContextAction PSY_FILTERED=oContext->
-		{
-			final var ostack=oContext.operandStackBacked(2);
-			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyFiltered(
-					ostack.getBacked(1), oContext));
-		};
-
-	/**
-	*	Context action of the {@code limited} operator.
-	*/
-	@OperatorType("limited")
-	public static final ContextAction PSY_LIMITED
-		=ContextAction.<PsyFormalStream, PsyInteger>ofBiFunction(PsyFormalStream::psyLimited);
-
-	/**
-	*	Context action of the {@code mapped} operator.
-	*/
-	@OperatorType("mapped")
-	public static final ContextAction PSY_MAPPED=oContext->
-		{
-			final var ostack=oContext.operandStackBacked(2);
-			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyMapped(
-					ostack.getBacked(1), oContext));
-		};
-
-	/**
-	*	Context action of the {@code peeked} operator.
-	*/
-	@OperatorType("peeked")
-	public static final ContextAction PSY_PEEKED=oContext->
-		{
-			final var ostack=oContext.operandStackBacked(2);
-			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyPeeked(
-					ostack.getBacked(1), oContext));
-		};
-
-	/**
-	*	Context action of the {@code reduce} operator.
-	*/
-	@OperatorType("reduce")
-	public static final ContextAction PSY_REDUCE=oContext->
-		{
-			final var ostack=oContext.operandStackBacked(3);
-			ostack.push(ostack.<PsyFormalStream>getBacked(0).psyReduce(
-					ostack.getBacked(1), ostack.getBacked(2), oContext));
-		};
-
-	/**
-	*	Context action of the {@code skipped} operator.
-	*/
-	@OperatorType("skipped")
-	public static final ContextAction PSY_SKIPPED
-		=ContextAction.<PsyFormalStream, PsyInteger>ofBiFunction(PsyFormalStream::psySkipped);
-
-	/**
-	*	Context action of the {@code concat} operator.
-	*/
-	@OperatorType("concat")
-	public static final ContextAction PSY_CONCAT
-		=ContextAction.<PsyFormalStream, PsyFormalStream>ofBiFunction(PsyFormalStream::psyConcat);
-
-	/**
-	*	Context action of the {@code sorted} operator.
-	*/
-	@OperatorType("sorted")
-	public static final ContextAction PSY_SORTED=oContext->
-		{
-			final var ostack=oContext.operandStackBacked(2);
-			ostack.push(ostack.<PsyFormalStream>getBacked(0).psySorted(ostack.getBacked(1), oContext));
-		};
 }

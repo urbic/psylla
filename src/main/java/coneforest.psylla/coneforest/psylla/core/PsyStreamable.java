@@ -11,20 +11,20 @@ import coneforest.psylla.runtime.*;
 public interface PsyStreamable<T extends PsyObject>
 	extends PsySequential<T>
 {
+	/**
+	*	Context action of the {@code stream} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("stream")
+	public static final ContextAction PSY_STREAM
+		=ContextAction.<PsyStreamable>ofFunction(PsyStreamable::psyStream);
 
 	@Override
-	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
+	public default void psyForAll(final PsyObject oProc, final PsyContext oContext)
 		throws PsyErrorException
 	{
 		psyStream().psyForAll(oProc, oContext);
 	}
 
 	public PsyFormalStream<T> psyStream();
-
-	/**
-	*	Context action of the {@code stream} operator.
-	*/
-	@OperatorType("stream")
-	public static final ContextAction PSY_STREAM
-		=ContextAction.<PsyStreamable>ofFunction(PsyStreamable::psyStream);
 }

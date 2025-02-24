@@ -2,6 +2,7 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 
+@SuppressWarnings("serial")
 @ErrorType("unregistered")
 public class PsyUnregisteredException
 	extends PsyErrorException
@@ -11,6 +12,5 @@ public class PsyUnregisteredException
 	*/
 	public PsyUnregisteredException()
 	{
-		super();
 	}
 }

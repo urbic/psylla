@@ -2,9 +2,12 @@
 @import "highlight.scss";
 
 $background-color-html: lightgray;
+//$background-color-html: lighten(tomato, 90%);
 $background-color-body: lighten($background-color-html, 20%);
+//$color-title: darken($background-color-nav, 50%);
 $background-color-nav: darken($background-color-html, 10%);
-$color-title: darken($background-color-nav, 50%);
+//$color-title: darken(springgreen, 33%);
+$color-title: darken(mediumseagreen, 10%);
 $color-link: royalblue;
 $color-visited: $color-link;
 $color-filename: black;
@@ -58,7 +61,7 @@ h5,
 h6
 {
 	color: $color-title;
-	text-shadow: 0 0 2px $background-color-body, 0 1px 2px lighten($color-title, 25%);
+	//text-shadow: 0 0 2px $background-color-body, 0 1px 2px lighten($color-title, 25%);
 }
 
 h4

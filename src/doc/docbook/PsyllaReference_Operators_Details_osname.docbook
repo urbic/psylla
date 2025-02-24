@@ -5,7 +5,7 @@
 
 <para>
 The name of an operating system. Not an operator, but a <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/> value in
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/> value in
 the system dictionary.
 </para>
 
@@ -23,7 +23,7 @@ the system dictionary.
 <itemizedlist>
 <listitem>
 <constant>osname</constant>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </formalpara>

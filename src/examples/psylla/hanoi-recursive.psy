@@ -24,13 +24,13 @@ bind def
 /show
 {
 	'S> ' print
-	source { toname print ' ' print } forall
+	source { tostring print ' ' print } forall
 	'\n' print
 	'A> ' print
-	auxiliary { toname print ' ' print } forall
+	auxiliary { tostring print ' ' print } forall
 	'\n' print
 	'T> ' print
-	target { toname print ' ' print } forall
+	target { tostring print ' ' print } forall
 	'\n\n' print
 }
 bind def

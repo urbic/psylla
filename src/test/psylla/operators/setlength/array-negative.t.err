@@ -1,0 +1,4 @@
+Error: /rangecheck in --setlength--
+Operand stack:
+	[] -5
+Execution stack: (empty)

@@ -11,6 +11,8 @@ public final class PsyFraction
 	implements
 		PsyRational
 {
+	private final long numerator, denominator;
+
 	private PsyFraction(final long numerator, final long denominator)
 	{
 		this.numerator=numerator;
@@ -37,7 +39,7 @@ public final class PsyFraction
 		{
 			if(x>y)
 			{
-				var t=x;
+				final var t=x;
 				x=y;
 				y=t;
 				continue;
@@ -93,32 +95,22 @@ public final class PsyFraction
 	@Override
 	public PsyInteger psyFloor()
 	{
-		return PsyInteger.of(numerator<0? numerator/denominator-1: numerator/denominator);
+		return PsyInteger.of(Math.floorDiv(numerator, denominator));
+		//return PsyInteger.of(numerator<0? numerator/denominator-1: numerator/denominator);
 	}
 
 	@Override
 	public PsyInteger psyCeiling()
 	{
-		return PsyInteger.of(numerator<0? numerator/denominator: numerator/denominator+1);
+		// TODO
+		return PsyInteger.of(Math.ceilDiv(numerator, denominator));
+		//return PsyInteger.of(numerator<0? numerator/denominator: numerator/denominator+1);
 	}
 
 	@Override
 	public boolean isZero()
 	{
 		return false;
-	}
-
-	@Override
-	public PsyIntegral psyToIntegral()
-	{
-		// TODO
-		return null;
-	}
-
-	@Override
-	public PsyReal psyRound()
-	{
-		return new PsyReal(Math.round(doubleValue()));
 	}
 
 	@Override
@@ -132,6 +124,4 @@ public final class PsyFraction
 	{
 		return String.format("%d:%d", numerator, denominator);
 	}
-
-	private final long numerator, denominator;
 }

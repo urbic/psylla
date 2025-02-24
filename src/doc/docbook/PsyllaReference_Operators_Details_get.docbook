@@ -15,7 +15,7 @@ The <replaceable>key</replaceable> type must match the
 linkend="PsyllaReference_Types_Details_integer"/> for <xref
 xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_formalarray"/> containers, <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 for <xref xrefstyle="template:%t"
 linkend="PsyllaReference_Types_Details_formaldict"/>), otherwise the <xref
 xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/>

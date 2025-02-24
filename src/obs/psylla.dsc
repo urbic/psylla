@@ -1,7 +1,7 @@
 Format: 1.0
 Version: @obs.package.version@-0
 Source: @obs.package.name@
-Binary: @obs.package.name@
+Binary: @obs.package.name@, @obs.package.name@-doc
 Maintainer: @project.developer.name@ <@project.developer.email@>
 Architecture: all
 Build-Depends:
@@ -14,10 +14,13 @@ Build-Depends:
 	ivy-debian-helper,
 	libclianthus-java,
 	libclianthus-java-doc,
+	libjacoco-java,
 	libjline-java,
 	libjline-java-doc,
+	libxerces2-java,
 	libxslthl-java,
 	docbook-xsl-ns (>=1.79),
+	docbook-xsl-saxon,
 	docbook-mathml,
 	docbook-xsl-saxon,
 	sassc,

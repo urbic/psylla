@@ -1,0 +1,316 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+@import "highlight.scss";
+
+$background-color-html: lighten(orange, 30%);
+$background-color-body: lighten($background-color-html, 20%);
+$background-color-nav: darken($background-color-html, 10%);
+$color-title: darken($background-color-nav, 50%);
+$color-link: royalblue;
+$color-visited: $color-link;
+$color-filename: black;
+$background-color-programlisting: darken($background-color-body, 2%);
+$font-family-body: "Source Sans Pro", "Roboto", sans-serif;
+$font-size-body: 18px;
+$font-family-code: "Source Code Pro", "Roboto Mono", monospace;
+
+html
+{
+	background-color: $background-color-html;
+	height: 100%
+}
+
+body
+{
+	position: static;
+	overflow: auto;
+	font-family: $font-family-body;
+	font-size: $font-size-body;
+	max-width: auto;
+	min-height: 100%;
+	margin: 0pc auto 0pc 25%;
+	top: 0px;
+	bottom: 0px;
+	background-color: $background-color-body;
+	tab-size: 4;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+}
+
+body > *
+{
+	margin: 0 4pc 0 4pc;
+}
+
+p
+{
+	text-align: justify;
+	hyphens: auto;
+	-moz-hyphens: auto;
+	-o-hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+	color: $color-title;
+}
+
+h4
+{
+	font-size: 100%;
+}
+
+h3
+{
+	font-size: 120%;
+}
+
+h2
+{
+	font-size: 144%;
+}
+
+h1
+{
+	font-size: 172.8%;
+}
+
+:link
+{
+	color: $color-link;
+	text-decoration: none;
+}
+
+:visited
+{
+	color: $color-visited;
+}
+
+:link:hover
+{
+	text-decoration: underline;
+}
+
+hr
+{
+	border: solid $color-title 1px;
+}
+
+.navfooter,
+.navheader
+{
+	font-size: smaller;
+	background-color:  $background-color-nav;
+}
+
+.navheader
+{
+	border-radius: 0 0 15px 15px;
+}
+
+.navfooter
+{
+	border-radius: 15px 15px 0 0;
+}
+
+.toc dl
+{
+	margin:
+	{
+		top: 0px;
+		bottom: 0px;
+	}
+}
+
+.literal
+{
+	font-family: $font-family-code;
+	font-weight: bold;
+}
+
+code,
+.programlisting,
+.screen,
+.literallayout,
+.sgmltag-element,
+.sgmltag-attribute,
+.sgmltag-attvalue,
+.code,
+.filename,
+.command,
+.type,
+.token,
+.function,
+.errorname,
+.replaceable,
+.parameter,
+.property
+{
+	font-family: $font-family-code;
+}
+
+.replaceable
+{
+	font-style: normal;
+	text-decoration: underline;
+	text-decoration-style: wavy;
+}
+
+.sgmltag-element
+{
+	color: $color-hl-tag;
+	font-weight: bolder;
+}
+
+.sgmltag-attribute
+{
+	color: $color-hl-attribute;
+}
+
+.sgmltag-attvalue
+{
+	color: $color-hl-constant;
+}
+
+.filename
+{
+	color: $color-filename;
+	font-weight: bolder;
+}
+
+.abstract-title,
+.toc-title,
+.example-title,
+.figure-title,
+.itemizedlist-title
+{
+	font-weight: bold;
+}
+
+.application
+{
+	font-style: italic;
+}
+
+.synopsis .emphasis em
+{
+	font-weight: bold;
+	font-style: normal;
+}
+
+.type
+{
+	color: darkolivegreen;
+}
+
+.constant
+{
+	color: $color-hl-constant;
+}
+
+.listitem
+{
+	list-style-type: square;
+}
+
+.command
+{
+	font-weight: bold;
+}
+
+table.productionset
+{
+	font-family: $font-family-code;
+	background-color: $background-color-programlisting;
+}
+
+:link:hover .errorname,
+.errorname,
+{
+	color: darken(magenta, 33%);
+	text-decoration-color: darken(magenta, 33%);
+}
+
+.formalpara-title
+{
+	font-weight: bold;
+}
+
+.programlisting,
+.screen,
+//.synopsis,
+.cmdsynopsis,
+.literallayout,
+{
+	padding: 1em;
+	background-color: $background-color-programlisting;
+	font-size: $font-size-body;
+}
+
+.literallayout p,
+.cmdsynopsis p,
+{
+	margin: 0em;
+}
+
+.synopsis
+{
+	white-space: normal;
+}
+
+.synopsis .itemizedlist
+{
+	margin-bottom: 0em;
+}
+
+.navfooter table tr td
+{
+	&[align="left"],
+	&[align="right"]
+	{
+		width: 33.3333%;
+	}
+}
+
+.informaltable table,
+.informaltable table tr,
+.informaltable table tr td
+{
+	border-color: darken($background-color-body, 25%) !important;
+}
+
+.informaltable table tr td
+{
+	padding: .5ex;
+}
+
+div.toc
+{
+	position: fixed;
+	overflow: auto;
+	width: 25%;
+	//background-color: lighten($background-color-nav, 33%);
+	background-color: lighten($background-color-nav, 25%);
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 25%;
+	font-size: smaller;
+	& > *
+	{
+		margin: 1pc;
+	}
+}
+
+div.navheader table tr:nth-child(2) th
+{
+	background-image: url("psylla.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}

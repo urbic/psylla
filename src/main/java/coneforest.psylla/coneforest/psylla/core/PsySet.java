@@ -12,6 +12,30 @@ public class PsySet
 	implements PsyFormalSet<PsyObject>
 {
 	/**
+	*	Context action of the {@code set} operator.
+	*/
+	@OperatorType("set")
+	public static final ContextAction PSY_SET
+		=ContextAction.ofSupplier(PsySet::new);
+
+	/**
+	*	Context action of the {@code settomark} operator.
+	*/
+	@OperatorType("settomark")
+	public static final ContextAction PSY_SETTOMARK=oContext->
+		{
+			final var ostack=oContext.operandStack();
+			final int i=ostack.findMarkPosition();
+			final var oSet=new PsySet();
+			for(int j=ostack.size()-1; j>=i+1; j--)
+				oSet.psyAppend(ostack.get(j));
+			ostack.setSize(i);
+			ostack.push(oSet);
+		};
+
+	private final HashSet<PsyObject> set;
+
+	/**
 	*	Creates a new empty {@code set} object.
 	*/
 	public PsySet()
@@ -29,6 +53,7 @@ public class PsySet
 		this.set=set;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public PsySet psyClone()
 	{
@@ -72,32 +97,10 @@ public class PsySet
 	}
 
 	@Override
+	//public PsyFormalStream<PsyObject> psyStream()
 	public PsyStream psyStream()
 	{
 		return new PsyStream(set.stream());
 	}
 
-	private final HashSet<PsyObject> set;
-
-	/**
-	*	Context action of the {@code set} operator.
-	*/
-	@OperatorType("set")
-	public static final ContextAction PSY_SET
-		=ContextAction.ofSupplier(PsySet::new);
-
-	/**
-	*	Context action of the {@code settomark} operator.
-	*/
-	@OperatorType("settomark")
-	public static final ContextAction PSY_SETTOMARK=oContext->
-		{
-			final var ostack=oContext.operandStack();
-			final int i=ostack.findMarkPosition();
-			final var oSet=new PsySet();
-			for(int j=ostack.size()-1; j>=i+1; j--)
-				oSet.psyAppend(ostack.get(j));
-			ostack.setSize(i);
-			ostack.push(oSet);
-		};
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Types_Details_stringbuffer">
+<title><type>stringbuffer</type></title>
+<indexterm><primary><type>string</type> Ⓣ</primary></indexterm>
+
+<para>
+A string.
+</para>
+
+<formalpara>
+&TitleInherits;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_appendable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_clearable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_container"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_evaluable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalarray"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_indexed"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_iterable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_lengthy"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_object"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>.
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="PsyllaTypesHierarchy_stringbuffer.svg" format="SVG"/>
+</imageobject>
+</mediaobject>
+</informalfigure>
+</formalpara>
+
+</section>

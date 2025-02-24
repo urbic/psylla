@@ -14,6 +14,8 @@ public class PsyWriter
 		PsyFlushable,
 		PsyWritable
 {
+	private final Writer writer;
+
 	/**
 	*	Constructs a new {@code writer} object wrapping the given writer.
 	*
@@ -25,9 +27,7 @@ public class PsyWriter
 	}
 
 	/**
-	*	Returns the underlying writer.
-	*
-	*	@return the underlying writer.
+	*	{@return the underlying writer}
 	*/
 	public Writer writer()
 	{
@@ -49,7 +49,7 @@ public class PsyWriter
 	}
 
 	@Override
-	public void psyWriteString(final PsyTextual oString)
+	public void psyWriteString(final PsyString oString)
 		throws PsyIOErrorException
 	{
 		try
@@ -89,6 +89,4 @@ public class PsyWriter
 			throw new PsyIOErrorException();
 		}
 	}
-
-	final private Writer writer;
 }

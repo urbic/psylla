@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Operators_Details_stringbuffer">
+<title><function>stringbuffer</function></title>
+<indexterm><primary><function>stringbuffer</function> Ⓞ</primary></indexterm>
+
+<para>
+Returns a new empty <replaceable>stringbuffer</replaceable>.
+</para>
+
+<formalpara>
+&TitleSynopsis;
+<synopsis>
+—
+<function>stringbuffer</function>
+<replaceable>stringbuffer</replaceable>
+</synopsis>
+</formalpara>
+
+<formalpara>
+&TitleOperands;
+<itemizedlist>
+<listitem>
+<replaceable>stringbuffer</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_stringbuffer"/>
+</listitem>
+</itemizedlist>
+</formalpara>
+
+<formalpara>
+&TitleExamples;
+<programlisting language="psylla">string
+	▶ ""</programlisting>
+</formalpara>
+
+<formalpara>
+&TitleCategory;
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Operators_ByCategory_Containers"/>.
+</formalpara>
+
+<formalpara>
+&TitleErrors;
+none.
+</formalpara>
+
+</section>

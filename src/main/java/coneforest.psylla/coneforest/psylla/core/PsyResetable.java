@@ -9,6 +9,12 @@ import coneforest.psylla.runtime.*;
 public interface PsyResetable
 	extends PsyObject
 {
+	/**
+	*	Context action of the {@code reset} operator.
+	*/
+	@OperatorType("reset")
+	public static final ContextAction PSY_RESET
+		=ContextAction.<PsyResetable>ofConsumer(PsyResetable::psyReset);
 
 	/**
 	*	Reset this {@code resetable} object.
@@ -17,11 +23,4 @@ public interface PsyResetable
 	*/
 	public void psyReset()
 		throws PsyErrorException;
-
-	/**
-	*	Context action of the {@code reset} operator.
-	*/
-	@OperatorType("reset")
-	public static final ContextAction PSY_RESET
-		=ContextAction.<PsyResetable>ofConsumer(PsyResetable::psyReset);
 }

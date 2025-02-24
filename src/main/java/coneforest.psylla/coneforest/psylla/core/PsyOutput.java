@@ -8,25 +8,17 @@ import java.io.OutputStream;
 *	The representation of {@code output}.
 */
 @Type("output")
-abstract public class PsyOutput
+public abstract class PsyOutput
 	implements
 		PsyCloseable,
 		PsyFlushable,
 		PsyWritable
 {
+	private final OutputStream output;
+
 	public PsyOutput(final OutputStream output)
 	{
-		setOutput(output);
-	}
-
-	public void setOutput(final OutputStream output)
-	{
 		this.output=output;
-	}
-
-	public OutputStream getOutput()
-	{
-		return output;
 	}
 
 	public void write(final int b)
@@ -75,6 +67,4 @@ abstract public class PsyOutput
 			throw new PsyIOErrorException();
 		}
 	}
-
-	private OutputStream output;
 }

@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	 The representation of {@code notlink} error thrown when a file system operation, intended
 *	 for a symlink, fails because the file is not a symlink.
 */
+@SuppressWarnings("serial")
 @ErrorType("notlink")
 public class PsyNotLinkException
 	extends PsyFileSystemErrorException
@@ -15,11 +16,12 @@ public class PsyNotLinkException
 	*/
 	public PsyNotLinkException()
 	{
-		super();
 	}
 
 	/**
 	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
 	*/
 	public PsyNotLinkException(final Throwable cause)
 	{

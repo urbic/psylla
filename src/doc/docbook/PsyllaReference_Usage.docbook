@@ -172,7 +172,8 @@ API</firstterm><indexterm><primary>Java Scripting Api</primary></indexterm>
 223</primary></indexterm>). The <command>jrunscript</command> shell
 demonstrates this feature:
 
-<screen><prompt>% </prompt><userinput>jrunscript -cp target/artifacts/jar/coneforest.psylla-&psylla.version;.jar -l psylla -e '1 1 1 7 { mul } for ?'</userinput>
+<screen><prompt>% </prompt><userinput>jrunscript -cp target/artifacts/jars/coneforest.psylla-&psylla.version;.jar -l psylla \
+	-e '1 1 1 7 { mul } for ?'</userinput>
 <computeroutput>5040</computeroutput></screen>
 </para>
 

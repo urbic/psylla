@@ -13,7 +13,46 @@ import java.util.ArrayList;
 public class PsyProcess
 	implements PsyObject
 {
-	public PsyProcess(final PsyFormalDict oDict)
+
+	/**
+	*	Context action of the {@code process} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("process")
+	public static final ContextAction PSY_PROCESS
+		=ContextAction.<PsyFormalDict>ofFunction(PsyProcess::new);
+
+	/**
+	*	Context action of the {@code processerror} operator.
+	*/
+	@OperatorType("processerror")
+	public static final ContextAction PSY_PROCESSERROR
+		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyProcessError);
+
+	/**
+	*	Context action of the {@code processreader} operator.
+	*/
+	@OperatorType("processreader")
+	public static final ContextAction PSY_PROCESSREADER
+		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyProcessReader);
+
+	/**
+	*	Context action of the {@code processwriter} operator.
+	*/
+	@OperatorType("processwriter")
+	public static final ContextAction PSY_PROCESSWRITER
+		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyProcessWriter);
+
+	/**
+	*	Context action of the {@code status} operator.
+	*/
+	@OperatorType("status")
+	public static final ContextAction PSY_STATUS
+		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyStatus);
+
+	private Process process;
+
+	public PsyProcess(final PsyFormalDict<PsyObject> oDict)
 		throws PsyErrorException
 	{
 		try
@@ -24,12 +63,12 @@ public class PsyProcess
 			if(oDict.known("command"))
 			{
 				final var oCommand=oDict.get("command");
-				if(oCommand instanceof PsyTextual)
-					pb=new ProcessBuilder(((PsyTextual)oCommand).stringValue());
-				else if(oCommand instanceof PsyFormalArray)
+				if(oCommand instanceof PsyTextual oTextual)
+					pb=new ProcessBuilder(oTextual.stringValue());
+				else if(oCommand instanceof PsyFormalArray<? extends PsyObject> oFormalArray)
 				{
-					final var commandList=new ArrayList<String>(((PsyFormalArray)oCommand).length());
-					for(final var o: (PsyFormalArray<PsyObject>)oCommand)
+					final var commandList=new ArrayList<String>(oFormalArray.length());
+					for(final var o: oFormalArray)
 						commandList.add(((PsyTextual)o).stringValue());
 					pb=new ProcessBuilder(commandList);
 				}
@@ -42,10 +81,11 @@ public class PsyProcess
 
 			if(oDict.known("environment"))
 			{
-				final var oEnv=(PsyFormalDict<PsyTextual>)oDict.get("environment");
+				@SuppressWarnings("unchecked")
+				final var oEnv=(PsyFormalDict<PsyString>)oDict.get("environment");
 				final var env=pb.environment();
 				env.clear();
-				for(final var oKey: oEnv.psyKeys().stream().toArray(PsyTextual[]::new))
+				for(final var oKey: oEnv.psyKeys().stream().toArray(PsyString[]::new))
 					env.put(oKey.stringValue(), oEnv.psyGet(oKey).stringValue());
 			}
 
@@ -115,41 +155,4 @@ public class PsyProcess
 			throw new PsyInvalidStateException();
 		}
 	}
-
-	private Process process;
-
-	/**
-	*	Context action of the {@code process} operator.
-	*/
-	@OperatorType("process")
-	public static final ContextAction PSY_PROCESS
-		=ContextAction.<PsyFormalDict>ofFunction(PsyProcess::new);
-
-	/**
-	*	Context action of the {@code processerror} operator.
-	*/
-	@OperatorType("processerror")
-	public static final ContextAction PSY_PROCESSERROR
-		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyProcessError);
-
-	/**
-	*	Context action of the {@code processreader} operator.
-	*/
-	@OperatorType("processreader")
-	public static final ContextAction PSY_PROCESSREADER
-		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyProcessReader);
-
-	/**
-	*	Context action of the {@code processwriter} operator.
-	*/
-	@OperatorType("processwriter")
-	public static final ContextAction PSY_PROCESSWRITER
-		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyProcessWriter);
-
-	/**
-	*	Context action of the {@code status} operator.
-	*/
-	@OperatorType("status")
-	public static final ContextAction PSY_STATUS
-		=ContextAction.<PsyProcess>ofFunction(PsyProcess::psyStatus);
 }

@@ -1,0 +1,4 @@
+Error: /filenotfound in --hardlink--
+Operand stack:
+	/NO_SUCH_FILE /NEW_LINK
+Execution stack: (empty)

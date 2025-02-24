@@ -15,14 +15,20 @@ public class PsyProc
 	implements PsyExecutable
 {
 	/**
-	*	Creates new empty {@code proc}.
+	*	Context action of the {@code bind} operator.
+	*/
+	@OperatorType("bind")
+	public static final ContextAction PSY_BIND
+		=ContextAction.<PsyProc>ofFunction(PsyProc::psyBind);
+
+	/**
+	*	Constructs a new empty {@code proc}.
 	*/
 	public PsyProc()
 	{
-		super();
 	}
 
-	public PsyProc(final ArrayList<PsyObject> array)
+	protected PsyProc(final ArrayList<PsyObject> array)
 	{
 		super(array);
 	}
@@ -42,27 +48,28 @@ public class PsyProc
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public PsyProc psyClone()
 	{
 		return new PsyProc((ArrayList<PsyObject>)array.clone());
 	}
 
-	/*@Override
+	@Override
 	public String toSyntaxString()
 	{
-		return '{'+toSyntaxStringHelper(this)+'}';
-	}*/
+		return toSyntaxStringHelper(new HashSet<PsyContainer<? extends PsyObject>>());
+	}
 
 	@Override
-	public String toSyntaxStringHelper(final Set<PsyContainer<PsyObject>> processed)
+	public String toSyntaxStringHelper(final Set<PsyContainer<? extends PsyObject>> processed)
 	{
-		if(!processed.add((PsyContainer<PsyObject>)this))
+		if(!processed.add(this))
 			return '%'+typeName()+'%';
 		final var sj=new StringJoiner(" ", "{", "}");
 		for(final var o: this)
-			sj.add(o instanceof PsyContainer?
-				((PsyContainer<PsyObject>)o).toSyntaxStringHelper(processed):
+			sj.add(o instanceof PsyContainer<? extends PsyObject> oContainer?
+				oContainer.toSyntaxStringHelper(processed):
 				o.toSyntaxString());
 		return sj.toString();
 	}
@@ -88,9 +95,9 @@ public class PsyProc
 					final var o=oProc.get(i);
 					if(o instanceof PsyProc)
 						agenda.add((PsyProc)o);
-					else if(o instanceof PsyCommand oCommand)
+					else if(o instanceof PsyName oName)
 					{
-						final var oNew=dstack.load(oCommand);
+						final var oNew=dstack.load(oName);
 						if(oNew instanceof PsyOperator
 								|| oNew instanceof PsyMark
 								|| oNew instanceof PsyNull)
@@ -106,11 +113,4 @@ public class PsyProc
 
 		return this;
 	}
-
-	/**
-	*	Context action of the {@code bind} operator.
-	*/
-	@OperatorType("bind")
-	public static final ContextAction PSY_BIND
-		=ContextAction.<PsyProc>ofFunction(PsyProc::psyBind);
 }

@@ -1,10 +1,8 @@
 package coneforest.psylla.examples;
 
-import java.io.PrintWriter;
-import java.util.ServiceLoader;
 import java.util.spi.ToolProvider;
 
-public class PsyllaToolProviderExample
+public interface PsyllaToolProviderExample
 {
 	public static void main(final String[] args)
 	{

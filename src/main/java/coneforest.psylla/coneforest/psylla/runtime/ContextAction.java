@@ -19,11 +19,10 @@ public interface ContextAction
 		throws PsyErrorException;
 
 	/**
-	*	Returns the context action created from the consumer.
+	*	{@return the context action created from the consumer}
 	*
 	*	@param <T> the type of the input to the consumer.
 	*	@param consumer the consumer.
-	*	@return the context action created.
 	*/
 	public static <T extends PsyObject> ContextAction ofConsumer(final Consumer<T> consumer)
 	{
@@ -35,10 +34,9 @@ public interface ContextAction
 	}
 
 	/**
-	*	Returns the context action created from the supplier.
+	*	{@return the context action created from the supplier}
 	*
 	*	@param supplier the supplier.
-	*	@return the context action created.
 	*/
 	public static ContextAction ofSupplier(final Supplier supplier)
 	{
@@ -46,12 +44,11 @@ public interface ContextAction
 	}
 
 	/**
-	*	Returns the context action created from the bi-consumer.
+	*	{@return the context action created from the bi-consumer}
 	*
 	*	@param <T1> the type of the first input to the bi-consumer.
 	*	@param <T2> the type of the second input to the bi-consumer.
 	*	@param biConsumer the bi-consumer.
-	*	@return the context action created.
 	*/
 	public static <T1 extends PsyObject, T2 extends PsyObject>
 	ContextAction ofBiConsumer(final BiConsumer<T1, T2> biConsumer)
@@ -64,13 +61,12 @@ public interface ContextAction
 	}
 
 	/**
-	*	Returns the context action created from the tri-consumer.
+	*	{@return the context action created from the tri-consumer}
 	*
 	*	@param <T1> the type of the first input to the tri-consumer.
 	*	@param <T2> the type of the second input to the tri-consumer.
 	*	@param <T3> the type of the third input to the tri-consumer.
 	*	@param triConsumer the tri-consumer.
-	*	@return the context action created.
 	*/
 	public static <T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject>
 	ContextAction ofTriConsumer(final TriConsumer<T1, T2, T3> triConsumer)
@@ -83,14 +79,13 @@ public interface ContextAction
 	}
 
 	/**
-	*	Returns the context action created from the function.
+	*	{@return the context action created from the function}
 	*
 	*	@param <T> the type of the input to the function.
 	*	@param function the function.
-	*	@return the context action created.
 	*/
-	public static <T extends PsyObject> ContextAction
-	ofFunction(final Function<T> function)
+	public static <T extends PsyObject>
+	ContextAction ofFunction(final Function<T> function)
 	{
 		return oContext->
 			{
@@ -100,14 +95,13 @@ public interface ContextAction
 	}
 
 	/**
-	*	Returns the context action created from the function.
+	*	{@return the context action created from the function}
 	*
 	*	@param <T> the type of the input to the optional function.
 	*	@param optionalFunction the optional function.
-	*	@return the context action created.
 	*/
-	public static <T extends PsyObject> ContextAction
-	ofOptionalFunction(final OptionalFunction<T> optionalFunction)
+	public static <T extends PsyObject>
+	ContextAction ofOptionalFunction(final OptionalFunction<T> optionalFunction)
 	{
 		return oContext->
 			{
@@ -117,12 +111,11 @@ public interface ContextAction
 	}
 
 	/**
-	*	Returns the context action created from the bi-function.
+	*	{@return the context action created from the bi-function}
 	*
 	*	@param <T1> the type of the first input to the bi-function.
 	*	@param <T2> the type of the second input to the bi-function.
 	*	@param biFunction the bi-function.
-	*	@return the context action created.
 	*/
 	public static <T1 extends PsyObject, T2 extends PsyObject>
 	ContextAction ofBiFunction(final BiFunction<T1, T2> biFunction)
@@ -135,13 +128,12 @@ public interface ContextAction
 	}
 
 	/**
-	*	Returns the context action created from the tri-function.
+	*	{@return the context action created from the tri-function}
 	*
 	*	@param <T1> the type of the first input to the tri-function.
 	*	@param <T2> the type of the second input to the tri-function.
 	*	@param <T3> the type of the third input to the tri-function.
 	*	@param triFunction the tri-function.
-	*	@return the context action created.
 	*/
 	public static <T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject>
 	ContextAction ofTriFunction(final TriFunction<T1, T2, T3> triFunction)

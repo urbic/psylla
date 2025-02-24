@@ -10,6 +10,8 @@ import java.math.BigInteger;
 public final class PsyBigInteger
 	implements PsyIntegral
 {
+	private final BigInteger value;
+
 	/**
 	*	Constructs a new {@code biginteger} for the given value.
 	*
@@ -70,8 +72,16 @@ public final class PsyBigInteger
 
 	@Override
 	public PsyIntegral psyFlipBit(final PsyInteger oBit)
+		throws PsyRangeCheckException
 	{
-		return PsyIntegral.of(value.flipBit(oBit.intValue()));
+		try
+		{
+			return PsyIntegral.of(value.flipBit(oBit.intValue()));
+		}
+		catch(final ArithmeticException ex)
+		{
+			throw new PsyRangeCheckException();
+		}
 	}
 
 	@Override
@@ -114,56 +124,54 @@ public final class PsyBigInteger
 	public PsyIntegral psyIdiv(final PsyRational oRational)
 		throws PsyUndefinedResultException
 	{
-		switch(oRational)
-		{
-			case PsyInteger oInteger:
-				if(oInteger==PsyInteger.ZERO)
+		return switch(oRational)
+			{
+				case PsyInteger oInteger when oInteger==PsyInteger.ZERO->
 					throw new PsyUndefinedResultException();
-				return PsyIntegral.of(
-					value.divide(BigInteger.valueOf(((PsyInteger)oInteger).longValue())));
-			case PsyBigInteger oBigInteger:
-				return PsyIntegral.of(value.divide(oBigInteger.value));
-			default:
-				return ((PsyIntegral)psyMul(oRational.psyDenominator()))
+				case PsyInteger oInteger->PsyIntegral.of(
+						value.divide(BigInteger.valueOf(oInteger.longValue())));
+				case PsyBigInteger oBigInteger->
+					PsyIntegral.of(value.divide(oBigInteger.value));
+				default->((PsyIntegral)psyMul(oRational.psyDenominator()))
 						.psyIdiv(oRational.psyNumerator());
-		}
+			};
 	}
 
 	@Override
 	public PsyIntegral psyMod(final PsyRational oRational)
 		throws PsyUndefinedResultException, PsyRangeCheckException
 	{
-		switch(oRational)
-		{
-			case PsyIntegral oIntegral:
-				if(oIntegral==PsyInteger.ZERO)
+		return switch(oRational)
+			{
+				case PsyIntegral oIntegral when oIntegral==PsyInteger.ZERO->
 					throw new PsyUndefinedResultException();
-				try
-				{
-					return PsyIntegral.of(value.mod(oIntegral.bigIntegerValue()));
-				}
-				catch(final ArithmeticException ex)
-				{
-					throw new PsyRangeCheckException();
-				}
-			default:
-				return ((PsyIntegral)psyMul(oRational.psyDenominator()))
+				case PsyIntegral oIntegral->
+					{
+						try
+						{
+							yield PsyIntegral.of(value.mod(oIntegral.bigIntegerValue()));
+						}
+						catch(final ArithmeticException ex)
+						{
+							throw new PsyRangeCheckException();
+						}
+					}
+				default->((PsyIntegral)psyMul(oRational.psyDenominator()))
 						.psyMod(oRational.psyNumerator());
-		}
+			};
 	}
 
 	@Override
 	public PsyRational psyGCD(final PsyRational oRational)
 	{
-		switch(oRational)
-		{
-			case PsyIntegral oIntegral:
-				if(oIntegral.isZero())
-					return this;
-				return PsyIntegral.of(value.gcd(oIntegral.bigIntegerValue()));
-			default:
-				return oRational.psyGCD(this);
-		}
+		return switch(oRational)
+			{
+				case PsyIntegral oIntegral when oIntegral==PsyInteger.ZERO->
+					psyAbs();
+				case PsyIntegral oIntegral->
+					PsyIntegral.of(value.gcd(oIntegral.bigIntegerValue()));
+				default->oRational.psyGCD(this);
+			};
 	}
 
 	@Override
@@ -173,10 +181,9 @@ public final class PsyBigInteger
 			{
 				case PsyIntegral oIntegral->
 					PsyIntegral.of(value.multiply(oIntegral.bigIntegerValue()));
-				case PsyRational oRational->
-					PsyRational.of((PsyIntegral)psyMul(oRational.psyNumerator()), oRational.psyDenominator());
-				case PsyReal oReal->
-					new PsyReal(doubleValue()*oReal.doubleValue());
+				case PsyRational oRational->PsyRational.of((PsyIntegral)psyMul(oRational.psyNumerator()),
+						oRational.psyDenominator());
+				case PsyReal oReal->new PsyReal(doubleValue()*oReal.doubleValue());
 			};
 	}
 
@@ -188,12 +195,10 @@ public final class PsyBigInteger
 			{
 				case PsyIntegral oIntegral->
 					PsyRational.of(psyNumerator(), (PsyIntegral)psyDenominator().psyMul(oIntegral));
-				case PsyRational oRational->
-					PsyRational.of(
+				case PsyRational oRational->PsyRational.of(
 						(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
 						(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));
-				case PsyReal oReal->
-					new PsyReal(doubleValue()*oReal.doubleValue());
+				case PsyReal oReal->new PsyReal(doubleValue()*oReal.doubleValue());
 			};
 	}
 
@@ -205,10 +210,10 @@ public final class PsyBigInteger
 				case PsyIntegral oIntegral->
 					PsyIntegral.of(value.add(oIntegral.bigIntegerValue()));
 				case PsyRational oRational->
-					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator()).psyAdd(oRational.psyNumerator()),
-						oRational.psyDenominator());
-				case PsyReal oReal->
-					new PsyReal(doubleValue()+oReal.doubleValue());
+					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator())
+								.psyAdd(oRational.psyNumerator()),
+							oRational.psyDenominator());
+				case PsyReal oReal->new PsyReal(doubleValue()+oReal.doubleValue());
 			};
 	}
 
@@ -220,10 +225,10 @@ public final class PsyBigInteger
 				case PsyIntegral oIntegral->
 					PsyIntegral.of(value.subtract(oIntegral.bigIntegerValue()));
 				case PsyRational oRational->
-					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator()).psySub(oRational.psyNumerator()),
+					PsyRational.of((PsyIntegral)psyMul(
+							oRational.psyDenominator()).psySub(oRational.psyNumerator()),
 						oRational.psyDenominator());
-				case PsyReal oReal->
-					new PsyReal(doubleValue()-oReal.doubleValue());
+				case PsyReal oReal->new PsyReal(doubleValue()-oReal.doubleValue());
 			};
 	}
 
@@ -271,6 +276,4 @@ public final class PsyBigInteger
 	{
 		return value.hashCode();
 	}
-
-	private final BigInteger value;
 }

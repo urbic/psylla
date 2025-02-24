@@ -10,12 +10,20 @@ import java.math.BigInteger;
 public final class PsyBigFraction
 	implements PsyRational
 {
+	private final BigInteger numerator, denominator;
+
 	private PsyBigFraction(final BigInteger numerator, final BigInteger denominator)
 	{
 		this.numerator=numerator;
 		this.denominator=denominator;
 	}
 
+	/**
+	*	TODO
+	*
+	*	@param numerator the numerator.
+	*	@param denominator the denominator.
+	*/
 	public static PsyRational of(final BigInteger numerator, final BigInteger denominator)
 	{
 		var x=numerator;
@@ -33,7 +41,7 @@ public final class PsyBigFraction
 		{
 			if(x.compareTo(y)>0)
 			{
-				var t=x;
+				final var t=x;
 				x=y;
 				y=t;
 				continue;
@@ -47,8 +55,7 @@ public final class PsyBigFraction
 			x=x.negate();
 			y=y.negate();
 		}
-		return (!y.equals(BigInteger.ONE))? new PsyBigFraction(x, y): PsyIntegral.of(x);
-		//return (!y.equals(BigInteger.ONE))? new PsyRational.of(x, y): PsyIntegral.of(x);
+		return y.equals(BigInteger.ONE)? PsyIntegral.of(x): new PsyBigFraction(x, y);
 	}
 
 	@Override
@@ -113,17 +120,16 @@ public final class PsyBigFraction
 	@Override
 	public PsyIntegral psyToIntegral()
 	{
-		// TODO
-		System.err.println("PsyBigFraction::psyToIntegral");
-		return null;
+		return psyRound();
 	}
 
 	@Override
-	public PsyReal psyRound()
+	public PsyIntegral psyRound()
 	{
-		// TODO
-		System.err.println("PsyBigFraction::psyRound");
-		return null;
+		final var intpart=numerator.divide(denominator);
+		return PsyIntegral.of(numerator.subtract(
+				intpart.multiply(denominator)).shiftLeft(1).compareTo(denominator)<0?
+						intpart: intpart.add(BigInteger.ONE));
 	}
 
 	@Override
@@ -137,6 +143,4 @@ public final class PsyBigFraction
 	{
 		return String.format("%d:%d", numerator, denominator);
 	}
-
-	private final BigInteger numerator, denominator;
 }

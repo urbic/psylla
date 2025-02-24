@@ -10,6 +10,11 @@ public abstract class PsyOperator
 	implements PsyExecutable, PsyValue
 {
 	/**
+	*	The name of this operator.
+	*/
+	private final String name;
+
+	/**
 	*	Constructs a new {@code operator} with the given name.
 	*
 	*	@param name the name.
@@ -54,6 +59,16 @@ public abstract class PsyOperator
 			e.setStacks(ostack, estack, dstack);
 			e.invoke(oContext);
 		}
+		catch(final OutOfMemoryError ex)
+		{
+			ostack.rollback();
+			final var e=new PsyLimitCheckException();
+			e.setEmitter(this);
+			final var estack=oContext.executionStack();
+			final var dstack=oContext.dictStack();
+			e.setStacks(ostack, estack, dstack);
+			e.invoke(oContext);
+		}
 		catch(final PsyErrorException e)
 		{
 			ostack.rollback();
@@ -71,15 +86,13 @@ public abstract class PsyOperator
 	*	@param oContext the execution context.
 	*	@throws PsyErrorException when an error occurs.
 	*/
-	abstract public void perform(final PsyContext oContext)
+	public abstract void perform(final PsyContext oContext)
 		throws PsyErrorException;
 
 	/**
-	*	Returns a syntactic string representation of this operator. A syntatctic representation has
-	*	a form of <code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a string
-	*	returned by {@link #getName()} method.
-	*
-	*	@return a syntactic string representation of a name of this operator.
+	*	{@return a syntactic string representation of this operator} A syntatctic representation has
+	*		a form of <code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a string
+	*		returned by {@link #getName()} method.
 	*/
 	@Override
 	public String toSyntaxString()
@@ -88,9 +101,7 @@ public abstract class PsyOperator
 	}
 
 	/**
-	*	Returns the name of this operator.
-	*
-	*	@return the name of this operator.
+	*	{@return the name of this operator}
 	*/
 	public String getName()
 	{
@@ -98,9 +109,7 @@ public abstract class PsyOperator
 	}
 
 	/**
-	*	Returns the namespace prefix of this operator.
-	*
-	*	@return the namespace prefix of this operator.
+	*	{@return the namespace prefix of this operator}
 	*/
 	public String getPrefix()
 	{
@@ -109,14 +118,10 @@ public abstract class PsyOperator
 	}
 
 	/**
-	*	Returns the simple name of this operator.
-	*
-	*	@return the simple name of this operator.
+	*	{@return the simple name of this operator}
 	*/
 	public String getSimpleName()
 	{
 		return getName().substring(getPrefix().length()+1);
 	}
-
-	private final String name;
 }

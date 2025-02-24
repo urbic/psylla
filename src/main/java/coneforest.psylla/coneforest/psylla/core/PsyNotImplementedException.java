@@ -2,6 +2,7 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 
+@SuppressWarnings("serial")
 @ErrorType("notimplemented")
 public class PsyNotImplementedException
 	extends PsyErrorException
@@ -11,6 +12,5 @@ public class PsyNotImplementedException
 	*/
 	public PsyNotImplementedException()
 	{
-		super();
 	}
 }

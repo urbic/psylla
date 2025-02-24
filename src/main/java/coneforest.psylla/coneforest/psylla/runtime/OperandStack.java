@@ -6,9 +6,18 @@ import java.util.Optional;
 /**
 *	An interpreter’s operand stack.
 */
+@SuppressWarnings("serial")
 public class OperandStack
 	extends Stack<PsyObject>
 {
+	private PsyObject[] backup=new PsyObject[5];
+	private int backupSize=0;
+
+	public OperandStack()
+	{
+	}
+
+	@SuppressWarnings("unchecked")
 	public <T extends PsyObject> T getBacked(final int index)
 	{
 		return (T)backup[index];
@@ -24,15 +33,12 @@ public class OperandStack
 	*
 	*	@param size the given size.
 	*	@throws PsyStackUnderflowException when the operand stack’s size less than the given size.
-	*	@throws PsyRangeCheckException when given size is negative.
 	*/
 	public void ensureSize(final int size)
-		throws PsyRangeCheckException, PsyStackUnderflowException
+		throws PsyStackUnderflowException
 	{
 		if(size()<size)
 			throw new PsyStackUnderflowException();
-		if(size<0)
-			throw new PsyRangeCheckException();
 	}
 
 	public void popOperands(final int count)
@@ -57,9 +63,8 @@ public class OperandStack
 	}
 
 	/**
-	*	Returns the position of the topmost {@code mark} object on the operand stack.
+	*	{@return the position of the topmost {@code mark} object on the operand stack}
 	*
-	*	@return the position of the topmost {@code mark} object on the operand stack.
 	*	@throws PsyUnmatchedMarkException if there is no {@code mark} object on the operand stack.
 	*/
 	public int findMarkPosition()
@@ -73,12 +78,28 @@ public class OperandStack
 
 	public void pushOptional(final Optional<? extends PsyObject> opt)
 	{
-		var present=opt.isPresent();
+		final var present=opt.isPresent();
 		if(present)
 			push(opt.get());
 		push(PsyBoolean.of(present));
 	}
 
-	private PsyObject[] backup=new PsyObject[5];
-	private int backupSize=0;
+	@Override
+	public boolean equals(final Object obj)
+	{
+		return super.equals(obj);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public OperandStack clone()
+	{
+		return (OperandStack)super.clone();
+	}
 }

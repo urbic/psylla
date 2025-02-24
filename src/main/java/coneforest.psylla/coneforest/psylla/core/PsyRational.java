@@ -14,41 +14,94 @@ public sealed interface PsyRational
 		PsyFraction,
 		PsyBigFraction
 {
+	/**
+	*	Context action of the {@code denominator} operator.
+	*/
+	@OperatorType("denominator")
+	public static final ContextAction PSY_DENOMINATOR
+		=ContextAction.<PsyRational>ofFunction(PsyRational::psyDenominator);
+
+	/**
+	*	Context action of the {@code gcd} operator.
+	*/
+	@OperatorType("gcd")
+	public static final ContextAction PSY_GCD
+		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyGCD);
+
+	/**
+	*	Context action of the {@code idiv} operator.
+	*/
+	@OperatorType("idiv")
+	public static final ContextAction PSY_IDIV
+		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyIdiv);
+
+	/**
+	*	Context action of the {@code lcm} operator.
+	*/
+	@OperatorType("lcm")
+	public static final ContextAction PSY_LCM
+		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyLCM);
+
+	/**
+	*	Context action of the {@code mod} operator.
+	*/
+	@OperatorType("mod")
+	public static final ContextAction PSY_MOD
+		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyMod);
+
+	/**
+	*	Context action of the {@code numerator} operator.
+	*/
+	@OperatorType("numerator")
+	public static final ContextAction PSY_NUMERATOR
+		=ContextAction.<PsyRational>ofFunction(PsyRational::psyNumerator);
+
 	public BigInteger bigIntegerValue();
 
-	default public PsyRational rationalValue()
+	public default PsyRational rationalValue()
 	{
 		return this;
 	}
 
 	/**
-	*	Returns an {@code integral} numerator of this fraction.
-	*
-	*	@return the numerator.
+	*	{@return an {@code integral} numerator of this fraction}
 	*/
 	public PsyIntegral psyNumerator();
 
 	/**
-	*	Returns an {@code integral} denominator of this fraction.
-	*
-	*	@return the denominator.
+	*	{@return an {@code integral} denominator of this fraction}
 	*/
 	public PsyIntegral psyDenominator();
 
 	@Override
-	default public PsyRational psyToRational()
+	public default PsyRational psyToRational()
 	{
 		return this;
 	}
 
 	@Override
-	default public PsyRational psyNeg()
+	public default PsyIntegral psyRound()
+	{
+		final var oIntPart=psyFloor();
+		final var oFractPart=psySub(oIntPart);
+		return PsyInteger.TWO.psyMul(oFractPart).compareTo(PsyInteger.ONE)<0?
+				oIntPart: (PsyIntegral)oIntPart.psyAdd(PsyInteger.ONE);
+	}
+
+	@Override
+	public default PsyIntegral psyToIntegral()
+	{
+		return psyRound();
+	}
+
+	@Override
+	public default PsyRational psyNeg()
 	{
 		return of(psyNumerator().psyNeg(), psyDenominator());
 	}
 
 	@Override
-	default public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
+	public default PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
 	{
 		return switch(oRealNumeric)
 			{
@@ -65,7 +118,7 @@ public sealed interface PsyRational
 	}
 
 	@Override
-	default public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
+	public default PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
 		return switch(oRealNumeric)
 			{
@@ -82,7 +135,7 @@ public sealed interface PsyRational
 	}
 
 	@Override
-	default public PsyRational psyReciprocal()
+	public default PsyRational psyReciprocal()
 		throws PsyUndefinedResultException
 	{
 		try
@@ -96,7 +149,7 @@ public sealed interface PsyRational
 	}
 
 	@Override
-	default public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
+	public default PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
 	{
 		return switch(oRealNumeric)
 			{
@@ -111,7 +164,7 @@ public sealed interface PsyRational
 			};
 	}
 
-	default public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
+	public default PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 		throws PsyUndefinedResultException
 	{
 		return switch(oRealNumeric)
@@ -134,7 +187,7 @@ public sealed interface PsyRational
 	*	@throws PsyRangeCheckException when the modulus is negative.
 	*	@throws PsyUndefinedResultException when the modulus is zero.
 	*/
-	default public PsyRational psyMod(final PsyRational oRational)
+	public default PsyRational psyMod(final PsyRational oRational)
 		throws PsyRangeCheckException, PsyUndefinedResultException
 	{
 		return of(
@@ -150,7 +203,7 @@ public sealed interface PsyRational
 	*	@param oRational the divisor.
 	*	@throws PsyUndefinedResultException when the divisor is zero.
 	*/
-	default public PsyIntegral psyIdiv(final PsyRational oRational)
+	public default PsyIntegral psyIdiv(final PsyRational oRational)
 		throws PsyUndefinedResultException
 	{
 		return ((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
@@ -163,19 +216,31 @@ public sealed interface PsyRational
 	*
 	*	@param oRational the given object.
 	*/
-	default public PsyRational psyGCD(final PsyRational oRational)
+	public default PsyRational psyGCD(final PsyRational oRational)
 	{
-		return of(
-			(PsyIntegral)((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
-					.psyGCD((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),
-			(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+		return of((PsyIntegral)((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
+						.psyGCD((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),
+				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+	}
+
+	/**
+	*	{@return a {@code rational} representing the least common multiplier of this object and
+	*	given object}
+	*
+	*	@param oRational the given object.
+	*/
+	public default PsyRational psyLCM(final PsyRational oRational)
+	{
+		return of(((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
+						.psyLCM((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),
+				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
 	}
 
 	@Override
 	public PsyIntegral psyCeiling();
 
 	@Override
-	default public PsyRational psyAbs()
+	public default PsyRational psyAbs()
 	{
 		if(compareTo(PsyInteger.ZERO)<0)
 			return of(psyNumerator().psyNeg(), psyDenominator());
@@ -203,7 +268,7 @@ public sealed interface PsyRational
 	}
 
 	@Override
-	default public int compareTo(final PsyRealNumeric oNumeric)
+	public default int compareTo(final PsyRealNumeric oNumeric)
 	{
 		if(oNumeric instanceof PsyRational oRational)
 			return psyNumerator().psyMul(oRational.psyDenominator())
@@ -215,46 +280,10 @@ public sealed interface PsyRational
 	public static PsyRational parseLiteral(final String image)
 		throws PsySyntaxErrorException, PsyUndefinedResultException
 	{
-		var slashIndex=image.indexOf('/');
+		final var slashIndex=image.indexOf(':');
 		if(slashIndex==-1)
 			return PsyIntegral.parseLiteral(image);
 		return of(PsyIntegral.parseLiteral(image.substring(0, slashIndex)),
-				PsyIntegral.parseLiteral(image.substring(slashIndex)));
+				PsyIntegral.parseLiteral(image.substring(slashIndex+1)));
 	}
-
-	/**
-	*	Context action of the {@code denominator} operator.
-	*/
-	@OperatorType("denominator")
-	public static final ContextAction PSY_DENOMINATOR
-		=ContextAction.<PsyRational>ofFunction(PsyRational::psyDenominator);
-
-	/**
-	*	Context action of the {@code gcd} operator.
-	*/
-	@OperatorType("gcd")
-	public static final ContextAction PSY_GCD
-		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyGCD);
-
-	/**
-	*	Context action of the {@code idiv} operator.
-	*/
-	@OperatorType("idiv")
-	public static final ContextAction PSY_IDIV
-		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyIdiv);
-
-	/**
-	*	Context action of the {@code mod} operator.
-	*/
-	@OperatorType("mod")
-	public static final ContextAction PSY_MOD
-		=ContextAction.<PsyRational, PsyRational>ofBiFunction(PsyRational::psyMod);
-
-	/**
-	*	Context action of the {@code numerator} operator.
-	*/
-	@OperatorType("numerator")
-	public static final ContextAction PSY_NUMERATOR
-		=ContextAction.<PsyRational>ofFunction(PsyRational::psyNumerator);
-
 }

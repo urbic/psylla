@@ -26,7 +26,7 @@ same file or directory, and <constant>false</constant> otherwise.
 <listitem>
 <replaceable>name<subscript>1</subscript></replaceable>,
 <replaceable>name<subscript>2</subscript></replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>result</replaceable>:

@@ -13,6 +13,17 @@ public final class PsyBlockingQueue
 		PsyFormalQueue<PsyObject>,
 		PsyCloseable
 {
+	/**
+	*	Context action of the {@code blockingqueue} operator.
+	*/
+	@OperatorType("blockingqueue")
+	public static final ContextAction PSY_BLOCKINGQUEUE
+		=ContextAction.<PsyInteger>ofFunction(PsyBlockingQueue::new);
+
+	private final ArrayBlockingQueue<PsyObject> queue;
+
+	private boolean closed=false;
+
 	public PsyBlockingQueue(final PsyInteger oCapacity)
 		throws PsyRangeCheckException, PsyLimitCheckException
 	{
@@ -30,9 +41,7 @@ public final class PsyBlockingQueue
 	}
 
 	/**
-	*	Returns the number of elements in this queue.
-	*
-	*	@return the number of elements in this queue.
+	*	{@return the number of elements in this queue}
 	*/
 	@Override
 	public int length()
@@ -117,10 +126,7 @@ public final class PsyBlockingQueue
 	@Override
 	public int capacity()
 	{
-		synchronized(queue)
-		{
-			return queue.remainingCapacity()+length();
-		}
+		return queue.remainingCapacity()+length();
 	}
 
 	@Override
@@ -128,15 +134,4 @@ public final class PsyBlockingQueue
 	{
 		return new PsyStream(queue.stream());
 	}
-
-	private final ArrayBlockingQueue<PsyObject> queue;
-
-	private boolean closed=false;
-
-	/**
-	*	Context action of the {@code blockingqueue} operator.
-	*/
-	@OperatorType("blockingqueue")
-	public static final ContextAction PSY_BLOCKINGQUEUE
-		=ContextAction.<PsyInteger>ofFunction(PsyBlockingQueue::new);
 }

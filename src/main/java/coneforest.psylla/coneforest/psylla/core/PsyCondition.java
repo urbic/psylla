@@ -10,6 +10,21 @@ import java.util.concurrent.locks.Condition;
 public class PsyCondition
 	implements PsyObject
 {
+	/**
+	*	Context action of the {@code notify} operator.
+	*/
+	@OperatorType("notify")
+	public static final ContextAction PSY_NOTIFY
+		=ContextAction.<PsyCondition>ofConsumer(PsyCondition::psyNotify);
+
+	/**
+	*	Context action of the {@code wait} operator.
+	*/
+	@OperatorType("wait")
+	public static final ContextAction PSY_WAIT
+		=ContextAction.<PsyCondition>ofConsumer(PsyCondition::psyWait);
+
+	private final Condition condition;
 
 	/**
 	*	Constructs a {@code condition} object that wraps given condition.
@@ -43,20 +58,4 @@ public class PsyCondition
 			throw new PsyInterruptException();
 		}
 	}
-
-	private final Condition condition;
-
-	/**
-	*	Context action of the {@code notify} operator.
-	*/
-	@OperatorType("notify")
-	public static final ContextAction PSY_NOTIFY
-		=ContextAction.<PsyCondition>ofConsumer(PsyCondition::psyNotify);
-
-	/**
-	*	Context action of the {@code wait} operator.
-	*/
-	@OperatorType("wait")
-	public static final ContextAction PSY_WAIT
-		=ContextAction.<PsyCondition>ofConsumer(PsyCondition::psyWait);
 }

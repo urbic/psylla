@@ -1,7 +1,7 @@
-package coneforest.psylla.engine;
+package coneforest.psylla.scripting;
 
-import coneforest.psylla.runtime.*;
 import coneforest.psylla.core.*;
+import coneforest.psylla.runtime.*;
 import java.io.Reader;
 import javax.script.AbstractScriptEngine;
 import javax.script.Bindings;
@@ -14,10 +14,16 @@ import javax.script.ScriptEngineFactory;
 public class PsyllaScriptEngine
 	extends AbstractScriptEngine
 {
+	public static final String ARGV="arguments";
+	public static final String FILENAME="script";
+
+	private final ScriptEngineFactory factory;
+	private final Interpreter interpreter;
+
 	public PsyllaScriptEngine(final ScriptEngineFactory factory)
 	{
 		this.factory=factory;
-		interpreter=new coneforest.psylla.runtime.Interpreter();
+		interpreter=new Interpreter();
 		interpreter.start();
 	}
 
@@ -34,14 +40,14 @@ public class PsyllaScriptEngine
 	}
 
 	@Override
-	public Object eval(final Reader reader, final ScriptContext context)
+	public Interpreter eval(final Reader reader, final ScriptContext context)
 	{
 		interpreter.interpret(reader);
 		return interpreter;
 	}
 
 	@Override
-	public Object eval(final String string, final ScriptContext context)
+	public Interpreter eval(final String string, final ScriptContext context)
 	{
 		interpreter.interpret(string);
 		return interpreter;
@@ -60,9 +66,13 @@ public class PsyllaScriptEngine
 		}
 	}
 
-	public static final String ARGV="arguments";
+	/*
+	@SuppressWarnings("unchecked")
+	@Override
+	public void put(final String key, final Object obj)
+	{
+		interpreter.systemDict().put(key, (PsyObject)obj);
+	}
+	*/
 
-	private final ScriptEngineFactory factory;
-
-	private final Interpreter interpreter;
 }

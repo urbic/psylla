@@ -1,0 +1,4 @@
+Error: /rangecheck in --appendall--
+Operand stack:
+	%bitset=001% [2 -3 5 -7 11]
+Execution stack: (empty)

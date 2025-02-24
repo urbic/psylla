@@ -6,15 +6,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+*	Indicates that the type represents the Psylla error.
+*/
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ErrorType
 {
 	/**
-	*	Returns the error name.
-	*
-	*	@return the error name.
+	*	{@return the error name}
 	*/
 	public String value();
 }

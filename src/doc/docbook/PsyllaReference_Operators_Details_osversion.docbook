@@ -5,8 +5,8 @@
 
 <para>
 The version of an operating system. Not an operator, but a <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/> value in
-the system dictionary.
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/> value
+in the system dictionary.
 </para>
 
 <formalpara>
@@ -23,7 +23,7 @@ the system dictionary.
 <itemizedlist>
 <listitem>
 <constant>osversion</constant>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -31,7 +31,7 @@ the system dictionary.
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">osversion
-	▶ '5.14.21-150400.24.11-default'</programlisting>
+	▶ '6.4.0-150600.23.33-default'</programlisting>
 </formalpara>
 
 <formalpara>

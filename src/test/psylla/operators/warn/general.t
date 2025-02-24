@@ -1,0 +1,1 @@
+'WARNING!\n' warn

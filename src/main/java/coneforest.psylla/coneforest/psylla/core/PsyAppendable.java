@@ -12,6 +12,29 @@ import coneforest.psylla.runtime.*;
 public interface PsyAppendable<T extends PsyObject>
 	extends PsyObject
 {
+	/**
+	*	Context action of the {@code append} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("append")
+	public static final ContextAction PSY_APPEND
+		=ContextAction.<PsyAppendable, PsyObject>ofBiConsumer(PsyAppendable::psyAppend);
+
+	/**
+	*	Context action of the {@code appendall} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("appendall")
+	public static final ContextAction PSY_APPENDALL
+		=ContextAction.<PsyAppendable, PsyIterable>ofBiConsumer(PsyAppendable::psyAppendAll);
+
+	/**
+	*	Context action of the {@code replicate} operator.
+	*/
+	@SuppressWarnings({"rawtypes"})
+	@OperatorType("replicate")
+	public static final ContextAction PSY_REPLICATE
+		=ContextAction.<PsyAppendable, PsyInteger>ofBiFunction(PsyAppendable::psyReplicate);
 
 	/**
 	*	Appends a given {@code object} to this container.
@@ -32,29 +55,16 @@ public interface PsyAppendable<T extends PsyObject>
 	*	@throws PsyLimitCheckException when TODO.
 	*	@throws PsyRangeCheckException when TODO.
 	*/
-	default public void psyAppendAll(final PsyIterable<? extends T> oIterable)
+	@SuppressWarnings("unchecked")
+	public default void psyAppendAll(final PsyIterable<? extends T> oIterable)
 		throws PsyLimitCheckException, PsyRangeCheckException
 	{
 		// TODO
-		for(T o: (this!=oIterable? oIterable: (PsyIterable<? extends T>)psyClone()))
+		for(final T o: this!=oIterable? oIterable: (PsyIterable<? extends T>)psyClone())
 			psyAppend(o);
 	}
 
 	// TODO
-	public PsyAppendable psyReplicate(final PsyInteger oCount)
+	public PsyAppendable<T> psyReplicate(final PsyInteger oCount)
 		throws PsyErrorException;
-
-	/**
-	*	Context action of the {@code append} operator.
-	*/
-	@OperatorType("append")
-	public static final ContextAction PSY_APPEND
-		=ContextAction.<PsyAppendable, PsyObject>ofBiConsumer(PsyAppendable::psyAppend);
-
-	/**
-	*	Context action of the {@code appendall} operator.
-	*/
-	@OperatorType("appendall")
-	public static final ContextAction PSY_APPENDALL
-		=ContextAction.<PsyAppendable, PsyIterable>ofBiConsumer(PsyAppendable::psyAppendAll);
 }

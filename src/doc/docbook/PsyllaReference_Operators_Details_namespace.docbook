@@ -23,7 +23,7 @@ namespace pool does not contain such a namespace, previously allocates it.
 <itemizedlist>
 <listitem>
 <replaceable>prefix</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>namespace</replaceable>:

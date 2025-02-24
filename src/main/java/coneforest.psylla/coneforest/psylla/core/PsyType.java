@@ -3,6 +3,6 @@ package coneforest.psylla.core;
 /**
 *	The representation of {@code type}.
 */
-public class PsyType<T extends PsyObject>
+public interface PsyType<T extends PsyObject>
 {
 }

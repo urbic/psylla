@@ -1,0 +1,4 @@
+Error: /invalidstate in --forall--
+Operand stack:
+	%stream% {?}
+Execution stack: (empty)

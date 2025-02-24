@@ -1,8 +1,8 @@
 package coneforest.psylla.toolprovider;
 
 import coneforest.clianthus.processor.ProcessingException;
-import coneforest.psylla.runtime.*;
 import coneforest.psylla.core.*;
+import coneforest.psylla.runtime.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.spi.ToolProvider;
@@ -10,6 +10,10 @@ import java.util.spi.ToolProvider;
 public class PsyllaToolProvider
 	implements ToolProvider
 {
+	public PsyllaToolProvider()
+	{
+	}
+
 	@Override
 	public String name()
 	{

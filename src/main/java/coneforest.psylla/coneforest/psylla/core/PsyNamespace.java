@@ -10,6 +10,12 @@ import java.util.ArrayList;
 public class PsyNamespace
 	extends PsyDict
 {
+	/**
+	*	The namespace prefix.
+	*/
+	private final String prefix;
+
+	private ArrayList<PsyNamespace> imports=new ArrayList<>();
 
 	public PsyNamespace(final String prefix)
 	{
@@ -17,9 +23,7 @@ public class PsyNamespace
 	}
 
 	/**
-	*	Returns the namespace prefix.
-	*
-	*	@return the prefix.
+	*	{@return the namespace prefix}
 	*/
 	public String prefix()
 	{
@@ -34,7 +38,7 @@ public class PsyNamespace
 		if(super.known(key))
 		//if(dict.containsKey(key))
 			return true;
-		for(var oNamespace: imports)
+		for(final var oNamespace: imports)
 		{
 			if(oNamespace.known(key))
 				return true;
@@ -73,9 +77,4 @@ public class PsyNamespace
 	{
 		return "%namespace="+prefix+"%";
 	}
-
-	private final String prefix;
-
-	private ArrayList<PsyNamespace> imports=new ArrayList<>();
-
 }

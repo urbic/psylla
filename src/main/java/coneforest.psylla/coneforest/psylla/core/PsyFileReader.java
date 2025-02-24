@@ -12,6 +12,13 @@ import java.nio.file.Paths;
 public class PsyFileReader
 	extends PsyReader
 {
+	/**
+	*	Context action of the {@code filereader} operator.
+	*/
+	@OperatorType("filereader")
+	public static final ContextAction PSY_FILEREADER
+		=ContextAction.<PsyTextual>ofFunction(PsyFileReader::new);
+
 	public PsyFileReader(final String fileName)
 		throws PsyFileNotFoundException
 	{
@@ -36,11 +43,4 @@ public class PsyFileReader
 			throw new PsyFileNotFoundException();
 		}
 	}
-
-	/**
-	*	Context action of the {@code filereader} operator.
-	*/
-	@OperatorType("filereader")
-	public static final ContextAction PSY_FILEREADER
-		=ContextAction.<PsyTextual>ofFunction(PsyFileReader::new);
 }

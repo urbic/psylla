@@ -2,55 +2,31 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
 *	An utility class providing time-related methods.
 */
-public class PsyTime
+public interface PsyTime
 {
-	private PsyTime()
-	{
-	}
+	/**
+	*	Context action of the {@code time} operator.
+	*/
+	@OperatorType("time")
+	public static final ContextAction PSY_TIME
+		=ContextAction.ofSupplier(PsyTime::psyTime);
 
 	/**
-	*	Returns an {@code integer} object representing the current time (in
-	*	milliseconds since 1970.01.01 00:00:00 GMT).
-	*
-	*	@return an {@code integer} representing the current time (in
-	*	milliseconds since 1970.01.01 00:00:00 GMT).
+	*	Context action of the {@code calendar} operator.
 	*/
-	public static PsyInteger psyTime()
-	{
-		return PsyInteger.of(System.currentTimeMillis());
-	}
+	@OperatorType("calendar")
+	public static final ContextAction PSY_CALENDAR
+		=ContextAction.ofFunction(PsyTime::psyCalendar);
 
-	public static PsyDict psyCalendar(final PsyInteger oTime)
-	{
-		final var calendar=new GregorianCalendar();
-		calendar.setTimeInMillis(oTime.longValue());
-
-		final var oCalendar=new PsyDict();
-		for(int i=0; i<fieldNames.length; i++)
-			oCalendar.put(fieldNames[i], PsyInteger.of(calendar.get(i)));
-
-		// oCalendar.put("leapyear", PsyBoolean.of(calendar.isLeapYear(calendar.get(Calendar.YEAR))));
-
-		return oCalendar;
-	}
-
-	public static PsyInteger psyCalendarTime(final PsyFormalDict oCalendar)
-		throws PsyErrorException
-	{
-		final var calendar=new GregorianCalendar();
-		for(int i=0; i<fieldNames.length; i++)
-			if(oCalendar.known(fieldNames[i]))
-				calendar.set(i, ((PsyInteger)oCalendar.get(fieldNames[i])).intValue());
-
-		return PsyInteger.of(calendar.getTimeInMillis());
-	}
-
-	private static final String[] fieldNames
-		={
+	/**
+	*	An array consisting of the name of the calendar fields.
+	*/
+	public static final List<String> CALENDAR_FIELDS=List.of(
 			"era",
 			"year",
 			"month",
@@ -67,13 +43,39 @@ public class PsyTime
 			"second",
 			"millisecond",
 			"zoneoffset",
-			"dstoffset"
-		};
+			"dstoffset");
 
 	/**
-	*	Context action of the {@code time} operator.
+	*	{@return an {@code integer} object representing the current time (in
+	*	milliseconds since 1970.01.01 00:00:00 GMT)}
 	*/
-	@OperatorType("time")
-	public static final ContextAction PSY_TIME
-		=ContextAction.ofSupplier(PsyTime::psyTime);
+	public static PsyInteger psyTime()
+	{
+		return PsyInteger.of(System.currentTimeMillis());
+	}
+
+	public static PsyDict psyCalendar(final PsyInteger oTime)
+	{
+		final var calendar=new GregorianCalendar();
+		calendar.setTimeInMillis(oTime.longValue());
+
+		final var oCalendar=new PsyDict();
+		for(int i=0; i<CALENDAR_FIELDS.size(); i++)
+			oCalendar.put(CALENDAR_FIELDS.get(i), PsyInteger.of(calendar.get(i)));
+
+		// oCalendar.put("leapyear", PsyBoolean.of(calendar.isLeapYear(calendar.get(Calendar.YEAR))));
+
+		return oCalendar;
+	}
+
+	public static PsyInteger psyCalendarTime(final PsyFormalDict<PsyObject> oCalendar)
+		throws PsyUndefinedException
+	{
+		final var calendar=new GregorianCalendar();
+		for(int i=0; i<CALENDAR_FIELDS.size(); i++)
+			if(oCalendar.known(CALENDAR_FIELDS.get(i)))
+				calendar.set(i, ((PsyInteger)oCalendar.get(CALENDAR_FIELDS.get(i))).intValue());
+
+		return PsyInteger.of(calendar.getTimeInMillis());
+	}
 }

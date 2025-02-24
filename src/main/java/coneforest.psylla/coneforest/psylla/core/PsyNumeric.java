@@ -11,94 +11,6 @@ public sealed interface PsyNumeric
 	permits PsyComplex, PsyRealNumeric
 {
 	/**
-	*	{@return the real part of this object}
-	*/
-	public double realValue();
-
-	/**
-	*	{@return the imaginary part of this object}
-	*/
-	public double imagValue();
-
-	/**
-	*	{@return the {@code numeric} absolute value of this object}
-	*/
-	public PsyRealNumeric psyAbs();
-
-
-	/**
-	*	{@return the {@code numeric} signum of this object}
-	*/
-	public PsyNumeric psySignum();
-
-	public PsyNumeric psyPow(final PsyNumeric oNumeric);
-
-	/**
-	*	{@return the {@code numeric} exponent of this object}
-	*/
-	public PsyNumeric psyExp();
-
-	/**
-	*	{@return the {@code numeric} cosine of this object}
-	*/
-	public PsyNumeric psyCos();
-
-	/**
-	*	{@return the {@code numeric} sine of this object}
-	*/
-	public PsyNumeric psySin();
-
-	/**
-	*	{@return the {@code numeric} tangent of this object}
-	*/
-	public PsyNumeric psyTan();
-
-	/**
-	*	{@return the {@code numeric} natural logarithm of this object}
-	*/
-	public PsyNumeric psyLog();
-
-	/**
-	*	{@return the {@code numeric} arc cosine of this object}
-	*/
-	public PsyNumeric psyAcos();
-
-	/**
-	*	{@return the {@code numeric} arc sine of this object}
-	*/
-	public PsyNumeric psyAsin();
-
-	/**
-	*	{@return the {@code numeric} arc tangent of this object}
-	*/
-	public PsyNumeric psyAtan();
-
-	/**
-	*	{@return the {@code numeric} square root of this object}
-	*/
-	public PsyNumeric psySqrt();
-
-	/**
-	*	{@return the {@code numeric} cubic root of this object}
-	*/
-	public PsyNumeric psyCbrt();
-
-	/**
-	*	{@return the {@code numeric} hyperbolic cosine of this object}
-	*/
-	public PsyNumeric psyCosh();
-
-	/**
-	*	{@return the {@code numeric} hyperbolic sine of this object}
-	*/
-	public PsyNumeric psySinh();
-
-	/**
-	*	{@return the {@code numeric} hyperbolic tangent of this object}
-	*/
-	public PsyNumeric psyTanh();
-
-	/**
 	*	Context action of the {@code abs} operator.
 	*/
 	@OperatorType("abs")
@@ -209,4 +121,92 @@ public sealed interface PsyNumeric
 	@OperatorType("tanh")
 	public static final ContextAction PSY_TANH
 		=ContextAction.<PsyNumeric>ofFunction(PsyNumeric::psyTanh);
+
+	/**
+	*	{@return the real part of this object}
+	*/
+	public double realValue();
+
+	/**
+	*	{@return the imaginary part of this object}
+	*/
+	public double imagValue();
+
+	/**
+	*	{@return the {@code numeric} absolute value of this object}
+	*/
+	public PsyRealNumeric psyAbs();
+
+
+	/**
+	*	{@return the {@code numeric} signum of this object}
+	*/
+	public PsyNumeric psySignum();
+
+	public PsyNumeric psyPow(final PsyNumeric oNumeric);
+
+	/**
+	*	{@return the {@code numeric} exponent of this object}
+	*/
+	public PsyNumeric psyExp();
+
+	/**
+	*	{@return the {@code numeric} cosine of this object}
+	*/
+	public PsyNumeric psyCos();
+
+	/**
+	*	{@return the {@code numeric} sine of this object}
+	*/
+	public PsyNumeric psySin();
+
+	/**
+	*	{@return the {@code numeric} tangent of this object}
+	*/
+	public PsyNumeric psyTan();
+
+	/**
+	*	{@return the {@code numeric} natural logarithm of this object}
+	*/
+	public PsyNumeric psyLog();
+
+	/**
+	*	{@return the {@code numeric} arc cosine of this object}
+	*/
+	public PsyNumeric psyAcos();
+
+	/**
+	*	{@return the {@code numeric} arc sine of this object}
+	*/
+	public PsyNumeric psyAsin();
+
+	/**
+	*	{@return the {@code numeric} arc tangent of this object}
+	*/
+	public PsyNumeric psyAtan();
+
+	/**
+	*	{@return the {@code numeric} square root of this object}
+	*/
+	public PsyNumeric psySqrt();
+
+	/**
+	*	{@return the {@code numeric} cubic root of this object}
+	*/
+	public PsyNumeric psyCbrt();
+
+	/**
+	*	{@return the {@code numeric} hyperbolic cosine of this object}
+	*/
+	public PsyNumeric psyCosh();
+
+	/**
+	*	{@return the {@code numeric} hyperbolic sine of this object}
+	*/
+	public PsyNumeric psySinh();
+
+	/**
+	*	{@return the {@code numeric} hyperbolic tangent of this object}
+	*/
+	public PsyNumeric psyTanh();
 }

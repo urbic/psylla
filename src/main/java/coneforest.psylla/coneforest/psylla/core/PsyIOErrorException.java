@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	The representation of the {@code ioerror} error thrown when I/O exception of some sort has
 *	occurred.
 */
+@SuppressWarnings("serial")
 @ErrorType("ioerror")
 public class PsyIOErrorException
 	extends PsyErrorException
@@ -15,11 +16,12 @@ public class PsyIOErrorException
 	*/
 	public PsyIOErrorException()
 	{
-		super();
 	}
 
 	/**
 	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
 	*/
 	public PsyIOErrorException(final Throwable cause)
 	{

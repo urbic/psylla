@@ -6,6 +6,7 @@ RUN zypper -n --gpg-auto-import-keys in -y \
 	ant{,-apache-resolver,-junit} \
 	ivy \
 	ivy-local \
+	jacoco \
 	'java-devel>=21' \
 	javacc \
 	javapackages-tools \
@@ -34,7 +35,7 @@ RUN chown -R psylla:users ${HOME}
 USER psylla
 RUN rm ivysettings.xml
 RUN env -C ${HOME} LANG=C.UTF-8 CLASSPATH=$(build-classpath xerces-j2-xml-apis) JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
-    ant -Divy.mode=local build
+    ant -Divy.mode=local test coverage build
 
 USER root
 RUN env -C ${HOME} LANG=C.UTF-8 JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 ant -Divy.mode=local -Ddestdir=/ install

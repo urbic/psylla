@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
+import java.util.Iterator;
 
 /**
 *	The representation of {@code textual}, a basic type of mutable and immutable strings.
@@ -11,137 +12,12 @@ public interface PsyTextual
 		PsyEvaluable,
 		PsyConvertableToInteger,
 		PsyConvertableToIntegral,
+		PsyConvertableToRational,
 		PsyConvertableToReal,
 		PsyIterable<PsyInteger>,
 		PsyLengthy,
 		PsyScalar<PsyTextual>
 {
-
-	/**
-	*	Returns a string value of this object.
-	*
-	*	@return a string value.
-	*/
-	public String stringValue();
-
-	public PsyTextual psyUpperCase();
-
-	public PsyTextual psyLowerCase();
-
-	@Override
-	default public PsyName psyToName()
-	{
-		return new PsyName(stringValue());
-	}
-
-	@Override
-	default public void psyEval(final PsyContext oContext)
-		throws PsyErrorException
-	{
-		(new PsyStringReader(this)).psyEval(oContext);
-	}
-
-	@Override
-	default public PsyInteger psyToInteger()
-		throws PsySyntaxErrorException
-	{
-		try
-		{
-			// TODO fraction
-			return PsyInteger.of(Long.parseLong(stringValue()));
-		}
-		catch(final NumberFormatException ex)
-		{
-			throw new PsySyntaxErrorException();
-		}
-	}
-
-	@Override
-	default public PsyIntegral psyToIntegral()
-		throws PsySyntaxErrorException
-	{
-		try
-		{
-			return PsyIntegral.parseLiteral(stringValue());
-		}
-		catch(final NumberFormatException ex)
-		{
-			throw new PsySyntaxErrorException();
-		}
-	}
-
-	@Override
-	default public PsyReal psyToReal()
-		throws PsySyntaxErrorException
-	{
-		try
-		{
-			return new PsyReal(Double.parseDouble(stringValue()));
-		}
-		catch(final NumberFormatException ex)
-		{
-			throw new PsySyntaxErrorException();
-		}
-	}
-
-	@Override
-	default public int length()
-	{
-		return stringValue().length();
-	}
-
-	@Override
-	default public int compareTo(final PsyTextual oTextual)
-	{
-		return stringValue().compareTo(oTextual.stringValue());
-	}
-
-	@Override
-	default public PsyBoolean psyEq(final PsyObject o)
-	{
-		return PsyBoolean.of(o instanceof PsyTextual
-				&& stringValue().equals(((PsyTextual)o).stringValue()));
-	}
-
-	default public PsyArray psySplit(final PsyRegExp oRegExp)
-		throws PsyLimitCheckException
-	{
-		final var oArray=new PsyArray();
-		for(final var item: oRegExp.getPattern().split(stringValue(), -1))
-			// TODO PsyString
-			oArray.psyAppend(new PsyString(item));
-		return oArray;
-	}
-
-	default public PsyInteger psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
-	{
-		return PsyInteger.of(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));
-	}
-
-	default public PsyInteger psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
-	{
-		return PsyInteger.of(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));
-	}
-
-	@Override
-	default public java.util.Iterator<PsyInteger> iterator()
-	{
-		return new java.util.Iterator<PsyInteger>()
-			{
-				public boolean hasNext()
-				{
-					return index<stringValue().length();
-				}
-
-				public PsyInteger next()
-				{
-					return PsyInteger.of(stringValue().charAt(index++));
-				}
-
-				private int index=0;
-			};
-	}
-
 	/**
 	*	Context action of the {@code indexofchar} operator.
 	*/
@@ -176,4 +52,144 @@ public interface PsyTextual
 	@OperatorType("uppercase")
 	public static final ContextAction PSY_UPPERCASE
 		=ContextAction.<PsyTextual>ofFunction(PsyTextual::psyUpperCase);
+
+	/**
+	*	{@return a string value of this object}
+	*/
+	public String stringValue();
+
+	public PsyTextual psyUpperCase();
+
+	public PsyTextual psyLowerCase();
+
+	@Override
+	public default PsyString psyToString()
+	{
+		return new PsyString(stringValue());
+	}
+
+	@Override
+	public default void psyEval(final PsyContext oContext)
+		throws PsyErrorException
+	{
+		(new PsyStringReader(stringValue())).psyEval(oContext);
+	}
+
+	@Override
+	public default PsyInteger psyToInteger()
+		throws PsySyntaxErrorException
+	{
+		try
+		{
+			// TODO fraction
+			return PsyInteger.of(Long.parseLong(stringValue()));
+		}
+		catch(final NumberFormatException ex)
+		{
+			throw new PsySyntaxErrorException();
+		}
+	}
+
+	@Override
+	public default PsyIntegral psyToIntegral()
+		throws PsySyntaxErrorException
+	{
+		try
+		{
+			return PsyIntegral.parseLiteral(stringValue());
+		}
+		catch(final NumberFormatException ex)
+		{
+			throw new PsySyntaxErrorException();
+		}
+	}
+
+	@Override
+	public default PsyRational psyToRational()
+		throws PsySyntaxErrorException, PsyUndefinedResultException
+	{
+		try
+		{
+			return PsyRational.parseLiteral(stringValue());
+		}
+		catch(final NumberFormatException ex)
+		{
+			throw new PsySyntaxErrorException();
+		}
+	}
+
+	@Override
+	public default PsyReal psyToReal()
+		throws PsySyntaxErrorException
+	{
+		try
+		{
+			return new PsyReal(Double.parseDouble(stringValue()));
+		}
+		catch(final NumberFormatException ex)
+		{
+			throw new PsySyntaxErrorException();
+		}
+	}
+
+	@Override
+	public default int length()
+	{
+		return stringValue().length();
+	}
+
+	@Override
+	public default int compareTo(final PsyTextual oTextual)
+	{
+		return stringValue().compareTo(oTextual.stringValue());
+	}
+
+	@Override
+	public default PsyBoolean psyEq(final PsyObject o)
+	{
+		return PsyBoolean.of(o instanceof PsyTextual
+				&& stringValue().equals(((PsyTextual)o).stringValue()));
+	}
+
+	public default PsyArray psySplit(final PsyRegExp oRegExp)
+		throws PsyLimitCheckException
+	{
+		final var oArray=new PsyArray();
+		for(final var item: oRegExp.getPattern().split(stringValue(), -1))
+			// TODO PsyString
+			oArray.psyAppend(new PsyStringBuffer(item));
+		return oArray;
+	}
+
+	public default PsyInteger psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
+	{
+		return PsyInteger.of(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));
+	}
+
+	public default PsyInteger psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
+	{
+		return PsyInteger.of(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));
+	}
+
+	@Override
+	public default Iterator<PsyInteger> iterator()
+	{
+		return new Iterator<PsyInteger>()
+			{
+				private int index=0;
+
+				@Override
+				public boolean hasNext()
+				{
+					return index<stringValue().length();
+				}
+
+				@Override
+				public PsyInteger next()
+				{
+					return PsyInteger.of(stringValue().charAt(index++));
+				}
+			};
+	}
+
 }

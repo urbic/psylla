@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	The representation of the {@code securityerror} error thrown by the security manager to indicate
 *	a security violation.
 */
+@SuppressWarnings("serial")
 @ErrorType("securityerror")
 public class PsySecurityErrorException
 	extends PsyErrorException
@@ -15,11 +16,12 @@ public class PsySecurityErrorException
 	*/
 	public PsySecurityErrorException()
 	{
-		super();
 	}
 
 	/**
 	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
 	*/
 	public PsySecurityErrorException(final Throwable cause)
 	{

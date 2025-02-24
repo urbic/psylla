@@ -16,15 +16,15 @@ public sealed interface PsyIntegral
 		PsyInteger
 {
 	@Override
-	default public PsyIntegral psyNumerator()
+	public default PsyIntegral psyNumerator()
 	{
 		return this;
 	}
 
 	@Override
-	default public PsyIntegral psyDenominator()
+	public default PsyIntegral psyDenominator()
 	{
-		return ONE;
+		return PsyInteger.ONE;
 	}
 
 	@Override
@@ -34,25 +34,25 @@ public sealed interface PsyIntegral
 	public PsyIntegral psyNeg();
 
 	@Override
-	default public PsyIntegral psyFloor()
+	public default PsyIntegral psyFloor()
 	{
 		return this;
 	}
 
 	@Override
-	default public PsyIntegral psyCeiling()
+	public default PsyIntegral psyCeiling()
 	{
 		return this;
 	}
 
 	@Override
-	default public PsyIntegral psyRound()
+	public default PsyIntegral psyRound()
 	{
 		return this;
 	}
 
 	@Override
-	default public PsyIntegral psyIdiv(final PsyRational oRational)
+	public default PsyIntegral psyIdiv(final PsyRational oRational)
 		throws PsyUndefinedResultException
 	{
 		return ((PsyIntegral)psyMul(oRational.psyDenominator()))
@@ -64,39 +64,40 @@ public sealed interface PsyIntegral
 		throws PsyRangeCheckException, PsyUndefinedResultException;
 
 	@Override
-	default public PsyRational psyGCD(final PsyRational oRational)
+	public default PsyRational psyGCD(final PsyRational oRational)
 	{
-		switch(oRational)
-		{
-			case PsyIntegral oIntegral:
-				var oX=psyAbs();
-				var oY=oIntegral.psyAbs();
-				if(oY.isZero())
-					return oX;
-				while(!oX.isZero())
-				{
-					if(oX.compareTo(oY)>0)
+		return switch(oRational)
+			{
+				case PsyIntegral oIntegral->
 					{
-						var oT=oX;
-						oX=oY;
-						oY=oT;
+						var oX=psyAbs();
+						var oY=oIntegral.psyAbs();
+						if(oY.isZero())
+							yield oX;
+						while(!oX.isZero())
+						{
+							if(oX.compareTo(oY)>0)
+							{
+								final var oT=oX;
+								oX=oY;
+								oY=oT;
+							}
+							try
+							{
+								oY=oY.psyMod(oX);
+							}
+							catch(final PsyUndefinedResultException|PsyRangeCheckException e)
+							{
+								// NOP
+							}
+						}
+						yield oY;
 					}
-					try
-					{
-						oY=oY.psyMod(oX);
-					}
-					catch(final PsyUndefinedResultException|PsyRangeCheckException e)
-					{
-						// NOP
-					}
-				}
-				return oY;
-			default:
-				return PsyRational.of(
-					(PsyIntegral)((PsyIntegral)psyMul(oRational.psyDenominator()))
-							.psyGCD(oRational.psyNumerator()),
-					oRational.psyDenominator());
-		}
+				default->PsyRational.of(
+						(PsyIntegral)((PsyIntegral)psyMul(oRational.psyDenominator()))
+								.psyGCD(oRational.psyNumerator()),
+						oRational.psyDenominator());
+			};
 	}
 
 	/**
@@ -121,7 +122,7 @@ public sealed interface PsyIntegral
 	}
 
 	@Override
-	default public PsyIntegral psyToIntegral()
+	public default PsyIntegral psyToIntegral()
 	{
 		return this;
 	}
@@ -160,20 +161,16 @@ public sealed interface PsyIntegral
 			prefixlessImage=image.substring(2);
 			switch(image.charAt(0))
 			{
-				case 'X':
-				case 'x':
+				case 'X', 'x':
 					radix=16;
 					break;
-				case 'O':
-				case 'o':
+				case 'O', 'o':
 					radix=8;
 					break;
-				case 'B':
-				case 'b':
+				case 'B', 'b':
 					radix=2;
 					break;
-				case 'C':
-				case 'c':
+				case 'C', 'c':
 					return parseCharLiteral(prefixlessImage);
 			}
 		}
@@ -230,8 +227,8 @@ public sealed interface PsyIntegral
 					case 'x':
 						try
 						{
-							return PsyInteger.of(Integer.valueOf(
-									image.substring(3, image.length()-1), 16));
+							return PsyInteger.of(
+									Integer.valueOf(image.substring(3, image.length()-1), 16));
 						}
 						catch(final IllegalArgumentException ex)
 						{
@@ -247,21 +244,11 @@ public sealed interface PsyIntegral
 						{
 							throw new PsySyntaxErrorException();
 						}
+					default:
+						throw new PsySyntaxErrorException();
 				}
 			default:
 				return PsyInteger.of(image.charAt(0));
 		}
 	}
-
-	public static final PsyInteger ZERO=PsyInteger.ZERO;
-	public static final PsyInteger ONE=PsyInteger.ONE;
-	public static final PsyInteger TWO=PsyInteger.TWO;
-	public static final PsyInteger MINUS_ONE=PsyInteger.MINUS_ONE;
-
-	/**
-	*	Context action of the {@code lcm} operator.
-	*/
-	@OperatorType("lcm")
-	public static final ContextAction PSY_LCM
-		=ContextAction.<PsyIntegral, PsyIntegral>ofBiFunction(PsyIntegral::psyLCM);
 }

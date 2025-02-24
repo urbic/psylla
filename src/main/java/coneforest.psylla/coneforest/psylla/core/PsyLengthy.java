@@ -10,44 +10,6 @@ import coneforest.psylla.runtime.*;
 public interface PsyLengthy
 	extends PsyObject
 {
-
-	/**
-	*	Returns a length of this object.
-	*
-	*	@return a length.
-	*/
-	public int length();
-
-	/**
-	*	Returns a boolean indicating if this container is empty (has zero length).
-	*
-	*	@return {@code true}, if this container is empty, and {@code false} otherwise.
-	*/
-	default public boolean isEmpty()
-	{
-		return length()==0;
-	}
-
-	/**
-	*	Returns an {@code integer} representing the length of this object.
-	*
-	*	@return an {@code integer} length.
-	*/
-	default public PsyInteger psyLength()
-	{
-		return PsyInteger.of(length());
-	}
-
-	/**
-	*	Returns a {@code boolean} indicating if this container is empty (has zero length).
-	*
-	*	@return a {@code boolean} result.
-	*/
-	default public PsyBoolean psyIsEmpty()
-	{
-		return PsyBoolean.of(isEmpty());
-	}
-
 	/**
 	*	Context action of the {@code isempty} operator.
 	*/
@@ -61,4 +23,33 @@ public interface PsyLengthy
 	@OperatorType("length")
 	public static final ContextAction PSY_LENGTH
 		=ContextAction.<PsyLengthy>ofFunction(PsyLengthy::psyLength);
+
+	/**
+	*	{@return a length of this object}
+	*/
+	public int length();
+
+	/**
+	*	{@returns a boolean indicating if this container is empty (has zero length)}
+	*/
+	public default boolean isEmpty()
+	{
+		return length()==0;
+	}
+
+	/**
+	*	{@return an {@code integer} representing the length of this object}
+	*/
+	public default PsyInteger psyLength()
+	{
+		return PsyInteger.of(length());
+	}
+
+	/**
+	*	{@return a {@code boolean} indicating if this container is empty (has zero length)}
+	*/
+	public default PsyBoolean psyIsEmpty()
+	{
+		return PsyBoolean.of(isEmpty());
+	}
 }

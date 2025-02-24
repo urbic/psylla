@@ -18,6 +18,6 @@ bind def
 
 0 1 arguments 0 get tointeger
 {
-	fibonacci toname say
+	fibonacci tostring say
 }
 bind for

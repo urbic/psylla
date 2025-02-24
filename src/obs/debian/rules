@@ -6,8 +6,7 @@
 export DH_COMPAT=10
 
 export LC_ALL:=C.UTF-8
-export CLASSPATH:=/usr/share/java/xml-resolver.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar
-
+export CLASSPATH:=/usr/share/java/xml-resolver.jar:/usr/share/java/ivy.jar
 
 build: build-stamp
 build-stamp:
@@ -19,6 +18,7 @@ build-stamp:
 			src/test/psylla/operators/exp/general.t.out; \
 	fi
 	dh_auto_build -- -v \
+		-lib /usr/share/java/docbook-xsl-saxon.jar \
 		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
 		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
 		-Ddestdir=$(DESTDIR) \
@@ -32,6 +32,13 @@ build-stamp:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	#dh_auto_test -- -v
 	dh_auto_build -- -v \
+		-lib /usr/share/java/org.jacoco.ant.jar \
+		-lib /usr/share/java/org.jacoco.core.jar \
+		-lib /usr/share/java/org.jacoco.agent.jar \
+		-lib /usr/share/java/org.jacoco.report.jar \
+		-lib /usr/share/java/asm.jar \
+		-lib /usr/share/java/asm-tree.jar \
+		-lib /usr/share/java/asm-commons.jar \
 		-Divy.settings.file=/usr/share/ivy-debian-helper/ivysettings.xml \
 		-Divy.default.ivy.user.dir=$(shell pwd)/.ivy \
 		-Dlinux.flavour=debian \

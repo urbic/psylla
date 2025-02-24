@@ -866,8 +866,8 @@ discarding the first few elements</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_string" xrefstyle="template:%t"/></term>
-<listitem>create an empty string</listitem>
+<term><xref linkend="PsyllaReference_Operators_Details_stringbuffer" xrefstyle="template:%t"/></term>
+<listitem>create an empty stringbuffer</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -915,11 +915,6 @@ discarding the first few elements</listitem>
 </varlistentry>
 
 <varlistentry>
-<term><xref linkend="PsyllaReference_Operators_Details_toname" xrefstyle="template:%t"/></term>
-<listitem>convert an object to name</listitem>
-</varlistentry>
-
-<varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_toreal" xrefstyle="template:%t"/></term>
 <listitem>convert an object to real</listitem>
 </varlistentry>
@@ -927,6 +922,11 @@ discarding the first few elements</listitem>
 <varlistentry>
 <term><xref linkend="PsyllaReference_Operators_Details_tostring" xrefstyle="template:%t"/></term>
 <listitem>convert an object to string</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><xref linkend="PsyllaReference_Operators_Details_tostringbuffer" xrefstyle="template:%t"/></term>
+<listitem>convert an object to stringbuffer</listitem>
 </varlistentry>
 
 <varlistentry>
@@ -1696,7 +1696,7 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_stopped;
 &PsyllaReference_Operators_Details_store;
 &PsyllaReference_Operators_Details_streamtomark;
-&PsyllaReference_Operators_Details_string;
+&PsyllaReference_Operators_Details_stringbuffer;
 &PsyllaReference_Operators_Details_stringreader;
 &PsyllaReference_Operators_Details_stringwriter;
 &PsyllaReference_Operators_Details_sub;
@@ -1709,9 +1709,9 @@ xrefstyle="template:%t"/>.
 &PsyllaReference_Operators_Details_testbit;
 &PsyllaReference_Operators_Details_time;
 &PsyllaReference_Operators_Details_tointeger;
-&PsyllaReference_Operators_Details_toname;
 &PsyllaReference_Operators_Details_toreal;
 &PsyllaReference_Operators_Details_tostring;
+&PsyllaReference_Operators_Details_tostringbuffer;
 &PsyllaReference_Operators_Details_true;
 &PsyllaReference_Operators_Details_type;
 &PsyllaReference_Operators_Details_undef;

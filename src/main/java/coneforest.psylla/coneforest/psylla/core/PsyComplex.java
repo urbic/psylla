@@ -9,6 +9,59 @@ import coneforest.psylla.runtime.*;
 public final class PsyComplex
 	implements PsyNumeric
 {
+	/**
+	*	Context action of the {@code arg} operator.
+	*/
+	@OperatorType("arg")
+	public static final ContextAction PSY_ARG
+		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyArg);
+
+	/**
+	*	Context action of the {@code complex} operator.
+	*/
+	@OperatorType("complex")
+	public static final ContextAction PSY_COMPLEX
+		=ContextAction.<PsyRealNumeric, PsyRealNumeric>ofBiFunction(PsyComplex::new);
+
+	/**
+	*	Context action of the {@code complexpolar} operator.
+	*/
+	@OperatorType("complexpolar")
+	public static final ContextAction PSY_COMPLEXPOLAR
+		=ContextAction.<PsyRealNumeric, PsyRealNumeric>ofBiFunction(PsyComplex::psyFromPolar);
+
+	/**
+	*	Context action of the {@code conjugate} operator.
+	*/
+	@OperatorType("conjugate")
+	public static final ContextAction PSY_CONJUGATE
+		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyConjugate);
+
+	/**
+	*	Context action of the {@code imagpart} operator.
+	*/
+	@OperatorType("imagpart")
+	public static final ContextAction PSY_IMAGPART
+		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyImagPart);
+
+	/**
+	*	Context action of the {@code realpart} operator.
+	*/
+	@OperatorType("realpart")
+	public static final ContextAction PSY_REALPART
+		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyRealPart);
+	/**
+	*	Imaginary unit.
+	*/
+	public static final PsyComplex I=new PsyComplex(0.D, 1.D);
+
+	/**
+	*	Munus imaginary unit.
+	*/
+	public static final PsyComplex MINUS_I=new PsyComplex(0.D, -1.D);
+
+	private final double re, im;
+
 	public PsyComplex(final double re, final double im)
 	{
 		this.re=re;
@@ -45,7 +98,7 @@ public final class PsyComplex
 	@Override
 	public boolean isZero()
 	{
-		return (re==0.D && im==0.D);
+		return re==0.D && im==0.D;
 	}
 
 	@Override
@@ -65,7 +118,7 @@ public final class PsyComplex
 	@Override
 	public String toSyntaxString()
 	{
-		var sb=new StringBuilder();
+		final var sb=new StringBuilder();
 		sb.append(Double.isInfinite(re)? (re==Double.NEGATIVE_INFINITY? "-∞": "∞"): String.valueOf(re));
 		if(Double.compare(im, 0.D)>=0)
 			sb.append('+');
@@ -75,9 +128,7 @@ public final class PsyComplex
 	}
 
 	/**
-	*	Returns a {@code real} real part of this object.
-	*
-	*	@return a {@code real} real part.
+	*	{@return a {@code real} real part of this object}
 	*/
 	public PsyReal psyRealPart()
 	{
@@ -85,9 +136,7 @@ public final class PsyComplex
 	}
 
 	/**
-	*	Returns a {@code real} imaginary part of this object.
-	*
-	*	@return a {@code real} imaginary part.
+	*	{@return a {@code real} imaginary part of this object}
 	*/
 	public PsyReal psyImagPart()
 	{
@@ -95,10 +144,8 @@ public final class PsyComplex
 	}
 
 	/**
-	*	Returns a {@code real} representing the complex argument of this object. The argument
-	*	belongs to the range (−π; π].
-	*
-	*	@return a {@code real} argument.
+	*	{@return a {@code real} representing the complex argument of this object} The argument
+	*		belongs to the range (−π; π].
 	*/
 	public PsyReal psyArg()
 	{
@@ -106,9 +153,7 @@ public final class PsyComplex
 	}
 
 	/**
-	*	Returns a {@code complex} representing the complex conjugate of this object.
-	*
-	*	@return a {@code complex} conjugate of this number.
+	*	{@return a {@code complex} representing the complex conjugate of this object}
 	*/
 	public PsyComplex psyConjugate()
 	{
@@ -197,13 +242,13 @@ public final class PsyComplex
 	@Override
 	public PsyComplex psyCos()
 	{
-		return new PsyComplex(Math.cos(re)*Math.cosh(im), Math.sin(re)*Math.sinh(im));
+		return new PsyComplex(Math.cos(re)*Math.cosh(im), -Math.sin(re)*Math.sinh(im));
 	}
 
 	@Override
 	public PsyComplex psySin()
 	{
-		return new PsyComplex(Math.sin(re)*Math.cosh(im), -Math.cos(re)*Math.sinh(im));
+		return new PsyComplex(Math.sin(re)*Math.cosh(im), Math.cos(re)*Math.sinh(im));
 	}
 
 	@Override
@@ -233,13 +278,13 @@ public final class PsyComplex
 	@Override
 	public PsyComplex psySqrt()
 	{
-		return psyFromPolar(Math.sqrt(Math.hypot(re, im)), Math.atan2(im, re)/2.D);
+		return fromPolar(Math.sqrt(Math.hypot(re, im)), Math.atan2(im, re)/2.D);
 	}
 
 	@Override
 	public PsyComplex psyCbrt()
 	{
-		return psyFromPolar(Math.cbrt(Math.hypot(re, im)), Math.atan2(im, re)/3.D);
+		return fromPolar(Math.cbrt(Math.hypot(re, im)), Math.atan2(im, re)/3.D);
 	}
 
 	@Override
@@ -270,65 +315,11 @@ public final class PsyComplex
 
 	public static PsyComplex psyFromPolar(final PsyRealNumeric oAbs, final PsyRealNumeric oArg)
 	{
-		return psyFromPolar(oAbs.doubleValue(), oArg.doubleValue());
+		return fromPolar(oAbs.doubleValue(), oArg.doubleValue());
 	}
 
-	public static PsyComplex psyFromPolar(final double abs, final double arg)
+	public static PsyComplex fromPolar(final double abs, final double arg)
 	{
 		return new PsyComplex(abs*Math.cos(arg), abs*Math.sin(arg));
 	}
-
-	/**
-	*	Imaginary unit.
-	*/
-	public static final PsyComplex I=new PsyComplex(0.D, 1.D);
-
-	/**
-	*	Munus imaginary unit.
-	*/
-	public static final PsyComplex MINUS_I=new PsyComplex(0.D, -1.D);
-
-	private final double re, im;
-
-	/**
-	*	Context action of the {@code arg} operator.
-	*/
-	@OperatorType("arg")
-	public static final ContextAction PSY_ARG
-		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyArg);
-
-	/**
-	*	Context action of the {@code complex} operator.
-	*/
-	@OperatorType("complex")
-	public static final ContextAction PSY_COMPLEX
-		=ContextAction.<PsyRealNumeric, PsyRealNumeric>ofBiFunction(PsyComplex::new);
-
-	/**
-	*	Context action of the {@code complexpolar} operator.
-	*/
-	@OperatorType("complexpolar")
-	public static final ContextAction PSY_COMPLEXPOLAR
-		=ContextAction.<PsyRealNumeric, PsyRealNumeric>ofBiFunction(PsyComplex::psyFromPolar);
-
-	/**
-	*	Context action of the {@code conjugate} operator.
-	*/
-	@OperatorType("conjugate")
-	public static final ContextAction PSY_CONJUGATE
-		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyConjugate);
-
-	/**
-	*	Context action of the {@code imagpart} operator.
-	*/
-	@OperatorType("imagpart")
-	public static final ContextAction PSY_IMAGPART
-		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyImagPart);
-
-	/**
-	*	Context action of the {@code realpart} operator.
-	*/
-	@OperatorType("realpart")
-	public static final ContextAction PSY_REALPART
-		=ContextAction.<PsyComplex>ofFunction(PsyComplex::psyRealPart);
 }

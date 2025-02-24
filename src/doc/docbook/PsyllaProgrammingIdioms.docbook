@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!ENTITY % namespaces	SYSTEM "namespaces.ent">
+<!ENTITY % entities		SYSTEM "PsyllaReference.ent">
+<!ENTITY % version		SYSTEM "../../../target/doc/version.ent">
+%namespaces;
+%entities;
+%version;
+]>
+<article
+	xml:id="PsyllaProgrammingIdioms"
+	version="5.0"
+	xmlns="&nsDocBook;"
+	xmlns:m="&nsMathML;"
+	xmlns:xlink="&nsXLink;"
+	xml:base="."
+	xml:lang="en"
+	>
+
+<info>
+<title>The Psylla Language. Programming Idioms</title>
+<author>
+<person>
+<personname>
+<firstname>Anton</firstname>
+<surname>Shvetz</surname>
+</personname>
+<email>shvetz.anton@gmail.com</email>
+</person>
+</author>
+<keywordset>
+<keyword>Psylla</keyword>
+<keyword>interpreter</keyword>
+<keyword>programming language</keyword>
+<keyword>scripting language</keyword>
+<keyword>general purpose language</keyword>
+<keyword>JVM language</keyword>
+<keyword>stack-based</keyword>
+<keyword>concatenative</keyword>
+<keyword>homoiconic</keyword>
+<keyword>reverse polish notation</keyword>
+<keyword>programming idioms</keyword>
+</keywordset>
+<!--abstract>
+</abstract-->
+</info>
+
+<section>
+<title>Print Hello World</title>
+
+<para>Print a literal string on standard output</para>
+
+<programlisting language="psylla">'Hello, World' print</programlisting>
+
+</section>
+
+<section>
+<title>Print Hello 10 times</title>
+
+<para>Loop to execute some code a constant number of times</para>
+
+<programlisting language="psylla">10 { 'Hello' say } repeat</programlisting>
+
+</section>
+
+<section>
+<title>Create a procedure</title>
+
+<para xlink:href="https://www.programming-idioms.org/idiom/3/create-a-procedure">
+Like a function which doesn’t return any value, thus has only side effects
+(e.g. Print to standard output)
+</para>
+
+<programlisting language="psylla">/f { 'abc' say } def</programlisting>
+
+</section>
+
+<section>
+<title>Create a function</title>
+
+<para>
+Create a function which returns the square of an integer
+</para>
+
+<programlisting language="psylla">/square { dup mul } def</programlisting>
+
+</section>
+
+<section>
+<title>Create a 2D Point data structure</title>
+
+<para>
+Declare a container type for two floating-point numbers
+<replaceable>x</replaceable> and <replaceable>y</replaceable>
+</para>
+
+<remark>?</remark>
+
+</section>
+
+<section>
+<title>Iterate over list values</title>
+
+<para>
+Do something with each item <replaceable>x</replaceable> of the list (or array)
+<replaceable>items</replaceable>, regardless indexes.
+</para>
+
+<programlisting language="psylla">items { dosomething } forall</programlisting>
+
+</section>
+
+<section>
+<title>Iterate over list indexes and values</title>
+
+<para>
+Print each index <replaceable>i</replaceable> with its value
+<replaceable>x</replaceable> from an array-like collection
+<replaceable>items</replaceable>
+</para>
+
+<programlisting language="psylla">0 1 items length 1 sub
+{
+	dup tostring print
+	'=' print
+	items exch get tostring say
+}
+for</programlisting>
+
+</section>
+
+<section>
+<title>Create a map (associative array)</title>
+
+<para>
+Create a new map object <replaceable>x</replaceable>, and provide some (key,
+value) pairs as initial content.
+</para>
+
+<programlisting language="psylla">/x &lt;/one 1 /two 2&gt; def</programlisting>
+
+</section>
+
+<section>
+<title>Create a Binary Tree data structure</title>
+
+<para>
+The structure must be recursive because left child and right child are binary
+trees too. A node has access to children nodes, but not to its parent
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section>
+<title>Shuffle a list</title>
+
+<para>
+Generate a random permutation of the elements of list
+<replaceable>x</replaceable>
+</para>
+
+<programlisting language="psylla">/shuffle
+{
+	dict begin
+		dup
+		/a exch def
+
+		a length 1 sub -1 1
+		{
+			/i exch def
+
+			i 1 add stdrandom
+			exch uniformdeviate
+			/j exch def
+
+			a i get
+			a j get
+			a i
+			3 -1 roll put
+			a j
+			3 -1 roll put
+		}
+		for
+	end
+}
+bind def
+
+x shuffle</programlisting>
+
+</section>
+
+<section>
+<title>Pick a random element from a list</title>
+
+<para>The list <replaceable>x</replaceable> must be non-empty</para>
+
+<programlisting language="psylla">x dup length uniformdeviate get</programlisting>
+
+</section>
+
+<section>
+<title>Check if list contains a value</title>
+
+<para>Check if the list contains the value <replaceable>x</replaceable>.
+<replaceable>list</replaceable> is an iterable finite container
+</para>
+
+<programlisting language="psylla">false list { x eq { not exit } if } forall</programlisting>
+
+</section>
+
+<section>
+<title>Iterate over map keys and values</title>
+
+<para>
+Access each key <replaceable>k</replaceable> with its value
+<replaceable>x</replaceable> from an associative array
+<replaceable>mymap</replaceable>, and print them
+</para>
+
+<programlisting language="psylla">mymap
+{
+	/k exch def
+	/x exch def
+	k tostring print
+	'=' print
+	x tostring say
+}
+forall</programlisting>
+
+</section>
+
+<section>
+<title>Pick uniformly a random floating point number in
+[<replaceable>a</replaceable>..<replaceable>b</replaceable>)</title>
+
+<para>
+Pick a random number greater than or equals to <replaceable>a</replaceable>,
+strictly inferior to <replaceable>b</replaceable>. Precondition:
+<replaceable>a</replaceable> &lt; <replaceable>b</replaceable>.
+</para>
+
+<programlisting language="psylla">stdrandom b a sub uniformdeviate a add</programlisting>
+
+</section>
+
+<section>
+<title>Pick uniformly a random integer in
+[<replaceable>a</replaceable>..<replaceable>b</replaceable>]</title>
+
+<para>
+Pick a random integer greater than or equals to <replaceable>a</replaceable>,
+inferior or equals to <replaceable>b</replaceable>. Precondition:
+<replaceable>a</replaceable> &lt; <replaceable>b</replaceable>.
+</para>
+
+<programlisting language="psylla">stdrandom b a sub 1 add uniformdeviate a add</programlisting>
+
+</section>
+
+<section>
+<title>Depth-first traversal of a binary tree</title>
+
+<para>
+Call a function <replaceable>f</replaceable> on every node of binary tree
+<replaceable>bt</replaceable>, in depth-first infix order
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section>
+<title>Create a Tree data structure</title>
+
+<para>
+The structure must be recursive. A node may have zero or more children. A node
+has access to its children nodes, but not to its parent.
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section>
+<title>Depth-first traversal of a tree</title>
+
+<para>
+Call a function <replaceable>f</replaceable> on every node of a tree, in
+depth-first prefix order
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section>
+<title>Reverse a list</title>
+
+<para>
+Reverse the order of the elements of the list <replaceable>x</replaceable>.
+This may reverse “in-place” and destroy the original ordering
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<section>
+<title>Return two values</title>
+
+<para>
+Implement a function search which looks for item <replaceable>x</replaceable>
+in a 2D matrix <replaceable>m</replaceable>. Return indices
+<replaceable>i</replaceable>, <replaceable>j</replaceable> of the matching cell.
+Think of the most idiomatic way in the language to return the two values at the
+same time.
+</para>
+
+<remark>TODO</remark>
+<!--
+m keys
+{
+	/i exch def
+	/mi m i get def
+	mi keys
+	{
+		/j exch def
+		mi j get x eq
+		{
+			exit
+		}
+		if
+	}
+	forall
+}
+forall
+-->
+</section>
+
+<section>
+<title>Swap values</title>
+
+<para>
+Swap the values of the variables <replaceable>a</replaceable> and
+<replaceable>b</replaceable>
+</para>
+
+<programlisting language="psylla">a b /a exch def /b exch def</programlisting>
+
+</section>
+
+<section>
+<title>Convert string to integer</title>
+
+<para>
+Extract the integer value <replaceable>i</replaceable> from its string
+representation <replaceable>s</replaceable> (in radix 10)
+</para>
+
+<programlisting language="psylla">s tointeger</programlisting>
+
+</section>
+
+<section>
+<title>Convert real number to string with 2 decimal places</title>
+
+<para>
+Given a real number <replaceable>x</replaceable>, create its string
+representation <replaceable>s</replaceable> with 2 decimal digits following the
+dot
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+</article>

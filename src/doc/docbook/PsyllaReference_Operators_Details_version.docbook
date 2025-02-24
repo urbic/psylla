@@ -4,8 +4,8 @@
 
 <para>
 The version of the Psylla interpreter. Not an operator, but a <xref
-xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/> value in
-the system dictionary.
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/> value
+in the system dictionary.
 </para>
 
 <formalpara>
@@ -22,7 +22,7 @@ the system dictionary.
 <itemizedlist>
 <listitem>
 <constant>version</constant>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_name"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </formalpara>

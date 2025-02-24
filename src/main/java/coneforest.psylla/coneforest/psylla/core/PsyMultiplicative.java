@@ -9,9 +9,33 @@ import coneforest.psylla.runtime.*;
 *	@param <T> a type of the second operand at binary operation.
 */
 @Type("multiplicative")
-public interface PsyMultiplicative<T extends PsyMultiplicative>
+public interface PsyMultiplicative<T extends PsyMultiplicative<T>>
 	extends PsyObject
 {
+	/**
+	*	Context action of the {@code div} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("div")
+	public static final ContextAction PSY_DIV
+		=ContextAction.<PsyMultiplicative, PsyMultiplicative>ofBiFunction(PsyMultiplicative::psyDiv);
+
+	/**
+	*	Context action of the {@code mul} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("mul")
+	public static final ContextAction PSY_MUL
+		=ContextAction.<PsyMultiplicative, PsyMultiplicative>ofBiFunction(PsyMultiplicative::psyMul);
+
+	/**
+	*	Context action of the {@code reciprocal} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("reciprocal")
+	public static final ContextAction PSY_RECIPROCAL
+		=ContextAction.<PsyMultiplicative>ofFunction(PsyMultiplicative::psyReciprocal);
+
 	/**
 	*	{@return the multiplicative inverse of this object}
 	*
@@ -35,26 +59,4 @@ public interface PsyMultiplicative<T extends PsyMultiplicative>
 	*/
 	public T psyDiv(final T oMultiplicative)
 		throws PsyUndefinedResultException;
-
-	/**
-	*	Context action of the {@code div} operator.
-	*/
-	@OperatorType("div")
-	public static final ContextAction PSY_DIV
-		=ContextAction.<PsyMultiplicative, PsyMultiplicative>ofBiFunction(PsyMultiplicative::psyDiv);
-
-	/**
-	*	Context action of the {@code mul} operator.
-	*/
-	@OperatorType("mul")
-	public static final ContextAction PSY_MUL
-		=ContextAction.<PsyMultiplicative, PsyMultiplicative>ofBiFunction(PsyMultiplicative::psyMul);
-
-	/**
-	*	Context action of the {@code reciprocal} operator.
-	*/
-	@OperatorType("reciprocal")
-	public static final ContextAction PSY_RECIPROCAL
-		=ContextAction.<PsyMultiplicative>ofFunction(PsyMultiplicative::psyReciprocal);
-
 }

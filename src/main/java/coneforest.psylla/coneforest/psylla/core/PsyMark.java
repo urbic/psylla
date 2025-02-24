@@ -8,8 +8,13 @@ import coneforest.psylla.runtime.*;
 */
 @Type("mark")
 public final class PsyMark
-	implements PsyValue
+	implements PsyObject
 {
+	/**
+	*	The sole {@code mark} object.
+	*/
+	public static final PsyMark MARK=new PsyMark();
+
 	private PsyMark()
 	{
 	}
@@ -17,11 +22,6 @@ public final class PsyMark
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.of(o==MARK);
+		return PsyBoolean.of(this==o);
 	}
-
-	/**
-	*	The sole {@code mark} object.
-	*/
-	public static final PsyMark MARK=new PsyMark();
 }

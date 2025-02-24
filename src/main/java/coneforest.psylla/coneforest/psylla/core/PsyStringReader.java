@@ -4,16 +4,23 @@ import coneforest.psylla.runtime.*;
 import java.io.StringReader;
 
 /**
-*	An implementation of {@code stringreader}, a character stream whose source is a {@code textual}.
+*	An implementation of {@code stringreader}, a character stream whose source is a {@code string}.
 */
 @Type("stringreader")
 public class PsyStringReader
 	extends PsyReader
 {
 	/**
+	*	Context action of the {@code stringreader} operator.
+	*/
+	@OperatorType("stringreader")
+	public static final ContextAction PSY_STRINGREADER
+		=ContextAction.<PsyString>ofFunction(PsyStringReader::new);
+
+	/**
 	*	Creates a new {@code stringreader} object.
 	*
-	*	@param string a string providing the character string.
+	*	@param string a string to read from.
 	*/
 	public PsyStringReader(final String string)
 	{
@@ -23,17 +30,10 @@ public class PsyStringReader
 	/**
 	*	Creates a new {@code stringreader} object.
 	*
-	*	@param oTextual a {@code textual} providing the character string.
+	*	@param oString a {@code string} to read from.
 	*/
-	public PsyStringReader(final PsyTextual oTextual)
+	public PsyStringReader(final PsyString oString)
 	{
-		this(oTextual.stringValue());
+		this(oString.stringValue());
 	}
-
-	/**
-	*	Context action of the {@code stringreader} operator.
-	*/
-	@OperatorType("stringreader")
-	public static final ContextAction PSY_STRINGREADER
-		=ContextAction.<PsyTextual>ofFunction(PsyStringReader::new);
 }

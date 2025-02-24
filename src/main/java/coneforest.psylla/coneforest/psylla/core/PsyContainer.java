@@ -12,7 +12,8 @@ public interface PsyContainer<T extends PsyObject>
 		PsyLengthy
 {
 
-	default public PsyContainer<T> psyNewEmpty()
+	@SuppressWarnings("unchecked")
+	public default PsyContainer<T> psyNewEmpty()
 		throws PsyUnsupportedException
 	{
 		try
@@ -28,8 +29,9 @@ public interface PsyContainer<T extends PsyObject>
 		}
 	}
 
-	default public String toSyntaxStringHelper(final Set<PsyContainer<T>> processed)
+	public default String toSyntaxStringHelper(final Set<PsyContainer<? extends PsyObject>> processed)
 	{
 		return toSyntaxString();
 	}
+
 }

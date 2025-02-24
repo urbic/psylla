@@ -3,6 +3,7 @@ package coneforest.psylla.core;
 import coneforest.psylla.runtime.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 /**
 *	The representation of {@code array}.
@@ -11,6 +12,62 @@ import java.util.Collections;
 public class PsyArray
 	implements PsyFormalArray<PsyObject>
 {
+	/**
+	*	Context action of the {@code array} operator.
+	*/
+	@OperatorType("array")
+	public static final ContextAction PSY_ARRAY
+		=ContextAction.ofSupplier(PsyArray::new);
+
+	/**
+	*	Context action of the {@code arraytomark} operator.
+	*/
+	@OperatorType("arraytomark")
+	public static final ContextAction PSY_ARRAYTOMARK=oContext->
+		{
+			final var ostack=oContext.operandStack();
+			final var i=ostack.findMarkPosition();
+			final var oArray=new PsyArray();
+			for(int j=i+1; j<ostack.size(); j++)
+				oArray.psyAppend(ostack.get(j));
+			ostack.setSize(i);
+			ostack.push(oArray);
+		};
+
+	/**
+	*	Context action of the {@code binarysearch} operator.
+	*/
+	@OperatorType("binarysearch")
+	public static final ContextAction PSY_BINARYSEARCH=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(3);
+			final var oIndex=ostack.<PsyArray>getBacked(0).psyBinarySearch(
+					ostack.getBacked(1), ostack.getBacked(2), oContext);
+			final var index=oIndex.intValue();
+			if(index>=0)
+			{
+				ostack.push(oIndex);
+				ostack.push(PsyBoolean.TRUE);
+			}
+			else
+			{
+				ostack.push(PsyInteger.of(-index-1));
+				ostack.push(PsyBoolean.FALSE);
+			}
+		};
+
+	/**
+	*	Context action of the {@code sort} operator.
+	*/
+	@OperatorType("sort")
+	public static final ContextAction PSY_SORT=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(2);
+			ostack.<PsyArray>getBacked(0).psySort(ostack.getBacked(1), oContext);
+		};
+
+	protected final ArrayList<PsyObject> array;
+
 	/**
 	*	Constructs a new empty {@code array}.
 	*/
@@ -36,11 +93,12 @@ public class PsyArray
 	}
 
 	@Override
-	public java.util.Iterator<PsyObject> iterator()
+	public Iterator<PsyObject> iterator()
 	{
 		return array.iterator();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public PsyArray psyClone()
 	{
@@ -55,7 +113,7 @@ public class PsyArray
 		{
 			return array.get(index<0? index+length(): index);
 		}
-		catch(final IndexOutOfBoundsException ex)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -70,7 +128,7 @@ public class PsyArray
 			return new PsyArray(new ArrayList<PsyObject>(array.subList(oStart.intValue(),
 					oStart.intValue()+oCount.intValue())));
 		}
-		catch(final IndexOutOfBoundsException|IllegalArgumentException ex)
+		catch(final IndexOutOfBoundsException|IllegalArgumentException e)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -91,9 +149,9 @@ public class PsyArray
 	{
 		try
 		{
-			array.add(indexValue, o);
+			array.add(indexValue<0? indexValue+length(): indexValue, o);
 		}
-		catch(final IndexOutOfBoundsException ex)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -105,24 +163,23 @@ public class PsyArray
 	{
 		try
 		{
-			//array.set(indexValue, o);
 			array.set(indexValue<0? indexValue+length(): indexValue, o);
 		}
-		catch(final IndexOutOfBoundsException ex)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsyRangeCheckException();
 		}
 	}
 
 	@Override
-	public void delete(int indexValue)
+	public void delete(final int indexValue)
 		throws PsyRangeCheckException
 	{
 		try
 		{
 			array.remove(indexValue);
 		}
-		catch(final IndexOutOfBoundsException ex)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -134,9 +191,9 @@ public class PsyArray
 	{
 		try
 		{
-			return array.remove(indexValue);
+			return array.remove(indexValue<0? indexValue+length(): indexValue);
 		}
-		catch(final IndexOutOfBoundsException ex)
+		catch(final IndexOutOfBoundsException e)
 		{
 			throw new PsyRangeCheckException();
 		}
@@ -219,60 +276,4 @@ public class PsyArray
 	{
 		return new PsyStream(array.stream());
 	}
-
-	protected final ArrayList<PsyObject> array;
-
-	/**
-	*	Context action of the {@code array} operator.
-	*/
-	@OperatorType("array")
-	public static final ContextAction PSY_ARRAY
-		=ContextAction.ofSupplier(PsyArray::new);
-
-	/**
-	*	Context action of the {@code arraytomark} operator.
-	*/
-	@OperatorType("arraytomark")
-	public static final ContextAction PSY_ARRAYTOMARK=oContext->
-		{
-			final var ostack=oContext.operandStack();
-			final var i=ostack.findMarkPosition();
-			final var oArray=new PsyArray();
-			for(int j=i+1; j<ostack.size(); j++)
-				oArray.psyAppend(ostack.get(j));
-			ostack.setSize(i);
-			ostack.push(oArray);
-		};
-
-	/**
-	*	Context action of the {@code binarysearch} operator.
-	*/
-	@OperatorType("binarysearch")
-	public static final ContextAction PSY_BINARYSEARCH=oContext->
-		{
-			final var ostack=oContext.operandStackBacked(3);
-			final var oIndex=ostack.<PsyArray>getBacked(0).psyBinarySearch(
-					ostack.getBacked(1), ostack.getBacked(2), oContext);
-			final var index=oIndex.intValue();
-			if(index>=0)
-			{
-				ostack.push(oIndex);
-				ostack.push(PsyBoolean.TRUE);
-			}
-			else
-			{
-				ostack.push(PsyInteger.of(-index-1));
-				ostack.push(PsyBoolean.FALSE);
-			}
-		};
-
-	/**
-	*	Context action of the {@code sort} operator.
-	*/
-	@OperatorType("sort")
-	public static final ContextAction PSY_SORT=oContext->
-		{
-			final var ostack=oContext.operandStackBacked(2);
-			ostack.<PsyArray>getBacked(0).psySort(ostack.getBacked(1), oContext);
-		};
 }

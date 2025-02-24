@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	 The representation of {@code concurrentmodification} error thrown when concurrent modification
 *	 detected.
 */
+@SuppressWarnings("serial")
 @ErrorType("concurrentmodification")
 public class PsyConcurrentModificationException
 	extends PsyErrorException
@@ -15,6 +16,15 @@ public class PsyConcurrentModificationException
 	*/
 	public PsyConcurrentModificationException()
 	{
-		super();
+	}
+
+	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
+	*/
+	public PsyConcurrentModificationException(final Throwable cause)
+	{
+		super(cause);
 	}
 }

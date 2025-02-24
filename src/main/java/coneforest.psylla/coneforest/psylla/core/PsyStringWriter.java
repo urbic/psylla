@@ -10,7 +10,19 @@ import java.io.Writer;
 public class PsyStringWriter
 	extends PsyWriter
 {
-	public PsyStringWriter(final PsyString oString)
+	/**
+	*	Context action of the {@code stringwriter} operator.
+	*/
+	@OperatorType("stringwriter")
+	public static final ContextAction PSY_STRINGWRITER
+		=ContextAction.<PsyStringBuffer>ofFunction(PsyStringWriter::new);
+
+	/**
+	*	Creates a new {@code stringwriter} object.
+	*
+	*	@param oString a {@code string} to wtite to.
+	*/
+	public PsyStringWriter(final PsyStringBuffer oString)
 	{
 		super(new StringBufferWriter(oString.getBuffer()));
 	}
@@ -18,6 +30,8 @@ public class PsyStringWriter
 	private static class StringBufferWriter
 		extends Writer
 	{
+		private final StringBuilder buffer;
+
 		StringBufferWriter(final StringBuilder buffer)
 		{
 			this.buffer=buffer;
@@ -39,14 +53,5 @@ public class PsyStringWriter
 			for(int i=off; i<off+len; i++)
 				buffer.append(cbuf[i]);
 		}
-
-		private final StringBuilder buffer;
 	}
-
-	/**
-	*	Context action of the {@code stringwriter} operator.
-	*/
-	@OperatorType("stringwriter")
-	public static final ContextAction PSY_STRINGWRITER
-		=ContextAction.<PsyString>ofFunction(PsyStringWriter::new);
 }

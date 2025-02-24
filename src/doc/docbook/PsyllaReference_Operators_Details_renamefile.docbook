@@ -24,7 +24,7 @@ Changes an <replaceable>old</replaceable> file name to a
 <listitem>
 <replaceable>old</replaceable>,
 <replaceable>new</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </formalpara>

@@ -21,7 +21,7 @@ Deletes a file or nonempty directory with a given <replaceable>name</replaceable
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </formalpara>

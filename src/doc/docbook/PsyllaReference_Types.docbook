@@ -53,8 +53,8 @@ calculated, and the result will be integer.
 &PsyllaReference_Types_Details_bounded;
 &PsyllaReference_Types_Details_clearable;
 &PsyllaReference_Types_Details_closeable;
-&PsyllaReference_Types_Details_command;
 &PsyllaReference_Types_Details_complex;
+&PsyllaReference_Types_Details_concatenable;
 &PsyllaReference_Types_Details_condition;
 &PsyllaReference_Types_Details_container;
 &PsyllaReference_Types_Details_context;
@@ -123,6 +123,7 @@ linkend="PsyllaReference_Types_Details_real"/>.
 &PsyllaReference_Types_Details_stream;
 &PsyllaReference_Types_Details_streamable;
 &PsyllaReference_Types_Details_string;
+&PsyllaReference_Types_Details_stringbuffer;
 &PsyllaReference_Types_Details_stringreader;
 &PsyllaReference_Types_Details_stringwriter;
 &PsyllaReference_Types_Details_textual;

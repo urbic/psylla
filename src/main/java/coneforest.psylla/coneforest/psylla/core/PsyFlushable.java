@@ -10,17 +10,17 @@ public interface PsyFlushable
 	extends PsyObject
 {
 	/**
+	*	Context action of the {@code flush} operator.
+	*/
+	@OperatorType("flush")
+	public static final ContextAction PSY_FLUSH
+		=ContextAction.<PsyFlushable>ofConsumer(PsyFlushable::psyFlush);
+
+	/**
 	*	Flush this {@code flushable}.
 	*
 	*	@throws PsyIOErrorException when I/O error occurs during flush.
 	*/
 	public void psyFlush()
 		throws PsyIOErrorException;
-
-	/**
-	*	Context action of the {@code flush} operator.
-	*/
-	@OperatorType("flush")
-	public static final ContextAction PSY_FLUSH
-		=ContextAction.<PsyFlushable>ofConsumer(PsyFlushable::psyFlush);
 }

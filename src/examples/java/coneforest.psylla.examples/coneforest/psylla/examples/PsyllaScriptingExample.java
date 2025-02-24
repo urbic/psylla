@@ -3,7 +3,7 @@ package coneforest.psylla.examples;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public class PsyllaScriptingExample
+public interface PsyllaScriptingExample
 {
 	public static void main(final String[] args)
 	{

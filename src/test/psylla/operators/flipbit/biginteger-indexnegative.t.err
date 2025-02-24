@@ -1,0 +1,4 @@
+Error: /rangecheck in --flipbit--
+Operand stack:
+	9223372036854775808 -2
+Execution stack: (empty)

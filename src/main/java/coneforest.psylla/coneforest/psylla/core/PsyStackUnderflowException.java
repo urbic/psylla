@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	The representation of the {@code stackunderflow} error thrown when the operand stack contains
 *	fewer operands than the operator expects.
 */
+@SuppressWarnings("serial")
 @ErrorType("stackunderflow")
 public class PsyStackUnderflowException
 	extends PsyErrorException
@@ -15,6 +16,5 @@ public class PsyStackUnderflowException
 	*/
 	public PsyStackUnderflowException()
 	{
-		super();
 	}
 }

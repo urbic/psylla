@@ -6,13 +6,13 @@ import coneforest.psylla.runtime.*;
 public interface PsyConvertableToIntegral
 	extends PsyObject
 {
-	public PsyIntegral psyToIntegral()
-		throws PsyErrorException;
-
 	/**
 	*	Context action of the {@code tointegral} operator.
 	*/
 	@OperatorType("tointegral")
 	public static final ContextAction PSY_TOINTEGRAL
 		=ContextAction.<PsyConvertableToIntegral>ofFunction(PsyConvertableToIntegral::psyToIntegral);
+
+	public PsyIntegral psyToIntegral()
+		throws PsyErrorException;
 }

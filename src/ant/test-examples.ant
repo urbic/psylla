@@ -1,10 +1,13 @@
 <?xml version="1.0"?>
-<project name="test-examples" basedir=".">
+<project name="test-examples"
+	basedir="."
+	xmlns:psylla="antlib:coneforest.psylla.ant"
+	>
 
 	<target name="test.examples" depends="jar">
 		<taskdef
 			name="psylla"
-			classname="coneforest.psylla.tools.ant.Psylla"
+			uri="antlib:coneforest.psylla.ant"
 			classpathref="modulepath.main"
 			/>
 		<psylla script="${src.examples.psylla}/sqrt-bisection-floyd.psy">

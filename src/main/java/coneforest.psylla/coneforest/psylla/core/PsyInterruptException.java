@@ -2,6 +2,7 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 
+@SuppressWarnings("serial")
 @ErrorType("interrupt")
 public class PsyInterruptException
 	extends PsyErrorException
@@ -11,6 +12,5 @@ public class PsyInterruptException
 	*/
 	public PsyInterruptException()
 	{
-		super();
 	}
 }

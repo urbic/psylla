@@ -1,4 +1,4 @@
-package coneforest.psylla.engine;
+package coneforest.psylla.scripting;
 
 import java.util.List;
 import javax.script.ScriptEngine;
@@ -10,8 +10,15 @@ import javax.script.ScriptEngineFactory;
 public class PsyllaScriptEngineFactory
 	implements ScriptEngineFactory
 {
+	private List<String> mimeTypes;
+	private List<String> extensions;
+
+	public PsyllaScriptEngineFactory()
+	{
+	}
+
 	/**
-	*	@return a string {@code "Psylla"}.
+	*	{@return a string {@code "Psylla"}}
 	*/
 	@Override
 	public String getEngineName()
@@ -20,18 +27,16 @@ public class PsyllaScriptEngineFactory
 	}
 
 	/**
-	*	Returns an engine.
-	*
-	*	@return an engine.
+	*	{@return an engine}
 	*/
 	@Override
-	public ScriptEngine getScriptEngine()
+	public synchronized ScriptEngine getScriptEngine()
 	{
 		return new PsyllaScriptEngine(this);
 	}
 
 	/**
-	*	@return a list consisting of single string {@code "psylla"}.
+	*	{@return a list consisting of single string {@code "psylla"}}
 	*/
 	@Override
 	public List<String> getNames()
@@ -67,19 +72,16 @@ public class PsyllaScriptEngineFactory
 	@Override
 	public String getParameter(final String key)
 	{
-		if(key.equals(ScriptEngine.ENGINE))
-			return getEngineName();
-		if(key.equals(ScriptEngine.ENGINE_VERSION))
-			return getEngineVersion();
-		if(key.equals(ScriptEngine.NAME))
-			return getEngineName();
-		if(key.equals(ScriptEngine.LANGUAGE))
-			return getLanguageName();
-		if(key.equals(ScriptEngine.LANGUAGE_VERSION))
-			return getLanguageVersion();
-		if(key.equals("THREADING"))
-			return "MULTITHREADED";	// TODO
-		return null;
+		return switch(key)
+			{
+				case ScriptEngine.ENGINE->getEngineName();
+				case ScriptEngine.ENGINE_VERSION->getEngineVersion();
+				case ScriptEngine.NAME->getEngineName();
+				case ScriptEngine.LANGUAGE->getLanguageName();
+				case ScriptEngine.LANGUAGE_VERSION->getLanguageVersion();
+				case "THREADING"->"MULTITHREADED";	// TODO
+				default->null;
+			};
 	}
 
 	@Override
@@ -95,8 +97,6 @@ public class PsyllaScriptEngineFactory
 	}
 
 	/**
-	*	Returns a name of a language.
-	*
 	*	@return the string {@code "Psylla"}.
 	*/
 	@Override
@@ -127,6 +127,4 @@ public class PsyllaScriptEngineFactory
 		return extensions;
 	}
 
-	private List<String> mimeTypes;
-	private List<String> extensions;
 }

@@ -8,6 +8,12 @@ import java.util.HashMap;
 */
 public class NamespacePool
 {
+	private final HashMap<String, PsyNamespace> pool=new HashMap<>();
+
+	public NamespacePool()
+	{
+	}
+
 	/**
 	*	Allocates (if absent) and returns the {@code namespace} object with the given prefix.
 	*
@@ -20,6 +26,4 @@ public class NamespacePool
 			pool.put(prefix, new PsyNamespace(prefix));
 		return pool.get(prefix);
 	}
-
-	private final HashMap<String, PsyNamespace> pool=new HashMap<>();
 }

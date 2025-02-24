@@ -1,0 +1,4 @@
+Error: /invalidstate in --reduce--
+Operand stack:
+	%stream% 0 {add}
+Execution stack: (empty)

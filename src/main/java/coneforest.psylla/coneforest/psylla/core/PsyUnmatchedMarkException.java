@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	The representation of the {@code unmatchedmark} error thrown when a mark expected not on the
 *	operand stack.
 */
+@SuppressWarnings("serial")
 @ErrorType("unmatchedmark")
 public class PsyUnmatchedMarkException
 	extends PsyErrorException
@@ -15,6 +16,5 @@ public class PsyUnmatchedMarkException
 	*/
 	public PsyUnmatchedMarkException()
 	{
-		super();
 	}
 }

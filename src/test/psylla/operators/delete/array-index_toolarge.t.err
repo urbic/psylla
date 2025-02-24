@@ -1,0 +1,4 @@
+Error: /rangecheck in --delete--
+Operand stack:
+	[1 2 3] 5
+Execution stack: (empty)

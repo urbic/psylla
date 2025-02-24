@@ -62,7 +62,7 @@ bind def
 Calculating factorial of 50:
 
 ```
-50 factorial toname say
+50 factorial tostring say
 ```
 
 More sample programs can be found in the dedicated

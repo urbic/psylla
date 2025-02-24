@@ -12,6 +12,15 @@ public class PsyBitSet
 	implements PsyFormalSet<PsyInteger>
 {
 	/**
+	*	Context action of the {@code bitset} operator.
+	*/
+	@OperatorType("bitset")
+	public static final ContextAction PSY_BITSET
+		=ContextAction.ofSupplier(PsyBitSet::new);
+
+	private final BitSet bitset;
+
+	/**
 	*	Instantiate an empty {@code bitset} object.
 	*/
 	public PsyBitSet()
@@ -51,17 +60,17 @@ public class PsyBitSet
 		return sb.toString();
 	}
 
-	public BitSet getBitSet()
+	/*public BitSet getBitSet()
 	{
 		return bitset;
-	}
+	}*/
 
 	@Override
 	public void psyAppend(final PsyInteger oIndex)
 		throws PsyLimitCheckException, PsyRangeCheckException
 	{
-		if(length()==Integer.MAX_VALUE)
-			throw new PsyLimitCheckException();
+		//if(length()==Integer.MAX_VALUE)
+		//	throw new PsyLimitCheckException();
 		try
 		{
 			bitset.set(oIndex.intValue(), true);
@@ -96,12 +105,13 @@ public class PsyBitSet
 	}
 
 	@Override
-	public void psyRemoveAll(PsyIterable<? extends PsyInteger> oIterable)
+	public void psyRemoveAll(final PsyIterable<? extends PsyInteger> oIterable)
 	{
-		if(oIterable instanceof PsyBitSet oBitSet)
-			bitset.andNot(oBitSet.bitset);
-		else
-			PsyFormalSet.super.psyRemoveAll(oIterable);
+		switch(oIterable)
+		{
+			case PsyBitSet oBitSet->bitset.andNot(oBitSet.bitset);
+			default->PsyFormalSet.super.psyRemoveAll(oIterable);
+		}
 	}
 
 	@Override
@@ -109,6 +119,8 @@ public class PsyBitSet
 	{
 		return new Iterator<PsyInteger>()
 			{
+				private int index=bitset.nextSetBit(0);
+
 				@Override
 				public boolean hasNext()
 				{
@@ -118,17 +130,10 @@ public class PsyBitSet
 				@Override
 				public PsyInteger next()
 				{
-					//if(hasNext())
-					//{
-						PsyInteger result=PsyInteger.of(index);
-						index=bitset.nextSetBit(index+1);
-						return result;
-					//}
-					//else
-					//	throw new java.util.NoSuchElementException();
+					final var result=PsyInteger.of(index);
+					index=bitset.nextSetBit(index+1);
+					return result;
 				}
-
-				private int index=bitset.nextSetBit(0);
 			};
 	}
 
@@ -151,7 +156,7 @@ public class PsyBitSet
 	}
 
 	@Override
-	public PsyBoolean psyIntersects(final PsyFormalSet oSet)
+	public PsyBoolean psyIntersects(final PsyFormalSet<? extends PsyInteger> oSet)
 	{
 		if(oSet instanceof PsyBitSet oBitSet)
 			return PsyBoolean.of(bitset.intersects(oBitSet.bitset));
@@ -167,17 +172,9 @@ public class PsyBitSet
 	}
 
 	@Override
-	public PsyStream psyStream()
+	public PsyFormalStream<PsyInteger> psyStream()
 	{
-		return new PsyStream(bitset.stream().<PsyInteger>mapToObj(PsyInteger::of));
+		return PsyFormalStream.<PsyInteger>of(
+				bitset.stream().<PsyInteger>mapToObj(PsyInteger::of));
 	}
-
-	private final BitSet bitset;
-
-	/**
-	*	Context action of the {@code bitset} operator.
-	*/
-	@OperatorType("bitset")
-	public static final ContextAction PSY_BITSET
-		=ContextAction.ofSupplier(PsyBitSet::new);
 }

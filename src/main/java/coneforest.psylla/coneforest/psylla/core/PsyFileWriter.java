@@ -6,10 +6,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+/**
+*	The representation of {@code filewriter}.
+*/
 @Type("filewriter")
 public class PsyFileWriter
 	extends PsyWriter
 {
+	/**
+	*	Context action of the {@code filewriter} operator.
+	*/
+	@OperatorType("filewriter")
+	public static final ContextAction PSY_FILEWRITER
+		=ContextAction.<PsyTextual>ofFunction(PsyFileWriter::new);
+
 	public PsyFileWriter(final String fileName)
 		throws PsyFileNotFoundException, PsyIOErrorException
 	{
@@ -38,11 +48,4 @@ public class PsyFileWriter
 			throw new PsyIOErrorException();
 		}
 	}
-
-	/**
-	*	Context action of the {@code filewriter} operator.
-	*/
-	@OperatorType("filewriter")
-	public static final ContextAction PSY_FILEWRITER
-		=ContextAction.<PsyTextual>ofFunction(PsyFileWriter::new);
 }

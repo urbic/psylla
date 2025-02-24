@@ -6,6 +6,10 @@ import coneforest.psylla.runtime.*;
 public class PsyModule
 	extends PsyDict
 {
+	public PsyModule()
+	{
+	}
+
 	protected void registerOperators(final PsyOperator... operators)
 	{
 		for(final var oOperator: operators)
@@ -31,7 +35,7 @@ public class PsyModule
 										throws ClassCastException, PsyErrorException
 									{
 										action.perform(oContext);
-									}								
+									}
 								});
 					}
 				}

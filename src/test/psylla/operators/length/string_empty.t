@@ -1,1 +1,1 @@
-string length ?
+'' length ?

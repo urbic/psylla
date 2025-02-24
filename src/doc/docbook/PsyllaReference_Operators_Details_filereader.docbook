@@ -22,7 +22,7 @@ Returns a new file <replaceable>reader</replaceable> for a file with the given
 <itemizedlist>
 <listitem>
 <replaceable>name</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>reader</replaceable>:

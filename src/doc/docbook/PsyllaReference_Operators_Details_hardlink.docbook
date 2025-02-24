@@ -24,7 +24,7 @@ Creates a hard link named <replaceable>link</replaceable> to a file named
 <listitem>
 <replaceable>target</replaceable>,
 <replaceable>link</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </formalpara>

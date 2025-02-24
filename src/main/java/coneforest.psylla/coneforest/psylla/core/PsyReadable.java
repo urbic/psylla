@@ -12,6 +12,19 @@ public interface PsyReadable
 	extends
 		PsyReady
 {
+	/**
+	*	Context action of the {@code skip} operator.
+	*/
+	@OperatorType("skip")
+	public static final ContextAction PSY_SKIP
+		=ContextAction.<PsyReadable, PsyInteger>ofBiFunction(PsyReadable::psySkip);
+
+	/**
+	*	Context action of the {@code read} operator.
+	*/
+	@OperatorType("read")
+	public static final ContextAction PSY_READ
+		=ContextAction.<PsyReadable>ofOptionalFunction(PsyReadable::psyRead);
 
 	/**
 	*	Reads a single character.
@@ -30,10 +43,10 @@ public interface PsyReadable
 	*	@return an {@code integer} representing the character read from this object.
 	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
-	default public Optional<PsyInteger> psyRead()
+	public default Optional<PsyInteger> psyRead()
 		throws PsyIOErrorException
 	{
-		int c=read();
+		final int c=read();
 		return c==-1? Optional.<PsyInteger>empty(): Optional.<PsyInteger>of(PsyInteger.of(c));
 	}
 
@@ -44,7 +57,7 @@ public interface PsyReadable
 	*	@return a string read.
 	*	@throws PsyIOErrorException when I/O error occurs.
 	*/
-	public PsyString psyReadString(final PsyInteger oCount)
+	public PsyStringBuffer psyReadString(final PsyInteger oCount)
 		throws PsyIOErrorException, PsyLimitCheckException, PsyRangeCheckException, PsyUnsupportedException;
 
 	/**
@@ -53,7 +66,7 @@ public interface PsyReadable
 	*	@return a line read.
 	*	@throws PsyIOErrorException when I/O error occurs.
 	*/
-	public PsyString psyReadLine()
+	public PsyStringBuffer psyReadLine()
 		throws PsyIOErrorException, PsyUnsupportedException;
 
 	/**
@@ -76,18 +89,4 @@ public interface PsyReadable
 	@Override
 	public PsyBoolean psyReady()
 		throws PsyIOErrorException;
-
-	/**
-	*	Context action of the {@code skip} operator.
-	*/
-	@OperatorType("skip")
-	public static final ContextAction PSY_SKIP
-		=ContextAction.<PsyReadable, PsyInteger>ofBiFunction(PsyReadable::psySkip);
-
-	/**
-	*	Context action of the {@code read} operator.
-	*/
-	@OperatorType("read")
-	public static final ContextAction PSY_READ
-		=ContextAction.<PsyReadable>ofOptionalFunction(PsyReadable::psyRead);
 }

@@ -15,20 +15,97 @@ import java.util.stream.Stream;
 public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	extends PsyObject
 {
+	/**
+	*	Context action of the {@code delete} operator.
+	*/
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	@OperatorType("delete")
+	public static final ContextAction PSY_DELETE
+		=ContextAction.<PsyIndexed, PsyObject>ofBiConsumer(PsyIndexed::psyDelete);
 
 	/**
-	*	Returns a {@code boolean} indicating whether given key or index exists in this object.
+	*	Context action of the {@code entries} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("entries")
+	public static final ContextAction PSY_ENTRIES
+		=ContextAction.<PsyIndexed>ofFunction(PsyIndexed::psyEntries);
+
+	/**
+	*	Context action of the {@code extract} operator.
+	*/
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	@OperatorType("extract")
+	public static final ContextAction PSY_EXTRACT
+		=ContextAction.<PsyIndexed, PsyObject>ofBiFunction(PsyIndexed::psyExtract);
+
+	/**
+	*	Context action of the {@code get} operator.
+	*/
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	@OperatorType("get")
+	public static final ContextAction PSY_GET
+		=ContextAction.<PsyIndexed, PsyObject>ofBiFunction(PsyIndexed::psyGet);
+
+	/**
+	*	Context action of the {@code getall} operator.
+	*/
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	@OperatorType("getall")
+	public static final ContextAction PSY_GETALL
+		=ContextAction.<PsyIndexed, PsyIterable>ofBiFunction(PsyIndexed::psyGetAll);
+
+	/**
+	*	Context action of the {@code keys} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("keys")
+	public static final ContextAction PSY_KEYS
+		=ContextAction.<PsyIndexed>ofFunction(PsyIndexed::psyKeys);
+
+	/**
+	*	Context action of the {@code known} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("known")
+	public static final ContextAction PSY_KNOWN
+		=ContextAction.<PsyIndexed, PsyObject>ofBiFunction(PsyIndexed::psyKnown);
+
+	/**
+	*	Context action of the {@code put} operator.
+	*/
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	@OperatorType("put")
+	public static final ContextAction PSY_PUT
+		=ContextAction.<PsyIndexed, PsyObject, PsyObject>ofTriConsumer(PsyIndexed::psyPut);
+
+	/**
+	*	Context action of the {@code slice} operator.
+	*/
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	@OperatorType("slice")
+	public static final ContextAction PSY_SLICE
+		=ContextAction.<PsyIndexed, PsyIterable>ofBiFunction(PsyIndexed::psySlice);
+
+	/**
+	*	Context action of the {@code values} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("values")
+	public static final ContextAction PSY_VALUES
+		=ContextAction.<PsyIndexed>ofFunction(PsyIndexed::psyValues);
+
+	/**
+	*	{@return a {@code boolean} indicating whether given key or index exists in this object}
 	*
 	*	@param oKey a key or an index.
-	*	@return a result.
 	*/
 	public PsyBoolean psyKnown(final K oKey);
 
 	/**
-	*	Returns the element with given key or index.
+	*	{@return the element with given key or index}
 	*
 	*	@param oKey a key or an index.
-	*	@return an element.
 	*	@throws PsyRangeCheckException when index is out of range.
 	*	@throws PsyUndefinedException when the key is absent.
 	*/
@@ -61,11 +138,10 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 		throws PsyRangeCheckException, PsyUndefinedException;
 
 	/**
-	*	Returns a container of the same type as this object consisting of keys or indices from given
-	*	{@code iterable} and of associated values.
+	*	{@return a container of the same type as this object consisting of keys or indices from given
+	*		{@code iterable} and of associated values}
 	*
 	*	@param oKeys an enumeration of keys.
-	*	@return a container.
 	*	@throws PsyLimitCheckException when TODO
 	*	@throws PsyRangeCheckException when the index is out of range.
 	*	@throws PsyUndefinedException when the key is absent.
@@ -78,7 +154,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 			PsyUndefinedException,
 			PsyUnsupportedException;
 
-	default public PsyIterable<V> psyGetAll(final PsyIterable<K> oKeys)
+	public default PsyIterable<V> psyGetAll(final PsyIterable<K> oKeys)
 		throws
 			PsyRangeCheckException,
 			PsyLimitCheckException,
@@ -87,10 +163,12 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	{
 		return new PsyIterable<V>()
 			{
+				private final Iterator<K> keysIterator=oKeys.iterator();
+
 				@Override
-				public Iterator iterator()
+				public Iterator<V> iterator()
 				{
-					return new Iterator()
+					return new Iterator<V>()
 						{
 							@Override
 							public boolean hasNext()
@@ -112,24 +190,18 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 							}
 						};
 				}
-
-				private Iterator<K> keysIterator=oKeys.iterator();
 			};
 	}
 
 	/**
-	*	Returns an {@code iterable} enumeration of all the keys of this object.
-	*
-	*	@return an enumeration of keys.
+	*	{@return an {@code iterable} enumeration of all the keys of this object}
 	*/
 	public PsyFormalStream<K> psyKeys();
 
 	/**
-	*	Returns an {@code iterable} enumeration of all the values of this object.
-	*
-	*	@return an enumeration of values.
+	*	{@return an {@code iterable} enumeration of all the values of this object}
 	*/
-	default public PsyFormalStream<V> psyValues()
+	public default PsyFormalStream<V> psyValues()
 	{
 		return new PsyFormalStream<V>()
 			{
@@ -152,20 +224,18 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	}
 
 	/**
-	*	Returns an {@code iterable} enumeration of all the keys and values of this object.
-	*
-	*	@return an enumeration of entries.
+	*	{@return an {@code iterable} enumeration of all the keys and values of this object}
 	*/
 	public PsyFormalStream<PsyObject> psyEntries();
 	/*
-	default public PsyFormalStream<PsyObject> psyEntries()
+	public default PsyFormalStream<PsyObject> psyEntries()
 	{
 		return new PsyStream(java.util.stream.StreamSupport.<PsyObject>stream(new Iterable()
 			{
 				@Override
-				public java.util.Iterator<PsyObject> iterator()
+				public Iterator<PsyObject> iterator()
 				{
-					return new java.util.Iterator<PsyObject>()
+					return new Iterator<PsyObject>()
 						{
 							@Override
 							public boolean hasNext()
@@ -184,8 +254,8 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 
 							private int index=0;
 
-							private final java.util.Iterator<PsyObject> parentIterator
-								=(java.util.Iterator<PsyObject>)PsyIndexed.this.iterator();
+							private final Iterator<PsyObject> parentIterator
+								=(Iterator<PsyObject>)PsyIndexed.this.iterator();
 
 						};
 				}
@@ -194,7 +264,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 	}
 	*/
 	/*
-	default public PsyIterable<PsyObject> psyEntries()
+	public default PsyIterable<PsyObject> psyEntries()
 	{
 
 		return new PsyIterable<PsyObject>()
@@ -206,7 +276,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 					final coneforest.psylla.runtime.Interpreter interpreter
 						=(coneforest.psylla.runtime.Interpreter)PsyContext.psyCurrentContext();
 					final coneforest.psylla.runtime.OperandStack ostack=interpreter.operandStack();
-					final java.util.Iterator<K> iterator=psyKeys().iterator();
+					final Iterator<K> iterator=psyKeys().iterator();
 					interpreter.pushLoopLevel();
 					interpreter.executionStack().push(new PsyOperator("#forall_continue")
 						{
@@ -231,9 +301,9 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 				}
 
 				@Override
-				public java.util.Iterator<PsyObject> iterator()
+				public Iterator<PsyObject> iterator()
 				{
-					return new java.util.Iterator<PsyObject>()
+					return new Iterator<PsyObject>()
 						{
 							@Override
 							public boolean hasNext()
@@ -252,82 +322,12 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 
 							private int index=0;
 
-							private final java.util.Iterator<PsyObject> parentIterator
-								=(java.util.Iterator<PsyObject>)PsyIndexed.this.iterator();
+							private final Iterator<PsyObject> parentIterator
+								=(Iterator<PsyObject>)PsyIndexed.this.iterator();
 
 						};
 				}
 			};
 	}
 	*/
-
-	/**
-	*	Context action of the {@code delete} operator.
-	*/
-	@OperatorType("delete")
-	public static final ContextAction PSY_DELETE
-		=ContextAction.<PsyIndexed, PsyObject>ofBiConsumer(PsyIndexed::psyDelete);
-
-	/**
-	*	Context action of the {@code entries} operator.
-	*/
-	@OperatorType("entries")
-	public static final ContextAction PSY_ENTRIES
-		=ContextAction.<PsyIndexed>ofFunction(PsyIndexed::psyEntries);
-
-	/**
-	*	Context action of the {@code extract} operator.
-	*/
-	@OperatorType("extract")
-	public static final ContextAction PSY_EXTRACT
-		=ContextAction.<PsyIndexed, PsyObject>ofBiFunction(PsyIndexed::psyExtract);
-
-	/**
-	*	Context action of the {@code get} operator.
-	*/
-	@OperatorType("get")
-	public static final ContextAction PSY_GET
-		=ContextAction.<PsyIndexed, PsyObject>ofBiFunction(PsyIndexed::psyGet);
-
-	/**
-	*	Context action of the {@code getall} operator.
-	*/
-	@OperatorType("getall")
-	public static final ContextAction PSY_GETALL
-		=ContextAction.<PsyIndexed, PsyIterable>ofBiFunction(PsyIndexed::psyGetAll);
-
-	/**
-	*	Context action of the {@code keys} operator.
-	*/
-	@OperatorType("keys")
-	public static final ContextAction PSY_KEYS
-		=ContextAction.<PsyIndexed>ofFunction(PsyIndexed::psyKeys);
-
-	/**
-	*	Context action of the {@code known} operator.
-	*/
-	@OperatorType("known")
-	public static final ContextAction PSY_KNOWN
-		=ContextAction.<PsyIndexed, PsyObject>ofBiFunction(PsyIndexed::psyKnown);
-
-	/**
-	*	Context action of the {@code put} operator.
-	*/
-	@OperatorType("put")
-	public static final ContextAction PSY_PUT
-		=ContextAction.<PsyIndexed, PsyObject, PsyObject>ofTriConsumer(PsyIndexed::psyPut);
-
-	/**
-	*	Context action of the {@code slice} operator.
-	*/
-	@OperatorType("slice")
-	public static final ContextAction PSY_SLICE
-		=ContextAction.<PsyIndexed, PsyIterable>ofBiFunction(PsyIndexed::psySlice);
-
-	/**
-	*	Context action of the {@code values} operator.
-	*/
-	@OperatorType("values")
-	public static final ContextAction PSY_VALUES
-		=ContextAction.<PsyIndexed>ofFunction(PsyIndexed::psyValues);
 }

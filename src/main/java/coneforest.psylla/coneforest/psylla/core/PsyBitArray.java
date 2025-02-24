@@ -14,6 +14,16 @@ public class PsyBitArray
 		PsyBitwise<PsyBitArray>
 {
 	/**
+	*	Context action of the {@code bitarray} operator.
+	*/
+	@OperatorType("bitarray")
+	public static final ContextAction PSY_BITARRAY
+		=ContextAction.ofSupplier(PsyBitArray::new);
+
+	private final BitSet bitarray;
+	private int size;
+
+	/**
 	*	Creates a new empty {@code bitarray}.
 	*/
 	public PsyBitArray()
@@ -39,7 +49,7 @@ public class PsyBitArray
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
-			throw new PsyRangeCheckException();
+			throw new PsyRangeCheckException(ex);
 		}
 	}
 
@@ -59,7 +69,7 @@ public class PsyBitArray
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
-			throw new PsyRangeCheckException();
+			throw new PsyRangeCheckException(ex);
 		}
 	}
 
@@ -75,12 +85,12 @@ public class PsyBitArray
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
-			throw new PsyRangeCheckException();
+			throw new PsyRangeCheckException(ex);
 		}
 	}
 
 	@Override
-	public void psyPutInterval(final PsyInteger oIndex, PsyIterable<? extends PsyBoolean> oIterable)
+	public void psyPutInterval(final PsyInteger oIndex, final PsyIterable<? extends PsyBoolean> oIterable)
 		throws PsyRangeCheckException
 	{
 		int index=oIndex.intValue();
@@ -99,8 +109,18 @@ public class PsyBitArray
 
 	@Override
 	public void psyAppend(final PsyBoolean oBoolean)
+		throws PsyLimitCheckException, PsyRangeCheckException
 	{
-		bitarray.set(size++, oBoolean.booleanValue());
+		if(size==Integer.MAX_VALUE)
+			throw new PsyLimitCheckException();
+		try
+		{
+			bitarray.set(size++, oBoolean.booleanValue());
+		}
+		catch(final IndexOutOfBoundsException e)
+		{
+			throw new PsyRangeCheckException();
+		}
 	}
 
 	@Override
@@ -124,12 +144,12 @@ public class PsyBitArray
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
-			throw new PsyRangeCheckException();
+			throw new PsyRangeCheckException(ex);
 		}
 	}
 
 	@Override
-	public PsyBoolean extract(int indexValue)
+	public PsyBoolean extract(final int indexValue)
 		throws PsyRangeCheckException
 	{
 		try
@@ -142,7 +162,7 @@ public class PsyBitArray
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
-			throw new PsyRangeCheckException();
+			throw new PsyRangeCheckException(ex);
 		}
 	}
 
@@ -260,20 +280,19 @@ public class PsyBitArray
 	{
 		return new Iterator<PsyBoolean>()
 			{
+				private int index=0;
+
+				@Override
 				public boolean hasNext()
 				{
 					return index<size; // TODO ???
 				}
 
+				@Override
 				public PsyBoolean next()
 				{
-					//if(hasNext())
-						return PsyBoolean.of(bitarray.get(index++));
-					//else
-					//	throw new java.util.NoSuchElementException();
+					return PsyBoolean.of(bitarray.get(index++));
 				}
-
-				private int index=0;
 			};
 	}
 
@@ -285,7 +304,7 @@ public class PsyBitArray
 
 	@Override
 	public PsyBitArray psySlice(final PsyIterable<PsyInteger> oIndices)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
 		final var oResult=new PsyBitArray();
 		for(final var oIndex: oIndices)
@@ -302,11 +321,11 @@ public class PsyBitArray
 			throw new PsyRangeCheckException();
 		if(length>Integer.MAX_VALUE)
 			throw new PsyLimitCheckException();
-		final var i=length();
-		if(length<i)
-			bitarray.clear((int)length, i);
+		final var s=size;
+		if(length<s)
+			bitarray.clear((int)length, s);
 		else
-			bitarray.clear(i, (int)length);
+			bitarray.clear(s, (int)length);
 		size=(int)length;
 	}
 
@@ -322,13 +341,19 @@ public class PsyBitArray
 		bitarray.clear();
 	}
 
-	private final BitSet bitarray;
-	private int size;
-
-	/**
-	*	Context action of the {@code bitarray} operator.
-	*/
-	@OperatorType("bitarray")
-	public static final ContextAction PSY_BITARRAY
-		=ContextAction.ofSupplier(PsyBitArray::new);
+	@Override
+	public String toSyntaxString()
+	{
+		final var sb=new StringBuilder("%bitarray=");
+		int j=-1;
+		for(int i=bitarray.nextSetBit(0); i>=0; i=bitarray.nextSetBit(i+1))
+		{
+			for(int k=j+1; k<i; k++)
+				sb.append('0');
+			sb.append('1');
+			j=i;
+		}
+		sb.append('%');
+		return sb.toString();
+	}
 }

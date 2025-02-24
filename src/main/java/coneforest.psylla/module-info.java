@@ -8,15 +8,15 @@
 module coneforest.psylla
 {
 	exports coneforest.psylla.core;
-	exports coneforest.psylla.engine;
 	exports coneforest.psylla.runtime;
+	exports coneforest.psylla.scripting;
 	exports coneforest.psylla.toolprovider;
 
 	requires coneforest.clianthus;
 	requires java.scripting;
 
 	provides javax.script.ScriptEngineFactory
-		with coneforest.psylla.engine.PsyllaScriptEngineFactory;
+		with coneforest.psylla.scripting.PsyllaScriptEngineFactory;
 	provides java.util.spi.ToolProvider
 		with coneforest.psylla.toolprovider.PsyllaToolProvider;
 }

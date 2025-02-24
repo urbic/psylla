@@ -22,15 +22,18 @@ public interface TypeResolver
 	{
 		try
 		{
-			return (Class<? extends PsyObject>)Class.forName(
-					(new BufferedReader(new InputStreamReader(
-							TypeResolver.class.getClassLoader().getResourceAsStream(
-									"META-INF/psylla/type/"+typeName)))).readLine());
+			try(final var br=new BufferedReader(new InputStreamReader(
+					// TODO: use DynamicClassLoader
+					TypeResolver.class.getClassLoader().getResourceAsStream(
+							"META-INF/psylla/type/"+typeName))))
+			{
+				return Class.forName(br.readLine()).asSubclass(PsyObject.class);
+			}
 			// TODO: introduce caching
 		}
 		catch(final IOException|ClassNotFoundException ex)
 		{
-			// TODO more appropriate exception when IOException is thrown
+			// TODO: more appropriate exception when IOException is thrown
 			throw new PsyUndefinedException();
 		}
 	}

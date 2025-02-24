@@ -5,11 +5,13 @@
 	xmlns:if="ant:if"
 	xmlns:unless="ant:unless"
 	xmlns:ivy="antlib:org.apache.ivy.ant"
+	xmlns:cs="antlib:com.puppycrawl.tools.checkstyle.ant"
 	>
 
 	<description>${project.description}</description>
 
 	<!-- Properties -->
+	<property name="etc" location="etc"/>
 	<property name="src" location="src"/>
 	<property name="src.main" location="${src}/main"/>
 	<property name="src.test" location="${src}/test"/>
@@ -41,10 +43,10 @@
 	<property name="target.doc" location="${target}/doc"/>
 	<property name="target.doc.apidocs" location="${target.doc}/apidocs"/>
 	<property name="target.dot" location="${target}/dot"/>
-	<property name="target.classes" location="${target}/classes"/>
+	<property name="target.modules" location="${target}/modules"/>
 	<property name="target.artifacts" location="${target}/artifacts"/>
-	<property name="target.artifacts.jar" location="${target.artifacts}/jar"/>
-	<property name="target.artifacts.pom" location="${target.artifacts}/pom"/>
+	<property name="target.artifacts.jars" location="${target.artifacts}/jars"/>
+	<property name="target.artifacts.poms" location="${target.artifacts}/poms"/>
 	<property name="target.bin" location="${target}/bin"/>
 	<property name="target.obs" location="${target}/obs"/>
 	<property name="target.man" location="${target}/man"/>
@@ -54,7 +56,7 @@
 	<property name="target.reports" location="${target}/reports"/>
 	<property name="file.encoding" value="UTF-8"/>
 	<property name="linux.flavour" value="redhat"/>
-	<property name="build.sysclasspath" value="ignore"/>
+	<!--property name="build.sysclasspath" value="ignore"/-->
 	<property name="java.release" value="21"/>
 	<!--property name="ivy.cache.ttl.default" value="eternal"/-->
 
@@ -80,10 +82,9 @@
 	<path id="modulepath.main">
 		<path refid="modulepath.main.resolved"/>
 		<dirset
-			dir="${target.classes}"
+			dir="${target.modules}"
 			includes="${project.moduleprefix}*"
 			/>
-		<!--pathelement location="${target.classes}"/-->
 	</path>
 
 	<path id="classpath.main">
@@ -116,7 +117,7 @@
 	<import file="${src.ant}/obs.ant"/>
 
 	<target name="resolve" description="Retrieve dependencies with Ivy">
-		<ivy:resolve conf="compile,xslt,linux.${linux.flavour}"/>
+		<ivy:resolve conf="main,xslt,linux.${linux.flavour}"/>
 	</target>
 
 	<target name="compile.jj"
@@ -138,20 +139,20 @@
 		description="Compile Java sources"
 		depends="copy.resources,compile.jj"
 		>
-		<ivy:cachepath conf="compile+classpath" pathid="classpath.main.resolved"/>
-		<ivy:cachepath conf="compile+modulepath" pathid="modulepath.main.resolved"/>
+		<ivy:cachepath conf="main+classpath" pathid="classpath.main.resolved"/>
+		<ivy:cachepath conf="main+modulepath" pathid="modulepath.main.resolved"/>
 		<javac
-			destdir="${target.classes}"
+			destdir="${target.modules}"
 			release="${java.release}"
 			includeantruntime="false"
 			encoding="UTF-8"
 			createMissingPackageInfoClass="false"
+			debug="true"
 			>
 			<modulesourcepath refid="modulesourcepath.main"/>
-			<modulesourcepath refid="modulesourcepath.test"/>
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
-			<include name="coneforest/psylla/tools/processors/*.java"/>
+			<include name="coneforest/psylla/processors/*.java"/>
 			<include name="coneforest/psylla/runtime/Type.java"/>
 			<include name="coneforest/psylla/runtime/ErrorType.java"/>
 			<include name="coneforest/psylla/runtime/OperatorType.java"/>
@@ -160,18 +161,19 @@
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:none"/>
 			<compilerarg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
-			<compilerarg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.moduleprefix}.processors=ALL-UNNAMED"/>
 		</javac>
-		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/error"/>
-		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/operator"/>
-		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/${project.name}/type"/>
+		<mkdir dir="${target.modules}/${project.moduleprefix}/META-INF/${project.name}/error"/>
+		<mkdir dir="${target.modules}/${project.moduleprefix}/META-INF/${project.name}/operator"/>
+		<mkdir dir="${target.modules}/${project.moduleprefix}/META-INF/${project.name}/type"/>
 		<mkdir dir="${target.dot}"/>
 		<javac
-			destdir="${target.classes}"
+			destdir="${target.modules}"
 			release="${java.release}"
 			includeantruntime="false"
 			encoding="UTF-8"
 			createMissingPackageInfoClass="false"
+			debug="true"
 			>
 			<modulesourcepath refid="modulesourcepath.main"/>
 			<modulesourcepath refid="modulesourcepath.examples"/>
@@ -179,18 +181,23 @@
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
 			<compilerarg
-				value="--processor-path=${target.classes}/${project.moduleprefix}:${target.classes}/${project.moduleprefix}.tools"/>
+				value="--processor-path=${target.modules}/${project.moduleprefix}:${target.modules}/${project.moduleprefix}.processors"/>
 			<compilerarg value="-XprintProcessorInfo"/>
 			<compilerarg value="-Xprefer:source"/>
 			<compilerarg value="-Xlint:deprecation"/>
 			<!--compilerarg value="-Xlint:unchecked"/-->
+			<compilerarg value="-Xlint:all,-missing-explicit-ctor,-exports"/>
+			<compilerarg value="-Xmaxwarns"/>
+			<compilerarg value="1000"/>
+			<compilerarg value="-Xmaxerrs"/>
+			<compilerarg value="1000"/>
 			<compilerarg
-				value="-Aconeforest.psylla.tools.processors.TypeMetadataCollector.metadataDir=${target.classes}/${project.moduleprefix}/META-INF/${project.name}"/>
-			<compilerarg value="-Aconeforest.psylla.tools.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
+				value="-Aconeforest.psylla.processors.TypeMetadataCollector.metadataDir=${target.modules}/${project.moduleprefix}/META-INF/${project.name}"/>
+			<compilerarg value="-Aconeforest.psylla.processors.TypeHierarchyBuilder.outputDir=${target.dot}"/>
 			<compilerarg value="-Xdiags:verbose"/>
 			<compilerarg value="-implicit:class"/>
 			<compilerarg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
-			<compilerarg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
+			<compilerarg value="--add-reads=${project.moduleprefix}.ant=ALL-UNNAMED"/>
 		</javac>
 	</target>
 
@@ -213,17 +220,19 @@
 			access="public"
 			encoding="UTF-8"
 			charset="UTF-8"
-			doctitle="Psylla ${project.version}"
-			windowtitle="Psylla ${project.version}"
-			bottom="Copyright © 2014—2024 ${project.developer.name}"
+			doctitle="${project.title} ${project.version}"
+			windowtitle="${project.title} ${project.version}"
+			bottom="Copyright © 2014—2025 ${project.developer.name}"
 			>
 			<module name="${project.moduleprefix}"/>
-			<module name="${project.moduleprefix}.tools"/>
+			<module name="${project.moduleprefix}.ant"/>
+			<module name="${project.moduleprefix}.processors"/>
 			<modulesourcepath refid="modulesourcepath.main"/>
 			<modulepath refid="modulepath.main"/>
 			<classpath refid="classpath.main"/>
 			<arg value="--add-reads=${project.moduleprefix}=ALL-UNNAMED"/>
-			<arg value="--add-reads=${project.moduleprefix}.tools=ALL-UNNAMED"/>
+			<arg value="--add-reads=${project.moduleprefix}.ant=ALL-UNNAMED"/>
+			<arg value="--add-reads=${project.moduleprefix}.processors=ALL-UNNAMED"/>
 			<!--arg value="-Xdoclint:missing,reference,syntax"/-->
 			<arg value="-Xdoclint:all"/>
 			<arg value="-Xdoclint/package:-${project.moduleprefix}.runtime.parser"/>
@@ -240,16 +249,16 @@
 	<target name="copy.resources"
 		description="Copy resources"
 		>
-		<copy todir="${target.classes}">
+		<copy todir="${target.modules}">
 			<fileset dir="${src.main.resources}" includes="**"/>
 		</copy>
-		<mkdir dir="${target.classes}/${project.moduleprefix}/META-INF/licenses"/>
+		<mkdir dir="${target.modules}/${project.moduleprefix}/META-INF/licenses"/>
 		<copy
-			todir="${target.classes}/${project.moduleprefix}/META-INF/licenses"
+			todir="${target.modules}/${project.moduleprefix}/META-INF/licenses"
 			file="LICENSE"
 			/>
 		<echoproperties
-			destfile="${target.classes}/${project.moduleprefix}/coneforest/psylla/runtime/Config.properties"
+			destfile="${target.modules}/${project.moduleprefix}/coneforest/psylla/runtime/Config.properties"
 			>
 			<propertyset>
 				<propertyref prefix="config."/>
@@ -257,10 +266,10 @@
 			</propertyset>
 		</echoproperties>
 		<mkdir
-			dir="${target.classes}/${project.moduleprefix}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"
+			dir="${target.modules}/${project.moduleprefix}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}"
 			/>
 		<echoproperties
-			destfile="${target.classes}/${project.moduleprefix}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties"
+			destfile="${target.modules}/${project.moduleprefix}/META-INF/maven/${project.maven.groupId}/${project.maven.artifactId}/pom.properties"
 			>
 			<propertyset>
 				<propertyref prefix="project.maven."/>
@@ -274,12 +283,12 @@
 		depends="compile"
 		>
 		<jar
-			jarfile="${target.artifacts}/jar/${project.moduleprefix}-${project.version}.jar"
-			basedir="${target.classes}/${project.moduleprefix}"
+			jarfile="${target.artifacts.jars}/${project.moduleprefix}-${project.version}.jar"
+			basedir="${target.modules}/${project.moduleprefix}"
 			>
 			<manifest>
-				<attribute name="Main-Class" value="${project.moduleprefix}.Psylla"/>
-				<attribute name="Specification-Title" value="Psylla"/>
+				<attribute name="Main-Class" value="${project.moduleprefix}.${project.title}"/>
+				<attribute name="Specification-Title" value="${project.title}"/>
 				<attribute name="Specification-Version" value="${project.version}"/>
 				<attribute name="Specification-Vendor" value="${project.developer.name}"/>
 				<attribute name="Implementation-Title" value="${project.moduleprefix}"/>
@@ -288,14 +297,27 @@
 			</manifest>
 		</jar>
 		<jar
-			jarfile="${target.artifacts}/jar/${project.moduleprefix}.tools-${project.version}.jar"
-			basedir="${target.classes}/${project.moduleprefix}.tools"
+			jarfile="${target.artifacts.jars}/${project.moduleprefix}.ant-${project.version}.jar"
+			basedir="${target.modules}/${project.moduleprefix}.ant"
 			>
 			<manifest>
-				<attribute name="Specification-Title" value="Psylla tools"/>
+				<attribute name="Specification-Title" value="${project.title} Ant tasks"/>
 				<attribute name="Specification-Version" value="${project.version}"/>
 				<attribute name="Specification-Vendor" value="${project.developer.name}"/>
-				<attribute name="Implementation-Title" value="${project.moduleprefix}.tools"/>
+				<attribute name="Implementation-Title" value="${project.moduleprefix}.processors"/>
+				<attribute name="Implementation-Version" value="${project.version}"/>
+				<attribute name="Implementation-Vendor" value="${project.developer.name}"/>
+			</manifest>
+		</jar>
+		<jar
+			jarfile="${target.artifacts.jars}/${project.moduleprefix}.processors-${project.version}.jar"
+			basedir="${target.modules}/${project.moduleprefix}.processors"
+			>
+			<manifest>
+				<attribute name="Specification-Title" value="${project.title} annotation processors"/>
+				<attribute name="Specification-Version" value="${project.version}"/>
+				<attribute name="Specification-Vendor" value="${project.developer.name}"/>
+				<attribute name="Implementation-Title" value="${project.moduleprefix}.processors"/>
 				<attribute name="Implementation-Version" value="${project.version}"/>
 				<attribute name="Implementation-Vendor" value="${project.developer.name}"/>
 			</manifest>
@@ -308,19 +330,35 @@
 		<ivy:makepom
 			ivyfile="ivy.xml"
 			templatefile="${src.maven}/${project.moduleprefix}.pom"
-			pomfile="${target.artifacts}/pom/${project.moduleprefix}-${project.version}.pom"
+			pomfile="${target.artifacts.poms}/${project.moduleprefix}-${project.version}.pom"
+			description="${project.title}"
 			>
 			<ivy:mapping conf="default" scope="runtime"/>
 		</ivy:makepom>
 		<ivy:makepom
 			ivyfile="ivy.xml"
-			artifactName="${project.maven.artifactId}.tools"
+			artifactName="${project.maven.artifactId}.ant"
 			templatefile="${src.maven}/${project.moduleprefix}.pom"
-			pomfile="${target.artifacts}/pom/${project.moduleprefix}.tools-${project.version}.pom"
+			pomfile="${target.artifacts.poms}/${project.moduleprefix}.ant-${project.version}.pom"
+			description="${project.title} Ant tasks"
+			>
+			<ivy:mapping conf="default" scope="runtime"/>
+		</ivy:makepom>
+		<ivy:makepom
+			ivyfile="ivy.xml"
+			artifactName="${project.maven.artifactId}.processors"
+			templatefile="${src.maven}/${project.moduleprefix}.pom"
+			pomfile="${target.artifacts.poms}/${project.moduleprefix}.processors-${project.version}.pom"
+			description="${project.title} annotation processors"
 			>
 			<ivy:mapping conf="default" scope="runtime"/>
 		</ivy:makepom>
 	</target>
+
+	<target name="artifacts"
+		description="Build artifacts"
+		depends="jar,pom"
+		/>
 
 	<target name="clean" description="Clean build directory">
 		<delete dir="${target}"/>
@@ -412,11 +450,6 @@
 		</exec>
 	</target>
 
-	<target name="artifacts"
-		description="Build artifacts"
-		depends="jar,pom"
-		/>
-
 	<target name="deploy"
 		description="Deploy to GitHub Package Registry"
 		depends="artifacts"
@@ -425,7 +458,6 @@
 			resolver="github-packages-psylla"
 			overwrite="true"
 			forcedeliver="true"
-			artifactspattern="${target.artifacts}/[type]/[organisation].[artifact]-[revision].[ext]"
 			/>
 	</target>
 
@@ -434,25 +466,54 @@
 		depends="jar"
 		>
 		<mkdir dir="${target.reports}"/>
-		<taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties"/>
+		<taskdef uri="antlib:com.puppycrawl.tools.checkstyle.ant"/>
 		<spotbugs
+			projectName="${project.name}"
 			home="${config.datadir}/spotbugs"
             output="html"
 			effort="max"
             outputFile="${target.reports}/spotbugs.html"
-			stylesheet="fancy.xsl"
+			excludeFilter="${etc}/spotbugs-exclude.xml"
 			debug="true"
+			timestampNow="true"
+			stylesheet="fancy-hist.xsl"
 			>
-			<sourcepath location="${src.main.java}/${project.moduleprefix}"/>
+			<sourcepath refid="modulesourcepath.main"/>
 			<auxClasspath>
 				<pathelement location="${config.javadir}/coneforest.clianthus.jar"/>
 				<pathelement location="${config.jar.jline1}"/>
 			</auxClasspath>
 			<class
-				location="${target.artifacts}/jar/${project.moduleprefix}-${project.version}.jar"/>
+				location="${target.artifacts.jars}/${project.moduleprefix}-${project.version}.jar"/>
 			<class
-				location="${target.artifacts}/jar/${project.moduleprefix}.tools-${project.version}.jar"/>
+				location="${target.artifacts.jars}/${project.moduleprefix}.tools-${project.version}.jar"/>
 		</spotbugs>
 	</target>
+
+	<target name="checkstyle"
+		description="Generate CheckStyle report"
+		depends="compile.jj"
+		>
+		<mkdir dir="${target.reports}"/>
+		<cs:checkstyle
+			config="${etc}/checkstyle.xml"
+			maxErrors="10000"
+			failOnViolation="false"
+			>
+			<fileset dir="${src.main.java}">
+				<exclude name="**/parser/*.java"/>
+			</fileset>
+			<fileset dir="${src.examples.java}"/>
+			<fileset dir="${src.main.jj}"/>
+			<fileset dir="${src.main.resources}"/>
+			<fileset dir="${src.doc.docbook}"/>
+			<formatter type="plain" toFile="${target.reports}/checkstyle.txt"/>
+		</cs:checkstyle>
+	</target>
+
+	<target name="coverage"
+		description="Generate coverage report"
+		depends="jacoco.report"
+		/>
 
 </project>

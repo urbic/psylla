@@ -10,24 +10,6 @@ public interface PsyWritable
 	extends PsyObject
 {
 	/**
-	*	Writes an {@code integer} character to this object.
-	*
-	*	@param oCharacter an {@code integer} object representing a character to be written.
-	*	@throws PsyIOErrorException when I/O error occurs during write.
-	*/
-	public void psyWrite(final PsyInteger oCharacter)
-		throws PsyIOErrorException;
-
-	/**
-	*	Writes a {@code textual} string of characters to this object.
-	*
-	*	@param oTextual a {@code textual} object representing a string to be written.
-	*	@throws PsyIOErrorException when I/O error occurs during write.
-	*/
-	public void psyWriteString(final PsyTextual oTextual)
-		throws PsyIOErrorException;
-
-	/**
 	*	Context action of the {@code write} operator.
 	*/
 	@OperatorType("write")
@@ -39,5 +21,23 @@ public interface PsyWritable
 	*/
 	@OperatorType("writestring")
 	public static final ContextAction PSY_WRITESTRING
-		=ContextAction.<PsyWritable, PsyTextual>ofBiConsumer(PsyWritable::psyWriteString);
+		=ContextAction.<PsyWritable, PsyString>ofBiConsumer(PsyWritable::psyWriteString);
+
+	/**
+	*	Writes an {@code integer} character to this object.
+	*
+	*	@param oCharacter an {@code integer} object representing a character to be written.
+	*	@throws PsyIOErrorException when I/O error occurs during write.
+	*/
+	public void psyWrite(final PsyInteger oCharacter)
+		throws PsyIOErrorException;
+
+	/**
+	*	Writes a {@code string} string of characters to this object.
+	*
+	*	@param oString a {@code string} object representing a string to be written.
+	*	@throws PsyIOErrorException when I/O error occurs during write.
+	*/
+	public void psyWriteString(final PsyString oString)
+		throws PsyIOErrorException;
 }

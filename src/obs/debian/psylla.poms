@@ -1,2 +1,3 @@
-target/artifacts/pom/coneforest.psylla-*.pom --java-lib --has-package-version --usj-name=psylla/coneforest.psylla
-target/artifacts/pom/coneforest.psylla.tools-*.pom --java-lib --has-package-version --usj-name=psylla/coneforest.psylla.tools
+target/artifacts/poms/coneforest.psylla-*.pom --java-lib --has-package-version --usj-name=psylla/coneforest.psylla
+target/artifacts/poms/coneforest.psylla.ant-*.pom --java-lib --has-package-version --usj-name=psylla/coneforest.psylla.ant
+target/artifacts/poms/coneforest.psylla.processors-*.pom --java-lib --has-package-version --usj-name=psylla/coneforest.psylla.processors

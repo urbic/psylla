@@ -1,6 +1,9 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringJoiner;
 
 /**
 *	The representation of a {@code formalset}, an abstraction of a finite set of {@code object}s.
@@ -16,6 +19,46 @@ public interface PsyFormalSet<T extends PsyObject>
 {
 
 	/**
+	*	Context action of the {@code contains} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("contains")
+	public static final ContextAction PSY_CONTAINS
+		=ContextAction.<PsyFormalSet, PsyObject>ofBiFunction(PsyFormalSet::psyContains);
+
+	/**
+	*	Context action of the {@code intersects} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("intersects")
+	public static final ContextAction PSY_INTERSECTS
+		=ContextAction.<PsyFormalSet, PsyFormalSet>ofBiFunction(PsyFormalSet::psyIntersects);
+
+	/**
+	*	Context action of the {@code remove} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("remove")
+	public static final ContextAction PSY_REMOVE
+		=ContextAction.<PsyFormalSet, PsyObject>ofBiConsumer(PsyFormalSet::psyRemove);
+
+	/**
+	*	Context action of the {@code removeall} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("removeall")
+	public static final ContextAction PSY_REMOVEALL
+		=ContextAction.<PsyFormalSet, PsyIterable>ofBiConsumer(PsyFormalSet::psyRemoveAll);
+
+	/**
+	*	Context action of the {@code retainall} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("retainall")
+	public static final ContextAction PSY_RETAINALL
+		=ContextAction.<PsyFormalSet, PsyIterable>ofBiConsumer(PsyFormalSet::psyRetainAll);
+
+	/**
 	*	Removes an {@code object} from this set. If a given object is not present in this set, error
 	*	does not occur.
 	*
@@ -29,20 +72,20 @@ public interface PsyFormalSet<T extends PsyObject>
 	*
 	*	@param oEnumeration an {@code iterable} enumeration.
 	*/
-	default public void psyRemoveAll(final PsyIterable<? extends T> oEnumeration)
+	public default void psyRemoveAll(final PsyIterable<? extends T> oEnumeration)
 	{
 		if(this==oEnumeration)
 			psyClear();
 		else
-			for(final T o: oEnumeration)
+			for(final var o: oEnumeration)
 				psyRemove(o);
 	}
 
-	default public void psyRetainAll(final PsyIterable<? extends T> oEnumeration)
+	public default void psyRetainAll(final PsyIterable<? extends T> oEnumeration)
 		throws PsyErrorException
 	{
-	//	for(final T obj: this)
-	//		for(final T otherObj: iterable)
+	//	for(final var obj: this)
+	//		for(final var otherObj: iterable)
 	//			if(!psyContains(obj).getValue())
 	//				psyRemove(obj);
 		System.out.println("NOP RETAINALL ITERABLE");
@@ -50,11 +93,10 @@ public interface PsyFormalSet<T extends PsyObject>
 	}
 
 	/**
-	*	Returns a {@code boolean} object indicating whether a given {@code object} belongs to this
-	*	set.
+	*	{@return a {@code boolean} object indicating whether a given {@code object} belongs to this
+	*		set}
 	*
 	*	@param o an {@code object}.
-	*	@return {@code boolean} indicating whether an object belongs to this set.
 	*/
 	public PsyBoolean psyContains(final T o);
 
@@ -62,9 +104,9 @@ public interface PsyFormalSet<T extends PsyObject>
 	*	Removes all the elements from this set.
 	*/
 	@Override
-	default public void psyClear()
+	public default void psyClear()
 	{
-		for(final T o: this)
+		for(final var o: this)
 			psyRemove(o);
 	}
 
@@ -78,33 +120,31 @@ public interface PsyFormalSet<T extends PsyObject>
 	*	@throws PsyRangeCheckException when TODO.
 	*/
 	@Override
-	default public void psyAppendAll(final PsyIterable<? extends T> oEnumeration)
+	public default void psyAppendAll(final PsyIterable<? extends T> oEnumeration)
 		throws PsyLimitCheckException, PsyRangeCheckException
 	{
 		if(this==oEnumeration)
 			return;
-		for(final T o: oEnumeration)
+		for(final var o: oEnumeration)
 			psyAppend(o);
 	}
 
 	/**
-	*	Returns a {@code boolean} object indicating whether a given {@code formalset} set intersects
-	*	with this set.
+	*	{@return a {@code boolean} object indicating whether a given {@code formalset} set
+	*		intersects with this set}
 	*
 	*	@param oSet a {@code formalset} set.
-	*	@return {@code boolean} indicating whether a given {@code formalset} intersects with this
-	*	set.
 	*/
-	default public PsyBoolean psyIntersects(final PsyFormalSet<? extends T> oSet)
+	public default PsyBoolean psyIntersects(final PsyFormalSet<? extends T> oSet)
 	{
-		for(final T o: oSet)
+		for(final var o: oSet)
 			if(psyContains(o).booleanValue())
 				return PsyBoolean.TRUE;
 		return PsyBoolean.FALSE;
 	}
 
 	@Override
-	default public PsyFormalSet<T> psyReplicate(final PsyInteger oCount)
+	public default PsyFormalSet<T> psyReplicate(final PsyInteger oCount)
 		throws PsyLimitCheckException, PsyRangeCheckException, PsyUnsupportedException
 	{
 		final long count=oCount.longValue();
@@ -114,65 +154,28 @@ public interface PsyFormalSet<T extends PsyObject>
 			throw new PsyLimitCheckException();
 		if(count==0)
 			return (PsyFormalSet<T>)psyNewEmpty();
-		return (PsyFormalSet<T>)psyClone();
+		return psyClone();
 	}
 
 	@Override
-	default public String toSyntaxString()
+	public PsyFormalSet<T> psyClone();
+
+	@Override
+	public default String toSyntaxString()
 	{
-		return "("+toSyntaxStringHelper(this)+")";
+		return toSyntaxStringHelper(new HashSet<PsyContainer<? extends PsyObject>>());
 	}
 
-	default public String toSyntaxStringHelper(final PsyLengthy oLengthy)
+	@Override
+	public default String toSyntaxStringHelper(final Set<PsyContainer<? extends PsyObject>> processed)
 	{
-		final var sb=new StringBuilder();
-		if(length()>0)
-		{
-			for(final PsyObject o: this)
-			{
-				if(o instanceof PsyLengthy)
-					sb.append(o==oLengthy? "-"+o.typeName()+"-": ((PsyLengthy)o).toSyntaxString());
-				else
-					sb.append(o.toSyntaxString());
-				sb.append(' ');
-			}
-			sb.deleteCharAt(sb.length()-1);
-		}
-		return sb.toString();
+		if(!processed.add(this))
+			return '%'+typeName()+'%';
+		final var sj=new StringJoiner(" ", "(", ")");
+		for(final var o: this)
+			sj.add(o instanceof PsyContainer<? extends PsyObject> oContainer?
+				oContainer.toSyntaxStringHelper(processed):
+				o.toSyntaxString());
+		return sj.toString();
 	}
-
-	/**
-	*	Context action of the {@code contains} operator.
-	*/
-	@OperatorType("contains")
-	public static final ContextAction PSY_CONTAINS
-		=ContextAction.<PsyFormalSet, PsyObject>ofBiFunction(PsyFormalSet::psyContains);
-
-	/**
-	*	Context action of the {@code intersects} operator.
-	*/
-	@OperatorType("intersects")
-	public static final ContextAction PSY_INTERSECTS
-		=ContextAction.<PsyFormalSet, PsyFormalSet>ofBiFunction(PsyFormalSet::psyIntersects);
-
-	/**
-	*	Context action of the {@code remove} operator.
-	*/
-	@OperatorType("remove")
-	public static final ContextAction PSY_REMOVE
-		=ContextAction.<PsyFormalSet, PsyObject>ofBiConsumer(PsyFormalSet::psyRemove);
-
-	/**
-	*	Context action of the {@code removeall} operator.
-	*/
-	@OperatorType("removeall")
-	public static final ContextAction PSY_REMOVEALL
-		=ContextAction.<PsyFormalSet, PsyIterable>ofBiConsumer(PsyFormalSet::psyRemoveAll);
-
-	/**
-	*	Context action of the {@code retainall} operator.
-	*/
-	@OperatorType("retainall")
-	public static final ContextAction PSY_RETAINALL
-		=ContextAction.<PsyFormalSet, PsyIterable>ofBiConsumer(PsyFormalSet::psyRetainAll);
 }

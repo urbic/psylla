@@ -12,7 +12,7 @@
 	</info>
 
 	<configurations defaultconfmapping="*->default">
-		<conf name="compile"/>
+		<conf name="main"/>
 		<conf name="linux.debian"/>
 		<conf name="linux.redhat"/>
 		<conf name="xslt"/>
@@ -23,8 +23,10 @@
 	<publications>
 		<artifact/>
 		<artifact type="pom"/>
-		<artifact name="${project.maven.artifactId}.tools"/>
-		<artifact name="${project.maven.artifactId}.tools" type="pom"/>
+		<artifact name="${project.maven.artifactId}.ant"/>
+		<artifact name="${project.maven.artifactId}.ant" type="pom"/>
+		<artifact name="${project.maven.artifactId}.processors"/>
+		<artifact name="${project.maven.artifactId}.processors" type="pom"/>
 	</publications>
 
 	<dependencies>
@@ -32,34 +34,22 @@
 			name="clianthus"
 			rev="0.1.3"
 			transitive="true"
-			conf="compile+modulepath"
+			conf="main+modulepath"
 			/>
 		<dependency
 			org="jline"
 			name="jline"
 			rev="1.0"
-			conf="compile+classpath"
+			conf="main+classpath"
 			/>
 		<dependency
 			org="org.apache.ant"
 			name="ant-junit"
-			rev="[1.10.13,)"
-			conf="compile+classpath"
+			rev="1.10.+"
+			conf="main+classpath"
 			>
 			<exclude org="org.apache.ant" name="ant-launcher"/>
 		</dependency>
-		<!--dependency
-			org="net.java.dev.javacc"
-			name="javacc"
-			rev="[7.0.11,)"
-			conf="javacc"
-			/-->
-		<!--dependency
-			org="org.eclipse.collections"
-			name="eclipse-collections"
-			rev="[11.0.0,)"
-			conf="compile"
-			/-->
 		<dependency
 			org="saxon"
 			name="saxon"
@@ -68,23 +58,40 @@
 			/>
 		<dependency org="net.sf.xslthl"
 			name="xslthl"
-			rev="[2.1.3,)"
 			conf="xslt"
-			/>
+			rev="2.1.+"
+			transitive="true"
+			>
+			<exclude org="xalan" name="xalan"/>
+		</dependency>
+		<!--dependency org="net.sf.xslthl"
+			name="xslthl"
+			conf="xslt+linux.debian"
+			rev="2.x"
+			transitive="true"
+			>
+			<exclude org="xalan" name="xalan"/>
+		</dependency-->
 		<dependency
 			org="xerces"
 			name="xercesImpl"
-			rev="[2.12.2,)"
+			rev="2.12.+"
 			conf="xslt"
 			/>
 		<dependency
 			org="net.sf.docbook"
 			name="docbook-xsl-saxon"
-			rev="[1,)"
+			rev="1.+"
 			conf="xslt+linux.redhat"
 			transitive="false"
 			/>
-		<exclude org="org.hamcrest"/>
+		<dependency
+			org="xml-resolver"
+			name="xml-resolver"
+			rev="1.+"
+			conf="xslt+linux.debian"
+			transitive="false"
+			/>
 	</dependencies>
 
 </ivy-module>

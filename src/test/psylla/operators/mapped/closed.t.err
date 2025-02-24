@@ -1,0 +1,4 @@
+Error: /invalidstate in --mapped--
+Operand stack:
+	%stream% {dup mul}
+Execution stack: (empty)

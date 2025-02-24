@@ -33,4 +33,4 @@
 }
 bind def
 
-arguments 0 get tointegral rho toname say
+arguments 0 get tointegral rho tostring say

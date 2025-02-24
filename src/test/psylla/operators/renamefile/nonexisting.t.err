@@ -1,0 +1,4 @@
+Error: /filenotfound in --renamefile--
+Operand stack:
+	/NO_SUCH_FILE /NEW_FILE
+Execution stack: (empty)

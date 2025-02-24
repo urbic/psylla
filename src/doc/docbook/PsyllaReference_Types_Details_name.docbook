@@ -4,7 +4,7 @@
 <indexterm><primary><type>name</type> Ⓣ</primary></indexterm>
 
 <para>
-A name, an immutable string.
+A command.
 </para>
 
 <formalpara>
@@ -16,6 +16,7 @@ A name, an immutable string.
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_scalar"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_sequential"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_streamable"/>,
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>,
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_value"/>.
 <informalfigure>
@@ -25,11 +26,6 @@ A name, an immutable string.
 </imageobject>
 </mediaobject>
 </informalfigure>
-</formalpara>
-
-<formalpara>
-&TitleSeeAlso;
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>.
 </formalpara>
 
 </section>

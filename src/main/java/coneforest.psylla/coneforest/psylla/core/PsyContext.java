@@ -4,6 +4,7 @@ import coneforest.psylla.runtime.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
+import jline.ConsoleReader;
 
 /**
 *	The representation of {@code context}, an execution context.
@@ -12,184 +13,6 @@ import java.util.Optional;
 public interface PsyContext
 	extends PsyObject
 {
-
-	public long getId();
-
-	public void join()
-		throws InterruptedException;
-
-	@Override
-	default public String toSyntaxString()
-	{
-		return "%context="+getId()+"%";
-	}
-
-	/**
-	*	Returns the currently executing context.
-	*
-	*	@return the currently executing context.
-	*/
-	public static PsyContext psyCurrentContext()
-	{
-		return (PsyContext)Thread.currentThread();
-	}
-
-	public void fork()
-		throws PsyStackUnderflowException, PsyUnmatchedMarkException;
-
-	public void quit();
-
-	public void stop_();
-
-	/**
-	*	Returns the operand stack.
-	*
-	*	@return the operand stack.
-	*/
-	public OperandStack operandStack();
-
-	/**
-	*	Returns the dictionary stack.
-	*
-	*	@return the dictionary stack.
-	*/
-	public DictStack dictStack();
-
-	/**
-	*	Returns the execution stack.
-	*
-	*	@return the execution stack.
-	*/
-	public ExecutionStack executionStack();
-
-	/**
-	*	Returns the system dictionary.
-	*
-	*	@return the system dictionary.
-	*/
-	public PsyFormalDict systemDict();
-
-	/**
-	*	Returns the user dictionary.
-	*
-	*	@return the user dictionary.
-	*/
-	public PsyFormalDict userDict();
-
-	/**
-	*	Returns the current dictionary (the topmost on the dictionary stack).
-	*
-	*	@return the current dictionary.
-	*/
-	public PsyFormalDict currentDict();
-
-	/**
-	*	Returns the namespace pool.
-	*
-	*	@return the namespace pool.
-	*/
-	public NamespacePool namespacePool();
-
-	/**
-	*	Returns the size of the execution stack.
-	*
-	*	@return the size of the execution stack.
-	*/
-	public int execLevel();
-
-	/**
-	*	Pushes the current execution level onto the loop stack and returns this level.
-	*
-	*	@return the current execution level.
-	*/
-	public int pushLoopLevel();
-
-	/**
-	*	Removes the execution level from the loop stack and returns this level or {@code -1} if the
-	*	loop stack is empty.
-	*
-	*	@return the execution level on the top of the loop stack or {@code -1} if the loop stack is
-	*	empty.
-	*/
-	public int popLoopLevel();
-
-	/**
-	*	Returns the topmost execution level at the loop stack or {@code -1} if the loop stack is
-	*	empty.
-	*
-	*	@return the topmost execution level at the loop stack or {@code -1} if the loop stack is
-	*	empty.
-	*/
-	public int currentLoopLevel();
-
-	/**
-	*	Pushes the current execution level onto the stop stack and returns this level.
-	*
-	*	@return the current execution level.
-	*/
-	public int pushStopLevel();
-
-	/**
-	*	Removes the execution level from the stop stack and returns this level or {@code -1} if the
-	*	stop stack is empty.
-	*
-	*	@return the execution level on the top of the stop stack or {@code -1} if the stop stack is
-	*	empty.
-	*/
-	public int popStopLevel();
-
-	/**
-	*	Returns the topmost execution level at the stop stack or {@code -1} if the stop stack is
-	*	empty.
-	*
-	*	@return the topmost execution level at the stop stack or {@code -1} if the stop stack is
-	*	empty.
-	*/
-	public int currentStopLevel();
-
-	public void repl()
-		throws PsyErrorException;
-
-	/**
-	*	Gets the stopped flag to the specified value.
-	*
-	*	@return the value of the stopped flag.
-	*/
-	public boolean getStopped();
-
-	/**
-	*	Sets the stopped flag to the specified value.
-	*
-	*	@param stopFlag the value of the stopped flag.
-	*/
-	public void setStopped(final boolean stopFlag);
-
-	public void handleExecutionStack(final int level);
-
-	/**
-	*	Interprets the Psylla code from the {@code reader} object.
-	*
-	*	@param oReader the {@code reader} object.
-	*/
-	public void interpret(final PsyReader oReader);
-
-	public void interpretBraced(final PsyReader oReader)
-		throws PsyErrorException;
-
-	public OperandStack operandStackBacked(final int count)
-		throws PsyStackUnderflowException;
-
-	default public Optional<PsyFormalDict> psyWhere(final PsyTextual oKey)
-	{
-		return dictStack().where(oKey.stringValue());
-	}
-
-	public <T extends PsyObject> T psyLoad(final PsyTextual oKey)
-		throws PsyUndefinedException;
-
-	public void psyRequire(final PsyTextual o)
-		throws PsyErrorException;
-
 	/**
 	*	Context action of the {@code begin} operator.
 	*/
@@ -296,7 +119,7 @@ public interface PsyContext
 	public static final ContextAction PSY_DEF=oContext->
 		{
 			final var ostack=oContext.operandStackBacked(2);
-			final var oName=ostack.<PsyTextual>getBacked(0);
+			final var oName=ostack.<PsyString>getBacked(0);
 			final var name=oName.stringValue();
 			final var o=ostack.getBacked(1);
 			final var prefixOffset=name.indexOf('@');
@@ -312,7 +135,7 @@ public interface PsyContext
 	*/
 	@OperatorType("dictstack")
 	public static final ContextAction PSY_DICTSTACK=oContext->
-		oContext.operandStack().push(new PsyArray((ArrayList<PsyObject>)oContext.dictStack().clone()));
+		oContext.operandStack().push(new PsyArray(new ArrayList<PsyObject>(oContext.dictStack().clone())));
 
 	/**
 	*	Context action of the {@code dup} operator.
@@ -334,13 +157,13 @@ public interface PsyContext
 			try
 			{
 				final var ostack=oContext.operandStack();
-				final jline.ConsoleReader consoleReader=new jline.ConsoleReader();
+				final var consoleReader=new ConsoleReader();
 				final var line=consoleReader.readLine();
 				if(line!=null)
 					ostack.push(new PsyString(line+"\n"));
 				ostack.push(PsyBoolean.of(line!=null));
 			}
-			catch(final IOException e)
+			catch(final IOException ex)
 			{
 				throw new PsyIOErrorException();
 			}
@@ -388,11 +211,7 @@ public interface PsyContext
 	*/
 	@OperatorType("exit")
 	public static final ContextAction PSY_EXIT=oContext->
-		{
-			if(oContext.currentLoopLevel()==-1)
-				throw new PsyInvalidExitException();
-			oContext.executionStack().setSize(oContext.popLoopLevel());
-		};
+			oContext.executionStack().exitLoop();
 
 	/**
 	*	Context action of the {@code for} operator.
@@ -407,7 +226,7 @@ public interface PsyContext
 			final PsyRealNumeric oLimit=ostack.getBacked(2);
 			final PsyObject oProc=ostack.getBacked(3);
 
-			oContext.pushLoopLevel();
+			oContext.executionStack().enterLoop();
 			estack.push(oIncrement.compareTo(PsyInteger.ZERO)>0?
 				new PsyOperator("#for_continue")
 					{
@@ -415,14 +234,15 @@ public interface PsyContext
 
 						@Override
 						public void perform(final PsyContext oContext)
+							throws PsyInvalidExitException
 						{
 							if(oCounter.compareTo(oLimit)>0)
-								oContext.popLoopLevel();
+								oContext.executionStack().exitLoop();
 							else
 							{
 								estack.push(this);
 								ostack.push(oCounter);
-								oCounter=(PsyRealNumeric)oCounter.psyAdd(oIncrement);
+								oCounter=oCounter.psyAdd(oIncrement);
 								oProc.invoke(oContext);
 							}
 						}
@@ -433,14 +253,15 @@ public interface PsyContext
 
 						@Override
 						public void perform(final PsyContext oContext)
+							throws PsyInvalidExitException
 						{
 							if(oCounter.compareTo(oLimit)<0)
-								oContext.popLoopLevel();
+								oContext.executionStack().exitLoop();
 							else
 							{
 								estack.push(this);
 								ostack.push(oCounter);
-								oCounter=(PsyRealNumeric)oCounter.psyAdd(oIncrement);
+								oCounter=oCounter.psyAdd(oIncrement);
 								oProc.invoke(oContext);
 							}
 						}
@@ -492,7 +313,7 @@ public interface PsyContext
 	public static final ContextAction PSY_INDEX=oContext->
 		{
 			final var ostack=oContext.operandStackBacked(1);
-			int index=ostack.<PsyInteger>getBacked(0).intValue();
+			final int index=ostack.<PsyInteger>getBacked(0).intValue();
 			if(index<0)
 				throw new PsyRangeCheckException();
 			ostack.ensureSize(index+1);
@@ -519,7 +340,7 @@ public interface PsyContext
 			}
 			final var ostackJoining=oContextJoining.operandStack();
 			ostack.push(PsyMark.MARK);
-			for(final PsyObject o: ostackJoining)
+			for(final var o: ostackJoining)
 				ostack.push(o);
 		};
 
@@ -540,8 +361,7 @@ public interface PsyContext
 	public static final ContextAction PSY_LOOP=oContext->
 		{
 			final var oProc=oContext.operandStackBacked(1).getBacked(0);
-
-			oContext.pushLoopLevel();
+			oContext.executionStack().enterLoop();
 			oContext.executionStack().push(new PsyOperator("#loop_continue")
 				{
 					@Override
@@ -606,8 +426,8 @@ public interface PsyContext
 	@OperatorType("repeat")
 	public static final ContextAction PSY_REPEAT=oContext->
 		{
-			final OperandStack ostack=oContext.operandStackBacked(2);
-			final ExecutionStack estack=oContext.executionStack();
+			final var ostack=oContext.operandStackBacked(2);
+			final var estack=oContext.executionStack();
 			final PsyInteger oCount=ostack.getBacked(0);
 			final PsyObject oProc=ostack.getBacked(1);
 			final long count=oCount.longValue();
@@ -617,16 +437,17 @@ public interface PsyContext
 			if(count==0)
 				return;
 
-			oContext.pushLoopLevel();
+			oContext.executionStack().enterLoop();
 			oContext.executionStack().push(new PsyOperator("#repeat_continue")
 				{
 					private long count1=count;
 
 					@Override
 					public void perform(final PsyContext oContext1)
+						throws PsyInvalidExitException
 					{
 						if(count1--==0)
-							oContext1.popLoopLevel();
+							oContext1.executionStack().exitLoop();
 						else
 						{
 							estack.push(this);
@@ -655,16 +476,13 @@ public interface PsyContext
 		{
 			final var ostack=oContext.operandStackBacked(2);
 			final var n=ostack.<PsyInteger>getBacked(0).intValue();
-			int j=ostack.<PsyInteger>getBacked(1).intValue();
-			final var ostackSize=ostack.size();
 			if(n<0)
 				throw new PsyRangeCheckException();
 			if(n==0)
 				return;
+			final int j=Math.floorMod(ostack.<PsyInteger>getBacked(1).intValue(), n);
+			final var ostackSize=ostack.size();
 			ostack.ensureSize(n);
-			while(j<0)
-				j+=n;
-			j%=n;
 			for(int i=0; i<j; i++)
 				ostack.add(ostackSize-n, ostack.pop());
 		};
@@ -678,7 +496,7 @@ public interface PsyContext
 			final var ostack=oContext.operandStackBacked(1);
 			final var stdwriter=(PsyWriter)oContext.dictStack().load("stdout");
 			stdwriter.psyWriteString(ostack.getBacked(0));
-			stdwriter.psyWriteString((PsyTextual)oContext.dictStack().load("eol"));
+			stdwriter.psyWriteString((PsyString)oContext.dictStack().load("eol"));
 			stdwriter.psyFlush();
 		};
 
@@ -724,27 +542,19 @@ public interface PsyContext
 	@OperatorType("stopped")
 	public static final ContextAction PSY_STOPPED=oContext->
 		{
-			final var stopLevel=oContext.pushStopLevel();
-			final var ostack=oContext.operandStackBacked(1);
-			ostack.getBacked(0).invoke(oContext);
-			oContext.handleExecutionStack(stopLevel);
-			ostack.push(PsyBoolean.of(oContext.getStopped()));
-			oContext.setStopped(false);
-			oContext.popStopLevel();
-
-			/*
-			interpreter.pushStopLevel();
-			interpreter.executionStack().push(new PsyOperator.Action
-			("#stopped_continue", (interpreter1)->
-			{
-				ostack.push(PsyBoolean.of(interpreter1.getStopped()));
-				interpreter1.setStopped(false);
-				interpreter1.popStopLevel();
-			}));
-			oProc.invoke(interpreter);
-			*/
+			oContext.executionStack().push(new PsyOperator("#stopped_continue")
+				{
+					@Override
+					public void perform(final PsyContext oContext1)
+					{
+						oContext1.operandStack().push(PsyBoolean.of(oContext1.getStopped()));
+						oContext1.setStopped(false);
+						oContext1.executionStack().exitStop();
+					}
+				});
+			oContext.executionStack().enterStop();
+			oContext.operandStackBacked(1).getBacked(0).invoke(oContext);
 		};
-
 	/**
 	*	Context action of the {@code store} operator.
 	*/
@@ -762,7 +572,7 @@ public interface PsyContext
 	public static final ContextAction PSY_TOKENS=oContext->
 		{
 			final var ostack=oContext.operandStackBacked(1);
-			oContext.interpretBraced(new PsyStringReader(ostack.<PsyTextual>getBacked(0)));
+			oContext.interpretBraced(new PsyStringReader(ostack.<PsyName>getBacked(0)));
 		};
 
 	/**
@@ -791,5 +601,114 @@ public interface PsyContext
 	*	Context action of the {@code yield} operator.
 	*/
 	@OperatorType("yield")
-	public static final ContextAction PSY_YIELD=oContext->((Thread)oContext).yield();
+	public static final ContextAction PSY_YIELD=oContext->Thread.yield();
+
+	public void showStacks();
+
+	public long getId();
+
+	public void join()
+		throws InterruptedException;
+
+	@Override
+	public default String toSyntaxString()
+	{
+		return "%context="+getId()+"%";
+	}
+
+	/**
+	*	{@return the currently executing context}
+	*/
+	public static PsyContext psyCurrentContext()
+	{
+		return (PsyContext)Thread.currentThread();
+	}
+
+	public void fork()
+		throws PsyStackUnderflowException, PsyUnmatchedMarkException;
+
+	public void quit();
+
+	public void stop_();
+
+	/**
+	*	{@return the operand stack}
+	*/
+	public OperandStack operandStack();
+
+	/**
+	*	{@return the dictionary stack}
+	*/
+	public DictStack dictStack();
+
+	/**
+	*	{@return the execution stack}
+	*/
+	public ExecutionStack executionStack();
+
+	/**
+	*	{@return the system dictionary}
+	*/
+	public PsyFormalDict<PsyObject> systemDict();
+
+	/**
+	*	{@return the user dictionary}
+	*/
+	public PsyFormalDict<PsyObject> userDict();
+
+	/**
+	*	{@return the current dictionary (the topmost on the dictionary stack)}
+	*/
+	public PsyFormalDict<PsyObject> currentDict();
+
+	/**
+	*	{@return the namespace pool}
+	*/
+	public NamespacePool namespacePool();
+
+	/**
+	*	{@return the size of the execution stack}
+	*/
+	public int execLevel();
+
+	public void repl()
+		throws PsyErrorException;
+
+	/**
+	*	{@return the value of the stopped flag}
+	*/
+	public boolean getStopped();
+
+	/**
+	*	Sets the stopped flag to the specified value.
+	*
+	*	@param stopFlag the value of the stopped flag.
+	*/
+	public void setStopped(final boolean stopFlag);
+
+	public void handleExecutionStack(final int level);
+
+	/**
+	*	Interprets the Psylla code from the {@code reader} object.
+	*
+	*	@param oReader the {@code reader} object.
+	*/
+	public void interpret(final PsyReader oReader);
+
+	public void interpretBraced(final PsyReader oReader)
+		throws PsyErrorException;
+
+	public OperandStack operandStackBacked(final int count)
+		throws PsyStackUnderflowException;
+
+	public default Optional<PsyFormalDict<PsyObject>> psyWhere(final PsyTextual oKey)
+	{
+		return dictStack().where(oKey.stringValue());
+	}
+
+	public <T extends PsyObject> T psyLoad(final PsyTextual oKey)
+		throws PsyUndefinedException;
+
+	public void psyRequire(final PsyTextual o)
+		throws PsyErrorException;
 }

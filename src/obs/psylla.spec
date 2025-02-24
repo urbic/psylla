@@ -1,7 +1,7 @@
 #
 # spec file for package @obs.package.name@
 #
-# Copyright (c) 2024 SUSE LLC
+# Copyright (c) 2025 SUSE LLC
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -28,6 +28,7 @@ Source:         %{name}-%{version}.tar.xz
 BuildRequires:  adobe-sourcecodepro-fonts
 BuildRequires:  adobe-sourcesanspro-fonts
 BuildRequires:  ivy-local
+BuildRequires:  jacoco
 BuildRequires:  java-devel >= 21
 BuildRequires:  java-javadoc >= 21
 BuildRequires:  javacc
@@ -89,7 +90,8 @@ LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local -Ddestdir=%{buildroot} install
 %fdupes %{buildroot}%{_javadocdir}/%{name}
 
 %add_maven_depmap %{name}/coneforest.%{name}.pom %{name}/coneforest.%{name}.jar
-%add_maven_depmap %{name}/coneforest.%{name}.tools.pom %{name}/coneforest.%{name}.tools.jar
+%add_maven_depmap %{name}/coneforest.%{name}.ant.pom %{name}/coneforest.%{name}.ant.jar
+%add_maven_depmap %{name}/coneforest.%{name}.processors.pom %{name}/coneforest.%{name}.processors.jar
 
 %post
 %mime_database_post

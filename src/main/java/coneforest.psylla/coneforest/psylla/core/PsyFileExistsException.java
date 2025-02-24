@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	 The representation of {@code fileexists} error thrown when an attempt is made to create a file
 *	 or directory and a file of that name already exists.
 */
+@SuppressWarnings("serial")
 @ErrorType("fileexists")
 public class PsyFileExistsException
 	extends PsyFileSystemErrorException
@@ -15,11 +16,12 @@ public class PsyFileExistsException
 	*/
 	public PsyFileExistsException()
 	{
-		super();
 	}
 
 	/**
 	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
 	*/
 	public PsyFileExistsException(final Throwable cause)
 	{

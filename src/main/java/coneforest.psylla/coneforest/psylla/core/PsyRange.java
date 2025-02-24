@@ -14,6 +14,15 @@ public class PsyRange
 	implements PsyFormalStream<PsyRealNumeric>
 {
 
+	/**
+	*	Context action of the {@code range} operator.
+	*/
+	@OperatorType("range")
+	public static final ContextAction PSY_RANGE
+		=ContextAction.<PsyRealNumeric, PsyRealNumeric, PsyRealNumeric>ofTriFunction(PsyRange::new);
+
+	private final PsyRealNumeric oInitial, oIncrement, oLimit;
+
 	public PsyRange(final PsyRealNumeric oInitial,
 			final PsyRealNumeric oIncrement,
 			final PsyRealNumeric oLimit)
@@ -26,11 +35,14 @@ public class PsyRange
 	@Override
 	public Stream<PsyRealNumeric> stream()
 	{
-		final boolean forward=(oIncrement.compareTo(PsyInteger.ZERO)>0);
+		final boolean forward=oIncrement.compareTo(PsyInteger.ZERO)>0;
 		return StreamSupport.<PsyRealNumeric>stream(
 				Spliterators.<PsyRealNumeric>spliteratorUnknownSize(
 					new Iterator<PsyRealNumeric>()
 						{
+							private PsyRealNumeric oCurrent;
+							private PsyRealNumeric oNext=oInitial;
+
 							@Override
 							public boolean hasNext()
 							{
@@ -43,12 +55,9 @@ public class PsyRange
 							public PsyRealNumeric next()
 							{
 								oCurrent=oNext;
-								oNext=(PsyRealNumeric)oCurrent.psyAdd(oIncrement);
+								oNext=oCurrent.psyAdd(oIncrement);
 								return oCurrent;
 							}
-
-							private PsyRealNumeric oCurrent;
-							private PsyRealNumeric oNext=oInitial;
 						}, 0),
 					false);
 	}
@@ -62,13 +71,4 @@ public class PsyRange
 			+';'+oLimit.toSyntaxString()
 			+'%';
 	}
-
-	private final PsyRealNumeric oInitial, oIncrement, oLimit;
-
-	/**
-	*	Context action of the {@code range} operator.
-	*/
-	@OperatorType("range")
-	public static final ContextAction PSY_RANGE
-		=ContextAction.<PsyRealNumeric, PsyRealNumeric, PsyRealNumeric>ofTriFunction(PsyRange::new);
 }

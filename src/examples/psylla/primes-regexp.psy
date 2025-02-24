@@ -7,6 +7,6 @@ n 2 ge { '2' say } if
 3 2 n
 {
 	dup "Q" exch replicate ~^(Q{3,}?)\1{2,}$~ matcher find
-	{ pop pop } { toname say } ifelse
+	{ pop } { tostring say } ifelse
 }
 bind for

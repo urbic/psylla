@@ -1,0 +1,4 @@
+Error: /filenotfound in --readlink--
+Operand stack:
+	/NO_SUCH_FILE
+Execution stack: (empty)

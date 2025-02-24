@@ -20,7 +20,7 @@ Writes the <replaceable>string</replaceable> to the standard error writer.
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 </itemizedlist>
 </formalpara>

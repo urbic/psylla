@@ -13,6 +13,37 @@ public interface PsyFormalQueue<T extends PsyObject>
 		PsyBounded,
 		PsyContainer<T>
 {
+	/**
+	*	Context action of the {@code dequeue} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("dequeue")
+	public static final ContextAction PSY_DEQUEUE
+		=ContextAction.<PsyFormalQueue>ofFunction(PsyFormalQueue::psyDequeue);
+
+	/**
+	*	Context action of the {@code enqueue} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("enqueue")
+	public static final ContextAction PSY_ENQUEUE
+		=ContextAction.<PsyFormalQueue, PsyObject>ofBiConsumer(PsyFormalQueue::psyEnqueue);
+
+	/**
+	*	Context action of the {@code give} operator.
+	*/
+	@SuppressWarnings({"unchecked", "rawtypes"})
+	@OperatorType("give")
+	public static final ContextAction PSY_GIVE
+		=ContextAction.<PsyFormalQueue, PsyObject>ofBiConsumer(PsyFormalQueue::psyGive);
+
+	/**
+	*	Context action of the {@code take} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("take")
+	public static final ContextAction PSY_TAKE
+		=ContextAction.<PsyFormalQueue>ofFunction(PsyFormalQueue::psyTake);
 
 	/**
 	*	Removes and returns the head of this queue.
@@ -38,32 +69,4 @@ public interface PsyFormalQueue<T extends PsyObject>
 
 	public void psyGive(final T o)
 		throws PsyErrorException;
-
-	/**
-	*	Context action of the {@code dequeue} operator.
-	*/
-	@OperatorType("dequeue")
-	public static final ContextAction PSY_DEQUEUE
-		=ContextAction.<PsyFormalQueue>ofFunction(PsyFormalQueue::psyDequeue);
-
-	/**
-	*	Context action of the {@code enqueue} operator.
-	*/
-	@OperatorType("enqueue")
-	public static final ContextAction PSY_ENQUEUE
-		=ContextAction.<PsyFormalQueue, PsyObject>ofBiConsumer(PsyFormalQueue::psyEnqueue);
-
-	/**
-	*	Context action of the {@code give} operator.
-	*/
-	@OperatorType("give")
-	public static final ContextAction PSY_GIVE
-		=ContextAction.<PsyFormalQueue, PsyObject>ofBiConsumer(PsyFormalQueue::psyGive);
-
-	/**
-	*	Context action of the {@code take} operator.
-	*/
-	@OperatorType("take")
-	public static final ContextAction PSY_TAKE
-		=ContextAction.<PsyFormalQueue>ofFunction(PsyFormalQueue::psyTake);
 }

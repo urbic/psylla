@@ -9,38 +9,35 @@ import java.util.Set;
 */
 public class Config
 {
+	private static final Properties CONFIG=new Properties();
+
 	private Config()
 	{
 	}
 
 	/**
-	*	Returns the value associated with the given name. If not found, returns {@code null}.
+	*	{@return the value associated with the given name} If not found, returns {@code null}.
 	*
 	*	@param name the property name.
-	*	@return the value with the given name.
 	*/
 	public static String getProperty(final String name)
 	{
-		return config.getProperty(name);
+		return CONFIG.getProperty(name);
 	}
 
 	/**
-	*	Returns an unmodifiable set of property names.
-	*
-	*	@return an unmodifiable set of property names.
+	*	{@return an unmodifiable set of property names}
 	*/
 	public static Set<String> stringPropertyNames()
 	{
-		return config.stringPropertyNames();
+		return CONFIG.stringPropertyNames();
 	}
-
-	private static final Properties config=new Properties();
 
 	static
 	{
-		try
+		try(final var resourceStream=Config.class.getResourceAsStream("Config.properties"))
 		{
-			config.load(Config.class.getResourceAsStream("Config.properties"));
+			CONFIG.load(resourceStream);
 		}
 		catch(final IOException ex)
 		{

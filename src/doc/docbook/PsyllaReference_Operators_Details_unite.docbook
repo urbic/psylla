@@ -27,7 +27,7 @@ Returns a <replaceable>string</replaceable> obtained by concatenating
 </listitem>
 <listitem>
 <replaceable>separator</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>string</replaceable>:

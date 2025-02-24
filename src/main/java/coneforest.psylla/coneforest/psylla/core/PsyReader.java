@@ -18,6 +18,12 @@ public class PsyReader
 		PsyReadable,
 		PsyResetable
 {
+	/**
+	*	Line separator string.
+	*/
+	public static final String LINE_SEPARATOR=System.getProperty("line.separator").intern();
+
+	private final Reader reader;
 
 	/**
 	*	Constructs a new {@code reader} object from the reader.
@@ -69,7 +75,7 @@ public class PsyReader
 	}
 
 	@Override
-	public PsyString psyReadString(final PsyInteger oCount)
+	public PsyStringBuffer psyReadString(final PsyInteger oCount)
 		throws
 			PsyIOErrorException,
 			PsyLimitCheckException,
@@ -85,7 +91,7 @@ public class PsyReader
 			final var buffer=CharBuffer.allocate((int)count);
 			reader.read(buffer);
 			buffer.flip();
-			return new PsyString(buffer.toString());
+			return new PsyStringBuffer(buffer.toString());
 		}
 		catch(final OutOfMemoryError ex)
 		{
@@ -98,7 +104,7 @@ public class PsyReader
 	}
 
 	@Override
-	public PsyString psyReadLine()
+	public PsyStringBuffer psyReadLine()
 		throws PsyIOErrorException
 	{
 		final var sb=new StringBuilder();
@@ -107,12 +113,12 @@ public class PsyReader
 		{
 			do
 			{
-				int c=reader.read();
+				final int c=reader.read();
 				if(c==-1)
-					return new PsyString(sb);
+					return new PsyStringBuffer(sb);
 				sb.append((char)c);
 				if(sb.substring(sb.length()-LINE_SEPARATOR.length()).equals(LINE_SEPARATOR))
-					return new PsyString(sb);
+					return new PsyStringBuffer(sb);
 			}
 			while(true);
 		}
@@ -185,11 +191,4 @@ public class PsyReader
 			throw new PsyIOErrorException();
 		}
 	}
-
-	/**
-	*	Line separator string.
-	*/
-	public static final String LINE_SEPARATOR=System.getProperty("line.separator").intern();
-
-	final private Reader reader;
 }

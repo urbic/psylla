@@ -17,11 +17,11 @@ syn match psyllaComment			"#.*$" contains=psyllaTodo,@Spell extend
 syn match psyllaSharpBang		"^#!.*"
 
 syn match psyllaNSPrefix		contained +[^/@]\+@+
-syn match psyllaNameExecutable	"\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
+syn match psyllaName			"\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
 syn match psyllaOperator		"[\[\]{}<>()?]"
-syn match psyllaNameLiteral		"/\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
+syn match psyllaStringLiteral	"/\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*" contains=psyllaNSPrefix
 syn match psyllaNameImmediate	"//\([A-Za-z_\.=$]\)\+\([A-Za-z_\.+-=\d@$]\)*"
-syn region psyllaNameQuoted		start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=psyllaStringSpecial
+syn region psyllaStringQuoted	start=+'+ end=+'+ skip=+\\\\\|\\'+ contains=psyllaStringSpecial
 
 syn match psyllaIntegral		"[+-]\=\d\+"
 syn match psyllaHexIntegral		"[Xx]`[+-]\=\x\+" contains=psyllaIntegralPrefix
@@ -35,10 +35,11 @@ syn match psyllaReal			"[+-]\=\d\+[Ee][+-]\=\d\+\>"
 syn cluster psyllaNumeric		contains=psyllaIntegral,psyllaHexIntegral,psyllaBinIntegral,psyllaOctIntegral,psyllaReal
 syn region psyllaComment		start="/#" end="#/" contains=psyllaTodo
 
-syn region psyllaString			start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psyllaStringSpecial
-syn match psyllaStringSpecial	contained +\\[0antf"\\er]+
+syn region psyllaStringBuffer	start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psyllaStringSpecial
+syn match psyllaStringSpecial	contained +\\[0antf"\\erv]+
 syn match psyllaStringSpecial	contained "\\u[[:xdigit:]]\{4}"
 syn match psyllaStringSpecial	contained "\\x{[[:xdigit:]]\+}"
+syn match psyllaStringSpecial	contained "\\N{[[:digit:][:upper:]\- ]\+}"
 syn match psyllaStringSpecial	contained "\\c."
 
 syn region psyllaRegExp			start=+\~+ end=+\~+ skip=+\\\\\|\\\~+ contains=psyllaStringSpecial,psyllaRegExpSpecial
@@ -54,7 +55,7 @@ syn match psyllaRegExpSpecial	contained "[\^^$]"
 syn match psyllaRegExpSpecial	contained "\\k<[[:alpha:]]\+>"
 syn match psyllaIntegralPrefix	contained "[XxOoBbCc]`"
 
-hi link psyllaString			Constant
+hi link psyllaStringBuffer		Constant
 hi link psyllaRegExp			Constant
 hi link psyllaChrIntegral		Constant
 hi link psyllaComment			Comment
@@ -63,9 +64,9 @@ hi link psyllaHexIntegral		Number
 hi link psyllaBinIntegral		Number
 hi link psyllaOctIntegral		Number
 hi link psyllaReal				Number
-hi link psyllaNameExecutable	Identifier
-hi link psyllaNameLiteral		Constant
-hi link psyllaNameQuoted		Constant
+hi link psyllaName				Identifier
+hi link psyllaStringLiteral		Constant
+hi link psyllaStringQuoted		Constant
 hi link psyllaStringSpecial		SpecialChar
 hi link psyllaRegExpSpecial		SpecialChar
 hi link psyllaIntegralPrefix	SpecialChar

@@ -12,7 +12,7 @@ bind for
 	//sieve isempty { exit } if
 	//sieve { exit } forall
 	/p exch def
-	p toname say
+	p tostring say
 
 	//sieve
 	{

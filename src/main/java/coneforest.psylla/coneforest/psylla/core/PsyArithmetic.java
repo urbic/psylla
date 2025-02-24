@@ -9,7 +9,7 @@ import coneforest.psylla.runtime.*;
 *	@param <T> a type of the second operand at binary operation.
 */
 @Type("arithmetic")
-public interface PsyArithmetic<T extends PsyArithmetic>
+public interface PsyArithmetic<T extends PsyArithmetic<T>>
 	extends
 		PsyAdditive<T>,
 		PsyMultiplicative<T>

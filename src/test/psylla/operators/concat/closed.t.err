@@ -1,0 +1,4 @@
+Error: /invalidstate in --concat--
+Operand stack:
+	%stream% %stream%
+Execution stack: (empty)

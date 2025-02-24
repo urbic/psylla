@@ -1,1 +1,1 @@
-"xxx" type ?
+/xxx type ?

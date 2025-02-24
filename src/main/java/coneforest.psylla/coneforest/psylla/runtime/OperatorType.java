@@ -12,9 +12,7 @@ import java.lang.annotation.Target;
 public @interface OperatorType
 {
 	/**
-	*	Returns the operator’s name.
-	*
-	*	@return the operator’s name.
+	*	{@return the operator’s name}
 	*/
 	public String value();
 }

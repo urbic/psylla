@@ -2,6 +2,7 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 
+@SuppressWarnings("serial")
 @ErrorType("filesystemerror")
 public class PsyFileSystemErrorException
 	extends PsyIOErrorException
@@ -11,11 +12,12 @@ public class PsyFileSystemErrorException
 	*/
 	public PsyFileSystemErrorException()
 	{
-		super();
 	}
 
 	/**
 	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
 	*/
 	public PsyFileSystemErrorException(final Throwable cause)
 	{

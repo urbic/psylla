@@ -12,10 +12,10 @@ elements of the <replaceable>stream<subscript>2</subscript></replaceable>.
 <formalpara>
 &TitleSynopsis;
 <synopsis>
-<replaceable>stream<subscript>1</subscript></replaceable>
-<replaceable>stream<subscript>2</subscript></replaceable>
+<replaceable>concatenable<subscript>1</subscript></replaceable>
+<replaceable>concatenable<subscript>2</subscript></replaceable>
 <function>concat</function>
-<replaceable>concatenatedstream</replaceable>
+<replaceable>concatenated</replaceable>
 </synopsis>
 </formalpara>
 
@@ -23,10 +23,10 @@ elements of the <replaceable>stream<subscript>2</subscript></replaceable>.
 &TitleOperands;
 <itemizedlist>
 <listitem>
-<replaceable>stream<subscript>1</subscript></replaceable>,
-<replaceable>stream<subscript>2</subscript></replaceable>,
-<replaceable>concatenatedstream</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
+<replaceable>concatenable<subscript>1</subscript></replaceable>,
+<replaceable>concatenable<subscript>2</subscript></replaceable>,
+<replaceable>concatenated</replaceable>:
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_concatenable"/>
 </listitem>
 </itemizedlist>
 </formalpara>
@@ -34,7 +34,10 @@ elements of the <replaceable>stream<subscript>2</subscript></replaceable>.
 <formalpara>
 &TitleExamples;
 <programlisting language="psylla">0 1 3 range 0 -1 -3 range concat { } forall
-	▶ 0 1 2 3 0 -1 -2 -3</programlisting>
+	▶ 0 1 2 3 0 -1 -2 -3
+'Hello, ' 'World!' concat
+	▶ 'Hello, World!'
+</programlisting>
 </formalpara>
 
 <formalpara>
@@ -46,6 +49,12 @@ elements of the <replaceable>stream<subscript>2</subscript></replaceable>.
 </listitem>
 <listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_typecheck"/> —
+&ErrorReason_typecheck;
+</listitem>
+<listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidstate"/> —
+if the <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_formalstream"/> operand is closed.
 &ErrorReason_typecheck;
 </listitem>
 </itemizedlist>

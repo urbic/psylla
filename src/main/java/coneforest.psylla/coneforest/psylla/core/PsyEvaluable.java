@@ -9,6 +9,12 @@ import coneforest.psylla.runtime.*;
 public interface PsyEvaluable
 	extends PsyObject
 {
+	/**
+	*	Context action of the {@code eval} operator.
+	*/
+	@OperatorType("eval")
+	public static final ContextAction PSY_EVAL=oContext->
+		oContext.operandStackBacked(1).<PsyEvaluable>getBacked(0).psyEval(oContext);
 
 	/**
 	*	Evaluate this object in the current context.
@@ -17,11 +23,4 @@ public interface PsyEvaluable
 	*/
 	public void psyEval(final PsyContext oContext)
 		throws PsyErrorException;
-
-	/**
-	*	Context action of the {@code eval} operator.
-	*/
-	@OperatorType("eval")
-	public static final ContextAction PSY_EVAL=oContext->
-		oContext.operandStackBacked(1).<PsyEvaluable>getBacked(0).psyEval(oContext);
 }

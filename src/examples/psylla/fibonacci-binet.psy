@@ -8,4 +8,4 @@ dict begin
 { //phi exch pow //sqrt5 div round }
 end def
 
-arguments 0 get tointeger fibonacci toname say
+arguments 0 get tointeger fibonacci tostring say

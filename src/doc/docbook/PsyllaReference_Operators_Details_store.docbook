@@ -27,7 +27,7 @@ the current dictionary (the topmost in the dictionary stack).
 <itemizedlist>
 <listitem>
 <replaceable>key</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>object</replaceable>:

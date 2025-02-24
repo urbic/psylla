@@ -24,7 +24,7 @@ substrings matching the <replaceable>pattern</replaceable>, and returns the
 <itemizedlist>
 <listitem>
 <replaceable>string</replaceable>:
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_textual"/>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_string"/>
 </listitem>
 <listitem>
 <replaceable>pattern</replaceable>:

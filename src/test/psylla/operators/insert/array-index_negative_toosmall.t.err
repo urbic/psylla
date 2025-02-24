@@ -1,0 +1,4 @@
+Error: /rangecheck in --insert--
+Operand stack:
+	[1 2 3 4 5] [1 2 3 4 5] -6 0
+Execution stack: (empty)

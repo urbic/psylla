@@ -3,377 +3,158 @@ package coneforest.psylla.core;
 import coneforest.psylla.runtime.*;
 
 /**
-*	An implementation of {@code string}.
+*	The representation of {@code string}, an immutable string.
 */
 @Type("string")
 public class PsyString
-	implements
-		PsyTextual,
-		PsyFormalArray<PsyInteger>
+	implements PsyTextual, PsyValue, PsyConcatenable<PsyString>
 {
-	/**
-	*	Creates a new empty {@code string} object.
-	*/
-	public PsyString()
-	{
-		this("");
-	}
+	protected final String string;
 
 	/**
-	*	Creates a new {@code string} object whose buffer is initialized from
-	*	string.
+	*	Instantiate a new {@code string} object from the given value.
 	*
-	*	@param string a string.
+	*	@param cs a given value.
 	*/
-	public PsyString(final String string)
+	public PsyString(final CharSequence cs)
 	{
-		this(new StringBuilder(string));
+		string=cs.toString();
 	}
 
 	/**
-	*	Creates a new {@code string} object with the supplied buffer.
+	*	Instantiate a new {@code string} object from the value given as {@code textual} object.
 	*
-	*	@param buffer a buffer.
+	*	@param oTextual a {@code textual} object.
 	*/
-	public PsyString(final StringBuilder buffer)
+	public PsyString(final PsyTextual oTextual)
 	{
-		this.buffer=buffer;
+		this(oTextual.stringValue());
 	}
 
 	/**
-	*	Returns the buffer.
-	*
-	*	@return a buffer.
+	*	{@return a string value of this object}
 	*/
-	public StringBuilder getBuffer()
-	{
-		return buffer;
-	}
-
-	@Override
-	public PsyString psyToString()
-	{
-		return this;
-	}
-
 	@Override
 	public String stringValue()
 	{
-		return buffer.toString();
+		return string;
 	}
 
 	@Override
-	public PsyString psyClone()
+	public PsyStringBuffer psyToStringBuffer()
 	{
-		return new PsyString(stringValue());
+		return new PsyStringBuffer(string);
 	}
 
-	@Override
-	public PsyInteger get(final int index)
-		throws PsyRangeCheckException
-	{
-		try
-		{
-			return PsyInteger.of(buffer.charAt(index));
-		}
-		catch(final IndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public PsyString psyGetInterval(final PsyInteger oIndex, final PsyInteger oCount)
-		throws PsyRangeCheckException
-	{
-		int index=oIndex.intValue();
-		int count=oCount.intValue();
-		try
-		{
-			return new PsyString(buffer.substring(index, index+count));
-		}
-		catch(final IndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public void put(final int index, final PsyInteger oCharacter)
-		throws PsyRangeCheckException
-	{
-		try
-		{
-			buffer.setCharAt(index, (char)oCharacter.intValue());
-		}
-		catch(final IndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public void psyPutInterval(final PsyInteger oIndex, final PsyIterable<? extends PsyInteger> oIterable)
-		throws PsyRangeCheckException
-	{
-		int index=oIndex.intValue();
-		if(index<0
-				||
-				oIterable instanceof PsyLengthy oLengthy
-				&& index+oLengthy.length()>=length())
-			throw new PsyRangeCheckException();
-		for(final var oCharacter: oIterable)
-		{
-			buffer.setCharAt(index++, (char)oCharacter.intValue());
-			if(index==length())
-				break;
-		}
-	}
-
-	@Override
-	public void psyAppend(final PsyInteger oCharacter)
-		throws PsyLimitCheckException
-	{
-		if(length()==Integer.MAX_VALUE)
-			throw new PsyLimitCheckException();
-		buffer.append((char)oCharacter.intValue());
-	}
-
-	@Override
-	public void insert(final int index, final PsyInteger oCharacter)
-		throws PsyRangeCheckException
-	{
-		try
-		{
-			buffer.insert(index, (char)oCharacter.intValue());
-		}
-		catch(final IndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public void psyInsertAll(final PsyInteger oIndex, PsyIterable<? extends PsyInteger> oIterable)
-		throws PsyRangeCheckException
-	{
-		int index=oIndex.intValue();
-		try
-		{
-			if(oIterable instanceof PsyString oString)
-			{
-				// Take care when attempting to insert this object into itself
-				buffer.insert(index, this==oIterable? buffer.toString(): oString.buffer);
-				return;
-			}
-
-			for(final var oCharacter: oIterable)
-				// TODO
-				buffer.insert(index++, (char)oCharacter.intValue());
-		}
-		catch(final IndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public void delete(final int index)
-		throws PsyRangeCheckException
-	{
-		try
-		{
-			buffer.deleteCharAt(index);
-		}
-		catch(final StringIndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public PsyInteger extract(final int index)
-		throws PsyRangeCheckException
-	{
-		try
-		{
-			final PsyInteger oResult=get(index);
-			buffer.deleteCharAt(index);
-			return oResult;
-		}
-		catch(final StringIndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public PsyString psyExtractInterval(final PsyInteger oStart, final PsyInteger oLength)
-		throws PsyRangeCheckException
-	{
-		final PsyString oResult=psyGetInterval(oStart, oLength);
-		buffer.replace(oStart.intValue(), oStart.intValue()+oLength.intValue(), "");
-		return oResult;
-	}
-
-	@Override
-	public PsyString psySlice(final PsyIterable<PsyInteger> oIndices)
-		throws PsyRangeCheckException, PsyLimitCheckException
-	{
-		final PsyString oValues=new PsyString();
-		for(final var oIndex: oIndices)
-			oValues.psyAppend(psyGet(oIndex));
-		return oValues;
-	}
-
-	/*
-	public PsyString psyJoin(final PsyFormalArray<? extends PsyString> oArray)
-		throws PsyErrorException
-	{
-		if(oArray.isEmpty())
-			return new PsyString();
-		PsyString result=((PsyString)oArray.get(0)).psyClone();
-		for(int i=1; i<oArray.length(); i++)
-		{
-			result.psyAppendAll(this);
-			result.psyAppendAll(oArray.get(i));
-		}
-		return result;
-	}
+	/**
+	*	@return an {@code integer} length (in characters) of this {@code string}.
 	*/
-
-	/*
-	public PsyDict psySearch(PsyRegExp regexp)
+	@Override
+	public PsyInteger psyLength()
 	{
-		PsyDict result=null;
-		java.util.regex.Pattern pattern=regexp.getPattern();
-		java.util.regex.Matcher matcher=pattern.matcher(buffer);
-		matcher.find();
-		return result;
+		return PsyInteger.of(string.length());
 	}
+
+	@Override
+	public PsyString psyConcat(final PsyString oString)
+	{
+		return new PsyString(string+oString.string);
+	}
+
+	/**
+	*	Converts all of the characters in this object to upper case according to default locale and
+	*	returns a new {@code string} object representing the result of the conversion.
+	*
+	*	@return a {@code string} result of upper-casing.
 	*/
-
-	/*
-	public PsyMatcher PsyMatches(PsyRegExp regexp)
-	{
-	}
-	*/
-
-	@Override
-	public void psySetLength(final PsyInteger oLength)
-		throws PsyLimitCheckException, PsyRangeCheckException
-	{
-		final long length=oLength.longValue();
-		if(length>Integer.MAX_VALUE)
-			throw new PsyLimitCheckException();
-		try
-		{
-			buffer.setLength((int)length);
-		}
-		catch(final IndexOutOfBoundsException ex)
-		{
-			throw new PsyRangeCheckException();
-		}
-	}
-
-	@Override
-	public void psyClear()
-	{
-		buffer.delete(0, buffer.length());
-	}
-
-	@Override
-	public PsyString psyReverse()
-	{
-		return new PsyString((new StringBuilder(buffer)).reverse());
-	}
-
 	@Override
 	public PsyString psyUpperCase()
 	{
-		return new PsyString(buffer.toString().toUpperCase());
+		return new PsyString(string.toUpperCase());
 	}
 
+	/**
+	*	Converts all of the characters in this object to lower case according to default locale and
+	*	returns a new {@code string} object representing the result of the conversion.
+	*
+	*	@return a {@code string} result of lower-casing.
+	*/
 	@Override
 	public PsyString psyLowerCase()
 	{
-		return new PsyString(buffer.toString().toLowerCase());
+		return new PsyString(string.toLowerCase());
 	}
 
+	/**
+	*	{@return a syntactic representation of this object’s value} Returns a value string prepended
+	*		with {@code /}.
+	*/
 	@Override
-	public int length()
+	public String toSyntaxString()
 	{
-		return buffer.length();
+		if(string.length()==0)
+			return "''";
+		if(string.length()==1)
+		{
+			final char c=string.charAt(0);
+			return (c>='A' && c<='Z'
+					|| c>='a' && c<='z'
+					|| c=='['
+					|| c==']'
+					|| c=='<'
+					|| c=='>'
+					|| c=='('
+					|| c==')'
+					|| c=='?'
+					|| c=='=')? "/"+string: "'"+string+"'";
+		}
+		boolean slashed=true;
+		if(string.charAt(0)>='0' && string.charAt(0)<='9')
+			slashed=false;
+		else
+		{
+			for(int i=0; i<string.length(); i++)
+			{
+				final char c=string.charAt(i);
+				slashed=c>='0' && c<='9'
+						|| c>='A' && c<='Z'
+						|| c>='a' && c<='z'
+						|| c=='_'
+						|| c=='.'
+						|| c=='-'
+						|| c=='+'
+						|| c=='='
+						|| c=='$';
+				if(!slashed)
+					break;
+			}
+		}
+		return slashed? "/"+string: "'"+string+"'";
 	}
 
+	/**
+	*	{@return a {@code boolean} object indicating whether some other object is “equal to” this
+	*		one} Return value is {@code true} if and only if other object has {@code string} type
+	*		and its value is equal to this one’s.
+	*/
 	@Override
 	public boolean equals(final Object object)
 	{
-		return getClass().isInstance(object)
+		return object instanceof PsyString
 				&& psyEq((PsyString)object).booleanValue();
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return buffer.hashCode();
+		return stringValue().hashCode();
 	}
 
-	@Override
-	public String toSyntaxString()
-	{
-		final var sb=new StringBuilder();
-		for(int i=0; i<buffer.length(); i++)
-		{
-			final char c=buffer.charAt(i);
-			switch(c)
-			{
-				case '\u0000':
-					sb.append("\\0");
-					break;
-				case '\u0007':
-					sb.append("\\a");
-					break;
-				case '\n':
-					sb.append("\\n");
-					break;
-				case '\r':
-					sb.append("\\r");
-					break;
-				case '\t':
-					sb.append("\\t");
-					break;
-				case '\u000B':
-					sb.append("\\v");
-					break;
-				case '\f':
-					sb.append("\\f");
-					break;
-				case '\u001B':
-					sb.append("\\e");
-					break;
-				case '\"':
-					sb.append("\\\"");
-					break;
-				case '\\':
-					sb.append("\\\\");
-					break;
-				default:
-					sb.append(c);
-			}
-		}
-		return "\""+sb.toString()+"\"";
-	}
-
-	/**
-	*	{@return the {@code string} object obtained as a result of parsing the literal token image}
-	*
-	*	@param image the literal token image.
-	*	@throws PsySyntaxErrorException when the literal image is syntactically incorrect.
-	*/
 	public static PsyString parseLiteral(final String image)
 		throws PsySyntaxErrorException
 	{
+		if(image.charAt(0)=='/')
+			return new PsyString(image.substring(1).intern());
 		final var sb=new StringBuilder();
 		for(int i=1; i<image.length()-1; i++)
 		{
@@ -381,77 +162,57 @@ public class PsyString
 			switch(c)
 			{
 				case '\\':
-					i++;
-					switch(image.charAt(i))
+					switch(image.charAt(++i))
 					{
-						case '0':
-							sb.append('\u0000');
-							break;
-						case 'a':
-							sb.append('\u0007');
-							break;
-						case 'n':
-							sb.append('\n');
-							break;
-						case 'r':
-							sb.append('\r');
-							break;
-						case 't':
-							sb.append('\t');
-							break;
-						case 'v':
-							sb.append('\u000B');
-							break;
-						case 'f':
-							sb.append('\f');
-							break;
-						case 'e':
-							sb.append('\u001B');
-							break;
-						case '"':
-							sb.append('"');
-							break;
-						case '\\':
-							sb.append('\\');
-							break;
-						case '\n':
-							break;
-						case 'u':
-							sb.append(Character.toChars(Integer.valueOf(image.substring(i+1, i+5), 16)));
-							i+=4;
-							break;
-						case 'c':
+						case '0'->sb.append('\u0000');
+						case 'a'->sb.append('\u0007');
+						case 'n'->sb.append('\n');
+						case 'r'->sb.append('\r');
+						case 't'->sb.append('\t');
+						case 'v'->sb.append('\u000B');
+						case 'f'->sb.append('\f');
+						case 'e'->sb.append('\u001B');
+						case '\''->sb.append('\'');
+						case '\\'->sb.append('\\');
+						case '\n'->{}
+						case 'u'->
+							{
+								sb.append(Character.toChars(Integer.valueOf(image.substring(i+1, i+5), 16)));
+								i+=4;
+							}
+						case 'c'->
 							{
 								final var ch=image.charAt(++i);
 								sb.append(Character.toChars(ch+(ch<64? 64: -64)));
 							}
-							break;
-						case 'x':
-							try
+						case 'x'->
 							{
-								final var j=image.indexOf('}', i+2);
-								sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));
-								i=j;
+								try
+								{
+									final var j=image.indexOf('}', i+2);
+									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));
+									i=j;
+								}
+								catch(final IllegalArgumentException ex)
+								{
+									throw new PsySyntaxErrorException();
+								}
 							}
-							catch(final IllegalArgumentException ex)
+						case 'N'->
 							{
-								throw new PsySyntaxErrorException();
+								try
+								{
+									final var j=image.indexOf('}', i+2);
+									final var cp=Character.codePointOf(image.substring(i+2, j));
+									// TODO
+									sb.append((char)cp);
+									i=j;
+								}
+								catch(final IllegalArgumentException ex)
+								{
+									throw new PsySyntaxErrorException();
+								}
 							}
-							break;
-						case 'N':
-							try
-							{
-								final var j=image.indexOf('}', i+2);
-								final var cp=Character.codePointOf(image.substring(i+2, j));
-								// TODO
-								sb.append((char)cp);
-								i=j;
-							}
-							catch(final IllegalArgumentException ex)
-							{
-								throw new PsySyntaxErrorException();
-							}
-							break;
 					}
 					break;
 				default:
@@ -459,15 +220,6 @@ public class PsyString
 					break;
 			}
 		}
-		return new PsyString(sb);
+		return new PsyString(sb.toString().intern());
 	}
-
-	private final StringBuilder buffer;
-
-	/**
-	*	Context action of the {@code string} operator.
-	*/
-	@OperatorType("string")
-	public static final ContextAction PSY_STRING
-		=ContextAction.ofSupplier(PsyString::new);
 }

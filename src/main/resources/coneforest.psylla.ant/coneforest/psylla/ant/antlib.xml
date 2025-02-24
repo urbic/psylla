@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<antlib>
+	<taskdef
+		name="psylla"
+		uri="antlib:coneforest.psylla.ant"
+		classname="coneforest.psylla.ant.PsyllaTask"
+		/>
+	<taskdef
+		name="psyllaunit"
+		uri="antlib:coneforest.psylla.ant"
+		classname="coneforest.psylla.ant.PsyllaUnitTask"
+		/>
+</antlib>

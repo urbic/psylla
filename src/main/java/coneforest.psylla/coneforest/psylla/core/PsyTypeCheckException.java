@@ -6,6 +6,7 @@ import coneforest.psylla.runtime.*;
 *	The representation of the {@code typecheck} error thrown when the operand has the type that is
 *	unexpected for the operator.
 */
+@SuppressWarnings("serial")
 @ErrorType("typecheck")
 public class PsyTypeCheckException
 	extends PsyErrorException
@@ -15,6 +16,15 @@ public class PsyTypeCheckException
 	*/
 	public PsyTypeCheckException()
 	{
-		super();
+	}
+
+	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
+	*/
+	public PsyTypeCheckException(final Throwable cause)
+	{
+		super(cause);
 	}
 }

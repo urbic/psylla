@@ -36,7 +36,9 @@
 			<arg value="-tcompact"/>
 			<srcfile/>
 			<targetfile/>
-			<fileset dir="${src.doc.scss}" includes="PsyllaReference.scss PsyllaMain.scss"/>
+			<fileset dir="${src.doc.scss}"
+				includes="PsyllaReference.scss PsyllaProgrammingIdioms.scss PsyllaMain.scss"
+				/>
 			<mapper type="glob" from="*.scss" to="*.css"/>
 		</apply>
 	</target>
@@ -51,6 +53,20 @@
 
 	<target name="htmldocs"
 		description="Build XHTML documentation"
+		depends="htmldocs.reference,htmldocs.idioms"
+		>
+		<copy todir="${target.doc.html}">
+			<fileset dir="${src.doc.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
+			<fileset dir="${src.doc.docbook}" includes="examples/**" excludes="**/.htaccess"/>
+			<fileset dir="${src.doc.docbook}" includes="files/**" excludes="**/.htaccess"/>
+			<fileset dir="${src.doc.docbook}" includes="navigation/**"/>
+			<fileset dir="${src.doc.docbook}" includes="js/**"/>
+			<fileset dir="${src.logo}" includes="${project.name}.svg ${project.name}-banner.svg"/>
+		</copy>
+	</target>
+
+	<target name="htmldocs.reference"
+		description="Build XHTML Reference"
 		depends="compile,css,version"
 		>
 		<ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/>
@@ -91,14 +107,44 @@
 				<param name="l10n.gentext.language" expression="en"/>
 			</xslt.html>
 		</sequential>
-		<copy todir="${target.doc.html}">
-			<fileset dir="${src.doc.docbook}" includes="*.png *.svg *.jpeg *.gif *.js"/>
-			<fileset dir="${src.doc.docbook}" includes="examples/**" excludes="**/.htaccess"/>
-			<fileset dir="${src.doc.docbook}" includes="files/**" excludes="**/.htaccess"/>
-			<fileset dir="${src.doc.docbook}" includes="navigation/**"/>
-			<fileset dir="${src.doc.docbook}" includes="js/**"/>
-			<fileset dir="${src.logo}" includes="${project.name}.svg ${project.name}-banner.svg"/>
+		<copy todir="${target.doc.html}" filtering="true">
+			<fileset dir="${src.doc.xhtml}" includes="*.xhtml"/>
+			<filterset>
+				<propertyset>
+					<propertyref name="project.version"/>
+				</propertyset>
+			</filterset>
 		</copy>
+	</target>
+
+	<target name="htmldocs.idioms"
+		description="Build XHTML Programming idioms"
+		depends="css,version"
+		>
+		<mkdir dir="${target.doc.html}"/>
+		<ivy:cachepath conf="xslt" pathid="classpath.xslt.resolved"/>
+		<sequential>
+			<dependset>
+				<srcfileset
+					dir="${src.doc.docbook}"
+					includes="PsyllaProgrammingIdioms*.docbook *.ent"
+					/>
+				<targetfileset
+					dir="${target.doc.html}"
+					includes="PsyllaProgrammingIdioms.xhtml"
+					/>
+			</dependset>
+			<xslt.html
+				includes="PsyllaProgrammingIdioms.docbook"
+				destdir="${target.doc.html}"
+				filedirparameter="PsyllaProgrammingIdioms.docbook"
+				>
+				<param name="html.stylesheet" expression="PsyllaProgrammingIdioms.css"/>
+				<param name="root.filename" expression="PsyllaProgrammingIdioms"/>
+				<param name="base.dir" expression="${target.doc.html}"/>
+				<param name="l10n.gentext.language" expression="en"/>
+			</xslt.html>
+		</sequential>
 		<copy todir="${target.doc.html}" filtering="true">
 			<fileset dir="${src.doc.xhtml}" includes="*.xhtml"/>
 			<filterset>

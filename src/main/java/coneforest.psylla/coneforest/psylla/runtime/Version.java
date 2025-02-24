@@ -6,9 +6,7 @@ package coneforest.psylla.runtime;
 public interface Version
 {
 	/**
-	*	Returns the version string.
-	*
-	*	@return the version string.
+	*	{@return the version string}
 	*/
 	public static String getVersion()
 	{
@@ -19,9 +17,7 @@ public interface Version
 	}
 
 	/**
-	*	Returns the major version number.
-	*
-	*	@return the major version number.
+	*	{@return the major version number}
 	*/
 	public static int getMajor()
 	{
@@ -29,9 +25,7 @@ public interface Version
 	}
 
 	/**
-	*	Returns the minor version number.
-	*
-	*	@return the minor version number.
+	*	{@return the minor version number}
 	*/
 	public static int getMinor()
 	{
@@ -39,9 +33,7 @@ public interface Version
 	}
 
 	/**
-	*	Returns the micro version number.
-	*
-	*	@return the micro version number.
+	*	{@return the micro version number}
 	*/
 	public static int getMicro()
 	{
@@ -49,9 +41,7 @@ public interface Version
 	}
 
 	/**
-	*	Returns the version encoded as a string.
-	*
-	*	@return the version encoded as a string.
+	*	{@return the version encoded as a string}
 	*/
 	public static String getCode()
 	{
@@ -61,9 +51,7 @@ public interface Version
 	}
 
 	/**
-	*	Get the release type.
-	*
-	*	@return the release type.
+	*	{@return the release type}
 	*/
 	public static String getReleaseType()
 	{

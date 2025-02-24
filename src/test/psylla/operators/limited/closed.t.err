@@ -1,0 +1,4 @@
+Error: /invalidstate in --limited--
+Operand stack:
+	%stream% 3
+Execution stack: (empty)

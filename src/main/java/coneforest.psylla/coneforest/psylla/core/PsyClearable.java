@@ -11,14 +11,14 @@ public interface PsyClearable
 	extends PsyObject
 {
 	/**
-	*	Clear this object.
-	*/
-	public void psyClear();
-
-	/**
 	*	Context action of the {@code clear} operator.
 	*/
 	@OperatorType("clear")
 	public static final ContextAction PSY_CLEAR
 		=ContextAction.<PsyClearable>ofConsumer(PsyClearable::psyClear);
+
+	/**
+	*	Clear this object.
+	*/
+	public void psyClear();
 }

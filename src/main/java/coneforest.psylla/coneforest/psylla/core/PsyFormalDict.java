@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.StringJoiner;
+import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
@@ -16,16 +17,25 @@ import java.util.stream.StreamSupport;
 public interface PsyFormalDict<V extends PsyObject>
 	extends
 		PsyContainer<V>,
-		PsyIndexed<PsyTextual, V>,
+		PsyIndexed<PsyString, V>,
 		PsySequential<V>
 {
+	/**
+	*	Context action of the {@code undef} operator.
+	*/
+	@SuppressWarnings("rawtypes")
+	@OperatorType("undef")
+	public static final ContextAction PSY_UNDEF
+		=ContextAction.<PsyFormalDict, PsyString>ofBiConsumer(PsyFormalDict::psyUndef);
+
 	@Override
-	default public void psyForAll(final PsyObject oProc, final PsyContext oContext)
+	public default void psyForAll(final PsyObject oProc, final PsyContext oContext)
 		throws PsyErrorException
 	{
 		final var ostack=oContext.operandStack();
 		final var keysIterator=psyKeys().stream().iterator();
-		oContext.pushLoopLevel();
+		//oContext.pushLoopLevel();
+		oContext.executionStack().enterLoop();
 		oContext.executionStack().push(new PsyOperator("#forall_continue")
 			{
 				@Override
@@ -41,7 +51,8 @@ public interface PsyFormalDict<V extends PsyObject>
 						oProc.invoke(oContext1);
 					}
 					else
-						oContext1.popLoopLevel();
+						//oContext1.popLoopLevel();
+						oContext1.executionStack().exitLoop();
 				}
 			});
 	}
@@ -50,7 +61,7 @@ public interface PsyFormalDict<V extends PsyObject>
 		throws PsyUndefinedException;
 
 	@Override
-	default public V psyGet(final PsyTextual oKey)
+	public default V psyGet(final PsyString oKey)
 		throws PsyUndefinedException
 	{
 		return get(oKey.stringValue());
@@ -58,7 +69,7 @@ public interface PsyFormalDict<V extends PsyObject>
 
 	/*
 	@Override
-	default public PsyFormalArray<V> psyGetAll(final PsyIterable<PsyTextual> oEnumeration)
+	public default PsyFormalArray<V> psyGetAll(final PsyIterable<PsyTextual> oEnumeration)
 		throws PsyLimitCheckException, PsyRangeCheckException, PsyUndefinedException
 	{
 		final PsyFormalArray<V> oResult=(PsyFormalArray<V>)new PsyArray();
@@ -71,7 +82,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	public void put(final String key, final V oValue);
 
 	@Override
-	default public void psyPut(final PsyTextual oKey, final V oValue)
+	public default void psyPut(final PsyString oKey, final V oValue)
 	{
 		put(oKey.stringValue(), oValue);
 	}
@@ -79,7 +90,7 @@ public interface PsyFormalDict<V extends PsyObject>
 	public boolean known(final String key);
 
 	@Override
-	default public PsyBoolean psyKnown(final PsyTextual oKey)
+	public default PsyBoolean psyKnown(final PsyString oKey)
 	{
 		return PsyBoolean.of(known(oKey.stringValue()));
 	}
@@ -89,38 +100,43 @@ public interface PsyFormalDict<V extends PsyObject>
 	/**
 	*	Deletes a key and associated value from this dictionary.
 	*
-	*	@param oKey a {@code textual} key.
+	*	@param oKey a {@code string} key.
 	*/
-	default public void psyUndef(final PsyTextual oKey)
+	public default void psyUndef(final PsyString oKey)
 	{
 		undef(oKey.stringValue());
 	}
 
 	@Override
-	public PsyFormalStream<PsyTextual> psyKeys();
+	public default PsyFormalStream<PsyString> psyKeys()
+	{
+		return PsyFormalStream.<PsyString>of(keys().map(PsyString::new));
+	}
+
+	public Stream<String> keys();
 
 	@Override
-	default public void psyDelete(final PsyTextual oKey)
+	public default void psyDelete(final PsyString oKey)
 		throws PsyUndefinedException
 	{
 		psyUndef(oKey);
 	}
 
 	@Override
-	default public V psyExtract(final PsyTextual oKey)
+	public default V psyExtract(final PsyString oKey)
 		throws PsyUndefinedException
 	{
-		V oResult=psyGet(oKey);
+		final V oResult=psyGet(oKey);
 		psyUndef(oKey);
 		return oResult;
 	}
 
 	@Override
-	public PsyFormalDict<V> psySlice(final PsyIterable<PsyTextual> oEnumeration)
+	public PsyFormalDict<V> psySlice(final PsyIterable<PsyString> oKeys)
 		throws PsyUndefinedException;
 
 	@Override
-	default public PsyStream psyEntries()
+	public default PsyStream psyEntries()
 	{
 		return new PsyStream(StreamSupport.<PsyObject>stream(new PsyIterable<PsyObject>()
 			{
@@ -129,6 +145,13 @@ public interface PsyFormalDict<V extends PsyObject>
 				{
 					return new Iterator<PsyObject>()
 						{
+							private boolean flag=false;
+
+							private PsyString oKey;
+
+							private Iterator<PsyString> parentIterator
+								=psyKeys().stream().iterator();
+
 							@Override
 							public boolean hasNext()
 							{
@@ -141,7 +164,7 @@ public interface PsyFormalDict<V extends PsyObject>
 								try
 								{
 									return (flag=!flag)?
-										(oKey=(PsyName)parentIterator.next()): psyGet(oKey);
+										oKey=parentIterator.next(): psyGet(oKey);
 								}
 								catch(final PsyErrorException e)
 								{
@@ -149,49 +172,34 @@ public interface PsyFormalDict<V extends PsyObject>
 								}
 							}
 
-							private boolean flag=false;
-
-							private PsyName oKey;
-
-							private Iterator<PsyTextual> parentIterator
-								=psyKeys().stream().iterator();
-
 						};
 				}
 			}.spliterator(),
 			false));
-		//*/
 	}
 
 	@Override
-	default public String toSyntaxString()
+	public default String toSyntaxString()
 	{
-		return toSyntaxStringHelper(new HashSet<PsyContainer<V>>());
+		return toSyntaxStringHelper(new HashSet<PsyContainer<? extends PsyObject>>());
 	}
 
 	@Override
-	default public String toSyntaxStringHelper(final Set<PsyContainer<V>> processed)
+	public default String toSyntaxStringHelper(final Set<PsyContainer<? extends PsyObject>> processed)
 	{
-		if(!processed.add((PsyContainer<V>)this))
+		if(!processed.add(this))
 			return '%'+typeName()+'%';
 		final var sj=new StringJoiner(" ", "<", ">");
 		psyEntries().stream().forEach(o->
-			sj.add(o instanceof PsyContainer?
-				((PsyContainer<V>)o).toSyntaxStringHelper(processed):
+			sj.add(o instanceof PsyContainer<? extends PsyObject> oContainer?
+				oContainer.toSyntaxStringHelper(processed):
 				o.toSyntaxString()));
 		return sj.toString();
 	}
 
 	@Override
-	default public void psyClear()
+	public default void psyClear()
 	{
 		psyKeys().stream().forEach(this::psyUndef);
 	}
-
-	/**
-	*	Context action of the {@code undef} operator.
-	*/
-	@OperatorType("undef")
-	public static final ContextAction PSY_UNDEF
-		=ContextAction.<PsyFormalDict, PsyTextual>ofBiConsumer(PsyFormalDict::psyUndef);
 }

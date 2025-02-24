@@ -12,6 +12,53 @@ public final class PsyReal
 	implements PsyRealNumeric
 {
 	/**
+	*	The number zero.
+	*/
+	public static final PsyReal ZERO=new PsyReal(0.D);
+
+	/**
+	*	The number one.
+	*/
+	public static final PsyReal	ONE=new PsyReal(1.D);
+
+	/**
+	*	The number two.
+	*/
+	public static final PsyReal TWO=new PsyReal(2.D);
+
+	/**
+	*	The number minus one.
+	*/
+	public static final PsyReal MINUS_ONE=new PsyReal(-1.D);
+
+	/**
+	*	The number π.
+	*/
+	public static final PsyReal PI=new PsyReal(Math.PI);
+
+	/**
+	*	The number e.
+	*/
+	public static final PsyReal E=new PsyReal(Math.E);
+
+	/**
+	*	The largest positive finite value, (2−<sup>−52</sup>)·2<sup>1023</sup>.
+	*/
+	public static final PsyReal MAX_VALUE=new PsyReal(Double.MAX_VALUE);
+
+	/**
+	*	The smallest positive nonzero value, 2<sup>−1074</sup>.
+	*/
+	public static final PsyReal MIN_VALUE=new PsyReal(Double.MIN_VALUE);
+
+	/**
+	*	The Not-a-Number (NaN) value.
+	*/
+	public static final PsyReal NAN=new PsyReal(Double.NaN);
+
+	private final double value;
+
+	/**
 	*	Creates a new {@code real} representing the specified {@code double} value.
 	*
 	*	@param value a {@code double} value.
@@ -183,6 +230,12 @@ public final class PsyReal
 				&& psyEq(oReal).booleanValue();
 	}
 
+	/**
+	*	{@return the {@code real} initialized to the value represented by the specified {@link
+	*	String} image}
+	*
+	*	@param image the string to be parsed.
+	*/
 	public static PsyReal parseLiteral(final String image)
 	{
 		return new PsyReal(switch(image)
@@ -192,51 +245,4 @@ public final class PsyReal
 				default->Double.parseDouble(image);
 			});
 	}
-
-	/**
-	*	The number zero.
-	*/
-	public static final PsyReal ZERO=new PsyReal(0.D);
-
-	/**
-	*	The number one.
-	*/
-	public static final PsyReal	ONE=new PsyReal(1.D);
-
-	/**
-	*	The number two.
-	*/
-	public static final PsyReal TWO=new PsyReal(2.D);
-
-	/**
-	*	The number minus one.
-	*/
-	public static final PsyReal MINUS_ONE=new PsyReal(-1.D);
-
-	/**
-	*	The number π.
-	*/
-	public static final PsyReal PI=new PsyReal(Math.PI);
-
-	/**
-	*	The number e.
-	*/
-	public static final PsyReal E=new PsyReal(Math.E);
-
-	/**
-	*	The largest positive finite value, (2−<sup>−52</sup>)·2<sup>1023</sup>.
-	*/
-	public static final PsyReal MAX_VALUE=new PsyReal(Double.MAX_VALUE);
-
-	/**
-	*	The smallest positive nonzero value, 2<sup>−1074</sup>.
-	*/
-	public static final PsyReal MIN_VALUE=new PsyReal(Double.MIN_VALUE);
-
-	/**
-	*	The Not-a-Number (NaN) value.
-	*/
-	public static final PsyReal NAN=new PsyReal(Double.NaN);
-
-	private final double value;
 }

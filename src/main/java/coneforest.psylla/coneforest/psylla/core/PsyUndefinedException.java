@@ -7,6 +7,7 @@ import coneforest.psylla.runtime.*;
 *	dictionary by the absent key or by the interpreter failing to resolve the command name against
 *	the dictionary stack.
 */
+@SuppressWarnings("serial")
 @ErrorType("undefined")
 public class PsyUndefinedException
 	extends PsyErrorException
@@ -16,6 +17,15 @@ public class PsyUndefinedException
 	*/
 	public PsyUndefinedException()
 	{
-		super();
+	}
+
+	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
+	*/
+	public PsyUndefinedException(final Throwable cause)
+	{
+		super(cause);
 	}
 }

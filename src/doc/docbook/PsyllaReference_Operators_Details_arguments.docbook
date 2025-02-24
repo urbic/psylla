@@ -6,9 +6,9 @@
 <para>
 The array of command-line arguments intended for the program. The arguments are
 presented as <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_name"/> objects. Not an operator, but an
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_array"/>
-value in the system dictionary.
+linkend="PsyllaReference_Types_Details_string"/> objects. Not an operator, but
+an <xref xrefstyle="template:%t"
+linkend="PsyllaReference_Types_Details_array"/> value in the system dictionary.
 </para>
 
 <formalpara>

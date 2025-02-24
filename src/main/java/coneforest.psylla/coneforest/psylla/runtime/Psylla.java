@@ -12,36 +12,14 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
+import java.util.Locale;
 
 /**
 *	The Psylla interpreter launcher.
 */
 public class Psylla
 {
-	public static void main(final String args[])
-	{
-		try
-		{
-			launch(System.out, System.err, args);
-		}
-		catch(final PsyErrorException e)
-		{
-			System.err.println(e.getLocalizedMessage());
-			System.exit(1);
-		}
-		catch(final coneforest.clianthus.processor.ProcessingException ex)
-		{
-			System.err.println(ex.getLocalizedMessage());
-			System.err.println(Messages.getString("useHelpOption"));
-			System.exit(1);
-		}
-		catch(final FileNotFoundException ex)
-		{
-			System.out.println(Messages.format("badScript", ex.getLocalizedMessage()));
-			System.exit(1);
-		}
-	}
+	private final Interpreter interpreter;
 
 	public Psylla(final PsyllaConfig psyllaConfig)
 		throws PsyErrorException
@@ -81,6 +59,35 @@ public class Psylla
 	}
 
 	/**
+	*	The entry point to the Psylla program.
+	*
+	*	@param args the command-line parameters.
+	*/
+	public static void main(final String[] args)
+	{
+		try
+		{
+			launch(System.out, System.err, args);
+		}
+		catch(final coneforest.clianthus.processor.ProcessingException ex)
+		{
+			System.err.println(ex.getLocalizedMessage());
+			System.err.println(Messages.getString("useHelpOption"));
+			System.exit(1);
+		}
+		catch(final FileNotFoundException ex)
+		{
+			System.err.println(Messages.format("badScript", ex.getLocalizedMessage()));
+			System.exit(2);
+		}
+		catch(final PsyErrorException e)
+		{
+			System.err.println(e.getLocalizedMessage());
+			System.exit(127);
+		}
+	}
+
+	/**
 	*	Process command-line options and launches the Psylla interpreter.
 	*
 	*	@param outputWriter the output writer.
@@ -99,8 +106,7 @@ public class Psylla
 			FileNotFoundException
 	{
 
-		final var cli=new coneforest.clianthus.processor.Processor
-			(
+		final var cli=new coneforest.clianthus.processor.Processor(
 				new coneforest.clianthus.option.OptionFlag("help usage h ?"),
 				new coneforest.clianthus.option.OptionFlag("version V"),
 				new coneforest.clianthus.option.OptionString("console-encoding C"),
@@ -119,9 +125,10 @@ public class Psylla
 			showHelp();
 		if(cli.getValue("version"))
 			showVersion();
-		if(!cli.<java.util.List<String>>getValue("config").isEmpty())
+		if(!cli.<List<String>>getValue("config").isEmpty())
 			showConfig(cli.getValue("config"));
 
+		final var psyllaConfig=new PsyllaConfig();
 		final Reader scriptReader;
 		final String scriptName;
 		final String[] shellArguments;
@@ -129,12 +136,14 @@ public class Psylla
 		if(cli.getValue("eval")!=null)
 		{
 			scriptName="--eval";
+			//psyllaConfig.setScriptName("--eval");
 			shellArguments=Arrays.copyOfRange(args, processed, args.length);
 			scriptReader=new StringReader(cli.getValue("eval"));
 		}
 		else if(processed<args.length)
 		{
 			scriptName=args[processed];
+			//psyllaConfig.setScriptName(args[processed]);
 			shellArguments=Arrays.copyOfRange(args, processed+1, args.length);
 			scriptReader=scriptName.equals("-")?
 					new InputStreamReader(System.in):
@@ -143,17 +152,17 @@ public class Psylla
 		else
 		{
 			scriptName="--repl";
+			//psyllaConfig.setScriptName("--repl");
 			shellArguments=new String[]{};
 			scriptReader=null;
 		}
 
-		final var psyllaConfig=new PsyllaConfig();
 		psyllaConfig.setScriptName(scriptName);
 		psyllaConfig.setScriptReader(scriptReader);
 		psyllaConfig.setOutputWriter(outputWriter);
 		psyllaConfig.setErrorWriter(errorWriter);
 		psyllaConfig.setShellArguments(shellArguments);
-		psyllaConfig.setRandomSeed(cli.getValue("random-seed"));
+		psyllaConfig.setRandomSeed(cli.<Long>getValue("random-seed"));
 		psyllaConfig.setClassPath(cli.<String[]>getValue("classpath"));
 		psyllaConfig.setLibraryPath(cli.<String[]>getValue("librarypath"));
 
@@ -193,7 +202,7 @@ public class Psylla
 	public static void setLocale(final String locale)
 	{
 		if(locale!=null)
-			java.util.Locale.setDefault(java.util.Locale.forLanguageTag(locale));
+			Locale.setDefault(Locale.forLanguageTag(locale));
 	}
 
 	public void start()
@@ -201,15 +210,13 @@ public class Psylla
 		interpreter.start();
 	}
 
-	private final Interpreter interpreter;
-
 	public void join()
 		throws InterruptedException
 	{
 		interpreter.join();
 	}
 
-	public void join(long millis)
+	public void join(final long millis)
 		throws InterruptedException
 	{
 		interpreter.join(millis);
@@ -230,7 +237,7 @@ public class Psylla
 	private static void showConfig(final List<String> patterns)
 	{
 		final var propertyNames=Config.stringPropertyNames();
-		for(final String pattern: patterns)
+		for(final var pattern: patterns)
 			propertyNames.stream()
 					.sorted()
 					.filter(name->Globs.matches(pattern, name))
@@ -238,33 +245,78 @@ public class Psylla
 		System.exit(0);
 	}
 
-	public static class PsyllaConfig
+	/**
+	*	The Psylla launcher configuration.
+	*/
+	private static class PsyllaConfig
 	{
+		private Reader scriptReader;
+		private String scriptName;
+		private PrintWriter outputWriter;
+		private PrintWriter errorWriter;
+		private String[] shellArguments;
+		private Long randomSeed;
+		private String[] classPath, libraryPath;
+
+		public PsyllaConfig()
+		{
+		}
+
+		/**
+		*	Sets the script reader.
+		*
+		*	@param scriptReader the script reader.
+		*/
 		private void setScriptReader(final Reader scriptReader)
 		{
 			this.scriptReader=scriptReader;
 		}
 
+		/**
+		*	Sets the output writer.
+		*
+		*	@param outputWriter the output writer.
+		*/
 		private void setOutputWriter(final PrintWriter outputWriter)
 		{
 			this.outputWriter=outputWriter;
 		}
 
+		/**
+		*	Sets the error writer.
+		*
+		*	@param errorWriter the error writer.
+		*/
 		private void setErrorWriter(final PrintWriter errorWriter)
 		{
 			this.errorWriter=errorWriter;
 		}
 
+		/**
+		*	Sets the script name.
+		*
+		*	@param scriptName the script name.
+		*/
 		private void setScriptName(final String scriptName)
 		{
 			this.scriptName=scriptName;
 		}
 
+		/**
+		*	Sets the shell arguments.
+		*
+		*	@param shellArguments the shell arguments.
+		*/
 		private void setShellArguments(final String[] shellArguments)
 		{
 			this.shellArguments=shellArguments;
 		}
 
+		/**
+		*	Sets the random seed.
+		*
+		*	@param randomSeed the random seed.
+		*/
 		private void setRandomSeed(final Long randomSeed)
 		{
 			this.randomSeed=randomSeed;
@@ -279,13 +331,5 @@ public class Psylla
 		{
 			this.libraryPath=libraryPath;
 		}
-
-		private Reader scriptReader;
-		private String scriptName;
-		private PrintWriter outputWriter;
-		private PrintWriter errorWriter;
-		private String[] shellArguments;
-		private Long randomSeed;
-		private String[] classPath, libraryPath;
 	}
 }

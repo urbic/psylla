@@ -15,19 +15,11 @@ public class PsyInput
 		PsyReady,
 		PsyResetable
 {
+	private final InputStream input;
+
 	public PsyInput(final InputStream input)
 	{
-		setInput(input);
-	}
-
-	public void setInput(final InputStream input)
-	{
 		this.input=input;
-	}
-
-	public InputStream getInput()
-	{
-		return input;
 	}
 
 	@Override
@@ -45,7 +37,7 @@ public class PsyInput
 	}
 
 	@Override
-	public PsyString psyReadString(final PsyInteger oCount)
+	public PsyStringBuffer psyReadString(final PsyInteger oCount)
 		throws PsyUnsupportedException
 	{
 		// TODO
@@ -53,7 +45,7 @@ public class PsyInput
 	}
 
 	@Override
-	public PsyString psyReadLine()
+	public PsyStringBuffer psyReadLine()
 		throws PsyUnsupportedException
 	{
 		// TODO
@@ -119,6 +111,4 @@ public class PsyInput
 			throw new PsyIOErrorException();
 		}
 	}
-
-	private InputStream input;
 }

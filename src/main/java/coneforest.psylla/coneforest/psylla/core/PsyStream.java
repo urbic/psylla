@@ -8,26 +8,8 @@ import java.util.stream.Stream;
 */
 @Type("stream")
 public class PsyStream
-	implements PsyFormalStream
+	implements PsyFormalStream<PsyObject>
 {
-	protected PsyStream(Stream<? extends PsyObject> stream)
-	{
-		this.stream=stream;
-	}
-
-	public static PsyStream psyIterate(final PsyObject o, final PsyExecutable oUnaryOp, final PsyContext oContext)
-	{
-		return new PsyStream(Stream.<PsyObject>iterate(o, oUnaryOp.asUnaryOperator(oContext)));
-	}
-
-	@Override
-	public Stream<? extends PsyObject> stream()
-	{
-		return stream;
-	}
-
-	private final Stream<? extends PsyObject> stream;
-
 	/**
 	*	Context action of the {@code iterate} operator.
 	*/
@@ -53,4 +35,23 @@ public class PsyStream
 			ostack.setSize(i-1);
 			ostack.push(new PsyStream(Stream.of(objects)));
 		};
+
+	private final Stream<PsyObject> stream;
+
+	protected PsyStream(final Stream<PsyObject> stream)
+	{
+		this.stream=stream;
+	}
+
+	public static PsyStream psyIterate(final PsyObject o, final PsyExecutable oUnaryOp, final PsyContext oContext)
+	{
+		return new PsyStream(Stream.<PsyObject>iterate(o, oUnaryOp.asUnaryOperator(oContext)));
+	}
+
+	@Override
+	public Stream<PsyObject> stream()
+	{
+		return stream;
+	}
+
 }
