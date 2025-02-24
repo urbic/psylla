@@ -30,12 +30,12 @@ jobs:
         env:
           OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
         run: |
-          docker run -e OBS_PASSWORD --name=${PRJ_NAME}-commit-obs ${PRJ_NAME} \
+          docker run -e OBS_PASSWORD --name=${PRJ_NAME}-commit-obs \
             ant -v -noinput obs.commit
       - name: Deploy package
         if: startsWith(github.event.ref, 'refs/tags/v')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker run -e GITHUB_TOKEN --name=${PRJ_NAME}-deploy-package ${PRJ_NAME} \
+          docker run -e GITHUB_TOKEN --name=${PRJ_NAME}-deploy-package \
             ant -v -noinput deploy
