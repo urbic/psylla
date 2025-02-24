@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ivysettings>
 
+	<include url="/etc/ivy/ivysettings.xml"/>
+
 	<credentials
 		host="maven.pkg.github.com"
 		realm="GitHub Package Registry"
@@ -28,6 +30,6 @@
 			/>
 	</resolvers>
 
-	<settings defaultResolver="main"/>
+	<!--settings defaultResolver="main"/-->
 
 </ivysettings>

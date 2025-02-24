@@ -1,7 +1,4 @@
----
-
-name: Java CI
-
+name: Build, test and deploy
 on:
   push:
     branches: [master]
@@ -10,70 +7,47 @@ on:
   workflow_dispatch:
     branches: [master]
 
-permissions:
-  contents: write
+env:
+  PRJ_NAME: psylla
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Build and test
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            ant{,-optional} \
-            docbook-{xsl-{ns,saxon},mathml} \
-            graphviz \
-            ivy \
-            javacc \
-            junit4 \
-            libjline-java{,-doc} \
-            libxerces2-java \
-            libxml-commons-resolver1.1-java \
-            libxslthl-java \
-            openjdk-21-{jdk-headless,doc} \
-            python3-m2crypto \
-            osc \
-            sassc
-      - name: Setup
-        run: |
-          git config tar.tar.xz.command 'xz -9'
-      - name: Build
-        env:
-          JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          ant \
-            -lib /usr/share/java/xml-resolver.jar \
-            -lib /usr/share/java/xercesImpl.jar \
-            -lib /usr/share/java/ivy.jar \
-            -lib /usr/share/java/junit4.jar \
-            -v -noinput \
-            -Dlinux.flavour=debian \
-            build
-          echo \
-          '<html xmlns="http://www.w3.org/1999/xhtml">
-          <head><meta http-equiv="refresh" content="0; url=html/"/></head>
-          </html>' \
-            >target/doc/index.xhtml
-      - name: Test
-        env:
-          JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          ant -lib /usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
-            -v -noinput \
-            -Dlinux.flavour=debian \
-            test
+          docker build . -f Dockerfile -t ${PRJ_NAME} --label "runnumber=${GITHUB_RUN_ID}"
+          docker cp build-${PRJ_NAME}:/home/${PRJ_NAME}/target .
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
           BRANCH: gh-pages
           FOLDER: target/doc
+  commit-obs:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      packages: write
+      contents: read
+    steps:
       - name: Commit to OBS
         env:
-          JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
           OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
         run: |
-          ant -lib /usr/share/java/ivy.jar -v -noinput -Dlinux.flavour=debian obs.commit
+          docker run -e OBS_PASSWORD --name=build-${PRJ_NAME} ${PRJ_NAME} \
+            ant -v -noinput obs.commit
+  deploy-artifacts:
+    runs-on: ubuntu-latest
+    needs: build
+    if: startsWith(github.event.ref, 'refs/tags/v')
+    steps:
+      - name: Deploy package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          docker run -e GITHUB_TOKEN --name=build-${PRJ_NAME} ${PRJ_NAME} \
+            ant -v -noinput deploy

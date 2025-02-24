@@ -33,7 +33,8 @@ USER root
 RUN chown -R psylla:users ${HOME}
 
 USER psylla
-RUN rm ivysettings.xml
+#RUN rm ivysettings.xml
+RUN git config tar.tar.xz.command 'xz -9'
 RUN env -C ${HOME} LANG=C.UTF-8 CLASSPATH=$(build-classpath xerces-j2-xml-apis) JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
     ant -Divy.mode=local test coverage build
 

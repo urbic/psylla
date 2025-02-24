@@ -64,14 +64,6 @@
 			>
 			<exclude org="xalan" name="xalan"/>
 		</dependency>
-		<!--dependency org="net.sf.xslthl"
-			name="xslthl"
-			conf="xslt+linux.debian"
-			rev="2.x"
-			transitive="true"
-			>
-			<exclude org="xalan" name="xalan"/>
-		</dependency-->
 		<dependency
 			org="xerces"
 			name="xercesImpl"
