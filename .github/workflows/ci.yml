@@ -6,10 +6,8 @@ on:
     branches: [master]
   workflow_dispatch:
     branches: [master]
-
 env:
   PRJ_NAME: psylla
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,6 +19,7 @@ jobs:
       - name: Build and test
         run: |
           docker build . -f Dockerfile -t ${PRJ_NAME} --label "runnumber=${GITHUB_RUN_ID}"
+          docker container create --name=build-${PRJ_NAME} ${PRJ_NAME}
           docker cp build-${PRJ_NAME}:/home/${PRJ_NAME}/target .
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@3.6.2
