@@ -23,6 +23,6 @@ bind for
 arguments 0 get tointeger 1 gt { '2' say } if
 sieve
 {
-	2 mul 1 add toname say
+	2 mul 1 add tostring say
 }
 bind forall

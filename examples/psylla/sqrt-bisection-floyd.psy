@@ -22,4 +22,4 @@
 }
 bind loop
 
-tmid toname say
+tmid tostring say

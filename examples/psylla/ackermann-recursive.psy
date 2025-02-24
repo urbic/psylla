@@ -20,4 +20,4 @@ bind def
 
 arguments 0 get tointegral
 arguments 1 get tointegral
-ackermann toname say
+ackermann tostring say

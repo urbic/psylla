@@ -70,7 +70,7 @@ bind def
 	0 1 p length 1 sub
 	{
 		dup nonzero { ' ' print } if
-		p exch get toname print
+		p exch get tostring print
 	}
 	for
 	'' say

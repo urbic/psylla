@@ -22,4 +22,4 @@ x 1 add 2 div
 	ge { exit } if
 }
 bind loop
-toname say
+tostring say

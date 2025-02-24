@@ -5,14 +5,14 @@
 /sieve bitarray def
 0 1 //n { 2 mod nonzero //sieve exch append } bind for
 
-//n 2 ge { 2 toname say } if
+//n 2 ge { 2 tostring say } if
 
 3 2 //n
 {
 	/p exch def
 	//sieve p get
 	{
-		p toname say
+		p tostring say
 		p dup mul p //n
 		{
 			//sieve exch //false put

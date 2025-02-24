@@ -42,7 +42,7 @@ mark q /generate load fork pop
 {
 	/p q take def
 	p n gt { exit } if
-	p toname say
+	p tostring say
 	/tmpq 1 blockingqueue def
 	mark q tmpq p /filter load fork pop
 	/q tmpq def

@@ -63,7 +63,7 @@ The name of the file is passed in the command line.
 ## Decimal fractions
 
 Prints the decimal periodic representation of the vulgar fraction. The fraction
-is passed in the command line in the form $p/q$.
+is passed in the command line in the form $p:q$.
 
 * [__`fraction-floyd.psy`__](fraction-floyd.psy) — an implementation with the
   cycle detection based on the [Floyd’s Tortoise and Hare

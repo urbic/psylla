@@ -33,4 +33,4 @@
 bind def
 
 arguments 0 2 getinterval { tointegral } forall
-russianmul toname say
+russianmul tostring say

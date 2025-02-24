@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><title>The Psylla Language. Programming Idioms</title><link rel="stylesheet" type="text/css" href="PsyllaProgrammingIdioms.css"/><link rev="made" href="mailto:shvetz.anton@gmail.com?subject=psylla"/><meta name="generator" content="DocBook XSL Stylesheets V1.79.2"/><meta name="keywords" content="Psylla, interpreter, programming language, scripting language, general purpose language, JVM language, stack-based, concatenative, homoiconic, reverse polish notation, programming idioms"/><link rel="article" href="PsyllaProgrammingIdioms.xhtml" title="The Psylla Language. Programming Idioms"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e22" title="1. Print Hello World"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e26" title="2. Print Hello 10 times"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e30" title="3. Create a procedure"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e34" title="4. Create a function"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e38" title="5. Create a 2D Point data structure"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e44" title="6. Iterate over list values"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e50" title="7. Iterate over list indexes and values"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e57" title="8. Create a map (associative array)"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e62" title="9. Create a Binary Tree data structure"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e66" title="10. Shuffle a list"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e71" title="11. Pick a random element from a list"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e76" title="12. Check if list contains a value"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e82" title="13. Iterate over map keys and values"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e89" title="14. Pick uniformly a random floating point number in [a..b)"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e99" title="15. Pick uniformly a random integer in [a..b]"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e109" title="16. Depth-first traversal of a binary tree"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e115" title="17. Create a Tree data structure"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e119" title="18. Depth-first traversal of a tree"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e124" title="19. Reverse a list"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e129" title="20. Return two values"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e137" title="21. Swap values"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e143" title="22. Convert string to integer"/><link rel="section" href="PsyllaProgrammingIdioms.xhtml#d5e149" title="23. Convert real number to string with 2 decimal places"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="shortcut icon" href="psylla.svg" type="image/svg+xml"/></head><body><header><div class="navheader"><table style="width: 100%; "><tr><th style="text-align: center; " colspan="3">The Psylla Language. Programming Idioms</th></tr></table></div></header><section xml:lang="en" class="article" id="PsyllaProgrammingIdioms"><div class="titlepage"><div><div><h1 class="title">The Psylla Language. Programming Idioms</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Anton</span> <span class="surname">Shvetz</span></h3></div></div></div><hr/></div><div class="toc"><div class="toc-title">Table of Contents</div><ul class="toc"><li><span class="article"><a href="PsyllaProgrammingIdioms.xhtml">The Psylla Language. Programming Idioms</a></span><ul><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e22">1. Print Hello World</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e26">2. Print Hello 10 times</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e30">3. Create a procedure</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e34">4. Create a function</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e38">5. Create a 2D Point data structure</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e44">6. Iterate over list values</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e50">7. Iterate over list indexes and values</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e57">8. Create a map (associative array)</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e62">9. Create a Binary Tree data structure</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e66">10. Shuffle a list</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e71">11. Pick a random element from a list</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e76">12. Check if list contains a value</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e82">13. Iterate over map keys and values</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e89">14. Pick uniformly a random floating point number in
+[<em class="replaceable"><code>a</code></em>..<em class="replaceable"><code>b</code></em>)</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e99">15. Pick uniformly a random integer in
+[<em class="replaceable"><code>a</code></em>..<em class="replaceable"><code>b</code></em>]</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e109">16. Depth-first traversal of a binary tree</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e115">17. Create a Tree data structure</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e119">18. Depth-first traversal of a tree</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e124">19. Reverse a list</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e129">20. Return two values</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e137">21. Swap values</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e143">22. Convert string to integer</a></span></li><li><span class="section"><a href="PsyllaProgrammingIdioms.xhtml#d5e149">23. Convert real number to string with 2 decimal places</a></span></li></ul></li></ul></div><section class="section" id="d5e22"><div class="titlepage"><div><div><h2 class="title" style="clear: both">1. Print Hello World</h2></div></div></div><p>Print a literal string on standard output</p><pre class="programlisting"><span class="hl-string">'Hello, World'</span> <span class="hl-keyword">print</span></pre></section><section class="section" id="d5e26"><div class="titlepage"><div><div><h2 class="title" style="clear: both">2. Print Hello 10 times</h2></div></div></div><p>Loop to execute some code a constant number of times</p><pre class="programlisting"><span class="hl-number">10</span> { <span class="hl-string">'Hello'</span> <span class="hl-keyword">say</span> } <span class="hl-keyword">repeat</span></pre></section><section class="section" id="d5e30"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3. Create a procedure</h2></div></div></div><p>
+Like a function which doesn’t return any value, thus has only side effects
+(e.g. Print to standard output)
+</p><pre class="programlisting"><span class="hl-string">/f</span> { <span class="hl-string">'abc'</span> <span class="hl-keyword">say</span> } <span class="hl-keyword">def</span></pre></section><section class="section" id="d5e34"><div class="titlepage"><div><div><h2 class="title" style="clear: both">4. Create a function</h2></div></div></div><p>
+Create a function which returns the square of an integer
+</p><pre class="programlisting"><span class="hl-string">/square</span> { <span class="hl-keyword">dup</span> <span class="hl-keyword">mul</span> } <span class="hl-keyword">def</span></pre></section><section class="section" id="d5e38"><div class="titlepage"><div><div><h2 class="title" style="clear: both">5. Create a 2D Point data structure</h2></div></div></div><p>
+Declare a container type for two floating-point numbers
+<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
+</p><p class="remark"><em><span class="remark">?</span></em></p></section><section class="section" id="d5e44"><div class="titlepage"><div><div><h2 class="title" style="clear: both">6. Iterate over list values</h2></div></div></div><p>
+Do something with each item <em class="replaceable"><code>x</code></em> of the list (or array)
+<em class="replaceable"><code>items</code></em>, regardless indexes.
+</p><pre class="programlisting"><span class="hl-keyword">items</span> { <span class="hl-keyword">dosomething</span> } <span class="hl-keyword">forall</span></pre></section><section class="section" id="d5e50"><div class="titlepage"><div><div><h2 class="title" style="clear: both">7. Iterate over list indexes and values</h2></div></div></div><p>
+Print each index <em class="replaceable"><code>i</code></em> with its value
+<em class="replaceable"><code>x</code></em> from an array-like collection
+<em class="replaceable"><code>items</code></em>
+</p><pre class="programlisting"><span class="hl-number">0</span> <span class="hl-number">1</span> <span class="hl-keyword">items</span> <span class="hl-keyword">length</span> <span class="hl-number">1</span> <span class="hl-keyword">sub</span>
+{
+	<span class="hl-keyword">dup</span> <span class="hl-keyword">tostring</span> <span class="hl-keyword">print</span>
+	<span class="hl-string">'='</span> <span class="hl-keyword">print</span>
+	<span class="hl-keyword">items</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">get</span> <span class="hl-keyword">tostring</span> <span class="hl-keyword">say</span>
+}
+<span class="hl-keyword">for</span></pre></section><section class="section" id="d5e57"><div class="titlepage"><div><div><h2 class="title" style="clear: both">8. Create a map (associative array)</h2></div></div></div><p>
+Create a new map object <em class="replaceable"><code>x</code></em>, and provide some (key,
+value) pairs as initial content.
+</p><pre class="programlisting"><span class="hl-string">/x</span> <span class="hl-structure">&lt;</span><span class="hl-string">/one</span> <span class="hl-number">1</span> <span class="hl-string">/two</span> <span class="hl-number">2</span><span class="hl-structure">&gt;</span> <span class="hl-keyword">def</span></pre></section><section class="section" id="d5e62"><div class="titlepage"><div><div><h2 class="title" style="clear: both">9. Create a Binary Tree data structure</h2></div></div></div><p>
+The structure must be recursive because left child and right child are binary
+trees too. A node has access to children nodes, but not to its parent
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="d5e66"><div class="titlepage"><div><div><h2 class="title" style="clear: both">10. Shuffle a list</h2></div></div></div><p>
+Generate a random permutation of the elements of list
+<em class="replaceable"><code>x</code></em>
+</p><pre class="programlisting"><span class="hl-string">/shuffle</span>
+{
+	<span class="hl-keyword">dict</span> <span class="hl-keyword">begin</span>
+		<span class="hl-keyword">dup</span>
+		<span class="hl-string">/a</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">def</span>
+
+		<span class="hl-keyword">a</span> <span class="hl-keyword">length</span> <span class="hl-number">1</span> <span class="hl-keyword">sub</span> <span class="hl-number">-1</span> <span class="hl-number">1</span>
+		{
+			<span class="hl-string">/i</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">def</span>
+
+			<span class="hl-keyword">i</span> <span class="hl-number">1</span> <span class="hl-keyword">add</span> <span class="hl-keyword">stdrandom</span>
+			<span class="hl-keyword">exch</span> <span class="hl-keyword">uniformdeviate</span>
+			<span class="hl-string">/j</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">def</span>
+
+			<span class="hl-keyword">a</span> <span class="hl-keyword">i</span> <span class="hl-keyword">get</span>
+			<span class="hl-keyword">a</span> <span class="hl-keyword">j</span> <span class="hl-keyword">get</span>
+			<span class="hl-keyword">a</span> <span class="hl-keyword">i</span>
+			<span class="hl-number">3</span> <span class="hl-number">-1</span> <span class="hl-keyword">roll</span> <span class="hl-keyword">put</span>
+			<span class="hl-keyword">a</span> <span class="hl-keyword">j</span>
+			<span class="hl-number">3</span> <span class="hl-number">-1</span> <span class="hl-keyword">roll</span> <span class="hl-keyword">put</span>
+		}
+		<span class="hl-keyword">for</span>
+	<span class="hl-keyword">end</span>
+}
+<span class="hl-keyword">bind</span> <span class="hl-keyword">def</span>
+
+<span class="hl-keyword">x</span> <span class="hl-keyword">shuffle</span></pre></section><section class="section" id="d5e71"><div class="titlepage"><div><div><h2 class="title" style="clear: both">11. Pick a random element from a list</h2></div></div></div><p>The list <em class="replaceable"><code>x</code></em> must be non-empty</p><pre class="programlisting"><span class="hl-keyword">x</span> <span class="hl-keyword">dup</span> <span class="hl-keyword">length</span> <span class="hl-keyword">uniformdeviate</span> <span class="hl-keyword">get</span></pre></section><section class="section" id="d5e76"><div class="titlepage"><div><div><h2 class="title" style="clear: both">12. Check if list contains a value</h2></div></div></div><p>Check if the list contains the value <em class="replaceable"><code>x</code></em>.
+<em class="replaceable"><code>list</code></em> is an iterable finite container
+</p><pre class="programlisting"><span class="hl-keyword">false</span> <span class="hl-keyword">list</span> { <span class="hl-keyword">x</span> <span class="hl-keyword">eq</span> { <span class="hl-keyword">not</span> <span class="hl-keyword">exit</span> } <span class="hl-keyword">if</span> } <span class="hl-keyword">forall</span></pre></section><section class="section" id="d5e82"><div class="titlepage"><div><div><h2 class="title" style="clear: both">13. Iterate over map keys and values</h2></div></div></div><p>
+Access each key <em class="replaceable"><code>k</code></em> with its value
+<em class="replaceable"><code>x</code></em> from an associative array
+<em class="replaceable"><code>mymap</code></em>, and print them
+</p><pre class="programlisting"><span class="hl-keyword">mymap</span>
+{
+	<span class="hl-string">/k</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">def</span>
+	<span class="hl-string">/x</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">def</span>
+	<span class="hl-keyword">k</span> <span class="hl-keyword">tostring</span> <span class="hl-keyword">print</span>
+	<span class="hl-string">'='</span> <span class="hl-keyword">print</span>
+	<span class="hl-keyword">x</span> <span class="hl-keyword">tostring</span> <span class="hl-keyword">say</span>
+}
+<span class="hl-keyword">forall</span></pre></section><section class="section" id="d5e89"><div class="titlepage"><div><div><h2 class="title" style="clear: both">14. Pick uniformly a random floating point number in
+[<em class="replaceable"><code>a</code></em>..<em class="replaceable"><code>b</code></em>)</h2></div></div></div><p>
+Pick a random number greater than or equals to <em class="replaceable"><code>a</code></em>,
+strictly inferior to <em class="replaceable"><code>b</code></em>. Precondition:
+<em class="replaceable"><code>a</code></em> &lt; <em class="replaceable"><code>b</code></em>.
+</p><pre class="programlisting"><span class="hl-keyword">stdrandom</span> <span class="hl-keyword">b</span> <span class="hl-keyword">a</span> <span class="hl-keyword">sub</span> <span class="hl-keyword">uniformdeviate</span> <span class="hl-keyword">a</span> <span class="hl-keyword">add</span></pre></section><section class="section" id="d5e99"><div class="titlepage"><div><div><h2 class="title" style="clear: both">15. Pick uniformly a random integer in
+[<em class="replaceable"><code>a</code></em>..<em class="replaceable"><code>b</code></em>]</h2></div></div></div><p>
+Pick a random integer greater than or equals to <em class="replaceable"><code>a</code></em>,
+inferior or equals to <em class="replaceable"><code>b</code></em>. Precondition:
+<em class="replaceable"><code>a</code></em> &lt; <em class="replaceable"><code>b</code></em>.
+</p><pre class="programlisting"><span class="hl-keyword">stdrandom</span> <span class="hl-keyword">b</span> <span class="hl-keyword">a</span> <span class="hl-keyword">sub</span> <span class="hl-number">1</span> <span class="hl-keyword">add</span> <span class="hl-keyword">uniformdeviate</span> <span class="hl-keyword">a</span> <span class="hl-keyword">add</span></pre></section><section class="section" id="d5e109"><div class="titlepage"><div><div><h2 class="title" style="clear: both">16. Depth-first traversal of a binary tree</h2></div></div></div><p>
+Call a function <em class="replaceable"><code>f</code></em> on every node of binary tree
+<em class="replaceable"><code>bt</code></em>, in depth-first infix order
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="d5e115"><div class="titlepage"><div><div><h2 class="title" style="clear: both">17. Create a Tree data structure</h2></div></div></div><p>
+The structure must be recursive. A node may have zero or more children. A node
+has access to its children nodes, but not to its parent.
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="d5e119"><div class="titlepage"><div><div><h2 class="title" style="clear: both">18. Depth-first traversal of a tree</h2></div></div></div><p>
+Call a function <em class="replaceable"><code>f</code></em> on every node of a tree, in
+depth-first prefix order
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="d5e124"><div class="titlepage"><div><div><h2 class="title" style="clear: both">19. Reverse a list</h2></div></div></div><p>
+Reverse the order of the elements of the list <em class="replaceable"><code>x</code></em>.
+This may reverse “in-place” and destroy the original ordering
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="d5e129"><div class="titlepage"><div><div><h2 class="title" style="clear: both">20. Return two values</h2></div></div></div><p>
+Implement a function search which looks for item <em class="replaceable"><code>x</code></em>
+in a 2D matrix <em class="replaceable"><code>m</code></em>. Return indices
+<em class="replaceable"><code>i</code></em>, <em class="replaceable"><code>j</code></em> of the matching cell.
+Think of the most idiomatic way in the language to return the two values at the
+same time.
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></section><section class="section" id="d5e137"><div class="titlepage"><div><div><h2 class="title" style="clear: both">21. Swap values</h2></div></div></div><p>
+Swap the values of the variables <em class="replaceable"><code>a</code></em> and
+<em class="replaceable"><code>b</code></em>
+</p><pre class="programlisting"><span class="hl-keyword">a</span> <span class="hl-keyword">b</span> <span class="hl-string">/a</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">def</span> <span class="hl-string">/b</span> <span class="hl-keyword">exch</span> <span class="hl-keyword">def</span></pre></section><section class="section" id="d5e143"><div class="titlepage"><div><div><h2 class="title" style="clear: both">22. Convert string to integer</h2></div></div></div><p>
+Extract the integer value <em class="replaceable"><code>i</code></em> from its string
+representation <em class="replaceable"><code>s</code></em> (in radix 10)
+</p><pre class="programlisting"><span class="hl-keyword">s</span> <span class="hl-keyword">tointeger</span></pre></section><section class="section" id="d5e149"><div class="titlepage"><div><div><h2 class="title" style="clear: both">23. Convert real number to string with 2 decimal places</h2></div></div></div><p>
+Given a real number <em class="replaceable"><code>x</code></em>, create its string
+representation <em class="replaceable"><code>s</code></em> with 2 decimal digits following the
+dot
+</p><p class="remark"><em><span class="remark">TODO</span></em></p></section></section><footer><div class="navfooter"/></footer></body></html>

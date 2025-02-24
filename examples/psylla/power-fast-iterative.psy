@@ -25,4 +25,4 @@ bind def
 
 arguments 0 get tointegral
 arguments 1 get tointeger
-power toname say
+power tostring say

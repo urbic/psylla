@@ -17,4 +17,4 @@
 bind def
 
 0 2 next
-toname say pop
+tostring say pop

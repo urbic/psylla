@@ -1,8 +1,9 @@
 module:coneforest.psylla
 coneforest.psylla.core
-coneforest.psylla.engine
 coneforest.psylla.runtime
+coneforest.psylla.scripting
 coneforest.psylla.toolprovider
-module:coneforest.psylla.tools
-coneforest.psylla.tools.ant
-coneforest.psylla.tools.processors
+module:coneforest.psylla.ant
+coneforest.psylla.ant
+module:coneforest.psylla.processors
+coneforest.psylla.processors

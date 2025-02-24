@@ -70,7 +70,7 @@ arguments
 	dup
 	print
 	':' print
-	tointegral factor { ' ' print toname print } forall
+	tointegral factor { ' ' print tostring print } forall
 	'' say
 }
 bind forall

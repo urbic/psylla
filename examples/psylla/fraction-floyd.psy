@@ -1,11 +1,11 @@
 #!/usr/bin/psylla
 
-arguments 0 get ~/~ split
-{ tointegral } forall
-/q exch def
-/p exch def
+arguments 0 get
+torational dup
+denominator /q exch def
+numerator /p exch def
 
-p q idiv toname print
+p q idiv tostring print
 
 /p p q mod def
 
@@ -24,7 +24,7 @@ bind loop
 /t p def
 {
 	t h eq { exit } if
-	10 t mul q idiv toname print
+	10 t mul q idiv tostring print
 	/t 10 t mul q mod def
 	/h 10 h mul q mod def
 }
@@ -34,7 +34,7 @@ h nonzero
 {
 	'(' print
 	{
-		10 h mul q idiv toname print
+		10 h mul q idiv tostring print
 		/h 10 h mul q mod def
 		t h eq { exit } if
 	}

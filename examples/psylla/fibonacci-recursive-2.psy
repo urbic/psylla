@@ -4,7 +4,7 @@
 
 /fibonacci
 {
-	1 index toname say
+	1 index tostring say
 	2 index n lt
 	{
 		3 -1 roll 1 add 3 1 roll

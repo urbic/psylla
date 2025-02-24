@@ -21,4 +21,4 @@ bind def
 
 arguments 0 get tointeger
 arguments 1 get tointeger
-power toname say
+power tostring say
