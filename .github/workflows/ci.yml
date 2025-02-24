@@ -30,6 +30,7 @@ jobs:
             junit4 \
             libjline-java{,-doc} \
             libxerces2-java \
+            libxml-commons-resolver1.1-java \
             libxslthl-java \
             openjdk-21-{jdk-headless,doc} \
             python3-m2crypto \
@@ -43,7 +44,11 @@ jobs:
           JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ant -lib /usr/share/java/xercesImpl.jar:/usr/share/java/ivy.jar:/usr/share/java/junit4.jar \
+          ant \
+            -lib /usr/share/java/xml-resolver.jar \
+            -lib /usr/share/java/xercesImpl.jar \
+            -lib /usr/share/java/ivy.jar \
+            -lib /usr/share/java/junit4.jar \
             -v -noinput \
             -Dlinux.flavour=debian \
             build
