@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: opensuse/tumbleweed:latest
+      volumes: .:/home/psylla
     permissions:
       packages: write
       contents: write
@@ -20,6 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build and test
         run: |
+          cd /home/psylla
           zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE_Tumbleweed home:urbic:coneforest
           zypper -n --gpg-auto-import-keys ar -p2 obs://Java:packages/openSUSE_Tumbleweed Java:packages
           zypper -n --gpg-auto-import-keys in -y \
