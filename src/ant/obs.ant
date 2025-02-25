@@ -26,8 +26,8 @@
 	<condition property="obs.password.set" value="true" else="false">
 		<isset property="env.OBS_PASSWORD"/>
 	</condition>
-	<!--property name="osc.rc" location="${user.home}/.config/osc/oscrc"/-->
-	<property name="osc.rc" location=".oscrc"/>
+	<property name="osc.rc" location="${user.home}/.config/osc/oscrc"/>
+	<!--property name="osc.rc" location=".oscrc"/-->
 
 	<filterset id="obs.build.filterset">
 		<propertyset>
@@ -39,6 +39,7 @@
 	<target name="osc.config"
 		description="Configure osc"
 		>
+		<mkdir dir="${user.home}/.config/osc"/>
 		<echo file="${osc.rc}" if:true="${obs.password.set}"><![CDATA[[general]
 apiurl=${obs.build.apiurl}
 
