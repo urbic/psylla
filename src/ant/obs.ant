@@ -49,7 +49,7 @@ pass=
 ]]></echo>
 		<exec executable="osc" if:true="${obs.password.set}">
 			<arg value="--config"/>
-			<arg value="${obs.rc}"/>
+			<arg value="${osc.rc}"/>
 			<arg value="config"/>
 			<arg value="${obs.build.apiurl}"/>
 			<arg value="pass"/>
@@ -63,7 +63,7 @@ pass=
 		>
 		<exec dir="${target}" executable="osc">
 			<arg value="--config"/>
-			<arg value="${obs.rc}"/>
+			<arg value="${osc.rc}"/>
 			<arg value="checkout"/>
 			<arg value="${obs.build.project}"/>
 			<arg value="${obs.package.name}"/>
@@ -93,7 +93,7 @@ pass=
 		</copy>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="--config"/>
-			<arg value="${obs.rc}"/>
+			<arg value="${osc.rc}"/>
 			<arg value="addremove"/>
 		</exec>
 	</target>
@@ -104,7 +104,7 @@ pass=
 		>
 		<exec executable="osc" dir="${target.obs}">
 			<arg value="--config"/>
-			<arg value="${obs.rc}"/>
+			<arg value="${osc.rc}"/>
 			<arg value="build"/>
 			<arg value="--no-service"/>
 			<arg value="--no-verify"/>
@@ -123,7 +123,7 @@ pass=
 		>
 		<exec dir="${target.obs}" executable="osc">
 			<arg value="--config"/>
-			<arg value="${obs.rc}"/>
+			<arg value="${osc.rc}"/>
 			<arg value="commit"/>
 			<arg value="-n"/>
 		</exec>
