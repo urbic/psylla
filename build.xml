@@ -466,7 +466,7 @@
 		depends="jar"
 		>
 		<mkdir dir="${target.reports}"/>
-		<taskdef uri="antlib:com.puppycrawl.tools.checkstyle.ant"/>
+		<taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties"/>
 		<spotbugs
 			projectName="${project.name}"
 			home="${config.datadir}/spotbugs"
