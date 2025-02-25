@@ -44,7 +44,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Test GIT
         run: |
-          la -la .
+          ls -la .
           git config tar.tar.xz.command 'xz -9'
 #      - name: Configure git to trust the workspace despite the different owner
 #        run: |
