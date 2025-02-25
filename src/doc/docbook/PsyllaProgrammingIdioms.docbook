@@ -377,4 +377,172 @@ dot
 
 </section>
 
+<section>
+<title>Assign to string the japanese word ネコ</title>
+
+<para>
+Declare a new string s and initialize it with the literal value “ネコ” (which
+means “cat” in japanese)
+</para>
+
+<programlisting language="psylla">/s 'ネコ' def</programlisting>
+
+</section>
+
+<section>
+<title> Send a value to another thread</title>
+
+<para>
+Share the string value “Alan” with an existing running process which will then
+display “Hello, Alan”
+</para>
+
+<programlisting language="psylla">mark /Alan { 500 sleep 'Hello, ' print say } fork
+join cleartomark</programlisting>
+
+</section>
+
+<section>
+<title>Create a 2-dimensional array</title>
+
+<para>
+Declare and initialize a matrix <replaceable>x</replaceable> having
+<replaceable>m</replaceable> rows and <replaceable>n</replaceable> columns,
+containing real numbers.
+</para>
+
+<programlisting language="psylla">/x [ m { [ n 0. repeat ] } repeat ] def</programlisting>
+
+</section>
+
+<section>
+<title>Create a 3-dimensional array</title>
+
+<para>
+Declare and initialize a 3D array <replaceable>x</replaceable>, having
+dimensions boundaries <replaceable>m</replaceable>,
+<replaceable>n</replaceable>, <replaceable>p</replaceable>, and containing real
+numbers.
+</para>
+
+<programlisting language="psylla">/x [ m { [ n { [ p 0. repeat ] } repeat ] } repeat ] def</programlisting>
+
+</section>
+
+<section>
+<title>Sort by a property</title>
+
+<para>
+Sort the elements of the list (or array-like collection)
+<replaceable>items</replaceable> in ascending order of
+<replaceable>x.p</replaceable>, where <replaceable>p</replaceable> is a field
+of the type Item of the objects in <replaceable>items</replaceable>.
+</para>
+
+<programlisting language="psylla">items { /p get exch /p get exch cmp } sort</programlisting>
+
+</section>
+
+<section>
+<title>Remove item from list, by its index</title>
+
+<para>
+Remove <replaceable>i</replaceable>-th item from list
+<replaceable>items</replaceable>. This will alter the original list or return a
+new list, depending on which is more idiomatic. Note that in most languages,
+the smallest valid value for <replaceable>i</replaceable> is
+<constant>0</constant>.
+</para>
+
+<programlisting language="psylla">items i delete</programlisting>
+
+</section>
+
+<section>
+<title>Parallelize execution of 1000 independent tasks</title>
+
+<para>
+Launch the concurrent execution of the procedure <replaceable>f</replaceable>
+with parameter <replaceable>i</replaceable> from <constant>1</constant> to
+<constant>1000</constant>. Tasks are independent and
+<replaceable>f</replaceable>(<replaceable>i</replaceable>) doesn’t return any
+value. Tasks need not run all at the same time, so you may use a pool.
+</para>
+
+<programlisting language="psylla">1 1 1000 { mark exch { f } fork pop } for</programlisting>
+
+</section>
+
+<section>
+<title>Recursive factorial (simple)</title>
+
+<para>
+Create the recursive function <replaceable>f</replaceable> which returns the
+factorial of the non-negative integer <replaceable>i</replaceable>, calculated
+from
+<replaceable>f</replaceable>(<replaceable>i</replaceable>-<constant>1</constant>)
+</para>
+
+<programlisting language="psylla">/f
+{
+    dup iszero
+    { pop 1 }
+    { dup 1 sub f mul }
+    ifelse
+}
+def</programlisting>
+
+</section>
+
+<section>
+<title>Integer exponentiation by squaring</title>
+
+<para>
+Create function <replaceable>exp</replaceable> which calculates (fast) the
+value <replaceable>x</replaceable> power <replaceable>n</replaceable>.
+<replaceable>x</replaceable> and <replaceable>n</replaceable> are non-negative
+integers.
+</para>
+
+<programlisting language="psylla">/exp
+{
+	dict begin
+		/n exch def
+		/x exch def
+		{
+			n 0 eq { 1 exit } if
+			n 1 eq { x exit } if
+			n 2 mod 0 eq
+			{ x dup mul n 2 idiv exp exit }
+			{ x dup mul n 1 sub 2 idiv exp x mul exit }
+			ifelse
+		}
+		loop
+	end
+}
+def</programlisting>
+
+</section>
+
+<section>
+<title>First-class function: compose</title>
+
+<para>
+Implement a function compose (A → C) with parameters
+<replaceable>f</replaceable> (A → B) and <replaceable>g</replaceable> (B → C),
+which returns the composition function
+<replaceable>g</replaceable> ∘ <replaceable>f</replaceable>
+</para>
+
+<programlisting language="psylla">/compose
+{
+	{ } 3 -1 roll
+	dup append dup { exec } appendall
+	exch
+	dup append dup { exec } appendall
+}
+def</programlisting>
+
+</section>
+
 </article>

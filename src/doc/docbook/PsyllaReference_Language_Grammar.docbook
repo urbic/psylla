@@ -10,10 +10,10 @@
 <rhs>
 <nonterminal def="#PsyllaReference_Language_Grammar_Integral">INTEGRAL</nonterminal>
 | <nonterminal def="#PsyllaReference_Language_Grammar_Real">REAL</nonterminal>
-| <nonterminal def="#PsyllaReference_Language_Grammar_String">STRING</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_StringBuffer">STRINGBUFFER</nonterminal>
 | <nonterminal def="#PsyllaReference_Language_Grammar_RegExp">REGEXP</nonterminal>
-| <nonterminal def="#PsyllaReference_Language_Grammar_Command">COMMAND</nonterminal>
 | <nonterminal def="#PsyllaReference_Language_Grammar_Name">NAME</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_String">STRING</nonterminal>
 | <nonterminal def="#PsyllaReference_Language_Grammar_Immediate">IMMEDIATE</nonterminal>
 | <nonterminal def="#PsyllaReference_Language_Grammar_OpenBrace">OPEN_BRACE</nonterminal>
 | <nonterminal def="#PsyllaReference_Language_Grammar_CloseBrace">CLOSE_BRACE</nonterminal>
@@ -167,8 +167,8 @@
 </rhs>
 </production>
 
-<production xml:id="PsyllaReference_Language_Grammar_String">
-<lhs>STRING</lhs>
+<production xml:id="PsyllaReference_Language_Grammar_StringBuffer">
+<lhs>STRINGBUFFER</lhs>
 <rhs>
 <literal>"</literal>
 (<nonterminal def="#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>
@@ -224,16 +224,16 @@
 </rhs>
 </production>
 
-<production xml:id="PsyllaReference_Language_Grammar_NameSlashed">
-<lhs>NAME_SLASHED</lhs>
+<production xml:id="PsyllaReference_Language_Grammar_StringSlashed">
+<lhs>STRING_SLASHED</lhs>
 <rhs>
 <literal>/</literal>
-<nonterminal def="#PsyllaReference_Language_Grammar_Command">COMMAND</nonterminal>
+<nonterminal def="#PsyllaReference_Language_Grammar_Name">NAME</nonterminal>
 </rhs>
 </production>
 
-<production xml:id="PsyllaReference_Language_Grammar_NameQuoted">
-<lhs>NAME_QUOTED</lhs>
+<production xml:id="PsyllaReference_Language_Grammar_StringQuoted">
+<lhs>STRING_QUOTED</lhs>
 <rhs>
 <literal>'</literal>
 (<nonterminal def="#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</nonterminal>
@@ -242,11 +242,11 @@
 </rhs>
 </production>
 
-<production xml:id="PsyllaReference_Language_Grammar_Name">
-<lhs>NAME</lhs>
+<production xml:id="PsyllaReference_Language_Grammar_String">
+<lhs>STRING</lhs>
 <rhs>
-<nonterminal def="#PsyllaReference_Language_Grammar_NameSlashed">NAME_SLASHED</nonterminal>
-| <nonterminal def="#PsyllaReference_Language_Grammar_NameQuoted">NAME_QUOTED</nonterminal>
+<nonterminal def="#PsyllaReference_Language_Grammar_StringSlashed">STRING_SLASHED</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_StringQuoted">STRING_QUOTED</nonterminal>
 </rhs>
 </production>
 
@@ -254,18 +254,18 @@
 <lhs>IMMEDIATE</lhs>
 <rhs>
 <literal>/</literal>
-<nonterminal def="#PsyllaReference_Language_Grammar_NameSlashed">NAME_SLASHED</nonterminal>
+<nonterminal def="#PsyllaReference_Language_Grammar_StringSlashed">STRING_SLASHED</nonterminal>
 </rhs>
 </production>
 
-<production xml:id="PsyllaReference_Language_Grammar_Command">
-<lhs>COMMAND</lhs>
+<production xml:id="PsyllaReference_Language_Grammar_Name">
+<lhs>NAME</lhs>
 <rhs>
 (<nonterminal def="#PsyllaReference_Language_Grammar_Letter">LETTER</nonterminal>
-| <nonterminal def="#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</nonterminal>)
+| <nonterminal def="#PsyllaReference_Language_Grammar_StringSpecialChar">STRING_SPECIAL_CHAR</nonterminal>)
 <sbr/>
 (<nonterminal def="#PsyllaReference_Language_Grammar_Letter">LETTER</nonterminal>
-| <nonterminal def="#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</nonterminal>
+| <nonterminal def="#PsyllaReference_Language_Grammar_StringSpecialChar">STRING_SPECIAL_CHAR</nonterminal>
 | <nonterminal def="#PsyllaReference_Language_Grammar_Digit">DIGIT</nonterminal>)*<sbr/>
 | [<literal>[</literal>,
 <literal>]</literal>,
@@ -288,8 +288,8 @@
 <rhs><literal>}</literal></rhs>
 </production>
 
-<production xml:id="PsyllaReference_Language_Grammar_NameSpecialChar">
-<lhs>NAME_SPECIAL_CHAR</lhs>
+<production xml:id="PsyllaReference_Language_Grammar_StringSpecialChar">
+<lhs>STRING_SPECIAL_CHAR</lhs>
 <rhs>
 [<literal>_</literal>,
 <literal>.</literal>,
