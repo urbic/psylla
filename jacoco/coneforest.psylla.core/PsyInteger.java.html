@@ -154,10 +154,10 @@ public final class PsyInteger
 	public PsyInteger psyClearBit(final PsyInteger oBit)
 		throws PsyRangeCheckException
 	{
-<span class="nc" id="L157">		final var bit=oBit.value;</span>
-<span class="nc bnc" id="L158" title="All 4 branches missed.">		if(bit&lt;0 || bit&gt;Long.SIZE-1)</span>
-<span class="nc" id="L159">			throw new PsyRangeCheckException();</span>
-<span class="nc" id="L160">		return PsyInteger.of(value&amp;~(1L&lt;&lt;bit));</span>
+<span class="fc" id="L157">		final var bit=oBit.value;</span>
+<span class="fc bfc" id="L158" title="All 4 branches covered.">		if(bit&lt;0 || bit&gt;Long.SIZE-1)</span>
+<span class="fc" id="L159">			throw new PsyRangeCheckException();</span>
+<span class="fc" id="L160">		return PsyInteger.of(value&amp;~(1L&lt;&lt;bit));</span>
 	}
 
 	@Override
@@ -341,7 +341,7 @@ public final class PsyInteger
 					{
 <span class="fc bfc" id="L342" title="All 2 branches covered.">						if(oInteger==ZERO)</span>
 <span class="fc" id="L343">							throw new PsyUndefinedResultException();</span>
-<span class="pc bpc" id="L344" title="1 of 4 branches missed.">						if(value==Long.MIN_VALUE &amp;&amp; oInteger==MINUS_ONE)</span>
+<span class="fc bfc" id="L344" title="All 4 branches covered.">						if(value==Long.MIN_VALUE &amp;&amp; oInteger==MINUS_ONE)</span>
 <span class="fc" id="L345">							yield of(Long.MIN_VALUE).psyNeg();</span>
 <span class="fc" id="L346">						yield of(value/oInteger.value);</span>
 					}

@@ -205,14 +205,14 @@ public final class PsyBigInteger
 	@Override
 	public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
 	{
-<span class="nc bnc" id="L208" title="All 3 branches missed.">		return switch(oRealNumeric)</span>
+<span class="pc bpc" id="L208" title="1 of 3 branches missed.">		return switch(oRealNumeric)</span>
 			{
-<span class="nc" id="L210">				case PsyIntegral oIntegral-&gt;</span>
-<span class="nc" id="L211">					PsyIntegral.of(value.add(oIntegral.bigIntegerValue()));</span>
-<span class="nc" id="L212">				case PsyRational oRational-&gt;</span>
-<span class="nc" id="L213">					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator())</span>
-<span class="nc" id="L214">								.psyAdd(oRational.psyNumerator()),</span>
-<span class="nc" id="L215">							oRational.psyDenominator());</span>
+<span class="fc" id="L210">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L211">					PsyIntegral.of(value.add(oIntegral.bigIntegerValue()));</span>
+<span class="fc" id="L212">				case PsyRational oRational-&gt;</span>
+<span class="fc" id="L213">					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator())</span>
+<span class="fc" id="L214">								.psyAdd(oRational.psyNumerator()),</span>
+<span class="fc" id="L215">							oRational.psyDenominator());</span>
 <span class="nc" id="L216">				case PsyReal oReal-&gt;new PsyReal(doubleValue()+oReal.doubleValue());</span>
 			};
 	}
@@ -220,14 +220,14 @@ public final class PsyBigInteger
 	@Override
 	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
-<span class="nc bnc" id="L223" title="All 3 branches missed.">		return switch(oRealNumeric)</span>
+<span class="pc bpc" id="L223" title="1 of 3 branches missed.">		return switch(oRealNumeric)</span>
 			{
-<span class="nc" id="L225">				case PsyIntegral oIntegral-&gt;</span>
-<span class="nc" id="L226">					PsyIntegral.of(value.subtract(oIntegral.bigIntegerValue()));</span>
-<span class="nc" id="L227">				case PsyRational oRational-&gt;</span>
-<span class="nc" id="L228">					PsyRational.of((PsyIntegral)psyMul(</span>
-<span class="nc" id="L229">							oRational.psyDenominator()).psySub(oRational.psyNumerator()),</span>
-<span class="nc" id="L230">						oRational.psyDenominator());</span>
+<span class="fc" id="L225">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L226">					PsyIntegral.of(value.subtract(oIntegral.bigIntegerValue()));</span>
+<span class="fc" id="L227">				case PsyRational oRational-&gt;</span>
+<span class="fc" id="L228">					PsyRational.of((PsyIntegral)psyMul(</span>
+<span class="fc" id="L229">							oRational.psyDenominator()).psySub(oRational.psyNumerator()),</span>
+<span class="fc" id="L230">						oRational.psyDenominator());</span>
 <span class="nc" id="L231">				case PsyReal oReal-&gt;new PsyReal(doubleValue()-oReal.doubleValue());</span>
 			};
 	}
@@ -274,7 +274,7 @@ public final class PsyBigInteger
 	@Override
 	public int hashCode()
 	{
-<span class="nc" id="L277">		return value.hashCode();</span>
+<span class="fc" id="L277">		return value.hashCode();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>
