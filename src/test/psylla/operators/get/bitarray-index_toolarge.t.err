@@ -1,0 +1,4 @@
+Error: /rangecheck in --get--
+Operand stack:
+	%bitarray=1011% 4
+Execution stack: (empty)

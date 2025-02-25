@@ -1,1 +1,1 @@
-bitarray dup [ true false true ] appendall
+bitarray dup [ true false true true ] appendall dup 6 setlength ?

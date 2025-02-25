@@ -1,0 +1,4 @@
+Error: /rangecheck in --setlength--
+Operand stack:
+	%bitarray=1011% -2
+Execution stack: (empty)

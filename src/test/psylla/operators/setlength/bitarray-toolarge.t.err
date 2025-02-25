@@ -1,0 +1,4 @@
+Error: /limitcheck in --setlength--
+Operand stack:
+	%bitarray=1011% 2147483648
+Execution stack: (empty)
