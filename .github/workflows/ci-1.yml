@@ -1,0 +1,44 @@
+name: CI-1
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+    branches: [master]
+env:
+  PRJ_NAME: psylla
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: opensuse/tumbleweed:latest
+    permissions:
+      packages: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test
+        run: |
+          zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE_Tumbleweed home:urbic:coneforest
+          zypper -n --gpg-auto-import-keys ar -p2 obs://Java:packages/openSUSE_Tumbleweed Java:packages
+          zypper -n --gpg-auto-import-keys in -y \
+            ant{,-apache-resolver,-junit} \
+            git \
+            osc \
+            ivy \
+            ivy-local \
+            jacoco \
+            'java-devel>=21' \
+            javacc \
+            javapackages-tools \
+            docbook5-xsl-stylesheets \
+            'mvn(coneforest:clianthus)' \
+            'mvn(jline:jline:1)' \
+            'mvn(net.sf.docbook:docbook-xsl-saxon)' \
+            'mvn(net.sf.xslthl:xslthl)' \
+            'mvn(saxon:saxon)' \
+            glibc-locale \
+            graphviz \
+            sassc
+          git config tar.tar.xz.command 'xz -9'
