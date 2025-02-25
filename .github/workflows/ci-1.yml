@@ -43,4 +43,4 @@ jobs:
             sassc
       - name: Configure git to trust the workspace despite the different owner
         run: |
-          ls /home/runner/work/yourproject/yourproject/.github
+          ls -la /home/runner/work/psylla/psylla/.github
