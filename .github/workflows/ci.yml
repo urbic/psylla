@@ -59,6 +59,13 @@ jobs:
           echo '<html xmlns="http://www.w3.org/1999/xhtml">
             <head><meta http-equiv="refresh" content="0; url=html/"/></head>
             </html>' >target/doc/index.xhtml
+          cp -rf target/reports/jacoco target/doc
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+          jacoco-csv-file: target/doc/jacoco/jacoco.csv
+          badges-directory: target/doc/jacoco
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -75,4 +82,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ant -v -noinput deploy
-
