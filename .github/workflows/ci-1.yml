@@ -42,6 +42,7 @@ jobs:
             sassc
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Test GIT
         run: |
           la -la .
           git config tar.tar.xz.command 'xz -9'
