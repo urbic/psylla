@@ -26,7 +26,6 @@ jobs:
           zypper -n --gpg-auto-import-keys ar -p2 obs://Java:packages/openSUSE_Tumbleweed Java:packages
           zypper -n --gpg-auto-import-keys in -y \
             ant{,-apache-resolver,-junit} \
-            'git>=2.18' \
             osc \
             ivy \
             ivy-local \
