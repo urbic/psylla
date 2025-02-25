@@ -19,8 +19,6 @@ jobs:
     steps:
       - name: Build and test
         run: |
-#          zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE_Tumbleweed home:urbic:coneforest
-#          zypper -n --gpg-auto-import-keys ar -p2 obs://Java:packages/openSUSE_Tumbleweed Java:packages
           zypper -n --gpg-auto-import-keys in -y \
             git
       - name: Checkout
