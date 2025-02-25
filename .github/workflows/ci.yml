@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: opensuse/tumbleweed:latest
-      volumes:
-        - .:/psylla
     permissions:
       packages: write
       contents: write
