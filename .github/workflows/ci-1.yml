@@ -49,6 +49,29 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config tar.tar.xz.command 'xz -9'
       - name: Build and test
+        env:
+          LANG: C.UTF-8
+          JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
         run: |
-          env LANG=C.UTF-8 CLASSPATH=$(build-classpath xerces-j2-xml-apis) JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
+          env CLASSPATH=$(build-classpath xerces-j2-xml-apis) \
             ant -Divy.mode=local build test coverage
+          echo '<html xmlns="http://www.w3.org/1999/xhtml">
+            <head><meta http-equiv="refresh" content="0; url=html/"/></head>
+            </html>' >target/doc/index.xhtml
+      - name: Deploy site
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: target/doc
+      - name: Commit to OBS
+        env:
+          OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
+        run: |
+          ant -v -noinput obs.commit
+      - name: Deploy package
+        if: startsWith(github.event.ref, 'refs/tags/v')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ant -v -noinput deploy
+
