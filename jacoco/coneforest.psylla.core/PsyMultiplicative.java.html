@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyMultiplicative.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyMultiplicative.java</span></div><h1>PsyMultiplicative.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code multiplicative}, a type of object that is an operand of
+*	multiplicative operation. This interface declares methods for multiplication, division.
+*
+*	@param &lt;T&gt; a type of the second operand at binary operation.
+*/
+@Type(&quot;multiplicative&quot;)
+public interface PsyMultiplicative&lt;T extends PsyMultiplicative&lt;T&gt;&gt;
+	extends PsyObject
+{
+	/**
+	*	Context action of the {@code div} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;div&quot;)
+<span class="fc" id="L20">	public static final ContextAction PSY_DIV</span>
+<span class="fc" id="L21">		=ContextAction.&lt;PsyMultiplicative, PsyMultiplicative&gt;ofBiFunction(PsyMultiplicative::psyDiv);</span>
+
+	/**
+	*	Context action of the {@code mul} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;mul&quot;)
+<span class="fc" id="L28">	public static final ContextAction PSY_MUL</span>
+<span class="fc" id="L29">		=ContextAction.&lt;PsyMultiplicative, PsyMultiplicative&gt;ofBiFunction(PsyMultiplicative::psyMul);</span>
+
+	/**
+	*	Context action of the {@code reciprocal} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;reciprocal&quot;)
+<span class="fc" id="L36">	public static final ContextAction PSY_RECIPROCAL</span>
+<span class="fc" id="L37">		=ContextAction.&lt;PsyMultiplicative&gt;ofFunction(PsyMultiplicative::psyReciprocal);</span>
+
+	/**
+	*	{@return the multiplicative inverse of this object}
+	*
+	*	@throws PsyUndefinedResultException if this object is zero.
+	*/
+	public T psyReciprocal()
+		throws PsyUndefinedResultException;
+
+	/**
+	*	{@return a result of arithmetic multiplication of this number by given object}
+	*
+	*	@param oMultiplicative a given number.
+	*/
+	public T psyMul(final T oMultiplicative);
+
+	/**
+	*	{@return a result of arithmetic division of this object by given object}
+	*
+	*	@param oMultiplicative a given object.
+	*	@throws PsyUndefinedResultException when the result of division is not defined.
+	*/
+	public T psyDiv(final T oMultiplicative)
+		throws PsyUndefinedResultException;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

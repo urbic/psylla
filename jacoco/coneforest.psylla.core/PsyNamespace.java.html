@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyNamespace.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyNamespace.java</span></div><h1>PsyNamespace.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.ArrayList;
+
+/**
+*	The representation of {@code namespace}, a named dictionary.
+*/
+@Type(&quot;namespace&quot;)
+public class PsyNamespace
+	extends PsyDict
+{
+	/**
+	*	The namespace prefix.
+	*/
+	private final String prefix;
+
+<span class="fc" id="L18">	private ArrayList&lt;PsyNamespace&gt; imports=new ArrayList&lt;&gt;();</span>
+
+	public PsyNamespace(final String prefix)
+<span class="fc" id="L21">	{</span>
+<span class="fc" id="L22">		this.prefix=prefix;</span>
+<span class="fc" id="L23">	}</span>
+
+	/**
+	*	{@return the namespace prefix}
+	*/
+	public String prefix()
+	{
+<span class="nc" id="L30">		return prefix;</span>
+	}
+
+	// TODO known()
+	@Override
+	public boolean known(final String key)
+	{
+		//System.out.println(&quot;namespace:known &quot;+prefix+&quot; &quot;+key);
+<span class="nc bnc" id="L38" title="All 2 branches missed.">		if(super.known(key))</span>
+		//if(dict.containsKey(key))
+<span class="nc" id="L40">			return true;</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">		for(final var oNamespace: imports)</span>
+		{
+<span class="nc bnc" id="L43" title="All 2 branches missed.">			if(oNamespace.known(key))</span>
+<span class="nc" id="L44">				return true;</span>
+<span class="nc" id="L45">		}</span>
+<span class="nc" id="L46">		return false;</span>
+	}
+
+	@Override
+	public PsyObject get(final String key)
+		throws PsyUndefinedException
+	{
+		//System.out.println(&quot;namespace:get &quot;+key);
+<span class="fc" id="L54">		final var agenda=new Stack&lt;PsyNamespace&gt;();</span>
+<span class="fc" id="L55">		agenda.push(this);</span>
+
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">		while(agenda.size()&gt;0)</span>
+		{
+<span class="fc" id="L59">			final var oNamespace=agenda.pop();</span>
+<span class="fc" id="L60">			final var o=oNamespace.dict.get(key);</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">			if(o!=null)</span>
+<span class="fc" id="L62">				return o;</span>
+
+<span class="nc bnc" id="L64" title="All 2 branches missed.">			for(int i=oNamespace.imports.size()-1; i&gt;=0; i--)</span>
+<span class="nc" id="L65">				agenda.push(oNamespace.imports.get(i));</span>
+<span class="nc" id="L66">		}</span>
+<span class="nc" id="L67">		throw new PsyUndefinedException();</span>
+	}
+
+	public void psyImport(final PsyNamespace oNamespace)
+	{
+<span class="nc" id="L72">		imports.add(0, oNamespace);</span>
+<span class="nc" id="L73">	}</span>
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="nc" id="L78">		return &quot;%namespace=&quot;+prefix+&quot;%&quot;;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

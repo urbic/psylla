@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyFileSystem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyFileSystem.java</span></div><h1>PsyFileSystem.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.io.IOError;
+import java.io.IOException;
+import java.nio.file.AccessDeniedException;
+import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.NotDirectoryException;
+import java.nio.file.NotLinkException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.attribute.PosixFilePermission;
+import java.util.HashSet;
+
+/**
+*	An utility class providing filesystem-related methods.
+*/
+@Type(&quot;filesystem&quot;)
+public interface PsyFileSystem
+{
+	/**
+	*	Context action of the {@code changefilepermissions} operator.
+	*/
+	@OperatorType(&quot;changefilepermissions&quot;)
+<span class="fc" id="L30">	public static final ContextAction PSY_CHANGEFILEPERMISSIONS</span>
+<span class="fc" id="L31">		=ContextAction.&lt;PsyString, PsyInteger&gt;ofBiConsumer(PsyFileSystem::psyChangeFilePermissions);</span>
+
+	/**
+	*	Context action of the {@code copyfile} operator.
+	*/
+	@OperatorType(&quot;copyfile&quot;)
+<span class="fc" id="L37">	public static final ContextAction PSY_COPYFILE</span>
+<span class="fc" id="L38">		=ContextAction.&lt;PsyString, PsyString&gt;ofBiConsumer(PsyFileSystem::psyCopyFile);</span>
+
+	/**
+	*	Context action of the {@code createdirectory} operator.
+	*/
+	@OperatorType(&quot;createdirectory&quot;)
+<span class="fc" id="L44">	public static final ContextAction PSY_CREATEDIRECTORY</span>
+<span class="fc" id="L45">		=ContextAction.&lt;PsyString&gt;ofConsumer(PsyFileSystem::psyCreateDirectory);</span>
+
+	/**
+	*	Context action of the {@code currentdirectory} operator.
+	*/
+	@OperatorType(&quot;currentdirectory&quot;)
+<span class="fc" id="L51">	public static final ContextAction PSY_CURRENTDIRECTORY</span>
+<span class="fc" id="L52">		=ContextAction.ofSupplier(PsyFileSystem::psyCurrentDirectory);</span>
+
+	/**
+	*	Context action of the {@code deletefile} operator.
+	*/
+	@OperatorType(&quot;deletefile&quot;)
+<span class="fc" id="L58">	public static final ContextAction PSY_DELETEFILE</span>
+<span class="fc" id="L59">		=ContextAction.&lt;PsyString&gt;ofConsumer(PsyFileSystem::psyDeleteFile);</span>
+
+	/**
+	*	Context action of the {@code fileaccesstime} operator.
+	*/
+	@OperatorType(&quot;fileaccesstime&quot;)
+<span class="fc" id="L65">	public static final ContextAction PSY_FILEACCESSTIME</span>
+<span class="fc" id="L66">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFileAccessTime);</span>
+
+	/**
+	*	Context action of the {@code fileabsolutepath} operator.
+	*/
+	@OperatorType(&quot;fileabsolutepath&quot;)
+<span class="fc" id="L72">	public static final ContextAction PSY_FILEABSOLUTEPATH</span>
+<span class="fc" id="L73">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFileAbsolutePath);</span>
+
+	/**
+	*	Context action of the {@code fileattribute} operator.
+	*/
+	@OperatorType(&quot;fileattribute&quot;)
+<span class="fc" id="L79">	public static final ContextAction PSY_FILEATTRIBUTE</span>
+<span class="fc" id="L80">		=ContextAction.&lt;PsyString, PsyString&gt;ofBiFunction(PsyFileSystem::psyFileAttribute);</span>
+
+	/**
+	*	Context action of the {@code filecreationtime} operator.
+	*/
+	@OperatorType(&quot;filecreationtime&quot;)
+<span class="fc" id="L86">	public static final ContextAction PSY_FILECREATIONTIME</span>
+<span class="fc" id="L87">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFileCreationTime);</span>
+
+	/**
+	*	Context action of the {@code fileexists} operator.
+	*/
+	@OperatorType(&quot;fileexists&quot;)
+<span class="fc" id="L93">	public static final ContextAction PSY_FILEEXISTS</span>
+<span class="fc" id="L94">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFileExists);</span>
+
+	/**
+	*	Context action of the {@code filemodifiedtime} operator.
+	*/
+	@OperatorType(&quot;filemodifiedtime&quot;)
+<span class="fc" id="L100">	public static final ContextAction PSY_FILEMODIFIEDTIME</span>
+<span class="fc" id="L101">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFileModifiedTime);</span>
+
+	/**
+	*	Context action of the {@code filepermissions} operator.
+	*/
+	@OperatorType(&quot;filepermissions&quot;)
+<span class="fc" id="L107">	public static final ContextAction PSY_FILEPERMISSIONS</span>
+<span class="fc" id="L108">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFilePermissions);</span>
+
+	/**
+	*	Context action of the {@code files} operator.
+	*/
+	@OperatorType(&quot;files&quot;)
+<span class="fc" id="L114">	public static final ContextAction PSY_FILES</span>
+<span class="fc" id="L115">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFiles);</span>
+
+	/**
+	*	Context action of the {@code filesize} operator.
+	*/
+	@OperatorType(&quot;filesize&quot;)
+<span class="fc" id="L121">	public static final ContextAction PSY_FILESIZE</span>
+<span class="fc" id="L122">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyFileSize);</span>
+
+	/**
+	*	Context action of the {@code hardlink} operator.
+	*/
+	@OperatorType(&quot;hardlink&quot;)
+<span class="fc" id="L128">	public static final ContextAction PSY_HARDLINK</span>
+<span class="fc" id="L129">		=ContextAction.&lt;PsyString, PsyString&gt;ofBiConsumer(PsyFileSystem::psyHardlink);</span>
+
+	/**
+	*	Context action of the {@code isdirectory} operator.
+	*/
+	@OperatorType(&quot;isdirectory&quot;)
+<span class="fc" id="L135">	public static final ContextAction PSY_ISDIRECTORY</span>
+<span class="fc" id="L136">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyIsDirectory);</span>
+
+	/**
+	*	Context action of the {@code isfile} operator.
+	*/
+	@OperatorType(&quot;isfile&quot;)
+<span class="fc" id="L142">	public static final ContextAction PSY_ISFILE</span>
+<span class="fc" id="L143">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyIsFile);</span>
+
+	/**
+	*	Context action of the {@code issamefile} operator.
+	*/
+	@OperatorType(&quot;issamefile&quot;)
+<span class="fc" id="L149">	public static final ContextAction PSY_ISSAMEFILE</span>
+<span class="fc" id="L150">		=ContextAction.&lt;PsyString, PsyString&gt;ofBiFunction(PsyFileSystem::psyIsSameFile);</span>
+
+	/**
+	*	Context action of the {@code issymlink} operator.
+	*/
+	@OperatorType(&quot;issymlink&quot;)
+<span class="fc" id="L156">	public static final ContextAction PSY_ISSYMLINK</span>
+<span class="fc" id="L157">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyIsSymlink);</span>
+
+	/**
+	*	Context action of the {@code readlink} operator.
+	*/
+	@OperatorType(&quot;readlink&quot;)
+<span class="fc" id="L163">	public static final ContextAction PSY_READLINK</span>
+<span class="fc" id="L164">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyFileSystem::psyReadLink);</span>
+
+	/**
+	*	Context action of the {@code renamefile} operator.
+	*/
+	@OperatorType(&quot;renamefile&quot;)
+<span class="fc" id="L170">	public static final ContextAction PSY_RENAMEFILE</span>
+<span class="fc" id="L171">		=ContextAction.&lt;PsyString, PsyString&gt;ofBiConsumer(PsyFileSystem::psyRenameFile);</span>
+
+	/**
+	*	Context action of the {@code symlink} operator.
+	*/
+	@OperatorType(&quot;symlink&quot;)
+<span class="fc" id="L177">	public static final ContextAction PSY_SYMLINK</span>
+<span class="fc" id="L178">		=ContextAction.&lt;PsyString, PsyString&gt;ofBiConsumer(PsyFileSystem::psySymlink);</span>
+
+	private static Path getPath(final PsyString oFileName)
+	{
+<span class="fc" id="L182">		return Paths.get(oFileName.stringValue());</span>
+	}
+
+	/**
+	*	Creates a new directory with the given name.
+	*
+	*	@param oFileName a {@code string} representing the name of the directory being created.
+	*	@throws PsyFileExistsException when the directory already exists.
+	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
+	*		permission or other access check.
+	*	@throws PsySecurityErrorException when security policy is violated.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psyCreateDirectory(final PsyString oFileName)
+		throws
+			PsyFileExistsException,
+			PsyFileAccessDeniedException,
+			PsySecurityErrorException,
+			PsyIOErrorException
+	{
+		try
+		{
+<span class="nc" id="L204">			Files.createDirectory(getPath(oFileName));</span>
+		}
+<span class="nc" id="L206">		catch(final FileAlreadyExistsException ex)</span>
+		{
+<span class="nc" id="L208">			throw new PsyFileExistsException(ex);</span>
+		}
+<span class="nc" id="L210">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L212">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L214">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L216">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L218">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L220">			throw new PsyIOErrorException(ex);</span>
+<span class="nc" id="L221">		}</span>
+<span class="nc" id="L222">	}</span>
+
+	/*
+	public static PsyString psyCreateTempFile(final PsyString oPrefix,
+			final PsyString oSuffix, PsyString oDirectory)
+		throws PsyIOErrorException, PsySecurityErrorException
+	{
+		try
+		{
+			Files.createTempFile()
+			//java.io.File file=java.io.File.createTempFile(oPrefix.stringValue(),
+			//		oSuffix.stringValue(), new java.io.File(oDirectory.stringValue()));
+			//return new PsyString(file.getPath());
+		}
+		catch(final SecurityException ex)
+		{
+			throw new PsySecurityErrorException();
+		}
+		catch(final IOException ex)
+		{
+			throw new PsyIOErrorException();
+		}
+	}
+	*/
+
+	/**
+	*	Deletes a file or empty directory with a given name.
+	*
+	*	@param oFileName a {@code string} representing the name of a file or directory.
+	*	@throws PsyDirectoryNotEmptyException when the directory is not empty.
+	*	@throws PsyFileNotFoundException when the file or directory does not exist.
+	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
+	*		permission or other access check.
+	*	@throws PsySecurityErrorException when security policy is violated.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psyDeleteFile(final PsyString oFileName)
+		throws
+			PsyFileNotFoundException,
+			PsyFileAccessDeniedException,
+			PsyDirectoryNotEmptyException,
+			PsySecurityErrorException,
+			PsyIOErrorException
+	{
+		try
+		{
+<span class="nc" id="L268">			Files.delete(getPath(oFileName));</span>
+		}
+<span class="nc" id="L270">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L272">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L274">		catch(final DirectoryNotEmptyException ex)</span>
+		{
+<span class="nc" id="L276">			throw new PsyDirectoryNotEmptyException(ex);</span>
+		}
+<span class="nc" id="L278">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L280">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L282">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L284">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L286">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L288">			throw new PsyIOErrorException(ex);</span>
+<span class="nc" id="L289">		}</span>
+<span class="nc" id="L290">	}</span>
+
+	/**
+	*	Copies a file to the target file.
+	*
+	*	@param oSourceName a {@code string} name of the file to copy.
+	*	@param oTargetName a {@code string} name of the target file.
+	*	@throws PsyDirectoryNotEmptyException TODO
+	*	@throws PsyFileExistsException TODO
+	*	@throws PsyFileNotFoundException when the file or directory does not exist.
+	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
+	*		permission or other access check.
+	*	@throws PsySecurityErrorException when security policy is violated.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*	@throws PsyUnsupportedException TODO
+	*/
+	public static void psyCopyFile(final PsyString oSourceName, final PsyString oTargetName)
+		throws
+			PsyDirectoryNotEmptyException,
+			PsyFileAccessDeniedException,
+			PsyFileExistsException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException,
+			PsyUnsupportedException
+	{
+		try
+		{
+<span class="nc" id="L318">			Files.copy(getPath(oSourceName), getPath(oTargetName));</span>
+		}
+<span class="nc" id="L320">		catch(final UnsupportedOperationException ex)</span>
+		{
+<span class="nc" id="L322">			throw new PsyUnsupportedException(ex);</span>
+		}
+<span class="nc" id="L324">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L326">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L328">		catch(final DirectoryNotEmptyException ex)</span>
+		{
+<span class="nc" id="L330">			throw new PsyDirectoryNotEmptyException(ex);</span>
+		}
+<span class="nc" id="L332">		catch(final FileAlreadyExistsException ex)</span>
+		{
+<span class="nc" id="L334">			throw new PsyFileExistsException(ex);</span>
+		}
+<span class="nc" id="L336">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L338">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L340">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L342">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L344">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L346">			throw new PsyIOErrorException(ex);</span>
+<span class="nc" id="L347">		}</span>
+<span class="nc" id="L348">	}</span>
+
+	/**
+	*	{@return the target of a symbolic link}
+	*
+	*	@param oFileName the name of the target file.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyString psyReadLink(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsyNotLinkException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="fc" id="L366">			return new PsyString(Files.readSymbolicLink(getPath(oFileName)).toString());</span>
+		}
+<span class="fc" id="L368">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="fc" id="L370">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="fc" id="L372">		catch(final NotLinkException ex)</span>
+		{
+<span class="fc" id="L374">			throw new PsyNotLinkException(ex);</span>
+		}
+<span class="nc" id="L376">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L378">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L380">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L382">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L384">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L386">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	Creates a symbolic link to a target.
+	*
+	*	@param oTarget the target of the symbolic link.
+	*	@param oLink the path of the symbolic link to create.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psySymlink(final PsyString oTarget, final PsyString oLink)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileExistsException,
+			PsyIOErrorException,
+			PsySecurityErrorException,
+			PsyUnsupportedException
+	{
+		try
+		{
+<span class="nc" id="L407">			Files.createSymbolicLink(getPath(oLink), getPath(oTarget));</span>
+		}
+<span class="nc" id="L409">		catch(final UnsupportedOperationException ex)</span>
+		{
+<span class="nc" id="L411">			throw new PsyUnsupportedException(ex);</span>
+		}
+<span class="nc" id="L413">		catch(final FileAlreadyExistsException ex)</span>
+		{
+<span class="nc" id="L415">			throw new PsyFileExistsException(ex);</span>
+		}
+<span class="nc" id="L417">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L419">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L421">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L423">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L425">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L427">			throw new PsyIOErrorException(ex);</span>
+<span class="nc" id="L428">		}</span>
+<span class="nc" id="L429">	}</span>
+
+	/**
+	*	Creates a new link (directory entry) for an existing file.
+	*
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psyHardlink(final PsyString oExisting, final PsyString oLink)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileExistsException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException,
+			PsyUnsupportedException
+	{
+		try
+		{
+<span class="nc" id="L447">			Files.createLink(getPath(oLink), getPath(oExisting));</span>
+		}
+<span class="nc" id="L449">		catch(final UnsupportedOperationException ex)</span>
+		{
+<span class="nc" id="L451">			throw new PsyUnsupportedException(ex);</span>
+		}
+<span class="nc" id="L453">		catch(final FileAlreadyExistsException ex)</span>
+		{
+<span class="nc" id="L455">			throw new PsyFileExistsException(ex);</span>
+		}
+<span class="fc" id="L457">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="fc" id="L459">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L461">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L463">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L465">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L467">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L469">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L471">			throw new PsyIOErrorException(ex);</span>
+<span class="nc" id="L472">		}</span>
+<span class="nc" id="L473">	}</span>
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psyRenameFile(final PsyString oFileName1, final PsyString oFileName2)
+		throws
+			PsyDirectoryNotEmptyException,
+			PsyFileAccessDeniedException,
+			PsyFileExistsException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="nc" id="L489">			Files.move(getPath(oFileName1), getPath(oFileName2));</span>
+		}
+<span class="fc" id="L491">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="fc" id="L493">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L495">		catch(final FileAlreadyExistsException ex)</span>
+		{
+<span class="nc" id="L497">			throw new PsyFileExistsException(ex);</span>
+		}
+<span class="nc" id="L499">		catch(final DirectoryNotEmptyException ex)</span>
+		{
+<span class="nc" id="L501">			throw new PsyDirectoryNotEmptyException(ex);</span>
+		}
+<span class="nc" id="L503">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L505">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L507">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L509">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L511">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L513">			throw new PsyIOErrorException(ex);</span>
+<span class="nc" id="L514">		}</span>
+<span class="nc" id="L515">	}</span>
+
+	public static PsyBoolean psyFileExists(final PsyString oFileName)
+		throws PsySecurityErrorException
+	{
+		try
+		{
+<span class="fc" id="L522">			return PsyBoolean.of(Files.exists(getPath(oFileName)));</span>
+		}
+<span class="nc" id="L524">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L526">			throw new PsySecurityErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyBoolean psyIsFile(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="fc" id="L542">			return PsyBoolean.of(Files.readAttributes(getPath(oFileName),</span>
+					BasicFileAttributes.class,
+<span class="fc" id="L544">					LinkOption.NOFOLLOW_LINKS).isRegularFile());</span>
+		}
+<span class="fc" id="L546">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="fc" id="L548">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L550">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L552">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L554">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L556">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L558">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L560">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyBoolean psyIsDirectory(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="fc" id="L576">			return PsyBoolean.of(Files.readAttributes(getPath(oFileName),</span>
+					BasicFileAttributes.class,
+<span class="fc" id="L578">					LinkOption.NOFOLLOW_LINKS).isDirectory());</span>
+		}
+<span class="fc" id="L580">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="fc" id="L582">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L584">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L586">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L588">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L590">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L592">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L594">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyBoolean psyIsSameFile(final PsyString oFileName1, final PsyString oFileName2)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="nc" id="L610">			return PsyBoolean.of(Files.isSameFile(</span>
+<span class="nc" id="L611">					getPath(oFileName1), getPath(oFileName2)));</span>
+		}
+<span class="nc" id="L613">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L615">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L617">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L619">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L621">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L623">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L625">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L627">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyBoolean psyIsSymlink(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="nc" id="L643">			return PsyBoolean.of(Files.readAttributes(getPath(oFileName),</span>
+					BasicFileAttributes.class,
+<span class="nc" id="L645">					LinkOption.NOFOLLOW_LINKS).isSymbolicLink());</span>
+		}
+<span class="nc" id="L647">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L649">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L651">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L653">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L655">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L657">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L659">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L661">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	{@return the {@code integer} representing the size (in bytes) for the file or directory with
+	*		the given name}
+	*
+	*	@param oFileName a {@code string} representing the file name.
+	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file permission or
+	*		other access check.
+	*	@throws PsyFileNotFoundException when the file or directory does not exist.
+	*	@throws PsySecurityErrorException when security policy is violated.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyInteger psyFileSize(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="fc" id="L685">			return PsyInteger.of(Files.size(getPath(oFileName)));</span>
+		}
+<span class="fc" id="L687">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="fc" id="L689">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L691">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L693">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L695">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L697">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L699">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L701">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyInteger psyFileAccessTime(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="nc" id="L717">			return PsyInteger.of(Files.readAttributes(getPath(oFileName),</span>
+<span class="nc" id="L718">					BasicFileAttributes.class).lastAccessTime().toMillis());</span>
+		}
+<span class="nc" id="L720">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L722">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L724">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L726">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L728">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L730">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L732">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L734">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyInteger psyFileCreationTime(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="nc" id="L750">			return PsyInteger.of(Files.readAttributes(getPath(oFileName),</span>
+<span class="nc" id="L751">					BasicFileAttributes.class).creationTime().toMillis());</span>
+		}
+<span class="nc" id="L753">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L755">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L757">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L759">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L761">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L763">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L765">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L767">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyInteger psyFileModifiedTime(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="nc" id="L783">			return PsyInteger.of(Files.readAttributes(getPath(oFileName),</span>
+<span class="nc" id="L784">					BasicFileAttributes.class).lastModifiedTime().toMillis());</span>
+		}
+<span class="nc" id="L786">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L788">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L790">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L792">			throw new PsySecurityErrorException(ex);</span>
+		}
+<span class="nc" id="L794">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L796">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L798">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L800">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	{@return a {@code string} representing the absolute name of the current directory}
+	*/
+	public static PsyString psyCurrentDirectory()
+	{
+<span class="nc" id="L809">		return new PsyString(Paths.get(&quot;&quot;).toAbsolutePath().toString());</span>
+	}
+
+	/**
+	*	{@return a {@code string} representing the absolute path to given file}
+	*
+	*	@param oFileName a {@code string} representing file name.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyString psyFileAbsolutePath(final PsyString oFileName)
+		throws PsyIOErrorException
+	{
+		try
+		{
+<span class="fc" id="L823">			return new PsyString(Paths.get(oFileName.stringValue()).toAbsolutePath().toString());</span>
+		}
+<span class="nc" id="L825">		catch(final IOError ex)</span>
+		{
+<span class="nc" id="L827">			throw new PsyIOErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyInteger psyFilePermissions(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="fc" id="L843">			final var permSet=Files.getPosixFilePermissions(getPath(oFileName));</span>
+<span class="fc" id="L844">			long permissions=0L;</span>
+<span class="fc bfc" id="L845" title="All 2 branches covered.">			for(final var p: permSet)</span>
+<span class="fc" id="L846">				permissions|=256L&gt;&gt;p.ordinal();</span>
+<span class="fc" id="L847">			return PsyInteger.of(permissions);</span>
+		}
+<span class="fc" id="L849">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="fc" id="L851">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L853">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L855">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L857">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L859">			throw new PsyIOErrorException(ex);</span>
+		}
+<span class="nc" id="L861">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L863">			throw new PsySecurityErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psyChangeFilePermissions(final PsyString oFileName, final PsyInteger oPermissions)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException
+	{
+		try
+		{
+<span class="nc" id="L879">			final var permissions=oPermissions.longValue();</span>
+<span class="nc" id="L880">			final var permSet=new HashSet&lt;PosixFilePermission&gt;();</span>
+<span class="nc" id="L881">			final var permValues=PosixFilePermission.values();</span>
+<span class="nc bnc" id="L882" title="All 2 branches missed.">			for(int i=0; i&lt;=8; i++)</span>
+<span class="nc bnc" id="L883" title="All 2 branches missed.">				if((permissions&amp;(256L&gt;&gt;i))!=0L)</span>
+<span class="nc" id="L884">					permSet.add(permValues[i]);</span>
+<span class="nc" id="L885">			Files.setPosixFilePermissions(getPath(oFileName), permSet);</span>
+
+		}
+<span class="nc" id="L888">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L890">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L892">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L894">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L896">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L898">			throw new PsyIOErrorException(ex);</span>
+		}
+<span class="nc" id="L900">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L902">			throw new PsySecurityErrorException(ex);</span>
+<span class="nc" id="L903">		}</span>
+<span class="nc" id="L904">	}</span>
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyObject psyFileAttribute(final PsyString oFileName, final PsyString oAttribute)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException,
+			PsyTypeCheckException,
+			PsyUndefinedException,
+			PsyUnsupportedException
+	{
+		try
+		{
+<span class="nc" id="L921">			return toPsyTObject(Files.getAttribute(getPath(oFileName),</span>
+<span class="nc" id="L922">					oAttribute.stringValue(), LinkOption.NOFOLLOW_LINKS));</span>
+		}
+<span class="nc" id="L924">		catch(final ClassCastException ex)</span>
+		{
+<span class="nc" id="L926">			throw new PsyTypeCheckException(ex);</span>
+		}
+<span class="nc" id="L928">		catch(final UnsupportedOperationException ex)</span>
+		{
+<span class="nc" id="L930">			throw new PsyUnsupportedException(ex);</span>
+		}
+<span class="nc" id="L932">		catch(final IllegalArgumentException ex)</span>
+		{
+<span class="nc" id="L934">			throw new PsyUndefinedException(ex);</span>
+		}
+<span class="nc" id="L936">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L938">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L940">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L942">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L944">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L946">			throw new PsyIOErrorException(ex);</span>
+		}
+<span class="nc" id="L948">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L950">			throw new PsySecurityErrorException(ex);</span>
+		}
+	}
+
+	/**
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static void psyChangeFileAttribute(final PsyString oFileName, final PsyString oAttribute, final PsyString oValue)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsySecurityErrorException,
+			PsyTypeCheckException,
+			PsyUndefinedException,
+			PsyUnsupportedException
+	{
+		try
+		{
+<span class="nc" id="L969">			Files.setAttribute(getPath(oFileName),</span>
+<span class="nc" id="L970">					oAttribute.stringValue(), fromPsyTObject(oValue),</span>
+					LinkOption.NOFOLLOW_LINKS);
+		}
+<span class="nc" id="L973">		catch(final ClassCastException ex)</span>
+		{
+<span class="nc" id="L975">			throw new PsyTypeCheckException(ex);</span>
+		}
+<span class="nc" id="L977">		catch(final UnsupportedOperationException ex)</span>
+		{
+<span class="nc" id="L979">			throw new PsyUnsupportedException(ex);</span>
+		}
+<span class="nc" id="L981">		catch(final IllegalArgumentException ex)</span>
+		{
+<span class="nc" id="L983">			throw new PsyUndefinedException(ex);</span>
+		}
+<span class="nc" id="L985">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L987">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L989">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L991">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L993">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L995">			throw new PsyIOErrorException(ex);</span>
+		}
+<span class="nc" id="L997">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L999">			throw new PsySecurityErrorException(ex);</span>
+<span class="nc" id="L1000">		}</span>
+<span class="nc" id="L1001">	}</span>
+
+	/**
+	*	{@return a lazily populated stream, the elements of which are the entries in the directory}
+	*	The listing is not recursive.}
+	*
+	*	@param oFileName the name of the directory.
+	*	@throws PsyIOErrorException when an I/O error occurs.
+	*/
+	public static PsyFormalStream&lt;PsyString&gt; psyFiles(final PsyString oFileName)
+		throws
+			PsyFileAccessDeniedException,
+			PsyFileNotFoundException,
+			PsyIOErrorException,
+			PsyNotDirectoryException,
+			PsySecurityErrorException
+	{
+		try
+		{
+			//return new PsyStream(Files.list(getPath(oFileName)).&lt;PsyString&gt;map(
+			//	(final var path)-&gt;new PsyString(path.toString())));
+<span class="fc" id="L1022">			return PsyFormalStream.&lt;PsyString&gt;of(</span>
+<span class="fc" id="L1023">					Files.list(getPath(oFileName)).&lt;PsyString&gt;map(</span>
+<span class="fc" id="L1024">							(final var path)-&gt;new PsyString(path.toString())));</span>
+		}
+<span class="nc" id="L1026">		catch(final NoSuchFileException ex)</span>
+		{
+<span class="nc" id="L1028">			throw new PsyFileNotFoundException(ex);</span>
+		}
+<span class="nc" id="L1030">		catch(final NotDirectoryException ex)</span>
+		{
+<span class="nc" id="L1032">			throw new PsyNotDirectoryException(ex);</span>
+		}
+<span class="nc" id="L1034">		catch(final AccessDeniedException ex)</span>
+		{
+<span class="nc" id="L1036">			throw new PsyFileAccessDeniedException(ex);</span>
+		}
+<span class="nc" id="L1038">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L1040">			throw new PsyIOErrorException(ex);</span>
+		}
+<span class="nc" id="L1042">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L1044">			throw new PsySecurityErrorException(ex);</span>
+		}
+	}
+
+	private static PsyObject toPsyTObject(final Object obj)
+	{
+<span class="nc bnc" id="L1050" title="All 5 branches missed.">		return switch(obj)</span>
+			{
+<span class="nc" id="L1052">				case String stringobj-&gt;new PsyString(stringobj);</span>
+<span class="nc" id="L1053">				case Integer integerobj-&gt;PsyInteger.of(integerobj.longValue());</span>
+<span class="nc" id="L1054">				case Long longobj-&gt;PsyInteger.of(longobj.longValue());</span>
+<span class="nc" id="L1055">				case Boolean booleanobj-&gt;PsyBoolean.of(booleanobj);</span>
+<span class="nc" id="L1056">				default-&gt;throw new ClassCastException();</span>
+			};
+	}
+
+	private static Object fromPsyTObject(final PsyObject o)
+	{
+<span class="nc bnc" id="L1062" title="All 4 branches missed.">		return switch(o)</span>
+			{
+<span class="nc" id="L1064">				case PsyString oName-&gt;oName.stringValue();</span>
+<span class="nc" id="L1065">				case PsyInteger oInteger-&gt;oInteger.longValue();</span>
+<span class="nc" id="L1066">				case PsyBoolean oBoolean-&gt;oBoolean.booleanValue();</span>
+<span class="nc" id="L1067">				default-&gt;throw new ClassCastException();</span>
+			};
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

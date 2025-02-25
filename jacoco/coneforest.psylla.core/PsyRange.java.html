@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyRange.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyRange.java</span></div><h1>PsyRange.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.Iterator;
+import java.util.Spliterators;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
+/**
+*	The representation of {@code range}.
+*/
+@Type(&quot;range&quot;)
+public class PsyRange
+	implements PsyFormalStream&lt;PsyRealNumeric&gt;
+{
+
+	/**
+	*	Context action of the {@code range} operator.
+	*/
+	@OperatorType(&quot;range&quot;)
+<span class="fc" id="L21">	public static final ContextAction PSY_RANGE</span>
+<span class="fc" id="L22">		=ContextAction.&lt;PsyRealNumeric, PsyRealNumeric, PsyRealNumeric&gt;ofTriFunction(PsyRange::new);</span>
+
+	private final PsyRealNumeric oInitial, oIncrement, oLimit;
+
+	public PsyRange(final PsyRealNumeric oInitial,
+			final PsyRealNumeric oIncrement,
+			final PsyRealNumeric oLimit)
+<span class="fc" id="L29">	{</span>
+<span class="fc" id="L30">		this.oInitial=oInitial;</span>
+<span class="fc" id="L31">		this.oIncrement=oIncrement;</span>
+<span class="fc" id="L32">		this.oLimit=oLimit;</span>
+<span class="fc" id="L33">	}</span>
+
+	@Override
+	public Stream&lt;PsyRealNumeric&gt; stream()
+	{
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		final boolean forward=oIncrement.compareTo(PsyInteger.ZERO)&gt;0;</span>
+<span class="fc" id="L39">		return StreamSupport.&lt;PsyRealNumeric&gt;stream(</span>
+<span class="fc" id="L40">				Spliterators.&lt;PsyRealNumeric&gt;spliteratorUnknownSize(</span>
+					new Iterator&lt;PsyRealNumeric&gt;()
+<span class="fc" id="L42">						{</span>
+							private PsyRealNumeric oCurrent;
+<span class="fc" id="L44">							private PsyRealNumeric oNext=oInitial;</span>
+
+							@Override
+							public boolean hasNext()
+							{
+<span class="fc bfc" id="L49" title="All 2 branches covered.">								return forward?</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">										oNext.compareTo(oLimit)&lt;=0:</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">										oNext.compareTo(oLimit)&gt;=0;</span>
+							}
+
+							@Override
+							public PsyRealNumeric next()
+							{
+<span class="fc" id="L57">								oCurrent=oNext;</span>
+<span class="fc" id="L58">								oNext=oCurrent.psyAdd(oIncrement);</span>
+<span class="fc" id="L59">								return oCurrent;</span>
+							}
+						}, 0),
+					false);
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L68">		return '%'+typeName()</span>
+<span class="fc" id="L69">			+'='+oInitial.toSyntaxString()</span>
+<span class="fc" id="L70">			+';'+oIncrement.toSyntaxString()</span>
+<span class="fc" id="L71">			+';'+oLimit.toSyntaxString()</span>
+			+'%';
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

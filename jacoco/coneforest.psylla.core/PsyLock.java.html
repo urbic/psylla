@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyLock.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyLock.java</span></div><h1>PsyLock.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+*	The representation of {@code lock}.
+*/
+@Type(&quot;lock&quot;)
+public class PsyLock
+	implements PsyObject
+{
+	/**
+	*	Context action of the {@code condition} operator.
+	*/
+	@OperatorType(&quot;condition&quot;)
+<span class="fc" id="L17">	public static final ContextAction PSY_CONDITION</span>
+<span class="fc" id="L18">		=ContextAction.&lt;PsyLock&gt;ofFunction(PsyLock::psyCondition);</span>
+
+	/**
+	*	Context action of the {@code lock} operator.
+	*/
+	@OperatorType(&quot;lock&quot;)
+<span class="fc" id="L24">	public static final ContextAction PSY_LOCK</span>
+<span class="fc" id="L25">		=ContextAction.ofSupplier(PsyLock::new);</span>
+
+<span class="nc" id="L27">	private final ReentrantLock lock=new ReentrantLock();</span>
+
+	public PsyLock()
+<span class="nc" id="L30">	{</span>
+<span class="nc" id="L31">	}</span>
+
+	/**
+	*	Acquires the lock.
+	*/
+	public void lock()
+	{
+<span class="nc" id="L38">		lock.lock();</span>
+<span class="nc" id="L39">	}</span>
+
+	/**
+	*	Releases the lock.
+	*/
+	public void unlock()
+	{
+<span class="nc" id="L46">		lock.unlock();</span>
+<span class="nc" id="L47">	}</span>
+
+	/**
+	*	Queries if this lock is held by the current thread.
+	*
+	*	@return {@code true} if current context holds this lock and {@code
+	*	false} otherwise.
+	*/
+	public boolean isHeldByCurrentThread()
+	{
+<span class="nc" id="L57">		return lock.isHeldByCurrentThread();</span>
+	}
+
+	/**
+	*	{@return a {@code condition} object for use with this lock}
+	*/
+	public PsyCondition psyCondition()
+	{
+<span class="nc" id="L65">		return new PsyCondition(lock.newCondition());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

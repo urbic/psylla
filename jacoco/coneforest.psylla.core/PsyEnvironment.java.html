@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyEnvironment.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyEnvironment.java</span></div><h1>PsyEnvironment.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import java.util.Iterator;
+import java.util.Map;
+import java.util.stream.Stream;
+
+public class PsyEnvironment
+	implements PsyFormalDict&lt;PsyString&gt;
+{
+	private Map&lt;String, String&gt; env;
+
+	public PsyEnvironment(final Map&lt;String, String&gt; env)
+<span class="fc" id="L13">	{</span>
+<span class="fc" id="L14">		this.env=env;</span>
+<span class="fc" id="L15">	}</span>
+
+	private PsyEnvironment()
+	{
+	}
+
+	@Override
+	public PsyEnvironment psySlice(final PsyIterable&lt;PsyString&gt; oKeys) // TODO
+		throws PsyUndefinedException
+	{
+<span class="nc" id="L25">		final var oEnvironment=new PsyEnvironment();</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">		for(final var oKey: oKeys)</span>
+<span class="nc" id="L27">			oEnvironment.psyPut(oKey, psyGet(oKey));</span>
+<span class="nc" id="L28">		return oEnvironment;</span>
+	}
+
+	//@Override
+	public Stream&lt;String&gt; keys()
+	{
+<span class="nc" id="L34">		return env.keySet().stream();</span>
+	}
+
+	@Override
+	public boolean known(final String key)
+	{
+<span class="nc" id="L40">		return env.containsKey(key);</span>
+	}
+
+	@Override
+	public PsyString get(final String key)
+		throws PsyUndefinedException
+	{
+<span class="nc" id="L47">		final var value=env.get(key);</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">		if(value!=null)</span>
+<span class="nc" id="L49">			return new PsyString(env.get(key));</span>
+<span class="nc" id="L50">		throw new PsyUndefinedException();</span>
+	}
+
+	@Override
+	public void put(final String key, final PsyString oName)
+	{
+<span class="nc" id="L56">		env.put(key, oName.stringValue());</span>
+<span class="nc" id="L57">	}</span>
+
+	@Override
+	public void undef(final String key)
+	{
+<span class="nc" id="L62">		env.remove(key);</span>
+<span class="nc" id="L63">	}</span>
+
+	@Override
+	public int length()
+	{
+<span class="nc" id="L68">		return env.size();</span>
+	}
+
+	@Override
+	public Iterator&lt;PsyString&gt; iterator()
+	{
+<span class="nc" id="L74">		return new Iterator&lt;PsyString&gt;()</span>
+<span class="nc" id="L75">			{</span>
+<span class="nc" id="L76">				private final Iterator&lt;String&gt; envIterator=env.values().iterator();</span>
+
+				@Override
+				public boolean hasNext()
+				{
+<span class="nc" id="L81">					return envIterator.hasNext();</span>
+				}
+
+				@Override
+				public PsyString next()
+				{
+<span class="nc" id="L87">					return new PsyString(envIterator.next());</span>
+				}
+			};
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

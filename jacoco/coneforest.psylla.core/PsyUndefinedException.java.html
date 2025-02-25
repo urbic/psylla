@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyUndefinedException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyUndefinedException.java</span></div><h1>PsyUndefinedException.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of the {@code undefined} error thrown by the operator accessing the
+*	dictionary by the absent key or by the interpreter failing to resolve the command name against
+*	the dictionary stack.
+*/
+@SuppressWarnings(&quot;serial&quot;)
+@ErrorType(&quot;undefined&quot;)
+public class PsyUndefinedException
+	extends PsyErrorException
+{
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyUndefinedException()
+<span class="fc" id="L19">	{</span>
+<span class="fc" id="L20">	}</span>
+
+	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
+	*/
+	public PsyUndefinedException(final Throwable cause)
+	{
+<span class="nc" id="L29">		super(cause);</span>
+<span class="nc" id="L30">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

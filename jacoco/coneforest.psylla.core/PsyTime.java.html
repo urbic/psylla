@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyTime.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyTime.java</span></div><h1>PsyTime.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+/**
+*	An utility class providing time-related methods.
+*/
+public interface PsyTime
+{
+	/**
+	*	Context action of the {@code time} operator.
+	*/
+	@OperatorType(&quot;time&quot;)
+<span class="fc" id="L16">	public static final ContextAction PSY_TIME</span>
+<span class="fc" id="L17">		=ContextAction.ofSupplier(PsyTime::psyTime);</span>
+
+	/**
+	*	Context action of the {@code calendar} operator.
+	*/
+	@OperatorType(&quot;calendar&quot;)
+<span class="fc" id="L23">	public static final ContextAction PSY_CALENDAR</span>
+<span class="fc" id="L24">		=ContextAction.ofFunction(PsyTime::psyCalendar);</span>
+
+	/**
+	*	An array consisting of the name of the calendar fields.
+	*/
+<span class="fc" id="L29">	public static final List&lt;String&gt; CALENDAR_FIELDS=List.of(</span>
+			&quot;era&quot;,
+			&quot;year&quot;,
+			&quot;month&quot;,
+			&quot;weekofyear&quot;,
+			&quot;weekofmonth&quot;,
+			&quot;dayofmonth&quot;,
+			&quot;dayofyear&quot;,
+			&quot;dayofweek&quot;,
+			&quot;dayofweekinmonth&quot;,
+			&quot;ampm&quot;,
+			&quot;hour&quot;,
+			&quot;hourofday&quot;,
+			&quot;minute&quot;,
+			&quot;second&quot;,
+			&quot;millisecond&quot;,
+			&quot;zoneoffset&quot;,
+			&quot;dstoffset&quot;);
+
+	/**
+	*	{@return an {@code integer} object representing the current time (in
+	*	milliseconds since 1970.01.01 00:00:00 GMT)}
+	*/
+	public static PsyInteger psyTime()
+	{
+<span class="fc" id="L54">		return PsyInteger.of(System.currentTimeMillis());</span>
+	}
+
+	public static PsyDict psyCalendar(final PsyInteger oTime)
+	{
+<span class="nc" id="L59">		final var calendar=new GregorianCalendar();</span>
+<span class="nc" id="L60">		calendar.setTimeInMillis(oTime.longValue());</span>
+
+<span class="nc" id="L62">		final var oCalendar=new PsyDict();</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">		for(int i=0; i&lt;CALENDAR_FIELDS.size(); i++)</span>
+<span class="nc" id="L64">			oCalendar.put(CALENDAR_FIELDS.get(i), PsyInteger.of(calendar.get(i)));</span>
+
+		// oCalendar.put(&quot;leapyear&quot;, PsyBoolean.of(calendar.isLeapYear(calendar.get(Calendar.YEAR))));
+
+<span class="nc" id="L68">		return oCalendar;</span>
+	}
+
+	public static PsyInteger psyCalendarTime(final PsyFormalDict&lt;PsyObject&gt; oCalendar)
+		throws PsyUndefinedException
+	{
+<span class="nc" id="L74">		final var calendar=new GregorianCalendar();</span>
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		for(int i=0; i&lt;CALENDAR_FIELDS.size(); i++)</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">			if(oCalendar.known(CALENDAR_FIELDS.get(i)))</span>
+<span class="nc" id="L77">				calendar.set(i, ((PsyInteger)oCalendar.get(CALENDAR_FIELDS.get(i))).intValue());</span>
+
+<span class="nc" id="L79">		return PsyInteger.of(calendar.getTimeInMillis());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

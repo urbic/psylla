@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyIndexed.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyIndexed.java</span></div><h1>PsyIndexed.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.stream.Stream;
+
+/**
+*	The representation of {@code indexed}, a type of the container whose elements are indexed.
+*
+*	@param &lt;K&gt; a type of keys or indices.
+*	@param &lt;V&gt; a type of elements.
+*/
+@Type(&quot;indexed&quot;)
+public interface PsyIndexed&lt;K extends PsyObject, V extends PsyObject&gt;
+	extends PsyObject
+{
+	/**
+	*	Context action of the {@code delete} operator.
+	*/
+	@SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
+	@OperatorType(&quot;delete&quot;)
+<span class="fc" id="L23">	public static final ContextAction PSY_DELETE</span>
+<span class="fc" id="L24">		=ContextAction.&lt;PsyIndexed, PsyObject&gt;ofBiConsumer(PsyIndexed::psyDelete);</span>
+
+	/**
+	*	Context action of the {@code entries} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;entries&quot;)
+<span class="fc" id="L31">	public static final ContextAction PSY_ENTRIES</span>
+<span class="fc" id="L32">		=ContextAction.&lt;PsyIndexed&gt;ofFunction(PsyIndexed::psyEntries);</span>
+
+	/**
+	*	Context action of the {@code extract} operator.
+	*/
+	@SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
+	@OperatorType(&quot;extract&quot;)
+<span class="fc" id="L39">	public static final ContextAction PSY_EXTRACT</span>
+<span class="fc" id="L40">		=ContextAction.&lt;PsyIndexed, PsyObject&gt;ofBiFunction(PsyIndexed::psyExtract);</span>
+
+	/**
+	*	Context action of the {@code get} operator.
+	*/
+	@SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
+	@OperatorType(&quot;get&quot;)
+<span class="fc" id="L47">	public static final ContextAction PSY_GET</span>
+<span class="fc" id="L48">		=ContextAction.&lt;PsyIndexed, PsyObject&gt;ofBiFunction(PsyIndexed::psyGet);</span>
+
+	/**
+	*	Context action of the {@code getall} operator.
+	*/
+	@SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
+	@OperatorType(&quot;getall&quot;)
+<span class="fc" id="L55">	public static final ContextAction PSY_GETALL</span>
+<span class="fc" id="L56">		=ContextAction.&lt;PsyIndexed, PsyIterable&gt;ofBiFunction(PsyIndexed::psyGetAll);</span>
+
+	/**
+	*	Context action of the {@code keys} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;keys&quot;)
+<span class="fc" id="L63">	public static final ContextAction PSY_KEYS</span>
+<span class="fc" id="L64">		=ContextAction.&lt;PsyIndexed&gt;ofFunction(PsyIndexed::psyKeys);</span>
+
+	/**
+	*	Context action of the {@code known} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;known&quot;)
+<span class="fc" id="L71">	public static final ContextAction PSY_KNOWN</span>
+<span class="fc" id="L72">		=ContextAction.&lt;PsyIndexed, PsyObject&gt;ofBiFunction(PsyIndexed::psyKnown);</span>
+
+	/**
+	*	Context action of the {@code put} operator.
+	*/
+	@SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
+	@OperatorType(&quot;put&quot;)
+<span class="fc" id="L79">	public static final ContextAction PSY_PUT</span>
+<span class="fc" id="L80">		=ContextAction.&lt;PsyIndexed, PsyObject, PsyObject&gt;ofTriConsumer(PsyIndexed::psyPut);</span>
+
+	/**
+	*	Context action of the {@code slice} operator.
+	*/
+	@SuppressWarnings({&quot;rawtypes&quot;, &quot;unchecked&quot;})
+	@OperatorType(&quot;slice&quot;)
+<span class="fc" id="L87">	public static final ContextAction PSY_SLICE</span>
+<span class="fc" id="L88">		=ContextAction.&lt;PsyIndexed, PsyIterable&gt;ofBiFunction(PsyIndexed::psySlice);</span>
+
+	/**
+	*	Context action of the {@code values} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;values&quot;)
+<span class="fc" id="L95">	public static final ContextAction PSY_VALUES</span>
+<span class="fc" id="L96">		=ContextAction.&lt;PsyIndexed&gt;ofFunction(PsyIndexed::psyValues);</span>
+
+	/**
+	*	{@return a {@code boolean} indicating whether given key or index exists in this object}
+	*
+	*	@param oKey a key or an index.
+	*/
+	public PsyBoolean psyKnown(final K oKey);
+
+	/**
+	*	{@return the element with given key or index}
+	*
+	*	@param oKey a key or an index.
+	*	@throws PsyRangeCheckException when index is out of range.
+	*	@throws PsyUndefinedException when the key is absent.
+	*/
+	public V psyGet(final K oKey)
+		throws PsyRangeCheckException, PsyUndefinedException;
+
+	/**
+	*	Stores an element with given key or index. In {@link PsyFormalArray} containers replaces
+	*	existing element. In {@link PsyFormalDict} containers replaces an old or creates a new
+	*	element associated with specified key.
+	*
+	*	@param oKey a key or an index.
+	*	@param oValue an element to be stored.
+	*	@throws PsyRangeCheckException when the index is out of range.
+	*/
+	public void psyPut(final K oKey, final V oValue)
+		throws PsyRangeCheckException;
+
+	/**
+	*	Deletes a key or index and a value associated with it from this object.
+	*
+	*	@param oKey a key or an index.
+	*	@throws PsyRangeCheckException when the index is out of range.
+	*	@throws PsyUndefinedException when the key is absent.
+	*/
+	public void psyDelete(final K oKey)
+		throws PsyRangeCheckException, PsyUndefinedException;
+
+	public V psyExtract(final K oKey)
+		throws PsyRangeCheckException, PsyUndefinedException;
+
+	/**
+	*	{@return a container of the same type as this object consisting of keys or indices from given
+	*		{@code iterable} and of associated values}
+	*
+	*	@param oKeys an enumeration of keys.
+	*	@throws PsyLimitCheckException when TODO
+	*	@throws PsyRangeCheckException when the index is out of range.
+	*	@throws PsyUndefinedException when the key is absent.
+	*	@throws PsyUnsupportedException when TODO
+	*/
+	public PsyIndexed&lt;K, V&gt; psySlice(final PsyIterable&lt;K&gt; oKeys)
+		throws
+			PsyRangeCheckException,
+			PsyLimitCheckException,
+			PsyUndefinedException,
+			PsyUnsupportedException;
+
+	public default PsyIterable&lt;V&gt; psyGetAll(final PsyIterable&lt;K&gt; oKeys)
+		throws
+			PsyRangeCheckException,
+			PsyLimitCheckException,
+			PsyUndefinedException,
+			PsyUnsupportedException
+	{
+<span class="nc" id="L164">		return new PsyIterable&lt;V&gt;()</span>
+<span class="nc" id="L165">			{</span>
+<span class="nc" id="L166">				private final Iterator&lt;K&gt; keysIterator=oKeys.iterator();</span>
+
+				@Override
+				public Iterator&lt;V&gt; iterator()
+				{
+<span class="nc" id="L171">					return new Iterator&lt;V&gt;()</span>
+<span class="nc" id="L172">						{</span>
+							@Override
+							public boolean hasNext()
+							{
+<span class="nc" id="L176">								return keysIterator.hasNext();</span>
+							}
+
+							@Override
+							public V next()
+							{
+								try
+								{
+<span class="nc" id="L184">									return PsyIndexed.this.psyGet(keysIterator.next());</span>
+								}
+<span class="nc" id="L186">								catch(final PsyRangeCheckException|PsyUndefinedException e)</span>
+								{
+<span class="nc" id="L188">									throw new NoSuchElementException();</span>
+								}
+							}
+						};
+				}
+			};
+	}
+
+	/**
+	*	{@return an {@code iterable} enumeration of all the keys of this object}
+	*/
+	public PsyFormalStream&lt;K&gt; psyKeys();
+
+	/**
+	*	{@return an {@code iterable} enumeration of all the values of this object}
+	*/
+	public default PsyFormalStream&lt;V&gt; psyValues()
+	{
+<span class="fc" id="L206">		return new PsyFormalStream&lt;V&gt;()</span>
+<span class="fc" id="L207">			{</span>
+				@Override
+				public Stream&lt;V&gt; stream()
+				{
+<span class="fc" id="L211">					return psyKeys().stream().&lt;V&gt;map(oKey-&gt;</span>
+						{
+							try
+							{
+<span class="fc" id="L215">								return PsyIndexed.this.psyGet(oKey);</span>
+							}
+<span class="nc" id="L217">							catch(final PsyRangeCheckException|PsyUndefinedException e)</span>
+							{
+<span class="nc" id="L219">								return null;</span>
+							}
+						});
+				}
+			};
+	}
+
+	/**
+	*	{@return an {@code iterable} enumeration of all the keys and values of this object}
+	*/
+	public PsyFormalStream&lt;PsyObject&gt; psyEntries();
+	/*
+	public default PsyFormalStream&lt;PsyObject&gt; psyEntries()
+	{
+		return new PsyStream(java.util.stream.StreamSupport.&lt;PsyObject&gt;stream(new Iterable()
+			{
+				@Override
+				public Iterator&lt;PsyObject&gt; iterator()
+				{
+					return new Iterator&lt;PsyObject&gt;()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsyObject next()
+							{
+								return (flag=!flag)?
+									PsyInteger.valueOf(index++): parentIterator.next();
+							}
+
+							private boolean flag=false;
+
+							private int index=0;
+
+							private final Iterator&lt;PsyObject&gt; parentIterator
+								=(Iterator&lt;PsyObject&gt;)PsyIndexed.this.iterator();
+
+						};
+				}
+			}.spliterator(),
+			false));
+	}
+	*/
+	/*
+	public default PsyIterable&lt;PsyObject&gt; psyEntries()
+	{
+
+		return new PsyIterable&lt;PsyObject&gt;()
+			{
+				@Override
+				public void psyForAll(final PsyObject oProc)
+					throws PsyErrorException
+				{
+					final coneforest.psylla.runtime.Interpreter interpreter
+						=(coneforest.psylla.runtime.Interpreter)PsyContext.psyCurrentContext();
+					final coneforest.psylla.runtime.OperandStack ostack=interpreter.operandStack();
+					final Iterator&lt;K&gt; iterator=psyKeys().iterator();
+					interpreter.pushLoopLevel();
+					interpreter.executionStack().push(new PsyOperator(&quot;#forall_continue&quot;)
+						{
+							@Override
+							public void action(final coneforest.psylla.runtime.Interpreter interpreter1)
+								throws PsyErrorException
+							{
+								if(iterator.hasNext())
+								{
+									final K oKey=iterator.next();
+									ostack.push(oKey);
+									ostack.push(psyGet(oKey));
+									interpreter1.executionStack().push(this);
+									oProc.invoke(interpreter1);
+								}
+								else
+								{
+									interpreter1.popLoopLevel();
+								}
+							}
+						});
+				}
+
+				@Override
+				public Iterator&lt;PsyObject&gt; iterator()
+				{
+					return new Iterator&lt;PsyObject&gt;()
+						{
+							@Override
+							public boolean hasNext()
+							{
+								return parentIterator.hasNext();
+							}
+
+							@Override
+							public PsyObject next()
+							{
+								return (flag=!flag)?
+									PsyInteger.valueOf(index++): parentIterator.next();
+							}
+
+							private boolean flag=false;
+
+							private int index=0;
+
+							private final Iterator&lt;PsyObject&gt; parentIterator
+								=(Iterator&lt;PsyObject&gt;)PsyIndexed.this.iterator();
+
+						};
+				}
+			};
+	}
+	*/
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

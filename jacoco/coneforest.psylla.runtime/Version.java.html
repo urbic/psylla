@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Version.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">Version.java</span></div><h1>Version.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+/**
+*	Methods for obtaining version information.
+*/
+public interface Version
+{
+	/**
+	*	{@return the version string}
+	*/
+	public static String getVersion()
+	{
+<span class="fc" id="L13">		final var type=getReleaseType();</span>
+<span class="fc" id="L14">		return</span>
+<span class="fc" id="L15">			getMajor()+&quot;.&quot;+getMinor()+&quot;.&quot;+getMicro()</span>
+<span class="pc bpc" id="L16" title="2 of 4 branches missed.">				+((type==null || type.length()==0)? &quot;&quot;: &quot;-&quot;+type);</span>
+	}
+
+	/**
+	*	{@return the major version number}
+	*/
+	public static int getMajor()
+	{
+<span class="fc" id="L24">		return Integer.parseInt(Config.getProperty(&quot;project.version.major&quot;));</span>
+	}
+
+	/**
+	*	{@return the minor version number}
+	*/
+	public static int getMinor()
+	{
+<span class="fc" id="L32">		return Integer.parseInt(Config.getProperty(&quot;project.version.minor&quot;));</span>
+	}
+
+	/**
+	*	{@return the micro version number}
+	*/
+	public static int getMicro()
+	{
+<span class="fc" id="L40">		return Integer.parseInt(Config.getProperty(&quot;project.version.micro&quot;));</span>
+	}
+
+	/**
+	*	{@return the version encoded as a string}
+	*/
+	public static String getCode()
+	{
+<span class="nc" id="L48">		return Character.toString((char)getMajor())</span>
+<span class="nc" id="L49">				+Character.toString((char)getMinor())</span>
+<span class="nc" id="L50">				+Character.toString((char)getMicro());</span>
+	}
+
+	/**
+	*	{@return the release type}
+	*/
+	public static String getReleaseType()
+	{
+<span class="fc" id="L58">		return Config.getProperty(&quot;project.version.type&quot;);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

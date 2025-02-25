@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyBoolean.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyBoolean.java</span></div><h1>PsyBoolean.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code boolean}.
+*/
+@Type(&quot;boolean&quot;)
+public final class PsyBoolean
+	implements PsyLogical&lt;PsyBoolean&gt;, PsyScalar&lt;PsyBoolean&gt;, PsyValue
+{
+	/**
+	*	A {@code boolean} constant, representing false.
+	*/
+<span class="fc" id="L15">	public static final PsyBoolean FALSE=new PsyBoolean();</span>
+
+	/**
+	*	A {@code boolean} constant, representing true.
+	*/
+<span class="fc" id="L20">	public static final PsyBoolean TRUE=new PsyBoolean();</span>
+
+	private PsyBoolean()
+	{
+	}
+
+	/**
+	*	{@return a boolean value of this object}
+	*/
+	public boolean booleanValue()
+	{
+<span class="fc bfc" id="L31" title="All 2 branches covered.">		return this==TRUE;</span>
+	}
+
+	/**
+	*	{@return a string {@code false} or {@code true} depending on this object value}
+	*/
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L40">		return &quot;%&quot;+booleanValue()+&quot;%&quot;;</span>
+	}
+
+	/**
+	*	{@return a {@code boolean} result of boolean negation of this object}
+	*/
+	@Override
+	public PsyBoolean psyNot()
+	{
+<span class="fc bfc" id="L49" title="All 2 branches covered.">		return booleanValue()? FALSE: TRUE;</span>
+	}
+
+	/**
+	*	{@return a {@code boolean} result of boolean disjunction of this object and given object}
+	*
+	*	@param oBoolean given object.
+	*/
+	@Override
+	public PsyBoolean psyOr(final PsyBoolean oBoolean)
+	{
+<span class="fc bfc" id="L60" title="All 4 branches covered.">		return PsyBoolean.of(booleanValue() || oBoolean.booleanValue());</span>
+	}
+
+	/**
+	*	{@return a {@code boolean} result of boolean conjunction of this object and given object}
+	*
+	*	@param oBoolean given object.
+	*/
+	@Override
+	public PsyBoolean psyAnd(final PsyBoolean oBoolean)
+	{
+<span class="fc bfc" id="L71" title="All 4 branches covered.">		return PsyBoolean.of(booleanValue() &amp;&amp; oBoolean.booleanValue());</span>
+	}
+
+	/**
+	*	{@return a {@code boolean} result of boolean exclusive disjunction of this object and given
+	*		object}
+	*
+	*	@param oBoolean given object.
+	*/
+	@Override
+	public PsyBoolean psyXor(final PsyBoolean oBoolean)
+	{
+<span class="fc" id="L83">		return PsyBoolean.of(booleanValue() ^ oBoolean.booleanValue());</span>
+	}
+
+	@Override
+	public PsyBoolean psyEq(final PsyObject o)
+	{
+<span class="fc bfc" id="L89" title="All 2 branches covered.">		return PsyBoolean.of(this==o);</span>
+	}
+
+	@Override
+	public int compareTo(final PsyBoolean oBoolean)
+	{
+<span class="fc bfc" id="L95" title="All 4 branches covered.">		return this==oBoolean? 0: this==FALSE? -1: 1;</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		return booleanValue()? 1231: 1237;</span>
+	}
+
+	@Override
+	public boolean equals(final Object object)
+	{
+<span class="nc bnc" id="L107" title="All 2 branches missed.">		return this==object;</span>
+	}
+
+	/**
+	*	{@return a {@code boolean} representing the given boolean value}
+	*
+	*	@param bool a given value.
+	*/
+	public static PsyBoolean of(final boolean bool)
+	{
+<span class="fc bfc" id="L117" title="All 2 branches covered.">		return bool? TRUE: FALSE;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

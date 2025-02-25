@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyBigFraction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyBigFraction.java</span></div><h1>PsyBigFraction.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.math.BigInteger;
+
+/**
+*	The representation of {@code bigfraction}.
+*/
+@Type(&quot;bigfraction&quot;)
+public final class PsyBigFraction
+	implements PsyRational
+{
+	private final BigInteger numerator, denominator;
+
+	private PsyBigFraction(final BigInteger numerator, final BigInteger denominator)
+<span class="fc" id="L16">	{</span>
+<span class="fc" id="L17">		this.numerator=numerator;</span>
+<span class="fc" id="L18">		this.denominator=denominator;</span>
+<span class="fc" id="L19">	}</span>
+
+	/**
+	*	TODO
+	*
+	*	@param numerator the numerator.
+	*	@param denominator the denominator.
+	*/
+	public static PsyRational of(final BigInteger numerator, final BigInteger denominator)
+	{
+<span class="fc" id="L29">		var x=numerator;</span>
+<span class="fc" id="L30">		var y=denominator;</span>
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">		if(y.equals(BigInteger.ZERO))</span>
+<span class="nc" id="L32">			throw new IllegalArgumentException();</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">		if(y.compareTo(BigInteger.ZERO)&lt;0)</span>
+		{
+<span class="fc" id="L35">			x=x.negate();</span>
+<span class="fc" id="L36">			y=y.negate();</span>
+		}
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		if(x.compareTo(BigInteger.ZERO)&lt;0)</span>
+<span class="fc" id="L39">			x=x.negate();</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">		while(x.compareTo(BigInteger.ZERO)!=0)</span>
+		{
+<span class="fc bfc" id="L42" title="All 2 branches covered.">			if(x.compareTo(y)&gt;0)</span>
+			{
+<span class="fc" id="L44">				final var t=x;</span>
+<span class="fc" id="L45">				x=y;</span>
+<span class="fc" id="L46">				y=t;</span>
+<span class="fc" id="L47">				continue;</span>
+			}
+<span class="fc" id="L49">			y=y.mod(x);</span>
+		}
+<span class="fc" id="L51">		x=numerator.divide(y);</span>
+<span class="fc" id="L52">		y=denominator.divide(y);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		if(y.compareTo(BigInteger.ZERO)&lt;0)</span>
+		{
+<span class="fc" id="L55">			x=x.negate();</span>
+<span class="fc" id="L56">			y=y.negate();</span>
+		}
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">		return y.equals(BigInteger.ONE)? PsyIntegral.of(x): new PsyBigFraction(x, y);</span>
+	}
+
+	@Override
+	public double doubleValue()
+	{
+		// TODO ?
+<span class="nc" id="L65">		return numerator.doubleValue()/denominator.doubleValue();</span>
+	}
+
+	@Override
+	public long longValue()
+	{
+<span class="nc" id="L71">		return (long)doubleValue();</span>
+	}
+
+	@Override
+	public BigInteger bigIntegerValue()
+	{
+<span class="nc" id="L77">		return psyFloor().bigIntegerValue();</span>
+	}
+
+	@Override
+	public PsyIntegral psyNumerator()
+	{
+<span class="fc" id="L83">		return PsyIntegral.of(numerator);</span>
+	}
+
+	@Override
+	public PsyIntegral psyDenominator()
+	{
+<span class="fc" id="L89">		return PsyIntegral.of(denominator);</span>
+	}
+
+	@Override
+	public PsyIntegral psyFloor()
+	{
+<span class="fc bfc" id="L95" title="All 2 branches covered.">		return PsyIntegral.of(numerator.signum()&lt;0?</span>
+<span class="fc" id="L96">				numerator.divide(denominator).subtract(BigInteger.ONE):</span>
+<span class="fc" id="L97">				numerator.divide(denominator));</span>
+	}
+
+	@Override
+	public PsyIntegral psyCeiling()
+	{
+<span class="fc bfc" id="L103" title="All 2 branches covered.">		return PsyIntegral.of(numerator.signum()&lt;0?</span>
+<span class="fc" id="L104">				numerator.divide(denominator):</span>
+<span class="fc" id="L105">				numerator.divide(denominator).add(BigInteger.ONE));</span>
+	}
+
+	@Override
+	public int intValue()
+	{
+<span class="nc" id="L111">		return (int)doubleValue();</span>
+	}
+
+	@Override
+	public boolean isZero()
+	{
+<span class="fc" id="L117">		return false;</span>
+	}
+
+	@Override
+	public PsyIntegral psyToIntegral()
+	{
+<span class="fc" id="L123">		return psyRound();</span>
+	}
+
+	@Override
+	public PsyIntegral psyRound()
+	{
+<span class="fc" id="L129">		final var intpart=numerator.divide(denominator);</span>
+<span class="fc" id="L130">		return PsyIntegral.of(numerator.subtract(</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">				intpart.multiply(denominator)).shiftLeft(1).compareTo(denominator)&lt;0?</span>
+<span class="fc" id="L132">						intpart: intpart.add(BigInteger.ONE));</span>
+	}
+
+	@Override
+	public PsyInteger psySignum()
+	{
+<span class="fc" id="L138">		return PsyInteger.of(numerator.signum());</span>
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L144">		return String.format(&quot;%d:%d&quot;, numerator, denominator);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

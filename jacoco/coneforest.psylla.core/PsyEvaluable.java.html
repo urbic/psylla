@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyEvaluable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyEvaluable.java</span></div><h1>PsyEvaluable.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code evaluable}, an object that can be interpreted as the program.
+*/
+@Type(&quot;evaluable&quot;)
+public interface PsyEvaluable
+	extends PsyObject
+{
+	/**
+	*	Context action of the {@code eval} operator.
+	*/
+	@OperatorType(&quot;eval&quot;)
+<span class="fc" id="L16">	public static final ContextAction PSY_EVAL=oContext-&gt;</span>
+<span class="fc" id="L17">		oContext.operandStackBacked(1).&lt;PsyEvaluable&gt;getBacked(0).psyEval(oContext);</span>
+
+	/**
+	*	Evaluate this object in the current context.
+	*
+	*	@throws PsyErrorException when an error occurs durind evaluation of this object.
+	*/
+	public void psyEval(final PsyContext oContext)
+		throws PsyErrorException;
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

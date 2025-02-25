@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyIntegral.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyIntegral.java</span></div><h1>PsyIntegral.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.math.BigInteger;
+
+/**
+*	The representation of {@code integral}.
+*/
+@Type(&quot;integral&quot;)
+public sealed interface PsyIntegral
+	extends
+		PsyBitwise&lt;PsyIntegral&gt;,
+		PsyRational
+	permits
+		PsyBigInteger,
+		PsyInteger
+{
+	@Override
+	public default PsyIntegral psyNumerator()
+	{
+<span class="fc" id="L21">		return this;</span>
+	}
+
+	@Override
+	public default PsyIntegral psyDenominator()
+	{
+<span class="fc" id="L27">		return PsyInteger.ONE;</span>
+	}
+
+	@Override
+	public PsyIntegral psyAbs();
+
+	@Override
+	public PsyIntegral psyNeg();
+
+	@Override
+	public default PsyIntegral psyFloor()
+	{
+<span class="fc" id="L39">		return this;</span>
+	}
+
+	@Override
+	public default PsyIntegral psyCeiling()
+	{
+<span class="fc" id="L45">		return this;</span>
+	}
+
+	@Override
+	public default PsyIntegral psyRound()
+	{
+<span class="fc" id="L51">		return this;</span>
+	}
+
+	@Override
+	public default PsyIntegral psyIdiv(final PsyRational oRational)
+		throws PsyUndefinedResultException
+	{
+<span class="nc" id="L58">		return ((PsyIntegral)psyMul(oRational.psyDenominator()))</span>
+<span class="nc" id="L59">				.psyIdiv(oRational.psyNumerator());</span>
+	}
+
+	@Override
+	public PsyIntegral psyMod(final PsyRational oRational)
+		throws PsyRangeCheckException, PsyUndefinedResultException;
+
+	@Override
+	public default PsyRational psyGCD(final PsyRational oRational)
+	{
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		return switch(oRational)</span>
+			{
+<span class="fc" id="L71">				case PsyIntegral oIntegral-&gt;</span>
+					{
+<span class="fc" id="L73">						var oX=psyAbs();</span>
+<span class="fc" id="L74">						var oY=oIntegral.psyAbs();</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">						if(oY.isZero())</span>
+<span class="fc" id="L76">							yield oX;</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">						while(!oX.isZero())</span>
+						{
+<span class="pc bpc" id="L79" title="1 of 2 branches missed.">							if(oX.compareTo(oY)&gt;0)</span>
+							{
+<span class="fc" id="L81">								final var oT=oX;</span>
+<span class="fc" id="L82">								oX=oY;</span>
+<span class="fc" id="L83">								oY=oT;</span>
+							}
+							try
+							{
+<span class="fc" id="L87">								oY=oY.psyMod(oX);</span>
+							}
+<span class="fc" id="L89">							catch(final PsyUndefinedResultException|PsyRangeCheckException e)</span>
+							{
+								// NOP
+<span class="fc" id="L92">							}</span>
+						}
+<span class="fc" id="L94">						yield oY;</span>
+					}
+<span class="fc" id="L96">				default-&gt;PsyRational.of(</span>
+<span class="fc" id="L97">						(PsyIntegral)((PsyIntegral)psyMul(oRational.psyDenominator()))</span>
+<span class="fc" id="L98">								.psyGCD(oRational.psyNumerator()),</span>
+<span class="fc" id="L99">						oRational.psyDenominator());</span>
+			};
+	}
+
+	/**
+	*	Returns an {@code integral} representing the least common multiple of this object and given
+	*	object.
+	*
+	*	@param oIntegral given object.
+	*	@return the least common multiple of this object and given object.
+	*/
+	default PsyIntegral psyLCM(final PsyIntegral oIntegral)
+	{
+<span class="fc bfc" id="L112" title="All 4 branches covered.">		if(isZero() || oIntegral.isZero())</span>
+<span class="fc" id="L113">			return PsyInteger.ZERO;</span>
+		try
+		{
+<span class="fc" id="L116">			return ((PsyIntegral)psyMul(oIntegral)).psyIdiv(psyGCD(oIntegral)).psyAbs();</span>
+		}
+<span class="nc" id="L118">		catch(final PsyUndefinedResultException e)</span>
+		{
+<span class="nc" id="L120">			throw new AssertionError();</span>
+		}
+	}
+
+	@Override
+	public default PsyIntegral psyToIntegral()
+	{
+<span class="fc" id="L127">		return this;</span>
+	}
+
+	public static PsyInteger of(final long longValue)
+	{
+<span class="nc" id="L132">		return PsyInteger.of(longValue);</span>
+	}
+
+	public static PsyIntegral of(final BigInteger bigIntegerValue)
+	{
+		try
+		{
+<span class="fc" id="L139">			return PsyInteger.of(bigIntegerValue.longValueExact());</span>
+		}
+<span class="fc" id="L141">		catch(final ArithmeticException ex)</span>
+		{
+<span class="fc" id="L143">			return new PsyBigInteger(bigIntegerValue);</span>
+		}
+	}
+
+	/**
+	*	{@return the {@code integral} object obtained as a result of parsing the literal token
+	*	image}
+	*
+	*	@param image the literal token image.
+	*	@throws PsySyntaxErrorException when the literal image is syntactically incorrect.
+	*/
+	public static PsyIntegral parseLiteral(final String image)
+		throws PsySyntaxErrorException
+	{
+<span class="fc" id="L157">		int radix=10;</span>
+<span class="fc" id="L158">		var prefixlessImage=image;</span>
+<span class="fc bfc" id="L159" title="All 4 branches covered.">		if(image.length()&gt;1 &amp;&amp; image.charAt(1)=='`')</span>
+		{
+<span class="fc" id="L161">			prefixlessImage=image.substring(2);</span>
+<span class="pc bpc" id="L162" title="1 of 5 branches missed.">			switch(image.charAt(0))</span>
+			{
+				case 'X', 'x':
+<span class="fc" id="L165">					radix=16;</span>
+<span class="fc" id="L166">					break;</span>
+				case 'O', 'o':
+<span class="fc" id="L168">					radix=8;</span>
+<span class="fc" id="L169">					break;</span>
+				case 'B', 'b':
+<span class="fc" id="L171">					radix=2;</span>
+<span class="fc" id="L172">					break;</span>
+				case 'C', 'c':
+<span class="fc" id="L174">					return parseCharLiteral(prefixlessImage);</span>
+			}
+		}
+		try
+		{
+			try
+			{
+<span class="fc" id="L181">				return PsyInteger.of(Long.parseLong(prefixlessImage, radix));</span>
+			}
+<span class="fc" id="L183">			catch(final NumberFormatException ex)</span>
+			{
+<span class="fc" id="L185">				return new PsyBigInteger(new BigInteger(prefixlessImage, radix));</span>
+			}
+		}
+<span class="fc" id="L188">		catch(final NumberFormatException ex)</span>
+		{
+<span class="fc" id="L190">			throw new PsySyntaxErrorException();</span>
+		}
+	}
+
+	private static PsyInteger parseCharLiteral(final String image)
+		throws PsySyntaxErrorException
+	{
+<span class="fc bfc" id="L197" title="All 2 branches covered.">		switch(image.charAt(0))</span>
+		{
+			case '\\':
+<span class="pc bpc" id="L200" title="3 of 14 branches missed.">				switch(image.charAt(1))</span>
+				{
+					case '0':
+<span class="fc" id="L203">						return PsyInteger.of('\u0000');</span>
+					case 'a':
+<span class="fc" id="L205">						return PsyInteger.of('\u0007');</span>
+					case 'n':
+<span class="fc" id="L207">						return PsyInteger.of('\n');</span>
+					case 'r':
+<span class="fc" id="L209">						return PsyInteger.of('\r');</span>
+					case 't':
+<span class="fc" id="L211">						return PsyInteger.of('\t');</span>
+					case 'v':
+<span class="nc" id="L213">						return PsyInteger.of('\u000B');</span>
+					case 'f':
+<span class="fc" id="L215">						return PsyInteger.of('\f');</span>
+					case 'e':
+<span class="fc" id="L217">						return PsyInteger.of('\u001B');</span>
+					case '\\':
+<span class="fc" id="L219">						return PsyInteger.of('\\');</span>
+					case 'u':
+<span class="fc" id="L221">						return PsyInteger.of(Integer.valueOf(image.substring(2, 6), 16));</span>
+					case 'c':
+						{
+<span class="fc" id="L224">							final var ch=image.charAt(2);</span>
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">							return PsyInteger.of(ch+(ch&lt;64? 64: -64));</span>
+						}
+					case 'x':
+						try
+						{
+<span class="fc" id="L230">							return PsyInteger.of(</span>
+<span class="fc" id="L231">									Integer.valueOf(image.substring(3, image.length()-1), 16));</span>
+						}
+<span class="nc" id="L233">						catch(final IllegalArgumentException ex)</span>
+						{
+<span class="nc" id="L235">							throw new PsySyntaxErrorException();</span>
+						}
+					case 'N':
+						try
+						{
+<span class="nc" id="L240">							return PsyInteger.of(</span>
+<span class="nc" id="L241">									Character.codePointOf(image.substring(3, image.length()-1)));</span>
+						}
+<span class="nc" id="L243">						catch(final IllegalArgumentException ex)</span>
+						{
+<span class="nc" id="L245">							throw new PsySyntaxErrorException();</span>
+						}
+					default:
+<span class="nc" id="L248">						throw new PsySyntaxErrorException();</span>
+				}
+			default:
+<span class="fc" id="L251">				return PsyInteger.of(image.charAt(0));</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

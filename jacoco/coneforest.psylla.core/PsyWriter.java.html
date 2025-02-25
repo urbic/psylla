@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyWriter.java</span></div><h1>PsyWriter.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.io.IOException;
+import java.io.Writer;
+
+/**
+*	The representation of {@code writer}.
+*/
+@Type(&quot;writer&quot;)
+public class PsyWriter
+	implements
+		PsyCloseable,
+		PsyFlushable,
+		PsyWritable
+{
+	private final Writer writer;
+
+	/**
+	*	Constructs a new {@code writer} object wrapping the given writer.
+	*
+	*	@param writer the writer.
+	*/
+	public PsyWriter(final Writer writer)
+<span class="fc" id="L25">	{</span>
+<span class="fc" id="L26">		this.writer=writer;</span>
+<span class="fc" id="L27">	}</span>
+
+	/**
+	*	{@return the underlying writer}
+	*/
+	public Writer writer()
+	{
+<span class="nc" id="L34">		return writer;</span>
+	}
+
+	@Override
+	public void psyWrite(final PsyInteger oCharacter)
+		throws PsyIOErrorException
+	{
+		try
+		{
+<span class="nc" id="L43">			writer.write(oCharacter.intValue());</span>
+		}
+<span class="nc" id="L45">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L47">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L48">		}</span>
+<span class="nc" id="L49">	}</span>
+
+	@Override
+	public void psyWriteString(final PsyString oString)
+		throws PsyIOErrorException
+	{
+		try
+		{
+<span class="fc" id="L57">			writer.write(oString.stringValue());</span>
+		}
+<span class="nc" id="L59">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L61">			throw new PsyIOErrorException();</span>
+<span class="fc" id="L62">		}</span>
+<span class="fc" id="L63">	}</span>
+
+	@Override
+	public void psyFlush()
+		throws PsyIOErrorException
+	{
+		try
+		{
+<span class="fc" id="L71">			writer.flush();</span>
+		}
+<span class="nc" id="L73">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L75">			throw new PsyIOErrorException();</span>
+<span class="fc" id="L76">		}</span>
+<span class="fc" id="L77">	}</span>
+
+	@Override
+	public void psyClose()
+		throws PsyIOErrorException
+	{
+		try
+		{
+<span class="nc" id="L85">			writer.close();</span>
+		}
+<span class="nc" id="L87">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L89">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L90">		}</span>
+<span class="nc" id="L91">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

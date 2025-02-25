@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyComplex.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyComplex.java</span></div><h1>PsyComplex.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code complex}, a complex number.
+*/
+@Type(&quot;complex&quot;)
+public final class PsyComplex
+	implements PsyNumeric
+{
+	/**
+	*	Context action of the {@code arg} operator.
+	*/
+	@OperatorType(&quot;arg&quot;)
+<span class="fc" id="L16">	public static final ContextAction PSY_ARG</span>
+<span class="fc" id="L17">		=ContextAction.&lt;PsyComplex&gt;ofFunction(PsyComplex::psyArg);</span>
+
+	/**
+	*	Context action of the {@code complex} operator.
+	*/
+	@OperatorType(&quot;complex&quot;)
+<span class="fc" id="L23">	public static final ContextAction PSY_COMPLEX</span>
+<span class="fc" id="L24">		=ContextAction.&lt;PsyRealNumeric, PsyRealNumeric&gt;ofBiFunction(PsyComplex::new);</span>
+
+	/**
+	*	Context action of the {@code complexpolar} operator.
+	*/
+	@OperatorType(&quot;complexpolar&quot;)
+<span class="fc" id="L30">	public static final ContextAction PSY_COMPLEXPOLAR</span>
+<span class="fc" id="L31">		=ContextAction.&lt;PsyRealNumeric, PsyRealNumeric&gt;ofBiFunction(PsyComplex::psyFromPolar);</span>
+
+	/**
+	*	Context action of the {@code conjugate} operator.
+	*/
+	@OperatorType(&quot;conjugate&quot;)
+<span class="fc" id="L37">	public static final ContextAction PSY_CONJUGATE</span>
+<span class="fc" id="L38">		=ContextAction.&lt;PsyComplex&gt;ofFunction(PsyComplex::psyConjugate);</span>
+
+	/**
+	*	Context action of the {@code imagpart} operator.
+	*/
+	@OperatorType(&quot;imagpart&quot;)
+<span class="fc" id="L44">	public static final ContextAction PSY_IMAGPART</span>
+<span class="fc" id="L45">		=ContextAction.&lt;PsyComplex&gt;ofFunction(PsyComplex::psyImagPart);</span>
+
+	/**
+	*	Context action of the {@code realpart} operator.
+	*/
+	@OperatorType(&quot;realpart&quot;)
+<span class="fc" id="L51">	public static final ContextAction PSY_REALPART</span>
+<span class="fc" id="L52">		=ContextAction.&lt;PsyComplex&gt;ofFunction(PsyComplex::psyRealPart);</span>
+	/**
+	*	Imaginary unit.
+	*/
+<span class="fc" id="L56">	public static final PsyComplex I=new PsyComplex(0.D, 1.D);</span>
+
+	/**
+	*	Munus imaginary unit.
+	*/
+<span class="fc" id="L61">	public static final PsyComplex MINUS_I=new PsyComplex(0.D, -1.D);</span>
+
+	private final double re, im;
+
+	public PsyComplex(final double re, final double im)
+<span class="fc" id="L66">	{</span>
+<span class="fc" id="L67">		this.re=re;</span>
+<span class="fc" id="L68">		this.im=im;</span>
+<span class="fc" id="L69">	}</span>
+
+	public PsyComplex(final double re)
+	{
+<span class="fc" id="L73">		this(re, 0.D);</span>
+<span class="fc" id="L74">	}</span>
+
+	public PsyComplex(final PsyRealNumeric oRealPart, final PsyRealNumeric oImagPart)
+	{
+<span class="fc" id="L78">		this(oRealPart.doubleValue(), oImagPart.doubleValue());</span>
+<span class="fc" id="L79">	}</span>
+
+	public PsyComplex(final PsyRealNumeric oNumeric)
+	{
+<span class="fc" id="L83">		this(oNumeric.doubleValue());</span>
+<span class="fc" id="L84">	}</span>
+
+	@Override
+	public double realValue()
+	{
+<span class="fc" id="L89">		return re;</span>
+	}
+
+	@Override
+	public double imagValue()
+	{
+<span class="fc" id="L95">		return im;</span>
+	}
+
+	@Override
+	public boolean isZero()
+	{
+<span class="pc bpc" id="L101" title="1 of 4 branches missed.">		return re==0.D &amp;&amp; im==0.D;</span>
+	}
+
+	@Override
+	public PsyReal psyAbs()
+	{
+<span class="fc" id="L107">		return new PsyReal(Math.hypot(re, im));</span>
+	}
+
+	@Override
+	public PsyComplex psySignum()
+	{
+<span class="fc bfc" id="L113" title="All 2 branches covered.">		if(isZero())</span>
+<span class="fc" id="L114">			return this;</span>
+<span class="fc" id="L115">		return psyDiv(psyAbs());</span>
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L121">		final var sb=new StringBuilder();</span>
+<span class="pc bpc" id="L122" title="3 of 4 branches missed.">		sb.append(Double.isInfinite(re)? (re==Double.NEGATIVE_INFINITY? &quot;-∞&quot;: &quot;∞&quot;): String.valueOf(re));</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">		if(Double.compare(im, 0.D)&gt;=0)</span>
+<span class="fc" id="L124">			sb.append('+');</span>
+<span class="pc bpc" id="L125" title="3 of 4 branches missed.">		sb.append(Double.isInfinite(im)? (im==Double.NEGATIVE_INFINITY? &quot;-∞&quot;: &quot;∞&quot;): String.valueOf(im));</span>
+<span class="fc" id="L126">		sb.append('i');</span>
+<span class="fc" id="L127">		return sb.toString();</span>
+	}
+
+	/**
+	*	{@return a {@code real} real part of this object}
+	*/
+	public PsyReal psyRealPart()
+	{
+<span class="fc" id="L135">		return new PsyReal(re);</span>
+	}
+
+	/**
+	*	{@return a {@code real} imaginary part of this object}
+	*/
+	public PsyReal psyImagPart()
+	{
+<span class="fc" id="L143">		return new PsyReal(im);</span>
+	}
+
+	/**
+	*	{@return a {@code real} representing the complex argument of this object} The argument
+	*		belongs to the range (−π; π].
+	*/
+	public PsyReal psyArg()
+	{
+<span class="fc" id="L152">		return new PsyReal(Math.atan2(im, re));</span>
+	}
+
+	/**
+	*	{@return a {@code complex} representing the complex conjugate of this object}
+	*/
+	public PsyComplex psyConjugate()
+	{
+<span class="fc" id="L160">		return new PsyComplex(re, -im);</span>
+	}
+
+	@Override
+	public PsyComplex psyNeg()
+	{
+<span class="fc" id="L166">		return new PsyComplex(-re, -im);</span>
+	}
+
+	@Override
+	public PsyComplex psyAdd(final PsyNumeric oNumeric)
+	{
+<span class="fc" id="L172">		return new PsyComplex(re+oNumeric.realValue(), im+oNumeric.imagValue());</span>
+	}
+
+	@Override
+	public PsyComplex psySub(final PsyNumeric oNumeric)
+	{
+<span class="fc" id="L178">		return new PsyComplex(re-oNumeric.realValue(), im-oNumeric.imagValue());</span>
+	}
+
+	@Override
+	public PsyComplex psyReciprocal()
+	{
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">		if(Double.compare(re, -0.D)==0)</span>
+<span class="nc bnc" id="L185" title="All 2 branches missed.">			if(Double.compare(im, -0.D)==0)</span>
+<span class="nc" id="L186">				return new PsyComplex(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">			else if(Double.compare(im, 0.D)==0)</span>
+<span class="nc" id="L188">				return new PsyComplex(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);</span>
+<span class="pc bpc" id="L189" title="1 of 2 branches missed.">		if(Double.compare(re, 0.D)==0)</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">			if(Double.compare(im, -0.D)==0)</span>
+<span class="nc" id="L191">				return new PsyComplex(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);</span>
+<span class="nc bnc" id="L192" title="All 2 branches missed.">			else if(Double.compare(im, 0.D)==0)</span>
+<span class="nc" id="L193">				return new PsyComplex(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY);</span>
+<span class="fc" id="L194">		final var d=re*re+im*im;</span>
+<span class="fc" id="L195">		return new PsyComplex(re/d, -im/d);</span>
+	}
+
+	@Override
+	public PsyComplex psyMul(final PsyNumeric oNumeric)
+	{
+<span class="fc" id="L201">		final var x=oNumeric.realValue();</span>
+<span class="fc" id="L202">		final var y=oNumeric.imagValue();</span>
+<span class="fc" id="L203">		final var t1=re*x;</span>
+<span class="fc" id="L204">		final var t2=im*y;</span>
+<span class="fc" id="L205">		return new PsyComplex(t1-t2, (re+im)*(x+y)-t1-t2);</span>
+	}
+
+	@Override
+	public PsyComplex psyDiv(final PsyNumeric oNumeric)
+	{
+<span class="fc" id="L211">		final var x=oNumeric.realValue();</span>
+<span class="fc" id="L212">		final var y=oNumeric.imagValue();</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">		if(Math.abs(x)&lt;Math.abs(y))</span>
+		{
+<span class="fc" id="L215">			final var q=x/y;</span>
+<span class="fc" id="L216">			final var d=x*q+y;</span>
+<span class="fc" id="L217">			return new PsyComplex((re*q+im)/d, (im*q-re)/d);</span>
+		}
+		else
+		{
+<span class="fc" id="L221">			final var q=y/x;</span>
+<span class="fc" id="L222">			final var d=y*q+x;</span>
+<span class="fc" id="L223">			return new PsyComplex((im*q+re)/d, (im-re*q)/d);</span>
+		}
+	}
+
+	@Override
+	public PsyNumeric psyPow(final PsyNumeric oNumeric)
+	{
+<span class="nc bnc" id="L230" title="All 4 branches missed.">		if(isZero() &amp;&amp; !oNumeric.isZero())</span>
+<span class="nc" id="L231">			return this;</span>
+<span class="nc" id="L232">		return psyLog().psyMul(oNumeric).psyExp();</span>
+	}
+
+	@Override
+	public PsyComplex psyExp()
+	{
+<span class="fc" id="L238">		final var reExp=Math.exp(re);</span>
+<span class="fc" id="L239">		return new PsyComplex(reExp*Math.cos(im), reExp*Math.sin(im));</span>
+	}
+
+	@Override
+	public PsyComplex psyCos()
+	{
+<span class="fc" id="L245">		return new PsyComplex(Math.cos(re)*Math.cosh(im), -Math.sin(re)*Math.sinh(im));</span>
+	}
+
+	@Override
+	public PsyComplex psySin()
+	{
+<span class="fc" id="L251">		return new PsyComplex(Math.sin(re)*Math.cosh(im), Math.cos(re)*Math.sinh(im));</span>
+	}
+
+	@Override
+	public PsyComplex psyLog()
+	{
+<span class="fc" id="L257">		return new PsyComplex(Math.log(Math.hypot(re, im)), Math.atan2(im, re));</span>
+	}
+
+	@Override
+	public PsyComplex psyAcos()
+	{
+<span class="fc" id="L263">		return psyAdd(PsyReal.ONE.psySub(psyMul(this)).psySqrt().psyMul(I)).psyLog().psyMul(MINUS_I);</span>
+	}
+
+	@Override
+	public PsyComplex psyAsin()
+	{
+<span class="fc" id="L269">		return new PsyComplex(Math.PI/2.D, 0.D).psySub(psyAcos());</span>
+	}
+
+	@Override
+	public PsyComplex psyAtan()
+	{
+<span class="fc" id="L275">		return (I.psyAdd(this).psyDiv(I.psySub(this))).psyLog().psyMul(I).psyDiv(PsyReal.TWO);</span>
+	}
+
+	@Override
+	public PsyComplex psySqrt()
+	{
+<span class="fc" id="L281">		return fromPolar(Math.sqrt(Math.hypot(re, im)), Math.atan2(im, re)/2.D);</span>
+	}
+
+	@Override
+	public PsyComplex psyCbrt()
+	{
+<span class="fc" id="L287">		return fromPolar(Math.cbrt(Math.hypot(re, im)), Math.atan2(im, re)/3.D);</span>
+	}
+
+	@Override
+	public PsyComplex psyCosh()
+	{
+<span class="fc" id="L293">		final var oExp=psyExp();</span>
+<span class="fc" id="L294">		return oExp.psyAdd(oExp.psyReciprocal()).psyDiv(PsyReal.TWO);</span>
+	}
+
+	@Override
+	public PsyComplex psyTan()
+	{
+<span class="nc" id="L300">		return psySin().psyDiv(psyCos());</span>
+	}
+
+	@Override
+	public PsyComplex psySinh()
+	{
+<span class="fc" id="L306">		final var oExp=psyExp();</span>
+<span class="fc" id="L307">		return oExp.psySub(oExp.psyReciprocal()).psyDiv(PsyReal.TWO);</span>
+	}
+
+	@Override
+	public PsyComplex psyTanh()
+	{
+<span class="fc" id="L313">		return psySinh().psyDiv(psyCosh());</span>
+	}
+
+	public static PsyComplex psyFromPolar(final PsyRealNumeric oAbs, final PsyRealNumeric oArg)
+	{
+<span class="nc" id="L318">		return fromPolar(oAbs.doubleValue(), oArg.doubleValue());</span>
+	}
+
+	public static PsyComplex fromPolar(final double abs, final double arg)
+	{
+<span class="fc" id="L323">		return new PsyComplex(abs*Math.cos(arg), abs*Math.sin(arg));</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

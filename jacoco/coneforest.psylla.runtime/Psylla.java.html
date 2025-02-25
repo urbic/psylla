@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Psylla.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">Psylla.java</span></div><h1>Psylla.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+import coneforest.psylla.core.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+
+/**
+*	The Psylla interpreter launcher.
+*/
+public class Psylla
+{
+	private final Interpreter interpreter;
+
+	public Psylla(final PsyllaConfig psyllaConfig)
+		throws PsyErrorException
+<span class="fc" id="L26">	{</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">		interpreter=(psyllaConfig.scriptReader!=null)?</span>
+<span class="fc" id="L28">			new Interpreter()</span>
+<span class="fc" id="L29">				{</span>
+					@Override
+					public void run()
+					{
+<span class="fc" id="L33">						interpret(psyllaConfig.scriptReader);</span>
+<span class="fc" id="L34">					}</span>
+				}:
+<span class="pc" id="L36">			new Interpreter()</span>
+<span class="nc" id="L37">				{</span>
+					@Override
+					public void run()
+					{
+						try
+						{
+<span class="nc" id="L43">							repl();</span>
+						}
+<span class="nc" id="L45">						catch(final PsyErrorException e)</span>
+						{
+							// NOP
+<span class="nc" id="L48">						}</span>
+<span class="nc" id="L49">					}</span>
+				};
+<span class="fc" id="L51">		interpreter.setWriter(psyllaConfig.outputWriter);</span>
+<span class="fc" id="L52">		interpreter.setErrorWriter(psyllaConfig.errorWriter);</span>
+<span class="fc" id="L53">		interpreter.setEnvironment(System.getenv());</span>
+<span class="fc" id="L54">		interpreter.setShellArguments(psyllaConfig.shellArguments);</span>
+<span class="fc" id="L55">		interpreter.setScriptName(psyllaConfig.scriptName);</span>
+<span class="fc" id="L56">		interpreter.setRandomSeed(psyllaConfig.randomSeed);</span>
+<span class="fc" id="L57">		interpreter.setClassPath(psyllaConfig.classPath);</span>
+<span class="fc" id="L58">		interpreter.setLibraryPath(psyllaConfig.libraryPath);</span>
+<span class="fc" id="L59">	}</span>
+
+	/**
+	*	The entry point to the Psylla program.
+	*
+	*	@param args the command-line parameters.
+	*/
+	public static void main(final String[] args)
+	{
+		try
+		{
+<span class="nc" id="L70">			launch(System.out, System.err, args);</span>
+		}
+<span class="nc" id="L72">		catch(final coneforest.clianthus.processor.ProcessingException ex)</span>
+		{
+<span class="nc" id="L74">			System.err.println(ex.getLocalizedMessage());</span>
+<span class="nc" id="L75">			System.err.println(Messages.getString(&quot;useHelpOption&quot;));</span>
+<span class="nc" id="L76">			System.exit(1);</span>
+		}
+<span class="nc" id="L78">		catch(final FileNotFoundException ex)</span>
+		{
+<span class="nc" id="L80">			System.err.println(Messages.format(&quot;badScript&quot;, ex.getLocalizedMessage()));</span>
+<span class="nc" id="L81">			System.exit(2);</span>
+		}
+<span class="nc" id="L83">		catch(final PsyErrorException e)</span>
+		{
+<span class="nc" id="L85">			System.err.println(e.getLocalizedMessage());</span>
+<span class="nc" id="L86">			System.exit(127);</span>
+<span class="nc" id="L87">		}</span>
+<span class="nc" id="L88">	}</span>
+
+	/**
+	*	Process command-line options and launches the Psylla interpreter.
+	*
+	*	@param outputWriter the output writer.
+	*	@param errorWriter the error writer.
+	*	@param args the command-line options.
+	*	@return the {@link Psylla} instance launched.
+	*	@throws PsyErrorException when TODO
+	*	@throws coneforest.clianthus.processor.ProcessingException when TODO
+	*	@throws FileNotFoundException when TODO
+	*/
+	public static Psylla launch(final PrintWriter outputWriter, final PrintWriter errorWriter,
+			final String... args)
+		throws
+			PsyErrorException,
+			coneforest.clianthus.processor.ProcessingException,
+			FileNotFoundException
+	{
+
+<span class="fc" id="L109">		final var cli=new coneforest.clianthus.processor.Processor(</span>
+				new coneforest.clianthus.option.OptionFlag(&quot;help usage h ?&quot;),
+				new coneforest.clianthus.option.OptionFlag(&quot;version V&quot;),
+				new coneforest.clianthus.option.OptionString(&quot;console-encoding C&quot;),
+				new coneforest.clianthus.option.OptionPath(&quot;classpath cp&quot;),
+				new coneforest.clianthus.option.OptionPath(&quot;librarypath lp I&quot;),
+				new coneforest.clianthus.option.OptionString(&quot;eval e&quot;),
+				new coneforest.clianthus.option.OptionString(&quot;locale L&quot;),
+				new coneforest.clianthus.option.OptionLong(&quot;random-seed S&quot;),
+				new coneforest.clianthus.option.OptionCollectorString(&quot;config cfg&quot;)
+			);
+<span class="fc" id="L120">		final int processed=cli.parse(args, 0);</span>
+
+<span class="fc" id="L122">		Psylla.setConsoleEncoding(cli.getValue(&quot;console-encoding&quot;));</span>
+<span class="fc" id="L123">		Psylla.setLocale(cli.getValue(&quot;locale&quot;));</span>
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">		if(cli.getValue(&quot;help&quot;))</span>
+<span class="nc" id="L125">			showHelp();</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">		if(cli.getValue(&quot;version&quot;))</span>
+<span class="nc" id="L127">			showVersion();</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">		if(!cli.&lt;List&lt;String&gt;&gt;getValue(&quot;config&quot;).isEmpty())</span>
+<span class="nc" id="L129">			showConfig(cli.getValue(&quot;config&quot;));</span>
+
+<span class="fc" id="L131">		final var psyllaConfig=new PsyllaConfig();</span>
+		final Reader scriptReader;
+		final String scriptName;
+		final String[] shellArguments;
+
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">		if(cli.getValue(&quot;eval&quot;)!=null)</span>
+		{
+<span class="nc" id="L138">			scriptName=&quot;--eval&quot;;</span>
+			//psyllaConfig.setScriptName(&quot;--eval&quot;);
+<span class="nc" id="L140">			shellArguments=Arrays.copyOfRange(args, processed, args.length);</span>
+<span class="nc" id="L141">			scriptReader=new StringReader(cli.getValue(&quot;eval&quot;));</span>
+		}
+<span class="pc bpc" id="L143" title="1 of 2 branches missed.">		else if(processed&lt;args.length)</span>
+		{
+<span class="fc" id="L145">			scriptName=args[processed];</span>
+			//psyllaConfig.setScriptName(args[processed]);
+<span class="fc" id="L147">			shellArguments=Arrays.copyOfRange(args, processed+1, args.length);</span>
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">			scriptReader=scriptName.equals(&quot;-&quot;)?</span>
+<span class="nc" id="L149">					new InputStreamReader(System.in):</span>
+<span class="fc" id="L150">					new FileReader(scriptName);</span>
+		}
+		else
+		{
+<span class="nc" id="L154">			scriptName=&quot;--repl&quot;;</span>
+			//psyllaConfig.setScriptName(&quot;--repl&quot;);
+<span class="nc" id="L156">			shellArguments=new String[]{};</span>
+<span class="nc" id="L157">			scriptReader=null;</span>
+		}
+
+<span class="fc" id="L160">		psyllaConfig.setScriptName(scriptName);</span>
+<span class="fc" id="L161">		psyllaConfig.setScriptReader(scriptReader);</span>
+<span class="fc" id="L162">		psyllaConfig.setOutputWriter(outputWriter);</span>
+<span class="fc" id="L163">		psyllaConfig.setErrorWriter(errorWriter);</span>
+<span class="fc" id="L164">		psyllaConfig.setShellArguments(shellArguments);</span>
+<span class="fc" id="L165">		psyllaConfig.setRandomSeed(cli.&lt;Long&gt;getValue(&quot;random-seed&quot;));</span>
+<span class="fc" id="L166">		psyllaConfig.setClassPath(cli.&lt;String[]&gt;getValue(&quot;classpath&quot;));</span>
+<span class="fc" id="L167">		psyllaConfig.setLibraryPath(cli.&lt;String[]&gt;getValue(&quot;librarypath&quot;));</span>
+
+<span class="fc" id="L169">		final var psylla=new Psylla(psyllaConfig);</span>
+<span class="fc" id="L170">		psylla.start();</span>
+<span class="fc" id="L171">		return psylla;</span>
+	}
+
+	public static Psylla launch(
+			final PrintStream outputStream, final PrintStream errorStream,
+			final String... args)
+		throws
+			PsyErrorException,
+			coneforest.clianthus.processor.ProcessingException,
+			FileNotFoundException
+	{
+<span class="fc" id="L182">		return launch(new PrintWriter(outputStream), new PrintWriter(errorStream), args);</span>
+	}
+
+	public static void setConsoleEncoding(final String consoleEncoding)
+	{
+<span class="pc bpc" id="L187" title="1 of 2 branches missed.">		final String ce=(consoleEncoding!=null)?</span>
+<span class="nc" id="L188">				consoleEncoding:</span>
+<span class="fc" id="L189">				Charset.defaultCharset().toString();</span>
+		try
+		{
+<span class="fc" id="L192">			System.setOut(new PrintStream(System.out, true, ce));</span>
+<span class="fc" id="L193">			System.setErr(new PrintStream(System.err, true, ce));</span>
+		}
+<span class="nc" id="L195">		catch(final UnsupportedEncodingException ex)</span>
+		{
+<span class="nc" id="L197">			System.err.println(Messages.format(&quot;unsupportedEncoding&quot;, consoleEncoding));</span>
+<span class="nc" id="L198">			System.exit(1);</span>
+<span class="fc" id="L199">		}</span>
+<span class="fc" id="L200">	}</span>
+
+	public static void setLocale(final String locale)
+	{
+<span class="pc bpc" id="L204" title="1 of 2 branches missed.">		if(locale!=null)</span>
+<span class="fc" id="L205">			Locale.setDefault(Locale.forLanguageTag(locale));</span>
+<span class="fc" id="L206">	}</span>
+
+	public void start()
+	{
+<span class="fc" id="L210">		interpreter.start();</span>
+<span class="fc" id="L211">	}</span>
+
+	public void join()
+		throws InterruptedException
+	{
+<span class="fc" id="L216">		interpreter.join();</span>
+<span class="fc" id="L217">	}</span>
+
+	public void join(final long millis)
+		throws InterruptedException
+	{
+<span class="nc" id="L222">		interpreter.join(millis);</span>
+<span class="nc" id="L223">	}</span>
+
+	private static void showHelp()
+	{
+<span class="nc" id="L227">		System.out.println(Messages.getString(&quot;help&quot;));</span>
+<span class="nc" id="L228">		System.exit(0);</span>
+<span class="nc" id="L229">	}</span>
+
+	private static void showVersion()
+	{
+<span class="nc" id="L233">		System.out.print(Messages.format(&quot;version&quot;, Version.getVersion()));</span>
+<span class="nc" id="L234">		System.exit(0);</span>
+<span class="nc" id="L235">	}</span>
+
+	private static void showConfig(final List&lt;String&gt; patterns)
+	{
+<span class="nc" id="L239">		final var propertyNames=Config.stringPropertyNames();</span>
+<span class="nc bnc" id="L240" title="All 2 branches missed.">		for(final var pattern: patterns)</span>
+<span class="nc" id="L241">			propertyNames.stream()</span>
+<span class="nc" id="L242">					.sorted()</span>
+<span class="nc" id="L243">					.filter(name-&gt;Globs.matches(pattern, name))</span>
+<span class="nc" id="L244">					.forEach(name-&gt;System.out.println(name+&quot;=\'&quot;+Config.getProperty(name)+&quot;\'&quot;));</span>
+<span class="nc" id="L245">		System.exit(0);</span>
+<span class="nc" id="L246">	}</span>
+
+	/**
+	*	The Psylla launcher configuration.
+	*/
+	private static class PsyllaConfig
+	{
+		private Reader scriptReader;
+		private String scriptName;
+		private PrintWriter outputWriter;
+		private PrintWriter errorWriter;
+		private String[] shellArguments;
+		private Long randomSeed;
+		private String[] classPath, libraryPath;
+
+		public PsyllaConfig()
+<span class="fc" id="L262">		{</span>
+<span class="fc" id="L263">		}</span>
+
+		/**
+		*	Sets the script reader.
+		*
+		*	@param scriptReader the script reader.
+		*/
+		private void setScriptReader(final Reader scriptReader)
+		{
+<span class="fc" id="L272">			this.scriptReader=scriptReader;</span>
+<span class="fc" id="L273">		}</span>
+
+		/**
+		*	Sets the output writer.
+		*
+		*	@param outputWriter the output writer.
+		*/
+		private void setOutputWriter(final PrintWriter outputWriter)
+		{
+<span class="fc" id="L282">			this.outputWriter=outputWriter;</span>
+<span class="fc" id="L283">		}</span>
+
+		/**
+		*	Sets the error writer.
+		*
+		*	@param errorWriter the error writer.
+		*/
+		private void setErrorWriter(final PrintWriter errorWriter)
+		{
+<span class="fc" id="L292">			this.errorWriter=errorWriter;</span>
+<span class="fc" id="L293">		}</span>
+
+		/**
+		*	Sets the script name.
+		*
+		*	@param scriptName the script name.
+		*/
+		private void setScriptName(final String scriptName)
+		{
+<span class="fc" id="L302">			this.scriptName=scriptName;</span>
+<span class="fc" id="L303">		}</span>
+
+		/**
+		*	Sets the shell arguments.
+		*
+		*	@param shellArguments the shell arguments.
+		*/
+		private void setShellArguments(final String[] shellArguments)
+		{
+<span class="fc" id="L312">			this.shellArguments=shellArguments;</span>
+<span class="fc" id="L313">		}</span>
+
+		/**
+		*	Sets the random seed.
+		*
+		*	@param randomSeed the random seed.
+		*/
+		private void setRandomSeed(final Long randomSeed)
+		{
+<span class="fc" id="L322">			this.randomSeed=randomSeed;</span>
+<span class="fc" id="L323">		}</span>
+
+		private void setClassPath(final String[] classPath)
+		{
+<span class="fc" id="L327">			this.classPath=classPath;</span>
+<span class="fc" id="L328">		}</span>
+
+		private void setLibraryPath(final String[] libraryPath)
+		{
+<span class="fc" id="L332">			this.libraryPath=libraryPath;</span>
+<span class="fc" id="L333">		}</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyBounded.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyBounded.java</span></div><h1>PsyBounded.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code bounded}, a type of a container with bounded capacity.
+*/
+@Type(&quot;bounded&quot;)
+public interface PsyBounded
+	extends PsyLengthy
+{
+	/**
+	*	Context action of the {@code capacity} operator.
+	*/
+	@OperatorType(&quot;capacity&quot;)
+<span class="fc" id="L16">	public static final ContextAction PSY_CAPACITY</span>
+<span class="fc" id="L17">		=ContextAction.&lt;PsyBounded&gt;ofFunction(PsyBounded::psyCapacity);</span>
+
+	/**
+	*	Context action of the {@code isfull} operator.
+	*/
+	@OperatorType(&quot;isfull&quot;)
+<span class="fc" id="L23">	public static final ContextAction PSY_ISFULL</span>
+<span class="fc" id="L24">		=ContextAction.&lt;PsyBounded&gt;ofFunction(PsyBounded::psyIsFull);</span>
+
+	/**
+	*	{@return the capacity of this container}
+	*/
+	public int capacity();
+
+	/**
+	*	{@returns the {@code integer} capacity of this container}
+	*/
+	public default PsyInteger psyCapacity()
+	{
+<span class="nc" id="L36">		return PsyInteger.of(capacity());</span>
+	}
+
+	/**
+	*	{@return a boolean indicating whether this container is full}
+	*/
+	public default boolean isFull()
+	{
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		return length()==capacity();</span>
+	}
+
+	/**
+	*	{@return a {@code boolean} indicating whether this container is full}
+	*/
+	public default PsyBoolean psyIsFull()
+	{
+<span class="nc" id="L52">		return PsyBoolean.of(isFull());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContextAction.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">ContextAction.java</span></div><h1>ContextAction.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+import coneforest.psylla.core.*;
+import java.util.Optional;
+
+/**
+*	An action on the execution context.
+*/
+@FunctionalInterface
+public interface ContextAction
+{
+	/**
+	*	Performs this action on the specified execution context.
+	*
+	*	@param oContext the execution context.
+	*	@throws PsyErrorException when an error occurs.
+	*/
+	public void perform(final PsyContext oContext)
+		throws PsyErrorException;
+
+	/**
+	*	{@return the context action created from the consumer}
+	*
+	*	@param &lt;T&gt; the type of the input to the consumer.
+	*	@param consumer the consumer.
+	*/
+	public static &lt;T extends PsyObject&gt; ContextAction ofConsumer(final Consumer&lt;T&gt; consumer)
+	{
+<span class="fc" id="L29">		return oContext-&gt;</span>
+			{
+<span class="fc" id="L31">				final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L32">				consumer.accept(ostack.getBacked(0));</span>
+<span class="fc" id="L33">			};</span>
+	}
+
+	/**
+	*	{@return the context action created from the supplier}
+	*
+	*	@param supplier the supplier.
+	*/
+	public static ContextAction ofSupplier(final Supplier supplier)
+	{
+<span class="fc" id="L43">		return oContext-&gt;oContext.operandStack().push(supplier.get());</span>
+	}
+
+	/**
+	*	{@return the context action created from the bi-consumer}
+	*
+	*	@param &lt;T1&gt; the type of the first input to the bi-consumer.
+	*	@param &lt;T2&gt; the type of the second input to the bi-consumer.
+	*	@param biConsumer the bi-consumer.
+	*/
+	public static &lt;T1 extends PsyObject, T2 extends PsyObject&gt;
+	ContextAction ofBiConsumer(final BiConsumer&lt;T1, T2&gt; biConsumer)
+	{
+<span class="fc" id="L56">		return oContext-&gt;</span>
+			{
+<span class="fc" id="L58">				final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L59">				biConsumer.accept(ostack.getBacked(0), ostack.getBacked(1));</span>
+<span class="fc" id="L60">			};</span>
+	}
+
+	/**
+	*	{@return the context action created from the tri-consumer}
+	*
+	*	@param &lt;T1&gt; the type of the first input to the tri-consumer.
+	*	@param &lt;T2&gt; the type of the second input to the tri-consumer.
+	*	@param &lt;T3&gt; the type of the third input to the tri-consumer.
+	*	@param triConsumer the tri-consumer.
+	*/
+	public static &lt;T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject&gt;
+	ContextAction ofTriConsumer(final TriConsumer&lt;T1, T2, T3&gt; triConsumer)
+	{
+<span class="fc" id="L74">		return oContext-&gt;</span>
+			{
+<span class="fc" id="L76">				final var ostack=oContext.operandStackBacked(3);</span>
+<span class="fc" id="L77">				triConsumer.accept(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2));</span>
+<span class="fc" id="L78">			};</span>
+	}
+
+	/**
+	*	{@return the context action created from the function}
+	*
+	*	@param &lt;T&gt; the type of the input to the function.
+	*	@param function the function.
+	*/
+	public static &lt;T extends PsyObject&gt;
+	ContextAction ofFunction(final Function&lt;T&gt; function)
+	{
+<span class="fc" id="L90">		return oContext-&gt;</span>
+			{
+<span class="fc" id="L92">				final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L93">				ostack.push(function.apply(ostack.getBacked(0)));</span>
+<span class="fc" id="L94">			};</span>
+	}
+
+	/**
+	*	{@return the context action created from the function}
+	*
+	*	@param &lt;T&gt; the type of the input to the optional function.
+	*	@param optionalFunction the optional function.
+	*/
+	public static &lt;T extends PsyObject&gt;
+	ContextAction ofOptionalFunction(final OptionalFunction&lt;T&gt; optionalFunction)
+	{
+<span class="fc" id="L106">		return oContext-&gt;</span>
+			{
+<span class="fc" id="L108">				final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L109">				ostack.pushOptional(optionalFunction.apply(ostack.getBacked(0)));</span>
+<span class="fc" id="L110">			};</span>
+	}
+
+	/**
+	*	{@return the context action created from the bi-function}
+	*
+	*	@param &lt;T1&gt; the type of the first input to the bi-function.
+	*	@param &lt;T2&gt; the type of the second input to the bi-function.
+	*	@param biFunction the bi-function.
+	*/
+	public static &lt;T1 extends PsyObject, T2 extends PsyObject&gt;
+	ContextAction ofBiFunction(final BiFunction&lt;T1, T2&gt; biFunction)
+	{
+<span class="fc" id="L123">		return oContext-&gt;</span>
+			{
+<span class="fc" id="L125">				final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L126">				ostack.push(biFunction.apply(ostack.getBacked(0), ostack.getBacked(1)));</span>
+<span class="fc" id="L127">			};</span>
+	}
+
+	/**
+	*	{@return the context action created from the tri-function}
+	*
+	*	@param &lt;T1&gt; the type of the first input to the tri-function.
+	*	@param &lt;T2&gt; the type of the second input to the tri-function.
+	*	@param &lt;T3&gt; the type of the third input to the tri-function.
+	*	@param triFunction the tri-function.
+	*/
+	public static &lt;T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject&gt;
+	ContextAction ofTriFunction(final TriFunction&lt;T1, T2, T3&gt; triFunction)
+	{
+<span class="fc" id="L141">		return oContext-&gt;</span>
+			{
+<span class="fc" id="L143">				final var ostack=oContext.operandStackBacked(3);</span>
+<span class="fc" id="L144">				ostack.push(triFunction.apply(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));</span>
+<span class="fc" id="L145">			};</span>
+	}
+
+	/**
+	*	Represents an operation that accepts a single input argument and returns no result.
+	*
+	*	@param &lt;T&gt; the type of the input to the operation.
+	*/
+	@FunctionalInterface
+	public static interface Consumer&lt;T extends PsyObject&gt;
+	{
+		/**
+		*	Performs this operation on the given argument.
+		*
+		*	@param o the input to the consumer.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public void accept(final T o)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents a supplier of results.
+	*/
+	@FunctionalInterface
+	public static interface Supplier
+	{
+		/**
+		*	Gets a result.
+		*
+		*	@return a result.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public PsyObject get()
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents an operation that accepts two input arguments and returns no result.
+	*
+	*	@param &lt;T1&gt; the type of the first input to the operation.
+	*	@param &lt;T2&gt; the type of the second input to the operation.
+	*/
+	@FunctionalInterface
+	public static interface BiConsumer&lt;T1 extends PsyObject, T2 extends PsyObject&gt;
+	{
+		/**
+		*	Performs this operation on the given arguments.
+		*
+		*	@param o1 the first input to the bi-consumer.
+		*	@param o2 the second input to the bi-consumer.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public void accept(final T1 o1, final T2 o2)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents an operation that accepts three input arguments and returns no result.
+	*
+	*	@param &lt;T1&gt; the type of the first input to the operation.
+	*	@param &lt;T2&gt; the type of the second input to the operation.
+	*	@param &lt;T3&gt; the type of the second input to the operation.
+	*/
+	@FunctionalInterface
+	public static interface TriConsumer&lt;T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject&gt;
+	{
+		/**
+		*	Performs this operation on the given arguments.
+		*
+		*	@param o1 the first input to the tri-consumer.
+		*	@param o2 the second input to the tri-consumer.
+		*	@param o3 the third input to the tri-consumer.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public void accept(final T1 o1, final T2 o2, final T3 o3)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents a function that accepts one argument and produces a result.
+	*
+	*	@param &lt;T&gt; the type of the input to the function.
+	*/
+	@FunctionalInterface
+	public static interface Function&lt;T extends PsyObject&gt;
+	{
+		/**
+		*	Applies this function to the given argument.
+		*
+		*	@param o the function argument.
+		*	@return the function result.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public PsyObject apply(final T o)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents a function that accepts one argument and produces an optional result.
+	*
+	*	@param &lt;T&gt; the type of the input to the function.
+	*/
+	@FunctionalInterface
+	public static interface OptionalFunction&lt;T extends PsyObject&gt;
+	{
+		/**
+		*	Applies this function to the given argument.
+		*
+		*	@param o the function argument.
+		*	@return the function result.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public Optional&lt;? extends PsyObject&gt; apply(final T o)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents a function that accepts two arguments and produces a result.
+	*
+	*	@param &lt;T1&gt; the type of the first input to the function.
+	*	@param &lt;T2&gt; the type of the second input to the function.
+	*/
+	@FunctionalInterface
+	public static interface BiFunction&lt;T1 extends PsyObject, T2 extends PsyObject&gt;
+	{
+		/**
+		*	Applies this function to the given arguments.
+		*
+		*	@param o1 the first function argument.
+		*	@param o2 the second function argument.
+		*	@return the function result.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public PsyObject apply(final T1 o1, final T2 o2)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents a function that accepts three arguments and produces a result.
+	*
+	*	@param &lt;T1&gt; the type of the first input to the function.
+	*	@param &lt;T2&gt; the type of the second input to the function.
+	*	@param &lt;T3&gt; the type of the third input to the function.
+	*/
+	@FunctionalInterface
+	public static interface TriFunction&lt;T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject&gt;
+	{
+		/**
+		*	Applies this function to the given arguments.
+		*
+		*	@param o1 the first function argument.
+		*	@param o2 the second function argument.
+		*	@param o3 the third function argument.
+		*	@return the function result.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public PsyObject apply(final T1 o1, final T2 o2, final T3 o3)
+			throws PsyErrorException;
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

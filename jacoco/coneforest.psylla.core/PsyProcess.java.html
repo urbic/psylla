@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyProcess.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyProcess.java</span></div><h1>PsyProcess.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+
+@Type(&quot;process&quot;)
+public class PsyProcess
+	implements PsyObject
+{
+
+	/**
+	*	Context action of the {@code process} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;process&quot;)
+<span class="fc" id="L22">	public static final ContextAction PSY_PROCESS</span>
+<span class="fc" id="L23">		=ContextAction.&lt;PsyFormalDict&gt;ofFunction(PsyProcess::new);</span>
+
+	/**
+	*	Context action of the {@code processerror} operator.
+	*/
+	@OperatorType(&quot;processerror&quot;)
+<span class="fc" id="L29">	public static final ContextAction PSY_PROCESSERROR</span>
+<span class="fc" id="L30">		=ContextAction.&lt;PsyProcess&gt;ofFunction(PsyProcess::psyProcessError);</span>
+
+	/**
+	*	Context action of the {@code processreader} operator.
+	*/
+	@OperatorType(&quot;processreader&quot;)
+<span class="fc" id="L36">	public static final ContextAction PSY_PROCESSREADER</span>
+<span class="fc" id="L37">		=ContextAction.&lt;PsyProcess&gt;ofFunction(PsyProcess::psyProcessReader);</span>
+
+	/**
+	*	Context action of the {@code processwriter} operator.
+	*/
+	@OperatorType(&quot;processwriter&quot;)
+<span class="fc" id="L43">	public static final ContextAction PSY_PROCESSWRITER</span>
+<span class="fc" id="L44">		=ContextAction.&lt;PsyProcess&gt;ofFunction(PsyProcess::psyProcessWriter);</span>
+
+	/**
+	*	Context action of the {@code status} operator.
+	*/
+	@OperatorType(&quot;status&quot;)
+<span class="fc" id="L50">	public static final ContextAction PSY_STATUS</span>
+<span class="fc" id="L51">		=ContextAction.&lt;PsyProcess&gt;ofFunction(PsyProcess::psyStatus);</span>
+
+	private Process process;
+
+	public PsyProcess(final PsyFormalDict&lt;PsyObject&gt; oDict)
+		throws PsyErrorException
+<span class="nc" id="L57">	{</span>
+		try
+		{
+<span class="nc" id="L60">			ProcessBuilder pb=null;</span>
+
+			// TODO: empty command name
+<span class="nc bnc" id="L63" title="All 2 branches missed.">			if(oDict.known(&quot;command&quot;))</span>
+			{
+<span class="nc" id="L65">				final var oCommand=oDict.get(&quot;command&quot;);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">				if(oCommand instanceof PsyTextual oTextual)</span>
+<span class="nc" id="L67">					pb=new ProcessBuilder(oTextual.stringValue());</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">				else if(oCommand instanceof PsyFormalArray&lt;? extends PsyObject&gt; oFormalArray)</span>
+				{
+<span class="nc" id="L70">					final var commandList=new ArrayList&lt;String&gt;(oFormalArray.length());</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">					for(final var o: oFormalArray)</span>
+<span class="nc" id="L72">						commandList.add(((PsyTextual)o).stringValue());</span>
+<span class="nc" id="L73">					pb=new ProcessBuilder(commandList);</span>
+<span class="nc" id="L74">				}</span>
+				else
+<span class="nc" id="L76">					throw new PsyTypeCheckException();</span>
+			}
+
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			if(oDict.known(&quot;directory&quot;))</span>
+<span class="nc" id="L80">				pb.directory(new File(((PsyTextual)oDict.get(&quot;directory&quot;)).stringValue()));</span>
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">			if(oDict.known(&quot;environment&quot;))</span>
+			{
+				@SuppressWarnings(&quot;unchecked&quot;)
+<span class="nc" id="L85">				final var oEnv=(PsyFormalDict&lt;PsyString&gt;)oDict.get(&quot;environment&quot;);</span>
+<span class="nc" id="L86">				final var env=pb.environment();</span>
+<span class="nc" id="L87">				env.clear();</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">				for(final var oKey: oEnv.psyKeys().stream().toArray(PsyString[]::new))</span>
+<span class="nc" id="L89">					env.put(oKey.stringValue(), oEnv.psyGet(oKey).stringValue());</span>
+			}
+
+<span class="nc bnc" id="L92" title="All 2 branches missed.">			if(oDict.known(&quot;input&quot;)</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">					&amp;&amp; ((PsyBoolean)oDict.get(&quot;input&quot;)).booleanValue())</span>
+<span class="nc" id="L94">				pb.redirectInput(ProcessBuilder.Redirect.INHERIT);</span>
+
+<span class="nc bnc" id="L96" title="All 2 branches missed.">			if(oDict.known(&quot;output&quot;)</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">					&amp;&amp; ((PsyBoolean)oDict.get(&quot;output&quot;)).booleanValue())</span>
+<span class="nc" id="L98">				pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);</span>
+
+<span class="nc bnc" id="L100" title="All 2 branches missed.">			if(oDict.known(&quot;error&quot;)</span>
+<span class="nc bnc" id="L101" title="All 2 branches missed.">					&amp;&amp; ((PsyBoolean)oDict.get(&quot;error&quot;)).booleanValue())</span>
+<span class="nc" id="L102">				pb.redirectOutput(ProcessBuilder.Redirect.INHERIT);</span>
+
+<span class="nc" id="L104">			process=pb.start();</span>
+		}
+<span class="nc" id="L106">		catch(final NullPointerException|IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L108">			throw new PsyUndefinedException();</span>
+		}
+<span class="nc" id="L110">		catch(final ClassCastException ex)</span>
+		{
+<span class="nc" id="L112">			throw new PsyTypeCheckException();</span>
+		}
+<span class="nc" id="L114">		catch(final SecurityException ex)</span>
+		{
+<span class="nc" id="L116">			throw new PsySecurityErrorException();</span>
+		}
+<span class="nc" id="L118">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L120">			throw new PsyIOErrorException();</span>
+		}
+<span class="nc" id="L122">		catch(final PsyErrorException e)</span>
+		{
+<span class="nc" id="L124">			throw e;</span>
+<span class="nc" id="L125">		}</span>
+<span class="nc" id="L126">	}</span>
+
+	public PsyReader psyProcessReader()
+	{
+<span class="nc" id="L130">		return new PsyReader(new BufferedReader(</span>
+<span class="nc" id="L131">				new InputStreamReader(process.getInputStream())));</span>
+	}
+
+	public PsyReader psyProcessError()
+	{
+<span class="nc" id="L136">		return new PsyReader(new BufferedReader(</span>
+<span class="nc" id="L137">				new InputStreamReader(process.getErrorStream())));</span>
+	}
+
+	public PsyWriter psyProcessWriter()
+	{
+<span class="nc" id="L142">		return new PsyWriter(new BufferedWriter(</span>
+<span class="nc" id="L143">				new OutputStreamWriter(process.getOutputStream())));</span>
+	}
+
+	public PsyInteger psyStatus()
+		throws PsyInvalidStateException
+	{
+		try
+		{
+<span class="nc" id="L151">			return PsyInteger.of(process.exitValue());</span>
+		}
+<span class="nc" id="L153">		catch(final IllegalThreadStateException ex)</span>
+		{
+<span class="nc" id="L155">			throw new PsyInvalidStateException();</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

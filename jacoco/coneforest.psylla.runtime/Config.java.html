@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Config.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">Config.java</span></div><h1>Config.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+import java.io.IOException;
+import java.util.Properties;
+import java.util.Set;
+
+/**
+*	Methods for obtaining configuration properties stored in the {@code Config.properties} resource.
+*/
+public class Config
+{
+<span class="fc" id="L12">	private static final Properties CONFIG=new Properties();</span>
+
+	private Config()
+	{
+	}
+
+	/**
+	*	{@return the value associated with the given name} If not found, returns {@code null}.
+	*
+	*	@param name the property name.
+	*/
+	public static String getProperty(final String name)
+	{
+<span class="fc" id="L25">		return CONFIG.getProperty(name);</span>
+	}
+
+	/**
+	*	{@return an unmodifiable set of property names}
+	*/
+	public static Set&lt;String&gt; stringPropertyNames()
+	{
+<span class="fc" id="L33">		return CONFIG.stringPropertyNames();</span>
+	}
+
+	static
+	{
+<span class="fc" id="L38">		try(final var resourceStream=Config.class.getResourceAsStream(&quot;Config.properties&quot;))</span>
+		{
+<span class="fc" id="L40">			CONFIG.load(resourceStream);</span>
+		}
+<span class="nc" id="L42">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L44">			System.out.println(ex.getMessage());</span>
+<span class="nc" id="L45">			System.exit(1);</span>
+<span class="fc" id="L46">		}</span>
+<span class="fc" id="L47">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

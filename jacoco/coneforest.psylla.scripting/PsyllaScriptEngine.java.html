@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyllaScriptEngine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.scripting</a> &gt; <span class="el_source">PsyllaScriptEngine.java</span></div><h1>PsyllaScriptEngine.java</h1><pre class="source lang-java linenums">package coneforest.psylla.scripting;
+
+import coneforest.psylla.core.*;
+import coneforest.psylla.runtime.*;
+import java.io.Reader;
+import javax.script.AbstractScriptEngine;
+import javax.script.Bindings;
+import javax.script.ScriptContext;
+import javax.script.ScriptEngineFactory;
+
+/**
+*	The Psylla language scripting engine.
+*/
+public class PsyllaScriptEngine
+	extends AbstractScriptEngine
+{
+	public static final String ARGV=&quot;arguments&quot;;
+	public static final String FILENAME=&quot;script&quot;;
+
+	private final ScriptEngineFactory factory;
+	private final Interpreter interpreter;
+
+	public PsyllaScriptEngine(final ScriptEngineFactory factory)
+<span class="nc" id="L24">	{</span>
+<span class="nc" id="L25">		this.factory=factory;</span>
+<span class="nc" id="L26">		interpreter=new Interpreter();</span>
+<span class="nc" id="L27">		interpreter.start();</span>
+<span class="nc" id="L28">	}</span>
+
+	@Override
+	public ScriptEngineFactory getFactory()
+	{
+<span class="nc" id="L33">		return factory;</span>
+	}
+
+	@Override
+	public Bindings createBindings()
+	{
+<span class="nc" id="L39">		return null;</span>
+	}
+
+	@Override
+	public Interpreter eval(final Reader reader, final ScriptContext context)
+	{
+<span class="nc" id="L45">		interpreter.interpret(reader);</span>
+<span class="nc" id="L46">		return interpreter;</span>
+	}
+
+	@Override
+	public Interpreter eval(final String string, final ScriptContext context)
+	{
+<span class="nc" id="L52">		interpreter.interpret(string);</span>
+<span class="nc" id="L53">		return interpreter;</span>
+	}
+
+	@Override
+	public PsyObject get(final String key)
+	{
+		try
+		{
+<span class="nc" id="L61">			return interpreter.systemDict().get(key);</span>
+		}
+<span class="nc" id="L63">		catch(final PsyErrorException e)</span>
+		{
+<span class="nc" id="L65">			return null;</span>
+		}
+	}
+
+	/*
+	@SuppressWarnings(&quot;unchecked&quot;)
+	@Override
+	public void put(final String key, final Object obj)
+	{
+		interpreter.systemDict().put(key, (PsyObject)obj);
+	}
+	*/
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

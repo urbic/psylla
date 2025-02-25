@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyDict.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyDict.java</span></div><h1>PsyDict.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
+/**
+*	The representation of {@code dict}, a dictionary.
+*/
+@Type(&quot;dict&quot;)
+public class PsyDict
+	implements PsyFormalDict&lt;PsyObject&gt;
+{
+	/**
+	*	Context action of the {@code dict} operator.
+	*/
+	@OperatorType(&quot;dict&quot;)
+<span class="fc" id="L20">	public static final ContextAction PSY_DICT=ContextAction.ofSupplier(PsyDict::new);</span>
+
+	/**
+	*	Context action of the {@code dicttomark} operator.
+	*/
+	@OperatorType(&quot;dicttomark&quot;)
+<span class="fc" id="L26">	public static final ContextAction PSY_DICTTOMARK=oContext-&gt;</span>
+		{
+<span class="fc" id="L28">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L29">			final var i=ostack.findMarkPosition();</span>
+<span class="fc" id="L30">			final var ostackSize=ostack.size();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">			if((ostackSize-i) % 2==0)</span>
+<span class="fc" id="L32">				throw new PsyRangeCheckException();</span>
+<span class="fc" id="L33">			final var oDict=new PsyDict();</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">			for(int j=i+1; j&lt;ostackSize; j++)</span>
+			{
+<span class="fc" id="L36">				final var oKey=(PsyString)ostack.get(j++);</span>
+<span class="fc" id="L37">				final var o=ostack.get(j);</span>
+<span class="fc" id="L38">				oDict.psyPut(oKey, o);</span>
+			}
+<span class="fc" id="L40">			ostack.setSize(i);</span>
+<span class="fc" id="L41">			ostack.push(oDict);</span>
+<span class="fc" id="L42">		};</span>
+
+	protected final HashMap&lt;String, PsyObject&gt; dict;
+
+	/**
+	*	Creates a new empty {@code dict}.
+	*/
+	public PsyDict()
+	{
+<span class="fc" id="L51">		this(new HashMap&lt;String, PsyObject&gt;());</span>
+<span class="fc" id="L52">	}</span>
+
+	/**
+	*	Creates a new {@code dict} wrapped around the given hash map.
+	*
+	*	@param dict a given hash map.
+	*/
+	public PsyDict(final HashMap&lt;String, PsyObject&gt; dict)
+<span class="fc" id="L60">	{</span>
+<span class="fc" id="L61">		this.dict=dict;</span>
+<span class="fc" id="L62">	}</span>
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	@Override
+	public PsyDict psyClone()
+	{
+<span class="fc" id="L68">		return new PsyDict((HashMap&lt;String, PsyObject&gt;)dict.clone());</span>
+	}
+
+	@Override
+	public PsyObject get(final String key)
+		throws PsyUndefinedException
+	{
+<span class="fc" id="L75">		final var oValue=dict.get(key);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">		if(oValue!=null)</span>
+<span class="fc" id="L77">			return oValue;</span>
+		else
+<span class="fc" id="L79">			throw new PsyUndefinedException();</span>
+	}
+
+	@Override
+	public void put(final String key, final PsyObject o)
+	{
+<span class="fc" id="L85">		dict.put(key, o);</span>
+<span class="fc" id="L86">	}</span>
+
+	@Override
+	public void undef(final String key)
+	{
+<span class="fc" id="L91">		dict.remove(key);</span>
+<span class="fc" id="L92">	}</span>
+
+	@Override
+	public boolean known(final String key)
+	{
+<span class="fc" id="L97">		return dict.containsKey(key);</span>
+	}
+
+	@Override
+	public Iterator&lt;PsyObject&gt; iterator()
+	{
+<span class="nc" id="L103">		return dict.values().iterator();</span>
+	}
+
+	@Override
+	public int length()
+	{
+<span class="fc" id="L109">		return dict.size();</span>
+	}
+
+	@Override
+	public boolean isEmpty()
+	{
+<span class="fc" id="L115">		return dict.isEmpty();</span>
+	}
+
+	@Override
+	public void psyClear()
+	{
+<span class="fc" id="L121">		dict.clear();</span>
+<span class="fc" id="L122">	}</span>
+
+	@Override
+	public PsyDict psySlice(final PsyIterable&lt;PsyString&gt; oKeys) // TODO
+		throws PsyUndefinedException
+	{
+<span class="nc" id="L128">		final var oDict=new PsyDict();</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">		for(final var oKey: oKeys)</span>
+<span class="nc" id="L130">			oDict.psyPut(oKey, psyGet(oKey));</span>
+<span class="nc" id="L131">		return oDict;</span>
+	}
+
+	@Override
+	public Stream&lt;String&gt; keys()
+	{
+<span class="fc" id="L137">		return dict.keySet().stream();</span>
+	}
+
+	@Override
+	public PsyFormalStream&lt;PsyObject&gt; psyStream()
+	{
+		//return new PsyStream(stream());
+<span class="nc" id="L144">		return new PsyStream(StreamSupport.&lt;PsyObject&gt;stream(spliterator(), false));</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

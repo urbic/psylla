@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyFileReader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyFileReader.java</span></div><h1>PsyFileReader.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.nio.file.Paths;
+
+/**
+*	The representation of {@code filereader}.
+*/
+@Type(&quot;filereader&quot;)
+public class PsyFileReader
+	extends PsyReader
+{
+	/**
+	*	Context action of the {@code filereader} operator.
+	*/
+	@OperatorType(&quot;filereader&quot;)
+<span class="fc" id="L19">	public static final ContextAction PSY_FILEREADER</span>
+<span class="fc" id="L20">		=ContextAction.&lt;PsyTextual&gt;ofFunction(PsyFileReader::new);</span>
+
+	public PsyFileReader(final String fileName)
+		throws PsyFileNotFoundException
+	{
+<span class="fc" id="L25">		super(newFileReader(fileName));</span>
+<span class="fc" id="L26">	}</span>
+
+	public PsyFileReader(final PsyTextual oFileName)
+		throws PsyFileNotFoundException
+	{
+<span class="fc" id="L31">		this(oFileName.stringValue());</span>
+<span class="fc" id="L32">	}</span>
+
+	private static FileReader newFileReader(final String fileName)
+		throws PsyFileNotFoundException
+	{
+		try
+		{
+<span class="fc" id="L39">			return new FileReader(Paths.get(fileName).toString());</span>
+		}
+<span class="fc" id="L41">		catch(final FileNotFoundException ex)</span>
+		{
+<span class="fc" id="L43">			throw new PsyFileNotFoundException();</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

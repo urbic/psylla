@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyOperator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyOperator.java</span></div><h1>PsyOperator.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code operator}.
+*/
+@Type(&quot;operator&quot;)
+public abstract class PsyOperator
+	implements PsyExecutable, PsyValue
+{
+	/**
+	*	The name of this operator.
+	*/
+	private final String name;
+
+	/**
+	*	Constructs a new {@code operator} with the given name.
+	*
+	*	@param name the name.
+	*/
+	protected PsyOperator(final String name)
+<span class="fc" id="L23">	{</span>
+<span class="fc" id="L24">		this.name=name;</span>
+<span class="fc" id="L25">	}</span>
+
+	/**
+	*	Execute this object in the execution context. Calls the {@link #invoke(PsyContext)} method.
+	*
+	*	@param oContext the execution context.
+	*/
+	@Override
+	public void execute(final PsyContext oContext)
+	{
+<span class="fc" id="L35">		invoke(oContext);</span>
+<span class="fc" id="L36">	}</span>
+
+	/**
+	*	Invoke this operator in the execution context performing an action associated with it.
+	*
+	*	@param oContext the execution context.
+	*/
+	@Override
+	public void invoke(final PsyContext oContext)
+	{
+<span class="fc" id="L46">		final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L47">		ostack.clearBackup();</span>
+		try
+		{
+<span class="fc" id="L50">			perform(oContext);</span>
+		}
+<span class="fc" id="L52">		catch(final ClassCastException ex)</span>
+		{
+<span class="fc" id="L54">			ostack.rollback();</span>
+<span class="fc" id="L55">			final var e=new PsyTypeCheckException();</span>
+<span class="fc" id="L56">			e.setEmitter(this);</span>
+<span class="fc" id="L57">			final var estack=oContext.executionStack();</span>
+<span class="fc" id="L58">			final var dstack=oContext.dictStack();</span>
+<span class="fc" id="L59">			e.setStacks(ostack, estack, dstack);</span>
+<span class="fc" id="L60">			e.invoke(oContext);</span>
+		}
+<span class="nc" id="L62">		catch(final OutOfMemoryError ex)</span>
+		{
+<span class="nc" id="L64">			ostack.rollback();</span>
+<span class="nc" id="L65">			final var e=new PsyLimitCheckException();</span>
+<span class="nc" id="L66">			e.setEmitter(this);</span>
+<span class="nc" id="L67">			final var estack=oContext.executionStack();</span>
+<span class="nc" id="L68">			final var dstack=oContext.dictStack();</span>
+<span class="nc" id="L69">			e.setStacks(ostack, estack, dstack);</span>
+<span class="nc" id="L70">			e.invoke(oContext);</span>
+		}
+<span class="fc" id="L72">		catch(final PsyErrorException e)</span>
+		{
+<span class="fc" id="L74">			ostack.rollback();</span>
+<span class="fc" id="L75">			e.setEmitter(this);</span>
+<span class="fc" id="L76">			final var estack=oContext.executionStack();</span>
+<span class="fc" id="L77">			final var dstack=oContext.dictStack();</span>
+<span class="fc" id="L78">			e.setStacks(ostack, estack, dstack);</span>
+<span class="fc" id="L79">			e.invoke(oContext);</span>
+<span class="pc" id="L80">		}</span>
+<span class="fc" id="L81">	}</span>
+
+	/**
+	*	Perform an action associated with this operator in the given execution context.
+	*
+	*	@param oContext the execution context.
+	*	@throws PsyErrorException when an error occurs.
+	*/
+	public abstract void perform(final PsyContext oContext)
+		throws PsyErrorException;
+
+	/**
+	*	{@return a syntactic string representation of this operator} A syntatctic representation has
+	*		a form of &lt;code&gt;&quot;--&lt;i&gt;name&lt;/i&gt;--&quot;&lt;/code&gt;, where &lt;code&gt;&lt;i&gt;name&lt;/i&gt;&lt;/code&gt; is a string
+	*		returned by {@link #getName()} method.
+	*/
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L100">		return &quot;--&quot;+name+&quot;--&quot;;</span>
+	}
+
+	/**
+	*	{@return the name of this operator}
+	*/
+	public String getName()
+	{
+<span class="nc" id="L108">		return name;</span>
+	}
+
+	/**
+	*	{@return the namespace prefix of this operator}
+	*/
+	public String getPrefix()
+	{
+<span class="nc" id="L116">		final var prefixOffset=getName().indexOf('@');</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">		return prefixOffset&lt;0? &quot;core&quot;: getName().substring(0, prefixOffset);</span>
+	}
+
+	/**
+	*	{@return the simple name of this operator}
+	*/
+	public String getSimpleName()
+	{
+<span class="nc" id="L125">		return getName().substring(getPrefix().length()+1);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyNumeric.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyNumeric.java</span></div><h1>PsyNumeric.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code numeric}, an abstraction of complex and real numbers.
+*/
+@Type(&quot;numeric&quot;)
+public sealed interface PsyNumeric
+	extends PsyArithmetic&lt;PsyNumeric&gt;, PsyValue
+	permits PsyComplex, PsyRealNumeric
+{
+	/**
+	*	Context action of the {@code abs} operator.
+	*/
+	@OperatorType(&quot;abs&quot;)
+<span class="fc" id="L17">	public static final ContextAction PSY_ABS</span>
+<span class="fc" id="L18">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyAbs);</span>
+
+	/**
+	*	Context action of the {@code acos} operator.
+	*/
+	@OperatorType(&quot;acos&quot;)
+<span class="fc" id="L24">	public static final ContextAction PSY_ACOS</span>
+<span class="fc" id="L25">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyAcos);</span>
+
+	/**
+	*	Context action of the {@code asin} operator.
+	*/
+	@OperatorType(&quot;asin&quot;)
+<span class="fc" id="L31">	public static final ContextAction PSY_ASIN</span>
+<span class="fc" id="L32">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyAsin);</span>
+
+	/**
+	*	Context action of the {@code atan} operator.
+	*/
+	@OperatorType(&quot;atan&quot;)
+<span class="fc" id="L38">	public static final ContextAction PSY_ATAN</span>
+<span class="fc" id="L39">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyAtan);</span>
+
+	/**
+	*	Context action of the {@code cbrt} operator.
+	*/
+	@OperatorType(&quot;cbrt&quot;)
+<span class="fc" id="L45">	public static final ContextAction PSY_CBRT</span>
+<span class="fc" id="L46">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyCbrt);</span>
+
+	/**
+	*	Context action of the {@code cos} operator.
+	*/
+	@OperatorType(&quot;cos&quot;)
+<span class="fc" id="L52">	public static final ContextAction PSY_COS</span>
+<span class="fc" id="L53">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyCos);</span>
+
+	/**
+	*	Context action of the {@code cosh} operator.
+	*/
+	@OperatorType(&quot;cosh&quot;)
+<span class="fc" id="L59">	public static final ContextAction PSY_COSH</span>
+<span class="fc" id="L60">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyCosh);</span>
+
+	/**
+	*	Context action of the {@code exp} operator.
+	*/
+	@OperatorType(&quot;exp&quot;)
+<span class="fc" id="L66">	public static final ContextAction PSY_EXP</span>
+<span class="fc" id="L67">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyExp);</span>
+
+	/**
+	*	Context action of the {@code log} operator.
+	*/
+	@OperatorType(&quot;log&quot;)
+<span class="fc" id="L73">	public static final ContextAction PSY_LOG</span>
+<span class="fc" id="L74">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyLog);</span>
+
+	/**
+	*	Context action of the {@code pow} operator.
+	*/
+	@OperatorType(&quot;pow&quot;)
+<span class="fc" id="L80">	public static final ContextAction PSY_POW</span>
+<span class="fc" id="L81">		=ContextAction.&lt;PsyNumeric, PsyNumeric&gt;ofBiFunction(PsyNumeric::psyPow);</span>
+
+	/**
+	*	Context action of the {@code signum} operator.
+	*/
+	@OperatorType(&quot;signum&quot;)
+<span class="fc" id="L87">	public static final ContextAction PSY_SIGNUM</span>
+<span class="fc" id="L88">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psySignum);</span>
+
+	/**
+	*	Context action of the {@code sin} operator.
+	*/
+	@OperatorType(&quot;sin&quot;)
+<span class="fc" id="L94">	public static final ContextAction PSY_SIN</span>
+<span class="fc" id="L95">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psySin);</span>
+
+	/**
+	*	Context action of the {@code sinh} operator.
+	*/
+	@OperatorType(&quot;sinh&quot;)
+<span class="fc" id="L101">	public static final ContextAction PSY_SINH</span>
+<span class="fc" id="L102">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psySinh);</span>
+
+	/**
+	*	Context action of the {@code sqrt} operator.
+	*/
+	@OperatorType(&quot;sqrt&quot;)
+<span class="fc" id="L108">	public static final ContextAction PSY_SQRT</span>
+<span class="fc" id="L109">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psySqrt);</span>
+
+	/**
+	*	Context action of the {@code tan} operator.
+	*/
+	@OperatorType(&quot;tan&quot;)
+<span class="fc" id="L115">	public static final ContextAction PSY_TAN</span>
+<span class="fc" id="L116">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyTan);</span>
+
+	/**
+	*	Context action of the {@code tanh} operator.
+	*/
+	@OperatorType(&quot;tanh&quot;)
+<span class="fc" id="L122">	public static final ContextAction PSY_TANH</span>
+<span class="fc" id="L123">		=ContextAction.&lt;PsyNumeric&gt;ofFunction(PsyNumeric::psyTanh);</span>
+
+	/**
+	*	{@return the real part of this object}
+	*/
+	public double realValue();
+
+	/**
+	*	{@return the imaginary part of this object}
+	*/
+	public double imagValue();
+
+	/**
+	*	{@return the {@code numeric} absolute value of this object}
+	*/
+	public PsyRealNumeric psyAbs();
+
+
+	/**
+	*	{@return the {@code numeric} signum of this object}
+	*/
+	public PsyNumeric psySignum();
+
+	public PsyNumeric psyPow(final PsyNumeric oNumeric);
+
+	/**
+	*	{@return the {@code numeric} exponent of this object}
+	*/
+	public PsyNumeric psyExp();
+
+	/**
+	*	{@return the {@code numeric} cosine of this object}
+	*/
+	public PsyNumeric psyCos();
+
+	/**
+	*	{@return the {@code numeric} sine of this object}
+	*/
+	public PsyNumeric psySin();
+
+	/**
+	*	{@return the {@code numeric} tangent of this object}
+	*/
+	public PsyNumeric psyTan();
+
+	/**
+	*	{@return the {@code numeric} natural logarithm of this object}
+	*/
+	public PsyNumeric psyLog();
+
+	/**
+	*	{@return the {@code numeric} arc cosine of this object}
+	*/
+	public PsyNumeric psyAcos();
+
+	/**
+	*	{@return the {@code numeric} arc sine of this object}
+	*/
+	public PsyNumeric psyAsin();
+
+	/**
+	*	{@return the {@code numeric} arc tangent of this object}
+	*/
+	public PsyNumeric psyAtan();
+
+	/**
+	*	{@return the {@code numeric} square root of this object}
+	*/
+	public PsyNumeric psySqrt();
+
+	/**
+	*	{@return the {@code numeric} cubic root of this object}
+	*/
+	public PsyNumeric psyCbrt();
+
+	/**
+	*	{@return the {@code numeric} hyperbolic cosine of this object}
+	*/
+	public PsyNumeric psyCosh();
+
+	/**
+	*	{@return the {@code numeric} hyperbolic sine of this object}
+	*/
+	public PsyNumeric psySinh();
+
+	/**
+	*	{@return the {@code numeric} hyperbolic tangent of this object}
+	*/
+	public PsyNumeric psyTanh();
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

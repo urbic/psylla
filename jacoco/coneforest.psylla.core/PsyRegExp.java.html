@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyRegExp.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyRegExp.java</span></div><h1>PsyRegExp.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
+/**
+*	The representation of {@code regexp}.
+*/
+@Type(&quot;regexp&quot;)
+public final class PsyRegExp
+	implements PsyValue
+{
+	/**
+	*	Context action of the {@code regexp} operator.
+	*/
+	@OperatorType(&quot;regexp&quot;)
+<span class="fc" id="L18">	public static final ContextAction PSY_REGEXP</span>
+<span class="fc" id="L19">		=ContextAction.&lt;PsyString&gt;ofFunction(PsyRegExp::new);</span>
+
+	private final Pattern pattern;
+
+	/**
+	*	Constructs a new {@code regexp} from the character sequence.
+	*
+	*	@param cs the character sequence.
+	*	@throws PsyInvalidRegExpException when a syntax error in a regular-expression pattern
+	*	occured.
+	*/
+	public PsyRegExp(final CharSequence cs)
+		throws PsyInvalidRegExpException
+<span class="fc" id="L32">	{</span>
+		try
+		{
+<span class="fc" id="L35">			pattern=Pattern.compile(cs.toString());</span>
+		}
+<span class="fc" id="L37">		catch(final PatternSyntaxException ex)</span>
+		{
+<span class="fc" id="L39">			throw new PsyInvalidRegExpException(ex);</span>
+<span class="fc" id="L40">		}</span>
+<span class="fc" id="L41">	}</span>
+
+	/**
+	*	Constructs a new {@code regexp} from the given {@code string}.
+	*
+	*	@param oName the given {@code string}.
+	*	@throws PsyInvalidRegExpException when a syntax error in a regular-expression pattern
+	*	occured.
+	*/
+	public PsyRegExp(final PsyString oName)
+		throws PsyInvalidRegExpException
+	{
+<span class="fc" id="L53">		this(oName.stringValue());</span>
+<span class="fc" id="L54">	}</span>
+
+	/**
+	*	{@return the pattern}
+	*/
+	public Pattern getPattern()
+	{
+<span class="nc" id="L61">		return pattern;</span>
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L67">		final var sb=new StringBuilder(&quot;~&quot;);</span>
+<span class="fc" id="L68">		final var patternImage=pattern.toString();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		for(int i=0; i&lt;patternImage.length(); i++)</span>
+		{
+<span class="fc" id="L71">			final char c=patternImage.charAt(i);</span>
+<span class="fc bfc" id="L72" title="All 10 branches covered.">			sb.append(switch(c)</span>
+				{
+<span class="fc" id="L74">					case '\u0000'-&gt;&quot;\\0&quot;;</span>
+<span class="fc" id="L75">					case '\u0007'-&gt;&quot;\\a&quot;;</span>
+<span class="fc" id="L76">					case '\t'-&gt;&quot;\\t&quot;;</span>
+<span class="fc" id="L77">					case '\u000B'-&gt;&quot;\\v&quot;;</span>
+<span class="fc" id="L78">					case '\n'-&gt;&quot;\\n&quot;;</span>
+<span class="fc" id="L79">					case '\f'-&gt;&quot;\\f&quot;;</span>
+<span class="fc" id="L80">					case '\r'-&gt;&quot;\\r&quot;;</span>
+<span class="fc" id="L81">					case '\u001B'-&gt;&quot;\\e&quot;;</span>
+<span class="fc" id="L82">					case '~'-&gt;&quot;\\~&quot;;</span>
+<span class="fc" id="L83">					default-&gt;c;</span>
+				});
+		}
+<span class="fc" id="L86">		sb.append('~');</span>
+<span class="fc" id="L87">		return sb.toString();</span>
+	}
+
+	/**
+	*	{@return the {@code string} object obtained as a result of parsing the literal token image}
+	*
+	*	@param image the literal token image.
+	*	@throws PsySyntaxErrorException when the literal image is syntactically incorrect.
+	*/
+	public static PsyRegExp parseLiteral(final String image)
+		throws PsyInvalidRegExpException, PsySyntaxErrorException
+	{
+<span class="fc" id="L99">		final var sb=new StringBuilder();</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">		for(int i=1; i&lt;image.length()-1; i++)</span>
+		{
+<span class="fc" id="L102">			final var c=image.charAt(i);</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">			switch(c)</span>
+			{
+				case '\\'-&gt;
+					{
+<span class="fc" id="L107">						i++;</span>
+<span class="fc bfc" id="L108" title="All 15 branches covered.">						switch(image.charAt(i))</span>
+						{
+<span class="fc" id="L110">							case '0'-&gt;sb.append('\u0000');</span>
+<span class="fc" id="L111">							case 'a'-&gt;sb.append('\u0007');</span>
+<span class="fc" id="L112">							case 'n'-&gt;sb.append('\n');</span>
+<span class="fc" id="L113">							case 'r'-&gt;sb.append('\r');</span>
+<span class="fc" id="L114">							case 't'-&gt;sb.append('\t');</span>
+<span class="fc" id="L115">							case 'v'-&gt;sb.append('\u000B');</span>
+<span class="fc" id="L116">							case 'f'-&gt;sb.append('\f');</span>
+<span class="fc" id="L117">							case 'e'-&gt;sb.append('\u001B');</span>
+<span class="fc" id="L118">							case '\n'-&gt;{}</span>
+							case 'u'-&gt;
+								{
+<span class="fc" id="L121">									sb.append(Character.toChars(</span>
+<span class="fc" id="L122">											Integer.valueOf(image.substring(i+1, i+5), 16)));</span>
+<span class="fc" id="L123">									i+=4;</span>
+<span class="fc" id="L124">								}</span>
+							case 'c'-&gt;
+								{
+<span class="fc" id="L127">									final var ch=image.charAt(++i);</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">									sb.append(Character.toChars(ch+(ch&lt;64? 64: -64)));</span>
+<span class="fc" id="L129">								}</span>
+							case 'x'-&gt;
+								{
+									try
+									{
+										// TODO: if not found
+<span class="fc" id="L135">										final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L136">										sb.append(Character.toChars(</span>
+<span class="fc" id="L137">												Integer.valueOf(image.substring(i+2, j), 16)));</span>
+<span class="fc" id="L138">										i=j;</span>
+									}
+<span class="nc" id="L140">									catch(final IllegalArgumentException ex)</span>
+									{
+<span class="nc" id="L142">										throw new PsySyntaxErrorException(ex);</span>
+<span class="fc" id="L143">									}</span>
+								}
+							case 'N'-&gt;
+								{
+									try
+									{
+										// TODO: if not found
+<span class="fc" id="L150">										final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L151">										final var cp=Character.codePointOf(image.substring(i+2, j));</span>
+										// TODO
+<span class="fc" id="L153">										sb.append((char)cp);</span>
+<span class="fc" id="L154">										i=j;</span>
+									}
+<span class="fc" id="L156">									catch(final IllegalArgumentException ex)</span>
+									{
+<span class="fc" id="L158">										throw new PsySyntaxErrorException(ex);</span>
+<span class="fc" id="L159">									}</span>
+								}
+<span class="fc" id="L161">							case '~'-&gt;sb.append('~');</span>
+<span class="fc" id="L162">							default-&gt;sb.append(&quot;\\&quot;+image.charAt(i));</span>
+						}
+					}
+<span class="fc" id="L165">				default-&gt;sb.append(c);</span>
+			}
+		}
+<span class="fc" id="L168">		return new PsyRegExp(sb);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

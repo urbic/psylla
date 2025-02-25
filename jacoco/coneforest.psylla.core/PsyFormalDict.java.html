@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyFormalDict.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyFormalDict.java</span></div><h1>PsyFormalDict.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.StringJoiner;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
+/**
+*	The representation of {@code formaldict}, an abstraction of a dictionary.
+*
+*	@param &lt;V&gt; a type of contained values.
+*/
+@Type(&quot;formaldict&quot;)
+public interface PsyFormalDict&lt;V extends PsyObject&gt;
+	extends
+		PsyContainer&lt;V&gt;,
+		PsyIndexed&lt;PsyString, V&gt;,
+		PsySequential&lt;V&gt;
+{
+	/**
+	*	Context action of the {@code undef} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;undef&quot;)
+<span class="fc" id="L28">	public static final ContextAction PSY_UNDEF</span>
+<span class="fc" id="L29">		=ContextAction.&lt;PsyFormalDict, PsyString&gt;ofBiConsumer(PsyFormalDict::psyUndef);</span>
+
+	@Override
+	public default void psyForAll(final PsyObject oProc, final PsyContext oContext)
+		throws PsyErrorException
+	{
+<span class="fc" id="L35">		final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L36">		final var keysIterator=psyKeys().stream().iterator();</span>
+		//oContext.pushLoopLevel();
+<span class="fc" id="L38">		oContext.executionStack().enterLoop();</span>
+<span class="fc" id="L39">		oContext.executionStack().push(new PsyOperator(&quot;#forall_continue&quot;)</span>
+<span class="fc" id="L40">			{</span>
+				@Override
+				public void perform(final PsyContext oContext1)
+					throws PsyErrorException
+				{
+<span class="fc bfc" id="L45" title="All 2 branches covered.">					if(keysIterator.hasNext())</span>
+					{
+<span class="fc" id="L47">						final var oKey=keysIterator.next();</span>
+<span class="fc" id="L48">						ostack.push(oKey);</span>
+<span class="fc" id="L49">						ostack.push(psyGet(oKey));</span>
+<span class="fc" id="L50">						oContext1.executionStack().push(this);</span>
+<span class="fc" id="L51">						oProc.invoke(oContext1);</span>
+<span class="fc" id="L52">					}</span>
+					else
+						//oContext1.popLoopLevel();
+<span class="fc" id="L55">						oContext1.executionStack().exitLoop();</span>
+<span class="fc" id="L56">				}</span>
+			});
+<span class="fc" id="L58">	}</span>
+
+	public V get(final String key)
+		throws PsyUndefinedException;
+
+	@Override
+	public default V psyGet(final PsyString oKey)
+		throws PsyUndefinedException
+	{
+<span class="fc" id="L67">		return get(oKey.stringValue());</span>
+	}
+
+	/*
+	@Override
+	public default PsyFormalArray&lt;V&gt; psyGetAll(final PsyIterable&lt;PsyTextual&gt; oEnumeration)
+		throws PsyLimitCheckException, PsyRangeCheckException, PsyUndefinedException
+	{
+		final PsyFormalArray&lt;V&gt; oResult=(PsyFormalArray&lt;V&gt;)new PsyArray();
+		for(final var oKey: oEnumeration)
+			oResult.psyAppend(psyGet(oKey));
+		return oResult;
+	}
+	*/
+
+	public void put(final String key, final V oValue);
+
+	@Override
+	public default void psyPut(final PsyString oKey, final V oValue)
+	{
+<span class="fc" id="L87">		put(oKey.stringValue(), oValue);</span>
+<span class="fc" id="L88">	}</span>
+
+	public boolean known(final String key);
+
+	@Override
+	public default PsyBoolean psyKnown(final PsyString oKey)
+	{
+<span class="fc" id="L95">		return PsyBoolean.of(known(oKey.stringValue()));</span>
+	}
+
+	public void undef(final String key);
+
+	/**
+	*	Deletes a key and associated value from this dictionary.
+	*
+	*	@param oKey a {@code string} key.
+	*/
+	public default void psyUndef(final PsyString oKey)
+	{
+<span class="fc" id="L107">		undef(oKey.stringValue());</span>
+<span class="fc" id="L108">	}</span>
+
+	@Override
+	public default PsyFormalStream&lt;PsyString&gt; psyKeys()
+	{
+<span class="fc" id="L113">		return PsyFormalStream.&lt;PsyString&gt;of(keys().map(PsyString::new));</span>
+	}
+
+	public Stream&lt;String&gt; keys();
+
+	@Override
+	public default void psyDelete(final PsyString oKey)
+		throws PsyUndefinedException
+	{
+<span class="nc" id="L122">		psyUndef(oKey);</span>
+<span class="nc" id="L123">	}</span>
+
+	@Override
+	public default V psyExtract(final PsyString oKey)
+		throws PsyUndefinedException
+	{
+<span class="nc" id="L129">		final V oResult=psyGet(oKey);</span>
+<span class="nc" id="L130">		psyUndef(oKey);</span>
+<span class="nc" id="L131">		return oResult;</span>
+	}
+
+	@Override
+	public PsyFormalDict&lt;V&gt; psySlice(final PsyIterable&lt;PsyString&gt; oKeys)
+		throws PsyUndefinedException;
+
+	@Override
+	public default PsyStream psyEntries()
+	{
+<span class="fc" id="L141">		return new PsyStream(StreamSupport.&lt;PsyObject&gt;stream(new PsyIterable&lt;PsyObject&gt;()</span>
+<span class="fc" id="L142">			{</span>
+				@Override
+				public Iterator&lt;PsyObject&gt; iterator()
+				{
+<span class="fc" id="L146">					return new Iterator&lt;PsyObject&gt;()</span>
+<span class="fc" id="L147">						{</span>
+<span class="fc" id="L148">							private boolean flag=false;</span>
+
+							private PsyString oKey;
+
+<span class="fc" id="L152">							private Iterator&lt;PsyString&gt; parentIterator</span>
+<span class="fc" id="L153">								=psyKeys().stream().iterator();</span>
+
+							@Override
+							public boolean hasNext()
+							{
+<span class="fc bfc" id="L158" title="All 4 branches covered.">								return parentIterator.hasNext() || flag;</span>
+							}
+
+							@Override
+							public PsyObject next()
+							{
+								try
+								{
+<span class="fc bfc" id="L166" title="All 4 branches covered.">									return (flag=!flag)?</span>
+<span class="fc" id="L167">										oKey=parentIterator.next(): psyGet(oKey);</span>
+								}
+<span class="nc" id="L169">								catch(final PsyErrorException e)</span>
+								{
+<span class="nc" id="L171">									throw new AssertionError(e);</span>
+								}
+							}
+
+						};
+				}
+<span class="fc" id="L177">			}.spliterator(),</span>
+			false));
+	}
+
+	@Override
+	public default String toSyntaxString()
+	{
+<span class="fc" id="L184">		return toSyntaxStringHelper(new HashSet&lt;PsyContainer&lt;? extends PsyObject&gt;&gt;());</span>
+	}
+
+	@Override
+	public default String toSyntaxStringHelper(final Set&lt;PsyContainer&lt;? extends PsyObject&gt;&gt; processed)
+	{
+<span class="fc bfc" id="L190" title="All 2 branches covered.">		if(!processed.add(this))</span>
+<span class="fc" id="L191">			return '%'+typeName()+'%';</span>
+<span class="fc" id="L192">		final var sj=new StringJoiner(&quot; &quot;, &quot;&lt;&quot;, &quot;&gt;&quot;);</span>
+<span class="fc" id="L193">		psyEntries().stream().forEach(o-&gt;</span>
+<span class="fc bfc" id="L194" title="All 2 branches covered.">			sj.add(o instanceof PsyContainer&lt;? extends PsyObject&gt; oContainer?</span>
+<span class="fc" id="L195">				oContainer.toSyntaxStringHelper(processed):</span>
+<span class="fc" id="L196">				o.toSyntaxString()));</span>
+<span class="fc" id="L197">		return sj.toString();</span>
+	}
+
+	@Override
+	public default void psyClear()
+	{
+<span class="nc" id="L203">		psyKeys().stream().forEach(this::psyUndef);</span>
+<span class="nc" id="L204">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

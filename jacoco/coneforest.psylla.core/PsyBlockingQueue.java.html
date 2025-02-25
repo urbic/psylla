@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyBlockingQueue.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyBlockingQueue.java</span></div><h1>PsyBlockingQueue.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.Iterator;
+import java.util.concurrent.ArrayBlockingQueue;
+
+/**
+*	The representation of {@code blockingqueue}.
+*/
+@Type(&quot;blockingqueue&quot;)
+public final class PsyBlockingQueue
+	implements
+		PsyFormalQueue&lt;PsyObject&gt;,
+		PsyCloseable
+{
+	/**
+	*	Context action of the {@code blockingqueue} operator.
+	*/
+	@OperatorType(&quot;blockingqueue&quot;)
+<span class="fc" id="L20">	public static final ContextAction PSY_BLOCKINGQUEUE</span>
+<span class="fc" id="L21">		=ContextAction.&lt;PsyInteger&gt;ofFunction(PsyBlockingQueue::new);</span>
+
+	private final ArrayBlockingQueue&lt;PsyObject&gt; queue;
+
+<span class="nc" id="L25">	private boolean closed=false;</span>
+
+	public PsyBlockingQueue(final PsyInteger oCapacity)
+		throws PsyRangeCheckException, PsyLimitCheckException
+<span class="nc" id="L29">	{</span>
+<span class="nc" id="L30">		final var capacity=oCapacity.longValue();</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">		if(capacity&gt;=Integer.MAX_VALUE)</span>
+<span class="nc" id="L32">			throw new PsyLimitCheckException();</span>
+		try
+		{
+<span class="nc" id="L35">			queue=new ArrayBlockingQueue&lt;&gt;((int)capacity);</span>
+		}
+<span class="nc" id="L37">		catch(final IllegalArgumentException ex)</span>
+		{
+<span class="nc" id="L39">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L40">		}</span>
+<span class="nc" id="L41">	}</span>
+
+	/**
+	*	{@return the number of elements in this queue}
+	*/
+	@Override
+	public int length()
+	{
+<span class="nc" id="L49">		return queue.size();</span>
+	}
+
+	@Override
+	public void psyGive(final PsyObject o)
+		throws PsyInterruptException
+	{
+		try
+		{
+<span class="nc" id="L58">			queue.put(o);</span>
+		}
+<span class="nc" id="L60">		catch(final InterruptedException ex)</span>
+		{
+<span class="nc" id="L62">			throw new PsyInterruptException();</span>
+<span class="nc" id="L63">		}</span>
+<span class="nc" id="L64">	}</span>
+
+	@Override
+	public void psyEnqueue(final PsyObject o)
+		throws PsyInvalidStateException
+	{
+		try
+		{
+<span class="nc" id="L72">			queue.add(o);</span>
+		}
+<span class="nc" id="L74">		catch(final IllegalStateException ex)</span>
+		{
+<span class="nc" id="L76">			throw new PsyInvalidStateException();</span>
+<span class="nc" id="L77">		}</span>
+<span class="nc" id="L78">	}</span>
+
+	@Override
+	public PsyObject psyDequeue()
+		throws PsyInvalidStateException
+	{
+		try
+		{
+<span class="nc" id="L86">			return queue.remove();</span>
+		}
+<span class="nc" id="L88">		catch(final IllegalStateException ex)</span>
+		{
+<span class="nc" id="L90">			throw new PsyInvalidStateException();</span>
+		}
+	}
+
+	@Override
+	public PsyObject psyTake()
+		throws PsyInterruptException
+	{
+		try
+		{
+<span class="nc" id="L100">			return queue.take();</span>
+		}
+<span class="nc" id="L102">		catch(final InterruptedException ex)</span>
+		{
+<span class="nc" id="L104">			throw new PsyInterruptException();</span>
+		}
+	}
+
+	@Override
+	public void psyClose()
+	{
+<span class="nc" id="L111">		closed=true;</span>
+<span class="nc" id="L112">	}</span>
+
+	@Override
+	public void psyClear()
+	{
+<span class="nc" id="L117">		queue.clear();</span>
+<span class="nc" id="L118">	}</span>
+
+	@Override
+	public Iterator&lt;PsyObject&gt; iterator()
+	{
+<span class="nc" id="L123">		return queue.iterator();</span>
+	}
+
+	@Override
+	public int capacity()
+	{
+<span class="nc" id="L129">		return queue.remainingCapacity()+length();</span>
+	}
+
+	@Override
+	public PsyStream psyStream()
+	{
+<span class="nc" id="L135">		return new PsyStream(queue.stream());</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

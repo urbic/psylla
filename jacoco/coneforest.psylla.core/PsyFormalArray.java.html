@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyFormalArray.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyFormalArray.java</span></div><h1>PsyFormalArray.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringJoiner;
+import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
+
+/**
+*	The representation of {@code formalarray}, an abstraction of an array composed of {@code
+*	object}s.
+*
+*	@param &lt;T&gt; a type of contained objects.
+*/
+@Type(&quot;formalarray&quot;)
+public interface PsyFormalArray&lt;T extends PsyObject&gt;
+	extends
+		PsyAppendable&lt;T&gt;,
+		PsyContainer&lt;T&gt;,
+		PsyIndexed&lt;PsyInteger, T&gt;,
+		PsySequential&lt;T&gt;
+{
+	/**
+	*	Context action of the {@code extractinterval} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;extractinterval&quot;)
+<span class="fc" id="L29">	public static final ContextAction PSY_EXTRACTINTERVAL</span>
+<span class="fc" id="L30">		=ContextAction.&lt;PsyFormalArray, PsyInteger, PsyInteger&gt;ofTriFunction(PsyFormalArray::psyExtractInterval);</span>
+
+	/**
+	*	Context action of the {@code getinterval} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;getinterval&quot;)
+<span class="fc" id="L37">	public static final ContextAction PSY_GETINTERVAL</span>
+<span class="fc" id="L38">		=ContextAction.&lt;PsyFormalArray, PsyInteger, PsyInteger&gt;ofTriFunction(PsyFormalArray::psyGetInterval);</span>
+
+	/**
+	*	Context action of the {@code insert} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;insert&quot;)
+<span class="fc" id="L45">	public static final ContextAction PSY_INSERT</span>
+<span class="fc" id="L46">		=ContextAction.&lt;PsyFormalArray, PsyInteger, PsyObject&gt;ofTriConsumer(PsyFormalArray::psyInsert);</span>
+
+	/**
+	*	Context action of the {@code insertall} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;insertall&quot;)
+<span class="fc" id="L53">	public static final ContextAction PSY_INSERTALL</span>
+<span class="fc" id="L54">		=ContextAction.&lt;PsyFormalArray, PsyInteger, PsyIterable&gt;ofTriConsumer(PsyFormalArray::psyInsertAll);</span>
+
+	/**
+	*	Context action of the {@code postchop} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;postchop&quot;)
+<span class="fc" id="L61">	public static final ContextAction PSY_POSTCHOP</span>
+<span class="fc" id="L62">		=ContextAction.&lt;PsyFormalArray&gt;ofFunction(PsyFormalArray::psyPostChop);</span>
+
+	/**
+	*	Context action of the {@code prechop} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;prechop&quot;)
+<span class="fc" id="L69">	public static final ContextAction PSY_PRECHOP</span>
+<span class="fc" id="L70">		=ContextAction.&lt;PsyFormalArray&gt;ofFunction(PsyFormalArray::psyPreChop);</span>
+
+	/**
+	*	Context action of the {@code prepend} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;prepend&quot;)
+<span class="fc" id="L77">	public static final ContextAction PSY_PREPEND</span>
+<span class="fc" id="L78">		=ContextAction.&lt;PsyFormalArray, PsyObject&gt;ofBiConsumer(PsyFormalArray::psyPrepend);</span>
+
+	/**
+	*	Context action of the {@code prependall} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;prependall&quot;)
+<span class="fc" id="L85">	public static final ContextAction PSY_PREPENDALL</span>
+<span class="fc" id="L86">		=ContextAction.&lt;PsyFormalArray, PsyIterable&gt;ofBiConsumer(PsyFormalArray::psyPrependAll);</span>
+
+	/**
+	*	Context action of the {@code putinterval} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;putinterval&quot;)
+<span class="fc" id="L93">	public static final ContextAction PSY_PUTINTERVAL</span>
+<span class="fc" id="L94">		=ContextAction.&lt;PsyFormalArray, PsyInteger, PsyIterable&gt;ofTriConsumer(PsyFormalArray::psyPutInterval);</span>
+
+	/**
+	*	Context action of the {@code reverse} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;reverse&quot;)
+<span class="fc" id="L101">	public static final ContextAction PSY_REVERSE</span>
+<span class="fc" id="L102">		=ContextAction.&lt;PsyFormalArray&gt;ofFunction(PsyFormalArray::psyReverse);</span>
+
+	/**
+	*	Context action of the {@code setlength} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;setlength&quot;)
+<span class="fc" id="L109">	public static final ContextAction PSY_SETLENGTH</span>
+<span class="fc" id="L110">		=ContextAction.&lt;PsyFormalArray, PsyInteger&gt;ofBiConsumer(PsyFormalArray::psySetLength);</span>
+
+	@Override
+	public PsyFormalArray&lt;T&gt; psyClone();
+
+	public default PsyFormalArray&lt;T&gt; psyReverse()
+		throws PsyRangeCheckException
+	{
+<span class="fc" id="L118">		final var oCloned=psyClone();</span>
+<span class="fc" id="L119">		final int length=oCloned.length();</span>
+<span class="fc bfc" id="L120" title="All 2 branches covered.">		for(int i=0; i&lt;length/2; i++)</span>
+		{
+<span class="fc" id="L122">			final T o=oCloned.get(i);</span>
+<span class="fc" id="L123">			oCloned.put(i, oCloned.get(length-1-i));</span>
+<span class="fc" id="L124">			oCloned.put(length-1-i, o);</span>
+		}
+<span class="fc" id="L126">		return oCloned;</span>
+	}
+
+	@Override
+	public default PsyBoolean psyKnown(final PsyInteger oIndex)
+	{
+		// TODO: index&lt;0
+<span class="nc" id="L133">		final long index=oIndex.longValue();</span>
+<span class="nc bnc" id="L134" title="All 4 branches missed.">		return PsyBoolean.of(index&gt;=0 &amp;&amp; index&lt;length());</span>
+	}
+
+	/**
+	*	Returns the element at the specified position in this array.
+	*
+	*	@param index the index of the element.
+	*	@return the element at the specified position in this list.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
+	public T get(final int index)
+		throws PsyRangeCheckException;
+
+	@Override
+	public default T psyGet(final PsyInteger oIndex)
+		throws PsyRangeCheckException
+	{
+<span class="fc" id="L151">		return get(oIndex.intValue());</span>
+	}
+
+	public PsyFormalArray&lt;T&gt; psyGetInterval(final PsyInteger oIndex, final PsyInteger oLength)
+		throws PsyRangeCheckException;
+
+	public void put(final int index, final T o)
+		throws PsyRangeCheckException;
+
+	@Override
+	public default void psyPut(final PsyInteger oIndex, final T o)
+		throws PsyRangeCheckException
+	{
+<span class="fc" id="L164">		put(oIndex.intValue(), o);</span>
+<span class="fc" id="L165">	}</span>
+
+	/**
+	*	Inserts the specified {@code object} into this array at the position
+	*	specified by a given index.
+	*
+	*	@param index a {@code integer} index.
+	*	@param o a {@code object}.
+	*
+	*	@throws PsyRangeCheckException when TODO.
+	*/
+	public void insert(final int index, final T o)
+		throws PsyRangeCheckException;
+
+	/**
+	*	Inserts the specified {@code object} into this array at the position
+	*	specified by a given {@code integer} index.
+	*
+	*	@param oIndex an {@code integer} index.
+	*	@param o an {@code object}.
+	*
+	*	@throws PsyRangeCheckException when TODO.
+	*/
+	public default void psyInsert(final PsyInteger oIndex, final T o)
+		throws PsyRangeCheckException
+	{
+<span class="fc" id="L191">		insert(oIndex.intValue(), o);</span>
+<span class="fc" id="L192">	}</span>
+
+	public default void psyInsertAll(final PsyInteger oIndex, final PsyIterable&lt;? extends T&gt; oEnumeration)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L197">		int index=oIndex.intValue();</span>
+<span class="nc bnc" id="L198" title="All 4 branches missed.">		for(final T o: this!=oEnumeration? oEnumeration: (PsyIterable&lt;? extends T&gt;)psyClone())</span>
+<span class="nc" id="L199">			insert(index++, o);</span>
+<span class="nc" id="L200">	}</span>
+
+	/**
+	*	Inserts the specified {@code object} into this array at the beginning.
+	*
+	*	@param o an {@code object}.
+	*	@throws PsyRangeCheckException when TODO.
+	*/
+	public default void psyPrepend(final T o)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L211">		insert(0, o);</span>
+<span class="nc" id="L212">	}</span>
+
+	public default T psyPreChop()
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L217">		return extract(0);</span>
+	}
+
+	public default T psyPostChop()
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L223">		return extract(length()-1);</span>
+	}
+
+	public default void psyPrependAll(final PsyIterable&lt;? extends T&gt; oEnumeration)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L229">		psyInsertAll(PsyInteger.ZERO, oEnumeration);</span>
+<span class="nc" id="L230">	}</span>
+
+	@Override
+	public default PsyFormalArray&lt;T&gt; psyReplicate(final PsyInteger oCount)
+		throws
+			PsyLimitCheckException,
+			PsyRangeCheckException,
+			PsyUnsupportedException
+	{
+<span class="fc" id="L239">		long count=oCount.longValue();</span>
+<span class="fc bfc" id="L240" title="All 2 branches covered.">		if(count&lt;0)</span>
+<span class="fc" id="L241">			throw new PsyRangeCheckException();</span>
+<span class="fc bfc" id="L242" title="All 2 branches covered.">		if(count*length()&gt;Integer.MAX_VALUE)</span>
+<span class="fc" id="L243">			throw new PsyLimitCheckException();</span>
+<span class="fc" id="L244">		final PsyFormalArray&lt;T&gt; oResult=(PsyFormalArray&lt;T&gt;)psyNewEmpty();</span>
+<span class="fc bfc" id="L245" title="All 2 branches covered.">		while(count--&gt;0)</span>
+<span class="fc" id="L246">			oResult.psyAppendAll(this);</span>
+<span class="fc" id="L247">		return oResult;</span>
+	}
+
+	public default void psyPutInterval(final PsyInteger oIndex, final PsyIterable&lt;? extends T&gt; oEnumeration)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L253">		int index=oIndex.intValue();</span>
+<span class="nc bnc" id="L254" title="All 6 branches missed.">		if(index&lt;0 || oEnumeration instanceof PsyLengthy oLengthy &amp;&amp; index+oLengthy.length()&gt;=length())</span>
+<span class="nc" id="L255">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L256" title="All 2 branches missed.">		for(final var o: oEnumeration)</span>
+		{
+<span class="nc" id="L258">			put(index++, o);</span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">			if(index==length())</span>
+<span class="nc" id="L260">				break;</span>
+<span class="nc" id="L261">		}</span>
+<span class="nc" id="L262">	}</span>
+
+	@Override
+	public default void psyDelete(final PsyInteger oIndex)
+		throws PsyRangeCheckException
+	{
+<span class="fc" id="L268">		delete(oIndex.intValue());</span>
+<span class="fc" id="L269">	}</span>
+
+	/**
+	*	Removes the element at the specified position in this array.
+	*
+	*	@param index the index of the element to be removed.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
+	public void delete(int index)
+		throws PsyRangeCheckException;
+
+	@Override
+	public default T psyExtract(final PsyInteger oIndex)
+		throws PsyRangeCheckException
+	{
+<span class="fc" id="L284">		return extract(oIndex.intValue());</span>
+	}
+
+	public void psySetLength(final PsyInteger oLength)
+		throws PsyLimitCheckException, PsyRangeCheckException;
+
+	public T extract(final int index)
+		throws PsyRangeCheckException;
+
+	public PsyFormalArray&lt;T&gt; psyExtractInterval(final PsyInteger oIndex, final PsyInteger oCount)
+		throws PsyRangeCheckException;
+
+	@Override
+	public PsyFormalArray&lt;T&gt; psySlice(final PsyIterable&lt;PsyInteger&gt; oIndices)
+		throws
+			PsyRangeCheckException,
+			PsyLimitCheckException,
+			PsyUnsupportedException;
+
+	@Override
+	public default PsyFormalStream&lt;PsyInteger&gt; psyKeys()
+	{
+		//return new PsyStream(IntStream.range(0, length()).&lt;PsyInteger&gt;mapToObj(PsyInteger::of));
+<span class="fc" id="L307">		return PsyFormalStream.&lt;PsyInteger&gt;of(</span>
+<span class="fc" id="L308">				IntStream.range(0, length()).&lt;PsyInteger&gt;mapToObj(PsyInteger::of));</span>
+	}
+
+	@Override
+	public default PsyFormalStream&lt;T&gt; psyValues()
+	{
+<span class="fc" id="L314">		return PsyFormalStream.&lt;T&gt;of(StreamSupport.&lt;T&gt;stream(spliterator(), false));</span>
+	}
+
+	/*
+	@Override
+	public default PsyFormalArray&lt;T&gt; psyGetAll(final PsyIterable&lt;PsyInteger&gt; oIndices)
+		throws
+			PsyRangeCheckException,
+			PsyLimitCheckException,
+			PsyUnsupportedException
+	{
+		final PsyFormalArray&lt;T&gt; oResult=(PsyFormalArray&lt;T&gt;)psyNewEmpty();
+		for(final var oIndex: oIndices)
+			oResult.psyAppend(psyGet(oIndex));
+		return oResult;
+	}
+	*/
+
+	@Override
+	public default PsyFormalStream&lt;PsyObject&gt; psyEntries()
+	{
+<span class="nc" id="L335">		return null; // TODO</span>
+		/*
+		return new PsyFormalStream&lt;PsyObject&gt;()
+			{
+				@Override
+				public void psyForAll(final PsyObject oProc)
+					throws PsyErrorException
+				{
+					final var interpreter=PsyContext.psyCurrentContext();
+					final var ostack=interpreter.operandStack();
+					final Iterator&lt;PsyInteger&gt; iterator=psyKeys().iterator();
+					interpreter.pushLoopLevel();
+					interpreter.executionStack().push(new PsyOperator(&quot;#forall_continue&quot;)
+						{
+							@Override
+							public void action()
+								throws PsyErrorException
+							{
+								final var interpreter1=PsyContext.psyCurrentContext();
+								if(iterator.hasNext())
+								{
+									final var oIndex=iterator.next();
+									ostack.push(oIndex);
+									ostack.push(psyGet(oIndex));
+									interpreter1.executionStack().push(this);
+									oProc.invoke();
+								}
+								else
+								{
+									interpreter1.popLoopLevel();
+								}
+							}
+						});
+				}
+
+				@Override
+				public Stream&lt;PsyObject&gt; stream()
+				{
+					return new Stream&lt;PsyObject&gt;()
+						{
+
+							@Override
+							public Iterator&lt;PsyObject&gt; iterator()
+							{
+								return new Iterator&lt;PsyObject&gt;()
+									{
+										@Override
+										public boolean hasNext()
+										{
+											return parentIterator.hasNext();
+										}
+
+										@Override
+										public PsyObject next()
+										{
+											return (flag=!flag)?
+												PsyInteger.of(index++): parentIterator.next();
+										}
+
+										private boolean flag=false;
+
+										private int index=0;
+
+										private final Iterator&lt;PsyObject&gt; parentIterator
+											=(Iterator&lt;PsyObject&gt;)PsyFormalArray.this.iterator();
+
+									};
+							}
+						};
+				}
+			};
+		*/
+	}
+
+	@Override
+	public default String toSyntaxString()
+	{
+<span class="fc" id="L412">		return toSyntaxStringHelper(new HashSet&lt;PsyContainer&lt;? extends PsyObject&gt;&gt;());</span>
+	}
+
+	@Override
+	public default String toSyntaxStringHelper(final Set&lt;PsyContainer&lt;? extends PsyObject&gt;&gt; processed)
+	{
+<span class="fc bfc" id="L418" title="All 2 branches covered.">		if(!processed.add(this))</span>
+<span class="fc" id="L419">			return '%'+typeName()+'%';</span>
+<span class="fc" id="L420">		final var sj=new StringJoiner(&quot; &quot;, &quot;[&quot;, &quot;]&quot;);</span>
+<span class="fc bfc" id="L421" title="All 2 branches covered.">		for(final var o: this)</span>
+<span class="fc bfc" id="L422" title="All 2 branches covered.">			sj.add(o instanceof PsyContainer&lt;? extends PsyObject&gt; oContainer?</span>
+<span class="fc" id="L423">				oContainer.toSyntaxStringHelper(processed):</span>
+<span class="fc" id="L424">				o.toSyntaxString());</span>
+<span class="fc" id="L425">		return sj.toString();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DynamicClassLoader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">DynamicClassLoader.java</span></div><h1>DynamicClassLoader.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+import coneforest.psylla.core.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Hashtable;
+import java.util.jar.JarFile;
+
+public abstract class DynamicClassLoader
+	extends ClassLoader
+{
+<span class="fc" id="L15">	private final Hashtable&lt;String, Class&lt;?&gt;&gt; classes=new Hashtable&lt;&gt;();</span>
+
+	public DynamicClassLoader()
+<span class="fc" id="L18">	{</span>
+<span class="fc" id="L19">	}</span>
+
+	public void psyExternal(final PsyTextual oClassName)
+		throws PsyInvalidExternalException
+	{
+		try
+		{
+<span class="nc" id="L26">			loadClass(oClassName.stringValue());</span>
+		}
+<span class="nc" id="L28">		catch(final ClassNotFoundException ex)</span>
+		{
+<span class="nc" id="L30">			throw new PsyInvalidExternalException();</span>
+<span class="nc" id="L31">		}</span>
+<span class="nc" id="L32">	}</span>
+
+	@Override
+	public Class&lt;?&gt; findClass(final String className)
+		throws ClassNotFoundException
+	{
+		try
+		{
+<span class="nc" id="L40">			return findSystemClass(className);</span>
+		}
+<span class="nc" id="L42">		catch(final ClassNotFoundException ex)</span>
+		{
+			// NOP
+		}
+<span class="nc" id="L46">		var result=classes.get(className);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">		if(result!=null)</span>
+<span class="nc" id="L48">			return result;</span>
+
+		try
+		{
+<span class="nc" id="L52">			final var url=findResource(className.replace('.', '/')+&quot;.class&quot;);</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">			if(url==null)</span>
+<span class="nc" id="L54">				throw new ClassNotFoundException();</span>
+
+<span class="nc" id="L56">			final var classBytes=url.openStream().readAllBytes();</span>
+<span class="nc" id="L57">			result=defineClass(className, classBytes, 0, classBytes.length, null);</span>
+<span class="nc" id="L58">			classes.put(className, result);</span>
+<span class="nc" id="L59">			return result;</span>
+		}
+<span class="nc" id="L61">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L63">			throw new ClassNotFoundException();</span>
+		}
+	}
+
+	protected abstract Iterable&lt;String&gt; getClassPath()
+		throws Exception;
+
+	@Override
+	protected URL findResource(final String name)
+	{
+		try
+		{
+<span class="fc" id="L75">			final var cp=getClassPath();</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">			for(final String item: cp)</span>
+			{
+				//final String item=oItem.stringValue();
+<span class="nc" id="L79">				final var itemPath=Path.of(item);</span>
+				try
+				{
+<span class="nc bnc" id="L82" title="All 2 branches missed.">					if(Files.isRegularFile(itemPath))</span>
+					{
+<span class="nc" id="L84">						try(final var jar=new JarFile(itemPath.toFile()))</span>
+						{
+<span class="nc" id="L86">							final var entry=jar.getJarEntry(name);</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">							if(entry==null)</span>
+<span class="nc" id="L88">								return null;</span>
+<span class="nc" id="L89">							return new URI(&quot;jar:&quot;+itemPath.toUri().toURL()+&quot;!/&quot;+entry).toURL();</span>
+<span class="nc" id="L90">						}</span>
+					}
+<span class="nc bnc" id="L92" title="All 2 branches missed.">					else if(Files.isDirectory(itemPath))</span>
+					{
+						// TODO: if directory does not exist
+<span class="nc" id="L95">						return Path.of(itemPath.toString(), name).toUri().toURL();</span>
+					}
+				}
+<span class="nc" id="L98">				catch(final IOException ex)</span>
+				{
+<span class="nc" id="L100">					return null;</span>
+<span class="nc" id="L101">				}</span>
+<span class="nc" id="L102">			}</span>
+		}
+<span class="nc" id="L104">		catch(Exception ex)</span>
+		{
+<span class="nc" id="L106">			return null;</span>
+<span class="fc" id="L107">		}</span>
+<span class="fc" id="L108">		return null;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

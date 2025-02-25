@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DictStack.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">DictStack.java</span></div><h1>DictStack.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+import coneforest.psylla.core.*;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+/**
+*	An interpreter’s dictionary stack.
+*/
+@SuppressWarnings(&quot;serial&quot;)
+public final class DictStack
+	extends Stack&lt;PsyFormalDict&lt;PsyObject&gt;&gt;
+{
+	/**
+	*	Creates a new dictionary stack with two permanent dictionaries in it (system and user
+	*	dictionaries).
+	*
+	*	@throws PsyUndefinedException when TODO.
+	*/
+	public DictStack()
+		throws PsyUndefinedException
+<span class="fc" id="L22">	{</span>
+<span class="fc" id="L23">		final var oSystemDict=new PsySystemDict();</span>
+<span class="fc" id="L24">		final var oUserDict=new PsyDict();</span>
+<span class="fc" id="L25">		push(oSystemDict);</span>
+<span class="fc" id="L26">		push(oUserDict);</span>
+<span class="fc" id="L27">		oSystemDict.put(&quot;systemdict&quot;, oSystemDict);</span>
+<span class="fc" id="L28">		oSystemDict.put(&quot;userdict&quot;, oUserDict);</span>
+<span class="fc" id="L29">	}</span>
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	@Override
+	public DictStack clone()
+	{
+<span class="fc" id="L35">		final var cloned=(DictStack)super.clone();</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">		for(int i=0; i&lt;cloned.size(); i++)</span>
+<span class="fc" id="L37">			cloned.set(i, (PsyFormalDict&lt;PsyObject&gt;)cloned.get(i).psyClone());</span>
+<span class="fc" id="L38">		return cloned;</span>
+	}
+
+	/**
+	*	Performs in-depth search for the given key in this stack and returns the associated value.
+	*
+	*	@param &lt;T&gt; the type of the value.
+	*	@param key the key.
+	*	@return the associated value.
+	*	@throws PsyUndefinedException if the key is not found.
+	*/
+	@SuppressWarnings(&quot;unchecked&quot;)
+	public &lt;T extends PsyObject&gt; T load(final String key)
+		throws PsyUndefinedException
+	{
+		try
+		{
+<span class="fc" id="L55">			return (T)where(key).orElseThrow().get(key);</span>
+		}
+<span class="fc" id="L57">		catch(final NoSuchElementException ex)</span>
+		{
+<span class="fc" id="L59">			throw new PsyUndefinedException();</span>
+		}
+	}
+
+	/**
+	*	Performs in-depth search for the given {@code string} key in this stack and returns the
+	*	associated value.
+	*
+	*	@param &lt;T&gt; the type of the value.
+	*	@param oKey the {@code string} key.
+	*	@return the associated value.
+	*	@throws PsyUndefinedException if the key is not found.
+	*/
+	public &lt;T extends PsyObject&gt; T load(final PsyString oKey)
+		throws PsyUndefinedException
+	{
+<span class="fc" id="L75">		return this.&lt;T&gt;load(oKey.stringValue());</span>
+	}
+
+	/**
+	*	Performs in-depth search for the dictionary containing the given key in this stack and
+	*	returns an {@link Optional} contating the dictionary found or empty {@link Optional} if not
+	*	found.
+	*
+	*	@param key the key.
+	*	@return a {@link Optional} containing the dictionary found.
+	*/
+	public Optional&lt;PsyFormalDict&lt;PsyObject&gt;&gt; where(final String key)
+	{
+<span class="fc bfc" id="L88" title="All 2 branches covered.">		for(int i=size()-1; i&gt;=0; i--)</span>
+		{
+<span class="fc" id="L90">			final var oDict=get(i);</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">			if(oDict.known(key))</span>
+<span class="fc" id="L92">				return Optional.&lt;PsyFormalDict&lt;PsyObject&gt;&gt;of(oDict);</span>
+		}
+<span class="fc" id="L94">		return Optional.&lt;PsyFormalDict&lt;PsyObject&gt;&gt;empty();</span>
+	}
+
+	/**
+	*	Performs in-depth search for the dictionary containing the given {@code string} key in this
+	*	stack and returns an {@link Optional} contating the dictionary found or empty {@link
+	*	Optional} if not found.
+	*
+	*	@param oKey the {@code string} key.
+	*	@return an {@link Optional} containing the dictionary found.
+	*/
+	public Optional&lt;PsyFormalDict&lt;PsyObject&gt;&gt; where(final PsyString oKey)
+	{
+<span class="nc" id="L107">		return where(oKey.stringValue());</span>
+	}
+
+	public PsyNamespace currentNamespace()
+	{
+<span class="nc bnc" id="L112" title="All 2 branches missed.">		for(int i=size()-1; i&gt;=0; i--)</span>
+		{
+<span class="nc" id="L114">			final var oDict=get(i);</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">			if(oDict instanceof PsyNamespace oNamespace)</span>
+<span class="nc" id="L116">				return oNamespace;</span>
+		}
+<span class="nc" id="L118">		return null; // TODO</span>
+	}
+
+	public void store(final PsyTextual oKey, final PsyObject oValue)
+	{
+<span class="nc" id="L123">		final var key=oKey.stringValue();</span>
+<span class="nc" id="L124">		where(key).orElse(peek()).put(key, oValue);</span>
+<span class="nc" id="L125">	}</span>
+
+	/**
+	*	Pushes the dictionary to this stack.
+	*
+	*	@param oDict the {@code formaldict} dictionary.
+	*/
+	public void begin(final PsyFormalDict&lt;PsyObject&gt; oDict)
+	{
+<span class="fc" id="L134">		push(oDict);</span>
+<span class="fc" id="L135">	}</span>
+
+	/**
+	*	Pops a non-permanent dictionary from this stack.
+	*
+	*	@throws PsyDictStackUnderflowException if this stack does not contain non-permanent
+	*	dictionaries.
+	*/
+	public void end()
+		throws PsyDictStackUnderflowException
+	{
+<span class="fc bfc" id="L146" title="All 2 branches covered.">		if(size()&lt;=2)</span>
+<span class="fc" id="L147">			throw new PsyDictStackUnderflowException();</span>
+<span class="fc" id="L148">		pop();</span>
+<span class="fc" id="L149">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

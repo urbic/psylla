@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExecutionStack.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">ExecutionStack.java</span></div><h1>ExecutionStack.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+import coneforest.psylla.core.*;
+
+/**
+*	An interpreter’s execution stack.
+*/
+@SuppressWarnings(&quot;serial&quot;)
+public class ExecutionStack extends Stack&lt;PsyObject&gt;
+{
+	/**
+	*	Constructs an empty stack.
+	*/
+	public ExecutionStack()
+<span class="fc" id="L15">	{</span>
+		// NOP
+<span class="fc" id="L17">	}</span>
+
+	/**
+	*	Enters the loop environment. Pushes the loop mark onto this stack.
+	*/
+	public void enterLoop()
+	{
+<span class="fc" id="L24">		push(PsyExecMark.LOOP_MARK);</span>
+<span class="fc" id="L25">	}</span>
+
+	public boolean checkLoop()
+	{
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">		for(int i=size()-1; i&gt;=0; i--)</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">			if(get(i)==PsyExecMark.LOOP_MARK)</span>
+<span class="nc" id="L31">				return true;</span>
+<span class="fc" id="L32">		return false;</span>
+	}
+
+	/**
+	*	Exits the innermost loop environment. Pops all the elements from this stack upto the first
+	*	loop mark.
+	*
+	*	@throws PsyInvalidExitException when there is not loop mark on this stack.
+	*/
+	public void exitLoop()
+		throws PsyInvalidExitException
+	{
+<span class="fc bfc" id="L44" title="All 2 branches covered.">		for(int i=size()-1; i&gt;=0; i--)</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">			if(get(i)==PsyExecMark.LOOP_MARK)</span>
+			{
+<span class="fc" id="L47">				setSize(i);</span>
+<span class="fc" id="L48">				return;</span>
+			}
+<span class="fc" id="L50">		throw new PsyInvalidExitException();</span>
+	}
+
+	/**
+	*	Enters the stopped environment. Pushes the stop mark onto this stack.
+	*/
+	public void enterStop()
+	{
+<span class="fc" id="L58">		push(PsyExecMark.STOP_MARK);</span>
+<span class="fc" id="L59">	}</span>
+
+	public boolean checkStop()
+	{
+<span class="fc bfc" id="L63" title="All 2 branches covered.">		for(int i=size()-1; i&gt;=0; i--)</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">			if(get(i)==PsyExecMark.STOP_MARK)</span>
+<span class="fc" id="L65">				return true;</span>
+<span class="fc" id="L66">		return false;</span>
+	}
+
+	public void exitStop()
+	{
+<span class="fc bfc" id="L71" title="All 2 branches covered.">		for(int i=size()-1; i&gt;=0; i--)</span>
+<span class="fc bfc" id="L72" title="All 2 branches covered.">			if(get(i)==PsyExecMark.STOP_MARK)</span>
+			{
+<span class="fc" id="L74">				setSize(i);</span>
+<span class="fc" id="L75">				return;</span>
+			}
+		//setSize(0);
+<span class="fc" id="L78">	}</span>
+
+	@SuppressWarnings(&quot;unchecked&quot;)
+	@Override
+	public ExecutionStack clone()
+	{
+<span class="fc" id="L84">		return (ExecutionStack)super.clone();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

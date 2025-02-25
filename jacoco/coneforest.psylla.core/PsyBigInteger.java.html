@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyBigInteger.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyBigInteger.java</span></div><h1>PsyBigInteger.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.math.BigInteger;
+
+/**
+*	The representation of {@code biginteger}, arbitrary precision integer.
+*/
+@Type(&quot;biginteger&quot;)
+public final class PsyBigInteger
+	implements PsyIntegral
+{
+	private final BigInteger value;
+
+	/**
+	*	Constructs a new {@code biginteger} for the given value.
+	*
+	*	@param value the value.
+	*/
+	public PsyBigInteger(final BigInteger value)
+<span class="fc" id="L21">	{</span>
+<span class="fc" id="L22">		this.value=value;</span>
+<span class="fc" id="L23">	}</span>
+
+	@Override
+	public boolean isZero()
+	{
+<span class="fc" id="L28">		return false;</span>
+	}
+
+	@Override
+	public int intValue()
+	{
+<span class="nc" id="L34">		return value.intValue();</span>
+	}
+
+	@Override
+	public long longValue()
+	{
+<span class="nc" id="L40">		return value.longValue();</span>
+	}
+
+	@Override
+	public double doubleValue()
+	{
+<span class="nc" id="L46">		return value.doubleValue();</span>
+	}
+
+	@Override
+	public BigInteger bigIntegerValue()
+	{
+<span class="fc" id="L52">		return value;</span>
+	}
+
+	@Override
+	public PsyBigInteger psyBitShift(final PsyInteger oShift)
+	{
+<span class="nc" id="L58">		return new PsyBigInteger(value.shiftLeft(oShift.intValue()));</span>
+	}
+
+	@Override
+	public PsyBoolean psyTestBit(final PsyInteger oBit)
+	{
+<span class="nc" id="L64">		return PsyBoolean.of(value.testBit(oBit.intValue()));</span>
+	}
+
+	@Override
+	public PsyIntegral psySetBit(final PsyInteger oBit)
+	{
+<span class="nc" id="L70">		return PsyIntegral.of(value.setBit(oBit.intValue()));</span>
+	}
+
+	@Override
+	public PsyIntegral psyFlipBit(final PsyInteger oBit)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="fc" id="L79">			return PsyIntegral.of(value.flipBit(oBit.intValue()));</span>
+		}
+<span class="fc" id="L81">		catch(final ArithmeticException ex)</span>
+		{
+<span class="fc" id="L83">			throw new PsyRangeCheckException();</span>
+		}
+	}
+
+	@Override
+	public PsyIntegral psyClearBit(final PsyInteger oBit)
+	{
+<span class="nc" id="L90">		return PsyIntegral.of(value.clearBit(oBit.intValue()));</span>
+	}
+
+	@Override
+	public PsyIntegral psyOr(final PsyIntegral oIntegral)
+	{
+<span class="fc" id="L96">		return PsyIntegral.of(value.or(oIntegral.bigIntegerValue()));</span>
+	}
+
+	@Override
+	public PsyIntegral psyAnd(final PsyIntegral oIntegral)
+	{
+<span class="nc" id="L102">		return PsyIntegral.of(value.and(oIntegral.bigIntegerValue()));</span>
+	}
+
+	@Override
+	public PsyIntegral psyXor(final PsyIntegral oIntegral)
+	{
+<span class="fc" id="L108">		return PsyIntegral.of(value.xor(oIntegral.bigIntegerValue()));</span>
+	}
+
+	@Override
+	public PsyBigInteger psyNot()
+	{
+<span class="fc" id="L114">		return new PsyBigInteger(value.not());</span>
+	}
+
+	@Override
+	public PsyIntegral psyAbs()
+	{
+<span class="fc" id="L120">		return PsyIntegral.of(value.abs());</span>
+	}
+
+	@Override
+	public PsyIntegral psyIdiv(final PsyRational oRational)
+		throws PsyUndefinedResultException
+	{
+<span class="pc bpc" id="L127" title="1 of 4 branches missed.">		return switch(oRational)</span>
+			{
+<span class="fc bfc" id="L129" title="All 2 branches covered.">				case PsyInteger oInteger when oInteger==PsyInteger.ZERO-&gt;</span>
+<span class="fc" id="L130">					throw new PsyUndefinedResultException();</span>
+<span class="fc" id="L131">				case PsyInteger oInteger-&gt;PsyIntegral.of(</span>
+<span class="fc" id="L132">						value.divide(BigInteger.valueOf(oInteger.longValue())));</span>
+<span class="nc" id="L133">				case PsyBigInteger oBigInteger-&gt;</span>
+<span class="nc" id="L134">					PsyIntegral.of(value.divide(oBigInteger.value));</span>
+<span class="fc" id="L135">				default-&gt;((PsyIntegral)psyMul(oRational.psyDenominator()))</span>
+<span class="fc" id="L136">						.psyIdiv(oRational.psyNumerator());</span>
+			};
+	}
+
+	@Override
+	public PsyIntegral psyMod(final PsyRational oRational)
+		throws PsyUndefinedResultException, PsyRangeCheckException
+	{
+<span class="pc bpc" id="L144" title="1 of 3 branches missed.">		return switch(oRational)</span>
+			{
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">				case PsyIntegral oIntegral when oIntegral==PsyInteger.ZERO-&gt;</span>
+<span class="nc" id="L147">					throw new PsyUndefinedResultException();</span>
+<span class="fc" id="L148">				case PsyIntegral oIntegral-&gt;</span>
+					{
+						try
+						{
+<span class="fc" id="L152">							yield PsyIntegral.of(value.mod(oIntegral.bigIntegerValue()));</span>
+						}
+<span class="nc" id="L154">						catch(final ArithmeticException ex)</span>
+						{
+<span class="nc" id="L156">							throw new PsyRangeCheckException();</span>
+						}
+					}
+<span class="nc" id="L159">				default-&gt;((PsyIntegral)psyMul(oRational.psyDenominator()))</span>
+<span class="nc" id="L160">						.psyMod(oRational.psyNumerator());</span>
+			};
+	}
+
+	@Override
+	public PsyRational psyGCD(final PsyRational oRational)
+	{
+<span class="pc bpc" id="L167" title="1 of 3 branches missed.">		return switch(oRational)</span>
+			{
+<span class="fc bfc" id="L169" title="All 2 branches covered.">				case PsyIntegral oIntegral when oIntegral==PsyInteger.ZERO-&gt;</span>
+<span class="fc" id="L170">					psyAbs();</span>
+<span class="fc" id="L171">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L172">					PsyIntegral.of(value.gcd(oIntegral.bigIntegerValue()));</span>
+<span class="nc" id="L173">				default-&gt;oRational.psyGCD(this);</span>
+			};
+	}
+
+	@Override
+	public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
+	{
+<span class="pc bpc" id="L180" title="2 of 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="fc" id="L182">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L183">					PsyIntegral.of(value.multiply(oIntegral.bigIntegerValue()));</span>
+<span class="nc" id="L184">				case PsyRational oRational-&gt;PsyRational.of((PsyIntegral)psyMul(oRational.psyNumerator()),</span>
+<span class="nc" id="L185">						oRational.psyDenominator());</span>
+<span class="nc" id="L186">				case PsyReal oReal-&gt;new PsyReal(doubleValue()*oReal.doubleValue());</span>
+			};
+	}
+
+	@Override
+	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
+		throws PsyUndefinedResultException
+	{
+<span class="pc bpc" id="L194" title="2 of 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="fc" id="L196">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L197">					PsyRational.of(psyNumerator(), (PsyIntegral)psyDenominator().psyMul(oIntegral));</span>
+<span class="nc" id="L198">				case PsyRational oRational-&gt;PsyRational.of(</span>
+<span class="nc" id="L199">						(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),</span>
+<span class="nc" id="L200">						(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));</span>
+<span class="nc" id="L201">				case PsyReal oReal-&gt;new PsyReal(doubleValue()*oReal.doubleValue());</span>
+			};
+	}
+
+	@Override
+	public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
+	{
+<span class="nc bnc" id="L208" title="All 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="nc" id="L210">				case PsyIntegral oIntegral-&gt;</span>
+<span class="nc" id="L211">					PsyIntegral.of(value.add(oIntegral.bigIntegerValue()));</span>
+<span class="nc" id="L212">				case PsyRational oRational-&gt;</span>
+<span class="nc" id="L213">					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator())</span>
+<span class="nc" id="L214">								.psyAdd(oRational.psyNumerator()),</span>
+<span class="nc" id="L215">							oRational.psyDenominator());</span>
+<span class="nc" id="L216">				case PsyReal oReal-&gt;new PsyReal(doubleValue()+oReal.doubleValue());</span>
+			};
+	}
+
+	@Override
+	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
+	{
+<span class="nc bnc" id="L223" title="All 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="nc" id="L225">				case PsyIntegral oIntegral-&gt;</span>
+<span class="nc" id="L226">					PsyIntegral.of(value.subtract(oIntegral.bigIntegerValue()));</span>
+<span class="nc" id="L227">				case PsyRational oRational-&gt;</span>
+<span class="nc" id="L228">					PsyRational.of((PsyIntegral)psyMul(</span>
+<span class="nc" id="L229">							oRational.psyDenominator()).psySub(oRational.psyNumerator()),</span>
+<span class="nc" id="L230">						oRational.psyDenominator());</span>
+<span class="nc" id="L231">				case PsyReal oReal-&gt;new PsyReal(doubleValue()-oReal.doubleValue());</span>
+			};
+	}
+
+	@Override
+	public PsyIntegral psyNeg()
+	{
+<span class="nc" id="L238">		return PsyIntegral.of(value.negate());</span>
+	}
+
+	@Override
+	public PsyInteger psySignum()
+	{
+<span class="fc" id="L244">		return PsyInteger.of(value.signum());</span>
+	}
+
+	@Override
+	public int compareTo(final PsyRealNumeric oRealNumeric)
+	{
+<span class="pc bpc" id="L250" title="2 of 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="fc" id="L252">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L253">					value.compareTo(oIntegral.bigIntegerValue());</span>
+<span class="nc" id="L254">				case PsyRational oRational-&gt;</span>
+<span class="nc" id="L255">					psyMul(oRational.psyDenominator()).compareTo(oRational.psyNumerator());</span>
+<span class="nc" id="L256">				case PsyReal oReal-&gt;</span>
+<span class="nc" id="L257">					Double.compare(doubleValue(), oReal.doubleValue());</span>
+			};
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L264">		return String.valueOf(value);</span>
+	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+<span class="nc" id="L270">		return obj instanceof PsyBigInteger oBigInteger</span>
+<span class="nc bnc" id="L271" title="All 4 branches missed.">				&amp;&amp; value.equals(oBigInteger.value);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L277">		return value.hashCode();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

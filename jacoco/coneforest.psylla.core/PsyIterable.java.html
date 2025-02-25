@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyIterable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyIterable.java</span></div><h1>PsyIterable.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.stream.StreamSupport;
+
+/**
+*	The representation of {@code iterable}, a type of an object that can be iterated over.
+*
+*	@param &lt;T&gt; a type of elements returned by the iterator.
+*/
+@Type(&quot;iterable&quot;)
+public interface PsyIterable&lt;T extends PsyObject&gt;
+	extends
+		PsyStreamable&lt;T&gt;,
+		Iterable&lt;T&gt;
+{
+
+	public default PsyArray psyToArray()
+		throws PsyErrorException
+	{
+<span class="nc" id="L21">		final var oArray=new PsyArray();</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">		for(final T o: this)</span>
+<span class="nc" id="L23">			oArray.psyAppend(o);</span>
+<span class="nc" id="L24">		return oArray;</span>
+	}
+
+	@Override
+	public default PsyFormalStream&lt;T&gt; psyStream()
+	{
+		//return new PsyStream(StreamSupport.&lt;T&gt;stream(spliterator(), false));
+<span class="nc" id="L31">		return PsyFormalStream.&lt;T&gt;of(StreamSupport.&lt;T&gt;stream(spliterator(), false));</span>
+	}
+
+	public default PsyStringBuffer psyUnite(final PsyTextual oSeparator)
+		throws PsyErrorException
+	{
+<span class="nc" id="L37">		final var separator=oSeparator.stringValue();</span>
+<span class="nc" id="L38">		final var sb=new StringBuilder();</span>
+<span class="nc" id="L39">		final var iterator=iterator();</span>
+		try
+		{
+<span class="nc bnc" id="L42" title="All 2 branches missed.">			while(iterator.hasNext())</span>
+			{
+<span class="nc" id="L44">				sb.append(((PsyTextual)iterator.next()).stringValue());</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">				if(iterator.hasNext())</span>
+<span class="nc" id="L46">					sb.append(separator);</span>
+			}
+		}
+<span class="nc" id="L49">		catch(final ClassCastException ex)</span>
+		{
+<span class="nc" id="L51">			throw new PsyTypeCheckException();</span>
+<span class="nc" id="L52">		}</span>
+<span class="nc" id="L53">		return new PsyStringBuffer(sb);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

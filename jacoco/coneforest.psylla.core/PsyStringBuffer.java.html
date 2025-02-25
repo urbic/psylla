@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyStringBuffer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyStringBuffer.java</span></div><h1>PsyStringBuffer.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	An implementation of {@code stringbuffer}.
+*/
+@Type(&quot;stringbuffer&quot;)
+public class PsyStringBuffer
+	implements
+		PsyTextual,
+		PsyFormalArray&lt;PsyInteger&gt;
+{
+	/**
+	*	Context action of the {@code stringbuffer} operator.
+	*/
+	@OperatorType(&quot;stringbuffer&quot;)
+<span class="fc" id="L18">	public static final ContextAction PSY_STRING</span>
+<span class="fc" id="L19">		=ContextAction.ofSupplier(PsyStringBuffer::new);</span>
+
+	private final StringBuilder buffer;
+
+	/**
+	*	Creates a new empty {@code stringbuffer} object.
+	*/
+	public PsyStringBuffer()
+	{
+<span class="fc" id="L28">		this(&quot;&quot;);</span>
+<span class="fc" id="L29">	}</span>
+
+	/**
+	*	Creates a new {@code stringbuffer} object whose buffer is initialized from string.
+	*
+	*	@param string a string.
+	*/
+	public PsyStringBuffer(final String string)
+	{
+<span class="fc" id="L38">		this(new StringBuilder(string));</span>
+<span class="fc" id="L39">	}</span>
+
+	/**
+	*	Creates a new {@code string} object with the supplied buffer.
+	*
+	*	@param buffer a buffer.
+	*/
+	public PsyStringBuffer(final StringBuilder buffer)
+<span class="fc" id="L47">	{</span>
+<span class="fc" id="L48">		this.buffer=buffer;</span>
+<span class="fc" id="L49">	}</span>
+
+	/**
+	*	{@return the buffer}
+	*/
+	public StringBuilder getBuffer()
+	{
+<span class="nc" id="L56">		return buffer;</span>
+	}
+
+	@Override
+	public PsyStringBuffer psyToStringBuffer()
+	{
+<span class="nc" id="L62">		return this;</span>
+	}
+
+	@Override
+	public String stringValue()
+	{
+<span class="nc" id="L68">		return buffer.toString();</span>
+	}
+
+	@Override
+	public PsyStringBuffer psyClone()
+	{
+<span class="nc" id="L74">		return new PsyStringBuffer(stringValue());</span>
+	}
+
+	@Override
+	public PsyInteger get(final int index)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="nc" id="L83">			return PsyInteger.of(buffer.charAt(index));</span>
+		}
+<span class="nc" id="L85">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L87">			throw new PsyRangeCheckException();</span>
+		}
+	}
+
+	@Override
+	public PsyStringBuffer psyGetInterval(final PsyInteger oIndex, final PsyInteger oCount)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L95">		final int index=oIndex.intValue();</span>
+<span class="nc" id="L96">		final int count=oCount.intValue();</span>
+		try
+		{
+<span class="nc" id="L99">			return new PsyStringBuffer(buffer.substring(index, index+count));</span>
+		}
+<span class="nc" id="L101">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L103">			throw new PsyRangeCheckException();</span>
+		}
+	}
+
+	@Override
+	public void put(final int index, final PsyInteger oCharacter)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="nc" id="L113">			buffer.setCharAt(index, (char)oCharacter.intValue());</span>
+		}
+<span class="nc" id="L115">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L117">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L118">		}</span>
+<span class="nc" id="L119">	}</span>
+
+	@Override
+	public void psyPutInterval(final PsyInteger oIndex, final PsyIterable&lt;? extends PsyInteger&gt; oIterable)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L125">		int index=oIndex.intValue();</span>
+<span class="nc bnc" id="L126" title="All 4 branches missed.">		if(index&lt;0</span>
+				||
+<span class="nc" id="L128">				oIterable instanceof PsyLengthy oLengthy</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">				&amp;&amp; index+oLengthy.length()&gt;=length())</span>
+<span class="nc" id="L130">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">		for(final var oCharacter: oIterable)</span>
+		{
+<span class="nc" id="L133">			buffer.setCharAt(index++, (char)oCharacter.intValue());</span>
+<span class="nc bnc" id="L134" title="All 2 branches missed.">			if(index==length())</span>
+<span class="nc" id="L135">				break;</span>
+<span class="nc" id="L136">		}</span>
+<span class="nc" id="L137">	}</span>
+
+	@Override
+	public void psyAppend(final PsyInteger oCharacter)
+		throws PsyLimitCheckException
+	{
+<span class="nc bnc" id="L143" title="All 2 branches missed.">		if(length()==Integer.MAX_VALUE)</span>
+<span class="nc" id="L144">			throw new PsyLimitCheckException();</span>
+<span class="nc" id="L145">		buffer.append((char)oCharacter.intValue());</span>
+<span class="nc" id="L146">	}</span>
+
+	@Override
+	public void insert(final int index, final PsyInteger oCharacter)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="nc" id="L154">			buffer.insert(index, (char)oCharacter.intValue());</span>
+		}
+<span class="nc" id="L156">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L158">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L159">		}</span>
+<span class="nc" id="L160">	}</span>
+
+	@Override
+	public void psyInsertAll(final PsyInteger oIndex, final PsyIterable&lt;? extends PsyInteger&gt; oIterable)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L166">		int index=oIndex.intValue();</span>
+		try
+		{
+<span class="nc bnc" id="L169" title="All 2 branches missed.">			if(oIterable instanceof PsyStringBuffer oString)</span>
+			{
+				// Take care when attempting to insert this object into itself
+<span class="nc bnc" id="L172" title="All 2 branches missed.">				buffer.insert(index, this==oIterable? buffer.toString(): oString.buffer);</span>
+<span class="nc" id="L173">				return;</span>
+			}
+
+<span class="nc bnc" id="L176" title="All 2 branches missed.">			for(final var oCharacter: oIterable)</span>
+				// TODO
+<span class="nc" id="L178">				buffer.insert(index++, (char)oCharacter.intValue());</span>
+		}
+<span class="nc" id="L180">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L182">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L183">		}</span>
+<span class="nc" id="L184">	}</span>
+
+	@Override
+	public void delete(final int index)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="nc" id="L192">			buffer.deleteCharAt(index);</span>
+		}
+<span class="nc" id="L194">		catch(final StringIndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L196">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L197">		}</span>
+<span class="nc" id="L198">	}</span>
+
+	@Override
+	public PsyInteger extract(final int index)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="nc" id="L206">			final PsyInteger oResult=get(index);</span>
+<span class="nc" id="L207">			buffer.deleteCharAt(index);</span>
+<span class="nc" id="L208">			return oResult;</span>
+		}
+<span class="nc" id="L210">		catch(final StringIndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L212">			throw new PsyRangeCheckException();</span>
+		}
+	}
+
+	@Override
+	public PsyStringBuffer psyExtractInterval(final PsyInteger oStart, final PsyInteger oLength)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L220">		final var oResult=psyGetInterval(oStart, oLength);</span>
+<span class="nc" id="L221">		buffer.replace(oStart.intValue(), oStart.intValue()+oLength.intValue(), &quot;&quot;);</span>
+<span class="nc" id="L222">		return oResult;</span>
+	}
+
+	@Override
+	public PsyStringBuffer psySlice(final PsyIterable&lt;PsyInteger&gt; oIndices)
+		throws PsyRangeCheckException, PsyLimitCheckException
+	{
+<span class="nc" id="L229">		final var oValues=new PsyStringBuffer();</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">		for(final var oIndex: oIndices)</span>
+<span class="nc" id="L231">			oValues.psyAppend(psyGet(oIndex));</span>
+<span class="nc" id="L232">		return oValues;</span>
+	}
+
+	/*
+	public PsyStringBuffer psyJoin(final PsyFormalArray&lt;? extends PsyStringBuffer&gt; oArray)
+		throws PsyErrorException
+	{
+		if(oArray.isEmpty())
+			return new PsyStringBuffer();
+		PsyStringBuffer result=((PsyStringBuffer)oArray.get(0)).psyClone();
+		for(int i=1; i&lt;oArray.length(); i++)
+		{
+			result.psyAppendAll(this);
+			result.psyAppendAll(oArray.get(i));
+		}
+		return result;
+	}
+	*/
+
+	/*
+	public PsyDict psySearch(PsyRegExp regexp)
+	{
+		PsyDict result=null;
+		Pattern pattern=regexp.getPattern();
+		Matcher matcher=pattern.matcher(buffer);
+		matcher.find();
+		return result;
+	}
+	*/
+
+	/*
+	public PsyMatcher PsyMatches(PsyRegExp regexp)
+	{
+	}
+	*/
+
+	@Override
+	public void psySetLength(final PsyInteger oLength)
+		throws PsyLimitCheckException, PsyRangeCheckException
+	{
+<span class="nc" id="L272">		final long length=oLength.longValue();</span>
+<span class="nc bnc" id="L273" title="All 2 branches missed.">		if(length&gt;Integer.MAX_VALUE)</span>
+<span class="nc" id="L274">			throw new PsyLimitCheckException();</span>
+		try
+		{
+<span class="nc" id="L277">			buffer.setLength((int)length);</span>
+		}
+<span class="nc" id="L279">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L281">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L282">		}</span>
+<span class="nc" id="L283">	}</span>
+
+	@Override
+	public void psyClear()
+	{
+<span class="nc" id="L288">		buffer.delete(0, buffer.length());</span>
+<span class="nc" id="L289">	}</span>
+
+	@Override
+	public PsyStringBuffer psyReverse()
+	{
+<span class="nc" id="L294">		return new PsyStringBuffer((new StringBuilder(buffer)).reverse());</span>
+	}
+
+	@Override
+	public PsyStringBuffer psyUpperCase()
+	{
+<span class="nc" id="L300">		return new PsyStringBuffer(buffer.toString().toUpperCase());</span>
+	}
+
+	@Override
+	public PsyStringBuffer psyLowerCase()
+	{
+<span class="nc" id="L306">		return new PsyStringBuffer(buffer.toString().toLowerCase());</span>
+	}
+
+	@Override
+	public int length()
+	{
+<span class="fc" id="L312">		return buffer.length();</span>
+	}
+
+	@Override
+	public boolean equals(final Object object)
+	{
+<span class="nc bnc" id="L318" title="All 2 branches missed.">		return getClass().isInstance(object)</span>
+<span class="nc bnc" id="L319" title="All 2 branches missed.">				&amp;&amp; psyEq((PsyStringBuffer)object).booleanValue();</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L325">		return buffer.hashCode();</span>
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L331">		final var sb=new StringBuilder();</span>
+<span class="fc bfc" id="L332" title="All 2 branches covered.">		for(int i=0; i&lt;buffer.length(); i++)</span>
+		{
+<span class="fc" id="L334">			final char c=buffer.charAt(i);</span>
+<span class="pc bpc" id="L335" title="1 of 11 branches missed.">			sb.append(switch(c)</span>
+				{
+<span class="fc" id="L337">					case '\u0000'-&gt;&quot;\\0&quot;;</span>
+<span class="fc" id="L338">					case '\u0007'-&gt;&quot;\\a&quot;;</span>
+<span class="fc" id="L339">					case '\n'-&gt;&quot;\\n&quot;;</span>
+<span class="fc" id="L340">					case '\r'-&gt;&quot;\\r&quot;;</span>
+<span class="fc" id="L341">					case '\t'-&gt;&quot;\\t&quot;;</span>
+<span class="nc" id="L342">					case '\u000B'-&gt;&quot;\\v&quot;;</span>
+<span class="fc" id="L343">					case '\f'-&gt;&quot;\\f&quot;;</span>
+<span class="fc" id="L344">					case '\u001B'-&gt;&quot;\\e&quot;;</span>
+<span class="fc" id="L345">					case '\&quot;'-&gt;&quot;\\\&quot;&quot;;</span>
+<span class="fc" id="L346">					case '\\'-&gt;&quot;\\\\&quot;;</span>
+<span class="fc" id="L347">					default-&gt;c;</span>
+				});
+		}
+<span class="fc" id="L350">		return &quot;\&quot;&quot;+sb.toString()+&quot;\&quot;&quot;;</span>
+	}
+
+	/**
+	*	{@return the {@code string} object obtained as a result of parsing the literal token image}
+	*
+	*	@param image the literal token image.
+	*	@throws PsySyntaxErrorException when the literal image is syntactically incorrect.
+	*/
+	public static PsyStringBuffer parseLiteral(final String image)
+		throws PsySyntaxErrorException
+	{
+<span class="fc" id="L362">		final var sb=new StringBuilder();</span>
+<span class="fc bfc" id="L363" title="All 2 branches covered.">		for(int i=1; i&lt;image.length()-1; i++)</span>
+		{
+<span class="fc" id="L365">			final var c=image.charAt(i);</span>
+<span class="fc bfc" id="L366" title="All 2 branches covered.">			switch(c)</span>
+			{
+				case '\\'-&gt;
+					{
+<span class="fc" id="L370">						i++;</span>
+<span class="pc bpc" id="L371" title="4 of 16 branches missed.">						switch(image.charAt(i))</span>
+						{
+<span class="fc" id="L373">							case '0'-&gt;sb.append('\u0000');</span>
+<span class="fc" id="L374">							case 'a'-&gt;sb.append('\u0007');</span>
+<span class="nc" id="L375">							case 'n'-&gt;sb.append('\n');</span>
+<span class="fc" id="L376">							case 'r'-&gt;sb.append('\r');</span>
+<span class="fc" id="L377">							case 't'-&gt;sb.append('\t');</span>
+<span class="nc" id="L378">							case 'v'-&gt;sb.append('\u000B');</span>
+<span class="fc" id="L379">							case 'f'-&gt;sb.append('\f');</span>
+<span class="fc" id="L380">							case 'e'-&gt;sb.append('\u001B');</span>
+<span class="fc" id="L381">							case '&quot;'-&gt;sb.append('&quot;');</span>
+<span class="fc" id="L382">							case '\\'-&gt;sb.append('\\');</span>
+<span class="fc" id="L383">							case '\n'-&gt;{}</span>
+							case 'u'-&gt;
+								{
+<span class="fc" id="L386">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+1, i+5), 16)));</span>
+<span class="fc" id="L387">									i+=4;</span>
+<span class="fc" id="L388">								}</span>
+							case 'c'-&gt;
+								{
+<span class="fc" id="L391">									final var ch=image.charAt(++i);</span>
+<span class="pc bpc" id="L392" title="1 of 2 branches missed.">									sb.append(Character.toChars(ch+(ch&lt;64? 64: -64)));</span>
+<span class="fc" id="L393">								}</span>
+							case 'x'-&gt;
+								{
+									try
+									{
+<span class="fc" id="L398">										final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L399">										sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));</span>
+<span class="fc" id="L400">										i=j;</span>
+									}
+<span class="nc" id="L402">									catch(final IllegalArgumentException ex)</span>
+									{
+<span class="nc" id="L404">										throw new PsySyntaxErrorException();</span>
+<span class="fc" id="L405">									}</span>
+								}
+							case 'N'-&gt;
+								{
+									try
+									{
+<span class="nc" id="L411">										final var j=image.indexOf('}', i+2);</span>
+<span class="nc" id="L412">										final var cp=Character.codePointOf(image.substring(i+2, j));</span>
+										// TODO
+<span class="nc" id="L414">										sb.append((char)cp);</span>
+<span class="nc" id="L415">										i=j;</span>
+									}
+<span class="nc" id="L417">									catch(final IllegalArgumentException ex)</span>
+									{
+<span class="nc" id="L419">										throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L420">									}</span>
+								}
+						}
+<span class="fc" id="L423">					}</span>
+<span class="fc" id="L424">				default-&gt;sb.append(c);</span>
+			}
+		}
+<span class="fc" id="L427">		return new PsyStringBuffer(sb);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

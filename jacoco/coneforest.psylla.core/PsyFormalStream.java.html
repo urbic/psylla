@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyFormalStream.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyFormalStream.java</span></div><h1>PsyFormalStream.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.NoSuchElementException;
+import java.util.stream.Stream;
+
+/**
+*	The representation of {@code formalstream}, an abstraction of the stream.
+*/
+@Type(&quot;formalstream&quot;)
+public interface PsyFormalStream&lt;T extends PsyObject&gt;
+	extends
+		PsyStreamable&lt;T&gt;,
+		PsyCloseable,
+		PsyConcatenable&lt;PsyFormalStream&lt;T&gt;&gt;
+{
+	/**
+	*	Context action of the {@code count} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;count&quot;)
+<span class="fc" id="L22">	public static final ContextAction PSY_COUNT</span>
+<span class="fc" id="L23">		=ContextAction.&lt;PsyFormalStream&gt;ofFunction(PsyFormalStream::psyCount);</span>
+
+	/**
+	*	Context action of the {@code distinct} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;distinct&quot;)
+<span class="fc" id="L30">	public static final ContextAction PSY_DISTINCT</span>
+<span class="fc" id="L31">		=ContextAction.&lt;PsyFormalStream&gt;ofFunction(PsyFormalStream::psyDistinct);</span>
+
+	/**
+	*	Context action of the {@code filtered} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;filtered&quot;)
+<span class="fc" id="L38">	public static final ContextAction PSY_FILTERED=oContext-&gt;</span>
+		{
+<span class="fc" id="L40">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L41">			ostack.push(ostack.&lt;PsyFormalStream&gt;getBacked(0).psyFiltered(</span>
+<span class="fc" id="L42">					ostack.getBacked(1), oContext));</span>
+<span class="fc" id="L43">		};</span>
+
+	/**
+	*	Context action of the {@code limited} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;limited&quot;)
+<span class="fc" id="L50">	public static final ContextAction PSY_LIMITED</span>
+<span class="fc" id="L51">		=ContextAction.&lt;PsyFormalStream, PsyInteger&gt;ofBiFunction(PsyFormalStream::psyLimited);</span>
+
+	/**
+	*	Context action of the {@code mapped} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;mapped&quot;)
+<span class="fc" id="L58">	public static final ContextAction PSY_MAPPED=oContext-&gt;</span>
+		{
+<span class="fc" id="L60">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L61">			ostack.push(ostack.&lt;PsyFormalStream&gt;getBacked(0).psyMapped(</span>
+<span class="fc" id="L62">					ostack.getBacked(1), oContext));</span>
+<span class="fc" id="L63">		};</span>
+
+	/**
+	*	Context action of the {@code peeked} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;peeked&quot;)
+<span class="fc" id="L70">	public static final ContextAction PSY_PEEKED=oContext-&gt;</span>
+		{
+<span class="fc" id="L72">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L73">			ostack.push(ostack.&lt;PsyFormalStream&gt;getBacked(0).psyPeeked(</span>
+<span class="fc" id="L74">					ostack.getBacked(1), oContext));</span>
+<span class="fc" id="L75">		};</span>
+
+	/**
+	*	Context action of the {@code reduce} operator.
+	*/
+	@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	@OperatorType(&quot;reduce&quot;)
+<span class="fc" id="L82">	public static final ContextAction PSY_REDUCE=oContext-&gt;</span>
+		{
+<span class="fc" id="L84">			final var ostack=oContext.operandStackBacked(3);</span>
+<span class="fc" id="L85">			ostack.push(ostack.&lt;PsyFormalStream&gt;getBacked(0).psyReduce(</span>
+<span class="fc" id="L86">					ostack.getBacked(1), ostack.getBacked(2), oContext));</span>
+<span class="fc" id="L87">		};</span>
+
+	/**
+	*	Context action of the {@code skipped} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;skipped&quot;)
+<span class="fc" id="L94">	public static final ContextAction PSY_SKIPPED</span>
+<span class="fc" id="L95">		=ContextAction.&lt;PsyFormalStream, PsyInteger&gt;ofBiFunction(PsyFormalStream::psySkipped);</span>
+
+	///**
+	//*	Context action of the {@code concat} operator.
+	//*/
+	//@SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;})
+	//@OperatorType(&quot;concat&quot;)
+	//public static final ContextAction PSY_CONCAT
+	//	=ContextAction.&lt;PsyFormalStream, PsyFormalStream&gt;ofBiFunction(PsyFormalStream::psyConcat);
+
+	/**
+	*	Context action of the {@code sorted} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;sorted&quot;)
+<span class="fc" id="L110">	public static final ContextAction PSY_SORTED=oContext-&gt;</span>
+		{
+<span class="fc" id="L112">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L113">			ostack.push(ostack.&lt;PsyFormalStream&gt;getBacked(0).psySorted(ostack.getBacked(1), oContext));</span>
+<span class="fc" id="L114">		};</span>
+
+	public static &lt;T1 extends PsyObject&gt; PsyFormalStream&lt;T1&gt; of(final Stream&lt;T1&gt; stream)
+	{
+<span class="fc" id="L118">		return new PsyFormalStream&lt;T1&gt;()</span>
+<span class="fc" id="L119">			{</span>
+				@Override
+				public Stream&lt;T1&gt; stream()
+				{
+<span class="fc" id="L123">					return stream;</span>
+				}
+			};
+	}
+
+	@Override
+	public default PsyFormalStream&lt;T&gt; psyStream()
+	{
+<span class="fc" id="L131">		return this;</span>
+	}
+
+	/**
+	*	{@return the count of elements in this {@code formalstream}}
+	*
+	*	@throws PsyInvalidStateException when this stream is closed.
+	*/
+	public default PsyInteger psyCount()
+		throws PsyInvalidStateException
+	{
+		try
+		{
+<span class="fc" id="L144">			return PsyInteger.of(stream().count());</span>
+		}
+<span class="fc" id="L146">		catch(final IllegalStateException ex)</span>
+		{
+<span class="fc" id="L148">			throw new PsyInvalidStateException();</span>
+		}
+	}
+
+	/**
+	*	Closes this {@code formalstream}.
+	*/
+	public default void psyClose()
+	{
+<span class="fc" id="L157">		stream().close();</span>
+<span class="fc" id="L158">	}</span>
+
+	@Override
+	public default PsyFormalStream&lt;T&gt; psyConcat(final PsyFormalStream&lt;T&gt; oStream)
+		throws PsyInvalidStateException
+	{
+		try
+		{
+<span class="fc" id="L166">			return of(Stream.concat(stream(), oStream.stream()));</span>
+		}
+<span class="fc" id="L168">		catch(final IllegalStateException ex)</span>
+		{
+<span class="fc" id="L170">			throw new PsyInvalidStateException();</span>
+		}
+	}
+
+	public default PsyFormalStream&lt;PsyObject&gt; psyMapped(final PsyExecutable oMapper, final PsyContext oContext)
+		throws PsyErrorException
+	{
+		try
+		{
+<span class="fc" id="L179">			return of(stream().map(oMapper.&lt;T, PsyObject&gt;asFunction(oContext)));</span>
+		}
+<span class="fc" id="L181">		catch(final IllegalStateException ex)</span>
+		{
+<span class="fc" id="L183">			throw new PsyInvalidStateException();</span>
+		}
+	}
+
+	public default PsyFormalStream&lt;T&gt; psySorted(final PsyExecutable oComparator, final PsyContext oContext)
+	{
+<span class="fc" id="L189">		return of(stream().sorted(oComparator.&lt;T&gt;asComparator(oContext)));</span>
+	}
+
+	/**
+	*	{@return a {@code formalstream} consisting of the remaining elements of this {@code
+	*	formalstream} after discarding the first oCount elements of the stream}
+	*
+	*	@param oCount the number of leading elements to skip.
+	*	@throws PsyRangeCheckException when oCount is negative.
+	*/
+	public default PsyFormalStream&lt;T&gt; psySkipped(final PsyInteger oCount)
+		throws PsyRangeCheckException
+	{
+<span class="fc" id="L202">		final var count=oCount.longValue();</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">		if(count&lt;0)</span>
+<span class="fc" id="L204">			throw new PsyRangeCheckException();</span>
+<span class="fc" id="L205">		return new PsyFormalStream&lt;T&gt;()</span>
+<span class="fc" id="L206">			{</span>
+				@Override
+				public Stream&lt;T&gt; stream()
+				{
+<span class="fc" id="L210">					return PsyFormalStream.this.stream().skip(count);</span>
+				}
+			};
+	}
+
+	/**
+	*	{@return a {@code formalstream} consisting of the elements of this {@code formalstream},
+	*	truncated to be no longer than specified count in length}
+	*
+	*	@param oCount the number of elements the stream should be limited to.
+	*	@throws PsyRangeCheckException when oCount is negative.
+	*/
+	public default PsyFormalStream&lt;T&gt; psyLimited(final PsyInteger oCount)
+		throws PsyRangeCheckException, PsyInvalidStateException
+	{
+<span class="fc" id="L225">		final var count=oCount.longValue();</span>
+		try
+		{
+<span class="fc" id="L228">			return of(stream().limit(count));</span>
+		}
+<span class="fc" id="L230">		catch(final IllegalArgumentException ex)</span>
+		{
+<span class="fc" id="L232">			throw new PsyRangeCheckException();</span>
+		}
+<span class="fc" id="L234">		catch(final IllegalStateException ex)</span>
+		{
+<span class="fc" id="L236">			throw new PsyInvalidStateException();</span>
+		}
+	}
+
+	public default PsyFormalStream&lt;T&gt; psyPeeked(final PsyExecutable oProc, final PsyContext oContext)
+		throws PsyRangeCheckException, PsyInvalidStateException
+	{
+		try
+		{
+<span class="fc" id="L245">			return of(stream().peek(oProc.asConsumer(oContext)));</span>
+		}
+<span class="fc" id="L247">		catch(final IllegalStateException ex)</span>
+		{
+<span class="fc" id="L249">			throw new PsyInvalidStateException();</span>
+		}
+	}
+
+	/**
+	*	{@return a stream over elements of this stream that satisfies the given predicate}
+	*
+	*	@param oPredicate a predicate.
+	*	@param oContext a context in which a predicate is called.
+	*	@throws PsyErrorException TODO
+	*/
+	public default PsyFormalStream&lt;T&gt; psyFiltered(final PsyExecutable oPredicate, final PsyContext oContext)
+		throws PsyErrorException
+	{
+<span class="fc" id="L263">		return of(stream().filter(oPredicate.&lt;T&gt;asPredicate(oContext)));</span>
+	}
+
+	public default void psyForAll(final PsyObject oProc, final PsyContext oContext)
+		throws PsyErrorException
+	{
+<span class="fc" id="L269">		final var ostack=oContext.operandStack();</span>
+		try
+		{
+<span class="fc" id="L272">			final var iterator=stream().iterator();</span>
+			//System.out.println(&quot;LL: &quot;+oContext.pushLoopLevel());
+			//final var loopLevel=oContext.pushLoopLevel();
+<span class="fc" id="L275">			oContext.executionStack().enterLoop();</span>
+<span class="fc" id="L276">			oContext.executionStack().push(new PsyOperator(&quot;#forall_continue&quot;)</span>
+<span class="fc" id="L277">				{</span>
+					@Override
+					public void perform(final PsyContext oContext1)
+						throws PsyErrorException
+					{
+						//System.out.println(&quot;STOPPED:&quot;+oContext1.getStopped());
+						/*if(oContext1.getStopped())
+						{
+							//System.out.println(&quot;CLL: &quot;+oContext.currentLoopLevel());
+							if(oContext.currentLoopLevel()==-1)
+								throw new PsyInvalidExitException();	// TODO
+							System.out.println(&quot;STOPPED, POPLOOPLEVEL&quot;);
+							oContext.executionStack().setSize(oContext.popLoopLevel());
+							return;
+						}*/
+<span class="fc bfc" id="L292" title="All 2 branches covered.">						if(iterator.hasNext())</span>
+						{
+<span class="fc" id="L294">							oContext.executionStack().enterLoop();</span>
+							try
+							{
+<span class="fc" id="L297">								ostack.push(iterator.next());</span>
+<span class="fc" id="L298">								oContext1.executionStack().push(this);</span>
+<span class="fc" id="L299">								oProc.invoke(oContext1);</span>
+							}
+<span class="nc" id="L301">							catch(final NoSuchElementException ex)</span>
+							{
+								// TODO more suitable exception type: PsyInternalError
+<span class="nc" id="L304">								throw new PsyUndefinedException();</span>
+<span class="fc" id="L305">							}</span>
+						}
+						else
+<span class="fc" id="L308">							oContext1.executionStack().exitLoop();</span>
+<span class="fc" id="L309">					}</span>
+				});
+		}
+<span class="fc" id="L312">		catch(final IllegalStateException ex)</span>
+		{
+<span class="fc" id="L314">			throw new PsyInvalidStateException();</span>
+<span class="fc" id="L315">		}</span>
+<span class="fc" id="L316">	}</span>
+
+	public default T psyReduce(final T oIdentity, final PsyExecutable oAccumulator, final PsyContext oContext)
+		throws PsyInvalidStateException
+	{
+		try
+		{
+<span class="fc" id="L323">			return stream().reduce(oIdentity, oAccumulator.&lt;T&gt;asBinaryOperator(oContext));</span>
+		}
+<span class="fc" id="L325">		catch(final IllegalStateException ex)</span>
+		{
+<span class="fc" id="L327">			throw new PsyInvalidStateException();</span>
+		}
+	}
+
+	/**
+	*	{@return a stream consisting of the distinct elements of this stream}
+	*/
+	public default PsyFormalStream&lt;T&gt; psyDistinct()
+	{
+<span class="fc" id="L336">		return of(stream().distinct());</span>
+	}
+
+	public Stream&lt;T&gt; stream();
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

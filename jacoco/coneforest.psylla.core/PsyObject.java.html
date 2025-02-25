@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyObject.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyObject.java</span></div><h1>PsyObject.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.Stack;
+
+/**
+*	The representation of an {@code object}, a generic Psylla object.
+*/
+@Type(&quot;object&quot;)
+public interface PsyObject
+{
+	/**
+	*	Context action of the {@code clone} operator.
+	*/
+	@OperatorType(&quot;clone&quot;)
+<span class="fc" id="L16">	public static final ContextAction PSY_CLONE</span>
+<span class="fc" id="L17">		=ContextAction.&lt;PsyObject&gt;ofFunction(PsyObject::psyClone);</span>
+
+	/**
+	*	Context action of the {@code eq} operator.
+	*/
+	@OperatorType(&quot;eq&quot;)
+<span class="fc" id="L23">	public static final ContextAction PSY_EQ</span>
+<span class="fc" id="L24">		=ContextAction.&lt;PsyObject, PsyObject&gt;ofBiFunction(PsyObject::psyEq);</span>
+
+	/**
+	*	Context action of the {@code hashcode} operator.
+	*/
+	@OperatorType(&quot;hashcode&quot;)
+<span class="fc" id="L30">	public static final ContextAction PSY_HASHCODE</span>
+<span class="fc" id="L31">		=ContextAction.&lt;PsyObject&gt;ofFunction(PsyObject::psyHashCode);</span>
+
+	/**
+	*	Context action of the {@code instanceof} operator.
+	*/
+	@OperatorType(&quot;instanceof&quot;)
+<span class="fc" id="L37">	public static final ContextAction PSY_INSTANCEOF</span>
+<span class="fc" id="L38">		=ContextAction.&lt;PsyObject, PsyTextual&gt;ofBiFunction(PsyObject::psyInstanceOf);</span>
+
+	/**
+	*	Context action of the {@code ne} operator.
+	*/
+	@OperatorType(&quot;ne&quot;)
+<span class="fc" id="L44">	public static final ContextAction PSY_NE</span>
+<span class="fc" id="L45">		=ContextAction.&lt;PsyObject, PsyObject&gt;ofBiFunction(PsyObject::psyNe);</span>
+
+	/**
+	*	Context action of the {@code tostring} operator.
+	*/
+	@OperatorType(&quot;tostring&quot;)
+<span class="fc" id="L51">	public static final ContextAction PSY_TOSTRING</span>
+<span class="fc" id="L52">		=ContextAction.&lt;PsyObject&gt;ofFunction(PsyObject::psyToString);</span>
+
+	/**
+	*	Context action of the {@code tostringbuffer} operator.
+	*/
+	@OperatorType(&quot;tostringbuffer&quot;)
+<span class="fc" id="L58">	public static final ContextAction PSY_TOSTRINGBUFFER</span>
+<span class="fc" id="L59">		=ContextAction.&lt;PsyObject&gt;ofFunction(PsyObject::psyToStringBuffer);</span>
+
+	/**
+	*	Context action of the {@code type} operator.
+	*/
+	@OperatorType(&quot;type&quot;)
+<span class="fc" id="L65">	public static final ContextAction PSY_TYPE</span>
+<span class="fc" id="L66">		=ContextAction.&lt;PsyObject&gt;ofFunction(PsyObject::psyType);</span>
+
+	/**
+	*	{@return a string representation of this {@code object}’s type name}
+	*/
+	public default String typeName()
+	{
+<span class="fc" id="L73">		final var agenda=new Stack&lt;Class&lt;?&gt;&gt;();</span>
+<span class="fc" id="L74">		agenda.push(getClass());</span>
+
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		while(agenda.size()&gt;0)</span>
+		{
+<span class="fc" id="L78">			final var clazz=agenda.pop();</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">			if(clazz.isAnnotationPresent(Type.class))</span>
+<span class="fc" id="L80">				return (clazz.getAnnotation(Type.class)).value();</span>
+<span class="fc" id="L81">			agenda.push(clazz.getSuperclass());</span>
+<span class="fc bfc" id="L82" title="All 2 branches covered.">			for(final var iface: clazz.getInterfaces())</span>
+<span class="fc" id="L83">				agenda.push(iface);</span>
+<span class="fc" id="L84">		}</span>
+<span class="nc" id="L85">		return null;</span>
+	}
+
+	public default PsyString psyType()
+	{
+<span class="fc" id="L90">		return new PsyString(typeName());</span>
+	}
+
+	/**
+	*	Execute this {@code object} in the given execution context. Pushes this {@code object} into
+	*	context’s operand stack.
+	*
+	*	@param oContext the execution context.
+	*/
+	public default void execute(final PsyContext oContext)
+	{
+<span class="fc" id="L101">		oContext.operandStack().push(this);</span>
+<span class="fc" id="L102">	}</span>
+
+	/**
+	*	Invoke this {@code object} in the given execution context. Pushes this {@code object} into
+	*	context’s operand stack.
+	*
+	*	@param oContext the execution context.
+	*/
+	public default void invoke(final PsyContext oContext)
+	{
+<span class="fc" id="L112">		oContext.operandStack().push(this);</span>
+<span class="fc" id="L113">	}</span>
+
+	/**
+	*	{@return a {@code boolean} result of equality test of this {@code object} and given {@code
+	*	object}}
+	*
+	*	@param o the {@code object} to be compared for equality.
+	*/
+	public default PsyBoolean psyEq(final PsyObject o)
+	{
+<span class="nc bnc" id="L123" title="All 2 branches missed.">		return PsyBoolean.of(this==o);</span>
+	}
+
+	public default PsyBoolean psyNe(final PsyObject o)
+	{
+<span class="nc" id="L128">		return psyEq(o).psyNot();</span>
+	}
+
+	/**
+	*	{@return a clone of this object}
+	*/
+	public default PsyObject psyClone()
+	{
+<span class="nc" id="L136">		return this;</span>
+	}
+
+	/**
+	*	{@return a syntactic representation of this object as a {@code name}}
+	*/
+	public default PsyString psySyntax()
+	{
+<span class="fc" id="L144">		return new PsyString(toSyntaxString());</span>
+	}
+
+	/**
+	*	{@return a {@code stringbuffer} representing this object}
+	*/
+	public default PsyStringBuffer psyToStringBuffer()
+	{
+<span class="nc" id="L152">		return new PsyStringBuffer(toSyntaxString());</span>
+	}
+
+	/**
+	*	{@return a {@code string} representing this object}
+	*/
+	public default PsyString psyToString()
+	{
+<span class="nc" id="L160">		return new PsyString(toSyntaxString());</span>
+	}
+
+	/**
+	*	{@return the syntactic representation of this object}
+	*/
+	public default String toSyntaxString()
+	{
+<span class="fc" id="L168">		return '%'+typeName()+'%';</span>
+	}
+
+	// TODO
+	public default PsyStringBuffer convert(final Class&lt;PsyStringBuffer&gt; clazz)
+	{
+<span class="nc" id="L174">		return new PsyStringBuffer(toSyntaxString());</span>
+	}
+
+	// TODO
+	public default PsyBoolean psyInstanceOf(final PsyTextual oTypeName)
+	{
+		//Class&lt;? extends PsyObject&gt; clazz=TypeRegistry.get(textual.getString());
+		//return PsyBoolean.of(clazz!=null &amp;&amp; clazz.isInstance(this));
+
+		//final var interpreter=Interpreter.currentInterpreter();
+<span class="nc" id="L184">		return PsyBoolean.TRUE;</span>
+	}
+
+	/**
+	*	{@return an {@code integer} hash code for this object}
+	*/
+	public default PsyInteger psyHashCode()
+	{
+<span class="fc" id="L192">		return PsyInteger.of(hashCode());</span>
+	}
+
+
+	//static final PsyNamespace NAMESPACE=PsyNamespace.namespace(PsyObject.class);
+	/*
+	public default PsyObject psyConvert(PsyString oTypeName)
+		throws PsyException
+	{
+		if(getClass().equals(type.getTypeClass()))
+			return this;
+		try
+		{
+			java.lang.invoke.MethodHandle handle
+				=java.lang.invoke.MethodHandles
+					.lookup()
+					.findVirtual(getClass(), &quot;convert&quot;,
+						java.lang.invoke.MethodType.methodType(type.getTypeClass(), type.getTypeClass().getClass()));
+			return (PsyObject)handle.invoke(this, type.getTypeClass());
+		}
+		catch(final PsyException e)
+		{
+			throw e;
+		}
+		catch(final Throwable ex)
+		{
+			System.out.println(ex);
+			throw new PsyUnregisteredException();
+		}
+	}
+	*/
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

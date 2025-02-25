@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyRational.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyRational.java</span></div><h1>PsyRational.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.math.BigInteger;
+
+/**
+*	The representation of {@code rational}.
+*/
+@Type(&quot;rational&quot;)
+public sealed interface PsyRational
+	extends PsyRealNumeric
+	permits
+		PsyIntegral,
+		PsyFraction,
+		PsyBigFraction
+{
+	/**
+	*	Context action of the {@code denominator} operator.
+	*/
+	@OperatorType(&quot;denominator&quot;)
+<span class="fc" id="L21">	public static final ContextAction PSY_DENOMINATOR</span>
+<span class="fc" id="L22">		=ContextAction.&lt;PsyRational&gt;ofFunction(PsyRational::psyDenominator);</span>
+
+	/**
+	*	Context action of the {@code gcd} operator.
+	*/
+	@OperatorType(&quot;gcd&quot;)
+<span class="fc" id="L28">	public static final ContextAction PSY_GCD</span>
+<span class="fc" id="L29">		=ContextAction.&lt;PsyRational, PsyRational&gt;ofBiFunction(PsyRational::psyGCD);</span>
+
+	/**
+	*	Context action of the {@code idiv} operator.
+	*/
+	@OperatorType(&quot;idiv&quot;)
+<span class="fc" id="L35">	public static final ContextAction PSY_IDIV</span>
+<span class="fc" id="L36">		=ContextAction.&lt;PsyRational, PsyRational&gt;ofBiFunction(PsyRational::psyIdiv);</span>
+
+	/**
+	*	Context action of the {@code lcm} operator.
+	*/
+	@OperatorType(&quot;lcm&quot;)
+<span class="fc" id="L42">	public static final ContextAction PSY_LCM</span>
+<span class="fc" id="L43">		=ContextAction.&lt;PsyRational, PsyRational&gt;ofBiFunction(PsyRational::psyLCM);</span>
+
+	/**
+	*	Context action of the {@code mod} operator.
+	*/
+	@OperatorType(&quot;mod&quot;)
+<span class="fc" id="L49">	public static final ContextAction PSY_MOD</span>
+<span class="fc" id="L50">		=ContextAction.&lt;PsyRational, PsyRational&gt;ofBiFunction(PsyRational::psyMod);</span>
+
+	/**
+	*	Context action of the {@code numerator} operator.
+	*/
+	@OperatorType(&quot;numerator&quot;)
+<span class="fc" id="L56">	public static final ContextAction PSY_NUMERATOR</span>
+<span class="fc" id="L57">		=ContextAction.&lt;PsyRational&gt;ofFunction(PsyRational::psyNumerator);</span>
+
+	public BigInteger bigIntegerValue();
+
+	public default PsyRational rationalValue()
+	{
+<span class="nc" id="L63">		return this;</span>
+	}
+
+	/**
+	*	{@return an {@code integral} numerator of this fraction}
+	*/
+	public PsyIntegral psyNumerator();
+
+	/**
+	*	{@return an {@code integral} denominator of this fraction}
+	*/
+	public PsyIntegral psyDenominator();
+
+	@Override
+	public default PsyRational psyToRational()
+	{
+<span class="fc" id="L79">		return this;</span>
+	}
+
+	@Override
+	public default PsyIntegral psyRound()
+	{
+<span class="fc" id="L85">		final var oIntPart=psyFloor();</span>
+<span class="fc" id="L86">		final var oFractPart=psySub(oIntPart);</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">		return PsyInteger.TWO.psyMul(oFractPart).compareTo(PsyInteger.ONE)&lt;0?</span>
+<span class="fc" id="L88">				oIntPart: (PsyIntegral)oIntPart.psyAdd(PsyInteger.ONE);</span>
+	}
+
+	@Override
+	public default PsyIntegral psyToIntegral()
+	{
+<span class="nc" id="L94">		return psyRound();</span>
+	}
+
+	@Override
+	public default PsyRational psyNeg()
+	{
+<span class="fc" id="L100">		return of(psyNumerator().psyNeg(), psyDenominator());</span>
+	}
+
+	@Override
+	public default PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric)
+	{
+<span class="pc bpc" id="L106" title="2 of 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="fc" id="L108">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L109">					of((PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),</span>
+<span class="fc" id="L110">						psyDenominator());</span>
+<span class="nc" id="L111">				case PsyRational oRational-&gt;</span>
+<span class="nc" id="L112">					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())</span>
+<span class="nc" id="L113">							.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),</span>
+<span class="nc" id="L114">						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));</span>
+<span class="nc" id="L115">				case PsyReal oReal-&gt;</span>
+<span class="nc" id="L116">					new PsyReal(doubleValue()+oReal.doubleValue());</span>
+			};
+	}
+
+	@Override
+	public default PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
+	{
+<span class="pc bpc" id="L123" title="2 of 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="fc" id="L125">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L126">					of((PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),</span>
+<span class="fc" id="L127">						psyDenominator());</span>
+<span class="nc" id="L128">				case PsyRational oRational-&gt;</span>
+<span class="nc" id="L129">					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())</span>
+<span class="nc" id="L130">							.psySub(psyDenominator().psyMul(oRational.psyNumerator())),</span>
+<span class="nc" id="L131">						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));</span>
+<span class="nc" id="L132">				case PsyReal oReal-&gt;</span>
+<span class="nc" id="L133">					new PsyReal(doubleValue()+oReal.doubleValue());</span>
+			};
+	}
+
+	@Override
+	public default PsyRational psyReciprocal()
+		throws PsyUndefinedResultException
+	{
+		try
+		{
+<span class="fc" id="L143">			return of(psyDenominator(), psyNumerator());</span>
+		}
+<span class="fc" id="L145">		catch(final IllegalArgumentException ex)</span>
+		{
+<span class="fc" id="L147">			throw new PsyUndefinedResultException();</span>
+		}
+	}
+
+	@Override
+	public default PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric)
+	{
+<span class="pc bpc" id="L154" title="1 of 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="fc" id="L156">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L157">					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oIntegral),</span>
+<span class="fc" id="L158">						psyDenominator());</span>
+<span class="fc" id="L159">				case PsyRational oRational-&gt;</span>
+<span class="fc" id="L160">					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),</span>
+<span class="fc" id="L161">						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));</span>
+<span class="nc" id="L162">				case PsyReal oReal-&gt;</span>
+<span class="nc" id="L163">					new PsyReal(doubleValue()*oReal.doubleValue());</span>
+			};
+	}
+
+	public default PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
+		throws PsyUndefinedResultException
+	{
+<span class="pc bpc" id="L170" title="1 of 3 branches missed.">		return switch(oRealNumeric)</span>
+			{
+<span class="fc" id="L172">				case PsyIntegral oIntegral-&gt;</span>
+<span class="fc" id="L173">					PsyRational.of(psyNumerator(),</span>
+<span class="fc" id="L174">						(PsyIntegral)psyDenominator().psyMul(oIntegral));</span>
+<span class="fc" id="L175">				case PsyRational oRational-&gt;</span>
+<span class="fc" id="L176">					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),</span>
+<span class="fc" id="L177">						(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));</span>
+<span class="nc" id="L178">				case PsyReal oReal-&gt;</span>
+<span class="nc" id="L179">					new PsyReal(doubleValue()/oReal.doubleValue());</span>
+			};
+	}
+
+	/**
+	*	{@return an {@code integral} representing this object modulo given modulus}
+	*
+	*	@param oRational the given modulus.
+	*	@throws PsyRangeCheckException when the modulus is negative.
+	*	@throws PsyUndefinedResultException when the modulus is zero.
+	*/
+	public default PsyRational psyMod(final PsyRational oRational)
+		throws PsyRangeCheckException, PsyUndefinedResultException
+	{
+<span class="nc" id="L193">		return of(</span>
+<span class="nc" id="L194">			((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))</span>
+<span class="nc" id="L195">					.psyMod((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),</span>
+<span class="nc" id="L196">			(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));</span>
+	}
+
+	/**
+	*	{@return the quotient of the integer division of this {@code rational} by the {@code
+	*	rational} divisor.
+	*
+	*	@param oRational the divisor.
+	*	@throws PsyUndefinedResultException when the divisor is zero.
+	*/
+	public default PsyIntegral psyIdiv(final PsyRational oRational)
+		throws PsyUndefinedResultException
+	{
+<span class="nc" id="L209">		return ((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))</span>
+<span class="nc" id="L210">				.psyIdiv((PsyIntegral)oRational.psyNumerator().psyMul(psyDenominator()));</span>
+	}
+
+	/**
+	*	{@return a {@code rational} representing the greatest common divisor of this object and
+	*	given object}
+	*
+	*	@param oRational the given object.
+	*/
+	public default PsyRational psyGCD(final PsyRational oRational)
+	{
+<span class="nc" id="L221">		return of((PsyIntegral)((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))</span>
+<span class="nc" id="L222">						.psyGCD((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),</span>
+<span class="nc" id="L223">				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));</span>
+	}
+
+	/**
+	*	{@return a {@code rational} representing the least common multiplier of this object and
+	*	given object}
+	*
+	*	@param oRational the given object.
+	*/
+	public default PsyRational psyLCM(final PsyRational oRational)
+	{
+<span class="fc" id="L234">		return of(((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))</span>
+<span class="fc" id="L235">						.psyLCM((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),</span>
+<span class="fc" id="L236">				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));</span>
+	}
+
+	@Override
+	public PsyIntegral psyCeiling();
+
+	@Override
+	public default PsyRational psyAbs()
+	{
+<span class="fc bfc" id="L245" title="All 2 branches covered.">		if(compareTo(PsyInteger.ZERO)&lt;0)</span>
+<span class="fc" id="L246">			return of(psyNumerator().psyNeg(), psyDenominator());</span>
+<span class="fc" id="L247">		return this;</span>
+	}
+
+	@Override
+	public PsyIntegral psyFloor();
+
+	public static PsyRational of(final PsyIntegral oNumerator, final PsyIntegral oDenominator)
+	{
+		try
+		{
+<span class="fc bfc" id="L257" title="All 2 branches covered.">			if(oNumerator.psyMod(oDenominator.psyAbs()).psyIsZero().booleanValue())</span>
+<span class="fc" id="L258">				return oNumerator.psyIdiv(oDenominator);</span>
+		}
+<span class="fc" id="L260">		catch(final PsyRangeCheckException|PsyUndefinedResultException e)</span>
+		{
+<span class="fc" id="L262">			throw new IllegalArgumentException();</span>
+<span class="fc" id="L263">		}</span>
+<span class="fc bfc" id="L264" title="All 4 branches covered.">		if(oNumerator instanceof PsyInteger &amp;&amp; oDenominator instanceof PsyInteger)</span>
+<span class="fc" id="L265">			return PsyFraction.of(oNumerator.longValue(), oDenominator.longValue());</span>
+		else
+<span class="fc" id="L267">			return PsyBigFraction.of(oNumerator.bigIntegerValue(), oDenominator.bigIntegerValue());</span>
+	}
+
+	@Override
+	public default int compareTo(final PsyRealNumeric oNumeric)
+	{
+<span class="pc bpc" id="L273" title="1 of 2 branches missed.">		if(oNumeric instanceof PsyRational oRational)</span>
+<span class="fc" id="L274">			return psyNumerator().psyMul(oRational.psyDenominator())</span>
+<span class="fc" id="L275">					.compareTo(psyDenominator().psyMul(oRational.psyNumerator()));</span>
+		// TODO
+<span class="nc" id="L277">		return Double.compare(doubleValue(), oNumeric.doubleValue());</span>
+	}
+
+	public static PsyRational parseLiteral(final String image)
+		throws PsySyntaxErrorException, PsyUndefinedResultException
+	{
+<span class="fc" id="L283">		final var slashIndex=image.indexOf(':');</span>
+<span class="pc bpc" id="L284" title="1 of 2 branches missed.">		if(slashIndex==-1)</span>
+<span class="nc" id="L285">			return PsyIntegral.parseLiteral(image);</span>
+<span class="fc" id="L286">		return of(PsyIntegral.parseLiteral(image.substring(0, slashIndex)),</span>
+<span class="fc" id="L287">				PsyIntegral.parseLiteral(image.substring(slashIndex+1)));</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

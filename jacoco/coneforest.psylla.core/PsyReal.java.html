@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyReal.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyReal.java</span></div><h1>PsyReal.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
+/**
+*	The representation of {@code real}.
+*/
+@Type(&quot;real&quot;)
+public final class PsyReal
+	implements PsyRealNumeric
+{
+	/**
+	*	The number zero.
+	*/
+<span class="fc" id="L17">	public static final PsyReal ZERO=new PsyReal(0.D);</span>
+
+	/**
+	*	The number one.
+	*/
+<span class="fc" id="L22">	public static final PsyReal	ONE=new PsyReal(1.D);</span>
+
+	/**
+	*	The number two.
+	*/
+<span class="fc" id="L27">	public static final PsyReal TWO=new PsyReal(2.D);</span>
+
+	/**
+	*	The number minus one.
+	*/
+<span class="fc" id="L32">	public static final PsyReal MINUS_ONE=new PsyReal(-1.D);</span>
+
+	/**
+	*	The number π.
+	*/
+<span class="fc" id="L37">	public static final PsyReal PI=new PsyReal(Math.PI);</span>
+
+	/**
+	*	The number e.
+	*/
+<span class="fc" id="L42">	public static final PsyReal E=new PsyReal(Math.E);</span>
+
+	/**
+	*	The largest positive finite value, (2−&lt;sup&gt;−52&lt;/sup&gt;)·2&lt;sup&gt;1023&lt;/sup&gt;.
+	*/
+<span class="fc" id="L47">	public static final PsyReal MAX_VALUE=new PsyReal(Double.MAX_VALUE);</span>
+
+	/**
+	*	The smallest positive nonzero value, 2&lt;sup&gt;−1074&lt;/sup&gt;.
+	*/
+<span class="fc" id="L52">	public static final PsyReal MIN_VALUE=new PsyReal(Double.MIN_VALUE);</span>
+
+	/**
+	*	The Not-a-Number (NaN) value.
+	*/
+<span class="fc" id="L57">	public static final PsyReal NAN=new PsyReal(Double.NaN);</span>
+
+	private final double value;
+
+	/**
+	*	Creates a new {@code real} representing the specified {@code double} value.
+	*
+	*	@param value a {@code double} value.
+	*/
+	public PsyReal(final double value)
+<span class="fc" id="L67">	{</span>
+<span class="fc" id="L68">		this.value=value;</span>
+<span class="fc" id="L69">	}</span>
+
+	@Override
+	public PsyIntegral psyToIntegral()
+		throws PsyRangeCheckException
+	{
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		if(Double.isInfinite(value))</span>
+<span class="nc" id="L76">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L77">		return PsyIntegral.of(BigDecimal.valueOf(value).toBigInteger());</span>
+	}
+
+	@Override
+	public boolean isZero()
+	{
+<span class="fc bfc" id="L83" title="All 2 branches covered.">		return value==0.D;</span>
+	}
+
+	@Override
+	public int intValue()
+	{
+<span class="nc" id="L89">		return (int)value;</span>
+	}
+
+	@Override
+	public long longValue()
+	{
+<span class="nc" id="L95">		return (long)value;</span>
+	}
+
+	@Override
+	public double doubleValue()
+	{
+<span class="fc" id="L101">		return value;</span>
+	}
+
+	@Override
+	public PsyRational rationalValue()
+		throws PsyUndefinedResultException
+	{
+<span class="pc bpc" id="L108" title="1 of 4 branches missed.">		if(value==0.D||value==-0.D)</span>
+<span class="fc" id="L109">			return PsyInteger.ZERO;</span>
+<span class="pc bpc" id="L110" title="1 of 4 branches missed.">		if(Double.isNaN(value)||Double.isInfinite(value))</span>
+<span class="fc" id="L111">			throw new PsyUndefinedResultException();</span>
+
+<span class="fc" id="L113">		final long bits=Double.doubleToLongBits(value);</span>
+<span class="fc" id="L114">		final long mantissa=bits&amp;0x000FFFFFFFFFFFFFL;</span>
+<span class="fc" id="L115">		final int exponent=(int)((bits&amp;0x7FF0000000000000L)&gt;&gt;52);</span>
+
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">		if(exponent==0)</span>
+<span class="nc" id="L118">			return (PsyRational)PsyInteger</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">					.of((bits&amp;0x8000000000000000L)==0L? mantissa: -mantissa)</span>
+<span class="nc" id="L120">					.psyDiv(new PsyBigInteger(BigInteger.ZERO.flipBit(-51-Double.MAX_EXPONENT)));</span>
+
+<span class="fc" id="L122">		final int pow=exponent-Double.MAX_EXPONENT;</span>
+
+<span class="fc" id="L124">		PsyRational retval=(PsyRational)PsyInteger.of(mantissa)</span>
+<span class="fc" id="L125">				.psyDiv(PsyInteger.of(0x10000000000000L))</span>
+<span class="fc" id="L126">				.psyAdd(PsyInteger.ONE);</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">		if((bits&amp;0x8000000000000000L)!=0L)</span>
+<span class="fc" id="L128">			retval=retval.psyNeg();</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">		return (PsyRational)(pow&gt;=0?</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">				retval.psyMul((1+pow&lt;Double.SIZE)?</span>
+<span class="fc" id="L131">						PsyInteger.of(1L&lt;&lt;pow):</span>
+<span class="nc" id="L132">						new PsyBigInteger(BigInteger.ZERO.flipBit(pow))):</span>
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">				retval.psyDiv((1-pow&lt;Double.SIZE)?</span>
+<span class="fc" id="L134">						PsyInteger.of(1L&lt;&lt;-pow):</span>
+<span class="nc" id="L135">						new PsyBigInteger(BigInteger.ZERO.flipBit(-pow))));</span>
+	}
+
+	@Override
+	public PsyReal psyNeg()
+	{
+<span class="fc" id="L141">		return new PsyReal(-value);</span>
+	}
+
+	@Override
+	public PsyReal psyAbs()
+	{
+<span class="fc" id="L147">		return new PsyReal(Math.abs(value));</span>
+	}
+
+	@Override
+	public PsyReal psySignum()
+	{
+<span class="fc" id="L153">		return new PsyReal(Math.signum(value));</span>
+	}
+
+	@Override
+	public PsyReal psyAdd(final PsyRealNumeric oNumeric)
+	{
+<span class="fc" id="L159">		return new PsyReal(value+oNumeric.doubleValue());</span>
+	}
+
+	@Override
+	public PsyReal psySub(final PsyRealNumeric oNumeric)
+	{
+<span class="fc" id="L165">		return new PsyReal(value-oNumeric.doubleValue());</span>
+	}
+
+	@Override
+	public PsyReal psyReciprocal()
+	{
+<span class="fc" id="L171">		return new PsyReal(1.D/value);</span>
+	}
+
+	@Override
+	public PsyReal psyMul(final PsyRealNumeric oRealNumeric)
+	{
+<span class="fc" id="L177">		return new PsyReal(value*oRealNumeric.doubleValue());</span>
+	}
+
+	@Override
+	public PsyReal psyDiv(final PsyRealNumeric oRealNumeric)
+	{
+<span class="fc" id="L183">		return new PsyReal(value/oRealNumeric.doubleValue());</span>
+	}
+
+	@Override
+	public PsyInteger psyRound()
+	{
+<span class="fc" id="L189">		return PsyInteger.of(Math.round(value));</span>
+	}
+
+	@Override
+	public PsyReal psyFloor()
+	{
+<span class="fc" id="L195">		return new PsyReal(Math.floor(value));</span>
+	}
+
+	@Override
+	public PsyReal psyCeiling()
+	{
+<span class="fc" id="L201">		return new PsyReal(Math.ceil(value));</span>
+	}
+
+	@Override
+	public int compareTo(final PsyRealNumeric oNumeric)
+	{
+<span class="fc" id="L207">		return Double.compare(value, oNumeric.doubleValue());</span>
+	}
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc bfc" id="L213" title="All 2 branches covered.">		if(value==Double.NEGATIVE_INFINITY)</span>
+<span class="fc" id="L214">			return &quot;-∞&quot;;</span>
+<span class="fc bfc" id="L215" title="All 2 branches covered.">		if(value==Double.POSITIVE_INFINITY)</span>
+<span class="fc" id="L216">			return &quot;∞&quot;;</span>
+<span class="fc" id="L217">		return String.valueOf(value);</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L223">		return Double.hashCode(value);</span>
+	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+<span class="nc" id="L229">		return obj instanceof PsyReal oReal</span>
+<span class="nc bnc" id="L230" title="All 4 branches missed.">				&amp;&amp; psyEq(oReal).booleanValue();</span>
+	}
+
+	/**
+	*	{@return the {@code real} initialized to the value represented by the specified {@link
+	*	String} image}
+	*
+	*	@param image the string to be parsed.
+	*/
+	public static PsyReal parseLiteral(final String image)
+	{
+<span class="fc bfc" id="L241" title="All 3 branches covered.">		return new PsyReal(switch(image)</span>
+			{
+<span class="fc" id="L243">				case &quot;∞&quot;-&gt;Double.POSITIVE_INFINITY;</span>
+<span class="fc" id="L244">				case &quot;-∞&quot;-&gt;Double.NEGATIVE_INFINITY;</span>
+<span class="fc" id="L245">				default-&gt;Double.parseDouble(image);</span>
+			});
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

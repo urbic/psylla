@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyBitwise.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyBitwise.java</span></div><h1>PsyBitwise.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code bitwise}, a type of object that is an operand of bitwise operation.
+*	This interface declares methods for setting, clearing, testing of certain bits and bitwise
+*	shift.
+*
+*	@param &lt;T&gt; a type of the second operand at binary operations.
+*/
+@Type(&quot;bitwise&quot;)
+public interface PsyBitwise&lt;T extends PsyBitwise&lt;T&gt;&gt;
+	extends PsyLogical&lt;T&gt;
+{
+	/**
+	*	Context action of the {@code bitshift} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;bitshift&quot;)
+<span class="fc" id="L21">	public static final ContextAction PSY_BITSHIFT</span>
+<span class="fc" id="L22">		=ContextAction.&lt;PsyBitwise, PsyInteger&gt;ofBiFunction(PsyBitwise::psyBitShift);</span>
+
+	/**
+	*	Context action of the {@code clearbit} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;clearbit&quot;)
+<span class="fc" id="L29">	public static final ContextAction PSY_CLEARBIT</span>
+<span class="fc" id="L30">		=ContextAction.&lt;PsyBitwise, PsyInteger&gt;ofBiFunction(PsyBitwise::psyClearBit);</span>
+
+	/**
+	*	Context action of the {@code flipbit} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;flipbit&quot;)
+<span class="fc" id="L37">	public static final ContextAction PSY_FLIPBIT</span>
+<span class="fc" id="L38">		=ContextAction.&lt;PsyBitwise, PsyInteger&gt;ofBiFunction(PsyBitwise::psyFlipBit);</span>
+
+	/**
+	*	Context action of the {@code setbit} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;setbit&quot;)
+<span class="fc" id="L45">	public static final ContextAction PSY_SETBIT</span>
+<span class="fc" id="L46">		=ContextAction.&lt;PsyBitwise, PsyInteger&gt;ofBiFunction(PsyBitwise::psySetBit);</span>
+
+	/**
+	*	Context action of the {@code testbit} operator.
+	*/
+	@SuppressWarnings(&quot;rawtypes&quot;)
+	@OperatorType(&quot;testbit&quot;)
+<span class="fc" id="L53">	public static final ContextAction PSY_TESTBIT</span>
+<span class="fc" id="L54">		=ContextAction.&lt;PsyBitwise, PsyInteger&gt;ofBiFunction(PsyBitwise::psyTestBit);</span>
+
+	/**
+	*	{@return a {@code bitwise} whose value is equivalent to this value with the designated bit
+	*		cleared}
+	*
+	*	@param oBit the index of bit to clear.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
+	public PsyBitwise&lt;T&gt; psyClearBit(final PsyInteger oBit)
+		throws PsyRangeCheckException;
+
+	/**
+	*	{@return a {@code bitwise} whose value is equivalent to this value with the designated bit
+	*		flipped}
+	*
+	*	@param oBit the index of bit to flip.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
+	public PsyBitwise&lt;T&gt; psyFlipBit(final PsyInteger oBit)
+		throws PsyRangeCheckException;
+
+	/**
+	*	{@return a {@code bitwise} whose value is equivalent to this value with the designated bit
+	*		set}
+	*
+	*	@param oBit the index of bit to set.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
+	public PsyBitwise&lt;T&gt; psySetBit(final PsyInteger oBit)
+		throws PsyRangeCheckException;
+
+	/**
+	*	{@return a {@code boolean} indicating if the designated bit is set}
+	*
+	*	@param oBit the index of bit to test.
+	*	@throws PsyRangeCheckException if the index is out of range.
+	*/
+	public PsyBoolean psyTestBit(final PsyInteger oBit)
+		throws PsyRangeCheckException;
+
+	/**
+	*	{@return a {@code bitwise} whose value is equivalent to this value with bits shifted at the
+	*		given distance} If the distance is negative, the left shift is preformed. If the
+	*		distance is positive, the right shift is preformed. If the distance is zero, returns
+	*		this.
+	*
+	*	@param oShift the shift distance.
+	*/
+	public PsyBitwise&lt;T&gt; psyBitShift(final PsyInteger oShift);
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

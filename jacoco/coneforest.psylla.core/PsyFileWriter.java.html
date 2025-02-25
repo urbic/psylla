@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyFileWriter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyFileWriter.java</span></div><h1>PsyFileWriter.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Paths;
+
+/**
+*	The representation of {@code filewriter}.
+*/
+@Type(&quot;filewriter&quot;)
+public class PsyFileWriter
+	extends PsyWriter
+{
+	/**
+	*	Context action of the {@code filewriter} operator.
+	*/
+	@OperatorType(&quot;filewriter&quot;)
+<span class="fc" id="L20">	public static final ContextAction PSY_FILEWRITER</span>
+<span class="fc" id="L21">		=ContextAction.&lt;PsyTextual&gt;ofFunction(PsyFileWriter::new);</span>
+
+	public PsyFileWriter(final String fileName)
+		throws PsyFileNotFoundException, PsyIOErrorException
+	{
+<span class="nc" id="L26">		super(newFileWriter(fileName));</span>
+<span class="nc" id="L27">	}</span>
+
+	public PsyFileWriter(final PsyTextual oFileName)
+		throws PsyFileNotFoundException, PsyIOErrorException
+	{
+<span class="nc" id="L32">		this(oFileName.stringValue());</span>
+<span class="nc" id="L33">	}</span>
+
+	private static FileWriter newFileWriter(final String fileName)
+		throws PsyFileNotFoundException, PsyIOErrorException
+	{
+		try
+		{
+<span class="nc" id="L40">			return new FileWriter(Paths.get(fileName).toString());</span>
+		}
+<span class="nc" id="L42">		catch(final FileNotFoundException ex)</span>
+		{
+<span class="nc" id="L44">			throw new PsyFileNotFoundException();</span>
+		}
+<span class="nc" id="L46">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L48">			throw new PsyIOErrorException();</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

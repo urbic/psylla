@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyStream.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyStream.java</span></div><h1>PsyStream.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.stream.Stream;
+
+/**
+*	The representation of {@code stream}.
+*/
+@Type(&quot;stream&quot;)
+public class PsyStream
+	implements PsyFormalStream&lt;PsyObject&gt;
+{
+	/**
+	*	Context action of the {@code iterate} operator.
+	*/
+	@OperatorType(&quot;iterate&quot;)
+<span class="fc" id="L17">	public static final ContextAction PSY_ITERATE=oContext-&gt;</span>
+		{
+<span class="fc" id="L19">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L20">			ostack.push(PsyStream.psyIterate(ostack.getBacked(0), ostack.getBacked(1), oContext));</span>
+<span class="fc" id="L21">		};</span>
+
+	/**
+	*	Context action of the {@code streamtomark} operator.
+	*/
+	@OperatorType(&quot;streamtomark&quot;)
+<span class="fc" id="L27">	public static final ContextAction PSY_STREAMTOMARK=oContext-&gt;</span>
+		{
+<span class="fc" id="L29">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L30">			final var i=ostack.findMarkPosition()+1;</span>
+<span class="fc" id="L31">			final var s=ostack.size();</span>
+<span class="fc" id="L32">			final var objects=new PsyObject[s-i];</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">			for(int j=i; j&lt;s; j++)</span>
+<span class="fc" id="L34">				objects[j-i]=ostack.get(j);</span>
+<span class="fc" id="L35">			ostack.setSize(i-1);</span>
+<span class="fc" id="L36">			ostack.push(new PsyStream(Stream.of(objects)));</span>
+<span class="fc" id="L37">		};</span>
+
+	private final Stream&lt;PsyObject&gt; stream;
+
+	protected PsyStream(final Stream&lt;PsyObject&gt; stream)
+<span class="fc" id="L42">	{</span>
+<span class="fc" id="L43">		this.stream=stream;</span>
+<span class="fc" id="L44">	}</span>
+
+	public static PsyStream psyIterate(final PsyObject o, final PsyExecutable oUnaryOp, final PsyContext oContext)
+	{
+<span class="fc" id="L48">		return new PsyStream(Stream.&lt;PsyObject&gt;iterate(o, oUnaryOp.asUnaryOperator(oContext)));</span>
+	}
+
+	@Override
+	public Stream&lt;PsyObject&gt; stream()
+	{
+<span class="fc" id="L54">		return stream;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

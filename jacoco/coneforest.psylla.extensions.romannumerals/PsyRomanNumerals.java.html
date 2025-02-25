@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyRomanNumerals.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.extensions.romannumerals</a> &gt; <span class="el_source">PsyRomanNumerals.java</span></div><h1>PsyRomanNumerals.java</h1><pre class="source lang-java linenums">package coneforest.psylla.extensions.romannumerals;
+
+import coneforest.psylla.core.*;
+import coneforest.psylla.runtime.*;
+import java.util.regex.Pattern;
+
+public class PsyRomanNumerals
+	extends PsyModule
+{
+	@OperatorType(&quot;toroman&quot;)
+<span class="nc" id="L11">	public static final ContextAction PSY_TOROMAN</span>
+<span class="nc" id="L12">		=ContextAction.&lt;PsyInteger&gt;ofFunction(PsyRomanNumerals::psyToRoman);</span>
+
+	@OperatorType(&quot;fromroman&quot;)
+<span class="nc" id="L15">	public static final ContextAction PSY_FROMROMAN</span>
+<span class="nc" id="L16">		=ContextAction.&lt;PsyTextual&gt;ofFunction(PsyRomanNumerals::psyFromRoman);</span>
+
+<span class="nc" id="L18">	private static final Pattern ROMAN_PATTERN</span>
+<span class="nc" id="L19">		=Pattern.compile(&quot;^(M{0,3})(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$&quot;);</span>
+
+<span class="nc" id="L21">	private static final String[][] CONVERSION_TABLE=new String[][]</span>
+		{
+			{&quot;&quot;, &quot;I&quot;, &quot;II&quot;, &quot;III&quot;, &quot;IV&quot;, &quot;V&quot;, &quot;VI&quot;, &quot;VII&quot;, &quot;VIII&quot;, &quot;IX&quot;},
+			{&quot;&quot;, &quot;X&quot;, &quot;XX&quot;, &quot;XXX&quot;, &quot;XL&quot;, &quot;L&quot;, &quot;LX&quot;, &quot;LXX&quot;, &quot;LXXX&quot;, &quot;XC&quot;},
+			{&quot;&quot;, &quot;C&quot;, &quot;CC&quot;, &quot;CCC&quot;, &quot;CD&quot;, &quot;D&quot;, &quot;DC&quot;, &quot;DCC&quot;, &quot;DCCC&quot;, &quot;CM&quot;},
+			{&quot;&quot;, &quot;M&quot;, &quot;MM&quot;, &quot;MMM&quot;}
+		};
+
+	public PsyRomanNumerals()
+<span class="nc" id="L30">	{</span>
+		//super(&quot;text.roman&quot;);
+
+<span class="nc" id="L33">		importOperators(getClass());</span>
+<span class="nc" id="L34">	}</span>
+
+	private static PsyString psyToRoman(final PsyInteger oInteger)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L39">		long n=oInteger.longValue();</span>
+<span class="nc bnc" id="L40" title="All 4 branches missed.">		if(n&lt;0 || n&gt;=4000)</span>
+<span class="nc" id="L41">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L42">		final var sb=new StringBuilder();</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		for(int d=0; n&gt;0; n/=10, d++)</span>
+<span class="nc" id="L44">			sb.insert(0, CONVERSION_TABLE[d][(int)n % 10]);</span>
+<span class="nc" id="L45">		return new PsyString(sb);</span>
+	}
+
+	private static PsyInteger psyFromRoman(final PsyTextual oTextual)
+		throws PsyUndefinedResultException
+	{
+<span class="nc" id="L51">		final var romanMatcher=ROMAN_PATTERN.matcher(oTextual.stringValue());</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">		if(!romanMatcher.matches())</span>
+<span class="nc" id="L53">			throw new PsyUndefinedResultException();</span>
+<span class="nc" id="L54">		int result=0;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">		for(int d=3; d&gt;=0; d--)</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">			for(int n=0; n&lt;CONVERSION_TABLE[d].length; n++)</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">				if(romanMatcher.group(4-d).equals(CONVERSION_TABLE[d][n]))</span>
+				{
+<span class="nc" id="L59">					result=10*result+n;</span>
+<span class="nc" id="L60">					break;</span>
+				}
+<span class="nc" id="L62">		return PsyInteger.of(result);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

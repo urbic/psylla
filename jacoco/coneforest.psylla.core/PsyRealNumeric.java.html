@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyRealNumeric.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyRealNumeric.java</span></div><h1>PsyRealNumeric.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+
+/**
+*	The representation of {@code realnumeric}, an abstraction of real number.
+*/
+@Type(&quot;realnumeric&quot;)
+public sealed interface PsyRealNumeric
+	extends
+		PsyNumeric,
+		PsyConvertableToInteger,
+		PsyConvertableToIntegral,
+		PsyConvertableToRational,
+		PsyConvertableToReal,
+		PsyScalar&lt;PsyRealNumeric&gt;
+	permits
+		PsyRational,
+		PsyReal
+{
+	/**
+	*	Context action of the {@code ceiling} operator.
+	*/
+	@OperatorType(&quot;ceiling&quot;)
+<span class="fc" id="L25">	public static final ContextAction PSY_CEILING</span>
+<span class="fc" id="L26">		=ContextAction.&lt;PsyRealNumeric&gt;ofFunction(PsyRealNumeric::psyCeiling);</span>
+
+	/**
+	*	Context action of the {@code floor} operator.
+	*/
+	@OperatorType(&quot;floor&quot;)
+<span class="fc" id="L32">	public static final ContextAction PSY_FLOOR</span>
+<span class="fc" id="L33">		=ContextAction.&lt;PsyRealNumeric&gt;ofFunction(PsyRealNumeric::psyFloor);</span>
+
+	/**
+	*	Context action of the {@code hypot} operator.
+	*/
+	@OperatorType(&quot;hypot&quot;)
+<span class="fc" id="L39">	public static final ContextAction PSY_HYPOT</span>
+<span class="fc" id="L40">		=ContextAction.&lt;PsyRealNumeric, PsyRealNumeric&gt;ofBiFunction(PsyRealNumeric::psyHypot);</span>
+
+	/**
+	*	Context action of the {@code round} operator.
+	*/
+	@OperatorType(&quot;round&quot;)
+<span class="fc" id="L46">	public static final ContextAction PSY_ROUND</span>
+<span class="fc" id="L47">		=ContextAction.&lt;PsyRealNumeric&gt;ofFunction(PsyRealNumeric::psyRound);</span>
+
+	public int intValue();
+
+	public long longValue();
+
+	public double doubleValue();
+
+	public PsyRational rationalValue()
+		throws PsyUndefinedResultException;
+
+	@Override
+	public default PsyRational psyToRational()
+		throws PsyUndefinedResultException
+	{
+<span class="fc" id="L62">		return rationalValue();</span>
+	}
+
+	@Override
+	public default double realValue()
+	{
+<span class="fc" id="L68">		return doubleValue();</span>
+	}
+
+	@Override
+	public default double imagValue()
+	{
+<span class="fc" id="L74">		return 0.D;</span>
+	}
+
+	@Override
+	public default PsyInteger psyToInteger()
+		throws PsyRangeCheckException
+	{
+<span class="nc bnc" id="L81" title="All 2 branches missed.">		if(doubleValue()&gt;=Long.MIN_VALUE</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">				&amp;&amp; doubleValue()&lt;=Long.MAX_VALUE)</span>
+<span class="nc" id="L83">			return PsyInteger.of(longValue());</span>
+		else
+<span class="nc" id="L85">			throw new PsyRangeCheckException();</span>
+	}
+
+	@Override
+	public default PsyReal psyToReal()
+	{
+<span class="nc" id="L91">		return new PsyReal(doubleValue());</span>
+	}
+
+	@Override
+	public PsyRealNumeric psyNeg();
+
+	public PsyRealNumeric psyAdd(final PsyRealNumeric oRealNumeric);
+
+	@Override
+	public default PsyNumeric psyAdd(final PsyNumeric oNumeric)
+	{
+<span class="fc bfc" id="L102" title="All 2 branches covered.">		return switch(oNumeric)</span>
+			{
+<span class="fc" id="L104">				case PsyRealNumeric oRealNumeric-&gt;</span>
+<span class="fc" id="L105">					psyAdd(oRealNumeric);</span>
+<span class="fc" id="L106">				case PsyComplex oComplex-&gt;</span>
+<span class="fc" id="L107">					new PsyComplex(this).psyAdd(oComplex);</span>
+			};
+	}
+
+	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric);
+
+	@Override
+	public default PsyNumeric psySub(final PsyNumeric oNumeric)
+	{
+<span class="fc bfc" id="L116" title="All 2 branches covered.">		return switch(oNumeric)</span>
+			{
+<span class="fc" id="L118">				case PsyRealNumeric oRealNumeric-&gt;</span>
+<span class="fc" id="L119">					psySub(oRealNumeric);</span>
+<span class="fc" id="L120">				case PsyComplex oComplex-&gt;</span>
+<span class="fc" id="L121">					new PsyComplex(this).psySub(oComplex);</span>
+			};
+	}
+
+	public PsyRealNumeric psyMul(final PsyRealNumeric oRealNumeric);
+
+	@Override
+	public default PsyNumeric psyMul(final PsyNumeric oNumeric)
+	{
+<span class="fc bfc" id="L130" title="All 2 branches covered.">		return switch(oNumeric)</span>
+			{
+<span class="fc" id="L132">				case PsyRealNumeric oRealNumeric-&gt;</span>
+<span class="fc" id="L133">					psyMul(oRealNumeric);</span>
+<span class="fc" id="L134">				case PsyComplex oComplex-&gt;</span>
+<span class="fc" id="L135">					new PsyComplex(this).psyMul(oComplex);</span>
+			};
+	}
+
+	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
+		throws PsyUndefinedResultException;
+
+	@Override
+	public default PsyNumeric psyDiv(final PsyNumeric oNumeric)
+		throws PsyUndefinedResultException
+	{
+<span class="fc bfc" id="L146" title="All 2 branches covered.">		return switch(oNumeric)</span>
+			{
+<span class="fc" id="L148">				case PsyRealNumeric oRealNumeric-&gt;</span>
+<span class="fc" id="L149">					psyDiv(oRealNumeric);</span>
+<span class="fc" id="L150">				case PsyComplex oComplex-&gt;</span>
+<span class="fc" id="L151">					new PsyComplex(this).psyDiv(oComplex);</span>
+			};
+	}
+
+	public default PsyReal psyPow(final PsyRealNumeric oNumber)
+	{
+<span class="fc" id="L157">		return new PsyReal(Math.pow(doubleValue(), oNumber.doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyNumeric psyPow(final PsyNumeric oNumeric)
+	{
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">		return switch(oNumeric)</span>
+			{
+<span class="fc" id="L165">				case PsyRealNumeric oRealNumeric-&gt;</span>
+<span class="fc" id="L166">					psyPow(oRealNumeric);</span>
+<span class="nc" id="L167">				case PsyComplex oComplex-&gt;</span>
+					// TODO
+<span class="nc" id="L169">					new PsyComplex(this).psyPow(oComplex);</span>
+			};
+	}
+
+	@Override
+	public PsyRealNumeric psyAbs();
+
+	@Override
+	public default PsyReal psySqrt()
+	{
+<span class="fc" id="L179">		return new PsyReal(Math.sqrt(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyCbrt()
+	{
+<span class="fc" id="L185">		return new PsyReal(Math.cbrt(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyExp()
+	{
+<span class="fc" id="L191">		return new PsyReal(Math.exp(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyLog()
+	{
+<span class="fc" id="L197">		return new PsyReal(Math.log(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyCos()
+	{
+<span class="fc" id="L203">		return new PsyReal(Math.cos(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psySin()
+	{
+<span class="fc" id="L209">		return new PsyReal(Math.sin(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyTan()
+	{
+<span class="fc" id="L215">		return new PsyReal(Math.tan(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyCosh()
+	{
+<span class="fc" id="L221">		return new PsyReal(Math.cosh(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psySinh()
+	{
+<span class="fc" id="L227">		return new PsyReal(Math.sinh(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyTanh()
+	{
+<span class="fc" id="L233">		return new PsyReal(Math.tanh(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyAcos()
+	{
+<span class="fc" id="L239">		return new PsyReal(Math.acos(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyAsin()
+	{
+<span class="fc" id="L245">		return new PsyReal(Math.asin(doubleValue()));</span>
+	}
+
+	@Override
+	public default PsyReal psyAtan()
+	{
+<span class="fc" id="L251">		return new PsyReal(Math.atan(doubleValue()));</span>
+	}
+
+	public default PsyReal psyHypot(final PsyRealNumeric oRealNumeric)
+	{
+<span class="fc" id="L256">		return new PsyReal(Math.hypot(doubleValue(), oRealNumeric.doubleValue()));</span>
+	}
+
+	public PsyRealNumeric psyFloor();
+
+	public PsyRealNumeric psyCeiling();
+
+	public PsyRealNumeric psyRound();
+
+	@Override
+	public default PsyBoolean psyEq(final PsyObject o)
+	{
+<span class="pc bpc" id="L268" title="2 of 4 branches missed.">		return PsyBoolean.of(o instanceof PsyRealNumeric oRealNumeric &amp;&amp; compareTo(oRealNumeric)==0);</span>
+	}
+
+	@Override
+	public int compareTo(final PsyRealNumeric oRealNumeric);
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

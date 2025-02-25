@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyErrorException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyErrorException.java</span></div><h1>PsyErrorException.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.Stack;
+
+@SuppressWarnings(&quot;serial&quot;)
+@Type(&quot;error&quot;)
+@ErrorType(&quot;error&quot;)
+public class PsyErrorException
+	extends	Exception
+	implements PsyExecutable
+{
+	/**
+	*	The emitter.
+	*/
+	private PsyObject emitter;
+
+	/**
+	*	The operand stack.
+	*/
+	private OperandStack ostack;
+
+	/**
+	*	The execution stack.
+	*/
+	private ExecutionStack estack;
+
+	/**
+	*	The dictionary stack.
+	*/
+	private DictStack dstack;
+
+	/**
+	*	Constructs a new {@code exception} object with null as its detail message.
+	*/
+	public PsyErrorException()
+<span class="fc" id="L37">	{</span>
+<span class="fc" id="L38">	}</span>
+
+	/**
+	*	Constructs a new {@code exception} object with the specified cause.
+	*
+	*	@param cause the cause.
+	*/
+	public PsyErrorException(final Throwable cause)
+	{
+<span class="fc" id="L47">		super(cause);</span>
+<span class="fc" id="L48">	}</span>
+
+	/**
+	*	Constructs a new {@code exception} object with the specified detail message.
+	*
+	*	@param message the detail message.
+	*/
+	public PsyErrorException(final String message)
+	{
+<span class="nc" id="L57">		super(message);</span>
+<span class="nc" id="L58">	}</span>
+
+	@Override
+	public void invoke(final PsyContext oContext)
+	{
+		try
+		{
+<span class="nc" id="L65">			((((Interpreter)oContext).errorDict()).get(getName())).invoke(oContext);</span>
+<span class="nc" id="L66">			return;</span>
+		}
+<span class="fc" id="L68">		catch(final PsyErrorException e)</span>
+		{
+			// NOP
+		}
+
+<span class="fc" id="L73">		oContext.setStopped(true);</span>
+
+<span class="fc bfc" id="L75" title="All 2 branches covered.">		if(oContext.executionStack().checkStop() /*oContext.currentStopLevel()&gt;-1*/)</span>
+		{
+			//oContext.executionStack().setSize(oContext.currentStopLevel());
+<span class="fc" id="L78">			oContext.executionStack().exitStop();</span>
+<span class="fc" id="L79">			return;</span>
+		}
+		else
+		{
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">			if(oContext.executionStack().checkLoop())</span>
+			{
+				try
+				{
+<span class="nc" id="L87">					oContext.executionStack().exitLoop();</span>
+				}
+<span class="nc" id="L89">				catch(final PsyInvalidExitException e)</span>
+				{
+					// NOP
+<span class="nc" id="L92">				}</span>
+			}
+<span class="fc" id="L94">			oContext.stop_();</span>
+		}
+
+<span class="fc" id="L97">		System.err.println(Messages.format(&quot;handleErrorMessage&quot;,</span>
+<span class="fc" id="L98">				'/'+getName(),</span>
+<span class="fc" id="L99">				getEmitter().toSyntaxString()));</span>
+
+<span class="fc" id="L101">		oContext.showStacks();</span>
+		/*
+		System.err.print(Messages.getString(&quot;handleErrorMessageOStack&quot;));
+		{
+			final var sj=new StringJoiner(&quot; &quot;, &quot;\n\t&quot;, &quot;&quot;);
+			sj.setEmptyValue(&quot; &quot;+Messages.getString(&quot;handleErrorMessageEmpty&quot;));
+			ostack.forEach(o-&gt;sj.add(o.toSyntaxString()));
+			System.err.println(sj.toString());
+		}
+
+		System.err.print(Messages.getString(&quot;handleErrorMessageEStack&quot;));
+		{
+			final var sj=new StringJoiner(&quot; &quot;, &quot;\n\t&quot;, &quot;&quot;);
+			sj.setEmptyValue(&quot; &quot;+Messages.getString(&quot;handleErrorMessageEmpty&quot;));
+			estack.forEach(o-&gt;sj.add(o.toSyntaxString()));
+			System.err.println(sj.toString());
+		}
+		*/
+<span class="fc" id="L119">	}</span>
+
+	/**
+	*	{@return the name of this {@code error}}
+	*/
+	public String getName()
+	{
+<span class="fc" id="L126">		final var agenda=new Stack&lt;Class&lt;?&gt;&gt;();</span>
+<span class="fc" id="L127">		agenda.push(getClass());</span>
+
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">		while(agenda.size()&gt;0)</span>
+		{
+<span class="fc" id="L131">			final var clazz=agenda.pop();</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">			if(clazz.isAnnotationPresent(ErrorType.class))</span>
+<span class="fc" id="L133">				return (clazz.getAnnotation(ErrorType.class)).value();</span>
+<span class="nc" id="L134">			agenda.push(clazz.getSuperclass());</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">			for(final var iface: clazz.getInterfaces())</span>
+<span class="nc" id="L136">				agenda.push(iface);</span>
+<span class="nc" id="L137">		}</span>
+<span class="nc" id="L138">		return null;</span>
+	}
+
+	/**
+	*	Set the emitter for this {@code error}.
+	*
+	*	@param oEmitter the emitter.
+	*/
+	public void setEmitter(final PsyObject oEmitter)
+	{
+<span class="fc" id="L148">		this.emitter=oEmitter;</span>
+<span class="fc" id="L149">	}</span>
+
+	/**
+	*	{@return the emitter for this {@code error}}
+	*/
+	public PsyObject getEmitter()
+	{
+<span class="fc" id="L156">		return emitter;</span>
+	}
+
+	/**
+	*	Set the cloned copies of operand, execution and dictionary stacks.
+	*
+	*	@param ostack the operand stack.
+	*	@param estack the execution stack.
+	*	@param dstack the dictionary stack.
+	*/
+	public void setStacks(
+			final OperandStack ostack,
+			final ExecutionStack estack,
+			final DictStack dstack)
+	{
+<span class="fc" id="L171">		this.ostack=ostack.clone();</span>
+<span class="fc" id="L172">		this.estack=estack.clone();</span>
+<span class="fc" id="L173">		this.dstack=dstack.clone();</span>
+<span class="fc" id="L174">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

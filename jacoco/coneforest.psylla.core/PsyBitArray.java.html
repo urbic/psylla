@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyBitArray.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyBitArray.java</span></div><h1>PsyBitArray.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+
+import coneforest.psylla.runtime.*;
+import java.util.BitSet;
+import java.util.Iterator;
+
+/**
+*	The representation of {@code bitarray}.
+*/
+@Type(&quot;bitarray&quot;)
+public class PsyBitArray
+	implements
+		PsyFormalArray&lt;PsyBoolean&gt;,
+		PsyBitwise&lt;PsyBitArray&gt;
+{
+	/**
+	*	Context action of the {@code bitarray} operator.
+	*/
+	@OperatorType(&quot;bitarray&quot;)
+<span class="fc" id="L20">	public static final ContextAction PSY_BITARRAY</span>
+<span class="fc" id="L21">		=ContextAction.ofSupplier(PsyBitArray::new);</span>
+
+	private final BitSet bitarray;
+	private int size;
+
+	/**
+	*	Creates a new empty {@code bitarray}.
+	*/
+	public PsyBitArray()
+	{
+<span class="fc" id="L31">		this(new BitSet(), 0);</span>
+<span class="fc" id="L32">	}</span>
+
+	public PsyBitArray(final BitSet bitarray, final int size)
+<span class="fc" id="L35">	{</span>
+<span class="fc" id="L36">		this.bitarray=bitarray;</span>
+<span class="fc" id="L37">		this.size=size;</span>
+<span class="fc" id="L38">	}</span>
+
+	@Override
+	public PsyBoolean get(final int index)
+		throws PsyRangeCheckException
+	{
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		if(index&gt;=size)</span>
+<span class="nc" id="L45">			throw new PsyRangeCheckException();</span>
+		try
+		{
+<span class="nc" id="L48">			return PsyBoolean.of(bitarray.get(index));</span>
+		}
+<span class="nc" id="L50">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L52">			throw new PsyRangeCheckException(ex);</span>
+		}
+	}
+
+	@Override
+	public PsyBitArray psyGetInterval(final PsyInteger oIndex, final PsyInteger oCount)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L60">		final var index=oIndex.intValue();</span>
+<span class="nc" id="L61">		final var count=oCount.intValue();</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">		if(index+count&gt;size)</span>
+<span class="nc" id="L63">			throw new PsyRangeCheckException();</span>
+		try
+		{
+<span class="nc" id="L66">			final var newBitArray=new PsyBitArray(bitarray.get(index, index+count), count);</span>
+<span class="nc" id="L67">			newBitArray.size=count;</span>
+<span class="nc" id="L68">			return newBitArray;</span>
+		}
+<span class="nc" id="L70">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L72">			throw new PsyRangeCheckException(ex);</span>
+		}
+	}
+
+	@Override
+	public void put(final int index, final PsyBoolean oBoolean)
+		throws PsyRangeCheckException
+	{
+<span class="nc bnc" id="L80" title="All 2 branches missed.">		if(index&gt;=size)</span>
+<span class="nc" id="L81">			throw new PsyRangeCheckException();</span>
+		try
+		{
+<span class="nc" id="L84">			bitarray.set(index, oBoolean.booleanValue());</span>
+		}
+<span class="nc" id="L86">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L88">			throw new PsyRangeCheckException(ex);</span>
+<span class="nc" id="L89">		}</span>
+<span class="nc" id="L90">	}</span>
+
+	@Override
+	public void psyPutInterval(final PsyInteger oIndex, final PsyIterable&lt;? extends PsyBoolean&gt; oIterable)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L96">		int index=oIndex.intValue();</span>
+<span class="nc bnc" id="L97" title="All 4 branches missed.">		if(index&lt;0</span>
+				||
+				oIterable instanceof PsyLengthy
+<span class="nc bnc" id="L100" title="All 2 branches missed.">				&amp;&amp; index+((PsyLengthy)oIterable).length()&gt;=size)</span>
+<span class="nc" id="L101">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">		for(final var oBoolean: oIterable)</span>
+		{
+<span class="nc" id="L104">			bitarray.set(index++, oBoolean.booleanValue());</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if(index==size)</span>
+<span class="nc" id="L106">				break;</span>
+<span class="nc" id="L107">		}</span>
+<span class="nc" id="L108">	}</span>
+
+	@Override
+	public void psyAppend(final PsyBoolean oBoolean)
+		throws PsyLimitCheckException, PsyRangeCheckException
+	{
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">		if(size==Integer.MAX_VALUE)</span>
+<span class="nc" id="L115">			throw new PsyLimitCheckException();</span>
+		try
+		{
+<span class="fc" id="L118">			bitarray.set(size++, oBoolean.booleanValue());</span>
+		}
+<span class="nc" id="L120">		catch(final IndexOutOfBoundsException e)</span>
+		{
+<span class="nc" id="L122">			throw new PsyRangeCheckException();</span>
+<span class="fc" id="L123">		}</span>
+<span class="fc" id="L124">	}</span>
+
+	@Override
+	public void insert(final int index, final PsyBoolean oBoolean)
+	{
+<span class="nc" id="L129">		size++;</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">		for(int i=size-1; i&gt;index; i--)</span>
+<span class="nc" id="L131">			bitarray.set(i, bitarray.get(i-1));</span>
+<span class="nc" id="L132">		bitarray.set(index, oBoolean.booleanValue());</span>
+<span class="nc" id="L133">	}</span>
+
+	@Override
+	public void delete(final int index)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="nc bnc" id="L141" title="All 2 branches missed.">			for(int i=index; i&lt;size; i++)</span>
+<span class="nc" id="L142">				bitarray.set(i-1, bitarray.get(i));</span>
+<span class="nc" id="L143">			size--;</span>
+		}
+<span class="nc" id="L145">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L147">			throw new PsyRangeCheckException(ex);</span>
+<span class="nc" id="L148">		}</span>
+<span class="nc" id="L149">	}</span>
+
+	@Override
+	public PsyBoolean extract(final int indexValue)
+		throws PsyRangeCheckException
+	{
+		try
+		{
+<span class="nc" id="L157">			final var result=get(indexValue);</span>
+<span class="nc bnc" id="L158" title="All 2 branches missed.">			for(int i=indexValue; i&lt;size; i++)</span>
+<span class="nc" id="L159">				bitarray.set(i-1, bitarray.get(i));</span>
+<span class="nc" id="L160">			size--;</span>
+<span class="nc" id="L161">			return result;</span>
+		}
+<span class="nc" id="L163">		catch(final IndexOutOfBoundsException ex)</span>
+		{
+<span class="nc" id="L165">			throw new PsyRangeCheckException(ex);</span>
+		}
+	}
+
+	@Override
+	public PsyBitArray psyExtractInterval(final PsyInteger oStart, final PsyInteger oCount)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L173">		final var oResult=psyGetInterval(oStart, oCount);</span>
+<span class="nc" id="L174">		final var start=oStart.intValue();</span>
+<span class="nc" id="L175">		final var count=oCount.intValue();</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">		for(int i=start+count; i&lt;size; i++)</span>
+<span class="nc" id="L177">			bitarray.set(i-count, bitarray.get(i));</span>
+<span class="nc" id="L178">		size-=count;</span>
+<span class="nc" id="L179">		return oResult;</span>
+	}
+
+	@Override
+	public PsyBitArray psyNot()
+	{
+<span class="fc" id="L185">		final var result=(BitSet)bitarray.clone();</span>
+<span class="fc" id="L186">		result.flip(0, size);</span>
+<span class="fc" id="L187">		return new PsyBitArray(result, size);</span>
+	}
+
+	@Override
+	public PsyBitArray psyOr(final PsyBitArray oBitArray)
+	{
+<span class="nc" id="L193">		final var result=(BitSet)bitarray.clone();</span>
+<span class="nc" id="L194">		result.or(oBitArray.bitarray);</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">		return new PsyBitArray(result, size&gt;oBitArray.size? size: oBitArray.size);</span>
+	}
+
+	@Override
+	public PsyBitArray psyAnd(final PsyBitArray oBitArray)
+	{
+<span class="nc" id="L201">		final var result=(BitSet)bitarray.clone();</span>
+<span class="nc" id="L202">		result.and(oBitArray.bitarray);</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">		return new PsyBitArray(result, size&gt;oBitArray.size? size: oBitArray.size);</span>
+	}
+
+	@Override
+	public PsyBitArray psyXor(final PsyBitArray oBitArray)
+	{
+<span class="nc" id="L209">		final var result=(BitSet)bitarray.clone();</span>
+<span class="nc" id="L210">		result.xor(oBitArray.bitarray);</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">		return new PsyBitArray(result, size&gt;oBitArray.size? size: oBitArray.size);</span>
+	}
+
+	@Override
+	public PsyBitArray psyBitShift(final PsyInteger oShift)
+	{
+<span class="nc" id="L217">		final var shift=oShift.intValue();</span>
+<span class="nc" id="L218">		final var result=new BitSet();</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">		if(shift&gt;=0)</span>
+		{
+<span class="nc bnc" id="L221" title="All 2 branches missed.">			for(int i=size-1; i&gt;=0; i--)</span>
+<span class="nc" id="L222">				result.set(i+shift, bitarray.get(i));</span>
+		}
+		else
+		{
+<span class="nc bnc" id="L226" title="All 2 branches missed.">			for(int i=0+size; i&lt;size; i++)</span>
+<span class="nc" id="L227">				result.set(i+shift, bitarray.get(i));</span>
+		}
+<span class="nc" id="L229">		return new PsyBitArray(result, size+shift);</span>
+	}
+
+	@Override
+	public PsyBoolean psyTestBit(final PsyInteger oBit)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L236">		final int bit=oBit.intValue();</span>
+<span class="nc bnc" id="L237" title="All 2 branches missed.">		if(bit&lt;0)</span>
+<span class="nc" id="L238">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L239">		return PsyBoolean.of(bitarray.get(bit));</span>
+	}
+
+	@Override
+	public PsyBitArray psySetBit(final PsyInteger oBit)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L246">		final var bit=oBit.intValue();</span>
+<span class="nc" id="L247">		final var result=(BitSet)bitarray.clone();</span>
+<span class="nc bnc" id="L248" title="All 2 branches missed.">		if(bit&lt;0)</span>
+<span class="nc" id="L249">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L250">		result.set(bit, true);</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">		return new PsyBitArray(result, bit&lt;size? size: bit+1);</span>
+	}
+
+	@Override
+	public PsyBitArray psyFlipBit(final PsyInteger oBit)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L258">		final var bit=oBit.intValue();</span>
+<span class="nc" id="L259">		final var result=(BitSet)bitarray.clone();</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">		if(bit&lt;0)</span>
+<span class="nc" id="L261">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L262" title="All 2 branches missed.">		result.set(bit, !result.get(bit));</span>
+<span class="nc" id="L263">		return new PsyBitArray(result, size);</span>
+	}
+
+	@Override
+	public PsyBitArray psyClearBit(final PsyInteger oBit)
+		throws PsyRangeCheckException
+	{
+<span class="nc" id="L270">		final var bit=oBit.intValue();</span>
+<span class="nc" id="L271">		final var result=(BitSet)bitarray.clone();</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">		if(bit&lt;0)</span>
+<span class="nc" id="L273">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L274">		result.set(bit, false);</span>
+<span class="nc" id="L275">		return new PsyBitArray(result, size);</span>
+	}
+
+	@Override
+	public Iterator&lt;PsyBoolean&gt; iterator()
+	{
+<span class="nc" id="L281">		return new Iterator&lt;PsyBoolean&gt;()</span>
+<span class="nc" id="L282">			{</span>
+<span class="nc" id="L283">				private int index=0;</span>
+
+				@Override
+				public boolean hasNext()
+				{
+<span class="nc bnc" id="L288" title="All 2 branches missed.">					return index&lt;size; // TODO ???</span>
+				}
+
+				@Override
+				public PsyBoolean next()
+				{
+<span class="nc" id="L294">					return PsyBoolean.of(bitarray.get(index++));</span>
+				}
+			};
+	}
+
+	@Override
+	public int length()
+	{
+<span class="nc" id="L302">		return size;</span>
+	}
+
+	@Override
+	public PsyBitArray psySlice(final PsyIterable&lt;PsyInteger&gt; oIndices)
+		throws PsyRangeCheckException, PsyLimitCheckException
+	{
+<span class="nc" id="L309">		final var oResult=new PsyBitArray();</span>
+<span class="nc bnc" id="L310" title="All 2 branches missed.">		for(final var oIndex: oIndices)</span>
+<span class="nc" id="L311">			oResult.psyAppend(psyGet(oIndex));</span>
+<span class="nc" id="L312">		return oResult;</span>
+	}
+
+	@Override
+	public void psySetLength(final PsyInteger oLength)
+		throws PsyLimitCheckException, PsyRangeCheckException
+	{
+<span class="nc" id="L319">		final var length=oLength.longValue();</span>
+<span class="nc bnc" id="L320" title="All 2 branches missed.">		if(length&lt;0)</span>
+<span class="nc" id="L321">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L322" title="All 2 branches missed.">		if(length&gt;Integer.MAX_VALUE)</span>
+<span class="nc" id="L323">			throw new PsyLimitCheckException();</span>
+<span class="nc" id="L324">		final var s=size;</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">		if(length&lt;s)</span>
+<span class="nc" id="L326">			bitarray.clear((int)length, s);</span>
+		else
+<span class="nc" id="L328">			bitarray.clear(s, (int)length);</span>
+<span class="nc" id="L329">		size=(int)length;</span>
+<span class="nc" id="L330">	}</span>
+
+	@Override
+	public PsyBitArray psyClone()
+	{
+<span class="nc" id="L335">		return new PsyBitArray((BitSet)bitarray.clone(), size);</span>
+	}
+
+	@Override
+	public void psyClear()
+	{
+<span class="nc" id="L341">		bitarray.clear();</span>
+<span class="nc" id="L342">	}</span>
+
+	@Override
+	public String toSyntaxString()
+	{
+<span class="fc" id="L347">		final var sb=new StringBuilder(&quot;%bitarray=&quot;);</span>
+<span class="fc" id="L348">		int j=-1;</span>
+<span class="fc bfc" id="L349" title="All 2 branches covered.">		for(int i=bitarray.nextSetBit(0); i&gt;=0; i=bitarray.nextSetBit(i+1))</span>
+		{
+<span class="fc bfc" id="L351" title="All 2 branches covered.">			for(int k=j+1; k&lt;i; k++)</span>
+<span class="fc" id="L352">				sb.append('0');</span>
+<span class="fc" id="L353">			sb.append('1');</span>
+<span class="fc" id="L354">			j=i;</span>
+		}
+<span class="fc" id="L356">		sb.append('%');</span>
+<span class="fc" id="L357">		return sb.toString();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

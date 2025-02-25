@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TypeResolver.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">TypeResolver.java</span></div><h1>TypeResolver.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+
+import coneforest.psylla.core.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/**
+*	The type resolver.
+*/
+public interface TypeResolver
+{
+	/**
+	*	Resolves the type name.
+	*
+	*	@param typeName the type name to resolve.
+	*	@return the class that was found.
+	*	@throws PsyUndefinedException TODO
+	*/
+	public static Class&lt;? extends PsyObject&gt; resolve(final String typeName)
+		throws PsyUndefinedException
+	{
+		try
+		{
+<span class="nc" id="L25">			try(final var br=new BufferedReader(new InputStreamReader(</span>
+					// TODO: use DynamicClassLoader
+<span class="nc" id="L27">					TypeResolver.class.getClassLoader().getResourceAsStream(</span>
+							&quot;META-INF/psylla/type/&quot;+typeName))))
+			{
+<span class="nc" id="L30">				return Class.forName(br.readLine()).asSubclass(PsyObject.class);</span>
+			}
+			// TODO: introduce caching
+		}
+<span class="nc" id="L34">		catch(final IOException|ClassNotFoundException ex)</span>
+		{
+			// TODO: more appropriate exception when IOException is thrown
+<span class="nc" id="L37">			throw new PsyUndefinedException();</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>
