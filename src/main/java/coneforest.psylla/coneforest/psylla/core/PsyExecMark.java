@@ -36,12 +36,6 @@ public class PsyExecMark
 	}
 
 	@Override
-	public void invoke(final PsyContext oContext)
-	{
-		// NOP
-	}
-
-	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
 		return PsyBoolean.of(this==o);
