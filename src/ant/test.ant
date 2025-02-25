@@ -56,7 +56,10 @@
 			</executiondata>
 			<structure name="Psylla v${project.version}">
 				<classfiles>
-					<fileset dir="${target.modules}/${project.moduleprefix}" includes="**/*.class"/>
+					<fileset dir="${target.modules}/${project.moduleprefix}">
+						<include name="coneforest/psylla/core/**/*.class"/>
+						<include name="coneforest/psylla/runtime/**.class"/>
+					</fileset>
 				</classfiles>
 				<sourcefiles encoding="UTF-8">
 					<fileset dir="${src.main.java}/${project.moduleprefix}" includes="**/*.java"/>
