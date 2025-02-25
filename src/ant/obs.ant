@@ -27,7 +27,6 @@
 		<isset property="env.OBS_PASSWORD"/>
 	</condition>
 	<property name="osc.rc" location="${user.home}/.config/osc/oscrc"/>
-	<!--property name="osc.rc" location=".oscrc"/-->
 
 	<filterset id="obs.build.filterset">
 		<propertyset>
@@ -49,8 +48,7 @@ credentials_mgr_class=osc.credentials.ObfuscatedConfigFileCredentialsManager
 pass=
 ]]></echo>
 		<exec executable="osc" if:true="${obs.password.set}">
-			<arg value="--config"/>
-			<arg value="${osc.rc}"/>
+			<arg value="--config=${osc.rc}"/>
 			<arg value="config"/>
 			<arg value="${obs.build.apiurl}"/>
 			<arg value="pass"/>
@@ -63,8 +61,7 @@ pass=
 		depends="osc.config"
 		>
 		<exec dir="${target}" executable="osc">
-			<arg value="--config"/>
-			<arg value="${osc.rc}"/>
+			<arg value="--config=${osc.rc}"/>
 			<arg value="checkout"/>
 			<arg value="${obs.build.project}"/>
 			<arg value="${obs.package.name}"/>
@@ -93,8 +90,7 @@ pass=
 			<filterset refid="obs.build.filterset"/>
 		</copy>
 		<exec executable="osc" dir="${target.obs}">
-			<arg value="--config"/>
-			<arg value="${osc.rc}"/>
+			<arg value="--config=${osc.rc}"/>
 			<arg value="addremove"/>
 		</exec>
 	</target>
@@ -104,8 +100,7 @@ pass=
 		depends="obs.copy.spec"
 		>
 		<exec executable="osc" dir="${target.obs}">
-			<arg value="--config"/>
-			<arg value="${osc.rc}"/>
+			<arg value="--config=${osc.rc}"/>
 			<arg value="build"/>
 			<arg value="--no-service"/>
 			<arg value="--no-verify"/>
@@ -123,8 +118,7 @@ pass=
 		depends="obs.copy.spec,osc.config"
 		>
 		<exec dir="${target.obs}" executable="osc">
-			<arg value="--config"/>
-			<arg value="${osc.rc}"/>
+			<arg value="--config=${osc.rc}"/>
 			<arg value="commit"/>
 			<arg value="-n"/>
 		</exec>
