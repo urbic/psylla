@@ -198,6 +198,19 @@ public class PsyString
 									throw new PsySyntaxErrorException();
 								}
 							}
+						case 'o'->
+							{
+								try
+								{
+									final var j=image.indexOf('}', i+2);
+									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 8)));
+									i=j;
+								}
+								catch(final IllegalArgumentException ex)
+								{
+									throw new PsySyntaxErrorException();
+								}
+							}
 						case 'N'->
 							{
 								try

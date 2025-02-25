@@ -142,6 +142,21 @@ public final class PsyRegExp
 										throw new PsySyntaxErrorException(ex);
 									}
 								}
+							case 'o'->
+								{
+									try
+									{
+										// TODO: if not found
+										final var j=image.indexOf('}', i+2);
+										sb.append(Character.toChars(
+												Integer.valueOf(image.substring(i+2, j), 8)));
+										i=j;
+									}
+									catch(final IllegalArgumentException ex)
+									{
+										throw new PsySyntaxErrorException(ex);
+									}
+								}
 							case 'N'->
 								{
 									try

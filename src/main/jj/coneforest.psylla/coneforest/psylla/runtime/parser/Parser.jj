@@ -159,6 +159,7 @@ TOKEN:
 			["0", "a", "n", "t", "f", "\\", "e", "r", "v", "\n"]
 				| "u" <HEXDIGIT> <HEXDIGIT> <HEXDIGIT> <HEXDIGIT>
 				| "x{" (<HEXDIGIT>)+ "}"
+				| "o{" (["0"-"7"])+ "}"
 				| "N{" (["A"-"Z", "0"-"9", " ", "-"])+ "}"
 				| "c" ["\u0000"-"\u00FF"]
 		)
