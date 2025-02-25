@@ -17,17 +17,34 @@ jobs:
       packages: write
       contents: write
     steps:
-      - name: Build and test
+      - name: Install dependencies
         run: |
           zypper -n --gpg-auto-import-keys in -y \
-            git
+            ant{,-apache-resolver,-junit} \
+            docbook5-xsl-stylesheets \
+            git \
+            glibc-locale \
+            graphviz \
+            ivy \
+            ivy-local \
+            'java-devel>=21' \
+            jacoco \
+            javacc \
+            javapackages-tools \
+            'mvn(coneforest:clianthus)' \
+            'mvn(jline:jline:1)' \
+            'mvn(net.sf.docbook:docbook-xsl-saxon)' \
+            'mvn(net.sf.xslthl:xslthl)' \
+            'mvn(saxon:saxon)' \
+            osc \
+            sassc
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Test GIT
+      - name: Configure Git
         run: |
-          ls -la .
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config tar.tar.xz.command 'xz -9'
-#      - name: Configure git to trust the workspace despite the different owner
-#        run: |
-#          ls -Rla /__w/psylla/psylla/
+      - name: Build and test
+        run: |
+          env LANG=C.UTF-8 CLASSPATH=$(build-classpath xerces-j2-xml-apis) JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 \
+            ant -Divy.mode=local build test coverage
