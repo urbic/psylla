@@ -45,7 +45,7 @@ public class PsyBitArray
 			throw new PsyRangeCheckException();
 		try
 		{
-			return PsyBoolean.of(bitarray.get(index));
+			return PsyBoolean.of(bitarray.get(index<0? index+length(): index));
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
