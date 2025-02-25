@@ -231,8 +231,8 @@ public class PsyArray
 <span class="fc" id="L231">		final var length=oLength.longValue();</span>
 <span class="fc bfc" id="L232" title="All 2 branches covered.">		if(length&lt;0)</span>
 <span class="fc" id="L233">			throw new PsyRangeCheckException();</span>
-<span class="pc bpc" id="L234" title="1 of 2 branches missed.">		if(length&gt;Integer.MAX_VALUE)</span>
-<span class="nc" id="L235">			throw new PsyLimitCheckException();</span>
+<span class="fc bfc" id="L234" title="All 2 branches covered.">		if(length&gt;Integer.MAX_VALUE)</span>
+<span class="fc" id="L235">			throw new PsyLimitCheckException();</span>
 <span class="fc" id="L236">		int i=length();</span>
 <span class="fc bfc" id="L237" title="All 2 branches covered.">		if(length&lt;i)</span>
 <span class="fc" id="L238">			array.subList((int)length, i).clear();</span>

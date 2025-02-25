@@ -41,15 +41,15 @@ public class PsyBitArray
 	public PsyBoolean get(final int index)
 		throws PsyRangeCheckException
 	{
-<span class="nc bnc" id="L44" title="All 2 branches missed.">		if(index&gt;=size)</span>
-<span class="nc" id="L45">			throw new PsyRangeCheckException();</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">		if(index&gt;=size)</span>
+<span class="fc" id="L45">			throw new PsyRangeCheckException();</span>
 		try
 		{
-<span class="nc" id="L48">			return PsyBoolean.of(bitarray.get(index));</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">			return PsyBoolean.of(bitarray.get(index&lt;0? index+length(): index));</span>
 		}
-<span class="nc" id="L50">		catch(final IndexOutOfBoundsException ex)</span>
+<span class="fc" id="L50">		catch(final IndexOutOfBoundsException ex)</span>
 		{
-<span class="nc" id="L52">			throw new PsyRangeCheckException(ex);</span>
+<span class="fc" id="L52">			throw new PsyRangeCheckException(ex);</span>
 		}
 	}
 
@@ -316,18 +316,18 @@ public class PsyBitArray
 	public void psySetLength(final PsyInteger oLength)
 		throws PsyLimitCheckException, PsyRangeCheckException
 	{
-<span class="nc" id="L319">		final var length=oLength.longValue();</span>
-<span class="nc bnc" id="L320" title="All 2 branches missed.">		if(length&lt;0)</span>
-<span class="nc" id="L321">			throw new PsyRangeCheckException();</span>
-<span class="nc bnc" id="L322" title="All 2 branches missed.">		if(length&gt;Integer.MAX_VALUE)</span>
-<span class="nc" id="L323">			throw new PsyLimitCheckException();</span>
-<span class="nc" id="L324">		final var s=size;</span>
-<span class="nc bnc" id="L325" title="All 2 branches missed.">		if(length&lt;s)</span>
-<span class="nc" id="L326">			bitarray.clear((int)length, s);</span>
+<span class="fc" id="L319">		final var length=oLength.longValue();</span>
+<span class="fc bfc" id="L320" title="All 2 branches covered.">		if(length&lt;0)</span>
+<span class="fc" id="L321">			throw new PsyRangeCheckException();</span>
+<span class="fc bfc" id="L322" title="All 2 branches covered.">		if(length&gt;Integer.MAX_VALUE)</span>
+<span class="fc" id="L323">			throw new PsyLimitCheckException();</span>
+<span class="fc" id="L324">		final var s=size;</span>
+<span class="fc bfc" id="L325" title="All 2 branches covered.">		if(length&lt;s)</span>
+<span class="fc" id="L326">			bitarray.clear((int)length, s);</span>
 		else
-<span class="nc" id="L328">			bitarray.clear(s, (int)length);</span>
-<span class="nc" id="L329">		size=(int)length;</span>
-<span class="nc" id="L330">	}</span>
+<span class="fc" id="L328">			bitarray.clear(s, (int)length);</span>
+<span class="fc" id="L329">		size=(int)length;</span>
+<span class="fc" id="L330">	}</span>
 
 	@Override
 	public PsyBitArray psyClone()
@@ -338,8 +338,8 @@ public class PsyBitArray
 	@Override
 	public void psyClear()
 	{
-<span class="nc" id="L341">		bitarray.clear();</span>
-<span class="nc" id="L342">	}</span>
+<span class="fc" id="L341">		bitarray.clear();</span>
+<span class="fc" id="L342">	}</span>
 
 	@Override
 	public String toSyntaxString()
