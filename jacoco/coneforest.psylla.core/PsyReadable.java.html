@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyReadable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyReadable.java</span></div><h1>PsyReadable.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
+import java.io.IOError;
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -16,25 +18,37 @@ public interface PsyReadable
 	*	Context action of the {@code skip} operator.
 	*/
 	@OperatorType(&quot;skip&quot;)
-<span class="fc" id="L19">	public static final ContextAction PSY_SKIP</span>
-<span class="fc" id="L20">		=ContextAction.&lt;PsyReadable, PsyInteger&gt;ofBiFunction(PsyReadable::psySkip);</span>
+<span class="fc" id="L21">	public static final ContextAction PSY_SKIP</span>
+<span class="fc" id="L22">		=ContextAction.&lt;PsyReadable, PsyInteger&gt;ofBiFunction(PsyReadable::psySkip);</span>
 
 	/**
 	*	Context action of the {@code read} operator.
 	*/
 	@OperatorType(&quot;read&quot;)
-<span class="fc" id="L26">	public static final ContextAction PSY_READ</span>
-<span class="fc" id="L27">		=ContextAction.&lt;PsyReadable&gt;ofOptionalFunction(PsyReadable::psyRead);</span>
+<span class="fc" id="L28">	public static final ContextAction PSY_READ</span>
+<span class="fc" id="L29">		=ContextAction.&lt;PsyReadable&gt;ofOptionalFunction(PsyReadable::psyRead);</span>
+
+	/**
+	*	Context action of the {@code readline} operator.
+	*/
+	@OperatorType(&quot;readline&quot;)
+<span class="fc" id="L35">	public static final ContextAction PSY_READLINE</span>
+<span class="fc" id="L36">		=ContextAction.&lt;PsyReadable&gt;ofOptionalFunction(PsyReadable::psyReadLine);</span>
+
+	/**
+	*	Line separator string.
+	*/
+<span class="fc" id="L41">	public static final String LINE_SEPARATOR=System.getProperty(&quot;line.separator&quot;).intern();</span>
 
 	/**
 	*	Reads a single character.
 	*
 	*	@return the character read, as an integer in the range 0 to 65535 ({@code 0x00–0xFFFF}), or
 	*		-1 if the end of the source has been reached.
-	*	@throws PsyIOErrorException when an I/O error occurs.
+	*	@throws IOException when an I/O error occurs.
 	*/
 	public int read()
-		throws PsyIOErrorException;
+		throws IOException, IOError;
 
 	/**
 	*	Read an {@code integer} character from this object and returns it. Returns {@link
@@ -46,8 +60,15 @@ public interface PsyReadable
 	public default Optional&lt;PsyInteger&gt; psyRead()
 		throws PsyIOErrorException
 	{
-<span class="fc" id="L49">		final int c=read();</span>
-<span class="fc bfc" id="L50" title="All 2 branches covered.">		return c==-1? Optional.&lt;PsyInteger&gt;empty(): Optional.&lt;PsyInteger&gt;of(PsyInteger.of(c));</span>
+		try
+		{
+<span class="fc" id="L65">			final int c=read();</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">			return c==-1? Optional.&lt;PsyInteger&gt;empty(): Optional.&lt;PsyInteger&gt;of(PsyInteger.of(c));</span>
+		}
+<span class="fc" id="L68">		catch(final IOException|IOError ex)</span>
+		{
+<span class="fc" id="L70">			throw new PsyIOErrorException();</span>
+		}
 	}
 
 	/**
@@ -66,8 +87,33 @@ public interface PsyReadable
 	*	@return a line read.
 	*	@throws PsyIOErrorException when I/O error occurs.
 	*/
-	public PsyStringBuffer psyReadLine()
-		throws PsyIOErrorException, PsyUnsupportedException;
+	public default Optional&lt;PsyString&gt; psyReadLine()
+		throws PsyIOErrorException
+	{
+<span class="nc" id="L93">		final var sb=new StringBuilder();</span>
+
+		try
+		{
+<span class="nc" id="L97">			var c=read();</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">			if(c==-1)</span>
+<span class="nc" id="L99">				return Optional.&lt;PsyString&gt;empty();</span>
+			else
+<span class="nc" id="L101">				sb.append((char)c);</span>
+			while(true)
+			{
+<span class="nc" id="L104">				c=read();</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">				if(c==-1)</span>
+<span class="nc" id="L106">					return Optional.&lt;PsyString&gt;of(new PsyString(sb.toString()));</span>
+<span class="nc" id="L107">				sb.append((char)c);</span>
+<span class="nc bnc" id="L108" title="All 2 branches missed.">				if(sb.substring(sb.length()-LINE_SEPARATOR.length()).equals(LINE_SEPARATOR))</span>
+<span class="nc" id="L109">					return Optional.&lt;PsyString&gt;of(new PsyString(sb.toString()));</span>
+			}
+		}
+<span class="nc" id="L112">		catch(final IOException ex)</span>
+		{
+<span class="nc" id="L114">			throw new PsyIOErrorException();</span>
+		}
+	}
 
 	/**
 	*	Skips characters. This method will block until some characters are available, an I/O error

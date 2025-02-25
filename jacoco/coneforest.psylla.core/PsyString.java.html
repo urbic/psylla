@@ -162,7 +162,7 @@ public class PsyString
 <span class="fc bfc" id="L162" title="All 2 branches covered.">			switch(c)</span>
 			{
 				case '\\':
-<span class="pc bpc" id="L165" title="6 of 16 branches missed.">					switch(image.charAt(++i))</span>
+<span class="pc bpc" id="L165" title="7 of 17 branches missed.">					switch(image.charAt(++i))</span>
 					{
 <span class="fc" id="L167">						case '0'-&gt;sb.append('\u0000');</span>
 <span class="fc" id="L168">						case 'a'-&gt;sb.append('\u0007');</span>
@@ -198,29 +198,42 @@ public class PsyString
 <span class="nc" id="L198">									throw new PsySyntaxErrorException();</span>
 <span class="fc" id="L199">								}</span>
 							}
-						case 'N'-&gt;
+						case 'o'-&gt;
 							{
 								try
 								{
 <span class="nc" id="L205">									final var j=image.indexOf('}', i+2);</span>
-<span class="nc" id="L206">									final var cp=Character.codePointOf(image.substring(i+2, j));</span>
-									// TODO
-<span class="nc" id="L208">									sb.append((char)cp);</span>
-<span class="nc" id="L209">									i=j;</span>
+<span class="nc" id="L206">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 8)));</span>
+<span class="nc" id="L207">									i=j;</span>
 								}
-<span class="nc" id="L211">								catch(final IllegalArgumentException ex)</span>
+<span class="nc" id="L209">								catch(final IllegalArgumentException ex)</span>
 								{
-<span class="nc" id="L213">									throw new PsySyntaxErrorException();</span>
-<span class="nc" id="L214">								}</span>
+<span class="nc" id="L211">									throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L212">								}</span>
+							}
+						case 'N'-&gt;
+							{
+								try
+								{
+<span class="nc" id="L218">									final var j=image.indexOf('}', i+2);</span>
+<span class="nc" id="L219">									final var cp=Character.codePointOf(image.substring(i+2, j));</span>
+									// TODO
+<span class="nc" id="L221">									sb.append((char)cp);</span>
+<span class="nc" id="L222">									i=j;</span>
+								}
+<span class="nc" id="L224">								catch(final IllegalArgumentException ex)</span>
+								{
+<span class="nc" id="L226">									throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L227">								}</span>
 							}
 					}
-<span class="fc" id="L217">					break;</span>
+<span class="fc" id="L230">					break;</span>
 				default:
-<span class="fc" id="L219">					sb.append(c);</span>
+<span class="fc" id="L232">					sb.append(c);</span>
 					break;
 			}
 		}
-<span class="fc" id="L223">		return new PsyString(sb.toString().intern());</span>
+<span class="fc" id="L236">		return new PsyString(sb.toString().intern());</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

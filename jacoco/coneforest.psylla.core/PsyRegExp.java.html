@@ -105,7 +105,7 @@ public final class PsyRegExp
 				case '\\'-&gt;
 					{
 <span class="fc" id="L107">						i++;</span>
-<span class="fc bfc" id="L108" title="All 15 branches covered.">						switch(image.charAt(i))</span>
+<span class="pc bpc" id="L108" title="1 of 16 branches missed.">						switch(image.charAt(i))</span>
 						{
 <span class="fc" id="L110">							case '0'-&gt;sb.append('\u0000');</span>
 <span class="fc" id="L111">							case 'a'-&gt;sb.append('\u0007');</span>
@@ -142,30 +142,45 @@ public final class PsyRegExp
 <span class="nc" id="L142">										throw new PsySyntaxErrorException(ex);</span>
 <span class="fc" id="L143">									}</span>
 								}
+							case 'o'-&gt;
+								{
+									try
+									{
+										// TODO: if not found
+<span class="nc" id="L150">										final var j=image.indexOf('}', i+2);</span>
+<span class="nc" id="L151">										sb.append(Character.toChars(</span>
+<span class="nc" id="L152">												Integer.valueOf(image.substring(i+2, j), 8)));</span>
+<span class="nc" id="L153">										i=j;</span>
+									}
+<span class="nc" id="L155">									catch(final IllegalArgumentException ex)</span>
+									{
+<span class="nc" id="L157">										throw new PsySyntaxErrorException(ex);</span>
+<span class="nc" id="L158">									}</span>
+								}
 							case 'N'-&gt;
 								{
 									try
 									{
 										// TODO: if not found
-<span class="fc" id="L150">										final var j=image.indexOf('}', i+2);</span>
-<span class="fc" id="L151">										final var cp=Character.codePointOf(image.substring(i+2, j));</span>
+<span class="fc" id="L165">										final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L166">										final var cp=Character.codePointOf(image.substring(i+2, j));</span>
 										// TODO
-<span class="fc" id="L153">										sb.append((char)cp);</span>
-<span class="fc" id="L154">										i=j;</span>
+<span class="fc" id="L168">										sb.append((char)cp);</span>
+<span class="fc" id="L169">										i=j;</span>
 									}
-<span class="fc" id="L156">									catch(final IllegalArgumentException ex)</span>
+<span class="fc" id="L171">									catch(final IllegalArgumentException ex)</span>
 									{
-<span class="fc" id="L158">										throw new PsySyntaxErrorException(ex);</span>
-<span class="fc" id="L159">									}</span>
+<span class="fc" id="L173">										throw new PsySyntaxErrorException(ex);</span>
+<span class="fc" id="L174">									}</span>
 								}
-<span class="fc" id="L161">							case '~'-&gt;sb.append('~');</span>
-<span class="fc" id="L162">							default-&gt;sb.append(&quot;\\&quot;+image.charAt(i));</span>
+<span class="fc" id="L176">							case '~'-&gt;sb.append('~');</span>
+<span class="fc" id="L177">							default-&gt;sb.append(&quot;\\&quot;+image.charAt(i));</span>
 						}
 					}
-<span class="fc" id="L165">				default-&gt;sb.append(c);</span>
+<span class="fc" id="L180">				default-&gt;sb.append(c);</span>
 			}
 		}
-<span class="fc" id="L168">		return new PsyRegExp(sb);</span>
+<span class="fc" id="L183">		return new PsyRegExp(sb);</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

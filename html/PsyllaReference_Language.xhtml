@@ -467,10 +467,10 @@ The handling of all types of errors is performed uniformly.
 </p></section><section class="section" id="PsyllaReference_Language_Grammar"><div class="titlepage"><div><div><h2 class="title" style="clear: both">3.10. Grammar</h2></div></div></div><table width="100%" cellpadding="5" bgcolor="#F5DCB3" class="productionset" summary="EBNF for Grammar rules for tokens"><tr><th align="left" valign="top" class="productionset">Grammar rules for tokens</th></tr><tr><td><table border="0" width="99%" cellpadding="0" bgcolor="#F5DCB3" class="productionset" summary="EBNF productions"><tr><td align="left" valign="top" width="3%">[1]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_Token">TOKEN</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Integral">INTEGRAL</a>
 | <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Real">REAL</a>
-| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_String">STRING</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringBuffer">STRINGBUFFER</a>
 | <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_RegExp">REGEXP</a>
-| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Command">COMMAND</a>
 | <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Name">NAME</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_String">STRING</a>
 | <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Immediate">IMMEDIATE</a>
 | <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_OpenBrace">OPEN_BRACE</a>
 | <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_CloseBrace">CLOSE_BRACE</a>
@@ -536,7 +536,7 @@ The handling of all types of errors is performed uniformly.
 (~[<code class="literal">/</code>]
 | (<code class="literal">/</code> ~[<code class="literal">#</code>]))*
 <code class="literal">#/</code>
-</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[19]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_String">STRING</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
+</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[19]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_StringBuffer">STRINGBUFFER</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 <code class="literal">"</code>
 (<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>
 | ~[ <code class="literal">"</code>,
@@ -573,26 +573,26 @@ The handling of all types of errors is performed uniformly.
 </td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[22]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_RegExpSpecial">REGEXP_SPECIAL</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 <code class="literal">\</code>
 (~[])
-</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[23]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_NameSlashed">NAME_SLASHED</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
+</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[23]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_StringSlashed">STRING_SLASHED</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 <code class="literal">/</code>
-<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Command">COMMAND</a>
-</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[24]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_NameQuoted">NAME_QUOTED</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Name">NAME</a>
+</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[24]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_StringQuoted">STRING_QUOTED</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 <code class="literal">'</code>
 (<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSpecial">STRING_SPECIAL</a>
 | <code class="literal">\'</code>
 | ~[<code class="literal">'</code>, <code class="literal">\</code>])* <code class="literal">'</code>
-</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[25]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_Name">NAME</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
-<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_NameSlashed">NAME_SLASHED</a>
-| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_NameQuoted">NAME_QUOTED</a>
+</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[25]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_String">STRING</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSlashed">STRING_SLASHED</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringQuoted">STRING_QUOTED</a>
 </td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[26]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_Immediate">IMMEDIATE</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 <code class="literal">/</code>
-<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_NameSlashed">NAME_SLASHED</a>
-</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[27]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_Command">COMMAND</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
+<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSlashed">STRING_SLASHED</a>
+</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[27]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_Name">NAME</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 (<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Letter">LETTER</a>
-| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</a>)
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSpecialChar">STRING_SPECIAL_CHAR</a>)
 <br/>
 (<a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Letter">LETTER</a>
-| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</a>
+| <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_StringSpecialChar">STRING_SPECIAL_CHAR</a>
 | <a href="PsyllaReference_Language.xhtml#PsyllaReference_Language_Grammar_Digit">DIGIT</a>)*<br/>
 | [<code class="literal">[</code>,
 <code class="literal">]</code>,
@@ -602,7 +602,7 @@ The handling of all types of errors is performed uniformly.
 <code class="literal">&gt;</code>,
 <code class="literal">=</code>,
 <code class="literal">?</code>]
-</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[28]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_OpenBrace">OPEN_BRACE</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%"><code class="literal">{</code></td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[29]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_CloseBrace">CLOSE_BRACE</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%"><code class="literal">}</code></td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[30]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_NameSpecialChar">NAME_SPECIAL_CHAR</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
+</td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[28]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_OpenBrace">OPEN_BRACE</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%"><code class="literal">{</code></td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[29]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_CloseBrace">CLOSE_BRACE</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%"><code class="literal">}</code></td><td align="left" valign="top" width="30%"> </td></tr><tr><td align="left" valign="top" width="3%">[30]</td><td align="right" valign="top" width="10%" id="PsyllaReference_Language_Grammar_StringSpecialChar">STRING_SPECIAL_CHAR</td><td valign="top" width="5%" align="center"><code>::=</code></td><td valign="top" width="52%">
 [<code class="literal">_</code>,
 <code class="literal">.</code>,
 <code class="literal">+</code>,
