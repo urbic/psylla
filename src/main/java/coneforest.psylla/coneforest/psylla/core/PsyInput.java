@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
+import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -24,28 +25,13 @@ public class PsyInput
 
 	@Override
 	public int read()
-		throws PsyIOErrorException
+		throws IOError, IOException
 	{
-		try
-		{
-			return input.read();
-		}
-		catch(final IOException ex)
-		{
-			throw new PsyIOErrorException();
-		}
+		return input.read();
 	}
 
 	@Override
 	public PsyStringBuffer psyReadString(final PsyInteger oCount)
-		throws PsyUnsupportedException
-	{
-		// TODO
-		throw new PsyUnsupportedException();
-	}
-
-	@Override
-	public PsyStringBuffer psyReadLine()
 		throws PsyUnsupportedException
 	{
 		// TODO
@@ -92,7 +78,7 @@ public class PsyInput
 		{
 			throw new PsyRangeCheckException();
 		}
-		catch(final IOException ex)
+		catch(final IOError|IOException ex)
 		{
 			throw new PsyIOErrorException();
 		}

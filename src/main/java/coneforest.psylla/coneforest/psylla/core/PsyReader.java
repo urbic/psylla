@@ -1,11 +1,13 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
+import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.CharBuffer;
+import java.util.Optional;
 
 /**
 *	The representation of {@code reader}.
@@ -18,11 +20,6 @@ public class PsyReader
 		PsyReadable,
 		PsyResetable
 {
-	/**
-	*	Line separator string.
-	*/
-	public static final String LINE_SEPARATOR=System.getProperty("line.separator").intern();
-
 	private final Reader reader;
 
 	/**
@@ -62,16 +59,9 @@ public class PsyReader
 
 	@Override
 	public int read()
-		throws PsyIOErrorException
+		throws IOException, IOError
 	{
-		try
-		{
-			return reader.read();
-		}
-		catch(final IOException ex)
-		{
-			throw new PsyIOErrorException();
-		}
+		return reader.read();
 	}
 
 	@Override
@@ -81,7 +71,7 @@ public class PsyReader
 			PsyLimitCheckException,
 			PsyRangeCheckException
 	{
-		final long count=oCount.longValue();
+		final var count=oCount.longValue();
 		if(count<=0)
 			throw new PsyRangeCheckException();
 		if(count>Integer.MAX_VALUE)
@@ -97,32 +87,7 @@ public class PsyReader
 		{
 			throw new PsyLimitCheckException();
 		}
-		catch(final IOException ex)
-		{
-			throw new PsyIOErrorException();
-		}
-	}
-
-	@Override
-	public PsyStringBuffer psyReadLine()
-		throws PsyIOErrorException
-	{
-		final var sb=new StringBuilder();
-
-		try
-		{
-			do
-			{
-				final int c=reader.read();
-				if(c==-1)
-					return new PsyStringBuffer(sb);
-				sb.append((char)c);
-				if(sb.substring(sb.length()-LINE_SEPARATOR.length()).equals(LINE_SEPARATOR))
-					return new PsyStringBuffer(sb);
-			}
-			while(true);
-		}
-		catch(final IOException ex)
+		catch(final IOException|IOError ex)
 		{
 			throw new PsyIOErrorException();
 		}

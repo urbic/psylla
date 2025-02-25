@@ -1,6 +1,8 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
+import java.io.IOError;
+import java.io.IOException;
 import java.util.Optional;
 
 /**
@@ -27,14 +29,26 @@ public interface PsyReadable
 		=ContextAction.<PsyReadable>ofOptionalFunction(PsyReadable::psyRead);
 
 	/**
+	*	Context action of the {@code readline} operator.
+	*/
+	@OperatorType("readline")
+	public static final ContextAction PSY_READLINE
+		=ContextAction.<PsyReadable>ofOptionalFunction(PsyReadable::psyReadLine);
+
+	/**
+	*	Line separator string.
+	*/
+	public static final String LINE_SEPARATOR=System.getProperty("line.separator").intern();
+
+	/**
 	*	Reads a single character.
 	*
 	*	@return the character read, as an integer in the range 0 to 65535 ({@code 0x00–0xFFFF}), or
 	*		-1 if the end of the source has been reached.
-	*	@throws PsyIOErrorException when an I/O error occurs.
+	*	@throws IOException when an I/O error occurs.
 	*/
 	public int read()
-		throws PsyIOErrorException;
+		throws IOException, IOError;
 
 	/**
 	*	Read an {@code integer} character from this object and returns it. Returns {@link
@@ -46,8 +60,15 @@ public interface PsyReadable
 	public default Optional<PsyInteger> psyRead()
 		throws PsyIOErrorException
 	{
-		final int c=read();
-		return c==-1? Optional.<PsyInteger>empty(): Optional.<PsyInteger>of(PsyInteger.of(c));
+		try
+		{
+			final int c=read();
+			return c==-1? Optional.<PsyInteger>empty(): Optional.<PsyInteger>of(PsyInteger.of(c));
+		}
+		catch(final IOException|IOError ex)
+		{
+			throw new PsyIOErrorException();
+		}
 	}
 
 	/**
@@ -66,8 +87,33 @@ public interface PsyReadable
 	*	@return a line read.
 	*	@throws PsyIOErrorException when I/O error occurs.
 	*/
-	public PsyStringBuffer psyReadLine()
-		throws PsyIOErrorException, PsyUnsupportedException;
+	public default Optional<PsyString> psyReadLine()
+		throws PsyIOErrorException
+	{
+		final var sb=new StringBuilder();
+
+		try
+		{
+			var c=read();
+			if(c==-1)
+				return Optional.<PsyString>empty();
+			else
+				sb.append((char)c);
+			while(true)
+			{
+				c=read();
+				if(c==-1)
+					return Optional.<PsyString>of(new PsyString(sb.toString()));
+				sb.append((char)c);
+				if(sb.substring(sb.length()-LINE_SEPARATOR.length()).equals(LINE_SEPARATOR))
+					return Optional.<PsyString>of(new PsyString(sb.toString()));
+			}
+		}
+		catch(final IOException ex)
+		{
+			throw new PsyIOErrorException();
+		}
+	}
 
 	/**
 	*	Skips characters. This method will block until some characters are available, an I/O error
