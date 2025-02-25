@@ -20,6 +20,7 @@ jobs:
         run: |
           docker build . -f Dockerfile -t ${PRJ_NAME} --label "runnumber=${GITHUB_RUN_ID}"
           docker cp build-${PRJ_NAME}:/home/${PRJ_NAME}/target .
+          docker container create --name=build-${PRJ_NAME} ${PRJ_NAME}
       - name: Deploy site
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
@@ -29,12 +30,12 @@ jobs:
         env:
           OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
         run: |
-          docker run -e OBS_PASSWORD --rm --name=build-${PRJ_NAME} ${PRJ_NAME} \
+          docker run -e OBS_PASSWORD --rm -it ${PRJ_NAME} --name=build-${PRJ_NAME} ${PRJ_NAME} \
             ant -v -noinput obs.commit
       - name: Deploy package
         if: startsWith(github.event.ref, 'refs/tags/v')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker run -e GITHUB_TOKEN --rm --name=build-${PRJ_NAME} ${PRJ_NAME} \
+          docker run -e GITHUB_TOKEN --rm -it ${PRJ_NAME} --name=build-${PRJ_NAME} ${PRJ_NAME} \
             ant -v -noinput deploy
