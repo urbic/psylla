@@ -17,7 +17,6 @@ jobs:
       packages: write
       contents: write
     steps:
-      - uses: actions/checkout@v4
       - name: Build and test
         run: |
           zypper -n --gpg-auto-import-keys ar -p1 obs://home:urbic:coneforest/openSUSE_Tumbleweed home:urbic:coneforest
@@ -41,6 +40,11 @@ jobs:
             glibc-locale \
             graphviz \
             sassc
-      - name: Configure git to trust the workspace despite the different owner
+      - name: Checkout
+        uses: actions/checkout@v4
         run: |
-          ls -Rla /__w/psylla/psylla/
+          la -la .
+          git config tar.tar.xz.command 'xz -9'
+#      - name: Configure git to trust the workspace despite the different owner
+#        run: |
+#          ls -Rla /__w/psylla/psylla/
