@@ -89,11 +89,11 @@
 			<dependset>
 				<srcfileset
 					dir="${src.doc.docbook}"
-					includes="*.docbook *.ent"
+					includes="PsyllaReference*.docbook *.ent"
 					/>
 				<targetfileset
 					dir="${target.doc.html}"
-					includes="PsyllaReference.xhtml"
+					includes="PsyllaReference*.xhtml"
 					/>
 			</dependset>
 			<xslt.html
