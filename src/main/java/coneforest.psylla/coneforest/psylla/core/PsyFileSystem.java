@@ -188,7 +188,8 @@ public interface PsyFileSystem
 	*	@param oFileName a {@code string} representing the name of the directory being created.
 	*	@throws PsyFileExistsException when the directory already exists.
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
-	*		permission or other access check.
+	*	permission or other access check.
+	*
 	*	@throws PsySecurityErrorException when security policy is violated.
 	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
@@ -251,7 +252,7 @@ public interface PsyFileSystem
 	*	@throws PsyDirectoryNotEmptyException when the directory is not empty.
 	*	@throws PsyFileNotFoundException when the file or directory does not exist.
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
-	*		permission or other access check.
+	*	permission or other access check.
 	*	@throws PsySecurityErrorException when security policy is violated.
 	*	@throws PsyIOErrorException when an I/O error occurs.
 	*/
@@ -298,7 +299,7 @@ public interface PsyFileSystem
 	*	@throws PsyFileExistsException TODO
 	*	@throws PsyFileNotFoundException when the file or directory does not exist.
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file
-	*		permission or other access check.
+	*	permission or other access check.
 	*	@throws PsySecurityErrorException when security policy is violated.
 	*	@throws PsyIOErrorException when an I/O error occurs.
 	*	@throws PsyUnsupportedException TODO
@@ -664,11 +665,11 @@ public interface PsyFileSystem
 
 	/**
 	*	{@return the {@code integer} representing the size (in bytes) for the file or directory with
-	*		the given name}
+	*	the given name}
 	*
 	*	@param oFileName a {@code string} representing the file name.
 	*	@throws PsyFileAccessDeniedException when the operation is prohibited due to a file permission or
-	*		other access check.
+	*	other access check.
 	*	@throws PsyFileNotFoundException when the file or directory does not exist.
 	*	@throws PsySecurityErrorException when security policy is violated.
 	*	@throws PsyIOErrorException when an I/O error occurs.

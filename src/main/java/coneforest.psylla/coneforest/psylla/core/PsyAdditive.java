@@ -4,7 +4,7 @@ import coneforest.psylla.runtime.*;
 
 /**
 *	The representation of {@code additive}, a type of object that is an operand of additive
-*		operation. This interface declares methods for addition, subtraction and negation.
+*	operation. This interface declares methods for addition, subtraction and negation.
 *
 *	@param <T> a type of the second operand at binary operation.
 */
@@ -59,7 +59,7 @@ public interface PsyAdditive<T extends PsyAdditive<T>>
 
 	/**
 	*	{@return the {@code additive} result of arithmetic addition of specified object to this
-	*		object}
+	*	object}
 	*
 	*	@param oAdditive the specified object.
 	*/
@@ -67,7 +67,7 @@ public interface PsyAdditive<T extends PsyAdditive<T>>
 
 	/**
 	*	{@return the {@code additive} result of arithmetic subtraction of specified object from this
-	*		object}
+	*	object}
 	*
 	*	@param oAdditive the specified object.
 	*/

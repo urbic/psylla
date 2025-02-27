@@ -44,7 +44,7 @@ public interface PsyReadable
 	*	Reads a single character.
 	*
 	*	@return the character read, as an integer in the range 0 to 65535 ({@code 0x00–0xFFFF}), or
-	*		-1 if the end of the source has been reached.
+	*	-1 if the end of the source has been reached.
 	*	@throws IOException when an I/O error occurs.
 	*/
 	public int read()

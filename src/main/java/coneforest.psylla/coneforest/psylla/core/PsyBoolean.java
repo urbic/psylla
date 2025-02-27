@@ -73,7 +73,7 @@ public final class PsyBoolean
 
 	/**
 	*	{@return a {@code boolean} result of boolean exclusive disjunction of this object and given
-	*		object}
+	*	object}
 	*
 	*	@param oBoolean given object.
 	*/

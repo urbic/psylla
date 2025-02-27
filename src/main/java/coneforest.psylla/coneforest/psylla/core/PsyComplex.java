@@ -145,7 +145,7 @@ public final class PsyComplex
 
 	/**
 	*	{@return a {@code real} representing the complex argument of this object} The argument
-	*		belongs to the range (−π; π].
+	*	belongs to the range (−π; π].
 	*/
 	public PsyReal psyArg()
 	{
