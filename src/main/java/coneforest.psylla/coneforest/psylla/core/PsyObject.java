@@ -120,12 +120,12 @@ public interface PsyObject
 	*/
 	public default PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.of(this==o);
+		return PsyBoolean.of(equals(o));
 	}
 
 	public default PsyBoolean psyNe(final PsyObject o)
 	{
-		return psyEq(o).psyNot();
+		return PsyBoolean.of(!equals(o));
 	}
 
 	/**
