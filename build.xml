@@ -470,9 +470,9 @@
 		<spotbugs
 			projectName="${project.name}"
 			home="${config.datadir}/spotbugs"
-            output="html"
+			output="html"
 			effort="max"
-            outputFile="${target.reports}/spotbugs.html"
+			outputFile="${target.reports}/spotbugs.html"
 			excludeFilter="${etc}/spotbugs-exclude.xml"
 			debug="true"
 			timestampNow="true"

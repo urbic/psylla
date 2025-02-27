@@ -74,7 +74,7 @@ public interface PsyAdditive<T extends PsyAdditive<T>>
 	public T psySub(final T oAdditive);
 
 	/**
-	*   {@return a {@code boolean} indicating whether this object represents a zero value}
+	*	{@return a {@code boolean} indicating whether this object represents a zero value}
 	*/
 	public default PsyBoolean psyIsZero()
 	{
@@ -82,7 +82,7 @@ public interface PsyAdditive<T extends PsyAdditive<T>>
 	}
 
 	/**
-	*   {@return a {@code boolean} indicating whether this object represents a non-zero value}
+	*	{@return a {@code boolean} indicating whether this object represents a non-zero value}
 	*/
 	public default PsyBoolean psyNonZero()
 	{
