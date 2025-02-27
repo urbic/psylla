@@ -32,7 +32,7 @@
 			<srcfilelist dir="${src.doc.scss}" files="*.scss"/>
 			<targetfileset dir="${target.doc.html}" includes="${project.name}.css"/>
 		</dependset>
-		<apply executable="sassc" dest="${target.doc.html}" parallel="false">
+		<apply executable="${config.command.sassc}" dest="${target.doc.html}" parallel="false">
 			<arg value="-tcompact"/>
 			<srcfile/>
 			<targetfile/>
