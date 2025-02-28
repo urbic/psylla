@@ -198,7 +198,7 @@ public sealed interface PsyRational
 
 	/**
 	*	{@return the quotient of the integer division of this {@code rational} by the {@code
-	*	rational} divisor.
+	*	rational} divisor}
 	*
 	*	@param oRational the divisor.
 	*	@throws PsyUndefinedResultException when the divisor is zero.
