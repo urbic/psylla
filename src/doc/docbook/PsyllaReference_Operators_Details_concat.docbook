@@ -52,10 +52,10 @@ elements of the <replaceable>stream<subscript>2</subscript></replaceable>.
 &ErrorReason_typecheck;
 </listitem>
 <listitem>
-<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_invalidstate"/> —
-if the <xref xrefstyle="template:%t"
-linkend="PsyllaReference_Types_Details_formalstream"/> operand is closed.
-&ErrorReason_typecheck;
+<xref xrefstyle="template:%t"
+linkend="PsyllaReference_Errors_Details_invalidstate"/> — if the <xref
+xrefstyle="template:%t" linkend="PsyllaReference_Types_Details_formalstream"/>
+operand is closed.
 </listitem>
 </itemizedlist>
 </formalpara>

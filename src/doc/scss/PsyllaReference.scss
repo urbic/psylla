@@ -7,14 +7,16 @@ $background-color-body: lighten($background-color-html, 20%);
 //$color-title: darken($background-color-nav, 50%);
 $background-color-nav: darken($background-color-html, 10%);
 //$color-title: darken(springgreen, 33%);
-$color-title: darken(mediumseagreen, 10%);
+$color-title: darken(mediumseagreen, 25%);
 $color-link: royalblue;
 $color-visited: $color-link;
 $color-filename: black;
 $background-color-programlisting: darken($background-color-body, 2%);
-$font-family-body: "Source Sans Pro", "Roboto", sans-serif;
+//$font-family-body: "Source Sans Pro", "Roboto", sans-serif;
+$font-family-body: "Roboto", sans-serif;
 $font-size-body: 18px;
-$font-family-code: "Source Code Pro", "Roboto Mono", monospace;
+//$font-family-code: "Source Code Pro", "Roboto Mono", monospace;
+$font-family-code: "Roboto Mono", monospace;
 
 html
 {
@@ -160,9 +162,10 @@ code,
 
 .replaceable
 {
-	font-style: normal;
-	text-decoration: underline;
-	text-decoration-style: wavy;
+	font-style: italic;
+	//font-style: normal;
+	//text-decoration: underline;
+	//text-decoration-style: wavy;
 }
 
 .sgmltag-element

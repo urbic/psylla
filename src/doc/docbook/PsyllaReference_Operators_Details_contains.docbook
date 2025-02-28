@@ -5,7 +5,9 @@
 
 <para>
 Returns a boolean <replaceable>result</replaceable> indicating whether the
-<replaceable>object</replaceable> belongs to <replaceable>set</replaceable>.
+<replaceable>object</replaceable> belongs to <replaceable>set</replaceable>. An
+object is considered to belong to a set if it is equal to some element of the
+set.
 </para>
 
 <formalpara>
@@ -35,11 +37,6 @@ Returns a boolean <replaceable>result</replaceable> indicating whether the
 </listitem>
 </itemizedlist>
 </formalpara>
-
-<para>
-Объект считается принадлежащим множеству, если он равен некоторому элементу
-множества.
-</para>
 
 <formalpara>
 &TitleErrors;
