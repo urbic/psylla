@@ -18,8 +18,13 @@ public class PsyProc
 	*	Context action of the {@code bind} operator.
 	*/
 	@OperatorType("bind")
-	public static final ContextAction PSY_BIND
-		=ContextAction.<PsyProc>ofFunction(PsyProc::psyBind);
+	public static final ContextAction PSY_BIND=oContext->
+		{
+			final var ostack=oContext.operandStackBacked(1);
+			final var oProc=ostack.<PsyProc>getBacked(0);
+			ostack.push(oProc.psyBind(oContext));
+		};
+		//=ContextAction.<PsyProc>ofFunction(PsyProc::psyBind);
 
 	/**
 	*	Constructs a new empty {@code proc}.
@@ -74,15 +79,13 @@ public class PsyProc
 		return sj.toString();
 	}
 
-	public PsyProc psyBind()
+	public PsyProc psyBind(final PsyContext oContext)
 	{
-		final var dstack=PsyContext.psyCurrentContext().dictStack();
-
+		final var dstack=oContext.dictStack();
 		final var agenda=new ArrayList<PsyProc>();
 		final var bound=new HashSet<PsyProc>();
 
 		agenda.add(this);
-
 		while(!agenda.isEmpty())
 		{
 			final var oProc=agenda.remove(0);

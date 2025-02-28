@@ -78,44 +78,25 @@ public class PsyErrorException
 			oContext.executionStack().exitStop();
 			return;
 		}
-		else
-		{
-			if(oContext.executionStack().checkLoop())
-			{
-				try
-				{
-					oContext.executionStack().exitLoop();
-				}
-				catch(final PsyInvalidExitException e)
-				{
-					// NOP
-				}
-			}
-			oContext.stop_();
-		}
 
 		System.err.println(Messages.format("handleErrorMessage",
 				'/'+getName(),
 				getEmitter().toSyntaxString()));
 
 		oContext.showStacks();
-		/*
-		System.err.print(Messages.getString("handleErrorMessageOStack"));
-		{
-			final var sj=new StringJoiner(" ", "\n\t", "");
-			sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
-			ostack.forEach(o->sj.add(o.toSyntaxString()));
-			System.err.println(sj.toString());
-		}
 
-		System.err.print(Messages.getString("handleErrorMessageEStack"));
+		oContext.stop_();
+		if(oContext.executionStack().checkLoop())
 		{
-			final var sj=new StringJoiner(" ", "\n\t", "");
-			sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
-			estack.forEach(o->sj.add(o.toSyntaxString()));
-			System.err.println(sj.toString());
+			try
+			{
+				oContext.executionStack().exitLoop();
+			}
+			catch(final PsyInvalidExitException e)
+			{
+				// NOP
+			}
 		}
-		*/
 	}
 
 	/**

@@ -94,19 +94,6 @@ public final class DictStack
 		return Optional.<PsyFormalDict<PsyObject>>empty();
 	}
 
-	/**
-	*	Performs in-depth search for the dictionary containing the given {@code string} key in this
-	*	stack and returns an {@link Optional} contating the dictionary found or empty {@link
-	*	Optional} if not found.
-	*
-	*	@param oKey the {@code string} key.
-	*	@return an {@link Optional} containing the dictionary found.
-	*/
-	public Optional<PsyFormalDict<PsyObject>> where(final PsyString oKey)
-	{
-		return where(oKey.stringValue());
-	}
-
 	public PsyNamespace currentNamespace()
 	{
 		for(int i=size()-1; i>=0; i--)

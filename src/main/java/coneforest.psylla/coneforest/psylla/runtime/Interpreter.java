@@ -24,7 +24,7 @@ import jline.ConsoleReader;
 *	The Psylla language interpreter.
 */
 public class Interpreter
-	extends Thread
+	//extends Thread
 	implements PsyContext
 {
 	protected DictStack dstack;
@@ -33,6 +33,16 @@ public class Interpreter
 	private final ProcStack procstack;
 	private final HashMap<String, String> resourceRegistry=new HashMap<>();
 	private final NamespacePool nspool=new NamespacePool();
+	//private final Thread thread=Thread.ofVirtual().unstarted(this);
+	private final Thread thread=Thread.ofPlatform().unstarted(this);
+	/*private final Thread thread=new Thread()
+		{
+			@Override
+			public void run()
+			{
+				Interpreter.this.run();
+			}
+		};*/
 
 	private boolean stopped=false;
 	private boolean running=true;
@@ -394,8 +404,8 @@ public class Interpreter
 						ParserConstants.STRINGBUFFER,
 						ParserConstants.IMMEDIATE,
 						ParserConstants.REGEXP,
-						ParserConstants.LITERAL
-						->ostack.push(parseToken(token));
+						ParserConstants.LITERAL->
+					ostack.push(parseToken(token));
 				case ParserConstants.OPEN_BRACE->
 					procstack.push(new PsyProc());
 				case ParserConstants.CLOSE_BRACE->
@@ -655,6 +665,37 @@ public class Interpreter
 			sb.append("<"+ostack.size());
 		sb.append("> ");
 		return sb.toString();
+	}
+
+	public void start()
+	{
+		thread.start();
+		//thread=Thread.startVirtualThread(this::run);
+	}
+
+	@Override
+	public void run()
+	{
+	}
+
+	@Override
+	public void join()
+		throws InterruptedException
+	{
+		thread.join();
+	}
+
+	//@Override
+	public void join(final long millis)
+		throws InterruptedException
+	{
+		thread.join(millis);
+	}
+
+	@Override
+	public long getId()
+	{
+		return thread.threadId();
 	}
 
 	@Override

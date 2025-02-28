@@ -11,7 +11,7 @@ import jline.ConsoleReader;
 */
 @Type("context")
 public interface PsyContext
-	extends PsyObject
+	extends PsyObject, Runnable
 {
 	/**
 	*	Context action of the {@code begin} operator.
@@ -619,9 +619,9 @@ public interface PsyContext
 	/**
 	*	{@return the currently executing context}
 	*/
-	public static PsyContext psyCurrentContext()
+	public default PsyContext psyCurrentContext()
 	{
-		return (PsyContext)Thread.currentThread();
+		return this;
 	}
 
 	public void fork()
