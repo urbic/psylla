@@ -103,5 +103,23 @@ public class PsySet
 <span class="fc" id="L103">		return new PsyStream(set.stream());</span>
 	}
 
+	@Override
+	public int hashCode()
+	{
+<span class="fc" id="L109">		return set.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">		return switch(obj)</span>
+			{
+<span class="fc" id="L117">				case PsySet oSet-&gt;set.equals(oSet.set);</span>
+				/*case PsyFormalSet&lt;PsyObject&gt; oFormalSet-&gt;
+					{
+					}*/
+<span class="nc" id="L121">				default-&gt;false;</span>
+			};
+	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

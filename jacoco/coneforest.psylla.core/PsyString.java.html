@@ -87,7 +87,7 @@ public class PsyString
 
 	/**
 	*	{@return a syntactic representation of this object’s value} Returns a value string prepended
-	*		with {@code /}.
+	*	with {@code /}.
 	*/
 	@Override
 	public String toSyntaxString()
@@ -116,7 +116,7 @@ public class PsyString
 <span class="fc bfc" id="L116" title="All 2 branches covered.">			for(int i=0; i&lt;string.length(); i++)</span>
 			{
 <span class="fc" id="L118">				final char c=string.charAt(i);</span>
-<span class="pc bpc" id="L119" title="6 of 24 branches missed.">				slashed=c&gt;='0' &amp;&amp; c&lt;='9'</span>
+<span class="pc bpc" id="L119" title="5 of 24 branches missed.">				slashed=c&gt;='0' &amp;&amp; c&lt;='9'</span>
 						|| c&gt;='A' &amp;&amp; c&lt;='Z'
 						|| c&gt;='a' &amp;&amp; c&lt;='z'
 						|| c=='_'
@@ -134,8 +134,8 @@ public class PsyString
 
 	/**
 	*	{@return a {@code boolean} object indicating whether some other object is “equal to” this
-	*		one} Return value is {@code true} if and only if other object has {@code string} type
-	*		and its value is equal to this one’s.
+	*	one} Return value is {@code true} if and only if other object has {@code string} type and
+	*	its value is equal to this one’s.
 	*/
 	@Override
 	public boolean equals(final Object object)
@@ -147,7 +147,7 @@ public class PsyString
 	@Override
 	public int hashCode()
 	{
-<span class="fc" id="L150">		return stringValue().hashCode();</span>
+<span class="fc" id="L150">		return string.hashCode();</span>
 	}
 
 	public static PsyString parseLiteral(final String image)
@@ -162,7 +162,7 @@ public class PsyString
 <span class="fc bfc" id="L162" title="All 2 branches covered.">			switch(c)</span>
 			{
 				case '\\':
-<span class="pc bpc" id="L165" title="7 of 17 branches missed.">					switch(image.charAt(++i))</span>
+<span class="pc bpc" id="L165" title="5 of 17 branches missed.">					switch(image.charAt(++i))</span>
 					{
 <span class="fc" id="L167">						case '0'-&gt;sb.append('\u0000');</span>
 <span class="fc" id="L168">						case 'a'-&gt;sb.append('\u0007');</span>
@@ -202,29 +202,29 @@ public class PsyString
 							{
 								try
 								{
-<span class="nc" id="L205">									final var j=image.indexOf('}', i+2);</span>
-<span class="nc" id="L206">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 8)));</span>
-<span class="nc" id="L207">									i=j;</span>
+<span class="fc" id="L205">									final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L206">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 8)));</span>
+<span class="fc" id="L207">									i=j;</span>
 								}
 <span class="nc" id="L209">								catch(final IllegalArgumentException ex)</span>
 								{
 <span class="nc" id="L211">									throw new PsySyntaxErrorException();</span>
-<span class="nc" id="L212">								}</span>
+<span class="fc" id="L212">								}</span>
 							}
 						case 'N'-&gt;
 							{
 								try
 								{
-<span class="nc" id="L218">									final var j=image.indexOf('}', i+2);</span>
-<span class="nc" id="L219">									final var cp=Character.codePointOf(image.substring(i+2, j));</span>
+<span class="fc" id="L218">									final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L219">									final var cp=Character.codePointOf(image.substring(i+2, j));</span>
 									// TODO
-<span class="nc" id="L221">									sb.append((char)cp);</span>
-<span class="nc" id="L222">									i=j;</span>
+<span class="fc" id="L221">									sb.append((char)cp);</span>
+<span class="fc" id="L222">									i=j;</span>
 								}
-<span class="nc" id="L224">								catch(final IllegalArgumentException ex)</span>
+<span class="fc" id="L224">								catch(final IllegalArgumentException ex)</span>
 								{
-<span class="nc" id="L226">									throw new PsySyntaxErrorException();</span>
-<span class="nc" id="L227">								}</span>
+<span class="fc" id="L226">									throw new PsySyntaxErrorException();</span>
+<span class="fc" id="L227">								}</span>
 							}
 					}
 <span class="fc" id="L230">					break;</span>

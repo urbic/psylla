@@ -30,7 +30,7 @@ public interface PsyLengthy
 	public int length();
 
 	/**
-	*	{@returns a boolean indicating if this container is empty (has zero length)}
+	*	{@return a boolean indicating if this container is empty (has zero length)}
 	*/
 	public default boolean isEmpty()
 	{

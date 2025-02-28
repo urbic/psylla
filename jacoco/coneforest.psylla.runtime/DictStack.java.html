@@ -94,35 +94,22 @@ public final class DictStack
 <span class="fc" id="L94">		return Optional.&lt;PsyFormalDict&lt;PsyObject&gt;&gt;empty();</span>
 	}
 
-	/**
-	*	Performs in-depth search for the dictionary containing the given {@code string} key in this
-	*	stack and returns an {@link Optional} contating the dictionary found or empty {@link
-	*	Optional} if not found.
-	*
-	*	@param oKey the {@code string} key.
-	*	@return an {@link Optional} containing the dictionary found.
-	*/
-	public Optional&lt;PsyFormalDict&lt;PsyObject&gt;&gt; where(final PsyString oKey)
-	{
-<span class="nc" id="L107">		return where(oKey.stringValue());</span>
-	}
-
 	public PsyNamespace currentNamespace()
 	{
-<span class="nc bnc" id="L112" title="All 2 branches missed.">		for(int i=size()-1; i&gt;=0; i--)</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">		for(int i=size()-1; i&gt;=0; i--)</span>
 		{
-<span class="nc" id="L114">			final var oDict=get(i);</span>
-<span class="nc bnc" id="L115" title="All 2 branches missed.">			if(oDict instanceof PsyNamespace oNamespace)</span>
-<span class="nc" id="L116">				return oNamespace;</span>
+<span class="nc" id="L101">			final var oDict=get(i);</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">			if(oDict instanceof PsyNamespace oNamespace)</span>
+<span class="nc" id="L103">				return oNamespace;</span>
 		}
-<span class="nc" id="L118">		return null; // TODO</span>
+<span class="nc" id="L105">		return null; // TODO</span>
 	}
 
 	public void store(final PsyTextual oKey, final PsyObject oValue)
 	{
-<span class="nc" id="L123">		final var key=oKey.stringValue();</span>
-<span class="nc" id="L124">		where(key).orElse(peek()).put(key, oValue);</span>
-<span class="nc" id="L125">	}</span>
+<span class="nc" id="L110">		final var key=oKey.stringValue();</span>
+<span class="nc" id="L111">		where(key).orElse(peek()).put(key, oValue);</span>
+<span class="nc" id="L112">	}</span>
 
 	/**
 	*	Pushes the dictionary to this stack.
@@ -131,8 +118,8 @@ public final class DictStack
 	*/
 	public void begin(final PsyFormalDict&lt;PsyObject&gt; oDict)
 	{
-<span class="fc" id="L134">		push(oDict);</span>
-<span class="fc" id="L135">	}</span>
+<span class="fc" id="L121">		push(oDict);</span>
+<span class="fc" id="L122">	}</span>
 
 	/**
 	*	Pops a non-permanent dictionary from this stack.
@@ -143,9 +130,9 @@ public final class DictStack
 	public void end()
 		throws PsyDictStackUnderflowException
 	{
-<span class="fc bfc" id="L146" title="All 2 branches covered.">		if(size()&lt;=2)</span>
-<span class="fc" id="L147">			throw new PsyDictStackUnderflowException();</span>
-<span class="fc" id="L148">		pop();</span>
-<span class="fc" id="L149">	}</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">		if(size()&lt;=2)</span>
+<span class="fc" id="L134">			throw new PsyDictStackUnderflowException();</span>
+<span class="fc" id="L135">		pop();</span>
+<span class="fc" id="L136">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

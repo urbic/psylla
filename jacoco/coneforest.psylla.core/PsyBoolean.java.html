@@ -73,7 +73,7 @@ public final class PsyBoolean
 
 	/**
 	*	{@return a {@code boolean} result of boolean exclusive disjunction of this object and given
-	*		object}
+	*	object}
 	*
 	*	@param oBoolean given object.
 	*/
@@ -84,27 +84,21 @@ public final class PsyBoolean
 	}
 
 	@Override
-	public PsyBoolean psyEq(final PsyObject o)
-	{
-<span class="fc bfc" id="L89" title="All 2 branches covered.">		return PsyBoolean.of(this==o);</span>
-	}
-
-	@Override
 	public int compareTo(final PsyBoolean oBoolean)
 	{
-<span class="fc bfc" id="L95" title="All 4 branches covered.">		return this==oBoolean? 0: this==FALSE? -1: 1;</span>
+<span class="fc bfc" id="L89" title="All 4 branches covered.">		return this==oBoolean? 0: this==FALSE? -1: 1;</span>
 	}
 
 	@Override
 	public int hashCode()
 	{
-<span class="fc bfc" id="L101" title="All 2 branches covered.">		return booleanValue()? 1231: 1237;</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">		return booleanValue()? 1231: 1237;</span>
 	}
 
 	@Override
 	public boolean equals(final Object object)
 	{
-<span class="nc bnc" id="L107" title="All 2 branches missed.">		return this==object;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		return this==object;</span>
 	}
 
 	/**
@@ -114,7 +108,7 @@ public final class PsyBoolean
 	*/
 	public static PsyBoolean of(final boolean bool)
 	{
-<span class="fc bfc" id="L117" title="All 2 branches covered.">		return bool? TRUE: FALSE;</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		return bool? TRUE: FALSE;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

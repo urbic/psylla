@@ -94,11 +94,17 @@ public interface PsyFormalSet&lt;T extends PsyObject&gt;
 
 	/**
 	*	{@return a {@code boolean} object indicating whether a given {@code object} belongs to this
-	*		set}
+	*	set}
 	*
 	*	@param o an {@code object}.
 	*/
-	public PsyBoolean psyContains(final T o);
+	public default PsyBoolean psyContains(final PsyObject o)
+	{
+<span class="nc bnc" id="L103" title="All 2 branches missed.">		for(var o1: this)</span>
+<span class="nc bnc" id="L104" title="All 2 branches missed.">			if(o1.equals(o))</span>
+<span class="nc" id="L105">				return PsyBoolean.TRUE;</span>
+<span class="nc" id="L106">		return PsyBoolean.FALSE;</span>
+	}
 
 	/**
 	*	Removes all the elements from this set.
@@ -106,9 +112,9 @@ public interface PsyFormalSet&lt;T extends PsyObject&gt;
 	@Override
 	public default void psyClear()
 	{
-<span class="nc bnc" id="L109" title="All 2 branches missed.">		for(final var o: this)</span>
-<span class="nc" id="L110">			psyRemove(o);</span>
-<span class="nc" id="L111">	}</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">		for(final var o: this)</span>
+<span class="nc" id="L116">			psyRemove(o);</span>
+<span class="nc" id="L117">	}</span>
 
 	/**
 	*	Appends all the {@code object}s from a given {@code iterable} enumeration to this set. When
@@ -123,38 +129,38 @@ public interface PsyFormalSet&lt;T extends PsyObject&gt;
 	public default void psyAppendAll(final PsyIterable&lt;? extends T&gt; oEnumeration)
 		throws PsyLimitCheckException, PsyRangeCheckException
 	{
-<span class="fc bfc" id="L126" title="All 2 branches covered.">		if(this==oEnumeration)</span>
-<span class="fc" id="L127">			return;</span>
-<span class="fc bfc" id="L128" title="All 2 branches covered.">		for(final var o: oEnumeration)</span>
-<span class="fc" id="L129">			psyAppend(o);</span>
-<span class="fc" id="L130">	}</span>
+<span class="fc bfc" id="L132" title="All 2 branches covered.">		if(this==oEnumeration)</span>
+<span class="fc" id="L133">			return;</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">		for(final var o: oEnumeration)</span>
+<span class="fc" id="L135">			psyAppend(o);</span>
+<span class="fc" id="L136">	}</span>
 
 	/**
 	*	{@return a {@code boolean} object indicating whether a given {@code formalset} set
-	*		intersects with this set}
+	*	intersects with this set}
 	*
 	*	@param oSet a {@code formalset} set.
 	*/
 	public default PsyBoolean psyIntersects(final PsyFormalSet&lt;? extends T&gt; oSet)
 	{
-<span class="nc bnc" id="L140" title="All 2 branches missed.">		for(final var o: oSet)</span>
-<span class="nc bnc" id="L141" title="All 2 branches missed.">			if(psyContains(o).booleanValue())</span>
-<span class="nc" id="L142">				return PsyBoolean.TRUE;</span>
-<span class="nc" id="L143">		return PsyBoolean.FALSE;</span>
+<span class="nc bnc" id="L146" title="All 2 branches missed.">		for(final var o: oSet)</span>
+<span class="nc bnc" id="L147" title="All 2 branches missed.">			if(psyContains(o).booleanValue())</span>
+<span class="nc" id="L148">				return PsyBoolean.TRUE;</span>
+<span class="nc" id="L149">		return PsyBoolean.FALSE;</span>
 	}
 
 	@Override
 	public default PsyFormalSet&lt;T&gt; psyReplicate(final PsyInteger oCount)
 		throws PsyLimitCheckException, PsyRangeCheckException, PsyUnsupportedException
 	{
-<span class="nc" id="L150">		final long count=oCount.longValue();</span>
-<span class="nc bnc" id="L151" title="All 2 branches missed.">		if(count&lt;0)</span>
-<span class="nc" id="L152">			throw new PsyRangeCheckException();</span>
-<span class="nc bnc" id="L153" title="All 2 branches missed.">		if(count&gt;Integer.MAX_VALUE)</span>
-<span class="nc" id="L154">			throw new PsyLimitCheckException();</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">		if(count==0)</span>
-<span class="nc" id="L156">			return (PsyFormalSet&lt;T&gt;)psyNewEmpty();</span>
-<span class="nc" id="L157">		return psyClone();</span>
+<span class="nc" id="L156">		final long count=oCount.longValue();</span>
+<span class="nc bnc" id="L157" title="All 2 branches missed.">		if(count&lt;0)</span>
+<span class="nc" id="L158">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">		if(count&gt;Integer.MAX_VALUE)</span>
+<span class="nc" id="L160">			throw new PsyLimitCheckException();</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">		if(count==0)</span>
+<span class="nc" id="L162">			return (PsyFormalSet&lt;T&gt;)psyNewEmpty();</span>
+<span class="nc" id="L163">		return psyClone();</span>
 	}
 
 	@Override
@@ -163,20 +169,23 @@ public interface PsyFormalSet&lt;T extends PsyObject&gt;
 	@Override
 	public default String toSyntaxString()
 	{
-<span class="fc" id="L166">		return toSyntaxStringHelper(new HashSet&lt;PsyContainer&lt;? extends PsyObject&gt;&gt;());</span>
+<span class="fc" id="L172">		return toSyntaxStringHelper(new HashSet&lt;PsyContainer&lt;? extends PsyObject&gt;&gt;());</span>
 	}
 
 	@Override
 	public default String toSyntaxStringHelper(final Set&lt;PsyContainer&lt;? extends PsyObject&gt;&gt; processed)
 	{
-<span class="pc bpc" id="L172" title="1 of 2 branches missed.">		if(!processed.add(this))</span>
-<span class="nc" id="L173">			return '%'+typeName()+'%';</span>
-<span class="fc" id="L174">		final var sj=new StringJoiner(&quot; &quot;, &quot;(&quot;, &quot;)&quot;);</span>
-<span class="fc bfc" id="L175" title="All 2 branches covered.">		for(final var o: this)</span>
-<span class="pc bpc" id="L176" title="1 of 2 branches missed.">			sj.add(o instanceof PsyContainer&lt;? extends PsyObject&gt; oContainer?</span>
-<span class="nc" id="L177">				oContainer.toSyntaxStringHelper(processed):</span>
-<span class="fc" id="L178">				o.toSyntaxString());</span>
-<span class="fc" id="L179">		return sj.toString();</span>
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">		if(!processed.add(this))</span>
+<span class="nc" id="L179">			return '%'+typeName()+'%';</span>
+<span class="fc" id="L180">		final var sj=new StringJoiner(&quot; &quot;, &quot;(&quot;, &quot;)&quot;);</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">		for(final var o: this)</span>
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">			sj.add(o instanceof PsyContainer&lt;? extends PsyObject&gt; oContainer?</span>
+<span class="nc" id="L183">				oContainer.toSyntaxStringHelper(processed):</span>
+<span class="fc" id="L184">				o.toSyntaxString());</span>
+<span class="fc" id="L185">		return sj.toString();</span>
 	}
+
+	@Override
+	public boolean equals(final Object obj);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

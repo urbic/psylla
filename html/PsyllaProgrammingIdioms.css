@@ -82,13 +82,13 @@ code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attri
 
 .command { font-weight: bold; }
 
-table.productionset { font-family: "Source Code Pro", "Roboto Mono", monospace; background-color: #fffbf5; }
+table.productionset { font-family: "Source Code Pro", "Roboto Mono", monospace; background-color: white; }
 
 :link:hover .errorname, .errorname { color: #570057; text-decoration-color: #570057; }
 
 .formalpara-title { font-weight: bold; }
 
-.programlisting, .screen, .cmdsynopsis, .literallayout { padding: 1em; background-color: #fffbf5; font-size: 18px; }
+.programlisting, .screen, .cmdsynopsis, .literallayout { padding: 1em; background-color: white; font-size: 18px; }
 
 .literallayout p, .cmdsynopsis p { margin: 0em; }
 

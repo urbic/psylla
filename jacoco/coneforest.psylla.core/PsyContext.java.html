@@ -11,7 +11,7 @@ import jline.ConsoleReader;
 */
 @Type(&quot;context&quot;)
 public interface PsyContext
-	extends PsyObject
+	extends PsyObject, Runnable
 {
 	/**
 	*	Context action of the {@code begin} operator.
@@ -380,9 +380,9 @@ public interface PsyContext
 	@OperatorType(&quot;namespace&quot;)
 <span class="fc" id="L381">	public static final ContextAction PSY_NAMESPACE=oContext-&gt;</span>
 		{
-<span class="nc" id="L383">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="nc" id="L384">			ostack.push(oContext.namespacePool().get(ostack.&lt;PsyTextual&gt;getBacked(0).stringValue()));</span>
-<span class="nc" id="L385">		};</span>
+<span class="fc" id="L383">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L384">			ostack.push(oContext.namespacePool().get(ostack.&lt;PsyTextual&gt;getBacked(0).stringValue()));</span>
+<span class="fc" id="L385">		};</span>
 
 	/**
 	*	Context action of the {@code pop} operator.
@@ -476,10 +476,10 @@ public interface PsyContext
 		{
 <span class="fc" id="L477">			final var ostack=oContext.operandStackBacked(2);</span>
 <span class="fc" id="L478">			final var n=ostack.&lt;PsyInteger&gt;getBacked(0).intValue();</span>
-<span class="pc bpc" id="L479" title="1 of 2 branches missed.">			if(n&lt;0)</span>
-<span class="nc" id="L480">				throw new PsyRangeCheckException();</span>
-<span class="pc bpc" id="L481" title="1 of 2 branches missed.">			if(n==0)</span>
-<span class="nc" id="L482">				return;</span>
+<span class="fc bfc" id="L479" title="All 2 branches covered.">			if(n&lt;0)</span>
+<span class="fc" id="L480">				throw new PsyRangeCheckException();</span>
+<span class="fc bfc" id="L481" title="All 2 branches covered.">			if(n==0)</span>
+<span class="fc" id="L482">				return;</span>
 <span class="fc" id="L483">			final int j=Math.floorMod(ostack.&lt;PsyInteger&gt;getBacked(1).intValue(), n);</span>
 <span class="fc" id="L484">			final var ostackSize=ostack.size();</span>
 <span class="fc" id="L485">			ostack.ensureSize(n);</span>
@@ -619,9 +619,9 @@ public interface PsyContext
 	/**
 	*	{@return the currently executing context}
 	*/
-	public static PsyContext psyCurrentContext()
+	public default PsyContext psyCurrentContext()
 	{
-<span class="fc" id="L624">		return (PsyContext)Thread.currentThread();</span>
+<span class="nc" id="L624">		return this;</span>
 	}
 
 	public void fork()

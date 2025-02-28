@@ -85,54 +85,55 @@ public class PsyBitSet
 	public void psyAppendAll(final PsyIterable&lt;? extends PsyInteger&gt; oIterable)
 		throws PsyLimitCheckException, PsyRangeCheckException
 	{
-<span class="pc bpc" id="L88" title="1 of 2 branches missed.">		if(oIterable instanceof PsyBitSet oBitSet)</span>
-<span class="nc" id="L89">			bitset.or(oBitSet.bitset);</span>
-		else
-<span class="fc" id="L91">			PsyFormalSet.super.psyAppendAll(oIterable);</span>
-<span class="fc" id="L92">	}</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">		switch(oIterable)</span>
+		{
+<span class="fc" id="L90">			case PsyBitSet oBitSet-&gt;bitset.or(oBitSet.bitset);</span>
+<span class="fc" id="L91">			default-&gt;PsyFormalSet.super.psyAppendAll(oIterable);</span>
+		}
+<span class="fc" id="L93">	}</span>
 
 	@Override
 	public void psyRemove(final PsyInteger oIndex)
 	{
 		try
 		{
-<span class="nc" id="L99">			bitset.set(oIndex.intValue(), false);</span>
+<span class="fc" id="L100">			bitset.set(oIndex.intValue(), false);</span>
 		}
-<span class="nc" id="L101">		catch(final IndexOutOfBoundsException ex)</span>
+<span class="fc" id="L102">		catch(final IndexOutOfBoundsException ex)</span>
 		{
 			// NOP
-<span class="nc" id="L104">		}</span>
-<span class="nc" id="L105">	}</span>
+<span class="fc" id="L105">		}</span>
+<span class="fc" id="L106">	}</span>
 
 	@Override
 	public void psyRemoveAll(final PsyIterable&lt;? extends PsyInteger&gt; oIterable)
 	{
-<span class="nc bnc" id="L110" title="All 2 branches missed.">		switch(oIterable)</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">		switch(oIterable)</span>
 		{
-<span class="nc" id="L112">			case PsyBitSet oBitSet-&gt;bitset.andNot(oBitSet.bitset);</span>
-<span class="nc" id="L113">			default-&gt;PsyFormalSet.super.psyRemoveAll(oIterable);</span>
+<span class="nc" id="L113">			case PsyBitSet oBitSet-&gt;bitset.andNot(oBitSet.bitset);</span>
+<span class="nc" id="L114">			default-&gt;PsyFormalSet.super.psyRemoveAll(oIterable);</span>
 		}
-<span class="nc" id="L115">	}</span>
+<span class="nc" id="L116">	}</span>
 
 	@Override
 	public Iterator&lt;PsyInteger&gt; iterator()
 	{
-<span class="nc" id="L120">		return new Iterator&lt;PsyInteger&gt;()</span>
-<span class="nc" id="L121">			{</span>
-<span class="nc" id="L122">				private int index=bitset.nextSetBit(0);</span>
+<span class="nc" id="L121">		return new Iterator&lt;PsyInteger&gt;()</span>
+<span class="nc" id="L122">			{</span>
+<span class="nc" id="L123">				private int index=bitset.nextSetBit(0);</span>
 
 				@Override
 				public boolean hasNext()
 				{
-<span class="nc bnc" id="L127" title="All 2 branches missed.">					return index&gt;=0;</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">					return index&gt;=0;</span>
 				}
 
 				@Override
 				public PsyInteger next()
 				{
-<span class="nc" id="L133">					final var result=PsyInteger.of(index);</span>
-<span class="nc" id="L134">					index=bitset.nextSetBit(index+1);</span>
-<span class="nc" id="L135">					return result;</span>
+<span class="nc" id="L134">					final var result=PsyInteger.of(index);</span>
+<span class="nc" id="L135">					index=bitset.nextSetBit(index+1);</span>
+<span class="nc" id="L136">					return result;</span>
 				}
 			};
 	}
@@ -140,42 +141,68 @@ public class PsyBitSet
 	@Override
 	public void psyClear()
 	{
-<span class="fc" id="L143">		bitset.clear();</span>
-<span class="fc" id="L144">	}</span>
+<span class="fc" id="L144">		bitset.clear();</span>
+<span class="fc" id="L145">	}</span>
 
 	@Override
 	public int length()
 	{
-<span class="fc" id="L149">		return bitset.cardinality();</span>
+<span class="fc" id="L150">		return bitset.cardinality();</span>
 	}
 
 	@Override
-	public PsyBoolean psyContains(final PsyInteger oElement)
+	public PsyBoolean psyContains(final PsyObject oElement)
 	{
-<span class="nc" id="L155">		return PsyBoolean.of(bitset.get(oElement.intValue()));</span>
+<span class="nc" id="L156">		return PsyBoolean.of(oElement instanceof PsyInteger oInteger</span>
+<span class="nc bnc" id="L157" title="All 4 branches missed.">				&amp;&amp; bitset.get(oInteger.intValue()));</span>
 	}
 
 	@Override
 	public PsyBoolean psyIntersects(final PsyFormalSet&lt;? extends PsyInteger&gt; oSet)
 	{
-<span class="nc bnc" id="L161" title="All 2 branches missed.">		if(oSet instanceof PsyBitSet oBitSet)</span>
-<span class="nc" id="L162">			return PsyBoolean.of(bitset.intersects(oBitSet.bitset));</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">		if(oSet instanceof PsyBitSet oBitSet)</span>
+<span class="nc" id="L164">			return PsyBoolean.of(bitset.intersects(oBitSet.bitset));</span>
 		else
-<span class="nc" id="L164">			return PsyFormalSet.super.psyIntersects(oSet);</span>
+<span class="nc" id="L166">			return PsyFormalSet.super.psyIntersects(oSet);</span>
 	}
 
-	@Override
+	/*@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-<span class="nc" id="L170">		return PsyBoolean.of(o instanceof PsyBitSet oBitSet</span>
-<span class="nc bnc" id="L171" title="All 4 branches missed.">				&amp;&amp; bitset.equals(oBitSet.bitset));</span>
-	}
+		return PsyBoolean.of(o instanceof PsyBitSet oBitSet
+				&amp;&amp; bitset.equals(oBitSet.bitset));
+	}*/
 
 	@Override
 	public PsyFormalStream&lt;PsyInteger&gt; psyStream()
 	{
-<span class="fc" id="L177">		return PsyFormalStream.&lt;PsyInteger&gt;of(</span>
-<span class="fc" id="L178">				bitset.stream().&lt;PsyInteger&gt;mapToObj(PsyInteger::of));</span>
+<span class="fc" id="L179">		return PsyFormalStream.&lt;PsyInteger&gt;of(</span>
+<span class="fc" id="L180">				bitset.stream().&lt;PsyInteger&gt;mapToObj(PsyInteger::of));</span>
+	}
+
+	@Override
+	public int hashCode()
+	{
+<span class="nc" id="L186">		return bitset.hashCode();</span>
+	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+<span class="nc bnc" id="L192" title="All 3 branches missed.">		return switch(obj)</span>
+			{
+<span class="nc" id="L194">				case PsyBitSet oBitSet-&gt;bitset.equals(oBitSet.bitset);</span>
+<span class="nc" id="L195">				case PsyFormalSet&lt;? extends PsyObject&gt; oFormalSet-&gt;</span>
+					{
+<span class="nc bnc" id="L197" title="All 2 branches missed.">						if(length()!=oFormalSet.length())</span>
+<span class="nc" id="L198">							yield false;</span>
+<span class="nc bnc" id="L199" title="All 2 branches missed.">						for(final var oInteger: this)</span>
+<span class="nc bnc" id="L200" title="All 2 branches missed.">							if(!oFormalSet.psyContains(oInteger).booleanValue())</span>
+<span class="nc" id="L201">								yield false;</span>
+<span class="nc" id="L202">						yield true;</span>
+					}
+<span class="nc" id="L204">				default-&gt;false;</span>
+			};
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

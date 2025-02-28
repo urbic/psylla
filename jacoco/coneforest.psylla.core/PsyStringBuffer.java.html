@@ -332,14 +332,14 @@ public class PsyStringBuffer
 <span class="fc bfc" id="L332" title="All 2 branches covered.">		for(int i=0; i&lt;buffer.length(); i++)</span>
 		{
 <span class="fc" id="L334">			final char c=buffer.charAt(i);</span>
-<span class="pc bpc" id="L335" title="1 of 11 branches missed.">			sb.append(switch(c)</span>
+<span class="fc bfc" id="L335" title="All 11 branches covered.">			sb.append(switch(c)</span>
 				{
 <span class="fc" id="L337">					case '\u0000'-&gt;&quot;\\0&quot;;</span>
 <span class="fc" id="L338">					case '\u0007'-&gt;&quot;\\a&quot;;</span>
 <span class="fc" id="L339">					case '\n'-&gt;&quot;\\n&quot;;</span>
 <span class="fc" id="L340">					case '\r'-&gt;&quot;\\r&quot;;</span>
 <span class="fc" id="L341">					case '\t'-&gt;&quot;\\t&quot;;</span>
-<span class="nc" id="L342">					case '\u000B'-&gt;&quot;\\v&quot;;</span>
+<span class="fc" id="L342">					case '\u000B'-&gt;&quot;\\v&quot;;</span>
 <span class="fc" id="L343">					case '\f'-&gt;&quot;\\f&quot;;</span>
 <span class="fc" id="L344">					case '\u001B'-&gt;&quot;\\e&quot;;</span>
 <span class="fc" id="L345">					case '\&quot;'-&gt;&quot;\\\&quot;&quot;;</span>
@@ -368,14 +368,14 @@ public class PsyStringBuffer
 				case '\\'-&gt;
 					{
 <span class="fc" id="L370">						i++;</span>
-<span class="pc bpc" id="L371" title="5 of 17 branches missed.">						switch(image.charAt(i))</span>
+<span class="pc bpc" id="L371" title="3 of 17 branches missed.">						switch(image.charAt(i))</span>
 						{
 <span class="fc" id="L373">							case '0'-&gt;sb.append('\u0000');</span>
 <span class="fc" id="L374">							case 'a'-&gt;sb.append('\u0007');</span>
-<span class="nc" id="L375">							case 'n'-&gt;sb.append('\n');</span>
+<span class="fc" id="L375">							case 'n'-&gt;sb.append('\n');</span>
 <span class="fc" id="L376">							case 'r'-&gt;sb.append('\r');</span>
 <span class="fc" id="L377">							case 't'-&gt;sb.append('\t');</span>
-<span class="nc" id="L378">							case 'v'-&gt;sb.append('\u000B');</span>
+<span class="fc" id="L378">							case 'v'-&gt;sb.append('\u000B');</span>
 <span class="fc" id="L379">							case 'f'-&gt;sb.append('\f');</span>
 <span class="fc" id="L380">							case 'e'-&gt;sb.append('\u001B');</span>
 <span class="fc" id="L381">							case '&quot;'-&gt;sb.append('&quot;');</span>
@@ -395,14 +395,14 @@ public class PsyStringBuffer
 								{
 									try
 									{
-<span class="fc" id="L398">										final var j=image.indexOf('}', i+2);</span>
-<span class="fc" id="L399">										sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));</span>
-<span class="fc" id="L400">										i=j;</span>
+<span class="nc" id="L398">										final var j=image.indexOf('}', i+2);</span>
+<span class="nc" id="L399">										sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));</span>
+<span class="nc" id="L400">										i=j;</span>
 									}
 <span class="nc" id="L402">									catch(final IllegalArgumentException ex)</span>
 									{
 <span class="nc" id="L404">										throw new PsySyntaxErrorException();</span>
-<span class="fc" id="L405">									}</span>
+<span class="nc" id="L405">									}</span>
 								}
 							case 'o'-&gt;
 								{
@@ -421,16 +421,16 @@ public class PsyStringBuffer
 								{
 									try
 									{
-<span class="nc" id="L424">										final var j=image.indexOf('}', i+2);</span>
-<span class="nc" id="L425">										final var cp=Character.codePointOf(image.substring(i+2, j));</span>
+<span class="fc" id="L424">										final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L425">										final var cp=Character.codePointOf(image.substring(i+2, j));</span>
 										// TODO
-<span class="nc" id="L427">										sb.append((char)cp);</span>
-<span class="nc" id="L428">										i=j;</span>
+<span class="fc" id="L427">										sb.append((char)cp);</span>
+<span class="fc" id="L428">										i=j;</span>
 									}
-<span class="nc" id="L430">									catch(final IllegalArgumentException ex)</span>
+<span class="fc" id="L430">									catch(final IllegalArgumentException ex)</span>
 									{
-<span class="nc" id="L432">										throw new PsySyntaxErrorException();</span>
-<span class="nc" id="L433">									}</span>
+<span class="fc" id="L432">										throw new PsySyntaxErrorException();</span>
+<span class="fc" id="L433">									}</span>
 								}
 						}
 <span class="fc" id="L436">					}</span>

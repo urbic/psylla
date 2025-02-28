@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.CharBuffer;
-import java.util.Optional;
 
 /**
 *	The representation of {@code reader}.
@@ -28,9 +27,9 @@ public class PsyReader
 	*	@param reader the reader.
 	*/
 	public PsyReader(final Reader reader)
-<span class="fc" id="L31">	{</span>
-<span class="fc" id="L32">		this.reader=reader;</span>
-<span class="fc" id="L33">	}</span>
+<span class="fc" id="L30">	{</span>
+<span class="fc" id="L31">		this.reader=reader;</span>
+<span class="fc" id="L32">	}</span>
 
 	/**
 	*	Constructs a new {@code reader} object from the input stream.
@@ -39,29 +38,29 @@ public class PsyReader
 	*/
 	public PsyReader(final InputStream is)
 	{
-<span class="nc" id="L42">		this(new InputStreamReader(is));</span>
-<span class="nc" id="L43">	}</span>
+<span class="nc" id="L41">		this(new InputStreamReader(is));</span>
+<span class="nc" id="L42">	}</span>
 
 	@Override
 	public void psyEval(final PsyContext oContext)
 		throws PsyErrorException
 	{
-<span class="fc" id="L49">		oContext.interpret(this);</span>
-<span class="fc" id="L50">	}</span>
+<span class="fc" id="L48">		oContext.interpret(this);</span>
+<span class="fc" id="L49">	}</span>
 
 	/**
 	*	{@return the {@link Reader} object backed by this object}
 	*/
 	public Reader reader()
 	{
-<span class="fc" id="L57">		return reader;</span>
+<span class="fc" id="L56">		return reader;</span>
 	}
 
 	@Override
 	public int read()
 		throws IOException, IOError
 	{
-<span class="fc" id="L64">		return reader.read();</span>
+<span class="fc" id="L63">		return reader.read();</span>
 	}
 
 	@Override
@@ -71,25 +70,25 @@ public class PsyReader
 			PsyLimitCheckException,
 			PsyRangeCheckException
 	{
-<span class="nc" id="L74">		final var count=oCount.longValue();</span>
-<span class="nc bnc" id="L75" title="All 2 branches missed.">		if(count&lt;=0)</span>
-<span class="nc" id="L76">			throw new PsyRangeCheckException();</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">		if(count&gt;Integer.MAX_VALUE)</span>
-<span class="nc" id="L78">			throw new PsyLimitCheckException();</span>
+<span class="nc" id="L73">		final var count=oCount.longValue();</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">		if(count&lt;=0)</span>
+<span class="nc" id="L75">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">		if(count&gt;Integer.MAX_VALUE)</span>
+<span class="nc" id="L77">			throw new PsyLimitCheckException();</span>
 		try
 		{
-<span class="nc" id="L81">			final var buffer=CharBuffer.allocate((int)count);</span>
-<span class="nc" id="L82">			reader.read(buffer);</span>
-<span class="nc" id="L83">			buffer.flip();</span>
-<span class="nc" id="L84">			return new PsyStringBuffer(buffer.toString());</span>
+<span class="nc" id="L80">			final var buffer=CharBuffer.allocate((int)count);</span>
+<span class="nc" id="L81">			reader.read(buffer);</span>
+<span class="nc" id="L82">			buffer.flip();</span>
+<span class="nc" id="L83">			return new PsyStringBuffer(buffer.toString());</span>
 		}
-<span class="nc" id="L86">		catch(final OutOfMemoryError ex)</span>
+<span class="nc" id="L85">		catch(final OutOfMemoryError ex)</span>
 		{
-<span class="nc" id="L88">			throw new PsyLimitCheckException();</span>
+<span class="nc" id="L87">			throw new PsyLimitCheckException();</span>
 		}
-<span class="nc" id="L90">		catch(final IOException|IOError ex)</span>
+<span class="nc" id="L89">		catch(final IOException|IOError ex)</span>
 		{
-<span class="nc" id="L92">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L91">			throw new PsyIOErrorException();</span>
 		}
 	}
 
@@ -101,17 +100,17 @@ public class PsyReader
 	{
 		try
 		{
-<span class="fc" id="L104">			final long count=oCount.longValue();</span>
+<span class="fc" id="L103">			final long count=oCount.longValue();</span>
 			//return PsyBoolean.of(count==reader.skip(count));
-<span class="fc" id="L106">			return PsyInteger.of(reader.skip(count));</span>
+<span class="fc" id="L105">			return PsyInteger.of(reader.skip(count));</span>
 		}
-<span class="fc" id="L108">		catch(final IllegalArgumentException ex)</span>
+<span class="fc" id="L107">		catch(final IllegalArgumentException ex)</span>
 		{
-<span class="fc" id="L110">			throw new PsyRangeCheckException();</span>
+<span class="fc" id="L109">			throw new PsyRangeCheckException();</span>
 		}
-<span class="nc" id="L112">		catch(final IOException ex)</span>
+<span class="nc" id="L111">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L114">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L113">			throw new PsyIOErrorException();</span>
 		}
 	}
 
@@ -121,11 +120,11 @@ public class PsyReader
 	{
 		try
 		{
-<span class="fc" id="L124">			return PsyBoolean.of(reader.ready());</span>
+<span class="fc" id="L123">			return PsyBoolean.of(reader.ready());</span>
 		}
-<span class="nc" id="L126">		catch(final IOException ex)</span>
+<span class="nc" id="L125">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L128">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L127">			throw new PsyIOErrorException();</span>
 		}
 	}
 
@@ -135,13 +134,13 @@ public class PsyReader
 	{
 		try
 		{
-<span class="fc" id="L138">			reader.close();</span>
+<span class="fc" id="L137">			reader.close();</span>
 		}
-<span class="nc" id="L140">		catch(final IOException ex)</span>
+<span class="nc" id="L139">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L142">			throw new PsyIOErrorException();</span>
-<span class="fc" id="L143">		}</span>
-<span class="fc" id="L144">	}</span>
+<span class="nc" id="L141">			throw new PsyIOErrorException();</span>
+<span class="fc" id="L142">		}</span>
+<span class="fc" id="L143">	}</span>
 
 	@Override
 	public void psyReset()
@@ -149,12 +148,12 @@ public class PsyReader
 	{
 		try
 		{
-<span class="nc" id="L152">			reader.reset();</span>
+<span class="nc" id="L151">			reader.reset();</span>
 		}
-<span class="nc" id="L154">		catch(final IOException ex)</span>
+<span class="nc" id="L153">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L156">			throw new PsyIOErrorException();</span>
-<span class="nc" id="L157">		}</span>
-<span class="nc" id="L158">	}</span>
+<span class="nc" id="L155">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L156">		}</span>
+<span class="nc" id="L157">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

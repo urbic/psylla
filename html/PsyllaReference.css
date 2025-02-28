@@ -22,13 +22,13 @@
 
 html { background-color: lightgray; height: 100%; }
 
-body { position: static; overflow: auto; font-family: "Source Sans Pro", "Roboto", sans-serif; font-size: 18px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; background-color: white; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
+body { position: static; overflow: auto; font-family: "Roboto", sans-serif; font-size: 18px; max-width: auto; min-height: 100%; margin: 0pc auto 0pc 25%; top: 0px; bottom: 0px; background-color: white; tab-size: 4; -moz-tab-size: 4; -o-tab-size: 4; }
 
 body > * { margin: 0 4pc 0 4pc; }
 
 p { text-align: justify; hyphens: auto; -moz-hyphens: auto; -o-hyphens: auto; -webkit-hyphens: auto; }
 
-h1, h2, h3, h4, h5, h6 { color: #2f8d59; }
+h1, h2, h3, h4, h5, h6 { color: #1c5435; }
 
 h4 { font-size: 100%; }
 
@@ -44,7 +44,7 @@ h1 { font-size: 172.8%; }
 
 :link:hover { text-decoration: underline; }
 
-hr { border: solid #2f8d59 1px; }
+hr { border: solid #1c5435 1px; }
 
 .navfooter, .navheader { font-size: smaller; background-color: #bababa; }
 
@@ -54,11 +54,11 @@ hr { border: solid #2f8d59 1px; }
 
 .toc dl { margin-top: 0px; margin-bottom: 0px; }
 
-.literal { font-family: "Source Code Pro", "Roboto Mono", monospace; font-weight: bold; }
+.literal { font-family: "Roboto Mono", monospace; font-weight: bold; }
 
-code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .function, .errorname, .replaceable, .parameter, .property { font-family: "Source Code Pro", "Roboto Mono", monospace; }
+code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attribute, .sgmltag-attvalue, .code, .filename, .command, .type, .token, .function, .errorname, .replaceable, .parameter, .property { font-family: "Roboto Mono", monospace; }
 
-.replaceable { font-style: normal; text-decoration: underline; text-decoration-style: wavy; }
+.replaceable { font-style: italic; }
 
 .sgmltag-element { color: #039; font-weight: bolder; }
 
@@ -82,7 +82,7 @@ code, .programlisting, .screen, .literallayout, .sgmltag-element, .sgmltag-attri
 
 .command { font-weight: bold; }
 
-table.productionset { font-family: "Source Code Pro", "Roboto Mono", monospace; background-color: #fafafa; }
+table.productionset { font-family: "Roboto Mono", monospace; background-color: #fafafa; }
 
 :link:hover .errorname, .errorname { color: #570057; text-decoration-color: #570057; }
 

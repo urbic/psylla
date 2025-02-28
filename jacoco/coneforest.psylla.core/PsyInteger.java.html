@@ -197,9 +197,9 @@ public final class PsyInteger
 						{
 <span class="fc" id="L198">							yield PsyInteger.of(Math.addExact(value, oInteger.value));</span>
 						}
-<span class="nc" id="L200">						catch(final ArithmeticException ex)</span>
+<span class="fc" id="L200">						catch(final ArithmeticException ex)</span>
 						{
-<span class="nc" id="L202">							yield PsyIntegral.of(bigIntegerValue().add(oInteger.bigIntegerValue()));</span>
+<span class="fc" id="L202">							yield PsyIntegral.of(bigIntegerValue().add(oInteger.bigIntegerValue()));</span>
 						}
 					}
 <span class="fc" id="L205">				case PsyBigInteger oBigInteger-&gt;</span>
@@ -217,7 +217,7 @@ public final class PsyInteger
 	@Override
 	public PsyRealNumeric psySub(final PsyRealNumeric oRealNumeric)
 	{
-<span class="pc bpc" id="L220" title="2 of 4 branches missed.">		return switch(oRealNumeric)</span>
+<span class="fc bfc" id="L220" title="All 4 branches covered.">		return switch(oRealNumeric)</span>
 			{
 <span class="fc" id="L222">				case PsyInteger oInteger-&gt;</span>
 					{
@@ -225,16 +225,16 @@ public final class PsyInteger
 						{
 <span class="fc" id="L226">							yield PsyInteger.of(Math.subtractExact(value, oInteger.value));</span>
 						}
-<span class="nc" id="L228">						catch(final ArithmeticException ex)</span>
+<span class="fc" id="L228">						catch(final ArithmeticException ex)</span>
 						{
-<span class="nc" id="L230">							yield PsyIntegral.of(bigIntegerValue().subtract(oInteger.bigIntegerValue()));</span>
+<span class="fc" id="L230">							yield PsyIntegral.of(bigIntegerValue().subtract(oInteger.bigIntegerValue()));</span>
 						}
 					}
-<span class="nc" id="L233">				case PsyBigInteger oBigInteger-&gt;</span>
-<span class="nc" id="L234">					PsyIntegral.of(bigIntegerValue().subtract(oBigInteger.bigIntegerValue()));</span>
-<span class="nc" id="L235">				case PsyRational oRational-&gt;PsyRational.of(</span>
-<span class="nc" id="L236">						(PsyIntegral)psyMul(oRational.psyDenominator()).psySub(oRational.psyNumerator()),</span>
-<span class="nc" id="L237">						oRational.psyDenominator());</span>
+<span class="fc" id="L233">				case PsyBigInteger oBigInteger-&gt;</span>
+<span class="fc" id="L234">					PsyIntegral.of(bigIntegerValue().subtract(oBigInteger.bigIntegerValue()));</span>
+<span class="fc" id="L235">				case PsyRational oRational-&gt;PsyRational.of(</span>
+<span class="fc" id="L236">						(PsyIntegral)psyMul(oRational.psyDenominator()).psySub(oRational.psyNumerator()),</span>
+<span class="fc" id="L237">						oRational.psyDenominator());</span>
 <span class="fc" id="L238">				case PsyReal oReal-&gt;new PsyReal(value-oReal.doubleValue());</span>
 			};
 	}
@@ -321,9 +321,9 @@ public final class PsyInteger
 <span class="fc" id="L321">							yield PsyIntegral.of(</span>
 <span class="fc" id="L322">									bigIntegerValue().mod(oBigInteger.bigIntegerValue()));</span>
 						}
-<span class="nc" id="L324">						catch(final ArithmeticException ex)</span>
+<span class="fc" id="L324">						catch(final ArithmeticException ex)</span>
 						{
-<span class="nc" id="L326">							throw new PsyRangeCheckException(ex);</span>
+<span class="fc" id="L326">							throw new PsyRangeCheckException(ex);</span>
 						}
 					}
 <span class="nc" id="L329">				default-&gt;((PsyIntegral)psyMul(oRational.psyDenominator()))</span>

@@ -120,12 +120,12 @@ public interface PsyObject
 	*/
 	public default PsyBoolean psyEq(final PsyObject o)
 	{
-<span class="nc bnc" id="L123" title="All 2 branches missed.">		return PsyBoolean.of(this==o);</span>
+<span class="fc" id="L123">		return PsyBoolean.of(equals(o));</span>
 	}
 
 	public default PsyBoolean psyNe(final PsyObject o)
 	{
-<span class="nc" id="L128">		return psyEq(o).psyNot();</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">		return PsyBoolean.of(!equals(o));</span>
 	}
 
 	/**

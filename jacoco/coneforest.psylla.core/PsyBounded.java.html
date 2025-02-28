@@ -29,7 +29,7 @@ public interface PsyBounded
 	public int capacity();
 
 	/**
-	*	{@returns the {@code integer} capacity of this container}
+	*	{@return the {@code integer} capacity of this container}
 	*/
 	public default PsyInteger psyCapacity()
 	{

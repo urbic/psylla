@@ -58,7 +58,7 @@ public final class PsyRegExp
 	*/
 	public Pattern getPattern()
 	{
-<span class="nc" id="L61">		return pattern;</span>
+<span class="fc" id="L61">		return pattern;</span>
 	}
 
 	@Override
@@ -105,7 +105,7 @@ public final class PsyRegExp
 				case '\\'-&gt;
 					{
 <span class="fc" id="L107">						i++;</span>
-<span class="pc bpc" id="L108" title="1 of 16 branches missed.">						switch(image.charAt(i))</span>
+<span class="fc bfc" id="L108" title="All 16 branches covered.">						switch(image.charAt(i))</span>
 						{
 <span class="fc" id="L110">							case '0'-&gt;sb.append('\u0000');</span>
 <span class="fc" id="L111">							case 'a'-&gt;sb.append('\u0007');</span>
@@ -147,15 +147,15 @@ public final class PsyRegExp
 									try
 									{
 										// TODO: if not found
-<span class="nc" id="L150">										final var j=image.indexOf('}', i+2);</span>
-<span class="nc" id="L151">										sb.append(Character.toChars(</span>
-<span class="nc" id="L152">												Integer.valueOf(image.substring(i+2, j), 8)));</span>
-<span class="nc" id="L153">										i=j;</span>
+<span class="fc" id="L150">										final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L151">										sb.append(Character.toChars(</span>
+<span class="fc" id="L152">												Integer.valueOf(image.substring(i+2, j), 8)));</span>
+<span class="fc" id="L153">										i=j;</span>
 									}
 <span class="nc" id="L155">									catch(final IllegalArgumentException ex)</span>
 									{
 <span class="nc" id="L157">										throw new PsySyntaxErrorException(ex);</span>
-<span class="nc" id="L158">									}</span>
+<span class="fc" id="L158">									}</span>
 								}
 							case 'N'-&gt;
 								{
