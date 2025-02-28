@@ -13,7 +13,6 @@
 
 	<xsl:import href="highlight.xsl"/>
 	<xsl:import href="autoidx.xsl"/>
-	<xsl:import href="http://docbook.sourceforge.net/release/xsl-ns/current/xhtml/autoidx-kosek.xsl"/>
 
 	<xsl:param name="admon.graphics" select="1"/>
 	<xsl:param name="admon.graphics.extension">.svg</xsl:param>
@@ -40,7 +39,6 @@
 	<xsl:param name="highlight.source" select="1"/>
 	<xsl:param name="html.ext">.xhtml</xsl:param>
 	<xsl:param name="html.extra.head.links" select="1"/>
-	<xsl:param name="index.method">kosek</xsl:param>
 	<xsl:param name="index.on.type" select="1"/>
 	<xsl:param name="keep.relative.image.uris" select="1"/>
 	<xsl:param name="local.l10n.xml" select="document('l10n.xml')"/>
