@@ -139,7 +139,7 @@ public interface PsyIndexed<K extends PsyObject, V extends PsyObject>
 
 	/**
 	*	{@return a container of the same type as this object consisting of keys or indices from given
-	*		{@code iterable} and of associated values}
+	*	{@code iterable} and of associated values}
 	*
 	*	@param oKeys an enumeration of keys.
 	*	@throws PsyLimitCheckException when TODO

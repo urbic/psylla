@@ -91,8 +91,8 @@ public abstract class PsyOperator
 
 	/**
 	*	{@return a syntactic string representation of this operator} A syntatctic representation has
-	*		a form of <code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a string
-	*		returned by {@link #getName()} method.
+	*	a form of <code>"--<i>name</i>--"</code>, where <code><i>name</i></code> is a string
+	*	returned by {@link #getName()} method.
 	*/
 	@Override
 	public String toSyntaxString()

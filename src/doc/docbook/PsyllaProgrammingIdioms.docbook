@@ -48,7 +48,9 @@
 <section>
 <title>Print Hello World</title>
 
-<para>Print a literal string on standard output</para>
+<para>
+Print a literal string on standard output
+</para>
 
 <programlisting language="psylla">'Hello, World' print</programlisting>
 
@@ -57,7 +59,9 @@
 <section>
 <title>Print Hello 10 times</title>
 
-<para>Loop to execute some code a constant number of times</para>
+<para>
+Loop to execute some code a constant number of times
+</para>
 
 <programlisting language="psylla">10 { 'Hello' say } repeat</programlisting>
 

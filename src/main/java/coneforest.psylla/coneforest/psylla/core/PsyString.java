@@ -87,7 +87,7 @@ public class PsyString
 
 	/**
 	*	{@return a syntactic representation of this object’s value} Returns a value string prepended
-	*		with {@code /}.
+	*	with {@code /}.
 	*/
 	@Override
 	public String toSyntaxString()
@@ -134,8 +134,8 @@ public class PsyString
 
 	/**
 	*	{@return a {@code boolean} object indicating whether some other object is “equal to” this
-	*		one} Return value is {@code true} if and only if other object has {@code string} type
-	*		and its value is equal to this one’s.
+	*	one} Return value is {@code true} if and only if other object has {@code string} type and
+	*	its value is equal to this one’s.
 	*/
 	@Override
 	public boolean equals(final Object object)
@@ -147,7 +147,7 @@ public class PsyString
 	@Override
 	public int hashCode()
 	{
-		return stringValue().hashCode();
+		return string.hashCode();
 	}
 
 	public static PsyString parseLiteral(final String image)
