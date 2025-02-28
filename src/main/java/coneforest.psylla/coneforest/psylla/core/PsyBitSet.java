@@ -85,10 +85,11 @@ public class PsyBitSet
 	public void psyAppendAll(final PsyIterable<? extends PsyInteger> oIterable)
 		throws PsyLimitCheckException, PsyRangeCheckException
 	{
-		if(oIterable instanceof PsyBitSet oBitSet)
-			bitset.or(oBitSet.bitset);
-		else
-			PsyFormalSet.super.psyAppendAll(oIterable);
+		switch(oIterable)
+		{
+			case PsyBitSet oBitSet->bitset.or(oBitSet.bitset);
+			default->PsyFormalSet.super.psyAppendAll(oIterable);
+		}
 	}
 
 	@Override
@@ -150,9 +151,10 @@ public class PsyBitSet
 	}
 
 	@Override
-	public PsyBoolean psyContains(final PsyInteger oElement)
+	public PsyBoolean psyContains(final PsyObject oElement)
 	{
-		return PsyBoolean.of(bitset.get(oElement.intValue()));
+		return PsyBoolean.of(oElement instanceof PsyInteger oInteger
+				&& bitset.get(oInteger.intValue()));
 	}
 
 	@Override
@@ -164,17 +166,42 @@ public class PsyBitSet
 			return PsyFormalSet.super.psyIntersects(oSet);
 	}
 
-	@Override
+	/*@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
 		return PsyBoolean.of(o instanceof PsyBitSet oBitSet
 				&& bitset.equals(oBitSet.bitset));
-	}
+	}*/
 
 	@Override
 	public PsyFormalStream<PsyInteger> psyStream()
 	{
 		return PsyFormalStream.<PsyInteger>of(
 				bitset.stream().<PsyInteger>mapToObj(PsyInteger::of));
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return bitset.hashCode();
+	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+		return switch(obj)
+			{
+				case PsyBitSet oBitSet->bitset.equals(oBitSet.bitset);
+				case PsyFormalSet<? extends PsyObject> oFormalSet->
+					{
+						if(length()!=oFormalSet.length())
+							yield false;
+						for(final var oInteger: this)
+							if(!oFormalSet.psyContains(oInteger).booleanValue())
+								yield false;
+						yield true;
+					}
+				default->false;
+			};
 	}
 }

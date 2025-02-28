@@ -94,11 +94,17 @@ public interface PsyFormalSet<T extends PsyObject>
 
 	/**
 	*	{@return a {@code boolean} object indicating whether a given {@code object} belongs to this
-	*		set}
+	*	set}
 	*
 	*	@param o an {@code object}.
 	*/
-	public PsyBoolean psyContains(final T o);
+	public default PsyBoolean psyContains(final PsyObject o)
+	{
+		for(var o1: this)
+			if(o1.equals(o))
+				return PsyBoolean.TRUE;
+		return PsyBoolean.FALSE;
+	}
 
 	/**
 	*	Removes all the elements from this set.
@@ -131,7 +137,7 @@ public interface PsyFormalSet<T extends PsyObject>
 
 	/**
 	*	{@return a {@code boolean} object indicating whether a given {@code formalset} set
-	*		intersects with this set}
+	*	intersects with this set}
 	*
 	*	@param oSet a {@code formalset} set.
 	*/
@@ -178,4 +184,7 @@ public interface PsyFormalSet<T extends PsyObject>
 				o.toSyntaxString());
 		return sj.toString();
 	}
+
+	@Override
+	public boolean equals(final Object obj);
 }

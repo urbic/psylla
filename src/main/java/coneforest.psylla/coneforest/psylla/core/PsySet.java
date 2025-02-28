@@ -103,4 +103,22 @@ public class PsySet
 		return new PsyStream(set.stream());
 	}
 
+	@Override
+	public int hashCode()
+	{
+		return set.hashCode();
+	}
+
+	@Override
+	public boolean equals(final Object obj)
+	{
+		return switch(obj)
+			{
+				case PsySet oSet->set.equals(oSet.set);
+				/*case PsyFormalSet<PsyObject> oFormalSet->
+					{
+					}*/
+				default->false;
+			};
+	}
 }
