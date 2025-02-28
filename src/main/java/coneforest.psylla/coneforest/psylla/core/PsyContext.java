@@ -534,7 +534,7 @@ public interface PsyContext
 	*	Context action of the {@code stop} operator.
 	*/
 	@OperatorType("stop")
-	public static final ContextAction PSY_STOP=PsyContext::stop_;
+	public static final ContextAction PSY_STOP=PsyContext::stop;
 
 	/**
 	*	Context action of the {@code stopped} operator.
@@ -629,7 +629,7 @@ public interface PsyContext
 
 	public void quit();
 
-	public void stop_();
+	public void stop();
 
 	/**
 	*	{@return the operand stack}

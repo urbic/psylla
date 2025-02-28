@@ -517,7 +517,7 @@ public class Interpreter
 			if(errorDict.known(errorName))
 				errorDict.get(errorName).invoke(this);
 			else
-				stop_();
+				stop();
 		}
 		catch(final PsyErrorException e)
 		{
@@ -699,7 +699,7 @@ public class Interpreter
 	}
 
 	@Override
-	public void stop_()
+	public void stop()
 	{
 		setStopped(true);
 		estack.exitStop();	// TODO quit()

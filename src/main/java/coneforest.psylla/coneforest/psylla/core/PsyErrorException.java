@@ -85,7 +85,7 @@ public class PsyErrorException
 
 		oContext.showStacks();
 
-		oContext.stop_();
+		oContext.stop();
 		if(oContext.executionStack().checkLoop())
 		{
 			try
