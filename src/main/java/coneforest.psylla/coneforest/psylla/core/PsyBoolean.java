@@ -84,12 +84,6 @@ public final class PsyBoolean
 	}
 
 	@Override
-	public PsyBoolean psyEq(final PsyObject o)
-	{
-		return PsyBoolean.of(this==o);
-	}
-
-	@Override
 	public int compareTo(final PsyBoolean oBoolean)
 	{
 		return this==oBoolean? 0: this==FALSE? -1: 1;
