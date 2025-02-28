@@ -1,0 +1,4 @@
+Error: /rangecheck in --roll--
+Operand stack:
+	1 2 3 -1 1
+Execution stack: (empty)

@@ -1,2 +1,2 @@
-"ABC
+"ABC\
 DEF" ?
