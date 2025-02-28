@@ -39,6 +39,7 @@ syn region psyllaStringBuffer	start=+"+ end=+"+ skip=+\\\\\|\\"+ contains=psylla
 syn match psyllaStringSpecial	contained +\\[0antf"\\erv]+
 syn match psyllaStringSpecial	contained "\\u[[:xdigit:]]\{4}"
 syn match psyllaStringSpecial	contained "\\x{[[:xdigit:]]\+}"
+syn match psyllaStringSpecial	contained "\\o{[0-7]\+}"
 syn match psyllaStringSpecial	contained "\\N{[[:digit:][:upper:]\- ]\+}"
 syn match psyllaStringSpecial	contained "\\c."
 
