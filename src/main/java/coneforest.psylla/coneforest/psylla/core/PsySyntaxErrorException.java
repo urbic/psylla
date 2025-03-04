@@ -24,6 +24,11 @@ public class PsySyntaxErrorException
 	*/
 	public PsySyntaxErrorException(final Throwable cause)
 	{
-		super(cause);
+		super(cause.getLocalizedMessage(), cause);
+	}
+
+	public PsySyntaxErrorException(final String message, final Throwable cause)
+	{
+		super(message, cause);
 	}
 }

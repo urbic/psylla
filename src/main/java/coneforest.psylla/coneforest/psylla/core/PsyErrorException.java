@@ -44,7 +44,12 @@ public class PsyErrorException
 	*/
 	public PsyErrorException(final Throwable cause)
 	{
-		super(cause);
+		super(cause.getLocalizedMessage(), cause);
+	}
+
+	public PsyErrorException(final String message, final Throwable cause)
+	{
+		super(message, cause);
 	}
 
 	/**
@@ -82,6 +87,9 @@ public class PsyErrorException
 		System.err.println(Messages.format("handleErrorMessage",
 				'/'+getName(),
 				getEmitter().toSyntaxString()));
+		//var message=getLocalizedMessage();
+		//if(message!=null)
+		//	System.err.println(message);
 
 		oContext.showStacks();
 

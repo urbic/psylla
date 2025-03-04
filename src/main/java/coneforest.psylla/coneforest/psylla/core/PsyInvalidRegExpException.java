@@ -21,6 +21,6 @@ public class PsyInvalidRegExpException
 	*/
 	public PsyInvalidRegExpException(final Throwable cause)
 	{
-		super(cause);
+		super(cause.getLocalizedMessage(), cause);
 	}
 }
