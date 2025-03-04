@@ -154,10 +154,10 @@ public sealed interface PsyRational
 		return switch(oRealNumeric)
 			{
 				case PsyIntegral oIntegral->
-					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oIntegral),
+					of((PsyIntegral)psyNumerator().psyMul(oIntegral),
 						psyDenominator());
 				case PsyRational oRational->
-					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),
+					of((PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),
 						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
 				case PsyReal oReal->
 					new PsyReal(doubleValue()*oReal.doubleValue());
@@ -170,10 +170,10 @@ public sealed interface PsyRational
 		return switch(oRealNumeric)
 			{
 				case PsyIntegral oIntegral->
-					PsyRational.of(psyNumerator(),
+					of(psyNumerator(),
 						(PsyIntegral)psyDenominator().psyMul(oIntegral));
 				case PsyRational oRational->
-					PsyRational.of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
+					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
 						(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));
 				case PsyReal oReal->
 					new PsyReal(doubleValue()/oReal.doubleValue());
