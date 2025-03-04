@@ -399,7 +399,7 @@ public class Interpreter
 						parseToken(token).execute(this);
 						handleExecutionStack(0);
 					}
-				case /*ParserConstants.INTEGRAL*/ ParserConstants.RATIONAL,
+				case ParserConstants.RATIONAL,
 						ParserConstants.REAL,
 						ParserConstants.STRING,
 						ParserConstants.STRINGBUFFER,
@@ -428,7 +428,7 @@ public class Interpreter
 						else
 							ostack.push(proc);
 					}
-				case /*ParserConstants.INTEGRAL*/ ParserConstants.RATIONAL,
+				case ParserConstants.RATIONAL,
 						ParserConstants.REAL,
 						ParserConstants.NAME,
 						ParserConstants.STRING,
@@ -455,7 +455,6 @@ public class Interpreter
 			{
 				case ParserConstants.IMMEDIATE->dstack.load(image.substring(2));
 				case ParserConstants.STRING->PsyString.parseLiteral(image);
-				//case ParserConstants.INTEGRAL->PsyIntegral.parseLiteral(image);
 				case ParserConstants.RATIONAL->PsyRational.parseLiteral(image);
 				case ParserConstants.REAL->PsyReal.parseLiteral(image);
 				case ParserConstants.STRINGBUFFER->PsyStringBuffer.parseLiteral(image);
