@@ -387,7 +387,8 @@ public class Interpreter
 			PsyInvalidRegExpException,
 			PsyLimitCheckException,
 			PsySyntaxErrorException,
-			PsyUndefinedException
+			PsyUndefinedException,
+			PsyUndefinedResultException
 	{
 		if(procstack.size()==0)
 		{
@@ -398,7 +399,7 @@ public class Interpreter
 						parseToken(token).execute(this);
 						handleExecutionStack(0);
 					}
-				case ParserConstants.INTEGRAL,
+				case /*ParserConstants.INTEGRAL*/ ParserConstants.RATIONAL,
 						ParserConstants.REAL,
 						ParserConstants.STRING,
 						ParserConstants.STRINGBUFFER,
@@ -427,7 +428,7 @@ public class Interpreter
 						else
 							ostack.push(proc);
 					}
-				case ParserConstants.INTEGRAL,
+				case /*ParserConstants.INTEGRAL*/ ParserConstants.RATIONAL,
 						ParserConstants.REAL,
 						ParserConstants.NAME,
 						ParserConstants.STRING,
@@ -446,14 +447,16 @@ public class Interpreter
 		throws
 			PsyInvalidRegExpException,
 			PsySyntaxErrorException,
-			PsyUndefinedException
+			PsyUndefinedException,
+			PsyUndefinedResultException
 	{
 		final var image=token.image;
 		return switch(token.kind)
 			{
 				case ParserConstants.IMMEDIATE->dstack.load(image.substring(2));
 				case ParserConstants.STRING->PsyString.parseLiteral(image);
-				case ParserConstants.INTEGRAL->PsyIntegral.parseLiteral(image);
+				//case ParserConstants.INTEGRAL->PsyIntegral.parseLiteral(image);
+				case ParserConstants.RATIONAL->PsyRational.parseLiteral(image);
 				case ParserConstants.REAL->PsyReal.parseLiteral(image);
 				case ParserConstants.STRINGBUFFER->PsyStringBuffer.parseLiteral(image);
 				case ParserConstants.REGEXP->PsyRegExp.parseLiteral(image);

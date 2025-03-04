@@ -1,1 +1,1 @@
-8 12 div denominator ?
+8:12 denominator ?

@@ -1,1 +1,1 @@
--2 3 div signum ?
+-2:3 signum ?

@@ -1,1 +1,1 @@
-2 3 div reciprocal ?
+2:3 reciprocal ?

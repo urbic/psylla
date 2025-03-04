@@ -1,1 +1,1 @@
-12 44 div numerator ?
+12:44 numerator ?

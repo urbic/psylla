@@ -1,1 +1,1 @@
--2 3 div ceiling ?
+-2:3 ceiling ?

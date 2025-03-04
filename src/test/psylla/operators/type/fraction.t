@@ -1,1 +1,1 @@
-2 3 div type ?
+2:3 type ?

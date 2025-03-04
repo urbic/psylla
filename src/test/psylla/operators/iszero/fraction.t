@@ -1,1 +1,1 @@
-13 17 div iszero ?
+13:17 iszero ?

@@ -50,18 +50,28 @@ TOKEN:
 
 TOKEN:
 {
+	<#OCTDIGIT: ["0"-"7"]>
+}
+
+TOKEN:
+{
 	<#LETTER: ["A"-"Z", "a"-"z"]>
 }
 
 TOKEN:
 {
-	<INTEGRAL:
+	<#INTEGRAL:
 		<INTEGRAL_DEC>
 			| <INTEGRAL_HEX>
 			| <INTEGRAL_BIN>
 			| <INTEGRAL_OCT>
 			| <INTEGRAL_CHR>
 	>
+}
+
+TOKEN:
+{
+	<RATIONAL: <INTEGRAL> (":" <INTEGRAL>)*>
 }
 
 TOKEN:
@@ -86,7 +96,7 @@ TOKEN:
 
 TOKEN:
 {
-	<#INTEGRAL_OCT: ["O", "o"] "`" (<SIGN>)? (["0"-"7"])+>
+	<#INTEGRAL_OCT: ["O", "o"] "`" (<SIGN>)? (<OCTDIGIT>)+>
 }
 
 TOKEN:
@@ -159,7 +169,7 @@ TOKEN:
 			["0", "a", "n", "t", "f", "\\", "e", "r", "v", "\n"]
 				| "u" <HEXDIGIT> <HEXDIGIT> <HEXDIGIT> <HEXDIGIT>
 				| "x{" (<HEXDIGIT>)+ "}"
-				| "o{" (["0"-"7"])+ "}"
+				| "o{" (<OCTDIGIT>)+ "}"
 				| "N{" (["A"-"Z", "0"-"9", " ", "-"])+ "}"
 				| "c" ["\u0000"-"\u00FF"]
 		)
