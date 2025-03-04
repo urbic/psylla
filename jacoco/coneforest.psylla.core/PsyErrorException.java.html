@@ -44,8 +44,13 @@ public class PsyErrorException
 	*/
 	public PsyErrorException(final Throwable cause)
 	{
-<span class="fc" id="L47">		super(cause);</span>
+<span class="fc" id="L47">		super(cause.getLocalizedMessage(), cause);</span>
 <span class="fc" id="L48">	}</span>
+
+	public PsyErrorException(final String message, final Throwable cause)
+	{
+<span class="fc" id="L52">		super(message, cause);</span>
+<span class="fc" id="L53">	}</span>
 
 	/**
 	*	Constructs a new {@code exception} object with the specified detail message.
@@ -54,69 +59,72 @@ public class PsyErrorException
 	*/
 	public PsyErrorException(final String message)
 	{
-<span class="nc" id="L57">		super(message);</span>
-<span class="nc" id="L58">	}</span>
+<span class="nc" id="L62">		super(message);</span>
+<span class="nc" id="L63">	}</span>
 
 	@Override
 	public void invoke(final PsyContext oContext)
 	{
 		try
 		{
-<span class="nc" id="L65">			((((Interpreter)oContext).errorDict()).get(getName())).invoke(oContext);</span>
-<span class="nc" id="L66">			return;</span>
+<span class="nc" id="L70">			((((Interpreter)oContext).errorDict()).get(getName())).invoke(oContext);</span>
+<span class="nc" id="L71">			return;</span>
 		}
-<span class="fc" id="L68">		catch(final PsyErrorException e)</span>
+<span class="fc" id="L73">		catch(final PsyErrorException e)</span>
 		{
 			// NOP
 		}
 
-<span class="fc" id="L73">		oContext.setStopped(true);</span>
+<span class="fc" id="L78">		oContext.setStopped(true);</span>
 
-<span class="fc bfc" id="L75" title="All 2 branches covered.">		if(oContext.executionStack().checkStop() /*oContext.currentStopLevel()&gt;-1*/)</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if(oContext.executionStack().checkStop() /*oContext.currentStopLevel()&gt;-1*/)</span>
 		{
 			//oContext.executionStack().setSize(oContext.currentStopLevel());
-<span class="fc" id="L78">			oContext.executionStack().exitStop();</span>
-<span class="fc" id="L79">			return;</span>
+<span class="fc" id="L83">			oContext.executionStack().exitStop();</span>
+<span class="fc" id="L84">			return;</span>
 		}
 
-<span class="fc" id="L82">		System.err.println(Messages.format(&quot;handleErrorMessage&quot;,</span>
-<span class="fc" id="L83">				'/'+getName(),</span>
-<span class="fc" id="L84">				getEmitter().toSyntaxString()));</span>
+<span class="fc" id="L87">		System.err.println(Messages.format(&quot;handleErrorMessage&quot;,</span>
+<span class="fc" id="L88">				'/'+getName(),</span>
+<span class="fc" id="L89">				getEmitter().toSyntaxString()));</span>
+		//var message=getLocalizedMessage();
+		//if(message!=null)
+		//	System.err.println(message);
 
-<span class="fc" id="L86">		oContext.showStacks();</span>
+<span class="fc" id="L94">		oContext.showStacks();</span>
 
-<span class="fc" id="L88">		oContext.stop_();</span>
-<span class="pc bpc" id="L89" title="1 of 2 branches missed.">		if(oContext.executionStack().checkLoop())</span>
+<span class="fc" id="L96">		oContext.stop();</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">		if(oContext.executionStack().checkLoop())</span>
 		{
 			try
 			{
-<span class="nc" id="L93">				oContext.executionStack().exitLoop();</span>
+<span class="nc" id="L101">				oContext.executionStack().exitLoop();</span>
 			}
-<span class="nc" id="L95">			catch(final PsyInvalidExitException e)</span>
+<span class="nc" id="L103">			catch(final PsyInvalidExitException e)</span>
 			{
 				// NOP
-<span class="nc" id="L98">			}</span>
+<span class="nc" id="L106">			}</span>
 		}
-<span class="fc" id="L100">	}</span>
+<span class="fc" id="L108">	}</span>
 
 	/**
 	*	{@return the name of this {@code error}}
 	*/
 	public String getName()
 	{
-<span class="fc" id="L107">		final var agenda=new Stack&lt;Class&lt;?&gt;&gt;();</span>
-<span class="fc" id="L108">		agenda.push(getClass());</span>
+<span class="fc" id="L115">		final var agenda=new Stack&lt;Class&lt;?&gt;&gt;();</span>
+<span class="fc" id="L116">		agenda.push(getClass());</span>
 
-<span class="pc bpc" id="L110" title="1 of 2 branches missed.">		while(agenda.size()&gt;0)</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">		while(agenda.size()&gt;0)</span>
 		{
-<span class="fc" id="L112">			final var clazz=agenda.pop();</span>
-<span class="pc bpc" id="L113" title="1 of 2 branches missed.">			if(clazz.isAnnotationPresent(ErrorType.class))</span>
-<span class="fc" id="L114">				return (clazz.getAnnotation(ErrorType.class)).value();</span>
-<span class="nc" id="L115">			agenda.push(clazz.getSuperclass());</span>
-<span class="nc bnc" id="L116" title="All 2 branches missed.">			for(final var iface: clazz.getInterfaces())</span>
-<span class="nc" id="L117">				agenda.push(iface);</span>
-<span class="nc" id="L118">		}</span>
-<span class="nc" id="L119">		return null;</span>
+<span class="fc" id="L120">			final var clazz=agenda.pop();</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">			if(clazz.isAnnotationPresent(ErrorType.class))</span>
+<span class="fc" id="L122">				return (clazz.getAnnotation(ErrorType.class)).value();</span>
+<span class="nc" id="L123">			agenda.push(clazz.getSuperclass());</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">			for(final var iface: clazz.getInterfaces())</span>
+<span class="nc" id="L125">				agenda.push(iface);</span>
+<span class="nc" id="L126">		}</span>
+<span class="nc" id="L127">		return null;</span>
 	}
 
 	/**
@@ -126,15 +134,15 @@ public class PsyErrorException
 	*/
 	public void setEmitter(final PsyObject oEmitter)
 	{
-<span class="fc" id="L129">		this.emitter=oEmitter;</span>
-<span class="fc" id="L130">	}</span>
+<span class="fc" id="L137">		this.emitter=oEmitter;</span>
+<span class="fc" id="L138">	}</span>
 
 	/**
 	*	{@return the emitter for this {@code error}}
 	*/
 	public PsyObject getEmitter()
 	{
-<span class="fc" id="L137">		return emitter;</span>
+<span class="fc" id="L145">		return emitter;</span>
 	}
 
 	/**
@@ -149,9 +157,9 @@ public class PsyErrorException
 			final ExecutionStack estack,
 			final DictStack dstack)
 	{
-<span class="fc" id="L152">		this.ostack=ostack.clone();</span>
-<span class="fc" id="L153">		this.estack=estack.clone();</span>
-<span class="fc" id="L154">		this.dstack=dstack.clone();</span>
-<span class="fc" id="L155">	}</span>
+<span class="fc" id="L160">		this.ostack=ostack.clone();</span>
+<span class="fc" id="L161">		this.estack=estack.clone();</span>
+<span class="fc" id="L162">		this.dstack=dstack.clone();</span>
+<span class="fc" id="L163">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

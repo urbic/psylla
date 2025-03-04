@@ -285,12 +285,12 @@ public final class PsyInteger
 	{
 <span class="fc bfc" id="L286" title="All 2 branches covered.">		if(oRealNumeric==ZERO)</span>
 <span class="fc" id="L287">			throw new PsyUndefinedResultException();</span>
-<span class="fc bfc" id="L288" title="All 4 branches covered.">		return switch(oRealNumeric)</span>
+<span class="pc bpc" id="L288" title="1 of 4 branches missed.">		return switch(oRealNumeric)</span>
 			{
 <span class="fc" id="L290">				case PsyInteger oInteger-&gt;</span>
 <span class="fc" id="L291">					PsyFraction.of(value, oInteger.value);</span>
-<span class="fc" id="L292">				case PsyBigInteger oBigInteger-&gt;</span>
-<span class="fc" id="L293">					PsyRational.of(this, oBigInteger);</span>
+<span class="nc" id="L292">				case PsyBigInteger oBigInteger-&gt;</span>
+<span class="nc" id="L293">					PsyRational.of(this, oBigInteger);</span>
 <span class="fc" id="L294">				case PsyRational oRational-&gt;</span>
 <span class="fc" id="L295">					PsyRational.of((PsyIntegral)psyMul(oRational.psyDenominator()),</span>
 <span class="fc" id="L296">						oRational.psyNumerator());</span>

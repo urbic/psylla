@@ -191,10 +191,10 @@ public final class PsyBigInteger
 	public PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 		throws PsyUndefinedResultException
 	{
-<span class="pc bpc" id="L194" title="2 of 3 branches missed.">		return switch(oRealNumeric)</span>
+<span class="nc bnc" id="L194" title="All 3 branches missed.">		return switch(oRealNumeric)</span>
 			{
-<span class="fc" id="L196">				case PsyIntegral oIntegral-&gt;</span>
-<span class="fc" id="L197">					PsyRational.of(psyNumerator(), (PsyIntegral)psyDenominator().psyMul(oIntegral));</span>
+<span class="nc" id="L196">				case PsyIntegral oIntegral-&gt;</span>
+<span class="nc" id="L197">					PsyRational.of(psyNumerator(), (PsyIntegral)psyDenominator().psyMul(oIntegral));</span>
 <span class="nc" id="L198">				case PsyRational oRational-&gt;PsyRational.of(</span>
 <span class="nc" id="L199">						(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),</span>
 <span class="nc" id="L200">						(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));</span>

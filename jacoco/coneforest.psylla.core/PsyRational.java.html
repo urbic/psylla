@@ -281,8 +281,8 @@ public sealed interface PsyRational
 		throws PsySyntaxErrorException, PsyUndefinedResultException
 	{
 <span class="fc" id="L283">		final var slashIndex=image.indexOf(':');</span>
-<span class="pc bpc" id="L284" title="1 of 2 branches missed.">		if(slashIndex==-1)</span>
-<span class="nc" id="L285">			return PsyIntegral.parseLiteral(image);</span>
+<span class="fc bfc" id="L284" title="All 2 branches covered.">		if(slashIndex==-1)</span>
+<span class="fc" id="L285">			return PsyIntegral.parseLiteral(image);</span>
 <span class="fc" id="L286">		return of(PsyIntegral.parseLiteral(image.substring(0, slashIndex)),</span>
 <span class="fc" id="L287">				PsyIntegral.parseLiteral(image.substring(slashIndex+1)));</span>
 	}
