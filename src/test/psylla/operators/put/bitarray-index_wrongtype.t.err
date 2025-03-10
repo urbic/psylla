@@ -1,0 +1,4 @@
+Error: /typecheck in --put--
+Operand stack:
+	%bitarray=1011% %bitarray=1011% /x %true%
+Execution stack: (empty)

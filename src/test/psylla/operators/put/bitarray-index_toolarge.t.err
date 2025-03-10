@@ -1,0 +1,4 @@
+Error: /rangecheck in --put--
+Operand stack:
+	%bitarray=1011% %bitarray=1011% 5 %true%
+Execution stack: (empty)
