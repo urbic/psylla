@@ -1,6 +1,9 @@
 options
 {
 	JDK_VERSION="21";
+	GENERATE_ANNOTATIONS="true";
+	GENERATE_STRING_BUILDER="true";
+	LOOKAHEAD="0";
 }
 
 PARSER_BEGIN(Parser)
