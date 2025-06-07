@@ -1,0 +1,4 @@
+Error: /rangecheck in --testbit--
+Operand stack:
+	%bitarray=1011% -2
+Execution stack: (empty)

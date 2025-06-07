@@ -1,1 +1,1 @@
-13 1 testbit ?
+13 0 testbit ?
