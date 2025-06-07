@@ -4,6 +4,7 @@ import coneforest.psylla.runtime.*;
 import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 /**
 *	The representation of {@code input}.
@@ -31,7 +32,7 @@ public class PsyInput
 	}
 
 	@Override
-	public PsyStringBuffer psyReadString(final PsyInteger oCount)
+	public Optional<PsyString> psyReadString(final PsyInteger oCount)
 		throws PsyUnsupportedException
 	{
 		// TODO

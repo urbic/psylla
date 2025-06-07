@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.CharBuffer;
+import java.util.Optional;
 
 /**
 *	The representation of {@code reader}.
@@ -64,7 +65,7 @@ public class PsyReader
 	}
 
 	@Override
-	public PsyStringBuffer psyReadString(final PsyInteger oCount)
+	public Optional<PsyString> psyReadString(final PsyInteger oCount)
 		throws
 			PsyIOErrorException,
 			PsyLimitCheckException,
@@ -78,9 +79,11 @@ public class PsyReader
 		try
 		{
 			final var buffer=CharBuffer.allocate((int)count);
-			reader.read(buffer);
+			var r=reader.read(buffer);
+			if(r==-1)
+				return Optional.<PsyString>empty();
 			buffer.flip();
-			return new PsyStringBuffer(buffer.toString());
+			return Optional.<PsyString>of(new PsyString(buffer.toString()));
 		}
 		catch(final OutOfMemoryError ex)
 		{

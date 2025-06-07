@@ -36,6 +36,13 @@ public interface PsyReadable
 		=ContextAction.<PsyReadable>ofOptionalFunction(PsyReadable::psyReadLine);
 
 	/**
+	*	Context action of the {@code readstring} operator.
+	*/
+	@OperatorType("readstring")
+	public static final ContextAction PSY_READSTRING
+		=ContextAction.<PsyReadable, PsyInteger>ofOptionalBiFunction(PsyReadable::psyReadString);
+
+	/**
 	*	Line separator string.
 	*/
 	public static final String LINE_SEPARATOR=System.getProperty("line.separator").intern();
@@ -78,7 +85,7 @@ public interface PsyReadable
 	*	@return a string read.
 	*	@throws PsyIOErrorException when I/O error occurs.
 	*/
-	public PsyStringBuffer psyReadString(final PsyInteger oCount)
+	public Optional<PsyString> psyReadString(final PsyInteger oCount)
 		throws PsyIOErrorException, PsyLimitCheckException, PsyRangeCheckException, PsyUnsupportedException;
 
 	/**
