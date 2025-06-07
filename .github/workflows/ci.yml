@@ -29,8 +29,7 @@ jobs:
             git \
             glibc-locale \
             graphviz \
-            ivy \
-            ivy-local \
+            ivy{,-local} \
             'java-devel>=21' \
             jacoco \
             javacc \
