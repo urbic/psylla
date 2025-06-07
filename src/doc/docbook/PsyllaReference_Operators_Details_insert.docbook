@@ -53,6 +53,11 @@ Inserts the <replaceable>object</replaceable> into the
 &TitleErrors;
 <itemizedlist>
 <listitem>
+<xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_limitcheck"/> —
+when after insertion the size of the <replaceable>array</replaceable> exceeds
+the limit
+</listitem>
+<listitem>
 <xref xrefstyle="template:%t" linkend="PsyllaReference_Errors_Details_rangecheck"/> —
 when the <replaceable>index</replaceable> is negative or is greater than the
 length of the <replaceable>array</replaceable>
