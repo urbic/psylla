@@ -10,11 +10,13 @@ public class PsyModule
 	{
 	}
 
+	/*
 	protected void registerOperators(final PsyOperator... operators)
 	{
 		for(final var oOperator: operators)
 			put(oOperator.getName(), oOperator);
 	}
+	*/
 
 	protected void importOperators(final Class<?>... classes)
 	{
@@ -26,11 +28,12 @@ public class PsyModule
 					final var annotation=field.getAnnotation(OperatorType.class);
 					if(annotation!=null)
 					{
-						final var operatorName=annotation.value();
+						final var operatorName=annotation.value().intern();
 						final var action=(ContextAction)field.get(null);
 						put(operatorName,
 							new PsyOperator(operatorName)
 								{
+									@Override
 									public void perform(final PsyContext oContext)
 										throws ClassCastException, PsyErrorException
 									{
