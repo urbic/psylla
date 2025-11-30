@@ -234,6 +234,7 @@
 			<arg value="--add-reads=${project.moduleprefix}.ant=ALL-UNNAMED"/>
 			<arg value="--add-reads=${project.moduleprefix}.processors=ALL-UNNAMED"/>
 			<!--arg value="-Xdoclint:missing,reference,syntax"/-->
+			<arg value="-notimestamp"/>
 			<arg value="-Xdoclint:all"/>
 			<arg value="-Xdoclint/package:-${project.moduleprefix}.runtime.parser"/>
 			<arg value="-Xmaxwarns"/>
