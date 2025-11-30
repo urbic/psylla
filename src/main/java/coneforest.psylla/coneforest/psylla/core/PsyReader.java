@@ -79,7 +79,7 @@ public class PsyReader
 		try
 		{
 			final var buffer=CharBuffer.allocate((int)count);
-			var r=reader.read(buffer);
+			final var r=reader.read(buffer);
 			if(r==-1)
 				return Optional.<PsyString>empty();
 			buffer.flip();
