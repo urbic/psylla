@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.Writer;
@@ -529,22 +530,22 @@ public class Interpreter
 	*/
 
 	@Override
-	public void showStacks()
+	public void showStacks(final PrintWriter pw)
 	{
-		System.err.print(Messages.getString("handleErrorMessageOStack"));
+		pw.print(Messages.getString("handleErrorMessageOStack"));
 		{
 			final var sj=new StringJoiner(" ", "\n\t", "");
 			sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
 			ostack.forEach(o->sj.add(o.toSyntaxString()));
-			System.err.println(sj.toString());
+			pw.println(sj.toString());
 		}
 
-		System.err.print(Messages.getString("handleErrorMessageEStack"));
+		pw.print(Messages.getString("handleErrorMessageEStack"));
 		{
 			final var sj=new StringJoiner(" ", "\n\t", "");
 			sj.setEmptyValue(" "+Messages.getString("handleErrorMessageEmpty"));
 			estack.forEach(o->sj.add(o.toSyntaxString()));
-			System.err.println(sj.toString());
+			pw.println(sj.toString());
 		}
 	}
 
