@@ -147,8 +147,8 @@ public interface PsyTextual
 	@Override
 	public default PsyBoolean psyEq(final PsyObject o)
 	{
-		return PsyBoolean.of(o instanceof PsyTextual
-				&& stringValue().equals(((PsyTextual)o).stringValue()));
+		return PsyBoolean.of(o instanceof PsyTextual oTextual
+				&& stringValue().equals(oTextual.stringValue()));
 	}
 
 	public default PsyArray psySplit(final PsyRegExp oRegExp)
