@@ -20,6 +20,7 @@ public final class PsyFraction
 	}
 
 	public static PsyRational of(final long numerator, final long denominator)
+		throws IllegalArgumentException
 	{
 		var x=numerator;
 		var y=denominator;
