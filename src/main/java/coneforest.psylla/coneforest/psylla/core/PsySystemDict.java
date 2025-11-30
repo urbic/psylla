@@ -31,6 +31,7 @@ public final class PsySystemDict
 				PsyConvertableToReal.class,
 				PsyDict.class,
 				PsyEvaluable.class,
+				PsyFileInput.class,
 				PsyFileReader.class,
 				PsyFileSystem.class,
 				PsyFileWriter.class,
