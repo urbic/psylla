@@ -140,8 +140,8 @@ public class PsyString
 	@Override
 	public boolean equals(final Object object)
 	{
-		return object instanceof PsyString
-				&& psyEq((PsyString)object).booleanValue();
+		return object instanceof PsyString oString
+				&& string.equals(oString.string);
 	}
 
 	@Override
