@@ -20,12 +20,12 @@ public final class PsyNull
 	}
 
 	/**
-	*	{@return a string {@code &quot;null&quot;}}
+	*	{@return a string {@code &quot;%null%&quot;}}
 	*/
 	@Override
 	public String toSyntaxString()
 	{
-<span class="fc" id="L28">		return &quot;null&quot;;</span>
+<span class="fc" id="L28">		return &quot;%null%&quot;;</span>
 	}
 
 	/**
@@ -35,7 +35,7 @@ public final class PsyNull
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-<span class="nc bnc" id="L38" title="All 2 branches missed.">		return PsyBoolean.of(o==NULL);</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">		return PsyBoolean.of(o==NULL);</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

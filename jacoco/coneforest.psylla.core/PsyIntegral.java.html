@@ -197,7 +197,7 @@ public sealed interface PsyIntegral
 <span class="fc bfc" id="L197" title="All 2 branches covered.">		switch(image.charAt(0))</span>
 		{
 			case '\\':
-<span class="pc bpc" id="L200" title="3 of 14 branches missed.">				switch(image.charAt(1))</span>
+<span class="pc bpc" id="L200" title="1 of 14 branches missed.">				switch(image.charAt(1))</span>
 				{
 					case '0':
 <span class="fc" id="L203">						return PsyInteger.of('\u0000');</span>
@@ -210,7 +210,7 @@ public sealed interface PsyIntegral
 					case 't':
 <span class="fc" id="L211">						return PsyInteger.of('\t');</span>
 					case 'v':
-<span class="nc" id="L213">						return PsyInteger.of('\u000B');</span>
+<span class="fc" id="L213">						return PsyInteger.of('\u000B');</span>
 					case 'f':
 <span class="fc" id="L215">						return PsyInteger.of('\f');</span>
 					case 'e':
@@ -237,12 +237,12 @@ public sealed interface PsyIntegral
 					case 'N':
 						try
 						{
-<span class="nc" id="L240">							return PsyInteger.of(</span>
-<span class="nc" id="L241">									Character.codePointOf(image.substring(3, image.length()-1)));</span>
+<span class="fc" id="L240">							return PsyInteger.of(</span>
+<span class="fc" id="L241">									Character.codePointOf(image.substring(3, image.length()-1)));</span>
 						}
-<span class="nc" id="L243">						catch(final IllegalArgumentException ex)</span>
+<span class="fc" id="L243">						catch(final IllegalArgumentException ex)</span>
 						{
-<span class="nc" id="L245">							throw new PsySyntaxErrorException();</span>
+<span class="fc" id="L245">							throw new PsySyntaxErrorException();</span>
 						}
 					default:
 <span class="nc" id="L248">						throw new PsySyntaxErrorException();</span>

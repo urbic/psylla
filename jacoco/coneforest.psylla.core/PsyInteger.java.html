@@ -147,7 +147,7 @@ public final class PsyInteger
 <span class="fc" id="L147">		final var bit=oBit.value;</span>
 <span class="fc bfc" id="L148" title="All 4 branches covered.">		if(bit&lt;0 || bit&gt;Long.SIZE-1)</span>
 <span class="fc" id="L149">			throw new PsyRangeCheckException();</span>
-<span class="pc bpc" id="L150" title="1 of 2 branches missed.">		return PsyBoolean.of((value&amp;(1L&lt;&lt;bit))!=0);</span>
+<span class="fc bfc" id="L150" title="All 2 branches covered.">		return PsyBoolean.of((value&amp;(1L&lt;&lt;bit))!=0);</span>
 	}
 
 	@Override
@@ -367,13 +367,13 @@ public final class PsyInteger
 	@Override
 	public PsyBoolean psyEq(final PsyObject o)
 	{
-<span class="pc bpc" id="L370" title="3 of 4 branches missed.">		return PsyBoolean.of(switch(o)</span>
+<span class="pc bpc" id="L370" title="2 of 4 branches missed.">		return PsyBoolean.of(switch(o)</span>
 			{
 				// TODO
 <span class="fc bfc" id="L373" title="All 2 branches covered.">				case PsyInteger oInteger-&gt;value==oInteger.value;</span>
 				//case PsyBigInteger oBigInteger-&gt;
 				//	bigIntegerValue().equals(oBigInteger.bigIntegerValue());
-<span class="nc bnc" id="L376" title="All 2 branches missed.">				case PsyReal oReal-&gt;doubleValue()==oReal.doubleValue();</span>
+<span class="fc bfc" id="L376" title="All 2 branches covered.">				case PsyReal oReal-&gt;doubleValue()==oReal.doubleValue();</span>
 <span class="nc" id="L377">				case PsyComplex oComplex-&gt;</span>
 <span class="nc bnc" id="L378" title="All 2 branches missed.">					doubleValue()==oComplex.psyRealPart().doubleValue()</span>
 <span class="nc bnc" id="L379" title="All 2 branches missed.">							&amp;&amp; oComplex.psyImagPart().doubleValue()==0.D;	// TODO</span>

@@ -28,7 +28,7 @@ public interface PsyIterable&lt;T extends PsyObject&gt;
 	public default PsyFormalStream&lt;T&gt; psyStream()
 	{
 		//return new PsyStream(StreamSupport.&lt;T&gt;stream(spliterator(), false));
-<span class="nc" id="L31">		return PsyFormalStream.&lt;T&gt;of(StreamSupport.&lt;T&gt;stream(spliterator(), false));</span>
+<span class="fc" id="L31">		return PsyFormalStream.&lt;T&gt;of(StreamSupport.&lt;T&gt;stream(spliterator(), false));</span>
 	}
 
 	public default PsyStringBuffer psyUnite(final PsyTextual oSeparator)

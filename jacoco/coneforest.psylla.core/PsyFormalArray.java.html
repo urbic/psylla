@@ -171,10 +171,11 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 	*	@param index a {@code integer} index.
 	*	@param o a {@code object}.
 	*
+	*	@throws PsyLimitCheckException when TODO.
 	*	@throws PsyRangeCheckException when TODO.
 	*/
 	public void insert(final int index, final T o)
-		throws PsyRangeCheckException;
+		throws PsyRangeCheckException, PsyLimitCheckException;
 
 	/**
 	*	Inserts the specified {@code object} into this array at the position
@@ -183,21 +184,22 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 	*	@param oIndex an {@code integer} index.
 	*	@param o an {@code object}.
 	*
+	*	@throws PsyLimitCheckException when TODO.
 	*	@throws PsyRangeCheckException when TODO.
 	*/
 	public default void psyInsert(final PsyInteger oIndex, final T o)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
-<span class="fc" id="L191">		insert(oIndex.intValue(), o);</span>
-<span class="fc" id="L192">	}</span>
+<span class="fc" id="L193">		insert(oIndex.intValue(), o);</span>
+<span class="fc" id="L194">	}</span>
 
 	public default void psyInsertAll(final PsyInteger oIndex, final PsyIterable&lt;? extends T&gt; oEnumeration)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
-<span class="nc" id="L197">		int index=oIndex.intValue();</span>
-<span class="nc bnc" id="L198" title="All 4 branches missed.">		for(final T o: this!=oEnumeration? oEnumeration: (PsyIterable&lt;? extends T&gt;)psyClone())</span>
-<span class="nc" id="L199">			insert(index++, o);</span>
-<span class="nc" id="L200">	}</span>
+<span class="nc" id="L199">		int index=oIndex.intValue();</span>
+<span class="nc bnc" id="L200" title="All 4 branches missed.">		for(final T o: this!=oEnumeration? oEnumeration: (PsyIterable&lt;? extends T&gt;)psyClone())</span>
+<span class="nc" id="L201">			insert(index++, o);</span>
+<span class="nc" id="L202">	}</span>
 
 	/**
 	*	Inserts the specified {@code object} into this array at the beginning.
@@ -206,28 +208,28 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 	*	@throws PsyRangeCheckException when TODO.
 	*/
 	public default void psyPrepend(final T o)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
-<span class="nc" id="L211">		insert(0, o);</span>
-<span class="nc" id="L212">	}</span>
+<span class="nc" id="L213">		insert(0, o);</span>
+<span class="nc" id="L214">	}</span>
 
 	public default T psyPreChop()
 		throws PsyRangeCheckException
 	{
-<span class="nc" id="L217">		return extract(0);</span>
+<span class="nc" id="L219">		return extract(0);</span>
 	}
 
 	public default T psyPostChop()
 		throws PsyRangeCheckException
 	{
-<span class="nc" id="L223">		return extract(length()-1);</span>
+<span class="nc" id="L225">		return extract(length()-1);</span>
 	}
 
 	public default void psyPrependAll(final PsyIterable&lt;? extends T&gt; oEnumeration)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
-<span class="nc" id="L229">		psyInsertAll(PsyInteger.ZERO, oEnumeration);</span>
-<span class="nc" id="L230">	}</span>
+<span class="nc" id="L231">		psyInsertAll(PsyInteger.ZERO, oEnumeration);</span>
+<span class="nc" id="L232">	}</span>
 
 	@Override
 	public default PsyFormalArray&lt;T&gt; psyReplicate(final PsyInteger oCount)
@@ -236,37 +238,37 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 			PsyRangeCheckException,
 			PsyUnsupportedException
 	{
-<span class="fc" id="L239">		long count=oCount.longValue();</span>
-<span class="fc bfc" id="L240" title="All 2 branches covered.">		if(count&lt;0)</span>
-<span class="fc" id="L241">			throw new PsyRangeCheckException();</span>
-<span class="fc bfc" id="L242" title="All 2 branches covered.">		if(count*length()&gt;Integer.MAX_VALUE)</span>
-<span class="fc" id="L243">			throw new PsyLimitCheckException();</span>
-<span class="fc" id="L244">		final PsyFormalArray&lt;T&gt; oResult=(PsyFormalArray&lt;T&gt;)psyNewEmpty();</span>
-<span class="fc bfc" id="L245" title="All 2 branches covered.">		while(count--&gt;0)</span>
-<span class="fc" id="L246">			oResult.psyAppendAll(this);</span>
-<span class="fc" id="L247">		return oResult;</span>
+<span class="fc" id="L241">		long count=oCount.longValue();</span>
+<span class="fc bfc" id="L242" title="All 2 branches covered.">		if(count&lt;0)</span>
+<span class="fc" id="L243">			throw new PsyRangeCheckException();</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">		if(count*length()&gt;Integer.MAX_VALUE)</span>
+<span class="fc" id="L245">			throw new PsyLimitCheckException();</span>
+<span class="fc" id="L246">		final PsyFormalArray&lt;T&gt; oResult=(PsyFormalArray&lt;T&gt;)psyNewEmpty();</span>
+<span class="fc bfc" id="L247" title="All 2 branches covered.">		while(count--&gt;0)</span>
+<span class="fc" id="L248">			oResult.psyAppendAll(this);</span>
+<span class="fc" id="L249">		return oResult;</span>
 	}
 
 	public default void psyPutInterval(final PsyInteger oIndex, final PsyIterable&lt;? extends T&gt; oEnumeration)
 		throws PsyRangeCheckException
 	{
-<span class="nc" id="L253">		int index=oIndex.intValue();</span>
-<span class="nc bnc" id="L254" title="All 6 branches missed.">		if(index&lt;0 || oEnumeration instanceof PsyLengthy oLengthy &amp;&amp; index+oLengthy.length()&gt;=length())</span>
-<span class="nc" id="L255">			throw new PsyRangeCheckException();</span>
-<span class="nc bnc" id="L256" title="All 2 branches missed.">		for(final var o: oEnumeration)</span>
+<span class="nc" id="L255">		int index=oIndex.intValue();</span>
+<span class="nc bnc" id="L256" title="All 6 branches missed.">		if(index&lt;0 || oEnumeration instanceof PsyLengthy oLengthy &amp;&amp; index+oLengthy.length()&gt;=length())</span>
+<span class="nc" id="L257">			throw new PsyRangeCheckException();</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">		for(final var o: oEnumeration)</span>
 		{
-<span class="nc" id="L258">			put(index++, o);</span>
-<span class="nc bnc" id="L259" title="All 2 branches missed.">			if(index==length())</span>
-<span class="nc" id="L260">				break;</span>
-<span class="nc" id="L261">		}</span>
-<span class="nc" id="L262">	}</span>
+<span class="nc" id="L260">			put(index++, o);</span>
+<span class="nc bnc" id="L261" title="All 2 branches missed.">			if(index==length())</span>
+<span class="nc" id="L262">				break;</span>
+<span class="nc" id="L263">		}</span>
+<span class="nc" id="L264">	}</span>
 
 	@Override
 	public default void psyDelete(final PsyInteger oIndex)
 		throws PsyRangeCheckException
 	{
-<span class="fc" id="L268">		delete(oIndex.intValue());</span>
-<span class="fc" id="L269">	}</span>
+<span class="fc" id="L270">		delete(oIndex.intValue());</span>
+<span class="fc" id="L271">	}</span>
 
 	/**
 	*	Removes the element at the specified position in this array.
@@ -281,7 +283,7 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 	public default T psyExtract(final PsyInteger oIndex)
 		throws PsyRangeCheckException
 	{
-<span class="fc" id="L284">		return extract(oIndex.intValue());</span>
+<span class="fc" id="L286">		return extract(oIndex.intValue());</span>
 	}
 
 	public void psySetLength(final PsyInteger oLength)
@@ -304,14 +306,14 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 	public default PsyFormalStream&lt;PsyInteger&gt; psyKeys()
 	{
 		//return new PsyStream(IntStream.range(0, length()).&lt;PsyInteger&gt;mapToObj(PsyInteger::of));
-<span class="fc" id="L307">		return PsyFormalStream.&lt;PsyInteger&gt;of(</span>
-<span class="fc" id="L308">				IntStream.range(0, length()).&lt;PsyInteger&gt;mapToObj(PsyInteger::of));</span>
+<span class="fc" id="L309">		return PsyFormalStream.&lt;PsyInteger&gt;of(</span>
+<span class="fc" id="L310">				IntStream.range(0, length()).&lt;PsyInteger&gt;mapToObj(PsyInteger::of));</span>
 	}
 
 	@Override
 	public default PsyFormalStream&lt;T&gt; psyValues()
 	{
-<span class="fc" id="L314">		return PsyFormalStream.&lt;T&gt;of(StreamSupport.&lt;T&gt;stream(spliterator(), false));</span>
+<span class="fc" id="L316">		return PsyFormalStream.&lt;T&gt;of(StreamSupport.&lt;T&gt;stream(spliterator(), false));</span>
 	}
 
 	/*
@@ -332,7 +334,7 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 	@Override
 	public default PsyFormalStream&lt;PsyObject&gt; psyEntries()
 	{
-<span class="nc" id="L335">		return null; // TODO</span>
+<span class="nc" id="L337">		return null; // TODO</span>
 		/*
 		return new PsyFormalStream&lt;PsyObject&gt;()
 			{
@@ -409,20 +411,20 @@ public interface PsyFormalArray&lt;T extends PsyObject&gt;
 	@Override
 	public default String toSyntaxString()
 	{
-<span class="fc" id="L412">		return toSyntaxStringHelper(new HashSet&lt;PsyContainer&lt;? extends PsyObject&gt;&gt;());</span>
+<span class="fc" id="L414">		return toSyntaxStringHelper(new HashSet&lt;PsyContainer&lt;? extends PsyObject&gt;&gt;());</span>
 	}
 
 	@Override
 	public default String toSyntaxStringHelper(final Set&lt;PsyContainer&lt;? extends PsyObject&gt;&gt; processed)
 	{
-<span class="fc bfc" id="L418" title="All 2 branches covered.">		if(!processed.add(this))</span>
-<span class="fc" id="L419">			return '%'+typeName()+'%';</span>
-<span class="fc" id="L420">		final var sj=new StringJoiner(&quot; &quot;, &quot;[&quot;, &quot;]&quot;);</span>
-<span class="fc bfc" id="L421" title="All 2 branches covered.">		for(final var o: this)</span>
-<span class="fc bfc" id="L422" title="All 2 branches covered.">			sj.add(o instanceof PsyContainer&lt;? extends PsyObject&gt; oContainer?</span>
-<span class="fc" id="L423">				oContainer.toSyntaxStringHelper(processed):</span>
-<span class="fc" id="L424">				o.toSyntaxString());</span>
-<span class="fc" id="L425">		return sj.toString();</span>
+<span class="fc bfc" id="L420" title="All 2 branches covered.">		if(!processed.add(this))</span>
+<span class="fc" id="L421">			return '%'+typeName()+'%';</span>
+<span class="fc" id="L422">		final var sj=new StringJoiner(&quot; &quot;, &quot;[&quot;, &quot;]&quot;);</span>
+<span class="fc bfc" id="L423" title="All 2 branches covered.">		for(final var o: this)</span>
+<span class="fc bfc" id="L424" title="All 2 branches covered.">			sj.add(o instanceof PsyContainer&lt;? extends PsyObject&gt; oContainer?</span>
+<span class="fc" id="L425">				oContainer.toSyntaxStringHelper(processed):</span>
+<span class="fc" id="L426">				o.toSyntaxString());</span>
+<span class="fc" id="L427">		return sj.toString();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

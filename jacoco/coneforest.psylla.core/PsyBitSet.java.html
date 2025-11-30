@@ -118,22 +118,22 @@ public class PsyBitSet
 	@Override
 	public Iterator&lt;PsyInteger&gt; iterator()
 	{
-<span class="nc" id="L121">		return new Iterator&lt;PsyInteger&gt;()</span>
-<span class="nc" id="L122">			{</span>
-<span class="nc" id="L123">				private int index=bitset.nextSetBit(0);</span>
+<span class="fc" id="L121">		return new Iterator&lt;PsyInteger&gt;()</span>
+<span class="fc" id="L122">			{</span>
+<span class="fc" id="L123">				private int index=bitset.nextSetBit(0);</span>
 
 				@Override
 				public boolean hasNext()
 				{
-<span class="nc bnc" id="L128" title="All 2 branches missed.">					return index&gt;=0;</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">					return index&gt;=0;</span>
 				}
 
 				@Override
 				public PsyInteger next()
 				{
-<span class="nc" id="L134">					final var result=PsyInteger.of(index);</span>
-<span class="nc" id="L135">					index=bitset.nextSetBit(index+1);</span>
-<span class="nc" id="L136">					return result;</span>
+<span class="fc" id="L134">					final var result=PsyInteger.of(index);</span>
+<span class="fc" id="L135">					index=bitset.nextSetBit(index+1);</span>
+<span class="fc" id="L136">					return result;</span>
 				}
 			};
 	}
@@ -153,8 +153,8 @@ public class PsyBitSet
 	@Override
 	public PsyBoolean psyContains(final PsyObject oElement)
 	{
-<span class="nc" id="L156">		return PsyBoolean.of(oElement instanceof PsyInteger oInteger</span>
-<span class="nc bnc" id="L157" title="All 4 branches missed.">				&amp;&amp; bitset.get(oInteger.intValue()));</span>
+<span class="fc" id="L156">		return PsyBoolean.of(oElement instanceof PsyInteger oInteger</span>
+<span class="fc bfc" id="L157" title="All 4 branches covered.">				&amp;&amp; bitset.get(oInteger.intValue()));</span>
 	}
 
 	@Override
@@ -183,23 +183,23 @@ public class PsyBitSet
 	@Override
 	public int hashCode()
 	{
-<span class="nc" id="L186">		return bitset.hashCode();</span>
+<span class="fc" id="L186">		return bitset.hashCode();</span>
 	}
 
 	@Override
 	public boolean equals(final Object obj)
 	{
-<span class="nc bnc" id="L192" title="All 3 branches missed.">		return switch(obj)</span>
+<span class="pc bpc" id="L192" title="1 of 3 branches missed.">		return switch(obj)</span>
 			{
-<span class="nc" id="L194">				case PsyBitSet oBitSet-&gt;bitset.equals(oBitSet.bitset);</span>
-<span class="nc" id="L195">				case PsyFormalSet&lt;? extends PsyObject&gt; oFormalSet-&gt;</span>
+<span class="fc" id="L194">				case PsyBitSet oBitSet-&gt;bitset.equals(oBitSet.bitset);</span>
+<span class="fc" id="L195">				case PsyFormalSet&lt;? extends PsyObject&gt; oFormalSet-&gt;</span>
 					{
-<span class="nc bnc" id="L197" title="All 2 branches missed.">						if(length()!=oFormalSet.length())</span>
+<span class="pc bpc" id="L197" title="1 of 2 branches missed.">						if(length()!=oFormalSet.length())</span>
 <span class="nc" id="L198">							yield false;</span>
-<span class="nc bnc" id="L199" title="All 2 branches missed.">						for(final var oInteger: this)</span>
-<span class="nc bnc" id="L200" title="All 2 branches missed.">							if(!oFormalSet.psyContains(oInteger).booleanValue())</span>
-<span class="nc" id="L201">								yield false;</span>
-<span class="nc" id="L202">						yield true;</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">						for(final var oInteger: this)</span>
+<span class="fc bfc" id="L200" title="All 2 branches covered.">							if(!oFormalSet.psyContains(oInteger).booleanValue())</span>
+<span class="fc" id="L201">								yield false;</span>
+<span class="fc" id="L202">						yield true;</span>
 					}
 <span class="nc" id="L204">				default-&gt;false;</span>
 			};

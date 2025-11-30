@@ -2,6 +2,7 @@
 
 import coneforest.psylla.runtime.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Optional;
 import jline.ConsoleReader;
@@ -17,100 +18,99 @@ public interface PsyContext
 	*	Context action of the {@code begin} operator.
 	*/
 	@OperatorType(&quot;begin&quot;)
-<span class="fc" id="L20">	public static final ContextAction PSY_BEGIN=oContext-&gt;</span>
+<span class="fc" id="L21">	public static final ContextAction PSY_BEGIN=oContext-&gt;</span>
 		{
-<span class="fc" id="L22">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L23">			oContext.dictStack().begin(ostack.getBacked(0));</span>
-<span class="fc" id="L24">		};</span>
+<span class="fc" id="L23">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L24">			oContext.dictStack().begin(ostack.getBacked(0));</span>
+<span class="fc" id="L25">		};</span>
 
 	/**
 	*	Context action of the {@code cleardictstack} operator.
 	*/
 	@OperatorType(&quot;cleardictstack&quot;)
-<span class="fc" id="L30">	public static final ContextAction PSY_CLEARDICTSTACK=oContext-&gt;oContext.dictStack().setSize(2);</span>
+<span class="fc" id="L31">	public static final ContextAction PSY_CLEARDICTSTACK=oContext-&gt;</span>
+<span class="fc" id="L32">		oContext.dictStack().setSize(2);</span>
 
 	/**
 	*	Context action of the {@code clearstack} operator.
 	*/
 	@OperatorType(&quot;clearstack&quot;)
-<span class="fc" id="L36">	public static final ContextAction PSY_CLEARSTACK=oContext-&gt;oContext.operandStack().clear();</span>
+<span class="fc" id="L38">	public static final ContextAction PSY_CLEARSTACK=oContext-&gt;</span>
+<span class="fc" id="L39">		oContext.operandStack().clear();</span>
 
 	/**
 	*	Context action of the {@code cleartomark} operator.
 	*/
 	@OperatorType(&quot;cleartomark&quot;)
-<span class="fc" id="L42">	public static final ContextAction PSY_CLEARTOMARK=oContext-&gt;</span>
+<span class="fc" id="L45">	public static final ContextAction PSY_CLEARTOMARK=oContext-&gt;</span>
 		{
-<span class="fc" id="L44">			final var ostack=oContext.operandStack();</span>
-<span class="fc" id="L45">			ostack.setSize(ostack.findMarkPosition());</span>
-<span class="fc" id="L46">		};</span>
+<span class="fc" id="L47">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L48">			ostack.setSize(ostack.findMarkPosition());</span>
+<span class="fc" id="L49">		};</span>
 
 	/**
 	*	Context action of the {@code copy} operator.
 	*/
 	@OperatorType(&quot;copy&quot;)
-<span class="fc" id="L52">	public static final ContextAction PSY_COPY=oContext-&gt;</span>
+<span class="fc" id="L55">	public static final ContextAction PSY_COPY=oContext-&gt;</span>
 		{
-<span class="fc" id="L54">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L55">			final int count=ostack.&lt;PsyInteger&gt;getBacked(0).intValue();</span>
-<span class="fc bfc" id="L56" title="All 2 branches covered.">			if(count&lt;0)</span>
-<span class="fc" id="L57">				throw new PsyRangeCheckException();</span>
-<span class="fc" id="L58">			ostack.ensureSize(count);</span>
-<span class="fc" id="L59">			final int opsize=ostack.size();</span>
-<span class="fc bfc" id="L60" title="All 2 branches covered.">			for(int j=opsize-count; j&lt;opsize; j++)</span>
-<span class="fc" id="L61">				ostack.push(ostack.get(j));</span>
-<span class="fc" id="L62">		};</span>
+<span class="fc" id="L57">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L58">			final int count=ostack.&lt;PsyInteger&gt;getBacked(0).intValue();</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">			if(count&lt;0)</span>
+<span class="fc" id="L60">				throw new PsyRangeCheckException();</span>
+<span class="fc" id="L61">			ostack.ensureSize(count);</span>
+<span class="fc" id="L62">			final int opsize=ostack.size();</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">			for(int j=opsize-count; j&lt;opsize; j++)</span>
+<span class="fc" id="L64">				ostack.push(ostack.get(j));</span>
+<span class="fc" id="L65">		};</span>
 
 	/**
 	*	Context action of the {@code countdictstack} operator.
 	*/
 	@OperatorType(&quot;countdictstack&quot;)
-<span class="fc" id="L68">	public static final ContextAction PSY_COUNTDICTSTACK=oContext-&gt;</span>
-<span class="fc" id="L69">		oContext.operandStack().push(PsyInteger.of(oContext.dictStack().size()));</span>
+<span class="fc" id="L71">	public static final ContextAction PSY_COUNTDICTSTACK=oContext-&gt;</span>
+<span class="fc" id="L72">		oContext.operandStack().push(PsyInteger.of(oContext.dictStack().size()));</span>
 
 	/**
 	*	Context action of the {@code countexecstack} operator.
 	*/
 	@OperatorType(&quot;countexecstack&quot;)
-<span class="fc" id="L75">	public static final ContextAction PSY_COUNTEXECSTACK=oContext-&gt;</span>
-<span class="fc" id="L76">		oContext.operandStack().push(PsyInteger.of(oContext.executionStack().size()));</span>
+<span class="fc" id="L78">	public static final ContextAction PSY_COUNTEXECSTACK=oContext-&gt;</span>
+<span class="fc" id="L79">		oContext.operandStack().push(PsyInteger.of(oContext.executionStack().size()));</span>
 
 	/**
 	*	Context action of the {@code countstack} operator.
 	*/
 	@OperatorType(&quot;countstack&quot;)
-<span class="fc" id="L82">	public static final ContextAction PSY_COUNTSTACK=oContext-&gt;</span>
+<span class="fc" id="L85">	public static final ContextAction PSY_COUNTSTACK=oContext-&gt;</span>
 		{
-<span class="fc" id="L84">			final var ostack=oContext.operandStack();</span>
-<span class="fc" id="L85">			ostack.push(PsyInteger.of(ostack.size()));</span>
-<span class="fc" id="L86">		};</span>
+<span class="fc" id="L87">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L88">			ostack.push(PsyInteger.of(ostack.size()));</span>
+<span class="fc" id="L89">		};</span>
 
 	/**
 	*	Context action of the {@code counttomark} operator.
 	*/
 	@OperatorType(&quot;counttomark&quot;)
-<span class="fc" id="L92">	public static final ContextAction PSY_COUNTTOMARK=oContext-&gt;</span>
+<span class="fc" id="L95">	public static final ContextAction PSY_COUNTTOMARK=oContext-&gt;</span>
 		{
-<span class="fc" id="L94">			final var ostack=oContext.operandStack();</span>
-<span class="fc" id="L95">			ostack.push(PsyInteger.of(-ostack.findMarkPosition()-1+ostack.size()));</span>
-<span class="fc" id="L96">		};</span>
+<span class="fc" id="L97">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L98">			ostack.push(PsyInteger.of(-ostack.findMarkPosition()-1+ostack.size()));</span>
+<span class="fc" id="L99">		};</span>
 
 	/**
 	*	Context action of the {@code currentcontext} operator.
 	*/
 	@OperatorType(&quot;currentcontext&quot;)
-<span class="fc" id="L102">	public static final ContextAction PSY_CURRENTCONTEXT=oContext-&gt;</span>
-<span class="nc" id="L103">		oContext.operandStack().push(oContext);</span>
+<span class="fc" id="L105">	public static final ContextAction PSY_CURRENTCONTEXT=oContext-&gt;</span>
+<span class="nc" id="L106">		oContext.operandStack().push(oContext);</span>
 
 	/**
 	*	Context action of the {@code currentdict} operator.
 	*/
 	@OperatorType(&quot;currentdict&quot;)
-<span class="fc" id="L109">	public static final ContextAction PSY_CURRENTDICT=oContext-&gt;</span>
-		{
-<span class="fc" id="L111">			final var ostack=oContext.operandStack();</span>
-<span class="fc" id="L112">			ostack.push(oContext.currentDict());</span>
-<span class="fc" id="L113">		};</span>
+<span class="fc" id="L112">	public static final ContextAction PSY_CURRENTDICT=oContext-&gt;</span>
+<span class="fc" id="L113">		oContext.operandStack().push(oContext.currentDict());</span>
 
 	/**
 	*	Context action of the {@code def} operator.
@@ -135,475 +135,476 @@ public interface PsyContext
 	*/
 	@OperatorType(&quot;dictstack&quot;)
 <span class="fc" id="L137">	public static final ContextAction PSY_DICTSTACK=oContext-&gt;</span>
-<span class="nc" id="L138">		oContext.operandStack().push(new PsyArray(new ArrayList&lt;PsyObject&gt;(oContext.dictStack().clone())));</span>
+<span class="nc" id="L138">		oContext.operandStack().push(</span>
+<span class="nc" id="L139">				new PsyArray(new ArrayList&lt;PsyObject&gt;(oContext.dictStack().clone())));</span>
 
 	/**
 	*	Context action of the {@code dup} operator.
 	*/
 	@OperatorType(&quot;dup&quot;)
-<span class="fc" id="L144">	public static final ContextAction PSY_DUP=oContext-&gt;</span>
+<span class="fc" id="L145">	public static final ContextAction PSY_DUP=oContext-&gt;</span>
 		{
-<span class="fc" id="L146">			final var ostack=oContext.operandStack();</span>
-<span class="fc" id="L147">			ostack.ensureSize(1);</span>
-<span class="fc" id="L148">			ostack.push(ostack.peek());</span>
-<span class="fc" id="L149">		};</span>
+<span class="fc" id="L147">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L148">			ostack.ensureSize(1);</span>
+<span class="fc" id="L149">			ostack.push(ostack.peek());</span>
+<span class="fc" id="L150">		};</span>
 
 	/**
 	*	Context action of the {@code editline} operator.
 	*/
 	@OperatorType(&quot;editline&quot;)
-<span class="fc" id="L155">	public static final ContextAction PSY_EDITLINE=oContext-&gt;</span>
+<span class="fc" id="L156">	public static final ContextAction PSY_EDITLINE=oContext-&gt;</span>
 		{
 			try
 			{
-<span class="nc" id="L159">				final var ostack=oContext.operandStack();</span>
-<span class="nc" id="L160">				final var consoleReader=new ConsoleReader();</span>
-<span class="nc" id="L161">				final var line=consoleReader.readLine();</span>
-<span class="nc bnc" id="L162" title="All 2 branches missed.">				if(line!=null)</span>
-<span class="nc" id="L163">					ostack.push(new PsyString(line+&quot;\n&quot;));</span>
-<span class="nc bnc" id="L164" title="All 2 branches missed.">				ostack.push(PsyBoolean.of(line!=null));</span>
+<span class="nc" id="L160">				final var ostack=oContext.operandStack();</span>
+<span class="nc" id="L161">				final var consoleReader=new ConsoleReader();</span>
+<span class="nc" id="L162">				final var line=consoleReader.readLine();</span>
+<span class="nc bnc" id="L163" title="All 2 branches missed.">				if(line!=null)</span>
+<span class="nc" id="L164">					ostack.push(new PsyString(line+&quot;\n&quot;));</span>
+<span class="nc bnc" id="L165" title="All 2 branches missed.">				ostack.push(PsyBoolean.of(line!=null));</span>
 			}
-<span class="nc" id="L166">			catch(final IOException ex)</span>
+<span class="nc" id="L167">			catch(final IOException ex)</span>
 			{
-<span class="nc" id="L168">				throw new PsyIOErrorException();</span>
-<span class="nc" id="L169">			}</span>
-<span class="nc" id="L170">		};</span>
+<span class="nc" id="L169">				throw new PsyIOErrorException();</span>
+<span class="nc" id="L170">			}</span>
+<span class="nc" id="L171">		};</span>
 
 	/**
 	*	Context action of the {@code end} operator.
 	*/
 	@OperatorType(&quot;end&quot;)
-<span class="fc" id="L176">	public static final ContextAction PSY_END=oContext-&gt;oContext.dictStack().end();</span>
+<span class="fc" id="L177">	public static final ContextAction PSY_END=oContext-&gt;oContext.dictStack().end();</span>
 
 	/**
 	*	Context action of the {@code exch} operator.
 	*/
 	@OperatorType(&quot;exch&quot;)
-<span class="fc" id="L182">	public static final ContextAction PSY_EXCH=oContext-&gt;</span>
+<span class="fc" id="L183">	public static final ContextAction PSY_EXCH=oContext-&gt;</span>
 		{
-<span class="fc" id="L184">			final var ostack=oContext.operandStackBacked(2);</span>
-<span class="fc" id="L185">			ostack.push(ostack.getBacked(1));</span>
-<span class="fc" id="L186">			ostack.push(ostack.getBacked(0));</span>
-<span class="fc" id="L187">		};</span>
+<span class="fc" id="L185">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L186">			ostack.push(ostack.getBacked(1));</span>
+<span class="fc" id="L187">			ostack.push(ostack.getBacked(0));</span>
+<span class="fc" id="L188">		};</span>
 
 	/**
 	*	Context action of the {@code exec} operator.
 	*/
 	@OperatorType(&quot;exec&quot;)
-<span class="fc" id="L193">	public static final ContextAction PSY_EXEC=oContext-&gt;</span>
-<span class="fc" id="L194">		oContext.operandStackBacked(1).getBacked(0).invoke(oContext);</span>
+<span class="fc" id="L194">	public static final ContextAction PSY_EXEC=oContext-&gt;</span>
+<span class="fc" id="L195">		oContext.operandStackBacked(1).getBacked(0).invoke(oContext);</span>
 
 	/**
 	*	Context action of the {@code execstack} operator.
 	*/
 	@OperatorType(&quot;execstack&quot;)
-<span class="fc" id="L200">	public static final ContextAction PSY_EXECSTACK=oContext-&gt;</span>
-<span class="fc" id="L201">		oContext.operandStack().push(new PsyArray((ArrayList&lt;PsyObject&gt;)oContext.executionStack().clone()));</span>
+<span class="fc" id="L201">	public static final ContextAction PSY_EXECSTACK=oContext-&gt;</span>
+<span class="fc" id="L202">		oContext.operandStack().push(new PsyArray((ArrayList&lt;PsyObject&gt;)oContext.executionStack().clone()));</span>
 
 	/**
 	*	Context action of the {@code executive} operator.
 	*/
 	@OperatorType(&quot;executive&quot;)
-<span class="pc" id="L207">	public static final ContextAction PSY_EXECUTIVE=oContext-&gt;oContext.repl();</span>
+<span class="pc" id="L208">	public static final ContextAction PSY_EXECUTIVE=oContext-&gt;oContext.repl();</span>
 
 	/**
 	*	Context action of the {@code exit} operator.
 	*/
 	@OperatorType(&quot;exit&quot;)
-<span class="fc" id="L213">	public static final ContextAction PSY_EXIT=oContext-&gt;</span>
-<span class="fc" id="L214">			oContext.executionStack().exitLoop();</span>
+<span class="fc" id="L214">	public static final ContextAction PSY_EXIT=oContext-&gt;</span>
+<span class="fc" id="L215">			oContext.executionStack().exitLoop();</span>
 
 	/**
 	*	Context action of the {@code for} operator.
 	*/
 	@OperatorType(&quot;for&quot;)
-<span class="fc" id="L220">	public static final ContextAction PSY_FOR=oContext-&gt;</span>
+<span class="fc" id="L221">	public static final ContextAction PSY_FOR=oContext-&gt;</span>
 		{
-<span class="fc" id="L222">			final var ostack=oContext.operandStackBacked(4);</span>
-<span class="fc" id="L223">			final var estack=oContext.executionStack();</span>
-<span class="fc" id="L224">			final PsyRealNumeric oInitial=ostack.getBacked(0);</span>
-<span class="fc" id="L225">			final PsyRealNumeric oIncrement=ostack.getBacked(1);</span>
-<span class="fc" id="L226">			final PsyRealNumeric oLimit=ostack.getBacked(2);</span>
-<span class="fc" id="L227">			final PsyObject oProc=ostack.getBacked(3);</span>
+<span class="fc" id="L223">			final var ostack=oContext.operandStackBacked(4);</span>
+<span class="fc" id="L224">			final var estack=oContext.executionStack();</span>
+<span class="fc" id="L225">			final PsyRealNumeric oInitial=ostack.getBacked(0);</span>
+<span class="fc" id="L226">			final PsyRealNumeric oIncrement=ostack.getBacked(1);</span>
+<span class="fc" id="L227">			final PsyRealNumeric oLimit=ostack.getBacked(2);</span>
+<span class="fc" id="L228">			final PsyObject oProc=ostack.getBacked(3);</span>
 
-<span class="fc" id="L229">			oContext.executionStack().enterLoop();</span>
-<span class="fc bfc" id="L230" title="All 2 branches covered.">			estack.push(oIncrement.compareTo(PsyInteger.ZERO)&gt;0?</span>
-<span class="fc" id="L231">				new PsyOperator(&quot;#for_continue&quot;)</span>
-<span class="fc" id="L232">					{</span>
-<span class="fc" id="L233">						private PsyRealNumeric oCounter=oInitial;</span>
+<span class="fc" id="L230">			oContext.executionStack().enterLoop();</span>
+<span class="fc bfc" id="L231" title="All 2 branches covered.">			estack.push(oIncrement.compareTo(PsyInteger.ZERO)&gt;0?</span>
+<span class="fc" id="L232">				new PsyOperator(&quot;#for_continue&quot;)</span>
+<span class="fc" id="L233">					{</span>
+<span class="fc" id="L234">						private PsyRealNumeric oCounter=oInitial;</span>
 
 						@Override
 						public void perform(final PsyContext oContext)
 							throws PsyInvalidExitException
 						{
-<span class="fc bfc" id="L239" title="All 2 branches covered.">							if(oCounter.compareTo(oLimit)&gt;0)</span>
-<span class="fc" id="L240">								oContext.executionStack().exitLoop();</span>
+<span class="fc bfc" id="L240" title="All 2 branches covered.">							if(oCounter.compareTo(oLimit)&gt;0)</span>
+<span class="fc" id="L241">								oContext.executionStack().exitLoop();</span>
 							else
 							{
-<span class="fc" id="L243">								estack.push(this);</span>
-<span class="fc" id="L244">								ostack.push(oCounter);</span>
-<span class="fc" id="L245">								oCounter=oCounter.psyAdd(oIncrement);</span>
-<span class="fc" id="L246">								oProc.invoke(oContext);</span>
+<span class="fc" id="L244">								estack.push(this);</span>
+<span class="fc" id="L245">								ostack.push(oCounter);</span>
+<span class="fc" id="L246">								oCounter=oCounter.psyAdd(oIncrement);</span>
+<span class="fc" id="L247">								oProc.invoke(oContext);</span>
 							}
-<span class="fc" id="L248">						}</span>
+<span class="fc" id="L249">						}</span>
 					}:
-<span class="fc" id="L250">				new PsyOperator(&quot;#for_continue&quot;)</span>
-<span class="fc" id="L251">					{</span>
-<span class="fc" id="L252">						private PsyRealNumeric oCounter=oInitial;</span>
+<span class="fc" id="L251">				new PsyOperator(&quot;#for_continue&quot;)</span>
+<span class="fc" id="L252">					{</span>
+<span class="fc" id="L253">						private PsyRealNumeric oCounter=oInitial;</span>
 
 						@Override
 						public void perform(final PsyContext oContext)
 							throws PsyInvalidExitException
 						{
-<span class="fc bfc" id="L258" title="All 2 branches covered.">							if(oCounter.compareTo(oLimit)&lt;0)</span>
-<span class="fc" id="L259">								oContext.executionStack().exitLoop();</span>
+<span class="fc bfc" id="L259" title="All 2 branches covered.">							if(oCounter.compareTo(oLimit)&lt;0)</span>
+<span class="fc" id="L260">								oContext.executionStack().exitLoop();</span>
 							else
 							{
-<span class="fc" id="L262">								estack.push(this);</span>
-<span class="fc" id="L263">								ostack.push(oCounter);</span>
-<span class="fc" id="L264">								oCounter=oCounter.psyAdd(oIncrement);</span>
-<span class="fc" id="L265">								oProc.invoke(oContext);</span>
+<span class="fc" id="L263">								estack.push(this);</span>
+<span class="fc" id="L264">								ostack.push(oCounter);</span>
+<span class="fc" id="L265">								oCounter=oCounter.psyAdd(oIncrement);</span>
+<span class="fc" id="L266">								oProc.invoke(oContext);</span>
 							}
-<span class="fc" id="L267">						}</span>
+<span class="fc" id="L268">						}</span>
 					});
-<span class="fc" id="L269">			};</span>
+<span class="fc" id="L270">			};</span>
 
 	/**
 	*	Context action of the {@code fork} operator.
 	*/
 	@OperatorType(&quot;fork&quot;)
-<span class="fc" id="L275">	public static final ContextAction PSY_FORK=oContext-&gt;oContext.fork();</span>
+<span class="fc" id="L276">	public static final ContextAction PSY_FORK=oContext-&gt;oContext.fork();</span>
 
 	/**
 	*	Context action of the {@code halt} operator.
 	*/
 	@OperatorType(&quot;halt&quot;)
-<span class="fc" id="L281">	public static final ContextAction PSY_HALT=oContext-&gt;</span>
+<span class="fc" id="L282">	public static final ContextAction PSY_HALT=oContext-&gt;</span>
 		{
-<span class="nc" id="L283">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="nc" id="L284">			System.exit(ostack.&lt;PsyInteger&gt;getBacked(0).intValue());</span>
-<span class="nc" id="L285">		};</span>
+<span class="nc" id="L284">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="nc" id="L285">			System.exit(ostack.&lt;PsyInteger&gt;getBacked(0).intValue());</span>
+<span class="nc" id="L286">		};</span>
 
 	/**
 	*	Context action of the {@code if} operator.
 	*/
 	@OperatorType(&quot;if&quot;)
-<span class="fc" id="L291">	public static final ContextAction PSY_IF=oContext-&gt;</span>
+<span class="fc" id="L292">	public static final ContextAction PSY_IF=oContext-&gt;</span>
 		{
-<span class="fc" id="L293">			final var ostack=oContext.operandStackBacked(2);</span>
-<span class="fc bfc" id="L294" title="All 2 branches covered.">			if(ostack.&lt;PsyBoolean&gt;getBacked(0).booleanValue())</span>
-<span class="fc" id="L295">				ostack.getBacked(1).invoke(oContext);</span>
-<span class="fc" id="L296">		};</span>
+<span class="fc" id="L294">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc bfc" id="L295" title="All 2 branches covered.">			if(ostack.&lt;PsyBoolean&gt;getBacked(0).booleanValue())</span>
+<span class="fc" id="L296">				ostack.getBacked(1).invoke(oContext);</span>
+<span class="fc" id="L297">		};</span>
 
 	/**
 	*	Context action of the {@code ifelse} operator.
 	*/
 	@OperatorType(&quot;ifelse&quot;)
-<span class="fc" id="L302">	public static final ContextAction PSY_IFELSE=oContext-&gt;</span>
+<span class="fc" id="L303">	public static final ContextAction PSY_IFELSE=oContext-&gt;</span>
 		{
-<span class="fc" id="L304">			final var ostack=oContext.operandStackBacked(3);</span>
-<span class="fc bfc" id="L305" title="All 2 branches covered.">			ostack.getBacked(ostack.&lt;PsyBoolean&gt;getBacked(0).booleanValue()? 1: 2)</span>
-<span class="fc" id="L306">				.invoke(oContext);</span>
-<span class="fc" id="L307">		};</span>
+<span class="fc" id="L305">			final var ostack=oContext.operandStackBacked(3);</span>
+<span class="fc bfc" id="L306" title="All 2 branches covered.">			ostack.getBacked(ostack.&lt;PsyBoolean&gt;getBacked(0).booleanValue()? 1: 2)</span>
+<span class="fc" id="L307">				.invoke(oContext);</span>
+<span class="fc" id="L308">		};</span>
 
 	/**
 	*	Context action of the {@code index} operator.
 	*/
 	@OperatorType(&quot;index&quot;)
-<span class="fc" id="L313">	public static final ContextAction PSY_INDEX=oContext-&gt;</span>
+<span class="fc" id="L314">	public static final ContextAction PSY_INDEX=oContext-&gt;</span>
 		{
-<span class="fc" id="L315">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L316">			final int index=ostack.&lt;PsyInteger&gt;getBacked(0).intValue();</span>
-<span class="fc bfc" id="L317" title="All 2 branches covered.">			if(index&lt;0)</span>
-<span class="fc" id="L318">				throw new PsyRangeCheckException();</span>
-<span class="fc" id="L319">			ostack.ensureSize(index+1);</span>
-<span class="fc" id="L320">			ostack.push(ostack.get(ostack.size()-index-1));</span>
-<span class="fc" id="L321">		};</span>
+<span class="fc" id="L316">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L317">			final int index=ostack.&lt;PsyInteger&gt;getBacked(0).intValue();</span>
+<span class="fc bfc" id="L318" title="All 2 branches covered.">			if(index&lt;0)</span>
+<span class="fc" id="L319">				throw new PsyRangeCheckException();</span>
+<span class="fc" id="L320">			ostack.ensureSize(index+1);</span>
+<span class="fc" id="L321">			ostack.push(ostack.get(ostack.size()-index-1));</span>
+<span class="fc" id="L322">		};</span>
 
 	/**
 	*	Context action of the {@code join} operator.
 	*/
 	@OperatorType(&quot;join&quot;)
-<span class="fc" id="L327">	public static final ContextAction PSY_JOIN=oContext-&gt;</span>
+<span class="fc" id="L328">	public static final ContextAction PSY_JOIN=oContext-&gt;</span>
 		{
-<span class="fc" id="L329">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L330">			final var oContextJoining=ostack.&lt;PsyContext&gt;getBacked(0);</span>
-<span class="pc bpc" id="L331" title="1 of 2 branches missed.">			if(oContextJoining==oContext)</span>
-<span class="nc" id="L332">				throw new PsyInvalidContextException();</span>
+<span class="fc" id="L330">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L331">			final var oContextJoining=ostack.&lt;PsyContext&gt;getBacked(0);</span>
+<span class="pc bpc" id="L332" title="1 of 2 branches missed.">			if(oContextJoining==oContext)</span>
+<span class="nc" id="L333">				throw new PsyInvalidContextException();</span>
 			try
 			{
-<span class="fc" id="L335">				oContextJoining.join();</span>
+<span class="fc" id="L336">				oContextJoining.join();</span>
 			}
-<span class="nc" id="L337">			catch(final InterruptedException ex)</span>
+<span class="nc" id="L338">			catch(final InterruptedException ex)</span>
 			{
-<span class="nc" id="L339">				throw new PsyInterruptException();</span>
-<span class="fc" id="L340">			}</span>
-<span class="fc" id="L341">			final var ostackJoining=oContextJoining.operandStack();</span>
-<span class="fc" id="L342">			ostack.push(PsyMark.MARK);</span>
-<span class="pc bpc" id="L343" title="1 of 2 branches missed.">			for(final var o: ostackJoining)</span>
-<span class="nc" id="L344">				ostack.push(o);</span>
-<span class="fc" id="L345">		};</span>
+<span class="nc" id="L340">				throw new PsyInterruptException();</span>
+<span class="fc" id="L341">			}</span>
+<span class="fc" id="L342">			final var ostackJoining=oContextJoining.operandStack();</span>
+<span class="fc" id="L343">			ostack.push(PsyMark.MARK);</span>
+<span class="pc bpc" id="L344" title="1 of 2 branches missed.">			for(final var o: ostackJoining)</span>
+<span class="nc" id="L345">				ostack.push(o);</span>
+<span class="fc" id="L346">		};</span>
 
 	/**
 	*	Context action of the {@code load} operator.
 	*/
 	@OperatorType(&quot;load&quot;)
-<span class="fc" id="L351">	public static final ContextAction PSY_LOAD=oContext-&gt;</span>
+<span class="fc" id="L352">	public static final ContextAction PSY_LOAD=oContext-&gt;</span>
 		{
-<span class="fc" id="L353">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L354">			ostack.push(oContext.psyLoad(ostack.getBacked(0)));</span>
-<span class="fc" id="L355">		};</span>
+<span class="fc" id="L354">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L355">			ostack.push(oContext.psyLoad(ostack.getBacked(0)));</span>
+<span class="fc" id="L356">		};</span>
 
 	/**
 	*	Context action of the {@code loop} operator.
 	*/
 	@OperatorType(&quot;loop&quot;)
-<span class="fc" id="L361">	public static final ContextAction PSY_LOOP=oContext-&gt;</span>
+<span class="fc" id="L362">	public static final ContextAction PSY_LOOP=oContext-&gt;</span>
 		{
-<span class="fc" id="L363">			final var oProc=oContext.operandStackBacked(1).getBacked(0);</span>
-<span class="fc" id="L364">			oContext.executionStack().enterLoop();</span>
-<span class="fc" id="L365">			oContext.executionStack().push(new PsyOperator(&quot;#loop_continue&quot;)</span>
-<span class="fc" id="L366">				{</span>
+<span class="fc" id="L364">			final var oProc=oContext.operandStackBacked(1).getBacked(0);</span>
+<span class="fc" id="L365">			oContext.executionStack().enterLoop();</span>
+<span class="fc" id="L366">			oContext.executionStack().push(new PsyOperator(&quot;#loop_continue&quot;)</span>
+<span class="fc" id="L367">				{</span>
 					@Override
 					public void perform(final PsyContext oContext1)
 						throws PsyErrorException
 					{
-<span class="fc" id="L371">						oContext1.executionStack().push(this);</span>
-<span class="fc" id="L372">						oProc.invoke(oContext1);</span>
-<span class="fc" id="L373">					}</span>
+<span class="fc" id="L372">						oContext1.executionStack().push(this);</span>
+<span class="fc" id="L373">						oProc.invoke(oContext1);</span>
+<span class="fc" id="L374">					}</span>
 				});
-<span class="fc" id="L375">		};</span>
+<span class="fc" id="L376">		};</span>
 
 	/**
 	*	Context action of the {@code namespace} operator.
 	*/
 	@OperatorType(&quot;namespace&quot;)
-<span class="fc" id="L381">	public static final ContextAction PSY_NAMESPACE=oContext-&gt;</span>
+<span class="fc" id="L382">	public static final ContextAction PSY_NAMESPACE=oContext-&gt;</span>
 		{
-<span class="fc" id="L383">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L384">			ostack.push(oContext.namespacePool().get(ostack.&lt;PsyTextual&gt;getBacked(0).stringValue()));</span>
-<span class="fc" id="L385">		};</span>
+<span class="fc" id="L384">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L385">			ostack.push(oContext.namespacePool().get(ostack.&lt;PsyTextual&gt;getBacked(0).stringValue()));</span>
+<span class="fc" id="L386">		};</span>
 
 	/**
 	*	Context action of the {@code pop} operator.
 	*/
 	@OperatorType(&quot;pop&quot;)
-<span class="fc" id="L391">	public static final ContextAction PSY_POP=</span>
-<span class="fc" id="L392">		ContextAction.&lt;PsyObject&gt;ofConsumer(o-&gt;{});</span>
+<span class="fc" id="L392">	public static final ContextAction PSY_POP=</span>
+<span class="fc" id="L393">		ContextAction.&lt;PsyObject&gt;ofConsumer(o-&gt;{});</span>
 
 	/**
 	*	Context action of the {@code prettyprint} operator.
 	*/
 	@OperatorType(&quot;prettyprint&quot;)
-<span class="fc" id="L398">	public static final ContextAction PSY_PRETTYPRINT=oContext-&gt;</span>
+<span class="fc" id="L399">	public static final ContextAction PSY_PRETTYPRINT=oContext-&gt;</span>
 		{
-<span class="fc" id="L400">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L401">			final var oStdWriter=(PsyWriter)oContext.dictStack().load(&quot;stdout&quot;);</span>
-<span class="fc" id="L402">			oStdWriter.psyWriteString(ostack.getBacked(0).psySyntax());</span>
-<span class="fc" id="L403">			oStdWriter.psyWriteString(oContext.dictStack().load(&quot;eol&quot;));</span>
-<span class="fc" id="L404">			oStdWriter.psyFlush();</span>
-<span class="fc" id="L405">		};</span>
+<span class="fc" id="L401">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L402">			final var oStdWriter=oContext.dictStack().&lt;PsyWriter&gt;load(&quot;stdout&quot;);</span>
+<span class="fc" id="L403">			oStdWriter.psyWriteString(ostack.getBacked(0).psySyntax());</span>
+<span class="fc" id="L404">			oStdWriter.psyWriteString(oContext.dictStack().load(&quot;eol&quot;));</span>
+<span class="fc" id="L405">			oStdWriter.psyFlush();</span>
+<span class="fc" id="L406">		};</span>
 
 	/**
 	*	Context action of the {@code print} operator.
 	*/
 	@OperatorType(&quot;print&quot;)
-<span class="fc" id="L411">	public static final ContextAction PSY_PRINT=oContext-&gt;</span>
+<span class="fc" id="L412">	public static final ContextAction PSY_PRINT=oContext-&gt;</span>
 		{
-<span class="fc" id="L413">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L414">			oContext.dictStack().&lt;PsyWriter&gt;load(&quot;stdout&quot;).psyWriteString(ostack.getBacked(0));</span>
-<span class="fc" id="L415">		};</span>
+<span class="fc" id="L414">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L415">			oContext.dictStack().&lt;PsyWriter&gt;load(&quot;stdout&quot;).psyWriteString(ostack.getBacked(0));</span>
+<span class="fc" id="L416">		};</span>
 
 	/**
 	*	Context action of the {@code quit} operator.
 	*/
 	@OperatorType(&quot;quit&quot;)
-<span class="fc" id="L421">	public static final ContextAction PSY_QUIT=oContext-&gt;oContext.quit();</span>
+<span class="fc" id="L422">	public static final ContextAction PSY_QUIT=oContext-&gt;oContext.quit();</span>
 
 	/**
 	*	Context action of the {@code repeat} operator.
 	*/
 	@OperatorType(&quot;repeat&quot;)
-<span class="fc" id="L427">	public static final ContextAction PSY_REPEAT=oContext-&gt;</span>
+<span class="fc" id="L428">	public static final ContextAction PSY_REPEAT=oContext-&gt;</span>
 		{
-<span class="fc" id="L429">			final var ostack=oContext.operandStackBacked(2);</span>
-<span class="fc" id="L430">			final var estack=oContext.executionStack();</span>
-<span class="fc" id="L431">			final PsyInteger oCount=ostack.getBacked(0);</span>
-<span class="fc" id="L432">			final PsyObject oProc=ostack.getBacked(1);</span>
-<span class="fc" id="L433">			final long count=oCount.longValue();</span>
+<span class="fc" id="L430">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L431">			final var estack=oContext.executionStack();</span>
+<span class="fc" id="L432">			final PsyInteger oCount=ostack.getBacked(0);</span>
+<span class="fc" id="L433">			final PsyObject oProc=ostack.getBacked(1);</span>
+<span class="fc" id="L434">			final long count=oCount.longValue();</span>
 
-<span class="fc bfc" id="L435" title="All 2 branches covered.">			if(count&lt;0)</span>
-<span class="fc" id="L436">				throw new PsyRangeCheckException();</span>
-<span class="fc bfc" id="L437" title="All 2 branches covered.">			if(count==0)</span>
-<span class="fc" id="L438">				return;</span>
+<span class="fc bfc" id="L436" title="All 2 branches covered.">			if(count&lt;0)</span>
+<span class="fc" id="L437">				throw new PsyRangeCheckException();</span>
+<span class="fc bfc" id="L438" title="All 2 branches covered.">			if(count==0)</span>
+<span class="fc" id="L439">				return;</span>
 
-<span class="fc" id="L440">			oContext.executionStack().enterLoop();</span>
-<span class="fc" id="L441">			oContext.executionStack().push(new PsyOperator(&quot;#repeat_continue&quot;)</span>
-<span class="fc" id="L442">				{</span>
-<span class="fc" id="L443">					private long count1=count;</span>
+<span class="fc" id="L441">			oContext.executionStack().enterLoop();</span>
+<span class="fc" id="L442">			oContext.executionStack().push(new PsyOperator(&quot;#repeat_continue&quot;)</span>
+<span class="fc" id="L443">				{</span>
+<span class="fc" id="L444">					private long count1=count;</span>
 
 					@Override
 					public void perform(final PsyContext oContext1)
 						throws PsyInvalidExitException
 					{
-<span class="fc bfc" id="L449" title="All 2 branches covered.">						if(count1--==0)</span>
-<span class="fc" id="L450">							oContext1.executionStack().exitLoop();</span>
+<span class="fc bfc" id="L450" title="All 2 branches covered.">						if(count1--==0)</span>
+<span class="fc" id="L451">							oContext1.executionStack().exitLoop();</span>
 						else
 						{
-<span class="fc" id="L453">							estack.push(this);</span>
-<span class="fc" id="L454">							oProc.invoke(oContext1);</span>
+<span class="fc" id="L454">							estack.push(this);</span>
+<span class="fc" id="L455">							oProc.invoke(oContext1);</span>
 						}
-<span class="fc" id="L456">					}</span>
+<span class="fc" id="L457">					}</span>
 				});
-<span class="fc" id="L458">		};</span>
+<span class="fc" id="L459">		};</span>
 
 	/**
 	*	Context action of the {@code require} operator.
 	*/
 	@OperatorType(&quot;require&quot;)
-<span class="fc" id="L464">	public static final ContextAction PSY_REQUIRE=oContext-&gt;</span>
+<span class="fc" id="L465">	public static final ContextAction PSY_REQUIRE=oContext-&gt;</span>
 		{
 			// TODO
-<span class="fc" id="L467">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L468">			oContext.psyRequire(ostack.getBacked(0));</span>
-<span class="fc" id="L469">		};</span>
+<span class="fc" id="L468">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L469">			oContext.psyRequire(ostack.getBacked(0));</span>
+<span class="fc" id="L470">		};</span>
 
 	/**
 	*	Context action of the {@code roll} operator.
 	*/
 	@OperatorType(&quot;roll&quot;)
-<span class="fc" id="L475">	public static final ContextAction PSY_ROLL=oContext-&gt;</span>
+<span class="fc" id="L476">	public static final ContextAction PSY_ROLL=oContext-&gt;</span>
 		{
-<span class="fc" id="L477">			final var ostack=oContext.operandStackBacked(2);</span>
-<span class="fc" id="L478">			final var n=ostack.&lt;PsyInteger&gt;getBacked(0).intValue();</span>
-<span class="fc bfc" id="L479" title="All 2 branches covered.">			if(n&lt;0)</span>
-<span class="fc" id="L480">				throw new PsyRangeCheckException();</span>
-<span class="fc bfc" id="L481" title="All 2 branches covered.">			if(n==0)</span>
-<span class="fc" id="L482">				return;</span>
-<span class="fc" id="L483">			final int j=Math.floorMod(ostack.&lt;PsyInteger&gt;getBacked(1).intValue(), n);</span>
-<span class="fc" id="L484">			final var ostackSize=ostack.size();</span>
-<span class="fc" id="L485">			ostack.ensureSize(n);</span>
-<span class="fc bfc" id="L486" title="All 2 branches covered.">			for(int i=0; i&lt;j; i++)</span>
-<span class="fc" id="L487">				ostack.add(ostackSize-n, ostack.pop());</span>
-<span class="fc" id="L488">		};</span>
+<span class="fc" id="L478">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L479">			final var n=ostack.&lt;PsyInteger&gt;getBacked(0).intValue();</span>
+<span class="fc bfc" id="L480" title="All 2 branches covered.">			if(n&lt;0)</span>
+<span class="fc" id="L481">				throw new PsyRangeCheckException();</span>
+<span class="fc bfc" id="L482" title="All 2 branches covered.">			if(n==0)</span>
+<span class="fc" id="L483">				return;</span>
+<span class="fc" id="L484">			final int j=Math.floorMod(ostack.&lt;PsyInteger&gt;getBacked(1).intValue(), n);</span>
+<span class="fc" id="L485">			final var ostackSize=ostack.size();</span>
+<span class="fc" id="L486">			ostack.ensureSize(n);</span>
+<span class="fc bfc" id="L487" title="All 2 branches covered.">			for(int i=0; i&lt;j; i++)</span>
+<span class="fc" id="L488">				ostack.add(ostackSize-n, ostack.pop());</span>
+<span class="fc" id="L489">		};</span>
 
 	/**
 	*	Context action of the {@code say} operator.
 	*/
 	@OperatorType(&quot;say&quot;)
-<span class="fc" id="L494">	public static final ContextAction PSY_SAY=oContext-&gt;</span>
+<span class="fc" id="L495">	public static final ContextAction PSY_SAY=oContext-&gt;</span>
 		{
-<span class="nc" id="L496">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="nc" id="L497">			final var stdwriter=(PsyWriter)oContext.dictStack().load(&quot;stdout&quot;);</span>
-<span class="nc" id="L498">			stdwriter.psyWriteString(ostack.getBacked(0));</span>
-<span class="nc" id="L499">			stdwriter.psyWriteString((PsyString)oContext.dictStack().load(&quot;eol&quot;));</span>
-<span class="nc" id="L500">			stdwriter.psyFlush();</span>
-<span class="nc" id="L501">		};</span>
+<span class="nc" id="L497">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="nc" id="L498">			final var stdwriter=oContext.dictStack().&lt;PsyWriter&gt;load(&quot;stdout&quot;);</span>
+<span class="nc" id="L499">			stdwriter.psyWriteString(ostack.getBacked(0));</span>
+<span class="nc" id="L500">			stdwriter.psyWriteString(oContext.dictStack().&lt;PsyString&gt;load(&quot;eol&quot;));</span>
+<span class="nc" id="L501">			stdwriter.psyFlush();</span>
+<span class="nc" id="L502">		};</span>
 
 	/**
 	*	Context action of the {@code sleep} operator.
 	*/
 	@OperatorType(&quot;sleep&quot;)
-<span class="fc" id="L507">	public static final ContextAction PSY_SLEEP=oContext-&gt;</span>
+<span class="fc" id="L508">	public static final ContextAction PSY_SLEEP=oContext-&gt;</span>
 		{
 			try
 			{
-<span class="fc" id="L511">				Thread.sleep(oContext.operandStackBacked(1).&lt;PsyInteger&gt;getBacked(0).longValue());</span>
+<span class="fc" id="L512">				Thread.sleep(oContext.operandStackBacked(1).&lt;PsyInteger&gt;getBacked(0).longValue());</span>
 			}
-<span class="fc" id="L513">			catch(final IllegalArgumentException ex)</span>
+<span class="fc" id="L514">			catch(final IllegalArgumentException ex)</span>
 			{
-<span class="fc" id="L515">				throw new PsyRangeCheckException();</span>
+<span class="fc" id="L516">				throw new PsyRangeCheckException();</span>
 			}
-<span class="nc" id="L517">			catch(final InterruptedException ex)</span>
+<span class="nc" id="L518">			catch(final InterruptedException ex)</span>
 			{
-<span class="nc" id="L519">				throw new PsyInterruptException();</span>
-<span class="fc" id="L520">			}</span>
-<span class="fc" id="L521">		};</span>
+<span class="nc" id="L520">				throw new PsyInterruptException();</span>
+<span class="fc" id="L521">			}</span>
+<span class="fc" id="L522">		};</span>
 
 	/**
 	*	Context action of the {@code stack} operator.
 	*/
 	@OperatorType(&quot;stack&quot;)
-<span class="fc" id="L527">	public static final ContextAction PSY_STACK=oContext-&gt;</span>
+<span class="fc" id="L528">	public static final ContextAction PSY_STACK=oContext-&gt;</span>
 		{
-<span class="fc" id="L529">			final var ostack=oContext.operandStack();</span>
-<span class="fc" id="L530">			ostack.push(new PsyArray((ArrayList&lt;PsyObject&gt;)ostack.clone()));</span>
-<span class="fc" id="L531">		};</span>
+<span class="fc" id="L530">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L531">			ostack.push(new PsyArray((ArrayList&lt;PsyObject&gt;)ostack.clone()));</span>
+<span class="fc" id="L532">		};</span>
 
 	/**
 	*	Context action of the {@code stop} operator.
 	*/
 	@OperatorType(&quot;stop&quot;)
-<span class="fc" id="L537">	public static final ContextAction PSY_STOP=PsyContext::stop;</span>
+<span class="fc" id="L538">	public static final ContextAction PSY_STOP=PsyContext::stop;</span>
 
 	/**
 	*	Context action of the {@code stopped} operator.
 	*/
 	@OperatorType(&quot;stopped&quot;)
-<span class="fc" id="L543">	public static final ContextAction PSY_STOPPED=oContext-&gt;</span>
+<span class="fc" id="L544">	public static final ContextAction PSY_STOPPED=oContext-&gt;</span>
 		{
-<span class="fc" id="L545">			oContext.executionStack().push(new PsyOperator(&quot;#stopped_continue&quot;)</span>
-<span class="fc" id="L546">				{</span>
+<span class="fc" id="L546">			oContext.executionStack().push(new PsyOperator(&quot;#stopped_continue&quot;)</span>
+<span class="fc" id="L547">				{</span>
 					@Override
 					public void perform(final PsyContext oContext1)
 					{
-<span class="fc" id="L550">						oContext1.operandStack().push(PsyBoolean.of(oContext1.getStopped()));</span>
-<span class="fc" id="L551">						oContext1.setStopped(false);</span>
-<span class="fc" id="L552">						oContext1.executionStack().exitStop();</span>
-<span class="fc" id="L553">					}</span>
+<span class="fc" id="L551">						oContext1.operandStack().push(PsyBoolean.of(oContext1.getStopped()));</span>
+<span class="fc" id="L552">						oContext1.setStopped(false);</span>
+<span class="fc" id="L553">						oContext1.executionStack().exitStop();</span>
+<span class="fc" id="L554">					}</span>
 				});
-<span class="fc" id="L555">			oContext.executionStack().enterStop();</span>
-<span class="fc" id="L556">			oContext.operandStackBacked(1).getBacked(0).invoke(oContext);</span>
-<span class="fc" id="L557">		};</span>
+<span class="fc" id="L556">			oContext.executionStack().enterStop();</span>
+<span class="fc" id="L557">			oContext.operandStackBacked(1).getBacked(0).invoke(oContext);</span>
+<span class="fc" id="L558">		};</span>
 	/**
 	*	Context action of the {@code store} operator.
 	*/
 	@OperatorType(&quot;store&quot;)
-<span class="fc" id="L562">	public static final ContextAction PSY_STORE=oContext-&gt;</span>
+<span class="fc" id="L563">	public static final ContextAction PSY_STORE=oContext-&gt;</span>
 		{
-<span class="nc" id="L564">			final var ostack=oContext.operandStackBacked(2);</span>
-<span class="nc" id="L565">			oContext.dictStack().store(ostack.getBacked(0), ostack.getBacked(1));</span>
-<span class="nc" id="L566">		};</span>
+<span class="nc" id="L565">			final var ostack=oContext.operandStackBacked(2);</span>
+<span class="nc" id="L566">			oContext.dictStack().store(ostack.getBacked(0), ostack.getBacked(1));</span>
+<span class="nc" id="L567">		};</span>
 
 	/**
 	*	Context action of the {@code tokens} operator.
 	*/
 	@OperatorType(&quot;tokens&quot;)
-<span class="fc" id="L572">	public static final ContextAction PSY_TOKENS=oContext-&gt;</span>
+<span class="fc" id="L573">	public static final ContextAction PSY_TOKENS=oContext-&gt;</span>
 		{
-<span class="nc" id="L574">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="nc" id="L575">			oContext.interpretBraced(new PsyStringReader(ostack.&lt;PsyName&gt;getBacked(0)));</span>
-<span class="nc" id="L576">		};</span>
+<span class="nc" id="L575">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="nc" id="L576">			oContext.interpretBraced(new PsyStringReader(ostack.&lt;PsyName&gt;getBacked(0)));</span>
+<span class="nc" id="L577">		};</span>
 
 	/**
 	*	Context action of the {@code warn} operator.
 	*/
 	@OperatorType(&quot;warn&quot;)
-<span class="fc" id="L582">	public static final ContextAction PSY_WARN=oContext-&gt;</span>
+<span class="fc" id="L583">	public static final ContextAction PSY_WARN=oContext-&gt;</span>
 		{
-<span class="fc" id="L584">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L585">			final PsyWriter stderror=oContext.dictStack().load(&quot;stderr&quot;);</span>
-<span class="fc" id="L586">			stderror.psyWriteString(ostack.getBacked(0));</span>
-<span class="fc" id="L587">			stderror.psyFlush();</span>
-<span class="fc" id="L588">		};</span>
+<span class="fc" id="L585">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L586">			final PsyWriter stderror=oContext.dictStack().load(&quot;stderr&quot;);</span>
+<span class="fc" id="L587">			stderror.psyWriteString(ostack.getBacked(0));</span>
+<span class="fc" id="L588">			stderror.psyFlush();</span>
+<span class="fc" id="L589">		};</span>
 
 	/**
 	*	Context action of the {@code where} operator.
 	*/
 	@OperatorType(&quot;where&quot;)
-<span class="fc" id="L594">	public static final ContextAction PSY_WHERE=oContext-&gt;</span>
+<span class="fc" id="L595">	public static final ContextAction PSY_WHERE=oContext-&gt;</span>
 		{
-<span class="fc" id="L596">			final var ostack=oContext.operandStackBacked(1);</span>
-<span class="fc" id="L597">			ostack.pushOptional(oContext.psyWhere(ostack.&lt;PsyTextual&gt;getBacked(0)));</span>
-<span class="fc" id="L598">		};</span>
+<span class="fc" id="L597">			final var ostack=oContext.operandStackBacked(1);</span>
+<span class="fc" id="L598">			ostack.pushOptional(oContext.psyWhere(ostack.&lt;PsyTextual&gt;getBacked(0)));</span>
+<span class="fc" id="L599">		};</span>
 
 	/**
 	*	Context action of the {@code yield} operator.
 	*/
 	@OperatorType(&quot;yield&quot;)
-<span class="pc" id="L604">	public static final ContextAction PSY_YIELD=oContext-&gt;Thread.yield();</span>
+<span class="pc" id="L605">	public static final ContextAction PSY_YIELD=oContext-&gt;Thread.yield();</span>
 
-	public void showStacks();
+	public void showStacks(final PrintWriter pw);
 
 	public long getId();
 
@@ -613,7 +614,7 @@ public interface PsyContext
 	@Override
 	public default String toSyntaxString()
 	{
-<span class="nc" id="L616">		return &quot;%context=&quot;+getId()+&quot;%&quot;;</span>
+<span class="nc" id="L617">		return &quot;%context=&quot;+getId()+&quot;%&quot;;</span>
 	}
 
 	/**
@@ -621,7 +622,7 @@ public interface PsyContext
 	*/
 	public default PsyContext psyCurrentContext()
 	{
-<span class="nc" id="L624">		return this;</span>
+<span class="nc" id="L625">		return this;</span>
 	}
 
 	public void fork()
@@ -703,7 +704,7 @@ public interface PsyContext
 
 	public default Optional&lt;PsyFormalDict&lt;PsyObject&gt;&gt; psyWhere(final PsyTextual oKey)
 	{
-<span class="fc" id="L706">		return dictStack().where(oKey.stringValue());</span>
+<span class="fc" id="L707">		return dictStack().where(oKey.stringValue());</span>
 	}
 
 	public &lt;T extends PsyObject&gt; T psyLoad(final PsyTextual oKey)

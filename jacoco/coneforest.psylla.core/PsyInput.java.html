@@ -4,6 +4,7 @@ import coneforest.psylla.runtime.*;
 import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Optional;
 
 /**
 *	The representation of {@code input}.
@@ -19,23 +20,23 @@ public class PsyInput
 	private final InputStream input;
 
 	public PsyInput(final InputStream input)
-<span class="nc" id="L22">	{</span>
-<span class="nc" id="L23">		this.input=input;</span>
-<span class="nc" id="L24">	}</span>
+<span class="nc" id="L23">	{</span>
+<span class="nc" id="L24">		this.input=input;</span>
+<span class="nc" id="L25">	}</span>
 
 	@Override
 	public int read()
 		throws IOError, IOException
 	{
-<span class="nc" id="L30">		return input.read();</span>
+<span class="nc" id="L31">		return input.read();</span>
 	}
 
 	@Override
-	public PsyStringBuffer psyReadString(final PsyInteger oCount)
+	public Optional&lt;PsyString&gt; psyReadString(final PsyInteger oCount)
 		throws PsyUnsupportedException
 	{
 		// TODO
-<span class="nc" id="L38">		throw new PsyUnsupportedException();</span>
+<span class="nc" id="L39">		throw new PsyUnsupportedException();</span>
 	}
 
 	@Override
@@ -44,13 +45,13 @@ public class PsyInput
 	{
 		try
 		{
-<span class="nc" id="L47">			input.close();</span>
+<span class="nc" id="L48">			input.close();</span>
 		}
-<span class="nc" id="L49">		catch(final IOException ex)</span>
+<span class="nc" id="L50">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L51">			throw new PsyIOErrorException();</span>
-<span class="nc" id="L52">		}</span>
-<span class="nc" id="L53">	}</span>
+<span class="nc" id="L52">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L53">		}</span>
+<span class="nc" id="L54">	}</span>
 
 	@Override
 	public PsyBoolean psyReady()
@@ -58,11 +59,11 @@ public class PsyInput
 	{
 		try
 		{
-<span class="nc bnc" id="L61" title="All 2 branches missed.">			return PsyBoolean.of(input.available()&gt;0);</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">			return PsyBoolean.of(input.available()&gt;0);</span>
 		}
-<span class="nc" id="L63">		catch(final IOException ex)</span>
+<span class="nc" id="L64">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L65">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L66">			throw new PsyIOErrorException();</span>
 		}
 	}
 
@@ -72,15 +73,15 @@ public class PsyInput
 	{
 		try
 		{
-<span class="nc" id="L75">			return PsyInteger.of(input.skip(oCount.longValue()));</span>
+<span class="nc" id="L76">			return PsyInteger.of(input.skip(oCount.longValue()));</span>
 		}
-<span class="nc" id="L77">		catch(final IllegalArgumentException ex)</span>
+<span class="nc" id="L78">		catch(final IllegalArgumentException ex)</span>
 		{
-<span class="nc" id="L79">			throw new PsyRangeCheckException();</span>
+<span class="nc" id="L80">			throw new PsyRangeCheckException();</span>
 		}
-<span class="nc" id="L81">		catch(final IOError|IOException ex)</span>
+<span class="nc" id="L82">		catch(final IOError|IOException ex)</span>
 		{
-<span class="nc" id="L83">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L84">			throw new PsyIOErrorException();</span>
 		}
 	}
 
@@ -90,12 +91,12 @@ public class PsyInput
 	{
 		try
 		{
-<span class="nc" id="L93">			input.reset();</span>
+<span class="nc" id="L94">			input.reset();</span>
 		}
-<span class="nc" id="L95">		catch(final IOException ex)</span>
+<span class="nc" id="L96">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L97">			throw new PsyIOErrorException();</span>
-<span class="nc" id="L98">		}</span>
-<span class="nc" id="L99">	}</span>
+<span class="nc" id="L98">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L99">		}</span>
+<span class="nc" id="L100">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

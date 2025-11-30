@@ -17,36 +17,37 @@ public final class PsyName
 	public PsyName(final CharSequence cs)
 	{
 <span class="fc" id="L19">		super(cs);</span>
-<span class="fc" id="L20">	}</span>
+<span class="fc" id="L20">		string.intern();</span>
+<span class="fc" id="L21">	}</span>
 
 	@Override
 	public void execute(final PsyContext oContext)
 	{
 		try
 		{
-<span class="fc" id="L27">			oContext.psyLoad(this).invoke(oContext);</span>
+<span class="fc" id="L28">			oContext.psyLoad(this).invoke(oContext);</span>
 		}
-<span class="fc" id="L29">		catch(final PsyErrorException e)</span>
+<span class="fc" id="L30">		catch(final PsyErrorException e)</span>
 		{
-<span class="fc" id="L31">			e.setEmitter(this);</span>
-<span class="fc" id="L32">			final var ostack=oContext.operandStack();</span>
-<span class="fc" id="L33">			final var estack=oContext.executionStack();</span>
-<span class="fc" id="L34">			final var dstack=oContext.dictStack();</span>
-<span class="fc" id="L35">			e.setStacks(ostack, estack, dstack);</span>
-<span class="fc" id="L36">			e.invoke(oContext);</span>
-<span class="fc" id="L37">		}</span>
-<span class="fc" id="L38">	}</span>
+<span class="fc" id="L32">			e.setEmitter(this);</span>
+<span class="fc" id="L33">			final var ostack=oContext.operandStack();</span>
+<span class="fc" id="L34">			final var estack=oContext.executionStack();</span>
+<span class="fc" id="L35">			final var dstack=oContext.dictStack();</span>
+<span class="fc" id="L36">			e.setStacks(ostack, estack, dstack);</span>
+<span class="fc" id="L37">			e.invoke(oContext);</span>
+<span class="fc" id="L38">		}</span>
+<span class="fc" id="L39">	}</span>
 
 	@Override
 	public void invoke(final PsyContext oContext)
 	{
-<span class="nc" id="L43">		execute(oContext);</span>
-<span class="nc" id="L44">	}</span>
+<span class="nc" id="L44">		execute(oContext);</span>
+<span class="nc" id="L45">	}</span>
 
 	@Override
 	public String toSyntaxString()
 	{
-<span class="fc" id="L49">		return stringValue();</span>
+<span class="fc" id="L50">		return stringValue();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>

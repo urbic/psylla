@@ -1,0 +1,54 @@
+#!/usr/bin/psylla
+
+/partitions
+{
+	dict begin
+		/n exch def
+		/x [ n 1 add 1 repeat ] def
+		1 1 n { dup 1 gt { ' ' print } if x exch get tostring print } for
+		'\n' print
+		x 0 -1 put
+		x 1 2 put
+		/h 1 def
+		/m n 1 sub def
+		1 1 m { dup 1 gt { ' ' print } if x exch get tostring print } for
+		'\n' print
+		{
+			x 1 get n eq { exit } if
+			m h sub 1 gt
+			{
+				/h h 1 add def
+				x h 2 put
+				/m m 1 sub def
+			}
+			{
+				/j m 2 sub def
+				{
+					x j get x m 1 sub get ne { exit } if
+					x j 1 put
+					/j j 1 sub def
+				}
+				loop
+				/h j 1 add def
+				x h x m 1 sub get 1 add put
+				/r
+					x m get
+					x m 1 sub get
+					m h sub 1 sub mul
+					add
+				def
+				x m 1 put
+				m h sub 1 gt { x m 1 sub 1 put } if
+				/m h r add 1 sub def
+			}
+			ifelse
+			1 1 m { dup 1 gt { ' ' print } if x exch get tostring print } for
+			'\n' print
+		}
+		loop
+	end
+}
+bind def
+
+arguments 0 get tointegral
+partitions

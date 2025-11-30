@@ -45,6 +45,14 @@ formula](https://en.wikipedia.org/wiki/Vi%C3%A8te%27s_formula).
 
 * [__`pi-viete.psy`__](pi-viete.psy)
 
+## Continued fraction
+
+Prints the [continued
+fraction](https://en.wikipedia.org/wiki/Continued_fraction) expansion of the
+rational number passed in the command line.
+
+* [__`continued-fraction-recursive.psy`__](continued-fraction-recursive.psy)
+
 ## Conway’s Game of Life
 
 Shows the evolution of the cellular automata controlled by the rules of
@@ -160,6 +168,18 @@ passed in the command line.
 Prints greeting.
 
 * [__`hello.psy`__](hello.psy)
+
+## Integer partitions
+
+Prints all the [integer
+partitions](https://en.wikipedia.org/wiki/Integer_partition) of a non-negative
+integer in lexicographic order. Implemented the ZS2 algorithm described in
+
+_Zoghbi, A., Stojmenović, I._ [Fast algorithms for generating integer
+partitions](https://static.aminer.org/pdf/PDF/000/289/332/counting_and_generating_integer_partitions_in_parallel.pdf) //
+Intern. J. Computer Math., 1998, Vol. 70. pp. 319–332.
+
+* [__`integer-partition.psy`__](integer-partition.psy)
 
 ## Pascal triangle
 

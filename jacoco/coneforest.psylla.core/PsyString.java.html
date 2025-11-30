@@ -140,8 +140,8 @@ public class PsyString
 	@Override
 	public boolean equals(final Object object)
 	{
-<span class="pc bpc" id="L143" title="1 of 2 branches missed.">		return object instanceof PsyString</span>
-<span class="pc bpc" id="L144" title="1 of 2 branches missed.">				&amp;&amp; psyEq((PsyString)object).booleanValue();</span>
+<span class="fc" id="L143">		return object instanceof PsyString oString</span>
+<span class="pc bpc" id="L144" title="2 of 4 branches missed.">				&amp;&amp; string.equals(oString.string);</span>
 	}
 
 	@Override

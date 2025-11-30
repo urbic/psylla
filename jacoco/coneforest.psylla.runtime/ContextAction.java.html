@@ -111,6 +111,23 @@ public interface ContextAction
 	}
 
 	/**
+	*	{@return the context action created from the function}
+	*
+	*	@param &lt;T&gt; the type of the input to the optional function.
+	*	@param optionalBiFunction the optional function.
+	*/
+	public static &lt;T1 extends PsyObject, T2 extends PsyObject&gt;
+	ContextAction ofOptionalBiFunction(final OptionalBiFunction&lt;T1, T2&gt; optionalBiFunction)
+	{
+<span class="fc" id="L122">		return oContext-&gt;</span>
+			{
+<span class="nc" id="L124">				final var ostack=oContext.operandStackBacked(2);</span>
+<span class="nc" id="L125">				ostack.pushOptional(optionalBiFunction.apply(</span>
+<span class="nc" id="L126">						ostack.getBacked(0), ostack.getBacked(1)));</span>
+<span class="nc" id="L127">			};</span>
+	}
+
+	/**
 	*	{@return the context action created from the bi-function}
 	*
 	*	@param &lt;T1&gt; the type of the first input to the bi-function.
@@ -120,11 +137,11 @@ public interface ContextAction
 	public static &lt;T1 extends PsyObject, T2 extends PsyObject&gt;
 	ContextAction ofBiFunction(final BiFunction&lt;T1, T2&gt; biFunction)
 	{
-<span class="fc" id="L123">		return oContext-&gt;</span>
+<span class="fc" id="L140">		return oContext-&gt;</span>
 			{
-<span class="fc" id="L125">				final var ostack=oContext.operandStackBacked(2);</span>
-<span class="fc" id="L126">				ostack.push(biFunction.apply(ostack.getBacked(0), ostack.getBacked(1)));</span>
-<span class="fc" id="L127">			};</span>
+<span class="fc" id="L142">				final var ostack=oContext.operandStackBacked(2);</span>
+<span class="fc" id="L143">				ostack.push(biFunction.apply(ostack.getBacked(0), ostack.getBacked(1)));</span>
+<span class="fc" id="L144">			};</span>
 	}
 
 	/**
@@ -138,11 +155,11 @@ public interface ContextAction
 	public static &lt;T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject&gt;
 	ContextAction ofTriFunction(final TriFunction&lt;T1, T2, T3&gt; triFunction)
 	{
-<span class="fc" id="L141">		return oContext-&gt;</span>
+<span class="fc" id="L158">		return oContext-&gt;</span>
 			{
-<span class="fc" id="L143">				final var ostack=oContext.operandStackBacked(3);</span>
-<span class="fc" id="L144">				ostack.push(triFunction.apply(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));</span>
-<span class="fc" id="L145">			};</span>
+<span class="fc" id="L160">				final var ostack=oContext.operandStackBacked(3);</span>
+<span class="fc" id="L161">				ostack.push(triFunction.apply(ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));</span>
+<span class="fc" id="L162">			};</span>
 	}
 
 	/**
@@ -256,6 +273,26 @@ public interface ContextAction
 		*	@throws PsyErrorException when an error occurs during operation.
 		*/
 		public Optional&lt;? extends PsyObject&gt; apply(final T o)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents a function that accepts two arguments and produces an optional result.
+	*
+	*	@param &lt;T&gt; the type of the input to the function.
+	*/
+	@FunctionalInterface
+	public static interface OptionalBiFunction&lt;T1 extends PsyObject, T2 extends PsyObject&gt;
+	{
+		/**
+		*	Applies this function to the given arguments.
+		*
+		*	@param o1 the first function argument.
+		*	@param o2 the second function argument.
+		*	@return the function result.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public Optional&lt;? extends PsyObject&gt; apply(final T1 o1, final T2 o2)
 			throws PsyErrorException;
 	}
 

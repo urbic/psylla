@@ -1,0 +1,18 @@
+#!/usr/bin/psylla
+
+/cfhelper
+{
+	dup floor
+	exch 1 index sub
+	dup nonzero { reciprocal cfhelper } { pop } ifelse
+}
+bind def
+
+/cfexpand
+{
+	[ exch cfhelper ]
+}
+bind def
+
+arguments 0 get torational cfexpand
+{ tostring say } bind forall

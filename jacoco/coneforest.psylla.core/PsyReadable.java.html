@@ -36,9 +36,16 @@ public interface PsyReadable
 <span class="fc" id="L36">		=ContextAction.&lt;PsyReadable&gt;ofOptionalFunction(PsyReadable::psyReadLine);</span>
 
 	/**
+	*	Context action of the {@code readstring} operator.
+	*/
+	@OperatorType(&quot;readstring&quot;)
+<span class="fc" id="L42">	public static final ContextAction PSY_READSTRING</span>
+<span class="fc" id="L43">		=ContextAction.&lt;PsyReadable, PsyInteger&gt;ofOptionalBiFunction(PsyReadable::psyReadString);</span>
+
+	/**
 	*	Line separator string.
 	*/
-<span class="fc" id="L41">	public static final String LINE_SEPARATOR=System.getProperty(&quot;line.separator&quot;).intern();</span>
+<span class="fc" id="L48">	public static final String LINE_SEPARATOR=System.getProperty(&quot;line.separator&quot;).intern();</span>
 
 	/**
 	*	Reads a single character.
@@ -62,12 +69,12 @@ public interface PsyReadable
 	{
 		try
 		{
-<span class="fc" id="L65">			final int c=read();</span>
-<span class="fc bfc" id="L66" title="All 2 branches covered.">			return c==-1? Optional.&lt;PsyInteger&gt;empty(): Optional.&lt;PsyInteger&gt;of(PsyInteger.of(c));</span>
+<span class="fc" id="L72">			final int c=read();</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">			return c==-1? Optional.&lt;PsyInteger&gt;empty(): Optional.&lt;PsyInteger&gt;of(PsyInteger.of(c));</span>
 		}
-<span class="fc" id="L68">		catch(final IOException|IOError ex)</span>
+<span class="fc" id="L75">		catch(final IOException|IOError ex)</span>
 		{
-<span class="fc" id="L70">			throw new PsyIOErrorException();</span>
+<span class="fc" id="L77">			throw new PsyIOErrorException();</span>
 		}
 	}
 
@@ -78,7 +85,7 @@ public interface PsyReadable
 	*	@return a string read.
 	*	@throws PsyIOErrorException when I/O error occurs.
 	*/
-	public PsyStringBuffer psyReadString(final PsyInteger oCount)
+	public Optional&lt;PsyString&gt; psyReadString(final PsyInteger oCount)
 		throws PsyIOErrorException, PsyLimitCheckException, PsyRangeCheckException, PsyUnsupportedException;
 
 	/**
@@ -90,28 +97,28 @@ public interface PsyReadable
 	public default Optional&lt;PsyString&gt; psyReadLine()
 		throws PsyIOErrorException
 	{
-<span class="nc" id="L93">		final var sb=new StringBuilder();</span>
+<span class="nc" id="L100">		final var sb=new StringBuilder();</span>
 
 		try
 		{
-<span class="nc" id="L97">			var c=read();</span>
-<span class="nc bnc" id="L98" title="All 2 branches missed.">			if(c==-1)</span>
-<span class="nc" id="L99">				return Optional.&lt;PsyString&gt;empty();</span>
+<span class="nc" id="L104">			var c=read();</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">			if(c==-1)</span>
+<span class="nc" id="L106">				return Optional.&lt;PsyString&gt;empty();</span>
 			else
-<span class="nc" id="L101">				sb.append((char)c);</span>
+<span class="nc" id="L108">				sb.append((char)c);</span>
 			while(true)
 			{
-<span class="nc" id="L104">				c=read();</span>
-<span class="nc bnc" id="L105" title="All 2 branches missed.">				if(c==-1)</span>
-<span class="nc" id="L106">					return Optional.&lt;PsyString&gt;of(new PsyString(sb.toString()));</span>
-<span class="nc" id="L107">				sb.append((char)c);</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">				if(sb.substring(sb.length()-LINE_SEPARATOR.length()).equals(LINE_SEPARATOR))</span>
-<span class="nc" id="L109">					return Optional.&lt;PsyString&gt;of(new PsyString(sb.toString()));</span>
+<span class="nc" id="L111">				c=read();</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">				if(c==-1)</span>
+<span class="nc" id="L113">					return Optional.&lt;PsyString&gt;of(new PsyString(sb.toString()));</span>
+<span class="nc" id="L114">				sb.append((char)c);</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">				if(sb.substring(sb.length()-LINE_SEPARATOR.length()).equals(LINE_SEPARATOR))</span>
+<span class="nc" id="L116">					return Optional.&lt;PsyString&gt;of(new PsyString(sb.toString()));</span>
 			}
 		}
-<span class="nc" id="L112">		catch(final IOException ex)</span>
+<span class="nc" id="L119">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L114">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L121">			throw new PsyIOErrorException();</span>
 		}
 	}
 

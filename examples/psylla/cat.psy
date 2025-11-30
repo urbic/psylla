@@ -8,12 +8,10 @@ arguments
 	/in exch def
 
 	{
-		in 4096 readstring
-		exch print
-		stdout flush
-		not { exit } if
+		in 4096 readstring { print } { exit } ifelse
 	}
 	loop
+
 	stdout flush
 	in close
 }
