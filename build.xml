@@ -508,8 +508,14 @@
 			<fileset dir="${src.main.jj}"/>
 			<fileset dir="${src.main.resources}"/>
 			<fileset dir="${src.doc.docbook}"/>
-			<formatter type="plain" toFile="${target.reports}/checkstyle.txt"/>
+			<!--formatter type="plain" toFile="${target.reports}/checkstyle.txt"/-->
+			<formatter type="xml" toFile="${target.reports}/checkstyle.xml"/>
 		</cs:checkstyle>
+		<xslt
+			in="${target.reports}/checkstyle.xml"
+			out="${target.reports}/checkstyle.html"
+			style="${etc}/checkstyle.xsl"
+			/>
 	</target>
 
 	<target name="coverage"
