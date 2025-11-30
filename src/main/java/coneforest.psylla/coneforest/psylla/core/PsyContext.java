@@ -2,6 +2,7 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Optional;
 import jline.ConsoleReader;
@@ -27,13 +28,15 @@ public interface PsyContext
 	*	Context action of the {@code cleardictstack} operator.
 	*/
 	@OperatorType("cleardictstack")
-	public static final ContextAction PSY_CLEARDICTSTACK=oContext->oContext.dictStack().setSize(2);
+	public static final ContextAction PSY_CLEARDICTSTACK=oContext->
+		oContext.dictStack().setSize(2);
 
 	/**
 	*	Context action of the {@code clearstack} operator.
 	*/
 	@OperatorType("clearstack")
-	public static final ContextAction PSY_CLEARSTACK=oContext->oContext.operandStack().clear();
+	public static final ContextAction PSY_CLEARSTACK=oContext->
+		oContext.operandStack().clear();
 
 	/**
 	*	Context action of the {@code cleartomark} operator.
@@ -107,10 +110,7 @@ public interface PsyContext
 	*/
 	@OperatorType("currentdict")
 	public static final ContextAction PSY_CURRENTDICT=oContext->
-		{
-			final var ostack=oContext.operandStack();
-			ostack.push(oContext.currentDict());
-		};
+		oContext.operandStack().push(oContext.currentDict());
 
 	/**
 	*	Context action of the {@code def} operator.
@@ -135,7 +135,8 @@ public interface PsyContext
 	*/
 	@OperatorType("dictstack")
 	public static final ContextAction PSY_DICTSTACK=oContext->
-		oContext.operandStack().push(new PsyArray(new ArrayList<PsyObject>(oContext.dictStack().clone())));
+		oContext.operandStack().push(
+				new PsyArray(new ArrayList<PsyObject>(oContext.dictStack().clone())));
 
 	/**
 	*	Context action of the {@code dup} operator.
@@ -398,7 +399,7 @@ public interface PsyContext
 	public static final ContextAction PSY_PRETTYPRINT=oContext->
 		{
 			final var ostack=oContext.operandStackBacked(1);
-			final var oStdWriter=(PsyWriter)oContext.dictStack().load("stdout");
+			final var oStdWriter=oContext.dictStack().<PsyWriter>load("stdout");
 			oStdWriter.psyWriteString(ostack.getBacked(0).psySyntax());
 			oStdWriter.psyWriteString(oContext.dictStack().load("eol"));
 			oStdWriter.psyFlush();
@@ -494,9 +495,9 @@ public interface PsyContext
 	public static final ContextAction PSY_SAY=oContext->
 		{
 			final var ostack=oContext.operandStackBacked(1);
-			final var stdwriter=(PsyWriter)oContext.dictStack().load("stdout");
+			final var stdwriter=oContext.dictStack().<PsyWriter>load("stdout");
 			stdwriter.psyWriteString(ostack.getBacked(0));
-			stdwriter.psyWriteString((PsyString)oContext.dictStack().load("eol"));
+			stdwriter.psyWriteString(oContext.dictStack().<PsyString>load("eol"));
 			stdwriter.psyFlush();
 		};
 
@@ -603,7 +604,7 @@ public interface PsyContext
 	@OperatorType("yield")
 	public static final ContextAction PSY_YIELD=oContext->Thread.yield();
 
-	public void showStacks();
+	public void showStacks(final PrintWriter pw);
 
 	public long getId();
 
