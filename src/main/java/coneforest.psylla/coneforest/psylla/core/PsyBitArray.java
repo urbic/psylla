@@ -31,7 +31,7 @@ public class PsyBitArray
 		this(new BitSet(), 0);
 	}
 
-	public PsyBitArray(final BitSet bitarray, final int size)
+	private PsyBitArray(final BitSet bitarray, final int size)
 	{
 		this.bitarray=bitarray;
 		this.size=size;
@@ -81,7 +81,7 @@ public class PsyBitArray
 			throw new PsyRangeCheckException();
 		try
 		{
-			bitarray.set(index, oBoolean.booleanValue());
+			bitarray.set(index<0? index+length(): index, oBoolean.booleanValue());
 		}
 		catch(final IndexOutOfBoundsException ex)
 		{
@@ -125,7 +125,10 @@ public class PsyBitArray
 
 	@Override
 	public void insert(final int index, final PsyBoolean oBoolean)
+		throws PsyLimitCheckException
 	{
+		if(size==Integer.MAX_VALUE)
+			throw new PsyLimitCheckException();
 		size++;
 		for(int i=size-1; i>index; i--)
 			bitarray.set(i, bitarray.get(i-1));
@@ -217,15 +220,11 @@ public class PsyBitArray
 		final var shift=oShift.intValue();
 		final var result=new BitSet();
 		if(shift>=0)
-		{
 			for(int i=size-1; i>=0; i--)
 				result.set(i+shift, bitarray.get(i));
-		}
 		else
-		{
-			for(int i=0+size; i<size; i++)
+			for(int i=size; i<size; i++)
 				result.set(i+shift, bitarray.get(i));
-		}
 		return new PsyBitArray(result, size+shift);
 	}
 
@@ -355,5 +354,11 @@ public class PsyBitArray
 		}
 		sb.append('%');
 		return sb.toString();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return bitarray.hashCode()^Integer.hashCode(size);
 	}
 }
