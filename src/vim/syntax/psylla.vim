@@ -27,7 +27,7 @@ syn match psyllaIntegral		"[+-]\=\d\+"
 syn match psyllaHexIntegral		"[Xx]`[+-]\=\x\+" contains=psyllaIntegralPrefix
 syn match psyllaBinIntegral		"[Bb]`[+-]\=[01]\+" contains=psyllaIntegralPrefix
 syn match psyllaOctIntegral		"[Oo]`[+-]\=[0-7]\+" contains=psyllaIntegralPrefix
-syn match psyllaChrIntegral		"[Cc]`\([^\\]\|\\[0afenrt\\]\)" contains=psyllaIntegralPrefix
+syn match psyllaChrIntegral		"[Cc]`\([^\\]\|\\[0afenrtv\\]\)" contains=psyllaIntegralPrefix
 syn match psyllaReal			"[+-]\=\d\+\."
 syn match psyllaReal			"[+-]\=\d\+\.\d*\([Ee][+-]\=\d\+\)\=\>"
 syn match psyllaReal			"[+-]\=\.\d\+\([Ee][+-]\=\d\+\)\=\>"
