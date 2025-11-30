@@ -17,6 +17,7 @@ public final class PsyName
 	public PsyName(final CharSequence cs)
 	{
 		super(cs);
+		string.intern();
 	}
 
 	@Override
