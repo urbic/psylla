@@ -20,12 +20,12 @@ public final class PsyNull
 	}
 
 	/**
-	*	{@return a string {@code "null"}}
+	*	{@return a string {@code "%null%"}}
 	*/
 	@Override
 	public String toSyntaxString()
 	{
-		return "null";
+		return "%null%";
 	}
 
 	/**
