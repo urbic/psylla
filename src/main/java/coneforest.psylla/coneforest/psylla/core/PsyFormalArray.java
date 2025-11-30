@@ -171,10 +171,11 @@ public interface PsyFormalArray<T extends PsyObject>
 	*	@param index a {@code integer} index.
 	*	@param o a {@code object}.
 	*
+	*	@throws PsyLimitCheckException when TODO.
 	*	@throws PsyRangeCheckException when TODO.
 	*/
 	public void insert(final int index, final T o)
-		throws PsyRangeCheckException;
+		throws PsyRangeCheckException, PsyLimitCheckException;
 
 	/**
 	*	Inserts the specified {@code object} into this array at the position
@@ -183,16 +184,17 @@ public interface PsyFormalArray<T extends PsyObject>
 	*	@param oIndex an {@code integer} index.
 	*	@param o an {@code object}.
 	*
+	*	@throws PsyLimitCheckException when TODO.
 	*	@throws PsyRangeCheckException when TODO.
 	*/
 	public default void psyInsert(final PsyInteger oIndex, final T o)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
 		insert(oIndex.intValue(), o);
 	}
 
 	public default void psyInsertAll(final PsyInteger oIndex, final PsyIterable<? extends T> oEnumeration)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
 		int index=oIndex.intValue();
 		for(final T o: this!=oEnumeration? oEnumeration: (PsyIterable<? extends T>)psyClone())
@@ -206,7 +208,7 @@ public interface PsyFormalArray<T extends PsyObject>
 	*	@throws PsyRangeCheckException when TODO.
 	*/
 	public default void psyPrepend(final T o)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
 		insert(0, o);
 	}
@@ -224,7 +226,7 @@ public interface PsyFormalArray<T extends PsyObject>
 	}
 
 	public default void psyPrependAll(final PsyIterable<? extends T> oEnumeration)
-		throws PsyRangeCheckException
+		throws PsyRangeCheckException, PsyLimitCheckException
 	{
 		psyInsertAll(PsyInteger.ZERO, oEnumeration);
 	}
