@@ -1,6 +1,7 @@
 package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
+import java.io.PrintWriter;
 import java.util.Stack;
 
 @SuppressWarnings("serial")
@@ -84,14 +85,17 @@ public class PsyErrorException
 			return;
 		}
 
-		System.err.println(Messages.format("handleErrorMessage",
+		final var epw=new PrintWriter(System.err);
+		epw.println(Messages.format("handleErrorMessage",
 				'/'+getName(),
 				getEmitter().toSyntaxString()));
 		//var message=getLocalizedMessage();
 		//if(message!=null)
 		//	System.err.println(message);
 
-		oContext.showStacks();
+		// TODO use strerr
+		oContext.showStacks(epw);
+		epw.flush();
 
 		oContext.stop();
 		if(oContext.executionStack().checkLoop())
