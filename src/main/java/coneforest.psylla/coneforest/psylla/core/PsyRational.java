@@ -105,15 +105,14 @@ public sealed interface PsyRational
 	{
 		return switch(oRealNumeric)
 			{
-				case PsyIntegral oIntegral->
-					of((PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
-						psyDenominator());
-				case PsyRational oRational->
-					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+				case PsyIntegral oIntegral->of(
+					(PsyIntegral)psyNumerator().psyAdd(psyDenominator().psyMul(oIntegral)),
+					psyDenominator());
+				case PsyRational oRational->of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
 							.psyAdd(psyDenominator().psyMul(oRational.psyNumerator())),
-						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-				case PsyReal oReal->
-					new PsyReal(doubleValue()+oReal.doubleValue());
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+				case PsyReal oReal->new PsyReal(doubleValue()+oReal.doubleValue());
 			};
 	}
 
@@ -122,15 +121,14 @@ public sealed interface PsyRational
 	{
 		return switch(oRealNumeric)
 			{
-				case PsyIntegral oIntegral->
-					of((PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
-						psyDenominator());
-				case PsyRational oRational->
-					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
+				case PsyIntegral oIntegral->of(
+					(PsyIntegral)psyNumerator().psySub(psyDenominator().psyMul(oIntegral)),
+					psyDenominator());
+				case PsyRational oRational->of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator())
 							.psySub(psyDenominator().psyMul(oRational.psyNumerator())),
-						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-				case PsyReal oReal->
-					new PsyReal(doubleValue()+oReal.doubleValue());
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+				case PsyReal oReal->new PsyReal(doubleValue()+oReal.doubleValue());
 			};
 	}
 
@@ -153,30 +151,29 @@ public sealed interface PsyRational
 	{
 		return switch(oRealNumeric)
 			{
-				case PsyIntegral oIntegral->
-					of((PsyIntegral)psyNumerator().psyMul(oIntegral),
-						psyDenominator());
-				case PsyRational oRational->
-					of((PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),
-						(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
-				case PsyReal oReal->
-					new PsyReal(doubleValue()*oReal.doubleValue());
+				case PsyIntegral oIntegral->of(
+					(PsyIntegral)psyNumerator().psyMul(oIntegral),
+					psyDenominator());
+				case PsyRational oRational->of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyNumerator()),
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+				case PsyReal oReal->new PsyReal(doubleValue()*oReal.doubleValue());
 			};
 	}
 
+	@Override
 	public default PsyRealNumeric psyDiv(final PsyRealNumeric oRealNumeric)
 		throws PsyUndefinedResultException
 	{
 		return switch(oRealNumeric)
 			{
-				case PsyIntegral oIntegral->
-					of(psyNumerator(),
-						(PsyIntegral)psyDenominator().psyMul(oIntegral));
-				case PsyRational oRational->
-					of((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
-						(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));
-				case PsyReal oReal->
-					new PsyReal(doubleValue()/oReal.doubleValue());
+				case PsyIntegral oIntegral->of(
+					psyNumerator(),
+					(PsyIntegral)psyDenominator().psyMul(oIntegral));
+				case PsyRational oRational->of(
+					(PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()),
+					(PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator()));
+				case PsyReal oReal->new PsyReal(doubleValue()/oReal.doubleValue());
 			};
 	}
 
@@ -231,9 +228,10 @@ public sealed interface PsyRational
 	*/
 	public default PsyRational psyLCM(final PsyRational oRational)
 	{
-		return of(((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
-						.psyLCM((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),
-				(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
+		return of(
+			((PsyIntegral)psyNumerator().psyMul(oRational.psyDenominator()))
+					.psyLCM((PsyIntegral)psyDenominator().psyMul(oRational.psyNumerator())),
+			(PsyIntegral)psyDenominator().psyMul(oRational.psyDenominator()));
 	}
 
 	@Override
@@ -270,20 +268,30 @@ public sealed interface PsyRational
 	@Override
 	public default int compareTo(final PsyRealNumeric oNumeric)
 	{
-		if(oNumeric instanceof PsyRational oRational)
-			return psyNumerator().psyMul(oRational.psyDenominator())
-					.compareTo(psyDenominator().psyMul(oRational.psyNumerator()));
-		// TODO
-		return Double.compare(doubleValue(), oNumeric.doubleValue());
+		return switch(oNumeric)
+			{
+				case PsyRational oRational->
+					psyNumerator().psyMul(oRational.psyDenominator())
+							.compareTo(psyDenominator().psyMul(oRational.psyNumerator()));
+				// TODO
+				default->Double.compare(doubleValue(), oNumeric.doubleValue());
+			};
 	}
 
 	public static PsyRational parseLiteral(final String image)
 		throws PsySyntaxErrorException, PsyUndefinedResultException
 	{
-		final var slashIndex=image.indexOf(':');
-		if(slashIndex==-1)
+		final var colonIndex=image.indexOf(':');
+		if(colonIndex==-1)
 			return PsyIntegral.parseLiteral(image);
-		return of(PsyIntegral.parseLiteral(image.substring(0, slashIndex)),
-				PsyIntegral.parseLiteral(image.substring(slashIndex+1)));
+		try
+		{
+			return of(PsyIntegral.parseLiteral(image.substring(0, colonIndex)),
+					PsyIntegral.parseLiteral(image.substring(colonIndex+1)));
+		}
+		catch(final IllegalArgumentException ex)
+		{
+			throw new PsyUndefinedResultException();
+		}
 	}
 }
