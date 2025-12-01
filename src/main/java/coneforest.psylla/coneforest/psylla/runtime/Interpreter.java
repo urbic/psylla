@@ -95,8 +95,7 @@ public class Interpreter
 		}
 		catch(final PsyErrorException e)
 		{
-			// TODO more appropriate exception
-			throw new AssertionError(e);
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -356,6 +355,7 @@ public class Interpreter
 		}
 		catch(final TokenMgrError ex)
 		{
+			//System.err.println(ex);
 			final var e=new PsySyntaxErrorException();
 			e.setEmitter(oReader);
 			e.setStacks(ostack, estack, dstack);
@@ -386,6 +386,7 @@ public class Interpreter
 	private void processToken(final Token token)
 		throws
 			PsyInvalidRegExpException,
+			PsyInternalErrorException,
 			PsyLimitCheckException,
 			PsySyntaxErrorException,
 			PsyUndefinedException,
@@ -403,7 +404,6 @@ public class Interpreter
 				case ParserConstants.RATIONAL,
 						ParserConstants.REAL,
 						ParserConstants.STRING,
-						ParserConstants.STRINGBUFFER,
 						ParserConstants.IMMEDIATE,
 						ParserConstants.REGEXP,
 						ParserConstants.LITERAL->
@@ -433,7 +433,6 @@ public class Interpreter
 						ParserConstants.REAL,
 						ParserConstants.NAME,
 						ParserConstants.STRING,
-						ParserConstants.STRINGBUFFER,
 						ParserConstants.IMMEDIATE,
 						ParserConstants.REGEXP,
 						ParserConstants.LITERAL
@@ -447,6 +446,7 @@ public class Interpreter
 	private PsyObject parseToken(final Token token)
 		throws
 			PsyInvalidRegExpException,
+			PsyInternalErrorException,
 			PsySyntaxErrorException,
 			PsyUndefinedException,
 			PsyUndefinedResultException
@@ -458,11 +458,10 @@ public class Interpreter
 				case ParserConstants.STRING->PsyString.parseLiteral(image);
 				case ParserConstants.RATIONAL->PsyRational.parseLiteral(image);
 				case ParserConstants.REAL->PsyReal.parseLiteral(image);
-				case ParserConstants.STRINGBUFFER->PsyStringBuffer.parseLiteral(image);
 				case ParserConstants.REGEXP->PsyRegExp.parseLiteral(image);
 				case ParserConstants.NAME->new PsyName(image);
 				case ParserConstants.LITERAL->parseLiteralImage(image);
-				default->throw new AssertionError();	// TODO more appropriate exception
+				default->throw new PsyInternalErrorException();
 			};
 	}
 

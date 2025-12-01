@@ -129,7 +129,33 @@ public class PsyString
 					break;
 			}
 		}
-		return slashed? "/"+string: "'"+string+"'";
+		// TODO
+		if(slashed)
+			return "/"+string;
+		else
+		{
+			final var sb=new StringBuilder("'");
+			for(int i=0; i<string.length(); i++)
+			{
+				final char c=string.charAt(i);
+				sb.append(switch(c)
+					{
+						case '\u0000'->"\\0";
+						case '\u0007'->"\\a";
+						case '\n'->"\\n";
+						case '\r'->"\\r";
+						case '\t'->"\\t";
+						case '\u000B'->"\\v";
+						case '\f'->"\\f";
+						case '\u001B'->"\\e";
+						case '\"'->"\\\"";
+						case '\\'->"\\\\";
+						default->c;
+					});
+			}
+			sb.append("'");
+			return sb.toString();
+		}
 	}
 
 	/**
@@ -172,6 +198,7 @@ public class PsyString
 						case 'v'->sb.append('\u000B');
 						case 'f'->sb.append('\f');
 						case 'e'->sb.append('\u001B');
+						case '"'->sb.append('"');
 						case '\''->sb.append('\'');
 						case '\\'->sb.append('\\');
 						case '\n'->{}

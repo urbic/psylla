@@ -146,12 +146,17 @@ TOKEN:
 
 TOKEN:
 {
-	<STRINGBUFFER: "\"" (<STRING_SPECIAL> | "\\\"" | ~["\"", "\\"])* "\"">
-}
-
-TOKEN:
-{
-	<STRING: <STRING_SLASHED> | <STRING_QUOTED>>
+	<#STRING_SPECIAL:
+		"\\"
+		(
+			["0", "a", "n", "t", "f", "\\", "e", "r", "v", "\n", "\""]
+				| "u" <HEXDIGIT> <HEXDIGIT> <HEXDIGIT> <HEXDIGIT>
+				| "x{" (<HEXDIGIT>)+ "}"
+				| "o{" (<OCTDIGIT>)+ "}"
+				| "N{" (["A"-"Z", "0"-"9", " ", "-"])+ "}"
+				| "c" ["\u0000"-"\u00FF"]
+		)
+	>
 }
 
 TOKEN:
@@ -161,22 +166,17 @@ TOKEN:
 
 TOKEN:
 {
-	<#STRING_QUOTED: "'" (<STRING_SPECIAL> | "\\'" | ~["'", "\\"])* "'">
+	<#STRING_SINGLE_QUOTED: "'" (<STRING_SPECIAL> | "\\'" | ~["'", "\\"])* "'">
 }
 
 TOKEN:
 {
-	<#STRING_SPECIAL:
-		"\\"
-		(
-			["0", "a", "n", "t", "f", "\\", "e", "r", "v", "\n"]
-				| "u" <HEXDIGIT> <HEXDIGIT> <HEXDIGIT> <HEXDIGIT>
-				| "x{" (<HEXDIGIT>)+ "}"
-				| "o{" (<OCTDIGIT>)+ "}"
-				| "N{" (["A"-"Z", "0"-"9", " ", "-"])+ "}"
-				| "c" ["\u0000"-"\u00FF"]
-		)
-	>
+	<#STRING_DOUBLE_QUOTED: "\"" (<STRING_SPECIAL> | "\\\"" | ~["\"", "\\"])* "\"">
+}
+
+TOKEN:
+{
+	<STRING: <STRING_SLASHED> | <STRING_SINGLE_QUOTED> | <STRING_DOUBLE_QUOTED>>
 }
 
 TOKEN:

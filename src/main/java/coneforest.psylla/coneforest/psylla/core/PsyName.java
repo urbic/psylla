@@ -20,6 +20,11 @@ public final class PsyName
 		string.intern();
 	}
 
+	public static PsyName parseLiteral(final String image)
+	{
+		return new PsyName(image);
+	}
+
 	@Override
 	public void execute(final PsyContext oContext)
 	{

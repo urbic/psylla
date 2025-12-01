@@ -15,7 +15,7 @@ public class PsyStringBuffer
 	*	Context action of the {@code stringbuffer} operator.
 	*/
 	@OperatorType("stringbuffer")
-	public static final ContextAction PSY_STRING
+	public static final ContextAction PSY_STRINGBUFFER
 		=ContextAction.ofSupplier(PsyStringBuffer::new);
 
 	private final StringBuilder buffer;
@@ -328,6 +328,8 @@ public class PsyStringBuffer
 	@Override
 	public String toSyntaxString()
 	{
+		return "%stringbuffer%";
+		/*
 		final var sb=new StringBuilder();
 		for(int i=0; i<buffer.length(); i++)
 		{
@@ -348,6 +350,7 @@ public class PsyStringBuffer
 				});
 		}
 		return "\""+sb.toString()+"\"";
+		*/
 	}
 
 	/**
@@ -379,6 +382,7 @@ public class PsyStringBuffer
 							case 'f'->sb.append('\f');
 							case 'e'->sb.append('\u001B');
 							case '"'->sb.append('"');
+							case '\''->sb.append('\'');
 							case '\\'->sb.append('\\');
 							case '\n'->{}
 							case 'u'->

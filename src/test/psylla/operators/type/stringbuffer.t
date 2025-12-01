@@ -1,1 +1,1 @@
-"xxx" type ?
+stringbuffer type ?

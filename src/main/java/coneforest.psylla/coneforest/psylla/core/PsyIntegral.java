@@ -117,7 +117,7 @@ public sealed interface PsyIntegral
 		}
 		catch(final PsyUndefinedResultException e)
 		{
-			throw new AssertionError();
+			throw new AssertionError(e);
 		}
 	}
 

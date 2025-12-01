@@ -1,7 +1,7 @@
 #!/usr/bin/psylla
 
 /brackets '()[]{}' def
-/charstack "" def
+/charstack stringbuffer def
 
 {
 	stdin read not { exit } if
@@ -17,7 +17,7 @@
 		{
 			charstack length 0 gt
 			brackets
-			string
+			stringbuffer
 			dup charstack length 0 gt { charstack postchop append } { pop } ifelse
 			dup char append
 			0 indexofsubstring 0 ge
