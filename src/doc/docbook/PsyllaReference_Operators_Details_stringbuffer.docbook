@@ -28,8 +28,8 @@ Returns a new empty <replaceable>stringbuffer</replaceable>.
 
 <formalpara>
 &TitleExamples;
-<programlisting language="psylla">string
-	▶ ""</programlisting>
+<programlisting language="psylla">stringbuffer
+	▶ %stringbuffer%</programlisting>
 </formalpara>
 
 <formalpara>
