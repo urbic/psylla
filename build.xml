@@ -455,6 +455,7 @@
 		description="Deploy to GitHub Package Registry"
 		depends="artifacts"
 		>
+		<symlink resource="${target.artifacts}" link="distrib" overwrite="true"/>
 		<ivy:publish
 			resolver="github-packages-psylla"
 			overwrite="true"
