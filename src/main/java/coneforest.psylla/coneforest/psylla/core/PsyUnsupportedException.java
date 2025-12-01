@@ -2,6 +2,10 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 
+/**
+*	The representation of the {@code unsupported} error thrown by the operator attempting to perform
+*	an unsupported operation.
+*/
 @SuppressWarnings("serial")
 @ErrorType("unsupported")
 public class PsyUnsupportedException
