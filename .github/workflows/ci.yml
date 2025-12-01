@@ -82,4 +82,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ant -v -noinput deploy
+          ant -Divy.mode=local -v -noinput deploy
