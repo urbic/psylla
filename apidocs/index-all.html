@@ -84,6 +84,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Applies this function to the given arguments.</div>
 </dd>
+<dt><a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.OptionalTriFunction.html#apply(T1,T2,T3)" class="member-name-link">apply(T1, T2, T3)</a> - Method in interface coneforest.psylla.runtime.<a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.OptionalTriFunction.html" title="interface in coneforest.psylla.runtime">ContextAction.OptionalTriFunction</a></dt>
+<dd>
+<div class="block">Applies this function to the given arguments.</div>
+</dd>
 <dt><a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.TriFunction.html#apply(T1,T2,T3)" class="member-name-link">apply(T1, T2, T3)</a> - Method in interface coneforest.psylla.runtime.<a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.TriFunction.html" title="interface in coneforest.psylla.runtime">ContextAction.TriFunction</a></dt>
 <dd>
 <div class="block">Applies this function to the given arguments.</div>
@@ -261,6 +265,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.OptionalFunction.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.OptionalFunction&lt;T&gt;</a> - Interface in <a href="coneforest.psylla/coneforest/psylla/runtime/package-summary.html">coneforest.psylla.runtime</a></dt>
 <dd>
 <div class="block">Represents a function that accepts one argument and produces an optional result.</div>
+</dd>
+<dt><a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.OptionalTriFunction.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.OptionalTriFunction&lt;T1,<wbr>T2,<wbr>T3&gt;</a> - Interface in <a href="coneforest.psylla/coneforest/psylla/runtime/package-summary.html">coneforest.psylla.runtime</a></dt>
+<dd>
+<div class="block">Represents a function that accepts three arguments and produces an optional result.</div>
 </dd>
 <dt><a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.Supplier.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.Supplier</a> - Interface in <a href="coneforest.psylla/coneforest/psylla/runtime/package-summary.html">coneforest.psylla.runtime</a></dt>
 <dd>
@@ -1010,6 +1018,10 @@ and plural quantifiers.</div>
 <div class="block">Returns the context action created from the function.</div>
 </dd>
 <dt><a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.html#ofOptionalFunction(coneforest.psylla.runtime.ContextAction.OptionalFunction)" class="member-name-link">ofOptionalFunction(ContextAction.OptionalFunction)</a> - Static method in interface coneforest.psylla.runtime.<a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></dt>
+<dd>
+<div class="block">Returns the context action created from the function.</div>
+</dd>
+<dt><a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.html#ofOptionalTriFunction(coneforest.psylla.runtime.ContextAction.OptionalTriFunction)" class="member-name-link">ofOptionalTriFunction(ContextAction.OptionalTriFunction)</a> - Static method in interface coneforest.psylla.runtime.<a href="coneforest.psylla/coneforest/psylla/runtime/ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></dt>
 <dd>
 <div class="block">Returns the context action created from the function.</div>
 </dd>
@@ -4089,7 +4101,10 @@ operand stack.</div>
 <div class="block">Constructs a new <code>exception</code> object with null as its detail message.</div>
 </dd>
 <dt><a href="coneforest.psylla/coneforest/psylla/core/PsyUnsupportedException.html" class="type-name-link" title="class in coneforest.psylla.core">PsyUnsupportedException</a> - Exception Class in <a href="coneforest.psylla/coneforest/psylla/core/package-summary.html">coneforest.psylla.core</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">The representation of the <code>unsupported</code> error thrown by the operator attempting to perform
+an unsupported operation.</div>
+</dd>
 <dt><a href="coneforest.psylla/coneforest/psylla/core/PsyUnsupportedException.html#%3Cinit%3E()" class="member-name-link">PsyUnsupportedException()</a> - Constructor for exception class coneforest.psylla.core.<a href="coneforest.psylla/coneforest/psylla/core/PsyUnsupportedException.html" title="class in coneforest.psylla.core">PsyUnsupportedException</a></dt>
 <dd>
 <div class="block">Constructs a new <code>exception</code> object with null as its detail message.</div>
@@ -4469,13 +4484,21 @@ object.</div>
 <div class="block">Annotates the Psylla types attaching the name to the type.</div>
 </dd>
 <dt><a href="coneforest.psylla.processors/coneforest/psylla/processors/TypeHierarchyBuilder.html" class="type-name-link" title="class in coneforest.psylla.processors">TypeHierarchyBuilder</a> - Class in <a href="coneforest.psylla.processors/coneforest/psylla/processors/package-summary.html">coneforest.psylla.processors</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Annotation processor aimed to create Graphviz diagrams reflecting Psylla type hierarchy.</div>
+</dd>
 <dt><a href="coneforest.psylla.processors/coneforest/psylla/processors/TypeHierarchyBuilder.html#%3Cinit%3E()" class="member-name-link">TypeHierarchyBuilder()</a> - Constructor for class coneforest.psylla.processors.<a href="coneforest.psylla.processors/coneforest/psylla/processors/TypeHierarchyBuilder.html" title="class in coneforest.psylla.processors">TypeHierarchyBuilder</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constructs a new processor.</div>
+</dd>
 <dt><a href="coneforest.psylla.processors/coneforest/psylla/processors/TypeMetadataCollector.html" class="type-name-link" title="class in coneforest.psylla.processors">TypeMetadataCollector</a> - Class in <a href="coneforest.psylla.processors/coneforest/psylla/processors/package-summary.html">coneforest.psylla.processors</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Annotation processor aimed to collect Psylla metadata.</div>
+</dd>
 <dt><a href="coneforest.psylla.processors/coneforest/psylla/processors/TypeMetadataCollector.html#%3Cinit%3E()" class="member-name-link">TypeMetadataCollector()</a> - Constructor for class coneforest.psylla.processors.<a href="coneforest.psylla.processors/coneforest/psylla/processors/TypeMetadataCollector.html" title="class in coneforest.psylla.processors">TypeMetadataCollector</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constructs a new processor.</div>
+</dd>
 <dt><a href="coneforest.psylla/coneforest/psylla/core/PsyObject.html#typeName()" class="member-name-link">typeName()</a> - Method in interface coneforest.psylla.core.<a href="coneforest.psylla/coneforest/psylla/core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a></dt>
 <dd>
 <div class="block">Returns a string representation of this <code>object</code>’s type name.</div>

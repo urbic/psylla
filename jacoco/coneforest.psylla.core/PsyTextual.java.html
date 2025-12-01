@@ -2,6 +2,7 @@
 
 import coneforest.psylla.runtime.*;
 import java.util.Iterator;
+import java.util.Optional;
 
 /**
 *	The representation of {@code textual}, a basic type of mutable and immutable strings.
@@ -22,36 +23,36 @@ public interface PsyTextual
 	*	Context action of the {@code indexofchar} operator.
 	*/
 	@OperatorType(&quot;indexofchar&quot;)
-<span class="fc" id="L25">	public static final ContextAction PSY_INDEXOFCHAR</span>
-<span class="fc" id="L26">		=ContextAction.&lt;PsyTextual, PsyInteger, PsyInteger&gt;ofTriFunction(PsyTextual::psyIndexOfChar);</span>
+<span class="fc" id="L26">	public static final ContextAction PSY_INDEXOFCHAR</span>
+<span class="fc" id="L27">		=ContextAction.&lt;PsyTextual, PsyInteger, PsyInteger&gt;ofOptionalTriFunction(PsyTextual::psyIndexOfChar);</span>
 
 	/**
 	*	Context action of the {@code indexofsubstring} operator.
 	*/
 	@OperatorType(&quot;indexofsubstring&quot;)
-<span class="fc" id="L32">	public static final ContextAction PSY_INDEXOFSUBSTRING</span>
-<span class="fc" id="L33">		=ContextAction.&lt;PsyTextual, PsyTextual, PsyInteger&gt;ofTriFunction(PsyTextual::psyIndexOfSubstring);</span>
+<span class="fc" id="L33">	public static final ContextAction PSY_INDEXOFSUBSTRING</span>
+<span class="fc" id="L34">		=ContextAction.&lt;PsyTextual, PsyTextual, PsyInteger&gt;ofOptionalTriFunction(PsyTextual::psyIndexOfSubstring);</span>
 
 	/**
 	*	Context action of the {@code lowercase} operator.
 	*/
 	@OperatorType(&quot;lowercase&quot;)
-<span class="fc" id="L39">	public static final ContextAction PSY_LOWERCASE</span>
-<span class="fc" id="L40">		=ContextAction.&lt;PsyTextual&gt;ofFunction(PsyTextual::psyLowerCase);</span>
+<span class="fc" id="L40">	public static final ContextAction PSY_LOWERCASE</span>
+<span class="fc" id="L41">		=ContextAction.&lt;PsyTextual&gt;ofFunction(PsyTextual::psyLowerCase);</span>
 
 	/**
 	*	Context action of the {@code split} operator.
 	*/
 	@OperatorType(&quot;split&quot;)
-<span class="fc" id="L46">	public static final ContextAction PSY_SPLIT</span>
-<span class="fc" id="L47">		=ContextAction.&lt;PsyTextual, PsyRegExp&gt;ofBiFunction(PsyTextual::psySplit);</span>
+<span class="fc" id="L47">	public static final ContextAction PSY_SPLIT</span>
+<span class="fc" id="L48">		=ContextAction.&lt;PsyTextual, PsyRegExp&gt;ofBiFunction(PsyTextual::psySplit);</span>
 
 	/**
 	*	Context action of the {@code uppercase} operator.
 	*/
 	@OperatorType(&quot;uppercase&quot;)
-<span class="fc" id="L53">	public static final ContextAction PSY_UPPERCASE</span>
-<span class="fc" id="L54">		=ContextAction.&lt;PsyTextual&gt;ofFunction(PsyTextual::psyUpperCase);</span>
+<span class="fc" id="L54">	public static final ContextAction PSY_UPPERCASE</span>
+<span class="fc" id="L55">		=ContextAction.&lt;PsyTextual&gt;ofFunction(PsyTextual::psyUpperCase);</span>
 
 	/**
 	*	{@return a string value of this object}
@@ -65,15 +66,15 @@ public interface PsyTextual
 	@Override
 	public default PsyString psyToString()
 	{
-<span class="fc" id="L68">		return new PsyString(stringValue());</span>
+<span class="fc" id="L69">		return new PsyString(stringValue());</span>
 	}
 
 	@Override
 	public default void psyEval(final PsyContext oContext)
 		throws PsyErrorException
 	{
-<span class="fc" id="L75">		(new PsyStringReader(stringValue())).psyEval(oContext);</span>
-<span class="fc" id="L76">	}</span>
+<span class="fc" id="L76">		(new PsyStringReader(stringValue())).psyEval(oContext);</span>
+<span class="fc" id="L77">	}</span>
 
 	@Override
 	public default PsyInteger psyToInteger()
@@ -82,11 +83,11 @@ public interface PsyTextual
 		try
 		{
 			// TODO fraction
-<span class="nc" id="L85">			return PsyInteger.of(Long.parseLong(stringValue()));</span>
+<span class="nc" id="L86">			return PsyInteger.of(Long.parseLong(stringValue()));</span>
 		}
-<span class="nc" id="L87">		catch(final NumberFormatException ex)</span>
+<span class="nc" id="L88">		catch(final NumberFormatException ex)</span>
 		{
-<span class="nc" id="L89">			throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L90">			throw new PsySyntaxErrorException();</span>
 		}
 	}
 
@@ -96,11 +97,11 @@ public interface PsyTextual
 	{
 		try
 		{
-<span class="nc" id="L99">			return PsyIntegral.parseLiteral(stringValue());</span>
+<span class="nc" id="L100">			return PsyIntegral.parseLiteral(stringValue());</span>
 		}
-<span class="nc" id="L101">		catch(final NumberFormatException ex)</span>
+<span class="nc" id="L102">		catch(final NumberFormatException ex)</span>
 		{
-<span class="nc" id="L103">			throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L104">			throw new PsySyntaxErrorException();</span>
 		}
 	}
 
@@ -110,11 +111,11 @@ public interface PsyTextual
 	{
 		try
 		{
-<span class="fc" id="L113">			return PsyRational.parseLiteral(stringValue());</span>
+<span class="fc" id="L114">			return PsyRational.parseLiteral(stringValue());</span>
 		}
-<span class="nc" id="L115">		catch(final NumberFormatException ex)</span>
+<span class="nc" id="L116">		catch(final NumberFormatException ex)</span>
 		{
-<span class="nc" id="L117">			throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L118">			throw new PsySyntaxErrorException();</span>
 		}
 	}
 
@@ -124,70 +125,72 @@ public interface PsyTextual
 	{
 		try
 		{
-<span class="nc" id="L127">			return new PsyReal(Double.parseDouble(stringValue()));</span>
+<span class="nc" id="L128">			return new PsyReal(Double.parseDouble(stringValue()));</span>
 		}
-<span class="nc" id="L129">		catch(final NumberFormatException ex)</span>
+<span class="nc" id="L130">		catch(final NumberFormatException ex)</span>
 		{
-<span class="nc" id="L131">			throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L132">			throw new PsySyntaxErrorException();</span>
 		}
 	}
 
 	@Override
 	public default int length()
 	{
-<span class="fc" id="L138">		return stringValue().length();</span>
+<span class="fc" id="L139">		return stringValue().length();</span>
 	}
 
 	@Override
 	public default int compareTo(final PsyTextual oTextual)
 	{
-<span class="fc" id="L144">		return stringValue().compareTo(oTextual.stringValue());</span>
+<span class="fc" id="L145">		return stringValue().compareTo(oTextual.stringValue());</span>
 	}
 
 	@Override
 	public default PsyBoolean psyEq(final PsyObject o)
 	{
-<span class="fc" id="L150">		return PsyBoolean.of(o instanceof PsyTextual oTextual</span>
-<span class="pc bpc" id="L151" title="1 of 4 branches missed.">				&amp;&amp; stringValue().equals(oTextual.stringValue()));</span>
+<span class="fc" id="L151">		return PsyBoolean.of(o instanceof PsyTextual oTextual</span>
+<span class="pc bpc" id="L152" title="1 of 4 branches missed.">				&amp;&amp; stringValue().equals(oTextual.stringValue()));</span>
 	}
 
 	public default PsyArray psySplit(final PsyRegExp oRegExp)
 		throws PsyLimitCheckException
 	{
-<span class="nc" id="L157">		final var oArray=new PsyArray();</span>
-<span class="nc bnc" id="L158" title="All 2 branches missed.">		for(final var item: oRegExp.getPattern().split(stringValue(), -1))</span>
+<span class="nc" id="L158">		final var oArray=new PsyArray();</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">		for(final var item: oRegExp.getPattern().split(stringValue(), -1))</span>
 			// TODO PsyString
-<span class="nc" id="L160">			oArray.psyAppend(new PsyStringBuffer(item));</span>
-<span class="nc" id="L161">		return oArray;</span>
+<span class="nc" id="L161">			oArray.psyAppend(new PsyStringBuffer(item));</span>
+<span class="nc" id="L162">		return oArray;</span>
 	}
 
-	public default PsyInteger psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
+	public default Optional&lt;PsyInteger&gt; psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
 	{
-<span class="nc" id="L166">		return PsyInteger.of(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));</span>
+<span class="fc" id="L167">		final var index=stringValue().indexOf(oChar.intValue(), oFrom.intValue());</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">		return index&lt;0? Optional.empty(): Optional.of(PsyInteger.of(index));</span>
 	}
 
-	public default PsyInteger psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
+	public default Optional&lt;PsyInteger&gt; psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
 	{
-<span class="nc" id="L171">		return PsyInteger.of(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));</span>
+<span class="fc" id="L173">		final var index=stringValue().indexOf(oStr.stringValue(), oFrom.intValue());</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">		return index&lt;0? Optional.empty(): Optional.of(PsyInteger.of(index));</span>
 	}
 
 	@Override
 	public default Iterator&lt;PsyInteger&gt; iterator()
 	{
-<span class="nc" id="L177">		return new Iterator&lt;PsyInteger&gt;()</span>
-<span class="nc" id="L178">			{</span>
-<span class="nc" id="L179">				private int index=0;</span>
+<span class="nc" id="L180">		return new Iterator&lt;PsyInteger&gt;()</span>
+<span class="nc" id="L181">			{</span>
+<span class="nc" id="L182">				private int index=0;</span>
 
 				@Override
 				public boolean hasNext()
 				{
-<span class="nc bnc" id="L184" title="All 2 branches missed.">					return index&lt;stringValue().length();</span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">					return index&lt;stringValue().length();</span>
 				}
 
 				@Override
 				public PsyInteger next()
 				{
-<span class="nc" id="L190">					return PsyInteger.of(stringValue().charAt(index++));</span>
+<span class="nc" id="L193">					return PsyInteger.of(stringValue().charAt(index++));</span>
 				}
 			};
 	}

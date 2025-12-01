@@ -66,6 +66,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#ofFunction(coneforest.psylla.runtime.ContextAction.Function)" tabindex="0">ofFunction(ContextAction.Function)</a></li>
 <li><a href="#ofOptionalFunction(coneforest.psylla.runtime.ContextAction.OptionalFunction)" tabindex="0">ofOptionalFunction(ContextAction.OptionalFunction)</a></li>
 <li><a href="#ofOptionalBiFunction(coneforest.psylla.runtime.ContextAction.OptionalBiFunction)" tabindex="0">ofOptionalBiFunction(ContextAction.OptionalBiFunction)</a></li>
+<li><a href="#ofOptionalTriFunction(coneforest.psylla.runtime.ContextAction.OptionalTriFunction)" tabindex="0">ofOptionalTriFunction(ContextAction.OptionalTriFunction)</a></li>
 <li><a href="#ofBiFunction(coneforest.psylla.runtime.ContextAction.BiFunction)" tabindex="0">ofBiFunction(ContextAction.BiFunction)</a></li>
 <li><a href="#ofTriFunction(coneforest.psylla.runtime.ContextAction.TriFunction)" tabindex="0">ofTriFunction(ContextAction.TriFunction)</a></li>
 </ol>
@@ -131,18 +132,23 @@ loadScripts(document, 'script');</script>
 <div class="block">Represents a function that accepts one argument and produces an optional result.</div>
 </div>
 <div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="ContextAction.Supplier.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.Supplier</a></code></div>
+<div class="col-second even-row-color"><code><a href="ContextAction.OptionalTriFunction.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.OptionalTriFunction</a>&lt;<a href="ContextAction.OptionalTriFunction.html#type-param-T1" title="type parameter in ContextAction.OptionalTriFunction">T1</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.OptionalTriFunction.html#type-param-T2" title="type parameter in ContextAction.OptionalTriFunction">T2</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.OptionalTriFunction.html#type-param-T3" title="type parameter in ContextAction.OptionalTriFunction">T3</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;</code></div>
 <div class="col-last even-row-color">
-<div class="block">Represents a supplier of results.</div>
+<div class="block">Represents a function that accepts three arguments and produces an optional result.</div>
 </div>
 <div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="ContextAction.TriConsumer.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.TriConsumer</a>&lt;<a href="ContextAction.TriConsumer.html#type-param-T1" title="type parameter in ContextAction.TriConsumer">T1</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriConsumer.html#type-param-T2" title="type parameter in ContextAction.TriConsumer">T2</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriConsumer.html#type-param-T3" title="type parameter in ContextAction.TriConsumer">T3</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="ContextAction.Supplier.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.Supplier</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Represents an operation that accepts three input arguments and returns no result.</div>
+<div class="block">Represents a supplier of results.</div>
 </div>
 <div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="ContextAction.TriFunction.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.TriFunction</a>&lt;<a href="ContextAction.TriFunction.html#type-param-T1" title="type parameter in ContextAction.TriFunction">T1</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriFunction.html#type-param-T2" title="type parameter in ContextAction.TriFunction">T2</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriFunction.html#type-param-T3" title="type parameter in ContextAction.TriFunction">T3</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="ContextAction.TriConsumer.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.TriConsumer</a>&lt;<a href="ContextAction.TriConsumer.html#type-param-T1" title="type parameter in ContextAction.TriConsumer">T1</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriConsumer.html#type-param-T2" title="type parameter in ContextAction.TriConsumer">T2</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriConsumer.html#type-param-T3" title="type parameter in ContextAction.TriConsumer">T3</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;</code></div>
 <div class="col-last even-row-color">
+<div class="block">Represents an operation that accepts three input arguments and returns no result.</div>
+</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="ContextAction.TriFunction.html" class="type-name-link" title="interface in coneforest.psylla.runtime">ContextAction.TriFunction</a>&lt;<a href="ContextAction.TriFunction.html#type-param-T1" title="type parameter in ContextAction.TriFunction">T1</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriFunction.html#type-param-T2" title="type parameter in ContextAction.TriFunction">T2</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, <a href="ContextAction.TriFunction.html#type-param-T3" title="type parameter in ContextAction.TriFunction">T3</a> extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Represents a function that accepts three arguments and produces a result.</div>
 </div>
 </div>
@@ -189,24 +195,29 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Returns the context action created from the function.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofSupplier(coneforest.psylla.runtime.ContextAction.Supplier)" class="member-name-link">ofSupplier</a><wbr>(<a href="ContextAction.Supplier.html" title="interface in coneforest.psylla.runtime">ContextAction.Supplier</a>&nbsp;supplier)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;T1 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T2 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T3 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;<br><a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofOptionalTriFunction(coneforest.psylla.runtime.ContextAction.OptionalTriFunction)" class="member-name-link">ofOptionalTriFunction</a><wbr>(<a href="ContextAction.OptionalTriFunction.html" title="interface in coneforest.psylla.runtime">ContextAction.OptionalTriFunction</a>&lt;T1,<wbr>T2,<wbr>T3&gt;&nbsp;optionalTriFunction)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="block">Returns the context action created from the function.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofSupplier(coneforest.psylla.runtime.ContextAction.Supplier)" class="member-name-link">ofSupplier</a><wbr>(<a href="ContextAction.Supplier.html" title="interface in coneforest.psylla.runtime">ContextAction.Supplier</a>&nbsp;supplier)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Returns the context action created from the supplier.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;T1 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T2 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T3 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;<br><a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofTriConsumer(coneforest.psylla.runtime.ContextAction.TriConsumer)" class="member-name-link">ofTriConsumer</a><wbr>(<a href="ContextAction.TriConsumer.html" title="interface in coneforest.psylla.runtime">ContextAction.TriConsumer</a>&lt;T1,<wbr>T2,<wbr>T3&gt;&nbsp;triConsumer)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;T1 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T2 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T3 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;<br><a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofTriConsumer(coneforest.psylla.runtime.ContextAction.TriConsumer)" class="member-name-link">ofTriConsumer</a><wbr>(<a href="ContextAction.TriConsumer.html" title="interface in coneforest.psylla.runtime">ContextAction.TriConsumer</a>&lt;T1,<wbr>T2,<wbr>T3&gt;&nbsp;triConsumer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Returns the context action created from the tri-consumer.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;T1 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T2 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T3 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;<br><a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofTriFunction(coneforest.psylla.runtime.ContextAction.TriFunction)" class="member-name-link">ofTriFunction</a><wbr>(<a href="ContextAction.TriFunction.html" title="interface in coneforest.psylla.runtime">ContextAction.TriFunction</a>&lt;T1,<wbr>T2,<wbr>T3&gt;&nbsp;triFunction)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;T1 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T2 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T3 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;<br><a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofTriFunction(coneforest.psylla.runtime.ContextAction.TriFunction)" class="member-name-link">ofTriFunction</a><wbr>(<a href="ContextAction.TriFunction.html" title="interface in coneforest.psylla.runtime">ContextAction.TriFunction</a>&lt;T1,<wbr>T2,<wbr>T3&gt;&nbsp;triFunction)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Returns the context action created from the tri-function.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#perform(coneforest.psylla.core.PsyContext)" class="member-name-link">perform</a><wbr>(<a href="../core/PsyContext.html" title="interface in coneforest.psylla.core">PsyContext</a>&nbsp;oContext)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#perform(coneforest.psylla.core.PsyContext)" class="member-name-link">perform</a><wbr>(<a href="../core/PsyContext.html" title="interface in coneforest.psylla.core">PsyContext</a>&nbsp;oContext)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Performs this action on the specified execution context.</div>
 </div>
 </div>
@@ -353,9 +364,30 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the context action created from the function.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
-<dd><span id="ofOptionalBiFunction(coneforest.psylla.runtime.ContextAction.OptionalBiFunction)-type-param-T"><code>T</code> - the type of the input to the optional function.</span></dd>
+<dd><span id="ofOptionalBiFunction(coneforest.psylla.runtime.ContextAction.OptionalBiFunction)-type-param-T1"><code>T1</code> - the type of the first input to the optional function.</span></dd>
+<dd><span id="ofOptionalBiFunction(coneforest.psylla.runtime.ContextAction.OptionalBiFunction)-type-param-T2"><code>T2</code> - the type of the second input to the optional function.</span></dd>
 <dt>Parameters:</dt>
 <dd><code>optionalBiFunction</code> - the optional function.</dd>
+<dt>Returns:</dt>
+<dd>the context action created from the function</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ofOptionalTriFunction(coneforest.psylla.runtime.ContextAction.OptionalTriFunction)">
+<h3>ofOptionalTriFunction</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;T1 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T2 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>, T3 extends <a href="../core/PsyObject.html" title="interface in coneforest.psylla.core">PsyObject</a>&gt;</span>
+<span class="return-type"><a href="ContextAction.html" title="interface in coneforest.psylla.runtime">ContextAction</a></span>&nbsp;<span class="element-name">ofOptionalTriFunction</span><wbr><span class="parameters">(<a href="ContextAction.OptionalTriFunction.html" title="interface in coneforest.psylla.runtime">ContextAction.OptionalTriFunction</a>&lt;T1,<wbr>T2,<wbr>T3&gt;&nbsp;optionalTriFunction)</span></div>
+<div class="block">Returns the context action created from the function.</div>
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><span id="ofOptionalTriFunction(coneforest.psylla.runtime.ContextAction.OptionalTriFunction)-type-param-T1"><code>T1</code> - the type of the first input to the optional function.</span></dd>
+<dd><span id="ofOptionalTriFunction(coneforest.psylla.runtime.ContextAction.OptionalTriFunction)-type-param-T2"><code>T2</code> - the type of the second input to the optional function.</span></dd>
+<dd><span id="ofOptionalTriFunction(coneforest.psylla.runtime.ContextAction.OptionalTriFunction)-type-param-T3"><code>T3</code> - the type of the third input to the optional function.</span></dd>
+<dt>Parameters:</dt>
+<dd><code>optionalTriFunction</code> - the optional function.</dd>
 <dt>Returns:</dt>
 <dd>the context action created from the function</dd>
 </dl>
