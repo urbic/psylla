@@ -3,6 +3,8 @@
 
 	<include url="/etc/ivy/ivysettings.xml"/>
 
+	<property name="ivy.distrib.dir" value="${target.artifacts}"/>
+
 	<credentials
 		host="maven.pkg.github.com"
 		realm="GitHub Package Registry"
