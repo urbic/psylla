@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xml:id="PsyllaReference_Errors_Details_internalerror">
+<title><errorname>internalerror</errorname></title>
+<indexterm><primary><errorname>internalerror</errorname> Ⓔ</primary></indexterm>
+
+<para>
+Internal error.
+</para>
+
+</section>

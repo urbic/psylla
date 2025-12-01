@@ -353,6 +353,7 @@
 <!ENTITY PsyllaReference_Errors_Details_fileexists			SYSTEM "PsyllaReference_Errors_Details_fileexists.docbook">
 <!ENTITY PsyllaReference_Errors_Details_filenotfound		SYSTEM "PsyllaReference_Errors_Details_filenotfound.docbook">
 <!ENTITY PsyllaReference_Errors_Details_filesystemerror		SYSTEM "PsyllaReference_Errors_Details_filesystemerror.docbook">
+<!ENTITY PsyllaReference_Errors_Details_internalerror		SYSTEM "PsyllaReference_Errors_Details_internalerror.docbook">
 <!ENTITY PsyllaReference_Errors_Details_invalidcontext		SYSTEM "PsyllaReference_Errors_Details_invalidcontext.docbook">
 <!ENTITY PsyllaReference_Errors_Details_invalidexit			SYSTEM "PsyllaReference_Errors_Details_invalidexit.docbook">
 <!ENTITY PsyllaReference_Errors_Details_invalidexternal		SYSTEM "PsyllaReference_Errors_Details_invalidexternal.docbook">

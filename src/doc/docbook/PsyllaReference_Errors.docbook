@@ -13,6 +13,7 @@
 &PsyllaReference_Errors_Details_fileexists;
 &PsyllaReference_Errors_Details_filenotfound;
 &PsyllaReference_Errors_Details_filesystemerror;
+&PsyllaReference_Errors_Details_internalerror;
 &PsyllaReference_Errors_Details_invalidcontext;
 &PsyllaReference_Errors_Details_invalidexit;
 &PsyllaReference_Errors_Details_invalidexternal;
