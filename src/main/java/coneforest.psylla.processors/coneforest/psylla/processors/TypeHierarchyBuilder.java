@@ -21,6 +21,9 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 
+/**
+*	Annotation processor aimed to create Graphviz diagrams reflecting Psylla type hierarchy.
+*/
 @SupportedAnnotationTypes({"coneforest.psylla.runtime.Type", "coneforest.psylla.runtime.ErrorType"})
 @SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class TypeHierarchyBuilder
@@ -30,8 +33,12 @@ public class TypeHierarchyBuilder
 	private Messager messager;
 	private Types tu;
 
+	/**
+	*	Constructs a new processor.
+	*/
 	public TypeHierarchyBuilder()
 	{
+		// NOP
 	}
 
 	@Override
@@ -56,7 +63,6 @@ public class TypeHierarchyBuilder
 				if(annot!=null)
 					parentNames.add(annot.value());
 			}
-
 			hierarchy.put(typeName, parentNames);
 		}
 

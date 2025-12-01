@@ -17,6 +17,9 @@ import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 
+/**
+*	Annotation processor aimed to collect Psylla metadata.
+*/
 @SupportedAnnotationTypes({"coneforest.psylla.runtime.Type",
 	"coneforest.psylla.runtime.ErrorType",
 	"coneforest.psylla.runtime.OperatorType"})
@@ -27,8 +30,12 @@ public class TypeMetadataCollector
 	private Map<String, String> options;
 	private Messager messager;
 
+	/**
+	*	Constructs a new processor.
+	*/
 	public TypeMetadataCollector()
 	{
+		// NOP
 	}
 
 	@Override
