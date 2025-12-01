@@ -54,6 +54,7 @@
 	<property name="target.vim" location="${target}/vim"/>
 	<property name="target.mime" location="${target}/mime"/>
 	<property name="target.reports" location="${target}/reports"/>
+	<property name="distrib" location="distrib"/>
 	<property name="file.encoding" value="UTF-8"/>
 	<property name="linux.flavour" value="redhat"/>
 	<!--property name="build.sysclasspath" value="ignore"/-->
@@ -455,7 +456,9 @@
 		description="Deploy to GitHub Package Registry"
 		depends="artifacts"
 		>
-		<symlink resource="${target.artifacts}" link="distrib" overwrite="true"/>
+		<copy todir="${distrib}">
+			<fileset dir="${target.artifacts}" includes="**"/>
+		</copy>
 		<ivy:publish
 			resolver="github-packages-psylla"
 			overwrite="true"
