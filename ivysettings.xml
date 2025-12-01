@@ -3,7 +3,11 @@
 
 	<include url="/etc/ivy/ivysettings.xml"/>
 
-	<property name="ivy.distrib.dir" value="${target.artifacts}"/>
+	<property name="ivy.distrib.dir" value="${target.artifacts}" override="true"/>
+	<property name="ivy.deliver.ivy.pattern"
+		value="${ivy.distrib.dir}/[type]s/[artifact]-[revision](-[classifier]).[ext]"
+		override="true"
+		/>
 
 	<credentials
 		host="maven.pkg.github.com"
