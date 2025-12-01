@@ -113,7 +113,8 @@ public interface ContextAction
 	/**
 	*	{@return the context action created from the function}
 	*
-	*	@param <T> the type of the input to the optional function.
+	*	@param <T1> the type of the first input to the optional function.
+	*	@param <T2> the type of the second input to the optional function.
 	*	@param optionalBiFunction the optional function.
 	*/
 	public static <T1 extends PsyObject, T2 extends PsyObject>
@@ -124,6 +125,25 @@ public interface ContextAction
 				final var ostack=oContext.operandStackBacked(2);
 				ostack.pushOptional(optionalBiFunction.apply(
 						ostack.getBacked(0), ostack.getBacked(1)));
+			};
+	}
+
+	/**
+	*	{@return the context action created from the function}
+	*
+	*	@param <T1> the type of the first input to the optional function.
+	*	@param <T2> the type of the second input to the optional function.
+	*	@param <T3> the type of the third input to the optional function.
+	*	@param optionalTriFunction the optional function.
+	*/
+	public static <T1 extends PsyObject, T2 extends PsyObject, T3 extends PsyObject>
+	ContextAction ofOptionalTriFunction(final OptionalTriFunction<T1, T2, T3> optionalTriFunction)
+	{
+		return oContext->
+			{
+				final var ostack=oContext.operandStackBacked(3);
+				ostack.pushOptional(optionalTriFunction.apply(
+						ostack.getBacked(0), ostack.getBacked(1), ostack.getBacked(2)));
 			};
 	}
 
@@ -279,7 +299,8 @@ public interface ContextAction
 	/**
 	*	Represents a function that accepts two arguments and produces an optional result.
 	*
-	*	@param <T> the type of the input to the function.
+	*	@param <T1> the type of the first input to the function.
+	*	@param <T2> the type of the second input to the function.
 	*/
 	@FunctionalInterface
 	public static interface OptionalBiFunction<T1 extends PsyObject, T2 extends PsyObject>
@@ -293,6 +314,30 @@ public interface ContextAction
 		*	@throws PsyErrorException when an error occurs during operation.
 		*/
 		public Optional<? extends PsyObject> apply(final T1 o1, final T2 o2)
+			throws PsyErrorException;
+	}
+
+	/**
+	*	Represents a function that accepts three arguments and produces an optional result.
+	*
+	*	@param <T1> the type of the first input to the function.
+	*	@param <T2> the type of the second input to the function.
+	*	@param <T3> the type of the third input to the function.
+	*/
+	@FunctionalInterface
+	public static interface OptionalTriFunction<T1 extends PsyObject,
+			T2 extends PsyObject, T3 extends PsyObject>
+	{
+		/**
+		*	Applies this function to the given arguments.
+		*
+		*	@param o1 the first function argument.
+		*	@param o2 the second function argument.
+		*	@param o3 the third function argument.
+		*	@return the function result.
+		*	@throws PsyErrorException when an error occurs during operation.
+		*/
+		public Optional<? extends PsyObject> apply(final T1 o1, final T2 o2, final T3 o3)
 			throws PsyErrorException;
 	}
 

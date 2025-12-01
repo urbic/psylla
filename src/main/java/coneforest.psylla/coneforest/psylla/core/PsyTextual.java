@@ -2,6 +2,7 @@ package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 import java.util.Iterator;
+import java.util.Optional;
 
 /**
 *	The representation of {@code textual}, a basic type of mutable and immutable strings.
@@ -23,14 +24,14 @@ public interface PsyTextual
 	*/
 	@OperatorType("indexofchar")
 	public static final ContextAction PSY_INDEXOFCHAR
-		=ContextAction.<PsyTextual, PsyInteger, PsyInteger>ofTriFunction(PsyTextual::psyIndexOfChar);
+		=ContextAction.<PsyTextual, PsyInteger, PsyInteger>ofOptionalTriFunction(PsyTextual::psyIndexOfChar);
 
 	/**
 	*	Context action of the {@code indexofsubstring} operator.
 	*/
 	@OperatorType("indexofsubstring")
 	public static final ContextAction PSY_INDEXOFSUBSTRING
-		=ContextAction.<PsyTextual, PsyTextual, PsyInteger>ofTriFunction(PsyTextual::psyIndexOfSubstring);
+		=ContextAction.<PsyTextual, PsyTextual, PsyInteger>ofOptionalTriFunction(PsyTextual::psyIndexOfSubstring);
 
 	/**
 	*	Context action of the {@code lowercase} operator.
@@ -161,14 +162,16 @@ public interface PsyTextual
 		return oArray;
 	}
 
-	public default PsyInteger psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
+	public default Optional<PsyInteger> psyIndexOfChar(final PsyInteger oChar, final PsyInteger oFrom)
 	{
-		return PsyInteger.of(stringValue().indexOf(oChar.intValue(), oFrom.intValue()));
+		final var index=stringValue().indexOf(oChar.intValue(), oFrom.intValue());
+		return index<0? Optional.empty(): Optional.of(PsyInteger.of(index));
 	}
 
-	public default PsyInteger psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
+	public default Optional<PsyInteger> psyIndexOfSubstring(final PsyTextual oStr, final PsyInteger oFrom)
 	{
-		return PsyInteger.of(stringValue().indexOf(oStr.stringValue(), oFrom.intValue()));
+		final var index=stringValue().indexOf(oStr.stringValue(), oFrom.intValue());
+		return index<0? Optional.empty(): Optional.of(PsyInteger.of(index));
 	}
 
 	@Override

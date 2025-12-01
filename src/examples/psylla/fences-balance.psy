@@ -7,9 +7,9 @@
 	stdin read not { exit } if
 	/char exch def
 
-	/btype brackets char 0 indexofchar def
-	btype -1 ne
+	brackets char 0 indexofchar
 	{
+		/btype exch def
 		btype 2 mod iszero
 		{
 			charstack char append
@@ -20,7 +20,7 @@
 			stringbuffer
 			dup charstack length 0 gt { charstack postchop append } { pop } ifelse
 			dup char append
-			0 indexofsubstring 0 ge
+			0 indexofsubstring { pop //true } { //false } ifelse
 			and not
 			{
 				'Balance is upset: unpaired closing fence\n' warn
