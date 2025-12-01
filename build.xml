@@ -456,10 +456,8 @@
 		description="Deploy to GitHub Package Registry"
 		depends="artifacts"
 		>
-		<copy todir="${distrib}">
-			<fileset dir="${target.artifacts}" includes="**"/>
-		</copy>
 		<ivy:publish
+			artifactspattern="${target.artifacts}/[type]s/[organisation].[artifact]-[revision](-[classifier]).[ext]"
 			resolver="github-packages-psylla"
 			overwrite="true"
 			forcedeliver="true"
