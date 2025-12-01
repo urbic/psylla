@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Interpreter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">Interpreter.java</span></div><h1>Interpreter.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Interpreter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.23.0</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.runtime</a> &gt; <span class="el_source">Interpreter.java</span></div><h1>Interpreter.java</h1><pre class="source lang-java linenums">package coneforest.psylla.runtime;
 
 import coneforest.psylla.core.*;
 import coneforest.psylla.runtime.parser.Parser;
@@ -95,42 +95,41 @@ public class Interpreter
 		}
 <span class="nc" id="L96">		catch(final PsyErrorException e)</span>
 		{
-			// TODO more appropriate exception
-<span class="nc" id="L99">			throw new AssertionError(e);</span>
-<span class="fc" id="L100">		}</span>
-<span class="fc" id="L101">	}</span>
+<span class="nc" id="L98">			throw new RuntimeException(e);</span>
+<span class="fc" id="L99">		}</span>
+<span class="fc" id="L100">	}</span>
 
 	@Override
 	public void fork()
 		throws PsyStackUnderflowException, PsyUnmatchedMarkException
 	{
-<span class="fc" id="L107">		final var ostack=operandStackBacked(1);</span>
-<span class="fc" id="L108">		final var o=ostack.getBacked(0);</span>
-<span class="fc" id="L109">		final var forkedDstack=dstack.clone();</span>
-<span class="fc" id="L110">		final var oForkedContext=new Interpreter()</span>
-<span class="fc" id="L111">			{</span>
+<span class="fc" id="L106">		final var ostack=operandStackBacked(1);</span>
+<span class="fc" id="L107">		final var o=ostack.getBacked(0);</span>
+<span class="fc" id="L108">		final var forkedDstack=dstack.clone();</span>
+<span class="fc" id="L109">		final var oForkedContext=new Interpreter()</span>
+<span class="fc" id="L110">			{</span>
 				{
-<span class="fc" id="L113">					dstack=forkedDstack;</span>
+<span class="fc" id="L112">					dstack=forkedDstack;</span>
 				}
 
 				@Override
 				public void run()
 				{
-<span class="fc" id="L119">					o.invoke(this);</span>
-<span class="fc" id="L120">					handleExecutionStack(0);</span>
-<span class="pc bpc" id="L121" title="1 of 2 branches missed.">					if(getStopped())</span>
-<span class="nc" id="L122">						return;</span>
-<span class="fc" id="L123">				}</span>
+<span class="fc" id="L118">					o.invoke(this);</span>
+<span class="fc" id="L119">					handleExecutionStack(0);</span>
+<span class="pc bpc" id="L120" title="1 of 2 branches missed.">					if(getStopped())</span>
+<span class="nc" id="L121">						return;</span>
+<span class="fc" id="L122">				}</span>
 			};
-<span class="fc" id="L125">		final int i=ostack.findMarkPosition();</span>
-<span class="fc" id="L126">		final int ostackSize=ostack.size();</span>
-<span class="fc" id="L127">		final var forkedOstack=oForkedContext.operandStack();</span>
-<span class="fc bfc" id="L128" title="All 2 branches covered.">		for(int j=i+1; j&lt;ostackSize; j++)</span>
-<span class="fc" id="L129">			forkedOstack.push(ostack.get(j));</span>
-<span class="fc" id="L130">		ostack.setSize(i);</span>
-<span class="fc" id="L131">		ostack.push(oForkedContext);</span>
-<span class="fc" id="L132">		oForkedContext.start();</span>
-<span class="fc" id="L133">	}</span>
+<span class="fc" id="L124">		final int i=ostack.findMarkPosition();</span>
+<span class="fc" id="L125">		final int ostackSize=ostack.size();</span>
+<span class="fc" id="L126">		final var forkedOstack=oForkedContext.operandStack();</span>
+<span class="fc bfc" id="L127" title="All 2 branches covered.">		for(int j=i+1; j&lt;ostackSize; j++)</span>
+<span class="fc" id="L128">			forkedOstack.push(ostack.get(j));</span>
+<span class="fc" id="L129">		ostack.setSize(i);</span>
+<span class="fc" id="L130">		ostack.push(oForkedContext);</span>
+<span class="fc" id="L131">		oForkedContext.start();</span>
+<span class="fc" id="L132">	}</span>
 
 	/*public void importType(final String typeName)
 		throws PsyErrorException
@@ -141,27 +140,27 @@ public class Interpreter
 	@Override
 	public OperandStack operandStack()
 	{
-<span class="fc" id="L144">		return ostack;</span>
+<span class="fc" id="L143">		return ostack;</span>
 	}
 
 	@Override
 	public OperandStack operandStackBacked(final int count)
 		throws PsyStackUnderflowException
 	{
-<span class="fc" id="L151">		ostack.popOperands(count);</span>
-<span class="fc" id="L152">		return ostack;</span>
+<span class="fc" id="L150">		ostack.popOperands(count);</span>
+<span class="fc" id="L151">		return ostack;</span>
 	}
 
 	@Override
 	public DictStack dictStack()
 	{
-<span class="fc" id="L158">		return dstack;</span>
+<span class="fc" id="L157">		return dstack;</span>
 	}
 
 	@Override
 	public ExecutionStack executionStack()
 	{
-<span class="fc" id="L164">		return estack;</span>
+<span class="fc" id="L163">		return estack;</span>
 	}
 
 	/**
@@ -169,56 +168,56 @@ public class Interpreter
 	*/
 	public ClassLoader classLoader()
 	{
-<span class="nc" id="L172">		return classLoader;</span>
+<span class="nc" id="L171">		return classLoader;</span>
 	}
 
 	@SuppressWarnings(&quot;unchecked&quot;)
 	protected &lt;T extends PsyObject&gt; T load(final String name)
 		throws PsyUndefinedException
 	{
-<span class="fc" id="L179">		final var prefixOffset=name.indexOf('@');</span>
-<span class="fc bfc" id="L180" title="All 2 branches covered.">		if(prefixOffset==-1)</span>
-<span class="fc" id="L181">			return dstack.&lt;T&gt;load(name);</span>
-<span class="fc" id="L182">		return (T)nspool.get(name.substring(0, prefixOffset))</span>
-<span class="fc" id="L183">				.get(name.substring(prefixOffset+1));</span>
+<span class="fc" id="L178">		final var prefixOffset=name.indexOf('@');</span>
+<span class="fc bfc" id="L179" title="All 2 branches covered.">		if(prefixOffset==-1)</span>
+<span class="fc" id="L180">			return dstack.&lt;T&gt;load(name);</span>
+<span class="fc" id="L181">		return (T)nspool.get(name.substring(0, prefixOffset))</span>
+<span class="fc" id="L182">				.get(name.substring(prefixOffset+1));</span>
 	}
 
 	@Override
 	public &lt;T extends PsyObject&gt; T psyLoad(final PsyTextual oKey)
 		throws PsyUndefinedException
 	{
-<span class="fc" id="L190">		return this.&lt;T&gt;load(oKey.stringValue());</span>
+<span class="fc" id="L189">		return this.&lt;T&gt;load(oKey.stringValue());</span>
 	}
 
 	@Override
 	public void handleExecutionStack(final int level)
 	{
-<span class="fc bfc" id="L196" title="All 2 branches covered.">		while(estack.size()&gt;level)</span>
-<span class="fc" id="L197">			estack.pop().execute(this);</span>
-<span class="fc" id="L198">	}</span>
+<span class="fc bfc" id="L195" title="All 2 branches covered.">		while(estack.size()&gt;level)</span>
+<span class="fc" id="L196">			estack.pop().execute(this);</span>
+<span class="fc" id="L197">	}</span>
 
 	@Override
 	public PsyFormalDict&lt;PsyObject&gt; /*&lt;? extends PsyObject&gt;*/ currentDict()
 	{
-<span class="fc" id="L203">		return dstack.peek();</span>
+<span class="fc" id="L202">		return dstack.peek();</span>
 	}
 
 	@Override
 	public PsyFormalDict&lt;PsyObject&gt; /*&lt;? extends PsyObject&gt;*/ systemDict()
 	{
-<span class="fc" id="L209">		return dstack.get(0);</span>
+<span class="fc" id="L208">		return dstack.get(0);</span>
 	}
 
 	@Override
 	public PsyFormalDict&lt;PsyObject&gt; /*&lt;? extends PsyObject&gt;*/ userDict()
 	{
-<span class="nc" id="L215">		return dstack.get(1);</span>
+<span class="nc" id="L214">		return dstack.get(1);</span>
 	}
 
 	@Override
 	public NamespacePool namespacePool()
 	{
-<span class="fc" id="L221">		return nspool;</span>
+<span class="fc" id="L220">		return nspool;</span>
 	}
 
 	/**
@@ -226,7 +225,7 @@ public class Interpreter
 	*/
 	public PsyNamespace currentNamespace()
 	{
-<span class="nc" id="L229">		return dstack.currentNamespace();</span>
+<span class="nc" id="L228">		return dstack.currentNamespace();</span>
 	}
 
 	/**
@@ -236,8 +235,8 @@ public class Interpreter
 	*/
 	public void setReader(final Reader reader)
 	{
-<span class="nc" id="L239">		systemDict().put(&quot;stdin&quot;, new PsyReader(reader));</span>
-<span class="nc" id="L240">	}</span>
+<span class="nc" id="L238">		systemDict().put(&quot;stdin&quot;, new PsyReader(reader));</span>
+<span class="nc" id="L239">	}</span>
 
 	/**
 	*	Sets the interpreter’s standard writer.
@@ -246,8 +245,8 @@ public class Interpreter
 	*/
 	public void setWriter(final Writer writer)
 	{
-<span class="fc" id="L249">		systemDict().put(&quot;stdout&quot;, new PsyWriter(writer));</span>
-<span class="fc" id="L250">	}</span>
+<span class="fc" id="L248">		systemDict().put(&quot;stdout&quot;, new PsyWriter(writer));</span>
+<span class="fc" id="L249">	}</span>
 
 	/**
 	*	Sets the interpreter’s standard error writer.
@@ -256,8 +255,8 @@ public class Interpreter
 	*/
 	public void setErrorWriter(final Writer writer)
 	{
-<span class="fc" id="L259">		systemDict().put(&quot;stderr&quot;, new PsyWriter(writer));</span>
-<span class="fc" id="L260">	}</span>
+<span class="fc" id="L258">		systemDict().put(&quot;stderr&quot;, new PsyWriter(writer));</span>
+<span class="fc" id="L259">	}</span>
 
 	/**
 	*	Reseeds the interpreter’s standard pseudorandom generator, using the given seed.
@@ -268,10 +267,10 @@ public class Interpreter
 	public void setRandomSeed(final Long randomSeed)
 		throws PsyUndefinedException
 	{
-<span class="pc bpc" id="L271" title="1 of 2 branches missed.">		if(randomSeed!=null)</span>
-<span class="nc" id="L272">			((PsyRandom)systemDict().get(&quot;stdrandom&quot;))</span>
-<span class="nc" id="L273">					.psySetSeed(PsyInteger.of(randomSeed));</span>
-<span class="fc" id="L274">	}</span>
+<span class="pc bpc" id="L270" title="1 of 2 branches missed.">		if(randomSeed!=null)</span>
+<span class="nc" id="L271">			((PsyRandom)systemDict().get(&quot;stdrandom&quot;))</span>
+<span class="nc" id="L272">					.psySetSeed(PsyInteger.of(randomSeed));</span>
+<span class="fc" id="L273">	}</span>
 
 	public void setClassPath(final String[] classPath)
 		throws
@@ -280,16 +279,16 @@ public class Interpreter
 			PsyUndefinedException
 	{
 		@SuppressWarnings(&quot;unchecked&quot;)
-<span class="fc" id="L283">		final var oClassPath</span>
-<span class="fc" id="L284">			=(PsyFormalArray&lt;PsyTextual&gt;)systemDict().get(&quot;classpath&quot;);</span>
-<span class="fc" id="L285">		final var envClassPath=System.getenv(&quot;PSYLLA_CLASSPATH&quot;);</span>
-<span class="pc bpc" id="L286" title="1 of 2 branches missed.">		if(envClassPath!=null)</span>
-<span class="nc bnc" id="L287" title="All 2 branches missed.">			for(final var pathItem: envClassPath.split(File.pathSeparator))</span>
-<span class="nc" id="L288">				oClassPath.psyAppend(new PsyString(pathItem));</span>
-<span class="pc bpc" id="L289" title="1 of 2 branches missed.">		if(classPath!=null)</span>
-<span class="nc bnc" id="L290" title="All 2 branches missed.">			for(final var pathItem: classPath)</span>
-<span class="nc" id="L291">				oClassPath.psyAppend(new PsyString(pathItem));</span>
-<span class="fc" id="L292">	}</span>
+<span class="fc" id="L282">		final var oClassPath</span>
+<span class="fc" id="L283">			=(PsyFormalArray&lt;PsyTextual&gt;)systemDict().get(&quot;classpath&quot;);</span>
+<span class="fc" id="L284">		final var envClassPath=System.getenv(&quot;PSYLLA_CLASSPATH&quot;);</span>
+<span class="pc bpc" id="L285" title="1 of 2 branches missed.">		if(envClassPath!=null)</span>
+<span class="nc bnc" id="L286" title="All 2 branches missed.">			for(final var pathItem: envClassPath.split(File.pathSeparator))</span>
+<span class="nc" id="L287">				oClassPath.psyAppend(new PsyString(pathItem));</span>
+<span class="pc bpc" id="L288" title="1 of 2 branches missed.">		if(classPath!=null)</span>
+<span class="nc bnc" id="L289" title="All 2 branches missed.">			for(final var pathItem: classPath)</span>
+<span class="nc" id="L290">				oClassPath.psyAppend(new PsyString(pathItem));</span>
+<span class="fc" id="L291">	}</span>
 
 	public void setLibraryPath(final String[] libraryPath)
 		throws
@@ -298,64 +297,65 @@ public class Interpreter
 			PsyUndefinedException
 	{
 		@SuppressWarnings(&quot;unchecked&quot;)
-<span class="fc" id="L301">		final var oLibraryPath</span>
-<span class="fc" id="L302">			=(PsyFormalArray&lt;PsyTextual&gt;)systemDict().get(&quot;librarypath&quot;);</span>
-<span class="fc" id="L303">		final var envLibraryPath=System.getenv(&quot;PSYLLA_LIBRARYPATH&quot;);</span>
-<span class="pc bpc" id="L304" title="1 of 2 branches missed.">		if(envLibraryPath!=null)</span>
-<span class="nc bnc" id="L305" title="All 2 branches missed.">			for(final var pathItem: envLibraryPath.split(File.pathSeparator))</span>
-<span class="nc" id="L306">				oLibraryPath.psyAppend(new PsyString(pathItem));</span>
-<span class="pc bpc" id="L307" title="1 of 2 branches missed.">		if(libraryPath!=null)</span>
-<span class="fc bfc" id="L308" title="All 2 branches covered.">			for(final var pathItem: libraryPath)</span>
-<span class="fc" id="L309">				oLibraryPath.psyAppend(new PsyString(pathItem));</span>
-<span class="fc" id="L310">	}</span>
+<span class="fc" id="L300">		final var oLibraryPath</span>
+<span class="fc" id="L301">			=(PsyFormalArray&lt;PsyTextual&gt;)systemDict().get(&quot;librarypath&quot;);</span>
+<span class="fc" id="L302">		final var envLibraryPath=System.getenv(&quot;PSYLLA_LIBRARYPATH&quot;);</span>
+<span class="pc bpc" id="L303" title="1 of 2 branches missed.">		if(envLibraryPath!=null)</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">			for(final var pathItem: envLibraryPath.split(File.pathSeparator))</span>
+<span class="nc" id="L305">				oLibraryPath.psyAppend(new PsyString(pathItem));</span>
+<span class="pc bpc" id="L306" title="1 of 2 branches missed.">		if(libraryPath!=null)</span>
+<span class="fc bfc" id="L307" title="All 2 branches covered.">			for(final var pathItem: libraryPath)</span>
+<span class="fc" id="L308">				oLibraryPath.psyAppend(new PsyString(pathItem));</span>
+<span class="fc" id="L309">	}</span>
 
 	public void interpret(final Reader reader)
 	{
-<span class="fc" id="L314">		interpret(new PsyReader(reader));</span>
-<span class="fc" id="L315">	}</span>
+<span class="fc" id="L313">		interpret(new PsyReader(reader));</span>
+<span class="fc" id="L314">	}</span>
 
 	public void interpret(final String string)
 	{
-<span class="nc" id="L319">		interpret(new PsyStringReader(string));</span>
-<span class="nc" id="L320">	}</span>
+<span class="nc" id="L318">		interpret(new PsyStringReader(string));</span>
+<span class="nc" id="L319">	}</span>
 
 	@Override
 	public void interpret(final PsyReader oReader)
 	{
-<span class="fc" id="L325">		final var initProcLevel=procstack.size();</span>
-<span class="fc" id="L326">		final var parser=new Parser(oReader);</span>
+<span class="fc" id="L324">		final var initProcLevel=procstack.size();</span>
+<span class="fc" id="L325">		final var parser=new Parser(oReader);</span>
 		try
 		{
-<span class="fc bfc" id="L329" title="All 2 branches covered.">			while(running)</span>
+<span class="fc bfc" id="L328" title="All 2 branches covered.">			while(running)</span>
 			{
-<span class="fc" id="L331">				final var token=parser.getNextToken();</span>
-<span class="fc bfc" id="L332" title="All 2 branches covered.">				if(token.kind==ParserConstants.EOF)</span>
-<span class="fc" id="L333">					break;</span>
-<span class="fc" id="L334">				processToken(token);</span>
+<span class="fc" id="L330">				final var token=parser.getNextToken();</span>
+<span class="fc bfc" id="L331" title="All 2 branches covered.">				if(token.kind==ParserConstants.EOF)</span>
+<span class="fc" id="L332">					break;</span>
+<span class="fc" id="L333">				processToken(token);</span>
 
 				// If &quot;stop&quot; is invoked outside an explicit stopping context
-<span class="fc bfc" id="L337" title="All 2 branches covered.">				if(getStopped())</span>
-<span class="fc" id="L338">					return;</span>
-<span class="fc" id="L339">			}</span>
+<span class="fc bfc" id="L336" title="All 2 branches covered.">				if(getStopped())</span>
+<span class="fc" id="L337">					return;</span>
+<span class="fc" id="L338">			}</span>
 			// Incomplete procedure read
-<span class="fc bfc" id="L341" title="All 2 branches covered.">			if(procstack.size()&gt;initProcLevel)</span>
+<span class="fc bfc" id="L340" title="All 2 branches covered.">			if(procstack.size()&gt;initProcLevel)</span>
 			{
-<span class="fc" id="L343">				final var e=new PsySyntaxErrorException();</span>
-<span class="fc" id="L344">				e.setEmitter(oReader);</span>
-<span class="fc" id="L345">				throw e;</span>
+<span class="fc" id="L342">				final var e=new PsySyntaxErrorException();</span>
+<span class="fc" id="L343">				e.setEmitter(oReader);</span>
+<span class="fc" id="L344">				throw e;</span>
 			}
 
-<span class="fc" id="L348">			dstack.&lt;PsyFlushable&gt;load(&quot;stdout&quot;).psyFlush();</span>
-<span class="fc" id="L349">			dstack.&lt;PsyFlushable&gt;load(&quot;stderr&quot;).psyFlush();</span>
+<span class="fc" id="L347">			dstack.&lt;PsyFlushable&gt;load(&quot;stdout&quot;).psyFlush();</span>
+<span class="fc" id="L348">			dstack.&lt;PsyFlushable&gt;load(&quot;stderr&quot;).psyFlush();</span>
 		}
-<span class="fc" id="L351">		catch(final PsyErrorException e)</span>
+<span class="fc" id="L350">		catch(final PsyErrorException e)</span>
 		{
-<span class="fc" id="L353">			e.setEmitter(oReader); // IMPORTANT</span>
-<span class="fc" id="L354">			e.setStacks(ostack, estack, dstack);</span>
-<span class="fc" id="L355">			e.invoke(this);</span>
+<span class="fc" id="L352">			e.setEmitter(oReader); // IMPORTANT</span>
+<span class="fc" id="L353">			e.setStacks(ostack, estack, dstack);</span>
+<span class="fc" id="L354">			e.invoke(this);</span>
 		}
-<span class="fc" id="L357">		catch(final TokenMgrError ex)</span>
+<span class="fc" id="L356">		catch(final TokenMgrError ex)</span>
 		{
+			//System.err.println(ex);
 <span class="fc" id="L359">			final var e=new PsySyntaxErrorException();</span>
 <span class="fc" id="L360">			e.setEmitter(oReader);</span>
 <span class="fc" id="L361">			e.setStacks(ostack, estack, dstack);</span>
@@ -386,24 +386,24 @@ public class Interpreter
 	private void processToken(final Token token)
 		throws
 			PsyInvalidRegExpException,
+			PsyInternalErrorException,
 			PsyLimitCheckException,
 			PsySyntaxErrorException,
 			PsyUndefinedException,
 			PsyUndefinedResultException
 	{
-<span class="fc bfc" id="L394" title="All 2 branches covered.">		if(procstack.size()==0)</span>
+<span class="fc bfc" id="L395" title="All 2 branches covered.">		if(procstack.size()==0)</span>
 		{
-<span class="fc bfc" id="L396" title="All 5 branches covered.">			switch(token.kind)</span>
+<span class="fc bfc" id="L397" title="All 5 branches covered.">			switch(token.kind)</span>
 			{
 				case ParserConstants.NAME-&gt;
 					{
-<span class="fc" id="L400">						parseToken(token).execute(this);</span>
-<span class="fc" id="L401">						handleExecutionStack(0);</span>
-<span class="fc" id="L402">					}</span>
+<span class="fc" id="L401">						parseToken(token).execute(this);</span>
+<span class="fc" id="L402">						handleExecutionStack(0);</span>
+<span class="fc" id="L403">					}</span>
 				case ParserConstants.RATIONAL,
 						ParserConstants.REAL,
 						ParserConstants.STRING,
-						ParserConstants.STRINGBUFFER,
 						ParserConstants.IMMEDIATE,
 						ParserConstants.REGEXP,
 						ParserConstants.LITERAL-&gt;
@@ -433,36 +433,35 @@ public class Interpreter
 						ParserConstants.REAL,
 						ParserConstants.NAME,
 						ParserConstants.STRING,
-						ParserConstants.STRINGBUFFER,
 						ParserConstants.IMMEDIATE,
 						ParserConstants.REGEXP,
 						ParserConstants.LITERAL
-<span class="fc" id="L440">					-&gt;procstack.peek().psyAppend(parseToken(token));</span>
+<span class="fc" id="L439">					-&gt;procstack.peek().psyAppend(parseToken(token));</span>
 				case ParserConstants.EOF-&gt;
-<span class="nc" id="L442">					throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L441">					throw new PsySyntaxErrorException();</span>
 			}
 		}
-<span class="fc" id="L445">	}</span>
+<span class="fc" id="L444">	}</span>
 
 	private PsyObject parseToken(final Token token)
 		throws
 			PsyInvalidRegExpException,
+			PsyInternalErrorException,
 			PsySyntaxErrorException,
 			PsyUndefinedException,
 			PsyUndefinedResultException
 	{
 <span class="fc" id="L454">		final var image=token.image;</span>
-<span class="pc bpc" id="L455" title="2 of 9 branches missed.">		return switch(token.kind)</span>
+<span class="pc bpc" id="L455" title="2 of 8 branches missed.">		return switch(token.kind)</span>
 			{
 <span class="fc" id="L457">				case ParserConstants.IMMEDIATE-&gt;dstack.load(image.substring(2));</span>
 <span class="fc" id="L458">				case ParserConstants.STRING-&gt;PsyString.parseLiteral(image);</span>
 <span class="fc" id="L459">				case ParserConstants.RATIONAL-&gt;PsyRational.parseLiteral(image);</span>
 <span class="fc" id="L460">				case ParserConstants.REAL-&gt;PsyReal.parseLiteral(image);</span>
-<span class="fc" id="L461">				case ParserConstants.STRINGBUFFER-&gt;PsyStringBuffer.parseLiteral(image);</span>
-<span class="fc" id="L462">				case ParserConstants.REGEXP-&gt;PsyRegExp.parseLiteral(image);</span>
-<span class="fc" id="L463">				case ParserConstants.NAME-&gt;new PsyName(image);</span>
-<span class="nc" id="L464">				case ParserConstants.LITERAL-&gt;parseLiteralImage(image);</span>
-<span class="nc" id="L465">				default-&gt;throw new AssertionError();	// TODO more appropriate exception</span>
+<span class="fc" id="L461">				case ParserConstants.REGEXP-&gt;PsyRegExp.parseLiteral(image);</span>
+<span class="fc" id="L462">				case ParserConstants.NAME-&gt;new PsyName(image);</span>
+<span class="nc" id="L463">				case ParserConstants.LITERAL-&gt;parseLiteralImage(image);</span>
+<span class="nc" id="L464">				default-&gt;throw new PsyInternalErrorException();</span>
 			};
 	}
 
@@ -471,24 +470,24 @@ public class Interpreter
 			PsyUndefinedException, // TODO
 			PsySyntaxErrorException
 	{
-<span class="nc" id="L474">		final int i=image.indexOf('=');</span>
-<span class="nc" id="L475">		final var typeName=image.substring(0, i);</span>
-<span class="nc" id="L476">		final var typeClass=TypeResolver.resolve(typeName);</span>
+<span class="nc" id="L473">		final int i=image.indexOf('=');</span>
+<span class="nc" id="L474">		final var typeName=image.substring(0, i);</span>
+<span class="nc" id="L475">		final var typeClass=TypeResolver.resolve(typeName);</span>
 		try
 		{
-<span class="nc" id="L479">			final var mh=MethodHandles.lookup().findStatic(</span>
+<span class="nc" id="L478">			final var mh=MethodHandles.lookup().findStatic(</span>
 					typeClass,
 					&quot;parseLiteral&quot;,
-<span class="nc" id="L482">					MethodType.methodType(typeClass, String.class));</span>
-<span class="nc" id="L483">			return typeClass.cast(mh.invoke(image.substring(i+2, image.length()-1)));</span>
+<span class="nc" id="L481">					MethodType.methodType(typeClass, String.class));</span>
+<span class="nc" id="L482">			return typeClass.cast(mh.invoke(image.substring(i+2, image.length()-1)));</span>
 		}
-<span class="nc" id="L485">		catch(final NoSuchMethodException|IllegalAccessException ex)</span>
+<span class="nc" id="L484">		catch(final NoSuchMethodException|IllegalAccessException ex)</span>
 		{
-<span class="nc" id="L487">			throw new PsyUndefinedException();	// TODO more appropriate exception</span>
+<span class="nc" id="L486">			throw new PsyUndefinedException();	// TODO more appropriate exception</span>
 		}
-<span class="nc" id="L489">		catch(final Throwable ex)</span>
+<span class="nc" id="L488">		catch(final Throwable ex)</span>
 		{
-<span class="nc" id="L491">			throw new PsySyntaxErrorException();</span>
+<span class="nc" id="L490">			throw new PsySyntaxErrorException();</span>
 		}
 	}
 
@@ -496,7 +495,7 @@ public class Interpreter
 	public PsyFormalDict&lt;PsyObject&gt; errorDict()
 		throws PsyUndefinedException
 	{
-<span class="nc" id="L499">		return (PsyFormalDict&lt;PsyObject&gt;)systemDict().get(&quot;errordict&quot;);</span>
+<span class="nc" id="L498">		return (PsyFormalDict&lt;PsyObject&gt;)systemDict().get(&quot;errordict&quot;);</span>
 		//return PsyNamespace.namespace(&quot;errordict&quot;);
 	}
 
@@ -532,65 +531,65 @@ public class Interpreter
 	@Override
 	public void showStacks(final PrintWriter pw)
 	{
-<span class="fc" id="L535">		pw.print(Messages.getString(&quot;handleErrorMessageOStack&quot;));</span>
+<span class="fc" id="L534">		pw.print(Messages.getString(&quot;handleErrorMessageOStack&quot;));</span>
 		{
-<span class="fc" id="L537">			final var sj=new StringJoiner(&quot; &quot;, &quot;\n\t&quot;, &quot;&quot;);</span>
-<span class="fc" id="L538">			sj.setEmptyValue(&quot; &quot;+Messages.getString(&quot;handleErrorMessageEmpty&quot;));</span>
-<span class="fc" id="L539">			ostack.forEach(o-&gt;sj.add(o.toSyntaxString()));</span>
-<span class="fc" id="L540">			pw.println(sj.toString());</span>
+<span class="fc" id="L536">			final var sj=new StringJoiner(&quot; &quot;, &quot;\n\t&quot;, &quot;&quot;);</span>
+<span class="fc" id="L537">			sj.setEmptyValue(&quot; &quot;+Messages.getString(&quot;handleErrorMessageEmpty&quot;));</span>
+<span class="fc" id="L538">			ostack.forEach(o-&gt;sj.add(o.toSyntaxString()));</span>
+<span class="fc" id="L539">			pw.println(sj.toString());</span>
 		}
 
-<span class="fc" id="L543">		pw.print(Messages.getString(&quot;handleErrorMessageEStack&quot;));</span>
+<span class="fc" id="L542">		pw.print(Messages.getString(&quot;handleErrorMessageEStack&quot;));</span>
 		{
-<span class="fc" id="L545">			final var sj=new StringJoiner(&quot; &quot;, &quot;\n\t&quot;, &quot;&quot;);</span>
-<span class="fc" id="L546">			sj.setEmptyValue(&quot; &quot;+Messages.getString(&quot;handleErrorMessageEmpty&quot;));</span>
-<span class="pc" id="L547">			estack.forEach(o-&gt;sj.add(o.toSyntaxString()));</span>
-<span class="fc" id="L548">			pw.println(sj.toString());</span>
+<span class="fc" id="L544">			final var sj=new StringJoiner(&quot; &quot;, &quot;\n\t&quot;, &quot;&quot;);</span>
+<span class="fc" id="L545">			sj.setEmptyValue(&quot; &quot;+Messages.getString(&quot;handleErrorMessageEmpty&quot;));</span>
+<span class="pc" id="L546">			estack.forEach(o-&gt;sj.add(o.toSyntaxString()));</span>
+<span class="fc" id="L547">			pw.println(sj.toString());</span>
 		}
-<span class="fc" id="L550">	}</span>
+<span class="fc" id="L549">	}</span>
 
 	@Override
 	public int execLevel()
 	{
-<span class="fc" id="L555">		return estack.size();</span>
+<span class="fc" id="L554">		return estack.size();</span>
 	}
 
 	@Override
 	public boolean getStopped()
 	{
-<span class="fc" id="L561">		return stopped;</span>
+<span class="fc" id="L560">		return stopped;</span>
 	}
 
 	@Override
 	public void setStopped(final boolean stopped)
 	{
-<span class="fc" id="L567">		this.stopped=stopped;</span>
-<span class="fc" id="L568">	}</span>
+<span class="fc" id="L566">		this.stopped=stopped;</span>
+<span class="fc" id="L567">	}</span>
 
 	public void setScriptName(final String scriptName)
 	{
-<span class="fc" id="L572">		systemDict().put(&quot;script&quot;, new PsyString(scriptName));</span>
-<span class="fc" id="L573">	}</span>
+<span class="fc" id="L571">		systemDict().put(&quot;script&quot;, new PsyString(scriptName));</span>
+<span class="fc" id="L572">	}</span>
 
 	public void setShellArguments(final String[] args)
 		throws PsyLimitCheckException, PsyUndefinedException
 	{
-<span class="fc" id="L578">		final var oArguments=(PsyArray)systemDict().get(&quot;arguments&quot;);</span>
-<span class="pc bpc" id="L579" title="1 of 2 branches missed.">		for(final var arg: args)</span>
-<span class="nc" id="L580">			oArguments.psyAppend(new PsyString(arg));</span>
-<span class="fc" id="L581">	}</span>
+<span class="fc" id="L577">		final var oArguments=(PsyArray)systemDict().get(&quot;arguments&quot;);</span>
+<span class="pc bpc" id="L578" title="1 of 2 branches missed.">		for(final var arg: args)</span>
+<span class="nc" id="L579">			oArguments.psyAppend(new PsyString(arg));</span>
+<span class="fc" id="L580">	}</span>
 
 	public void setEnvironment(final Map&lt;String, String&gt; env)
 	{
-<span class="fc" id="L585">		systemDict().put(&quot;environment&quot;, new PsyEnvironment(env));</span>
-<span class="fc" id="L586">	}</span>
+<span class="fc" id="L584">		systemDict().put(&quot;environment&quot;, new PsyEnvironment(env));</span>
+<span class="fc" id="L585">	}</span>
 
 	@Override
 	public void quit()
 	{
-<span class="fc" id="L591">		running=stopped=false;</span>
-<span class="fc" id="L592">		estack.clear();</span>
-<span class="fc" id="L593">	}</span>
+<span class="fc" id="L590">		running=stopped=false;</span>
+<span class="fc" id="L591">		estack.clear();</span>
+<span class="fc" id="L592">	}</span>
 
 	@Override
 	public void repl()
@@ -598,63 +597,63 @@ public class Interpreter
 	{
 		try
 		{
-<span class="nc" id="L601">			final var cr=new ConsoleReader();</span>
-<span class="nc" id="L602">			cr.printString(banner());</span>
-<span class="nc bnc" id="L603" title="All 2 branches missed.">			while(running)</span>
+<span class="nc" id="L600">			final var cr=new ConsoleReader();</span>
+<span class="nc" id="L601">			cr.printString(banner());</span>
+<span class="nc bnc" id="L602" title="All 2 branches missed.">			while(running)</span>
 			{
-<span class="nc" id="L605">				cr.setDefaultPrompt(prompt());</span>
-<span class="nc" id="L606">				final var line=cr.readLine();</span>
-<span class="nc bnc" id="L607" title="All 2 branches missed.">				if(line==null)</span>
+<span class="nc" id="L604">				cr.setDefaultPrompt(prompt());</span>
+<span class="nc" id="L605">				final var line=cr.readLine();</span>
+<span class="nc bnc" id="L606" title="All 2 branches missed.">				if(line==null)</span>
 				{
-<span class="nc" id="L609">					cr.printNewline();</span>
-<span class="nc" id="L610">					cr.flushConsole();</span>
-<span class="nc" id="L611">					return;</span>
+<span class="nc" id="L608">					cr.printNewline();</span>
+<span class="nc" id="L609">					cr.flushConsole();</span>
+<span class="nc" id="L610">					return;</span>
 				}
-<span class="nc" id="L613">				final var oReader=new PsyReader(new StringReader(line));</span>
-<span class="nc" id="L614">				final var parser=new Parser(oReader);</span>
+<span class="nc" id="L612">				final var oReader=new PsyReader(new StringReader(line));</span>
+<span class="nc" id="L613">				final var parser=new Parser(oReader);</span>
 				try
 				{
-<span class="nc bnc" id="L617" title="All 2 branches missed.">					while(running)</span>
+<span class="nc bnc" id="L616" title="All 2 branches missed.">					while(running)</span>
 					{
-<span class="nc" id="L619">						final var token=parser.getNextToken();</span>
-<span class="nc bnc" id="L620" title="All 2 branches missed.">						if(token.kind==ParserConstants.EOF)</span>
-<span class="nc" id="L621">							break;</span>
-<span class="nc" id="L622">						processToken(token);</span>
+<span class="nc" id="L618">						final var token=parser.getNextToken();</span>
+<span class="nc bnc" id="L619" title="All 2 branches missed.">						if(token.kind==ParserConstants.EOF)</span>
+<span class="nc" id="L620">							break;</span>
+<span class="nc" id="L621">						processToken(token);</span>
 						// If &quot;stop&quot; invoked outside an explicit stopping context
-<span class="nc bnc" id="L624" title="All 2 branches missed.">						if(getStopped())</span>
+<span class="nc bnc" id="L623" title="All 2 branches missed.">						if(getStopped())</span>
 						{
-<span class="nc" id="L626">							setStopped(false);</span>
-<span class="nc" id="L627">							break;</span>
+<span class="nc" id="L625">							setStopped(false);</span>
+<span class="nc" id="L626">							break;</span>
 						}
-<span class="nc" id="L629">					}</span>
+<span class="nc" id="L628">					}</span>
 				}
-<span class="nc" id="L631">				catch(final PsyErrorException e)</span>
+<span class="nc" id="L630">				catch(final PsyErrorException e)</span>
 				{
-<span class="nc" id="L633">					e.setEmitter(oReader);</span>
-<span class="nc" id="L634">					e.setStacks(ostack, estack, dstack);</span>
-<span class="nc" id="L635">					e.invoke(this);</span>
+<span class="nc" id="L632">					e.setEmitter(oReader);</span>
+<span class="nc" id="L633">					e.setStacks(ostack, estack, dstack);</span>
+<span class="nc" id="L634">					e.invoke(this);</span>
 				}
-<span class="nc" id="L637">				catch(final TokenMgrError ex)</span>
+<span class="nc" id="L636">				catch(final TokenMgrError ex)</span>
 				{
-<span class="nc" id="L639">					final var e=new PsySyntaxErrorException();</span>
-<span class="nc" id="L640">					e.setEmitter(oReader);</span>
-<span class="nc" id="L641">					e.setStacks(ostack, estack, dstack);</span>
-<span class="nc" id="L642">					e.invoke(this);</span>
-<span class="nc" id="L643">				}</span>
-<span class="nc" id="L644">			}</span>
+<span class="nc" id="L638">					final var e=new PsySyntaxErrorException();</span>
+<span class="nc" id="L639">					e.setEmitter(oReader);</span>
+<span class="nc" id="L640">					e.setStacks(ostack, estack, dstack);</span>
+<span class="nc" id="L641">					e.invoke(this);</span>
+<span class="nc" id="L642">				}</span>
+<span class="nc" id="L643">			}</span>
 		}
-<span class="nc" id="L646">		catch(final IOException ex)</span>
+<span class="nc" id="L645">		catch(final IOException ex)</span>
 		{
-<span class="nc" id="L648">			throw new PsyIOErrorException();</span>
-<span class="nc" id="L649">		}</span>
-<span class="nc" id="L650">	}</span>
+<span class="nc" id="L647">			throw new PsyIOErrorException();</span>
+<span class="nc" id="L648">		}</span>
+<span class="nc" id="L649">	}</span>
 
 	/**
 	*	{@return the Psylla banner}
 	*/
 	protected String banner()
 	{
-<span class="nc" id="L657">		return String.format(Messages.getString(&quot;banner&quot;), Version.getVersion());</span>
+<span class="nc" id="L656">		return String.format(Messages.getString(&quot;banner&quot;), Version.getVersion());</span>
 	}
 
 	/**
@@ -662,51 +661,51 @@ public class Interpreter
 	*/
 	public String prompt()
 	{
-<span class="nc" id="L665">		final var sb=new StringBuilder(&quot;PSYLLA&quot;);</span>
-<span class="nc" id="L666">		sb.append(&quot;{&quot;.repeat(procstack.size()));</span>
-<span class="nc bnc" id="L667" title="All 2 branches missed.">		if(ostack.size()&gt;0)</span>
-<span class="nc" id="L668">			sb.append(&quot;&lt;&quot;+ostack.size());</span>
-<span class="nc" id="L669">		sb.append(&quot;&gt; &quot;);</span>
-<span class="nc" id="L670">		return sb.toString();</span>
+<span class="nc" id="L664">		final var sb=new StringBuilder(&quot;PSYLLA&quot;);</span>
+<span class="nc" id="L665">		sb.append(&quot;{&quot;.repeat(procstack.size()));</span>
+<span class="nc bnc" id="L666" title="All 2 branches missed.">		if(ostack.size()&gt;0)</span>
+<span class="nc" id="L667">			sb.append(&quot;&lt;&quot;+ostack.size());</span>
+<span class="nc" id="L668">		sb.append(&quot;&gt; &quot;);</span>
+<span class="nc" id="L669">		return sb.toString();</span>
 	}
 
 	public void start()
 	{
-<span class="fc" id="L675">		thread.start();</span>
+<span class="fc" id="L674">		thread.start();</span>
 		//thread=Thread.startVirtualThread(this::run);
-<span class="fc" id="L677">	}</span>
+<span class="fc" id="L676">	}</span>
 
 	@Override
 	public void run()
 	{
-<span class="nc" id="L682">	}</span>
+<span class="nc" id="L681">	}</span>
 
 	@Override
 	public void join()
 		throws InterruptedException
 	{
-<span class="fc" id="L688">		thread.join();</span>
-<span class="fc" id="L689">	}</span>
+<span class="fc" id="L687">		thread.join();</span>
+<span class="fc" id="L688">	}</span>
 
 	//@Override
 	public void join(final long millis)
 		throws InterruptedException
 	{
-<span class="nc" id="L695">		thread.join(millis);</span>
-<span class="nc" id="L696">	}</span>
+<span class="nc" id="L694">		thread.join(millis);</span>
+<span class="nc" id="L695">	}</span>
 
 	@Override
 	public long getId()
 	{
-<span class="nc" id="L701">		return thread.threadId();</span>
+<span class="nc" id="L700">		return thread.threadId();</span>
 	}
 
 	@Override
 	public void stop()
 	{
-<span class="fc" id="L707">		setStopped(true);</span>
-<span class="fc" id="L708">		estack.exitStop();	// TODO quit()</span>
-<span class="fc" id="L709">	}</span>
+<span class="fc" id="L706">		setStopped(true);</span>
+<span class="fc" id="L707">		estack.exitStop();	// TODO quit()</span>
+<span class="fc" id="L708">	}</span>
 
 	public boolean loadLibraryResource(final String resourceName)
 		throws
@@ -717,29 +716,29 @@ public class Interpreter
 			PsyUndefinedException,
 			PsyErrorException	// TODO
 	{
-<span class="fc" id="L720">		final var oLibraryPath=dstack.&lt;PsyFormalArray&lt;PsyTextual&gt;&gt;load(&quot;librarypath&quot;);</span>
-<span class="fc" id="L721">		final var filePath=resourceName.replace('.', '/');</span>
-<span class="pc bpc" id="L722" title="1 of 2 branches missed.">		for(final var oPathItem: oLibraryPath)</span>
+<span class="fc" id="L719">		final var oLibraryPath=dstack.&lt;PsyFormalArray&lt;PsyTextual&gt;&gt;load(&quot;librarypath&quot;);</span>
+<span class="fc" id="L720">		final var filePath=resourceName.replace('.', '/');</span>
+<span class="pc bpc" id="L721" title="1 of 2 branches missed.">		for(final var oPathItem: oLibraryPath)</span>
 		{
-<span class="fc" id="L724">			final var oFullResourceName</span>
-<span class="fc" id="L725">				=new PsyString(oPathItem.stringValue()+'/'+filePath+&quot;.psy&quot;);</span>
-<span class="pc bpc" id="L726" title="1 of 2 branches missed.">			if(PsyFileSystem.psyFileExists(oFullResourceName).booleanValue()</span>
-<span class="pc bpc" id="L727" title="1 of 2 branches missed.">					&amp;&amp; PsyFileSystem.psyIsFile(oFullResourceName).booleanValue())</span>
+<span class="fc" id="L723">			final var oFullResourceName</span>
+<span class="fc" id="L724">				=new PsyString(oPathItem.stringValue()+'/'+filePath+&quot;.psy&quot;);</span>
+<span class="pc bpc" id="L725" title="1 of 2 branches missed.">			if(PsyFileSystem.psyFileExists(oFullResourceName).booleanValue()</span>
+<span class="pc bpc" id="L726" title="1 of 2 branches missed.">					&amp;&amp; PsyFileSystem.psyIsFile(oFullResourceName).booleanValue())</span>
 			{
-<span class="fc" id="L729">				final var resourceID</span>
-<span class="fc" id="L730">					=&quot;file:&quot;+PsyFileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();</span>
-<span class="pc bpc" id="L731" title="1 of 2 branches missed.">				if(resourceRegistry.containsKey(resourceName))</span>
+<span class="fc" id="L728">				final var resourceID</span>
+<span class="fc" id="L729">					=&quot;file:&quot;+PsyFileSystem.psyFileAbsolutePath(oFullResourceName).stringValue();</span>
+<span class="pc bpc" id="L730" title="1 of 2 branches missed.">				if(resourceRegistry.containsKey(resourceName))</span>
 					// TODO
-<span class="nc" id="L733">					System.out.println(&quot;Already loaded: &quot;+resourceID);</span>
+<span class="nc" id="L732">					System.out.println(&quot;Already loaded: &quot;+resourceID);</span>
 				else
 				{
-<span class="fc" id="L736">					resourceRegistry.put(resourceName, resourceID);</span>
-<span class="fc" id="L737">					new PsyFileReader(oFullResourceName).psyEval(this);</span>
+<span class="fc" id="L735">					resourceRegistry.put(resourceName, resourceID);</span>
+<span class="fc" id="L736">					new PsyFileReader(oFullResourceName).psyEval(this);</span>
 				}
-<span class="fc" id="L739">				return true;</span>
+<span class="fc" id="L738">				return true;</span>
 			}
-<span class="nc" id="L741">		}</span>
-<span class="nc" id="L742">		return false;</span>
+<span class="nc" id="L740">		}</span>
+<span class="nc" id="L741">		return false;</span>
 	}
 
 	/*
@@ -767,24 +766,24 @@ public class Interpreter
 		// TODO check NPE at readLine
 		try
 		{
-<span class="fc" id="L770">			final var resourceStream=classLoader.getResourceAsStream(</span>
+<span class="fc" id="L769">			final var resourceStream=classLoader.getResourceAsStream(</span>
 					&quot;META-INF/psylla/type/&quot;+typeName);
-<span class="pc bpc" id="L772" title="1 of 2 branches missed.">			if(resourceStream==null)</span>
-<span class="fc" id="L773">				return false;</span>
-<span class="nc" id="L774">			final var className=(new BufferedReader(new InputStreamReader(</span>
-<span class="nc" id="L775">					resourceStream))).readLine();</span>
-<span class="nc bnc" id="L776" title="All 2 branches missed.">			if(className==null)</span>
-<span class="nc" id="L777">				return false;</span>
-<span class="nc" id="L778">			final var clazz=Class.forName(</span>
-<span class="nc" id="L779">				className, true, classLoader).asSubclass(PsyObject.class);</span>
-<span class="nc" id="L780">			final var resourceID=&quot;class:&quot;+clazz.getName();</span>
-<span class="nc bnc" id="L781" title="All 2 branches missed.">			if(resourceRegistry.containsKey(typeName))</span>
+<span class="pc bpc" id="L771" title="1 of 2 branches missed.">			if(resourceStream==null)</span>
+<span class="fc" id="L772">				return false;</span>
+<span class="nc" id="L773">			final var className=(new BufferedReader(new InputStreamReader(</span>
+<span class="nc" id="L774">					resourceStream))).readLine();</span>
+<span class="nc bnc" id="L775" title="All 2 branches missed.">			if(className==null)</span>
+<span class="nc" id="L776">				return false;</span>
+<span class="nc" id="L777">			final var clazz=Class.forName(</span>
+<span class="nc" id="L778">				className, true, classLoader).asSubclass(PsyObject.class);</span>
+<span class="nc" id="L779">			final var resourceID=&quot;class:&quot;+clazz.getName();</span>
+<span class="nc bnc" id="L780" title="All 2 branches missed.">			if(resourceRegistry.containsKey(typeName))</span>
 			{
-<span class="nc" id="L783">				System.out.println(&quot;Already loaded: &quot;+resourceID);</span>
-<span class="nc" id="L784">				return true;</span>
+<span class="nc" id="L782">				System.out.println(&quot;Already loaded: &quot;+resourceID);</span>
+<span class="nc" id="L783">				return true;</span>
 			}
 			else
-<span class="nc" id="L787">				resourceRegistry.put(typeName, resourceID);</span>
+<span class="nc" id="L786">				resourceRegistry.put(typeName, resourceID);</span>
 			//final var oNamespace=PsyNamespace.namespace(clazz.getAnnotation(Type.class).value());
 			/*
 			for(final var method: clazz.getDeclaredMethods())
@@ -831,12 +830,12 @@ public class Interpreter
 				}
 			}
 			*/
-<span class="nc" id="L834">			return true;</span>
+<span class="nc" id="L833">			return true;</span>
 		}
 		//catch(IOException|ClassNotFoundException|NullPointerException|IllegalAccessException e)
-<span class="nc" id="L837">		catch(final IOException|ClassNotFoundException ex)</span>
+<span class="nc" id="L836">		catch(final IOException|ClassNotFoundException ex)</span>
 		{
-<span class="nc" id="L839">			return false;</span>
+<span class="nc" id="L838">			return false;</span>
 		}
 	}
 
@@ -850,13 +849,13 @@ public class Interpreter
 			PsyUndefinedException,
 			PsyErrorException	// TODO
 	{
-<span class="fc" id="L853">		final var resourceName=oResourceName.stringValue();</span>
+<span class="fc" id="L852">		final var resourceName=oResourceName.stringValue();</span>
 
-<span class="pc bpc" id="L855" title="1 of 2 branches missed.">		if(loadType(resourceName))</span>
-<span class="nc" id="L856">			return;</span>
-<span class="pc bpc" id="L857" title="1 of 2 branches missed.">		if(loadLibraryResource(resourceName))</span>
-<span class="fc" id="L858">			return;</span>
-<span class="nc" id="L859">		throw new PsyUndefinedException(); // TODO: more appropriate exception</span>
+<span class="pc bpc" id="L854" title="1 of 2 branches missed.">		if(loadType(resourceName))</span>
+<span class="nc" id="L855">			return;</span>
+<span class="pc bpc" id="L856" title="1 of 2 branches missed.">		if(loadLibraryResource(resourceName))</span>
+<span class="fc" id="L857">			return;</span>
+<span class="nc" id="L858">		throw new PsyUndefinedException(); // TODO: more appropriate exception</span>
 	}
 
 }

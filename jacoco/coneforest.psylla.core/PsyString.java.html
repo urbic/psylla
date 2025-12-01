@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyString.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.22.1</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyString.java</span></div><h1>PsyString.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PsyString.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Psylla v0.23.0</a> &gt; <a href="index.source.html" class="el_package">coneforest.psylla.core</a> &gt; <span class="el_source">PsyString.java</span></div><h1>PsyString.java</h1><pre class="source lang-java linenums">package coneforest.psylla.core;
 
 import coneforest.psylla.runtime.*;
 
@@ -129,7 +129,33 @@ public class PsyString
 <span class="fc" id="L129">					break;</span>
 			}
 		}
-<span class="fc bfc" id="L132" title="All 2 branches covered.">		return slashed? &quot;/&quot;+string: &quot;'&quot;+string+&quot;'&quot;;</span>
+		// TODO
+<span class="fc bfc" id="L133" title="All 2 branches covered.">		if(slashed)</span>
+<span class="fc" id="L134">			return &quot;/&quot;+string;</span>
+		else
+		{
+<span class="fc" id="L137">			final var sb=new StringBuilder(&quot;'&quot;);</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">			for(int i=0; i&lt;string.length(); i++)</span>
+			{
+<span class="fc" id="L140">				final char c=string.charAt(i);</span>
+<span class="fc bfc" id="L141" title="All 11 branches covered.">				sb.append(switch(c)</span>
+					{
+<span class="fc" id="L143">						case '\u0000'-&gt;&quot;\\0&quot;;</span>
+<span class="fc" id="L144">						case '\u0007'-&gt;&quot;\\a&quot;;</span>
+<span class="fc" id="L145">						case '\n'-&gt;&quot;\\n&quot;;</span>
+<span class="fc" id="L146">						case '\r'-&gt;&quot;\\r&quot;;</span>
+<span class="fc" id="L147">						case '\t'-&gt;&quot;\\t&quot;;</span>
+<span class="fc" id="L148">						case '\u000B'-&gt;&quot;\\v&quot;;</span>
+<span class="fc" id="L149">						case '\f'-&gt;&quot;\\f&quot;;</span>
+<span class="fc" id="L150">						case '\u001B'-&gt;&quot;\\e&quot;;</span>
+<span class="fc" id="L151">						case '\&quot;'-&gt;&quot;\\\&quot;&quot;;</span>
+<span class="fc" id="L152">						case '\\'-&gt;&quot;\\\\&quot;;</span>
+<span class="fc" id="L153">						default-&gt;c;</span>
+					});
+			}
+<span class="fc" id="L156">			sb.append(&quot;'&quot;);</span>
+<span class="fc" id="L157">			return sb.toString();</span>
+		}
 	}
 
 	/**
@@ -140,100 +166,101 @@ public class PsyString
 	@Override
 	public boolean equals(final Object object)
 	{
-<span class="fc" id="L143">		return object instanceof PsyString oString</span>
-<span class="pc bpc" id="L144" title="2 of 4 branches missed.">				&amp;&amp; string.equals(oString.string);</span>
+<span class="fc" id="L169">		return object instanceof PsyString oString</span>
+<span class="pc bpc" id="L170" title="2 of 4 branches missed.">				&amp;&amp; string.equals(oString.string);</span>
 	}
 
 	@Override
 	public int hashCode()
 	{
-<span class="fc" id="L150">		return string.hashCode();</span>
+<span class="fc" id="L176">		return string.hashCode();</span>
 	}
 
 	public static PsyString parseLiteral(final String image)
 		throws PsySyntaxErrorException
 	{
-<span class="fc bfc" id="L156" title="All 2 branches covered.">		if(image.charAt(0)=='/')</span>
-<span class="fc" id="L157">			return new PsyString(image.substring(1).intern());</span>
-<span class="fc" id="L158">		final var sb=new StringBuilder();</span>
-<span class="fc bfc" id="L159" title="All 2 branches covered.">		for(int i=1; i&lt;image.length()-1; i++)</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">		if(image.charAt(0)=='/')</span>
+<span class="fc" id="L183">			return new PsyString(image.substring(1).intern());</span>
+<span class="fc" id="L184">		final var sb=new StringBuilder();</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">		for(int i=1; i&lt;image.length()-1; i++)</span>
 		{
-<span class="fc" id="L161">			final var c=image.charAt(i);</span>
-<span class="fc bfc" id="L162" title="All 2 branches covered.">			switch(c)</span>
+<span class="fc" id="L187">			final var c=image.charAt(i);</span>
+<span class="fc bfc" id="L188" title="All 2 branches covered.">			switch(c)</span>
 			{
 				case '\\':
-<span class="pc bpc" id="L165" title="5 of 17 branches missed.">					switch(image.charAt(++i))</span>
+<span class="pc bpc" id="L191" title="2 of 18 branches missed.">					switch(image.charAt(++i))</span>
 					{
-<span class="fc" id="L167">						case '0'-&gt;sb.append('\u0000');</span>
-<span class="fc" id="L168">						case 'a'-&gt;sb.append('\u0007');</span>
-<span class="fc" id="L169">						case 'n'-&gt;sb.append('\n');</span>
-<span class="fc" id="L170">						case 'r'-&gt;sb.append('\r');</span>
-<span class="fc" id="L171">						case 't'-&gt;sb.append('\t');</span>
-<span class="nc" id="L172">						case 'v'-&gt;sb.append('\u000B');</span>
-<span class="fc" id="L173">						case 'f'-&gt;sb.append('\f');</span>
-<span class="nc" id="L174">						case 'e'-&gt;sb.append('\u001B');</span>
-<span class="nc" id="L175">						case '\''-&gt;sb.append('\'');</span>
-<span class="fc" id="L176">						case '\\'-&gt;sb.append('\\');</span>
-<span class="nc" id="L177">						case '\n'-&gt;{}</span>
+<span class="fc" id="L193">						case '0'-&gt;sb.append('\u0000');</span>
+<span class="fc" id="L194">						case 'a'-&gt;sb.append('\u0007');</span>
+<span class="fc" id="L195">						case 'n'-&gt;sb.append('\n');</span>
+<span class="fc" id="L196">						case 'r'-&gt;sb.append('\r');</span>
+<span class="fc" id="L197">						case 't'-&gt;sb.append('\t');</span>
+<span class="fc" id="L198">						case 'v'-&gt;sb.append('\u000B');</span>
+<span class="fc" id="L199">						case 'f'-&gt;sb.append('\f');</span>
+<span class="fc" id="L200">						case 'e'-&gt;sb.append('\u001B');</span>
+<span class="fc" id="L201">						case '&quot;'-&gt;sb.append('&quot;');</span>
+<span class="nc" id="L202">						case '\''-&gt;sb.append('\'');</span>
+<span class="fc" id="L203">						case '\\'-&gt;sb.append('\\');</span>
+<span class="fc" id="L204">						case '\n'-&gt;{}</span>
 						case 'u'-&gt;
 							{
-<span class="fc" id="L180">								sb.append(Character.toChars(Integer.valueOf(image.substring(i+1, i+5), 16)));</span>
-<span class="fc" id="L181">								i+=4;</span>
-<span class="fc" id="L182">							}</span>
+<span class="fc" id="L207">								sb.append(Character.toChars(Integer.valueOf(image.substring(i+1, i+5), 16)));</span>
+<span class="fc" id="L208">								i+=4;</span>
+<span class="fc" id="L209">							}</span>
 						case 'c'-&gt;
 							{
-<span class="fc" id="L185">								final var ch=image.charAt(++i);</span>
-<span class="pc bpc" id="L186" title="1 of 2 branches missed.">								sb.append(Character.toChars(ch+(ch&lt;64? 64: -64)));</span>
-<span class="fc" id="L187">							}</span>
+<span class="fc" id="L212">								final var ch=image.charAt(++i);</span>
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">								sb.append(Character.toChars(ch+(ch&lt;64? 64: -64)));</span>
+<span class="fc" id="L214">							}</span>
 						case 'x'-&gt;
 							{
 								try
 								{
-<span class="fc" id="L192">									final var j=image.indexOf('}', i+2);</span>
-<span class="fc" id="L193">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));</span>
-<span class="fc" id="L194">									i=j;</span>
+<span class="fc" id="L219">									final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L220">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 16)));</span>
+<span class="fc" id="L221">									i=j;</span>
 								}
-<span class="nc" id="L196">								catch(final IllegalArgumentException ex)</span>
+<span class="nc" id="L223">								catch(final IllegalArgumentException ex)</span>
 								{
-<span class="nc" id="L198">									throw new PsySyntaxErrorException();</span>
-<span class="fc" id="L199">								}</span>
+<span class="nc" id="L225">									throw new PsySyntaxErrorException();</span>
+<span class="fc" id="L226">								}</span>
 							}
 						case 'o'-&gt;
 							{
 								try
 								{
-<span class="fc" id="L205">									final var j=image.indexOf('}', i+2);</span>
-<span class="fc" id="L206">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 8)));</span>
-<span class="fc" id="L207">									i=j;</span>
+<span class="fc" id="L232">									final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L233">									sb.append(Character.toChars(Integer.valueOf(image.substring(i+2, j), 8)));</span>
+<span class="fc" id="L234">									i=j;</span>
 								}
-<span class="nc" id="L209">								catch(final IllegalArgumentException ex)</span>
+<span class="nc" id="L236">								catch(final IllegalArgumentException ex)</span>
 								{
-<span class="nc" id="L211">									throw new PsySyntaxErrorException();</span>
-<span class="fc" id="L212">								}</span>
+<span class="nc" id="L238">									throw new PsySyntaxErrorException();</span>
+<span class="fc" id="L239">								}</span>
 							}
 						case 'N'-&gt;
 							{
 								try
 								{
-<span class="fc" id="L218">									final var j=image.indexOf('}', i+2);</span>
-<span class="fc" id="L219">									final var cp=Character.codePointOf(image.substring(i+2, j));</span>
+<span class="fc" id="L245">									final var j=image.indexOf('}', i+2);</span>
+<span class="fc" id="L246">									final var cp=Character.codePointOf(image.substring(i+2, j));</span>
 									// TODO
-<span class="fc" id="L221">									sb.append((char)cp);</span>
-<span class="fc" id="L222">									i=j;</span>
+<span class="fc" id="L248">									sb.append((char)cp);</span>
+<span class="fc" id="L249">									i=j;</span>
 								}
-<span class="fc" id="L224">								catch(final IllegalArgumentException ex)</span>
+<span class="fc" id="L251">								catch(final IllegalArgumentException ex)</span>
 								{
-<span class="fc" id="L226">									throw new PsySyntaxErrorException();</span>
-<span class="fc" id="L227">								}</span>
+<span class="fc" id="L253">									throw new PsySyntaxErrorException();</span>
+<span class="fc" id="L254">								}</span>
 							}
 					}
-<span class="fc" id="L230">					break;</span>
+<span class="fc" id="L257">					break;</span>
 				default:
-<span class="fc" id="L232">					sb.append(c);</span>
+<span class="fc" id="L259">					sb.append(c);</span>
 					break;
 			}
 		}
-<span class="fc" id="L236">		return new PsyString(sb.toString().intern());</span>
+<span class="fc" id="L263">		return new PsyString(sb.toString().intern());</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202410190809</span></div></body></html>
