@@ -79,6 +79,7 @@ Like a function which doesn’t return any value, thus has only side effects
 
 </section>
 
+<!-- #1 -->
 <section>
 <title>Create a function</title>
 
@@ -90,6 +91,7 @@ Create a function which returns the square of an integer
 
 </section>
 
+<!-- #2 -->
 <section>
 <title>Create a 2D Point data structure</title>
 
@@ -102,6 +104,7 @@ Declare a container type for two floating-point numbers
 
 </section>
 
+<!-- #3 -->
 <section>
 <title>Iterate over list values</title>
 
@@ -114,6 +117,7 @@ Do something with each item <replaceable>x</replaceable> of the list (or array)
 
 </section>
 
+<!-- #4 -->
 <section>
 <title>Iterate over list indexes and values</title>
 
@@ -133,6 +137,7 @@ for</programlisting>
 
 </section>
 
+<!-- #5 -->
 <section>
 <title>Create a map (associative array)</title>
 
@@ -145,6 +150,7 @@ value) pairs as initial content.
 
 </section>
 
+<!-- #6 -->
 <section>
 <title>Create a Binary Tree data structure</title>
 
@@ -157,6 +163,7 @@ trees too. A node has access to children nodes, but not to its parent
 
 </section>
 
+<!-- #7 -->
 <section>
 <title>Shuffle a list</title>
 
@@ -195,6 +202,7 @@ x shuffle</programlisting>
 
 </section>
 
+<!-- #8 -->
 <section>
 <title>Pick a random element from a list</title>
 
@@ -204,6 +212,7 @@ x shuffle</programlisting>
 
 </section>
 
+<!-- #9 -->
 <section>
 <title>Check if list contains a value</title>
 
@@ -215,6 +224,7 @@ x shuffle</programlisting>
 
 </section>
 
+<!-- #10 -->
 <section>
 <title>Iterate over map keys and values</title>
 
@@ -236,6 +246,7 @@ forall</programlisting>
 
 </section>
 
+<!-- #11 -->
 <section>
 <title>Pick uniformly a random floating point number in
 [<replaceable>a</replaceable>..<replaceable>b</replaceable>)</title>
@@ -250,6 +261,7 @@ strictly inferior to <replaceable>b</replaceable>. Precondition:
 
 </section>
 
+<!-- #12 -->
 <section>
 <title>Pick uniformly a random integer in
 [<replaceable>a</replaceable>..<replaceable>b</replaceable>]</title>
@@ -264,6 +276,7 @@ inferior or equals to <replaceable>b</replaceable>. Precondition:
 
 </section>
 
+<!-- #13 -->
 <section>
 <title>Depth-first traversal of a binary tree</title>
 
@@ -276,6 +289,7 @@ Call a function <replaceable>f</replaceable> on every node of binary tree
 
 </section>
 
+<!-- #14 -->
 <section>
 <title>Create a Tree data structure</title>
 
@@ -288,6 +302,7 @@ has access to its children nodes, but not to its parent.
 
 </section>
 
+<!-- #15 -->
 <section>
 <title>Depth-first traversal of a tree</title>
 
@@ -300,6 +315,7 @@ depth-first prefix order
 
 </section>
 
+<!-- #16 -->
 <section>
 <title>Reverse a list</title>
 
@@ -312,6 +328,7 @@ This may reverse “in-place” and destroy the original ordering
 
 </section>
 
+<!-- #17 -->
 <section>
 <title>Return two values</title>
 
@@ -344,6 +361,7 @@ forall
 -->
 </section>
 
+<!-- #18 -->
 <section>
 <title>Swap values</title>
 
@@ -356,6 +374,7 @@ Swap the values of the variables <replaceable>a</replaceable> and
 
 </section>
 
+<!-- #19 -->
 <section>
 <title>Convert string to integer</title>
 
@@ -368,6 +387,7 @@ representation <replaceable>s</replaceable> (in radix 10)
 
 </section>
 
+<!-- #20 -->
 <section>
 <title>Convert real number to string with 2 decimal places</title>
 
@@ -381,6 +401,7 @@ dot
 
 </section>
 
+<!-- #21 -->
 <section>
 <title>Assign to string the japanese word ネコ</title>
 
@@ -393,6 +414,7 @@ means “cat” in japanese)
 
 </section>
 
+<!-- #22 -->
 <section>
 <title> Send a value to another thread</title>
 
@@ -406,6 +428,7 @@ join cleartomark</programlisting>
 
 </section>
 
+<!-- #23 -->
 <section>
 <title>Create a 2-dimensional array</title>
 
@@ -419,6 +442,7 @@ containing real numbers.
 
 </section>
 
+<!-- #24 -->
 <section>
 <title>Create a 3-dimensional array</title>
 
@@ -433,6 +457,7 @@ numbers.
 
 </section>
 
+<!-- #28 -->
 <section>
 <title>Sort by a property</title>
 
@@ -498,36 +523,57 @@ def</programlisting>
 
 </section>
 
+<!-- #32 -->
 <section>
 <title>Integer exponentiation by squaring</title>
 
 <para>
-Create function <replaceable>exp</replaceable> which calculates (fast) the
-value <replaceable>x</replaceable> power <replaceable>n</replaceable>.
+Create function <function>exp</function> which calculates (fast) the value
+<replaceable>x</replaceable> power <replaceable>n</replaceable>.
 <replaceable>x</replaceable> and <replaceable>n</replaceable> are non-negative
 integers.
 </para>
 
-<programlisting language="psylla">/exp
+<programlisting language="psylla">/power
 {
-	dict begin
-		/n exch def
-		/x exch def
-		{
-			n 0 eq { 1 exit } if
-			n 1 eq { x exit } if
-			n 2 mod 0 eq
-			{ x dup mul n 2 idiv exp exit }
-			{ x dup mul n 1 sub 2 idiv exp x mul exit }
-			ifelse
-		}
-		loop
-	end
+    dict begin
+        /n exch def
+        /x exch def
+        /p 1 def
+        {
+            n iszero { exit } if
+            n 2 mod nonzero
+            {
+                /p p x mul def
+                /n n 1 sub def
+            }
+            if
+            /n n 2 idiv def
+            /x x dup mul def
+        }
+        loop
+        p
+    end
 }
 def</programlisting>
 
 </section>
 
+<!-- #33 -->
+<section>
+<title>Atomically read and update variable</title>
+
+<para>
+Assign to the variable <replaceable>x</replaceable> the new value f(x), making
+sure that no other thread may modify <replaceable>x</replaceable> between the
+read and the write.
+</para>
+
+<remark>TODO</remark>
+
+</section>
+
+<!-- #35 -->
 <section>
 <title>First-class function: compose</title>
 
@@ -548,5 +594,6 @@ which returns the composition function
 def</programlisting>
 
 </section>
+
 
 </article>
