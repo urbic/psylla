@@ -119,6 +119,7 @@
 
 	<target name="resolve" description="Retrieve dependencies with Ivy">
 		<ivy:resolve conf="main,xslt,linux.${linux.flavour}"/>
+		<ivy:report todir="${target.reports}/ivy" graph="false"/>
 	</target>
 
 	<target name="compile.jj"
@@ -240,7 +241,10 @@
 			<arg value="-Xdoclint/package:-${project.moduleprefix}.runtime.parser"/>
 			<arg value="-Xmaxwarns"/>
 			<arg value="1000"/>
-			<link href="file://${config.javadocdir.java}"/>
+			<link offline="true"
+				href="https://docs.oracle.com/en/java/javase/${java.release}/docs/api/"
+				packagelistLoc="${config.javadocdir.java}"
+				/>
 			<link href="https://ant.apache.org/manual/api/"/>
 			<link href="file://${config.javadocdir.junit4}"/>
 			<link href="file://${config.javadocdir.jline1}"/>
