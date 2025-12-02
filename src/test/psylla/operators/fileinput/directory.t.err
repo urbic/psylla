@@ -1,0 +1,4 @@
+Error: /filenotfound in --fileinput--
+Operand stack:
+	'src/test/data/DIRECTORY-EMPTY'
+Execution stack: (empty)
