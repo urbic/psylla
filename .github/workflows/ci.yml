@@ -76,7 +76,7 @@ jobs:
         run: |
           ant -v -noinput obs.commit
       - name: Deploy package
-        #if: startsWith(github.event.ref, 'refs/tags/v')
+        if: startsWith(github.event.ref, 'refs/tags/v')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
