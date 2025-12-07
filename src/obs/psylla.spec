@@ -77,16 +77,23 @@ Requires:       jpackage-utils
 This package contains the API documentation for %{name}.
 
 %prep
-%setup -q
+%autosetup
 
 %build
-LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local build
+ANT_OPTS=-Djava.properties.date=$(date -u -d @${SOURCE_DATE_EPOCH:-$(date +%%s)} +%%Y-%%m-%%dT%%H:%%M:%%SZ) \
+LC_ALL=C.UTF-8 \
+	%{ant} -v -Divy.mode=local build
 
 %check
-LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local test
+ANT_OPTS=-Djava.properties.date=$(date -u -d @${SOURCE_DATE_EPOCH:-$(date +%%s)} +%%Y-%%m-%%dT%%H:%%M:%%SZ) \
+LC_ALL=C.UTF-8 \
+	%{ant} -v -Divy.mode=local test
 
 %install
-LC_ALL=C.UTF-8 %{ant} -v -Divy.mode=local -Ddestdir=%{buildroot} install
+ANT_OPTS=-Djava.properties.date=$(date -u -d @${SOURCE_DATE_EPOCH:-$(date +%%s)} +%%Y-%%m-%%dT%%H:%%M:%%SZ) \
+LC_ALL=C.UTF-8 \
+	%{ant} -v -Divy.mode=local -Ddestdir=%{buildroot} install
+
 %fdupes %{buildroot}%{_javadocdir}/%{name}
 
 %add_maven_depmap %{name}/coneforest.%{name}.pom %{name}/coneforest.%{name}.jar
