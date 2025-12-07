@@ -41,7 +41,7 @@ public class PsyBitSet
 	@Override
 	public PsyBitSet psyClone()
 	{
-<span class="nc" id="L44">		return new PsyBitSet((BitSet)bitset.clone());</span>
+<span class="fc" id="L44">		return new PsyBitSet((BitSet)bitset.clone());</span>
 	}
 
 	@Override
@@ -108,12 +108,12 @@ public class PsyBitSet
 	@Override
 	public void psyRemoveAll(final PsyIterable&lt;? extends PsyInteger&gt; oIterable)
 	{
-<span class="nc bnc" id="L111" title="All 2 branches missed.">		switch(oIterable)</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">		switch(oIterable)</span>
 		{
-<span class="nc" id="L113">			case PsyBitSet oBitSet-&gt;bitset.andNot(oBitSet.bitset);</span>
-<span class="nc" id="L114">			default-&gt;PsyFormalSet.super.psyRemoveAll(oIterable);</span>
+<span class="fc" id="L113">			case PsyBitSet oBitSet-&gt;bitset.andNot(oBitSet.bitset);</span>
+<span class="fc" id="L114">			default-&gt;PsyFormalSet.super.psyRemoveAll(oIterable);</span>
 		}
-<span class="nc" id="L116">	}</span>
+<span class="fc" id="L116">	}</span>
 
 	@Override
 	public Iterator&lt;PsyInteger&gt; iterator()

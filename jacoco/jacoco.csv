@@ -30,7 +30,7 @@ Psylla v0.23.10,coneforest.psylla.core,PsyFileAccessDeniedException,7,0,0,0,4,0,
 Psylla v0.23.10,coneforest.psylla.core,PsyExecMark.new PsyExecMark() {...},2,3,0,0,1,1,1,1,1,1
 Psylla v0.23.10,coneforest.psylla.core,PsyExecMark.new PsyExecMark() {...},2,3,0,0,1,1,1,1,1,1
 Psylla v0.23.10,coneforest.psylla.core,PsyBoolean,0,88,0,22,0,12,0,22,0,11
-Psylla v0.23.10,coneforest.psylla.core,PsyFormalSet,120,74,22,8,28,22,18,7,6,4
+Psylla v0.23.10,coneforest.psylla.core,PsyFormalSet,102,92,19,11,24,26,16,9,5,5
 Psylla v0.23.10,coneforest.psylla.core,PsyFormalDict.new PsyIterable() {...},0,11,0,0,0,2,0,2,0,2
 Psylla v0.23.10,coneforest.psylla.core,PsyExecutable,10,70,0,0,2,16,1,7,1,7
 Psylla v0.23.10,coneforest.psylla.core,PsyFormalDict.new PsyOperator() {...},0,49,0,2,0,10,0,3,0,2
@@ -58,7 +58,7 @@ Psylla v0.23.10,coneforest.psylla.core,PsyRange,0,48,0,2,0,14,0,5,0,4
 Psylla v0.23.10,coneforest.psylla.core,PsyBigInteger,206,306,17,18,33,53,23,28,9,20
 Psylla v0.23.10,coneforest.psylla.core,PsyName,9,39,0,0,3,14,2,3,2,3
 Psylla v0.23.10,coneforest.psylla.core,PsyNumeric,0,49,0,0,0,32,0,1,0,1
-Psylla v0.23.10,coneforest.psylla.core,PsyInput,65,0,2,0,23,0,8,0,7,0
+Psylla v0.23.10,coneforest.psylla.core,PsyInput,59,6,2,0,20,3,7,1,6,1
 Psylla v0.23.10,coneforest.psylla.core,PsyConvertableToReal,0,4,0,0,0,2,0,1,0,1
 Psylla v0.23.10,coneforest.psylla.core,PsyDirectoryNotEmptyException,7,0,0,0,4,0,2,0,2,0
 Psylla v0.23.10,coneforest.psylla.core,PsyLengthy,0,23,0,2,0,7,0,5,0,4
@@ -90,7 +90,7 @@ Psylla v0.23.10,coneforest.psylla.core,PsyRandom,102,18,8,0,19,9,9,2,4,2
 Psylla v0.23.10,coneforest.psylla.core,PsyInterruptException,3,0,0,0,2,0,1,0,1,0
 Psylla v0.23.10,coneforest.psylla.core,PsyNamespace,57,39,10,2,14,12,9,3,3,3
 Psylla v0.23.10,coneforest.psylla.core,PsyReadable,57,35,6,2,13,13,4,3,1,2
-Psylla v0.23.10,coneforest.psylla.core,PsyFileInput,24,4,0,0,7,2,3,1,3,1
+Psylla v0.23.10,coneforest.psylla.core,PsyFileInput,0,28,0,0,0,9,0,4,0,4
 Psylla v0.23.10,coneforest.psylla.core,PsyBitArray.new Iterator() {...},0,32,0,2,0,4,0,4,0,3
 Psylla v0.23.10,coneforest.psylla.core,PsyScalar,0,80,0,12,0,21,0,14,0,8
 Psylla v0.23.10,coneforest.psylla.core,PsyTime,67,82,6,0,11,6,5,2,2,2
@@ -146,7 +146,7 @@ Psylla v0.23.10,coneforest.psylla.core,PsyFormalStream.new PsyFormalStream() {..
 Psylla v0.23.10,coneforest.psylla.core,PsyIntegral,29,252,4,35,8,69,6,34,2,11
 Psylla v0.23.10,coneforest.psylla.core,PsyInvalidExitException,0,3,0,0,0,2,0,1,0,1
 Psylla v0.23.10,coneforest.psylla.core,PsyStackUnderflowException,0,3,0,0,0,2,0,1,0,1
-Psylla v0.23.10,coneforest.psylla.core,PsyBitSet,52,200,6,17,10,46,7,22,3,14
+Psylla v0.23.10,coneforest.psylla.core,PsyBitSet,20,232,4,19,5,51,4,25,1,16
 Psylla v0.23.10,coneforest.psylla.core,PsyCloseable,0,4,0,0,0,2,0,1,0,1
 Psylla v0.23.10,coneforest.psylla.core,PsyStream,0,84,0,2,0,19,0,7,0,6
 Psylla v0.23.10,coneforest.psylla.core,PsyAdditive,0,24,0,0,0,12,0,3,0,3

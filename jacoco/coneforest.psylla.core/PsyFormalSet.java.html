@@ -74,12 +74,12 @@ public interface PsyFormalSet&lt;T extends PsyObject&gt;
 	*/
 	public default void psyRemoveAll(final PsyIterable&lt;? extends T&gt; oEnumeration)
 	{
-<span class="nc bnc" id="L77" title="All 2 branches missed.">		if(this==oEnumeration)</span>
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">		if(this==oEnumeration)</span>
 <span class="nc" id="L78">			psyClear();</span>
 		else
-<span class="nc bnc" id="L80" title="All 2 branches missed.">			for(final var o: oEnumeration)</span>
-<span class="nc" id="L81">				psyRemove(o);</span>
-<span class="nc" id="L82">	}</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">			for(final var o: oEnumeration)</span>
+<span class="fc" id="L81">				psyRemove(o);</span>
+<span class="fc" id="L82">	}</span>
 
 	public default void psyRetainAll(final PsyIterable&lt;? extends T&gt; oEnumeration)
 		throws PsyErrorException

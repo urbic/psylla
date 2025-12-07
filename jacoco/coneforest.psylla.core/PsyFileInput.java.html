@@ -22,25 +22,25 @@ public class PsyFileInput
 	public PsyFileInput(final String fileName)
 		throws PsyFileNotFoundException
 	{
-<span class="nc" id="L25">		super(newFileInput(fileName));</span>
-<span class="nc" id="L26">	}</span>
+<span class="fc" id="L25">		super(newFileInput(fileName));</span>
+<span class="fc" id="L26">	}</span>
 
 	public PsyFileInput(final PsyTextual oFileName)
 		throws PsyFileNotFoundException
 	{
-<span class="nc" id="L31">		this(oFileName.stringValue());</span>
-<span class="nc" id="L32">	}</span>
+<span class="fc" id="L31">		this(oFileName.stringValue());</span>
+<span class="fc" id="L32">	}</span>
 
 	private static FileInputStream newFileInput(final String fileName)
 		throws PsyFileNotFoundException
 	{
 		try
 		{
-<span class="nc" id="L39">			return new FileInputStream(Paths.get(fileName).toString());</span>
+<span class="fc" id="L39">			return new FileInputStream(Paths.get(fileName).toString());</span>
 		}
-<span class="nc" id="L41">		catch(final FileNotFoundException ex)</span>
+<span class="fc" id="L41">		catch(final FileNotFoundException ex)</span>
 		{
-<span class="nc" id="L43">			throw new PsyFileNotFoundException();</span>
+<span class="fc" id="L43">			throw new PsyFileNotFoundException();</span>
 		}
 	}
 }
